@@ -1,24 +1,33 @@
-# README
+# Decidim
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation instructions
 
-Things you may want to cover:
+```
+$ rails new my_application
+```
 
-* Ruby version
+Then, edit the `Gemfile` and add:
 
-* System dependencies
+```ruby
+git 'https://github.com/codegram/decidim.git' do
+  gem 'decidim'
+end
+```
 
-* Configuration
+Then, run the installation:
 
-* Database creation
+```
+$ rails generate decidim:install
+```
 
-* Database initialization
+You should now create your database and migrate:
 
-* How to run the test suite
+```
+$ rails db:setup
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+You can now start your server!
 
-* Deployment instructions
-
-* ...
+```
+$ rails s
+```
