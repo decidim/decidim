@@ -1,5 +1,5 @@
 PATH
-  remote: components/decidim
+  remote: decidim
   specs:
     decidim (0.1.0)
       devise
