@@ -23,7 +23,8 @@ $ rails generate decidim:install
 You should now create your database and migrate:
 
 ```
-$ rails db:setup
+$ rails db:create
+$ rails db:migrate
 ```
 
 You can now start your server!
