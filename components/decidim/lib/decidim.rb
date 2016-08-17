@@ -1,5 +1,14 @@
-require "decidim/engine"
+require 'decidim/engine'
+require 'devise'
 
 module Decidim
-  # Your code goes here...
+  @config = OpenStruct.new
+
+  def self.setup
+    yield(@config)
+  end
+
+  def self.config
+    @config
+  end
 end

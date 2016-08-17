@@ -1,3 +1,4 @@
 Decidim::Engine.routes.draw do
-  get '/', to: 'home#show'
+  devise_for :users, class_name: "Decidim::User", module: :devise
+  root to: "home#show"
 end
