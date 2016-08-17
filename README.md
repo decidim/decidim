@@ -14,6 +14,12 @@ git 'https://github.com/codegram/decidim.git' do
 end
 ```
 
+Install the gems:
+
+```
+$ bundle install
+```
+
 Then, run the installation:
 
 ```
@@ -32,3 +38,8 @@ You can now start your server!
 ```
 $ rails s
 ```
+
+## Notes
+
+* You can use your own application layout - hooks have automatically been installed.
+* You can append your own `js` and `css`, files have automatically been replaced.
