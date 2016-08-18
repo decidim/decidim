@@ -5,7 +5,7 @@ require "decidim/core/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "decidim"
+  s.name        = "decidim-core"
   s.version     = Decidim.version
   s.authors     = ["Josep Jaume Rey Peroy"]
   s.email       = ["josepjaume@gmail.com"]
