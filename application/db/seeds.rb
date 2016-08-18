@@ -1,1 +1,0 @@
-Decidim::Engine.load_seed
