@@ -10,10 +10,6 @@ Then, edit the `Gemfile` and add:
 
 ```ruby
 gem 'decidim', github: 'codegram/decidim'
-
-git 'https://github.com/codegram/decidim.git' do
-  gem 'decidim-core'
-end
 ```
 
 Install the gems:
@@ -39,6 +35,24 @@ You can now start your server!
 
 ```
 $ rails s
+```
+
+## Upgrade instructions
+
+```
+$ bundle update decidim
+```
+
+And don't forget to run the upgrade script:
+
+```
+$ rails decidim:upgrade
+```
+
+If new migrations appear, remember to:
+
+```
+$ rails db:migrate
 ```
 
 ## Notes
