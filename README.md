@@ -2,26 +2,24 @@
 
 ## Installation instructions
 
-```
-$ rails new my_application
-```
+We haven't released a gem yet, so you'll have to install and build it yourself. The best way to do so is to create a stray `Gemfile` like this:
 
-Then, edit the `Gemfile` and add:
-
-```ruby
-gem 'decidim', github: 'codegram/decidim'
+```
+source 'https://rubygems.org'
+gem 'decidim', github: 'codegram/github'
 ```
 
-Install the gems:
+And then:
 
 ```
 $ bundle install
 ```
 
-Then, run the installation:
+Afterwards, you can create an application with the nice `decidim` executable:
 
 ```
-$ rails generate decidim:install
+$ bundle exec decidim decidim_application --edge
+$ cd decidim_application
 ```
 
 You should now create your database and migrate:

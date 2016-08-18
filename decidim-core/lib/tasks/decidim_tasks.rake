@@ -4,5 +4,5 @@
 # end
 
 namespace :decidim do
-  task upgrade: ['decidim:install:migrations']
+  task upgrade: ['railties:install:migrations']
 end

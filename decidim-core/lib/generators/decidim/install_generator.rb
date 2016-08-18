@@ -8,11 +8,11 @@ module Decidim
       source_root File.expand_path('../templates', __FILE__)
 
       def install
-        route "mount Decidim::Engine => '/'"
+        route "mount Decidim::Core::Engine => '/'"
       end
 
       def copy_migrations
-        rake "decidim:install:migrations"
+        rake "railties:install:migrations"
       end
 
       def add_seeds
