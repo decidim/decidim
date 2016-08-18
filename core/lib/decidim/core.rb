@@ -1,4 +1,4 @@
-require 'decidim/engine'
+require 'decidim/core/engine'
 require 'devise'
 
 module Decidim
