@@ -4,9 +4,9 @@
 
 We haven't released a gem yet, so you'll have to install and build it yourself. The best way to do so is to create a stray `Gemfile` like this:
 
-```
+```ruby
 source 'https://rubygems.org'
-gem 'decidim', github: 'codegram/github'
+gem 'decidim', github: 'codegram/decidim'
 ```
 
 And then:
