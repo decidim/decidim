@@ -22,6 +22,8 @@ $ bundle exec decidim decidim_application --edge
 $ cd decidim_application
 ```
 
+**Note**: *These steps will be replaced by a simple `gem install decidim && decidim decidim_application` once the gem is released.*
+
 You should now create your database and migrate:
 
 ```
