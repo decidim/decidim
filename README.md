@@ -9,8 +9,10 @@ $ rails new my_application
 Then, edit the `Gemfile` and add:
 
 ```ruby
+gem 'decidim', github: 'codegram/decidim'
+
 git 'https://github.com/codegram/decidim.git' do
-  gem 'decidim'
+  gem 'decidim-core'
 end
 ```
 
