@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'decidim', path: 'decidim'
+gem 'decidim', path: '../decidim'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg'
