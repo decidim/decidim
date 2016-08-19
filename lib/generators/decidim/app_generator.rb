@@ -30,6 +30,11 @@ module Decidim
       class_option :database, type: :string, aliases: "-d", default: "postgresql",
                   desc: "Configure for selected database (options: #{DATABASES.join("/")})"
 
+      def cleanup
+        p options
+        # remove_directory_if_exists(dummy_path)
+      end
+
       def install
         Decidim::Generators::InstallGenerator.start
       end
