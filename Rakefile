@@ -30,4 +30,3 @@ task :test_app do
     end
   end
 end
-
