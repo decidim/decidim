@@ -1,0 +1,3 @@
+test:
+  overide:
+    - bundle exec rake test

@@ -3,9 +3,17 @@ require 'securerandom'
 
 module Decidim
   module Generators
+    # Installs `decidim` to a Rails app by adding the needed lines of code
+    # automatically to important files in the Rails app.
+    #
+    # Remember that, for how generators work, actions are executed based on the
+    # definition order of the public methods.
     class InstallGenerator < Rails::Generators::Base
       desc "Install decidim"
       source_root File.expand_path('../templates', __FILE__)
+
+      class_option :migrate, type: :boolean, default: false,
+                   desc: "Run migrations after installing decidim"
 
       def install
         route "mount Decidim::Core::Engine => '/'"
@@ -13,6 +21,7 @@ module Decidim
 
       def copy_migrations
         rake "railties:install:migrations"
+        prepare_database if options[:migrate]
       end
 
       def add_seeds
@@ -53,6 +62,14 @@ module Decidim
                          before: '*= require_tree .' do
           "*= require decidim\n "
         end
+      end
+
+      private
+
+      def prepare_database
+        rake "db:drop"
+        rake "db:create"
+        rake "db:migrate"
       end
     end
   end
