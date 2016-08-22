@@ -5,6 +5,11 @@ require 'generators/decidim/install_generator'
 
 module Decidim
   module Generators
+    # Generates a Rails app and installs decidim to it. Uses the default Rails
+    # generator for most of the work.
+    #
+    # Remember that, for how generators work, actions are executed based on the
+    # definition order of the public methods.
     class AppGenerator < Rails::Generators::AppGenerator
       hide!
 

@@ -3,10 +3,22 @@ require_relative '../../../../lib/generators/decidim/app_generator'
 
 module Decidim
   module Generators
+    # Generates a dummy test Rails app for the given library folder. It uses
+    # the `AppGenerator` class to actually generate the Rails app, so this
+    # generator only sets the path and some flags.
+    #
+    # The Rails app will be installed with some flags to disable git, tests,
+    # Gemfile and other options. Refer to the `create_dummy_app` method to see
+    # all the flags passed to the `AppGenerator` class, which is the one that
+    # actually generates the Rails app.
+    #
+    # Remember that, for how generators work, actions are executed based on the
+    # definition order of the public methods.
     class DummyGenerator < Rails::Generators::Base
       desc "Generate dummy app for testing purposes"
 
-      class_option :lib_name, default: ''
+      class_option :lib_name, type: :string,
+                   desc: "The library where the dummy app will be installed"
 
       class_option :migrate, type: :boolean, default: false,
                    desc: "Run migrations after installing decidim"
