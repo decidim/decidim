@@ -1,5 +1,8 @@
 # Decidim
 
+[![Code Climate](https://codeclimate.com/github/codegram/decidim/badges/gpa.svg)](https://codeclimate.com/github/codegram/decidim)
+[![Circle CI](https://circleci.com/gh/codegram/decidim.svg?style=svg)](https://circleci.com/gh/codegram/decidim/tree/master)
+
 ## Installation instructions
 
 We haven't released a gem yet, so you'll have to install and build it yourself. The best way to do so is to create a stray `Gemfile` like this:
