@@ -4,7 +4,7 @@ module Decidim
       isolate_namespace Decidim
       engine_name 'decidim'
 
-      initializer 'decidim.action_controller' do |app|
+      initializer 'decidim.action_controller' do |_app|
         ActiveSupport.on_load :action_controller do
           helper Decidim::LayoutHelper
         end
