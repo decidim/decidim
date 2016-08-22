@@ -5,8 +5,10 @@ namespace :common do
   task :test_app do |_t, args|
     args.with_defaults(user_class: "Spree::LegacyUser")
 
-    p 'common:test_app:   ' + ENV['LIB_NAME']
-    Decidim::Generators::DummyGenerator.start ["--lib_name=#{ENV['LIB_NAME']}", "--quiet"]
-    p 'common:test_app:   YAYYYYYYYYYYY'
+    Decidim::Generators::DummyGenerator.start [
+      "--lib_name=#{ENV['LIB_NAME']}",
+      "--migrate=true",
+      "--quiet"
+    ]
   end
 end

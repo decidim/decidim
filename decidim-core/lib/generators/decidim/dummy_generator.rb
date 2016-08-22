@@ -8,9 +8,8 @@ module Decidim
 
       class_option :lib_name, default: ''
 
-      def inspect_params
-        p options
-      end
+      class_option :migrate, type: :boolean, default: false,
+                   desc: "Run migrations after installing decidim"
 
       def cleanup
         remove_directory_if_exists(dummy_path)
@@ -24,9 +23,8 @@ module Decidim
           "--skip-git",
           "--skip-keeps",
           "--skip-test",
+          "--migrate=#{options[:migrate]}"
         ]
-
-        rake "db:migrate"
       end
 
       private

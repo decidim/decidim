@@ -28,15 +28,15 @@ module Decidim
                    desc: "Use github's edge version"
 
       class_option :database, type: :string, aliases: "-d", default: "postgresql",
-                  desc: "Configure for selected database (options: #{DATABASES.join("/")})"
+                   desc: "Configure for selected database (options: #{DATABASES.join("/")})"
 
-      def cleanup
-        p options
-        # remove_directory_if_exists(dummy_path)
-      end
+      class_option :migrate, type: :boolean, default: false,
+                   desc: "Run migrations after installing decidim"
 
       def install
-        Decidim::Generators::InstallGenerator.start
+        Decidim::Generators::InstallGenerator.start [
+          "--migrate=#{options[:migrate]}"
+        ]
       end
 
       private
