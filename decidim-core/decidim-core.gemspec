@@ -7,11 +7,11 @@ require "decidim/core/version"
 Gem::Specification.new do |s|
   s.name        = "decidim-core"
   s.version     = Decidim.version
-  s.authors     = ["Josep Jaume Rey Peroy"]
-  s.email       = ["josepjaume@gmail.com"]
+  s.authors     = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
+  s.email       = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.homepage    = ""
-  s.summary     = "Summary of Decidim."
-  s.description = "Description of Decidim."
+  s.summary     = "The core of the Decidim framework."
+  s.description = "Adds core features so other engines can hook into the framework."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
