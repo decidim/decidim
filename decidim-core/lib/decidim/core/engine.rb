@@ -1,10 +1,12 @@
+# frozen_string_literal: true
 module Decidim
   module Core
+    # Decidim's core Rails Engine.
     class Engine < ::Rails::Engine
       isolate_namespace Decidim
-      engine_name 'decidim'
+      engine_name "decidim"
 
-      initializer 'decidim.action_controller' do |_app|
+      initializer "decidim.action_controller" do |_app|
         ActiveSupport.on_load :action_controller do
           helper Decidim::LayoutHelper
         end

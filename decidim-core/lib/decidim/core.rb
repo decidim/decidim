@@ -1,6 +1,8 @@
-require 'decidim/core/engine'
-require 'devise'
+# frozen_string_literal: true
+require "decidim/core/engine"
+require "devise"
 
+# Decidim configuration.
 module Decidim
   @config = OpenStruct.new
 

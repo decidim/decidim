@@ -1,4 +1,5 @@
-eval(File.read(File.dirname(__FILE__) + '/../common_gemfile.rb'))
+# frozen_string_literal: true
+eval(File.read(File.dirname(__FILE__) + "/../common_gemfile.rb"))
 
 # Declare your gem's dependencies in decidim.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and

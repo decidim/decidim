@@ -1,10 +1,11 @@
-require 'test_helper'
-require 'generators/decidim/decidim_generator'
+# frozen_string_literal: true
+require "test_helper"
+require "generators/decidim/decidim_generator"
 
 module Decidim
   class DecidimGeneratorTest < Rails::Generators::TestCase
     tests DecidimGenerator
-    destination Rails.root.join('tmp/generators')
+    destination Rails.root.join("tmp/generators")
     setup :prepare_destination
 
     # test "generator runs without errors" do
