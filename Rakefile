@@ -11,7 +11,7 @@ DECIDIM_GEMS = %w(core).freeze
 
 RSpec::Core::RakeTask.new(:spec)
 
-task :default => :spec
+task :default => :test
 
 desc "Runs all tests in all Decidim engines"
 task test: :test_app do
