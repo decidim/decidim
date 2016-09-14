@@ -2,6 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/codegram/decidim/badges/gpa.svg)](https://codeclimate.com/github/codegram/decidim)
 [![Circle CI](https://circleci.com/gh/codegram/decidim.svg?style=svg)](https://circleci.com/gh/codegram/decidim/tree/master)
+[![codecov](https://codecov.io/gh/codegram/decidim/branch/master/graph/badge.svg)](https://codecov.io/gh/codegram/decidim)
 
 ## Installation instructions
 
