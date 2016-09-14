@@ -60,6 +60,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    codecov (0.1.5)
+      json
+      simplecov
+      url
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -75,6 +79,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
@@ -88,6 +93,7 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    json (2.0.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -169,6 +175,11 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    simplecov (0.12.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -186,6 +197,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
+    url (0.3.2)
     warden (1.2.6)
       rack (>= 1.0)
     websocket-driver (0.6.4)
@@ -201,6 +213,7 @@ DEPENDENCIES
   bundler (~> 1.12)
   byebug
   capybara (~> 2.4)
+  codecov
   coffee-rails (~> 4.2)
   decidim!
   jbuilder (~> 2.5)
