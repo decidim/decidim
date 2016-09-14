@@ -60,6 +60,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    codeclimate-test-reporter (0.6.0)
+      simplecov (>= 0.7.1, < 1.0.0)
     codecov (0.1.5)
       json
       simplecov
@@ -213,6 +215,7 @@ DEPENDENCIES
   bundler (~> 1.12)
   byebug
   capybara (~> 2.4)
+  codeclimate-test-reporter
   codecov
   coffee-rails (~> 4.2)
   decidim!
