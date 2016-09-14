@@ -6,11 +6,11 @@ require_relative 'decidim-core/lib/decidim/core/version'
 Gem::Specification.new do |spec|
   spec.name          = "decidim"
   spec.version       = Decidim.version
-  spec.authors       = ["Josep Jaume Rey Peroy"]
-  spec.email         = ["josepjaume@gmail.com"]
+  spec.authors       = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
+  spec.email         = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{Citizen participation framework for Ruby on Rails.}
+  spec.description   = %q{Citizen participation framework for Ruby on Rails.}
   spec.homepage      = "https://github.com/codegram/decidim"
   spec.license       = "MIT"
 
@@ -21,6 +21,8 @@ Gem::Specification.new do |spec|
   else
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
+
+  spec.required_ruby_version = '>= 2.3.1'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "bin"
