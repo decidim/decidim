@@ -1,4 +1,5 @@
-require 'spec_helper'
+# frozen_string_literal: true
+require "spec_helper"
 
 describe "Homepage", type: :feature do
   context "visiting the homepage" do
@@ -7,7 +8,7 @@ describe "Homepage", type: :feature do
     end
 
     it "has header text 'Decidim'" do
-      within('h1') { expect(page).to have_content("Decidim") }
+      within("h1") { expect(page).to have_content("Decidim") }
     end
   end
 end

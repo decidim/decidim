@@ -1,4 +1,5 @@
-ENV['RAILS_ENV'] ||= 'test'
+# frozen_string_literal: true
+ENV["RAILS_ENV"] ||= "test"
 
 begin
   require File.expand_path("../core_dummy/config/environment", __FILE__)
@@ -7,15 +8,15 @@ rescue LoadError
   exit
 end
 
-require 'rspec/rails'
+require "rspec/rails"
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
   config.color = true
-  config.fail_fast = ENV['FAIL_FAST'] || false
+  config.fail_fast = ENV["FAIL_FAST"] || false
   config.infer_spec_type_from_file_location!
   config.mock_with :rspec
   config.raise_errors_for_deprecations!

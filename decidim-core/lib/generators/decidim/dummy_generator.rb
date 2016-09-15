@@ -1,5 +1,6 @@
-require 'rails/generators'
-require_relative '../../../../lib/generators/decidim/app_generator'
+# frozen_string_literal: true
+require "rails/generators"
+require_relative "../../../../lib/generators/decidim/app_generator"
 
 module Decidim
   module Generators
@@ -18,10 +19,10 @@ module Decidim
       desc "Generate dummy app for testing purposes"
 
       class_option :lib_name, type: :string,
-                   desc: "The library where the dummy app will be installed"
+                              desc: "The library where the dummy app will be installed"
 
       class_option :migrate, type: :boolean, default: false,
-                   desc: "Run migrations after installing decidim"
+                             desc: "Run migrations after installing decidim"
 
       def cleanup
         remove_directory_if_exists(dummy_path)
@@ -42,7 +43,7 @@ module Decidim
       private
 
       def dummy_path
-        ENV['DUMMY_PATH'] || "spec/#{short_lib_name}_dummy"
+        ENV["DUMMY_PATH"] || "spec/#{short_lib_name}_dummy"
       end
 
       def remove_directory_if_exists(path)
@@ -50,7 +51,7 @@ module Decidim
       end
 
       def short_lib_name
-        options[:lib_name].split('/').last
+        options[:lib_name].split("/").last
       end
     end
   end
