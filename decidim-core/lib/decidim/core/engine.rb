@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+require "rails"
+require "active_support/all"
+
 module Decidim
   module Core
     # Decidim's core Rails Engine.

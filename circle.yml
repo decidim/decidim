@@ -12,7 +12,8 @@ test:
   pre:
     - |
       echo '--format RspecJunitFormatter
-      --out -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
-      ' > .rspec
+      --out $CIRCLE_TEST_REPORTS/rspec/junit.xml
+      ' > ~/.rspec
   override:
+    - bundle exec rspec
     - bundle exec rake

@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 ENV["RAILS_ENV"] ||= "test"
 
+if ENV["CI"]
+  require "simplecov"
+  SimpleCov.start
+
+  require "codecov"
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
+
 begin
   require File.expand_path("../core_dummy/config/environment", __FILE__)
 rescue LoadError
