@@ -15,4 +15,5 @@ test:
       --out -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
       ' > .rspec
   override:
+    - bundle exec rspec
     - bundle exec rake
