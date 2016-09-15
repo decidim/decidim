@@ -7,9 +7,6 @@ if ENV["CI"]
 
   require "codecov"
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
-
-  require "codeclimate-test-reporter"
-  CodeClimate::TestReporter.start
 end
 
 begin
