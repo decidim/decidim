@@ -1,0 +1,18 @@
+database:
+  override:
+    - |
+      echo 'test:
+        adapter: postgresql
+        database: circle_ruby_test
+        username: ubuntu
+        host: localhost
+      ' > decidim-core/config/database.yml
+
+test:
+  pre:
+    - |
+      echo '--format RspecJunitFormatter
+      --out -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
+      ' > .rspec
+  override:
+    - bundle exec rake
