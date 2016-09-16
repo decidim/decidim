@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    decidim (0.0.1.alpha1)
-      decidim-core (= 0.0.1.alpha1)
+    decidim (0.0.1.alpha2)
+      decidim-core (= 0.0.1.alpha2)
       rails (~> 5.0.0)
-    decidim-core (0.0.1.alpha1)
+    decidim-core (0.0.1.alpha2)
       devise
       rails (~> 5.0.0)
 
