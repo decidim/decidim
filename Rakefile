@@ -31,3 +31,14 @@ task :test_app do
     end
   end
 end
+
+desc "Pushes a new build for each gem."
+task :release_all do
+  sh "rake release"
+
+  DECIDIM_GEMS.each do |gem_name|
+    Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
+      sh "rake release"
+    end
+  end
+end
