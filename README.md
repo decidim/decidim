@@ -6,23 +6,16 @@
 
 ## Installation instructions
 
-We haven't released a gem yet, so you'll have to install and build it yourself. The best way to do so is to create a stray `Gemfile` like this:
-
-```ruby
-source 'https://rubygems.org'
-gem 'decidim', github: 'codegram/decidim'
-```
-
-And then:
+First of all, you need to install the `decidim` gem, which currently is in a *prerelease* status.
 
 ```
-$ bundle install
+$ gem install decidim --pre
 ```
 
 Afterwards, you can create an application with the nice `decidim` executable:
 
 ```
-$ bundle exec decidim decidim_application --edge
+$ decidim decidim_application
 $ cd decidim_application
 ```
 
