@@ -9,7 +9,7 @@
 First of all, you need to install the `decidim` gem, which currently is in a *prerelease* status.
 
 ```
-$ gem install decidim --pre
+$ gem install decidim decidim-core --pre
 ```
 
 Afterwards, you can create an application with the nice `decidim` executable:
