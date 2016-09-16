@@ -17,12 +17,12 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 2.3.1"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|decidim-core)/}) }
   spec.bindir        = "bin"
   spec.executables   = ["decidim"]
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "decidim-core"
+  spec.add_dependency "decidim-core", Decidim.version
   spec.add_dependency "rails", Decidim.rails_version
 
   spec.add_development_dependency "bundler", "~> 1.12"
