@@ -3,6 +3,8 @@ require "decidim/core/engine"
 require "decidim/core/version"
 require "devise"
 
+require "foundation-rails"
+
 # Decidim configuration.
 module Decidim
   @config = OpenStruct.new
