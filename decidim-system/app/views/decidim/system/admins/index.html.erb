@@ -1,0 +1,29 @@
+<section class="page-title">
+  <h2><%= t ".title" %></h2>
+</section>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= field_name :admin, :email %></th>
+      <th><%= field_name :admin, :created_at %></th>
+      <th class="actions"><%= st "actions.title" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admins.each do |admin| %>
+      <tr>
+        <td>
+          <%= link_to admin.email, admin %><br />
+        </td>
+        <td>
+          <%= l admin.created_at, format: :short %>
+        </td>
+        <td class="actions">
+          <%= link_to st("actions.edit"), ['edit', admin] %>
+          <%= link_to st("actions.destroy"), admin, method: :delete, class: "small alert button", data: { confirm: st("actions.confirm_destroy") } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

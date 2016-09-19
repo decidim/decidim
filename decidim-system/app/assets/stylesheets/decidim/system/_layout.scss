@@ -1,0 +1,16 @@
+.off-canvas, .sidebar, .off-canvas-wrapper{
+  min-height: 100vh;
+}
+
+.off-canvas{
+  color: #fff;
+}
+
+.main-content{
+  padding: $global-padding 0;
+  min-height: 100vh;
+}
+
+.page-title{
+  margin-bottom: $global-margin;
+}

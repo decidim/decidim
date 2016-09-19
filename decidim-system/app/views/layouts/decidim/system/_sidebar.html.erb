@@ -1,0 +1,15 @@
+<div class="title">
+  <h1>
+    <%= link_to root_path do %>
+      <%= title %>
+    <% end %>
+  </h1>
+</div>
+
+<nav class="main-menu">
+  <%= active_link_to st("menu.dashboard"), root_path, active: :exact %>
+  <%= active_link_to st("menu.organizations"), organizations_path, active: :inclusive %>
+  <%= active_link_to st("menu.admins"), admins_path, active: :inclusive %>
+</nav>
+
+<%= render partial: 'layouts/decidim/system/login_items' %>

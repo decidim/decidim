@@ -1,0 +1,21 @@
+<section class="page-title">
+  <h2><%= t ".title" %></h2>
+</section>
+
+<%= form_for(@form) do |f| %>
+  <div class="field">
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :host %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :organization_admin_email %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create organization & invite admin" %>
+  </div>
+<% end %>

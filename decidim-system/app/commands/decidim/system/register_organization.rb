@@ -1,0 +1,49 @@
+# frozen_string_literal: true
+module Decidim
+  module System
+    # A command with all the business logic when creating a new organization in
+    # the system. It creates the organization and invites the admin to the
+    # system.
+    class RegisterOrganization < Rectify::Command
+      # Public: Initializes the command.
+      #
+      # form - A form object with the params.
+      def initialize(form)
+        @form = form
+      end
+
+      # Executes the command. Braodcasts these events:
+      #
+      # - :ok when everything is valid.
+      # - :invalid if the form wasn't valid and we couldn't proceed.
+      #
+      # Returns nothing.
+      def call
+        return broadcast(:invalid) if form.invalid?
+
+        transaction do
+          organization = create_organization
+          invite_admin(organization)
+        end
+
+        broadcast(:ok)
+      end
+
+      private
+
+      attr_reader :form
+
+      def create_organization
+        Decidim::Organization.create!(name: form.name, host: form.host)
+      end
+
+      def invite_admin(organization)
+        Decidim::User.invite!(
+          email: form.organization_admin_email,
+          organization: organization,
+          roles: ["admin"]
+        )
+      end
+    end
+  end
+end

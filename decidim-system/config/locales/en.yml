@@ -1,0 +1,31 @@
+en:
+  decidim:
+    system:
+      actions:
+        title: "Actions"
+        edit: "Edit"
+        destroy: "Destroy"
+        confirm_destroy: "Are you sure you want to delete this?"
+        new: "New %{name}"
+      menu:
+        dashboard: "Dashboard"
+        organizations: "Organizations"
+        admins: "Admins"
+      models:
+        admin:
+          fields:
+            email: "Email"
+            created_at: "Created at"
+        organization:
+          name: "Organization"
+          fields:
+            name: "Name"
+            created_at: "Created at"
+      admins:
+        index:
+          title: Admins
+      organizations:
+        index:
+          title: Organizations
+        new:
+          title: "New organization"

@@ -1,0 +1,34 @@
+<section class="page-title">
+  <h2><%= t ".title" %></h2>
+</section>
+
+<div class="actions title">
+  <%= link_to st("actions.new", name: st("models.organization.name")), ['new', 'organization'], class: 'new' %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= field_name :organization, :name %></th>
+      <th><%= field_name :organization, :created_at %></th>
+      <th class="actions"><%= st "actions.title" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @organizations.each do |organization| %>
+      <tr>
+        <td>
+          <%= link_to organization.name, organization %><br />
+          <%= organization.host %>
+        </td>
+        <td>
+          <%= l organization.created_at, format: :short %>
+        </td>
+        <td class="actions">
+          <%= link_to st("actions.edit"), ['edit', organization] %>
+          <%= link_to st("actions.destroy"), organization, method: :delete, class: "small alert button", data: { confirm: st("actions.confirm_destroy") } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

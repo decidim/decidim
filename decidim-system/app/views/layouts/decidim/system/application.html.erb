@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Decidim - System</title>
+<%= render partial: 'layouts/decidim/system/header' %>
+</head>
+
+<body>
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+      <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
+        <div class="sidebar">
+          <%= render partial: 'layouts/decidim/system/sidebar' %>
+        </div>
+      </div>
+
+      <div class="off-canvas-content" data-off-canvas-content>
+        <div class="title-bar hide-for-large">
+          <div class="title-bar-left">
+            <button class="menu-icon" type="button" data-open="my-info"></button>
+            <span class="title-bar-title"><%= title %></span>
+          </div>
+        </div>
+        <div class="row main-content">
+          <div class="small-12 column">
+            <%= display_flash_messages %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
