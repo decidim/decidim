@@ -19,4 +19,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", Decidim.rails_version
   s.add_dependency "devise"
+  s.add_dependency "foundation-rails", "~> 6.2.3.0"
+  s.add_dependency "sass-rails", "~> 5.0.0"
 end
