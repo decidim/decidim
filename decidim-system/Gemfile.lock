@@ -156,6 +156,8 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+    launchy (2.4.3)
+      addressable (~> 2.3)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -290,6 +292,7 @@ DEPENDENCIES
   decidim-system!
   factory_girl_rails
   foundation_rails_helper!
+  launchy
   listen
   pg
   rake (~> 11.0)
