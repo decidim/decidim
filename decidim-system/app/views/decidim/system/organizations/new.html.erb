@@ -1,0 +1,21 @@
+<% content_for :title do %>
+  <h2><%= t ".title" %></h2>
+<% end %>
+
+<%= form_for(@form) do |f| %>
+  <div class="field">
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :host %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :organization_admin_email %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t("decidim.system.models.organization.actions.save_and_invite") %>
+  </div>
+<% end %>

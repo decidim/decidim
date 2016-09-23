@@ -1,0 +1,10 @@
+<% content_for :title do %>
+  <h2><%= link_to @organization.name, @organization %></h2>
+  <h3 class="subheader"><%= @organization.host %></h3>
+<% end %>
+
+<div class="actions">
+  <hr />
+  <%= link_to t("decidim.system.actions.edit"), ['edit', @organization] %>
+  <%= link_to t("decidim.system.actions.destroy"), @organization, method: :delete, class: "alert button", data: { confirm: t("decidim.system.actions.confirm_destroy") } %>
+</div>

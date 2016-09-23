@@ -17,6 +17,7 @@ module Decidim
                              desc: "Run migrations after installing decidim"
 
       def install
+        route "mount Decidim::System::Engine => '/system'"
         route "mount Decidim::Core::Engine => '/'"
       end
 
@@ -60,16 +61,25 @@ module Decidim
         append_file "app/assets/javascripts/application.js", "//= require decidim"
         inject_into_file "app/assets/stylesheets/application.css",
                          before: "*= require_tree ." do
-          "*= require decidim\n "
+          "*= require decidim\n"
+        end
+      end
+
+      def test_mail_host
+        inject_into_file "config/environments/test.rb",
+                         after: "config.action_mailer.delivery_method = :test" do
+          "\n  config.action_mailer.default_url_options = { host: \"test.citizencorp.com\" }"
         end
       end
 
       private
 
       def prepare_database
-        rake "db:drop"
+        rake "db:environment:set RAILS_ENV=development"
+        rake "db:drop:all"
         rake "db:create"
         rake "db:migrate"
+        rake "db:test:prepare"
       end
     end
   end

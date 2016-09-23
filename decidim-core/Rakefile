@@ -10,7 +10,7 @@ require "rdoc/task"
 
 RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = "rdoc"
-  rdoc.title    = "Decidim"
+  rdoc.title    = "Decidim::Core"
   rdoc.options << "--line-numbers"
   rdoc.rdoc_files.include("README.md")
   rdoc.rdoc_files.include("lib/**/*.rb")
@@ -20,8 +20,16 @@ load "rails/tasks/statistics.rake"
 
 require "bundler/gem_tasks"
 
+task default: :test
+
 desc "Generates a dummy app for testing"
 task :test_app do
   ENV["LIB_NAME"] = "decidim/core"
   Rake::Task["common:test_app"].invoke
+end
+
+task test: :test_app do
+  Dir.chdir(File.dirname(__FILE__).to_s) do
+    sh "rspec spec"
+  end
 end

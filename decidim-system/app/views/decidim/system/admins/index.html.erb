@@ -1,0 +1,33 @@
+<% content_for :title do %>
+  <h2><%= t ".title" %></h2>
+<% end %>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.system", name: t("models.admin.name", scope: "decidim.system")), ['new', 'admin'], class: 'new' %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= t("models.admin.fields.email", scope: "decidim.system") %></th>
+      <th><%= t("models.admin.fields.created_at", scope: "decidim.system") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.system") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admins.each do |admin| %>
+      <tr>
+        <td>
+          <%= link_to admin.email, admin %><br />
+        </td>
+        <td>
+          <%= l admin.created_at, format: :short %>
+        </td>
+        <td class="actions">
+          <%= link_to t("actions.edit", scope: "decidim.system"), ['edit', admin] %>
+          <%= link_to t("actions.destroy", scope: "decidim.system"), admin, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.system") } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

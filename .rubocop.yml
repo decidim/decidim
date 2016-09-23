@@ -23,9 +23,9 @@ AllCops:
     - '**/Gemfile'
     - 'vendor/**/*'
     - 'spec/*'
-    - 'decidim-core/spec/**/*'
-    - 'decidim-core/test/**/*'
-    - 'decidim-core/db/**/*'
+    - 'decidim-*/spec/**/*'
+    - 'decidim-*/test/**/*'
+    - 'decidim-*/db/**/*'
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -92,6 +92,10 @@ Style/Alias:
   SupportedStyles:
     - prefer_alias
     - prefer_alias_method
+
+Style/AccessorMethodName:
+  Exclude:
+    - "lib/generators/decidim/app_generator.rb"
 
 # Align the elements of a hash literal if they span more than one line.
 Style/AlignHash:
@@ -293,6 +297,7 @@ Style/CaseIndentation:
   IndentationWidth: ~
 
 Style/ClassAndModuleChildren:
+  Enabled: false
   # Checks the style of children definitions at classes and modules.
   #
   # Basically there are two different styles:
@@ -814,6 +819,10 @@ Style/PredicateName:
   Exclude:
     - 'spec/**/*'
 
+Style/Documentation:
+  Exclude:
+    - '**/*/spec/**/*_spec.rb'
+
 Style/RaiseArgs:
   EnforcedStyle: exploded
   SupportedStyles:
@@ -1081,6 +1090,7 @@ Metrics/AbcSize:
   # The ABC size is a calculated magnitude, so this number can be an Integer or
   # a Float.
   Max: 15
+  Enabled: false
 
 Metrics/BlockNesting:
   Max: 3

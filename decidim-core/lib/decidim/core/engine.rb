@@ -2,6 +2,18 @@
 require "rails"
 require "active_support/all"
 
+require "devise"
+require "devise_invitable"
+require "jquery-rails"
+require "sass-rails"
+require "turbolinks"
+require "jquery-turbolinks"
+require "foundation-rails"
+require "foundation_rails_helper"
+require "jbuilder"
+require "active_link_to"
+require "rectify"
+
 module Decidim
   module Core
     # Decidim's core Rails Engine.

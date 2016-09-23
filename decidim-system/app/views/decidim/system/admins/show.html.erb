@@ -1,0 +1,9 @@
+<% content_for :title do %>
+  <h2><%= link_to @admin.email, @admin %></h2>
+<% end %>
+
+<div class="actions">
+  <hr />
+  <%= link_to "Edit", ['edit', @admin] %>
+  <%= link_to "Destroy", @admin, method: :delete, class: "alert button", data: { confirm: "Are you sure you want to do this?" } %>
+</div>
