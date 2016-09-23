@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 require "spec_helper"
 
-describe "sessions", type: :feature do
+describe "Sessions", type: :feature do
   let!(:admin) do
-    Decidim::System::Admin.create!(email: "admin@example.org",
-                                   password: "123456",
-                                   password_confirmation: "123456")
+    create(:admin, email: "admin@example.org",
+                   password: "123456",
+                   password_confirmation: "123456")
   end
 
   before(:each) do
