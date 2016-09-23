@@ -3,20 +3,19 @@ module Decidim
   module System
     # A form object used to create organizations from the system dashboard.
     #
-    class OrganizationForm < Rectify::Form
+    class UpdateOrganizationForm < Rectify::Form
       mimic :organization
 
       attribute :name, String
       attribute :host, String
-      attribute :organization_admin_email, String
 
-      validates :name, :host, :organization_admin_email, presence: true
       validate :validate_organization_uniqueness
 
       private
 
       def validate_organization_uniqueness
-        Decidim::Organization.where(name: name).or(Decidim::Organization.where(host: host)).exists?
+        errors.add(:name, :taken) if Decidim::Organization.where(name: name).where.not(id: id).exists?
+        errors.add(:host, :taken) if Decidim::Organization.where(host: host).where.not(id: id).exists?
       end
     end
   end

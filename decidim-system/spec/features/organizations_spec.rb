@@ -1,0 +1,61 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+describe "Organizations", type: :feature do
+  let(:admin) { create(:admin) }
+
+  context "authenticated admin" do
+    before do
+      login_as admin, scope: :admin
+      visit decidim_system.root_path
+    end
+
+    context "creating an organization" do
+      before do
+        click_link "Organizations"
+        click_link "New"
+      end
+
+      it "creates a new organization" do
+        fill_in "Name", with: "Citizen Corp"
+        fill_in "Host", with: "www.citizen.corp"
+        fill_in "Organization admin email", with: "mayor@citizen.corp"
+        click_button "Create organization & invite admin"
+
+        expect(page).to have_css("div.flash.success")
+        expect(page).to have_content("Citizen Corp")
+      end
+
+      context "with invalid data" do
+        it "doesn't create an organization" do
+          fill_in "Name", with: "Bad"
+          click_button "Create organization & invite admin"
+
+          expect(page).to have_css("div.flash.alert")
+          expect(page).to_not have_content("Organization created successfully")
+        end
+      end
+    end
+
+    context "editing an organization" do
+      let!(:organization) { create(:organization, name: "Citizen Corp") }
+
+      before do
+        click_link "Organizations"
+        within("table tbody tr:first") do
+          click_link "Edit"
+        end
+      end
+
+      it "edits the data" do
+        fill_in "Name", with: "Citizens Rule!"
+        fill_in "Host", with: "www.foo.org"
+        click_button "Save"
+
+        expect(page).to have_css("div.flash.success")
+        expect(page).to have_content("Citizens Rule!")
+      end
+    end
+  end
+end

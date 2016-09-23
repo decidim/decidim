@@ -7,11 +7,11 @@ module Decidim
     #
     class OrganizationsController < ApplicationController
       def new
-        @form = OrganizationForm.new
+        @form = RegisterOrganizationForm.new
       end
 
       def create
-        @form = OrganizationForm.from_params(params)
+        @form = RegisterOrganizationForm.from_params(params)
 
         RegisterOrganization.call(@form) do
           on(:ok) do
@@ -32,6 +32,27 @@ module Decidim
 
       def show
         @organization = Organization.find(params[:id])
+      end
+
+      def edit
+        organization = Organization.find(params[:id])
+        @form = UpdateOrganizationForm.from_model(organization)
+      end
+
+      def update
+        @form = UpdateOrganizationForm.from_params(params)
+
+        UpdateOrganization.call(params[:id], @form) do
+          on(:ok) do
+            flash[:notice] = "Organization updated successfully."
+            redirect_to organizations_path
+          end
+
+          on(:invalid) do
+            flash[:alert] = "There was an error when updating #{organization.name}."
+            render :edit
+          end
+        end
       end
     end
   end

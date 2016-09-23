@@ -1,0 +1,13 @@
+<%= form_for(@form) do |f| %>
+  <div class="field">
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :host %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>

@@ -4,5 +4,6 @@ module Decidim
   # installation we can find many organizations and each of them can start
   # their own participatory processes.
   class Organization < ApplicationRecord
+    validates :name, :host, uniqueness: true
   end
 end

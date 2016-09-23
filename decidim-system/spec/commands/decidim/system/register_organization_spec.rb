@@ -4,7 +4,7 @@ require "spec_helper"
 describe Decidim::System::RegisterOrganization, :db do
   describe 'call' do
     let(:form) do
-      Decidim::System::OrganizationForm.new(params)
+      Decidim::System::RegisterOrganizationForm.new(params)
     end
 
     let(:command) { described_class.new(form) }
