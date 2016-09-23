@@ -30,3 +30,4 @@ ratings:
 exclude_paths:
 - spec/
 - decidim-core/spec/
+- .rubocop.yml
