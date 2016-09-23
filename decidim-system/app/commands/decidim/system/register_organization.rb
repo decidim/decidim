@@ -27,6 +27,8 @@ module Decidim
         end
 
         broadcast(:ok)
+      rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
+        broadcast(:invalid)
       end
 
       private

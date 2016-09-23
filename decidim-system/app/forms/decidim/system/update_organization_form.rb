@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   module System
-    # A form object used to create organizations from the system dashboard.
+    # A form object used to update organizations from the system dashboard.
     #
     class UpdateOrganizationForm < Rectify::Form
       mimic :organization
