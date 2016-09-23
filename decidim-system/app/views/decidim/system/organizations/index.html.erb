@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="actions title">
-  <%= link_to st("actions.new", name: t("models.organization.name", scope: "decidim.system")), ['new', 'organization'], class: 'new' %>
+  <%= link_to t("actions.new", scope: "decidim.system", name: t("models.organization.name", scope: "decidim.system")), ['new', 'organization'], class: 'new' %>
 </div>
 
 <table class="stack">
@@ -11,7 +11,7 @@
     <tr>
       <th><%= t("models.organization.fields.name", scope: "decidim.system") %></th>
       <th><%= t("models.organization.fields.created_at", scope: "decidim.system") %></th>
-      <th class="actions"><%= st "actions.title" %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.system") %></th>
     </tr>
   </thead>
   <tbody>
@@ -25,8 +25,8 @@
           <%= l organization.created_at, format: :short %>
         </td>
         <td class="actions">
-          <%= link_to st("actions.edit"), ['edit', organization] %>
-          <%= link_to st("actions.destroy"), organization, method: :delete, class: "small alert button", data: { confirm: st("actions.confirm_destroy") } %>
+          <%= link_to t("actions.edit", scope: "decidim.system"), ['edit', organization] %>
+          <%= link_to t("actions.destroy", scope: "decidim.system"), organization, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.system") } %>
         </td>
       </tr>
     <% end %>

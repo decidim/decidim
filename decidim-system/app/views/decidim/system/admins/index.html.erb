@@ -25,7 +25,7 @@
         </td>
         <td class="actions">
           <%= link_to t("actions.edit", scope: "decidim.system"), ['edit', admin] %>
-          <%= link_to t("actions.destroy", scope: "decidim.system"), admin, method: :delete, class: "small alert button", data: { confirm: st("actions.confirm_destroy") } %>
+          <%= link_to t("actions.destroy", scope: "decidim.system"), admin, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.system") } %>
         </td>
       </tr>
     <% end %>
