@@ -13,6 +13,9 @@ en:
         admins: "Admins"
       models:
         admin:
+          name: Admin
+          validations:
+            email_uniqueness: "another admin with the same email already exists"
           fields:
             email: "Email"
             created_at: "Created at"
@@ -24,6 +27,11 @@ en:
       admins:
         index:
           title: Admins
+        new:
+          title: "New admin"
+          create: Create admin
+        edit:
+          update: Update admin
       organizations:
         index:
           title: Organizations

@@ -2,6 +2,10 @@
   <h2><%= t ".title" %></h2>
 <% end %>
 
+<div class="actions title">
+  <%= link_to st("actions.new", name: st("models.admin.name")), ['new', 'admin'], class: 'new' %>
+</div>
+
 <table class="stack">
   <thead>
     <tr>

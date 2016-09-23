@@ -819,6 +819,10 @@ Style/PredicateName:
   Exclude:
     - 'spec/**/*'
 
+Style/Documentation:
+  Exclude:
+    - '**/*/spec/**/*_spec.rb'
+
 Style/RaiseArgs:
   EnforcedStyle: exploded
   SupportedStyles:
