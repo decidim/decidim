@@ -15,12 +15,12 @@ module Decidim
 
         RegisterOrganization.call(@form) do
           on(:ok) do
-            flash[:notice] = t("decidim.system.commands.register_organization.ok")
+            flash[:notice] = t("organizations.create.success", scope: "decidim.system")
             redirect_to organizations_path
           end
 
           on(:invalid) do
-            flash.now[:alert] = t("decidim.system.commands.register_organization.invalid")
+            flash.now[:alert] = t("organizations.create.error", scope: "decidim.system")
             render :new
           end
         end
@@ -44,12 +44,12 @@ module Decidim
 
         UpdateOrganization.call(params[:id], @form) do
           on(:ok) do
-            flash[:notice] = t("decidim.system.commands.update_organization.ok")
+            flash[:notice] = t("organizations.update.success", scope: "decidim.system")
             redirect_to organizations_path
           end
 
           on(:invalid) do
-            flash.now[:alert] = t("decidim.system.commands.update_organization.invalid")
+            flash.now[:alert] = t("organizations.update.error")
             render :edit
           end
         end

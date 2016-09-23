@@ -37,15 +37,22 @@ en:
           create: Create admin
         edit:
           update: Update admin
+        create:
+          success: "Admin created successfully"
+          error: "There was an error when creating a new admin."
+        update:
+          success: "Admin updated successfully"
+          error: "There was an error when updating this admin."
+        destroy:
+          success: "Admin successfully destroyed"
       organizations:
         index:
           title: Organizations
         new:
           title: "New organization"
-      commands:
-        register_organization:
-          ok: "Organization created successfully."
-          invalid: "There was an error when creating a new organization."
-        update_organization:
-          ok: "Organization updated successfully."
-          invalid: "There was an error when updating %{organization_name}."
+        create:
+          success: "Organization created successfully."
+          error: "There was an error when creating a new organization."
+        update:
+          success: "Organization updated successfully."
+          error: "There was an error when updating this organization."

@@ -19,12 +19,12 @@ module Decidim
 
         CreateAdmin.call(@form) do
           on(:ok) do
-            flash[:notice] = "Admin created successfully."
+            flash[:notice] = I18n.t("admins.create.success", scope: "decidim.system")
             redirect_to admins_path
           end
 
           on(:invalid) do
-            flash[:alert] = "There was an error when creating a new admin."
+            flash.now[:alert] = I18n.t("admins.create.error", scope: "decidim.system")
             render :new
           end
         end
@@ -41,12 +41,12 @@ module Decidim
 
         UpdateAdmin.call(@admin, @form) do
           on(:ok) do
-            flash[:notice] = "Admin updated successfully."
+            flash[:notice] = I18n.t("admins.update.success", scope: "decidim.system")
             redirect_to admins_path
           end
 
           on(:invalid) do
-            flash[:alert] = "There was an error when updating this admin."
+            flash.now[:alert] = I18n.t("admins.update.error", scope: "decidim.system")
             render :new
           end
         end
@@ -58,7 +58,7 @@ module Decidim
 
       def destroy
         @admin = Admin.find(params[:id]).destroy!
-        flash[:notice] = "Admin successfully destroyed"
+        flash[:notice] = I18n.t("admins.destroy.success", scope: "decidim.system")
 
         redirect_to admins_path
       end
