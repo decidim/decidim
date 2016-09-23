@@ -5,6 +5,6 @@
 
 <div class="actions">
   <hr />
-  <%= link_to "Edit", ['edit', @organization] %>
-  <%= link_to "Destroy", @organization, method: :delete, class: "alert button", data: { confirm: "Are you sure you want to do this?" } %>
+  <%= link_to t("decidim.system.actions.edit"), ['edit', @organization] %>
+  <%= link_to t("decidim.system.actions.destroy"), @organization, method: :delete, class: "alert button", data: { confirm: t("decidim.system.actions.confirm_destroy") } %>
 </div>

@@ -1,5 +1,11 @@
 # frozen_string_literal: true
-# A controller so admins can recover their passwords.
-class Decidim::System::Devise::PasswordsController < Devise::PasswordsController
-  layout "decidim/system/login"
+module Decidim
+  module System
+    module Devise
+      # A controller so admins can recover their passwords.
+      class PasswordsController < Devise::PasswordsController
+        layout "decidim/system/login"
+      end
+    end
+  end
 end
