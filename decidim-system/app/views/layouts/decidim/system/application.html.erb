@@ -20,17 +20,17 @@
             <button class="menu-icon" type="button" data-open="my-info"></button>
             <span class="title-bar-title"><%= title %></span>
           </div>
-          <div class="row main-content">
-            <div class="small-12 column">
-              <% if content_for?(:title) %>
-                <section class="page-title">
-                  <%= content_for :title %>
-                </section>
-              <% end %>
+        </div>
+        <div class="row main-content">
+          <div class="small-12 column">
+            <% if content_for?(:title) %>
+              <section class="page-title">
+                <%= content_for :title %>
+              </section>
+            <% end %>
 
-              <%= display_flash_messages %>
-              <%= yield %>
-            </div>
+            <%= display_flash_messages %>
+            <%= yield %>
           </div>
         </div>
       </div>
