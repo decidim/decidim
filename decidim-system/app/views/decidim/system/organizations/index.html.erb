@@ -3,14 +3,14 @@
 <% end %>
 
 <div class="actions title">
-  <%= link_to st("actions.new", name: st("models.organization.name")), ['new', 'organization'], class: 'new' %>
+  <%= link_to st("actions.new", name: t("models.organization.name", scope: "decidim.system")), ['new', 'organization'], class: 'new' %>
 </div>
 
 <table class="stack">
   <thead>
     <tr>
-      <th><%= field_name :organization, :name %></th>
-      <th><%= field_name :organization, :created_at %></th>
+      <th><%= t("models.organization.fields.name", scope: "decidim.system") %></th>
+      <th><%= t("models.organization.fields.created_at", scope: "decidim.system") %></th>
       <th class="actions"><%= st "actions.title" %></th>
     </tr>
   </thead>

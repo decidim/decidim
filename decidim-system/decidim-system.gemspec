@@ -40,4 +40,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "pg"
   s.add_development_dependency "listen"
   s.add_development_dependency "launchy"
+  s.add_development_dependency "i18n-tasks", "~> 0.9.5"
 end

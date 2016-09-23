@@ -49,7 +49,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = t("organizations.update.error")
+            flash.now[:alert] = I18n.t("organizations.update.error", scope: "decidim.system")
             render :edit
           end
         end

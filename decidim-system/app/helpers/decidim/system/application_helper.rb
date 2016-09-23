@@ -11,11 +11,6 @@ module Decidim
       def field_name(model, field)
         st "models.#{model}.fields.#{field}"
       end
-
-      def st(key, options = {})
-        options[:scope] ||= "decidim.system"
-        I18n.t(key, options)
-      end
     end
   end
 end

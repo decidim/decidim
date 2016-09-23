@@ -3,15 +3,15 @@
 <% end %>
 
 <div class="actions title">
-  <%= link_to st("actions.new", name: st("models.admin.name")), ['new', 'admin'], class: 'new' %>
+  <%= link_to t("actions.new", scope: "decidim.system", name: t("models.admin.name", scope: "decidim.system")), ['new', 'admin'], class: 'new' %>
 </div>
 
 <table class="stack">
   <thead>
     <tr>
-      <th><%= field_name :admin, :email %></th>
-      <th><%= field_name :admin, :created_at %></th>
-      <th class="actions"><%= st "actions.title" %></th>
+      <th><%= t("models.admin.fields.email", scope: "decidim.system") %></th>
+      <th><%= t("models.admin.fields.created_at", scope: "decidim.system") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.system") %></th>
     </tr>
   </thead>
   <tbody>
@@ -24,8 +24,8 @@
           <%= l admin.created_at, format: :short %>
         </td>
         <td class="actions">
-          <%= link_to st("actions.edit"), ['edit', admin] %>
-          <%= link_to st("actions.destroy"), admin, method: :delete, class: "small alert button", data: { confirm: st("actions.confirm_destroy") } %>
+          <%= link_to t("actions.edit", scope: "decidim.system"), ['edit', admin] %>
+          <%= link_to t("actions.destroy", scope: "decidim.system"), admin, method: :delete, class: "small alert button", data: { confirm: st("actions.confirm_destroy") } %>
         </td>
       </tr>
     <% end %>
