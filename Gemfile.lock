@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/sgruhier/foundation_rails_helper.git
-  revision: 809f127b76747b53fb199ff4e5d3f06aa3d35f97
+  remote: https://github.com/sgruhier/foundation_rails_helper
+  revision: d8819b3a5f9d82251aac7559e0d07505c9777717
   specs:
     foundation_rails_helper (2.0.0)
       actionpack (>= 4.1)
