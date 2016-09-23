@@ -17,7 +17,7 @@ describe "sessions", type: :feature do
       within ".new_admin" do
         fill_in :admin_email, with: "admin@example.org"
         fill_in :admin_password, with: "123456"
-        find("*[type=submit]").click
+        click_button "Log in"
       end
 
       expect(page).to have_content("Dashboard")

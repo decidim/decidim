@@ -1,6 +1,6 @@
-<section class="page-title">
+<% content_for :title do %>
   <h2><%= t ".title" %></h2>
-</section>
+<% end %>
 
 <div class="actions title">
   <%= link_to st("actions.new", name: st("models.organization.name")), ['new', 'organization'], class: 'new' %>

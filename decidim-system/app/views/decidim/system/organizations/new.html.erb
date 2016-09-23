@@ -1,6 +1,6 @@
-<section class="page-title">
+<% content_for :title do %>
   <h2><%= t ".title" %></h2>
-</section>
+<% end %>
 
 <%= form_for(@form) do |f| %>
   <div class="field">
@@ -18,4 +18,3 @@
   <div class="actions">
     <%= f.submit "Create organization & invite admin" %>
   </div>
-<% end %>
