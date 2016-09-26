@@ -8,5 +8,7 @@ gem "codecov", require: false, group: :test
 
 gemspec path: "."
 gemspec path: "decidim-core"
+gemspec path: "decidim-system"
+gemspec path: "decidim-admin"
 
 gem "rubocop"

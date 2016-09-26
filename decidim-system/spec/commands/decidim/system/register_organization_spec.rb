@@ -41,6 +41,13 @@ module Decidim
             expect(admin).to be_admin
             expect(admin).to be_created_by_invite
           end
+
+          it "sends a custom email" do
+            expect { command.call }.to change { ActionMailer::Base.deliveries.count }.by(1)
+
+            last_delivery_body = ActionMailer::Base.deliveries.last.body.encoded
+            expect(last_delivery_body).to include(URI.encode_www_form(["/admin"]))
+          end
         end
 
         context "when the form is invalid" do

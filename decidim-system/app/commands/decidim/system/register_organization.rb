@@ -44,7 +44,9 @@ module Decidim
           email: form.organization_admin_email,
           organization: organization,
           roles: ["admin"]
-        )
+        ) do |invitable|
+          invitable.invitation_instructions = :organization_admin_invitation_instructions
+        end
       end
     end
   end

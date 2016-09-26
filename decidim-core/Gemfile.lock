@@ -10,6 +10,24 @@ GIT
       tzinfo (~> 1.2, >= 1.2.2)
 
 PATH
+  remote: ../decidim-admin
+  specs:
+    decidim-admin (0.0.1.alpha2)
+      active_link_to (~> 1.0.0)
+      decidim-core
+      devise (~> 4.2)
+      devise_invitable (~> 1.7.0)
+      foundation-rails (~> 6.2.3.0)
+      foundation_rails_helper (~> 2.0.0)
+      jbuilder (~> 2.5)
+      jquery-rails (~> 4.0)
+      jquery-turbolinks (~> 2.1.0)
+      rails (~> 5.0.0)
+      rectify (~> 0.6)
+      sass-rails (~> 5.0.0)
+      turbolinks (~> 5.0.0)
+
+PATH
   remote: ../decidim-system
   specs:
     decidim-system (0.0.1.alpha2)
@@ -31,6 +49,7 @@ PATH
   remote: ..
   specs:
     decidim (0.0.1.alpha2)
+      decidim-admin (= 0.0.1.alpha2)
       decidim-core (= 0.0.1.alpha2)
       decidim-system (= 0.0.1.alpha2)
       rails (~> 5.0.0)
@@ -314,6 +333,7 @@ DEPENDENCIES
   capybara (~> 2.4)
   database_cleaner (~> 1.5.0)
   decidim!
+  decidim-admin!
   decidim-core!
   decidim-system!
   factory_girl_rails

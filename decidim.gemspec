@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "decidim-core", Decidim.version
   spec.add_dependency "decidim-system", Decidim.version
+  spec.add_dependency "decidim-admin", Decidim.version
   spec.add_dependency "rails", Decidim.rails_version
 
   spec.add_development_dependency "bundler", "~> 1.12"

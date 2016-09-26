@@ -18,6 +18,7 @@ module Decidim
 
       def install
         route "mount Decidim::System::Engine => '/system'"
+        route "mount Decidim::Admin::Engine => '/admin'"
         route "mount Decidim::Core::Engine => '/'"
       end
 
@@ -75,8 +76,10 @@ module Decidim
       private
 
       def prepare_database
-        rake "db:environment:set RAILS_ENV=development"
-        rake "db:drop:all"
+        unless ENV["CI"]
+          rake "db:environment:set RAILS_ENV=development"
+          rake "db:drop:all"
+        end
         rake "db:create"
         rake "db:migrate"
         rake "db:test:prepare"
