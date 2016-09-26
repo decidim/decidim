@@ -53,6 +53,10 @@ If new migrations appear, remember to:
 $ rails db:migrate
 ```
 
+## Docker instructions
+
+You can use Docker instead of installing the gems yourself. Run `docker-compose build` and then you can generate a new decidim application using `docker-compose run --rm decidim <app-name>`.
+
 ## Notes
 
 * You can use your own application layout - hooks have automatically been installed.
