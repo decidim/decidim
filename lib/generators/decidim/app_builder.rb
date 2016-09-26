@@ -6,6 +6,11 @@ module Decidim
       def gemfile
         template "Gemfile.erb", "Gemfile"
       end
+
+      def docker
+        template "Dockerfile.erb", "Dockerfile"
+        template "docker-compose.yml.erb", "docker-compose.yml"
+      end
     end
   end
 end

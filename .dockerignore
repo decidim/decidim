@@ -1,0 +1,5 @@
+**/spec/*_dummy
+.byebug_history
+pkg/
+.git
+.github

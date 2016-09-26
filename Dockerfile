@@ -21,4 +21,6 @@ RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_5.x | bash && \
     apt-get install -y nodejs
 
+ADD . /code
+
 ENTRYPOINT ["bundle", "exec", "bin/decidim"]
