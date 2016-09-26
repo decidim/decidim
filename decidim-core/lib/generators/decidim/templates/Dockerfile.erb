@@ -1,0 +1,13 @@
+FROM ruby:<%= RUBY_VERSION %>
+MAINTAINER david.morcillo@codegram.com
+
+RUN apt-get update
+
+RUN curl -sL https://deb.nodesource.com/setup_5.x | bash && \
+    apt-get install -y nodejs
+
+ADD Gemfile /tmp/Gemfile
+ADD Gemfile.lock /tmp/Gemfile.lock
+RUN cd /tmp && bundle install
+
+CMD ["bundle", "exec", "rails", "s", "-b0.0.0.0"]

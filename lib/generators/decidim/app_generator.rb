@@ -46,6 +46,14 @@ module Decidim
         ]
       end
 
+      def database_yml
+        template "database.yml.erb", "config/database.yml", force: true
+      end
+
+      def cable_yml
+        template "cable.yml.erb", "config/cable.yml", force: true
+      end
+
       private
 
       def get_builder_class
