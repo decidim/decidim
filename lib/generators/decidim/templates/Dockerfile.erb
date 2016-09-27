@@ -2,9 +2,11 @@ FROM ruby:<%= RUBY_VERSION %>
 MAINTAINER david.morcillo@codegram.com
 
 ARG rails_env=production
+ARG secret_key_base=
 
 ENV APP_HOME /code
 ENV RAILS_ENV $rails_env
+ENV SECRET_KEY_BASE $secret_key_base
 
 RUN apt-get update
 
