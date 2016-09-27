@@ -46,6 +46,11 @@ module Decidim
         ]
       end
 
+      def docker
+        template "Dockerfile.erb", "Dockerfile"
+        template "docker-compose.yml.erb", "docker-compose.yml"
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
