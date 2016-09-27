@@ -1,6 +1,8 @@
 FROM ruby:2.3.1
 MAINTAINER david.morcillo@codegram
 
+ENV APP_HOME /code
+
 ADD Gemfile /tmp/Gemfile
 ADD Gemfile.lock /tmp/Gemfile.lock
 ADD common_gemfile.rb /tmp/common_gemfile.rb
@@ -21,6 +23,8 @@ RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_5.x | bash && \
     apt-get install -y nodejs
 
-ADD . /code
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
+ADD . $APP_HOME
 
 ENTRYPOINT ["bundle", "exec", "bin/decidim"]
