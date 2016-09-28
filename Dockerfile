@@ -17,6 +17,10 @@ ADD decidim-system/Gemfile /tmp/decidim-system/Gemfile
 ADD decidim-system/Gemfile.lock /tmp/decidim-system/Gemfile.lock
 ADD decidim-system/decidim-system.gemspec /tmp/decidim-system/decidim-system.gemspec
 
+ADD decidim-admin/Gemfile /tmp/decidim-admin/Gemfile
+ADD decidim-admin/Gemfile.lock /tmp/decidim-admin/Gemfile.lock
+ADD decidim-admin/decidim-admin.gemspec /tmp/decidim-admin/decidim-admin.gemspec
+
 RUN cd /tmp && bundle install
 
 RUN apt-get update
