@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Decidim - Login</title>
+    <%= render partial: 'layouts/decidim/admin/header' %>
+  </head>
+
+  <body class="login">
+    <div class="login-form-wrapper">
+      <div class="login-form">
+        <h1>Decidim</h1>
+        <%= display_flash_messages %>
+        <div class="login-form-inner">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

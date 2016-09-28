@@ -26,6 +26,10 @@ module Decidim
           helper Decidim::LayoutHelper
         end
       end
+
+      initializer "decidim.middleware" do |app|
+        app.config.middleware.use Decidim::CurrentOrganization
+      end
     end
   end
 end

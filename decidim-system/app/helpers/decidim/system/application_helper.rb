@@ -7,10 +7,6 @@ module Decidim
       def title
         "Decidim"
       end
-
-      def field_name(model, field)
-        st "models.#{model}.fields.#{field}"
-      end
     end
   end
 end

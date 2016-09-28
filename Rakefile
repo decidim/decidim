@@ -8,7 +8,7 @@ rescue LoadError
   raise "Could not find decidim/testing_support/common_rake. You need to run this command using Bundler."
 end
 
-DECIDIM_GEMS = %w(core system).freeze
+DECIDIM_GEMS = %w(core system admin).freeze
 
 RSpec::Core::RakeTask.new(:spec)
 

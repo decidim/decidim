@@ -8,21 +8,34 @@ describe "User", :db do
     expect(user).to be_valid
   end
 
-  describe "admin?" do
-    context "when the user is an admin" do
-      before do
-        user.roles = ["admin"]
-      end
+  context "with roles" do
+    let(:user) { build(:user, :admin) }
 
-      it { expect(user.admin?).to eq true }
+    it "is still valid" do
+      expect(user).to be_valid
     end
 
-    context "when the user is not an admin" do
+    context "with an invalid role" do
+      let(:user) { build(:user, roles: ["foo"]) }
+
+      it "is not valid" do
+        expect(user).to_not be_valid
+      end
+    end
+  end
+
+  describe "validation scopes" do
+    context "when a user with the same email exists in another organization" do
+      let(:email) { "foo@bar.com" }
+      let(:user) { build(:user, email: email) }
+
       before do
-        user.roles = []
+        create(:user, email: email)
       end
 
-      it { expect(user.admin?).to eq false }
+      it "is valid" do
+        expect(user).to be_valid
+      end
     end
   end
 end

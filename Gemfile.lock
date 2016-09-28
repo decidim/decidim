@@ -13,10 +13,15 @@ PATH
   remote: .
   specs:
     decidim (0.0.1.alpha2)
+      decidim-admin (= 0.0.1.alpha2)
       decidim-core (= 0.0.1.alpha2)
       decidim-system (= 0.0.1.alpha2)
       rails (~> 5.0.0)
-    decidim-system (0.0.1.alpha2)
+
+PATH
+  remote: decidim-admin
+  specs:
+    decidim-admin (0.0.1.alpha2)
       active_link_to (~> 1.0.0)
       decidim-core
       devise (~> 4.2)
@@ -26,6 +31,7 @@ PATH
       jbuilder (~> 2.5)
       jquery-rails (~> 4.0)
       jquery-turbolinks (~> 2.1.0)
+      pundit (~> 1.1.0)
       rails (~> 5.0.0)
       rectify (~> 0.6)
       sass-rails (~> 5.0.0)
@@ -37,6 +43,24 @@ PATH
     decidim-core (0.0.1.alpha2)
       active_link_to (~> 1.0.0)
       devise (~> 4.2)
+      foundation-rails (~> 6.2.3.0)
+      foundation_rails_helper (~> 2.0.0)
+      jbuilder (~> 2.5)
+      jquery-rails (~> 4.0)
+      jquery-turbolinks (~> 2.1.0)
+      rails (~> 5.0.0)
+      rectify (~> 0.6)
+      sass-rails (~> 5.0.0)
+      turbolinks (~> 5.0.0)
+
+PATH
+  remote: decidim-system
+  specs:
+    decidim-system (0.0.1.alpha2)
+      active_link_to (~> 1.0.0)
+      decidim-core
+      devise (~> 4.2)
+      devise_invitable (~> 1.7.0)
       foundation-rails (~> 6.2.3.0)
       foundation_rails_helper (~> 2.0.0)
       jbuilder (~> 2.5)
@@ -174,6 +198,8 @@ GEM
       railties (>= 3.1.0)
       turbolinks
     json (2.0.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -198,6 +224,11 @@ GEM
     pg (0.18.4)
     pkg-config (1.1.7)
     powerpack (0.1.1)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
+    pundit-matchers (1.1.0)
+      pundit (~> 1.1, >= 1.1.0)
+      rspec-rails (>= 3.0.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -332,12 +363,16 @@ DEPENDENCIES
   codecov
   database_cleaner (~> 1.5.0)
   decidim!
+  decidim-admin!
   decidim-core!
+  decidim-system!
   factory_girl_rails
   foundation_rails_helper!
   i18n-tasks (~> 0.9.5)
+  launchy
   listen
   pg
+  pundit-matchers (~> 1.1.0)
   rake (~> 11.0)
   rspec (~> 3.0)
   rspec-rails (~> 3.5)

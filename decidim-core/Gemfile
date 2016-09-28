@@ -15,4 +15,5 @@ gemspec
 # gem 'byebug', group: [:development, :test]
 
 gemspec path: "../decidim-system"
+gemspec path: "../decidim-admin"
 gemspec path: ".."
