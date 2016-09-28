@@ -5,7 +5,7 @@ rescue LoadError
   puts "You must `gem install bundler` and `bundle install` to run rake tasks"
 end
 
-require "decidim/testing_support/common_rake"
+require_relative "../lib/common_rake"
 require "rdoc/task"
 
 RDoc::Task.new(:rdoc) do |rdoc|
@@ -24,7 +24,7 @@ task default: :test
 
 desc "Generates a dummy app for testing"
 task :test_app do
-  ENV["LIB_NAME"] = "decidim/core"
+  ENV["ENGINE_PATH"] = File.dirname(__FILE__)
   Rake::Task["common:test_app"].invoke
 end
 

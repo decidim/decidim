@@ -85,12 +85,9 @@ module Decidim
       private
 
       def prepare_database
-        unless ENV["CI"]
-          rake "db:environment:set RAILS_ENV=development"
-          rake "db:drop"
-        end
-        rake "db:create"
-        rake "db:migrate"
+        rake "db:drop RAILS_ENV=development"
+        rake "db:create RAILS_ENV=development"
+        rake "db:migrate RAILS_ENV=development"
         rake "db:test:prepare"
       end
     end
