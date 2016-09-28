@@ -24,6 +24,9 @@ module Decidim
           decidim/system.js
           decidim/system.css
         )
+
+        Devise::SessionsController.layout "decidim/system/login"
+        Devise::PasswordsController.layout "decidim/system/login"
       end
     end
   end
