@@ -2,7 +2,7 @@
 Decidim::System::Engine.routes.draw do
   devise_for :admins,
              class_name: "Decidim::System::Admin",
-             module: :'decidim/system/devise',
+             module: :devise,
              router_name: "decidim_system"
 
   authenticate(:admin) do
