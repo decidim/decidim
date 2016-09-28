@@ -20,14 +20,6 @@ module Decidim
     # Returns a String.
     attr_accessor :invitation_instructions
 
-    # Checks if the user is an admin in the organization it belongs to. This
-    # should probably be deleted and add a system to authorize actions.
-    #
-    # Returns Booolean.
-    def admin?
-      roles.include?("admin")
-    end
-
     private
 
     def all_roles_are_valid

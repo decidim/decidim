@@ -38,22 +38,4 @@ describe "User", :db do
       end
     end
   end
-
-  describe "admin?" do
-    context "when the user is an admin" do
-      before do
-        user.roles = ["admin"]
-      end
-
-      it { expect(user.admin?).to eq true }
-    end
-
-    context "when the user is not an admin" do
-      before do
-        user.roles = []
-      end
-
-      it { expect(user.admin?).to eq false }
-    end
-  end
 end

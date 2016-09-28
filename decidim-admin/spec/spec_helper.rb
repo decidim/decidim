@@ -20,6 +20,7 @@ require "rspec/rails"
 require "factory_girl_rails"
 require "database_cleaner"
 require "byebug"
+require 'pundit/matchers'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
