@@ -1,0 +1,7 @@
+version: '2'
+services:
+  decidim:
+    build: '.'
+    working_dir: /code
+    volumes:
+      - .:/code
