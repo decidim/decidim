@@ -22,6 +22,15 @@ module Decidim
         route "mount Decidim::Core::Engine => '/'"
       end
 
+      # TODO: this can be removed if we use AppGenerator
+      def app_name
+        "decidim_test_app"
+      end
+
+      def database_yml
+        template "database.yml.erb", "config/database.yml", force: true
+      end
+
       def copy_migrations
         rake "railties:install:migrations"
         prepare_database if options[:migrate]
@@ -78,7 +87,7 @@ module Decidim
       def prepare_database
         unless ENV["CI"]
           rake "db:environment:set RAILS_ENV=development"
-          rake "db:drop:all"
+          rake "db:drop"
         end
         rake "db:create"
         rake "db:migrate"

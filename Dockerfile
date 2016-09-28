@@ -30,5 +30,3 @@ RUN curl -sL https://deb.nodesource.com/setup_5.x | bash && \
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 ADD . $APP_HOME
-
-ENTRYPOINT ["bundle", "exec", "bin/decidim"]
