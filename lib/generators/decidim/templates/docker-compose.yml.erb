@@ -8,8 +8,8 @@ services:
     volumes:
       - .:/code
     environment:
-      - DATABASE_URL=postgresql://pg/<%= app_name %>_development?pool=5
-      - REDIS_URL=redis://redis:6379/1
+      - DATABASE_HOST=pg
+      - DATABASE_USERNAME=postgres
     ports:
       - 3000:3000
     links:

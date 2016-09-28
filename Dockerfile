@@ -17,6 +17,10 @@ ADD decidim-system/Gemfile /tmp/decidim-system/Gemfile
 ADD decidim-system/Gemfile.lock /tmp/decidim-system/Gemfile.lock
 ADD decidim-system/decidim-system.gemspec /tmp/decidim-system/decidim-system.gemspec
 
+ADD decidim-admin/Gemfile /tmp/decidim-admin/Gemfile
+ADD decidim-admin/Gemfile.lock /tmp/decidim-admin/Gemfile.lock
+ADD decidim-admin/decidim-admin.gemspec /tmp/decidim-admin/decidim-admin.gemspec
+
 RUN cd /tmp && bundle install
 
 RUN apt-get update
@@ -26,5 +30,3 @@ RUN curl -sL https://deb.nodesource.com/setup_5.x | bash && \
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 ADD . $APP_HOME
-
-ENTRYPOINT ["bundle", "exec", "bin/decidim"]

@@ -55,7 +55,10 @@ $ rails db:migrate
 
 ## Docker instructions
 
-You can use Docker instead of installing the gems yourself. Run `docker-compose build` and then you can generate a new decidim application using `docker-compose run --rm decidim <app-name>`.
+You can use Docker instead of installing the gems yourself. Run `docker-compose build` and then you can generate a new decidim application using `docker-compose run --rm decidim bundle exec bin/decidim <app-name>`.
+
+Also you can run it as a standalone container like this:
+`docker run --rm codegram/decidim bundle exec bin/decidim <app-name>`.
 
 ## Notes
 
