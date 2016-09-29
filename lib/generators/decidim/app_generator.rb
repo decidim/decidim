@@ -42,7 +42,8 @@ module Decidim
 
       def install
         Decidim::Generators::InstallGenerator.start [
-          "--migrate=#{options[:migrate]}"
+          "--migrate=#{options[:migrate]}",
+          "--app_name=#{app_name}"
         ]
       end
 
