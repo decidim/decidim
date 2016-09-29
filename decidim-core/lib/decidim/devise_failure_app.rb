@@ -5,7 +5,7 @@ module Decidim
   # We've provided a custom class in order to be able to deactivate the
   # script_name hack that doesn't seem to be affecting us (it is actually
   # introducing a bug).
-  class DeviseFailureApp < Devise::FailureApp
+  class DeviseFailureApp < ::Devise::FailureApp
     def scope_url
       opts  = {}
 
@@ -21,7 +21,7 @@ module Decidim
 
       opts[:script_name] = relative_url_root if relative_url_root?
 
-      router_name = Devise.mappings[scope].router_name || Devise.available_router_name
+      router_name = ::Devise.mappings[scope].router_name || ::Devise.available_router_name
       context = send(router_name)
 
       if context.respond_to?(route)
