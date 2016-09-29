@@ -4,13 +4,14 @@ machine:
 
 database:
   override:
-    - |
-      echo 'test:
-        adapter: postgresql
-        database: circle_ruby_test
-        username: ubuntu
-        host: localhost
-      ' > decidim-core/config/database.yml
+    - echo "We don't need this"
+
+dependencies:
+  post:
+    - case $CIRCLE_NODE_INDEX in 0) cd decidim-core && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 ;; 1) cd decidim-admin && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 ;; 2) cd decidim-system && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 ;; 3) echo "OK" ;; esac:
+        parallel: true
+  cache_directories:
+    - "vendor/bundle"
 
 test:
   pre:
@@ -19,5 +20,5 @@ test:
       --out $CIRCLE_TEST_REPORTS/rspec/junit.xml
       ' > ~/.rspec
   override:
-    - bundle exec rspec
-    - bundle exec rake
+    - case $CIRCLE_NODE_INDEX in 0) cd decidim-core && bundle exec rake ;; 1) cd decidim-admin && bundle exec rake ;; 2) cd decidim-system && bundle exec rake ;; 3) bundle exec rspec ;; esac:
+        parallel: true

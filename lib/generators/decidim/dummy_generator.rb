@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require "rails/generators"
-require_relative "../../../../lib/generators/decidim/app_generator"
+require_relative "app_generator"
 
 module Decidim
   module Generators
@@ -18,8 +18,8 @@ module Decidim
     class DummyGenerator < Rails::Generators::Base
       desc "Generate dummy app for testing purposes"
 
-      class_option :lib_name, type: :string,
-                              desc: "The library where the dummy app will be installed"
+      class_option :engine_path, type: :string,
+                                 desc: "The library where the dummy app will be installed"
 
       class_option :migrate, type: :boolean, default: false,
                              desc: "Run migrations after installing decidim"
@@ -43,15 +43,19 @@ module Decidim
       private
 
       def dummy_path
-        ENV["DUMMY_PATH"] || "spec/#{short_lib_name}_dummy"
+        ENV["DUMMY_PATH"] || engine_path + "/spec/#{dir_name}_dummy_app"
       end
 
       def remove_directory_if_exists(path)
         remove_dir(path) if File.directory?(path)
       end
 
-      def short_lib_name
-        options[:lib_name].split("/").last
+      def dir_name
+        engine_path.split("/").last
+      end
+
+      def engine_path
+        options[:engine_path]
       end
     end
   end
