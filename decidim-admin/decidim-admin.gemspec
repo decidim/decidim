@@ -32,15 +32,6 @@ Gem::Specification.new do |s|
   s.add_dependency "active_link_to", "~> 1.0.0"
   s.add_dependency "pundit", "~> 1.1.0"
 
-  s.add_development_dependency "factory_girl_rails"
-  s.add_development_dependency "database_cleaner", "~> 1.5.0"
-  s.add_development_dependency "capybara", "~> 2.4"
-  s.add_development_dependency "rspec-rails", "~> 3.5"
-  s.add_development_dependency "byebug"
-  s.add_development_dependency "wisper-rspec"
-  s.add_development_dependency "pg"
-  s.add_development_dependency "listen"
-  s.add_development_dependency "launchy"
-  s.add_development_dependency "i18n-tasks", "~> 0.9.5"
+  s.add_development_dependency "decidim-dev"
   s.add_development_dependency "pundit-matchers", "~> 1.1.0"
 end
