@@ -33,6 +33,17 @@ PATH
       decidim-core (= 0.0.1.alpha2)
       decidim-system (= 0.0.1.alpha2)
       rails (~> 5.0.0)
+    decidim-dev (0.0.1.alpha2)
+      byebug
+      capybara (~> 2.4)
+      database_cleaner (~> 1.5.0)
+      factory_girl_rails
+      i18n-tasks (~> 0.9.5)
+      launchy
+      listen
+      pg
+      rspec-rails (~> 3.5)
+      wisper-rspec
     decidim-system (0.0.1.alpha2)
       active_link_to (~> 1.0.0)
       decidim-core
@@ -347,26 +358,19 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.12)
-  byebug
-  capybara (~> 2.4)
   codecov (~> 0.1.5)
-  database_cleaner (~> 1.5.0)
   decidim!
   decidim-admin!
   decidim-core!
-  factory_girl_rails
+  decidim-dev
   foundation_rails_helper!
-  i18n-tasks (~> 0.9.5)
-  launchy
   listen
   pg
   pundit-matchers (~> 1.1.0)
   rake (~> 11.0)
   rspec (~> 3.0)
-  rspec-rails (~> 3.5)
   rspec_junit_formatter (= 0.2.3)
   simplecov (~> 0.12)
-  wisper-rspec
 
 RUBY VERSION
    ruby 2.3.1p112

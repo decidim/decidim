@@ -13,6 +13,8 @@ module Decidim
       desc "Install decidim"
       source_root File.expand_path("../templates", __FILE__)
 
+      class_option :app_name, type: :string, default: nil,
+                              desc: "The name of the app"
       class_option :migrate, type: :boolean, default: false,
                              desc: "Run migrations after installing decidim"
 
@@ -22,9 +24,8 @@ module Decidim
         route "mount Decidim::Core::Engine => '/'"
       end
 
-      # TODO: this can be removed if we use AppGenerator
       def app_name
-        "decidim_test_app"
+        options[:app_name] || "decidim_test_app"
       end
 
       def database_yml

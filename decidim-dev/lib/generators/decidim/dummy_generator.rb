@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require "rails/generators"
-require_relative "app_generator"
+require "generators/decidim/app_generator"
 
 module Decidim
   module Generators
