@@ -8,8 +8,6 @@ ENV APP_HOME /code
 ENV RAILS_ENV $rails_env
 ENV SECRET_KEY_BASE $secret_key_base
 
-VOLUME ["/$APP_HOME/public"]
-
 RUN apt-get update
 
 RUN curl -sL https://deb.nodesource.com/setup_5.x | bash && \
