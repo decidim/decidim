@@ -4,7 +4,7 @@ module Decidim
     # Custom app builder to inject own Gemfile.
     class AppBuilder < Rails::AppBuilder
       def gemfile
-        template "Gemfile.erb", "Gemfile"
+        template "Gemfile.erb", "Gemfile", rails_version: Decidim.rails_version
       end
     end
   end

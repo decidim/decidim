@@ -10,7 +10,7 @@ gem "decidim", github: 'codegram/decidim'
 gem "decidim", "<%= Gem::Specification.find_by_name("decidim").version %>"
 <% end %>
 
-gem 'rails', '<%= Decidim.rails_version %>'
+gem 'rails', '<%= config.fetch(:rails_version) %>'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

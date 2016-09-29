@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
-require_relative "app_builder"
-require "generators/decidim/install_generator"
 require "decidim/core/version"
+require_relative "app_builder"
+require_relative "install_generator"
 
 module Decidim
   module Generators
@@ -32,7 +32,7 @@ module Decidim
                           desc: "Path to the gem"
 
       class_option :edge, type: :boolean, default: false,
-                          desc: "Use github's edge version"
+                          desc: "Use GitHub's edge version"
 
       class_option :database, type: :string, aliases: "-d", default: "postgresql",
                               desc: "Configure for selected database (options: #{DATABASES.join("/")})"

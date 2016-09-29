@@ -78,7 +78,7 @@ module Decidim
       def test_mail_host
         inject_into_file "config/environments/test.rb",
                          after: "config.action_mailer.delivery_method = :test" do
-          "\n  config.action_mailer.default_url_options = { host: \"test.citizencorp.com\" }"
+          "\n  config.action_mailer.default_url_options = { host: \"test.decidim.org\" }"
         end
       end
 
