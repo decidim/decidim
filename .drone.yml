@@ -1,5 +1,5 @@
 build:
-  image: codegram/rails:2.3.0
+  image: codegram/rails:2.3.1
   environment:
     - RAILS_ENV=test
     - DATABASE_HOST=localhost
