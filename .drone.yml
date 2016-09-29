@@ -16,9 +16,6 @@ compose:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=mysecretpassword
-  redis:
-    image: redis
-
 cache:
   mount:
     - vendor/bundle
