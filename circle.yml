@@ -9,9 +9,6 @@ database:
     - echo "We don't need this"
 
 dependencies:
-  override:
-    - docker build --rm=false -t codegram/decidim .:
-        parallel: false
   post:
     - case $CIRCLE_NODE_INDEX in 0) cd decidim-core && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 ;; 1) cd decidim-admin && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 ;; 2) cd decidim-system && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 ;; 3) echo "OK" ;; esac:
         parallel: true
@@ -25,5 +22,7 @@ test:
       --out $CIRCLE_TEST_REPORTS/rspec/junit.xml
       ' > ~/.rspec
   override:
+    - case $CIRCLE_NODE_INDEX in 0) docker build --rm=false -t codegram/decidim . ;; *) echo "OK" ;; esac:
+        parallel: true
     - case $CIRCLE_NODE_INDEX in 0) cd decidim-core && bundle exec rake ;; 1) cd decidim-admin && bundle exec rake ;; 2) cd decidim-system && bundle exec rake ;; 3) bundle exec rspec ;; esac:
         parallel: true
