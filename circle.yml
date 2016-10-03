@@ -1,4 +1,6 @@
 machine:
+  services:
+    - docker
   ruby:
     version: 2.3.1
 
@@ -20,5 +22,7 @@ test:
       --out $CIRCLE_TEST_REPORTS/rspec/junit.xml
       ' > ~/.rspec
   override:
+    - case $CIRCLE_NODE_INDEX in 0) docker build --rm=false -t codegram/decidim . ;; *) echo "OK" ;; esac:
+        parallel: true
     - case $CIRCLE_NODE_INDEX in 0) cd decidim-core && bundle exec rake ;; 1) cd decidim-admin && bundle exec rake ;; 2) cd decidim-system && bundle exec rake ;; 3) bundle exec rspec ;; esac:
         parallel: true

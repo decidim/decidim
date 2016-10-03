@@ -3,6 +3,10 @@ MAINTAINER david.morcillo@codegram
 
 ENV APP_HOME /code
 
+RUN apt-get update
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash && \
+    apt-get install -y nodejs
+
 ADD Gemfile /tmp/Gemfile
 ADD Gemfile.lock /tmp/Gemfile.lock
 ADD common_gemfile.rb /tmp/common_gemfile.rb
@@ -21,11 +25,11 @@ ADD decidim-admin/Gemfile /tmp/decidim-admin/Gemfile
 ADD decidim-admin/Gemfile.lock /tmp/decidim-admin/Gemfile.lock
 ADD decidim-admin/decidim-admin.gemspec /tmp/decidim-admin/decidim-admin.gemspec
 
-RUN cd /tmp && bundle install
+ADD decidim-dev/Gemfile /tmp/decidim-dev/Gemfile
+ADD decidim-dev/Gemfile.lock /tmp/decidim-dev/Gemfile.lock
+ADD decidim-dev/decidim-dev.gemspec /tmp/decidim-dev/decidim-dev.gemspec
 
-RUN apt-get update
-RUN curl -sL https://deb.nodesource.com/setup_5.x | bash && \
-    apt-get install -y nodejs
+RUN cd /tmp && bundle install
 
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
