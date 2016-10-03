@@ -22,11 +22,27 @@ $ cd decidim_application
 
 **Note**: *These steps will be replaced by a simple `gem install decidim && decidim decidim_application` once the gem is released.*
 
-You should now create your database and migrate:
+You should now setup your database:
 
 ```
-$ rails db:create
-$ rails db:migrate
+$ rails db:setup
+```
+
+This will also create some default data so you can start testing the app:
+
+* A `Decidim::System::Admin` with email `system@decidim.org` and password
+ `decidim123456`, to log in at `/system`.
+* A `Decidim::Organization` named `Decidim Staging`. You probably want to
+  change its name and hostname to match your needs.
+* A `Decidim::User` acting as an admin for the organization, with email
+ `admin@decidim.org` and password `decidim123456`
+* A `Decidim::User` that also belongs to the organization but it's a regular
+  user.
+
+This data won't be created in production environments, if you still want to do it, run:
+
+```
+$ SEED=true rails db:setup
 ```
 
 You can now start your server!
