@@ -42,7 +42,7 @@ module Decidim
             expect(admin).to be_created_by_invite
           end
 
-          it "sends a custom email" do
+          it "sends a custom email", perform_enqueued: true do
             expect { command.call }.to change { ActionMailer::Base.deliveries.count }.by(1)
 
             last_delivery_body = ActionMailer::Base.deliveries.last.body.encoded

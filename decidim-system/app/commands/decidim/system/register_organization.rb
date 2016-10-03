@@ -41,12 +41,14 @@ module Decidim
 
       def invite_admin(organization)
         Decidim::User.invite!(
-          email: form.organization_admin_email,
-          organization: organization,
-          roles: ["admin"]
-        ) do |invitable|
-          invitable.invitation_instructions = :organization_admin_invitation_instructions
-        end
+          {
+            email: form.organization_admin_email,
+            organization: organization,
+            roles: ["admin"]
+          },
+          nil,
+          invitation_instructions: "organization_admin_invitation_instructions"
+        )
       end
     end
   end

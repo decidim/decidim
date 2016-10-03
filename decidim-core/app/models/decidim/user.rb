@@ -25,5 +25,10 @@ module Decidim
     def all_roles_are_valid
       errors.add(:roles, :invalid) unless roles.all? { |role| ROLES.include?(role) }
     end
+
+    # Changes default Devise behaviour to use ActiveJob to send async emails.
+    def send_devise_notification(notification, *args)
+      devise_mailer.send(notification, self, *args).deliver_later
+    end
   end
 end
