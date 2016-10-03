@@ -10,7 +10,8 @@ database:
 
 dependencies:
   override:
-    - docker build --rm=false -t codegram/decidim .
+    - docker build --rm=false -t codegram/decidim .:
+        parallel: false
   post:
     - case $CIRCLE_NODE_INDEX in 0) cd decidim-core && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 ;; 1) cd decidim-admin && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 ;; 2) cd decidim-system && bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 ;; 3) echo "OK" ;; esac:
         parallel: true
