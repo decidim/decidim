@@ -65,7 +65,7 @@ module Decidim
       end
 
       def secret_token
-        require 'securerandom'
+        require "securerandom"
         SecureRandom.hex(64)
       end
 
