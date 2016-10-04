@@ -1,10 +1,14 @@
 # frozen_string_literal: true
+
 RSpec.configure do |config|
   config.before(:each) do
     ActionMailer::Base.deliveries.clear
   end
 end
 
+# A set of helpers meant to make your life easier when testing
+# emails, especially given the fact that ActionMailer's API can
+# be a bit inconsistent.
 module MailerHelpers
   def emails
     ActionMailer::Base.deliveries
