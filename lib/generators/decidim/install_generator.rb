@@ -30,7 +30,7 @@ module Decidim
       end
 
       def add_seeds
-        append_file "db/seeds.rb", "Decidim::Core::Engine.load_seed"
+        append_file "db/seeds.rb", "\nDecidim.seed!"
       end
 
       def copy_initializer

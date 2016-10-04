@@ -19,7 +19,7 @@ describe "Admin invite", type: :feature do
     switch_to_host("decide.lvh.me")
   end
 
-  describe "Accept an invitation" do
+  describe "Accept an invitation", perform_enqueued: true do
     let(:email_link) do
       last_delivery = ActionMailer::Base.deliveries.last.body.encoded
       URI.extract(last_delivery).last
