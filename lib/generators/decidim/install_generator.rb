@@ -75,6 +75,52 @@ module Decidim
         end
       end
 
+      def smtp_environment
+        inject_into_file "config/environments/production.rb",
+                         after: "config.log_formatter = ::Logger::Formatter.new" do
+        %{
+
+  config.action_mailer.smtp_settings = {
+    :address        => Rails.application.secrets.smtp_address,
+    :port           => Rails.application.secrets.smtp_port,
+    :authentication => Rails.application.secrets.smtp_authentication,
+    :user_name      => Rails.application.secrets.smtp_username,
+    :password       => Rails.application.secrets.smtp_password,
+    :domain         => Rails.application.secrets.smtp_domain,
+    :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
+    :openssl_verify_mode => 'none'
+  }
+
+  if Rails.application.secrets.sendgrid
+    config.action_mailer.default_options = {
+      "X-SMTPAPI" => {
+        filters:  {
+          clicktrack: { settings: { enable: 0 } },
+          opentrack:  { settings: { enable: 0 } }
+        }
+      }.to_json
+    }
+  end
+        }
+        end
+      end
+
+      def smtp_secrets
+        inject_into_file "config/secrets.yml",
+                         after: "secret_key_base: <%= ENV[\"SECRET_KEY_BASE\"] %>" do
+        %{
+  sendgrid: <%= !ENV["SENDGRID_USERNAME"].blank? %>
+  smtp_username: <%= ENV["SMTP_USERNAME"] || ENV["SENDGRID_USERNAME"] %>
+  smtp_password: <%= ENV["SMTP_PASSWORD"] || ENV["SENDGRID_PASSWORD"] %>
+  smtp_address: <%= ENV["SMTP_ADDRESS"] || "smtp.sendgrid.net" %>
+  smtp_domain: <%= ENV["SMTP_DOMAIN"] || "heroku.com" %>
+  smtp_port: "587"
+  smtp_starttls_auto: true
+  smtp_authentication: "plain"
+        }
+        end
+      end
+
       private
 
       def prepare_database
