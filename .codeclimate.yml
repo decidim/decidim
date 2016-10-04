@@ -31,3 +31,4 @@ exclude_paths:
 - spec/
 - decidim-core/spec/
 - .rubocop.yml
+- lib/generators/decidim/templates/app.json.erb

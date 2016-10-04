@@ -1,0 +1,13 @@
+{
+  "name": "<%= app_name %>",
+  "description": "TODO: Add a short description about <%= app_name %>",
+  "keywords": [],
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "heroku-redis:hobby-dev",
+    "sendgrid:starter"
+  ],
+  "env": {
+    "SECRET_KEY_BASE": "<%= secret_token %>"
+  }
+}

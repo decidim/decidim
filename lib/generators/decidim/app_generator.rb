@@ -52,8 +52,25 @@ module Decidim
         template "docker-compose.yml.erb", "docker-compose.yml"
       end
 
+      def database_yml
+        template "database.yml.erb", "config/database.yml", force: true
+      end
+
       def cable_yml
         template "cable.yml.erb", "config/cable.yml", force: true
+      end
+
+      def readme
+        template "README.md.erb", "README.md", force: true
+      end
+
+      def secret_token
+        require "securerandom"
+        SecureRandom.hex(64)
+      end
+
+      def app_json
+        template "app.json.erb", "app.json"
       end
 
       private
