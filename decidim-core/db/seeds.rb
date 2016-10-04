@@ -3,7 +3,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   staging_organization = Decidim::Organization.create!(
     name: "Decidim Staging",
-    host: "staging.decidim.codegram.com"
+    host: ENV["DECIDIM_HOST"] || "localhost"
   )
 
   Decidim::User.create!(
