@@ -124,9 +124,9 @@ module Decidim
       private
 
       def prepare_database
-        rake "db:drop RAILS_ENV=development"
-        rake "db:create RAILS_ENV=development"
-        rake "db:migrate RAILS_ENV=development"
+        rake "db:drop RAILS_ENV=test"
+        rake "db:create RAILS_ENV=test"
+        rake "db:migrate RAILS_ENV=test"
         rake "db:test:prepare"
       end
     end
