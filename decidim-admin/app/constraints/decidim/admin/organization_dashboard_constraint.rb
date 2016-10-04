@@ -27,7 +27,7 @@ module Decidim
       end
 
       def user
-        return unless request.env["warden"].authenticate!(scope: "user")
+        return unless request.env["warden"].authenticate!(scope: :user)
 
         @user ||= request.env["warden"].user("user")
       end
