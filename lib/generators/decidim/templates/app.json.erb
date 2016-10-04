@@ -5,13 +5,9 @@
   "addons": [
     "heroku-postgresql:hobby-dev",
     "heroku-redis:hobby-dev",
-    "newrelic:wayne",
-    "papertrail:choklad",
-    "sendgrid:starter",
-    "memcachier:developer",
-    "rollbar:free"
+    "sendgrid:starter"
   ],
   "env": {
-    "SECRET_KEY_BASE": "changemeplease"
+    "SECRET_KEY_BASE": "<%= secret_token %>"
   }
 }

@@ -64,6 +64,11 @@ module Decidim
         template "README.md.erb", "README.md", force: true
       end
 
+      def secret_token
+        require 'securerandom'
+        SecureRandom.hex(64)
+      end
+
       def app_json
         template "app.json.erb", "app.json"
       end
