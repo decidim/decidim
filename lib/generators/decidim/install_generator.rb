@@ -108,20 +108,8 @@ module Decidim
         end
       end
 
-      def smtp_secrets
-        inject_into_file "config/secrets.yml",
-                         after: "secret_key_base: <%= ENV[\"SECRET_KEY_BASE\"] %>" do
-          %(
-  sendgrid: <%= !ENV["SENDGRID_USERNAME"].blank? %>
-  smtp_username: <%= ENV["SMTP_USERNAME"] || ENV["SENDGRID_USERNAME"] %>
-  smtp_password: <%= ENV["SMTP_PASSWORD"] || ENV["SENDGRID_PASSWORD"] %>
-  smtp_address: <%= ENV["SMTP_ADDRESS"] || "smtp.sendgrid.net" %>
-  smtp_domain: <%= ENV["SMTP_DOMAIN"] || "heroku.com" %>
-  smtp_port: "587"
-  smtp_starttls_auto: true
-  smtp_authentication: "plain"
-          )
-        end
+      def secrets
+        template "secrets.yml.erb", "config/secrets.yml", force: true
       end
 
       private

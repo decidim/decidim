@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_relative "generators/decidim/dummy_generator"
+require_relative "../generators/decidim/dummy_generator"
 
 desc "Generates a dummy app for testing"
 namespace :common do

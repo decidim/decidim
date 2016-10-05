@@ -5,7 +5,7 @@ rescue LoadError
   puts "You must `gem install bundler` and `bundle install` to run rake tasks"
 end
 
-require "common_rake"
+require "decidim/common_rake"
 require "rdoc/task"
 
 RDoc::Task.new(:rdoc) do |rdoc|
