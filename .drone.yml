@@ -19,4 +19,3 @@ compose:
 cache:
   mount:
     - vendor/bundle
-    - public/assets
