@@ -109,7 +109,7 @@ module Decidim
       end
 
       def secrets
-        template "secrets.yml.erb", "config/secrets.yml"
+        template "secrets.yml.erb", "config/secrets.yml", force: true
       end
 
       private
