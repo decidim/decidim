@@ -4,6 +4,15 @@ FactoryGirl.define do
     sequence(:host) { |n| "#{n}.citizen.corp" }
   end
 
+  factory :process, class: Decidim::ParticipatoryProcess do
+    sequence(:title) { |n| "Participatory Process ##{n}" }
+    sequence(:slug) { |n| "participatory-process-#{n}" }
+    subtitle          "Subtitle"
+    short_description "Short description"
+    description       "Description"
+    organization
+  end
+
   factory :user, class: Decidim::User do
     sequence(:email)      { |n| "user#{n}@citizen.corp" }
     password              "password1234"
