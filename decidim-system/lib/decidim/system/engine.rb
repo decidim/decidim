@@ -2,8 +2,8 @@
 require "rails"
 require "active_support/all"
 
-require "decidim/core"
 require "devise"
+require "decidim/core"
 require "jquery-rails"
 require "sass-rails"
 require "turbolinks"
