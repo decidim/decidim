@@ -21,9 +21,6 @@ module Decidim
       class_option :engine_path, type: :string,
                                  desc: "The library where the dummy app will be installed"
 
-      class_option :migrate, type: :boolean, default: false,
-                             desc: "Run migrations after installing decidim"
-
       def cleanup
         remove_directory_if_exists(dummy_path)
       end
@@ -36,7 +33,7 @@ module Decidim
           "--skip-git",
           "--skip-keeps",
           "--skip-test",
-          "--migrate=#{options[:migrate]}"
+          "--recreate_db"
         ]
       end
 
