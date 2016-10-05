@@ -1098,10 +1098,12 @@ Metrics/BlockNesting:
 Metrics/ClassLength:
   CountComments: false  # count full line comments?
   Max: 100
+  Enabled: false
 
 Metrics/ModuleLength:
   CountComments: false  # count full line comments?
   Max: 100
+  Enabled: false
 
 # Avoid complex methods.
 Metrics/CyclomaticComplexity:
@@ -1120,6 +1122,7 @@ Metrics/LineLength:
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 15
+  Enabled: false
 
 Metrics/ParameterLists:
   Max: 5
