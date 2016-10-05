@@ -40,3 +40,5 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false
 end
+
+require_relative "i18n_spec"
