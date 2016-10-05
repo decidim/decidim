@@ -37,23 +37,19 @@ module Decidim
       class_option :database, type: :string, aliases: "-d", default: "postgresql",
                               desc: "Configure for selected database (options: #{DATABASES.join("/")})"
 
+      class_option :recreate_db, type: :boolean, default: false,
+                                 desc: "Recreate test database"
+
       class_option :migrate, type: :boolean, default: false,
                              desc: "Run migrations after installing decidim"
 
-      def install
-        Decidim::Generators::InstallGenerator.start [
-          "--migrate=#{options[:migrate]}",
-          "--app_name=#{app_name}"
-        ]
+      def database_yml
+        template "database.yml.erb", "config/database.yml", force: true
       end
 
       def docker
         template "Dockerfile.erb", "Dockerfile"
         template "docker-compose.yml.erb", "docker-compose.yml"
-      end
-
-      def database_yml
-        template "database.yml.erb", "config/database.yml", force: true
       end
 
       def cable_yml
@@ -71,6 +67,14 @@ module Decidim
 
       def app_json
         template "app.json.erb", "app.json"
+      end
+
+      def install
+        Decidim::Generators::InstallGenerator.start [
+          "--recreate_db=#{options[:recreate_db]}",
+          "--migrate=#{options[:migrate]}",
+          "--app_name=#{app_name}"
+        ]
       end
 
       private
