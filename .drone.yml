@@ -1,3 +1,4 @@
+
 build:
   image: codegram/rails:2.3.1
   environment:
@@ -7,9 +8,11 @@ build:
     - DATABASE_PASSWORD=mysecretpassword
     - GEM_HOME=vendor/bundle
   commands:
-    - bundle install
+    - cd $$GEM; export BUNDLE_GEMFILE="`pwd`/Gemfile"
+    - bundle install --jobs=3 --retry=3
+    - if [ "$$GEM" == "." ]; then docker build --rm=false -t codegram/decidim .; fi
     - bundle exec rake
-    - bundle exec rspec
+
 compose:
   database:
     image: postgres
@@ -19,3 +22,10 @@ compose:
 cache:
   mount:
     - vendor/bundle
+
+matrix:
+  GEM:
+    - .
+    - decidim-admin
+    - decidim-core
+    - decidim-system
