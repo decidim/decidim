@@ -6,10 +6,10 @@ DECIDIM_GEMS = %w(core system admin).freeze
 
 RSpec::Core::RakeTask.new(:spec)
 
-task default: :test
+task default: :spec
 
 desc "Runs all tests in all Decidim engines"
-task :test do
+task :test_all do
   DECIDIM_GEMS.each do |gem_name|
     Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
       sh "rake"
