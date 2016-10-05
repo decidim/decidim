@@ -9,7 +9,7 @@ build:
   commands:
     - bundle install
     - bundle exec rake
-    - bundle exec rspec
+    - bundle exec rake test_all
 compose:
   database:
     image: postgres
