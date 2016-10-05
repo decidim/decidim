@@ -17,6 +17,8 @@ module Decidim
                               desc: "The name of the app"
       class_option :migrate, type: :boolean, default: false,
                              desc: "Run migrations after installing decidim"
+      class_option :recreate_db, type: :boolean, default: false,
+                                 desc: "Run migrations after installing decidim"
 
       def install
         route "mount Decidim::System::Engine => '/system'"
@@ -26,7 +28,8 @@ module Decidim
 
       def copy_migrations
         rake "railties:install:migrations"
-        prepare_database if options[:migrate]
+        recreate_db if options[:recreate_db]
+        rake "db:migrate" if options[:migrate]
       end
 
       def add_seeds
@@ -123,11 +126,10 @@ module Decidim
 
       private
 
-      def prepare_database
+      def recreate_db
         rake "db:drop RAILS_ENV=test"
         rake "db:create RAILS_ENV=test"
         rake "db:migrate RAILS_ENV=test"
-        rake "db:test:prepare"
       end
     end
   end
