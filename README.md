@@ -3,6 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/decidim.svg)](https://badge.fury.io/rb/decidim)
 [![Code Climate](https://codeclimate.com/github/codegram/decidim/badges/gpa.svg)](https://codeclimate.com/github/codegram/decidim/trends)
 [![Issue Count](https://codeclimate.com/github/codegram/decidim/badges/issue_count.svg)](https://codeclimate.com/github/codegram/decidim/issues)
+[![Build Status](https://travis-ci.org/codegram/decidim.svg?branch=master)](https://travis-ci.org/codegram/decidim)
 [![Circle CI](https://circleci.com/gh/codegram/decidim.svg?style=svg)](https://circleci.com/gh/codegram/decidim/tree/master)
 [![Build Status](http://ci.decidim.codegram.com/api/badges/codegram/decidim/status.svg)](http://ci.decidim.codegram.com/codegram/decidim)
 [![codecov](https://codecov.io/gh/codegram/decidim/branch/master/graph/badge.svg)](https://codecov.io/gh/codegram/decidim)
