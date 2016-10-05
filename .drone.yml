@@ -10,7 +10,9 @@ build:
   commands:
     - cd $$GEM; export BUNDLE_GEMFILE="`pwd`/Gemfile"
     - bundle install --jobs=3 --retry=3
+    - if [ "$$GEM" == "." ]; then docker build --rm=false -t codegram/decidim .; fi
     - bundle exec rake
+
 compose:
   database:
     image: postgres
