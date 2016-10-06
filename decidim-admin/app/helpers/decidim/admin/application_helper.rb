@@ -5,7 +5,7 @@ module Decidim
     #
     module ApplicationHelper
       def title
-        request.env["decidim.current_organization"].name
+        current_organization.name
       end
     end
   end

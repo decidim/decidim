@@ -71,13 +71,6 @@ module Decidim
         end
       end
 
-      def test_mail_host
-        inject_into_file "config/environments/test.rb",
-                         after: "config.action_mailer.delivery_method = :test" do
-          "\n  config.action_mailer.default_url_options = { host: \"test.decidim.org\" }"
-        end
-      end
-
       def smtp_environment
         inject_into_file "config/environments/production.rb",
                          after: "config.log_formatter = ::Logger::Formatter.new" do

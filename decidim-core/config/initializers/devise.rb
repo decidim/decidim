@@ -24,7 +24,7 @@ Devise.setup do |config|
   # Configure the parent class responsible to send e-mails.
   config.parent_mailer = "Decidim::ApplicationMailer"
 
-  config.parent_controller = "Decidim::ApplicationController"
+  config.parent_controller = "ActionController::Base"
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
