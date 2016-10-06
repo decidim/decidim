@@ -1,6 +1,7 @@
 <% content_for :title do %>
   <h2><%= link_to @organization.name, @organization %></h2>
   <h3 class="subheader"><%= @organization.host %></h3>
+  <p><%= translated_attribute @organization.description %></p>
 <% end %>
 
 <div class="actions">

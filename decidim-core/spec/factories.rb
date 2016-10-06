@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :organization, class: Decidim::Organization do
     sequence(:name) { |n| "Citizen Corp ##{n}" }
     sequence(:host) { |n| "#{n}.citizen.corp" }
+    description     "Description"
   end
 
   factory :process, class: Decidim::ParticipatoryProcess do

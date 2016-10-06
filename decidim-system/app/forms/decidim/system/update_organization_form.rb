@@ -1,13 +1,19 @@
 # frozen_string_literal: true
+require "decidim/translatable_attributes"
+
 module Decidim
   module System
     # A form object used to update organizations from the system dashboard.
     #
     class UpdateOrganizationForm < Rectify::Form
+      include TranslatableAttributes
+
       mimic :organization
 
       attribute :name, String
       attribute :host, String
+
+      translatable_attribute :description, String
 
       validate :validate_organization_uniqueness
 
