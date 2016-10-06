@@ -28,7 +28,7 @@ ratings:
   - "**.py"
   - "**.rb"
 exclude_paths:
-- spec/
-- decidim-core/spec/
+- "**/spec/**/*"
+- "**/*/Rakefile"
 - .rubocop.yml
 - lib/generators/decidim/templates/app.json.erb
