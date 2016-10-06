@@ -41,10 +41,8 @@ module Decidim
     end
 
     context "devise emails" do
-      let(:user) { create(:user) }
-
       it "sends them asynchronously" do
-        described_class.send_reset_password_instructions(email: user.email)
+        create(:user)
         expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
     end

@@ -8,6 +8,7 @@ Decidim::Core::Engine.routes.draw do
              controllers: {
                invitations: "decidim/devise/invitations",
                sessions: "decidim/devise/sessions",
+               confirmations: "decidim/devise/confirmations",
                registrations: "decidim/devise/registrations",
                passwords: "decidim/devise/passwords"
              }

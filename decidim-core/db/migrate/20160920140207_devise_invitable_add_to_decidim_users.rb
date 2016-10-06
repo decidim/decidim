@@ -1,4 +1,4 @@
-class DeviseInvitableAddToDecidimUsers < ActiveRecord::Migration
+class DeviseInvitableAddToDecidimUsers < ActiveRecord::Migration[4.2]
   def up
     change_table :decidim_users do |t|
       t.string     :invitation_token
