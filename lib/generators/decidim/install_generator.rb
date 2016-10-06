@@ -115,9 +115,13 @@ module Decidim
       private
 
       def recreate_db
-        rake "db:drop RAILS_ENV=test"
-        rake "db:create RAILS_ENV=test"
-        rake "db:migrate RAILS_ENV=test"
+        unless ENV["CI"]
+          rake "db:environment:set", env: "development"
+          rake "db:drop"
+        end
+        rake "db:create"
+        rake "db:migrate"
+        rake "db:test:prepare"
       end
     end
   end

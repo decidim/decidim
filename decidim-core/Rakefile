@@ -20,16 +20,13 @@ load "rails/tasks/statistics.rake"
 
 require "bundler/gem_tasks"
 
-task default: :test
-
-desc "Generates a dummy app for testing"
-task :test_app do
+begin
+  require "rspec/core/rake_task"
+  RSpec::Core::RakeTask.new(:spec)
   ENV["ENGINE_PATH"] = File.dirname(__FILE__)
-  Rake::Task["common:test_app"].invoke
-end
 
-task test: :test_app do
-  Dir.chdir(File.dirname(__FILE__).to_s) do
-    sh "rspec spec"
-  end
+  task default: :spec
+
+  Rake::Task["spec"].enhance ["common:test_app"]
+rescue LoadError
 end
