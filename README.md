@@ -8,6 +8,12 @@
 [![Build Status](http://ci.decidim.codegram.com/api/badges/codegram/decidim/status.svg)](http://ci.decidim.codegram.com/codegram/decidim)
 [![codecov](https://codecov.io/gh/codegram/decidim/branch/master/graph/badge.svg)](https://codecov.io/gh/codegram/decidim)
 
+## Requirements
+
+* Ruby 2.3.1
+* PostgreSQL 9.5 or newer with the `hstore` extension (should already be installed by default)
+* Redis (only in production), required by Rails 5's `ActionCable`
+
 ## Installation instructions
 
 First of all, you need to install the `decidim` gem, which currently is in a *prerelease* status.
