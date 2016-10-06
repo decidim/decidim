@@ -14,6 +14,9 @@ require "jbuilder"
 require "active_link_to"
 require "rectify"
 
+require "decidim/translatable_attributes"
+require "decidim/form_builder"
+
 module Decidim
   module Core
     # Decidim's core Rails Engine.
