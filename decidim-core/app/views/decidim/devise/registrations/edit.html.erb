@@ -1,39 +1,35 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><%= t("devise.registrations.edit.title", resource: resource_class.model_name.human) %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <p>
+      <%= t("devise.registrations.edit.currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %>
+    </p>
   <% end %>
 
   <div class="field">
     <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation %>
   </div>
 
   <div class="field">
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+  <div><%= f.submit t("devise.registrations.edit.update") %></div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3><%= t("devise.registrations.edit.cancel_my_account") %></h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= t("devise.registrations.edit.unhappy") %> <%= link_to t("devise.registrations.edit.cancel_my_account"), registration_path(resource_name), data: { confirm: t("devise.registrations.edit.are_you_sure") }, method: :delete %>.</p>
 
-<%= link_to "Back", :back %>
+<%= link_to t("devise.shared.links.back"), :back %>
