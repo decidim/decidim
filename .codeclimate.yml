@@ -10,6 +10,9 @@ engines:
       languages:
       - ruby
       - javascript
+    exclude_fingerprints:
+    - 645ddab80611224e15d61c8426285296
+    - 82b4059b3b55d7b7f06d8aba6cb7b81a
   eslint:
     enabled: true
   fixme:
@@ -30,5 +33,6 @@ ratings:
 exclude_paths:
 - "**/spec/**/*"
 - "**/*/Rakefile"
+- "**/vendor/**/*"
 - .rubocop.yml
 - lib/generators/decidim/templates/app.json.erb
