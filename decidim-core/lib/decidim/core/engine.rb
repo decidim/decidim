@@ -30,6 +30,10 @@ module Decidim
       initializer "decidim.middleware" do |app|
         app.config.middleware.use Decidim::CurrentOrganization
       end
+
+      initializer "decidim.default_form_builder" do |_app|
+        ActionView::Base.default_form_builder = Decidim::FormBuilder
+      end
     end
   end
 end
