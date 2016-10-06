@@ -42,6 +42,8 @@ module Decidim
       def save_organization
         organization.name = form.name
         organization.host = form.host
+        organization.description = form.description
+
         organization.save!
       end
     end

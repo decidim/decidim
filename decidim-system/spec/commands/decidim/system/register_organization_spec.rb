@@ -16,6 +16,7 @@ module Decidim
             {
               name: "Gotham City",
               host: "decide.gotham.gov",
+              description_en: "Fictional city appearing in American comic books.",
               organization_admin_email: "f.laguardia@gotham.gov"
             }
           end
@@ -38,6 +39,7 @@ module Decidim
 
             expect(admin.email).to eq("f.laguardia@gotham.gov")
             expect(admin.organization.name).to eq("Gotham City")
+            expect(admin.organization.description).to include("en" => "Fictional city appearing in American comic books.")
             expect(admin.roles).to include("admin")
             expect(admin).to be_created_by_invite
           end

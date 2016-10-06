@@ -36,7 +36,11 @@ module Decidim
       attr_reader :form
 
       def create_organization
-        Decidim::Organization.create!(name: form.name, host: form.host)
+        Decidim::Organization.create!(
+          name: form.name,
+          host: form.host,
+          description: form.description
+        )
       end
 
       def invite_admin(organization)

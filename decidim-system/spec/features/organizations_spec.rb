@@ -51,6 +51,7 @@ describe "Organizations", type: :feature do
       it "edits the data" do
         fill_in "Name", with: "Citizens Rule!"
         fill_in "Host", with: "www.foo.org"
+        fill_in "Description (en)", with: "Organization description."
         click_button "Save"
 
         expect(page).to have_css("div.flash.success")
