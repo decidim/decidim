@@ -1,4 +1,16 @@
-<h2>Welcome to Decidim!</h2>
-<ul>
-  <li><%= link_to "Create user", new_user_registration_path %></li>
-</ul>
+<section class="extended hero" style="background-image:url(<%= asset_url("decidim/hero-home.jpg") %>);">
+  <div class="hero__container">
+    <div class="row">
+      <div class="columns small-centered large-10">
+        <h1 class="text-highlight heading1 hero-heading">
+          <%= t('.welcome', organization: current_organization.name) %>
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns small-centered small-6 medium-4 mediumlarge-3">
+        <%= link_to t('.register'), new_user_registration_path, class: "hero-cta button expanded large button--sc" %>
+      </div>
+    </div>
+  </div>
+</section>

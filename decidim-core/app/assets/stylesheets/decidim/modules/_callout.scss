@@ -1,0 +1,25 @@
+/* Callout foundation overwrites*/
+
+.callout{
+  &.primary{
+    background: $light-gray;
+    border-color: $medium-gray;
+    border-left: 8px solid $primary;
+  }
+  &.secondary{
+    border-color: $medium-gray;
+    border-left: 8px solid $secondary;
+  }
+  &.success{
+    border-color: $medium-gray;
+    border-left: 8px solid $success;
+  }
+  &.warning{
+    border-color: $medium-gray;
+    border-left: 8px solid $warning;
+  }
+  &.alert{
+    border-color: $medium-gray;
+    border-left: 8px solid $alert;
+  }
+}

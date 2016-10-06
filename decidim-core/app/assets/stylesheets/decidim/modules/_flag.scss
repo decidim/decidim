@@ -1,0 +1,9 @@
+.flag{
+  ul{
+    list-style: none;
+    margin-left: 0;
+  }
+  li a{
+    color: $anchor-color;
+  }
+}

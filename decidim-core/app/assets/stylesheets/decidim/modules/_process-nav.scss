@@ -1,0 +1,99 @@
+/* Variables */
+
+
+/* Navigation */
+
+.process-nav{
+  background-color: $white;
+  border: $border;
+  padding: .75rem $container-padding-y;
+  margin-top: 1rem;
+  ul{
+    margin: 0;
+    list-style: none;
+  }
+  .about-link{
+    font-size: 80%;
+  }
+  @include breakpoint(medium){
+    ul{
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
+    ul::-webkit-scrollbar{
+      display: none;
+    }
+    li{
+      display: inline-block;
+      margin-right: 1.5rem;
+    }
+    .about-link{
+      float: right;
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+}
+
+.process-nav__trigger{
+  display: block;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+.process-nav__trigger__icon{
+  position: absolute;
+  right: .5rem;
+  top: .55rem;
+}
+
+.js .process-nav__content{
+  @include breakpoint(smallmedium down){
+    display: none;
+  }
+  &.is-active{
+    display: block;
+  }
+}
+
+.process-nav__content li{
+  @include breakpoint(smallmedium down){
+    margin-top: 1rem;
+  }
+  &.is-active{
+    @include breakpoint(smallmedium down){
+      display: none;
+    }
+  }
+}
+
+.process-nav__link{
+  display: block;
+  color: $muted;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+ 
+
+  svg{
+    margin-right: .4em;
+    width: 25px;
+    height: 25px;
+    fill: $muted;
+  }
+}
+
+@include breakpoint(medium){
+  .process-nav__link:hover,
+  .process-nav__link.is-active{
+    color: $primary;
+    svg{
+      fill: $primary;
+    }
+  }
+}

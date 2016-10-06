@@ -1,0 +1,58 @@
+.wrapper{
+  padding: 3rem 1rem;
+  @include breakpoint(medium){
+    padding-top: 5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @include breakpoint(large){
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.wrapper--inner{
+  background: $light-gray-dark;
+  padding-top: 1rem;
+}
+
+//Flexbox sticky footer
+body{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 100%;
+  @include breakpoint(smallmedium down){
+    background-color: $dark-gray;
+  }
+}
+
+.footer-separator{
+  flex-grow: 1;
+}
+
+//fixes for off-canvas wrappers
+.off-canvas-wrapper,
+.off-canvas-wrapper-inner,
+.off-canvas-content{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.off-canvas{
+  background-color: $dark-gray;
+  .close-button{
+    color: $light-gray;
+    padding: .2rem .5rem;
+    margin-right: -.5rem;
+  }
+}
+
+//Sections
+.section{
+  margin-bottom: 3rem;
+  @include breakpoint(large){
+    margin-bottom: 5rem;
+  }
+}

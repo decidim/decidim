@@ -1,0 +1,30 @@
+.opinion-toggle{
+  margin: 2rem 0;
+}
+
+.button-group .opinion-toggle--ok,
+.button-group .opinion-toggle--ko{
+  @include breakpoint(small down){
+    margin-bottom: 2px;  
+  }
+}
+
+.opinion-toggle--ok{
+  &:hover,
+  &.is-active{
+    background-color: $success;
+  }
+  .icon{
+    vertical-align: middle;
+  }
+}
+
+.opinion-toggle--ko{
+  &:hover,
+  &.is-active{
+    background-color: $alert;
+  }
+  .icon{
+    vertical-align: middle;
+  }
+}

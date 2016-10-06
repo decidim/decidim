@@ -1,0 +1,39 @@
+.register__separator{
+  display: block;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  font-style: italic;
+  margin: 1rem 0 2rem;
+  &:before{
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: $medium-gray;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+  }
+}
+
+.register__separator__text{
+  display: inline-block;
+  background: $light-gray;
+  padding: 0 1rem;
+}
+
+.register-form{
+  margin-top: 2rem;
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
+    height: 3rem;
+  }
+  .button{
+    margin: 2rem 0;
+  }
+  legend{
+    margin-bottom: 1rem;
+  }
+}

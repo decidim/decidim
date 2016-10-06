@@ -1,0 +1,70 @@
+/* Variables */
+
+$container-bg: $white;
+$container-border: $border;
+$container-shadow: 0 2px 7px rgba(black,.1);
+$container-padding-x: 0.5rem;
+$container-padding-y: 1rem;
+$container-padding-2x: 2rem;
+$container-padding-2y: 2rem;
+
+/* Main container */
+
+.main-container{
+  background: $container-bg;
+  border: $container-border;
+
+}
+
+.main-container__content{
+  padding: $container-padding-y $container-padding-x;
+  @include breakpoint(medium){
+    padding: $container-padding-2y $container-padding-2x;
+  }
+}
+
+/* Main container side panel */
+
+.main-container--side-panel{
+  @include breakpoint(medium){
+    display: flex;
+  }
+}
+
+.side-panel{
+  background-color: $light-gray-dark;
+  min-height: 100%;
+  border-bottom: $border;
+  @include breakpoint(medium){
+    border-bottom: 0;
+    border-right: $border;
+  }
+}
+
+.side-panel__content{
+  
+}
+
+.side-panel__tabs{
+  border: none;
+  .tabs-title{
+    border-bottom: $border;
+    &:last-of-type{
+      @include breakpoint(medium){
+        margin-bottom: 4rem;
+      }
+    }
+    >[role=tab],
+    >a{
+      color: $body-font-color;
+      &:hover{
+        color: $anchor-color;
+      }
+    }
+    &.is-active >[role=tab],
+    &.is-active >a{
+      color: $anchor-color;
+      box-shadow: inset 4px 0 0 $primary;
+    }
+  }
+}

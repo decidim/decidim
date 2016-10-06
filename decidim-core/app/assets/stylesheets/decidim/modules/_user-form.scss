@@ -1,0 +1,14 @@
+.user-form{
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
+    height: 3rem;
+  }
+  .button{
+    margin: 2rem 0;
+  }
+}
+
+.user-form__label{
+  font-weight: 600;
+}

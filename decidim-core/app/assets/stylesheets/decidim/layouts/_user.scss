@@ -1,0 +1,24 @@
+// User profile, notifications & settings
+
+.user-header{
+  @include clearfix;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.user-header__avatar{
+  float: left;
+  margin-right: .5rem;
+  > img{
+    border-radius: 50%;
+  }
+}
+
+.user-header__heading{
+  margin-bottom: 0;
+  >.label{
+    vertical-align: middle;
+  }
+}
+

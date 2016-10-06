@@ -1,0 +1,43 @@
+
+.extra{
+  text-align: center;
+  margin-bottom: 1rem;
+  .button:last-of-type{
+    margin-bottom: 0;
+  }
+}
+
+.extra__suport-number{
+  display: block;
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.extra__suport-text{
+  display: block;
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: .9rem;
+  margin-bottom: .5rem;
+}
+
+.extra__date{
+  font-size: 3rem;
+  line-height: 1;
+}
+.extra__month{
+  display: block;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+.extra__time{
+  display: block;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.extra--text{
+  text-align: left;
+}

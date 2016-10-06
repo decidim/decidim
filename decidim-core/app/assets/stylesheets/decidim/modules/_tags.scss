@@ -1,0 +1,29 @@
+//Variables
+
+$tags-border: $border;
+
+/* Tags */
+
+.tags{
+  list-style: none;
+  margin: 0 0 1rem;
+  font-size: 90%;
+  li{
+    display: inline-block;
+    margin-right: .3rem;
+    margin-bottom: .5rem;
+  }
+  a{
+    display: block;
+    border: $tags-border;
+    padding: 0 .5rem;
+  }
+}
+
+.tags:last-child{
+	margin-bottom: -.5rem;
+}
+
+.tags--inline{
+  display: inline;
+}

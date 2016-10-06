@@ -1,0 +1,14 @@
+.label--basic{
+  background-color: lighten($dark-gray, 60);
+}
+
+.proposal-status{
+  float: left;
+  margin-right: .5rem;
+}
+
+.proposal-status--small,
+.label--small{
+  margin: .2rem .2rem .2rem 0;
+  padding: .2rem .3rem;
+}
