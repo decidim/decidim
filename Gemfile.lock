@@ -34,7 +34,7 @@ PATH
   specs:
     decidim-admin (0.0.1.alpha3)
       active_link_to (~> 1.0.0)
-      decidim-core
+      decidim-core (= 0.0.1.alpha3)
       devise (~> 4.2)
       devise-i18n (~> 1.1.0)
       devise_invitable (~> 1.7.0)
@@ -71,7 +71,7 @@ PATH
   specs:
     decidim-system (0.0.1.alpha3)
       active_link_to (~> 1.0.0)
-      decidim-core
+      decidim-core (= 0.0.1.alpha3)
       devise (~> 4.2)
       devise-i18n (~> 1.1.0)
       devise_invitable (~> 1.7.0)
