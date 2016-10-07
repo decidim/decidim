@@ -1,7 +1,7 @@
 ---
 engines:
   bundler-audit:
-    enabled: true
+    enabled: false
   csslint:
     enabled: true
   duplication:
@@ -21,7 +21,6 @@ engines:
     enabled: true
 ratings:
   paths:
-  - Gemfile.lock
   - "**.css"
   - "**.inc"
   - "**.js"
