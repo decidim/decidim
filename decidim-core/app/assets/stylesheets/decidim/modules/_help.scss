@@ -1,0 +1,14 @@
+.help{
+  vertical-align: -2px;
+  .icon{
+    width: 14px;
+    height: 14px;
+    fill: $white;
+    background: lighten($muted, 20);
+    border-radius: 50%;
+    padding: 2px;
+    &:hover{
+      background: $anchor-color;
+    }
+  }
+}

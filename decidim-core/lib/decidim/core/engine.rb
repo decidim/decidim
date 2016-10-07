@@ -3,6 +3,7 @@ require "rails"
 require "active_support/all"
 
 require "devise"
+require "devise-i18n"
 require "devise_invitable"
 require "jquery-rails"
 require "sass-rails"
@@ -36,6 +37,12 @@ module Decidim
 
       initializer "decidim.default_form_builder" do |_app|
         ActionView::Base.default_form_builder = Decidim::FormBuilder
+      end
+
+      config.to_prepare do
+        Rails.application.config.assets.precompile += %w(
+          decidim_core_manifest.js
+        )
       end
     end
   end

@@ -1,0 +1,46 @@
+.static-with-nav{
+  @include breakpoint(medium){
+    display: flex;
+  }
+}
+
+.static__content{
+  //padding: 2rem 1rem;
+  @include breakpoint(medium){
+    //padding: 2rem 1.5rem;
+  }
+}
+
+.static-nav{
+  min-height: 100%;
+  .list-latin{
+    list-style-type: upper-latin;
+  }
+  ul{
+    text-transform: uppercase;
+    margin-left: .5rem;
+  }
+  li{
+    color: darken($medium-gray, 30);
+    line-height: 1.2;
+    margin-bottom: .8rem;
+  }
+  a{
+    color: $body-font-color;
+    &:hover{
+      color: $anchor-color;
+    }
+  }
+}
+
+.static__message{
+  text-align: center;
+  padding: 2rem 1rem;
+  @include breakpoint(medium){
+    padding: 4rem 1.5rem;
+  }
+}
+
+.static__message__cta{
+  margin-top: 2rem;
+}

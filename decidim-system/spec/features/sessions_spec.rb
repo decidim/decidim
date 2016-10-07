@@ -17,14 +17,14 @@ describe "Sessions", type: :feature do
       within ".new_admin" do
         fill_in :admin_email, with: "admin@example.org"
         fill_in :admin_password, with: "123456"
-        click_button "Log in"
+        find("*[type=submit]").click
       end
 
       expect(page).to have_content("Dashboard")
     end
   end
 
-  context "when using an incorrectusername and password" do
+  context "when using an incorrect username and password" do
     it "doesn't let you in the admin panel" do
       within ".new_admin" do
         fill_in :admin_email, with: "admin@example.org"

@@ -1,0 +1,72 @@
+.google-map {
+  width: 100%;
+  height: 200px;
+  background-color: $medium-gray;
+  margin-bottom: 2rem;
+  @include breakpoint(mediumlarge){
+    height: 450px;
+  }
+}
+
+.map-info{
+  background: $primary;
+  border-radius: $global-radius;
+  > div:first-child{ //Map styles container
+    > div:first-child{ //Triangle
+      border-top-color: $primary !important;
+    }
+    > div:nth-child(2){
+      background-color: transparent !important;
+      border-radius: $global-radius !important;
+    }
+  }
+  *{
+    box-shadow: none !important;
+  }
+}
+
+.map-info__content{
+  padding-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.map__date-adress{
+  @include breakpoint(medium){
+    display: flex;
+  }
+  margin-bottom: 1rem;
+  .card__datetime{
+    float: none;
+    border-color: $primary;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    padding: .5em 1em;
+    @include breakpoint(medium){
+      margin-right: .5rem;
+      margin-bottom: 0;
+    }
+  }
+  .address{
+    flex: 1;
+    margin-bottom: 0;
+  }
+  .address__icon{
+    display: none;
+    @include breakpoint(medium){
+      display: block;
+    }
+  }
+  .card__extra{
+    padding: 0 1rem;
+  }
+}
+
+.map-info__button{
+  text-align: center;
+  .button{
+    min-width: 12em;
+  }
+}

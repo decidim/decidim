@@ -71,13 +71,6 @@ module Decidim
         end
       end
 
-      def test_mail_host
-        inject_into_file "config/environments/test.rb",
-                         after: "config.action_mailer.delivery_method = :test" do
-          "\n  config.action_mailer.default_url_options = { host: \"test.decidim.org\" }"
-        end
-      end
-
       def smtp_environment
         inject_into_file "config/environments/production.rb",
                          after: "config.log_formatter = ::Logger::Formatter.new" do
@@ -115,9 +108,13 @@ module Decidim
       private
 
       def recreate_db
-        rake "db:drop RAILS_ENV=test"
-        rake "db:create RAILS_ENV=test"
-        rake "db:migrate RAILS_ENV=test"
+        unless ENV["CI"]
+          rake "db:environment:set", env: "development"
+          rake "db:drop"
+        end
+        rake "db:create"
+        rake "db:migrate"
+        rake "db:test:prepare"
       end
     end
   end

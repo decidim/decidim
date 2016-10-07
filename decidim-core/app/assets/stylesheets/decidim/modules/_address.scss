@@ -1,0 +1,26 @@
+//Variables
+
+/* Card address */
+.address{
+  @include clearfix;
+  display: flex;
+}
+
+.address__info{
+  display: flex;
+  flex-grow: 1;
+}
+
+.address__icon{
+  float: left;
+  display: flex;
+  align-self: center;
+  fill: $primary;
+}
+
+.address__details{
+  float: left;
+  max-width: 100%; //IE10 bug fix
+  padding-left: .5em;
+  align-self: center;
+}

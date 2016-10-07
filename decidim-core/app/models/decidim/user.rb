@@ -4,7 +4,7 @@ require_dependency "devise/models/decidim_validatable"
 module Decidim
   # A User is a citizen that wants to join the platform to participate.
   class User < ApplicationRecord
-    devise :invitable, :database_authenticatable, :registerable,
+    devise :invitable, :database_authenticatable, :registerable, :confirmable,
            :recoverable, :rememberable, :trackable, :decidim_validatable
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization

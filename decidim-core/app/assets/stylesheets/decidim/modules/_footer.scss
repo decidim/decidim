@@ -1,0 +1,90 @@
+//Vars
+$main-footer-bg: $black;
+$mini-footer-bg: $dark-gray;
+
+//Common
+
+.main-footer,
+.mini-footer{
+  color: $medium-gray;
+  a{
+    color: darken($medium-gray, 40%);
+    &:hover{
+      color: darken($medium-gray, 20%);
+    }
+  }
+}
+
+//Main footer
+.main-footer{
+  background-color: $main-footer-bg;
+  position: relative;
+  padding: 1rem 0;
+  min-height: 76px;
+}
+
+.main-footer__badge{
+  display: block;
+  width: 140px;
+  @include breakpoint(large){
+    position: absolute;
+  }
+}
+
+.main__footer__nav{
+  text-align: center;
+  @include breakpoint(medium){
+    text-align: left;
+  }
+  @include breakpoint(large){
+    text-align: center;
+  }
+}
+
+.footer-nav{
+  list-style: none;
+  padding-top: .5rem;
+  margin: 0 0 0 -1rem;
+  li{
+    display: inline-block;
+    padding: 0 1rem;
+  }
+  @include breakpoint(large){
+    margin-left: 0;
+  }
+}
+
+.main__footer__social{
+  text-align: center;
+  @include breakpoint(medium){
+    text-align: right;
+  }
+}
+
+.footer-social{
+  list-style: none;
+  padding-top: .5rem;
+  margin: 0;
+  li{
+    display: inline-block;
+    padding-left: 1rem;
+    &:first-child{
+      padding-left: 0;
+    }
+  }
+}
+
+.footer-social__icon .icon{
+  width: 16px;
+  height: 16px;
+}
+
+//Mini footer
+.mini-footer{
+  padding: 1rem 0;
+  background-color: $mini-footer-bg;
+}
+
+.cc-badge{
+  margin-right: .5rem;
+}

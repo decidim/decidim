@@ -1,3 +1,59 @@
-<h1>Decidim</h1>
-<%= display_flash_messages %>
-<hr />
+<div class="off-canvas-wrapper">
+  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+    <div class="off-canvas position-right" data-position="right"
+      id="offCanvas" data-off-canvas>
+      <!-- Close button -->
+      <button class="close-button"
+        aria-label="<%= t(".close_menu") %>" type="button"
+        data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <!-- Menu -->
+      <div class="hide-for-medium" data-set="nav-holder"></div>
+      <div class="hide-for-medium usermenu-off-canvas-holder"
+        data-set="nav-login-holder"></div>
+    </div>
+    <div class="off-canvas-content" data-off-canvas-content>
+      <div class="footer-separator">
+        <!--separates the footer from the rest of the page,
+            creates a sticky footer-->
+        <!-- Topbar -->
+        <div class="title-bar">
+          <div class="row topbar">
+            <div class="logo-wrapper">
+              <a href="/">
+                <!-- Remove this, use the final SVG logo -->
+                <span><%= current_organization.name %></span>
+                <style>
+.logo-wrapper span{ color: white; font-weight: 600;
+  display: inline-block; text-align: left;
+  padding-left: 8px; line-height: 1;
+  position: relative; }
+.logo-wrapper span:before{ content: ""; display: block;
+  position: absolute; border-left: 4px solid white; height: 88%;
+  top: 6%; left: 0; }
+                </style>
+                <!-- /Remove-->
+              </a>
+            </div>
+            <div class="hide-for-medium topbar__menu">
+              <button type="button" data-toggle="offCanvas">
+                <%= icon "menu", aria_label: t('.navigation'), role: "img" %>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="show-for-medium" data-set="nav-holder">
+          <nav class="navbar js-append">
+            <div class="row">
+              <ul class="main-nav">
+                <li>
+                  <%= active_link_to t("menu.home", scope: "decidim"), root_path, active: :exact, class: "main-nav__link", active_class: "main-nav__link-active" %>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <main>
+          <%= display_flash_messages %>

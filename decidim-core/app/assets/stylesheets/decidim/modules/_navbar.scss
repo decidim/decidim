@@ -1,0 +1,258 @@
+/* Variables */
+
+$navbar-bg: $dark-gray;
+$navbar-bg-hover: rgba(white,.02);
+$navbar-color: rgba(white,.5);
+$navbar-color-hover: $white;
+$navbar-active-color: $white;
+$navbar-active-bg: $navbar-bg-hover;
+$navbar-active-shadow-small: inset 4px 0 0 0 $primary;
+$navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
+
+/* Navigation */
+
+.navbar{
+  background: $navbar-bg;
+}
+
+/* Title bar */
+
+.title-bar{
+  position: relative;
+  @include breakpoint(smallmedium down){
+    border-top: 2.125rem solid $dark-gray;
+  }
+}
+
+.logo-cityhall{
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  margin-top: -1.95rem;
+  text-align: right;
+  img{
+    width: auto;
+    height: 22px !important;
+  }
+
+  @include breakpoint(medium){
+    top: 50%;
+    margin-top: -19px;
+    img{ 
+      height: 38px !important;
+    }
+  }
+}
+
+
+/* Top bar */
+.topbar{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.logo-wrapper{
+  display: inline-block;
+  line-height: 0;
+  flex-grow: 1;
+  a{
+    display: inline-block;
+  }
+  img{
+    display: block;
+  }
+}
+
+/* Dropmenus in topbar */
+.topbar__dropmenu{
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 0;
+  margin-left: 2rem;
+  .dropdown > li > a{
+    padding-left: 0;
+  }
+  .dropdown{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .is-dropdown-submenu{
+    text-align: left;
+    padding-left: .3rem;
+    background-color: $white;
+    border: 1px solid $light-gray;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    min-width: 150px;
+    a{
+      color: $body-font-color;
+      padding: .5rem;
+    }
+    a:hover{
+      color: lighten($body-font-color, 20);
+    }
+  }
+}
+
+//Foundation overwrites
+.topbar__dropmenu > ul > li > a{
+  color: $medium-gray;
+  &:after{
+    margin-top: -1px !important;
+    border-top-color: $medium-gray !important;
+  }
+}
+
+
+
+.language-choose{
+  @include breakpoint(smallmedium down){
+    font-size: .8rem;
+    position: absolute;
+    top: -2.2rem;
+    left: .5rem;
+    margin-left: 0;
+    .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+      border-width: 3px;
+      right: 10px;
+      margin-top: 0;
+    }
+  }
+}
+
+
+.topbar__user{
+  display: inline-block;
+  padding-right: 2.5rem;
+  margin-left: 2rem;
+  @media (min-width: (1300 / 16) + em){
+    padding-right: 0;
+  }
+}
+
+.topbar__user__logged{
+  text-align: right;
+  padding-right: 2.5rem;
+  display: none;
+  @include breakpoint(medium){
+    display: block;
+  }
+  @media (min-width: (1300 / 16) + em){
+    padding-right: 0;
+  }
+}
+
+
+.topbar__notifications{
+  margin-right: .5rem;
+  vertical-align: -4px;
+  .icon{
+    fill: $white;
+    opacity: .3;
+  }
+  &.is-active .icon{
+    fill: $warning;
+    opacity: 1;
+  }
+}
+
+.topbar__user__login{
+  text-align: right;
+  line-height: 1.2;
+  a{
+    color: $medium-gray;
+    font-weight: 600;
+    &:hover{
+      color: $anchor-color;
+    }
+  }
+  a:first-of-type:after{
+    content: "";
+    margin-left: .5rem;
+    margin-right: .5rem;
+    display: inline-block;
+    width: 1px;
+    height: 2px;
+    border-left: $border;
+    vertical-align: middle;
+  }
+}
+
+
+/* Menu icon and off-canvas */
+.topbar__menu{
+  text-align: right;
+  font-size: 20px;
+  margin-right: .1rem;
+}
+
+.usermenu-off-canvas-holder .usermenu-off-canvas{
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  &.is-dropdown-submenu{
+    display: block;
+    position: static;
+    background: transparent;
+    border-left: 0;
+    border-right: 0;
+  }
+  a{
+    display: block;
+    padding: 1em 2em;
+    color: $navbar-color;
+    &:hover{
+      background: $navbar-bg-hover;
+      color: $navbar-color-hover;
+    }
+  }
+}
+
+
+.off-canvas .topbar__user__login{
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+
+
+/* Main nav */
+.main-nav{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow-x: auto;
+
+  @include breakpoint(medium) {
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    display: flex;
+    >li{
+      display: inline-block;
+      flex: 1;
+      text-align: center;
+    }
+  }
+}
+
+.main-nav__link{
+  display: block;
+  padding: 1em 2em;
+  color: $navbar-color;
+  &:hover{
+    background: $navbar-bg-hover;
+    color: $navbar-color-hover;
+  }
+}
+
+.main-nav__link--active{
+  box-shadow: $navbar-active-shadow-small;
+  color: $navbar-active-color;
+  background: $navbar-active-bg;
+   @include breakpoint(medium) {
+    box-shadow: $navbar-active-shadow-medium;
+  }
+}

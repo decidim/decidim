@@ -1,0 +1,32 @@
+.icon{
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.icon--small{
+  width: 10px;
+  height: 10px;
+}
+
+.icon--action{
+  fill: rgba(black, .2);
+}
+
+.icon--action:hover,
+a:hover .icon--action{
+  fill: currentColor;
+}
+
+.icon--after{
+  margin-left: .3rem;
+}
+.icon--before{
+  margin-right: .3rem;
+}
+
+.icon--share{
+  margin-bottom: -2px;
+  width: 12px;
+  height: 12px;
+}

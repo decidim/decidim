@@ -20,6 +20,10 @@ FactoryGirl.define do
     password_confirmation "password1234"
     organization
 
+    trait :confirmed do
+      confirmed_at { Time.current }
+    end
+
     trait :admin do
       roles ["admin"]
     end

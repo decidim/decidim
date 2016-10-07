@@ -2,13 +2,16 @@
 require "spec_helper"
 
 describe "Homepage", type: :feature do
-  context "visiting the homepage" do
-    before(:each) do
+  context "when there's an organization" do
+    let(:organization) { create(:organization) }
+
+    before do
+      switch_to_host(organization.host)
       visit decidim.root_path
     end
 
-    it "has header text 'Decidim'" do
-      within("h1") { expect(page).to have_content("Decidim") }
+    it "welcomes the user" do
+      expect(page).to have_content(organization.name)
     end
   end
 end

@@ -1,0 +1,28 @@
+//Variables
+$share-border: $border;
+$share-color: $muted;
+
+//Styles
+.share{
+  text-align: center;
+  ul{
+    display: inline-block;
+    list-style: none;
+    margin: 0 0 0 .5rem;
+  }
+  li{
+    display: inline-block;
+  }
+}
+
+.share__icon{
+  color: $share-color;
+  border: $share-border;
+  border-radius: 50%;
+  display: inline-block;
+  width: 1.8em;
+  height: 1.8em;
+  text-align: center;
+  padding: .1em 0 0;
+  margin-right: .5em;
+}

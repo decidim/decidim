@@ -9,5 +9,6 @@ namespace :common do
       "--migrate=true",
       "--quiet"
     ]
+    FileUtils.cd(ENV["ENGINE_PATH"])
   end
 end

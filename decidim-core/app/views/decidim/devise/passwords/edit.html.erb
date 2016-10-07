@@ -1,14 +1,11 @@
-<h2>Change your password</h2>
+<h2><%= t("devise.passwords.edit.change_your_password") %></h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
   <div class="field">
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
@@ -16,7 +13,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Change my password" %>
+    <%= f.submit t("devise.passwords.edit.change_my_password") %>
   </div>
 <% end %>
 

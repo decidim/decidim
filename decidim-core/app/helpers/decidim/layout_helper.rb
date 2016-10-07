@@ -5,5 +5,32 @@ module Decidim
     def decidim_page_title
       Decidim.config.application_name
     end
+
+    # Outputs an SVG-based icon.
+    #
+    # name    - The String with the icon name.
+    # options - The Hash options used to customize the icon (default {}):
+    #             :width  - The Number of width in pixels (optional).
+    #             :height - The Number of height in pixels (optional).
+    #             :aria_label - The String to set as aria label (optional).
+    #             :aria_hidden - The Truthy value to enable aria_hidden (optional).
+    #             :role - The String to set as the role (optional).
+    #             :class - The String to add as a CSS class (optional).
+    #
+    # Returns a String.
+    def icon(name, options = {})
+      html_properties = {}
+
+      html_properties["width"] = options[:width]
+      html_properties["height"] = options[:height]
+      html_properties["aria-label"] = options[:aria_label]
+      html_properties["role"] = options[:role]
+      html_properties["aria-hidden"] = options[:aria_hidden]
+      html_properties["class"] = "icon icon--#{name} #{options[:class]}"
+
+      content_tag :svg, html_properties do
+        content_tag :use, nil, "xlink:href" => "#{asset_url("decidim/icons.svg")}#icon-#{name}"
+      end
+    end
   end
 end

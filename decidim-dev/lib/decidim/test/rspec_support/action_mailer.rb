@@ -17,10 +17,18 @@ module MailerHelpers
   def last_email
     emails.last
   end
+
+  def last_email_body
+    last_email.body.encoded
+  end
+
+  def last_email_link
+    URI.extract(last_email_body.to_s, %w(http https)).last
+  end
 end
 
 RSpec.configure do |config|
-  config.include MailerHelpers, type: :mailer
+  config.include MailerHelpers
 end
 
 RSpec.configure do |config|

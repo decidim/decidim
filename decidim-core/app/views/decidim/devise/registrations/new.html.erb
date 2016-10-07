@@ -1,0 +1,23 @@
+<h2><%= t("devise.registrations.new.sign_up") %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t("devise.registrations.new.sign_up") %>
+  </div>
+<% end %>
+
+<%= render "decidim/devise/shared/links" %>

@@ -1,0 +1,125 @@
+.process-header{
+  margin-bottom: 3rem;
+  .heading2{
+    font-weight: bold;
+  }
+}
+
+.process-header__main{
+  background-size: cover;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  &:after{
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($black, .6);
+  }
+}
+
+.process-header__container{
+  position: relative;
+  z-index: 1;
+  padding: 2rem 1.5rem 1rem;
+  @include breakpoint(mediumlarge){
+    display: flex;
+    align-items: center;
+  }
+}
+
+.process-header__hashtag{
+  font-weight: 600;
+  &:after{
+    content: "·";
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+}
+
+.process-header__actions{
+  @include breakpoint(medium down){
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @include breakpoint(mediumlarge){
+    text-align: right;
+  }
+}
+
+.process-header__action{
+  display: inline-block;
+  //background: rgba($white, .6);
+  margin-bottom: 8px;
+  line-height: 1;
+  color: white;
+  font-weight: 600;
+  display: inline-flex;
+  border: 1px solid rgba($white,.8);
+  @include breakpoint(medium down){
+    margin-right: 1rem;
+  }
+  .action-title{
+    padding: .25rem 0 .25rem .5rem;
+  }
+  .action-icon{
+    background-color: rgba($white, .6);
+    fill: $body-font-color;
+    margin-left: .5rem;
+    display: flex;
+    align-items: center;
+    padding: 0 .25rem;
+  }
+  .icon{
+    width: 14px;
+    height: 14px;
+  }
+  &:hover{
+    color: white;
+    border-color: $primary;
+    .action-icon{
+      background-color: $primary;
+    }
+    .icon{
+      fill: $white;
+    }
+  }
+}
+
+.process-header__nav{
+  margin-top: auto;
+  z-index: 1;
+}
+
+// Process header home
+
+.process-header--home{
+  .process-header__container{
+    padding-top: 0;
+    padding-bottom: 0;
+    @include breakpoint(mediumlarge){
+      padding: 0 3rem; 
+    }
+  }
+  .process-header__main{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.process-header--home__cta{
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	margin-top: 3rem;
+	.button{
+		margin-bottom: 0;
+	}
+	
+}

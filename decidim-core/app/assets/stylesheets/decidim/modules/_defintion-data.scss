@@ -1,0 +1,54 @@
+.definition-data{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.definition-data__item{
+	display: block;
+	padding: .75rem .5rem;
+  border-bottom: $border;
+  flex-basis: 100%;
+	&:last-child{
+		border-bottom: 0;
+	}
+}
+
+.definition-data__item--double{
+  display: inline-block;
+  flex-basis: 50%;
+  width: 50%;
+  border-right: $border;
+  &:nth-of-type(even){
+    border-right: 0;
+  }
+  &:nth-last-child(2):nth-child(odd){
+		border-bottom: 0;
+	}
+}
+
+.definition-data__title{
+	display: block;
+	text-transform: uppercase;
+  font-size: 85%;
+  line-height: 1;
+  margin-bottom: .25rem;
+  color: $muted;
+}
+
+.definition-data__number{
+  display: block;
+  line-height: 1;
+  font-weight: 600;
+  font-size: rem-calc(20);
+  color: $body-font-color;
+  margin-bottom: .2rem;
+}
+
+.definition-data__text{
+  display: block;
+  margin: .5rem;
+  color: $body-font-color;
+  text-transform: none;
+  font-size: 1rem;
+  line-height: $global-lineheight;
+}

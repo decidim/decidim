@@ -45,10 +45,8 @@ module Decidim
           end
 
           it "sends a custom email", perform_enqueued: true do
-            expect { command.call }.to change { ActionMailer::Base.deliveries.count }.by(1)
-
-            last_delivery_body = ActionMailer::Base.deliveries.last.body.encoded
-            expect(last_delivery_body).to include(URI.encode_www_form(["/admin"]))
+            expect { command.call }.to change { emails.count }.by(1)
+            expect(last_email_body).to include(URI.encode_www_form(["/admin"]))
           end
         end
 
