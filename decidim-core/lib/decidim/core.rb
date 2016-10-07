@@ -4,6 +4,9 @@ require "decidim/core/version"
 
 # Decidim configuration.
 module Decidim
+  autoload :TranslatableAttributes, "decidim/translatable_attributes"
+  autoload :FormBuilder, "decidim/form_builder"
+
   @config = OpenStruct.new
 
   def self.setup
