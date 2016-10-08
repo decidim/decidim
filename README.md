@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/codegram/decidim.png?label=ready&title=Ready)](https://waffle.io/codegram/decidim)
 # Decidim
 
 [![Gem Version](https://badge.fury.io/rb/decidim.svg)](https://badge.fury.io/rb/decidim)
