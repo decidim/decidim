@@ -9,7 +9,6 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | bash && \
 
 ADD Gemfile /tmp/Gemfile
 ADD Gemfile.lock /tmp/Gemfile.lock
-ADD common_gemfile.rb /tmp/common_gemfile.rb
 ADD decidim.gemspec /tmp/decidim.gemspec
 
 ADD decidim-core/decidim-core.gemspec /tmp/decidim-core/decidim-core.gemspec

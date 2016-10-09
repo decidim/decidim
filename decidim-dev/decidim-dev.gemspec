@@ -19,12 +19,11 @@ Gem::Specification.new do |s|
 
   s.add_dependency "factory_girl_rails"
   s.add_dependency "database_cleaner", "~> 1.5.0"
-  s.add_dependency "capybara", "~> 2.4"
+  s.add_dependency "capybara", "~> 2.10.0"
   s.add_dependency "rspec-rails", "~> 3.5"
   s.add_dependency "byebug"
   s.add_dependency "wisper-rspec"
-  s.add_dependency "pg"
-  s.add_dependency "listen"
+  s.add_dependency "listen", "~> 3.1.0"
   s.add_dependency "launchy"
   s.add_dependency "i18n-tasks", "~> 0.9.5"
 end
