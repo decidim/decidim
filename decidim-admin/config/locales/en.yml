@@ -12,6 +12,14 @@ en:
       menu:
         dashboard: Dashboard
         participatory_processes: Participatory processes
+      models:
+        participatory_process:
+          fields:
+            created_at: Created at
+            title: Title
+          name: Participatory process
+          validations:
+            slug_uniqueness: Another participatory process with the same slug already exists
       participatory_processes:
         create:
           error: There was an error creating a new participatory process.
@@ -27,14 +35,6 @@ en:
         update:
           error: There was an error when updating this participatory process.
           success: Participatory process updated successfully
-      models:
-        participatory_process:
-          fields:
-            created_at: Created at
-            title: Title
-          name: Participatory process
-          validations:
-            slug_uniqueness: Another participatory process with the same slug already exists
       titles:
         dashboard: Dashboard
         participatory_processes: Participatory processes

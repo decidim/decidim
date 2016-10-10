@@ -5,6 +5,7 @@ module Decidim
     # RegistrationsController so we can specify a custom layout.
     class RegistrationsController < ::Devise::RegistrationsController
       include Decidim::NeedsOrganization
+      include Decidim::LocaleSwitcher
       layout "application"
       before_action :configure_permitted_parameters
 
