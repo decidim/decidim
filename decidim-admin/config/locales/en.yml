@@ -2,7 +2,39 @@
 en:
   decidim:
     admin:
+      actions:
+        confirm_destroy: Are you sure you want to delete this?
+        destroy: Destroy
+        edit: Edit
+        new: New %{name}
+        title: Actions
+        unauthorized: You are not authorized to perform this action
       menu:
         dashboard: Dashboard
+        participatory_processes: Participatory processes
+      participatory_processes:
+        create:
+          error: There was an error creating a new participatory process.
+          success: Participatory process created successfully
+        destroy:
+          success: Participatory process successfully destroyed
+        edit:
+          title: Edit participatory process
+          update: Update participatory process
+        new:
+          create: Create participatory process
+          title: New participatory process
+        update:
+          error: There was an error when updating this participatory process.
+          success: Participatory process updated successfully
+      models:
+        participatory_process:
+          fields:
+            created_at: Created at
+            title: Title
+          name: Participatory process
+          validations:
+            slug_uniqueness: Another participatory process with the same slug already exists
       titles:
         dashboard: Dashboard
+        participatory_processes: Participatory processes

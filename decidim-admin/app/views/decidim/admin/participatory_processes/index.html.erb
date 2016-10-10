@@ -1,0 +1,34 @@
+<% content_for :title do %>
+  <h2><%= t "decidim.admin.titles.participatory_processes" %></h2>
+<% end %>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process.name", scope: "decidim.admin")), ['new', 'participatory_process'], class: 'new' %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= t("models.participatory_process.fields.title", scope: "decidim.admin") %></th>
+      <th><%= t("models.participatory_process.fields.created_at", scope: "decidim.admin") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @participatory_processes.each do |process| %>
+      <tr>
+        <td>
+          <%= link_to process.title, process %><br />
+        </td>
+        <td>
+          <%= l process.created_at, format: :short %>
+        </td>
+        <td class="actions">
+          <%= link_to_if policy(process).edit?, t("actions.edit", scope: "decidim.admin"), ['edit', process] %>
+
+          <%= link_to_if policy(process).destroy?, t("actions.destroy", scope: "decidim.admin"), process, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
