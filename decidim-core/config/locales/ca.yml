@@ -1,0 +1,42 @@
+---
+ca:
+  decidim:
+    home:
+      show:
+        register: Registra't
+        welcome: Benvingut/da a %{organization}!
+    menu:
+      home: Inici
+  devise:
+    mailer:
+      invitation_instructions:
+        accept: Acceptar invitació
+        accept_until: Aquesta invitació caducarà el dia %{due_date}.
+        hello: Hola %{email}
+        ignore: |-
+          Si no vols acceptar la invitació, ignora aquest correu.<br />
+          El teu compte no es crearà fins que no accedeixis a l'enllaç de sota i triis la teva contrasenya.
+        someone_invited_you: Algú t'ha convidat a %{application}, pots acceptar la invitació amb l'enllaç a continuació.
+  layouts:
+    decidim:
+      footer:
+        about: Quant a Decidim
+        accessibility: Accessibilitat
+        made_with_open_source: Aquesta web està feta amb <a target="_blank" href="https://github.com/codegram/decidim">software lliure</a>.
+        terms_of_use: Termes i condicions
+      header:
+        close_menu: Tancar menú
+        navigation: Navegació
+        sign_in: Entra
+        sign_out: Surt
+        sign_up: Registra't
+  locales:
+    ca: Català
+    en: English
+    es: Castellano
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %d, %Y %I:%M %p"

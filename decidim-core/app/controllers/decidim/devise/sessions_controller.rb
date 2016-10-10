@@ -4,6 +4,7 @@ module Decidim
     # Custom Devise SessionsController to avoid namespace problems.
     class SessionsController < ::Devise::SessionsController
       include Decidim::NeedsOrganization
+      include Decidim::LocaleSwitcher
       layout "application"
     end
   end

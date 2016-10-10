@@ -4,6 +4,7 @@ module Decidim
     # Custom Devise ConfirmationsController to avoid namespace problems.
     class ConfirmationsController < ::Devise::ConfirmationsController
       include Decidim::NeedsOrganization
+      include Decidim::LocaleSwitcher
       layout "application"
     end
   end

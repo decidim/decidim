@@ -30,6 +30,10 @@ en:
         sign_in: Sign In
         sign_out: Sign out
         sign_up: Sign Up
+  locales:
+    en: English
+    ca: Català
+    es: Castellano
   time:
     formats:
       devise:
