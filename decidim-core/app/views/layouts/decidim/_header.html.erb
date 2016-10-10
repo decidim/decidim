@@ -41,6 +41,31 @@
                 <%= icon "menu", aria_label: t('.navigation'), role: "img" %>
               </button>
             </div>
+            <% if current_user %>
+              <div class="topbar__dropmenu topbar__user__logged">
+                <ul class="dropdown menu" data-dropdown-menu>
+                  <li class="is-dropdown-submenu-parent show-for-medium">
+                    <%= link_to current_user.name, root_path %>
+                    <ul class="menu is-dropdown-subeenu js-append usermenu-off-canvas">
+                      <li><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: "sign-out-link" %></li>
+                    </ul>
+                    <span data-set="nav-login-holder" class="show-for-medium">
+                      <!-- Repeated due to dropdown limitations -->
+                      <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
+                        <li><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: "sign-out-link" %></li>
+                      </ul>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            <% else %>
+              <div class="topbar__user show-for-medium" data-set="nav-login-holder">
+                  <div class="topbar__user__login js-append">
+                    <%= link_to t('.sign_up'), new_user_registration_path, class: "sign-up-link" %>
+                    <%= link_to t('.sign_in'), new_user_session_path, class: "sign-in-link" %>
+                  </div>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="show-for-medium" data-set="nav-holder">

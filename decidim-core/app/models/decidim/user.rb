@@ -11,7 +11,7 @@ module Decidim
 
     ROLES = %w(admin moderator official).freeze
 
-    validates :organization, presence: true
+    validates :organization, :name, presence: true
     validate :all_roles_are_valid
 
     # Public: Allows customizing the invitation instruction email content when

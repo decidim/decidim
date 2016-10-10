@@ -27,6 +27,9 @@ en:
       header:
         close_menu: Close menu
         navigation: Navigation
+        sign_in: Sign In
+        sign_out: Sign out
+        sign_up: Sign Up
   time:
     formats:
       devise:

@@ -20,6 +20,7 @@ describe "Organizations", type: :feature do
       it "creates a new organization" do
         fill_in "Name", with: "Citizen Corp"
         fill_in "Host", with: "www.citizen.corp"
+        fill_in "Organization admin name", with: "City Mayor"
         fill_in "Organization admin email", with: "mayor@citizen.corp"
         click_button "Create organization & invite admin"
 

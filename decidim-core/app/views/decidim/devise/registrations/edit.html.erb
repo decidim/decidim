@@ -25,6 +25,10 @@
     <%= f.password_field :current_password %>
   </div>
 
+  <div class="field">
+    <%= f.text_field :name %>
+  </div>
+
   <div><%= f.submit t("devise.registrations.edit.update") %></div>
 <% end %>
 

@@ -46,6 +46,7 @@ module Decidim
       def invite_admin(organization)
         Decidim::User.invite!(
           {
+            name: form.organization_admin_name,
             email: form.organization_admin_email,
             organization: organization,
             roles: ["admin"]

@@ -5,5 +5,6 @@
 # end
 
 namespace :decidim do
+  # Install migrations from Decidim to the app.
   task upgrade: ["railties:install:migrations"]
 end
