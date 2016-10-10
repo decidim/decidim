@@ -1,0 +1,40 @@
+---
+ca:
+  decidim:
+    admin:
+      actions:
+        confirm_destroy: Segur que ho vols eliminar?
+        destroy: Eliminar
+        edit: Editar
+        new: Nou %{name}
+        title: Accions
+        unauthorized: No tens permís per realitzar aquesta acció.
+      menu:
+        dashboard: Tauler de control
+        participatory_processes: Processos participatius
+      models:
+        participatory_process:
+          fields:
+            created_at: Data de creació
+            title: Títol
+          name: Procés participatiu
+          validations:
+            slug_uniqueness: Ja existeix un altre procés participatiu amb el mateix identificador
+      participatory_processes:
+        create:
+          error: S'ha produït un error en crear un nou procés participatiu.
+          success: El procés participatiu s'ha creat correctament.
+        destroy:
+          success: El procés participatiu s'ha eliminat correctament.
+        edit:
+          title: Editar procés participatiu
+          update: Actualitzar procés participatiu
+        new:
+          create: Crear procés participatiu
+          title: Nou procés participatiu
+        update:
+          error: S'ha produït un error en l'actualització d'aquest procés participatiu.
+          success: El procés participatiu s'ha actualitzat correctament.
+      titles:
+        dashboard: Tauler de control
+        participatory_processes: Processos participatius

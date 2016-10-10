@@ -31,8 +31,8 @@ en:
         sign_out: Sign out
         sign_up: Sign Up
   locales:
-    en: English
     ca: Català
+    en: English
     es: Castellano
   time:
     formats:

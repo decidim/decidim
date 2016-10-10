@@ -1,0 +1,32 @@
+---
+es:
+  decidim:
+    home:
+      show:
+        register: Regístrate
+        welcome: Bienvenido/da %{organization}!
+    menu:
+      home: Inicio
+  layouts:
+    decidim:
+      footer:
+        about: En cuanto a Decidim
+        accessibility: Accesibilidad
+        made_with_open_source: Esta web está hecha con <a target="_blank" href="https://github.com/codegram/decidim">software libre</a>.
+        terms_of_use: Términos y condiciones
+      header:
+        close_menu: Cerrar menú
+        navigation: Navegación
+        sign_in: Entra
+        sign_out: Sale
+        sign_up: Regístrate
+  locales:
+    ca: Català
+    en: English
+    es: Castellano
+  time:
+    formats:
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "% B% d,% Y% I:% M% p"
