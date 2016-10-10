@@ -13,6 +13,7 @@ if !Rails.env.production? || ENV["SEED"]
     password_confirmation: "decidim123456",
     organization: staging_organization,
     confirmed_at: Time.current,
+    locale: I18n.default_locale,
     roles: ["admin"]
   )
 
@@ -22,6 +23,7 @@ if !Rails.env.production? || ENV["SEED"]
     password: "decidim123456",
     password_confirmation: "decidim123456",
     confirmed_at: Time.current,
+    locale: I18n.default_locale,
     organization: staging_organization
   )
 

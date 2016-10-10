@@ -22,5 +22,18 @@ describe "Locales", type: :feature do
 
       expect(page).to have_content("Benvingut/da a #{organization.name}")
     end
+
+    context "with a signed in user" do
+      let(:user) { create(:user, :confirmed, locale: "ca") }
+
+      before do
+        login_as user, scope: :user
+        visit decidim.root_path
+      end
+
+      it "uses the user's locale" do
+        expect(page).to have_content("Benvingut/da a #{organization.name}")
+      end
+    end
   end
 end

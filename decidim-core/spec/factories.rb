@@ -20,6 +20,7 @@ FactoryGirl.define do
     password_confirmation "password1234"
     name                  "Responsible Citizen"
     organization
+    locale                "en"
 
     trait :confirmed do
       confirmed_at { Time.current }

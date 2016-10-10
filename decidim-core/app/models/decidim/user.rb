@@ -12,6 +12,7 @@ module Decidim
     ROLES = %w(admin moderator official).freeze
 
     validates :organization, :name, presence: true
+    validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
     validate :all_roles_are_valid
 
     # Public: Allows customizing the invitation instruction email content when

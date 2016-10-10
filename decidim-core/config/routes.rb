@@ -12,5 +12,6 @@ Decidim::Core::Engine.routes.draw do
                registrations: "decidim/devise/registrations",
                passwords: "decidim/devise/passwords"
              }
+  resource :locale, only: [:create]
   root to: "home#show"
 end
