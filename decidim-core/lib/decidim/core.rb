@@ -6,6 +6,7 @@ require "decidim/core/version"
 module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :FormBuilder, "decidim/form_builder"
+  autoload :DeviseFailureApp, "decidim/devise_failure_app"
 
   @config = OpenStruct.new
 
