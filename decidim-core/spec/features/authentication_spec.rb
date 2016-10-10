@@ -12,7 +12,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
   describe "Sign Up" do
     it "creates a new User" do
-      click_link "Register"
+      find(".sign-up-link").click
 
       within ".new_user" do
         fill_in :user_email, with: "user@example.org"
@@ -59,9 +59,9 @@ describe "Authentication", type: :feature, perform_enqueued: true do
   context "When a user is already registered" do
     let(:user) { create(:user, :confirmed, organization: organization) }
 
-    describe "Log in" do
+    describe "Sign in" do
       it "authenticates an existing User" do
-        visit decidim.new_user_session_path
+        find(".sign-in-link").click
 
         within ".new_user" do
           fill_in :user_email, with: user.email
@@ -103,6 +103,20 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         end
 
         expect(page).to have_content("password has been changed successfully")
+      end
+    end
+
+    describe "Sign Out" do
+      before do
+        login_as user, scope: :user
+        visit decidim.root_path
+      end
+
+      it "signs out the user" do
+        all(".sign-out-link").first.click
+
+        expect(page).to have_content("Signed out successfully.")
+        expect(page).to_not have_content(user.name)
       end
     end
   end
