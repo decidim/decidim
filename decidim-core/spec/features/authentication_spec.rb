@@ -16,6 +16,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
       within ".new_user" do
         fill_in :user_email, with: "user@example.org"
+        fill_in :user_name, with: "Responsible Citizen"
         fill_in :user_password, with: "123456"
         fill_in :user_password_confirmation, with: "123456"
         find("*[type=submit]").click
@@ -69,6 +70,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         end
 
         expect(page).to have_content("Signed in successfully")
+        expect(page).to have_content(user.name)
       end
     end
 

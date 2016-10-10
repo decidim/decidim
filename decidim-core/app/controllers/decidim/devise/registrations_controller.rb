@@ -6,8 +6,13 @@ module Decidim
     class RegistrationsController < ::Devise::RegistrationsController
       include Decidim::NeedsOrganization
       layout "application"
+      before_action :configure_permitted_parameters
 
       protected
+
+      def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+      end
 
       # Called before resource.save
       def build_resource(hash = nil)

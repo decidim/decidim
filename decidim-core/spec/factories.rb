@@ -18,6 +18,7 @@ FactoryGirl.define do
     sequence(:email)      { |n| "user#{n}@citizen.corp" }
     password              "password1234"
     password_confirmation "password1234"
+    name                  "Responsible Citizen"
     organization
 
     trait :confirmed do
