@@ -31,7 +31,14 @@ module Decidim
       # attrs - a list of N attributes of the `record`.
       def display_for(record, *attrs)
         attrs.map do |attr|
-          display_label(record, attr) + display_value(record, attr)
+          if record.column_for_attribute(attr).type == :hstore
+            I18n.available_locales.map do |locale|
+              content_tag(:dt, record.class.human_attribute_name(attr) + " (#{locale})") +
+                display_value(record, attr, locale)
+            end.reduce(:+)
+          else
+            display_label(record, attr) + display_value(record, attr)
+          end
         end.reduce(:+)
       end
 
@@ -43,14 +50,12 @@ module Decidim
       end
 
       # Private: Holds the logic to render the attribute value.
-      def display_value(record, attr)
-        association = record.class.reflect_on_all_associations.detect { |a| a.name == attr }
-        if association.present?
-          title = record.send(association.name).try(:name) || record.send(association.name).try(:title)
-          content_tag(:dd, title)
-        else
-          content_tag(:dd, record.send(attr).try(:html_safe))
-        end
+      def display_value(record, attr, locale = nil)
+        return I18n.with_locale(locale) do
+          content_tag(:dd, translated_attribute(record.send(attr)).try(:html_safe))
+        end if locale
+
+        content_tag(:dd, record.send(attr).try(:html_safe))
       end
     end
   end

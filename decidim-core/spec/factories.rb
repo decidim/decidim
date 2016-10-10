@@ -6,11 +6,11 @@ FactoryGirl.define do
   end
 
   factory :process, class: Decidim::ParticipatoryProcess do
-    sequence(:title) { |n| "Participatory Process ##{n}" }
-    sequence(:slug) { |n| "participatory-process-#{n}" }
-    subtitle          "Subtitle"
-    short_description "Short description"
-    description       "Description"
+    sequence(:title) { |n| { en: "Participatory Process ##{n}", ca: "Procés participatiu ##{n}", es: "Proceso participativo ##{n}" } }
+    sequence(:slug) { |n| { en: "participatory-process-#{n}" } }
+    subtitle          en: "Subtitle", ca: "Subtítol", es: "Subtítulo"
+    short_description en: "Short description", ca: "Descripció curta", es: "Descripción corta"
+    description       en: "Description", ca: "Descripció", es: "Descripción"
     organization
   end
 

@@ -5,16 +5,20 @@ module Decidim
     # dashboard.
     #
     class ParticipatoryProcessForm < Rectify::Form
+      include TranslatableAttributes
+
+      translatable_attribute :title, String
+      translatable_attribute :subtitle, String
+      translatable_attribute :description, String
+      translatable_attribute :short_description, String
+
       mimic :participatory_process
 
-      attribute :title, String
-      attribute :subtitle, String
       attribute :slug, String
       attribute :hashtag, String
-      attribute :description, String
-      attribute :short_description, String
 
-      validates :title, :slug, :subtitle, :short_description, :description, presence: true
+      validates :slug, presence: true
+      translatable_validates :title, :subtitle, :description, :short_description, presence: true
 
       validate :slug, :slug_uniqueness
 
