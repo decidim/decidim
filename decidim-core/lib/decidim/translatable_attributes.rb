@@ -27,7 +27,7 @@ module Decidim
         attribute name, Hash, default: {}
 
         locales.each do |locale|
-          attribute_name = "#{name}_#{locale}"
+          attribute_name = "#{name}_#{locale}".gsub("-", "__")
 
           attribute attribute_name, type, *options
 
@@ -60,7 +60,7 @@ module Decidim
         fields = arguments[0..-2]
 
         localized_fields = fields.flat_map do |f|
-          locales.map { |locale| "#{f}_#{locale}" }
+          locales.map { |locale| "#{f}_#{locale}".gsub("-", "__") }
         end
 
         validation_arguments = localized_fields + [options]
@@ -80,7 +80,8 @@ module Decidim
 
     def translatable_attribute_getter(name, locale)
       field = public_send(name) || {}
-      field[locale.to_s] || field[locale.to_sym]
+      corrected_locale = locale.to_s.gsub("__", "-")
+      field[corrected_locale] || field[corrected_locale.to_sym]
     end
   end
 end
