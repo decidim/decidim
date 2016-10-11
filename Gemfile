@@ -14,4 +14,4 @@ gem "rspec_junit_formatter", "0.2.3"
 gem "simplecov", "~> 0.12"
 gem "codecov", "~> 0.1.5"
 
-eval(File.read(File.dirname(__FILE__) + '/Gemfile.common'))
+eval(File.read(File.join(File.dirname(__FILE__), "Gemfile.common")))

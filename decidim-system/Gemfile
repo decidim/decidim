@@ -3,4 +3,4 @@ source 'https://rubygems.org'
 gem 'decidim', path: '..'
 gemspec
 
-eval(File.read(File.dirname(__FILE__) + '/../Gemfile.common'))
+eval(File.read(File.join(File.dirname(__FILE__), "..", "Gemfile.common")))
