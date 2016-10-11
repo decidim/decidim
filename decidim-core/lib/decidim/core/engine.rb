@@ -17,6 +17,7 @@ require "jbuilder"
 require "active_link_to"
 require "rectify"
 require "roadie-rails"
+require "carrierwave"
 
 module Decidim
   module Core

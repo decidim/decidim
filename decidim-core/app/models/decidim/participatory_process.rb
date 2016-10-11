@@ -10,5 +10,8 @@ module Decidim
 
     validates :slug, presence: true
     validates :slug, uniqueness: true
+
+    mount_uploader :hero_image, Decidim::HeroImageUploader
+    mount_uploader :banner_image, Decidim::BannerImageUploader
   end
 end
