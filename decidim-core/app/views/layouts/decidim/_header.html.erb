@@ -43,7 +43,7 @@
                   <% if available_locales.length > 1 %>
                     <ul class="menu is-dropdown-submenu">
                     <% available_locales.each do |locale| %>
-                      <li><%= link_to t(locale, scope: "locales"), request.parameters.merge(locale: locale) %></li>
+                      <li><%= link_to t(locale, scope: "locales"), locale_path(locale: locale), method: :post%></li>
                     <% end %>
                   <% end %>
                   </ul>

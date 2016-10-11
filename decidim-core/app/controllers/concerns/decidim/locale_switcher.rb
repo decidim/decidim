@@ -17,6 +17,8 @@ module Decidim
       def set_locale
         I18n.locale = if params["locale"] && available_locales.include?(params["locale"])
                         params["locale"]
+                      elsif current_user && current_user.locale.present?
+                        current_user.locale
                       else
                         I18n.default_locale
                       end
