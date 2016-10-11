@@ -1,0 +1,3 @@
+<% available_locales.each do |locale| %>
+  <link rel="alternate" href="<%= url_for(request.parameters.merge(locale: locale)) %>" hreflang="<%= locale %>" />
+<% end %>
