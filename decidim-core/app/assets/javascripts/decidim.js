@@ -15,9 +15,8 @@
 //= require owl.carousel.min
 //= require svg4everybody.min
 //= require appendAround
-//= require jquery.turbolinks
 
-$(function(){
+$(document).on("turbolinks:load", function() {
   $(document).foundation();
   $(".js-append").appendAround();
   svg4everybody();
