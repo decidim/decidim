@@ -17,12 +17,20 @@ describe "Manage participatory processes", type: :feature do
     find(".actions .new").click
 
     within ".new_participatory_process" do
-      fill_in :participatory_process_title, with: "My participatory process"
-      fill_in :participatory_process_subtitle, with: "subtitle"
+      fill_in :participatory_process_title_en, with: "My participatory process"
+      fill_in :participatory_process_title_es, with: "Mi proceso participativo"
+      fill_in :participatory_process_title_ca, with: "El meu procés participatiu"
+      fill_in :participatory_process_subtitle_en, with: "Subtitle"
+      fill_in :participatory_process_subtitle_es, with: "Subtítulo"
+      fill_in :participatory_process_subtitle_ca, with: "Subtítol"
       fill_in :participatory_process_slug, with: "slug"
       fill_in :participatory_process_hashtag, with: "#hashtag"
-      fill_in :participatory_process_short_description, with: "short descirption"
-      fill_in :participatory_process_description, with: "A longer description"
+      fill_in :participatory_process_short_description_en, with: "Short description"
+      fill_in :participatory_process_short_description_es, with: "Descripción corta"
+      fill_in :participatory_process_short_description_ca, with: "Descripció curta"
+      fill_in :participatory_process_description_en, with: "A longer description"
+      fill_in :participatory_process_description_es, with: "Descripción más larga"
+      fill_in :participatory_process_description_ca, with: "Descripció més llarga"
 
       find("*[type=submit]").click
     end
@@ -37,12 +45,14 @@ describe "Manage participatory processes", type: :feature do
   end
 
   it "updates an participatory_process" do
-    within find("tr", text: participatory_process.title) do
+    within find("tr", text: participatory_process.title["en"]) do
       click_link "Edit"
     end
 
     within ".edit_participatory_process" do
-      fill_in :participatory_process_title, with: "My new title"
+      fill_in :participatory_process_title_en, with: "My new title"
+      fill_in :participatory_process_title_es, with: "Mi nuevo título"
+      fill_in :participatory_process_title_ca, with: "El meu nou títol"
 
       find("*[type=submit]").click
     end
@@ -64,7 +74,7 @@ describe "Manage participatory processes", type: :feature do
     end
 
     it "deletes a participatory_process" do
-      within find("tr", text: participatory_process2.title) do
+      within find("tr", text: participatory_process2.title["en"]) do
         click_link "Destroy"
       end
 

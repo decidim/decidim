@@ -4,6 +4,8 @@ module Decidim
     # Custom helpers, scoped to the admin panel.
     #
     module ApplicationHelper
+      include Decidim::TranslationsHelper
+
       def title
         current_organization.name
       end

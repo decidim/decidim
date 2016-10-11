@@ -8,7 +8,7 @@ module Decidim
   class ParticipatoryProcess < ApplicationRecord
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
 
-    validates :title, :slug, :subtitle, :short_description, :description, presence: true
+    validates :slug, presence: true
     validates :slug, uniqueness: true
   end
 end

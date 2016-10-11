@@ -18,7 +18,7 @@
     <% @participatory_processes.each do |process| %>
       <tr>
         <td>
-          <%= link_to process.title, process %><br />
+          <%= link_to translated_attribute(process.title), process %><br />
         </td>
         <td>
           <%= l process.created_at, format: :short %>
