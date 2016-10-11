@@ -16,7 +16,7 @@ env:
   - GEM=decidim-system DB=postgres
 
 before_install:
-  - export BUNDLE_GEMFILE="`pwd`/Gemfile"
+  - export BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
   - cd $GEM; 
 
 script:

@@ -2,4 +2,4 @@
 .byebug_history
 pkg/
 vendor/bundle
-decidim-*/Gemfile.lock
+*/Gemfile.lock

@@ -8,6 +8,7 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | bash && \
     apt-get install -y nodejs
 
 ADD Gemfile /tmp/Gemfile
+ADD Gemfile.common /tmp/Gemfile.common
 ADD Gemfile.lock /tmp/Gemfile.lock
 ADD decidim.gemspec /tmp/decidim.gemspec
 
