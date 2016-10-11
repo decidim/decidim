@@ -17,6 +17,12 @@ ca:
           Si no vols acceptar la invitació, ignora aquest correu.<br />
           El teu compte no es crearà fins que no accedeixis a l'enllaç de sota i triïs la teva contrasenya.
         someone_invited_you: Algú t'ha convidat a %{application}, pots acceptar la invitació amb l'enllaç a continuació.
+      organization_admin_invitation_instructions:
+        subject: T'han convidat a administrar %{organization}
+      password_change:
+        greeting: Hola %{recipient}!
+        message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
+        subject: Contrasenya canviada
   layouts:
     decidim:
       footer:
