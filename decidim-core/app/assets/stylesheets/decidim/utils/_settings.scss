@@ -49,9 +49,8 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #C24B29, //#dc0030,
-  //secondary: #777777,
-  secondary: #5295ad,//#74AABE,
+  primary: #ef604d,
+  secondary: #599aa6,
   success: #57d685,
   warning: #ffae00,
   alert: #ec5840,
@@ -539,7 +538,7 @@ $thumbnail-radius: $global-radius;
 
 $titlebar-background: $black;
 $titlebar-color: $white;
-$titlebar-padding: 0.5rem;
+$titlebar-padding: 1rem 0.5rem;
 $titlebar-text-font-weight: bold;
 $titlebar-icon-color: $white;
 $titlebar-icon-color-hover: $medium-gray;
