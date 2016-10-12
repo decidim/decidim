@@ -24,6 +24,7 @@ PATH
   specs:
     decidim-admin (0.0.1.alpha5)
       active_link_to (~> 1.0.0)
+      carrierwave (~> 1.0.0.beta)
       decidim-core (= 0.0.1.alpha5)
       devise (~> 4.2)
       devise-i18n (~> 1.1.0)
@@ -152,6 +153,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (1.0.0.beta)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     codecov (0.1.5)
       json
       simplecov
