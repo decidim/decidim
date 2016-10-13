@@ -1,0 +1,18 @@
+<div class="process-header process-header--home row column">
+  <div class="row column process-header__main"
+    style="background-image:url(<%= participatory_process.banner_image.url %>);">
+    <div class="process-header__container row">
+      <div class="columns mediumlarge-9 process-header__info">
+        <h1 class="text-highlight heading1">
+          <%= translated_attribute(participatory_process.title) %>
+        </h1>
+        <h2 class="text-highlight heading4">
+          <span class="process-header__hashtag">
+            <%= participatory_process.hashtag %>
+          </span>
+          <%= translated_attribute(participatory_process.subtitle) %>
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,15 @@
-<section class="extended hero" style="background-image:url(<%= asset_url("decidim/hero-home.jpg") %>);">
-  <div class="hero__container">
+<main class="wrapper">
+  <%= render partial: "process_header_home" %>
+  <div class="row column">
     <div class="row">
-      <div class="columns small-centered large-10">
-        <h1 class="text-highlight heading1 hero-heading">
-          HAH LOL
-        </h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="columns small-centered small-6 medium-4 mediumlarge-3">
-        <%= link_to 'lelelelelele', new_user_registration_path, class: "hero-cta button expanded large button--sc" %>
+      <div class="columns medium-7 mediumlarge-8">
+        <div class="section">
+          <div class="lead">
+            <%= translated_attribute(participatory_process.short_description).html_safe %>
+          </div>
+          <%= translated_attribute(participatory_process.description).html_safe %>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</main>

@@ -8,7 +8,7 @@ module Decidim
     private
 
     def participatory_process
-      @participatory_process ||= processes.find(parms[:id])
+      @participatory_process ||= participatory_processes.find(params[:id])
     end
 
     def participatory_processes
