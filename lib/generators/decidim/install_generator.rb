@@ -67,8 +67,10 @@ module Decidim
         append_file "app/assets/javascripts/application.js", "//= require decidim"
         inject_into_file "app/assets/stylesheets/application.css",
                          before: "*= require_tree ." do
-          "*= require decidim\n"
+          "*= require decidim\n "
         end
+
+        template "decidim.scss.erb", "app/assets/stylesheets/decidim.scss", force: true
       end
 
       def smtp_environment
@@ -115,6 +117,11 @@ module Decidim
         rake "db:create"
         rake "db:migrate"
         rake "db:test:prepare"
+      end
+
+      def scss_variables
+        variables = File.join(Gem.loaded_specs["decidim-core"].full_gem_path, "app", "assets", "stylesheets", "decidim", "_variables.scss")
+        File.read(variables).split("\n").map { |line| "// #{line}" }.join("\n")
       end
     end
   end
