@@ -19,6 +19,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         fill_in :user_name, with: "Responsible Citizen"
         fill_in :user_password, with: "123456"
         fill_in :user_password_confirmation, with: "123456"
+        check :user_tos_agreement
         find("*[type=submit]").click
       end
 

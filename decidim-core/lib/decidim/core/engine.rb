@@ -19,6 +19,7 @@ require "rectify"
 require "roadie-rails"
 require "carrierwave"
 require "high_voltage"
+require "rails-i18n"
 
 module Decidim
   module Core

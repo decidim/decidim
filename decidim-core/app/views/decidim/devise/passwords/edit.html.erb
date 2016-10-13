@@ -1,20 +1,35 @@
-<h2><%= t("devise.passwords.edit.change_your_password") %></h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "off" %>
+<main class="wrapper">
+<div class="row collapse">
+  <div class="row collapse">
+    <div class="columns large-8 large-centered text-center page-title">
+      <h1><%= t("devise.passwords.edit.change_your_password") %></h1>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+  <div class="row">
+    <div class="columns medium-7 large-5 medium-centered">
+      <div class="card">
+        <div class="card__content">
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "register-form new_user" }) do |f| %>
+            <%= f.hidden_field :reset_password_token %>
 
-  <div class="actions">
-    <%= f.submit t("devise.passwords.edit.change_my_password") %>
-  </div>
-<% end %>
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
 
-<%= render "decidim/devise/shared/links" %>
+            <div class="field">
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit t("devise.passwords.edit.change_my_password", class: "button expanded") %>
+            </div>
+          <% end %>
+
+          <%= render "decidim/devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>

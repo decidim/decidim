@@ -23,6 +23,7 @@ FactoryGirl.define do
     name                  "Responsible Citizen"
     organization
     locale                "en"
+    tos_agreement         "1"
 
     trait :confirmed do
       confirmed_at { Time.current }

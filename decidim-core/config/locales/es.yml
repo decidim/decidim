@@ -5,16 +5,27 @@ es:
       decidim/user:
         current_password: Contraseña actual
         email: Correo electrónico
+        name: Nombre de usuario
         password: Contraseña
         password_confirmation: Confirmación de la contraseña
         remember_me: Recordarme
+        tos_agreement: Términos y condiciones de uso
     models:
       decidim/user: Usuario
   decidim:
     devise:
+      registrations:
+        new:
+          already_have_an_account?: "¿Ya tienes una cuenta?"
+          sign_in: Entra
+          sign_up: Regístrate
+          subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
+          terms: los términos y condiciones de uso
+          tos_agreement: Al registrarte aceptas %{link}.
+          username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: Eres nuevo en la plataforma?
+          are_you_new?: ¿Eres nuevo en la plataforma?
           register: Créate una cuenta
     menu:
       home: Inicio

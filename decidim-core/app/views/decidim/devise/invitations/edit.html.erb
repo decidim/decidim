@@ -1,14 +1,29 @@
-<h2><%= t "devise.invitations.edit.header" %></h2>
+<main class="wrapper">
+<div class="row collapse">
+  <div class="row collapse">
+    <div class="columns large-8 large-centered text-center page-title">
+      <h1><%= t "devise.invitations.edit.header" %></h1>
+    </div>
+  </div>
 
-<%= form_for resource, as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put } do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :invitation_token %>
+  <div class="row">
+    <div class="columns medium-7 large-5 medium-centered">
+      <div class="card">
+        <div class="card__content">
+          <%= form_for resource, as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
+            <%= f.hidden_field :invitation_token %>
 
-  <% if f.object.class.require_password_on_accepting %>
-  <%= f.password_field :password %></p>
+            <% if f.object.class.require_password_on_accepting %>
+              <%= f.password_field :password %></p>
 
-  <%= f.password_field :password_confirmation %></p>
-  <% end %>
+              <%= f.password_field :password_confirmation %></p>
+            <% end %>
 
-  <p><%= f.submit t("devise.invitations.edit.submit_button") %></p>
-<% end %>
+            <p><%= f.submit t("devise.invitations.edit.submit_button", class: "button expanded") %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
