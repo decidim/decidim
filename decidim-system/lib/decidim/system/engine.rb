@@ -19,11 +19,8 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::System
 
-      config.to_prepare do
-        Rails.application.config.assets.precompile += %w(
-          decidim/system.js
-          decidim/system.css
-        )
+      initializer "decidim_system.assets" do |app|
+        app.config.assets.precompile += %w(decidim_system_manifest.js)
       end
     end
   end

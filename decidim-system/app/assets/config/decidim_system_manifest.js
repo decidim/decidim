@@ -1,2 +1,3 @@
-//= link_directory ../javascripts/decidim/system .js
-//= link_directory ../stylesheets/decidim/system .css
+//= link decidim/system/application.js
+//= link decidim/system/application.css
+//= link_directory ../images/decidim/system/
