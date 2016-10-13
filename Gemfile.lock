@@ -12,19 +12,19 @@ GIT
 PATH
   remote: .
   specs:
-    decidim (0.0.1.alpha4)
-      decidim-admin (= 0.0.1.alpha4)
-      decidim-core (= 0.0.1.alpha4)
-      decidim-system (= 0.0.1.alpha4)
+    decidim (0.0.1.alpha5)
+      decidim-admin (= 0.0.1.alpha5)
+      decidim-core (= 0.0.1.alpha5)
+      decidim-system (= 0.0.1.alpha5)
       rails (~> 5.0.0)
       rails-i18n (~> 5.0.0)
 
 PATH
   remote: decidim-admin
   specs:
-    decidim-admin (0.0.1.alpha4)
+    decidim-admin (0.0.1.alpha5)
       active_link_to (~> 1.0.0)
-      decidim-core (= 0.0.1.alpha4)
+      decidim-core (= 0.0.1.alpha5)
       devise (~> 4.2)
       devise-i18n (~> 1.1.0)
       devise_invitable (~> 1.7.0)
@@ -41,7 +41,7 @@ PATH
 PATH
   remote: decidim-core
   specs:
-    decidim-core (0.0.1.alpha4)
+    decidim-core (0.0.1.alpha5)
       active_link_to (~> 1.0.0)
       devise (~> 4.2)
       devise-i18n (~> 1.1.0)
@@ -60,7 +60,7 @@ PATH
 PATH
   remote: decidim-dev
   specs:
-    decidim-dev (0.0.1.alpha4)
+    decidim-dev (0.0.1.alpha5)
       byebug
       capybara (~> 2.10.0)
       database_cleaner (~> 1.5.0)
@@ -74,9 +74,9 @@ PATH
 PATH
   remote: decidim-system
   specs:
-    decidim-system (0.0.1.alpha4)
+    decidim-system (0.0.1.alpha5)
       active_link_to (~> 1.0.0)
-      decidim-core (= 0.0.1.alpha4)
+      decidim-core (= 0.0.1.alpha5)
       devise (~> 4.2)
       devise-i18n (~> 1.1.0)
       devise_invitable (~> 1.7.0)
