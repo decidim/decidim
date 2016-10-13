@@ -20,9 +20,7 @@ module Decidim
       isolate_namespace Decidim::System
 
       initializer "decidim_system.assets" do |app|
-        app.config.assets.precompile += %w(
-          decidim/system.js decidim/system.css decidim_system_manifest.js
-        )
+        app.config.assets.precompile += %w(decidim_system_manifest.js)
       end
     end
   end

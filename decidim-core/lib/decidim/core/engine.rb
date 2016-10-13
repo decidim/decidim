@@ -36,7 +36,7 @@ module Decidim
       end
 
       initializer "decidim.assets" do |app|
-        app.config.assets.precompile += %w(decidim_core_manifest.js decidim/email.css)
+        app.config.assets.precompile += %w(decidim_core_manifest.js)
       end
 
       initializer "decidim.default_form_builder" do |_app|
