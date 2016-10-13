@@ -17,6 +17,7 @@ require "foundation_rails_helper"
 require "jbuilder"
 require "active_link_to"
 require "rectify"
+require "roadie-rails"
 
 module Decidim
   module Core
@@ -42,6 +43,7 @@ module Decidim
       config.to_prepare do
         Rails.application.config.assets.precompile += %w(
           decidim_core_manifest.js
+          decidim/email.css
         )
       end
     end

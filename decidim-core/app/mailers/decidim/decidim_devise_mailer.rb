@@ -4,6 +4,10 @@ module Decidim
   # each role and use a localised version.
   class DecidimDeviseMailer < Devise::Mailer
     include LocalisedMailer
+    include Roadie::Rails::Automatic
+
+    layout "decidim/mailer"
+
     # Sends an email with the invitation instructions to a new user.
     #
     # user  - The User that has been invited.
@@ -16,8 +20,18 @@ module Decidim
         if opts[:invitation_instructions] == "organization_admin_invitation_instructions"
           opts[:subject] = I18n.t("devise.mailer.organization_admin_invitation_instructions.subject", organization: user.organization.name)
         end
+      end
 
-        devise_mail(user, opts[:invitation_instructions] || :invitation_instructions, opts)
+      devise_mail(user, opts[:invitation_instructions] || :invitation_instructions, opts)
+    end
+
+    private
+
+    # Overwrite devise_mail so we can inject the organization from the user.
+    def devise_mail(user, action, opts = {}, &block)
+      with_user(user) do
+        @organization = user.organization
+        super
       end
     end
   end

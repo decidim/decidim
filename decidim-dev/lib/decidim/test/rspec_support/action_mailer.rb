@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require "nokogiri"
 
 RSpec.configure do |config|
   config.before(:each) do
@@ -19,11 +20,11 @@ module MailerHelpers
   end
 
   def last_email_body
-    last_email.body.encoded
+    (last_email.body || last_email.html_part.body).encoded
   end
 
   def last_email_link
-    URI.extract(last_email_body.to_s, %w(http https)).last
+    Nokogiri::HTML(last_email_body).css("table.content a").last["href"]
   end
 end
 

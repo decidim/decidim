@@ -21,13 +21,8 @@ describe "Admin invite", type: :feature do
   end
 
   describe "Accept an invitation", perform_enqueued: true do
-    let(:email_link) do
-      last_delivery = ActionMailer::Base.deliveries.last.body.encoded
-      URI.extract(last_delivery).last
-    end
-
     it "asks for a password and redirects to the organization dashboard" do
-      visit email_link
+      visit last_email_link
 
       fill_in :user_password, with: "123456"
       fill_in :user_password_confirmation, with: "123456"

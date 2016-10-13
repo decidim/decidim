@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
   s.add_dependency "active_link_to", "~> 1.0.0"
   s.add_dependency "pg", "~> 0.19.0"
   s.add_dependency "redis", "~> 3.3.0"
+  s.add_dependency "roadie-rails", "~> 1.0"
 
   s.add_development_dependency "decidim-dev", Decidim.version
 end
