@@ -62,6 +62,10 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   }
   img{
     display: block;
+    max-width: 100px;
+    @include breakpoint(mediumlarge){
+      max-width: 140px;
+    }
   }
 }
 
@@ -245,6 +249,10 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   &:hover{
     background: $navbar-bg-hover;
     color: $navbar-color-hover;
+  }
+  
+  @include breakpoint(medium){
+    padding: .75em 2em;
   }
 }
 
