@@ -21,7 +21,7 @@ module Decidim
     end
 
     before do
-      allow(I18n).to receive(:available_locales).and_return %w(ca en)
+      allow(I18n).to receive(:available_locales).and_return %w(ca en de-CH)
     end
 
     let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
@@ -35,9 +35,11 @@ module Decidim
 
       expect(parsed.css("textarea[name='resource[name_en]']").first).to be
       expect(parsed.css("textarea[name='resource[name_en]']").first).to be
+      expect(parsed.css("textarea[name='resource[name_de__CH]']").first).to be
 
       expect(parsed.css("label[for='resource_name_en']").first).to be
       expect(parsed.css("label[for='resource_name_ca']").first).to be
+      expect(parsed.css("label[for='resource_name_de__CH']").first).to be
     end
   end
 end

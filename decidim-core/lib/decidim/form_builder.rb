@@ -17,7 +17,7 @@ module Decidim
         label = options[:label] || label_for(name)
         language = locale
 
-        send(type, "#{name}_#{locale}", options.merge(label: "#{label} (#{language})"))
+        send(type, "#{name}_#{locale.to_s.gsub("-", "__")}", options.merge(label: "#{label} (#{language})"))
       end.join.html_safe
     end
 
