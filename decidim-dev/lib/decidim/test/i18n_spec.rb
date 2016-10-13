@@ -15,4 +15,20 @@ RSpec.describe "I18n" do
     expect(unused_keys).to be_empty,
                            "#{unused_keys.leaves.count} unused i18n keys, run `i18n-tasks unused` to show them"
   end
+
+  it "is normalized" do
+    previous_locale_hashes = locale_hashes
+    i18n.normalize_store!
+    new_locale_hashes = locale_hashes
+
+    expect(previous_locale_hashes).to eq(new_locale_hashes),
+                                      "Please normalize your locale files with `i18n-tasks normalize`"
+  end
+
+  def locale_hashes
+    Dir.glob("config/locales/**/*.yml").inject({}) do |results, file|
+      md5 = Digest::MD5.file(file).hexdigest
+      results.merge(file => md5)
+    end
+  end
 end
