@@ -13,6 +13,8 @@ engines:
     exclude_fingerprints:
     - 645ddab80611224e15d61c8426285296
     - 82b4059b3b55d7b7f06d8aba6cb7b81a
+    - b0c92f6cd3876fc88891cbd4ff26faea
+    - 2804eaecd03c1e9786c9a6f7007dd61e
   eslint:
     enabled: true
   fixme:
