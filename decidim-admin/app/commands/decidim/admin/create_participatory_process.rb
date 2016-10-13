@@ -39,6 +39,8 @@ module Decidim
           hashtag: form.hashtag,
           description: form.description,
           short_description: form.short_description,
+          hero_image: form.hero_image,
+          banner_image: form.banner_image,
           organization: @organization
         )
       end

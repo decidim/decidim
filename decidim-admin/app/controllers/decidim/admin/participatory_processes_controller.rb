@@ -63,8 +63,10 @@ module Decidim
       end
 
       def destroy
-        @participatory_process = collection.find(params[:id]).destroy!
+        @participatory_process = collection.find(params[:id])
         authorize @participatory_process
+
+        @participatory_process.destroy!
 
         flash[:notice] = I18n.t("participatory_processes.destroy.success", scope: "decidim.admin")
 

@@ -16,6 +16,8 @@ module Decidim
 
       attribute :slug, String
       attribute :hashtag, String
+      attribute :hero_image
+      attribute :banner_image
 
       validates :slug, presence: true
       translatable_validates :title, :subtitle, :description, :short_description, presence: true

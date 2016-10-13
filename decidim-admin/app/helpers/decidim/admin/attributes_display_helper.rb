@@ -33,8 +33,7 @@ module Decidim
         attrs.map do |attr|
           if record.column_for_attribute(attr).type == :hstore
             I18n.available_locales.map do |locale|
-              content_tag(:dt, record.class.human_attribute_name(attr) + " (#{locale})") +
-                display_value(record, attr, locale)
+              display_label(record, attr, locale) + display_value(record, attr, locale)
             end.reduce(:+)
           else
             display_label(record, attr) + display_value(record, attr)
@@ -42,12 +41,13 @@ module Decidim
         end.reduce(:+)
       end
 
-      private
-
-      # Private: Holds the logic to render a label for a given attribute.
-      def display_label(record, attr)
-        content_tag(:dt, record.class.human_attribute_name(attr))
+      # Holds the logic to render a label for a given attribute.
+      def display_label(record, attr, locale = nil)
+        return content_tag(:dt, record.class.human_attribute_name(attr)) unless locale
+        content_tag(:dt, record.class.human_attribute_name(attr) + " (#{locale})")
       end
+
+      private
 
       # Private: Holds the logic to render the attribute value.
       def display_value(record, attr, locale = nil)

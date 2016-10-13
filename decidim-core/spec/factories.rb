@@ -11,6 +11,8 @@ FactoryGirl.define do
     subtitle          en: "Subtitle", ca: "Subtítol", es: "Subtítulo"
     short_description en: "Short description", ca: "Descripció curta", es: "Descripción corta"
     description       en: "Description", ca: "Descripció", es: "Descripción"
+    hero_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city.jpeg")) }
+    banner_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city2.jpeg")) }
     organization
   end
 

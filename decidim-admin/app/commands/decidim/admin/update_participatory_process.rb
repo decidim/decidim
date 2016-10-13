@@ -40,6 +40,8 @@ module Decidim
           subtitle: form.subtitle,
           slug: form.slug,
           hashtag: form.hashtag,
+          hero_image: form.hero_image,
+          banner_image: form.banner_image,
           description: form.description,
           short_description: form.short_description
         }

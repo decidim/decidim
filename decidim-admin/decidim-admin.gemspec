@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
   s.add_dependency "foundation_rails_helper", "~> 2.0.0"
   s.add_dependency "active_link_to", "~> 1.0.0"
   s.add_dependency "pundit", "~> 1.1.0"
+  s.add_dependency "carrierwave", "~> 1.0.0.beta"
 
   s.add_development_dependency "decidim-dev", Decidim.version
   s.add_development_dependency "pundit-matchers", "~> 1.1.0"
