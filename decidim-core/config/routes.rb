@@ -12,8 +12,10 @@ Decidim::Core::Engine.routes.draw do
                registrations: "decidim/devise/registrations",
                passwords: "decidim/devise/passwords"
              }
-  resource :locale, only: [:create]
-  get "/pages/*id" => "pages#show", as: :page, format: false
 
+  resource :locale, only: [:create]
+  resources :processes, only: [:index, :show]
+
+  get "/pages/*id" => "pages#show", as: :page, format: false
   root to: "pages#show", id: "home"
 end

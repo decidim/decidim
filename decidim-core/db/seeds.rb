@@ -43,14 +43,14 @@ if !Rails.env.production? || ENV["SEED"]
     },
     hashtag: '#urbaNewtown',
     short_description: {
-      en: 'Short description',
-      es: 'Descripción corta',
-      ca: 'Descripció curta'
+      en: '<p>Short description</p>',
+      es: '<p>Descripción corta</p>',
+      ca: '<p>Descripció curta</p>'
     },
     description: {
-      en: 'Description',
-      es: 'Descripción',
-      ca: 'Descripció'
+      en: '<p>Description</p>',
+      es: '<p>Descripción</p>',
+      ca: '<p>Descripció</p>'
     },
     hero_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
     banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),

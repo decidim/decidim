@@ -29,6 +29,7 @@ ca:
           register: Crea't un compte
     menu:
       home: Inici
+      processes: Processos
   devise:
     mailer:
       invitation_instructions:
@@ -58,6 +59,33 @@ ca:
         sign_in: Entra
         sign_out: Surt
         sign_up: Registra't
+      processes:
+        hero_process:
+          more_info: Més informació
+          take_part: Participa
+        index:
+          hero_processes: Processos destacats
+        order_by_processes:
+          active_processes:
+            one: Actiu
+            other: Actius
+          end_date: Data de finalització
+          future_processes:
+            one: Futur
+            other: Futurs
+          most_recent: Més recents
+          past_processes:
+            one: Passat
+            other: Passats
+          processes:
+            one: "%{count} procés"
+            other: "%{count} processos"
+          sort_by: "Ordenar per:"
+          with_most_participation: Més participades
+          with_most_support: Amb més suport
+        process:
+          take_part:
+          take_part: Participa
   locales:
     ca: Català
     en: English

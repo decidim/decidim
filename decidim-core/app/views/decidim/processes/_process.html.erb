@@ -1,0 +1,20 @@
+<div class="column">
+  <article class="card card--process">
+    <div class="card__image-top"
+      style="background-image:url(<%= participatory_process.banner_image.url %>)"></div>
+    <div class="card__content">
+      <a href="/action-view" class="card__link">
+        <h4 class="card__title"><%= translated_attribute participatory_process.title %></h4>
+      </a>
+      <p class="card__desc"><%= translated_attribute(participatory_process.short_description).html_safe %></p>
+    </div>
+    <div class="card__footer">
+      <div class="card__support">
+        <span class="card--process__small"></span>
+        <button class="card__button button small">
+          <%= t(".take_part", scope: "layouts") %>
+        </button>
+      </div>
+    </div>
+  </article>
+</div>
