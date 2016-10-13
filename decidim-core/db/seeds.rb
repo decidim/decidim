@@ -50,6 +50,8 @@ if !Rails.env.production? || ENV["SEED"]
       es: 'Descripción',
       ca: 'Descripció'
     },
+    hero_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
+    banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),
     organization: staging_organization
   )
 end

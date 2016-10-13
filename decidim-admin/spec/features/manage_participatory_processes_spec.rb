@@ -5,15 +5,15 @@ require "spec_helper"
 describe "Manage participatory processes", type: :feature do
   let(:image1_filename) { "city.jpeg" }
   let(:image1_path) do
-    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-core", "spec", "support", image1_filename)
+    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image1_filename)
   end
   let(:image2_filename) { "city2.jpeg" }
   let(:image2_path) do
-    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-core", "spec", "support", image2_filename)
+    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image2_filename)
   end
   let(:image3_filename) { "city3.jpeg" }
   let(:image3_path) do
-    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-core", "spec", "support", image3_filename)
+    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image3_filename)
   end
   let(:organization) { create(:organization) }
   let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
