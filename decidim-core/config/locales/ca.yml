@@ -11,6 +11,11 @@ ca:
     models:
       decidim/user: Usuari
   decidim:
+    devise:
+      sessions:
+        new:
+          are_you_new?: Ets nou a la plataforma?
+          register: Crea't un compte
     home:
       show:
         register: Registra't

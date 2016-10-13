@@ -11,6 +11,11 @@ es:
     models:
       decidim/user: Usuario
   decidim:
+    devise:
+      sessions:
+        new:
+          are_you_new?: Eres nuevo en la plataforma?
+          register: Créate una cuenta
     home:
       show:
         register: Regístrate
