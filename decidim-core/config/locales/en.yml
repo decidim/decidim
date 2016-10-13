@@ -1,5 +1,15 @@
 ---
 en:
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Current password
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+        remember_me: Remember me
+    models:
+      decidim/user: User
   decidim:
     home:
       show:

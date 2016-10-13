@@ -1,5 +1,15 @@
 ---
 ca:
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Contrasenya actual
+        email: Correu electrònic
+        password: Contrasenya
+        password_confirmation: Confirmar contrasenya
+        remember_me: Recordar-me
+    models:
+      decidim/user: Usuari
   decidim:
     home:
       show:
