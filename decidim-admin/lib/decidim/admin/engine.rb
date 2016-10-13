@@ -20,10 +20,9 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Admin
 
-      config.to_prepare do
-        Rails.application.config.assets.precompile += %w(
-          decidim/admin.js
-          decidim/admin.css
+      initializer "decidim_admin.assets" do |app|
+        app.config.assets.precompile += %w(
+          decidim/admin.js decidim/admin.css decidim_admin_manifest.js
         )
       end
     end

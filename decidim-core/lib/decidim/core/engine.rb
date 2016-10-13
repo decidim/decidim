@@ -35,15 +35,12 @@ module Decidim
         app.config.middleware.use Decidim::CurrentOrganization
       end
 
-      initializer "decidim.default_form_builder" do |_app|
-        ActionView::Base.default_form_builder = Decidim::FormBuilder
+      initializer "decidim.assets" do |app|
+        app.config.assets.precompile += %w(decidim_core_manifest.js decidim/email.css)
       end
 
-      config.to_prepare do
-        Rails.application.config.assets.precompile += %w(
-          decidim_core_manifest.js
-          decidim/email.css
-        )
+      initializer "decidim.default_form_builder" do |_app|
+        ActionView::Base.default_form_builder = Decidim::FormBuilder
       end
     end
   end
