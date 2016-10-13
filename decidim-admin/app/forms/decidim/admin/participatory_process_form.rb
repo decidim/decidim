@@ -16,6 +16,7 @@ module Decidim
 
       attribute :slug, String
       attribute :hashtag, String
+      attribute :promoted, Boolean
       attribute :hero_image
       attribute :banner_image
 

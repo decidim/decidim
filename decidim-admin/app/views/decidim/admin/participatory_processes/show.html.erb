@@ -18,6 +18,8 @@
     :short_description,
     :description
     %>
+  <dt><%= display_label(@participatory_process, :promoted) %></dt>
+  <dd><%= humanize_boolean @participatory_process.promoted? %></dd>
   <dt><%= display_label(@participatory_process, :hero_image) %></dt>
   <dd><%= image_tag @participatory_process.hero_image.url.to_s %></dd>
   <dt><%= display_label(@participatory_process, :banner_image) %></dt>

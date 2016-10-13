@@ -1,10 +1,12 @@
 <main class="wrapper">
-  <div class="row section">
-    <h1 class="section-heading"><%= t(".hero_processes", scope: "layouts") %></h1>
-      <% hero_processes.each do |hero_process| %>
-        <%= render partial: "hero_process", locals: { hero_process: hero_process } %>
-      <% end %>
-  </div>
+  <% if hero_processes.any? %>
+    <div class="row section">
+      <h1 class="section-heading"><%= t(".hero_processes", scope: "layouts") %></h1>
+        <% hero_processes.each do |hero_process| %>
+          <%= render partial: "hero_process", locals: { hero_process: hero_process } %>
+        <% end %>
+    </div>
+  <% end %>
 
   <section class="section row collapse">
     <%= render partial: "order_by_processes" %>

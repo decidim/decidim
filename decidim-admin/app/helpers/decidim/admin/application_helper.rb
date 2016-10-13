@@ -5,6 +5,7 @@ module Decidim
     #
     module ApplicationHelper
       include Decidim::TranslationsHelper
+      include Decidim::HumanizeBooleansHelper
 
       def title
         current_organization.name

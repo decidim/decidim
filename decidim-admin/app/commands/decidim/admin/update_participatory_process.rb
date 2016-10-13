@@ -42,6 +42,7 @@ module Decidim
           hashtag: form.hashtag,
           hero_image: form.hero_image,
           banner_image: form.banner_image,
+          promoted: form.promoted,
           description: form.description,
           short_description: form.short_description
         }

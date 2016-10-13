@@ -12,6 +12,9 @@ ca:
         tos_agreement: Termes i condicions d'ús
     models:
       decidim/user: Usuari
+  booleans:
+    :true: 'Sí'
+    :false: 'No'
   decidim:
     devise:
       registrations:

@@ -12,6 +12,9 @@ en:
         tos_agreement: Terms & conditions
     models:
       decidim/user: User
+  booleans:
+    :true: 'Yes'
+    :false: 'No'
   decidim:
     devise:
       registrations:

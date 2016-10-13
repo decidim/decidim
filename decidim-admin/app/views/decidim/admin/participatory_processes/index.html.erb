@@ -10,6 +10,7 @@
   <thead>
     <tr>
       <th><%= t("models.participatory_process.fields.title", scope: "decidim.admin") %></th>
+      <th><%= t("models.participatory_process.fields.promoted", scope: "decidim.admin") %></th>
       <th><%= t("models.participatory_process.fields.created_at", scope: "decidim.admin") %></th>
       <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
     </tr>
@@ -19,6 +20,9 @@
       <tr>
         <td>
           <%= link_to translated_attribute(process.title), process %><br />
+        </td>
+        <td>
+          <%= humanize_boolean process.promoted? %>
         </td>
         <td>
           <%= l process.created_at, format: :short %>

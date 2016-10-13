@@ -16,7 +16,7 @@ module Decidim
     end
 
     def hero_processes
-      @hero_processes ||= participatory_processes.take(2)
+      @hero_processes ||= participatory_processes.where(promoted: true)
     end
   end
 end

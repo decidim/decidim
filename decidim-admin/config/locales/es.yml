@@ -16,6 +16,7 @@ es:
         participatory_process:
           fields:
             created_at: Fecha de creación
+            promoted: Destacado
             title: Título
           name: Proceso participativo
           validations:

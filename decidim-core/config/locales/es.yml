@@ -12,6 +12,9 @@ es:
         tos_agreement: Términos y condiciones de uso
     models:
       decidim/user: Usuario
+  booleans:
+    :true: 'Sí'
+    :false: 'No'
   decidim:
     devise:
       registrations:

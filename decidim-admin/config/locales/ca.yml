@@ -16,6 +16,7 @@ ca:
         participatory_process:
           fields:
             created_at: Data de creació
+            promoted: Destacat
             title: Títol
           name: Procés participatiu
           validations:

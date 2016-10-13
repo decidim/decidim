@@ -16,6 +16,7 @@ en:
         participatory_process:
           fields:
             created_at: Created at
+            promoted: Highlighted
             title: Title
           name: Participatory process
           validations:
