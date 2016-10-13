@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "decidim-system", Decidim.version
   spec.add_dependency "decidim-admin", Decidim.version
   spec.add_dependency "rails", Decidim.rails_version
+  spec.add_dependency "rails-i18n", Decidim.rails_version
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 11.0"

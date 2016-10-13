@@ -16,7 +16,7 @@ module Decidim
       end
     end
 
-    let(:available_locales) { %w(en ca) }
+    let(:available_locales) { %w(en ca pt-BR) }
 
     before do
       allow(I18n).to receive(:available_locales).and_return available_locales
@@ -32,18 +32,21 @@ module Decidim
       end
 
       it "creates a getter for each locale" do
-        model.name = { "en" => "Hello", "ca" => "Hola" }
+        model.name = { "en" => "Hello", "pt-BR" => "Olá", "ca" => "Hola" }
 
         expect(model.name_en).to eq("Hello")
         expect(model.name_ca).to eq("Hola")
+        expect(model.name_pt__BR).to eq("Olá")
       end
 
       it "creates a setter for each locale" do
         model.name_en = "Hello"
         model.name_ca = "Hola"
+        model.name_pt__BR = "Olá"
 
         expect(model.name).to include("en" => "Hello")
         expect(model.name).to include("ca" => "Hola")
+        expect(model.name).to include("pt-BR" => "Olá")
       end
 
       it "coerces values" do
@@ -67,11 +70,17 @@ module Decidim
       it "validates the presence in each locale" do
         model.name_en = "Hola"
         model.description_ca = "Una descripció mooooolt llarga"
+        model.summary_pt__BR = "Um resumo"
 
         expect(model.valid?).to eq(false)
 
-        expect(model.errors).to include(:name_ca, :summary_en, :summary_ca, :description_ca)
-        expect(model.errors).to_not include(:name_en, :description_en)
+        expect(model.errors).to include(
+          :name_ca,
+          :name_pt__BR,
+          :summary_en,
+          :summary_ca,
+        )
+        expect(model.errors).to_not include(:name_en, :description_en, :description_pt__BR)
       end
     end
   end
