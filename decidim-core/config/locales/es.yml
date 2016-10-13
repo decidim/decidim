@@ -16,10 +16,6 @@ es:
         new:
           are_you_new?: Eres nuevo en la plataforma?
           register: Créate una cuenta
-    home:
-      show:
-        register: Regístrate
-        welcome: Bienvenido/da %{organization}!
     menu:
       home: Inicio
   devise:
@@ -55,6 +51,10 @@ es:
     ca: Català
     en: English
     es: Castellano
+  pages:
+    home:
+      register: Regístrate
+      welcome: Bienvenido/da %{organization}!
   time:
     formats:
       devise:

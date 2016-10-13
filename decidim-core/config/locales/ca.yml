@@ -16,10 +16,6 @@ ca:
         new:
           are_you_new?: Ets nou a la plataforma?
           register: Crea't un compte
-    home:
-      show:
-        register: Registra't
-        welcome: Benvingut/da a %{organization}!
     menu:
       home: Inici
   devise:
@@ -55,6 +51,10 @@ ca:
     ca: Català
     en: English
     es: Castellano
+  pages:
+    home:
+      register: Registra't
+      welcome: Benvingut/da a %{organization}!
   time:
     formats:
       devise:

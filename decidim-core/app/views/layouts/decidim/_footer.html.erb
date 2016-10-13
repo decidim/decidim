@@ -4,9 +4,9 @@
         <div class="row">
           <div class="medium-8 large-6 large-offset-3 column main__footer__nav">
             <ul class="footer-nav">
-              <li><a href="#"><%= t('.about') %></a></li>
-              <li><a href="#"><%= t('.terms_of_use') %></a></li>
-              <li><a href="#"><%= t('.accessibility') %></a></li>
+              <li><%= link_to t('.about'), page_path("about") %></a></li>
+              <li><%= link_to t('.terms_of_use'), page_path("terms") %></a></li>
+              <li><%= link_to t('.accessibility'), page_path("accessibility") %></a></li>
             </ul>
           </div>
         </div>

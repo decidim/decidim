@@ -16,10 +16,6 @@ en:
         new:
           are_you_new?: New to the platform?
           register: Create an account
-    home:
-      show:
-        register: Register
-        welcome: Welcome to %{organization}!
     menu:
       home: Home
   devise:
@@ -51,6 +47,10 @@ en:
     ca: Català
     en: English
     es: Castellano
+  pages:
+    home:
+      register: Register
+      welcome: Welcome to %{organization}!
   time:
     formats:
       devise:

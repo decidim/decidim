@@ -18,6 +18,7 @@ require "active_link_to"
 require "rectify"
 require "roadie-rails"
 require "carrierwave"
+require "high_voltage"
 
 module Decidim
   module Core
@@ -38,6 +39,12 @@ module Decidim
 
       initializer "decidim.assets" do |app|
         app.config.assets.precompile += %w(decidim_core_manifest.js)
+      end
+
+      initializer "decidim.high_voltage" do |_app|
+        HighVoltage.configure do |config|
+          config.routes = false
+        end
       end
 
       initializer "decidim.default_form_builder" do |_app|
