@@ -3,6 +3,18 @@
 require "spec_helper"
 
 describe "Manage participatory processes", type: :feature do
+  let(:image1_filename) { "city.jpeg" }
+  let(:image1_path) do
+    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-core", "spec", "support", image1_filename)
+  end
+  let(:image2_filename) { "city2.jpeg" }
+  let(:image2_path) do
+    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-core", "spec", "support", image2_filename)
+  end
+  let(:image3_filename) { "city3.jpeg" }
+  let(:image3_path) do
+    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-core", "spec", "support", image3_filename)
+  end
   let(:organization) { create(:organization) }
   let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
   let!(:participatory_process) { create(:process, organization: organization) }
@@ -11,6 +23,31 @@ describe "Manage participatory processes", type: :feature do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin.participatory_processes_path
+  end
+
+  it "displays all fields from a single participatory process" do
+    within "table" do
+      click_link participatory_process.title["en"]
+    end
+
+    within "dl" do
+      expect(page).to have_content(participatory_process.title["en"])
+      expect(page).to have_content(participatory_process.title["es"])
+      expect(page).to have_content(participatory_process.title["ca"])
+      expect(page).to have_content(participatory_process.subtitle["en"])
+      expect(page).to have_content(participatory_process.subtitle["es"])
+      expect(page).to have_content(participatory_process.subtitle["ca"])
+      expect(page).to have_content(participatory_process.short_description["en"])
+      expect(page).to have_content(participatory_process.short_description["es"])
+      expect(page).to have_content(participatory_process.short_description["ca"])
+      expect(page).to have_content(participatory_process.description["en"])
+      expect(page).to have_content(participatory_process.description["es"])
+      expect(page).to have_content(participatory_process.description["ca"])
+      expect(page).to have_content(participatory_process.hashtag)
+      expect(page).to have_content(participatory_process.slug)
+      expect(page).to have_xpath("//img[@src=\"#{participatory_process.hero_image.url}\"]")
+      expect(page).to have_xpath("//img[@src=\"#{participatory_process.banner_image.url}\"]")
+    end
   end
 
   it "creates a new participatory_process" do
@@ -31,6 +68,8 @@ describe "Manage participatory processes", type: :feature do
       fill_in :participatory_process_description_en, with: "A longer description"
       fill_in :participatory_process_description_es, with: "Descripción más larga"
       fill_in :participatory_process_description_ca, with: "Descripció més llarga"
+      attach_file :participatory_process_hero_image, image1_path
+      attach_file :participatory_process_banner_image, image2_path
 
       find("*[type=submit]").click
     end
@@ -41,6 +80,12 @@ describe "Manage participatory processes", type: :feature do
 
     within "table" do
       expect(page).to have_content("My participatory process")
+      click_link("My participatory process")
+    end
+
+    within "dl" do
+      expect(page).to have_css("img[src*='#{image1_filename}']")
+      expect(page).to have_css("img[src*='#{image2_filename}']")
     end
   end
 
@@ -53,6 +98,7 @@ describe "Manage participatory processes", type: :feature do
       fill_in :participatory_process_title_en, with: "My new title"
       fill_in :participatory_process_title_es, with: "Mi nuevo título"
       fill_in :participatory_process_title_ca, with: "El meu nou títol"
+      attach_file :participatory_process_banner_image, image3_path
 
       find("*[type=submit]").click
     end
@@ -63,6 +109,12 @@ describe "Manage participatory processes", type: :feature do
 
     within "table" do
       expect(page).to have_content("My new title")
+      click_link("My new title")
+    end
+
+    within "dl" do
+      expect(page).to_not have_css("img[src*='#{image2_filename}']")
+      expect(page).to have_css("img[src*='#{image3_filename}']")
     end
   end
 
