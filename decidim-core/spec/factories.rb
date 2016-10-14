@@ -14,6 +14,10 @@ FactoryGirl.define do
     hero_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city.jpeg")) }
     banner_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city2.jpeg")) }
     organization
+
+    trait :promoted do
+      promoted true
+    end
   end
 
   factory :user, class: Decidim::User do
