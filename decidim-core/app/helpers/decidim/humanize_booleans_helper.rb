@@ -7,7 +7,8 @@ module Decidim
     #
     # boolean - a Boolean that will be displayed in a human way.
     def humanize_boolean(boolean)
-      I18n.t((!!boolean).to_s, scope: "booleans")
+      value = boolean ? "true" : "false"
+      I18n.t(value, scope: "booleans")
     end
   end
 end
