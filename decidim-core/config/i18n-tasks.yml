@@ -92,6 +92,7 @@ ignore_unused:
   - devise.mailer.password_change.subject
   - activerecord.attributes.decidim/user.*
   - activerecord.models.decidim/user
+  - booleans.*
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'

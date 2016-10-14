@@ -69,23 +69,9 @@ ca:
         index:
           hero_processes: Processos destacats
         order_by_processes:
-          active_processes:
-            one: Actiu
-            other: Actius
-          end_date: Data de finalització
-          future_processes:
-            one: Futur
-            other: Futurs
-          most_recent: Més recents
-          past_processes:
-            one: Passat
-            other: Passats
           processes:
             one: "%{count} procés"
             other: "%{count} processos"
-          sort_by: "Ordenar per:"
-          with_most_participation: Més participades
-          with_most_support: Amb més suport
         process:
           take_part:
           take_part: Participa

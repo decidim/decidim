@@ -65,23 +65,9 @@ en:
         index:
           hero_processes: Highlighted processes
         order_by_processes:
-          active_processes:
-            one: Active
-            other: Active
-          end_date: End date
-          future_processes:
-            one: Future
-            other: Future
-          most_recent: Most recent
-          past_processes:
-            one: Past
-            other: Past
           processes:
             one: "%{count} process"
             other: "%{count} processes"
-          sort_by: "Sort by:"
-          with_most_participation: With most participation
-          with_most_support: With most support
         process:
           take_part: Take part
   locales:
