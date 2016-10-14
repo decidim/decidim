@@ -13,8 +13,8 @@ ca:
     models:
       decidim/user: Usuari
   booleans:
-    :true: 'Sí'
-    :false: 'No'
+    'false': 'No'
+    'true': Sí
   decidim:
     devise:
       registrations:
@@ -73,7 +73,6 @@ ca:
             one: "%{count} procés"
             other: "%{count} processos"
         process:
-          take_part:
           take_part: Participa
   locales:
     ca: Català

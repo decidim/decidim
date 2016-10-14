@@ -13,8 +13,8 @@ es:
     models:
       decidim/user: Usuario
   booleans:
-    :true: 'Sí'
-    :false: 'No'
+    'false': 'No'
+    'true': Sí
   decidim:
     devise:
       registrations:
