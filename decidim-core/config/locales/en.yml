@@ -62,9 +62,3 @@ en:
     home:
       register: Register
       welcome: Welcome to %{organization}!
-  time:
-    formats:
-      devise:
-        mailer:
-          invitation_instructions:
-            accept_until_format: "%B %d, %Y %I:%M %p"
