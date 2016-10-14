@@ -1,5 +1,9 @@
 ---
 en:
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        promoted: Highlighted
   decidim:
     admin:
       actions:
