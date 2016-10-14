@@ -1,27 +1,55 @@
-<h2><%= t("devise.registrations.new.sign_up") %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true %>
+<main class="wrapper">
+<div class="row collapse">
+  <div class="row collapse">
+    <div class="columns large-8 large-centered text-center page-title">
+      <h1><%= t(".sign_up") %></h1>
+      <p>
+        <%= t(".subtitle") %>
+      </p>
+      <p>
+        <%= t(".already_have_an_account?") %>
+        <%= link_to t(".sign_in"), new_user_session_path %>
+      </p>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <div class="row">
+    <div class="columns large-6 medium-10 medium-centered">
+      <div class="card">
+        <div class="card__content">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+            <div class="user-person">
+              <div class="field">
+                <%= f.text_field :name, help_text: t(".username_help") %>
+              </div>
+            </div>
 
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+            <div class="field">
+              <%= f.email_field :email %>
+            </div>
 
-  <div class="field">
-    <%= f.text_field :name %>
-  </div>
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
 
-  <div class="actions">
-    <%= f.submit t("devise.registrations.new.sign_up") %>
-  </div>
-<% end %>
+            <div class="field">
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
 
-<%= render "decidim/devise/shared/links" %>
+            <fieldset>
+              <div class="field">
+                <%= f.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t(".terms"), page_path(:terms))) %>
+              </div>
+            </fieldset>
+
+            <div class="actions">
+              <%= f.submit t("devise.registrations.new.sign_up"), class: "button expanded" %>
+            </div>
+          <% end %>
+          <%= render "decidim/devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>

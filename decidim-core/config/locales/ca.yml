@@ -1,10 +1,32 @@
 ---
 ca:
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Contrasenya actual
+        email: Correu electrònic
+        name: Nom d'usuari
+        password: Contrasenya
+        password_confirmation: Confirmar contrasenya
+        remember_me: Recordar-me
+        tos_agreement: Termes i condicions d'ús
+    models:
+      decidim/user: Usuari
   decidim:
-    home:
-      show:
-        register: Registra't
-        welcome: Benvingut/da a %{organization}!
+    devise:
+      registrations:
+        new:
+          already_have_an_account?: Ja tens un compte?
+          sign_in: Entra
+          sign_up: Registra't
+          subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
+          terms: els termes i condicions d'ús
+          tos_agreement: En registrar-te acceptes %{link}.
+          username_help: Nom públic que apareixerà en les teves publicacions. Amb l'objectiu de garantitzar l'anonimat pot ser qualsevol nom.
+      sessions:
+        new:
+          are_you_new?: Ets nou a la plataforma?
+          register: Crea't un compte
     menu:
       home: Inici
   devise:
@@ -40,6 +62,10 @@ ca:
     ca: Català
     en: English
     es: Castellano
+  pages:
+    home:
+      register: Registra't
+      welcome: Benvingut/da a %{organization}!
   time:
     formats:
       devise:

@@ -1,10 +1,32 @@
 ---
 en:
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Current password
+        email: Email
+        name: Username
+        password: Password
+        password_confirmation: Password confirmation
+        remember_me: Remember me
+        tos_agreement: Terms & conditions
+    models:
+      decidim/user: User
   decidim:
-    home:
-      show:
-        register: Register
-        welcome: Welcome to %{organization}!
+    devise:
+      registrations:
+        new:
+          already_have_an_account?: Already have an account?
+          sign_in: Log in
+          sign_up: Sign up
+          subtitle: Sign up to participate in discussions and support proposals.
+          terms: the terms and conditions of use
+          tos_agreement: By signing up you agree to %{link}.
+          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
+      sessions:
+        new:
+          are_you_new?: New to the platform?
+          register: Create an account
     menu:
       home: Home
   devise:
@@ -36,6 +58,10 @@ en:
     ca: Català
     en: English
     es: Castellano
+  pages:
+    home:
+      register: Register
+      welcome: Welcome to %{organization}!
   time:
     formats:
       devise:

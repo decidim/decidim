@@ -1,6 +1,7 @@
 GIT
-  remote: https://github.com/sgruhier/foundation_rails_helper
-  revision: d8819b3a5f9d82251aac7559e0d07505c9777717
+  remote: https://github.com/codegram/foundation_rails_helper.git
+  revision: 5a41b9f5148de23ff477c091a11f4db48d7478ae
+  branch: fix_label_with_html
   specs:
     foundation_rails_helper (2.0.0)
       actionpack (>= 4.1)
@@ -48,6 +49,7 @@ PATH
       devise-i18n (~> 1.1.0)
       foundation-rails (~> 6.2.3.0)
       foundation_rails_helper (~> 2.0.0)
+      high_voltage (~> 3.0.0)
       jbuilder (~> 2.5)
       jquery-rails (~> 4.0)
       pg (~> 0.19.0)
@@ -200,6 +202,7 @@ GEM
       sprockets-es6 (>= 0.9.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    high_voltage (3.0.0)
     highline (1.7.8)
     i18n (0.7.0)
     i18n-tasks (0.9.5)

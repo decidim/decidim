@@ -1,1 +1,1 @@
-gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper"
+gem "foundation_rails_helper", git: "https://github.com/codegram/foundation_rails_helper.git", branch: "fix_label_with_html"
