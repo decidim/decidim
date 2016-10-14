@@ -14,7 +14,8 @@ if !Rails.env.production? || ENV["SEED"]
     organization: staging_organization,
     confirmed_at: Time.current,
     locale: I18n.default_locale,
-    roles: ["admin"]
+    roles: ["admin"],
+    tos_agreement: true
   )
 
   Decidim::User.create!(
@@ -24,7 +25,8 @@ if !Rails.env.production? || ENV["SEED"]
     password_confirmation: "decidim123456",
     confirmed_at: Time.current,
     locale: I18n.default_locale,
-    organization: staging_organization
+    organization: staging_organization,
+    tos_agreement: true
   )
 
   Decidim::ParticipatoryProcess.create!(
