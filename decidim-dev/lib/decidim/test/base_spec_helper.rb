@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 ENV["RAILS_ENV"] ||= "test"
 
-if ENV["CI"]
+if ENV["CI"] && ENV["TRAVIS_RUBY_VERSION"] != "2.4.0-preview1"
   require "simplecov"
   SimpleCov.start
 
