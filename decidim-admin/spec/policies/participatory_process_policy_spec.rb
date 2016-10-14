@@ -5,7 +5,7 @@ module Decidim
     describe ParticipatoryProcessPolicy do
       let(:organization) { create :organization }
       let(:organization2) { create :organization }
-      let(:process) { create(:process, organization: organization) }
+      let(:process) { create(:participatory_process, organization: organization) }
 
       subject { described_class.new(user, process) }
 
@@ -38,7 +38,7 @@ module Decidim
       end
 
       context "index?" do
-        let(:process) { [create(:process, organization: organization)] }
+        let(:process) { [create(:participatory_process, organization: organization)] }
 
         context "being a regular user" do
           let(:user) { create(:user) }

@@ -17,7 +17,7 @@ describe "Manage participatory processes", type: :feature do
   end
   let(:organization) { create(:organization) }
   let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-  let!(:participatory_process) { create(:process, organization: organization) }
+  let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -119,7 +119,7 @@ describe "Manage participatory processes", type: :feature do
   end
 
   context "deleting a participatory process" do
-    let!(:participatory_process2) { create(:process, organization: organization) }
+    let!(:participatory_process2) { create(:participatory_process, organization: organization) }
 
     before do
       visit decidim_admin.participatory_processes_path
@@ -141,7 +141,7 @@ describe "Manage participatory processes", type: :feature do
   end
 
   context "when there are multiple organizations in the system" do
-    let!(:external_participatory_process) { create(:process) }
+    let!(:external_participatory_process) { create(:participatory_process) }
 
     before do
       visit decidim_admin.participatory_processes_path

@@ -14,7 +14,7 @@ Decidim::Core::Engine.routes.draw do
              }
 
   resource :locale, only: [:create]
-  resources :processes, only: [:index, :show]
+  resources :participatory_processes, only: [:index, :show]
 
   get "/pages/*id" => "pages#show", as: :page, format: false
   root to: "pages#show", id: "home"

@@ -5,7 +5,7 @@ FactoryGirl.define do
     description     "Description"
   end
 
-  factory :process, class: Decidim::ParticipatoryProcess do
+  factory :participatory_process, class: Decidim::ParticipatoryProcess do
     sequence(:title) { |n| { en: "Participatory Process ##{n}", ca: "Procés participatiu ##{n}", es: "Proceso participativo ##{n}" } }
     sequence(:slug) { |n| { en: "participatory-process-#{n}" } }
     subtitle          en: "Subtitle", ca: "Subtítol", es: "Subtítulo"

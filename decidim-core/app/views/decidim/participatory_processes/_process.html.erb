@@ -3,7 +3,7 @@
     <div class="card__image-top"
       style="background-image:url(<%= participatory_process.banner_image.url %>)"></div>
     <div class="card__content">
-      <%= link_to process_path(participatory_process), class: "card__link" do %>
+      <%= link_to participatory_process_path(participatory_process), class: "card__link" do %>
         <h4 class="card__title"><%= translated_attribute participatory_process.title %></h4>
       <% end %>
       <p class="card__desc"><%= translated_attribute(participatory_process.short_description).html_safe %></p>

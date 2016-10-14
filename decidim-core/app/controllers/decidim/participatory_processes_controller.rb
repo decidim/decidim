@@ -4,7 +4,7 @@ require_dependency "decidim/application_controller"
 module Decidim
   # A controller that holds the logic to show ParticipatoryProcesses in a
   # public layout.
-  class ProcessesController < ApplicationController
+  class ParticipatoryProcessesController < ApplicationController
     helper_method :participatory_processes, :participatory_process, :hero_processes
 
     private

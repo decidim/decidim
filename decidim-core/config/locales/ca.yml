@@ -62,7 +62,7 @@ ca:
         sign_in: Entra
         sign_out: Surt
         sign_up: Registra't
-      processes:
+      participatory_processes:
         hero_process:
           more_info: Més informació
           take_part: Participa

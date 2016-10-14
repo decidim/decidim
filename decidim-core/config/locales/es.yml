@@ -62,7 +62,7 @@ es:
         sign_in: Entra
         sign_out: Sale
         sign_up: Regístrate
-      processes:
+      participatory_processes:
         hero_process:
           more_info: Más información
           take_part: Participa

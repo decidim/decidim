@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 require "spec_helper"
 
-describe "Processes", type: :feature do
+describe "Participatory Processes", type: :feature do
   let(:organization) { create(:organization) }
-  let!(:participatory_process) { create(:process, organization: organization) }
+  let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
   before do
     switch_to_host(organization.host)
   end
 
   context "when there are some processes" do
-    let!(:promoted_process) { create(:process, :promoted, organization: organization) }
+    let!(:promoted_process) { create(:participatory_process, :promoted, organization: organization) }
 
     before do
-      visit decidim.processes_path
+      visit decidim.participatory_processes_path
     end
 
     it "lists all the highlighted processes" do
@@ -36,13 +36,13 @@ describe "Processes", type: :feature do
     it "links to the individial process page" do
       click_link(participatory_process.title["en"])
 
-      expect(current_path).to eq decidim.process_path(participatory_process)
+      expect(current_path).to eq decidim.participatory_process_path(participatory_process)
     end
   end
 
   describe "show" do
     before do
-      visit decidim.process_path(participatory_process)
+      visit decidim.participatory_process_path(participatory_process)
     end
 
     it "shows the details of the given process" do
