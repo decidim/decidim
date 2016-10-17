@@ -74,7 +74,7 @@ es:
           processes:
             one: "%{count} proceso"
             other: "%{count} procesos"
-        process:
+        participatory_process:
           take_part: Participa
   locales:
     ca: Català

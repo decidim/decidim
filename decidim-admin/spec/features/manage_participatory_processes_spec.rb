@@ -17,7 +17,14 @@ describe "Manage participatory processes", type: :feature do
   end
   let(:organization) { create(:organization) }
   let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-  let!(:participatory_process) { create(:participatory_process, organization: organization) }
+  let!(:participatory_process) do
+    create(
+      :participatory_process,
+      organization: organization,
+      description: { en: "Description", ca: "Descripció", es: "Descripción" },
+      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
+    )
+  end
 
   before do
     switch_to_host(organization.host)
@@ -37,12 +44,12 @@ describe "Manage participatory processes", type: :feature do
       expect(page).to have_content(participatory_process.subtitle["en"])
       expect(page).to have_content(participatory_process.subtitle["es"])
       expect(page).to have_content(participatory_process.subtitle["ca"])
-      expect(page).to have_content(participatory_process.short_description["en"].gsub(/<\/?[^>]*>/, ""))
-      expect(page).to have_content(participatory_process.short_description["es"].gsub(/<\/?[^>]*>/, ""))
-      expect(page).to have_content(participatory_process.short_description["ca"].gsub(/<\/?[^>]*>/, ""))
-      expect(page).to have_content(participatory_process.description["en"].gsub(/<\/?[^>]*>/, ""))
-      expect(page).to have_content(participatory_process.description["es"].gsub(/<\/?[^>]*>/, ""))
-      expect(page).to have_content(participatory_process.description["ca"].gsub(/<\/?[^>]*>/, ""))
+      expect(page).to have_content(participatory_process.short_description["en"])
+      expect(page).to have_content(participatory_process.short_description["es"])
+      expect(page).to have_content(participatory_process.short_description["ca"])
+      expect(page).to have_content(participatory_process.description["en"])
+      expect(page).to have_content(participatory_process.description["es"])
+      expect(page).to have_content(participatory_process.description["ca"])
       expect(page).to have_content(participatory_process.hashtag)
       expect(page).to have_content(participatory_process.slug)
       expect(page).to have_xpath("//img[@src=\"#{participatory_process.hero_image.url}\"]")

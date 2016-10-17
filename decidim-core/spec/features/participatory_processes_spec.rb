@@ -3,7 +3,14 @@ require "spec_helper"
 
 describe "Participatory Processes", type: :feature do
   let(:organization) { create(:organization) }
-  let!(:participatory_process) { create(:participatory_process, organization: organization) }
+  let!(:participatory_process) do
+    create(
+      :participatory_process,
+      organization: organization,
+      description: { en: "Description", ca: "Descripció", es: "Descripción" },
+      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
+    )
+  end
 
   before do
     switch_to_host(organization.host)
@@ -49,8 +56,8 @@ describe "Participatory Processes", type: :feature do
       within "main.wrapper" do
         expect(page).to have_content(participatory_process.title["en"])
         expect(page).to have_content(participatory_process.subtitle["en"])
-        expect(page).to have_content(participatory_process.description["en"].gsub(/<\/?[^>]*>/, ""))
-        expect(page).to have_content(participatory_process.short_description["en"].gsub(/<\/?[^>]*>/, ""))
+        expect(page).to have_content(participatory_process.description["en"])
+        expect(page).to have_content(participatory_process.short_description["en"])
         expect(page).to have_content(participatory_process.hashtag)
       end
     end
