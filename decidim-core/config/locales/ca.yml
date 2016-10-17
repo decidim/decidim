@@ -12,6 +12,9 @@ ca:
         tos_agreement: Termes i condicions d'ús
     models:
       decidim/user: Usuari
+  booleans:
+    'false': 'No'
+    'true': Sí
   decidim:
     devise:
       registrations:
@@ -29,6 +32,7 @@ ca:
           register: Crea't un compte
     menu:
       home: Inici
+      processes: Processos
   devise:
     mailer:
       invitation_instructions:
@@ -58,6 +62,20 @@ ca:
         sign_in: Entra
         sign_out: Surt
         sign_up: Registra't
+      participatory_processes:
+        index:
+          promoted_processes: Processos destacats
+        no_processes_yet:
+          no_processes_yet: Encara no hi ha cap procés participatiu!
+        order_by_processes:
+          processes:
+            one: "%{count} procés"
+            other: "%{count} processos"
+        participatory_process:
+          take_part: Participa
+        promoted_process:
+          more_info: Més informació
+          take_part: Participa
   locales:
     ca: Català
     en: English

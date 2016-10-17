@@ -1,5 +1,9 @@
 ---
 ca:
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        promoted: Destacat
   decidim:
     admin:
       actions:
@@ -16,6 +20,7 @@ ca:
         participatory_process:
           fields:
             created_at: Data de creació
+            promoted: Destacat
             title: Títol
           name: Procés participatiu
           validations:

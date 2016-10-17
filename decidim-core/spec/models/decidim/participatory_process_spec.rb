@@ -3,10 +3,10 @@ require "spec_helper"
 
 module Decidim
   describe ParticipatoryProcess do
-    let(:process) { build(:process) }
+    let(:participatory_process) { build(:participatory_process) }
 
     it "is valid" do
-      expect(process).to be_valid
+      expect(participatory_process).to be_valid
     end
   end
 end

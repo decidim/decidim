@@ -5,15 +5,19 @@ FactoryGirl.define do
     description     "Description"
   end
 
-  factory :process, class: Decidim::ParticipatoryProcess do
+  factory :participatory_process, class: Decidim::ParticipatoryProcess do
     sequence(:title) { |n| { en: "Participatory Process ##{n}", ca: "Procés participatiu ##{n}", es: "Proceso participativo ##{n}" } }
     sequence(:slug) { |n| { en: "participatory-process-#{n}" } }
     subtitle          en: "Subtitle", ca: "Subtítol", es: "Subtítulo"
-    short_description en: "Short description", ca: "Descripció curta", es: "Descripción corta"
-    description       en: "Description", ca: "Descripció", es: "Descripción"
+    short_description en: "<p>Short description</p>", ca: "<p>Descripció curta</p>", es: "<p>Descripción corta</p>"
+    description       en: "<p>Description</p>", ca: "<p>Descripció</p>", es: "<p>Descripción</p>"
     hero_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city.jpeg")) }
     banner_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city2.jpeg")) }
     organization
+
+    trait :promoted do
+      promoted true
+    end
   end
 
   factory :user, class: Decidim::User do

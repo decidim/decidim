@@ -12,6 +12,9 @@ es:
         tos_agreement: Términos y condiciones de uso
     models:
       decidim/user: Usuario
+  booleans:
+    'false': 'No'
+    'true': Sí
   decidim:
     devise:
       registrations:
@@ -25,10 +28,11 @@ es:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: ¿Eres nuevo en la plataforma?
+          are_you_new?: "¿Eres nuevo en la plataforma?"
           register: Créate una cuenta
     menu:
       home: Inicio
+      processes: Procesos
   devise:
     mailer:
       invitation_instructions:
@@ -58,6 +62,20 @@ es:
         sign_in: Entra
         sign_out: Sale
         sign_up: Regístrate
+      participatory_processes:
+        index:
+          promoted_processes: Procesos destacados
+        no_processes_yet:
+          no_processes_yet: No hay procesos participativos todavía!
+        order_by_processes:
+          processes:
+            one: "%{count} proceso"
+            other: "%{count} procesos"
+        participatory_process:
+          take_part: Participa
+        promoted_process:
+          more_info: Más información
+          take_part: Participa
   locales:
     ca: Català
     en: English

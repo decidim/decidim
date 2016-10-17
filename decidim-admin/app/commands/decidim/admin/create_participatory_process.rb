@@ -41,6 +41,7 @@ module Decidim
           short_description: form.short_description,
           hero_image: form.hero_image,
           banner_image: form.banner_image,
+          promoted: form.promoted,
           organization: @organization
         )
       end
