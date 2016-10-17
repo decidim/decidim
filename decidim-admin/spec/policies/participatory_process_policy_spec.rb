@@ -38,7 +38,9 @@ module Decidim
       end
 
       context "index?" do
-        let(:process) { [create(:participatory_process, organization: organization)] }
+        let(:processes) { [create(:participatory_process, organization: organization)] }
+
+        subject { described_class.new(user, processes) }
 
         context "being a regular user" do
           let(:user) { create(:user) }
