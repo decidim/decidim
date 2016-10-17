@@ -1,8 +1,8 @@
 <main class="wrapper">
   <% if promoted_processes.any? %>
     <section id ="highlighted-processes" class="row section">
-      <h1 class="section-heading"><%= t(".hero_processes", scope: "layouts") %></h1>
-      <%= render partial: "hero_process", collection: promoted_processes, as: :hero_process %>
+      <h1 class="section-heading"><%= t(".promoted_processes", scope: "layouts") %></h1>
+      <%= render partial: "promoted_process", collection: promoted_processes, as: :promoted_process %>
     </section>
   <% end %>
 

@@ -59,11 +59,8 @@ en:
         sign_out: Sign out
         sign_up: Sign Up
       participatory_processes:
-        hero_process:
-          more_info: More info
-          take_part: Take part
         index:
-          hero_processes: Highlighted processes
+          promoted_processes: Highlighted processes
         no_processes_yet:
           no_processes_yet: No participatory processes yet!
         order_by_processes:
@@ -71,6 +68,9 @@ en:
             one: "%{count} process"
             other: "%{count} processes"
         participatory_process:
+          take_part: Take part
+        promoted_process:
+          more_info: More info
           take_part: Take part
   locales:
     ca: Català

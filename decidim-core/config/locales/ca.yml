@@ -63,11 +63,8 @@ ca:
         sign_out: Surt
         sign_up: Registra't
       participatory_processes:
-        hero_process:
-          more_info: Més informació
-          take_part: Participa
         index:
-          hero_processes: Processos destacats
+          promoted_processes: Processos destacats
         no_processes_yet:
           no_processes_yet: Encara no hi ha cap procés participatiu!
         order_by_processes:
@@ -75,6 +72,9 @@ ca:
             one: "%{count} procés"
             other: "%{count} processos"
         participatory_process:
+          take_part: Participa
+        promoted_process:
+          more_info: Més informació
           take_part: Participa
   locales:
     ca: Català

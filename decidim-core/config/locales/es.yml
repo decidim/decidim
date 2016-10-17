@@ -28,7 +28,7 @@ es:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: ¿Eres nuevo en la plataforma?
+          are_you_new?: "¿Eres nuevo en la plataforma?"
           register: Créate una cuenta
     menu:
       home: Inicio
@@ -63,11 +63,8 @@ es:
         sign_out: Sale
         sign_up: Regístrate
       participatory_processes:
-        hero_process:
-          more_info: Más información
-          take_part: Participa
         index:
-          hero_processes: Procesos destacados
+          promoted_processes: Procesos destacados
         no_processes_yet:
           no_processes_yet: No hay procesos participativos todavía!
         order_by_processes:
@@ -75,6 +72,9 @@ es:
             one: "%{count} proceso"
             other: "%{count} procesos"
         participatory_process:
+          take_part: Participa
+        promoted_process:
+          more_info: Más información
           take_part: Participa
   locales:
     ca: Català
