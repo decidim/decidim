@@ -81,6 +81,13 @@ ca:
     en: English
     es: Castellano
   pages:
+    '404':
+      back_home: Tornar a l'inici
+      content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
+      title: No s'ha trobat la pàgina que busques!
+    '500':
+      title: Hi ha hagut un problema amb el nostre servidor
+      try_later: Si us plau, torna-ho a intentar més tard.
     home:
       register: Registra't
       welcome: Benvingut/da a %{organization}!

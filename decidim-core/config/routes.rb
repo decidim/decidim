@@ -17,5 +17,9 @@ Decidim::Core::Engine.routes.draw do
   resources :participatory_processes, only: [:index, :show]
 
   get "/pages/*id" => "pages#show", as: :page, format: false
+
+  match "/404", to: "pages#show", id: "404", via: :all
+  match "/500", to: "pages#show", id: "500", via: :all
+
   root to: "pages#show", id: "home"
 end

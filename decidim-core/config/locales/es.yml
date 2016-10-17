@@ -81,6 +81,13 @@ es:
     en: English
     es: Castellano
   pages:
+    '404':
+      back_home: Volver al inicio
+      content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
+      title: "¡No se ha encontrado la página que buscas!"
+    '500':
+      title: Ha habido un problema con nuestro servidor
+      try_later: Por favor, vuelve a intentarlo más tarde.
     home:
       register: Regístrate
       welcome: Bienvenido/da %{organization}!

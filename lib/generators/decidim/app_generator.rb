@@ -77,6 +77,11 @@ module Decidim
         ]
       end
 
+      def remove_default_error_pages
+        remove_file "public/404.html"
+        remove_file "public/500.html"
+      end
+
       private
 
       def get_builder_class
