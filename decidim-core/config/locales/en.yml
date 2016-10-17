@@ -64,6 +64,8 @@ en:
           take_part: Take part
         index:
           hero_processes: Highlighted processes
+        no_processes_yet:
+          no_processes_yet: No participatory processes yet!
         order_by_processes:
           processes:
             one: "%{count} process"

@@ -5,7 +5,7 @@ module Decidim
   # A controller that holds the logic to show ParticipatoryProcesses in a
   # public layout.
   class ParticipatoryProcessesController < ApplicationController
-    helper_method :participatory_processes, :participatory_process, :hero_processes
+    helper_method :participatory_processes, :participatory_process, :promoted_processes
 
     private
 
@@ -17,8 +17,8 @@ module Decidim
       @participatory_processes ||= current_organization.participatory_processes
     end
 
-    def hero_processes
-      @hero_processes ||= participatory_processes.where(promoted: true)
+    def promoted_processes
+      @promoted_processes ||= participatory_processes.where(promoted: true)
     end
   end
 end

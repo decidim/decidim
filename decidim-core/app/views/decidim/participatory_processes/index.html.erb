@@ -1,19 +1,15 @@
 <main class="wrapper">
-  <% if hero_processes.any? %>
+  <% if promoted_processes.any? %>
     <section id ="highlighted-processes" class="row section">
       <h1 class="section-heading"><%= t(".hero_processes", scope: "layouts") %></h1>
-        <% hero_processes.each do |hero_process| %>
-          <%= render partial: "hero_process", locals: { hero_process: hero_process } %>
-        <% end %>
+      <%= render promoted_processes, partial: "hero_process", as: :hero_process %>
     </section>
   <% end %>
 
   <section id="processes-grid" class="section row collapse">
     <%= render partial: "order_by_processes" %>
     <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-      <% participatory_processes.each do |participatory_process| %>
-        <%= render partial: "process", locals: { participatory_process: participatory_process } %>
-      <% end %>
+      <%= render(participatory_processes) || render(partial: "no_processes_yet") %>
     </div>
   </section>
 </main>
