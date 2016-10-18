@@ -1,0 +1,29 @@
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="row collapse">
+      <div class="columns large-8 large-centered text-center page-title">
+        <h1><%= t(".authorize_with", authorizer: t(handler.handler_name, scope: "decidim.authorization_handlers")) %></h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns large-6 medium-centered">
+        <div class="card">
+          <div class="card__content">
+            <%= authorization_form_for(handler) do |form| %>
+              <% if lookup_context.exists?(handler.to_partial_path, [], true) %>
+                <%= render partial: handler, as: "handler", locals: { form: form } %>
+              <% else %>
+                <%= form.all_fields %>
+                <div class="actions">
+                  <%= form.submit t(".authorize"), class: "button expanded" %>
+                </div>
+              <% end %>
+            <% end %>
+            <p class="text-center skip"><%= t("decidim.authorizations.skip_verification", link: link_to(t("decidim.authorizations.current_participatory_processes"), participatory_processes_path).html_safe).html_safe %>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

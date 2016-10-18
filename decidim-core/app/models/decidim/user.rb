@@ -8,6 +8,7 @@ module Decidim
            :recoverable, :rememberable, :trackable, :decidim_validatable
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
+    has_many :authorizations, foreign_key: "decidim_user_id", class_name: Decidim::Authorization, inverse_of: :user
 
     ROLES = %w(admin moderator official).freeze
 

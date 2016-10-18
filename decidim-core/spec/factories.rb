@@ -64,4 +64,10 @@ FactoryGirl.define do
       roles ["official"]
     end
   end
+
+  factory :authorization, class: Decidim::Authorization do
+    name "decidim/dummy_authorization_handler"
+    user
+    metadata { {} }
+  end
 end

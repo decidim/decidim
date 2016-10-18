@@ -16,6 +16,30 @@ ca:
     'false': 'No'
     'true': Sí
   decidim:
+    account:
+      authorizations:
+        authorization_confirm_destroy: Segur que vols suprimir aquesta autorització?
+      show:
+        authorizations: Autoritzacions
+        title: El meu compte
+    authorization_handlers:
+      decidim/dummy_authorization_handler: Autorització d'exemple
+    authorizations:
+      create:
+        error: S'ha produït un error al crear l'autorització.
+        success: Has estat autoritzat/da correctament.
+      current_participatory_processes: fer una ullada als processos actuals
+      destroy:
+        success: Autorització destruïda correctament.
+      index:
+        actions:
+          decidim/dummy_authorization_handler: Verificar-me amb l'exemple
+        title: Verificar la teva identitat
+        verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
+      new:
+        authorize: Enviar
+        authorize_with: Verificar-me amb %{authorizer}
+      skip_verification: Pots saltar-te aquest pas per ara i %{link}
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció.
@@ -75,10 +99,10 @@ ca:
             one: "%{count} procés"
             other: "%{count} processos"
         participatory_process:
-          active_step: "Fase actual:"
+          active_step: 'Fase actual:'
           take_part: Participa
         promoted_process:
-          active_step: "Fase actual:"
+          active_step: 'Fase actual:'
           more_info: Més informació
           take_part: Participa
   locales:

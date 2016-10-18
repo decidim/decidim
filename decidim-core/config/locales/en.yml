@@ -16,6 +16,30 @@ en:
     'false': 'No'
     'true': 'Yes'
   decidim:
+    account:
+      authorizations:
+        authorization_confirm_destroy: Are you sure you want to delete this authorization?
+      show:
+        authorizations: Authorizations
+        title: My account
+    authorization_handlers:
+      decidim/dummy_authorization_handler: Example authorization
+    authorizations:
+      create:
+        error: There was an error creating the authorization.
+        success: You've been successfully authorized.
+      current_participatory_processes: take a look at the current processes
+      destroy:
+        success: Authorization successfully destroyed
+      index:
+        actions:
+          decidim/dummy_authorization_handler: Verify against the example authorization
+        title: Verify your identity
+        verify_with_these_options: 'These are the available options to verify your identity:'
+      new:
+        authorize: Send
+        authorize_with: Verify with %{authorizer}
+      skip_verification: You can skip this for now and %{link}
     core:
       actions:
         unauthorized: You are not authorized to perform this action
@@ -71,10 +95,10 @@ en:
             one: "%{count} process"
             other: "%{count} processes"
         participatory_process:
-          active_step: "Current step:"
+          active_step: 'Current step:'
           take_part: Take part
         promoted_process:
-          active_step: "Current step:"
+          active_step: 'Current step:'
           more_info: More info
           take_part: Take part
   locales:
