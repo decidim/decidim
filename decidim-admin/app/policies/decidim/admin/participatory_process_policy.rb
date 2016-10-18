@@ -35,39 +35,33 @@ module Decidim
       #
       # Returns a Boolean.
       def show?
-        if record.is_a?(Decidim::ParticipatoryProcessStep)
-          return user.roles.include?("admin") && user.organization == record.participatory_process.organization
-        end
-
-        user.roles.include?("admin") && user.organization == record.organization
+        check_admin_and_organization
       end
 
       # Checks if the user can edit a participatory process.
       #
       # Returns a Boolean.
       def edit?
-        if record.is_a?(Decidim::ParticipatoryProcessStep)
-          return user.roles.include?("admin") && user.organization == record.participatory_process.organization
-        end
-
-        user.roles.include?("admin") && user.organization == record.organization
+        check_admin_and_organization
       end
 
       # Checks if the user can update a participatory process.
       #
       # Returns a Boolean.
       def update?
-        if record.is_a?(Decidim::ParticipatoryProcessStep)
-          return user.roles.include?("admin") && user.organization == record.participatory_process.organization
-        end
-
-        user.roles.include?("admin") && user.organization == record.organization
+        check_admin_and_organization
       end
 
       # Checks if the user can destroy a participatory process.
       #
       # Returns a Boolean.
       def destroy?
+        check_admin_and_organization
+      end
+
+      private
+
+      def check_admin_and_organization
         if record.is_a?(Decidim::ParticipatoryProcessStep)
           return user.roles.include?("admin") && user.organization == record.participatory_process.organization
         end
