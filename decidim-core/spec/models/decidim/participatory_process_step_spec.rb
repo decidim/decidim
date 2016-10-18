@@ -22,5 +22,17 @@ module Decidim
         expect(subject.errors[:end_date]).to_not be_empty
       end
     end
+
+    context "when start_date is present" do
+      let(:start_date) { 1.month.from_now }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "when end_date is present" do
+      let(:end_date) { 2.months.ago }
+
+      it { is_expected.to be_valid }
+    end
   end
 end

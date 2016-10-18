@@ -36,8 +36,6 @@ en:
             start_date: Start date
             title: Title
           name: Participatory process step
-          validations:
-            dates_order: End date must be after start date
       participatory_process_steps:
         create:
           error: There was an error creating a new participatory process step.

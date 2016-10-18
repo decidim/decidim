@@ -18,18 +18,8 @@ module Decidim
 
       translatable_validates :title, :description, :short_description, presence: true
 
-      validate :end_date, :dates_order
-
-      private
-
-      def dates_order
-        return if end_date > start_date
-
-        errors.add(
-          :end_date,
-          I18n.t("models.participatory_process_step.validations.dates_order", scope: "decidim.admin")
-        )
-      end
+      validates :start_date, date: { before: :end_date, allow_blank: true, if: proc { |obj| obj.end_date.present? } }
+      validates :end_date, date: { after: :start_date, allow_blank: true, if: proc { |obj| obj.start_date.present? } }
     end
   end
 end
