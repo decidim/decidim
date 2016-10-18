@@ -38,6 +38,7 @@ module Decidim
 
       def copy_initializer
         template "initializer.rb", "config/initializers/decidim.rb"
+        template "carrierwave.rb", "config/initializers/carrierwave.rb"
       end
 
       def insert_into_layout

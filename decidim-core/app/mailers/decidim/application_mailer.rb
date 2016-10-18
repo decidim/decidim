@@ -5,7 +5,7 @@ module Decidim
   class ApplicationMailer < ActionMailer::Base
     include Roadie::Rails::Automatic
 
-    default from: "from@example.com"
+    default from: Decidim.config.mailer_sender
     layout "mailer"
   end
 end

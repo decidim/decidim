@@ -7,14 +7,4 @@ module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :FormBuilder, "decidim/form_builder"
   autoload :DeviseFailureApp, "decidim/devise_failure_app"
-
-  @config = OpenStruct.new
-
-  def self.setup
-    yield(@config)
-  end
-
-  def self.config
-    @config
-  end
 end
