@@ -12,7 +12,5 @@ class AddParticipatoryProcessSteps < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-
-    add_column :decidim_participatory_processes, :active_step_id, :boolean
   end
 end
