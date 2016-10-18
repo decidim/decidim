@@ -5,5 +5,6 @@ module Decidim
   # active.
   class ParticipatoryProcessStep < ApplicationRecord
     belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: Decidim::ParticipatoryProcess
+    delegate :organization, to: :participatory_process
   end
 end

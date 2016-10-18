@@ -24,11 +24,7 @@ module Decidim
       def index?
         return true if record.empty?
 
-        if record.first.is_a?(Decidim::ParticipatoryProcessStep)
-          return user.roles.include?("admin") && user.organization == record.first.participatory_process.organization
-        end
-
-        user.roles.include?("admin") && user.organization == record.first.organization
+        check_admin_and_organization(record.first)
       end
 
       # Checks if the user can see a participatory process.
@@ -61,12 +57,10 @@ module Decidim
 
       private
 
-      def check_admin_and_organization
-        if record.is_a?(Decidim::ParticipatoryProcessStep)
-          return user.roles.include?("admin") && user.organization == record.participatory_process.organization
-        end
+      def check_admin_and_organization(record_to_validate = nil)
+        record_to_validate ||= record
 
-        user.roles.include?("admin") && user.organization == record.organization
+        user.roles.include?("admin") && user.organization == record_to_validate.organization
       end
     end
   end
