@@ -36,6 +36,8 @@ ca:
             start_date: Data d'inici
             title: Títol
           name: Name
+          validations:
+            dates_order: La data de finalització ha de ser posterior a la data d'inici
       participatory_process_steps:
         create:
           error: S'ha produït un error en crear una nova fase de procés participatiu.

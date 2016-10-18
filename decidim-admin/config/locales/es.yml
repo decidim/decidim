@@ -36,6 +36,8 @@ es:
             start_date: Fecha de inicio
             title: Título
           name: Fase de proceso participativo
+          validations:
+            dates_order: La fecha de finalización tiene que ser posterior a la fecha de inicio
       participatory_process_steps:
         create:
           error: Se ha producido un error al crear una nueva fase de proceso participativo.
