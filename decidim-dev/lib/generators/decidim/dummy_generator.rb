@@ -43,6 +43,10 @@ module Decidim
         end
       end
 
+      def raise_on_missing_translations
+        gsub_file "#{dummy_path}/config/environments/test.rb", "# config.action_view.raise_on_missing_translations", " config.action_view.raise_on_missing_translations"
+      end
+
       private
 
       def dummy_path
