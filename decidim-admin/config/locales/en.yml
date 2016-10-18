@@ -13,6 +13,11 @@ en:
         new: New %{name}
         title: Actions
         unauthorized: You are not authorized to perform this action
+      decidim:
+        admin:
+          participatory_processes:
+            show:
+              steps_title: Steps
       menu:
         dashboard: Dashboard
         participatory_processes: Participatory processes
@@ -25,10 +30,31 @@ en:
           name: Participatory process
           validations:
             slug_uniqueness: Another participatory process with the same slug already exists
+        participatory_process_step:
+          fields:
+            end_date: End date
+            start_date: Start date
+            title: Title
+          name: Participatory process step
+      participatory_process_steps:
+        create:
+          error: There was an error creating a new participatory process step.
+          success: Participatory process step created successfully
+        destroy:
+          success: Participatory process step successfully destroyed
+        edit:
+          title: Edit participatory process step
+          update: Update participatory process step
+        new:
+          create: Create participatory process step
+          title: New participatory process step
+        update:
+          error: There was an error when updating this participatory process step.
+          success: Participatory process step updated successfully
       participatory_processes:
         create:
           error: There was an error creating a new participatory process.
-          success: Participatory process created successfully
+          success: Participatory process created successfully. Configure now its steps.
         destroy:
           success: Participatory process successfully destroyed
         edit:

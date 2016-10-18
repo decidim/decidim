@@ -20,6 +20,15 @@ FactoryGirl.define do
     end
   end
 
+  factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do
+    sequence(:title) { |n| { en: "Participatory Process Step ##{n}", ca: "Fase de procés participatiu ##{n}", es: "Fase de proceso participativo ##{n}" } }
+    short_description en: "<p>Short description</p>", ca: "<p>Descripció curta</p>", es: "<p>Descripción corta</p>"
+    description       en: "<p>Description</p>", ca: "<p>Descripció</p>", es: "<p>Descripción</p>"
+    start_date 1.month.ago.at_midnight
+    end_date 2.month.from_now.at_midnight
+    participatory_process
+  end
+
   factory :user, class: Decidim::User do
     sequence(:email)      { |n| "user#{n}@citizen.corp" }
     password              "password1234"

@@ -7,6 +7,7 @@ module Decidim
   # active.
   class ParticipatoryProcess < ApplicationRecord
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
+    has_many :steps, foreign_key: "decidim_participatory_process_id", class_name: Decidim::ParticipatoryProcessStep
 
     validates :slug, presence: true
     validates :slug, uniqueness: true

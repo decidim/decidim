@@ -20,6 +20,7 @@ require "roadie-rails"
 require "carrierwave"
 require "high_voltage"
 require "rails-i18n"
+require "date_validator"
 
 module Decidim
   module Core

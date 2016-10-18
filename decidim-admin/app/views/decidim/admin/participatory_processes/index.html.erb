@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process.name", scope: "decidim.admin")), ['new', 'participatory_process'], class: 'new' %>
+  <%= link_to_if policy(@participatory_processes).new?, t("actions.new", scope: "decidim.admin", name: t("models.participatory_process.name", scope: "decidim.admin")), ['new', 'participatory_process'], class: 'new' %>
 </div>
 
 <table class="stack">

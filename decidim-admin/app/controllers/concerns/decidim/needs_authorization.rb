@@ -29,12 +29,14 @@ module Decidim
       #
       # record - the record that will be evaluated against the policy class.
       def policy(record)
-        policies[record] ||= policy_class.new(current_user, record)
+        policies[record] ||= policy_class(record).new(current_user, record)
       end
 
       # Needed in order to make the `policy` method work. Overwirite it in the
       # given controller and make it return a Policy class.
-      def policy_class
+      #
+      # _record - The record that will be evaluated against the policy class.
+      def policy_class(_record)
         raise NotImplementedError, "Define this method and make it return a policy class name in order to make it work"
       end
 

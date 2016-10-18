@@ -42,6 +42,13 @@ module Decidim
 
         subject { described_class.new(user, processes) }
 
+        context "with an empty collection" do
+          let(:user) { create(:user, :admin, organization: organization) }
+          let(:processes) { [] }
+
+          it { is_expected.to permit_action(:index) }
+        end
+
         context "being a regular user" do
           let(:user) { create(:user) }
 

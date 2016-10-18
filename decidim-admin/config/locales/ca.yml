@@ -13,6 +13,11 @@ ca:
         new: Nou %{name}
         title: Accions
         unauthorized: No tens permís per realitzar aquesta acció.
+      decidim:
+        admin:
+          participatory_processes:
+            show:
+              steps_title: Fases
       menu:
         dashboard: Tauler de control
         participatory_processes: Processos participatius
@@ -25,10 +30,31 @@ ca:
           name: Procés participatiu
           validations:
             slug_uniqueness: Ja existeix un altre procés participatiu amb el mateix identificador
+        participatory_process_step:
+          fields:
+            end_date: Data de finalització
+            start_date: Data d'inici
+            title: Títol
+          name: Name
+      participatory_process_steps:
+        create:
+          error: S'ha produït un error en crear una nova fase de procés participatiu.
+          success: La fase de procés participatiu s'ha creat correctament.
+        destroy:
+          success: La fase de procés participatiu s'ha eliminat correctament.
+        edit:
+          title: Editar fase de procés participatiu
+          update: Actualitzar fase de procés participatiu
+        new:
+          create: Crear fase de procés participatiu
+          title: Nova fase de procés participatiu
+        update:
+          error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
+          success: La fase de procés participatiu s'ha actualitzat correctament.
       participatory_processes:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.
-          success: El procés participatiu s'ha creat correctament.
+          success: El procés participatiu s'ha creat correctament. Continua ara amb la configuració de les fases.
         destroy:
           success: El procés participatiu s'ha eliminat correctament.
         edit:
