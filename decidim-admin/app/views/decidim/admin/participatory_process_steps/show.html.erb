@@ -1,0 +1,22 @@
+<% content_for :title do %>
+  <h2><%= link_to translated_attribute(@participatory_process_step.participatory_process.title), @participatory_process_step.participatory_process %></h2>
+  <h3 class="subheader"><%= translated_attribute(@participatory_process_step.title) %></h3>
+<% end %>
+
+<div class="actions">
+  <hr />
+  <%= link_to_if policy(@participatory_process_step).edit?, t("decidim.admin.actions.edit"), ['edit', @participatory_process_step] %>
+  <%= link_to_if policy(@participatory_process_step).destroy?, t("decidim.admin.actions.destroy"), @participatory_process_step, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+</div>
+
+<dl>
+  <%= display_for @participatory_process_step,
+    :title,
+    :short_description,
+    :description
+    %>
+  <dt><%= display_label(@participatory_process_step, :start_date) %></dt>
+  <dd><%= l @participatory_process_step.start_date, format: :short %></dd>
+  <dt><%= display_label(@participatory_process_step, :end_date) %></dt>
+  <dd><%= l @participatory_process_step.end_date, format: :short %></dd>
+</dl>

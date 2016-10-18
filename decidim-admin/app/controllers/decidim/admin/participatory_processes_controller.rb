@@ -79,7 +79,7 @@ module Decidim
         current_organization.participatory_processes
       end
 
-      def policy_class
+      def policy_class(_record)
         Decidim::Admin::ParticipatoryProcessPolicy
       end
     end

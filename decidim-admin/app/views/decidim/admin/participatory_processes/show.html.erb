@@ -25,3 +25,42 @@
   <dt><%= display_label(@participatory_process, :promoted) %></dt>
   <dd><%= humanize_boolean @participatory_process.promoted? %></dd>
 </dl>
+
+<% if policy(@participatory_process.steps).index? %>
+  <section id="steps">
+    <h4><%= t(".steps_title", scope: "decidim.admin") %></h4>
+    <div class="actions title">
+      <%= link_to_if policy(@participatory_process.steps).new?, t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_step.name", scope: "decidim.admin")), new_participatory_process_step_path(@participatory_process), class: 'new' %>
+    </div>
+
+    <table class="stack">
+      <thead>
+        <tr>
+          <th><%= t("models.participatory_process_step.fields.title", scope: "decidim.admin") %></th>
+          <th><%= t("models.participatory_process_step.fields.start_date", scope: "decidim.admin") %></th>
+          <th><%= t("models.participatory_process_step.fields.end_date", scope: "decidim.admin") %></th>
+          <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @participatory_process.steps.each do |step| %>
+          <tr>
+            <td>
+              <%= link_to translated_attribute(step.title), participatory_process_step_path(@participatory_process, step) %><br />
+            </td>
+            <td>
+              <%= l step.start_date, format: :short %>
+            </td>
+            <td>
+              <%= l step.end_date, format: :short %>
+            </td>
+            <td class="actions">
+              <%= link_to_if policy(step).edit?, t("actions.edit", scope: "decidim.admin"), edit_participatory_process_step_path(@participatory_process, step) %>
+              <%= link_to_if policy(step).destroy?, t("actions.destroy", scope: "decidim.admin"), participatory_process_step_path(@participatory_process, step), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+<% end %>

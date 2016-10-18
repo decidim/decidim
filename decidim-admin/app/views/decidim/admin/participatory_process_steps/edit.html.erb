@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  <h2><%= t ".title" %></h2>
+<% end %>
+
+<%= form_for(@form, url: participatory_process_step_path(@participatory_process_step.participatory_process, @participatory_process_step)) do |f| %>
+  <%= render partial: 'form', object: f %>
+
+  <div class="actions">
+    <%= f.submit t(".update") %>
+  </div>
+<% end %>

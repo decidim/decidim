@@ -7,12 +7,17 @@ es:
   decidim:
     admin:
       actions:
-        confirm_destroy: ¿Seguro que lo quieres eliminar?
+        confirm_destroy: "¿Seguro que lo quieres eliminar?"
         destroy: Eliminar
         edit: Editar
         new: Nuevo %{name}
         title: Acciones
         unauthorized: No tienes permiso para realizar esta acción.
+      decidim:
+        admin:
+          participatory_processes:
+            show:
+              steps_title: Fases
       menu:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
@@ -25,6 +30,27 @@ es:
           name: Proceso participativo
           validations:
             slug_uniqueness: Ya existe otro proceso participativo con el mismo identificador
+        participatory_process_step:
+          fields:
+            end_date: Fecha de finalización
+            start_date: Fecha de inicio
+            title: Título
+          name: Fase de proceso participativo
+      participatory_process_steps:
+        create:
+          error: Se ha producido un error al crear una nueva fase de proceso participativo.
+          success: La fase de proceso participativo se ha creado correctamente.
+        destroy:
+          success: La fase de proceso participativo se ha eliminado correctamente.
+        edit:
+          title: Editar fase de proceso participativo
+          update: Actualizar fase de proceso participativo
+        new:
+          create: Crear fase de proceso participativo
+          title: Nuevo fase de proceso participativo
+        update:
+          error: Se ha producido un error en la actualización de esta fase de proceso participativo.
+          success: La fase de proceso participativo se ha actualizado correctamente.
       participatory_processes:
         create:
           error: Se ha producido un error al crear un nuevo proceso participativo.

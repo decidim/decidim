@@ -2,7 +2,7 @@
 module Decidim
   module Admin
     # A policy to define all the authorizations regarding a
-    # ParticipatoryProcess, to be used with Pundit.
+    # ParticipatoryProcess and its related steps, to be used with Pundit.
     class ParticipatoryProcessPolicy < ApplicationPolicy
       # Checks if the user can see the form for participatory process creation.
       #
@@ -22,6 +22,12 @@ module Decidim
       #
       # Returns a Boolean.
       def index?
+        return true if record.empty?
+
+        if record.first.is_a?(Decidim::ParticipatoryProcessStep)
+          return user.roles.include?("admin") && user.organization == record.first.participatory_process.organization
+        end
+
         user.roles.include?("admin") && user.organization == record.first.organization
       end
 
@@ -29,6 +35,10 @@ module Decidim
       #
       # Returns a Boolean.
       def show?
+        if record.is_a?(Decidim::ParticipatoryProcessStep)
+          return user.roles.include?("admin") && user.organization == record.participatory_process.organization
+        end
+
         user.roles.include?("admin") && user.organization == record.organization
       end
 
@@ -36,6 +46,10 @@ module Decidim
       #
       # Returns a Boolean.
       def edit?
+        if record.is_a?(Decidim::ParticipatoryProcessStep)
+          return user.roles.include?("admin") && user.organization == record.participatory_process.organization
+        end
+
         user.roles.include?("admin") && user.organization == record.organization
       end
 
@@ -43,6 +57,10 @@ module Decidim
       #
       # Returns a Boolean.
       def update?
+        if record.is_a?(Decidim::ParticipatoryProcessStep)
+          return user.roles.include?("admin") && user.organization == record.participatory_process.organization
+        end
+
         user.roles.include?("admin") && user.organization == record.organization
       end
 
@@ -50,6 +68,10 @@ module Decidim
       #
       # Returns a Boolean.
       def destroy?
+        if record.is_a?(Decidim::ParticipatoryProcessStep)
+          return user.roles.include?("admin") && user.organization == record.participatory_process.organization
+        end
+
         user.roles.include?("admin") && user.organization == record.organization
       end
     end

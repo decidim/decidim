@@ -12,7 +12,7 @@ module Decidim
 
       private
 
-      def policy_class
+      def policy_class(_record)
         Decidim::Admin::DashboardPolicy
       end
     end
