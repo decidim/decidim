@@ -56,7 +56,7 @@ en:
       participatory_processes:
         create:
           error: There was an error creating a new participatory process.
-          success: Participatory process created successfully
+          success: Participatory process created successfully. Configure now its steps.
         destroy:
           success: Participatory process successfully destroyed
         edit:

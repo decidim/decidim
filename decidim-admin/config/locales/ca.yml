@@ -56,7 +56,7 @@ ca:
       participatory_processes:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.
-          success: El procés participatiu s'ha creat correctament.
+          success: El procés participatiu s'ha creat correctament. Continua ara amb la configuració de les fases.
         destroy:
           success: El procés participatiu s'ha eliminat correctament.
         edit:
