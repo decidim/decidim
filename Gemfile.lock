@@ -1,7 +1,6 @@
 GIT
-  remote: https://github.com/codegram/foundation_rails_helper.git
-  revision: be6fe60804bbf31bc77cfcd3dd5e0dd99cb37350
-  branch: fix_label_with_html
+  remote: https://github.com/sgruhier/foundation_rails_helper.git
+  revision: df0bd8eca1b43b8bfdcb163f9e1e3b3b9ab0595e
   specs:
     foundation_rails_helper (2.0.0)
       actionpack (>= 4.1)
