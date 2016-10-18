@@ -51,6 +51,10 @@ module Decidim
       initializer "decidim.default_form_builder" do |_app|
         ActionView::Base.default_form_builder = Decidim::FormBuilder
       end
+
+      initializer "decidim.exceptions_app" do |app|
+        app.config.exceptions_app = Decidim::Core::Engine.routes
+      end
     end
   end
 end

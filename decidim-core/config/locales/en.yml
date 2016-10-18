@@ -77,6 +77,13 @@ en:
     en: English
     es: Castellano
   pages:
+    '404':
+      back_home: Back home
+      content_doesnt_exist: This address is incorrect or has been removed.
+      title: The page you're looking for can't be found
+    '500':
+      title: There was a problem with our server
+      try_later: Please try again later.
     home:
       register: Register
       welcome: Welcome to %{organization}!
