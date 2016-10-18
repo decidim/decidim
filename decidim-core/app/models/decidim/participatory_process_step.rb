@@ -6,5 +6,8 @@ module Decidim
   class ParticipatoryProcessStep < ApplicationRecord
     belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: Decidim::ParticipatoryProcess
     has_one :organization, through: :participatory_process
+
+    validates :end_date,
+              date: { after: :start_date }
   end
 end
