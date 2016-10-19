@@ -13,10 +13,12 @@ describe "Manage participatory process steps", type: :feature do
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
     )
   end
+  let(:active) { false }
   let!(:process_step) do
     create(
       :participatory_process_step,
       participatory_process: participatory_process,
+      active: active,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
     )
@@ -117,6 +119,32 @@ describe "Manage participatory process steps", type: :feature do
 
       within "table" do
         expect(page).to_not have_content(process_step2.title)
+      end
+    end
+  end
+
+  context "activating a step" do
+    it "activates a step" do
+      within find("tr", text: process_step.title["en"]) do
+        click_link "Set as active"
+      end
+
+      within find("tr", text: process_step.title["en"]) do
+        expect(page).to have_content("Deactivate")
+      end
+    end
+  end
+
+  context "deactivating a step" do
+    let(:active) { true }
+
+    it "deactivates a step" do
+      within find("tr", text: process_step.title["en"]) do
+        click_link "Deactivate"
+      end
+
+      within find("tr", text: process_step.title["en"]) do
+        expect(page).to have_content("Set as active")
       end
     end
   end
