@@ -10,10 +10,16 @@
     </div>
     <div class="card__footer">
       <div class="card__support">
+        <% if participatory_process.active_step %>
+          <span class="card--process__small">
+            <%= t(".active_step", scope: "layouts") %>
+            <strong><%= translated_attribute participatory_process.active_step.title %></strong>
+          </span>
+        <% end %>
         <span class="card--process__small"></span>
-        <button class="card__button button small">
+        <%= link_to participatory_process_path(participatory_process), class: "card__button button small" do %>
           <%= t(".take_part", scope: "layouts") %>
-        </button>
+        <% end %>
       </div>
     </div>
   </article>

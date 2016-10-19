@@ -72,8 +72,10 @@ es:
             one: "%{count} proceso"
             other: "%{count} procesos"
         participatory_process:
+          active_step: "Fase actual:"
           take_part: Participa
         promoted_process:
+          active_step: "Fase actual:"
           more_info: Más información
           take_part: Participa
   locales:
