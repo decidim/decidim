@@ -9,7 +9,7 @@ module Decidim
       def create
         authorize ParticipatoryProcessStep
 
-        ActivateParticipatoryProcessStep.call(collection.find(params[:step_id])) do
+        ActivateParticipatoryProcessStep.call(process_step) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_process_step_activations.create.success", scope: "decidim.admin")
             redirect_to participatory_process_path(participatory_process)
@@ -22,7 +22,27 @@ module Decidim
         end
       end
 
+      def destroy
+        authorize process_step
+
+        DeactivateParticipatoryProcessStep.call(process_step) do
+          on(:ok) do
+            flash[:notice] = I18n.t("participatory_process_step_activations.destroy.success", scope: "decidim.admin")
+            redirect_to participatory_process_path(participatory_process)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("participatory_process_step_activations.destroy.error", scope: "decidim.admin")
+            redirect_to participatory_process_path(participatory_process)
+          end
+        end
+      end
+
       private
+
+      def process_step
+        collection.find(params[:step_id])
+      end
 
       def participatory_process
         current_organization.participatory_processes.find(params[:participatory_process_id])

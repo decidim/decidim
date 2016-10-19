@@ -1,29 +1,26 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
-    # A command with all the business logic when activating a participatory
+    # A command with all the business logic when deactivating a participatory
     # process step.
-    class ActivateParticipatoryProcessStep < Rectify::Command
+    class DeactivateParticipatoryProcessStep < Rectify::Command
       # Public: Initializes the command.
       #
-      # step - A ParticipatoryProcessStep that will be activated
+      # step - A ParticipatoryProcessStep that will be deactivated
       def initialize(step)
         @step = step
       end
 
-      # Executes the command. Braodcasts these events:
+      # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
       # - :invalid if the data wasn't valid and we couldn't proceed.
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if step.nil? || step.active?
+        return broadcast(:invalid) if step.nil? || !step.active?
 
-        Decidim::ParticipatoryProcessStep.transaction do
-          deactivate_active_steps
-          activate_step
-        end
+        deactivate_active_steps
         broadcast(:ok)
       end
 
@@ -35,10 +32,6 @@ module Decidim
         Decidim::ParticipatoryProcessStep
           .where(decidim_participatory_process_id: step.decidim_participatory_process_id, active: true)
           .update_all(active: false)
-      end
-
-      def activate_step
-        step.update_attribute(:active, true)
       end
     end
   end

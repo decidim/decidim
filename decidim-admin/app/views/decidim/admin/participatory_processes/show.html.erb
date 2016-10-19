@@ -62,7 +62,11 @@
             </td>
             <td class="actions">
               <%= link_to_if policy(step).edit?, t("actions.edit", scope: "decidim.admin"), edit_participatory_process_step_path(@participatory_process, step) %>
-              <%= link_to "Set as active", participatory_process_step_activate_path(@participatory_process, step), method: :post, class: "small button secondary" unless step.active? %>
+              <% if step.active? %>
+                <%= link_to t("actions.deactivate", scope: "decidim.admin"), participatory_process_step_activate_path(@participatory_process, step), method: :delete, class: "small button secondary" %>
+              <% else %>
+                <%= link_to t("actions.activate", scope: "decidim.admin"), participatory_process_step_activate_path(@participatory_process, step), method: :post, class: "small button secondary" %>
+              <% end %>
               <%= link_to_if policy(step).destroy?, t("actions.destroy", scope: "decidim.admin"), participatory_process_step_path(@participatory_process, step), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
             </td>
           </tr>
