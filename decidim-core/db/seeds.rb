@@ -102,8 +102,30 @@ if !Rails.env.production? || ENV["SEED"]
       es: "<p>Descripción</p>",
       ca: "<p>Descripció</p>"
     },
+    active: true,
     start_date: 1.month.ago.at_midnight,
     end_date: 2.months.from_now.at_midnight,
+    participatory_process: participatory_process1
+  )
+
+  Decidim::ParticipatoryProcessStep.create!(
+    title: {
+      en: "Proposals",
+      es: "Propuestas",
+      ca: "Propostes"
+    },
+    short_description: {
+      en: "<p>Short description</p>",
+      es: "<p>Descripción corta</p>",
+      ca: "<p>Descripció curta</p>"
+    },
+    description: {
+      en: "<p>Description</p>",
+      es: "<p>Descripción</p>",
+      ca: "<p>Descripció</p>"
+    },
+    start_date: 2.months.from_now.at_midnight,
+    end_date: 3.months.from_now.at_midnight,
     participatory_process: participatory_process1
   )
 end

@@ -39,6 +39,7 @@
           <th><%= t("models.participatory_process_step.fields.title", scope: "decidim.admin") %></th>
           <th><%= t("models.participatory_process_step.fields.start_date", scope: "decidim.admin") %></th>
           <th><%= t("models.participatory_process_step.fields.end_date", scope: "decidim.admin") %></th>
+          <th><%= t("models.participatory_process_step.fields.active", scope: "decidim.admin") %></th>
           <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
         </tr>
       </thead>
@@ -54,8 +55,14 @@
             <td>
               <%= l step.end_date, format: :short %>
             </td>
+            <td>
+              <%= humanize_boolean step.active? %>
+              <% unless step.active? %>
+              <% end %>
+            </td>
             <td class="actions">
               <%= link_to_if policy(step).edit?, t("actions.edit", scope: "decidim.admin"), edit_participatory_process_step_path(@participatory_process, step) %>
+              <%= link_to "Set as active", participatory_process_step_activate_path(@participatory_process, step), method: :post, class: "small button secondary" unless step.active? %>
               <%= link_to_if policy(step).destroy?, t("actions.destroy", scope: "decidim.admin"), participatory_process_step_path(@participatory_process, step), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
             </td>
           </tr>
