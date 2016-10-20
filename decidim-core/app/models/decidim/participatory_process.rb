@@ -9,6 +9,9 @@ module Decidim
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
     has_many :steps, foreign_key: "decidim_participatory_process_id", class_name: Decidim::ParticipatoryProcessStep
     has_one :active_step, -> { where(active: true) }, foreign_key: "decidim_participatory_process_id", class_name: Decidim::ParticipatoryProcessStep
+
+    attr_readonly :active_step
+
     validates :slug, presence: true
     validates :slug, uniqueness: true
 

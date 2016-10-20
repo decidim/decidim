@@ -30,7 +30,7 @@ module Decidim
 
       def deactivate_active_steps
         Decidim::ParticipatoryProcessStep
-          .where(decidim_participatory_process_id: step.decidim_participatory_process_id, active: true)
+          .where(participatory_process: step.participatory_process, active: true)
           .update_all(active: false)
       end
     end
