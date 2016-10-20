@@ -68,8 +68,10 @@ en:
             one: "%{count} process"
             other: "%{count} processes"
         participatory_process:
+          active_step: "Current step:"
           take_part: Take part
         promoted_process:
+          active_step: "Current step:"
           more_info: More info
           take_part: Take part
   locales:

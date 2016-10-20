@@ -18,6 +18,11 @@
           <div class="large-6 large-offset-6 columns">
             <%= link_to participatory_process_path(promoted_process), class: "button expanded button--sc" do %>
               <%= t(".take_part", scope: "layouts") %>
+              <% if promoted_process.active_step %>
+                <span class="button__info">
+                  <%= t(".active_step", scope: "layouts") %> <%= translated_attribute promoted_process.active_step.title %>
+                </span>
+              <% end %>
             <% end %>
           </div>
         </div>

@@ -27,6 +27,10 @@ FactoryGirl.define do
     start_date 1.month.ago.at_midnight
     end_date 2.month.from_now.at_midnight
     participatory_process
+
+    trait :active do
+      active true
+    end
   end
 
   factory :user, class: Decidim::User do

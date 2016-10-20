@@ -7,7 +7,9 @@ en:
   decidim:
     admin:
       actions:
+        activate: Activate
         confirm_destroy: Are you sure you want to delete this?
+        deactivate: Deactivate
         destroy: Destroy
         edit: Edit
         new: New %{name}
@@ -32,10 +34,18 @@ en:
             slug_uniqueness: Another participatory process with the same slug already exists
         participatory_process_step:
           fields:
+            active: Active
             end_date: End date
             start_date: Start date
             title: Title
           name: Participatory process step
+      participatory_process_step_activations:
+        create:
+          error: There was an error activating this participatory process step.
+          success: Participatory process step activated successfully
+        destroy:
+          error: There was an error deactivating this participatory process step.
+          success: Participatory process step deactivated successfully
       participatory_process_steps:
         create:
           error: There was an error creating a new participatory process step.

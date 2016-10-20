@@ -7,7 +7,9 @@ es:
   decidim:
     admin:
       actions:
+        activate: Activar
         confirm_destroy: "¿Seguro que lo quieres eliminar?"
+        deactivate: Desactivar
         destroy: Eliminar
         edit: Editar
         new: Nuevo %{name}
@@ -32,10 +34,18 @@ es:
             slug_uniqueness: Ya existe otro proceso participativo con el mismo identificador
         participatory_process_step:
           fields:
+            active: Activo
             end_date: Fecha de finalización
             start_date: Fecha de inicio
             title: Título
           name: Fase de proceso participativo
+      participatory_process_step_activations:
+        create:
+          error: Se ha producido un error al activar esta fase de proceso participativo.
+          success: La fase de proceso participativo se ha activado correctamente.
+        destroy:
+          error: Se ha producido un error al desactivar esta fase de proceso participativo.
+          success: La fase de proceso participativo se ha desactivado correctamente.
       participatory_process_steps:
         create:
           error: Se ha producido un error al crear una nueva fase de proceso participativo.

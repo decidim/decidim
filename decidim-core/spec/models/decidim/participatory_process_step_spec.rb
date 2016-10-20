@@ -34,5 +34,25 @@ module Decidim
 
       it { is_expected.to be_valid }
     end
+
+    context "active" do
+      context "when there's an active step in the same process" do
+        let(:active_step) { create :participatory_process_step, :active }
+        let(:participatory_process_step) do
+          build(:participatory_process_step, :active, participatory_process: active_step.participatory_process)
+        end
+
+        it { is_expected.to_not be_valid }
+      end
+
+      context "with multiple inactive steps" do
+        let(:inactive_step) { create :participatory_process_step }
+        let(:participatory_process_step) do
+          build(:participatory_process_step, participatory_process: inactive_step.participatory_process)
+        end
+
+        it { is_expected.to be_valid }
+      end
+    end
   end
 end

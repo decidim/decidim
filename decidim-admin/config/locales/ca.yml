@@ -7,7 +7,9 @@ ca:
   decidim:
     admin:
       actions:
+        activate: Activar
         confirm_destroy: Segur que ho vols eliminar?
+        deactivate: Desactivar
         destroy: Eliminar
         edit: Editar
         new: Nou %{name}
@@ -32,10 +34,18 @@ ca:
             slug_uniqueness: Ja existeix un altre procés participatiu amb el mateix identificador
         participatory_process_step:
           fields:
+            active: Active
             end_date: Data de finalització
             start_date: Data d'inici
             title: Títol
           name: Name
+      participatory_process_step_activations:
+        create:
+          error: S'ha produït un error en activar aquesta fase de procés participatiu.
+          success: La fase de procés participatiu s'ha activat correctament.
+        destroy:
+          error: S'ha produït un error en desactivar aquesta fase de procés participatiu.
+          success: La fase de procés participatiu s'ha desactivat correctament.
       participatory_process_steps:
         create:
           error: S'ha produït un error en crear una nova fase de procés participatiu.
