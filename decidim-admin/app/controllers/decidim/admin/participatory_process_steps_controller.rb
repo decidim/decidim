@@ -68,6 +68,12 @@ module Decidim
         redirect_to participatory_process_path(@participatory_process_step.participatory_process)
       end
 
+      def ordering
+        authorize ParticipatoryProcessStep
+        byebug
+        redirect_to :back
+      end
+
       private
 
       def participatory_process

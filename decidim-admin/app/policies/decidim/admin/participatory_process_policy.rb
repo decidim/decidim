@@ -18,6 +18,13 @@ module Decidim
         user.roles.include?("admin")
       end
 
+      # Checks if the user can reorder a participatory process steps.
+      #
+      # Returns a Boolean.
+      def ordering?
+        user.roles.include?("admin")
+      end
+
       # Checks if the user can list a participatory process.
       #
       # Returns a Boolean.
