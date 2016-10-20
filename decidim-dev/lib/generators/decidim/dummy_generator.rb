@@ -21,6 +21,12 @@ module Decidim
       class_option :engine_path, type: :string,
                                  desc: "The library where the dummy app will be installed"
 
+      def source_paths
+        [
+          File.expand_path("../templates", __FILE__)
+        ]
+      end
+
       def cleanup
         remove_directory_if_exists(dummy_path)
       end
@@ -41,6 +47,10 @@ module Decidim
         inject_into_file "#{dummy_path}/config/application.rb", after: "class Application < Rails::Application" do
           "\n    config.i18n.available_locales = %w(en ca es)\n    config.i18n.default_locale = :en"
         end
+      end
+
+      def bullet
+        template "bullet.rb", "#{dummy_path}/config/initializers/bullet.rb"
       end
 
       private

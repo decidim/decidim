@@ -64,6 +64,7 @@ PATH
   remote: decidim-dev
   specs:
     decidim-dev (0.0.1.alpha7)
+      bullet (~> 5)
       byebug
       capybara (~> 2.10.0)
       database_cleaner (~> 1.5.0)
@@ -147,6 +148,9 @@ GEM
       execjs (~> 2.0)
     bcrypt (3.1.11)
     builder (3.2.2)
+    bullet (5.4.2)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
     capybara (2.10.1)
       addressable
@@ -376,6 +380,7 @@ GEM
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unicode-display_width (1.1.1)
+    uniform_notifier (1.10.0)
     url (0.3.2)
     virtus (1.0.5)
       axiom-types (~> 0.1)
@@ -415,4 +420,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.4
+   1.13.5
