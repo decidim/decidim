@@ -14,7 +14,7 @@ module Decidim
     end
 
     def participatory_processes
-      @participatory_processes ||= current_organization.participatory_processes
+      @participatory_processes ||= current_organization.participatory_processes.includes(:active_step)
     end
 
     def promoted_processes

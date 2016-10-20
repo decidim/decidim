@@ -126,7 +126,7 @@ describe "Manage participatory process steps", type: :feature do
   context "activating a step" do
     it "activates a step" do
       within find("tr", text: process_step.title["en"]) do
-        click_link "Set as active"
+        click_link "Activate"
       end
 
       within find("tr", text: process_step.title["en"]) do
@@ -144,7 +144,7 @@ describe "Manage participatory process steps", type: :feature do
       end
 
       within find("tr", text: process_step.title["en"]) do
-        expect(page).to have_content("Set as active")
+        expect(page).to have_content("Activate")
       end
     end
   end

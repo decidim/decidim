@@ -3,32 +3,13 @@ require "spec_helper"
 describe Decidim::Admin::ActivateParticipatoryProcessStep do
   let(:process_step) { create :participatory_process_step }
 
-  before do
-    @success = nil
-    @failure = nil
-  end
-
-  def success
-    @success = true
-  end
-
-  def failure
-    @failure = true
-  end
-
-  subject do
-    described_class.call(process_step) do
-      on(:ok) { success }
-      on(:invalid) { failure }
-    end
-  end
+  subject { described_class.new(process_step) }
 
   context "when the step is nil" do
     let(:process_step) { nil }
 
     it "is not valid" do
-      subject
-      expect(@failure).to eq true
+      expect { subject.call }.to broadcast(:invalid)
     end
   end
 
@@ -36,8 +17,7 @@ describe Decidim::Admin::ActivateParticipatoryProcessStep do
     let(:process_step) { create :participatory_process_step, :active }
 
     it "is not valid" do
-      subject
-      expect(@failure).to eq true
+      expect { subject.call }.to broadcast(:invalid)
     end
   end
 
@@ -47,17 +27,16 @@ describe Decidim::Admin::ActivateParticipatoryProcessStep do
     end
 
     it "is valid" do
-      subject
-      expect(@success).to eq true
+      expect { subject.call }.to broadcast(:ok)
     end
 
     it "activates it" do
-      subject
+      subject.call
       expect(process_step).to be_active
     end
 
     it "deactivates the process active steps" do
-      subject
+      subject.call
       active_step.reload
       expect(active_step).not_to be_active
     end

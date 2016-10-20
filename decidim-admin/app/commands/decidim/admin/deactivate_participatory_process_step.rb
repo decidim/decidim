@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
-    # A command with all the business logic when deactivating a participatory
-    # process step.
+    # A command that sets all steps in a participatory process as inactive
     class DeactivateParticipatoryProcessStep < Rectify::Command
       # Public: Initializes the command.
       #
@@ -29,9 +28,7 @@ module Decidim
       attr_reader :step
 
       def deactivate_active_steps
-        Decidim::ParticipatoryProcessStep
-          .where(participatory_process: step.participatory_process, active: true)
-          .update_all(active: false)
+        step.participatory_process.steps.where(active: true).update_all(active: false)
       end
     end
   end

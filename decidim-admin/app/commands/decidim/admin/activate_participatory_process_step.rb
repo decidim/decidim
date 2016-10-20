@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
-    # A command with all the business logic when activating a participatory
-    # process step.
+    # A command that sets a step in a participatory process as active (and
+    # unsets a previous active step)
     class ActivateParticipatoryProcessStep < Rectify::Command
       # Public: Initializes the command.
       #
@@ -32,9 +32,7 @@ module Decidim
       attr_reader :step
 
       def deactivate_active_steps
-        Decidim::ParticipatoryProcessStep
-          .where(decidim_participatory_process_id: step.decidim_participatory_process_id, active: true)
-          .update_all(active: false)
+        step.participatory_process.steps.where(active: true).update_all(active: false)
       end
 
       def activate_step
