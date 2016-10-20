@@ -70,18 +70,28 @@ module Decidim
 
       def ordering
         authorize ParticipatoryProcessStep
-        byebug
-        redirect_to :back
+
+        ReorderParticipatoryProcessSteps.call(collection, params[:items_ids]) do
+          on(:ok) do
+            flash[:notice] = "YUSSSSSSSSS"
+            redirect_to participatory_process_path(participatory_process)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = "NOOOOOOOOOOOOOOO"
+            redirect_to participatory_process_path(participatory_process)
+          end
+        end
       end
 
       private
 
       def participatory_process
-        current_organization.participatory_processes.find(params[:participatory_process_id])
+        @participatory_process ||= current_organization.participatory_processes.find(params[:participatory_process_id])
       end
 
       def collection
-        participatory_process.steps
+        @collection ||= participatory_process.steps
       end
 
       def policy_class(_record)
