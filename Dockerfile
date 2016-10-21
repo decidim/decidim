@@ -17,6 +17,7 @@ ADD decidim-core/lib/decidim/core/version.rb /tmp/decidim-core/lib/decidim/core/
 ADD decidim-system/decidim-system.gemspec /tmp/decidim-system/decidim-system.gemspec
 ADD decidim-admin/decidim-admin.gemspec /tmp/decidim-admin/decidim-admin.gemspec
 ADD decidim-dev/decidim-dev.gemspec /tmp/decidim-dev/decidim-dev.gemspec
+ADD decidim-api/decidim-api.gemspec /tmp/decidim-api/decidim-api.gemspec
 
 RUN cd /tmp && bundle install
 

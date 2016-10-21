@@ -23,6 +23,7 @@ module Decidim
       def install
         route "mount Decidim::System::Engine => '/system'"
         route "mount Decidim::Admin::Engine => '/admin'"
+        route "mount Decidim::Api::Engine => '/api'"
         route "mount Decidim::Core::Engine => '/'"
       end
 
