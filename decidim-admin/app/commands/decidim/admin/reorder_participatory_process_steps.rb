@@ -22,7 +22,11 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) unless order_string.present?
-        @order = JSON.parse(order_string)
+        begin
+          @order = JSON.parse(order_string)
+        rescue JSON::ParserError
+          return broadcast(:invalid)
+        end
         return broadcast(:invalid) unless order.is_a?(Array) && order.present?
 
         reorder_steps
