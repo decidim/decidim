@@ -26,4 +26,5 @@ Gem::Specification.new do |s|
   s.add_dependency "listen", "~> 3.1.0"
   s.add_dependency "launchy"
   s.add_dependency "i18n-tasks", "~> 0.9.5"
+  s.add_dependency "bullet", "~> 5"
 end
