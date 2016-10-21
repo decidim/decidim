@@ -29,6 +29,7 @@
 <% if policy(@participatory_process.steps).index? %>
   <section id="steps">
     <h4><%= t(".steps_title", scope: "decidim.admin") %></h4>
+    <p><%= t(".steps_hint", scope: "decidim.admin") %></p>
     <div class="actions title">
       <%= link_to_if policy(@participatory_process.steps).new?, t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_step.name", scope: "decidim.admin")), new_participatory_process_step_path(@participatory_process), class: 'new' %>
     </div>
@@ -43,7 +44,7 @@
           <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="sortable">
         <% @participatory_process.steps.each do |step| %>
           <tr data-id="<%= step.id %>">
             <td>
@@ -71,11 +72,6 @@
         <% end %>
       </tbody>
     </table>
-
-    <%= form_tag ordering_participatory_process_steps_path(@participatory_process) do %>
-      <%= hidden_field_tag :items_ids, "" %>
-      <%= submit_tag "Save changes" %>
-    <% end %>
   </section>
 
   <%= javascript_tag do %>
@@ -85,7 +81,7 @@
       placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0]
     })[0].addEventListener('sortupdate', function(e) {
       var order = $(e.target).children().map(function(e) { return $(this).data("id") }).toArray();
-      $('input#items_ids').val(JSON.stringify(order));
+      $.ajax({ method: "POST", url: "<%= ordering_participatory_process_steps_path(@participatory_process) %>", data: { "items_ids": JSON.stringify(order) } });
     })
   <% end %>
 <% end %>

@@ -19,6 +19,7 @@ ca:
         admin:
           participatory_processes:
             show:
+              steps_hint: Pots arrossegar les files de la taula per reordenar les fases del procés.
               steps_title: Fases
       menu:
         dashboard: Tauler de control
@@ -58,6 +59,8 @@ ca:
         new:
           create: Crear fase de procés participatiu
           title: Nova fase de procés participatiu
+        ordering:
+          error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
         update:
           error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
           success: La fase de procés participatiu s'ha actualitzat correctament.
