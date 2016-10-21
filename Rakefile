@@ -2,7 +2,7 @@
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 
-DECIDIM_GEMS = %w(core system admin).freeze
+DECIDIM_GEMS = %w(core system admin api).freeze
 
 RSpec::Core::RakeTask.new(:spec)
 

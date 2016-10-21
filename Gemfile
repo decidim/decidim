@@ -8,6 +8,7 @@ gemspec path: "decidim-core"
 gemspec path: "decidim-system"
 gemspec path: "decidim-admin"
 gemspec path: "decidim-dev"
+gemspec path: "decidim-api"
 
 gem "rubocop", "~> 0.45"
 gem "rspec_junit_formatter", "0.2.3"

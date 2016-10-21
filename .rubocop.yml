@@ -626,6 +626,9 @@ Style/Lambda:
     - line_count_dependent
     - lambda
     - literal
+  Exclude:
+    - 'decidim-api/app/schemas/**/*'
+    - 'decidim-api/app/types/**/*'
 
 Style/LambdaCall:
   EnforcedStyle: call
@@ -1292,3 +1295,12 @@ Rails/UniqBeforePluck:
 Rails/Validation:
   Include:
     - app/models/**/*.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - 'decidim-api/app/schemas/**/*'
+    - 'decidim-api/app/types/**/*'
+
+Lint/HandleExceptions:
+  Exclude:
+    - "**/*/Rakefile"

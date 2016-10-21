@@ -1,0 +1,46 @@
+module Decidim
+  module Api
+    module TypeHelpers
+      extend ActiveSupport::Concern
+
+      included do
+        let!(:current_organization) { create(:organization) }
+        let(:model) { OpenStruct.new({}) }
+
+        let(:schema) do
+          resolver = ->(_obj, _args, _ctx) { model }
+          type_class = described_class
+
+          query_type = GraphQL::ObjectType.define do
+            name "FakeTestQuery"
+
+            field :type, !type_class do
+              resolve resolver
+            end
+          end
+
+          GraphQL::Schema.define do
+            query query_type
+          end
+        end
+
+        let(:response) do
+          execute_query "{ type #{query}}"
+        end
+      end
+
+      def execute_query(query, variables = {})
+        result = schema.execute(
+          query,
+          context: {
+            current_organization: current_organization
+          },
+          variables: variables
+        )
+
+        raise Exception, result["errors"].map { |e| e["message"] }.join(", ") if result["errors"]
+        result["data"]["type"]
+      end
+    end
+  end
+end
