@@ -45,9 +45,8 @@ module Decidim
       end
 
       def reorder_steps
-        data = {}
-        order.each_with_index do |id, index|
-          data[id] = { position: index }
+        data = order.each_with_index.inject({}) do |hash, (id, index)|
+          hash.update(id => { position: index })
         end
 
         collection.update(data.keys, data.values)
