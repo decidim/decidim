@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
-    # A command that sets a step in a participatory process as active (and
-    # unsets a previous active step)
+    # A command that reorders the steps in a participatory process.
     class ReorderParticipatoryProcessSteps < Rectify::Command
       # Public: Initializes the command.
       #
@@ -21,13 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless order_string.present?
-        begin
-          @order = JSON.parse(order_string)
-        rescue JSON::ParserError
-          return broadcast(:invalid)
-        end
-        return broadcast(:invalid) unless order.is_a?(Array) && order.present?
+        return broadcast(:invalid) unless order
 
         reorder_steps
         broadcast(:ok)
@@ -35,7 +28,21 @@ module Decidim
 
       private
 
-      attr_reader :order_string, :collection, :order
+      attr_reader :order_string, :collection
+
+      def order
+        return @order if @order
+        return nil unless order_string.present?
+
+        begin
+          @order = JSON.parse(order_string)
+        rescue JSON::ParserError
+          return nil
+        end
+
+        return nil unless @order.is_a?(Array) && @order.present?
+        @order
+      end
 
       def reorder_steps
         data = {}
@@ -44,10 +51,6 @@ module Decidim
         end
 
         collection.update(data.keys, data.values)
-      end
-
-      def activate_step
-        step.update_attribute(:active, true)
       end
     end
   end
