@@ -68,6 +68,31 @@ module Decidim
 
         it { is_expected.not_to be_valid }
       end
+
+      context "is set before creation" do
+        context "when the step is the only one" do
+          it "sets the position to 0" do
+            subject.position = nil
+            subject.save
+
+            expect(subject.position).to eq 0
+          end
+        end
+
+        context "when there are more steps in the same process" do
+          let(:other_step) { create :participatory_process_step, :active, position: 3 }
+          let(:participatory_process_step) do
+            build(:participatory_process_step, participatory_process: other_step.participatory_process)
+          end
+
+          it "sets the position following the last step" do
+            subject.position = nil
+            subject.save
+
+            expect(subject.position).to eq 4
+          end
+        end
+      end
     end
   end
 end

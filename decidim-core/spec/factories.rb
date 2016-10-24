@@ -26,6 +26,7 @@ FactoryGirl.define do
     description       en: "<p>Description</p>", ca: "<p>Descripció</p>", es: "<p>Descripción</p>"
     start_date 1.month.ago.at_midnight
     end_date 2.month.from_now.at_midnight
+    position nil
     participatory_process
 
     trait :active do
