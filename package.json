@@ -5,7 +5,7 @@
     "type": "git"
   },
   "author": "Marc Riera <mrc2407@gmail.com>",
-  "license": "GPLv3",
+  "license": "AGPLv3",
   "scripts": {
     "test": "eslint app/**/*.js"
   },
