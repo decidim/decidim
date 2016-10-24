@@ -16,7 +16,7 @@ engines:
     - b0c92f6cd3876fc88891cbd4ff26faea
     - 2804eaecd03c1e9786c9a6f7007dd61e
   eslint:
-    enabled: true
+    enabled: false
   fixme:
     enabled: true
   rubocop:

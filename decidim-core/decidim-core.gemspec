@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_dependency "roadie-rails", "~> 1.0"
   s.add_dependency "high_voltage", "~> 3.0.0"
   s.add_dependency "date_validator", "~> 0.9.0"
+  s.add_dependency "sprockets-es6", "~> 0.9.2"
 
   s.add_development_dependency "decidim-dev", Decidim.version
 end

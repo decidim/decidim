@@ -4,3 +4,4 @@ pkg/
 vendor/bundle
 */Gemfile.lock
 .DS_Store
+node_modules/

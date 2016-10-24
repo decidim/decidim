@@ -1,0 +1,12 @@
+{
+  "env": {
+    "browser": true,
+    "es6": false
+  },
+  "extends": "airbnb",
+  "globals": {
+    "$": true,
+    "jQuery": true
+  },
+  "rules": {}
+}
