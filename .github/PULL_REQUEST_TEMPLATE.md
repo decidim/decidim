@@ -9,7 +9,7 @@
 - [x] Subtask 1
 - [ ] Subtask 2
 
-### Screenshots (optional)
+### :camera: Screenshots (optional)
 ![Description](URL)
 
 #### :ghost: GIF
