@@ -16,6 +16,8 @@
 //= require svg4everybody.min
 //= require appendAround
 
+/* globals svg4everybody */
+
 $(document).on("turbolinks:load", function() {
   $(document).foundation();
   $(".js-append").appendAround();
