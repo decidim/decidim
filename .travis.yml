@@ -25,13 +25,14 @@ before_install:
   - sudo apt-get install -y -qq yarn
   - yarn
   - export BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
-  - cd $GEM;
 
 cache:
   directories:
   - $HOME/.yarn-cache
 
 script:
+  - yarn run eslint $GEM/app/**/*.js
+  - cd $GEM;
   - $TRAVIS_BUILD_DIR/run_ci.sh
 
 rvm:
