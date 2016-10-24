@@ -4,5 +4,5 @@ if [ "$GEM" == "." ]; then
   docker build --rm=false -t codegram/decidim .
 fi
 
-eslint app/**/*.js
+yarn run test
 bundle exec rake

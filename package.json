@@ -6,6 +6,9 @@
   },
   "author": "Marc Riera <mrc2407@gmail.com>",
   "license": "GPLv3",
+  "scripts": {
+    "test": "eslint app/**/*.js"
+  },
   "dependencies": {
     "eslint": "^3.8.1"
   }
