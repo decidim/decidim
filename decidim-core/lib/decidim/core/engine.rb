@@ -21,6 +21,7 @@ require "carrierwave"
 require "high_voltage"
 require "rails-i18n"
 require "date_validator"
+require "sprockets/es6"
 
 module Decidim
   module Core

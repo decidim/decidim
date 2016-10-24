@@ -31,7 +31,7 @@ cache:
   - $HOME/.yarn-cache
 
 script:
-  - yarn run eslint $GEM/app/**/*.js
+  - yarn run eslint $GEM/app/**/*.js.es6 $GEM/app/**/*.js
   - cd $GEM;
   - $TRAVIS_BUILD_DIR/run_ci.sh
 
