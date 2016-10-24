@@ -5,7 +5,7 @@ Decidim::Admin::Engine.routes.draw do
       resources :steps, controller: "participatory_process_steps", except: :index do
         resource :activate, controller: "participatory_process_step_activations", only: [:create, :destroy]
         collection do
-          post :ordering
+          post :ordering, to: "participatory_process_step_ordering#create"
         end
       end
     end

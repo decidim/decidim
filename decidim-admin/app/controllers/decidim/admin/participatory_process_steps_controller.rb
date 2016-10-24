@@ -68,17 +68,6 @@ module Decidim
         redirect_to participatory_process_path(@participatory_process_step.participatory_process)
       end
 
-      def ordering
-        authorize ParticipatoryProcessStep
-
-        ReorderParticipatoryProcessSteps.call(collection, params[:items_ids]) do
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("participatory_process_steps.ordering.error", scope: "decidim.admin")
-            redirect_to participatory_process_path(participatory_process)
-          end
-        end
-      end
-
       private
 
       def participatory_process
