@@ -17,6 +17,7 @@ engines:
     - 2804eaecd03c1e9786c9a6f7007dd61e
   eslint:
     enabled: true
+    channel: "eslint-3"
   fixme:
     enabled: true
   rubocop:
