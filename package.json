@@ -1,0 +1,12 @@
+{
+  "name": "decidim",
+  "repository": {
+    "url": "git@github.com:codegram/decidim.git",
+    "type": "git"
+  },
+  "author": "Marc Riera <mrc2407@gmail.com>",
+  "license": "GPLv3",
+  "dependencies": {
+    "eslint": "^3.8.1"
+  }
+}
