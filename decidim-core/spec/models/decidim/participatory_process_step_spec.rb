@@ -3,7 +3,8 @@ require "spec_helper"
 
 module Decidim
   describe ParticipatoryProcessStep do
-    let(:participatory_process_step) { build(:participatory_process_step) }
+    let(:participatory_process_step) { build(:participatory_process_step, position: position) }
+    let(:position) { nil }
 
     subject { participatory_process_step }
 
@@ -52,6 +53,20 @@ module Decidim
         end
 
         it { is_expected.to be_valid }
+      end
+    end
+
+    context "position" do
+      context "with position lower than 0" do
+        let(:position) { -1 }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "with position with decimals" do
+        let(:position) { 1.75 }
+
+        it { is_expected.not_to be_valid }
       end
     end
   end

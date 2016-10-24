@@ -44,7 +44,7 @@
           <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
         </tr>
       </thead>
-      <tbody class="sortable">
+      <tbody class="sortable" data-sort-url="<%= ordering_participatory_process_steps_path(@participatory_process) %>">
         <% @participatory_process.steps.each do |step| %>
           <tr data-id="<%= step.id %>">
             <td>
@@ -73,15 +73,4 @@
       </tbody>
     </table>
   </section>
-
-  <%= javascript_tag do %>
-    var sortableElement = $("#steps tbody");
-
-    sortable("#steps tbody", {
-      placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0]
-    })[0].addEventListener('sortupdate', function(e) {
-      var order = $(e.target).children().map(function(e) { return $(this).data("id") }).toArray();
-      $.ajax({ method: "POST", url: "<%= ordering_participatory_process_steps_path(@participatory_process) %>", data: { "items_ids": JSON.stringify(order) } });
-    })
-  <% end %>
 <% end %>

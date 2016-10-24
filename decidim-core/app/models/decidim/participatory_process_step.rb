@@ -11,5 +11,7 @@ module Decidim
     validates :end_date, date: { after: :start_date, allow_blank: true, if: proc { |obj| obj.start_date.present? } }
 
     validates :active, uniqueness: { scope: :decidim_participatory_process_id }, if: proc { |step| step.active? }
+
+    validates :position, numericality: { greater_than_or_equal_to: 0, only_integer: true }, allow_blank: true
   end
 end
