@@ -1,19 +1,16 @@
 #### :tophat: What? Why?
 
 
-#### :dart: Acceptance criteria?
-
-
-#### :pushpin: Related tasks?
-
-
-#### :family: Dependencies?
-
+#### :pushpin: Related Issues
+- Related to #?
+- Fixes #?
 
 #### :clipboard: Subtasks
-- [x]
-- [ ]
+- [x] Subtask 1
+- [ ] Subtask 2
 
+### :camera: Screenshots (optional)
+![Description](URL)
 
 #### :ghost: GIF
 ![]()
