@@ -27,7 +27,7 @@ module Decidim
 
       private
 
-      attr_reader :order, :collection
+      attr_reader :collection
 
       def reorder_steps
         data = order.each_with_index.inject({}) do |hash, (id, index)|
@@ -35,6 +35,12 @@ module Decidim
         end
 
         collection.update(data.keys, data.values)
+      end
+
+      def order
+        return nil unless @order.is_a?(Array) && @order.present?
+
+        @order
       end
     end
   end
