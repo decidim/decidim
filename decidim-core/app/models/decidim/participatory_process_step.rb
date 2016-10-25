@@ -13,6 +13,7 @@ module Decidim
     validates :active, uniqueness: { scope: :decidim_participatory_process_id }, if: proc { |step| step.active? }
 
     validates :position, numericality: { greater_than_or_equal_to: 0, only_integer: true }, allow_blank: true
+    validates :position, uniqueness: { scope: :decidim_participatory_process_id }
 
     before_create :set_position
 
@@ -29,7 +30,7 @@ module Decidim
       return if position.present?
       return self.position = 0 if participatory_process.steps.empty?
 
-      self.position = participatory_process.steps.last.position + 1
+      self.position = participatory_process.steps.pluck(:position).last + 1
     end
   end
 end

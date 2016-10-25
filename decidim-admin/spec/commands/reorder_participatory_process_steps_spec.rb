@@ -42,7 +42,7 @@ describe Decidim::Admin::ReorderParticipatoryProcessSteps do
       expect { subject.call }.to broadcast(:ok)
     end
 
-    it "deactivates it" do
+    it "reorders the steps" do
       subject.call
       process_step1.reload
       process_step2.reload
