@@ -93,6 +93,16 @@ module Decidim
           end
         end
       end
+
+      context "when multiple processes have only one step" do
+        let!(:other_step) { create(:participatory_process_step) }
+
+        it "all steps have position 0" do
+          subject.save
+          expect(subject.position).to eq 0
+          expect(other_step.position).to eq 0
+        end
+      end
     end
   end
 end
