@@ -7,5 +7,6 @@ jshint:
 eslint:
   enabled: true
   config_file: .eslintrc.json
+  ignore_file: .eslintignore
 
 fail_on_violations: true

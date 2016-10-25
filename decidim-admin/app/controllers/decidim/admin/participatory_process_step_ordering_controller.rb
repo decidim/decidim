@@ -9,7 +9,6 @@ module Decidim
       def create
         authorize ParticipatoryProcessStep
 
-        byebug
         if order
           ReorderParticipatoryProcessSteps.call(collection, order) do
             on(:invalid) do
