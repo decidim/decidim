@@ -6,11 +6,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # collection - an ActiveRecord::Relation of steps
-      # order_string - a String representing an Array holding the order of IDs
-      #   of steps
-      def initialize(collection, order_string)
+      # order - an Array holding the order of IDs of steps
+      def initialize(collection, order)
         @collection = collection
-        @order_string = order_string
+        @order = order
       end
 
       # Executes the command. Braodcasts these events:
@@ -20,7 +19,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless order
+        return broadcast(:invalid) unless order.present?
 
         reorder_steps
         broadcast(:ok)
@@ -28,21 +27,7 @@ module Decidim
 
       private
 
-      attr_reader :order_string, :collection
-
-      def order
-        return @order if @order
-        return nil unless order_string.present?
-
-        begin
-          @order = JSON.parse(order_string)
-        rescue JSON::ParserError
-          return nil
-        end
-
-        return nil unless @order.is_a?(Array) && @order.present?
-        @order
-      end
+      attr_reader :order, :collection
 
       def reorder_steps
         data = order.each_with_index.inject({}) do |hash, (id, index)|

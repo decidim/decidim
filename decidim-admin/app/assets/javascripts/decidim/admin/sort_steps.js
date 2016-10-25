@@ -15,7 +15,7 @@ $(function() {
       placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0]
     })[0].addEventListener('sortupdate', function(e) {
       var order = $(e.target).children().map(function() { return $(this).data("id") }).toArray();
-      $.ajax({ method: "POST", url: sortUrl, data: { "items_ids": JSON.stringify(order) } });
+      $.ajax({ method: "POST", url: sortUrl, data: { "items_ids": order } });
     });
   }
 });

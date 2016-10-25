@@ -17,35 +17,27 @@ describe Decidim::Admin::ReorderParticipatoryProcessSteps do
     )
   end
   let(:collection) { process.steps }
-  let(:order_string) { "[#{process_step2.id}, #{process_step1.id}]" }
+  let(:order) { [process_step2.id, process_step1.id] }
 
-  subject { described_class.new(collection, order_string) }
+  subject { described_class.new(collection, order) }
 
-  context "when the order_string is nil" do
-    let(:order_string) { nil }
-
-    it "is not valid" do
-      expect { subject.call }.to broadcast(:invalid)
-    end
-  end
-
-  context "when the order_string is not an array string" do
-    let(:order_string) { "something_something" }
+  context "when the order is nil" do
+    let(:order) { nil }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)
     end
   end
 
-  context "when the order_string is an empty array string" do
-    let(:order_string) { "[]" }
+  context "when the order is empty" do
+    let(:order) { [] }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)
     end
   end
 
-  context "when the order_string is valid" do
+  context "when the order is valid" do
     it "is valid" do
       expect { subject.call }.to broadcast(:ok)
     end
