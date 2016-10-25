@@ -24,8 +24,10 @@ module Decidim
     # manually, it will be set to 0, and when it is not the only one it will be
     # set to the last step's position + 1.
     #
-    # Note: This allows manual positioning, so it can cause different steps to
-    # have the same position.
+    # Note: This allows manual positioning, but there is a validation that
+    # forbids two steps from the same proccess to have the same position. Take
+    # that into account. It would be best if you did not use manual
+    # positioning.
     def set_position
       return if position.present?
       return self.position = 0 if participatory_process.steps.empty?
