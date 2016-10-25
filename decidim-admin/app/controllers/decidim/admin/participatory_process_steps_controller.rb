@@ -71,11 +71,11 @@ module Decidim
       private
 
       def participatory_process
-        current_organization.participatory_processes.find(params[:participatory_process_id])
+        @participatory_process ||= current_organization.participatory_processes.find(params[:participatory_process_id])
       end
 
       def collection
-        participatory_process.steps
+        @collection ||= participatory_process.steps
       end
 
       def policy_class(_record)

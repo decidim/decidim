@@ -29,6 +29,7 @@
 <% if policy(@participatory_process.steps).index? %>
   <section id="steps">
     <h4><%= t(".steps_title", scope: "decidim.admin") %></h4>
+    <p><%= t(".steps_hint", scope: "decidim.admin") %></p>
     <div class="actions title">
       <%= link_to_if policy(@participatory_process.steps).new?, t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_step.name", scope: "decidim.admin")), new_participatory_process_step_path(@participatory_process), class: 'new' %>
     </div>
@@ -43,9 +44,9 @@
           <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="sortable" data-sort-url="<%= ordering_participatory_process_steps_path(@participatory_process) %>">
         <% @participatory_process.steps.each do |step| %>
-          <tr>
+          <tr data-id="<%= step.id %>">
             <td>
               <%= link_to translated_attribute(step.title), participatory_process_step_path(@participatory_process, step) %><br />
             </td>

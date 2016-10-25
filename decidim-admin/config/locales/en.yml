@@ -19,6 +19,7 @@ en:
         admin:
           participatory_processes:
             show:
+              steps_hint: You can drag the rows of the table in order to reorder the process steps.
               steps_title: Steps
       menu:
         dashboard: Dashboard
@@ -58,6 +59,8 @@ en:
         new:
           create: Create participatory process step
           title: New participatory process step
+        ordering:
+          error: There was an error when reordering this participatory process steps.
         update:
           error: There was an error when updating this participatory process step.
           success: Participatory process step updated successfully

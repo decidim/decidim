@@ -3,3 +3,12 @@ table{
     text-align: right;
   }
 }
+
+tbody.sortable tr {
+  cursor: move;
+
+  td:first-child {
+    border-left-style: dotted;
+    border-left-color: #ccc;
+  }
+}

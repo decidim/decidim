@@ -19,6 +19,7 @@ es:
         admin:
           participatory_processes:
             show:
+              steps_hint: Puedes arrastrar las filas de la tabla para reordenar las fases del proceso.
               steps_title: Fases
       menu:
         dashboard: Panel de control
@@ -58,6 +59,8 @@ es:
         new:
           create: Crear fase de proceso participativo
           title: Nuevo fase de proceso participativo
+        ordering:
+          error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
         update:
           error: Se ha producido un error en la actualización de esta fase de proceso participativo.
           success: La fase de proceso participativo se ha actualizado correctamente.
