@@ -38,18 +38,18 @@ describe "Manage participatory processes", type: :feature do
     end
 
     within "dl" do
-      expect(page).to have_content(participatory_process.title["en"])
-      expect(page).to have_content(participatory_process.title["es"])
-      expect(page).to have_content(participatory_process.title["ca"])
-      expect(page).to have_content(participatory_process.subtitle["en"])
-      expect(page).to have_content(participatory_process.subtitle["es"])
-      expect(page).to have_content(participatory_process.subtitle["ca"])
-      expect(page).to have_content(participatory_process.short_description["en"])
-      expect(page).to have_content(participatory_process.short_description["es"])
-      expect(page).to have_content(participatory_process.short_description["ca"])
-      expect(page).to have_content(participatory_process.description["en"])
-      expect(page).to have_content(participatory_process.description["es"])
-      expect(page).to have_content(participatory_process.description["ca"])
+      expect(page).to have_content(translated(participatory_process.title, locale: :en))
+      expect(page).to have_content(translated(participatory_process.title, locale: :es))
+      expect(page).to have_content(translated(participatory_process.title, locale: :ca))
+      expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
+      expect(page).to have_content(translated(participatory_process.subtitle, locale: :es))
+      expect(page).to have_content(translated(participatory_process.subtitle, locale: :ca))
+      expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
+      expect(page).to have_content(translated(participatory_process.short_description, locale: :es))
+      expect(page).to have_content(translated(participatory_process.short_description, locale: :ca))
+      expect(page).to have_content(translated(participatory_process.description, locale: :en))
+      expect(page).to have_content(translated(participatory_process.description, locale: :es))
+      expect(page).to have_content(translated(participatory_process.description, locale: :ca))
       expect(page).to have_content(participatory_process.hashtag)
       expect(page).to have_content(participatory_process.slug)
       expect(page).to have_xpath("//img[@src=\"#{participatory_process.hero_image.url}\"]")
@@ -97,7 +97,7 @@ describe "Manage participatory processes", type: :feature do
   end
 
   it "updates an participatory_process" do
-    within find("tr", text: participatory_process.title["en"]) do
+    within find("tr", text: translated(participatory_process.title)) do
       click_link "Edit"
     end
 
@@ -133,7 +133,7 @@ describe "Manage participatory processes", type: :feature do
     end
 
     it "deletes a participatory_process" do
-      within find("tr", text: participatory_process2.title["en"]) do
+      within find("tr", text: translated(participatory_process2.title)) do
         click_link "Destroy"
       end
 
@@ -142,7 +142,7 @@ describe "Manage participatory processes", type: :feature do
       end
 
       within "table" do
-        expect(page).to_not have_content(participatory_process2.title)
+        expect(page).to_not have_content(translated(participatory_process2.title))
       end
     end
   end

@@ -42,3 +42,7 @@ RSpec.configure do |config|
 end
 
 require_relative "i18n_spec"
+
+def translated(field, locale: I18n.locale)
+  field.try(:[], locale.to_s)
+end
