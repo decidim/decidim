@@ -82,14 +82,25 @@ module Decidim
         context "when there are more steps in the same process" do
           let(:other_step) { create :participatory_process_step, :active, position: 3 }
           let(:participatory_process_step) do
-            build(:participatory_process_step, participatory_process: other_step.participatory_process)
+            build(:participatory_process_step, participatory_process: other_step.participatory_process, position: position)
           end
 
-          it "sets the position following the last step" do
-            subject.position = nil
-            subject.save
+          context "and position is automatically set" do
+            let(:position) { nil }
 
-            expect(subject.position).to eq 4
+            it "sets the position following the last step" do
+              subject.save
+
+              expect(subject.position).to eq 4
+            end
+          end
+
+          context "and position is manually set" do
+            let(:position) { 3 }
+
+            it "does not let two steps to have the same position" do
+              expect(subject).to_not be_valid
+            end
           end
         end
       end
