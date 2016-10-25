@@ -18,6 +18,7 @@ describe "Participatory Processes", type: :feature do
 
   context "when there are some processes" do
     let!(:promoted_process) { create(:participatory_process, :promoted, organization: organization) }
+    let!(:unpublished_process) { create(:participatory_process, :unpublished, organization: organization) }
 
     before do
       visit decidim.participatory_processes_path
@@ -37,6 +38,8 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
         expect(page).to have_content(translated(promoted_process.title, locale: :en))
         expect(page).to have_selector("article.card", count: 2)
+
+        expect(page).to_not have_content(translated(unpublished_process.title, locale: :en))
       end
     end
 

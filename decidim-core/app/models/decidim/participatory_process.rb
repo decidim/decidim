@@ -17,5 +17,9 @@ module Decidim
 
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
+
+    def self.published
+      where.not(published_at: nil)
+    end
   end
 end
