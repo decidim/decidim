@@ -39,10 +39,8 @@ RSpec.configure do |config|
   # examples within a transaction, comment the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = false
+
+  config.include TranslationHelpers
 end
 
 require_relative "i18n_spec"
-
-def translated(field, locale: I18n.locale)
-  field.try(:[], locale.to_s)
-end
