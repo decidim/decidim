@@ -32,19 +32,19 @@ describe "Manage participatory process steps", type: :feature do
 
   it "displays all fields from a single participatory process" do
     within "table" do
-      click_link process_step.title["en"]
+      click_link translated(process_step.title)
     end
 
     within "dl" do
-      expect(page).to have_content(process_step.title["en"])
-      expect(page).to have_content(process_step.title["es"])
-      expect(page).to have_content(process_step.title["ca"])
-      expect(page).to have_content(process_step.short_description["en"])
-      expect(page).to have_content(process_step.short_description["es"])
-      expect(page).to have_content(process_step.short_description["ca"])
-      expect(page).to have_content(process_step.description["en"])
-      expect(page).to have_content(process_step.description["es"])
-      expect(page).to have_content(process_step.description["ca"])
+      expect(page).to have_content(translated(process_step.title, locale: :en))
+      expect(page).to have_content(translated(process_step.title, locale: :es))
+      expect(page).to have_content(translated(process_step.title, locale: :ca))
+      expect(page).to have_content(translated(process_step.short_description, locale: :en))
+      expect(page).to have_content(translated(process_step.short_description, locale: :es))
+      expect(page).to have_content(translated(process_step.short_description, locale: :ca))
+      expect(page).to have_content(translated(process_step.description, locale: :en))
+      expect(page).to have_content(translated(process_step.description, locale: :es))
+      expect(page).to have_content(translated(process_step.description, locale: :ca))
     end
   end
 
@@ -78,7 +78,7 @@ describe "Manage participatory process steps", type: :feature do
 
   it "updates a participatory_process_step" do
     within "#steps" do
-      within find("tr", text: process_step.title["en"]) do
+      within find("tr", text: translated(process_step.title)) do
         click_link "Edit"
       end
     end
@@ -109,7 +109,7 @@ describe "Manage participatory process steps", type: :feature do
     end
 
     it "deletes a participatory_process_step" do
-      within find("tr", text: process_step2.title["en"]) do
+      within find("tr", text: translated(process_step2.title)) do
         click_link "Destroy"
       end
 
@@ -118,18 +118,18 @@ describe "Manage participatory process steps", type: :feature do
       end
 
       within "table" do
-        expect(page).to_not have_content(process_step2.title)
+        expect(page).to_not have_content(translated(process_step2.title))
       end
     end
   end
 
   context "activating a step" do
     it "activates a step" do
-      within find("tr", text: process_step.title["en"]) do
+      within find("tr", text: translated(process_step.title)) do
         click_link "Activate"
       end
 
-      within find("tr", text: process_step.title["en"]) do
+      within find("tr", text: translated(process_step.title)) do
         expect(page).to have_content("Deactivate")
       end
     end
@@ -139,11 +139,11 @@ describe "Manage participatory process steps", type: :feature do
     let(:active) { true }
 
     it "deactivates a step" do
-      within find("tr", text: process_step.title["en"]) do
+      within find("tr", text: translated(process_step.title)) do
         click_link "Deactivate"
       end
 
-      within find("tr", text: process_step.title["en"]) do
+      within find("tr", text: translated(process_step.title)) do
         expect(page).to have_content("Activate")
       end
     end
