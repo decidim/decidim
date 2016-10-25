@@ -32,7 +32,10 @@ module Decidim
                           desc: "Path to the gem"
 
       class_option :edge, type: :boolean, default: false,
-                          desc: "Use GitHub's edge version"
+                          desc: "Use GitHub's edge version from master branch"
+
+      class_option :branch, type: :string, default: nil,
+                            desc: "Use a specific branch from GitHub's version"
 
       class_option :database, type: :string, aliases: "-d", default: "postgresql",
                               desc: "Configure for selected database (options: #{DATABASES.join("/")})"
