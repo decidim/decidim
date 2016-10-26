@@ -160,27 +160,4 @@ describe "Manage participatory processes", type: :feature do
       end
     end
   end
-
-  context "when the user is not authorized to perform some actions" do
-    let(:policy_double) { double edit?: policy_edit }
-    let(:policy_edit) { true }
-
-    before do
-      allow(Decidim::Admin::ParticipatoryProcessPolicy)
-        .to receive(:new)
-        .and_return(policy_double)
-    end
-
-    context "it can't edit a record" do
-      let(:policy_edit) { false }
-
-      context 'when the user tries to manually access to the edition page' do
-        it "is redirected to the root path" do
-          visit decidim_admin.edit_participatory_process_path(participatory_process)
-          expect(page).to have_content("You are not authorized to perform this action")
-          expect(current_path).to eq decidim_admin.root_path
-        end
-      end
-    end
-  end
 end

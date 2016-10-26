@@ -12,7 +12,6 @@ require "foundation-rails"
 require "foundation_rails_helper"
 require "jbuilder"
 require "rectify"
-require "pundit"
 
 module Decidim
   module Admin

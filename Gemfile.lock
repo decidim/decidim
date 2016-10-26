@@ -33,7 +33,6 @@ PATH
       foundation_rails_helper (~> 2.0.0)
       jbuilder (~> 2.5)
       jquery-rails (~> 4.0)
-      pundit (~> 1.1.0)
       rails (~> 5.0.0)
       rectify (~> 0.6)
       sass-rails (~> 5.0.0)
@@ -257,11 +256,6 @@ GEM
       ast (~> 2.2)
     pg (0.19.0)
     powerpack (0.1.1)
-    pundit (1.1.0)
-      activesupport (>= 3.0.0)
-    pundit-matchers (1.1.0)
-      pundit (~> 1.1, >= 1.1.0)
-      rspec-rails (>= 3.0.0)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -410,7 +404,6 @@ DEPENDENCIES
   decidim-dev!
   decidim-system!
   foundation_rails_helper!
-  pundit-matchers (~> 1.1.0)
   rake (~> 11.0)
   rspec (~> 3.0)
   rspec_junit_formatter (= 0.2.3)

@@ -7,8 +7,6 @@ module Decidim
     #
     class ParticipatoryProcessStepActivationsController < ApplicationController
       def create
-        authorize ParticipatoryProcessStep
-
         ActivateParticipatoryProcessStep.call(process_step) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_process_step_activations.create.success", scope: "decidim.admin")
@@ -23,8 +21,6 @@ module Decidim
       end
 
       def destroy
-        authorize process_step
-
         DeactivateParticipatoryProcessStep.call(process_step) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_process_step_activations.destroy.success", scope: "decidim.admin")
@@ -50,10 +46,6 @@ module Decidim
 
       def collection
         participatory_process.steps
-      end
-
-      def policy_class(_record)
-        Decidim::Admin::ParticipatoryProcessPolicy
       end
     end
   end

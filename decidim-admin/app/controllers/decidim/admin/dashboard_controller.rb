@@ -6,15 +6,6 @@ module Decidim
     # Controller that shows a simple dashboard.
     #
     class DashboardController < ApplicationController
-      def show
-        authorize :dashboard
-      end
-
-      private
-
-      def policy_class(_record)
-        Decidim::Admin::DashboardPolicy
-      end
     end
   end
 end

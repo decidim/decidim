@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="actions title">
-  <%= link_to_if policy(@participatory_processes).new?, t("actions.new", scope: "decidim.admin", name: t("models.participatory_process.name", scope: "decidim.admin")), ['new', 'participatory_process'], class: 'new' %>
+  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process.name", scope: "decidim.admin")), ['new', 'participatory_process'], class: 'new' %>
 </div>
 
 <table class="stack">
@@ -28,9 +28,9 @@
           <%= l process.created_at, format: :short %>
         </td>
         <td class="actions">
-          <%= link_to_if policy(process).edit?, t("actions.edit", scope: "decidim.admin"), ['edit', process] %>
+          <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', process] %>
 
-          <%= link_to_if policy(process).destroy?, t("actions.destroy", scope: "decidim.admin"), process, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+          <%= link_to t("actions.destroy", scope: "decidim.admin"), process, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
         </td>
       </tr>
     <% end %>
