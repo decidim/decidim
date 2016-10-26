@@ -1,1 +1,1 @@
-gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper.git"
+gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper.git", tag: "df0bd8e"
