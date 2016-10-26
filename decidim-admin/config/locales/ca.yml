@@ -17,8 +17,8 @@ ca:
         unauthorized: No tens permís per realitzar aquesta acció.
       decidim:
         admin:
-          participatory_processes:
-            show:
+          participatory_process_steps:
+            table:
               steps_hint: Pots arrossegar les files de la taula per reordenar les fases del procés.
               steps_title: Fases
       menu:

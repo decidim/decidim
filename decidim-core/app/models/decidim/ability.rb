@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 module Decidim
+  # Defines the abilities for a User. Intended to be used with `cancancan`.
   class Ability
     include CanCan::Ability
 

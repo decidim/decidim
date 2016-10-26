@@ -17,8 +17,8 @@ en:
         unauthorized: You are not authorized to perform this action
       decidim:
         admin:
-          participatory_processes:
-            show:
+          participatory_process_steps:
+            table:
               steps_hint: You can drag the rows of the table in order to reorder the process steps.
               steps_title: Steps
       menu:
