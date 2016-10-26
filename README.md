@@ -6,9 +6,6 @@
 [![Build Status](https://travis-ci.org/codegram/decidim.svg?branch=master)](https://travis-ci.org/codegram/decidim)
 [![codecov](https://codecov.io/gh/codegram/decidim/branch/master/graph/badge.svg)](https://codecov.io/gh/codegram/decidim)
 [![Dependency Status](https://gemnasium.com/badges/github.com/codegram/decidim.svg)](https://gemnasium.com/github.com/codegram/decidim)
-[![Issue Stats](http://issuestats.com/github/codegram/decidim/badge/pr?style=flat)](http://issuestats.com/github/codegram/decidim)
-[![Issue Stats](http://issuestats.com/github/codegram/decidim/badge/issue?style=flat)](http://issuestats.com/github/codegram/decidim)
-
 
 ## Requirements
 
@@ -46,9 +43,9 @@ This will also create some default data so you can start testing the app:
 * A `Decidim::Organization` named `Decidim Staging`. You probably want to
   change its name and hostname to match your needs.
 * A `Decidim::User` acting as an admin for the organization, with email
- `admin@decidim.org` and password `decidim123456`
+ `admin@decidim.org` and password `decidim123456`.
 * A `Decidim::User` that also belongs to the organization but it's a regular
-  user.
+  user, with email `user@decidim.org` and password `decidim123456`.
 
 This data won't be created in production environments, if you still want to do it, run:
 
