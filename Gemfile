@@ -9,9 +9,9 @@ gemspec path: "decidim-system"
 gemspec path: "decidim-admin"
 gemspec path: "decidim-dev"
 
-gem "rubocop"
+gem "rubocop", "~> 0.44.1"
 gem "rspec_junit_formatter", "0.2.3"
 gem "simplecov", "~> 0.12"
-gem "codecov", "~> 0.1.5"
+gem "codecov", "~> 0.1.6"
 
 eval(File.read(File.join(File.dirname(__FILE__), "Gemfile.common")))
