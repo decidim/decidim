@@ -7,11 +7,14 @@ module Decidim
     #
     class ParticipatoryProcessStepsController < ApplicationController
       def new
+        authorize! :create, Decidim::ParticipatoryProcessStep
         @form = ParticipatoryProcessStepForm.new
       end
 
       def create
+        authorize! :create, Decidim::ParticipatoryProcessStep
         @form = ParticipatoryProcessStepForm.from_params(params)
+
         CreateParticipatoryProcessStep.call(@form, participatory_process) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_process_steps.create.success", scope: "decidim.admin")
@@ -27,11 +30,13 @@ module Decidim
 
       def edit
         @participatory_process_step = collection.find(params[:id])
+        authorize! :update, @participatory_process_step
         @form = ParticipatoryProcessStepForm.from_model(@participatory_process_step)
       end
 
       def update
         @participatory_process_step = collection.find(params[:id])
+        authorize! :update, @participatory_process_step
         @form = ParticipatoryProcessStepForm.from_params(params)
 
         UpdateParticipatoryProcessStep.call(@participatory_process_step, @form) do
@@ -49,10 +54,12 @@ module Decidim
 
       def show
         @participatory_process_step = collection.find(params[:id])
+        authorize! :update, @participatory_process_step
       end
 
       def destroy
         @participatory_process_step = collection.find(params[:id])
+        authorize! :update, @participatory_process_step
         @participatory_process_step.destroy!
 
         flash[:notice] = I18n.t("participatory_process_steps.destroy.success", scope: "decidim.admin")

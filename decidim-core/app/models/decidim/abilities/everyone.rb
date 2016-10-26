@@ -4,7 +4,7 @@ module Decidim
     class Everyone
       include CanCan::Ability
 
-      def initialize(user)
+      def initialize(_user)
         can :read, Decidim::ParticipatoryProcess
       end
     end

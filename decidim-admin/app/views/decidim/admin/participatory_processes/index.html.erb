@@ -28,9 +28,13 @@
           <%= l process.created_at, format: :short %>
         </td>
         <td class="actions">
-          <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', process] %>
+          <% if can? :update, process %>
+            <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', process] %>
+          <% end %>
 
-          <%= link_to t("actions.destroy", scope: "decidim.admin"), process, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+          <% if can? :destroy, process %>
+            <%= link_to t("actions.destroy", scope: "decidim.admin"), process, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+          <% end %>
         </td>
       </tr>
     <% end %>

@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 module Decidim
   module Admin
     module Abilities
@@ -6,9 +5,10 @@ module Decidim
         include CanCan::Ability
 
         def initialize(user)
-          return unless user.has_role?(:admin)
+          return unless user.role?(:admin)
 
-          can :create, Decidim::ParticipatoryProcess
+          can :manage, Decidim::ParticipatoryProcess
+          can :manage, Decidim::ParticipatoryProcessStep
         end
       end
     end

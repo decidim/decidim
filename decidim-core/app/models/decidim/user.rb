@@ -26,7 +26,7 @@ module Decidim
       @ability ||= Ability.new(self)
     end
 
-    def has_role?(role)
+    def role?(role)
       roles.include?(role.to_s)
     end
 

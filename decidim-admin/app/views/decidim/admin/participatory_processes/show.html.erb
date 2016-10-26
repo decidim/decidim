@@ -5,8 +5,12 @@
 
 <div class="actions">
   <hr />
-  <%= link_to t("decidim.admin.actions.edit"), ['edit', @participatory_process] %>
-  <%= link_to t("decidim.admin.actions.destroy"), @participatory_process, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+  <% if can? :update, @participatory_process %>
+    <%= link_to t("decidim.admin.actions.edit"), ['edit', @participatory_process] %>
+  <% end %>
+  <% if can? :destroy, @participatory_process %>
+    <%= link_to t("decidim.admin.actions.destroy"), @participatory_process, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+  <% end %>
 </div>
 
 <dl>
@@ -26,49 +30,6 @@
   <dd><%= humanize_boolean @participatory_process.promoted? %></dd>
 </dl>
 
-<section id="steps">
-  <h4><%= t(".steps_title", scope: "decidim.admin") %></h4>
-  <p><%= t(".steps_hint", scope: "decidim.admin") %></p>
-  <div class="actions title">
-    <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_step.name", scope: "decidim.admin")), new_participatory_process_step_path(@participatory_process), class: 'new' %>
-  </div>
-
-  <table class="stack">
-    <thead>
-      <tr>
-        <th><%= t("models.participatory_process_step.fields.title", scope: "decidim.admin") %></th>
-        <th><%= t("models.participatory_process_step.fields.start_date", scope: "decidim.admin") %></th>
-        <th><%= t("models.participatory_process_step.fields.end_date", scope: "decidim.admin") %></th>
-        <th><%= t("models.participatory_process_step.fields.active", scope: "decidim.admin") %></th>
-        <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
-      </tr>
-    </thead>
-    <tbody class="sortable" data-sort-url="<%= ordering_participatory_process_steps_path(@participatory_process) %>">
-      <% @participatory_process.steps.each do |step| %>
-        <tr data-id="<%= step.id %>">
-          <td>
-            <%= link_to translated_attribute(step.title), participatory_process_step_path(@participatory_process, step) %><br />
-          </td>
-          <td>
-            <%= l step.start_date, format: :short %>
-          </td>
-          <td>
-            <%= l step.end_date, format: :short %>
-          </td>
-          <td>
-            <%= humanize_boolean step.active? %>
-          </td>
-          <td class="actions">
-            <%= link_to t("actions.edit", scope: "decidim.admin"), edit_participatory_process_step_path(@participatory_process, step) %>
-            <% if step.active? %>
-              <%= link_to t("actions.deactivate", scope: "decidim.admin"), participatory_process_step_activate_path(@participatory_process, step), method: :delete, class: "small button secondary" %>
-            <% else %>
-              <%= link_to t("actions.activate", scope: "decidim.admin"), participatory_process_step_activate_path(@participatory_process, step), method: :post, class: "small button secondary" %>
-            <% end %>
-            <%= link_to t("actions.destroy", scope: "decidim.admin"), participatory_process_step_path(@participatory_process, step), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</section>
+<% if can? :read, Decidim::ParticipatoryProcessStep %>
+  <%= render partial: "decidim/admin/participatory_process_steps/table" %>
+<% end %>
