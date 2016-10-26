@@ -7,10 +7,12 @@ module Decidim
     #
     class ParticipatoryProcessesController < ApplicationController
       def index
+        authorize! :index, Decidim::ParticipatoryProcess
         @participatory_processes = collection
       end
 
       def new
+        authorize! :new, Decidim::ParticipatoryProcess
         @form = ParticipatoryProcessForm.new
       end
 
@@ -54,6 +56,7 @@ module Decidim
 
       def show
         @participatory_process = collection.find(params[:id])
+        authorize! :read, @participatory_process
       end
 
       def destroy

@@ -43,6 +43,7 @@ PATH
   specs:
     decidim-core (0.0.1.alpha7)
       active_link_to (~> 1.0.0)
+      cancancan (~> 1.15.0)
       date_validator (~> 0.9.0)
       devise (~> 4.2)
       devise-i18n (~> 1.1.0)
@@ -152,6 +153,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
+    cancancan (1.15.0)
     capybara (2.10.1)
       addressable
       mime-types (>= 1.16)

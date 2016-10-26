@@ -20,4 +20,8 @@ module Decidim
   # Exposes a configuration option: The email String to use as sender in all
   # the mails.
   config_accessor :mailer_sender
+
+  config_accessor :abilities do
+    []
+  end
 end

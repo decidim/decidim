@@ -22,6 +22,14 @@ module Decidim
     # Returns a String.
     attr_accessor :invitation_instructions
 
+    def ability
+      @ability ||= Ability.new(self)
+    end
+
+    def has_role?(role)
+      roles.include?(role.to_s)
+    end
+
     private
 
     def all_roles_are_valid

@@ -18,7 +18,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if step.nil? || step.active?
+        return broadcast(:invalid) if step&.active?
 
         Decidim::ParticipatoryProcessStep.transaction do
           deactivate_active_steps

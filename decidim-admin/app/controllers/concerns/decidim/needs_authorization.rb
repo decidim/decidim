@@ -8,8 +8,15 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
+      check_authorization
+
+      rescue_from CanCan::AccessDenied, with: :user_not_authorized
 
       private
+
+      def current_ability
+        @current_ability ||= Decidim::Ability.new(current_user)
+      end
 
       # Handles the case when a user visits a path that is not allowed to them.
       # Redirects the user to the root path and shows a flash message telling
