@@ -54,12 +54,12 @@ module Decidim
 
       def show
         @participatory_process_step = collection.find(params[:id])
-        authorize! :update, @participatory_process_step
+        authorize! :read, @participatory_process_step
       end
 
       def destroy
         @participatory_process_step = collection.find(params[:id])
-        authorize! :update, @participatory_process_step
+        authorize! :destroy, @participatory_process_step
         @participatory_process_step.destroy!
 
         flash[:notice] = I18n.t("participatory_process_steps.destroy.success", scope: "decidim.admin")
