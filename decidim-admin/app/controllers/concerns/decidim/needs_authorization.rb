@@ -14,6 +14,8 @@ module Decidim
 
       private
 
+      # Overwrites `cancancan`'s method to point to the correct ability class,
+      # since the gem expects the ability class to be in the root namespace.
       def current_ability
         @current_ability ||= Decidim::Ability.new(current_user)
       end
