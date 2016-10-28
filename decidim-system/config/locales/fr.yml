@@ -1,0 +1,59 @@
+fr:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Are you sure you want to delete this?
+        destroy: Destroy
+        edit: Edit
+        new: New %{name}
+        save: Save
+        title: Actions
+      admins:
+        create:
+          error: There was an error when creating a new admin.
+          success: Admin created successfully
+        destroy:
+          success: Admin successfully destroyed
+        edit:
+          title: Edit admin
+          update: Update admin
+        index:
+          title: Admins
+        new:
+          create: Create admin
+          title: New admin
+        update:
+          error: There was an error when updating this admin.
+          success: Admin updated successfully
+      menu:
+        admins: Admins
+        dashboard: Dashboard
+        organizations: Organizations
+      models:
+        admin:
+          fields:
+            created_at: Created at
+            email: Email
+          name: Admin
+          validations:
+            email_uniqueness: another admin with the same email already exists
+        organization:
+          actions:
+            save_and_invite: Create organization & invite admin
+          fields:
+            created_at: Created at
+            name: Name
+          name: Organization
+      organizations:
+        create:
+          error: There was an error when creating a new organization.
+          success: Organization created successfully.
+        index:
+          title: Organizations
+        new:
+          title: New organization
+        update:
+          error: There was an error when updating this organization.
+          success: Organization updated successfully.
+      titles:
+        dashboard: Dashboard
