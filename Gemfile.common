@@ -1,2 +1,1 @@
 gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rails_helper.git", tag: "df0bd8e"
-gem "rectify", git: "https://github.com/mrcasals/rectify.git", branch: "query_to_ary"
