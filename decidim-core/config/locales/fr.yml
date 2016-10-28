@@ -1,0 +1,89 @@
+fr:
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Mot de passe actuel
+        email: Email
+        name: Nom d'utilisateur
+        password: Mot de passe
+        password_confirmation: Confirmation mot de passe
+        remember_me: Souviens-toi de moi
+        tos_agreement: Termes et conditions
+    models:
+      decidim/user: Utilisateur
+  booleans:
+    'false': 'Non'
+    'true': 'Oui'
+  decidim:
+    devise:
+      registrations:
+        new:
+          already_have_an_account?: Vous avez déjà un compte?
+          sign_in: S'identifier
+          sign_up: S'inscrire
+          subtitle: Inscrivez-vous pour participer à des discussions et des propositions de soutien.
+          terms: les termes et conditions d'utilisation
+          tos_agreement: En vous inscrivant, vous acceptez %{link}.
+          username_help: Nom public qui apparaît sur vos messages. Dans le but de garantir l'anonymat, peut être un nom quelconque.
+      sessions:
+        new:
+          are_you_new?: Nouveau sur la plate-forme?
+          register: Créer un compte
+    menu:
+      home: Accueil
+      processes: processus
+  devise:
+    mailer:
+      invitation_instructions:
+        accept: Accepter l'invitation
+        accept_until: Cette invitation sera due en %{due_date}.
+        hello: Bonjour %{email}
+        ignore: |-
+          Si vous ne voulez pas accepter l'invitation, s'il vous plaît ignorer cette email.<br /> Votre compte ne sera pas créé jusqu'à ce que vous accédez au lien ci-dessus et de définir votre mot de passe.
+        someone_invited_you: Quelqu'un vous a invité à %{application}, vous pouvez l'accepter via le lien ci-dessous.
+      organization_admin_invitation_instructions:
+        subject: Vous avez été invité à admin %{organization}
+  layouts:
+    decidim:
+      footer:
+        about: A propos de Decidim
+        accessibility: Accessibilité
+        made_with_open_source: 'Site réalisé avec software</a> <a target="_blank" href="https://github.com/codegram/decidim">open-source.'
+        terms_of_use: Conditions d'utilisation
+      header:
+        close_menu: Fermer le menu
+        navigation: La navigation
+        sign_in: Se connecter
+        sign_out: Se déconnecter
+        sign_up: S'inscrire
+      participatory_processes:
+        index:
+          promoted_processes: processus surlignées
+        no_processes_yet:
+          no_processes_yet: Aucun processus participatifs encore!
+        order_by_processes:
+          processes:
+            one: "%{count} processus"
+            other: "%{count} processus"
+        participatory_process:
+          active_step: "étape actuelle:"
+          take_part: Prendre part
+        promoted_process:
+          active_step: "étape actuelle:"
+          more_info: Plus d'informations
+          take_part: Prendre part
+  locales:
+    ca: Català
+    en: Anglais
+    es: Castellano
+  pages:
+    '404':
+      back_home: Retour à la maison
+      content_doesnt_exist: Cette adresse est incorrecte ou a été supprimé.
+      title: La page que vous cherchez est introuvable
+    '500':
+      title: Il y avait un problème avec notre serveur
+      try_later: Veuillez réessayer plus tard.
+    home:
+      register: registre
+      welcome: Bienvenue à %{organization}!
