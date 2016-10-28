@@ -13,9 +13,9 @@ Gem::Specification.new do |s|
   s.homepage    = ""
   s.summary     = "The core of the Decidim framework."
   s.description = "Adds core features so other engines can hook into the framework."
-  s.license     = "MIT"
+  s.license     = "AGPLv3"
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
   s.add_dependency "rails", Decidim.rails_version
   s.add_dependency "devise", "~> 4.2"

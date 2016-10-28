@@ -13,9 +13,9 @@ Gem::Specification.new do |s|
   s.homepage    = ""
   s.summary     = "System administration"
   s.description = "System administration to create new organization in an installation."
-  s.license     = "MIT"
+  s.license     = "AGPLv3"
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim.version
   s.add_dependency "rails", Decidim.rails_version
