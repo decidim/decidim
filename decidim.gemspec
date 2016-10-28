@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.summary       = "Citizen participation framework for Ruby on Rails."
   spec.description   = "Citizen participation framework for Ruby on Rails."
   spec.homepage      = "https://github.com/codegram/decidim"
-  spec.license       = "MIT"
+  spec.license       = "AGPLv3"
 
   spec.required_ruby_version = ">= 2.3.1"
 

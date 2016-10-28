@@ -13,9 +13,9 @@ Gem::Specification.new do |s|
   s.homepage    = ""
   s.summary     = "Decidim Dev tools"
   s.description = "Utilities and tools we need to develop Decidim"
-  s.license     = "MIT"
+  s.license     = "AGPLv3"
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
   s.add_dependency "factory_girl_rails"
   s.add_dependency "database_cleaner", "~> 1.5.0"
