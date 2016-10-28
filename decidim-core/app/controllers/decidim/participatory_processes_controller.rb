@@ -14,23 +14,16 @@ module Decidim
     private
 
     def participatory_process
-      @participatory_process ||= if current_user && current_user.role?(:admin)
-                                   all_processes
-                                 else
-                                   participatory_processes
-                                 end.where(id: params[:id]).first
+      @participatory_process ||=
+        AvailableProcessesForUser.new(current_user, current_organization).query.where(id: params[:id]).first
     end
 
     def participatory_processes
-      @participatory_processes ||= all_processes.published
-    end
-
-    def all_processes
-      @all_processes ||= current_organization.participatory_processes.includes(:active_step)
+      @participatory_processes ||= PublishedProcesses.new(current_organization)
     end
 
     def promoted_processes
-      @promoted_processes ||= participatory_processes.where(promoted: true)
+      @promoted_processes ||= participatory_processes | PromotedProcesses.new
     end
   end
 end
