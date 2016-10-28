@@ -1,0 +1,89 @@
+gl:
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Contrasinal actual
+        email: email
+        name: Nome de usuario
+        password: contrasinal
+        password_confirmation: confirmación de contrasinal
+        remember_me: Lémbrame
+        tos_agreement: Termos e condicións
+    models:
+      decidim/user: usuario
+  booleans:
+    'false': 'non'
+    'true': 'si'
+  decidim:
+    devise:
+      registrations:
+        new:
+          already_have_an_account?: Xa ten unha conta?
+          sign_in: Iniciar sesión
+          sign_up: '¡Rexístrate'
+          subtitle: Rexístrese para participar de discusións e propostas de apoio.
+          terms: os termos e condicións de uso
+          tos_agreement: Ao subscribirse a concordas con %{link}.
+          username_help: Nome público que aparece nas súas mensaxes. Co obxectivo de garantir o anonimato, pode ser calquera nome.
+      sessions:
+        new:
+          are_you_new?: Novo á plataforma?
+          register: Crear unha conta
+    menu:
+      home: casa
+      processes: procesos
+  devise:
+    mailer:
+      invitation_instructions:
+        accept: aceptar a invitación
+        accept_until: Este convite será debido en %{due_date}.
+        hello: Ola %{email}
+        ignore: |-
+          Se non quere aceptar a invitación, por favor ignore este email.<br /> súa conta non será creada ata que acceder ao enlace anterior e establecer o seu contrasinal.
+        someone_invited_you: Alguén convidou vostede para %{application}, pode acepta-la a través do seguinte ligazón.
+      organization_admin_invitation_instructions:
+        subject: Vostede foi convidado para o administrador %{organization}
+  layouts:
+    decidim:
+      footer:
+        about: sobre Decidim
+        accessibility: accesibilidade
+        made_with_open_source: 'Sitio feito con software</a> <a target="_blank" href="https://github.com/codegram/decidim">open-source.'
+        terms_of_use: Condicións de uso
+      header:
+        close_menu: Pechar o menú
+        navigation: navegación
+        sign_in: Rexístrate
+        sign_out: saír
+        sign_up: Rexistrar-se
+      participatory_processes:
+        index:
+          promoted_processes: procesos realzados
+        no_processes_yet:
+          no_processes_yet: Non hai procesos participativos aínda!
+        order_by_processes:
+          processes:
+            one: "%{count} proceso"
+            other: "%{count} procesos"
+        participatory_process:
+          active_step: "etapa actual:"
+          take_part: participar
+        promoted_process:
+          active_step: "etapa actual:"
+          more_info: Máis información
+          take_part: participar
+  locales:
+    ca: català
+    en: Inglés
+    es: castellano
+  pages:
+    '404':
+      back_home: De volta a casa
+      content_doesnt_exist: Esta dirección é incorrecta ou que foi eliminado.
+      title: A páxina que está a buscar non se pode atopar
+    '500':
+      title: Houbo un problema co noso servidor
+      try_later: Por favor, ténteo de novo máis tarde.
+    home:
+      register: Register
+      welcome: Benvido ao %{organization}!
