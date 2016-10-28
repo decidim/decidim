@@ -21,6 +21,8 @@ module Decidim
   # the mails.
   config_accessor :mailer_sender
 
+  # Exposes a configuration option: an Array of `cancancan`'s Ability classes
+  # that will be automatically included to the base `Decidim::Ability` class.
   config_accessor :abilities do
     []
   end
