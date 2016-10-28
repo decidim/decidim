@@ -1,0 +1,59 @@
+fr:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer ce?
+        destroy: Détruire
+        edit: modifier
+        new: New %{name}
+        save: sauvegarder
+        title: actes
+      admins:
+        create:
+          error: Il y avait une erreur lors de la création d'une nouvelle administration.
+          success: Administrateur créé avec succès
+        destroy:
+          success: Administrateur détruit avec succès
+        edit:
+          title: Modifier administrateur
+          update: Mise à jour administrateur
+        index:
+          title: Admins
+        new:
+          create: Créer administrateur
+          title: Nouvelle administration
+        update:
+          error: Il y avait une erreur lors de la mise à jour de cette administration.
+          success: Administrateur mis à jour avec succès
+      menu:
+        admins: Admins
+        dashboard: Tableau de bord
+        organizations: organisations
+      models:
+        admin:
+          fields:
+            created_at: Créé à
+            email: Email
+          name: Administrateur
+          validations:
+            email_uniqueness: un autre administrateur avec le même email existe déjà
+        organization:
+          actions:
+            save_and_invite: Créer organisation et inviter administrateur
+          fields:
+            created_at: Créé à
+            name: prénom
+          name: Organisation
+      organizations:
+        create:
+          error: Il y avait une erreur lors de la création d'une nouvelle organisation.
+          success: Organisation créée avec succès.
+        index:
+          title: organisations
+        new:
+          title: Nouvelle organisation
+        update:
+          error: Il y avait une erreur lors de la mise à jour de cette organisation.
+          success: Organisation mis à jour avec succès.
+      titles:
+        dashboard: Tableau de bord
