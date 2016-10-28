@@ -24,6 +24,7 @@ PATH
   specs:
     decidim-admin (0.0.1.alpha7)
       active_link_to (~> 1.0.0)
+      cancancan (~> 1.15.0)
       carrierwave (~> 1.0.0.beta)
       decidim-core (= 0.0.1.alpha7)
       devise (~> 4.2)
