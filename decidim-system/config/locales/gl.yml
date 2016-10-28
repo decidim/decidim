@@ -1,0 +1,59 @@
+gl:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Está seguro de que quere eliminar este?
+        destroy: destruír
+        edit: editar
+        new: New %{name}
+        save: gardar
+        title: accións
+      admins:
+        create:
+          error: Houbo un erro ao crear un novo administrador.
+          success: Administrador creou con éxito
+        destroy:
+          success: Administrador destruído correctamente
+        edit:
+          title: editar administrador
+          update: admin update
+        index:
+          title: administradores
+        new:
+          create: crear administrador
+          title: novo administrador
+        update:
+          error: Produciuse un erro durante a actualización desta administración.
+          success: Administrador actualizado correctamente
+      menu:
+        admins: administradores
+        dashboard: panel de control
+        organizations: organizacións
+      models:
+        admin:
+          fields:
+            created_at: creado en
+            email: email
+          name: administrador
+          validations:
+            email_uniqueness: outro administrador do mesmo correo electrónico xa existe
+        organization:
+          actions:
+            save_and_invite: Crear organización & invitar administrador
+          fields:
+            created_at: creado en
+            name: nome
+          name: organización
+      organizations:
+        create:
+          error: Produciuse un erro durante a creación dunha nova organización.
+          success: Organización creada correctamente.
+        index:
+          title: organizacións
+        new:
+          title: nova organización
+        update:
+          error: Houbo un erro ao actualizar esta organización.
+          success: Organización actualizado correctamente.
+      titles:
+        dashboard: panel de control
