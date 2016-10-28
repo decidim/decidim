@@ -1,0 +1,83 @@
+fr:
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        promoted: A souligné
+  decidim:
+    admin:
+      actions:
+        activate: Activer
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer ce?
+        deactivate: Désactiver
+        destroy: Détruire
+        edit: modifier
+        new: New %{name}
+        title: actes
+        unauthorized: Vous n'êtes pas autorisé à effectuer cette action
+      decidim:
+        admin:
+          participatory_process_steps:
+            table:
+              steps_hint: Vous pouvez faire glisser les lignes de la table afin de réorganiser les étapes du processus.
+              steps_title: Des pas
+      menu:
+        dashboard: Tableau de bord
+        participatory_processes: Les processus participatifs
+      models:
+        participatory_process:
+          fields:
+            created_at: Créé à
+            promoted: A souligné
+            title: Titre
+          name: processus participatif
+          validations:
+            slug_uniqueness: Un autre processus participatif avec le même slug existe déjà
+        participatory_process_step:
+          fields:
+            active: actif
+            end_date: Date de fin
+            start_date: Date de début
+            title: Titre
+          name: étape du processus participatif
+      participatory_process_step_activations:
+        create:
+          error: Il y avait une erreur d'activation de cette étape de processus participatif.
+          success: étape du processus participatif activé avec succès
+        destroy:
+          error: Il y avait une erreur désactivant cette étape de processus participatif.
+          success: étape du processus participatif désactivé avec succès
+      participatory_process_steps:
+        create:
+          error: Il y avait une erreur de créer une nouvelle étape de processus participatif.
+          success: étape du processus participatif créé avec succès
+        destroy:
+          success: étape du processus participatif détruit avec succès
+        edit:
+          title: Modifier étape de processus participatif
+          update: Mettre à jour l'étape de processus participatif
+        new:
+          create: Créer étape de processus participatif
+          title: Nouvelle étape de processus participatif
+        ordering:
+          error: Il y avait une erreur lors de la réorganisation de cette participation les étapes du processus.
+        update:
+          error: Il y avait une erreur lors de la mise à jour de cette étape de processus participatif.
+          success: étape du processus participatif mis à jour avec succès
+      participatory_processes:
+        create:
+          error: Il y avait une erreur de créer un nouveau processus participatif.
+          success: Processus participatif créé avec succès. Configurez maintenant ses étapes.
+        destroy:
+          success: Processus participatif détruit avec succès
+        edit:
+          title: Modifier processus participatif
+          update: Mettre à jour processus participatif
+        new:
+          create: Créer processus participatif
+          title: Nouveau processus participatif
+        update:
+          error: Il y avait une erreur lors de la mise à jour de ce processus participatif.
+          success: Processus participatif mis à jour avec succès
+      titles:
+        dashboard: Tableau de bord
+        participatory_processes: Les processus participatifs
