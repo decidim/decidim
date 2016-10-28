@@ -22,6 +22,16 @@ module Decidim
     # Returns a String.
     attr_accessor :invitation_instructions
 
+    # Check if the user has the given `role` or not.
+    #
+    # role - a String or a Symbol that represents the role that is being
+    #   checked
+    #
+    # Returns a boolean.
+    def role?(role)
+      roles.include?(role.to_s)
+    end
+
     private
 
     def all_roles_are_valid

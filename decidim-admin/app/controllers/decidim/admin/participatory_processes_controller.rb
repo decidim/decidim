@@ -7,18 +7,18 @@ module Decidim
     #
     class ParticipatoryProcessesController < ApplicationController
       def index
+        authorize! :index, Decidim::ParticipatoryProcess
         @participatory_processes = collection
-        authorize @participatory_processes
       end
 
       def new
+        authorize! :new, Decidim::ParticipatoryProcess
         @form = ParticipatoryProcessForm.new
-        authorize ParticipatoryProcess
       end
 
       def create
+        authorize! :new, Decidim::ParticipatoryProcess
         @form = ParticipatoryProcessForm.from_params(params)
-        authorize ParticipatoryProcess
 
         CreateParticipatoryProcess.call(@form, current_organization) do
           on(:ok) do
@@ -35,13 +35,13 @@ module Decidim
 
       def edit
         @participatory_process = collection.find(params[:id])
-        authorize @participatory_process
+        authorize! :update, @participatory_process
         @form = ParticipatoryProcessForm.from_model(@participatory_process)
       end
 
       def update
         @participatory_process = collection.find(params[:id])
-        authorize @participatory_process
+        authorize! :update, @participatory_process
         @form = ParticipatoryProcessForm.from_params(params)
 
         UpdateParticipatoryProcess.call(@participatory_process, @form) do
@@ -59,13 +59,12 @@ module Decidim
 
       def show
         @participatory_process = collection.find(params[:id])
-        authorize @participatory_process
+        authorize! :read, @participatory_process
       end
 
       def destroy
         @participatory_process = collection.find(params[:id])
-        authorize @participatory_process
-
+        authorize! :destroy, @participatory_process
         @participatory_process.destroy!
 
         flash[:notice] = I18n.t("participatory_processes.destroy.success", scope: "decidim.admin")
@@ -77,10 +76,6 @@ module Decidim
 
       def collection
         current_organization.participatory_processes
-      end
-
-      def policy_class(_record)
-        Decidim::Admin::ParticipatoryProcessPolicy
       end
     end
   end

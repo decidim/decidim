@@ -7,7 +7,7 @@ module Decidim
     #
     class ParticipatoryProcessStepActivationsController < ApplicationController
       def create
-        authorize ParticipatoryProcessStep
+        authorize! :activate, process_step
 
         ActivateParticipatoryProcessStep.call(process_step) do
           on(:ok) do
@@ -23,7 +23,7 @@ module Decidim
       end
 
       def destroy
-        authorize process_step
+        authorize! :deactivate, process_step
 
         DeactivateParticipatoryProcessStep.call(process_step) do
           on(:ok) do
@@ -50,10 +50,6 @@ module Decidim
 
       def collection
         participatory_process.steps
-      end
-
-      def policy_class(_record)
-        Decidim::Admin::ParticipatoryProcessPolicy
       end
     end
   end

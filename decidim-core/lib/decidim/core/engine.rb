@@ -22,6 +22,7 @@ require "high_voltage"
 require "rails-i18n"
 require "date_validator"
 require "sprockets/es6"
+require "cancancan"
 
 module Decidim
   module Core
@@ -56,6 +57,12 @@ module Decidim
 
       initializer "decidim.exceptions_app" do |app|
         app.config.exceptions_app = Decidim::Core::Engine.routes
+      end
+
+      initializer "decidim_admin.inject_abilities_to_user" do |_app|
+        Decidim.configure do |config|
+          config.abilities += [Abilities::Everyone]
+        end
       end
     end
   end

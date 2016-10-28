@@ -15,7 +15,7 @@ module Decidim
       #
       # Returns boolean.
       def matches?
-        OrganizationPolicy.new(user, organization).update?
+        user.organization == organization
       end
 
       private

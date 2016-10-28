@@ -21,6 +21,7 @@ AllCops:
     - '**/*Fastfile'
   Exclude:
     - '**/Gemfile'
+    - '**/*.gemspec'
     - 'vendor/**/*'
     - 'spec/*'
     - 'decidim-*/spec/**/*'

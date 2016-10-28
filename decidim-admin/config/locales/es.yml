@@ -17,8 +17,8 @@ es:
         unauthorized: No tienes permiso para realizar esta acción.
       decidim:
         admin:
-          participatory_processes:
-            show:
+          participatory_process_steps:
+            table:
               steps_hint: Puedes arrastrar las filas de la tabla para reordenar las fases del proceso.
               steps_title: Fases
       menu:

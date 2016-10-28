@@ -5,8 +5,8 @@
 
 <div class="actions">
   <hr />
-  <%= link_to_if policy(@participatory_process_step).edit?, t("decidim.admin.actions.edit"), ['edit', @participatory_process_step] %>
-  <%= link_to_if policy(@participatory_process_step).destroy?, t("decidim.admin.actions.destroy"), @participatory_process_step, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+  <%= link_to t("decidim.admin.actions.edit"), ['edit', @participatory_process_step] if can? :update, @participatory_process_step %>
+  <%= link_to t("decidim.admin.actions.destroy"), @participatory_process_step, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } if can? :destroy, @participatory_process_step %>
 </div>
 
 <dl>

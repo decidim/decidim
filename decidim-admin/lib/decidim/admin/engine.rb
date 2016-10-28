@@ -12,7 +12,6 @@ require "foundation-rails"
 require "foundation_rails_helper"
 require "jbuilder"
 require "rectify"
-require "pundit"
 
 module Decidim
   module Admin
@@ -22,6 +21,12 @@ module Decidim
 
       initializer "decidim_admin.assets" do |app|
         app.config.assets.precompile += %w(decidim_admin_manifest.js)
+      end
+
+      initializer "decidim_admin.inject_abilities_to_user" do |_app|
+        Decidim.configure do |config|
+          config.abilities += [Decidim::Admin::Abilities::Admin]
+        end
       end
     end
   end

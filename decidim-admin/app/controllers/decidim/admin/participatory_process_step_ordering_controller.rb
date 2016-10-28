@@ -7,8 +7,7 @@ module Decidim
     #
     class ParticipatoryProcessStepOrderingController < ApplicationController
       def create
-        authorize ParticipatoryProcessStep
-
+        authorize! :reorder, Decidim::ParticipatoryProcessStep
         ReorderParticipatoryProcessSteps.call(collection, params[:items_ids]) do
           on(:invalid) do
             flash.now[:alert] = I18n.t("participatory_process_steps.ordering.error", scope: "decidim.admin")
@@ -25,10 +24,6 @@ module Decidim
 
       def collection
         participatory_process.steps
-      end
-
-      def policy_class(_record)
-        Decidim::Admin::ParticipatoryProcessPolicy
       end
     end
   end
