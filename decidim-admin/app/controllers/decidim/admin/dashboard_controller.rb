@@ -6,7 +6,7 @@ module Decidim
     # Controller that shows a simple dashboard.
     #
     class DashboardController < ApplicationController
-      skip_authorization_check only: :show
+      authorize_resource :admin_dashboard, class: false
     end
   end
 end

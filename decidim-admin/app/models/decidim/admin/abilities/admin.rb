@@ -10,8 +10,9 @@ module Decidim
         def initialize(user)
           return unless user.role?(:admin)
 
-          can :manage, Decidim::ParticipatoryProcess
-          can :manage, Decidim::ParticipatoryProcessStep
+          can :manage, ParticipatoryProcess
+          can :manage, ParticipatoryProcessStep
+          can :read, :admin_dashboard
         end
       end
     end

@@ -15,7 +15,7 @@ module Decidim
       #
       # Returns boolean.
       def matches?
-        user.organization == organization
+        user.organization == organization && user.can?(:read, :admin_dashboard)
       end
 
       private
