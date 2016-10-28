@@ -1,0 +1,90 @@
+en-DEV:
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Current password
+        email: Email
+        name: Username
+        password: Password
+        password_confirmation: Password confirmation
+        remember_me: Remember me
+        tos_agreement: Terms & conditions
+    models:
+      decidim/user: User
+  booleans:
+    'false': 'No'
+    'true': 'Yes'
+  decidim:
+    devise:
+      registrations:
+        new:
+          already_have_an_account?: Already have an account?
+          sign_in: Log in
+          sign_up: Sign up
+          subtitle: Sign up to participate in discussions and support proposals.
+          terms: the terms and conditions of use
+          tos_agreement: By signing up you agree to %{link}.
+          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
+      sessions:
+        new:
+          are_you_new?: New to the platform?
+          register: Create an account
+    menu:
+      home: Home
+      processes: Processes
+  devise:
+    mailer:
+      invitation_instructions:
+        accept: Accept invitation
+        accept_until: This invitation will be due in %{due_date}.
+        hello: Hello %{email}
+        ignore: |-
+          If you don't want to accept the invitation, please ignore this email.<br />
+          Your account won't be created until you access the link above and set your password.
+        someone_invited_you: Someone has invited you to %{application}, you can accept it through the link below.
+      organization_admin_invitation_instructions:
+        subject: You've been invited to admin %{organization}
+  layouts:
+    decidim:
+      footer:
+        about: About Decidim
+        accessibility: Accessibility
+        made_with_open_source: 'Website made with <a target="_blank" href="https://github.com/codegram/decidim">open-source software</a>.'
+        terms_of_use: Terms Of Use
+      header:
+        close_menu: Close menu
+        navigation: Navigation
+        sign_in: Sign In
+        sign_out: Sign out
+        sign_up: Sign Up
+      participatory_processes:
+        index:
+          promoted_processes: Highlighted processes
+        no_processes_yet:
+          no_processes_yet: No participatory processes yet!
+        order_by_processes:
+          processes:
+            one: "%{count} process"
+            other: "%{count} processes"
+        participatory_process:
+          active_step: "Current step:"
+          take_part: Take part
+        promoted_process:
+          active_step: "Current step:"
+          more_info: More info
+          take_part: Take part
+  locales:
+    ca: Català
+    en: English
+    es: Castellano
+  pages:
+    '404':
+      back_home: Back home
+      content_doesnt_exist: This address is incorrect or has been removed.
+      title: The page you're looking for can't be found
+    '500':
+      title: There was a problem with our server
+      try_later: Please try again later.
+    home:
+      register: Register
+      welcome: Welcome to %{organization}!
