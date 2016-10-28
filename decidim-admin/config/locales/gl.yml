@@ -1,0 +1,83 @@
+gl:
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        promoted: destaque
+  decidim:
+    admin:
+      actions:
+        activate: activar
+        confirm_destroy: Está seguro de que quere eliminar este?
+        deactivate: desactivar
+        destroy: destruír
+        edit: editar
+        new: New %{name}
+        title: accións
+        unauthorized: Non está autorizado para realizar esta acción
+      decidim:
+        admin:
+          participatory_process_steps:
+            table:
+              steps_hint: Pode arrastrar as liñas da táboa, a fin de reordenar os pasos do proceso.
+              steps_title: pasos
+      menu:
+        dashboard: panel de control
+        participatory_processes: Os procesos participativos
+      models:
+        participatory_process:
+          fields:
+            created_at: creado en
+            promoted: destaque
+            title: título
+          name: proceso participativo
+          validations:
+            slug_uniqueness: Outro proceso participativo coa mesma bala xa existe
+        participatory_process_step:
+          fields:
+            active: activo
+            end_date: data de finalización
+            start_date: data de inicio
+            title: título
+          name: etapa do proceso participativo
+      participatory_process_step_activations:
+        create:
+          error: Houbo un erro ao activar esta etapa do proceso participativo.
+          success: etapa do proceso participativo activada correctamente
+        destroy:
+          error: Houbo un erro ao desactivar esta etapa do proceso participativo.
+          success: etapa do proceso participativo desactivado correctamente
+      participatory_process_steps:
+        create:
+          error: Houbo un erro na creación dunha nova etapa do proceso participativo.
+          success: etapa do proceso participativo creado con éxito
+        destroy:
+          success: etapa do proceso participativo destruído correctamente
+        edit:
+          title: Editar etapa do proceso participativo
+          update: Actualizar etapa do proceso participativo
+        new:
+          create: Crear etapa do proceso participativo
+          title: etapa do proceso participativo Nova
+        ordering:
+          error: Houbo un erro ao reordenar eses pasos proceso participativo.
+        update:
+          error: Houbo un erro ao actualizar esta etapa do proceso participativo.
+          success: etapa do proceso participativo actualizado correctamente
+      participatory_processes:
+        create:
+          error: Produciuse un erro ao crear un novo proceso participativo.
+          success: proceso participativo creado con éxito. Configurar agora os seus pasos.
+        destroy:
+          success: proceso participativo destruído correctamente
+        edit:
+          title: Editar proceso participativo
+          update: Actualizar proceso participativo
+        new:
+          create: Crear proceso participativo
+          title: Novo proceso participativo
+        update:
+          error: Houbo un erro ao actualizar este proceso participativo.
+          success: proceso participativo actualizado correctamente
+      titles:
+        dashboard: panel de control
+        participatory_processes: Os procesos participativos
