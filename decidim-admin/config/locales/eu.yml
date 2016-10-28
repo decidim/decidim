@@ -18,11 +18,11 @@ eu:
         admin:
           participatory_process_steps:
             table:
-              steps_hint: mahai ilara arrasta dezakezu Prozesu urratsak berrantolatzeko ere.
+              steps_hint: Mahai ilara arrasta dezakezu Prozesu urratsak berrantolatzeko ere.
               steps_title: Urratsak
       menu:
-        dashboard: arbela
-        participatory_processes: partehartzailea prozesuak
+        dashboard: Taula
+        participatory_processes: Partehartzailea prozesuak
       models:
         participatory_process:
           fields:
