@@ -28,7 +28,7 @@ module Decidim
       attr_reader :process
 
       def publish_process
-        process.update_attribute(:published_at, Time.zone.now)
+        process.update_attribute(:published_at, Time.current)
       end
     end
   end

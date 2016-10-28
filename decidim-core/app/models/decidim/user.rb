@@ -29,7 +29,7 @@ module Decidim
       @ability ||= Ability.new(self)
     end
 
-    # Check if the user has the given `role` or not.
+    # Checks if the user has the given `role` or not.
     #
     # role - a String or a Symbol that represents the role that is being
     #   checked
