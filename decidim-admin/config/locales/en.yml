@@ -1,0 +1,83 @@
+en-DEV:
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        promoted: Highlighted
+  decidim:
+    admin:
+      actions:
+        activate: Activate
+        confirm_destroy: Are you sure you want to delete this?
+        deactivate: Deactivate
+        destroy: Destroy
+        edit: Edit
+        new: New %{name}
+        title: Actions
+        unauthorized: You are not authorized to perform this action
+      decidim:
+        admin:
+          participatory_process_steps:
+            table:
+              steps_hint: You can drag the rows of the table in order to reorder the process steps.
+              steps_title: Steps
+      menu:
+        dashboard: Dashboard
+        participatory_processes: Participatory processes
+      models:
+        participatory_process:
+          fields:
+            created_at: Created at
+            promoted: Highlighted
+            title: Title
+          name: Participatory process
+          validations:
+            slug_uniqueness: Another participatory process with the same slug already exists
+        participatory_process_step:
+          fields:
+            active: Active
+            end_date: End date
+            start_date: Start date
+            title: Title
+          name: Participatory process step
+      participatory_process_step_activations:
+        create:
+          error: There was an error activating this participatory process step.
+          success: Participatory process step activated successfully
+        destroy:
+          error: There was an error deactivating this participatory process step.
+          success: Participatory process step deactivated successfully
+      participatory_process_steps:
+        create:
+          error: There was an error creating a new participatory process step.
+          success: Participatory process step created successfully
+        destroy:
+          success: Participatory process step successfully destroyed
+        edit:
+          title: Edit participatory process step
+          update: Update participatory process step
+        new:
+          create: Create participatory process step
+          title: New participatory process step
+        ordering:
+          error: There was an error when reordering this participatory process steps.
+        update:
+          error: There was an error when updating this participatory process step.
+          success: Participatory process step updated successfully
+      participatory_processes:
+        create:
+          error: There was an error creating a new participatory process.
+          success: Participatory process created successfully. Configure now its steps.
+        destroy:
+          success: Participatory process successfully destroyed
+        edit:
+          title: Edit participatory process
+          update: Update participatory process
+        new:
+          create: Create participatory process
+          title: New participatory process
+        update:
+          error: There was an error when updating this participatory process.
+          success: Participatory process updated successfully
+      titles:
+        dashboard: Dashboard
+        participatory_processes: Participatory processes
