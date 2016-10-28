@@ -1,0 +1,59 @@
+eu:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Ziur hau ezabatu nahi duzula?
+        destroy: Destroy
+        edit: Edit
+        new: '%{name} New'
+        save: Save
+        title: Ekintzak
+      admins:
+        create:
+          error: Akats baten Admin berria sortzerakoan.
+          success: Admin sortu da
+        destroy:
+          success: Admin arrakastaz suntsitu
+        edit:
+          title: Edit admin
+          update: Update admin
+        index:
+          title: Kudeatzaileek
+        new:
+          create: Sortu admin
+          title: admin New
+        update:
+          error: Errore bat gertatu da admin hau eguneratuz.
+          success: Admin ongi eguneratu
+      menu:
+        admins: Kudeatzaileek
+        dashboard: arbela
+        organizations: Organizaciones
+      models:
+        admin:
+          fields:
+            created_at: tan sortua
+            email: Emaila
+          name: admin
+          validations:
+            email_uniqueness: Posta elektroniko berari ekin admin beste existitzen da dagoeneko
+        organization:
+          actions:
+            save_and_invite: Sortu erakundearen gonbidatzen admin
+          fields:
+            created_at: tan sortua
+            name: izena
+          name: Erakundea
+      organizations:
+        create:
+          error: Errore bat egon da erakunde berri bat sortu.
+          success: Erakundea sortu da.
+        index:
+          title: Organizaciones
+        new:
+          title: antolakuntza berria
+        update:
+          error: Errore bat gertatu da erakunde honen eguneratzeko.
+          success: Erakundeak behar bezala eguneratuta.
+      titles:
+        dashboard: arbela
