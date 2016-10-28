@@ -1,4 +1,4 @@
-en-DEV:
+en:
   activerecord:
     attributes:
       decidim/user:
