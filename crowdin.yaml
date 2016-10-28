@@ -1,4 +1,4 @@
 files:
   - 
     source: locales/*.yml
-    translation: /**/%two_letters_code%.yml
+    translation: /**/locales/%two_letters_code%.yml
