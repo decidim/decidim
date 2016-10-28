@@ -1,4 +1,4 @@
 files:
   - 
-    source: locales/*.yml
-    translation: '%original_path%/%original_file_name%'
+    source: locales/en.yml
+    translation: '%original_path%/%two_letters_code%.yml'
