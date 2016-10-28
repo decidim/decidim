@@ -2,6 +2,8 @@
 Decidim::Admin::Engine.routes.draw do
   constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
     resources :participatory_processes do
+      resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
+
       resources :steps, controller: "participatory_process_steps", except: :index do
         resource :activate, controller: "participatory_process_step_activations", only: [:create, :destroy]
         collection do

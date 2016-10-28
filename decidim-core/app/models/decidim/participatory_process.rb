@@ -21,5 +21,9 @@ module Decidim
     def self.published
       where.not(published_at: nil)
     end
+
+    def published?
+      published_at.present?
+    end
   end
 end
