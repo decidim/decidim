@@ -12,13 +12,13 @@ module Decidim
         PublishParticipatoryProcess.call(participatory_process) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_participatory_process_publications.create.success", scope: "decidim.admin")
-            redirect_to :back
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("participatory_participatory_process_publications.create.error", scope: "decidim.admin")
-            redirect_to :back
           end
+
+          redirect_back(fallback_location: participatory_processes_path)
         end
       end
 
@@ -28,13 +28,13 @@ module Decidim
         UnpublishParticipatoryProcess.call(participatory_process) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_participatory_process_publications.destroy.success", scope: "decidim.admin")
-            redirect_to :back
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("participatory_participatory_process_publications.destroy.error", scope: "decidim.admin")
-            redirect_to :back
           end
+
+          redirect_back(fallback_location: participatory_processes_path)
         end
       end
 
