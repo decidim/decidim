@@ -1,0 +1,83 @@
+eu:
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        promoted: Nabarmenak
+  decidim:
+    admin:
+      actions:
+        activate: Aktibatu
+        confirm_destroy: Ziur hau ezabatu nahi duzula?
+        deactivate: Desaktibatu
+        destroy: Destroy
+        edit: Edit
+        new: '%{name} New'
+        title: Ekintzak
+        unauthorized: Ez duzu baimenik ekintza hau egiteko
+      decidim:
+        admin:
+          participatory_process_steps:
+            table:
+              steps_hint: mahai ilara arrasta dezakezu Prozesu urratsak berrantolatzeko ere.
+              steps_title: Urratsak
+      menu:
+        dashboard: arbela
+        participatory_processes: partehartzailea prozesuak
+      models:
+        participatory_process:
+          fields:
+            created_at: tan sortua
+            promoted: Nabarmenak
+            title: Izenburua
+          name: partaidetza prozesua
+          validations:
+            slug_uniqueness: Beste parte-hartzailea prozesua slug badago lehendik
+        participatory_process_step:
+          fields:
+            active: Aktiboak
+            end_date: Amaierako data
+            start_date: Hasi data
+            title: Izenburua
+          name: Partaidetza prozesua urrats
+      participatory_process_step_activations:
+        create:
+          error: Akats baten partaidetza prozesua urrats hau aktibatzean.
+          success: Partaidetza prozesua urrats Jaione arrakastaz
+        destroy:
+          error: Akats baten partaidetza prozesua urrats honetan desaktibatzean.
+          success: Partaidetza prozesua urrats ezgaituko arrakastaz
+      participatory_process_steps:
+        create:
+          error: Akats baten partaidetza prozesua urrats berri bat sortu.
+          success: Partaidetza prozesua urrats ongi sortu da
+        destroy:
+          success: Partaidetza prozesua urrats arrakastaz suntsitu
+        edit:
+          title: Editatu partaidetza prozesu urratsa
+          update: Eguneratu partaidetza prozesu urratsa
+        new:
+          create: Sortu partaidetza prozesu urratsa
+          title: Partaidetza prozesu urrats berria
+        ordering:
+          error: Errore bat gertatu da hau prozesu parte-hartzailea urrats berrantolatzen.
+        update:
+          error: Errore bat denean, partaidetza prozesua urrats hau eguneratzean.
+          success: Partaidetza prozesua urrats ongi eguneratu
+      participatory_processes:
+        create:
+          error: Akats baten partaidetza prozesu berri bat sortu.
+          success: Partaidetza prozesua ongi sortu da. Konfiguratu orain bere urratsak.
+        destroy:
+          success: Partaidetza prozesua arrakastaz suntsitu
+        edit:
+          title: Editatu partaidetza prozesua
+          update: Eguneratu partaidetza prozesua
+        new:
+          create: Sortu partaidetza prozesua
+          title: Partaidetza prozesu berria
+        update:
+          error: Akats baten partaidetza prozesu hau eguneratzen denean Sekulako.
+          success: Partaidetza prozesua arrakastaz eguneratu
+      titles:
+        dashboard: arbela
+        participatory_processes: partehartzailea prozesuak
