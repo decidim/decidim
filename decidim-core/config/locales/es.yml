@@ -1,4 +1,3 @@
----
 es:
   activerecord:
     attributes:
@@ -14,12 +13,12 @@ es:
       decidim/user: Usuario
   booleans:
     'false': 'No'
-    'true': Sí
+    'true': 'Sí'
   decidim:
     devise:
       registrations:
         new:
-          already_have_an_account?: "¿Ya tienes una cuenta?"
+          already_have_an_account?: '¿Ya tienes una cuenta?'
           sign_in: Entra
           sign_up: Regístrate
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
@@ -28,7 +27,7 @@ es:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: "¿Eres nuevo en la plataforma?"
+          are_you_new?: '¿Eres nuevo en la plataforma?'
           register: Créate una cuenta
     menu:
       home: Inicio
@@ -45,16 +44,12 @@ es:
         someone_invited_you: Alguien te ha invitado a %{application}, puedes aceptar la invitación con el enlace a continuación.
       organization_admin_invitation_instructions:
         subject: Te han invitado a administrar %{organization}
-      password_change:
-        greeting: "¡Hola %{recipient}!"
-        message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
-        subject: Contraseña cambiada
   layouts:
     decidim:
       footer:
         about: En cuanto a Decidim
         accessibility: Accesibilidad
-        made_with_open_source: Esta web está hecha con <a target="_blank" href="https://github.com/codegram/decidim">software libre</a>.
+        made_with_open_source: 'Esta web está hecha con <a target="_blank" href="https://github.com/codegram/decidim">software libre</a>.'
         terms_of_use: Términos y condiciones
       header:
         close_menu: Cerrar menú
@@ -80,13 +75,13 @@ es:
           take_part: Participa
   locales:
     ca: Català
-    en: English
+    en: Inglés
     es: Castellano
   pages:
     '404':
       back_home: Volver al inicio
       content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
-      title: "¡No se ha encontrado la página que buscas!"
+      title: '¡No se ha encontrado la página que buscas!'
     '500':
       title: Ha habido un problema con nuestro servidor
       try_later: Por favor, vuelve a intentarlo más tarde.
