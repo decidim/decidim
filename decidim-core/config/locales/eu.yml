@@ -1,0 +1,89 @@
+eu:
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Oraingo pasahitza
+        email: Emaila
+        name: Erabiltzaile izena
+        password: Pasahitza
+        password_confirmation: Pasahitza berrespena
+        remember_me: Gogora nazazu
+        tos_agreement: Baldintzak eta baldintzak
+    models:
+      decidim/user: Erabiltzaileak
+  booleans:
+    'false': 'Ez'
+    'true': 'Bai'
+  decidim:
+    devise:
+      registrations:
+        new:
+          already_have_an_account?: Dagoeneko kontu bat sisteman?
+          sign_in: Saioa hasi
+          sign_up: Izena eman
+          subtitle: Kontu berri bat ireki den eztabaida eta laguntza proposamenak parte hartzeko.
+          terms: terminoak eta baldintzak
+          tos_agreement: sortu sinatuz den %{link} onartzen duzu.
+          username_help: name Publikoa zure mezuetan agertzen den. anonimatua bermatzeko, edozein izen izan daiteke.
+      sessions:
+        new:
+          are_you_new?: plataforma berria?
+          register: Kontu bat sortu
+    menu:
+      home: Hasiera
+      processes: Prozesuak
+  devise:
+    mailer:
+      invitation_instructions:
+        accept: Onartu gonbidapena
+        accept_until: Gonbidapen hau %{due_date} direlako izango da.
+        hello: Kaixo %{email}
+        ignore: |-
+          Zuk ez baduzu gonbidapena onartu nahi, mesedez ez ikusi hau email.<br /> Zure kontua ez da sortuko hemengo esteka duzun arte eta zure pasahitza ezarri.
+        someone_invited_you: Norbaitek joko batera gonbidatu zaituGenericName %{application} den, onartu dezakezu beheko esteka jarraituz.
+      organization_admin_invitation_instructions:
+        subject: gonbidatu zaituzte %{organization} admin
+  layouts:
+    decidim:
+      footer:
+        about: Decidim buruz
+        accessibility: Irisgarritasuna
+        made_with_open_source: 'Web <a target="_blank" href="https://github.com/codegram/decidim">open-iturria software</a> egina.'
+        terms_of_use: Erabilpen baldintzak
+      header:
+        close_menu: eduki nagusira joan
+        navigation: Nabigazioa
+        sign_in: Saioa hasi
+        sign_out: Saioa amaitu
+        sign_up: Izena eman
+      participatory_processes:
+        index:
+          promoted_processes: Nabarmenak prozesuak
+        no_processes_yet:
+          no_processes_yet: Ez partaidetza prozesuak oraindik!
+        order_by_processes:
+          processes:
+            one: "%{count} prozesua"
+            other: "%{count} prozesuak"
+        participatory_process:
+          active_step: "Oraingo urratsa:"
+          take_part: Parte hartu
+        promoted_process:
+          active_step: "Oraingo urratsa:"
+          more_info: Informazio gehiago
+          take_part: Parte hartu
+  locales:
+    ca: Català
+    en: English
+    es: Castellano
+  pages:
+    '404':
+      back_home: etxera
+      content_doesnt_exist: Helbide hori ez da zuzena edo ezabatua izan da.
+      title: bila ari orria ezin izan da aurkitu
+    '500':
+      title: gure zerbitzariak arazoren bat gertatu da
+      try_later: Mesedez saiatu berriro beranduago.
+    home:
+      register: Izena eman
+      welcome: Ongi %{organization} den!
