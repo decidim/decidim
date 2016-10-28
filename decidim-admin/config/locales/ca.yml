@@ -1,4 +1,3 @@
----
 ca:
   activerecord:
     attributes:
@@ -35,7 +34,7 @@ ca:
             slug_uniqueness: Ja existeix un altre procés participatiu amb el mateix identificador
         participatory_process_step:
           fields:
-            active: Active
+            active: Actiu
             end_date: Data de finalització
             start_date: Data d'inici
             title: Títol
