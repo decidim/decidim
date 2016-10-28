@@ -8,11 +8,13 @@ module Decidim
 
     subject { described_class.new(user) }
 
-    class TestAbility
-      include CanCan::Ability
+    let(:ability_class) do
+      Class.new do
+        include CanCan::Ability
 
-      def initialize(user)
-        can :read, Decidim::ParticipatoryProcess
+        def initialize(user)
+          can :read, Decidim::ParticipatoryProcess
+        end
       end
     end
 
@@ -28,10 +30,10 @@ module Decidim
     end
 
     context "when there are some abilities injected from configuration" do
-      let(:abilities) { [Decidim::TestAbility] }
+      let(:abilities) { [ability_class] }
 
       it "applies the injected abilities" do
-        expect(subject.permissions[:can][:read]).to include("Decidim::ParticipatoryProcess")
+        expect(subject).to be_able_to(:read, Decidim::ParticipatoryProcess)
       end
     end
   end
