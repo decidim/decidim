@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -6,6 +7,7 @@ describe "Locales", type: :feature do
     let(:organization) { create(:organization) }
 
     before do
+      I18n.available_locales = %w{en es ca}
       switch_to_host(organization.host)
       visit decidim.root_path
     end
