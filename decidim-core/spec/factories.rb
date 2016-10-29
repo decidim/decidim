@@ -1,3 +1,4 @@
+# coding: utf-8
 FactoryGirl.define do
   factory :organization, class: Decidim::Organization do
     sequence(:name) { |n| "Citizen Corp ##{n}" }
@@ -6,11 +7,11 @@ FactoryGirl.define do
   end
 
   factory :participatory_process, class: Decidim::ParticipatoryProcess do
-    sequence(:title) { |n| { en: "Participatory Process ##{n}", ca: "Procés participatiu ##{n}", es: "Proceso participativo ##{n}" } }
-    sequence(:slug) { |n| { en: "participatory-process-#{n}" } }
-    subtitle          en: "Subtitle", ca: "Subtítol", es: "Subtítulo"
-    short_description en: "<p>Short description</p>", ca: "<p>Descripció curta</p>", es: "<p>Descripción corta</p>"
-    description       en: "<p>Description</p>", ca: "<p>Descripció</p>", es: "<p>Descripción</p>"
+    sequence(:title) { |n| { dev: "Participatory Process ##{n}" } }
+    sequence(:slug) { |n| { dev: "participatory-process-#{n}" } }
+    subtitle          dev: "Subtitle", ca: "Subtítol"
+    short_description dev: "<p>Short description</p>"
+    description       dev: "<p>Description</p>"
     hero_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city.jpeg")) }
     banner_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city2.jpeg")) }
     organization
@@ -21,9 +22,9 @@ FactoryGirl.define do
   end
 
   factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do
-    sequence(:title) { |n| { en: "Participatory Process Step ##{n}", ca: "Fase de procés participatiu ##{n}", es: "Fase de proceso participativo ##{n}" } }
-    short_description en: "<p>Short description</p>", ca: "<p>Descripció curta</p>", es: "<p>Descripción corta</p>"
-    description       en: "<p>Description</p>", ca: "<p>Descripció</p>", es: "<p>Descripción</p>"
+    sequence(:title) { |n| { dev: "Participatory Process Step ##{n}" } }
+    short_description dev: "<p>Short description</p>"
+    description       dev: "<p>Description</p>"
     start_date 1.month.ago.at_midnight
     end_date 2.month.from_now.at_midnight
     position nil

@@ -74,10 +74,8 @@ dev:
           active_step: "Current step:"
           more_info: More info
           take_part: Take part
-  locales:
-    ca: Català
-    en: English
-    es: Castellano
+  locale:
+    name: Development
   pages:
     '404':
       back_home: Back home
