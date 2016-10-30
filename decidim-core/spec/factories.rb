@@ -9,7 +9,7 @@ FactoryGirl.define do
   factory :participatory_process, class: Decidim::ParticipatoryProcess do
     sequence(:title) { |n| { dev: "Participatory Process ##{n}" } }
     sequence(:slug) { |n| { dev: "participatory-process-#{n}" } }
-    subtitle          dev: "Subtitle", ca: "Subtítol"
+    subtitle          dev: "Subtitle"
     short_description dev: "<p>Short description</p>"
     description       dev: "<p>Description</p>"
     hero_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city.jpeg")) }
@@ -41,7 +41,7 @@ FactoryGirl.define do
     password_confirmation "password1234"
     name                  "Responsible Citizen"
     organization
-    locale                "en"
+    locale                "dev"
     tos_agreement         "1"
 
     trait :confirmed do
