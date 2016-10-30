@@ -6,6 +6,10 @@ services:
 
 language: ruby
 
+branches:
+  except:
+    - translations
+
 cache:
   bundler: true
 

@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -7,8 +8,8 @@ describe "Participatory Processes", type: :feature do
     create(
       :participatory_process,
       organization: organization,
-      description: { en: "Description", ca: "Descripció", es: "Descripción" },
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
+      description: { dev: "Description" },
+      short_description: { dev: "Short description" }
     )
   end
 
@@ -26,7 +27,7 @@ describe "Participatory Processes", type: :feature do
     it "lists all the highlighted processes" do
       within "#highlighted-processes" do
         expect(page).to have_content("Highlighted processes")
-        expect(page).to have_content(translated(promoted_process.title, locale: :en))
+        expect(page).to have_content(translated(promoted_process.title, locale: :dev))
         expect(page).to have_selector("article.card--full", count: 1)
       end
     end
@@ -34,14 +35,14 @@ describe "Participatory Processes", type: :feature do
     it "lists all the processes" do
       within "#processes-grid" do
         expect(page).to have_content("2 processes")
-        expect(page).to have_content(translated(participatory_process.title, locale: :en))
-        expect(page).to have_content(translated(promoted_process.title, locale: :en))
+        expect(page).to have_content(translated(participatory_process.title, locale: :dev))
+        expect(page).to have_content(translated(promoted_process.title, locale: :dev))
         expect(page).to have_selector("article.card", count: 2)
       end
     end
 
     it "links to the individial process page" do
-      click_link(translated(participatory_process.title, locale: :en))
+      click_link(translated(participatory_process.title, locale: :dev))
 
       expect(current_path).to eq decidim.participatory_process_path(participatory_process)
     end
@@ -73,10 +74,10 @@ describe "Participatory Processes", type: :feature do
 
     it "shows the details of the given process" do
       within "main.wrapper" do
-        expect(page).to have_content(translated(participatory_process.title, locale: :en))
-        expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
-        expect(page).to have_content(translated(participatory_process.description, locale: :en))
-        expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
+        expect(page).to have_content(translated(participatory_process.title, locale: :dev))
+        expect(page).to have_content(translated(participatory_process.subtitle, locale: :dev))
+        expect(page).to have_content(translated(participatory_process.description, locale: :dev))
+        expect(page).to have_content(translated(participatory_process.short_description, locale: :dev))
         expect(page).to have_content(participatory_process.hashtag)
       end
     end

@@ -78,10 +78,8 @@ ca:
           active_step: "Fase actual:"
           more_info: Més informació
           take_part: Participa
-  locales:
-    ca: Català
-    en: English
-    es: Castellano
+  locale:
+    name: Català
   pages:
     '404':
       back_home: Tornar a l'inici
