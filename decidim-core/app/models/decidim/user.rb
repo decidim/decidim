@@ -24,7 +24,12 @@ module Decidim
 
     delegate :can?, to: :ability
 
-    # Check if the user has the given `role` or not.
+    # Gets the ability instance for the given user.
+    def ability
+      @ability ||= Ability.new(self)
+    end
+
+    # Checks if the user has the given `role` or not.
     #
     # role - a String or a Symbol that represents the role that is being
     #   checked
@@ -32,11 +37,6 @@ module Decidim
     # Returns a boolean.
     def role?(role)
       roles.include?(role.to_s)
-    end
-
-    # Gets the ability instance for the given user.
-    def ability
-      @ability ||= Ability.new(self)
     end
 
     private

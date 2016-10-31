@@ -17,5 +17,19 @@ module Decidim
 
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
+
+    # Scope to return only the published processes.
+    #
+    # Returns an ActiveRecord::Relation.
+    def self.published
+      where.not(published_at: nil)
+    end
+
+    # Checks whether the process has been published or not.
+    #
+    # Returns a boolean.
+    def published?
+      published_at.present?
+    end
   end
 end

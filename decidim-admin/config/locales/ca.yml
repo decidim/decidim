@@ -13,8 +13,10 @@ ca:
         destroy: Eliminar
         edit: Editar
         new: Nou %{name}
+        publish: Publicar
         title: Accions
         unauthorized: No tens permís per realitzar aquesta acció.
+        unpublish: Despublicar
       decidim:
         admin:
           participatory_process_steps:
@@ -29,6 +31,7 @@ ca:
           fields:
             created_at: Data de creació
             promoted: Destacat
+            published: Publicat
             title: Títol
           name: Procés participatiu
           validations:
@@ -40,6 +43,13 @@ ca:
             start_date: Data d'inici
             title: Títol
           name: Name
+      participatory_process_publications:
+        create:
+          error: S'ha produït un error en publicar aquest procés participatiu.
+          success: El procés participatiu s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en despublicar aquest procés participatiu.
+          success: El procés participatiu s'ha despublicat correctament.
       participatory_process_step_activations:
         create:
           error: S'ha produït un error en activar aquesta fase de procés participatiu.

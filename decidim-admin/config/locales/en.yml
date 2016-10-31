@@ -13,8 +13,10 @@ en:
         destroy: Destroy
         edit: Edit
         new: New %{name}
+        publish: Publish
         title: Actions
         unauthorized: You are not authorized to perform this action
+        unpublish: Unpublish
       decidim:
         admin:
           participatory_process_steps:
@@ -29,6 +31,7 @@ en:
           fields:
             created_at: Created at
             promoted: Highlighted
+            published: Published
             title: Title
           name: Participatory process
           validations:
@@ -40,6 +43,13 @@ en:
             start_date: Start date
             title: Title
           name: Participatory process step
+      participatory_process_publications:
+        create:
+          error: There was an error publishing this participatory process.
+          success: Participatory process published successfully
+        destroy:
+          error: There was an error unpublishing this participatory process.
+          success: Participatory process unpublished successfully
       participatory_process_step_activations:
         create:
           error: There was an error activating this participatory process step.

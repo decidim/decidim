@@ -23,6 +23,7 @@ require "factory_girl_rails"
 require "database_cleaner"
 require "byebug"
 require "cancan/matchers"
+require "rectify/rspec"
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
@@ -42,6 +43,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.include TranslationHelpers
+  config.include Rectify::RSpec::Helpers
 end
 
 require_relative "i18n_spec"

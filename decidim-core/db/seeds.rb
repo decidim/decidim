@@ -55,6 +55,7 @@ if !Rails.env.production? || ENV["SEED"]
     hero_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
     banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),
     promoted: true,
+    published_at: 2.weeks.ago,
     organization: staging_organization
   )
 
@@ -83,6 +84,35 @@ if !Rails.env.production? || ENV["SEED"]
     },
     hero_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),
     banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city3.jpeg")),
+    published_at: 1.week.ago,
+    organization: staging_organization
+  )
+
+  Decidim::ParticipatoryProcess.create!(
+    title: {
+      en: "Plant new trees at the Seaside Boulevard",
+      es: "Plantar nuevos árboles en el Paseo marítimo",
+      ca: "Plantar nous arbres al Passeig marítim"
+    },
+    slug: "plant-new-trees-at-the-seaside-boulevard",
+    subtitle: {
+      en: "A greener space close to the beach",
+      es: "Un espacio más verde cerca de la playa",
+      ca: "Un espai més verd a prop de la platja"
+    },
+    hashtag: "#seasideTrees",
+    short_description: {
+      en: "<p>Short description</p>",
+      es: "<p>Descripción corta</p>",
+      ca: "<p>Descripció curta</p>"
+    },
+    description: {
+      en: "<p>Description</p>",
+      es: "<p>Descripción</p>",
+      ca: "<p>Descripció</p>"
+    },
+    hero_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city3.jpeg")),
+    banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),
     organization: staging_organization
   )
 
