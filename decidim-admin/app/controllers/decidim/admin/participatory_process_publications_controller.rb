@@ -44,10 +44,6 @@ module Decidim
         @participatory_process ||=
           current_organization.participatory_processes.find(params[:participatory_process_id])
       end
-
-      def policy_class(_record)
-        Decidim::Admin::ParticipatoryProcessPolicy
-      end
     end
   end
 end
