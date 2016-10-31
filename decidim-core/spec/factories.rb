@@ -13,7 +13,7 @@ FactoryGirl.define do
     description       en: "<p>Description</p>", ca: "<p>Descripció</p>", es: "<p>Descripción</p>"
     hero_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city.jpeg")) }
     banner_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city2.jpeg")) }
-    published_at Time.current
+    published_at { Time.current }
     organization
 
     trait :promoted do

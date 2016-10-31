@@ -13,7 +13,7 @@ describe Decidim::PublishedProcesses do
     context "when organization is set" do
       let(:current_organization) { organization }
 
-      it "only returns the processes from the given organization" do
+      it "only returns the published processes from the given organization" do
         expect(subject.query).to eq [published_process]
       end
     end
@@ -21,7 +21,7 @@ describe Decidim::PublishedProcesses do
     context "when organization is not set" do
       let(:current_organization) { nil }
 
-      it "only returns the processes from the given organization" do
+      it "returns all the published processes" do
         expect(subject.query).to match_array [published_process, external_process]
       end
     end
