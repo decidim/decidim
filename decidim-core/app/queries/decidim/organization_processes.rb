@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 module Decidim
+  # A query object to retrieve all processes from a single organization.
   class OrganizationProcesses < Rectify::Query
     def initialize(organization)
       @organization = organization

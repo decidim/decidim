@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 module Decidim
+  # A query object to retrieve available processes for the user organization.
+  # Changes the scope based on the user role.
   class AvailableProcessesForUser < Rectify::Query
     def initialize(user, organization)
       @user = user
