@@ -11,11 +11,11 @@ module Decidim
 
         PublishParticipatoryProcess.call(participatory_process) do
           on(:ok) do
-            flash[:notice] = I18n.t("participatory_participatory_process_publications.create.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("participatory_process_publications.create.success", scope: "decidim.admin")
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("participatory_participatory_process_publications.create.error", scope: "decidim.admin")
+            flash.now[:alert] = I18n.t("participatory_process_publications.create.error", scope: "decidim.admin")
           end
 
           redirect_back(fallback_location: participatory_processes_path)
@@ -27,11 +27,11 @@ module Decidim
 
         UnpublishParticipatoryProcess.call(participatory_process) do
           on(:ok) do
-            flash[:notice] = I18n.t("participatory_participatory_process_publications.destroy.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("participatory_process_publications.destroy.success", scope: "decidim.admin")
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("participatory_participatory_process_publications.destroy.error", scope: "decidim.admin")
+            flash.now[:alert] = I18n.t("participatory_process_publications.destroy.error", scope: "decidim.admin")
           end
 
           redirect_back(fallback_location: participatory_processes_path)
@@ -41,7 +41,8 @@ module Decidim
       private
 
       def participatory_process
-        current_organization.participatory_processes.find(params[:participatory_process_id])
+        @participatory_process ||=
+          current_organization.participatory_processes.find(params[:participatory_process_id])
       end
 
       def policy_class(_record)

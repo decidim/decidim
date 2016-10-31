@@ -43,7 +43,7 @@ ca:
             start_date: Data d'inici
             title: Títol
           name: Name
-      participatory_participatory_process_publications:
+      participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
           success: El procés participatiu s'ha publicat correctament.

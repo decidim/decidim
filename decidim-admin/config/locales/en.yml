@@ -43,7 +43,7 @@ en:
             start_date: Start date
             title: Title
           name: Participatory process step
-      participatory_participatory_process_publications:
+      participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
           success: Participatory process published successfully

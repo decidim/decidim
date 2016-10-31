@@ -43,7 +43,7 @@ es:
             start_date: Fecha de inicio
             title: Título
           name: Fase de proceso participativo
-      participatory_participatory_process_publications:
+      participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
           success: El proceso participativo se ha publicado correctamente.
