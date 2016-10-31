@@ -1,4 +1,16 @@
 GIT
+  remote: https://github.com/mrcasals/rectify.git
+  revision: cf6e4d280aabc5528985739ae76d8beb9984f88f
+  branch: query_to_ary
+  specs:
+    rectify (0.7.0)
+      activemodel (>= 4.1.0)
+      activerecord (>= 4.1.0)
+      activesupport (>= 4.1.0)
+      virtus (~> 1.0.5)
+      wisper (>= 1.6.1)
+
+GIT
   remote: https://github.com/sgruhier/foundation_rails_helper.git
   revision: df0bd8eca1b43b8bfdcb163f9e1e3b3b9ab0595e
   tag: df0bd8e
@@ -294,12 +306,6 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    rectify (0.6.1)
-      activemodel (>= 4.1.0)
-      activerecord (>= 4.1.0)
-      activesupport (>= 4.1.0)
-      virtus (~> 1.0.5)
-      wisper (>= 1.6.1)
     redis (3.3.1)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
@@ -409,6 +415,7 @@ DEPENDENCIES
   decidim-system!
   foundation_rails_helper!
   rake (~> 11.0)
+  rectify!
   rspec (~> 3.0)
   rspec_junit_formatter (= 0.2.3)
   rubocop (~> 0.44.1)
