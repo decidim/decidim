@@ -7,7 +7,7 @@ module Decidim
     #
     class ParticipatoryProcessPublicationsController < ApplicationController
       def create
-        authorize ParticipatoryProcess
+        authorize! :publish, participatory_process
 
         PublishParticipatoryProcess.call(participatory_process) do
           on(:ok) do
@@ -23,7 +23,7 @@ module Decidim
       end
 
       def destroy
-        authorize participatory_process
+        authorize! :publish, participatory_process
 
         UnpublishParticipatoryProcess.call(participatory_process) do
           on(:ok) do
