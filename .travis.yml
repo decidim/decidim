@@ -5,7 +5,6 @@ services:
   - docker
 
 language: ruby
-cache: bundler
 
 env:
   - GEM=. DB=postgres
@@ -25,6 +24,7 @@ before_install:
   - export BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
 
 cache:
+  bundler: true
   directories:
   - $HOME/.yarn-cache
 
