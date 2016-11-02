@@ -1,11 +1,11 @@
 # Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![license](https://img.shields.io/github/license/codegram/decidim.svg)](https://github.com/codegram/decidim/blob/master/LICENSE.txt)
 
 ### Code quality
-[![Build Status](https://travis-ci.org/codegram/decidim.svg?branch=master)](https://travis-ci.org/codegram/decidim)
-[![Code Climate](https://codeclimate.com/github/codegram/decidim/badges/gpa.svg)](https://codeclimate.com/github/codegram/decidim/trends)
-[![Issue Count](https://codeclimate.com/github/codegram/decidim/badges/issue_count.svg)](https://codeclimate.com/github/codegram/decidim/issues)
-[![codecov](https://codecov.io/gh/codegram/decidim/branch/master/graph/badge.svg)](https://codecov.io/gh/codegram/decidim)
-[![Dependency Status](https://gemnasium.com/badges/github.com/codegram/decidim.svg)](https://gemnasium.com/github.com/codegram/decidim)
+[![Build Status](https://img.shields.io/travis/codegram/decidim.svg)](https://travis-ci.org/codegram/decidim)
+[![Code Climate](https://img.shields.io/codeclimate/github/codegram/decidim.svg)](https://codeclimate.com/github/codegram/decidim/trends)
+[![Issue Count](https://img.shields.io/codeclimate/issues/github/codegram/decidim.svg)](https://codeclimate.com/github/codegram/decidim/issues)
+[![codecov](https://img.shields.io/codecov/c/github/codegram/decidim.svg)](https://codecov.io/gh/codegram/decidim)
+[![Dependency Status](https://img.shields.io/gemnasium/codegram/decidim.svg)](https://gemnasium.com/github.com/codegram/decidim)
 
 ### Project management
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/codegram/decidim.svg)](https://github.com/codegram/decidim/pulls)
