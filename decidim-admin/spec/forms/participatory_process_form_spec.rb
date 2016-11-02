@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -6,48 +7,37 @@ module Decidim
     describe ParticipatoryProcessForm do
       let(:title) do
         {
-          en: "Title",
-          es: "Título",
-          ca: "Títol"
+          dev: "Title"
         }
       end
+
       let(:subtitle) do
         {
-          en: "Subtitle",
-          es: "Subtítulo",
-          ca: "Subtítol"
+          dev: "Subtitle"
         }
       end
+
       let(:description) do
         {
-          en: "Description",
-          es: "Descripción",
-          ca: "Descripció"
+          dev: "Description"
         }
       end
+
       let(:short_description) do
         {
-          en: "Short description",
-          es: "Descripción corta",
-          ca: "Descripció curta"
+          dev: "Short description"
         }
       end
+
       let(:slug) { "slug" }
+
       let(:attributes) do
         {
           "participatory_process" => {
-            "title_en" => title[:en],
-            "title_es" => title[:es],
-            "title_ca" => title[:ca],
-            "subtitle_en" => subtitle[:en],
-            "subtitle_es" => subtitle[:es],
-            "subtitle_ca" => subtitle[:ca],
-            "description_en" => description[:en],
-            "description_es" => description[:es],
-            "description_ca" => description[:ca],
-            "short_description_en" => short_description[:en],
-            "short_description_es" => short_description[:es],
-            "short_description_ca" => short_description[:ca],
+            "title_dev" => title[:dev],
+            "subtitle_dev" => subtitle[:dev],
+            "description_dev" => description[:dev],
+            "short_description_dev" => short_description[:dev],
             "slug" => slug
           }
         }
@@ -56,14 +46,16 @@ module Decidim
       subject { described_class.from_params(attributes) }
 
       context "when everything is OK" do
+        before do
+          subject.valid?
+        end
         it { is_expected.to be_valid }
       end
 
       context "when some language in title is missing" do
         let(:title) do
           {
-            en: "Title",
-            ca: "Títol"
+            en: "Title"
           }
         end
 
@@ -73,8 +65,7 @@ module Decidim
       context "when some language in subtitle is missing" do
         let(:subtitle) do
           {
-            en: "Subtitle",
-            ca: "Subtítol"
+            en: "Subtitle"
           }
         end
 
@@ -84,7 +75,7 @@ module Decidim
       context "when some language in description is missing" do
         let(:description) do
           {
-            ca: "Descripció"
+            en: "Descripció"
           }
         end
 

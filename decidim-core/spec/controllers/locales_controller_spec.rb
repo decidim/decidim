@@ -9,6 +9,8 @@ module Decidim
     before do
       @request.env["decidim.current_organization"] = organization
       @request.env["devise.mapping"] = Devise.mappings[:user]
+      I18n.available_locales = %{en ca es}
+      I18n.default_locale = :en
     end
 
     describe "POST create" do
