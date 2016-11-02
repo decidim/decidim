@@ -7,6 +7,10 @@ module Decidim
       include NeedsAuthorization
 
       protect_from_forgery with: :exception, prepend: true
+
+      def user_not_authorized_path
+        decidim_admin.root_path
+      end
     end
   end
 end

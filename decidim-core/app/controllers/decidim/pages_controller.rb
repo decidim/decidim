@@ -5,5 +5,6 @@ module Decidim
   # This controller serves static pages using HighVoltage.
   class PagesController < ApplicationController
     include HighVoltage::StaticPage
+    authorize_resource :public_pages, class: false
   end
 end

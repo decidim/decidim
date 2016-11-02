@@ -16,6 +16,9 @@ en:
     'false': 'No'
     'true': 'Yes'
   decidim:
+    core:
+      actions:
+        unauthorized: You are not authorized to perform this action
     devise:
       registrations:
         new:

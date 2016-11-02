@@ -16,6 +16,9 @@ ca:
     'false': 'No'
     'true': Sí
   decidim:
+    core:
+      actions:
+        unauthorized: No tens permís per realitzar aquesta acció.
     devise:
       registrations:
         new:

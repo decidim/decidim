@@ -25,6 +25,13 @@ module Decidim
       where.not(published_at: nil)
     end
 
+    # Scope to return only the promoted processes.
+    #
+    # Returns an ActiveRecord::Relation.
+    def self.promoted
+      where(promoted: true)
+    end
+
     # Checks whether the process has been published or not.
     #
     # Returns a boolean.
