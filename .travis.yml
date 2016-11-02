@@ -5,9 +5,7 @@ services:
   - docker
 
 language: ruby
-
-cache:
-  bundler: true
+cache: bundler
 
 env:
   - GEM=. DB=postgres
