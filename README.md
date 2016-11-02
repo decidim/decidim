@@ -1,11 +1,18 @@
-# Decidim
+# Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://github.com/codegram/decidim/blob/master/LICENSE.txt)
 
-[![Gem Version](https://badge.fury.io/rb/decidim.svg)](https://badge.fury.io/rb/decidim)
-[![Code Climate](https://codeclimate.com/github/codegram/decidim/badges/gpa.svg)](https://codeclimate.com/github/codegram/decidim/trends)
-[![Issue Count](https://codeclimate.com/github/codegram/decidim/badges/issue_count.svg)](https://codeclimate.com/github/codegram/decidim/issues)
-[![Build Status](https://travis-ci.org/codegram/decidim.svg?branch=master)](https://travis-ci.org/codegram/decidim)
-[![codecov](https://codecov.io/gh/codegram/decidim/branch/master/graph/badge.svg)](https://codecov.io/gh/codegram/decidim)
-[![Dependency Status](https://gemnasium.com/badges/github.com/codegram/decidim.svg)](https://gemnasium.com/github.com/codegram/decidim)
+### Code quality
+[![Build Status](https://img.shields.io/travis/codegram/decidim.svg)](https://travis-ci.org/codegram/decidim)
+[![Code Climate](https://img.shields.io/codeclimate/github/codegram/decidim.svg)](https://codeclimate.com/github/codegram/decidim/trends)
+[![Issue Count](https://img.shields.io/codeclimate/issues/github/codegram/decidim.svg)](https://codeclimate.com/github/codegram/decidim/issues)
+[![codecov](https://img.shields.io/codecov/c/github/codegram/decidim.svg)](https://codecov.io/gh/codegram/decidim)
+[![Dependency Status](https://img.shields.io/gemnasium/codegram/decidim.svg)](https://gemnasium.com/github.com/codegram/decidim)
+
+### Project management
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/codegram/decidim.svg)](https://github.com/codegram/decidim/pulls)
+[![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/codegram/decidim.svg)](https://github.com/codegram/decidim/pulls?utf8=%E2%9C%93&q=is%3Apr%20is%3Aclosed)
+[![GitHub issues](https://img.shields.io/github/issues/codegram/decidim.svg)](https://github.com/codegram/decidim/issues)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/codegram/decidim.svg)](https://github.com/codegram/decidim/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aclosed)
+[![GitHub contributors](https://img.shields.io/github/contributors/codegram/decidim.svg)](https://github.com/codegram/decidim/graphs/contributors)
 
 ## Requirements
 
