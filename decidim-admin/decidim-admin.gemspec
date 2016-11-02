@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency "jbuilder", "~> 2.5"
   s.add_dependency "foundation_rails_helper", "~> 2.0.0"
   s.add_dependency "active_link_to", "~> 1.0.0"
-  s.add_dependency "carrierwave", "~> 1.0.0.beta"
+  s.add_dependency "carrierwave", "~> 1.0.0.rc"
   s.add_dependency "cancancan", "~> 1.15.0"
 
   s.add_development_dependency "decidim-dev", Decidim.version

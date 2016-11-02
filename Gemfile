@@ -9,7 +9,7 @@ gemspec path: "decidim-system"
 gemspec path: "decidim-admin"
 gemspec path: "decidim-dev"
 
-gem "rubocop", "~> 0.44.1"
+gem "rubocop", "~> 0.45"
 gem "rspec_junit_formatter", "0.2.3"
 gem "simplecov", "~> 0.12"
 gem "codecov", "~> 0.1.6"
