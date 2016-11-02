@@ -50,7 +50,7 @@ en:
       footer:
         about: About Decidim
         accessibility: Accessibility
-        made_with_open_source: Website made with <a target="_blank" href="https://github.com/codegram/decidim">open-source software</a>.
+        made_with_open_source: Website made with <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">open-source software</a>.
         terms_of_use: Terms Of Use
       header:
         close_menu: Close menu
