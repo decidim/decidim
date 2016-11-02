@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "capybara", "~> 2.10.0"
   s.add_dependency "rspec-rails", "~> 3.5"
   s.add_dependency "byebug"
+  s.add_dependency "codeclimate-test-reporter", "~> 1.0.0.pre.rc2"
   s.add_dependency "wisper-rspec"
   s.add_dependency "listen", "~> 3.1.0"
   s.add_dependency "launchy"
