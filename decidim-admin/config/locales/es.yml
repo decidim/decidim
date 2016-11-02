@@ -15,7 +15,6 @@ es:
         new: Nuevo %{name}
         publish: Publicar
         title: Acciones
-        unauthorized: No tienes permiso para realizar esta acción.
         unpublish: Despublicar
       decidim:
         admin:

@@ -15,7 +15,6 @@ en:
         new: New %{name}
         publish: Publish
         title: Actions
-        unauthorized: You are not authorized to perform this action
         unpublish: Unpublish
       decidim:
         admin:

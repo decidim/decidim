@@ -15,7 +15,6 @@ ca:
         new: Nou %{name}
         publish: Publicar
         title: Accions
-        unauthorized: No tens permís per realitzar aquesta acció.
         unpublish: Despublicar
       decidim:
         admin:
