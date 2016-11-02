@@ -1,18 +1,18 @@
-# Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://github.com/codegram/decidim/blob/master/LICENSE.txt)
+# Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/LICENSE.txt)
 
 ### Code quality
-[![Build Status](https://img.shields.io/travis/codegram/decidim.svg)](https://travis-ci.org/codegram/decidim)
-[![Code Climate](https://img.shields.io/codeclimate/github/codegram/decidim.svg)](https://codeclimate.com/github/codegram/decidim/trends)
-[![Issue Count](https://img.shields.io/codeclimate/issues/github/codegram/decidim.svg)](https://codeclimate.com/github/codegram/decidim/issues)
-[![codecov](https://img.shields.io/codecov/c/github/codegram/decidim.svg)](https://codecov.io/gh/codegram/decidim)
-[![Dependency Status](https://img.shields.io/gemnasium/codegram/decidim.svg)](https://gemnasium.com/github.com/codegram/decidim)
+[![Build Status](https://img.shields.io/travis/AjuntamentdeBarcelona/decidim.svg)](https://travis-ci.org/AjuntamentdeBarcelona/decidim)
+[![Code Climate](https://img.shields.io/codeclimate/github/AjuntamentdeBarcelona/decidim.svg)](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim/trends)
+[![Issue Count](https://img.shields.io/codeclimate/issues/github/AjuntamentdeBarcelona/decidim.svg)](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim/issues)
+[![codecov](https://img.shields.io/codecov/c/github/AjuntamentdeBarcelona/decidim.svg)](https://codecov.io/gh/AjuntamentdeBarcelona/decidim)
+[![Dependency Status](https://img.shields.io/gemnasium/AjuntamentdeBarcelona/decidim.svg)](https://gemnasium.com/github.com/AjuntamentdeBarcelona/decidim)
 
 ### Project management
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/codegram/decidim.svg)](https://github.com/codegram/decidim/pulls)
-[![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/codegram/decidim.svg)](https://github.com/codegram/decidim/pulls?utf8=%E2%9C%93&q=is%3Apr%20is%3Aclosed)
-[![GitHub issues](https://img.shields.io/github/issues/codegram/decidim.svg)](https://github.com/codegram/decidim/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/codegram/decidim.svg)](https://github.com/codegram/decidim/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aclosed)
-[![GitHub contributors](https://img.shields.io/github/contributors/codegram/decidim.svg)](https://github.com/codegram/decidim/graphs/contributors)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/pulls)
+[![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/pulls?utf8=%E2%9C%93&q=is%3Apr%20is%3Aclosed)
+[![GitHub issues](https://img.shields.io/github/issues/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aclosed)
+[![GitHub contributors](https://img.shields.io/github/contributors/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/graphs/contributors)
 
 ## Requirements
 
