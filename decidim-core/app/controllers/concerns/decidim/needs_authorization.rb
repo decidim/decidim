@@ -24,8 +24,12 @@ module Decidim
       # Redirects the user to the root path and shows a flash message telling
       # them they are not authorized.
       def user_not_authorized
-        flash[:alert] = t("actions.unauthorized", scope: "decidim.admin")
-        redirect_to(request.referrer || decidim_admin.root_path)
+        flash[:alert] = t("actions.unauthorized", scope: "decidim.core")
+        redirect_to(request.referrer || user_not_authorized_path)
+      end
+
+      def user_not_authorized_path
+        raise NotImplementedError
       end
     end
   end

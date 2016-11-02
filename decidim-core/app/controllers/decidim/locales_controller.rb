@@ -4,6 +4,8 @@ require_dependency "decidim/application_controller"
 module Decidim
   # A controller to allow users switching their locale.
   class LocalesController < ApplicationController
+    authorize_resource :locales, class: false
+
     def create
       if current_user && params["locale"] && available_locales.include?(params["locale"])
         current_user.update_attribute(:locale, params["locale"])

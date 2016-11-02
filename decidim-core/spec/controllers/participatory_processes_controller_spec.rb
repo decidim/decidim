@@ -19,10 +19,10 @@ module Decidim
 
     describe "GET show" do
       context "when the process is unpublished" do
-        it "raises an error" do
-          expect do
-            get :show, params: { id: unpublished_process.id }
-          end.to raise_error(ActionController::RoutingError, "Not Found")
+        it "redirects to root path" do
+          get :show, params: { id: unpublished_process.id }
+
+          expect(response).to redirect_to("/")
         end
       end
     end

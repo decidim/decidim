@@ -16,6 +16,9 @@ es:
     'false': 'No'
     'true': Sí
   decidim:
+    core:
+      actions:
+        unauthorized: No tienes permiso para realizar esta acción.
     devise:
       registrations:
         new:

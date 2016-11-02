@@ -7,23 +7,26 @@ module Decidim
   class ParticipatoryProcessesController < ApplicationController
     helper_method :participatory_processes, :participatory_process, :promoted_processes
 
+    def index
+      authorize! :read, ParticipatoryProcess
+    end
+
     def show
-      raise ActionController::RoutingError, "Not Found" unless participatory_process
+      authorize! :read, participatory_process
     end
 
     private
 
     def participatory_process
-      @participatory_process ||=
-        AvailableProcessesForUser.new(current_user, current_organization).query.where(id: params[:id]).first
+      @participatory_process ||= ParticipatoryProcess.find(params[:id])
     end
 
     def participatory_processes
-      @participatory_processes ||= PublishedProcesses.new(current_organization)
+      @participatory_processes ||= current_organization.participatory_processes.includes(:active_step).published
     end
 
     def promoted_processes
-      @promoted_processes ||= participatory_processes | PromotedProcesses.new
+      @promoted_processes ||= participatory_processes.promoted
     end
   end
 end
