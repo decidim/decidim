@@ -6,9 +6,6 @@ services:
 
 language: ruby
 
-cache:
-  bundler: true
-
 env:
   - GEM=. DB=postgres
   - GEM=decidim-admin DB=postgres
@@ -27,6 +24,7 @@ before_install:
   - export BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
 
 cache:
+  bundler: true
   directories:
   - $HOME/.yarn-cache
 
