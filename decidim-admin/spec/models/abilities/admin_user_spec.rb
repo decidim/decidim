@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "spec_helper"
 
-describe Decidim::Admin::Abilities::Admin do
+describe Decidim::Admin::Abilities::AdminUser do
   let(:user) { build(:user, :admin) }
 
   subject { described_class.new(user) }
