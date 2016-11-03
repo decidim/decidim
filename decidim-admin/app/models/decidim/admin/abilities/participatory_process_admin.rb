@@ -10,7 +10,7 @@ module Decidim
         include CanCan::Ability
 
         def initialize(user)
-          return unless ParticipatoryProcessUserRole.where(user: user).any?
+          return unless user.participatory_process_user_roles.any?
 
           can :read, :admin_dashboard
 
