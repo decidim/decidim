@@ -39,3 +39,4 @@ exclude_paths:
 - "decidim-core/app/assets/stylesheets/decidim/email.css"
 - .rubocop.yml
 - lib/generators/decidim/templates/app.json.erb
+- "decidim-*/db/seeds.rb"

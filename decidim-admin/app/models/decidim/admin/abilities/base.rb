@@ -10,18 +10,18 @@ module Decidim
         def initialize(user)
           merge ::Decidim::Ability.new(user)
 
-          if user.participatory_process_user_roles.any?
-            can :read, :admin_dashboard
+          return unless user.participatory_process_user_roles.any?
 
-            can :manage, ParticipatoryProcess do |process|
-              ManageableParticipatoryProcessesForUser.new(user).query.include?(process)
-            end
-            cannot :create, ParticipatoryProcess
-            cannot :destroy, ParticipatoryProcess
+          can :read, :admin_dashboard
 
-            can :manage, ParticipatoryProcessStep do |step|
-              ManageableParticipatoryProcessesForUser.new(user).query.include?(step.participatory_process)
-            end
+          can :manage, ParticipatoryProcess do |process|
+            ManageableParticipatoryProcessesForUser.new(user).query.include?(process)
+          end
+          cannot :create, ParticipatoryProcess
+          cannot :destroy, ParticipatoryProcess
+
+          can :manage, ParticipatoryProcessStep do |step|
+            ManageableParticipatoryProcessesForUser.new(user).query.include?(step.participatory_process)
           end
         end
       end
