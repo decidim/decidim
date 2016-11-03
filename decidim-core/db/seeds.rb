@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 if !Rails.env.production? || ENV["SEED"]
   require "decidim/faker/localized"
 
@@ -33,7 +34,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   participatory_process1 = Decidim::ParticipatoryProcess.create!(
     title: Decidim::Faker::Localized.sentence(5),
-    slug: Faker::Internet.slug(nil, '-'),
+    slug: Faker::Internet.slug(nil, "-"),
     subtitle: Decidim::Faker::Localized.sentence(2),
     hashtag: "##{Faker::Lorem.word}",
     short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -51,7 +52,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::ParticipatoryProcess.create!(
     title: Decidim::Faker::Localized.sentence(5),
-    slug: Faker::Internet.slug(nil, '-'),
+    slug: Faker::Internet.slug(nil, "-"),
     subtitle: Decidim::Faker::Localized.sentence(2),
     hashtag: "##{Faker::Lorem.word}",
     short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -68,7 +69,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::ParticipatoryProcess.create!(
     title: Decidim::Faker::Localized.sentence(5),
-    slug: Faker::Internet.slug(nil, '-'),
+    slug: Faker::Internet.slug(nil, "-"),
     subtitle: Decidim::Faker::Localized.sentence(2),
     hashtag: "##{Faker::Lorem.word}",
     short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
