@@ -3,12 +3,10 @@ require "spec_helper"
 
 module Decidim
   describe LocalesController, type: :controller do
-    routes { Decidim::Core::Engine.routes }
     let(:organization) { create(:organization) }
 
     before do
       @request.env["decidim.current_organization"] = organization
-      @request.env["devise.mapping"] = Devise.mappings[:user]
     end
 
     describe "POST create" do

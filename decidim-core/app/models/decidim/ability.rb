@@ -21,6 +21,12 @@ module Decidim
       Decidim.abilities.each do |ability|
         merge ability.new(user)
       end
+
+      can :manage, Authorization do |authorization|
+        authorization.user == user
+      end
+
+      can :read, :user_account if user
     end
   end
 end

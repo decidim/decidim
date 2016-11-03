@@ -46,7 +46,7 @@
               <div class="topbar__dropmenu topbar__user__logged">
                 <ul class="dropdown menu" data-dropdown-menu>
                   <li class="is-dropdown-submenu-parent show-for-medium">
-                    <%= link_to current_user.name, root_path %>
+                    <%= link_to current_user.name, account_path %>
                     <ul class="menu is-dropdown-subeenu js-append usermenu-off-canvas">
                       <li><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: "sign-out-link" %></li>
                     </ul>

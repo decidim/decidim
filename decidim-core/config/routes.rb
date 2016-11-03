@@ -16,6 +16,11 @@ Decidim::Core::Engine.routes.draw do
   resource :locale, only: [:create]
   resources :participatory_processes, only: [:index, :show]
 
+  authenticate(:user) do
+    resources :authorizations, only: [:new, :create, :destroy, :index]
+    resource :account, only: [:show], controller: "account"
+  end
+
   get "/pages/*id" => "pages#show", as: :page, format: false
 
   match "/404", to: "pages#show", id: "404", via: :all

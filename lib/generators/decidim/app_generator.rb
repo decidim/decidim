@@ -85,6 +85,10 @@ module Decidim
         remove_file "public/500.html"
       end
 
+      def authorization_handler
+        template "authorization_handler.rb", "app/services/example_authorization_handler.rb", force: true
+      end
+
       private
 
       def get_builder_class

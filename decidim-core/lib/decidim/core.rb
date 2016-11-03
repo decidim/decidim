@@ -6,6 +6,7 @@ require "decidim/core/version"
 module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :FormBuilder, "decidim/form_builder"
+  autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :DeviseFailureApp, "decidim/devise_failure_app"
   include ActiveSupport::Configurable
 
@@ -26,6 +27,12 @@ module Decidim
   # Exposes a configuration option: an Array of `cancancan`'s Ability classes
   # that will be automatically included to the base `Decidim::Ability` class.
   config_accessor :abilities do
+    []
+  end
+
+  # Exposes a configuration option: an Array of classes that can be used as
+  # AuthorizaionHandlers so users can be verified against different systems.
+  config_accessor :authorization_handlers do
     []
   end
 end
