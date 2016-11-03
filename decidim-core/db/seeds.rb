@@ -1,13 +1,15 @@
 if !Rails.env.production? || ENV["SEED"]
+  require "decidim/faker/localized"
+
   puts "Creating Decidim::Core seeds..."
 
   staging_organization = Decidim::Organization.create!(
-    name: "Decidim Staging",
+    name: Decidim::Faker::Localized.company,
     host: ENV["DECIDIM_HOST"] || "localhost"
   )
 
   Decidim::User.create!(
-    name: "Organization Admin",
+    name: Faker::Name.name,
     email: "admin@decidim.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
@@ -19,7 +21,7 @@ if !Rails.env.production? || ENV["SEED"]
   )
 
   Decidim::User.create!(
-    name: "Responsible Citizen",
+    name: Faker::Name.name,
     email: "user@decidim.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
@@ -30,28 +32,16 @@ if !Rails.env.production? || ENV["SEED"]
   )
 
   participatory_process1 = Decidim::ParticipatoryProcess.create!(
-    title: {
-      en: "Urbanistic plan for Newtown neighbourhood",
-      es: "Plan urbanístico para el barrio de Villanueva",
-      ca: "Pla urbanístic pel barri de Vilanova"
-    },
-    slug: "urbanistic-plan-for-newtown-neighbourhood",
-    subtitle: {
-      en: "Go for it!",
-      es: "Vamos!",
-      ca: "Som-hi!"
-    },
-    hashtag: "#urbaNewtown",
-    short_description: {
-      en: "<p>Short description</p>",
-      es: "<p>Descripción corta</p>",
-      ca: "<p>Descripció curta</p>"
-    },
-    description: {
-      en: "<p>Description</p>",
-      es: "<p>Descripción</p>",
-      ca: "<p>Descripció</p>"
-    },
+    title: Decidim::Faker::Localized.sentence(5),
+    slug: Faker::Internet.slug(nil, '-'),
+    subtitle: Decidim::Faker::Localized.sentence(2),
+    hashtag: "##{Faker::Lorem.word}",
+    short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.sentence(3)
+    end,
+    description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.paragraph(3)
+    end,
     hero_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
     banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),
     promoted: true,
@@ -60,28 +50,16 @@ if !Rails.env.production? || ENV["SEED"]
   )
 
   Decidim::ParticipatoryProcess.create!(
-    title: {
-      en: "Open a new library in the center",
-      es: "Abrir una nueva biblioteca en el centro",
-      ca: "Obrir una nova biblioteca al centre"
-    },
-    slug: "open-a-new-library-in-the-center",
-    subtitle: {
-      en: "Easier access to culture for everybody",
-      es: "Un acceso más fácil a la cultura para todos",
-      ca: "Un accés més fàcil a la cultura per a tothom"
-    },
-    hashtag: "#libraryDowntown",
-    short_description: {
-      en: "<p>Short description</p>",
-      es: "<p>Descripción corta</p>",
-      ca: "<p>Descripció curta</p>"
-    },
-    description: {
-      en: "<p>Description</p>",
-      es: "<p>Descripción</p>",
-      ca: "<p>Descripció</p>"
-    },
+    title: Decidim::Faker::Localized.sentence(5),
+    slug: Faker::Internet.slug(nil, '-'),
+    subtitle: Decidim::Faker::Localized.sentence(2),
+    hashtag: "##{Faker::Lorem.word}",
+    short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.sentence(3)
+    end,
+    description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.paragraph(3)
+    end,
     hero_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),
     banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city3.jpeg")),
     published_at: 1.week.ago,
@@ -89,49 +67,29 @@ if !Rails.env.production? || ENV["SEED"]
   )
 
   Decidim::ParticipatoryProcess.create!(
-    title: {
-      en: "Plant new trees at the Seaside Boulevard",
-      es: "Plantar nuevos árboles en el Paseo marítimo",
-      ca: "Plantar nous arbres al Passeig marítim"
-    },
-    slug: "plant-new-trees-at-the-seaside-boulevard",
-    subtitle: {
-      en: "A greener space close to the beach",
-      es: "Un espacio más verde cerca de la playa",
-      ca: "Un espai més verd a prop de la platja"
-    },
-    hashtag: "#seasideTrees",
-    short_description: {
-      en: "<p>Short description</p>",
-      es: "<p>Descripción corta</p>",
-      ca: "<p>Descripció curta</p>"
-    },
-    description: {
-      en: "<p>Description</p>",
-      es: "<p>Descripción</p>",
-      ca: "<p>Descripció</p>"
-    },
+    title: Decidim::Faker::Localized.sentence(5),
+    slug: Faker::Internet.slug(nil, '-'),
+    subtitle: Decidim::Faker::Localized.sentence(2),
+    hashtag: "##{Faker::Lorem.word}",
+    short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.sentence(3)
+    end,
+    description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.paragraph(3)
+    end,
     hero_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city3.jpeg")),
     banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),
     organization: staging_organization
   )
 
   Decidim::ParticipatoryProcessStep.create!(
-    title: {
-      en: "Information",
-      es: "Información",
-      ca: "Informació"
-    },
-    short_description: {
-      en: "<p>Short description</p>",
-      es: "<p>Descripción corta</p>",
-      ca: "<p>Descripció curta</p>"
-    },
-    description: {
-      en: "<p>Description</p>",
-      es: "<p>Descripción</p>",
-      ca: "<p>Descripció</p>"
-    },
+    title: Decidim::Faker::Localized.sentence(5),
+    short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.sentence(3)
+    end,
+    description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.paragraph(3)
+    end,
     active: true,
     start_date: 1.month.ago.at_midnight,
     end_date: 2.months.from_now.at_midnight,
@@ -139,21 +97,13 @@ if !Rails.env.production? || ENV["SEED"]
   )
 
   Decidim::ParticipatoryProcessStep.create!(
-    title: {
-      en: "Proposals",
-      es: "Propuestas",
-      ca: "Propostes"
-    },
-    short_description: {
-      en: "<p>Short description</p>",
-      es: "<p>Descripción corta</p>",
-      ca: "<p>Descripció curta</p>"
-    },
-    description: {
-      en: "<p>Description</p>",
-      es: "<p>Descripción</p>",
-      ca: "<p>Descripció</p>"
-    },
+    title: Decidim::Faker::Localized.sentence(5),
+    short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.sentence(3)
+    end,
+    description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.paragraph(3)
+    end,
     start_date: 2.months.from_now.at_midnight,
     end_date: 3.months.from_now.at_midnight,
     participatory_process: participatory_process1

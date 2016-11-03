@@ -67,6 +67,7 @@ coverage:
   - decidim-core/lib/decidim/core/engine.rb
   - decidim-admin/lib/decidim/admin/engine.rb
   - decidim-system/lib/decidim/system/engine.rb
+  - spec
 
 comment:
   layout: "header, diff, changes, sunburst, uncovered, tree"
