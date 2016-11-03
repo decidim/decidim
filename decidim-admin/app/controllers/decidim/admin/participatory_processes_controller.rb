@@ -75,7 +75,7 @@ module Decidim
       private
 
       def collection
-        current_organization.participatory_processes
+        @collection ||= ManageableParticipatoryProcessesForUser.new(current_user).query
       end
     end
   end
