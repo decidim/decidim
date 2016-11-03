@@ -17,7 +17,8 @@ module Decidim
       def query
         return user.organization.participatory_processes if user.role?(:admin)
 
-        user.participatory_processes
+        roles = ParticipatoryProcessUserRole.where(user: user)
+        ParticipatoryProcess.where(id: roles.pluck(:decidim_participatory_process_id))
       end
 
       private

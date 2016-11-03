@@ -9,8 +9,6 @@ module Decidim
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
     has_many :authorizations, foreign_key: "decidim_user_id", class_name: Decidim::Authorization, inverse_of: :user
-    has_many :participatory_process_user_roles, foreign_key: "decidim_user_id", class_name: Decidim::ParticipatoryProcessUserRole
-    has_many :participatory_processes, through: :participatory_process_user_roles
 
     ROLES = %w(admin moderator official).freeze
 

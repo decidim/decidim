@@ -10,7 +10,7 @@ module Decidim
         def initialize(user)
           merge ::Decidim::Ability.new(user)
 
-          return unless user.participatory_process_user_roles.any?
+          return unless ParticipatoryProcessUserRole.where(user: user).any?
 
           can :read, :admin_dashboard
 
