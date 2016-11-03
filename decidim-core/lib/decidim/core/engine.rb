@@ -23,6 +23,7 @@ require "rails-i18n"
 require "date_validator"
 require "sprockets/es6"
 require "cancancan"
+require "truncato"
 
 module Decidim
   module Core
