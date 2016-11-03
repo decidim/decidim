@@ -1,16 +1,18 @@
+require "decidim/faker/localized"
+
 FactoryGirl.define do
   factory :organization, class: Decidim::Organization do
-    sequence(:name) { |n| "Citizen Corp ##{n}" }
+    name { Decidim::Faker::Localized.company }
     sequence(:host) { |n| "#{n}.citizen.corp" }
     description     "Description"
   end
 
   factory :participatory_process, class: Decidim::ParticipatoryProcess do
-    sequence(:title) { |n| { en: "Participatory Process ##{n}", ca: "Procés participatiu ##{n}", es: "Proceso participativo ##{n}" } }
-    sequence(:slug) { |n| { en: "participatory-process-#{n}" } }
-    subtitle          en: "Subtitle", ca: "Subtítol", es: "Subtítulo"
-    short_description en: "<p>Short description</p>", ca: "<p>Descripció curta</p>", es: "<p>Descripción corta</p>"
-    description       en: "<p>Description</p>", ca: "<p>Descripció</p>", es: "<p>Descripción</p>"
+    title { Decidim::Faker::Localized.sentence(3) }
+    slug { Faker::Internet.slug(nil, '-') }
+    subtitle { Decidim::Faker::Localized.sentence(1) }
+    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     hero_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city.jpeg")) }
     banner_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city2.jpeg")) }
     published_at { Time.current }
@@ -26,9 +28,9 @@ FactoryGirl.define do
   end
 
   factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do
-    sequence(:title) { |n| { en: "Participatory Process Step ##{n}", ca: "Fase de procés participatiu ##{n}", es: "Fase de proceso participativo ##{n}" } }
-    short_description en: "<p>Short description</p>", ca: "<p>Descripció curta</p>", es: "<p>Descripción corta</p>"
-    description       en: "<p>Description</p>", ca: "<p>Descripció</p>", es: "<p>Descripción</p>"
+    title { Decidim::Faker::Localized.sentence(3) }
+    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     start_date 1.month.ago.at_midnight
     end_date 2.month.from_now.at_midnight
     position nil
@@ -43,7 +45,7 @@ FactoryGirl.define do
     sequence(:email)      { |n| "user#{n}@citizen.corp" }
     password              "password1234"
     password_confirmation "password1234"
-    name                  "Responsible Citizen"
+    name                  { Faker::Name.name }
     organization
     locale                "en"
     tos_agreement         "1"
