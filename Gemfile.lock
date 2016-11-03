@@ -50,6 +50,7 @@ PATH
       graphql (~> 1.2.1)
       rack-cors (~> 0.4.0)
       rails (~> 5.0.0, >= 5.0.0.1)
+      sprockets-es6 (~> 0.9.2)
 
 PATH
   remote: decidim-core

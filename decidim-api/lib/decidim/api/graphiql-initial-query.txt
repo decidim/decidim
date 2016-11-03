@@ -1,0 +1,11 @@
+{
+  processes {
+    id
+    title {
+      translations {
+        locale
+        text
+      }
+    }
+  }
+}
