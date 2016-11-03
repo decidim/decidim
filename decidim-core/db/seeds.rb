@@ -4,7 +4,7 @@ if !Rails.env.production? || ENV["SEED"]
   puts "Creating Decidim::Core seeds..."
 
   staging_organization = Decidim::Organization.create!(
-    name: Decidim::Faker::Localized.company,
+    name: Faker::Company.name,
     host: ENV["DECIDIM_HOST"] || "localhost"
   )
 

@@ -2,7 +2,7 @@ require "decidim/faker/localized"
 
 FactoryGirl.define do
   factory :organization, class: Decidim::Organization do
-    name { Decidim::Faker::Localized.company }
+    name { Faker::Company.name }
     sequence(:host) { |n| "#{n}.citizen.corp" }
     description     "Description"
   end
