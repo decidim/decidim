@@ -9,7 +9,17 @@ module Decidim
     before_action :valid_handler, only: [:new, :create]
     before_action :only_one_handler?, only: [:index]
 
+    def new
+      authorize! current_user, Authorization
+    end
+
+    def index
+      authorize! current_user, Authorization
+    end
+
     def create
+      authorize! current_user, Authorization
+
       AuthorizeUser.call(handler) do
         on(:ok) do
           flash[:notice] = t("authorizations.create.success", scope: "decidim")
@@ -25,6 +35,8 @@ module Decidim
 
     def destroy
       @authorization = current_user.authorizations.find(params[:id])
+      authorize! current_user, @authorization
+
       @authorization.destroy
       flash[:notice] = t("authorizations.destroy.success", scope: "decidim")
       redirect_to account_path

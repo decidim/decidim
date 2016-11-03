@@ -5,6 +5,7 @@ module Decidim
   # The controller to handle the user's account page.
   class AccountController < ApplicationController
     helper_method :authorizations, :handlers
+    authorize_resource :user_account, class: false
 
     private
 
