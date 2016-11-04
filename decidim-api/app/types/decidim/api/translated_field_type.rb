@@ -32,7 +32,7 @@ module Decidim
       field :translation do
         type types.String
         description "Returns a single translation given a locale."
-        argument :locale, types.String, "A locale to search for"
+        argument :locale, !types.String, "A locale to search for"
 
         resolve ->(obj, args, _ctx) {
           translations = obj.stringify_keys
