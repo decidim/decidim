@@ -6,6 +6,6 @@ module Decidim
   end
 
   def self.rails_version
-    "~> 5.0.0"
+    ["~> 5.0.0", ">= 5.0.0.1"]
   end
 end
