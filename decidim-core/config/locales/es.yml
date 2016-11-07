@@ -87,7 +87,6 @@ es:
         close_menu: Cerrar menú
         navigation: Navegación
         sign_in: Entra
-        sign_out: Sale
         sign_up: Regístrate
       participatory_processes:
         index:
@@ -105,6 +104,9 @@ es:
           active_step: 'Fase actual:'
           more_info: Más información
           take_part: Participa
+      user_menu:
+        profile: Mi cuenta
+        sign_out: Sale
   locales:
     ca: Català
     en: English

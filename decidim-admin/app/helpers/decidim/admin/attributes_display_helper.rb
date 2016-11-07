@@ -51,9 +51,11 @@ module Decidim
 
       # Private: Holds the logic to render the attribute value.
       def display_value(record, attr, locale = nil)
-        return I18n.with_locale(locale) do
-          content_tag(:dd, translated_attribute(record.send(attr)).try(:html_safe))
-        end if locale
+        if locale
+          return I18n.with_locale(locale) do
+            content_tag(:dd, translated_attribute(record.send(attr)).try(:html_safe))
+          end
+        end
 
         content_tag(:dd, record.send(attr).try(:html_safe))
       end

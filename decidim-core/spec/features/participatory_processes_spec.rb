@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -26,7 +27,6 @@ describe "Participatory Processes", type: :feature do
 
     it "lists all the highlighted processes" do
       within "#highlighted-processes" do
-        expect(page).to have_content("Highlighted processes")
         expect(page).to have_content(translated(promoted_process.title, locale: :en))
         expect(page).to have_selector("article.card--full", count: 1)
       end
@@ -34,7 +34,10 @@ describe "Participatory Processes", type: :feature do
 
     it "lists all the processes" do
       within "#processes-grid" do
-        expect(page).to have_content("2 processes")
+        within "#processes-grid h2" do
+          expect(page).to have_content("2")
+        end
+
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
         expect(page).to have_content(translated(promoted_process.title, locale: :en))
         expect(page).to have_selector("article.card", count: 2)

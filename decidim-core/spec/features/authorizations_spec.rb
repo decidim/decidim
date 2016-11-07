@@ -63,7 +63,10 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
     end
 
     it "allows the user to authorize against available authorizations" do
-      click_link user.name
+      within_user_menu do
+        click_link "My account"
+      end
+
       click_link "Authorizations"
       click_link "Example authorization"
 
@@ -72,6 +75,10 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
       click_button "Send"
 
       expect(page).to have_content("You've been successfully authorized")
+
+      within "#user-settings-tabs" do
+        click_link "Authorizations"
+      end
 
       within "#authorizations" do
         expect(page).to have_content("Example authorization")

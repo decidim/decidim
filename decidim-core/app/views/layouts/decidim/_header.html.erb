@@ -48,12 +48,12 @@
                   <li class="is-dropdown-submenu-parent show-for-medium">
                     <%= link_to current_user.name, account_path %>
                     <ul class="menu is-dropdown-subeenu js-append usermenu-off-canvas">
-                      <li><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: "sign-out-link" %></li>
+                      <%= render partial: "layouts/decidim/user_menu" %>
                     </ul>
                     <span data-set="nav-login-holder" class="show-for-medium">
                       <!-- Repeated due to dropdown limitations -->
                       <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
-                        <li><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: "sign-out-link" %></li>
+                        <%= render partial: "layouts/decidim/user_menu" %>
                       </ul>
                     </span>
                   </li>

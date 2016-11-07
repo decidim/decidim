@@ -45,7 +45,7 @@ module Decidim
           promoted: form.promoted,
           description: form.description,
           short_description: form.short_description
-        }
+        }.compact
       end
     end
   end

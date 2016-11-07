@@ -83,7 +83,6 @@ en:
         close_menu: Close menu
         navigation: Navigation
         sign_in: Sign In
-        sign_out: Sign out
         sign_up: Sign Up
       participatory_processes:
         index:
@@ -101,6 +100,9 @@ en:
           active_step: 'Current step:'
           more_info: More info
           take_part: Take part
+      user_menu:
+        profile: My account
+        sign_out: Sign out
   locales:
     ca: Català
     en: English
