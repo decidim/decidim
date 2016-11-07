@@ -15,7 +15,7 @@ module Decidim
       #
       # Returns boolean.
       def matches?
-        user.organization == organization && base_ability.can?(:read, :admin_dashboard)
+        user.organization == organization && ability.can?(:read, :admin_dashboard)
       end
 
       private
@@ -32,7 +32,7 @@ module Decidim
         @user ||= request.env["warden"].user("user")
       end
 
-      def base_ability
+      def ability
         Decidim::Admin::Abilities::Base.new(user)
       end
     end
