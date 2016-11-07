@@ -1,32 +1,8 @@
 # frozen_string_literal: true
-
-require "spec_helper"
-
-describe "Manage participatory process steps", type: :feature do
-  let(:organization) { create(:organization) }
-  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:participatory_process) do
-    create(
-      :participatory_process,
-      organization: organization,
-      description: { en: "Description", ca: "Descripció", es: "Descripción" },
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
-    )
-  end
-  let(:active) { false }
-  let!(:process_step) do
-    create(
-      :participatory_process_step,
-      participatory_process: participatory_process,
-      active: active,
-      description: { en: "Description", ca: "Descripció", es: "Descripción" },
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
-    )
-  end
-
+RSpec.shared_examples "manage process steps examples" do
   before do
     switch_to_host(organization.host)
-    login_as admin, scope: :user
+    login_as user, scope: :user
     visit decidim_admin.participatory_process_path(participatory_process)
   end
 
