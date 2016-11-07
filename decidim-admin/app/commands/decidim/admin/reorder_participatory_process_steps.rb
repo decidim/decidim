@@ -34,7 +34,10 @@ module Decidim
           hash.update(id => { position: index })
         end
 
-        collection.update(data.keys, data.values)
+        ParticipatoryProcessStep.transaction do
+          collection.update_all(position: nil)
+          collection.update(data.keys, data.values)
+        end
       end
 
       def order
