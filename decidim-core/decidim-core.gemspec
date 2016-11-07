@@ -36,6 +36,8 @@ Gem::Specification.new do |s|
   s.add_dependency "date_validator", "~> 0.9.0"
   s.add_dependency "sprockets-es6", "~> 0.9.2"
   s.add_dependency "cancancan", "~> 1.15.0"
+  s.add_dependency "truncato", "~> 0.7.8"
+
 
   s.add_development_dependency "decidim-dev", Decidim.version
 end

@@ -5,7 +5,7 @@
         <%= link_to participatory_process_path(promoted_process), class: "card__link" do %>
           <h2 class="card__title"><%= translated_attribute promoted_process.title %></h2>
         <% end %>
-        <%= truncate(translated_attribute(promoted_process.description).html_safe, length: 630, separator: ' ') %>
+        <%= html_truncate(translated_attribute(promoted_process.description), length: 630, separator: ' ') %>
         <%= link_to participatory_process_path(promoted_process), class: "button secondary small hollow card__button" do %>
           <%= t(".more_info", scope: "layouts") %>
         <% end %>
