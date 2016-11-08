@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -11,13 +12,18 @@ describe "Locales", type: :feature do
     end
 
     it "changes the locale to the chosen one" do
-      click_link "Català"
+      within_language_menu do
+        click_link "Català"
+      end
 
       expect(page).to have_content("Benvingut/da a #{organization.name}")
     end
 
     it "keeps the locale between pages" do
-      click_link "Català"
+      within_language_menu do
+        click_link "Català"
+      end
+
       click_link "Inici"
 
       expect(page).to have_content("Benvingut/da a #{organization.name}")

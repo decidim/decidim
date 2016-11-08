@@ -83,13 +83,16 @@ PATH
       bullet (~> 5)
       byebug
       capybara (~> 2.10.0)
+      capybara-screenshot (~> 1.0.14)
       database_cleaner (~> 1.5.0)
       factory_girl_rails
       faker (~> 1.6.6)
       i18n-tasks (~> 0.9.6)
       launchy
       listen (~> 3.1.0)
+      poltergeist (~> 1.11.0)
       rspec-rails (~> 3.5)
+      rspec-repeat (~> 1.0.2)
       wisper-rspec
 
 PATH
@@ -177,10 +180,14 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-screenshot (1.0.14)
+      capybara (>= 1.0, < 3)
+      launchy
     carrierwave (1.0.0.rc)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    cliver (0.3.2)
     codecov (0.1.6)
       json
       simplecov
@@ -279,6 +286,10 @@ GEM
     parser (2.3.1.4)
       ast (~> 2.2)
     pg (0.19.0)
+    poltergeist (1.11.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
     rack (2.0.1)
     rack-cors (0.4.0)
@@ -350,6 +361,8 @@ GEM
       rspec-expectations (~> 3.5.0)
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
+    rspec-repeat (1.0.2)
+      rspec (~> 3.0)
     rspec-support (3.5.0)
     rspec_junit_formatter (0.2.3)
       builder (< 4)

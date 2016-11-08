@@ -114,7 +114,10 @@ describe "Authentication", type: :feature, perform_enqueued: true do
       end
 
       it "signs out the user" do
-        all(".sign-out-link").first.click
+        within ".topbar__user__logged" do
+          find("ul").hover
+          find(".sign-out-link").click
+        end
 
         expect(page).to have_content("Signed out successfully.")
         expect(page).to_not have_content(user.name)

@@ -9,13 +9,14 @@
   "scripts": {
     "test": "eslint app/**/*.js.es6 app/**/*.js"
   },
-  "dependencies": {
-    "eslint": "^3.8.1"
-  },
   "devDependencies": {
+    "eslint": "^3.8.1",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1"
+  },
+  "dependencies": {
+    "phantomjs-prebuilt": "^2.1.13"
   }
 }

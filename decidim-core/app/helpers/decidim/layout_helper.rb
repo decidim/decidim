@@ -19,6 +19,12 @@ module Decidim
     #
     # Returns a String.
     def icon(name, options = {})
+      # Ugly hack to work around the issue of phantomjs not sending js events
+      # when clicking on a SVG element.
+      if Rails.env.test?
+        return content_tag(:span, "?", class: "icon icon--#{name}")
+      end
+
       html_properties = {}
 
       html_properties["width"] = options[:width]

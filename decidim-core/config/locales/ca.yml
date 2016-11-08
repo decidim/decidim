@@ -87,7 +87,6 @@ ca:
         close_menu: Tancar menú
         navigation: Navegació
         sign_in: Entra
-        sign_out: Surt
         sign_up: Registra't
       participatory_processes:
         index:
@@ -105,6 +104,9 @@ ca:
           active_step: 'Fase actual:'
           more_info: Més informació
           take_part: Participa
+      user_menu:
+        profile: El meu compte
+        sign_out: Surt
   locales:
     ca: Català
     en: English
