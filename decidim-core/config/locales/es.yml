@@ -106,7 +106,7 @@ es:
           take_part: Participa
       user_menu:
         profile: Mi cuenta
-        sign_out: Sale
+        sign_out: Sal
   locales:
     ca: Català
     en: English
