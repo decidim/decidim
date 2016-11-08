@@ -9,6 +9,7 @@ ca:
       actions:
         activate: Activar
         confirm_destroy: Segur que ho vols eliminar?
+        create: Crear
         deactivate: Desactivar
         destroy: Eliminar
         edit: Editar
@@ -22,6 +23,9 @@ ca:
             table:
               steps_hint: Pots arrossegar les files de la taula per reordenar les fases del procés.
               steps_title: Fases
+          participatory_process_user_roles:
+            table:
+              process_admins_title: Administradors del procés participatiu
       menu:
         dashboard: Tauler de control
         participatory_processes: Processos participatius
@@ -42,6 +46,9 @@ ca:
             start_date: Data d'inici
             title: Títol
           name: Name
+        participatory_process_user_role:
+          fields:
+            email: Email
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
@@ -73,6 +80,12 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
           success: La fase de procés participatiu s'ha actualitzat correctament.
+      participatory_process_user_roles:
+        create:
+          error: S'ha produït un error en crear un nou administrador per a aquest procés participatiu.
+          success: L'administrador per a aquest procés participatiu s'ha creat correctament.
+        destroy:
+          success: L'administrador per a aquest procés participatiu s'ha eliminat correctament.
       participatory_processes:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.

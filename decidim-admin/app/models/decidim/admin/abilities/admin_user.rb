@@ -13,6 +13,7 @@ module Decidim
 
           can :manage, ParticipatoryProcess
           can :manage, ParticipatoryProcessStep
+          can :manage, ParticipatoryProcessUserRole
           can :read, :admin_dashboard
         end
       end

@@ -20,6 +20,10 @@ module Decidim
           cannot :create, ParticipatoryProcess
           cannot :destroy, ParticipatoryProcess
 
+          can :manage, ParticipatoryProcessUserRole do |role|
+            role.user != user
+          end
+
           can :manage, ParticipatoryProcessStep do |step|
             ManageableParticipatoryProcessesForUser.new(user).query.include?(step.participatory_process)
           end

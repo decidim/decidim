@@ -9,6 +9,7 @@ es:
       actions:
         activate: Activar
         confirm_destroy: "¿Seguro que lo quieres eliminar?"
+        create: Crear
         deactivate: Desactivar
         destroy: Eliminar
         edit: Editar
@@ -22,6 +23,9 @@ es:
             table:
               steps_hint: Puedes arrastrar las filas de la tabla para reordenar las fases del proceso.
               steps_title: Fases
+          participatory_process_user_roles:
+            table:
+              process_admins_title: Administradores del proceso participativo
       menu:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
@@ -42,6 +46,9 @@ es:
             start_date: Fecha de inicio
             title: Título
           name: Fase de proceso participativo
+        participatory_process_user_role:
+          fields:
+            email: Email
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -73,6 +80,12 @@ es:
         update:
           error: Se ha producido un error en la actualización de esta fase de proceso participativo.
           success: La fase de proceso participativo se ha actualizado correctamente.
+      participatory_process_user_roles:
+        create:
+          error: Se ha producido un error al crear un administrador para este proceso participativo.
+          success: El administrador para este proceso participativo se ha creado correctamente.
+        destroy:
+          success: El administrador para este proceso participativo se ha eliminado correctamente.
       participatory_processes:
         create:
           error: Se ha producido un error al crear un nuevo proceso participativo.
