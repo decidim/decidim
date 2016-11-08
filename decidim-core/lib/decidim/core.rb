@@ -38,6 +38,6 @@ module Decidim
 
   # Exposes a configuration option: The application name String.
   config_accessor :available_locales do
-    %w{en ca es}
+    %w(en ca es)
   end
 end
