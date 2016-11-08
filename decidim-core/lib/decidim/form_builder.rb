@@ -5,6 +5,8 @@ module Decidim
   # This custom FormBuilder adds fields needed to deal with translatable fields,
   # following the conventions set on `Decidim::TranslatableAttributes`.
   class FormBuilder < FoundationRailsHelper::FormBuilder
+    include ActionView::Context
+
     # Public: Generates an form field for each locale.
     #
     # type - The form field's type, like `text_area` or `text_input`
@@ -13,12 +15,33 @@ module Decidim
     #
     # Renders form fields for each locale.
     def translated(type, name, options = {})
-      locales.map do |locale|
-        label = options[:label] || label_for(name)
-        language = locale
+      tabs_panels = "".html_safe
+      if options[:label] != false
+        tabs_panels = content_tag(:ul, class: "tabs", id: "#{name}-tabs", data: { tabs: true }) do
+          content_tag(:p, "HEY")
+          locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
+            element_class = "tabs-title"
+            element_class += " is-active" if index.zero?
+            string + content_tag(:li, class: element_class) do
+              label = options[:label] || label_for(name)
+              content_tag(:a, "#{label} (#{locale})", href: "##{name}-panel-#{index}")
+            end
+          end
+        end
+      end
 
-        send(type, "#{name}_#{locale.to_s.gsub("-", "__")}", options.merge(label: "#{label} (#{language})"))
-      end.join.html_safe
+      tabs_contents = content_tag(:div, class: "tabs-content", data: { tabs_content: "#{name}-tabs" }) do
+        locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
+          element_class = "tabs-panel"
+          element_class += " is-active" if index.zero?
+
+          string + content_tag(:div, class: element_class, id: "#{name}-panel-#{index}") do
+            send(type, "#{name}_#{locale.to_s.gsub("-", "__")}", options.merge(label: false))
+          end
+        end
+      end
+
+      [tabs_panels, tabs_contents].join.html_safe
     end
 
     private
