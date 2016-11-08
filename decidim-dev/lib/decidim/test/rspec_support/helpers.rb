@@ -15,6 +15,12 @@ module Decidim::FeatureTestHelpers
       yield
     end
   end
+
+  def click_icon(name = nil)
+    classes = ["icon"]
+    classes << ["icon--#{name}"] if name
+    find(".#{classes.join(".")}").click
+  end
 end
 
 RSpec.configure do |config|
