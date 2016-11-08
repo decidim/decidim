@@ -72,4 +72,11 @@ FactoryGirl.define do
     user
     metadata { {} }
   end
+
+  factory :page, class: Decidim::Page do
+    slug { Faker::Internet.slug(nil, '-') }
+    title { Decidim::Faker::Localized.sentence(3) }
+    content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    organization
+  end
 end

@@ -29,12 +29,20 @@ es:
               process_admins_title: Administradores del proceso participativo
       menu:
         dashboard: Panel de control
+        pages: Pages
         participatory_processes: Procesos participativos
         participatory_processes_submenu:
           info: Información
           process_admins: Administradores del proceso
           steps: Fases del proceso
       models:
+        page:
+          fields:
+            created_at: Created at
+            title: Title
+          name: Name
+          validations:
+            slug_uniqueness: Otra página con el mismo babosa ya existe
         participatory_process:
           fields:
             created_at: Fecha de creación
@@ -52,6 +60,24 @@ es:
         participatory_process_user_role:
           fields:
             email: Correo electrónico
+      pages:
+        actions:
+          view: Visualizar la página pública
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        new:
+          create: Create
+          title: Title
+        update:
+          error: Error
+          success: Success
+>>>>>>> Add content pages
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -106,4 +132,5 @@ es:
           success: El proceso participativo se ha actualizado correctamente.
       titles:
         dashboard: Panel de control
+        pages: Pages
         participatory_processes: Procesos participativos

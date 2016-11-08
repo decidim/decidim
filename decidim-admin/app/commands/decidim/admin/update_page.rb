@@ -3,15 +3,17 @@ module Decidim
   module Admin
     # A command with all the business logic when creating a new participatory
     # process in the system.
-    class CreateParticipatoryProcess < Rectify::Command
+    class UpdatePage < Rectify::Command
       # Public: Initializes the command.
       #
+      # page - the Page to update
       # form - A form object with the params.
-      def initialize(form)
+      def initialize(page, form)
+        @page = page
         @form = form
       end
 
-      # Executes the command. Broadcasts these events:
+      # Executes the command. Braodcasts these events:
       #
       # - :ok when everything is valid.
       # - :invalid if the form wasn't valid and we couldn't proceed.
@@ -20,7 +22,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_participatory_process
+        update_page
         broadcast(:ok)
       end
 
@@ -28,19 +30,16 @@ module Decidim
 
       attr_reader :form
 
-      def create_participatory_process
-        ParticipatoryProcess.create!(
+      def update_page
+        @page.update_attributes!(attributes)
+      end
+
+      def attributes
+        {
           title: form.title,
-          subtitle: form.subtitle,
           slug: form.slug,
-          hashtag: form.hashtag,
-          description: form.description,
-          short_description: form.short_description,
-          hero_image: form.hero_image,
-          banner_image: form.banner_image,
-          promoted: form.promoted,
-          organization: form.organization
-        )
+          content: form.content
+        }
       end
     end
   end

@@ -30,12 +30,20 @@ en:
               process_admins_title: Participatory process admins
       menu:
         dashboard: Dashboard
+        pages: Pages
         participatory_processes: Participatory processes
         participatory_processes_submenu:
           info: Info
           process_admins: Process admins
           steps: Steps
       models:
+        page:
+          fields:
+            created_at: Created at
+            title: Title
+          name: Name
+          validations:
+            slug_uniqueness: Another page with the same slug already exists
         participatory_process:
           fields:
             created_at: Created at
@@ -53,6 +61,23 @@ en:
         participatory_process_user_role:
           fields:
             email: Email
+      pages:
+        actions:
+          view: View public page
+        create:
+          error: There was an error creating a new page.
+          success: Page created successfully.
+        destroy:
+          success: Page successfully destroyed
+        edit:
+          title: Edit page
+          update: Update page
+        new:
+          create: Create page
+          title: New page
+        update:
+          error: There was an error when updating this page.
+          success: Page updated successfully
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
@@ -107,4 +132,5 @@ en:
           success: Participatory process updated successfully.
       titles:
         dashboard: Dashboard
+        pages: Pages
         participatory_processes: Participatory processes

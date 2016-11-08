@@ -21,6 +21,7 @@ rescue LoadError
   exit(-1)
 end
 
+require "rails-controller-testing"
 require "rspec/rails"
 require "factory_girl_rails"
 require "database_cleaner"
