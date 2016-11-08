@@ -29,7 +29,7 @@
                   <%= link_to t(current_locale, scope: "locales") %>
                   <% if available_locales.length > 1 %>
                     <ul class="menu is-dropdown-submenu">
-                    <% available_locales.each do |locale| %>
+                    <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
                       <li><%= link_to t(locale, scope: "locales"), locale_path(locale: locale), method: :post%></li>
                     <% end %>
                   <% end %>

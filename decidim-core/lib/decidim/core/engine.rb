@@ -65,6 +65,10 @@ module Decidim
           config.abilities << Abilities::Everyone
         end
       end
+
+      initializer "decidim.locales" do |app|
+        app.config.i18n.available_locales = Decidim.config.available_locales
+      end
     end
   end
 end
