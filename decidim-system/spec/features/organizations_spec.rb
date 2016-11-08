@@ -44,8 +44,8 @@ describe "Organizations", type: :feature do
 
       before do
         click_link "Organizations"
-        within("table tbody tr:first") do
-          click_link "Edit"
+        within "table tbody" do
+          first("tr").click_link "Edit"
         end
       end
 
