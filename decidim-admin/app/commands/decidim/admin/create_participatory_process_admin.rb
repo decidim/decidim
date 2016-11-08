@@ -30,7 +30,7 @@ module Decidim
 
       private
 
-      attr_reader :form
+      attr_reader :form, :participatory_process
 
       def create_participatory_process_admin
         ParticipatoryProcessUserRole.create!(
@@ -41,7 +41,10 @@ module Decidim
       end
 
       def user
-        User.where(email: form.email).first
+        User.where(
+          email: form.email,
+          organization: participatory_process.organization
+        ).first
       end
     end
   end

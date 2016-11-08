@@ -7,7 +7,7 @@ RSpec.shared_examples "manage process steps examples" do
   end
 
   it "displays all fields from a single participatory process" do
-    within "table" do
+    within "#steps table" do
       click_link translated(process_step.title)
     end
 
@@ -47,7 +47,7 @@ RSpec.shared_examples "manage process steps examples" do
       expect(page).to have_content("successfully")
     end
 
-    within "table" do
+    within "#steps table" do
       expect(page).to have_content("My participatory process step")
     end
   end
@@ -93,7 +93,7 @@ RSpec.shared_examples "manage process steps examples" do
         expect(page).to have_content("successfully")
       end
 
-      within "table" do
+      within "#steps table" do
         expect(page).to_not have_content(translated(process_step2.title))
       end
     end
