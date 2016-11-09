@@ -15,7 +15,7 @@ begin
 rescue LoadError
   puts "Could not load dummy application. Please ensure you have run `bundle exec rake test_app`"
   puts "Tried to load it from #{dummy_app_path}"
-  exit
+  exit(-1)
 end
 
 require "rspec/rails"
