@@ -188,7 +188,7 @@ GEM
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     cliver (0.3.2)
-    codecov (0.1.6)
+    codecov (0.1.7)
       json
       simplecov
       url
@@ -438,7 +438,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.12)
-  codecov (~> 0.1.6)
+  codecov (~> 0.1.7)
   decidim!
   decidim-admin!
   decidim-api!
