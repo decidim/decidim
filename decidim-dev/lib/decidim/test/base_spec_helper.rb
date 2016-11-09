@@ -16,7 +16,7 @@ end
 begin
   require "#{dummy_app_path}/config/environment"
 rescue LoadError
-  puts "Could not load dummy application. Please ensure you have run `bundle exec rake common:test_app`"
+  puts "Could not load dummy application. Please ensure you have run `bundle exec rake generate_test_app`"
   puts "Tried to load it from #{dummy_app_path}"
   exit(-1)
 end
