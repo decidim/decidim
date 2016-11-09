@@ -6,16 +6,19 @@ module Decidim
       # section. Intended to be used with `cancancan`. This is not intended to
       # extend the base `Decidim::Ability` class, it should only be used in the
       # Admin engine.
+      #
+      # This ability will not apply to organization admins.
       class ParticipatoryProcessAdmin
         include CanCan::Ability
 
         def initialize(user)
-          return unless user.participatory_process_user_roles.any?
+          return if user.role?(:admin)
+          return unless ManageableParticipatoryProcessesForUser.for(user).any?
 
           can :read, :admin_dashboard
 
           can :manage, ParticipatoryProcess do |process|
-            ManageableParticipatoryProcessesForUser.new(user).query.include?(process)
+            ManageableParticipatoryProcessesForUser.for(user).include?(process)
           end
           cannot :create, ParticipatoryProcess
           cannot :destroy, ParticipatoryProcess
@@ -25,7 +28,7 @@ module Decidim
           end
 
           can :manage, ParticipatoryProcessStep do |step|
-            ManageableParticipatoryProcessesForUser.new(user).query.include?(step.participatory_process)
+            ManageableParticipatoryProcessesForUser.for(user).include?(step.participatory_process)
           end
         end
       end

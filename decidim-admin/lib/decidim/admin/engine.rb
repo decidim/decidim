@@ -13,9 +13,6 @@ require "foundation_rails_helper"
 require "jbuilder"
 require "rectify"
 
-require_relative "../../../app/models/decidim/admin/concerns/user_extends"
-require_relative "../../../app/models/decidim/admin/concerns/participatory_process_extends"
-
 module Decidim
   module Admin
     # Decidim's core Rails Engine.
@@ -29,13 +26,6 @@ module Decidim
       initializer "decidim_admin.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
           config.abilities += [Decidim::Admin::Abilities::AdminUser]
-        end
-      end
-
-      initializer "decidim_admin.inject_concerns_to_user_model" do |app|
-        app.config.to_prepare do
-          Decidim::User.include Decidim::Admin::UserExtends
-          Decidim::ParticipatoryProcess.include Decidim::Admin::ParticipatoryProcessExtends
         end
       end
     end

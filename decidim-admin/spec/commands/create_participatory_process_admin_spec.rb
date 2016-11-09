@@ -33,10 +33,10 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
   context "when everything is ok" do
     it "creates the user role" do
       subject.call
-      user.reload
+      roles = Decidim::Admin::ParticipatoryProcessUserRole.where(user: user)
 
-      expect(user.participatory_process_user_roles.count).to eq 1
-      expect(user.participatory_process_user_roles.first.role).to eq "admin"
+      expect(roles.count).to eq 1
+      expect(roles.first.role).to eq "admin"
     end
   end
 

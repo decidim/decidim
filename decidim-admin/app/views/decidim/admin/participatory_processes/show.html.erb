@@ -43,6 +43,6 @@
   <%= render partial: "decidim/admin/participatory_process_steps/table" %>
 <% end %>
 
-<% if can? :read, Decidim::ParticipatoryProcessUserRole %>
+<% if can? :read, Decidim::Admin::ParticipatoryProcessUserRole %>
   <%= render partial: "decidim/admin/participatory_process_user_roles/table" %>
 <% end %>

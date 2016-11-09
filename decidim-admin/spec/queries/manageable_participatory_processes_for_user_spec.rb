@@ -11,7 +11,7 @@ describe Decidim::Admin::ManageableParticipatoryProcessesForUser do
     let(:user) { create :user, :admin }
 
     it "returns only the organization processes" do
-      expect(subject.query).to eq [organization_process]
+      expect(subject.processes).to eq [organization_process]
     end
   end
 
@@ -24,7 +24,7 @@ describe Decidim::Admin::ManageableParticipatoryProcessesForUser do
     end
 
     it "returns the processes the user can admin" do
-      expect(subject.query).to eq [organization_process]
+      expect(subject.processes).to eq [organization_process]
     end
   end
 end

@@ -7,7 +7,7 @@ module Decidim
     #
     class ParticipatoryProcessUserRolesController < ApplicationController
       def create
-        authorize! :create, Decidim::ParticipatoryProcessUserRole
+        authorize! :create, Decidim::Admin::ParticipatoryProcessUserRole
         @form = ParticipatoryProcessUserRoleForm.from_params(params)
 
         CreateParticipatoryProcessAdmin.call(@form, participatory_process) do
@@ -39,7 +39,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= participatory_process.user_roles
+        @collection ||= ProcessAdminsRolesForProcess.for(participatory_process)
       end
     end
   end

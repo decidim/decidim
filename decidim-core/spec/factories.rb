@@ -39,12 +39,6 @@ FactoryGirl.define do
     end
   end
 
-  factory :participatory_process_user_role, class: Decidim::ParticipatoryProcessUserRole do
-    user
-    participatory_process
-    role "admin"
-  end
-
   factory :user, class: Decidim::User do
     sequence(:email)      { |n| "user#{n}@citizen.corp" }
     password              "password1234"
