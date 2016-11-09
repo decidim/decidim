@@ -4,7 +4,7 @@ class AddAdminParticipatoryProcessUserRoles < ActiveRecord::Migration[5.0]
       t.integer :decidim_user_id
       t.integer :decidim_participatory_process_id
       t.string :role
-      t.references
+      t.timestamps
     end
 
     add_index :decidim_admin_participatory_process_user_roles,
