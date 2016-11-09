@@ -9,6 +9,7 @@ en:
       actions:
         activate: Activate
         confirm_destroy: Are you sure you want to delete this?
+        create: Create
         deactivate: Deactivate
         destroy: Destroy
         edit: Edit
@@ -22,6 +23,9 @@ en:
             table:
               steps_hint: You can drag the rows of the table in order to reorder the process steps.
               steps_title: Steps
+          participatory_process_user_roles:
+            table:
+              process_admins_title: Participatory process admins
       menu:
         dashboard: Dashboard
         participatory_processes: Participatory processes
@@ -42,6 +46,9 @@ en:
             start_date: Start date
             title: Title
           name: Participatory process step
+        participatory_process_user_role:
+          fields:
+            email: Email
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
@@ -73,6 +80,12 @@ en:
         update:
           error: There was an error when updating this participatory process step.
           success: Participatory process step updated successfully
+      participatory_process_user_roles:
+        create:
+          error: There was an error adding an admin for this participatory process.
+          success: Admin created successfully for this participatory process.
+        destroy:
+          success: Admin destroyed successfully for this participatory process.
       participatory_processes:
         create:
           error: There was an error creating a new participatory process.

@@ -11,6 +11,12 @@ module Decidim
       def user_not_authorized_path
         decidim_admin.root_path
       end
+
+      # Overwrites `cancancan`'s method to point to the correct ability class,
+      # since the gem expects the ability class to be in the root namespace.
+      def current_ability
+        @current_ability ||= Decidim::Admin::Abilities::Base.new(current_user)
+      end
     end
   end
 end

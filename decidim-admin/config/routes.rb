@@ -10,6 +10,7 @@ Decidim::Admin::Engine.routes.draw do
           post :ordering, to: "participatory_process_step_ordering#create"
         end
       end
+      resources :user_roles, controller: "participatory_process_user_roles", only: [:destroy, :create]
     end
     root to: "dashboard#show"
   end

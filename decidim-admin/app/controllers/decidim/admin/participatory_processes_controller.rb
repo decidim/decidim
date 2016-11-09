@@ -6,6 +6,8 @@ module Decidim
     # Controller that allows managing all the Admins.
     #
     class ParticipatoryProcessesController < ApplicationController
+      helper_method :process_admin_roles
+
       def index
         authorize! :index, Decidim::ParticipatoryProcess
         @participatory_processes = collection
@@ -75,7 +77,11 @@ module Decidim
       private
 
       def collection
-        current_organization.participatory_processes
+        @collection ||= ManageableParticipatoryProcessesForUser.for(current_user)
+      end
+
+      def process_admin_roles
+        @process_admin_roles ||= ProcessAdminRolesForProcess.for(@participatory_process)
       end
     end
   end

@@ -25,7 +25,7 @@ module Decidim
 
       initializer "decidim_admin.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
-          config.abilities += [Decidim::Admin::Abilities::Admin]
+          config.abilities += [Decidim::Admin::Abilities::AdminUser]
         end
       end
     end

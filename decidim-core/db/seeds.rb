@@ -21,6 +21,17 @@ if !Rails.env.production? || ENV["SEED"]
     tos_agreement: true
   )
 
+  process_admin = Decidim::User.create!(
+    name: "Process Admin",
+    email: "process_admin@decidim.org",
+    password: "decidim123456",
+    password_confirmation: "decidim123456",
+    confirmed_at: Time.current,
+    locale: I18n.default_locale,
+    organization: staging_organization,
+    tos_agreement: true
+  )
+
   Decidim::User.create!(
     name: Faker::Name.name,
     email: "user@decidim.org",
@@ -108,5 +119,11 @@ if !Rails.env.production? || ENV["SEED"]
     start_date: 2.months.from_now.at_midnight,
     end_date: 3.months.from_now.at_midnight,
     participatory_process: participatory_process1
+  )
+
+  Decidim::ParticipatoryProcessUserRole.create!(
+    user: process_admin,
+    participatory_process: participatory_process1,
+    role: "admin"
   )
 end
