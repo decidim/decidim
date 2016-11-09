@@ -8,8 +8,9 @@ engines:
     enabled: true
     config:
       languages:
-      - ruby
-      - javascript
+        javascript: true
+        ruby:
+          mass_threshold: 50
     exclude_fingerprints:
     - 645ddab80611224e15d61c8426285296
     - 82b4059b3b55d7b7f06d8aba6cb7b81a
