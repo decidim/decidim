@@ -30,16 +30,16 @@ module Decidim
       builder.translated :text_area, :name
     end
 
-    it "renders an input for each field" do
+    it "renders a tabbed input for each field" do
       parsed = Nokogiri::HTML(output)
 
-      expect(parsed.css("textarea[name='resource[name_en]']").first).to be
-      expect(parsed.css("textarea[name='resource[name_en]']").first).to be
-      expect(parsed.css("textarea[name='resource[name_de__CH]']").first).to be
+      expect(parsed.css("label[for='resource_name']").first).to be
 
-      expect(parsed.css("label[for='resource_name_en']").first).to be
-      expect(parsed.css("label[for='resource_name_ca']").first).to be
-      expect(parsed.css("label[for='resource_name_de__CH']").first).to be
+      expect(parsed.css("li.tabs-title a").count).to eq 3
+
+      expect(parsed.css(".tabs-panel textarea[name='resource[name_en]']").first).to be
+      expect(parsed.css(".tabs-panel textarea[name='resource[name_en]']").first).to be
+      expect(parsed.css(".tabs-panel textarea[name='resource[name_de__CH]']").first).to be
     end
   end
 end

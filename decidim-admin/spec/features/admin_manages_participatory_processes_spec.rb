@@ -35,20 +35,37 @@ describe "Admin manage participatory processes", type: :feature do
     find(".actions .new").click
 
     within ".new_participatory_process" do
-      fill_in :participatory_process_title_en, with: "My participatory process"
-      fill_in :participatory_process_title_es, with: "Mi proceso participativo"
-      fill_in :participatory_process_title_ca, with: "El meu procés participatiu"
-      fill_in :participatory_process_subtitle_en, with: "Subtitle"
-      fill_in :participatory_process_subtitle_es, with: "Subtítulo"
-      fill_in :participatory_process_subtitle_ca, with: "Subtítol"
+      fill_in_i18n(
+        :participatory_process_title,
+        "#title-tabs",
+        en: "My participatory process",
+        es: "Mi proceso participativo",
+        ca: "El meu procés participatiu"
+      )
+      fill_in_i18n(
+        :participatory_process_subtitle,
+        "#subtitle-tabs",
+        en: "Subtitle",
+        es: "Subtítulo",
+        ca: "Subtítol"
+      )
+      fill_in_i18n(
+        :participatory_process_short_description,
+        "#short_description-tabs",
+        en: "Short description",
+        es: "Descripción corta",
+        ca: "Descripció curta"
+      )
+      fill_in_i18n(
+        :participatory_process_description,
+        "#description-tabs",
+        en: "A longer description",
+        es: "Descripción más larga",
+        ca: "Descripció més llarga"
+      )
+
       fill_in :participatory_process_slug, with: "slug"
       fill_in :participatory_process_hashtag, with: "#hashtag"
-      fill_in :participatory_process_short_description_en, with: "Short description"
-      fill_in :participatory_process_short_description_es, with: "Descripción corta"
-      fill_in :participatory_process_short_description_ca, with: "Descripció curta"
-      fill_in :participatory_process_description_en, with: "A longer description"
-      fill_in :participatory_process_description_es, with: "Descripción más larga"
-      fill_in :participatory_process_description_ca, with: "Descripció més llarga"
       attach_file :participatory_process_hero_image, image1_path
       attach_file :participatory_process_banner_image, image2_path
 
