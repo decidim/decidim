@@ -7,4 +7,8 @@ if !Rails.env.production? || ENV["SEED"]
     password: "decidim123456",
     password_confirmation: "decidim123456"
   )
+
+  Decidim::Organization.all.each do |organization|
+    Decidim::System::CreateDefaultPages.call(organization)
+  end
 end

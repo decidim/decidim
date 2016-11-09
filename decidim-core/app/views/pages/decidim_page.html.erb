@@ -1,15 +1,12 @@
-<section class="extended hero">
-  <div class="hero__container">
-    <div class="row">
-      <div class="columns small-centered large-10">
-        <h1 class="text-highlight heading1 hero-heading">
-          <%= translated_attribute page.title %>
-        </h1>
+<main class="wrapper">
+  <div class="row column">
+    <h1 class="heading1 page-title"><%= translated_attribute page.title %></h1>
+  </div>
+  <div class="row">
+    <div class="columns large-8">
+      <div class="static__content">
+        <%== translated_attribute page.content %>
       </div>
     </div>
-
-    <div class="row">
-      <%== translated_attribute page.content %>
-    </div>
   </div>
-</section>
+</main>

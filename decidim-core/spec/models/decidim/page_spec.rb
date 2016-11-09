@@ -29,5 +29,65 @@ module Decidim
 
       it { is_expected.to eq(page.slug) }
     end
+
+    context "callbacks" do
+      let(:page) { create(:page, slug: slug) }
+
+      context "pages with a default slug" do
+        let(:slug) { Page::DEFAULT_PAGES.sample }
+
+        context "when editing" do
+          it "makes sure the slug is not changed" do
+            page.slug = "foo"
+            expect(page.save).to be_falsey
+
+            page.reload
+            expect(page.slug).to eq(slug)
+          end
+        end
+
+        context "when destroying" do
+          it "cannot be destroyed" do
+            expect(page.destroy).to eq(false)
+            expect(page).to_not be_destroyed
+          end
+        end
+      end
+
+      context "pages with a regular slug" do
+        let(:slug) { "some-slug" }
+
+        context "when editing" do
+          it "allows changing the slug" do
+            page.slug = "foo"
+            expect(page.save).to be_truthy
+
+            page.reload
+            expect(page.slug).to eq("foo")
+          end
+        end
+
+        context "when destroying" do
+          it "can be destroyed" do
+            page.destroy
+            expect(page).to be_destroyed
+          end
+        end
+      end
+    end
+
+    describe "default?" do
+      subject(:page) { build(:page, slug: slug) }
+
+      context "when the slug is a default one" do
+        let(:slug) { Decidim::Page::DEFAULT_PAGES.sample }
+        it { is_expected.to be_default }
+      end
+
+      context "when the slug is a regular one" do
+        let(:slug) { "some-slug" }
+        it { is_expected.to_not be_default }
+      end
+    end
   end
 end

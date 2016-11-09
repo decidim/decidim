@@ -18,7 +18,7 @@ module Decidim
 
       def create
         authorize! :new, Decidim::Page
-        @form = PageForm.from_params(params.merge(organization: current_organization))
+        @form = PageForm.from_params(form_params)
 
         CreatePage.call(@form) do
           on(:ok) do
@@ -41,7 +41,7 @@ module Decidim
       def update
         @page = collection.find(params[:id])
         authorize! :update, page
-        @form = PageForm.from_params(params.merge(organization: current_organization))
+        @form = PageForm.from_params(form_params)
 
         UpdatePage.call(page, @form) do
           on(:ok) do
@@ -70,6 +70,17 @@ module Decidim
       end
 
       private
+
+      def form_params
+        form_params = params.to_unsafe_hash
+        form_params["page"] ||= {}
+        form_params["page"]["organization"] = current_organization
+
+        return form_params unless page
+
+        form_params["page"]["slug"] ||= page.slug
+        form_params
+      end
 
       def page
         @page ||= collection.find_by_slug(params[:id])

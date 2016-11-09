@@ -24,13 +24,21 @@ describe "Content pages", type: :feature do
       within ".new_page" do
         fill_in :page_slug, with: "welcome"
 
-        fill_in :page_title_en, with: "Welcome to Decidim"
-        fill_in :page_title_es, with: "Te damos la bienvendida a Decidim"
-        fill_in :page_title_ca, with: "Et donem la benvinguda a Decidim"
+        fill_in_i18n(
+          :page_title,
+          "#title-tabs",
+          en: "Welcome to Decidim",
+          es: "Te damos la bienvendida a Decidim",
+          ca: "Et donem la benvinguda a Decidim"
+        )
 
-        fill_in :page_content_en, with: "<p>Some HTML content</p>"
-        fill_in :page_content_es, with: "<p>Contenido HTML</p>"
-        fill_in :page_content_ca, with: "<p>Contingut HTML</p>"
+        fill_in_i18n(
+          :page_content,
+          "#content-tabs",
+          en: "<p>Some HTML content</p>",
+          es: "<p>Contenido HTML</p>",
+          ca: "<p>Contingut HTML</p>"
+        )
 
         find("*[type=submit]").click
       end
@@ -57,8 +65,16 @@ describe "Content pages", type: :feature do
         end
 
         within ".edit_page" do
-          fill_in :page_title_en, with: "Not welcomed anymore"
-          fill_in :page_content_en, with: "This is the new <strong>content</strong>"
+          fill_in_i18n(
+            :page_title,
+            "#title-tabs",
+            en: "Not welcomed anymore",
+          )
+          fill_in_i18n(
+            :page_content,
+            "#content-tabs",
+            en: "This is the new <strong>content</strong>",
+          )
           find("*[type=submit]").click
         end
 

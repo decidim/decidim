@@ -26,6 +26,10 @@ en:
         update:
           error: There was an error when updating this admin.
           success: Admin updated successfully
+      default_pages:
+        placeholders:
+          content: Please add meaningful content to this page on the admin dashboard.
+          title: Default title for %{page}
       menu:
         admins: Admins
         dashboard: Dashboard
@@ -45,6 +49,8 @@ en:
             created_at: Created at
             name: Name
           name: Organization
+        page:
+          name: Page
       organizations:
         create:
           error: There was an error when creating a new organization.

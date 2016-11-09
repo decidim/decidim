@@ -78,5 +78,9 @@ FactoryGirl.define do
     title { Decidim::Faker::Localized.sentence(3) }
     content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     organization
+
+    trait :default do
+      slug { Decidim::Page::DEFAULT_PAGES.sample }
+    end
   end
 end
