@@ -15,6 +15,7 @@ module Decidim
     #
     # Renders form fields for each locale.
     def translated(type, name, options = {})
+      field_label = label(options[:label] || label_for(name))
       tabs_panels = "".html_safe
       if options[:label] != false
         tabs_panels = content_tag(:ul, class: "tabs", id: "#{name}-tabs", data: { tabs: true }) do
@@ -23,8 +24,7 @@ module Decidim
             element_class = "tabs-title"
             element_class += " is-active" if index.zero?
             string + content_tag(:li, class: element_class) do
-              label = options[:label] || label_for(name)
-              content_tag(:a, "#{label} (#{locale})", href: "##{name}-panel-#{index}")
+              content_tag(:a, I18n.t(locale, scope: "locales"), href: "##{name}-panel-#{index}")
             end
           end
         end
@@ -41,7 +41,7 @@ module Decidim
         end
       end
 
-      [tabs_panels, tabs_contents].join.html_safe
+      [field_label, tabs_panels, tabs_contents].join.html_safe
     end
 
     private
