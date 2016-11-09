@@ -4,5 +4,4 @@ if [ "$GEM" == "." ]; then
   docker build --rm=false -t codegram/decidim .
 fi
 
-bundle exec rake assets:precompile
 bundle exec rake
