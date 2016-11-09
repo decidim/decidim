@@ -39,7 +39,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= ProcessAdminsRolesForProcess.for(participatory_process)
+        @collection ||= ProcessAdminRolesForProcess.for(participatory_process)
       end
     end
   end

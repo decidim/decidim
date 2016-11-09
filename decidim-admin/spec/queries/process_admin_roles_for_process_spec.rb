@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "spec_helper"
 
-describe Decidim::Admin::ProcessAdminsRolesForProcess do
+describe Decidim::Admin::ProcessAdminRolesForProcess do
   let(:organization) { create :organization }
   let!(:process1) { create :participatory_process, organization: organization }
   let!(:process2) { create :participatory_process, organization: organization }
@@ -11,7 +11,7 @@ describe Decidim::Admin::ProcessAdminsRolesForProcess do
   subject { described_class.new(process1) }
 
   it "returns only the user roles for the given process" do
-    expect(subject.process_admins_roles)
+    expect(subject.query)
       .to eq [user_role1]
   end
 end
