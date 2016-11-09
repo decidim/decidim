@@ -28,15 +28,27 @@ RSpec.shared_examples "manage process steps examples" do
     find("#steps .actions .new").click
 
     within ".new_participatory_process_step" do
-      fill_in :participatory_process_step_title_en, with: "My participatory process step"
-      fill_in :participatory_process_step_title_es, with: "Mi fase de proceso participativo"
-      fill_in :participatory_process_step_title_ca, with: "La meva fase de procés participatiu"
-      fill_in :participatory_process_step_short_description_en, with: "Short description"
-      fill_in :participatory_process_step_short_description_es, with: "Descripción corta"
-      fill_in :participatory_process_step_short_description_ca, with: "Descripció curta"
-      fill_in :participatory_process_step_description_en, with: "A longer description"
-      fill_in :participatory_process_step_description_es, with: "Descripción más larga"
-      fill_in :participatory_process_step_description_ca, with: "Descripció més llarga"
+      fill_in_i18n(
+        :participatory_process_step_title,
+        "#title-tabs",
+        en: "My participatory process step",
+        es: "Mi fase de proceso participativo",
+        ca: "La meva fase de procés participatiu"
+      )
+      fill_in_i18n(
+        :participatory_process_step_short_description,
+        "#short_description-tabs",
+        en: "Short description",
+        es: "Descripción corta",
+        ca: "Descripció curta"
+      )
+      fill_in_i18n(
+        :participatory_process_step_description,
+        "#description-tabs",
+        en: "A longer description",
+        es: "Descripción más larga",
+        ca: "Descripció més llarga"
+      )
       fill_in :participatory_process_step_start_date, with: 1.months.ago
       fill_in :participatory_process_step_end_date, with: 2.months.from_now
 
@@ -60,9 +72,13 @@ RSpec.shared_examples "manage process steps examples" do
     end
 
     within ".edit_participatory_process_step" do
-      fill_in :participatory_process_step_title_en, with: "My new title"
-      fill_in :participatory_process_step_title_es, with: "Mi nuevo título"
-      fill_in :participatory_process_step_title_ca, with: "El meu nou títol"
+      fill_in_i18n(
+        :participatory_process_step_title,
+        "#title-tabs",
+        en: "My new title",
+        es: "Mi nuevo título",
+        ca: "El meu nou títol"
+      )
 
       find("*[type=submit]").click
     end

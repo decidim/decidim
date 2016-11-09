@@ -44,9 +44,13 @@ RSpec.shared_examples "manage processes examples" do
     end
 
     within ".edit_participatory_process" do
-      fill_in :participatory_process_title_en, with: "My new title"
-      fill_in :participatory_process_title_es, with: "Mi nuevo título"
-      fill_in :participatory_process_title_ca, with: "El meu nou títol"
+      fill_in_i18n(
+        :participatory_process_title,
+        "#title-tabs",
+        en: "My new title",
+        es: "Mi nuevo título",
+        ca: "El meu nou títol"
+      )
       attach_file :participatory_process_banner_image, image3_path
 
       find("*[type=submit]").click
