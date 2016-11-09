@@ -19,32 +19,32 @@ module Decidim
       tabs_panels = "".html_safe
       if options[:label] != false
         tabs_panels = content_tag(:ul, class: "tabs", id: "#{name}-tabs", data: { tabs: true }) do
-          content_tag(:p, "HEY")
           locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-            element_class = "tabs-title"
-            element_class += " is-active" if index.zero?
-            string + content_tag(:li, class: element_class) do
+            string + content_tag(:li, class: tab_element_class_for("title", index)) do
               content_tag(:a, I18n.t(locale, scope: "locales"), href: "##{name}-panel-#{index}")
             end
           end
         end
       end
 
-      tabs_contents = content_tag(:div, class: "tabs-content", data: { tabs_content: "#{name}-tabs" }) do
+      tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: "#{name}-tabs" }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-          element_class = "tabs-panel"
-          element_class += " is-active" if index.zero?
-
-          string + content_tag(:div, class: element_class, id: "#{name}-panel-#{index}") do
+          string + content_tag(:div, class: tab_element_class_for("panel", index), id: "#{name}-panel-#{index}") do
             send(type, "#{name}_#{locale.to_s.gsub("-", "__")}", options.merge(label: false))
           end
         end
       end
 
-      [field_label, tabs_panels, tabs_contents].join.html_safe
+      safe_join [field_label, tabs_panels, tabs_content]
     end
 
     private
+
+    def tab_element_class_for(type, index)
+      element_class = "tabs-#{type}"
+      element_class += " is-active" if index.zero?
+      element_class
+    end
 
     def locales
       I18n.available_locales
