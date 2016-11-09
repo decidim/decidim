@@ -15,6 +15,14 @@ module Decidim
     #
     # Renders form fields for each locale.
     def translated(type, name, options = {})
+      if locales.count == 1
+        return send(
+          type,
+          "#{name}_#{locales.first.to_s.gsub("-", "__")}",
+          options.merge(label: options[:label] || label_for(name))
+        )
+      end
+
       field_label = label(name, options[:label] || label_for(name))
       tabs_panels = "".html_safe
       if options[:label] != false
