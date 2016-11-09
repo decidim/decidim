@@ -1,27 +1,2 @@
 # frozen_string_literal: true
-
 require "decidim/common_rake"
-require "rdoc/task"
-
-RDoc::Task.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = "rdoc"
-  rdoc.title    = "Decidim::Core"
-  rdoc.options << "--line-numbers"
-  rdoc.rdoc_files.include("README.md")
-  rdoc.rdoc_files.include("lib/**/*.rb")
-end
-
-load "rails/tasks/statistics.rake"
-
-require "bundler/gem_tasks"
-
-begin
-  require "rspec/core/rake_task"
-  RSpec::Core::RakeTask.new(:spec)
-  ENV["ENGINE_PATH"] = File.dirname(__FILE__)
-
-  task default: :spec
-
-  Rake::Task["spec"].enhance ["common:test_app"]
-rescue LoadError
-end

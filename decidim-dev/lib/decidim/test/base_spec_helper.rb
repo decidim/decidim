@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 ENV["RAILS_ENV"] ||= "test"
 
+engine_path = Dir.pwd
+engine_name = engine_path.split("/").last
+dummy_app_path = File.expand_path(File.join(engine_path, "spec", "#{engine_name}_dummy_app"))
+
 if ENV["CI"]
   require "simplecov"
   SimpleCov.start
@@ -10,8 +14,7 @@ if ENV["CI"]
 end
 
 begin
-  dummy_app_path = "#{ENV["ENGINE_NAME"]}_dummy_app/config/environment"
-  require dummy_app_path
+  require "#{dummy_app_path}/config/environment"
 rescue LoadError
   puts "Could not load dummy application. Please ensure you have run `bundle exec rake common:test_app`"
   puts "Tried to load it from #{dummy_app_path}"
