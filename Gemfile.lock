@@ -47,7 +47,7 @@ PATH
     decidim-api (0.0.1.alpha9)
       decidim-core (= 0.0.1.alpha9)
       graphiql-rails (~> 1.3.0)
-      graphql (~> 1.1.0)
+      graphql (~> 1.2.1)
       rack-cors (~> 0.4.0)
       rails (~> 5.0.0, >= 5.0.0.1)
 
@@ -188,7 +188,7 @@ GEM
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     cliver (0.3.2)
-    codecov (0.1.6)
+    codecov (0.1.7)
       json
       simplecov
       url
@@ -238,7 +238,7 @@ GEM
       activesupport (>= 4.1.0)
     graphiql-rails (1.3.0)
       rails
-    graphql (1.1.0)
+    graphql (1.2.1)
     high_voltage (3.0.0)
     highline (1.7.8)
     htmlentities (4.3.4)
@@ -438,7 +438,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.12)
-  codecov (~> 0.1.6)
+  codecov (~> 0.1.7)
   decidim!
   decidim-admin!
   decidim-api!

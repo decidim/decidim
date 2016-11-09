@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", Decidim.version
   s.add_dependency "rails", *Decidim.rails_version
-  s.add_dependency "graphql", "~> 1.1.0"
+  s.add_dependency "graphql", "~> 1.2.1"
   s.add_dependency "graphiql-rails", "~> 1.3.0"
   s.add_dependency "rack-cors", "~> 0.4.0"
 

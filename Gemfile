@@ -13,6 +13,6 @@ gemspec path: "decidim-api"
 gem "rubocop", "~> 0.45"
 gem "rspec_junit_formatter", "0.2.3"
 gem "simplecov", "~> 0.12"
-gem "codecov", "~> 0.1.6"
+gem "codecov", "~> 0.1.7"
 
 eval(File.read(File.join(File.dirname(__FILE__), "Gemfile.common")))
