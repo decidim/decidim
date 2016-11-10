@@ -13,7 +13,7 @@ module Decidim
     attr_readonly :active_step
 
     validates :slug, presence: true
-    validates :slug, uniqueness: true
+    validates :slug, uniqueness: { scope: :organization }
 
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader

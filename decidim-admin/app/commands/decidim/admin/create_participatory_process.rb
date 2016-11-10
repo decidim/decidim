@@ -7,11 +7,8 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # organization - The Organization of the user that created the
-      #   participatory process
-      def initialize(form, organization)
+      def initialize(form)
         @form = form
-        @organization = organization
       end
 
       # Executes the command. Braodcasts these events:
@@ -42,7 +39,7 @@ module Decidim
           hero_image: form.hero_image,
           banner_image: form.banner_image,
           promoted: form.promoted,
-          organization: @organization
+          organization: form.organization
         )
       end
     end

@@ -4,6 +4,7 @@ require "spec_helper"
 module Decidim
   module Admin
     describe ParticipatoryProcessForm do
+      let(:organization) { create :organization }
       let(:title) do
         {
           en: "Title",
@@ -53,7 +54,7 @@ module Decidim
         }
       end
 
-      subject { described_class.from_params(attributes) }
+      subject { described_class.from_params(attributes, organization: organization) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
@@ -108,13 +109,25 @@ module Decidim
       end
 
       context "when slug is not unique" do
-        before do
-          create(:participatory_process, slug: slug)
+        context "in the same organization" do
+          before do
+            create(:participatory_process, slug: slug, organization: organization)
+          end
+
+          it "is not valid" do
+            expect(subject).to_not be_valid
+            expect(subject.errors[:slug]).to_not be_empty
+          end
         end
 
-        it "is not valid" do
-          expect(subject).to_not be_valid
-          expect(subject.errors[:slug]).to_not be_empty
+        context "in another organization" do
+          before do
+            create(:participatory_process, slug: slug)
+          end
+
+          it "is valid" do
+            expect(subject).to be_valid
+          end
         end
       end
     end

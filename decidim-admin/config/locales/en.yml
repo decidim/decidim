@@ -37,8 +37,6 @@ en:
             published: Published
             title: Title
           name: Participatory process
-          validations:
-            slug_uniqueness: Another participatory process with the same slug already exists
         participatory_process_step:
           fields:
             active: Active

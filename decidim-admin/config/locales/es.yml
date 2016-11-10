@@ -37,8 +37,6 @@ es:
             published: Publicado
             title: Título
           name: Proceso participativo
-          validations:
-            slug_uniqueness: Ya existe otro proceso participativo con el mismo identificador
         participatory_process_step:
           fields:
             active: Activo

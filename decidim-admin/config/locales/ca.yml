@@ -37,8 +37,6 @@ ca:
             published: Publicat
             title: Títol
           name: Procés participatiu
-          validations:
-            slug_uniqueness: Ja existeix un altre procés participatiu amb el mateix identificador
         participatory_process_step:
           fields:
             active: Active
