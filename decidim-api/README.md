@@ -1,14 +1,27 @@
 # Decidim::Api
-Short description and motivation.
+
+This library exposes a [GraphQL](https://facebook.github.io/graphql/) API to programatically interact with the Decidim platform via HTTP.
 
 ## Usage
-How to use my plugin.
+Include this library in your Decidim' flavoured Rails app by:
+
+```ruby
+# config/routes.rb
+mount Decidim::Api::Engine => '/api'
+```
+
+This will expose two nice endpoints:
+
+* `/api`: The main GraphQL endpoint that holds the actual API.
+* `/api/docs`: Nicely-written docs of the entities of the API.
+* `/api/grapiql`: A neat sandbox to interactively play with the API and its capabilities.
+
 
 ## Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-admin'
+gem 'decidim-api'
 ```
 
 And then execute:
@@ -16,13 +29,8 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install decidim-admin
-```
-
 ## Contributing
-Contribution directions go here.
+See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
 
 ## License
-The gem is available as open source under the terms of the [AGPLv3 License](https://opensource.org/licenses/AGPL-3.0).
+See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
