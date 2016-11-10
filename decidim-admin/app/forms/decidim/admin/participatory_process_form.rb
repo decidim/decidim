@@ -19,6 +19,7 @@ module Decidim
       attribute :promoted, Boolean
       attribute :hero_image
       attribute :banner_image
+      attribute :organization
 
       validates :slug, presence: true
       translatable_validates :title, :subtitle, :description, :short_description, presence: true
@@ -28,12 +29,9 @@ module Decidim
       private
 
       def slug_uniqueness
-        return unless ParticipatoryProcess.where(slug: slug).where.not(id: id).any?
+        return unless organization.participatory_processes.where(slug: slug).where.not(id: id).any?
 
-        errors.add(
-          :slug,
-          I18n.t("models.participatory_process.validations.slug_uniqueness", scope: "decidim.admin")
-        )
+        errors.add(:slug, :taken)
       end
     end
   end

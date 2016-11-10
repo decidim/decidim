@@ -20,7 +20,7 @@ module Decidim
 
       def create
         authorize! :new, Decidim::ParticipatoryProcess
-        @form = ParticipatoryProcessForm.from_params(params)
+        @form = ParticipatoryProcessForm.from_params(params, organization: current_organization)
 
         CreateParticipatoryProcess.call(@form, current_organization) do
           on(:ok) do
@@ -44,7 +44,7 @@ module Decidim
       def update
         @participatory_process = collection.find(params[:id])
         authorize! :update, @participatory_process
-        @form = ParticipatoryProcessForm.from_params(params)
+        @form = ParticipatoryProcessForm.from_params(params, organization: current_organization)
 
         UpdateParticipatoryProcess.call(@participatory_process, @form) do
           on(:ok) do
