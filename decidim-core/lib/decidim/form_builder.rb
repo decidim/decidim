@@ -23,13 +23,17 @@ module Decidim
         )
       end
 
-      field_label = label(name, options[:label] || label_for(name))
+      field_label = label_i18n(name, options[:label] || label_for(name))
+
       tabs_panels = "".html_safe
       if options[:label] != false
         tabs_panels = content_tag(:ul, class: "tabs", id: "#{name}-tabs", data: { tabs: true }) do
           locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
             string + content_tag(:li, class: tab_element_class_for("title", index)) do
-              content_tag(:a, I18n.t(locale, scope: "locales"), href: "##{name}-panel-#{index}")
+              title = I18n.t(locale, scope: "locales")
+              element_class = ""
+              element_class += "alert" if has_error?(name_with_locale(name, locale))
+              content_tag(:a, title, href: "##{name}-panel-#{index}", class: element_class)
             end
           end
         end
@@ -38,7 +42,7 @@ module Decidim
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: "#{name}-tabs" }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: "#{name}-panel-#{index}") do
-            send(type, "#{name}_#{locale.to_s.gsub("-", "__")}", options.merge(label: false))
+            send(type, name_with_locale(name, locale), options.merge(label: false))
           end
         end
       end
@@ -64,6 +68,21 @@ module Decidim
       else
         attribute.to_s.humanize
       end
+    end
+
+    def name_with_locale(name, locale)
+      "#{name}_#{locale.to_s.gsub("-", "__")}"
+    end
+
+    def label_i18n(attribute, text = nil, options = {})
+      errored = has_error?(attribute) || locales.any? { |locale| has_error?(name_with_locale(attribute, locale)) }
+
+      if errored
+        options[:class] ||= ""
+        options[:class] += " is-invalid-label"
+      end
+
+      label(attribute, (text || "").html_safe, options)
     end
   end
 end

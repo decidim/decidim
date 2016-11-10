@@ -1,4 +1,9 @@
 form {
+  ul.tabs {
+    a.alert {
+      color: map-get($foundation-palette, alert);
+    }
+  }
   .tabs-content {
     margin-bottom: 1rem;
   }
