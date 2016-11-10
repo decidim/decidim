@@ -1,0 +1,50 @@
+<% content_for :title do %>
+  <h2><%= link_to translated_attribute(participatory_process.title), participatory_process %></h2>
+  <h3 class="subheader"><%= translated_attribute(participatory_process.subtitle) %></h3>
+<% end %>
+
+<div class="actions">
+  <hr />
+  <% if can? :update, participatory_process %>
+    <%= link_to t("decidim.admin.actions.edit"), ['edit', participatory_process] %>
+  <% end %>
+
+  <% if can? :publish, participatory_process %>
+    <% if participatory_process.published? %>
+      <%= link_to t("actions.unpublish", scope: "decidim.admin"), participatory_process_publish_path(participatory_process), method: :delete, class: "small button secondary" %>
+    <% else %>
+      <%= link_to t("actions.publish", scope: "decidim.admin"), participatory_process_publish_path(participatory_process), method: :post, class: "small button secondary" %>
+    <% end %>
+  <% end %>
+
+  <% if can? :destroy, participatory_process %>
+    <%= link_to t("decidim.admin.actions.destroy"), participatory_process, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+  <% end %>
+</div>
+
+<div class="row collapse">
+  <div class="medium-3 columns">
+    <ul class="tabs vertical" id="example-vert-tabs">
+      <li class="tabs-title is-active">
+        <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.participatory_processes_submenu"), participatory_process_path(participatory_process) %>
+      </li>
+      <% if can? :read, Decidim::ParticipatoryProcessStep %>
+        <li class="tabs-title">
+          <%= aria_selected_link_to t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"), participatory_process_steps_path(participatory_process) %>
+        </li>
+      <% end %>
+      <% if can? :read, Decidim::Admin::ParticipatoryProcessUserRole %>
+        <li class="tabs-title">
+          <%= aria_selected_link_to t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"), participatory_process_user_roles_path(participatory_process) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="medium-9 columns">
+    <div class="tabs-content vertical">
+      <div class="tabs-panel is-active">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>

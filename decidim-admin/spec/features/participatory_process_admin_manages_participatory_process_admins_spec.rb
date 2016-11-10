@@ -25,6 +25,7 @@ describe "Participatory process admin manages participatory process admins", typ
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin.participatory_process_path(participatory_process)
+      click_link "Process admins"
     end
 
     it "cannot remove himself" do

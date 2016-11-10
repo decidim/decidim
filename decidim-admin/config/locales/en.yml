@@ -29,6 +29,10 @@ en:
       menu:
         dashboard: Dashboard
         participatory_processes: Participatory processes
+        participatory_processes_submenu:
+          info: Info
+          process_admins: Process admins
+          steps: Steps
       models:
         participatory_process:
           fields:

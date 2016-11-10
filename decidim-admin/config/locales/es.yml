@@ -29,6 +29,10 @@ es:
       menu:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
+        participatory_processes_submenu:
+          info: Información
+          process_admins: Administradores del proceso
+          steps: Fases del proceso
       models:
         participatory_process:
           fields:

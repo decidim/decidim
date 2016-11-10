@@ -6,6 +6,7 @@ RSpec.shared_examples "manage process admins examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin.participatory_process_path(participatory_process)
+    click_link "Process admins"
   end
 
   it "process admins" do
@@ -35,7 +36,7 @@ RSpec.shared_examples "manage process admins examples" do
     let!(:user_role2) { create(:participatory_process_user_role, participatory_process: participatory_process, user: other_user) }
 
     before do
-      visit decidim_admin.participatory_process_path(participatory_process)
+      visit current_path
     end
 
     it "deletes a participatory_process_step" do

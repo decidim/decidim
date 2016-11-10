@@ -29,6 +29,10 @@ ca:
       menu:
         dashboard: Tauler de control
         participatory_processes: Processos participatius
+        participatory_processes_submenu:
+          info: Informació
+          process_admins: Administradors del procés
+          steps: Fases del procés
       models:
         participatory_process:
           fields:

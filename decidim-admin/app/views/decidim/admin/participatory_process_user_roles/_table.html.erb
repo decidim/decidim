@@ -1,7 +1,7 @@
 <section id="process_admins">
   <h4><%= t(".process_admins_title", scope: "decidim.admin") %></h4>
 
-  <%= form_for :participatory_process_user_role, url: participatory_process_user_roles_path(@participatory_process) do |f| %>
+  <%= form_for :participatory_process_user_role, url: participatory_process_user_roles_path(participatory_process) do |f| %>
     <table class="stack">
       <thead>
         <tr>
@@ -16,7 +16,7 @@
               <%= role.user.email %><br />
             </td>
             <td class="actions">
-              <%= link_to t("actions.destroy", scope: "decidim.admin"), participatory_process_user_role_path(@participatory_process, role), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, role %>
+              <%= link_to t("actions.destroy", scope: "decidim.admin"), participatory_process_user_role_path(participatory_process, role), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, role %>
             </td>
           </tr>
         <% end %>
