@@ -13,7 +13,7 @@ module Decidim
     attr_readonly :active_step
 
     validates :slug, presence: true
-    validate :slug_uniqueness
+    validates :slug, uniqueness: { scope: :organization }
 
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
@@ -37,16 +37,6 @@ module Decidim
     # Returns a boolean.
     def published?
       published_at.present?
-    end
-
-    private
-
-    def slug_uniqueness
-      others = ParticipatoryProcess
-        .where(organization: organization, slug: slug)
-        .where.not(id: id)
-
-      errors.add(:slug, :taken) if others.any?
     end
   end
 end

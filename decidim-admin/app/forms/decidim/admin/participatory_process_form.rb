@@ -19,7 +19,7 @@ module Decidim
       attribute :promoted, Boolean
       attribute :hero_image
       attribute :banner_image
-      attribute :organization
+      attribute :organization, Decidim::Organization
 
       validates :slug, presence: true
       translatable_validates :title, :subtitle, :description, :short_description, presence: true

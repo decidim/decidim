@@ -22,7 +22,7 @@ module Decidim
         authorize! :new, Decidim::ParticipatoryProcess
         @form = ParticipatoryProcessForm.from_params(params, organization: current_organization)
 
-        CreateParticipatoryProcess.call(@form, current_organization) do
+        CreateParticipatoryProcess.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_processes.create.success", scope: "decidim.admin")
             redirect_to participatory_processes_path
