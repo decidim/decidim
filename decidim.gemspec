@@ -5,17 +5,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require_relative "decidim-core/lib/decidim/core/version"
 
 Gem::Specification.new do |spec|
+  Decidim.add_default_gemspec_properties(spec)
+
   spec.name          = "decidim"
-  spec.version       = Decidim.version
-  spec.authors       = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
-  spec.email         = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
 
   spec.summary       = "Citizen participation framework for Ruby on Rails."
   spec.description   = "Citizen participation framework for Ruby on Rails."
-  spec.homepage      = "https://github.com/AjuntamentdeBarcelona/decidim"
-  spec.license       = "AGPLv3"
-
-  spec.required_ruby_version = ">= 2.3.1"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|decidim-core)/}) }
   spec.bindir        = "bin"

@@ -6,14 +6,11 @@ require_relative "../decidim-core/lib/decidim/core/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
+  Decidim.add_default_gemspec_properties(s)
+
   s.name        = "decidim-api"
-  s.version     = Decidim.version
-  s.authors     = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
-  s.email       = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
-  s.homepage    = "http://github.com/AjuntamentdeBarcelona/decidim"
   s.summary     = "API engine for decidim"
   s.description = "API engine for decidim"
-  s.license     = "AGPLv3"
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
