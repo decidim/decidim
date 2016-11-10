@@ -6,7 +6,12 @@
   "extends": "airbnb",
   "globals": {
     "$": true,
-    "jQuery": true
+    "jQuery": true,
+    "ReactDOM": true,
+    "React": true,
+    "GraphQLDocs": true
   },
-  "rules": {}
+  "rules": {
+    "react/jsx-filename-extension": "off"
+  }
 }

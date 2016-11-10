@@ -1,0 +1,9 @@
+<html>
+  <head>
+    <title><%= current_organization.name %> - API Documentation</title>
+    <%= javascript_include_tag 'decidim/api/docs', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

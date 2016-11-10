@@ -963,6 +963,10 @@ pend@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
 
+phantomjs-polyfill:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/phantomjs-polyfill/-/phantomjs-polyfill-0.0.2.tgz#8c6a7163e9bc8fd9ffdbe7d605cb5352f9fb891e"
+
 phantomjs-prebuilt:
   version "2.1.13"
   resolved "https://registry.yarnpkg.com/phantomjs-prebuilt/-/phantomjs-prebuilt-2.1.13.tgz#66556ad9e965d893ca5a7dc9e763df7e8697f76d"
@@ -1018,6 +1022,10 @@ process-nextick-args@~1.0.6:
 progress@^1.1.8, progress@~1.1.8:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/progress/-/progress-1.1.8.tgz#e260c78f6161cdd9b0e56cc3e0a85de17c7a57be"
+
+promise-polyfill:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-6.0.2.tgz#d9c86d3dc4dc2df9016e88946defd69b49b41162"
 
 punycode@^1.4.1:
   version "1.4.1"

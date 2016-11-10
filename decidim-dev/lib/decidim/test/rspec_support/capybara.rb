@@ -21,17 +21,32 @@ module Decidim
   end
 end
 
-Capybara.register_driver :poltergeist do |app|
-  options = {
-    phantomjs: File.expand_path(
-      File.join(File.dirname(__FILE__), "..", "..", "..", "..", "..",
-                "node_modules", ".bin", "phantomjs")
-    ),
-    js_errors: true,
-    url_whitelist: ["http://*.lvh.me", "localhost", "127.0.0.1"]
-  }
+node_modules_path = File.join(
+  File.dirname(__FILE__), "..", "..", "..", "..", "..", "node_modules"
+)
 
-  Capybara::Poltergeist::Driver.new(app, options)
+capybara_options = {
+  phantomjs: File.expand_path(
+    File.join(node_modules_path, ".bin", "phantomjs")
+  ),
+  extensions: [
+    File.expand_path(
+      File.join(node_modules_path, "promise-polyfill", "promise.js")
+    ),
+    File.expand_path(
+      File.join(node_modules_path, "phantomjs-polyfill", "bind-polyfill.js")
+    )
+  ],
+  js_errors: true,
+  url_whitelist: ["http://*.lvh.me", "localhost", "127.0.0.1"]
+}
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, capybara_options)
+end
+
+Capybara.register_driver :debug do |app|
+  Capybara::Poltergeist::Driver.new(app, capybara_options.merge(inspector: true))
 end
 
 Capybara::Screenshot.prune_strategy = :keep_last_run

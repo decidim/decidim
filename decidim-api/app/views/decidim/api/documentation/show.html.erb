@@ -1,0 +1,10 @@
+<div style="text-align: center;">
+  <h1><%= current_organization.name %> API documentation</h1>
+  <%=link_to "Explore the API interactively with GraphiQL", graphiql_path %>
+</div>
+
+<div id="documentation"></div>
+
+<script>
+ window.renderDocumentation("<%= root_path %>");
+</script>
