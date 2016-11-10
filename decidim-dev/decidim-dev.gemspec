@@ -6,14 +6,11 @@ require_relative "../decidim-core/lib/decidim/core/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
+  Decidim.add_default_gemspec_properties(s)
+
   s.name        = "decidim-dev"
-  s.version     = Decidim.version
-  s.authors     = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
-  s.email       = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
-  s.homepage    = ""
   s.summary     = "Decidim Dev tools"
   s.description = "Utilities and tools we need to develop Decidim"
-  s.license     = "AGPLv3"
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
