@@ -1,4 +1,4 @@
-# Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/LICENSE.txt)
+# Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![License: AGPL v3](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/LICENSE-AGPLv3.txt)
 
 ### Code quality
 [![Build Status](https://img.shields.io/travis/AjuntamentdeBarcelona/decidim/master.svg)](https://travis-ci.org/AjuntamentdeBarcelona/decidim)
