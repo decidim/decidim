@@ -20,11 +20,11 @@ en:
       decidim:
         admin:
           participatory_process_steps:
-            table:
+            index:
               steps_hint: You can drag the rows of the table in order to reorder the process steps.
               steps_title: Steps
           participatory_process_user_roles:
-            table:
+            index:
               process_admins_title: Participatory process admins
       menu:
         dashboard: Dashboard

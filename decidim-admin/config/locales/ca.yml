@@ -20,11 +20,11 @@ ca:
       decidim:
         admin:
           participatory_process_steps:
-            table:
+            index:
               steps_hint: Pots arrossegar les files de la taula per reordenar les fases del procés.
               steps_title: Fases
           participatory_process_user_roles:
-            table:
+            index:
               process_admins_title: Administradors del procés participatiu
       menu:
         dashboard: Tauler de control
