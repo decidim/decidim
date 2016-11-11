@@ -3,6 +3,21 @@ require "spec_helper"
 module Decidim
   module Admin
     describe AriaSelectedLinkToHelper do
+      let(:options) { {} }
+      subject do
+        Nokogiri::HTML(
+          helper.aria_selected_link_to("Text", "url", options)
+        )
+      end
+
+      context "with options" do
+        let(:options) { { class: "my_class" } }
+
+        it "still uses the options hash" do
+          expect(subject.css("a[class='my_class']")).not_to be_empty
+        end
+      end
+
       context "when it's ponting to the current path" do
         before do
           expect(helper)
@@ -10,12 +25,8 @@ module Decidim
             .and_return true
         end
 
-        subject do
-          helper.aria_selected_link_to("Text", "url")
-        end
-
         it "adds the attribute with 'true' as value" do
-          expect(subject).to eq "<a aria-selected=\"true\" href=\"url\">Text</a>"
+          expect(subject.css("a[href='url'][aria-selected='true']")).not_to be_empty
         end
       end
 
@@ -26,12 +37,8 @@ module Decidim
             .and_return false
         end
 
-        subject do
-          helper.aria_selected_link_to("Text", "url")
-        end
-
-        it "adds the attribute with 'true' as value" do
-          expect(subject).to eq "<a aria-selected=\"false\" href=\"url\">Text</a>"
+        it "adds the attribute with 'false' as value" do
+          expect(subject.css("a[href='url'][aria-selected='false']")).not_to be_empty
         end
       end
     end
