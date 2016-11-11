@@ -8,12 +8,14 @@ es:
     admin:
       actions:
         activate: Activar
+        configure: Configurar
         confirm_destroy: "¿Seguro que lo quieres eliminar?"
         create: Crear
         deactivate: Desactivar
         destroy: Eliminar
         edit: Editar
         new: Nuevo %{name}
+        preview: Previsualizar
         publish: Publicar
         title: Acciones
         unpublish: Despublicar

@@ -39,9 +39,8 @@ RSpec.shared_examples "manage processes examples" do
   end
 
   it "updates an participatory_process" do
-    within find("tr", text: translated(participatory_process.title)) do
-      click_link "Edit"
-    end
+    click_link translated(participatory_process.title)
+    click_link "Edit"
 
     within ".edit_participatory_process" do
       fill_in_i18n(
@@ -74,65 +73,37 @@ RSpec.shared_examples "manage processes examples" do
   context "publishing a process" do
     let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }
 
-    context "from the index page" do
-      it "publishes the process" do
-        click_link "Publish"
-        expect(page).to have_content("published successfully")
-        expect(page).to have_content("Unpublish")
-        expect(current_path).to eq decidim_admin.participatory_processes_path
-
-        participatory_process.reload
-        expect(participatory_process).to be_published
-      end
+    before do
+      click_link translated(participatory_process.title)
     end
 
-    context "from the process page" do
-      before do
-        click_link translated(participatory_process.title)
-      end
+    it "publishes the process" do
+      click_link "Publish"
+      expect(page).to have_content("published successfully")
+      expect(page).to have_content("Unpublish")
+      expect(current_path).to eq decidim_admin.participatory_process_path(participatory_process)
 
-      it "publishes the process" do
-        click_link "Publish"
-        expect(page).to have_content("published successfully")
-        expect(page).to have_content("Unpublish")
-        expect(current_path).to eq decidim_admin.participatory_process_path(participatory_process)
-
-        participatory_process.reload
-        expect(participatory_process).to be_published
-      end
+      participatory_process.reload
+      expect(participatory_process).to be_published
     end
   end
 
   context "unpublishing a process" do
     let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
-    context "from the index page" do
-      it "unpublishes the process" do
-        click_link "Unpublish"
-        expect(page).to have_content("unpublished successfully")
-        expect(page).to have_content("Publish")
-        expect(current_path).to eq decidim_admin.participatory_processes_path
-
-        participatory_process.reload
-        expect(participatory_process).not_to be_published
-      end
+    before do
+      click_link translated(participatory_process.title)
     end
 
-    context "from the process page" do
-      before do
-        click_link translated(participatory_process.title)
-      end
+    it "unpublishes the process" do
+      click_link "Unpublish"
+      expect(page).to have_content("unpublished successfully")
+      expect(page).to have_content("Publish")
+      expect(current_path).to eq decidim_admin.participatory_process_path(participatory_process)
 
-      it "unpublishes the process" do
-        click_link "Unpublish"
-        expect(page).to have_content("unpublished successfully")
-        expect(page).to have_content("Publish")
-        expect(current_path).to eq decidim_admin.participatory_process_path(participatory_process)
-
-        participatory_process.reload
-        expect(participatory_process).not_to be_published
-      end
-    end
+      participatory_process.reload
+      expect(participatory_process).not_to be_published
+  end
   end
 
   context "when there are multiple organizations in the system" do
