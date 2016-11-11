@@ -13,6 +13,8 @@ require "foundation_rails_helper"
 require "jbuilder"
 require "rectify"
 
+require_dependency File.join(File.dirname(__FILE__), "..", "..", "..", "app/models/decidim/admin/abilities/admin_user")
+
 module Decidim
   module Admin
     # Decidim's core Rails Engine.
