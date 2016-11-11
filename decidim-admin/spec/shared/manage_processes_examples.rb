@@ -13,6 +13,34 @@ RSpec.shared_examples "manage processes examples" do
     File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image3_filename)
   end
 
+  context "previewing processes" do
+    context "when the process is unpublished" do
+      let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }
+
+      it "allows the user to preview the unpublished process" do
+        within find("tr", text: translated(participatory_process.title)) do
+          click_link "Preview"
+        end
+
+        expect(current_path).to eq decidim.participatory_process_path(participatory_process)
+        expect(page).to have_content(translated(participatory_process.title))
+      end
+    end
+
+    context "when the process is published" do
+      let!(:participatory_process) { create(:participatory_process, organization: organization) }
+
+      it "allows the user to preview the unpublished process" do
+        within find("tr", text: translated(participatory_process.title)) do
+          click_link "Preview"
+        end
+
+        expect(current_path).to eq decidim.participatory_process_path(participatory_process)
+        expect(page).to have_content(translated(participatory_process.title))
+      end
+    end
+  end
+
   it "displays all fields from a single participatory process" do
     within "table" do
       click_link participatory_process.title["en"]
