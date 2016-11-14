@@ -29,7 +29,7 @@ ca:
         success: Has estat autoritzat/da correctament.
       current_participatory_processes: fer una ullada als processos actuals
       destroy:
-        success: Autorització destruïda correctament
+        success: L'autorització s'ha destruït correctament
       index:
         actions:
           decidim/dummy_authorization_handler: Verificar-me amb l'exemple
