@@ -57,7 +57,7 @@ en:
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
-          success: Participatory process published successfully
+          success: Participatory process published successfully.
         destroy:
           error: There was an error unpublishing this participatory process.
           success: Participatory process unpublished successfully
