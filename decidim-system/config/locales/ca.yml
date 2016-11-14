@@ -13,7 +13,7 @@ ca:
           error: S'ha produït un error en crear un nou administrador.
           success: Administrador creat correctament
         destroy:
-          success: Administrador eliminat correctament
+          success: L'administrador s'ha eliminat correctament
         edit:
           title: Editar administrador
           update: Actualitzar administrador
