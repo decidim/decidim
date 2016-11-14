@@ -6,6 +6,12 @@ module Decidim
     # Controller that allows managing all the Admins.
     #
     class ParticipatoryProcessStepsController < ApplicationController
+      helper_method :participatory_process
+
+      def index
+        authorize! :read, Decidim::ParticipatoryProcessStep
+      end
+
       def new
         authorize! :create, Decidim::ParticipatoryProcessStep
         @form = ParticipatoryProcessStepForm.new
@@ -18,7 +24,7 @@ module Decidim
         CreateParticipatoryProcessStep.call(@form, participatory_process) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_process_steps.create.success", scope: "decidim.admin")
-            redirect_to participatory_process_path(participatory_process)
+            redirect_to participatory_process_steps_path(participatory_process)
           end
 
           on(:invalid) do
@@ -42,7 +48,7 @@ module Decidim
         UpdateParticipatoryProcessStep.call(@participatory_process_step, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_process_steps.update.success", scope: "decidim.admin")
-            redirect_to participatory_process_path(participatory_process)
+            redirect_to participatory_process_steps_path(participatory_process)
           end
 
           on(:invalid) do
@@ -64,7 +70,7 @@ module Decidim
 
         flash[:notice] = I18n.t("participatory_process_steps.destroy.success", scope: "decidim.admin")
 
-        redirect_to participatory_process_path(@participatory_process_step.participatory_process)
+        redirect_to participatory_process_steps_path(@participatory_process_step.participatory_process)
       end
 
       private

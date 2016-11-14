@@ -95,9 +95,8 @@ describe "Admin manage participatory processes", type: :feature do
     end
 
     it "deletes a participatory_process" do
-      within find("tr", text: translated(participatory_process2.title)) do
-        click_link "Destroy"
-      end
+      click_link translated(participatory_process2.title)
+      click_link "Destroy"
 
       within ".flash" do
         expect(page).to have_content("successfully")

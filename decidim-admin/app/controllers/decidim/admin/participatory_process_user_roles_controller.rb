@@ -6,6 +6,12 @@ module Decidim
     # Controller that allows managing all the Admins.
     #
     class ParticipatoryProcessUserRolesController < ApplicationController
+      helper_method :participatory_process, :process_admin_roles
+
+      def index
+        authorize! :read, Decidim::Admin::ParticipatoryProcessUserRole
+      end
+
       def create
         authorize! :create, Decidim::Admin::ParticipatoryProcessUserRole
         @form = ParticipatoryProcessUserRoleForm.from_params(params)
@@ -18,7 +24,7 @@ module Decidim
           on(:invalid) do
             flash.now[:alert] = I18n.t("participatory_process_user_roles.create.error", scope: "decidim.admin")
           end
-          redirect_to participatory_process_path(participatory_process)
+          redirect_to participatory_process_user_roles_path(participatory_process)
         end
       end
 
@@ -29,7 +35,7 @@ module Decidim
 
         flash[:notice] = I18n.t("participatory_process_user_roles.destroy.success", scope: "decidim.admin")
 
-        redirect_to participatory_process_path(@participatory_process_user_role.participatory_process)
+        redirect_to participatory_process_user_roles_path(@participatory_process_user_role.participatory_process)
       end
 
       private
@@ -40,6 +46,10 @@ module Decidim
 
       def collection
         @collection ||= ProcessAdminRolesForProcess.for(participatory_process)
+      end
+
+      def process_admin_roles
+        @process_admin_roles ||= ProcessAdminRolesForProcess.for(@participatory_process)
       end
     end
   end

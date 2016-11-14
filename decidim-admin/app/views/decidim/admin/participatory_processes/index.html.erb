@@ -32,20 +32,11 @@
           <%= l process.created_at, format: :short %>
         </td>
         <td class="actions">
+          <% if can? :preview, process %>
+            <%= link_to t("actions.preview", scope: "decidim.admin"), decidim.participatory_process_path(process) %>
+          <% end %>
           <% if can? :update, process %>
-            <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', process] %>
-          <% end %>
-
-          <% if can? :publish, process %>
-            <% if process.published? %>
-              <%= link_to t("actions.unpublish", scope: "decidim.admin"), participatory_process_publish_path(process), method: :delete, class: "small button secondary" %>
-            <% else %>
-              <%= link_to t("actions.publish", scope: "decidim.admin"), participatory_process_publish_path(process), method: :post, class: "small button secondary" %>
-            <% end %>
-          <% end %>
-
-          <% if can? :destroy, process %>
-            <%= link_to t("actions.destroy", scope: "decidim.admin"), process, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+            <%= link_to t("actions.configure", scope: "decidim.admin"), process, class: "small button secondary" %>
           <% end %>
         </td>
       </tr>

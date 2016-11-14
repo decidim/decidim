@@ -8,27 +8,33 @@ en:
     admin:
       actions:
         activate: Activate
+        configure: Configure
         confirm_destroy: Are you sure you want to delete this?
         create: Create
         deactivate: Deactivate
         destroy: Destroy
         edit: Edit
         new: New %{name}
+        preview: Preview
         publish: Publish
         title: Actions
         unpublish: Unpublish
       decidim:
         admin:
           participatory_process_steps:
-            table:
+            index:
               steps_hint: You can drag the rows of the table in order to reorder the process steps.
               steps_title: Steps
           participatory_process_user_roles:
-            table:
+            index:
               process_admins_title: Participatory process admins
       menu:
         dashboard: Dashboard
         participatory_processes: Participatory processes
+        participatory_processes_submenu:
+          info: Info
+          process_admins: Process admins
+          steps: Steps
       models:
         participatory_process:
           fields:

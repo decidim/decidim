@@ -4,6 +4,7 @@ RSpec.shared_examples "manage process steps examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin.participatory_process_path(participatory_process)
+    click_link "Steps"
   end
 
   it "displays all fields from a single participatory process" do
@@ -97,7 +98,7 @@ RSpec.shared_examples "manage process steps examples" do
     let!(:process_step2) { create(:participatory_process_step, participatory_process: participatory_process) }
 
     before do
-      visit decidim_admin.participatory_process_path(participatory_process)
+      visit current_path
     end
 
     it "deletes a participatory_process_step" do

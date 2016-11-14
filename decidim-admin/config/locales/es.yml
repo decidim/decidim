@@ -8,27 +8,33 @@ es:
     admin:
       actions:
         activate: Activar
+        configure: Configurar
         confirm_destroy: "¿Seguro que lo quieres eliminar?"
         create: Crear
         deactivate: Desactivar
         destroy: Eliminar
         edit: Editar
         new: Nuevo %{name}
+        preview: Previsualizar
         publish: Publicar
         title: Acciones
         unpublish: Despublicar
       decidim:
         admin:
           participatory_process_steps:
-            table:
+            index:
               steps_hint: Puedes arrastrar las filas de la tabla para reordenar las fases del proceso.
               steps_title: Fases
           participatory_process_user_roles:
-            table:
+            index:
               process_admins_title: Administradores del proceso participativo
       menu:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
+        participatory_processes_submenu:
+          info: Información
+          process_admins: Administradores del proceso
+          steps: Fases del proceso
       models:
         participatory_process:
           fields:
