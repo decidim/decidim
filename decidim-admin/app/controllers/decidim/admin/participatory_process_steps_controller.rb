@@ -7,6 +7,7 @@ module Decidim
     #
     class ParticipatoryProcessStepsController < ApplicationController
       helper_method :participatory_process
+      layout "layouts/decidim/admin/participatory_process"
 
       def index
         authorize! :read, Decidim::ParticipatoryProcessStep
