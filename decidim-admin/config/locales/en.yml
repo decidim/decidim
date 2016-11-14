@@ -15,6 +15,7 @@ en:
         destroy: Destroy
         edit: Edit
         new: New %{name}
+        new_action: New action
         preview: Preview
         publish: Publish
         title: Actions
