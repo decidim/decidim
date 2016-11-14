@@ -1,13 +1,13 @@
 require "spec_helper"
 
 module Decidim
-  describe "decidim/admin/pages/_form" do
+  describe "decidim/admin/static_pages/_form" do
     subject { render }
 
     let(:form) do
       Decidim::FormBuilder.new(
-        :page,
-        Decidim::Admin::PageForm.new(slug: slug),
+        :static_page,
+        Decidim::Admin::StaticPageForm.new(slug: slug),
         view,
         {}
       )
@@ -22,12 +22,12 @@ module Decidim
       allow(view).to receive(:current_ability).and_return(ability)
     end
 
-    context "with a default page" do
-      let(:slug) { Decidim::Page::DEFAULT_PAGES.sample }
+    context "with a default static page" do
+      let(:slug) { Decidim::StaticPage::DEFAULT_PAGES.sample }
       it { is_expected.to_not include("slug") }
     end
 
-    context "with a normal page" do
+    context "with a normal static page" do
       let(:slug) { "foo" }
       it { is_expected.to include("slug") }
     end

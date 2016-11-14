@@ -29,20 +29,13 @@ ca:
               process_admins_title: Administradors del procés participatiu
       menu:
         dashboard: Tauler de control
-        pages: Pages
         participatory_processes: Processos participatius
         participatory_processes_submenu:
           info: Informació
           process_admins: Administradors del procés
           steps: Fases del procés
+        static_pages: Pàgines
       models:
-        page:
-          fields:
-            created_at: Created at
-            title: Title
-          name: Name
-          validations:
-            slug_uniqueness: Una altra pàgina amb el mateix llimac ja existeix
         participatory_process:
           fields:
             created_at: Data de creació
@@ -60,24 +53,11 @@ ca:
         participatory_process_user_role:
           fields:
             email: Correu electrònic
-      pages:
-        actions:
-          view: Visualitzar la pàgina pública
-        create:
-          error: Error
-          success: Success
-        destroy:
-          success: Success
-        edit:
-          title: Title
-          update: Update
-        new:
-          create: Create
-          title: Title
-        update:
-          error: Error
-          success: Success
->>>>>>> Add content pages
+        static_page:
+          fields:
+            created_at: Data de creació
+            title: Títol
+          name: Pàgina
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
@@ -130,7 +110,24 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
+      static_pages:
+        actions:
+          view: Visualitzar la pàgina pública
+        create:
+          error: Error
+          success: Success
+        destroy:
+          success: Success
+        edit:
+          title: Title
+          update: Update
+        new:
+          create: Create
+          title: Title
+        update:
+          error: Error
+          success: Success
       titles:
         dashboard: Tauler de control
-        pages: Pages
         participatory_processes: Processos participatius
+        static_pages: Pàgines

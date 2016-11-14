@@ -3,7 +3,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe PagesController, type: :controller do
+    describe StaticPagesController, type: :controller do
       let(:organization) { create :organization }
       let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
@@ -21,7 +21,7 @@ module Decidim
       end
 
       context "when updating a page" do
-        let!(:page) { create(:page, organization: organization) }
+        let!(:page) { create(:static_page, organization: organization) }
 
         it "injects the organization to the form" do
           put :update, params: { id: page.id }.with_indifferent_access
@@ -39,7 +39,7 @@ module Decidim
 
         context "when a slug is given" do
           it "does not overwrite it" do
-            put :update, params: { id: page.id, page: { slug: "new-slug" } }.with_indifferent_access
+            put :update, params: { id: page.id, static_page: { slug: "new-slug" } }.with_indifferent_access
 
             expect(assigns(:form).slug).to eq("new-slug")
           end

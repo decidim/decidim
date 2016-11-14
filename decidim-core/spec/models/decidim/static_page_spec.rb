@@ -1,8 +1,8 @@
 require "spec_helper"
 
 module Decidim
-  describe Page do
-    let(:page) { build(:page) }
+  describe StaticPage do
+    let(:page) { build(:static_page) }
 
     context "validations" do
       it "is valid" do
@@ -10,15 +10,15 @@ module Decidim
       end
 
       it "does not allow two pages with the same slug in the same organization" do
-        page = create(:page)
-        invalid_page = build(:page, slug: page.slug, organization: page.organization)
+        page = create(:static_page)
+        invalid_page = build(:static_page, slug: page.slug, organization: page.organization)
 
         expect(invalid_page).to_not be_valid
       end
 
       it "does allow two pages with the same slug in different organizations" do
-        page = create(:page)
-        other_page = create(:page, slug: page.slug)
+        page = create(:static_page)
+        other_page = create(:static_page, slug: page.slug)
 
         expect(other_page).to be_valid
       end
@@ -31,10 +31,10 @@ module Decidim
     end
 
     context "callbacks" do
-      let(:page) { create(:page, slug: slug) }
+      let(:page) { create(:static_page, slug: slug) }
 
       context "pages with a default slug" do
-        let(:slug) { Page::DEFAULT_PAGES.sample }
+        let(:slug) { described_class::DEFAULT_PAGES.sample }
 
         context "when editing" do
           it "makes sure the slug is not changed" do
@@ -77,10 +77,10 @@ module Decidim
     end
 
     describe "default?" do
-      subject(:page) { build(:page, slug: slug) }
+      subject(:static_page) { build(:static_page, slug: slug) }
 
       context "when the slug is a default one" do
-        let(:slug) { Decidim::Page::DEFAULT_PAGES.sample }
+        let(:slug) { described_class::DEFAULT_PAGES.sample }
         it { is_expected.to be_default }
       end
 

@@ -16,8 +16,8 @@ module Decidim
       #
       # Returns nothing.
       def call
-        Decidim::Page::DEFAULT_PAGES.map do |slug|
-          Decidim::Page.find_or_create_by!(slug: slug) do |page|
+        Decidim::StaticPage::DEFAULT_PAGES.map do |slug|
+          Decidim::StaticPage.find_or_create_by!(slug: slug) do |page|
             page.organization = organization
             page.title = localized_attribute(slug, :title)
             page.content = localized_attribute(slug, :content)

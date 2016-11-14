@@ -3,17 +3,11 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe UpdatePage, :db do
+    describe CreateStaticPage, :db do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:page) { create(:page, organization: organization) }
-        let(:form) do
-          PageForm.from_params(
-            page: page.attributes.merge(slug: "new-slug"),
-            organization: page.organization
-          )
-        end
-        let(:command) { described_class.new(page, form) }
+        let(:form) { StaticPageForm.from_model(build(:static_page, organization: organization)) }
+        let(:command) { described_class.new(form) }
 
         describe "when the form is not valid" do
           before do
@@ -24,11 +18,10 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the page" do
-            command.call
-            page.reload
-
-            expect(page.slug).to_not eq("new_slug")
+          it "doesn't create a page" do
+            expect do
+              command.call
+            end.to_not change { StaticPage.count }
           end
         end
 
@@ -37,11 +30,10 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "updates the page in the organization" do
-            command.call
-            page.reload
-
-            expect(page.slug).to eq("new-slug")
+          it "creates a page in the organization" do
+            expect do
+              command.call
+            end.to change { organization.static_pages.count }.by(1)
           end
         end
       end

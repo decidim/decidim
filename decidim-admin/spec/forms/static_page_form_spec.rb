@@ -3,7 +3,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe PageForm do
+    describe StaticPageForm do
       let(:title) do
         {
           en: "Title",
@@ -22,7 +22,7 @@ module Decidim
       let(:organization) { create(:organization) }
       let(:attributes) do
         {
-          "page" => {
+          "static_page" => {
             "title_en" => title[:en],
             "title_es" => title[:es],
             "title_ca" => title[:ca],
@@ -76,7 +76,7 @@ module Decidim
 
       context "when slug is not unique" do
         before do
-          create(:page, organization: organization, slug: slug)
+          create(:static_page, organization: organization, slug: slug)
         end
 
         it "is not valid" do
@@ -87,7 +87,7 @@ module Decidim
 
       context "when the slug exists in another organization" do
         before do
-          create(:page, slug: slug)
+          create(:static_page, slug: slug)
         end
 
         it { is_expected.to be_valid }

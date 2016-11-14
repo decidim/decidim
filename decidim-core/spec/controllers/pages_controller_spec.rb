@@ -19,7 +19,7 @@ module Decidim
       end
 
       context "when a page exists" do
-        let(:page) { create(:page, organization: organization) }
+        let(:page) { create(:static_page, organization: organization) }
         render_views
 
         it "renders the page contents" do

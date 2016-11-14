@@ -10,7 +10,7 @@ module Decidim
       it "creates all the default pages for an organization" do
         expect do
           subject
-        end.to change { organization.pages.count }.by(Decidim::Page::DEFAULT_PAGES.length)
+        end.to change { organization.static_pages.count }.by(Decidim::StaticPage::DEFAULT_PAGES.length)
       end
 
       it "sets the content with each locale" do
@@ -18,7 +18,7 @@ module Decidim
 
         subject
 
-        organization.pages.each do |page|
+        organization.static_pages.each do |page|
           expect(page.title["en"]).to be
           expect(page.title["ca"]).to be
           expect(page.content["en"]).to be

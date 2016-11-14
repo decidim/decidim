@@ -13,7 +13,7 @@ Decidim::Admin::Engine.routes.draw do
       resources :user_roles, controller: "participatory_process_user_roles", only: [:destroy, :create, :index]
     end
 
-    resources :pages
+    resources :static_pages
 
     root to: "dashboard#show"
   end

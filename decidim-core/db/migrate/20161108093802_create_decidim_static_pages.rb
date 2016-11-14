@@ -1,6 +1,6 @@
-class CreateDecidimPages < ActiveRecord::Migration[5.0]
+class CreateDecidimStaticPages < ActiveRecord::Migration[5.0]
   def change
-    create_table :decidim_pages do |t|
+    create_table :decidim_static_pages do |t|
       t.hstore :title, null: false
       t.string :slug, null: false
       t.hstore :content, null: false

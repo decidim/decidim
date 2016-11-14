@@ -2,7 +2,7 @@
 module Decidim
   module Admin
     # A form object to create or update pages.
-    class PageForm < Rectify::Form
+    class StaticPageForm < Rectify::Form
       include TranslatableAttributes
 
       attribute :slug, String
@@ -10,7 +10,7 @@ module Decidim
       translatable_attribute :title, String
       translatable_attribute :content, String
 
-      mimic :page
+      mimic :static_page
 
       validates :slug, :organization, presence: true
       translatable_validates :title, :content, presence: true
@@ -19,12 +19,9 @@ module Decidim
       private
 
       def slug_uniqueness
-        return unless organization && organization.pages.where(slug: slug).where.not(id: id).any?
+        return unless organization && organization.static_pages.where(slug: slug).where.not(id: id).any?
 
-        errors.add(
-          :slug,
-          I18n.t("models.page.validations.slug_uniqueness", scope: "decidim.admin")
-        )
+        errors.add(:slug, :taken)
       end
     end
   end

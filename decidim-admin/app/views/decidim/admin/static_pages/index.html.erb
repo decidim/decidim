@@ -1,16 +1,16 @@
 <% content_for :title do %>
-  <h2><%= t "decidim.admin.titles.pages" %></h2>
+  <h2><%= t "decidim.admin.titles.static_pages" %></h2>
 <% end %>
 
 <div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.page.name", scope: "decidim.admin")), ['new', 'page'], class: 'new' %>
+  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.static_page.name", scope: "decidim.admin")), ['new', 'static_page'], class: 'new' %>
 </div>
 
 <table class="stack">
   <thead>
     <tr>
-      <th><%= t("models.page.fields.title", scope: "decidim.admin") %></th>
-      <th><%= t("models.page.fields.created_at", scope: "decidim.admin") %></th>
+      <th><%= t("models.static_page.fields.title", scope: "decidim.admin") %></th>
+      <th><%= t("models.static_page.fields.created_at", scope: "decidim.admin") %></th>
       <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
     </tr>
   </thead>
@@ -32,7 +32,7 @@
             <%= link_to t("actions.destroy", scope: "decidim.admin"), page, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
           <% end %>
 
-          <%= link_to t("actions.view", scope: "decidim.admin.pages"), decidim.page_path(page) %>
+          <%= link_to t("actions.view", scope: "decidim.admin.static_pages"), decidim.page_path(page) %>
         </td>
       </tr>
     <% end %>

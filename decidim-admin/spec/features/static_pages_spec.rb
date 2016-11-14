@@ -21,11 +21,11 @@ describe "Content pages", type: :feature do
     it "can create new pages" do
       find(".actions .new").click
 
-      within ".new_page" do
-        fill_in :page_slug, with: "welcome"
+      within ".new_static_page" do
+        fill_in :static_page_slug, with: "welcome"
 
         fill_in_i18n(
-          :page_title,
+          :static_page_title,
           "#title-tabs",
           en: "Welcome to Decidim",
           es: "Te damos la bienvendida a Decidim",
@@ -33,7 +33,7 @@ describe "Content pages", type: :feature do
         )
 
         fill_in_i18n(
-          :page_content,
+          :static_page_content,
           "#content-tabs",
           en: "<p>Some HTML content</p>",
           es: "<p>Contenido HTML</p>",
@@ -53,7 +53,7 @@ describe "Content pages", type: :feature do
     end
 
     context "with existing pages" do
-      let!(:decidim_page) { create(:page, organization: organization) }
+      let!(:decidim_page) { create(:static_page, organization: organization) }
 
       before do
         visit current_path
@@ -64,14 +64,14 @@ describe "Content pages", type: :feature do
           click_link "Edit"
         end
 
-        within ".edit_page" do
+        within ".edit_static_page" do
           fill_in_i18n(
-            :page_title,
+            :static_page_title,
             "#title-tabs",
             en: "Not welcomed anymore",
           )
           fill_in_i18n(
-            :page_content,
+            :static_page_content,
             "#content-tabs",
             en: "This is the new <strong>content</strong>",
           )

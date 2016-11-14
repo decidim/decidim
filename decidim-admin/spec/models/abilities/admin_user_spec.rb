@@ -18,15 +18,15 @@ describe Decidim::Admin::Abilities::AdminUser do
   it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcess) }
   it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcessStep) }
 
-  it { is_expected.to be_able_to(:create, Decidim::Page) }
-  it { is_expected.to be_able_to(:update, Decidim::Page) }
-  it { is_expected.to be_able_to(:index, Decidim::Page) }
-  it { is_expected.to be_able_to(:new, Decidim::Page) }
-  it { is_expected.to be_able_to(:read, Decidim::Page) }
+  it { is_expected.to be_able_to(:create, Decidim::StaticPage) }
+  it { is_expected.to be_able_to(:update, Decidim::StaticPage) }
+  it { is_expected.to be_able_to(:index, Decidim::StaticPage) }
+  it { is_expected.to be_able_to(:new, Decidim::StaticPage) }
+  it { is_expected.to be_able_to(:read, Decidim::StaticPage) }
 
   context "when a page is a default one" do
-    let(:page) { build(:page, :default) }
-    let(:form) { Decidim::Admin::PageForm.new(slug: page.slug) }
+    let(:page) { build(:static_page, :default) }
+    let(:form) { Decidim::Admin::StaticPageForm.new(slug: page.slug) }
 
     it { is_expected.to_not be_able_to(:update_slug, page) }
     it { is_expected.to_not be_able_to(:update_slug, form) }
@@ -35,8 +35,8 @@ describe Decidim::Admin::Abilities::AdminUser do
   end
 
   context "when a page is not default one" do
-    let(:page) { build(:page) }
-    let(:form) { Decidim::Admin::PageForm.new(slug: page.slug) }
+    let(:page) { build(:static_page) }
+    let(:form) { Decidim::Admin::StaticPageForm.new(slug: page.slug) }
 
     it { is_expected.to be_able_to(:update_slug, page) }
     it { is_expected.to be_able_to(:update_slug, form) }

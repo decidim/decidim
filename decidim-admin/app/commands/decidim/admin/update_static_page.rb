@@ -3,10 +3,10 @@ module Decidim
   module Admin
     # A command with all the business logic when creating a new participatory
     # process in the system.
-    class UpdatePage < Rectify::Command
+    class UpdateStaticPage < Rectify::Command
       # Public: Initializes the command.
       #
-      # page - the Page to update
+      # page - the StaticPage to update
       # form - A form object with the params.
       def initialize(page, form)
         @page = page

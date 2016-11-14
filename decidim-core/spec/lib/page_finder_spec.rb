@@ -12,7 +12,7 @@ module Decidim
       subject { finder.page }
 
       context "when a page exists" do
-        let!(:page) { create(:page, organization: organization, slug: page_id) }
+        let!(:page) { create(:static_page, organization: organization, slug: page_id) }
 
         it { is_expected.to eq(page) }
       end
@@ -27,7 +27,7 @@ module Decidim
 
       context "when a page exists for the slug" do
         before do
-          create(:page, organization: organization, slug: page_id)
+          create(:static_page, organization: organization, slug: page_id)
         end
 
         it { is_expected.to eq("pages/decidim_page") }
@@ -35,7 +35,7 @@ module Decidim
 
       context "when a page exists for the slug in another organization" do
         before do
-          create(:page, slug: page_id)
+          create(:static_page, slug: page_id)
         end
 
         it { is_expected.to eq("pages/welcome") }

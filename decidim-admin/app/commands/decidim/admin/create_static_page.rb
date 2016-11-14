@@ -3,7 +3,7 @@ module Decidim
   module Admin
     # A command with all the business logic when creating a new participatory
     # process in the system.
-    class CreatePage < Rectify::Command
+    class CreateStaticPage < Rectify::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.
@@ -29,7 +29,7 @@ module Decidim
       attr_reader :form
 
       def create_page
-        Page.create!(
+        StaticPage.create!(
           title: form.title,
           slug: form.slug,
           content: form.content,

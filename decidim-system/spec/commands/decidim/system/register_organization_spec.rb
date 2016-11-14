@@ -53,7 +53,7 @@ module Decidim
           it "creates the default content pages for the organization" do
             command.call
             organization = Organization.last
-            expect(organization.pages.count).to eq(Decidim::Page::DEFAULT_PAGES.length)
+            expect(organization.static_pages.count).to eq(Decidim::StaticPage::DEFAULT_PAGES.length)
           end
         end
 
