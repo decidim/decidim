@@ -14,7 +14,6 @@ ca:
         destroy: Eliminar
         edit: Editar
         new: Nou %{name}
-        new_action: Nova acció
         preview: Previsualitzar
         publish: Publicar
         title: Accions
@@ -58,20 +57,14 @@ ca:
           error: S'ha produït un error en publicar aquest procés participatiu.
         destroy:
           error: S'ha produït un error en despublicar aquest procés participatiu.
-          success: El procés participatiu s'ha despublicat correctament
       participatory_process_step_activations:
         create:
           error: S'ha produït un error en activar aquesta fase de procés participatiu.
-          success: La fase de procés participatiu s'ha activat correctament
         destroy:
           error: S'ha produït un error en desactivar aquesta fase de procés participatiu.
-          success: La fase de procés participatiu s'ha desactivat correctament
       participatory_process_steps:
         create:
           error: S'ha produït un error en crear una nova fase de procés participatiu.
-          success: La fase de procés participatiu s'ha creat correctament
-        destroy:
-          success: La fase de procés participatiu s'ha eliminat correctament
         edit:
           title: Editar fase de procés participatiu
           update: Actualitzar fase de procés participatiu
@@ -82,7 +75,6 @@ ca:
           error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
         update:
           error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
-          success: La fase de procés participatiu s'ha actualitzat correctament
       participatory_process_user_roles:
         create:
           error: S'ha produït un error en crear un nou administrador per a aquest procés participatiu.
@@ -93,8 +85,6 @@ ca:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.
           success: El procés participatiu s'ha creat correctament. Continua ara amb la configuració de les fases.
-        destroy:
-          success: El procés participatiu s'ha eliminat correctament
         edit:
           title: Editar procés participatiu
           update: Actualitzar procés participatiu
@@ -103,7 +93,6 @@ ca:
           title: Nou procés participatiu
         update:
           error: S'ha produït un error en l'actualització d'aquest procés participatiu.
-          success: El procés participatiu s'ha actualitzat correctament
       titles:
         dashboard: Tauler de control
         participatory_processes: Processos participatius
