@@ -40,4 +40,13 @@ module Decidim
   config_accessor :available_locales do
     %w(en ca es)
   end
+
+  def self.register_component(klass)
+    components << klass
+  end
+
+  def self.components
+    @components ||= Set.new
+    @components
+  end
 end

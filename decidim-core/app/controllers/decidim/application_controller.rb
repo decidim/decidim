@@ -7,7 +7,7 @@ module Decidim
     include NeedsAuthorization
     protect_from_forgery with: :exception, prepend: true
 
-    layout "application"
+    layout "layouts/decidim/application"
 
     def user_not_authorized_path
       decidim.root_path

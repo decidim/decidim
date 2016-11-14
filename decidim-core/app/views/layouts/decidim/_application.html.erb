@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= decidim_page_title %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render partial: 'layouts/decidim/meta' %>
+  </head>
+
+  <body>
+    <%= render partial: 'layouts/decidim/header' %>
+    <%= yield %>
+    <%= render partial: 'layouts/decidim/footer' %>
+  </body>
+</html>

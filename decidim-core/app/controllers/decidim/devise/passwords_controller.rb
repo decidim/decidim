@@ -5,7 +5,7 @@ module Decidim
     class PasswordsController < ::Devise::PasswordsController
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
-      layout "application"
+      layout "layouts/decidim/application"
     end
   end
 end

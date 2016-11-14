@@ -33,6 +33,8 @@ module Decidim
     validates :slug, presence: true
     validates :slug, uniqueness: { scope: :organization }
 
+    has_many :components, foreign_key: "decidim_participatory_process_id"
+
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
 

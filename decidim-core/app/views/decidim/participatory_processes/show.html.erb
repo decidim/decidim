@@ -1,23 +1,20 @@
-<main class="wrapper">
-  <%= render partial: "process_header_home" %>
-  <div class="row column">
-    <div class="row">
-      <div class="columns medium-7 mediumlarge-8">
-        <div class="section">
-          <div class="lead">
-            <%== translated_attribute(participatory_process.short_description) %>
-          </div>
-          <%== translated_attribute(participatory_process.description) %>
+<div class="row column">
+  <div class="row">
+    <div class="columns medium-7 mediumlarge-8">
+      <div class="section">
+        <div class="lead">
+          <%== translated_attribute(participatory_process.short_description) %>
         </div>
+        <%== translated_attribute(participatory_process.description) %>
       </div>
     </div>
   </div>
-  <% if participatory_process.attachments.any? %>
-    <div class="row attachments">
-      <div class="columns large-8">
-        <%= render partial: "documents", locals: { documents: participatory_process.documents } %>
-        <%= render partial: "photos", locals: { photos: participatory_process.photos } %>
-      </div>
+</div>
+<% if participatory_process.attachments.any? %>
+  <div class="row attachments">
+    <div class="columns large-8">
+      <%= render partial: "documents", locals: { documents: participatory_process.documents } %>
+      <%= render partial: "photos", locals: { photos: participatory_process.photos } %>
     </div>
-  <% end %>
-</main>
+  </div>
+<% end %>
