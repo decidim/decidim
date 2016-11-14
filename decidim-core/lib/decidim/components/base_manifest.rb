@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Components
     class BaseManifest
@@ -17,6 +18,11 @@ module Decidim
 
       def self.name(name)
         config[:name] = name.to_sym
+      end
+
+      def self.attribute(name, options = {})
+        config[:attributes] ||= {}
+        config[:attributes].merge!(name => options)
       end
     end
   end

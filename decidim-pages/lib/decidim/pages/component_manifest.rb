@@ -6,6 +6,8 @@ module Decidim
     class ComponentManifest < Decidim::Components::BaseManifest
       name :pages
       engine Engine
+
+      attribute :content, type: :i18n_text
     end
   end
 end
