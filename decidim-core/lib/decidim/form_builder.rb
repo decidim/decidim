@@ -57,7 +57,7 @@ module Decidim
     #           :label   - The Boolean value to create or not the input label (optional) (default: true)
     #           :toolbar - The String value to configure WYSIWYG toolbar. It should be 'basic' or
     #                      or 'full' (optional) (default: 'basic')
-    #           :lines   - The Integer to indicate how many lines should editor have (optional) (default: 10) 
+    #           :lines   - The Integer to indicate how many lines should editor have (optional) (default: 10)
     #
     # Renders a container with both hidden field and editor container
     def editor(name, options = {})
