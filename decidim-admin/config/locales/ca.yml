@@ -70,8 +70,6 @@ ca:
         create:
           error: S'ha produït un error en crear una nova fase de procés participatiu.
           success: La fase de procés participatiu s'ha creat correctament.
-        destroy:
-          success: La fase de procés participatiu s'ha eliminat correctament.
         edit:
           title: Editar fase de procés participatiu
           update: Actualitzar fase de procés participatiu
@@ -93,8 +91,6 @@ ca:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.
           success: El procés participatiu s'ha creat correctament. Continua ara amb la configuració de les fases.
-        destroy:
-          success: El procés participatiu s'ha eliminat correctament.
         edit:
           title: Editar procés participatiu
           update: Actualitzar procés participatiu
