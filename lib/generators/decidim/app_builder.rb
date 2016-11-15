@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require "decidim/core"
+
 module Decidim
   module Generators
     # Custom app builder to inject own Gemfile.
