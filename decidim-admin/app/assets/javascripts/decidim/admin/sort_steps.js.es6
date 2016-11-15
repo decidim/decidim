@@ -12,7 +12,7 @@ $(() => {
     const sortUrl = sortableElement.data('sort-url');
 
     sortable('#steps tbody', {
-      placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0],
+      placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0]
     })[0].addEventListener('sortupdate', (e) => {
       const order = $(e.target).children().map((index, child) => $(child).data('id')).toArray();
 
@@ -20,7 +20,7 @@ $(() => {
         method: 'POST',
         url: sortUrl,
         contentType: 'application/json',
-        data: JSON.stringify({ items_ids: order }) }
+        data: JSON.stringify({ items_ids: order }) },
       );
     });
   }

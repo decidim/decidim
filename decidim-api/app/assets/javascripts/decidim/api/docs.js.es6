@@ -10,7 +10,7 @@ function fetcherFactory(path) {
       data: JSON.stringify({ query }),
       method: 'POST',
       contentType: 'application/json',
-      dataType: 'json',
+      dataType: 'json'
     });
   };
 }
@@ -18,6 +18,6 @@ function fetcherFactory(path) {
 window.renderDocumentation = function renderDocumentation(path) {
   ReactDOM.render(
     <GraphQLDocs.GraphQLDocs fetcher={fetcherFactory(path)} />,
-    document.getElementById('documentation')
+    document.getElementById('documentation'),
   );
 };

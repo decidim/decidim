@@ -12,23 +12,23 @@ $(document).on('turbolinks:load', () => {
       let quillToolbar = [
         ['bold', 'italic', 'underline'],
         [{ list: 'ordered' }, { list: 'bullet' }],
-        ['link', 'clean'],
+        ['link', 'clean']
       ];
 
       if (toolbar === 'full') {
         quillToolbar = [
           [{ header: [1, 2, 3, 4, 5, 6, false] }],
-          ...quillToolbar,
+          ...quillToolbar
         ];
       }
 
       const $input = $(container).siblings('input[type="hidden"]');
       const quill = new Quill(container, {
         modules: {
-          toolbar: quillToolbar,
+          toolbar: quillToolbar
         },
         formats: quillFormats,
-        theme: 'snow',
+        theme: 'snow'
       });
 
       quill.on('text-change', () => {
