@@ -71,6 +71,10 @@ es:
         someone_invited_you: Alguien te ha invitado a %{application}, puedes aceptar la invitación con el enlace a continuación.
       organization_admin_invitation_instructions:
         subject: Te han invitado a administrar %{organization}
+      password_change:
+        greeting: '¡Hola %{recipient}!'
+        message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
+        subject: Contraseña cambiada
   layouts:
     decidim:
       footer:
