@@ -114,19 +114,19 @@ ca:
         actions:
           view: Visualitzar la pàgina pública
         create:
-          error: Error
-          success: Success
+          error: S'ha produït un error en crear una nova pàgina.
+          success: La pàgina s'ha creat correctament.
         destroy:
-          success: Success
+          success: La pàgina s'ha eliminat correctament.
         edit:
-          title: Title
-          update: Update
+          title: Editar pàgina
+          update: Actualitzar pàgina
         new:
-          create: Create
-          title: Title
+          create: Crear pàgina
+          title: Nova pàgina
         update:
-          error: Error
-          success: Success
+          error: S'ha produït un error en l'actualització d'aquests pàgina.
+          success: La pàgina s'ha actualitzat correctament.
       titles:
         dashboard: Tauler de control
         participatory_processes: Processos participatius

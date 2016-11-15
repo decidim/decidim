@@ -114,19 +114,19 @@ es:
         actions:
           view: Ver la página pública
         create:
-          error: Error
-          success: Success
+          error: Se ha producido un error al crear una nueva página.
+          success: La página se ha creado correctamente. Sigue ahora con la configuración de las fases.
         destroy:
-          success: Success
+          success: La página se ha eliminado correctamente.
         edit:
-          title: Title
-          update: Update
+          title: Editar página
+          update: Actualizar página
         new:
-          create: Create
-          title: Title
+          create: Crear página
+          title: Nueva página
         update:
-          error: Error
-          success: Success
+          error: Se ha producido un error en la actualización de ésta página.
+          success: La página se ha actualizado correctamente.
       titles:
         dashboard: Panel de control
         participatory_processes: Procesos participativos

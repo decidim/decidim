@@ -1,19 +1,18 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
-    # A command with all the business logic when creating a new participatory
-    # process in the system.
+    # A command with all the business logic when updating a static page.
     class UpdateStaticPage < Rectify::Command
       # Public: Initializes the command.
       #
-      # page - the StaticPage to update
+      # page - The StaticPage to update
       # form - A form object with the params.
       def initialize(page, form)
         @page = page
         @form = form
       end
 
-      # Executes the command. Braodcasts these events:
+      # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
       # - :invalid if the form wasn't valid and we couldn't proceed.

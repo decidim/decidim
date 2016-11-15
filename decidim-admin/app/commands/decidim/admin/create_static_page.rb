@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
-    # A command with all the business logic when creating a new participatory
-    # process in the system.
+    # A command with all the business logic when creating a static page.
     class CreateStaticPage < Rectify::Command
       # Public: Initializes the command.
       #
