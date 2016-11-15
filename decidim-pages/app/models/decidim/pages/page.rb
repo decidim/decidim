@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   module Pages
     class Page
@@ -14,13 +15,11 @@ module Decidim
         @content = content
       end
 
-      def content=(content)
-        @content = content
-      end
+      attr_writer :content
 
       def save!
         @component.update_attributes!(
-          configuration: { content: JSON.dump(content)}
+          configuration: { content: JSON.dump(content) }
         )
       end
     end
