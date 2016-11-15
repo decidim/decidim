@@ -49,6 +49,12 @@ module Decidim
             expect { command.call }.to change { emails.count }.by(1)
             expect(last_email_body).to include(URI.encode_www_form(["/admin"]))
           end
+
+          it "creates the default content pages for the organization" do
+            command.call
+            organization = Organization.last
+            expect(organization.static_pages.count).to eq(Decidim::StaticPage::DEFAULT_PAGES.length)
+          end
         end
 
         context "when the form is invalid" do

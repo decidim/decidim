@@ -1,0 +1,40 @@
+<% content_for :title do %>
+  <h2><%= t "decidim.admin.titles.static_pages" %></h2>
+<% end %>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.static_page.name", scope: "decidim.admin")), ['new', 'static_page'], class: 'new' %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= t("models.static_page.fields.title", scope: "decidim.admin") %></th>
+      <th><%= t("models.static_page.fields.created_at", scope: "decidim.admin") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pages.each do |page| %>
+      <tr>
+        <td>
+          <%= link_to translated_attribute(page.title), page %><br />
+        </td>
+        <td>
+          <%= l page.created_at, format: :short %>
+        </td>
+        <td class="actions">
+          <% if can? :update, page %>
+            <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', page] %>
+          <% end %>
+
+          <% if can? :destroy, page %>
+            <%= link_to t("actions.destroy", scope: "decidim.admin"), page, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+          <% end %>
+
+          <%= link_to t("actions.view", scope: "decidim.admin.static_pages"), decidim.page_path(page) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

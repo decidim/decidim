@@ -15,11 +15,32 @@ describe Decidim::Admin::Abilities::AdminUser do
     end
   end
 
-  it "can manage processes" do
-    expect(subject.permissions[:can][:manage]).to include("Decidim::ParticipatoryProcess")
+  it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcess) }
+  it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcessStep) }
+
+  it { is_expected.to be_able_to(:create, Decidim::StaticPage) }
+  it { is_expected.to be_able_to(:update, Decidim::StaticPage) }
+  it { is_expected.to be_able_to(:index, Decidim::StaticPage) }
+  it { is_expected.to be_able_to(:new, Decidim::StaticPage) }
+  it { is_expected.to be_able_to(:read, Decidim::StaticPage) }
+
+  context "when a page is a default one" do
+    let(:page) { build(:static_page, :default) }
+    let(:form) { Decidim::Admin::StaticPageForm.new(slug: page.slug) }
+
+    it { is_expected.to_not be_able_to(:update_slug, page) }
+    it { is_expected.to_not be_able_to(:update_slug, form) }
+    it { is_expected.to_not be_able_to(:destroy, page) }
+    it { is_expected.to_not be_able_to(:destroy, form) }
   end
 
-  it "can manage process steps" do
-    expect(subject.permissions[:can][:manage]).to include("Decidim::ParticipatoryProcessStep")
+  context "when a page is not default one" do
+    let(:page) { build(:static_page) }
+    let(:form) { Decidim::Admin::StaticPageForm.new(slug: page.slug) }
+
+    it { is_expected.to be_able_to(:update_slug, page) }
+    it { is_expected.to be_able_to(:update_slug, form) }
+    it { is_expected.to be_able_to(:destroy, page) }
+    it { is_expected.to be_able_to(:destroy, form) }
   end
 end

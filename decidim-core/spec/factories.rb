@@ -72,4 +72,15 @@ FactoryGirl.define do
     user
     metadata { {} }
   end
+
+  factory :static_page, class: Decidim::StaticPage do
+    slug { Faker::Internet.slug(nil, '-') }
+    title { Decidim::Faker::Localized.sentence(3) }
+    content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    organization
+
+    trait :default do
+      slug { Decidim::StaticPage::DEFAULT_PAGES.sample }
+    end
+  end
 end

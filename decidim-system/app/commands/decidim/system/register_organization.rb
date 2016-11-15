@@ -24,6 +24,7 @@ module Decidim
         transaction do
           organization = create_organization
           invite_admin(organization)
+          CreateDefaultPages.call(organization)
         end
 
         broadcast(:ok)

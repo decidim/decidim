@@ -14,6 +14,10 @@ module Decidim
           can :manage, ParticipatoryProcess
           can :manage, ParticipatoryProcessStep
           can :manage, ParticipatoryProcessUserRole
+          can [:create, :update, :index, :new, :read], StaticPage
+          can [:update_slug, :destroy], [StaticPage, StaticPageForm] do |page|
+            !StaticPage.default?(page.slug)
+          end
           can :read, :admin_dashboard
         end
       end

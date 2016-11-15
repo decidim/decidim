@@ -35,6 +35,7 @@ en:
           info: Info
           process_admins: Process admins
           steps: Steps
+        static_pages: Pages
       models:
         participatory_process:
           fields:
@@ -53,6 +54,11 @@ en:
         participatory_process_user_role:
           fields:
             email: Email
+        static_page:
+          fields:
+            created_at: Created at
+            title: Title
+          name: Page
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
@@ -105,6 +111,24 @@ en:
         update:
           error: There was an error when updating this participatory process.
           success: Participatory process updated successfully.
+      static_pages:
+        actions:
+          view: View public page
+        create:
+          error: There was an error creating a new page.
+          success: Page created successfully.
+        destroy:
+          success: Page successfully destroyed
+        edit:
+          title: Edit page
+          update: Update page
+        new:
+          create: Create page
+          title: New page
+        update:
+          error: There was an error when updating this page.
+          success: Page updated successfully
       titles:
         dashboard: Dashboard
         participatory_processes: Participatory processes
+        static_pages: Pages

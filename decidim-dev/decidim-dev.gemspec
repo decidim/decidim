@@ -28,4 +28,5 @@ Gem::Specification.new do |s|
   s.add_dependency "bullet", "~> 5"
   s.add_dependency "faker", "~> 1.6.6"
   s.add_dependency "poltergeist", "~> 1.11.0"
+  s.add_dependency "rails-controller-testing", "~> 1.0.1"
 end
