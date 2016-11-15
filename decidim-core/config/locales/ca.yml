@@ -74,7 +74,7 @@ ca:
       password_change:
         greeting: Hola %{recipient}!
         message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
-        subject: S'ha canviat la contrasenya
+        subject: Contrasenya canviada
   layouts:
     decidim:
       footer:
