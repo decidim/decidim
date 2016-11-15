@@ -13,13 +13,15 @@ module Decidim
 
         def initialize(user)
           return if user.role?(:admin)
-          return unless ManageableParticipatoryProcessesForUser.for(user).any?
+          participatory_processes = ManageableParticipatoryProcessesForUser.for(user).any?
+          return unless participatory_processes.any?
 
           can :read, :admin_dashboard
 
           can :manage, ParticipatoryProcess do |process|
-            ManageableParticipatoryProcessesForUser.for(user).include?(process)
+            participatory_processes.include?(process)
           end
+
           cannot :create, ParticipatoryProcess
           cannot :destroy, ParticipatoryProcess
 
@@ -27,8 +29,16 @@ module Decidim
             role.user != user
           end
 
-          can :manage, [ParticipatoryProcessStep, ParticipatoryProcessAttachment] do |step|
-            ManageableParticipatoryProcessesForUser.for(user).include?(step.participatory_process)
+          can :manage, ParticipatoryProcessAttachment do |step|
+            participatory_processes.include?(step.participatory_process)
+          end
+
+          can :manage, ParticipatoryProcessStep do |step|
+            participatory_processes.include?(step.participatory_process)
+          end
+
+          can :manage, Component do |component|
+            participatory_processes.include?(component.participatory_process)
           end
         end
       end

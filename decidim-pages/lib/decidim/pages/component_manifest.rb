@@ -4,10 +4,9 @@ require "decidim/components/base_manifest"
 module Decidim
   module Pages
     class ComponentManifest < Decidim::Components::BaseManifest
-      name :pages
+      component_name :pages
       engine Engine
-
-      attribute :content, type: :i18n_text
+      admin_engine AdminEngine
     end
   end
 end
