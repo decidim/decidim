@@ -13,7 +13,7 @@ module Decidim
 
         def initialize(user)
           return if user.role?(:admin)
-          participatory_processes = ManageableParticipatoryProcessesForUser.for(user).any?
+          participatory_processes = ManageableParticipatoryProcessesForUser.for(user)
           return unless participatory_processes.any?
 
           can :read, :admin_dashboard
