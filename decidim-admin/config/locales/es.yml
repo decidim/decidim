@@ -71,7 +71,7 @@ es:
           error: Se ha producido un error al crear una nueva fase de proceso participativo.
           success: La fase de proceso participativo se ha creado correctamente.
         destroy:
-          success: La fase de proceso participativo se ha eliminado correctamente.
+          success: La fase de proceso participativo se ha destruido correctamente.
         edit:
           title: Editar fase de proceso participativo
           update: Actualizar fase de proceso participativo
@@ -94,7 +94,7 @@ es:
           error: Se ha producido un error al crear un nuevo proceso participativo.
           success: El proceso participativo se ha creado correctamente. Sigue ahora con la configuración de las fases.
         destroy:
-          success: El proceso participativo se ha eliminado correctamente.
+          success: El proceso participativo se ha destruido correctamente.
         edit:
           title: Editar proceso participativo
           update: Actualizar proceso participativo
