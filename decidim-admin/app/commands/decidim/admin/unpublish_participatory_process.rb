@@ -10,7 +10,7 @@ module Decidim
         @process = process
       end
 
-      # Executes the command. Braodcasts these events:
+      # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
       # - :invalid if the data wasn't valid and we couldn't proceed.
