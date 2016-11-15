@@ -3,6 +3,7 @@
 //= require foundation
 //= require turbolinks
 //= require html.sortable.min
+//= require quill.min
 //= require ./sort_steps
 //= require_self
 

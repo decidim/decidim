@@ -84,5 +84,15 @@ module Decidim
 
       label(attribute, (text || "").html_safe, options)
     end
+
+    def editor(method, options = {})
+      content_tag(:div, class: "editor") do
+        template = ""
+        template += label(method) if options[:label]
+        template += hidden_field(method, options)
+        template += content_tag(:div, nil, class: "editor-container")
+        template.html_safe
+      end
+    end
   end
 end
