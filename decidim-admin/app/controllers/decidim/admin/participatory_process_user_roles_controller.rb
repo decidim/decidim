@@ -6,7 +6,7 @@ module Decidim
     # Controller that allows managing all the Admins.
     #
     class ParticipatoryProcessUserRolesController < ApplicationController
-      layout "decidim/admin/participatory_process"
+      include Concerns::ParticipatoryProcessAdmin
 
       helper_method :participatory_process, :process_admin_roles
 
@@ -41,10 +41,6 @@ module Decidim
       end
 
       private
-
-      def participatory_process
-        @participatory_process ||= current_organization.participatory_processes.find(params[:participatory_process_id])
-      end
 
       def collection
         @collection ||= ProcessAdminRolesForProcess.for(participatory_process)

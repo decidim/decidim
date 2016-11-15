@@ -6,6 +6,8 @@ module Decidim
     # Controller that allows managing all the Admins.
     #
     class ParticipatoryProcessPublicationsController < ApplicationController
+      include Concerns::ParticipatoryProcessAdmin
+
       def create
         authorize! :publish, participatory_process
 
@@ -36,13 +38,6 @@ module Decidim
 
           redirect_back(fallback_location: participatory_processes_path)
         end
-      end
-
-      private
-
-      def participatory_process
-        @participatory_process ||=
-          current_organization.participatory_processes.find(params[:participatory_process_id])
       end
     end
   end
