@@ -6,7 +6,7 @@ module Decidim
     # Controller that allows managing all the Admins.
     #
     class ParticipatoryProcessStepsController < ApplicationController
-      helper_method :participatory_process
+      include Concerns::ParticipatoryProcessAdmin
 
       def index
         authorize! :read, Decidim::ParticipatoryProcessStep
@@ -74,10 +74,6 @@ module Decidim
       end
 
       private
-
-      def participatory_process
-        @participatory_process ||= current_organization.participatory_processes.find(params[:participatory_process_id])
-      end
 
       def collection
         @collection ||= participatory_process.steps

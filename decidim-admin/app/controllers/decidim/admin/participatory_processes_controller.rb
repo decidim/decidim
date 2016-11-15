@@ -7,6 +7,7 @@ module Decidim
     #
     class ParticipatoryProcessesController < ApplicationController
       helper_method :participatory_process
+      layout "decidim/admin/participatory_process", only: [:show, :edit]
 
       def index
         authorize! :index, Decidim::ParticipatoryProcess

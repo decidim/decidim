@@ -6,6 +6,8 @@ module Decidim
     # Controller that allows managing all the Admins.
     #
     class ParticipatoryProcessStepActivationsController < ApplicationController
+      include Concerns::ParticipatoryProcessAdmin
+
       def create
         authorize! :activate, process_step
 
@@ -42,10 +44,6 @@ module Decidim
 
       def process_step
         collection.find(params[:step_id])
-      end
-
-      def participatory_process
-        current_organization.participatory_processes.find(params[:participatory_process_id])
       end
 
       def collection

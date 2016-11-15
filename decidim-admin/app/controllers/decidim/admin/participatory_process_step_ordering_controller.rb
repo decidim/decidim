@@ -6,6 +6,8 @@ module Decidim
     # Controller that allows managing all the Admins.
     #
     class ParticipatoryProcessStepOrderingController < ApplicationController
+      include Concerns::ParticipatoryProcessAdmin
+
       def create
         authorize! :reorder, Decidim::ParticipatoryProcessStep
         ReorderParticipatoryProcessSteps.call(collection, params[:items_ids]) do
@@ -17,10 +19,6 @@ module Decidim
       end
 
       private
-
-      def participatory_process
-        current_organization.participatory_processes.find(params[:participatory_process_id])
-      end
 
       def collection
         participatory_process.steps
