@@ -9,14 +9,14 @@ module Decidim
       @handler = handler
     end
 
-    # Executes the command. Braodcasts these events:
+    # Executes the command. Broadcasts these events:
     #
     # - :ok when everything is valid.
     # - :invalid if the handler wasn't valid and we couldn't proceed.
     #
     # Returns nothing.
     def call
-      return broadcast(:invalid) unless handler.valid?
+      return broadcast(:invalid) unless handler.authorized?
 
       create_authorization
       broadcast(:ok)
