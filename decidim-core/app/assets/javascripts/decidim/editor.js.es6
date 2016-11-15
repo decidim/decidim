@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', () => {
           ...quillToolbar,
         ];
       }
-  
+
       const $input = $(container).siblings('input[type="hidden"]');
       const quill = new Quill(container, {
         modules: {

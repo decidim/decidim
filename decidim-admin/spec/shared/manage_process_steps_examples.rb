@@ -36,14 +36,14 @@ RSpec.shared_examples "manage process steps examples" do
         es: "Mi fase de proceso participativo",
         ca: "La meva fase de procés participatiu"
       )
-      fill_in_i18n(
+      fill_in_i18n_editor(
         :participatory_process_step_short_description,
         "#short_description-tabs",
         en: "Short description",
         es: "Descripción corta",
         ca: "Descripció curta"
       )
-      fill_in_i18n(
+      fill_in_i18n_editor(
         :participatory_process_step_description,
         "#description-tabs",
         en: "A longer description",
