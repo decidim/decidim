@@ -1,4 +1,3 @@
----
 es:
   activerecord:
     attributes:
@@ -9,7 +8,7 @@ es:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: "¿Seguro que lo quieres eliminar?"
+        confirm_destroy: '¿Seguro que lo quieres eliminar?'
         create: Crear
         deactivate: Desactivar
         destroy: Eliminar
@@ -45,14 +44,14 @@ es:
           name: Proceso participativo
         participatory_process_step:
           fields:
-            active: Activo
+            active: Activa
             end_date: Fecha de finalización
             start_date: Fecha de inicio
             title: Título
           name: Fase de proceso participativo
         participatory_process_user_role:
           fields:
-            email: Email
+            email: Correo electrónico
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
