@@ -72,7 +72,7 @@ en:
           error: There was an error creating a new participatory process step.
           success: Participatory process step created successfully.
         destroy:
-          success: Participatory process step successfully destroyed.
+          success: Participatory process step destroyed successfully.
         edit:
           title: Edit participatory process step
           update: Update participatory process step
@@ -95,7 +95,7 @@ en:
           error: There was an error creating a new participatory process.
           success: Participatory process created successfully. Configure now its steps.
         destroy:
-          success: Participatory process successfully destroyed.
+          success: Participatory process destroyed successfully.
         edit:
           title: Edit participatory process
           update: Update participatory process
