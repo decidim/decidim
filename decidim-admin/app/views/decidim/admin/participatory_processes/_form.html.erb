@@ -18,45 +18,8 @@
   <%= form.translated :editor, :short_description %>
 </div>
 
-<script>
-  $(() => {
-    const $container = $('.editor-container');
-
-    const quillToolbar = [
-      //[{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-      ['bold', 'italic', 'underline'],
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      ['link', 'clean']
-    ];
-
-    const quillFormats = ['bold', 'italic', 'link', 'underline', 'header', 'list'];
-
-    $container.each((idx, container) => {
-      const $input = $(container).siblings('input[type="hidden"]');
-      const quill = new Quill(container, {
-        modules: {
-          toolbar: quillToolbar
-        },
-        formats: quillFormats,
-        theme: 'snow'
-      });
-
-      quill.on('text-change', function() {
-        const text = quill.getText();
-        if (text === '') {
-          $input.val('');
-        } else {
-          $input.val(quill.root.innerHTML);
-        }
-      });
-
-      quill.root.innerHTML = $input.val();
-    })
-  })
-</script>
-
 <div class="field">
-  <%= form.translated :text_area, :description %>
+  <%= form.translated :editor, :description, toolbar: :full, lines: 20 %>
 </div>
 
 <div class="field">
