@@ -1,110 +1,25 @@
----
 es:
-  activerecord:
-    attributes:
-      decidim/participatory_process:
-        promoted: Destacado
   decidim:
     admin:
-      actions:
-        activate: Activar
-        configure: Configurar
-        confirm_destroy: "¿Seguro que lo quieres eliminar?"
-        create: Crear
-        deactivate: Desactivar
-        destroy: Eliminar
-        edit: Editar
-        new: Nuevo %{name}
-        preview: Previsualizar
-        publish: Publicar
-        title: Acciones
-        unpublish: Despublicar
-      decidim:
-        admin:
-          participatory_process_steps:
-            index:
-              steps_hint: Puedes arrastrar las filas de la tabla para reordenar las fases del proceso.
-              steps_title: Fases
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Administradores del proceso participativo
-      menu:
-        dashboard: Panel de control
-        participatory_processes: Procesos participativos
-        participatory_processes_submenu:
-          info: Información
-          process_admins: Administradores del proceso
-          steps: Fases del proceso
-      models:
-        participatory_process:
-          fields:
-            created_at: Fecha de creación
-            promoted: Destacado
-            published: Publicado
-            title: Título
-          name: Proceso participativo
-        participatory_process_step:
-          fields:
-            active: Activo
-            end_date: Fecha de finalización
-            start_date: Fecha de inicio
-            title: Título
-          name: Fase de proceso participativo
-        participatory_process_user_role:
-          fields:
-            email: Email
       participatory_process_publications:
         create:
-          error: Se ha producido un error al publicar este proceso participativo.
           success: El proceso participativo se ha publicado correctamente.
         destroy:
-          error: Se ha producido un error al despublicar este proceso participativo.
           success: El proceso participativo se ha despublicado correctamente.
       participatory_process_step_activations:
         create:
-          error: Se ha producido un error al activar esta fase de proceso participativo.
           success: La fase de proceso participativo se ha activado correctamente.
         destroy:
-          error: Se ha producido un error al desactivar esta fase de proceso participativo.
           success: La fase de proceso participativo se ha desactivado correctamente.
       participatory_process_steps:
         create:
-          error: Se ha producido un error al crear una nueva fase de proceso participativo.
           success: La fase de proceso participativo se ha creado correctamente.
         destroy:
-          success: La fase de proceso participativo se ha eliminado correctamente.
-        edit:
-          title: Editar fase de proceso participativo
-          update: Actualizar fase de proceso participativo
-        new:
-          create: Crear fase de proceso participativo
-          title: Nuevo fase de proceso participativo
-        ordering:
-          error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
+          success: La fase de proceso participativo se ha destruido correctamente.
         update:
-          error: Se ha producido un error en la actualización de esta fase de proceso participativo.
           success: La fase de proceso participativo se ha actualizado correctamente.
-      participatory_process_user_roles:
-        create:
-          error: Se ha producido un error al crear un administrador para este proceso participativo.
-          success: El administrador para este proceso participativo se ha creado correctamente.
-        destroy:
-          success: El administrador para este proceso participativo se ha eliminado correctamente.
       participatory_processes:
-        create:
-          error: Se ha producido un error al crear un nuevo proceso participativo.
-          success: El proceso participativo se ha creado correctamente. Sigue ahora con la configuración de las fases.
         destroy:
-          success: El proceso participativo se ha eliminado correctamente.
-        edit:
-          title: Editar proceso participativo
-          update: Actualizar proceso participativo
-        new:
-          create: Crear proceso participativo
-          title: Nuevo proceso participativo
+          success: El proceso participativo se ha destruido correctamente.
         update:
-          error: Se ha producido un error en la actualización de este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
-      titles:
-        dashboard: Panel de control
-        participatory_processes: Procesos participativos
