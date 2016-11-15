@@ -1,4 +1,3 @@
----
 ca:
   activerecord:
     attributes:
@@ -14,7 +13,7 @@ ca:
       decidim/user: Usuari
   booleans:
     'false': 'No'
-    'true': Sí
+    'true': 'Sí'
   decidim:
     account:
       authorizations:
@@ -26,11 +25,11 @@ ca:
       decidim/dummy_authorization_handler: Autorització d'exemple
     authorizations:
       create:
-        error: S'ha produït un error al crear l'autorització.
+        error: S'ha produït un error en crear l'autorització.
         success: Has estat autoritzat/da correctament.
       current_participatory_processes: fer una ullada als processos actuals
       destroy:
-        success: Autorització destruïda correctament.
+        success: L'autorització s'ha destruït correctament
       index:
         actions:
           decidim/dummy_authorization_handler: Verificar-me amb l'exemple
@@ -42,7 +41,7 @@ ca:
       skip_verification: Pots saltar-te aquest pas per ara i %{link}
     core:
       actions:
-        unauthorized: No tens permís per realitzar aquesta acció.
+        unauthorized: No tens permís per realitzar aquesta acció
     devise:
       registrations:
         new:
@@ -75,13 +74,13 @@ ca:
       password_change:
         greeting: Hola %{recipient}!
         message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
-        subject: Contrasenya canviada
+        subject: S'ha canviat la contrasenya
   layouts:
     decidim:
       footer:
         about: Quant a Decidim
         accessibility: Accessibilitat
-        made_with_open_source: Aquesta web està feta amb <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software lliure</a>.
+        made_with_open_source: 'Aquesta web està feta amb <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software lliure</a>.'
         terms_of_use: Termes i condicions
       header:
         close_menu: Tancar menú
