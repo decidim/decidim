@@ -111,4 +111,19 @@ if !Rails.env.production? || ENV["SEED"]
     end_date: 3.months.from_now.at_midnight,
     participatory_process: participatory_process1
   )
+
+  Decidim::ParticipatoryProcess.all.each do |process|
+    Decidim::ParticipatoryProcessAttachment.create!(
+      title: Decidim::Faker::Localized.sentence(2),
+      description: Decidim::Faker::Localized.sentence(5),
+      file: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
+      participatory_process: process
+    )
+    Decidim::ParticipatoryProcessAttachment.create!(
+      title: Decidim::Faker::Localized.sentence(2),
+      description: Decidim::Faker::Localized.sentence(5),
+      file: File.new(File.join(File.dirname(__FILE__), "seeds", "Exampledocument.pdf")),
+      participatory_process: process
+    )
+  end
 end

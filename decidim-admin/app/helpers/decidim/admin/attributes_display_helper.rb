@@ -62,7 +62,8 @@ module Decidim
 
       def display_available_locales(record)
         return record.available_locales if record.respond_to?(:available_locales)
-        record.organization.available_locales
+        record.organization.available_locales if record.respond_to?(:organization)
+        current_organization.available_locales if respond_to?(:current_organization)
       end
     end
   end

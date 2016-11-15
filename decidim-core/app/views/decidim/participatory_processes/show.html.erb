@@ -12,4 +12,12 @@
       </div>
     </div>
   </div>
+  <% if participatory_process.attachments.any? %>
+    <div class="row attachments">
+      <div class="columns large-8">
+        <%= render partial: "documents", locals: { documents: participatory_process.documents } %>
+        <%= render partial: "photos", locals: { photos: participatory_process.photos } %>
+      </div>
+    </div>
+  <% end %>
 </main>

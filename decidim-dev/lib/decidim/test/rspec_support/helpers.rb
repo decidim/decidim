@@ -21,6 +21,10 @@ module Decidim::FeatureTestHelpers
     classes << ["icon--#{name}"] if name
     find(".#{classes.join(".")}").click
   end
+
+  def stripped(text)
+    Nokogiri::HTML(text).text
+  end
 end
 
 RSpec.configure do |config|

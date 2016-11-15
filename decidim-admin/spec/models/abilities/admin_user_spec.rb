@@ -17,6 +17,7 @@ describe Decidim::Admin::Abilities::AdminUser do
 
   it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcess) }
   it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcessStep) }
+  it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcessAttachment) }
 
   it { is_expected.to be_able_to(:create, Decidim::StaticPage) }
   it { is_expected.to be_able_to(:update, Decidim::StaticPage) }

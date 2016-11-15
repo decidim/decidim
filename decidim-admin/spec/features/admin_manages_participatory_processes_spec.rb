@@ -1,33 +1,16 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require_relative "../shared/participatory_admin_shared_context"
 require_relative "../shared/manage_processes_examples"
 
 describe "Admin manage participatory processes", type: :feature do
+  include_context "participatory process admin"
   it_behaves_like "manage processes examples"
-
-  let(:organization) { create(:organization) }
-  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-  let!(:participatory_process) do
-    create(
-      :participatory_process,
-      organization: organization,
-      description: { en: "Description", ca: "Descripció", es: "Descripción" },
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
-    )
-  end
-  let(:image1_filename) { "city.jpeg" }
-  let(:image1_path) do
-    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image1_filename)
-  end
-  let(:image2_filename) { "city2.jpeg" }
-  let(:image2_path) do
-    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image2_filename)
-  end
 
   before do
     switch_to_host(organization.host)
-    login_as admin, scope: :user
+    login_as user, scope: :user
     visit decidim_admin.participatory_processes_path
   end
 

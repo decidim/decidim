@@ -24,6 +24,7 @@ require "date_validator"
 require "sprockets/es6"
 require "cancancan"
 require "truncato"
+require "file_validators"
 
 module Decidim
   module Core

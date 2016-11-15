@@ -6,9 +6,27 @@ module Decidim
   # steps that get enabled or disabled depending on which step is currently
   # active.
   class ParticipatoryProcess < ApplicationRecord
-    belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
-    has_many :steps, -> { order(position: :asc) }, foreign_key: "decidim_participatory_process_id", class_name: Decidim::ParticipatoryProcessStep
-    has_one :active_step, -> { where(active: true) }, foreign_key: "decidim_participatory_process_id", class_name: Decidim::ParticipatoryProcessStep
+    belongs_to :organization,
+               foreign_key: "decidim_organization_id",
+               class_name: Decidim::Organization,
+               inverse_of: :participatory_processes
+    has_many :steps,
+             -> { order(position: :asc) },
+             foreign_key: "decidim_participatory_process_id",
+             class_name: Decidim::ParticipatoryProcessStep,
+             dependent: :destroy,
+             inverse_of: :participatory_process
+    has_one :active_step,
+            -> { where(active: true) },
+            foreign_key: "decidim_participatory_process_id",
+            class_name: Decidim::ParticipatoryProcessStep,
+            dependent: :destroy,
+            inverse_of: :participatory_process
+    has_many :attachments,
+             foreign_key: "decidim_participatory_process_id",
+             class_name: Decidim::ParticipatoryProcessAttachment,
+             dependent: :destroy,
+             inverse_of: :participatory_process
 
     attr_readonly :active_step
 
@@ -37,6 +55,20 @@ module Decidim
     # Returns a boolean.
     def published?
       published_at.present?
+    end
+
+    # All the attachments that are photos for this porcess.
+    #
+    # Returns an Array<Attachment>
+    def photos
+      @photos ||= attachments.select(&:photo?)
+    end
+
+    # All the attachments that are documents for this porcess.
+    #
+    # Returns an Array<Attachment>
+    def documents
+      @documents ||= attachments.select(&:document?)
     end
   end
 end
