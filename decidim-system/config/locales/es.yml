@@ -1,9 +1,8 @@
----
 es:
   decidim:
     system:
       actions:
-        confirm_destroy: "¿Seguro que lo quieres eliminar?"
+        confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Eliminar
         edit: Editar
         new: Nuevo %{name}
@@ -14,7 +13,7 @@ es:
           error: Se ha producido un error al crear un nuevo administrador.
           success: Administrador creado correctamente
         destroy:
-          success: Administrador eliminado correctamente.
+          success: El administrador se ha eliminado correctamente.
         edit:
           title: Editar administrador
           update: Actualizar administrador
@@ -24,7 +23,7 @@ es:
           create: Crear administrador
           title: Nuevo administrador
         update:
-          error: Se ha producido un error al actualizar este administrador ..
+          error: Se ha producido un error al actualizar este administrador.
           success: Administrador actualizado correctamente
       menu:
         admins: Administradores
@@ -37,7 +36,7 @@ es:
             email: Correo electrónico
           name: Administrador
           validations:
-            email_uniqueness: Ya existe otro administrador con este correo electrónico.
+            email_uniqueness: ya existe otro administrador con este correo electrónico
         organization:
           actions:
             save_and_invite: Crear organización e invitar a administrador

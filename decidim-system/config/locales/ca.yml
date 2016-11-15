@@ -1,4 +1,3 @@
----
 ca:
   decidim:
     system:
@@ -14,9 +13,9 @@ ca:
           error: S'ha produït un error en crear un nou administrador.
           success: Administrador creat correctament
         destroy:
-          success: Administrador eliminat correctament.
+          success: L'administrador s'ha eliminat correctament
         edit:
-          title: Edita administrador
+          title: Editar administrador
           update: Actualitzar administrador
         index:
           title: Administradors
@@ -24,8 +23,8 @@ ca:
           create: Crear administrador
           title: Nou administrador
         update:
-          error: S'ha produït un error en actualitzar aquest administrador..
-          success: Administrador actualitzat correctament
+          error: S'ha produït un error en actualitzar aquest administrador.
+          success: L'administrador s'ha actualitzat correctament
       menu:
         admins: Administradors
         dashboard: Tauler de control
@@ -37,10 +36,10 @@ ca:
             email: Correu electrònic
           name: Administrador
           validations:
-            email_uniqueness: Ja existeix un altre administrador amb aquest correu electrònic.
+            email_uniqueness: ja existeix un altre administrador amb aquest correu electrònic
         organization:
           actions:
-            save_and_invite: Crear organització i convidar a administrador
+            save_and_invite: Crear organització i convidar l'administrador
           fields:
             created_at: Data de creació
             name: Nom
@@ -48,13 +47,13 @@ ca:
       organizations:
         create:
           error: S'ha produït un error en crear una nova organització.
-          success: Organització creada correctament.
+          success: L'organització s'ha creat correctament.
         index:
           title: Organitzacions
         new:
           title: Nova organització
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
-          success: Organització actualitzada correctament.
+          success: L'organització s'ha actualitzat correctament.
       titles:
         dashboard: Tauler de control
