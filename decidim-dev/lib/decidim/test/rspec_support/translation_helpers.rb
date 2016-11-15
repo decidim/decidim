@@ -40,6 +40,19 @@ module TranslationHelpers
     end
   end
 
+  # Handles how to fill a WYSIWYG editor.
+  #
+  # locator - The input field ID. The DOM element is selected using jQuery.
+  # params  - A Hash of options
+  #          :with - A String value that will be entered in the form field. (required)
+  def fill_in_editor(locator, params = {})
+    raise ArgumentError if params[:with].blank?
+    page.execute_script <<-SCRIPT
+      $('##{locator}').siblings('.editor-container').find('.ql-editor')[0].innerHTML = "#{params[:with]}";
+      $('##{locator}').val("#{params[:with]}")
+    SCRIPT
+  end
+
   private
 
   def fill_in_i18n_fields(field, tab_selector, localized_values)
@@ -49,13 +62,5 @@ module TranslationHelpers
       end
       yield "#{field}_#{locale}", value
     end
-  end
-
-  def fill_in_editor(locator, params = {})
-    raise ArgumentError if params[:with].blank?
-    page.execute_script <<-SCRIPT
-      $('##{locator}').siblings('.editor-container').find('.ql-editor')[0].innerHTML = "#{params[:with]}";
-      $('##{locator}').val("#{params[:with]}")
-    SCRIPT
   end
 end
