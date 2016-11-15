@@ -56,23 +56,23 @@ en:
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
-          success: Participatory process published successfully
+          success: Participatory process published successfully.
         destroy:
           error: There was an error unpublishing this participatory process.
-          success: Participatory process unpublished successfully
+          success: Participatory process unpublished successfully.
       participatory_process_step_activations:
         create:
           error: There was an error activating this participatory process step.
-          success: Participatory process step activated successfully
+          success: Participatory process step activated successfully.
         destroy:
           error: There was an error deactivating this participatory process step.
-          success: Participatory process step deactivated successfully
+          success: Participatory process step deactivated successfully.
       participatory_process_steps:
         create:
           error: There was an error creating a new participatory process step.
-          success: Participatory process step created successfully
+          success: Participatory process step created successfully.
         destroy:
-          success: Participatory process step successfully destroyed
+          success: Participatory process step destroyed successfully.
         edit:
           title: Edit participatory process step
           update: Update participatory process step
@@ -83,7 +83,7 @@ en:
           error: There was an error when reordering this participatory process steps.
         update:
           error: There was an error when updating this participatory process step.
-          success: Participatory process step updated successfully
+          success: Participatory process step updated successfully.
       participatory_process_user_roles:
         create:
           error: There was an error adding an admin for this participatory process.
@@ -95,7 +95,7 @@ en:
           error: There was an error creating a new participatory process.
           success: Participatory process created successfully. Configure now its steps.
         destroy:
-          success: Participatory process successfully destroyed
+          success: Participatory process destroyed successfully.
         edit:
           title: Edit participatory process
           update: Update participatory process
@@ -104,7 +104,7 @@ en:
           title: New participatory process
         update:
           error: There was an error when updating this participatory process.
-          success: Participatory process updated successfully
+          success: Participatory process updated successfully.
       titles:
         dashboard: Dashboard
         participatory_processes: Participatory processes

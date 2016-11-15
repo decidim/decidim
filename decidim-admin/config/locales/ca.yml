@@ -1,4 +1,3 @@
----
 ca:
   activerecord:
     attributes:
@@ -45,14 +44,14 @@ ca:
           name: Procés participatiu
         participatory_process_step:
           fields:
-            active: Active
+            active: Activa
             end_date: Data de finalització
             start_date: Data d'inici
             title: Títol
           name: Name
         participatory_process_user_role:
           fields:
-            email: Email
+            email: Correu electrònic
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
@@ -72,7 +71,7 @@ ca:
           error: S'ha produït un error en crear una nova fase de procés participatiu.
           success: La fase de procés participatiu s'ha creat correctament.
         destroy:
-          success: La fase de procés participatiu s'ha eliminat correctament.
+          success: La fase de procés participatiu s'ha destruït correctament.
         edit:
           title: Editar fase de procés participatiu
           update: Actualitzar fase de procés participatiu
@@ -95,7 +94,7 @@ ca:
           error: S'ha produït un error en crear un nou procés participatiu.
           success: El procés participatiu s'ha creat correctament. Continua ara amb la configuració de les fases.
         destroy:
-          success: El procés participatiu s'ha eliminat correctament.
+          success: El procés participatiu s'ha destruït correctament.
         edit:
           title: Editar procés participatiu
           update: Actualitzar procés participatiu
