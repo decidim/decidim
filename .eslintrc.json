@@ -5,11 +5,12 @@
   },
   "extends": "airbnb",
   "globals": {
-    "$": true,
-    "jQuery": true,
-    "ReactDOM": true,
-    "React": true,
-    "GraphQLDocs": true
+    "$": false,
+    "jQuery": false,
+    "ReactDOM": false,
+    "React": false,
+    "GraphQLDocs": false,
+    "Quill": false
   },
   "rules": {
     "react/jsx-filename-extension": "off"

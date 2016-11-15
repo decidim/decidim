@@ -32,7 +32,7 @@ describe "Content pages", type: :feature do
           ca: "Et donem la benvinguda a Decidim"
         )
 
-        fill_in_i18n(
+        fill_in_i18n_editor(
           :static_page_content,
           "#content-tabs",
           en: "<p>Some HTML content</p>",
@@ -70,7 +70,7 @@ describe "Content pages", type: :feature do
             "#title-tabs",
             en: "Not welcomed anymore",
           )
-          fill_in_i18n(
+          fill_in_i18n_editor(
             :static_page_content,
             "#content-tabs",
             en: "This is the new <strong>content</strong>",

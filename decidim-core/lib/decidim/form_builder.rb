@@ -50,6 +50,31 @@ module Decidim
       safe_join [field_label, tabs_panels, tabs_content]
     end
 
+    # Public: generates a hidden field and a container for WYSIWYG editor
+    #
+    # name - The name of the field
+    # options - The set of options to send to the field
+    #           :label   - The Boolean value to create or not the input label (optional) (default: true)
+    #           :toolbar - The String value to configure WYSIWYG toolbar. It should be 'basic' or
+    #                      or 'full' (optional) (default: 'basic')
+    #           :lines   - The Integer to indicate how many lines should editor have (optional) (default: 10)
+    #
+    # Renders a container with both hidden field and editor container
+    def editor(name, options = {})
+      options[:toolbar] ||= "basic"
+      options[:lines] ||= 10
+
+      content_tag(:div, class: "editor") do
+        template = ""
+        template += label(name) if !options[:label].present? || options[:label]
+        template += hidden_field(name, options)
+        template += content_tag(:div, nil, class: "editor-container", data: {
+                                  toolbar: options[:toolbar]
+                                }, style: "height: #{options[:lines]}rem")
+        template.html_safe
+      end
+    end
+
     private
 
     def tab_element_class_for(type, index)
