@@ -3,9 +3,12 @@ MAINTAINER david.morcillo@codegram
 
 ENV APP_HOME /code
 
+RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
 RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash && \
-    apt-get install -y nodejs
+    apt-get install -y nodejs yarn
 
 ADD Gemfile /tmp/Gemfile
 ADD Gemfile.common /tmp/Gemfile.common
@@ -19,7 +22,10 @@ ADD decidim-admin/decidim-admin.gemspec /tmp/decidim-admin/decidim-admin.gemspec
 ADD decidim-dev/decidim-dev.gemspec /tmp/decidim-dev/decidim-dev.gemspec
 ADD decidim-api/decidim-api.gemspec /tmp/decidim-api/decidim-api.gemspec
 
-RUN cd /tmp && bundle install
+ADD package.json /tmp/package.json
+ADD yarn.lock /tmp/yarn.lock
+
+RUN cd /tmp && bundle install && yarn
 
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
