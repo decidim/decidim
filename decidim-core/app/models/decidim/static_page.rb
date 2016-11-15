@@ -12,6 +12,8 @@ module Decidim
     validates :slug, :organization, presence: true
     validates :slug, uniqueness: { scope: :organization }
 
+    # These pages will be created by default when registering an organization
+    # and cannot be deleted.
     DEFAULT_PAGES = %w(faq terms-and-conditions accessibility).freeze
 
     before_destroy :can_be_destroyed?
