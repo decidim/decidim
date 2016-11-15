@@ -7,17 +7,17 @@ module Decidim
     #
     class StaticPagesController < ApplicationController
       def index
-        authorize! :index, Decidim::StaticPage
+        authorize! :index, StaticPage
         @pages = collection
       end
 
       def new
-        authorize! :new, Decidim::StaticPage
+        authorize! :new, StaticPage
         @form = StaticPageForm.new
       end
 
       def create
-        authorize! :new, Decidim::StaticPage
+        authorize! :new, StaticPage
         @form = StaticPageForm.from_params(form_params)
 
         CreateStaticPage.call(@form) do

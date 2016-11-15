@@ -1,7 +1,7 @@
 # Decidim::Admin
 
 This library adds and administration dashboard so users can manage their
-organization, particpatory processes and all other entities.
+organization, participatory processes and all other entities.
 
 ## Usage
 Include this library in your Decidim' flavoured Rails app by:
@@ -30,7 +30,7 @@ $ bundle
 
 ### Participatory process
 
-Here you can manage particpatory processes.
+Here you can manage participatory processes.
 
 TODO: Elaborate on this.
 
