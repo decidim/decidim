@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
-    # A command with all the business logic updating the current organization.
+    # A command with all the business logic for updating the current
+    # organization.
     class UpdateOrganization < Rectify::Command
-
       # Public: Initializes the command.
       #
       # organization - The Organization that will be updated.

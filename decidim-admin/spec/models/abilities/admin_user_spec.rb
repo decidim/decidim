@@ -43,4 +43,18 @@ describe Decidim::Admin::Abilities::AdminUser do
     it { is_expected.to be_able_to(:destroy, page) }
     it { is_expected.to be_able_to(:destroy, form) }
   end
+
+  context "when the organization is the one they belong to" do
+    let(:organization) { user.organization }
+
+    it { is_expected.to be_able_to(:update, organization) }
+    it { is_expected.to be_able_to(:read, organization) }
+  end
+
+  context "when the organization is different form the one they belong to" do
+    let(:organization) { build(:organization) }
+
+    it { is_expected.not_to be_able_to(:update, organization) }
+    it { is_expected.not_to be_able_to(:read, organization) }
+  end
 end

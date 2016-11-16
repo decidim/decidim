@@ -1,6 +1,8 @@
-<h3><%= t ".title" %></h3>
+<% content_for :title do %>
+  <h2><%= t ".title" %></h2>
+<% end %>
 
-<%= form_for(@form) do |f| %>
+<%= form_for(@form, url: organization_path, format: :put) do |f| %>
   <%= render partial: 'form', object: f %>
 
   <div class="actions">

@@ -13,7 +13,7 @@ module Decidim
 
       def update
         authorize! :update, current_organization
-        @form = OrganizationForm.from_params(params)
+        @form = OrganizationForm.from_params(form_params)
 
         UpdateOrganization.call(current_organization, @form) do
           on(:ok) do
@@ -30,6 +30,14 @@ module Decidim
 
       def show
         authorize! :read, current_organization
+      end
+
+      private
+
+      def form_params
+        params[:organization] ||= {}
+        params[:organization][:id] ||= current_organization.id
+        params
       end
     end
   end
