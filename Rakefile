@@ -3,7 +3,7 @@ require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 require_relative "lib/generators/decidim/app_generator"
 
-DECIDIM_GEMS = %w(core system admin api).freeze
+DECIDIM_GEMS = %w(core system admin api pages).freeze
 
 RSpec::Core::RakeTask.new(:spec)
 
