@@ -34,6 +34,7 @@ ca:
           info: Informació
           process_admins: Administradors del procés
           steps: Fases del procés
+        static_pages: Pàgines
       models:
         participatory_process:
           fields:
@@ -52,6 +53,11 @@ ca:
         participatory_process_user_role:
           fields:
             email: Correu electrònic
+        static_page:
+          fields:
+            created_at: Data de creació
+            title: Títol
+          name: Pàgina
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
@@ -104,6 +110,24 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
+      static_pages:
+        actions:
+          view: Visualitzar la pàgina pública
+        create:
+          error: S'ha produït un error en crear una nova pàgina.
+          success: La pàgina s'ha creat correctament.
+        destroy:
+          success: La pàgina s'ha eliminat correctament.
+        edit:
+          title: Editar pàgina
+          update: Actualitzar pàgina
+        new:
+          create: Crear pàgina
+          title: Nova pàgina
+        update:
+          error: S'ha produït un error en l'actualització d'aquests pàgina.
+          success: La pàgina s'ha actualitzat correctament.
       titles:
         dashboard: Tauler de control
         participatory_processes: Processos participatius
+        static_pages: Pàgines
