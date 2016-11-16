@@ -34,7 +34,6 @@ es:
           info: Información
           process_admins: Administradores del proceso
           steps: Fases del proceso
-        static_pages: Páginas
       models:
         participatory_process:
           fields:
@@ -53,11 +52,6 @@ es:
         participatory_process_user_role:
           fields:
             email: Correo electrónico
-        static_page:
-          fields:
-            created_at: Fecha de creación
-            title: Título
-          name: Página
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -77,7 +71,7 @@ es:
           error: Se ha producido un error al crear una nueva fase de proceso participativo.
           success: La fase de proceso participativo se ha creado correctamente.
         destroy:
-          success: La fase de proceso participativo se ha destruido correctamente.
+          success: La fase de proceso participativo se ha eliminado correctamente.
         edit:
           title: Editar fase de proceso participativo
           update: Actualizar fase de proceso participativo
@@ -100,7 +94,7 @@ es:
           error: Se ha producido un error al crear un nuevo proceso participativo.
           success: El proceso participativo se ha creado correctamente. Sigue ahora con la configuración de las fases.
         destroy:
-          success: El proceso participativo se ha destruido correctamente.
+          success: El proceso participativo se ha eliminado correctamente.
         edit:
           title: Editar proceso participativo
           update: Actualizar proceso participativo
@@ -110,24 +104,6 @@ es:
         update:
           error: Se ha producido un error en la actualización de este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
-      static_pages:
-        actions:
-          view: Ver la página pública
-        create:
-          error: Se ha producido un error al crear una nueva página.
-          success: La página se ha creado correctamente. Sigue ahora con la configuración de las fases.
-        destroy:
-          success: La página se ha eliminado correctamente.
-        edit:
-          title: Editar página
-          update: Actualizar página
-        new:
-          create: Crear página
-          title: Nueva página
-        update:
-          error: Se ha producido un error en la actualización de ésta página.
-          success: La página se ha actualizado correctamente.
       titles:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
-        static_pages: Páginas
