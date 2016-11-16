@@ -95,6 +95,8 @@ module Decidim
 
           expect(parsed.css("li.tabs-title a").count).to eq 3
 
+          expect(parsed.css(".editor label[for='resource_short_description_en']").first).to be_nil
+
           expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_ca]']").first).to be
           expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_en]']").first).to be
           expect(parsed.css(".tabs-panel .editor input[type='hidden'][name='resource[short_description_de__CH]']").first).to be
