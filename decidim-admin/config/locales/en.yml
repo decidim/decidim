@@ -30,12 +30,12 @@ en:
               process_admins_title: Participatory process admins
       menu:
         dashboard: Dashboard
-        organization: Organization
         participatory_processes: Participatory processes
         participatory_processes_submenu:
           info: Info
           process_admins: Process admins
           steps: Steps
+        settings: Settings
         static_pages: Pages
       models:
         participatory_process:
