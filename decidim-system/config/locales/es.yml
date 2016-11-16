@@ -25,6 +25,10 @@ es:
         update:
           error: Se ha producido un error al actualizar este administrador.
           success: Administrador actualizado correctamente
+      default_pages:
+        placeholders:
+          content: Por favor, añade contenido significativo en ésta página desde el panel de control.
+          title: Título predeterminado para %{page}
       menu:
         admins: Administradores
         dashboard: Panel de control
@@ -44,6 +48,8 @@ es:
             created_at: Fecha de creación
             name: Nombre
           name: Organización
+        page:
+          name: página
       organizations:
         create:
           error: Se ha producido un error al crear una nueva organización.
