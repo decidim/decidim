@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :organization, class: Decidim::Organization do
     name { Faker::Company.name }
     sequence(:host) { |n| "#{n}.lvh.me" }
-    description     "Description"
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
   end
 
   factory :participatory_process, class: Decidim::ParticipatoryProcess do
