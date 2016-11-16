@@ -86,7 +86,7 @@ module Decidim
 
       return unless Decidim.authorization_handlers.include?(handler_klass)
 
-      handler_klass.new(params || {})
+      handler_klass.from_params(params || {})
     rescue NameError
       nil
     end
