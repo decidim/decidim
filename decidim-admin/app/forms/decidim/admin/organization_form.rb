@@ -7,11 +7,10 @@ module Decidim
     class OrganizationForm < Rectify::Form
       include TranslatableAttributes
 
-      translatable_attribute :description, String
-
       mimic :organization
 
       attribute :name, String
+      translatable_attribute :description, String
 
       validates :name, presence: true
       translatable_validates :description, presence: true

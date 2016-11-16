@@ -8,7 +8,12 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:form) do
           OrganizationForm.from_params(
-            organization: organization.attributes.merge(name: "My super organization"),
+            organization: {
+              name: "My super organization",
+              description_en: "My description",
+              description_es: "Mi descripción",
+              description_ca: "La meva descripció"
+            }
           )
         end
         let(:command) { described_class.new(organization, form) }

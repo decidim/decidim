@@ -2,7 +2,7 @@
   <h2><%= t ".title" %></h2>
 <% end %>
 
-<%= form_for(@form, url: organization_path, format: :put) do |f| %>
+<%= form_for(@form, url: organization_path) do |f| %>
   <%= render partial: 'form', object: f %>
 
   <div class="actions">
