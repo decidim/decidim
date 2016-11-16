@@ -25,10 +25,6 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest administrador.
           success: L'administrador s'ha actualitzat correctament
-      default_pages:
-        placeholders:
-          content: Si us plau, afegeix contingut significatiu a aquesta pàgina des del tauler de control.
-          title: Títol predeterminat per %{page}
       menu:
         admins: Administradors
         dashboard: Tauler de control
@@ -48,8 +44,6 @@ ca:
             created_at: Data de creació
             name: Nom
           name: Organització
-        page:
-          name: pàgina
       organizations:
         create:
           error: S'ha produït un error en crear una nova organització.
