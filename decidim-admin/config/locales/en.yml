@@ -30,6 +30,7 @@ en:
               process_admins_title: Participatory process admins
       menu:
         dashboard: Dashboard
+        organization: Organization
         participatory_processes: Participatory processes
         participatory_processes_submenu:
           info: Info
@@ -59,6 +60,13 @@ en:
             created_at: Created at
             title: Title
           name: Page
+      organization:
+        edit:
+          title: Edit organization
+          update: Update organization
+        update:
+          error: There was an error when updating this organization.
+          success: Organization updated successfully.
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
