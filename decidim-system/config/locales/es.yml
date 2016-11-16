@@ -49,7 +49,7 @@ es:
             name: Nombre
           name: Organización
         page:
-          name: Página
+          name: página
       organizations:
         create:
           error: Se ha producido un error al crear una nueva organización.
