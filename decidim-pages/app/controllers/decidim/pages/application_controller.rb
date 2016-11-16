@@ -5,7 +5,7 @@ module Decidim
   module Pages
     class ApplicationController < Decidim::Components::BaseController
       def show
-        @page = Page.new(current_component)
+        @page = Page.find_by(component: current_component)
       end
     end
   end

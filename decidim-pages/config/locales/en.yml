@@ -1,0 +1,14 @@
+en:
+  components:
+    pages:
+      name: Page
+  decidim:
+    pages:
+      admin:
+        pages:
+          edit:
+            title: Edit page
+            save: Save page
+          update:
+            success: Page saved successfully.
+            invalid: There's been errors when saving the page.

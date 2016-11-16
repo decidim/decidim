@@ -3,9 +3,8 @@ module Decidim
   module Pages
     module Admin
       class UpdatePage < Rectify::Command
-        def initialize(form, component)
-          @component = component
-          @page = Page.new(component)
+        def initialize(form, page)
+          @page = page
           @form = form
         end
 
@@ -18,11 +17,11 @@ module Decidim
 
         private
 
-        attr_reader :handler
-
         def update_page
-          @page.content = @form.attributes
-          @page.save!
+          @page.update_attributes!(
+            title: @form.title,
+            body: @form.body
+          )
         end
       end
     end

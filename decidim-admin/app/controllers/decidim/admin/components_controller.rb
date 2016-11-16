@@ -15,14 +15,24 @@ module Decidim
       end
 
       def new
-        component_manifest = Decidim.components.find do |component|
+        @component_manifest = Decidim.components.find do |component|
           component.config[:name] == params[:type].to_sym
         end
 
         authorize! :create, Component
+
+        component_name = I18n.available_locales.inject({}) do |result, locale|
+          I18n.with_locale(locale) do
+            result[locale] = I18n.t("components.#{@component_manifest.config[:name]}.name")
+          end
+
+          result
+        end
+
         component = Component.new(
+          name: component_name,
           participatory_process: participatory_process,
-          component_type: component_manifest.config[:name]
+          component_type: @component_manifest.config[:name]
         )
 
         @form = ComponentForm.from_model(component)

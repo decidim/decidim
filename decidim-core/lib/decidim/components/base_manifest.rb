@@ -24,6 +24,11 @@ module Decidim
       def self.admin_engine(klass)
         config[:admin_engine] = klass
       end
+
+      def self.on(name, &block)
+        config[:hooks] ||= {}
+        config[:hooks][name.to_sym] = block
+      end
     end
   end
 end

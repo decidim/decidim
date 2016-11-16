@@ -10,7 +10,11 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_component
+        transaction do
+          create_component
+          run_hooks
+        end
+
         broadcast(:ok)
       end
 
@@ -19,7 +23,7 @@ module Decidim
       attr_reader :form
 
       def create_component
-        Component.create!(
+        @component = Component.create!(
           component_type: component_manifest.config[:name],
           name: form.name,
           participatory_process: @participatory_process
@@ -30,6 +34,10 @@ module Decidim
         @component_manifest ||= Decidim.components.find do |component|
           component.config[:name] == form.component_type.to_sym
         end
+      end
+
+      def run_hooks
+        component_manifest.config.dig(:hooks, :create)&.call(@component)
       end
     end
   end

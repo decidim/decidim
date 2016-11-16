@@ -1,27 +1,8 @@
-# frozen_string_literal: true
 module Decidim
   module Pages
-    class Page
-      def initialize(component)
-        @component = component
-      end
-
-      def content
-        return @content if defined?(@content)
-
-        content = @component.configuration.try(:[], "content")
-        content = content ? JSON.parse(content) : {}
-
-        @content = content
-      end
-
-      attr_writer :content
-
-      def save!
-        @component.update_attributes!(
-          configuration: { content: JSON.dump(content) }
-        )
-      end
+    class Page < Pages::ApplicationRecord
+      validates :title, presence: true
+      belongs_to :component, foreign_key: "decidim_component_id", class_name: Decidim::Component
     end
   end
 end

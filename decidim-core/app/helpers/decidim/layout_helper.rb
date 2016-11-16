@@ -3,7 +3,11 @@ module Decidim
   # View helpers related to the layout.
   module LayoutHelper
     def decidim_page_title
-      current_organization.name
+      if title = content_for(:title)
+        "#{title} - #{current_organization.name}"
+      else
+        current_organization.name
+      end
     end
 
     # Outputs an SVG-based icon.

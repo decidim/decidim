@@ -19,6 +19,10 @@ en:
         publish: Publish
         title: Actions
         unpublish: Unpublish
+      components:
+        new:
+          title: "Add component: %{name}"
+          add: "Add component"
       decidim:
         admin:
           participatory_process_attachments:

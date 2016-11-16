@@ -1,2 +1,3 @@
-<h1><%= translated_attribute @page.content["title"] %></h1>
-<%== translated_attribute @page.content["body"] %>
+<% content_for(:title, translated_attribute(@page.title)) %>
+
+<%== translated_attribute @page.body %>
