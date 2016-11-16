@@ -29,4 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency "faker", "~> 1.6.6"
   s.add_dependency "poltergeist", "~> 1.11.0"
   s.add_dependency "rails-controller-testing", "~> 1.0.1"
+  s.add_dependency "simplecov", "~> 0.12"
+  s.add_dependency "codecov", "~> 0.1.7"
+  s.add_dependency "rubocop", "~> 0.45"
 end
