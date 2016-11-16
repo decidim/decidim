@@ -31,7 +31,7 @@ module Decidim
       # attrs - a list of N attributes of the `record`.
       def display_for(record, *attrs)
         attrs.map do |attr|
-          if record.column_for_attribute(attr).type == :hstore
+          if record.column_for_attribute(attr).type == :jsonb
             I18n.available_locales.map do |locale|
               display_label(record, attr, locale) + display_value(record, attr, locale)
             end.reduce(:+)
