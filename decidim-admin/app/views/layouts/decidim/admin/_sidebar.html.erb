@@ -9,7 +9,9 @@
 <nav class="main-menu">
   <%= active_link_to t("menu.dashboard", scope: "decidim.admin"), root_path, active: :exact %>
   <%= active_link_to t("menu.participatory_processes", scope: "decidim.admin"), participatory_processes_path, active: :inclusive %>
-  <%= active_link_to t("menu.static_pages", scope: "decidim.admin"), static_pages_path, active: :inclusive %>
+  <% if can? :read, Decidim::StaticPage %>
+    <%= active_link_to t("menu.static_pages", scope: "decidim.admin"), static_pages_path, active: :inclusive %>
+  <% end %>
 </nav>
 
 <%= render partial: 'layouts/decidim/admin/login_items' %>
