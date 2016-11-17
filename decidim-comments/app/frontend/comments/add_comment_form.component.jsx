@@ -20,3 +20,5 @@ const AddCommentForm = () => (
     </form>
   </div>
 );
+
+export default AddCommentForm;
