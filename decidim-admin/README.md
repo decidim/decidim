@@ -4,13 +4,6 @@ This library adds and administration dashboard so users can manage their
 organization, participatory processes and all other entities.
 
 ## Usage
-Include this library in your Decidim' flavoured Rails app by:
-
-```ruby
-# config/routes.rb
-mount Decidim::Admin::Engine => '/admin'
-```
-
 This will add an admin dashboard to manage an organization an all its entities.
 It's included by default with Decidim.
 
