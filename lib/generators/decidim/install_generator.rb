@@ -24,6 +24,7 @@ module Decidim
         route "mount Decidim::System::Engine => '/system'"
         route "mount Decidim::Admin::Engine => '/admin'"
         route "mount Decidim::Api::Engine => '/api'"
+        route "mount Decidim::Comments::Engine => '/comments'"
         route "mount Decidim::Core::Engine => '/'"
       end
 

@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "decidim-system", Decidim.version
   spec.add_dependency "decidim-admin", Decidim.version
   spec.add_dependency "decidim-api", Decidim.version
+  spec.add_dependency "decidim-comments", Decidim.version
   spec.add_dependency "rails", Decidim.rails_version
   spec.add_dependency "rails-i18n", Decidim.rails_version
 
