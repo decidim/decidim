@@ -14,6 +14,12 @@ module Decidim
         app.config.assets.precompile += %w(decidim_api_manifest.js)
       end
 
+      initializer "decidim_api.mount_routes" do |_app|
+        Decidim::Core::Engine.routes do
+          mount Decidim::Api::Engine => "/api"
+        end
+      end
+
       initializer "decidim-api.middleware" do |app|
         app.config.middleware.insert_before 0, Rack::Cors do
           allow do

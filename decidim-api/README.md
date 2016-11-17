@@ -3,14 +3,7 @@
 This library exposes a [GraphQL](https://facebook.github.io/graphql/) API to programatically interact with the Decidim platform via HTTP.
 
 ## Usage
-Include this library in your Decidim' flavoured Rails app by:
-
-```ruby
-# config/routes.rb
-mount Decidim::Api::Engine => '/api'
-```
-
-This will expose two nice endpoints:
+Including `decidim-api` will get expose two nice endpoints:
 
 * `/api`: The main GraphQL endpoint that holds the actual API.
 * `/api/docs`: Nicely-written docs of the entities of the API.
