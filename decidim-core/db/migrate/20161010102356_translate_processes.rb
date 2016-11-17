@@ -6,10 +6,10 @@ class TranslateProcesses < ActiveRecord::Migration[5.0]
     remove_column :decidim_participatory_processes, :short_description
 
     change_table :decidim_participatory_processes do |t|
-      t.hstore :title, null: false
-      t.hstore :subtitle, null: false
-      t.hstore :short_description, null: false
-      t.hstore :description, null: false
+      t.jsonb :title, null: false
+      t.jsonb :subtitle, null: false
+      t.jsonb :short_description, null: false
+      t.jsonb :description, null: false
     end
   end
 end

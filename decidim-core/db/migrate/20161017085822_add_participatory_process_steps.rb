@@ -1,9 +1,9 @@
 class AddParticipatoryProcessSteps < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_participatory_process_steps do |t|
-      t.hstore :title, null: false
-      t.hstore :short_description, null: false
-      t.hstore :description, null: false
+      t.jsonb :title, null: false
+      t.jsonb :short_description, null: false
+      t.jsonb :description, null: false
       t.datetime :start_date
       t.datetime :end_date
       t.references :decidim_participatory_process,
