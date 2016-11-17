@@ -17,6 +17,15 @@ task :test_all do
   end
 end
 
+desc "Generates test apps for all the engines"
+task :generate_all do
+  DECIDIM_GEMS.each do |gem_name|
+    Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
+      sh "rake generate_test_app"
+    end
+  end
+end
+
 desc "Pushes a new build for each gem."
 task :release_all do
   sh "rake release"
