@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 
 require "spec_helper"
@@ -14,10 +15,12 @@ describe "Admin manages ogranization", type: :feature do
 
   describe "show" do
     it "lists the details from the organization" do
-      expect(page).to have_content(organization.name)
-      expect(page).to have_content(translated(organization.description))
-      expect(page).to have_content(translated(organization.description, locale: :es))
-      expect(page).to have_content(translated(organization.description, locale: :ca))
+      within ".main-content" do
+        expect(page).to have_content(organization.name)
+        expect(page.body).to include(translated(organization.description))
+        expect(page.body).to include(translated(organization.description, locale: :es))
+        expect(page.body).to include(translated(organization.description, locale: :ca))
+      end
     end
   end
 
