@@ -19,6 +19,12 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::System
 
+      initializer "decidim_system.mount_routes" do |_app|
+        Decidim::Core::Engine.routes do
+          mount Decidim::System::Engine => "/system"
+        end
+      end
+
       initializer "decidim_system.assets" do |app|
         app.config.assets.precompile += %w(decidim_system_manifest.js)
       end
