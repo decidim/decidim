@@ -18,6 +18,9 @@ module Decidim
           can [:update_slug, :destroy], [StaticPage, StaticPageForm] do |page|
             !StaticPage.default?(page.slug)
           end
+          can [:read, :update], Decidim::Organization do |organization|
+            organization == user.organization
+          end
           can :read, :admin_dashboard
         end
       end

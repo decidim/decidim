@@ -1,0 +1,19 @@
+<% content_for :title do %>
+  <h2><%= link_to current_organization.name, current_organization %></h2>
+<% end %>
+
+<div class="actions">
+  <hr />
+  <% if can? :update, current_organization %>
+    <%= link_to t("decidim.admin.actions.edit"), edit_organization_path %>
+  <% end %>
+</div>
+
+<dl>
+  <%= display_for current_organization,
+    :name,
+    :description
+  %>
+  <dt><%= display_label(current_organization, :created_at) %></dt>
+  <dd><%= l current_organization.created_at, format: :long %></dd>
+</dl>

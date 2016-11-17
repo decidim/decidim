@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', () => {
 
       quill.on('text-change', () => {
         const text = quill.getText();
-        if (text === '') {
+        if (text === '\n') {
           $input.val('');
         } else {
           $input.val(quill.root.innerHTML);
