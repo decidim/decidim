@@ -98,7 +98,7 @@ In order to develop on decidim, you'll need:
 
 * **PostgreSQL** 9.4+
 * **Ruby** 2.3.1
-* **yarn** (JavaScript dependency manager, can be installed with `npm install yarn`)
+* **NodeJS** with **yarn** (JavaScript dependency manager, can be installed with `npm install yarn`)
 
 The easiest way to work on decidim is to clone decidim's repository and install its dependencies
 
@@ -111,7 +111,7 @@ $ yarn install
 
 You have several rake tasks available for you:
 
-* `rake development_app`: Creates an development app inside `decidim_development` which you can use to run an application with the gems in your path.
+* `rake development_app`: Creates a development app inside `decidim_development` which you can use to run an application with the gems in your path.
 * `rake test_all`: Generates a test app for every engine and runs their tests.
 * `rake generate_all`: Generates all the tests apps but doesn't run the tests - this is useful is you want to run them manually afterwards.
 
