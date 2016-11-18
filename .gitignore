@@ -6,3 +6,4 @@ vendor/bundle
 .DS_Store
 node_modules/
 .vscode
+development_app/
