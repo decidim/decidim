@@ -12,3 +12,7 @@ en:
           update:
             success: Page saved successfully.
             invalid: There's been errors when saving the page.
+        models:
+          components:
+            title: Title
+            body: Body

@@ -20,9 +20,18 @@ en:
         title: Actions
         unpublish: Unpublish
       components:
+        create:
+          error: There was an error creating this component.
+          success: Component created successfully.
+        destroy:
+          error: There has been an error destroying this component.
+          success: Component deleted successfully.
+        index:
+          preview: Preview
         new:
-          title: "Add component: %{name}"
-          add: "Add component"
+          add: Add component
+          title: 'Add component: %{name}'
+        title: Components
       decidim:
         admin:
           participatory_process_attachments:
@@ -40,6 +49,7 @@ en:
         participatory_processes: Participatory processes
         participatory_processes_submenu:
           attachments: Attachments
+          components: Components
           info: Info
           process_admins: Process admins
           settings: Settings
@@ -47,6 +57,9 @@ en:
         settings: Settings
         static_pages: Pages
       models:
+        component:
+          fields:
+            name: Name
         participatory_process:
           fields:
             created_at: Created at

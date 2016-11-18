@@ -69,6 +69,7 @@ module Decidim
 
       initializer "decidim.locales" do |app|
         app.config.i18n.available_locales = Decidim.config.available_locales
+        app.config.i18n.fallbacks = true
       end
     end
   end
