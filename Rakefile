@@ -39,7 +39,7 @@ end
 
 desc "Generates a development app."
 task :development_app do
-  Dir.chdir("#{File.dirname(__FILE__)}") do
+  Dir.chdir(File.dirname(__FILE__)) do
     sh "rm -fR development_app"
   end
 
