@@ -92,7 +92,27 @@ You can use Docker instead of installing the gems yourself. Run `docker-compose 
 Also you can run it as a standalone container like this:
 `docker run --rm codegram/decidim bundle exec bin/decidim <app-name>`.
 
-## Notes
+## How to contribute
 
-* You can use your own application layout - hooks have automatically been installed.
-* You can append your own `js` and `css`, files have automatically been replaced.
+In order to develop on decidim, you'll need:
+
+* **PostgreSQL** 9.4+
+* **Ruby** 2.3.1
+* **yarn** (JavaScript dependency manager, can be installed with `npm install yarn`)
+
+The easiest way to work on decidim is to clone decidim's repository and install its dependencies
+
+```bash
+$ git clone git@github.com:AjuntamentdeBarcelona/decidim.git
+$ cd decidim
+$ bundle install
+$ yarn install
+```
+
+You have several rake tasks available for you:
+
+* `rake development_app`: Creates an development app inside `decidim_development` which you can use to run an application with the gems in your path.
+* `rake test_all`: Generates a test app for every engine and runs their tests.
+* `rake generate_all`: Generates all the tests apps but doesn't run the tests - this is useful is you want to run them manually afterwards.
+
+TODO: Improve guide.
