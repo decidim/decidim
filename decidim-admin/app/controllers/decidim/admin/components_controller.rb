@@ -21,7 +21,7 @@ module Decidim
 
         authorize! :create, Component
 
-        component_name = I18n.available_locales.inject({}) do |result, locale|
+        component_name = I18n.available_locales.each_with_object({}) do |locale, result|
           I18n.with_locale(locale) do
             result[locale] = I18n.t("components.#{@component_manifest.config[:name]}.name")
           end
