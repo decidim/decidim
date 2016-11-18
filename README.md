@@ -15,12 +15,6 @@
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aclosed)
 [![GitHub contributors](https://img.shields.io/github/contributors/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/graphs/contributors)
 
-## Requirements
-
-* Ruby 2.3.1
-* PostgreSQL 9.5 or newer with the `hstore` extension (should already be installed by default)
-* Redis (only in production), required by Rails 5's `ActionCable`
-
 ## Installation instructions
 
 First of all, you need to install the `decidim` gem, which currently is in a *prerelease* status.
