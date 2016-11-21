@@ -15,7 +15,10 @@
         "react"
     ],
     "globals": {
-        "React": false
+        "React": false,
+        "describe": false,
+        "it": false,
+        "expect": false
     },
     "rules": {
         "accessor-pairs": "error",
