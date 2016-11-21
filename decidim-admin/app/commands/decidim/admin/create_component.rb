@@ -1,12 +1,21 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
+    # This command gets called when a component is created from the admin panel.
     class CreateComponent < Rectify::Command
+      # Public: Initializes a component creation command.
+      #
+      # form                   - The form from which to get the data from.
+      # participatory_processs - The participatory process in which to add the
+      #                          newly created component.
       def initialize(form, participatory_process)
         @form = form
         @participatory_process = participatory_process
       end
 
+      # Public: Creates the Component.
+      #
+      # Broadcasts :ok if created, :invalid otherwise.
       def call
         return broadcast(:invalid) if form.invalid?
 
