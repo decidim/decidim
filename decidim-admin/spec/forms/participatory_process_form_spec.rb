@@ -54,7 +54,7 @@ module Decidim
         }
       end
 
-      subject { described_class.from_params(attributes, organization: organization) }
+      subject { described_class.from_params(attributes, current_organization: organization) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }

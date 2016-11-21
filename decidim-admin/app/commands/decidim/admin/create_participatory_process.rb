@@ -39,7 +39,7 @@ module Decidim
           hero_image: form.hero_image,
           banner_image: form.banner_image,
           promoted: form.promoted,
-          organization: form.organization
+          organization: form.current_organization
         )
       end
     end
