@@ -45,3 +45,4 @@ exclude_paths:
 - .rubocop.yml
 - lib/generators/decidim/templates/app.json.erb
 - "decidim-*/db/seeds.rb"
+- "decidim-*/config/routes.rb"
