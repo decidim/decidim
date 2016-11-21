@@ -19,7 +19,7 @@ module Decidim
     let(:available_locales) { %w(en ca pt-BR) }
 
     before do
-      allow(I18n).to receive(:available_locales).and_return available_locales
+      allow(Decidim).to receive(:available_locales).and_return available_locales
     end
 
     let(:model) { klass.new }
