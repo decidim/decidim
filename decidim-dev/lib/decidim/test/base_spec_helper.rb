@@ -2,7 +2,7 @@
 ENV["RAILS_ENV"] ||= "test"
 
 engine_name = ENV["ENGINE_NAME"]
-dummy_app_path = File.expand_path(File.join("spec", "#{engine_name}_dummy_app"))
+dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "#{engine_name}_dummy_app"))
 
 if ENV["CI"]
   require "simplecov"
