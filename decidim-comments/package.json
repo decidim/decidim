@@ -8,7 +8,8 @@
     "start": "webpack -w",
     "test": "./node_modules/karma/bin/karma start --single-run",
     "test:watch": "./node_modules/karma/bin/karma start",
-    "lint": "eslint app/frontend/**"
+    "lint": "eslint --ext .js --ext .jsx app/frontend/**",
+    "ci": "npm run lint && npm test"
   },
   "dependencies": {
     "chai": "^3.5.0",
