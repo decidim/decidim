@@ -11,11 +11,11 @@ module Decidim
       end
 
       def new
-        @form = AdminForm.new
+        @form = form(AdminForm).instance
       end
 
       def create
-        @form = AdminForm.from_params(params)
+        @form = form(AdminForm).from_params(params)
 
         CreateAdmin.call(@form) do
           on(:ok) do
@@ -32,12 +32,12 @@ module Decidim
 
       def edit
         @admin = Admin.find(params[:id])
-        @form = AdminForm.from_model(@admin)
+        @form = form(AdminForm).from_model(@admin)
       end
 
       def update
         @admin = Admin.find(params[:id])
-        @form = AdminForm.from_params(params)
+        @form = form(AdminForm).from_params(params)
 
         UpdateAdmin.call(@admin, @form) do
           on(:ok) do

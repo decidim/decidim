@@ -29,8 +29,8 @@ module Decidim
 
           def context_hash
             {
-              current_organization: @context.current_organization,
-              current_user: @context.current_user
+              current_organization: @context.try(:current_organization),
+              current_user: @context.try(:current_user)
             }
           end
         end.new(klass, self)
