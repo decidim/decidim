@@ -19,8 +19,9 @@ module Decidim
           end
         end
 
-        Decidim.available_locales
-          .map{ |locale| klass.new(locale) }
+        Decidim
+          .available_locales
+          .map { |locale| klass.new(locale) }
       end
     end
   end
