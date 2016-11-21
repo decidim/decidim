@@ -9,6 +9,9 @@ module Decidim
 
       mimic :organization
 
+      attribute :current_organization, Decidim::Organization
+      attribute :current_user, Decidim::User
+
       attribute :name, String
       attribute :available_locales, Array
       attribute :default_locale, String
@@ -18,7 +21,7 @@ module Decidim
       validates :available_locales, presence: true
       validates :default_locale, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
-      translatable_validates :description, presence: true
+      validates :description, translatable_presence: true
     end
   end
 end

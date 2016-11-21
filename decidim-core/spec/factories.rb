@@ -5,6 +5,8 @@ FactoryGirl.define do
     name { Faker::Company.name }
     sequence(:host) { |n| "#{n}.lvh.me" }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    default_locale I18n.default_locale
+    available_locales Decidim.available_locales
   end
 
   factory :participatory_process, class: Decidim::ParticipatoryProcess do
