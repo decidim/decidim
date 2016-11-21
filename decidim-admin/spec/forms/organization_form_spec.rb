@@ -53,40 +53,6 @@ module Decidim
 
         it { is_expected.to be_invalid }
       end
-
-      context "when reducing the number of locales available" do
-        let(:organization) { create(:organization, available_locales: %w{en ca es}) }
-        let(:attributes) do
-          {
-            "organization" => {
-              "name" => name,
-              "default_locale" => :en,
-              "available_locales" => %w{en ca},
-              "description_en" => description[:en],
-              "description_ca" => description[:ca]
-            }
-          }
-        end
-
-        it { is_expected.to be_valid }
-      end
-
-      context "when increasing the number of locales available" do
-        let(:organization) { create(:organization, available_locales: %w{en ca}) }
-        let(:attributes) do
-          {
-            "organization" => {
-              "name" => name,
-              "default_locale" => :en,
-              "available_locales" => %w{en ca es},
-              "description_en" => description[:en],
-              "description_ca" => description[:ca]
-            }
-          }
-        end
-
-        it { is_expected.to be_valid }
-      end
     end
   end
 end

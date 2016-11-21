@@ -4,6 +4,7 @@ module Decidim
     # Custom helpers, scoped to the admin panel.
     #
     module ApplicationHelper
+      include Decidim::LocalizedLocalesHelper
       include Decidim::TranslationsHelper
       include Decidim::HumanizeBooleansHelper
 

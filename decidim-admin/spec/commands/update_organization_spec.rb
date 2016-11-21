@@ -10,10 +10,12 @@ module Decidim
           OrganizationForm.from_params(
             organization: {
               name: "My super organization",
+              default_locale: "en",
               description_en: "My description",
               description_es: "Mi descripción",
               description_ca: "La meva descripció"
-            }
+            },
+            current_organization: organization
           )
         end
         let(:command) { described_class.new(organization, form) }
@@ -41,7 +43,7 @@ module Decidim
           end
 
           it "updates the organization in the organization" do
-            command.call
+            expect { command.call }.to broadcast(:ok)
             organization.reload
 
             expect(organization.name).to eq("My super organization")
