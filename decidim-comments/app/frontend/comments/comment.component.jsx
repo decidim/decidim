@@ -8,7 +8,7 @@ const Comment = () => (
         <div className="author-data__main">
           <div className="author author--inline">
             <a className="author__avatar">
-              <img src="/images/demo-avatar.jpg" alt="" />
+              <span>Avatar image</span>
             </a>
             <a className="author__name">
               Marc Serres
