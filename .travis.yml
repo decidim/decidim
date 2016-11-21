@@ -14,6 +14,7 @@ env:
   - GEM=decidim-system DB=postgres
   - GEM=decidim-api DB=postgres
   - GEM=decidim-pages DB=postgres
+  - GEM=decidim-comments DB=postgres
 
 before_install:
   # Repo for newer Node.js versions
