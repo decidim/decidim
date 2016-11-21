@@ -1,3 +1,4 @@
+---
 en:
   components:
     pages:
@@ -5,14 +6,14 @@ en:
   decidim:
     pages:
       admin:
-        pages:
-          edit:
-            title: Edit page
-            save: Save page
-          update:
-            success: Page saved successfully.
-            invalid: There's been errors when saving the page.
         models:
           components:
-            title: Title
             body: Body
+            title: Title
+        pages:
+          edit:
+            save: Save page
+            title: Edit page
+          update:
+            invalid: There's been errors when saving the page.
+            success: Page saved successfully.
