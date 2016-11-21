@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class TranslatablePresenceValidator < ActiveModel::EachValidator
-  def validate_each(record, attribute, value)
+  def validate_each(record, attribute, _value)
     available_locales_for(record).each do |locale|
       translated_attr = "#{attribute}_#{locale}"
       record.errors.add(translated_attr, :blank) unless record.send(translated_attr).present?

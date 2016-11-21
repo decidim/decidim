@@ -38,7 +38,6 @@ module Decidim
         {
           name: form.name,
           description: form.description,
-          available_locales: form.available_locales,
           default_locale: form.default_locale
         }
       end

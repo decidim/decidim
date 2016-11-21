@@ -12,8 +12,13 @@ module Decidim
 
       attribute :organization_admin_email, String
       attribute :organization_admin_name, String
+      attribute :available_locales, Array
+      attribute :default_locale, String
 
-      validates :organization_admin_email, :organization_admin_name, presence: true
+      validates :organization_admin_email, :organization_admin_name, :name, :host, presence: true
+      validates :available_locales, presence: true
+      validates :default_locale, presence: true
+      validates :default_locale, inclusion: { in: :available_locales }
 
       translatable_attribute :description, String
     end

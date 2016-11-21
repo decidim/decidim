@@ -4,6 +4,8 @@ module Decidim
     # Custom helpers, scoped to the system panel.
     #
     module ApplicationHelper
+      include Decidim::LocalizedLocalesHelper
+
       def title
         "Decidim"
       end
