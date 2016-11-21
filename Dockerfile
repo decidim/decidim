@@ -22,6 +22,7 @@ ADD decidim-admin/decidim-admin.gemspec /tmp/decidim-admin/decidim-admin.gemspec
 ADD decidim-dev/decidim-dev.gemspec /tmp/decidim-dev/decidim-dev.gemspec
 ADD decidim-api/decidim-api.gemspec /tmp/decidim-api/decidim-api.gemspec
 ADD decidim-pages/decidim-pages.gemspec /tmp/decidim-pages/decidim-pages.gemspec
+ADD decidim-comments/decidim-comments.gemspec /tmp/decidim-comments/decidim-comments.gemspec
 
 ADD package.json /tmp/package.json
 ADD yarn.lock /tmp/yarn.lock
