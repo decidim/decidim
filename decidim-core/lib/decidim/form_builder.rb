@@ -84,7 +84,7 @@ module Decidim
     end
 
     def locales
-      I18n.available_locales
+      @template.current_organization.available_locales
     end
 
     def label_for(attribute)
