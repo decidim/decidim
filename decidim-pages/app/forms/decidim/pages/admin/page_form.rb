@@ -2,6 +2,7 @@
 module Decidim
   module Pages
     module Admin
+      # This class holds a Form to update pages from Decidim's admin panel.
       class PageForm < Rectify::Form
         include TranslatableAttributes
 

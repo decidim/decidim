@@ -2,12 +2,21 @@
 module Decidim
   module Pages
     module Admin
+      # This command is executed when the user changes a Page from the admin
+      # panel.
       class UpdatePage < Rectify::Command
+        # Initializes a UpdatePage Command.
+        #
+        # form - The form from which to get the data.
+        # page - The current instance of the page to be updated.
         def initialize(form, page)
-          @page = page
           @form = form
+          @page = page
         end
 
+        # Updates the page if valid.
+        #
+        # Broadcasts :ok if successful, :invalid otherwise.
         def call
           return broadcast(:invalid) if @form.invalid?
 

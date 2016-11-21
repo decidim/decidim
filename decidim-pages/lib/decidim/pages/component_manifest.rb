@@ -3,6 +3,9 @@ require "decidim/components/base_manifest"
 
 module Decidim
   module Pages
+    # This class is the contract between `decidim-core` and `decidim-pages`. It
+    # exposes actions to be done after a component is created (like create a
+    # page), as well as the two engines (admin and public).
     class ComponentManifest < Decidim::Components::BaseManifest
       component_name :pages
       engine Engine

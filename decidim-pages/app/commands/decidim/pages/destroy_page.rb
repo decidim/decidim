@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   module Pages
+    # Command that gets called when the page of this component needs to be destroyed.
     class DestroyPage < Rectify::Command
       def initialize(component)
         @component = component

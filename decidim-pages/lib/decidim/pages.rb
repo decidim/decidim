@@ -5,7 +5,8 @@ require "decidim/pages/admin_engine"
 require "decidim/pages/component_manifest"
 
 module Decidim
+  # This namespace holds the logic of the `Pages` component. This component
+  # allows the admins to create a custom page for a participatory process.
   module Pages
-    # Your code goes here...
   end
 end

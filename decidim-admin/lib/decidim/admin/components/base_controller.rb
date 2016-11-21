@@ -2,6 +2,8 @@
 module Decidim
   module Admin
     module Components
+      # This controller is the abstract class from which all component
+      # controllers in their admin engines should inherit from.
       class BaseController < Admin::ApplicationController
         skip_authorize_resource
         include Concerns::ParticipatoryProcessAdmin
