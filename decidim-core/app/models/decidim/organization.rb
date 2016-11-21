@@ -8,14 +8,5 @@ module Decidim
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: Decidim::StaticPage, inverse_of: :organization
 
     validates :name, :host, uniqueness: true
-
-    # def available_locales
-    #   return attributes[:available_locales] if attributes[:available_locales].try(:any?)
-    #   Decidim.available_locales
-    # end
-    #
-    # def default_locale
-    #   attributes[:default_locale].presence || I18n.locale
-    # end
   end
 end
