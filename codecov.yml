@@ -65,10 +65,6 @@ coverage:
 
   ignore:
   - spec
-  - decidim-core/lib/decidim/core/engine.rb
-  - decidim-admin/lib/decidim/admin/engine.rb
-  - decidim-system/lib/decidim/system/engine.rb
-  - decidim-api/lib/decidim/api/engine.rb
 
 comment:
   layout: "header, diff, changes, sunburst, uncovered, tree"
