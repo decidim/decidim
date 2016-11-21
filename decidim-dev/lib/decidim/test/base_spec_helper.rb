@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 ENV["RAILS_ENV"] ||= "test"
 
-engine_path = Dir.pwd
-engine_name = engine_path.split("/").last
-dummy_app_path = File.expand_path(File.join(engine_path, "spec", "#{engine_name}_dummy_app"))
+engine_name = ENV["ENGINE_NAME"]
+dummy_app_path = File.expand_path(File.join("spec", "#{engine_name}_dummy_app"))
 
 if ENV["CI"]
   require "simplecov"
