@@ -1,4 +1,16 @@
-<h3><%= t ".title" %></h3>
+<div class="actions">
+  <% if can? :publish, participatory_process %>
+    <% if participatory_process.published? %>
+      <%= link_to t("actions.unpublish", scope: "decidim.admin"), participatory_process_publish_path(participatory_process), method: :delete, class: "small button secondary" %>
+    <% else %>
+      <%= link_to t("actions.publish", scope: "decidim.admin"), participatory_process_publish_path(participatory_process), method: :post, class: "small button secondary" %>
+    <% end %>
+  <% end %>
+
+  <% if can? :destroy, participatory_process %>
+    <%= link_to t("decidim.admin.actions.destroy"), participatory_process, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+  <% end %>
+</div>
 
 <%= form_for(@form) do |f| %>
   <%= render partial: 'form', object: f %>
