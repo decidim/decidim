@@ -1,7 +1,7 @@
 ---
 en:
   components:
-    pages:
+    page:
       name: Page
   decidim:
     pages:

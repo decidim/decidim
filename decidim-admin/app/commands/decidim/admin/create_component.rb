@@ -33,20 +33,20 @@ module Decidim
 
       def create_component
         @component = Component.create!(
-          component_type: component_manifest.config[:name],
+          component_type: component_manifest.name,
           name: form.name,
           participatory_process: @participatory_process
         )
       end
 
       def component_manifest
-        @component_manifest ||= Decidim.components.find do |component|
-          component.config[:name] == form.component_type.to_sym
+        @component_manifest ||= Decidim.components.find do |manifest|
+          manifest.name == form.component_type.to_sym
         end
       end
 
       def run_hooks
-        component_manifest.config.dig(:hooks, :create)&.call(@component)
+        component_manifest.run_hooks(:create, @component)
       end
     end
   end

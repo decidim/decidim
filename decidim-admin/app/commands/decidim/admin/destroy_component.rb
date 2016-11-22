@@ -29,7 +29,7 @@ module Decidim
       end
 
       def run_hooks
-        @component.manifest.config.dig(:hooks, :destroy)&.call(@component)
+        @component.manifest.run_hooks(:destroy, @component)
       end
     end
   end

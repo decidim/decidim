@@ -8,6 +8,8 @@ module Decidim
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :DeviseFailureApp, "decidim/devise_failure_app"
+  autoload :FeatureManifest, "decidim/feature_manifest"
+
   include ActiveSupport::Configurable
 
   # Loads seeds from all engines.
@@ -41,12 +43,18 @@ module Decidim
     %w(en ca es)
   end
 
-  def self.register_component(klass)
-    components << klass
+  def self.register_feature(name, &block)
+    feature = FeatureManifest.new(name)
+    yield(feature)
+    features << feature
   end
 
   def self.components
-    @components ||= Set.new
-    @components
+    features.map(&:components).map(&:to_a).flatten
+  end
+
+  def self.features
+    @features ||= Set.new
+    @features
   end
 end

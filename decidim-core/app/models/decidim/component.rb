@@ -13,7 +13,7 @@ module Decidim
     # Returns a class that inherits from Decidim::Components::ComponentManifest.
     def manifest
       @manifest ||= Decidim.components.find do |manifest|
-        manifest.config[:name] == component_type.to_sym
+        manifest.name == component_type.to_sym
       end
     end
   end

@@ -1,4 +1,4 @@
-<h3><%= t ".title", name: t("#{@component_manifest.config[:name]}.name", scope: "components") %></h3>
+<h3><%= t ".title", name: t("#{@component_manifest.name}.name", scope: "components") %></h3>
 
 <%= form_for([participatory_process, @form]) do |form| %>
   <%= render partial: 'form', object: form %>

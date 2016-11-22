@@ -10,7 +10,7 @@ module Decidim
       end
 
       def matches?(request)
-        component_name = @component_manifest.config[:name]
+        component_name = @component_manifest.name
         component = CurrentComponent.new(request).call
         component && component.component_type.to_sym == component_name
       end
