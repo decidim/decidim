@@ -4,6 +4,7 @@
         "es6": true
     },
     "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -256,6 +257,9 @@
         "wrap-iife": "error",
         "wrap-regex": "error",
         "yield-star-spacing": "error",
-        "yoda": "error"
+        "yoda": "error",
+        "import/no-named-as-default": "off",
+        "react/prefer-stateless-function": "off",
+        "react/no-multi-comp": "off"
     }
 }
