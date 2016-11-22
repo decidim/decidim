@@ -3,7 +3,7 @@ require "spec_helper"
 module Decidim
   describe TranslatablePresenceValidator do
     let(:record) do
-      Class.new(Rectify::Form) do
+      Class.new(Decidim::Form) do
         include TranslatableAttributes
         mimic :participatory_process
         attribute :current_organization, Decidim::Organization
