@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 require "spec_helper"
 
-describe "Test feature", type: :feature do
+describe "Show a page", type: :feature do
   include_context "component"
 
   describe "page show" do

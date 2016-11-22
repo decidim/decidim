@@ -25,6 +25,12 @@ module Decidim::FeatureTestHelpers
   def stripped(text)
     Nokogiri::HTML(text).text
   end
+
+  def within_flash_messages
+    within ".flash.callout" do
+      yield
+    end
+  end
 end
 
 RSpec.configure do |config|

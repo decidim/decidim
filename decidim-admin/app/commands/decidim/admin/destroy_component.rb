@@ -25,7 +25,7 @@ module Decidim
       private
 
       def destroy_component
-        @component.destroy ? broadcast(:ok) : broadcast(:error)
+        @component.destroy
       end
 
       def run_hooks

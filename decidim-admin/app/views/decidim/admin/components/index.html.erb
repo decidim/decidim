@@ -2,9 +2,9 @@
   <h3><%= t("components.title", scope: "decidim.admin") %></h3>
   <button class="dropdown button" data-toggle="add-component-dropdown">Add component</button>
   <div class="dropdown-pane" id="add-component-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
-    <ul class="vertical menu">
+    <ul class="vertical menu add-components">
       <% @component_manifests.each do |manifest| %>
-        <li><%= link_to t("#{manifest.config[:name]}.name", scope: "components"), new_participatory_process_component_path(type: manifest.config[:name]) %></li>
+        <li><%= link_to t("#{manifest.config[:name]}.name", scope: "components"), new_participatory_process_component_path(type: manifest.config[:name]), class: manifest.config[:name] %></li>
       <% end %>
     </ul>
   </div>

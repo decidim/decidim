@@ -111,7 +111,8 @@ FactoryGirl.define do
 
   factory :component, class: Decidim::Component do
     name { Decidim::Faker::Localized.sentence(3) }
-    component_type "foo"
+    participatory_process
+    component_type "dummy"
   end
 end
 
