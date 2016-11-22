@@ -1,3 +1,5 @@
+require "decidim/configuration"
+
 module Decidim
   class ComponentManifest
     include ActiveModel::Model
@@ -9,6 +11,12 @@ module Decidim
     attribute :hooks, Hash[Symbol => Array[Proc]], default: {}
 
     validates :name, presence: true
+
+    def configuration
+      @configuration ||= Configuration.new
+      yield(@configuration) if block_given?
+      @configuration
+    end
 
     def on(event_name, &block)
       hooks[event_name.to_sym] ||= []
