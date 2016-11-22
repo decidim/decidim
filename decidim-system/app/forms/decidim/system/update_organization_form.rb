@@ -5,7 +5,7 @@ module Decidim
   module System
     # A form object used to update organizations from the system dashboard.
     #
-    class UpdateOrganizationForm < Rectify::Form
+    class UpdateOrganizationForm < Form
       include TranslatableAttributes
 
       mimic :organization

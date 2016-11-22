@@ -4,13 +4,10 @@ module Decidim
     # A form object used to update the current organization from the admin
     # dashboard.
     #
-    class OrganizationForm < Rectify::Form
+    class OrganizationForm < Form
       include TranslatableAttributes
 
       mimic :organization
-
-      attribute :current_organization, Decidim::Organization
-      attribute :current_user, Decidim::User
 
       attribute :name, String
       attribute :default_locale, String

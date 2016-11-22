@@ -7,7 +7,7 @@ module Decidim
   # authorization will be created for the user.
   #
   # It also sets two default attributes, `user` and `handler_name`.
-  class AuthorizationHandler < Rectify::Form
+  class AuthorizationHandler < Form
     # The user that is trying to authorize, it's initialized with the
     # `current_user` from the controller.
     attribute :user, Decidim::User

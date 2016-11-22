@@ -3,7 +3,7 @@ module Decidim
   module System
     # A form object used to create organizations from the system dashboard.
     #
-    class AdminForm < Rectify::Form
+    class AdminForm < Form
       mimic :admin
 
       attribute :email, String

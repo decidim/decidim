@@ -4,7 +4,7 @@ module Decidim
     # A form object used to create participatory process user roles from the
     # admin dashboard.
     #
-    class ParticipatoryProcessUserRoleForm < Rectify::Form
+    class ParticipatoryProcessUserRoleForm < Form
       mimic :participatory_process_user_role
 
       attribute :email, String

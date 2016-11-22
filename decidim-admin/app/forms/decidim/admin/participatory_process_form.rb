@@ -4,7 +4,7 @@ module Decidim
     # A form object used to create participatory processes from the admin
     # dashboard.
     #
-    class ParticipatoryProcessForm < Rectify::Form
+    class ParticipatoryProcessForm < Form
       include TranslatableAttributes
 
       translatable_attribute :title, String
@@ -19,7 +19,6 @@ module Decidim
       attribute :promoted, Boolean
       attribute :hero_image
       attribute :banner_image
-      attribute :current_organization, Decidim::Organization
 
       validates :slug, presence: true
       translatable_validates :title, :subtitle, :description, :short_description, presence: true

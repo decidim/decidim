@@ -2,7 +2,7 @@
 module Decidim
   module Admin
     # A form object to create or update pages.
-    class StaticPageForm < Rectify::Form
+    class StaticPageForm < Form
       include TranslatableAttributes
 
       attribute :slug, String
