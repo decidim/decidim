@@ -2,17 +2,19 @@ require "decidim/component_manifest"
 
 module Decidim
   class FeatureManifest
-    attr_reader :name, :components
+    include ActiveModel::Model
+    include Virtus.model
 
-    def initialize(name)
-      @name = name.to_sym
-      @components = Set.new
-    end
+    attribute :name, Symbol
+    attribute :components, Array[ComponentManifest], default: []
+
+    validates :name, presence: true
 
     def component(name)
-      component = ComponentManifest.new(name)
+      component = ComponentManifest.new(name: name)
       yield(component)
-      @components << component
+      component.validate!
+      components << component
     end
   end
 end

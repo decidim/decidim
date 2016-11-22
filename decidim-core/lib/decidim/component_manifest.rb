@@ -1,27 +1,25 @@
 module Decidim
   class ComponentManifest
-    attr_reader :name
-    attr_accessor :engine, :admin_engine
+    include ActiveModel::Model
+    include Virtus.model
 
-    def initialize(name)
-      @name = name.to_sym
-      @hooks = {}
-    end
+    attribute :name, Symbol
+    attribute :engine, Rails::Engine
+    attribute :admin_engine, Rails::Engine
+    attribute :hooks, Hash[Symbol => Array[Proc]], default: {}
+
+    validates :name, presence: true
 
     def on(event_name, &block)
-      @hooks[event_name] ||= []
-      @hooks[event_name] << block
+      hooks[event_name.to_sym] ||= []
+      hooks[event_name.to_sym] << block
     end
 
     def run_hooks(event_name, context)
-      return unless @hooks[event_name]
-      @hooks[event_name].each do |hook|
+      return unless hooks[event_name]
+      hooks[event_name.to_sym].each do |hook|
         hook.call(context)
       end
-    end
-
-    def reset_hooks!
-      @hooks = {}
     end
   end
 end
