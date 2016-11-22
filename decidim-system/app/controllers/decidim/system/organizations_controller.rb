@@ -7,11 +7,11 @@ module Decidim
     #
     class OrganizationsController < ApplicationController
       def new
-        @form = RegisterOrganizationForm.new
+        @form = form(RegisterOrganizationForm).instance
       end
 
       def create
-        @form = RegisterOrganizationForm.from_params(params)
+        @form = form(RegisterOrganizationForm).from_params(params)
 
         RegisterOrganization.call(@form) do
           on(:ok) do
@@ -36,11 +36,11 @@ module Decidim
 
       def edit
         organization = Organization.find(params[:id])
-        @form = UpdateOrganizationForm.from_model(organization)
+        @form = form(UpdateOrganizationForm).from_model(organization)
       end
 
       def update
-        @form = UpdateOrganizationForm.from_params(params)
+        @form = form(UpdateOrganizationForm).from_params(params)
 
         UpdateOrganization.call(params[:id], @form) do
           on(:ok) do

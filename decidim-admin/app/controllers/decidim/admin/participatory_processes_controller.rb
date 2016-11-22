@@ -16,12 +16,12 @@ module Decidim
 
       def new
         authorize! :new, Decidim::ParticipatoryProcess
-        @form = ParticipatoryProcessForm.new
+        @form = form(ParticipatoryProcessForm).instance
       end
 
       def create
         authorize! :new, Decidim::ParticipatoryProcess
-        @form = ParticipatoryProcessForm.from_params(params, organization: current_organization)
+        @form = form(ParticipatoryProcessForm).from_params(params)
 
         CreateParticipatoryProcess.call(@form) do
           on(:ok) do
@@ -39,13 +39,13 @@ module Decidim
       def edit
         @participatory_process = collection.find(params[:id])
         authorize! :update, @participatory_process
-        @form = ParticipatoryProcessForm.from_model(@participatory_process)
+        @form = form(ParticipatoryProcessForm).from_model(@participatory_process)
       end
 
       def update
         @participatory_process = collection.find(params[:id])
         authorize! :update, @participatory_process
-        @form = ParticipatoryProcessForm.from_params(params, organization: current_organization)
+        @form = form(ParticipatoryProcessForm).from_params(params)
 
         UpdateParticipatoryProcess.call(@participatory_process, @form) do
           on(:ok) do

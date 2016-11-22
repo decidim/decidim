@@ -8,12 +8,12 @@ module Decidim
     class OrganizationController < ApplicationController
       def edit
         authorize! :update, current_organization
-        @form = OrganizationForm.from_model(current_organization)
+        @form = form(OrganizationForm).from_model(current_organization)
       end
 
       def update
         authorize! :update, current_organization
-        @form = OrganizationForm.from_params(form_params)
+        @form = form(OrganizationForm).from_params(form_params)
 
         UpdateOrganization.call(current_organization, @form) do
           on(:ok) do

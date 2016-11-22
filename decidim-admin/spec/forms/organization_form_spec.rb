@@ -17,14 +17,22 @@ module Decidim
         {
           "organization" => {
             "name" => name,
+            "default_locale" => :en,
+            "available_locales" => %w{en ca es},
             "description_en" => description[:en],
             "description_es" => description[:es],
             "description_ca" => description[:ca]
           }
         }
       end
+      let(:context) do
+        {
+          current_organization: organization,
+          current_user: instance_double(Decidim::User).as_null_object
+        }
+      end
 
-      subject { described_class.from_params(attributes) }
+      subject { described_class.from_params(attributes, context) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }

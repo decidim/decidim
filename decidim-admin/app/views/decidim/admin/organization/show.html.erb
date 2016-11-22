@@ -16,4 +16,15 @@
   %>
   <dt><%= display_label(current_organization, :created_at) %></dt>
   <dd><%= l current_organization.created_at, format: :long %></dd>
+  <dt><%= display_label(current_organization, :available_locales) %></dt>
+  <dd>
+    <ul>
+      <% current_organization.available_locales.each do |locale| %>
+        <li>
+          <%= t(locale, scope: "locales") %>
+          <%= current_organization.default_locale.try(:to_sym) == locale.to_sym ? " (#{t('.default')})" : '' %>
+        </li>
+      <% end %>
+    </ul>
+  </dd>
 </dl>

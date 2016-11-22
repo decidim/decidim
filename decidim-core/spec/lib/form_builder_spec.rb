@@ -24,7 +24,7 @@ module Decidim
     end
 
     before do
-      allow(I18n).to receive(:available_locales).and_return available_locales
+      allow(Decidim).to receive(:available_locales).and_return available_locales
     end
 
     let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }

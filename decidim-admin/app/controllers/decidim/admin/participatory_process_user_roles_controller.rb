@@ -16,7 +16,7 @@ module Decidim
 
       def create
         authorize! :create, Decidim::Admin::ParticipatoryProcessUserRole
-        @form = ParticipatoryProcessUserRoleForm.from_params(params)
+        @form = form(ParticipatoryProcessUserRoleForm).from_params(params)
 
         CreateParticipatoryProcessAdmin.call(@form, participatory_process) do
           on(:ok) do

@@ -18,7 +18,9 @@ module Decidim
               host: "decide.gotham.gov",
               description_en: "Fictional city appearing in American comic books.",
               organization_admin_name: "Fiorello Henry La Guardia",
-              organization_admin_email: "f.laguardia@gotham.gov"
+              organization_admin_email: "f.laguardia@gotham.gov",
+              available_locales: ["en"],
+              default_locale: "en"
             }
           end
 

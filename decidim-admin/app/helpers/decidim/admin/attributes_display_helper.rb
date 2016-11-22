@@ -32,7 +32,7 @@ module Decidim
       def display_for(record, *attrs)
         attrs.map do |attr|
           if record.column_for_attribute(attr).type == :jsonb
-            I18n.available_locales.map do |locale|
+            display_available_locales(record).map do |locale|
               display_label(record, attr, locale) + display_value(record, attr, locale)
             end.reduce(:+)
           else
@@ -58,6 +58,11 @@ module Decidim
         end
 
         content_tag(:dd, record.send(attr).try(:html_safe))
+      end
+
+      def display_available_locales(record)
+        return record.available_locales if record.respond_to?(:available_locales)
+        record.organization.available_locales
       end
     end
   end

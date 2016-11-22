@@ -14,7 +14,7 @@ describe Decidim::Admin::CreateParticipatoryProcess do
       promoted: nil,
       description: {en: "description"},
       short_description: {en: "short_description"},
-      organization: organization
+      current_organization: organization
     )
   end
   let(:invalid) { false }

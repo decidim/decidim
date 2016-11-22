@@ -3,6 +3,7 @@ module Decidim
   module System
     # The main application controller that inherits from Rails.
     class ApplicationController < ActionController::Base
+      include FormFactory
       protect_from_forgery with: :exception, prepend: true
 
       helper Decidim::TranslationsHelper

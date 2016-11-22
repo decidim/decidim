@@ -37,7 +37,8 @@ module Decidim
       def attributes
         {
           name: form.name,
-          description: form.description
+          description: form.description,
+          default_locale: form.default_locale
         }
       end
     end

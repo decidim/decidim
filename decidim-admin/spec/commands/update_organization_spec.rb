@@ -6,15 +6,22 @@ module Decidim
     describe UpdateOrganization, :db do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:form) do
-          OrganizationForm.from_params(
+        let(:params) do
+          {
             organization: {
               name: "My super organization",
+              default_locale: "en",
               description_en: "My description",
               description_es: "Mi descripción",
               description_ca: "La meva descripció"
             }
-          )
+          }
+        end
+        let(:context) do
+          { current_organization: organization }
+        end
+        let(:form) do
+          OrganizationForm.from_params(params, context)
         end
         let(:command) { described_class.new(organization, form) }
 
@@ -41,7 +48,7 @@ module Decidim
           end
 
           it "updates the organization in the organization" do
-            command.call
+            expect { command.call }.to broadcast(:ok)
             organization.reload
 
             expect(organization.name).to eq("My super organization")

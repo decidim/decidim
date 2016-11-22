@@ -5,6 +5,7 @@ module Decidim
     class ApplicationController < ActionController::Base
       include NeedsOrganization
       include NeedsAuthorization
+      include FormFactory
 
       protect_from_forgery with: :exception, prepend: true
 

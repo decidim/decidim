@@ -68,7 +68,7 @@ module Decidim
       end
 
       def locales
-        I18n.available_locales
+        Decidim.available_locales
       end
     end
 
