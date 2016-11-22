@@ -7,6 +7,14 @@ module Decidim
   # This is intended to be used in forms, when selecting the default locale
   # form a given list, or when creating a list of radio buttons, for example.
   #
+  # Examples:
+  #
+  #   <%= form.collection_select :default_locale, localized_locales(current_organization.available_locales), :id, :name %>
+  #
+  #   <% localized_locales(current_organization.available_locales).each do |locale| %>
+  #     <p><%= locale.name %></p>
+  #   <% end %>
+  #
   module LocalizedLocalesHelper
     # Converts a given array of strings to an array of Objects representing
     # locales.
