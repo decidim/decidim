@@ -68,8 +68,8 @@ module Decidim
           # the controller that uses it.
           def context_hash
             {
-              current_organization: @context.try(:current_organization),
-              current_user: @context.try(:current_user)
+              current_organization: @context.try(:current_organization).try(:readonly!),
+              current_user: @context.try(:current_user).try(:readonly!)
             }.compact
           end
         end.new(klass, self)
