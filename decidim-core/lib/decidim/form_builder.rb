@@ -71,6 +71,7 @@ module Decidim
         template += content_tag(:div, nil, class: "editor-container", data: {
                                   toolbar: options[:toolbar]
                                 }, style: "height: #{options[:lines]}rem")
+        template += error_for(name, options) if has_error?(name)
         template.html_safe
       end
     end
