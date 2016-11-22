@@ -3,6 +3,8 @@ class CreateDecidimOrganizations < ActiveRecord::Migration[5.0]
     create_table :decidim_organizations do |t|
       t.string :name, null: false
       t.string :host, null: false
+      t.string :default_locale, null: false
+      t.string :available_locales, array: true, default: []
 
       t.timestamps
     end
