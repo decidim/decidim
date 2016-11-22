@@ -6,17 +6,22 @@ module Decidim
     describe UpdateOrganization, :db do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:form) do
-          OrganizationForm.from_params(
+        let(:params) do
+          {
             organization: {
               name: "My super organization",
               default_locale: "en",
               description_en: "My description",
               description_es: "Mi descripción",
               description_ca: "La meva descripció"
-            },
-            current_organization: organization
-          )
+            }
+          }
+        end
+        let(:context) do
+          { current_organization: organization }
+        end
+        let(:form) do
+          OrganizationForm.from_params(params, context)
         end
         let(:command) { described_class.new(organization, form) }
 
