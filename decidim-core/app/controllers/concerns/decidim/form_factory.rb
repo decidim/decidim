@@ -49,8 +49,9 @@ module Decidim
           #
           # model - the model instance from which the form object will be
           #   initialized.
-          def from_model(model)
-            @klass.from_model(model)
+          # context - a Hash with optional context data.
+          def from_model(model, context = {})
+            from_params(model.attributes, context)
           end
 
           # Initializes a form object instance from params, and it
