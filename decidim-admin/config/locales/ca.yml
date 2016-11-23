@@ -20,6 +20,9 @@ ca:
         unpublish: Despublicar
       decidim:
         admin:
+          participatory_process_attachments:
+            index:
+              attachments_title: Adjunts
           participatory_process_steps:
             index:
               steps_hint: Pots arrossegar les files de la taula per reordenar les fases del procés.
@@ -31,9 +34,12 @@ ca:
         dashboard: Tauler de control
         participatory_processes: Processos participatius
         participatory_processes_submenu:
+          attachments: Adjunts
           info: Informació
           process_admins: Administradors del procés
+          settings: Ajustos
           steps: Fases del procés
+        settings: Ajustos
         static_pages: Pàgines
       models:
         participatory_process:
@@ -45,7 +51,9 @@ ca:
           name: Procés participatiu
         participatory_process_attachment:
           fields:
+            content_type: Tipus
             title: Títol
+          name: Accessori
         participatory_process_step:
           fields:
             active: Activa
@@ -61,6 +69,30 @@ ca:
             created_at: Data de creació
             title: Títol
           name: Pàgina
+      organization:
+        edit:
+          title: Edita organització
+          update: Actualitza organitació
+        show:
+          default: per defecte
+        update:
+          error: S'ha produït un error en actualitzar aquesta organització.
+          success: Organització actualitzada correctament.
+      participatory_process_attachments:
+        create:
+          error: S'ha produït un error en crear un nou arxiu adjunt.
+          success: Adjunt creat correctament.
+        destroy:
+          success: L'adjunt s'ha eliminat correctament.
+        edit:
+          title: Edita arxiu adjunt
+          update: Actualitza adjunt
+        new:
+          create: Crear arxiu adjunt
+          title: Nou arxiu adjunt
+        update:
+          error: S'ha produït un error en actualitzar aquest arxiu adjunt.
+          success: Adjunt actualitzat correctament.
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
