@@ -47,7 +47,7 @@ PATH
     decidim-api (0.0.1.alpha9)
       decidim-core (= 0.0.1.alpha9)
       graphiql-rails (~> 1.4.0)
-      graphql (~> 1.2.3)
+      graphql (~> 1.2.5)
       rack-cors (~> 0.4.0)
       rails (~> 5.0.0, >= 5.0.0.1)
       sprockets-es6 (~> 0.9.2)
@@ -87,7 +87,7 @@ PATH
       byebug
       capybara (~> 2.10.0)
       capybara-screenshot (~> 1.0.14)
-      codecov (~> 0.1.7)
+      codecov (~> 0.1.9)
       database_cleaner (~> 1.5.0)
       factory_girl_rails
       faker (~> 1.6.6)
@@ -196,7 +196,7 @@ GEM
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     cliver (0.3.2)
-    codecov (0.1.8)
+    codecov (0.1.9)
       json
       simplecov
       url
@@ -249,7 +249,7 @@ GEM
       activesupport (>= 4.1.0)
     graphiql-rails (1.4.0)
       rails
-    graphql (1.2.3)
+    graphql (1.2.5)
     high_voltage (3.0.0)
     highline (1.7.8)
     htmlentities (4.3.4)
@@ -295,7 +295,7 @@ GEM
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
-    parser (2.3.1.4)
+    parser (2.3.2.0)
       ast (~> 2.2)
     pg (0.19.0)
     poltergeist (1.11.0)
@@ -420,7 +420,7 @@ GEM
     thread (0.2.2)
     thread_safe (0.3.5)
     tilt (2.0.5)
-    tins (1.12.0)
+    tins (1.13.0)
     truncato (0.7.8)
       htmlentities (~> 4.3.1)
       nokogiri (~> 1.6.1)
