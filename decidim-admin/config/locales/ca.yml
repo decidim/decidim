@@ -43,6 +43,9 @@ ca:
             published: Publicat
             title: Títol
           name: Procés participatiu
+        participatory_process_attachment:
+          fields:
+            title: Títol
         participatory_process_step:
           fields:
             active: Activa
@@ -102,7 +105,6 @@ ca:
         destroy:
           success: El procés participatiu s'ha eliminat correctament.
         edit:
-          title: Editar procés participatiu
           update: Actualitzar procés participatiu
         new:
           create: Crear procés participatiu
