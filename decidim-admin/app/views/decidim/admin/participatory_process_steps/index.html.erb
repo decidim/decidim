@@ -26,10 +26,14 @@
               <%= link_to translated_attribute(step.title), participatory_process_step_path(participatory_process, step) %><br />
             </td>
             <td>
-              <%= l step.start_date, format: :short %>
+              <% if step.start_date %>
+                <%= l step.start_date.to_date, format: :long %>
+              <%  end%>
             </td>
             <td>
-              <%= l step.end_date, format: :short %>
+              <% if step.end_date %>
+                <%= l step.end_date.to_date, format: :long %>
+              <%  end%>
             </td>
             <td>
               <%= humanize_boolean step.active? %>

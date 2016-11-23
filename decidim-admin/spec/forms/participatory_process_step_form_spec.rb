@@ -47,6 +47,25 @@ module Decidim
 
       subject { described_class.from_params(attributes) }
 
+      describe "dates" do
+        context "when the dates are set" do
+          let(:start_date) { Time.new(2016, 1, 1, 15, 0) }
+          let(:end_date) { Time.new(2016, 1, 1, 15, 0) }
+
+          it "returns them at midnight" do
+            expect(subject.start_date).to eq(Time.new(2016, 1, 1, 0, 0))
+            expect(subject.end_date).to eq(Time.new(2016, 1, 1, 0, 0))
+          end
+        end
+
+        context "when no dates" do
+          it "returns nil" do
+            expect(subject.start_date).to eq(nil)
+            expect(subject.end_date).to eq(nil)
+          end
+        end
+      end
+
       context "when everything is OK" do
         it { is_expected.to be_valid }
       end

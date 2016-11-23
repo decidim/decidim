@@ -20,6 +20,16 @@ module Decidim
 
       validates :start_date, date: { before: :end_date, allow_blank: true, if: proc { |obj| obj.end_date.present? } }
       validates :end_date, date: { after: :start_date, allow_blank: true, if: proc { |obj| obj.start_date.present? } }
+
+      def start_date
+        return nil unless super.respond_to?(:at_midnight)
+        super.at_midnight
+      end
+
+      def end_date
+        return nil unless super.respond_to?(:at_midnight)
+        super.at_midnight
+      end
     end
   end
 end
