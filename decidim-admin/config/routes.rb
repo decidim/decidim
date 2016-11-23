@@ -12,6 +12,7 @@ Decidim::Admin::Engine.routes.draw do
         end
       end
       resources :user_roles, controller: "participatory_process_user_roles", only: [:destroy, :create, :index]
+      resources :attachments, controller: "participatory_process_attachments"
     end
 
     resources :static_pages

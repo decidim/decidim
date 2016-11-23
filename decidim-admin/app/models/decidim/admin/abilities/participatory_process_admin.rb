@@ -27,7 +27,7 @@ module Decidim
             role.user != user
           end
 
-          can :manage, ParticipatoryProcessStep do |step|
+          can :manage, [ParticipatoryProcessStep, ParticipatoryProcessAttachment] do |step|
             ManageableParticipatoryProcessesForUser.for(user).include?(step.participatory_process)
           end
         end

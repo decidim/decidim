@@ -1,5 +1,14 @@
 # frozen_string_literal: true
 RSpec.shared_examples "manage process steps examples" do
+  let(:active) { false }
+  let!(:process_step) do
+    create(
+      :participatory_process_step,
+      participatory_process: participatory_process,
+      active: active
+    )
+  end
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
@@ -13,15 +22,15 @@ RSpec.shared_examples "manage process steps examples" do
     end
 
     within "dl" do
-      expect(page).to have_content(translated(process_step.title, locale: :en))
-      expect(page).to have_content(translated(process_step.title, locale: :es))
-      expect(page).to have_content(translated(process_step.title, locale: :ca))
-      expect(page).to have_content(translated(process_step.short_description, locale: :en))
-      expect(page).to have_content(translated(process_step.short_description, locale: :es))
-      expect(page).to have_content(translated(process_step.short_description, locale: :ca))
-      expect(page).to have_content(translated(process_step.description, locale: :en))
-      expect(page).to have_content(translated(process_step.description, locale: :es))
-      expect(page).to have_content(translated(process_step.description, locale: :ca))
+      expect(page).to have_content(stripped translated(process_step.title, locale: :en))
+      expect(page).to have_content(stripped translated(process_step.title, locale: :es))
+      expect(page).to have_content(stripped translated(process_step.title, locale: :ca))
+      expect(page).to have_content(stripped translated(process_step.short_description, locale: :en))
+      expect(page).to have_content(stripped translated(process_step.short_description, locale: :es))
+      expect(page).to have_content(stripped translated(process_step.short_description, locale: :ca))
+      expect(page).to have_content(stripped translated(process_step.description, locale: :en))
+      expect(page).to have_content(stripped translated(process_step.description, locale: :es))
+      expect(page).to have_content(stripped translated(process_step.description, locale: :ca))
     end
   end
 

@@ -1,0 +1,26 @@
+<% if documents.any? %>
+  <div class="section documents">
+    <h4 class="section-heading"><%= t(".related_documents") %></h4>
+    <div class="card card--list">
+      <% documents.each do |document| %>
+        <div class="card--list__item">
+          <div class="card--list__text">
+            <div>
+              <a href="<%= document.url %>" class="card__link">
+                <h6 class="card--list__heading heading6">
+                  <%= translated_attribute(document.title) %> <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
+                </h6>
+                <span class="text-small"><%= translated_attribute(document.description) %></span>
+              </a>
+            </div>
+          </div>
+          <div class="card--list__data">
+            <%= link_to document.url, class: "card--list__data__icon" do %>
+              <%= icon "cloud-download" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

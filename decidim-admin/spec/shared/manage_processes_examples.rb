@@ -1,18 +1,5 @@
 # frozen_string_literal: true
 RSpec.shared_examples "manage processes examples" do
-  let(:image1_filename) { "city.jpeg" }
-  let(:image1_path) do
-    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image1_filename)
-  end
-  let(:image2_filename) { "city2.jpeg" }
-  let(:image2_path) do
-    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image2_filename)
-  end
-  let(:image3_filename) { "city3.jpeg" }
-  let(:image3_path) do
-    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image3_filename)
-  end
-
   context "previewing processes" do
     context "when the process is unpublished" do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }
@@ -47,18 +34,18 @@ RSpec.shared_examples "manage processes examples" do
     end
 
     within "dl" do
-      expect(page).to have_content(translated(participatory_process.title, locale: :en))
-      expect(page).to have_content(translated(participatory_process.title, locale: :es))
-      expect(page).to have_content(translated(participatory_process.title, locale: :ca))
-      expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
-      expect(page).to have_content(translated(participatory_process.subtitle, locale: :es))
-      expect(page).to have_content(translated(participatory_process.subtitle, locale: :ca))
-      expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
-      expect(page).to have_content(translated(participatory_process.short_description, locale: :es))
-      expect(page).to have_content(translated(participatory_process.short_description, locale: :ca))
-      expect(page).to have_content(translated(participatory_process.description, locale: :en))
-      expect(page).to have_content(translated(participatory_process.description, locale: :es))
-      expect(page).to have_content(translated(participatory_process.description, locale: :ca))
+      expect(page).to have_content(stripped translated(participatory_process.title, locale: :en))
+      expect(page).to have_content(stripped translated(participatory_process.title, locale: :es))
+      expect(page).to have_content(stripped translated(participatory_process.title, locale: :ca))
+      expect(page).to have_content(stripped translated(participatory_process.subtitle, locale: :en))
+      expect(page).to have_content(stripped translated(participatory_process.subtitle, locale: :es))
+      expect(page).to have_content(stripped translated(participatory_process.subtitle, locale: :ca))
+      expect(page).to have_content(stripped translated(participatory_process.short_description, locale: :en))
+      expect(page).to have_content(stripped translated(participatory_process.short_description, locale: :es))
+      expect(page).to have_content(stripped translated(participatory_process.short_description, locale: :ca))
+      expect(page).to have_content(stripped translated(participatory_process.description, locale: :en))
+      expect(page).to have_content(stripped translated(participatory_process.description, locale: :es))
+      expect(page).to have_content(stripped translated(participatory_process.description, locale: :ca))
       expect(page).to have_content(participatory_process.hashtag)
       expect(page).to have_content(participatory_process.slug)
       expect(page).to have_xpath("//img[@src=\"#{participatory_process.hero_image.url}\"]")

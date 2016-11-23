@@ -1,0 +1,37 @@
+<section id="attachments">
+  <h4><%= t(".attachments_title", scope: "decidim.admin") %></h4>
+
+  <% if can? :create, Decidim::ParticipatoryProcessAttachment %>
+    <div class="actions title">
+      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_attachment.name", scope: "decidim.admin")), new_participatory_process_attachment_path(participatory_process), class: 'new' %>
+    </div>
+  <% end %>
+
+  <% if participatory_process.attachments.any? %>
+    <table class="stack">
+      <thead>
+        <tr>
+          <th><%= t("models.participatory_process_attachment.fields.title", scope: "decidim.admin") %></th>
+          <th><%= t("models.participatory_process_attachment.fields.content_type", scope: "decidim.admin") %></th>
+          <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% participatory_process.attachments.each do |attachment| %>
+          <tr data-id="<%= attachment.id %>">
+            <td>
+              <%= link_to translated_attribute(attachment.title), participatory_process_attachment_path(participatory_process, attachment) %><br />
+            </td>
+            <td>
+              <%= attachment.file_type %>
+            </td>
+            <td class="actions">
+              <%= link_to t("actions.edit", scope: "decidim.admin"), edit_participatory_process_attachment_path(participatory_process, attachment) if can? :update, attachment %>
+              <%= link_to t("actions.destroy", scope: "decidim.admin"), participatory_process_attachment_path(participatory_process, attachment), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, attachment %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</section>

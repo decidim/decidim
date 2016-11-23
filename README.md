@@ -93,6 +93,7 @@ In order to develop on decidim, you'll need:
 * **PostgreSQL** 9.4+
 * **Ruby** 2.3.1
 * **NodeJS** with **yarn** (JavaScript dependency manager, can be installed with `npm install yarn`)
+* **ImageMagick**
 
 The easiest way to work on decidim is to clone decidim's repository and install its dependencies
 

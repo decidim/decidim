@@ -21,6 +21,9 @@ en:
         unpublish: Unpublish
       decidim:
         admin:
+          participatory_process_attachments:
+            index:
+              attachments_title: Attachments
           participatory_process_steps:
             index:
               steps_hint: You can drag the rows of the table in order to reorder the process steps.
@@ -32,6 +35,7 @@ en:
         dashboard: Dashboard
         participatory_processes: Participatory processes
         participatory_processes_submenu:
+          attachments: Attachments
           info: Info
           process_admins: Process admins
           settings: Settings
@@ -46,6 +50,11 @@ en:
             published: Published
             title: Title
           name: Participatory process
+        participatory_process_attachment:
+          fields:
+            content_type: Type
+            title: Title
+          name: Attachment
         participatory_process_step:
           fields:
             active: Active
@@ -70,6 +79,21 @@ en:
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
+      participatory_process_attachments:
+        create:
+          error: There was an error creating a new attachment.
+          success: Attachment created successfully.
+        destroy:
+          success: Attachment destroyed successfully.
+        edit:
+          title: Edit attachment
+          update: Update attachment
+        new:
+          create: Create attachment
+          title: New attachment
+        update:
+          error: There was an error when updating this attachment.
+          success: Attachment updated successfully.
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.

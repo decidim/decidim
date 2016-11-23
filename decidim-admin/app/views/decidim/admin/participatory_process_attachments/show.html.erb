@@ -1,0 +1,25 @@
+<h3><%= translated_attribute(@participatory_process_attachment.title) %></h3>
+
+<div class="actions">
+  <hr />
+  <%= link_to t("decidim.admin.actions.edit"), ['edit', @participatory_process_attachment] if can? :update, @participatory_process_attachment %>
+  <%= link_to t("decidim.admin.actions.destroy"), @participatory_process_attachment, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } if can? :destroy, @participatory_process_attachment %>
+</div>
+
+<dl>
+  <%= display_for @participatory_process_attachment,
+    :title,
+    :description,
+    :file_type
+    %>
+  <dt><%= display_label(@participatory_process_attachment, :file_size) %></dt>
+  <dd><%= number_to_human_size(@participatory_process_attachment.file_size) %></dd>
+  <dt><%= display_label(@participatory_process_attachment, :file) %></dt>
+  <% if @participatory_process_attachment.photo? %>
+    <%= link_to @participatory_process_attachment.big_url do %>
+      <%= image_tag @participatory_process_attachment.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(@participatory_process_attachment.description)) %>
+    <% end %>
+  <% else %>
+    <%= link_to @participatory_process_attachment.url, @participatory_process_attachment.file.original_file_name %>
+  <% end %>
+</dl>

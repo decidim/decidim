@@ -20,6 +20,14 @@ describe Decidim::Admin::Abilities::ParticipatoryProcessAdmin do
     let(:unmanaged_process) { create :participatory_process, organization: user.organization }
     let(:user_process_step) { create :participatory_process_step, participatory_process: user_process }
     let(:unmanaged_process_step) { create :participatory_process_step, participatory_process: unmanaged_process }
+    let(:user_process_attachment) do
+      Decidim::AttachmentUploader.enable_processing = true
+      create :participatory_process_attachment, participatory_process: user_process
+    end
+    let(:unmanaged_process_attachment) do
+      Decidim::AttachmentUploader.enable_processing = true
+      create :participatory_process_attachment, participatory_process: unmanaged_process
+    end
 
     before do
       create :participatory_process_user_role, user: user, participatory_process: user_process
@@ -35,5 +43,8 @@ describe Decidim::Admin::Abilities::ParticipatoryProcessAdmin do
 
     it { is_expected.to be_able_to(:manage, user_process_step) }
     it { is_expected.not_to be_able_to(:manage, unmanaged_process_step) }
+
+    it { is_expected.to be_able_to(:manage, user_process_attachment) }
+    it { is_expected.not_to be_able_to(:manage, unmanaged_process_attachment) }
   end
 end

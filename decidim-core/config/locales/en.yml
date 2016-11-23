@@ -15,6 +15,9 @@ en:
   booleans:
     'false': 'No'
     'true': 'Yes'
+  carrierwave:
+    errors:
+      image_too_big: The image is too big
   decidim:
     account:
       authorizations:
@@ -60,6 +63,11 @@ en:
     menu:
       home: Home
       processes: Processes
+    participatory_processes:
+      documents:
+        related_documents: Related documents
+      photos:
+        related_photos: Related photos
   devise:
     mailer:
       invitation_instructions:
@@ -76,6 +84,9 @@ en:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
         subject: Password Changed
+  errors:
+    messages:
+      file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
   layouts:
     decidim:
       footer:

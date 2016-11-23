@@ -86,5 +86,30 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_content(participatory_process.hashtag)
       end
     end
+
+    context "when it has attachments" do
+      let!(:document) do
+        Decidim::AttachmentUploader.enable_processing = true
+        create(:participatory_process_attachment, :with_pdf, participatory_process: participatory_process)
+      end
+      let!(:image) do
+        Decidim::AttachmentUploader.enable_processing = true
+        create(:participatory_process_attachment, participatory_process: participatory_process)
+      end
+
+      before do
+        visit current_path
+      end
+
+      it "shows them" do
+        within "main.wrapper .documents" do
+          expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
+        end
+
+        within "main.wrapper .images" do
+          expect(page).to have_css("img.thumbnail")
+        end
+      end
+    end
   end
 end

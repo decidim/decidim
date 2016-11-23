@@ -15,8 +15,8 @@ FactoryGirl.define do
     subtitle { Decidim::Faker::Localized.sentence(1) }
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    hero_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city.jpeg")) }
-    banner_image { Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", "city2.jpeg")) }
+    hero_image { test_file("city.jpeg", "image/jpeg") }
+    banner_image { test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
     organization
 
@@ -85,4 +85,31 @@ FactoryGirl.define do
       slug { Decidim::StaticPage::DEFAULT_PAGES.sample }
     end
   end
+
+  factory :participatory_process_attachment, class: Decidim::ParticipatoryProcessAttachment do
+    title { Decidim::Faker::Localized.sentence(3) }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    file { test_file("city.jpeg", "image/jpeg") }
+    participatory_process
+
+    trait :with_image do
+      file { test_file("city.jpeg", "image/jpeg") }
+    end
+
+    trait :with_pdf do
+      file { test_file("Exampledocument.pdf", "application/pdf") }
+    end
+
+    trait :with_doc do
+      file { test_file("Exampledocument.doc", "application/msword") }
+    end
+
+    trait :with_odt do
+      file { test_file("Exampledocument.odt", "application/vnd.oasis.opendocument") }
+    end
+  end
+end
+
+def test_file(filename, content_type)
+  Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", filename), content_type)
 end

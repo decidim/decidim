@@ -93,6 +93,7 @@ ignore_unused:
   - activerecord.attributes.decidim/user.*
   - activerecord.models.decidim/user
   - booleans.*
+  - errors.messages.file_size_is_less_than_or_equal_to
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
