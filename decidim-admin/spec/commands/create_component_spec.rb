@@ -1,43 +1,59 @@
 require "spec_helper"
-require "decidim/dummy_component_manifest"
 
 module Decidim
   module Admin
     describe CreateComponent do
-      let(:participatory_process) { create :participatory_process }
-
       let(:form) do
         double(
           name: { en: "My component", es: "Mi componente",
                   ca: "El meu component" },
-          component_type: "dummy",
+          step_id: step.id,
           invalid?: !valid,
           valid?: valid
         )
       end
 
+      let!(:feature) { create(:feature) }
+      let!(:participatory_process) { feature.participatory_process }
+      let!(:step) { create(:participatory_process_step, participatory_process: participatory_process) }
+
+      let(:manifest) { feature.manifest.components.first }
+
+      before(:each) { manifest.reset_hooks! }
+      after(:each) { manifest.reset_hooks! }
+
       let(:valid) { true }
-      subject { described_class.new(form, participatory_process) }
+      subject { described_class.new(manifest, form, feature) }
 
       context "when the form is not valid" do
         let(:valid) { false }
 
         it "broadcasts invalid and doesn't create the component" do
           expect { subject.call }.to broadcast(:invalid)
-          expect(participatory_process.components).to be_empty
+          expect(feature.components).to be_empty
         end
       end
 
       context "when everything is ok" do
         it "creates the component" do
           subject.call
-          component = participatory_process.components.first
+          component = feature.components.first
 
           expect(component.name["en"]).to eq("My component")
         end
 
         it "fires the hooks" do
-          raise "PENDING"
+          results = {}
+
+          manifest.on(:create) do |component|
+            results[:component] = component
+          end
+
+          subject.call
+
+          component = results[:component]
+          expect(component.name["en"]).to eq("My component")
+          expect(component).to be_persisted
         end
       end
     end

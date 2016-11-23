@@ -20,7 +20,7 @@ Decidim::Admin::Engine.routes.draw do
       resources :components, only: [:new, :create, :destroy]
     end
 
-    scope "/participatory_processes/:participatory_process_id/components/:current_component_id" do
+    scope "/participatory_processes/:participatory_process_id/features/:feature_id/components/:current_component_id" do
       Decidim.components.each do |component|
         constraints Decidim::Components::RouteConstraint.new(component) do
           mount component.admin_engine, at: "/", as: :manage_component

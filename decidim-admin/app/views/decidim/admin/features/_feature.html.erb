@@ -1,4 +1,4 @@
-<table>
+<table class="feature-<%= feature.id %>">
   <thead>
     <th><%= translated_attribute feature.name %></th>
     <th class="actions">
@@ -14,7 +14,7 @@
       <%= link_to t("actions.destroy", scope: "decidim.admin"), url_for(action: :destroy, id: feature, controller: "features"), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, feature %>
     </th>
   </thead>
-  <tbody>
+  <tbody class="components">
     <%= render partial: "component", collection: feature.components %>
   </tbody>
 </table>

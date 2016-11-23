@@ -1,7 +1,6 @@
 # coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
-require "decidim/dummy_component_manifest"
 
 describe "Admin manages components", type: :feature do
   let(:organization) { create(:organization) }
@@ -11,6 +10,14 @@ describe "Admin manages components", type: :feature do
     create(:participatory_process, organization: organization)
   end
 
+  let!(:participatory_process_step) do
+    create(:participatory_process_step, participatory_process: participatory_process)
+  end
+
+  let!(:feature) do
+    create(:feature, participatory_process: participatory_process)
+  end
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
@@ -18,12 +25,13 @@ describe "Admin manages components", type: :feature do
 
   describe "add a component" do
     before do
-      visit decidim_admin.participatory_process_components_path(participatory_process)
+      visit decidim_admin.participatory_process_features_path(participatory_process)
     end
 
     it "adds a component" do
-      find("button[data-toggle=add-component-dropdown]").click
-      within ".add-components" do
+      find("button[data-toggle=add-component-dropdown-#{feature.id}]").click
+
+      within "#add-component-dropdown-#{feature.id}" do
         find(".dummy").click
       end
 
@@ -38,6 +46,7 @@ describe "Admin manages components", type: :feature do
           ca: "El meu component"
         )
 
+        find("label", text: participatory_process_step.title["en"]).click
         find("*[type=submit]").click
       end
 
@@ -45,7 +54,7 @@ describe "Admin manages components", type: :feature do
         expect(page).to have_content("successfully")
       end
 
-      within "#components" do
+      within ".feature-#{feature.id}" do
         expect(page).to have_content("My component")
       end
     end
@@ -59,16 +68,16 @@ describe "Admin manages components", type: :feature do
         es: "Mi componente"
       }
 
-      create(:component, participatory_process: participatory_process, name: component_name)
-      visit decidim_admin.participatory_process_components_path(participatory_process)
+      create(:component, feature: feature, name: component_name)
+      visit decidim_admin.participatory_process_features_path(participatory_process)
     end
 
     it "removes the component" do
-      within "#components table" do
+      within ".feature-#{feature.id} .components" do
         click_link "Destroy"
       end
 
-      within "#components table" do
+      within ".feature-#{feature.id} .components" do
         expect(page).to have_no_content("My component")
       end
     end

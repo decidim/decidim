@@ -7,9 +7,10 @@ module Decidim
 
       # Public: Initializes a component creation command.
       #
-      # form                   - The form from which to get the data from.
-      # participatory_processs - The participatory process in which to add the
-      #                          newly created component.
+      # manifest - The component's manifest from which to create the component.
+      # form     - The form from which to get the data from.
+      # feature  - The participatory process in which to add the newly created
+      #            component.
       def initialize(manifest, form, feature)
         @manifest = manifest
         @form = form

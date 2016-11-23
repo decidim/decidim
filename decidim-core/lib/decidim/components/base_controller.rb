@@ -17,6 +17,10 @@ module Decidim
 
       private
 
+      def current_feature
+        current_component.feature
+      end
+
       def current_component
         env["decidim.current_component"]
       end

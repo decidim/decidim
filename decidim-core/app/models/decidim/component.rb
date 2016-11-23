@@ -14,6 +14,8 @@ module Decidim
 
     validates :participatory_process, :step, presence: true
 
+    validate :manifest_belongs_to_feature
+
     # Public: Returns the manifest this particular component is associated to.
     #
     # Returns a class that inherits from Decidim::Components::ComponentManifest.
@@ -21,6 +23,13 @@ module Decidim
       @manifest ||= Decidim.components.find do |manifest|
         manifest.name == component_type.to_sym
       end
+    end
+
+    private
+
+    def manifest_belongs_to_feature
+      return unless feature
+      errors.add(:manifest, "Invalid type for this feature.") unless feature.manifest.components.include?(manifest)
     end
   end
 end

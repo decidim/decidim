@@ -10,15 +10,9 @@ module Decidim
 
     validates :name, presence: true
 
-    def configuration
-      @configuration ||= Configuration.new
-      yield(@configuration) if block_given?
-      @configuration
-    end
-
     def component(name)
       component = ComponentManifest.new(name: name)
-      yield(component)
+      yield(component) if block_given?
       component.validate!
       components << component
     end

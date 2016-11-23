@@ -51,7 +51,7 @@ module Decidim
   end
 
   def self.components
-    features.map(&:components).map(&:to_a).flatten
+    features.map(&:components).map(&:to_a).flatten.compact
   end
 
   def self.features
