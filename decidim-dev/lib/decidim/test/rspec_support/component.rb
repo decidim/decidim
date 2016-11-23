@@ -50,6 +50,6 @@ RSpec.shared_context "component admin" do
   end
 
   def visit_component_admin
-    visit decidim_admin.manage_component_path(participatory_process, component)
+    visit decidim_admin.manage_component_path(participatory_process, feature, component)
   end
 end

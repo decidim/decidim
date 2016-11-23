@@ -28,7 +28,7 @@
         <% end %>
         <% if can? :read, Decidim::ParticipatoryProcessAttachment %>
           <li class="tabs-title">
-            <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"), participatory_process_attachments_path(participatory_process) %>
+            <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_attachments_path(participatory_process) %>
           </li>
         <% end %>
         <% if can? :update, participatory_process %>
