@@ -3,6 +3,9 @@ en:
   components:
     page:
       name: Page
+  features:
+    pages:
+      name: "Pages"
   decidim:
     pages:
       admin:

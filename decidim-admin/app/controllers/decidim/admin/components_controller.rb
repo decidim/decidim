@@ -15,37 +15,32 @@ module Decidim
       end
 
       def new
-        @component_manifest = Decidim.components.find do |manifest|
-          manifest.name == params[:type].to_sym
-        end
+        @component_manifest = find_manifest(params[:type])
+        feature = participatory_process.features.find(params[:feature_id])
 
         authorize! :create, Component
 
-        component_name = I18n.available_locales.each_with_object({}) do |locale, result|
-          I18n.with_locale(locale) do
-            result[locale] = I18n.t("components.#{@component_manifest.name}.name")
-          end
-
-          result
-        end
-
         component = Component.new(
-          name: component_name,
+          name: default_component_name(@component_manifest),
           participatory_process: participatory_process,
+          feature: feature,
           component_type: @component_manifest.name
         )
 
         @form = ComponentForm.from_model(component)
+        @form.feature_id = feature.id
       end
 
       def create
         authorize! :create, Component
+
+        @component_manifest = find_manifest(params.dig(:component, :component_type))
         @form = ComponentForm.from_params(params)
 
         CreateComponent.call(@form, participatory_process) do
           on(:ok) do
             flash[:notice] = I18n.t("components.create.success", scope: "decidim.admin")
-            redirect_to action: :index
+            redirect_to action: :index, controller: :features
           end
 
           on(:invalid) do
@@ -62,14 +57,23 @@ module Decidim
         DestroyComponent.call(@component) do
           on(:ok) do
             flash[:notice] = I18n.t("components.destroy.success", scope: "decidim.admin")
-            redirect_to action: :index
+            redirect_to action: :index, controller: :features
           end
 
           on(:error) do
             flash.now[:alert] = I18n.t("components.destroy.error", scope: "decidim.admin")
-            redirect_to action: :index
+            redirect_to action: :index, component: :features
           end
         end
+      end
+
+      private
+
+      def find_manifest(type)
+        Decidim.components.find { manifest.name == type }
+      end
+
+      def default_component_name(manifest)
       end
     end
   end

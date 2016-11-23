@@ -16,9 +16,9 @@
             <%= aria_selected_link_to t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_steps_path(participatory_process) %>
           </li>
         <% end %>
-        <% if can? :read, Decidim::Component %>
+        <% if can? :read, Decidim::Feature %>
           <li class="tabs-title">
-            <%= aria_selected_link_to t("components", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_components_path(participatory_process) %>
+            <%= aria_selected_link_to t("features", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_features_path(participatory_process) %>
           </li>
         <% end %>
         <% if can? :read, Decidim::Admin::ParticipatoryProcessUserRole %>

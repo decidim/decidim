@@ -22,6 +22,7 @@ module Decidim
             organization == user.organization
           end
 
+          can :manage, Feature
           can :manage, Component
           can :read, :admin_dashboard
           can :manage, ParticipatoryProcessAttachment

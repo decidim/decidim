@@ -4,7 +4,8 @@ module Decidim
   # Component Engine. It configures how that component should behave, its name,
   # and other relevant fields.
   class Component < ApplicationRecord
-    belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id"
+    belongs_to :feature, foreign_key: "decidim_feature_id"
+    has_one :participatory_process, through: :feature
 
     validates :participatory_process, presence: true
 

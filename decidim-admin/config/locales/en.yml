@@ -32,6 +32,17 @@ en:
           add: Add component
           title: 'Add component: %{name}'
         title: Components
+      features:
+        create:
+          error: There was an error creating this feature.
+          success: Feature created successfully.
+        destroy:
+          error: There has been an error destroying this feature.
+          success: Feature deleted successfully.
+        new:
+          add: Add feature
+          title: 'Add feature: %{name}'
+        title: Features
       decidim:
         admin:
           participatory_process_attachments:

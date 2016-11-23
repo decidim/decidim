@@ -27,6 +27,10 @@ module Decidim
         broadcast(:ok)
       end
 
+      def feature
+        @feature ||= @participatory_process.features.find(form.feature_id)
+      end
+
       private
 
       attr_reader :form
@@ -35,6 +39,7 @@ module Decidim
         @component = Component.create!(
           component_type: component_manifest.name,
           name: form.name,
+          feature: feature,
           participatory_process: @participatory_process
         )
       end

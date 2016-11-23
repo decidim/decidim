@@ -16,7 +16,8 @@ Decidim::Admin::Engine.routes.draw do
       end
       resources :user_roles, controller: "participatory_process_user_roles", only: [:destroy, :create, :index]
       resources :attachments, controller: "participatory_process_attachments"
-      resources :components, only: [:index, :new, :create, :destroy]
+      resources :features
+      resources :components, only: [:new, :create, :destroy]
     end
 
     scope "/participatory_processes/:participatory_process_id/components/:current_component_id" do

@@ -1,0 +1,56 @@
+<section id="features">
+  <div class="row">
+    <div class="columns">
+      <h3><%= t("features.title", scope: "decidim.admin") %></h3>
+    </div>
+    <div class="small-4 columns text-right">
+      <button class="dropdown button" data-toggle="add-feature-dropdown"><%= t ".add", scope: "decidim.admin" %></button>
+      <div class="dropdown-pane" id="add-feature-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
+        <ul class="vertical menu add-features">
+          <% @manifests.each do |manifest| %>
+            <li><%= link_to t("#{manifest.name}.name", scope: "features"), new_participatory_process_feature_path(type: manifest.name), class: manifest.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <% @features.each do |feature| %>
+    <table>
+      <thead>
+        <th><%= translated_attribute feature.name %></th>
+        <th class="actions">
+          <button class="dropdown button small" data-toggle="add-component-dropdown-<%= feature.id %>"><%= t ".add", scope: "decidim.admin" %></button>
+          <div class="dropdown-pane" id="add-component-dropdown-<%= feature.id %>" data-dropdown data-auto-focus="true" data-close-on-click="true">
+            <ul class="vertical menu add-components">
+              <% feature.manifest.components.each do |manifest| %>
+                <li><%= link_to t("#{manifest.name}.name", scope: "components"), new_participatory_process_component_path(type: manifest.name, feature_id: feature.id), class: manifest.name %></li>
+              <% end %>
+            </ul>
+          </div>
+
+          <%= link_to t("actions.destroy", scope: "decidim.admin"), url_for(action: :destroy, id: feature, controller: "features"), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, feature %>
+        </th>
+      </thead>
+      <tbody>
+        <% feature.components.each do |component| %>
+          <tr>
+            <td>
+              <%= translated_attribute component.name %>
+            </td>
+            <td class="actions">
+              <%= link_to t(".preview"), decidim.component_path(participatory_process, component), target: "_blank" %>
+              <% if component.manifest.admin_engine %>
+                <%= link_to manage_component_path(participatory_process, component), class: "button small" do %>
+                  <%= t ".configure", scope: "decidim.admin" %>
+                <% end %>
+              <% end %>
+
+              <%= link_to t("components.actions.destroy", scope: "decidim.admin"), url_for(action: :destroy, id: component, controller: "components"), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, component %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</section>

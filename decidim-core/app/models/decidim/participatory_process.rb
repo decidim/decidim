@@ -38,6 +38,9 @@ module Decidim
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
+    has_many :components, through: :features
+    has_many :features, foreign_key: "decidim_participatory_process_id"
+
     # Scope to return only the published processes.
     #
     # Returns an ActiveRecord::Relation.
