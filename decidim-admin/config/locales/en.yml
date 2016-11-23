@@ -42,6 +42,9 @@ en:
         new:
           add: Add feature
           title: 'Add feature: %{name}'
+        index:
+          add: "Add feature"
+          add_component: "Add component"
         title: Features
       decidim:
         admin:

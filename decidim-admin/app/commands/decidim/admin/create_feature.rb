@@ -3,7 +3,10 @@ module Decidim
   module Admin
     # This command gets called when a feature is created from the admin panel.
     class CreateFeature < Rectify::Command
-      def initialize(form, participatory_process)
+      attr_reader :form, :manifest, :participatory_process
+
+      def initialize(manifest, form, participatory_process)
+        @manifest = manifest
         @form = form
         @participatory_process = participatory_process
       end
@@ -20,20 +23,12 @@ module Decidim
 
       private
 
-      attr_reader :form
-
       def create_feature
         @feature = Feature.create!(
-          feature_type: feature_manifest.name,
+          feature_type: manifest.name,
           name: form.name,
-          participatory_process: @participatory_process
+          participatory_process: participatory_process
         )
-      end
-
-      def feature_manifest
-        @feature_manifest ||= Decidim.features.find do |manifest|
-          manifest.name == form.feature_type.to_sym
-        end
       end
     end
   end

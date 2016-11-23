@@ -33,7 +33,7 @@
         <% end %>
         <% if can? :update, participatory_process %>
           <li class="tabs-title">
-            <%= aria_selected_link_to t("settings", scope: "decidim.admin.menu.participatory_processes_submenu"), edit_participatory_process_path(participatory_process) %>
+            <%= aria_selected_link_to t("settings", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.edit_participatory_process_path(participatory_process) %>
           </li>
         <% end %>
       </ul>

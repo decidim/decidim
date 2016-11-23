@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <th><%= translated_attribute feature.name %></th>
+    <th class="actions">
+      <button class="dropdown button small" data-toggle="add-component-dropdown-<%= feature.id %>"><%= t "features.index.add_component", scope: "decidim.admin" %></button>
+      <div class="dropdown-pane" id="add-component-dropdown-<%= feature.id %>" data-dropdown data-auto-focus="true" data-close-on-click="true">
+        <ul class="vertical menu add-components">
+          <% feature.manifest.components.each do |manifest| %>
+            <li><%= link_to t("#{manifest.name}.name", scope: "components"), new_participatory_process_component_path(type: manifest.name, feature_id: feature.id), class: manifest.name %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <%= link_to t("actions.destroy", scope: "decidim.admin"), url_for(action: :destroy, id: feature, controller: "features"), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, feature %>
+    </th>
+  </thead>
+  <tbody>
+    <%= render partial: "component", collection: feature.components %>
+  </tbody>
+</table>

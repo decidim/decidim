@@ -11,6 +11,8 @@ class CreateDecidimFeatures < ActiveRecord::Migration[5.0]
       t.jsonb :configuration
       t.string :component_type
       t.references :decidim_feature
+      t.references :decidim_participatory_process_step,
+                   index: { name: :component_step }
 
       t.timestamps
     end

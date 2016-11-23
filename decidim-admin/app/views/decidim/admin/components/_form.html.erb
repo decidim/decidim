@@ -1,3 +1,11 @@
 <div class="field">
   <%= form.translated :text_field, :name, autofocus: true %>
+
+  <div class="steps">
+    <%= form.label :step_id %>
+    <%= form.collection_radio_buttons :step_id, participatory_process.steps, :id, :title do |b| %>
+      <% b.label { b.radio_button + translated_attribute(b.text) } %>
+    <% end %>
+    <%= form.error_for :step_id %>
+  </div>
 </div>

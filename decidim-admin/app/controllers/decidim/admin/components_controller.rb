@@ -8,36 +8,25 @@ module Decidim
     class ComponentsController < ApplicationController
       include Concerns::ParticipatoryProcessAdmin
 
-      def index
-        authorize! :read, Component
-        @component_manifests = Decidim.components
-        @components = participatory_process.components
-      end
+      helper_method :manifest
 
       def new
-        @component_manifest = find_manifest(params[:type])
-        feature = participatory_process.features.find(params[:feature_id])
-
         authorize! :create, Component
 
         component = Component.new(
-          name: default_component_name(@component_manifest),
-          participatory_process: participatory_process,
-          feature: feature,
-          component_type: @component_manifest.name
+          participatory_process: participatory_process
         )
 
-        @form = ComponentForm.from_model(component)
-        @form.feature_id = feature.id
+        @form = form(ComponentForm).from_model(component).tap do |form|
+          form.name = default_name(manifest)
+        end
       end
 
       def create
         authorize! :create, Component
+        @form = form(ComponentForm).from_params(params)
 
-        @component_manifest = find_manifest(params.dig(:component, :component_type))
-        @form = ComponentForm.from_params(params)
-
-        CreateComponent.call(@form, participatory_process) do
+        CreateComponent.call(manifest, @form, feature) do
           on(:ok) do
             flash[:notice] = I18n.t("components.create.success", scope: "decidim.admin")
             redirect_to action: :index, controller: :features
@@ -69,11 +58,22 @@ module Decidim
 
       private
 
-      def find_manifest(type)
-        Decidim.components.find { manifest.name == type }
+      def manifest
+        @manifest ||= Decidim.components.find { |manifest| manifest.name == params[:type].to_sym }
       end
 
-      def default_component_name(manifest)
+      def feature
+        @feature ||= participatory_process.features.find(params[:feature_id])
+      end
+
+      def default_name(manifest)
+        current_organization.available_locales.inject({}) do |result, locale|
+          I18n.with_locale(locale) do
+            result[locale] = I18n.t("#{manifest.name}.name", scope: "components")
+          end
+
+          result
+        end
       end
     end
   end

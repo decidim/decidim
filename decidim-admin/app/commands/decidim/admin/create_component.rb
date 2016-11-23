@@ -3,14 +3,17 @@ module Decidim
   module Admin
     # This command gets called when a component is created from the admin panel.
     class CreateComponent < Rectify::Command
+      attr_reader :manifest, :form, :feature, :step
+
       # Public: Initializes a component creation command.
       #
       # form                   - The form from which to get the data from.
       # participatory_processs - The participatory process in which to add the
       #                          newly created component.
-      def initialize(form, participatory_process)
+      def initialize(manifest, form, feature)
+        @manifest = manifest
         @form = form
-        @participatory_process = participatory_process
+        @feature = feature
       end
 
       # Public: Creates the Component.
@@ -27,31 +30,29 @@ module Decidim
         broadcast(:ok)
       end
 
-      def feature
-        @feature ||= @participatory_process.features.find(form.feature_id)
-      end
-
       private
 
       attr_reader :form
 
       def create_component
         @component = Component.create!(
-          component_type: component_manifest.name,
+          component_type: manifest.name,
           name: form.name,
           feature: feature,
-          participatory_process: @participatory_process
+          step: step
         )
       end
 
-      def component_manifest
-        @component_manifest ||= Decidim.components.find do |manifest|
-          manifest.name == form.component_type.to_sym
-        end
+      def run_hooks
+        manifest.run_hooks(:create, @component)
       end
 
-      def run_hooks
-        component_manifest.run_hooks(:create, @component)
+      def participatory_process
+        @participatory_process ||= feature.participatory_process
+      end
+
+      def step
+        @step ||= participatory_process.steps.find(form.step_id)
       end
     end
   end

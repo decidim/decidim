@@ -5,9 +5,14 @@ module Decidim
   # and other relevant fields.
   class Component < ApplicationRecord
     belongs_to :feature, foreign_key: "decidim_feature_id"
+
+    belongs_to :step,
+               foreign_key: "decidim_participatory_process_step_id",
+               class_name: "Decidim::ParticipatoryProcessStep"
+
     has_one :participatory_process, through: :feature
 
-    validates :participatory_process, presence: true
+    validates :participatory_process, :step, presence: true
 
     # Public: Returns the manifest this particular component is associated to.
     #

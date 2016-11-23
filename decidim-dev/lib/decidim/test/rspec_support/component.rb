@@ -1,17 +1,32 @@
 # frozen_string_literal: true
 RSpec.shared_context "component" do
-  let!(:component) do
-    create(:component, component_type: :pages, participatory_process: participatory_process)
-  end
+  let!(:feature_type) { raise NotImplementedError }
+  let!(:component_type) { raise NotImplementedError }
+
+  let!(:organization) { create(:organization) }
 
   let(:participatory_process) do
     create(:participatory_process, organization: organization)
   end
 
-  let!(:organization) { create(:organization) }
+  let!(:participatory_process_step) do
+    create(:participatory_process_step, participatory_process: participatory_process)
+  end
+
+  let!(:feature) do
+    create(:feature,
+           feature_type: feature_type,
+           participatory_process: participatory_process)
+  end
+
+  let!(:component) do
+    create(:component,
+           component_type: component_type,
+           step: participatory_process_step,
+           feature: feature)
+  end
 
   before do
-
     switch_to_host(organization.host)
   end
 

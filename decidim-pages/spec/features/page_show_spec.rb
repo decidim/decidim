@@ -5,6 +5,9 @@ require "spec_helper"
 describe "Show a page", type: :feature do
   include_context "component"
 
+  let(:feature_type) { "pages" }
+  let(:component_type) { "page" }
+
   describe "page show" do
     before do
       create(:page, component: component, title: title, body: body)

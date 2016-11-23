@@ -3,9 +3,6 @@ en:
   components:
     page:
       name: Page
-  features:
-    pages:
-      name: "Pages"
   decidim:
     pages:
       admin:
@@ -20,3 +17,6 @@ en:
           update:
             invalid: There's been errors when saving the page.
             success: Page saved successfully.
+  features:
+    pages:
+      name: Pages

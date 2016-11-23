@@ -4,19 +4,16 @@ module Decidim
     # A form object used to create participatory processes from the admin
     # dashboard.
     #
-    class ComponentForm < Rectify::Form
+    class ComponentForm < Decidim::Form
       include TranslatableAttributes
 
       mimic :component
 
       translatable_attribute :name, String
-      translatable_validates :name, presence: true
+      attribute :step_id, Integer
 
-      attribute :component_type, String
-      attribute :feature_id, Integer
-
-      validates :component_type, presence: true
-      validates :feature_id, presence: true
+      validates :name, translatable_presence: true
+      validates :step_id, presence: true
     end
   end
 end
