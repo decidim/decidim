@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   # This class handles all the logic associated to configuring a component
   # associated to a feature, so it can be included in a participatory process'

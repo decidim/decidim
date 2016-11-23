@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Decidim.register_feature(:pages) do |feature|
   feature.component :page do |component|
     component.engine = Decidim::Pages::Engine
