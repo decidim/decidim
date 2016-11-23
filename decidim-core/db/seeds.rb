@@ -110,7 +110,7 @@ if !Rails.env.production? || ENV["SEED"]
     participatory_process: participatory_process1
   )
 
-  Decidim::ParticipatoryProcess.all.each do |process|
+  Decidim::ParticipatoryProcess.find_each do |process|
     Decidim::ParticipatoryProcessAttachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
@@ -123,5 +123,14 @@ if !Rails.env.production? || ENV["SEED"]
       file: File.new(File.join(File.dirname(__FILE__), "seeds", "Exampledocument.pdf")),
       participatory_process: process
     )
+    2.times do
+      Decidim::Category.create!(
+        name: Decidim::Faker::Localized.sentence(5),
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        participatory_process: process
+      )
+    end
   end
 end

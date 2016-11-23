@@ -7,6 +7,8 @@ Decidim::Admin::Engine.routes.draw do
     resources :participatory_processes do
       resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
 
+      resources :categories
+
       resources :steps, controller: "participatory_process_steps" do
         resource :activate, controller: "participatory_process_step_activations", only: [:create, :destroy]
         collection do

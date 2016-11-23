@@ -10,6 +10,15 @@ module TranslationHelpers
     field.try(:[], locale.to_s)
   end
 
+  # Checks that the current page has some translated content. It strips the
+  # HTML tags from the field (in case there are any).
+  #
+  # field - the field that holds the translations
+  # locale - the ID of the locale to check
+  def have_i18n_content(field, locale: I18n.locale)
+    have_content(stripped(translated(field, locale: locale)))
+  end
+
   # Handles how to fill in i18n form fields.
   #
   # field - the name of the field that should be filled, without the

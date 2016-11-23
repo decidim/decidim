@@ -1,0 +1,33 @@
+<section id="categories">
+  <h4><%= t(".categories_title", scope: "decidim.admin") %></h4>
+
+  <% if can? :create, Decidim::Category %>
+    <div class="actions title">
+      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.category.name", scope: "decidim.admin")), new_participatory_process_category_path(participatory_process), class: 'new' %>
+    </div>
+  <% end %>
+
+  <% if participatory_process.categories.any? %>
+    <table class="stack">
+      <thead>
+        <tr>
+          <th><%= t("models.category.fields.name", scope: "decidim.admin") %></th>
+          <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% participatory_process.categories.each do |category| %>
+          <tr data-id="<%= category.id %>">
+            <td>
+              <%= link_to translated_attribute(category.name), participatory_process_category_path(participatory_process, category) %><br />
+            </td>
+            <td class="actions">
+              <%= link_to t("actions.edit", scope: "decidim.admin"), edit_participatory_process_category_path(participatory_process, category) if can? :update, category %>
+              <%= link_to t("actions.destroy", scope: "decidim.admin"), participatory_process_category_path(participatory_process, category), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, category %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</section>

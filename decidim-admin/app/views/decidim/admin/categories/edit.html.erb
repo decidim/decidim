@@ -1,0 +1,9 @@
+<h3><%= t ".title" %></h3>
+
+<%= form_for(@form, url: participatory_process_category_path(@category.participatory_process, @category)) do |f| %>
+  <%= render partial: 'form', object: f %>
+
+  <div class="actions">
+    <%= f.submit t(".update") %>
+  </div>
+<% end %>

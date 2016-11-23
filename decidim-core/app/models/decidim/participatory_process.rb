@@ -27,6 +27,11 @@ module Decidim
              class_name: Decidim::ParticipatoryProcessAttachment,
              dependent: :destroy,
              inverse_of: :participatory_process
+    has_many :categories,
+             foreign_key: "decidim_participatory_process_id",
+             class_name: Decidim::Category,
+             dependent: :destroy,
+             inverse_of: :participatory_process
 
     has_many :features, foreign_key: "decidim_participatory_process_id"
     has_many :components, through: :features

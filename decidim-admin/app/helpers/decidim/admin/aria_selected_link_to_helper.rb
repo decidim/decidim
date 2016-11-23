@@ -19,7 +19,7 @@ module Decidim
           text,
           link,
           options.merge(
-            "aria-selected": is_active_link?(link, :exclusive)
+            "aria-selected": is_active_link?(link, options[:aria_link_type] || :inclusive)
           )
         )
       end
