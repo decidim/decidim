@@ -44,8 +44,9 @@ module Decidim
           }
         }
       end
+      let(:organization) { build(:organization) }
 
-      subject { described_class.from_params(attributes) }
+      subject { described_class.from_params(attributes, current_organization: organization) }
 
       describe "dates" do
         context "when the dates are set" do

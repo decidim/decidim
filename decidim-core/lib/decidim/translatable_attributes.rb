@@ -44,29 +44,6 @@ module Decidim
         end
       end
 
-      # Public: Mirrors ActiveModel's `validates` interface to define
-      # validations in multiple locales.
-      #
-      # *arguments - The exact same arguments `validates` would receive.
-      #
-      # Example:
-      #
-      #   translatable_validates :name, :description, presence: true
-      #   # This will validate the presence of `name_ca` and `name_en`
-      #
-      # Returns nothing.
-      def translatable_validates(*arguments)
-        options = arguments.last
-        fields = arguments[0..-2]
-
-        localized_fields = fields.flat_map do |f|
-          locales.map { |locale| "#{f}_#{locale}".gsub("-", "__") }
-        end
-
-        validation_arguments = localized_fields + [options]
-        validates(*validation_arguments)
-      end
-
       def locales
         Decidim.available_locales
       end

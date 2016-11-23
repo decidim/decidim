@@ -21,7 +21,7 @@ module Decidim
       attribute :banner_image
 
       validates :slug, presence: true
-      translatable_validates :title, :subtitle, :description, :short_description, presence: true
+      validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
       validate :slug, :slug_uniqueness
 
