@@ -43,6 +43,9 @@ es:
             published: Publicado
             title: Título
           name: Proceso participativo
+        participatory_process_attachment:
+          fields:
+            title: Título
         participatory_process_step:
           fields:
             active: Activa
@@ -102,7 +105,6 @@ es:
         destroy:
           success: El proceso participativo se ha eliminado correctamente.
         edit:
-          title: Editar proceso participativo
           update: Actualizar proceso participativo
         new:
           create: Crear proceso participativo
