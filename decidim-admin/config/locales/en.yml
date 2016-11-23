@@ -34,6 +34,7 @@ en:
         participatory_processes_submenu:
           info: Info
           process_admins: Process admins
+          settings: Settings
           steps: Steps
         settings: Settings
         static_pages: Pages
@@ -113,7 +114,6 @@ en:
         destroy:
           success: Participatory process destroyed successfully.
         edit:
-          title: Edit participatory process
           update: Update participatory process
         new:
           create: Create participatory process

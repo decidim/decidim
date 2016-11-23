@@ -68,7 +68,7 @@ RSpec.shared_examples "manage processes examples" do
 
   it "updates an participatory_process" do
     click_link translated(participatory_process.title)
-    click_link "Edit"
+    click_processes_menu_link "Settings"
 
     within ".edit_participatory_process" do
       fill_in_i18n(
@@ -103,13 +103,14 @@ RSpec.shared_examples "manage processes examples" do
 
     before do
       click_link translated(participatory_process.title)
+      click_processes_menu_link "Settings"
     end
 
     it "publishes the process" do
       click_link "Publish"
       expect(page).to have_content("published successfully")
       expect(page).to have_content("Unpublish")
-      expect(current_path).to eq decidim_admin.participatory_process_path(participatory_process)
+      expect(current_path).to eq decidim_admin.edit_participatory_process_path(participatory_process)
 
       participatory_process.reload
       expect(participatory_process).to be_published
@@ -121,13 +122,14 @@ RSpec.shared_examples "manage processes examples" do
 
     before do
       click_link translated(participatory_process.title)
+      click_processes_menu_link "Settings"
     end
 
     it "unpublishes the process" do
       click_link "Unpublish"
       expect(page).to have_content("unpublished successfully")
       expect(page).to have_content("Publish")
-      expect(current_path).to eq decidim_admin.participatory_process_path(participatory_process)
+      expect(current_path).to eq decidim_admin.edit_participatory_process_path(participatory_process)
 
       participatory_process.reload
       expect(participatory_process).not_to be_published
