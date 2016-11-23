@@ -67,12 +67,10 @@ module Decidim
       end
 
       def default_name(manifest)
-        current_organization.available_locales.inject({}) do |result, locale|
+        current_organization.available_locales.each_with_object({}) do |locale, result|
           I18n.with_locale(locale) do
             result[locale] = I18n.t("#{manifest.name}.name", scope: "components")
           end
-
-          result
         end
       end
     end

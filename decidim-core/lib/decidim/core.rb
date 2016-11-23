@@ -43,7 +43,7 @@ module Decidim
     %w(en ca es)
   end
 
-  def self.register_feature(name, &block)
+  def self.register_feature(name)
     feature = FeatureManifest.new(name: name)
     yield(feature)
     feature.validate!
