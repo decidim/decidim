@@ -20,6 +20,9 @@ es:
         unpublish: Despublicar
       decidim:
         admin:
+          participatory_process_attachments:
+            index:
+              attachments_title: Archivos adjuntos
           participatory_process_steps:
             index:
               steps_hint: Puedes arrastrar las filas de la tabla para reordenar las fases del proceso.
@@ -31,9 +34,12 @@ es:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
         participatory_processes_submenu:
+          attachments: Archivos adjuntos
           info: Información
           process_admins: Administradores del proceso
+          settings: Configuración
           steps: Fases del proceso
+        settings: Configuración
         static_pages: Páginas
       models:
         participatory_process:
@@ -43,6 +49,11 @@ es:
             published: Publicado
             title: Título
           name: Proceso participativo
+        participatory_process_attachment:
+          fields:
+            content_type: Tipo
+            title: Título
+          name: Archivo adjunto
         participatory_process_step:
           fields:
             active: Activa
@@ -58,6 +69,30 @@ es:
             created_at: Fecha de creación
             title: Título
           name: Página
+      organization:
+        edit:
+          title: Editar organización
+          update: Actualizar organización
+        show:
+          default: por defecto
+        update:
+          error: Se produjo un error al actualizar esta organización.
+          success: Organización actualizada correctamente.
+      participatory_process_attachments:
+        create:
+          error: Se ha producido un error al crear un nuevo archivo adjunto.
+          success: Adjunto creado correctamente.
+        destroy:
+          success: El archivo adjunto se ha eliminado correctamente.
+        edit:
+          title: Editar archivo adjunto
+          update: Actualizar archivo adjunto
+        new:
+          create: Crear archivo adjunto
+          title: Nuevo archivo adjunto
+        update:
+          error: Se ha producido un error al actualizar este archivo adjunto.
+          success: Adjunto actualizado correctamente.
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -102,7 +137,6 @@ es:
         destroy:
           success: El proceso participativo se ha eliminado correctamente.
         edit:
-          title: Editar proceso participativo
           update: Actualizar proceso participativo
         new:
           create: Crear proceso participativo
