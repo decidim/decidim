@@ -39,6 +39,7 @@ module Decidim
       def attributes
         {
           name: form.name,
+          parent_id: form.parent_id,
           description: form.description
         }
       end

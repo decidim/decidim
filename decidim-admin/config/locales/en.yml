@@ -24,7 +24,7 @@ en:
           error: There was an error creating this category.
           success: Category created successfully.
         destroy:
-          error: There was an error deleting this category.
+          error: There was an error deleting this category. Please delete any subcategory first, make sure no other entity belongs to this category and try again.
           success: Category deleted successfully.
         edit:
           title: Edit category

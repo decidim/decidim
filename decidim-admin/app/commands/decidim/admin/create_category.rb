@@ -35,6 +35,7 @@ module Decidim
         Category.create!(
           name: form.name,
           description: form.description,
+          parent_id: form.parent_id,
           participatory_process: @participatory_process
         )
       end

@@ -6,8 +6,8 @@ module Decidim
     attr_reader :current_organization, :current_user
 
     def initialize(attributes = {})
-      @current_organization = attributes.delete("current_organization")
-      @current_user = attributes.delete("current_user")
+      @current_organization = attributes.delete("current_organization") || attributes.delete(:current_organization)
+      @current_user = attributes.delete("current_user") || attributes.delete(:current_user)
       super
     end
   end

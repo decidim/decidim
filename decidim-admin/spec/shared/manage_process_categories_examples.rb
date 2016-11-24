@@ -84,11 +84,11 @@ RSpec.shared_examples "manage process categories examples" do
   context "deleting a category" do
     let!(:category2) { create(:category, participatory_process: participatory_process) }
 
-    before do
-      visit current_path
-    end
-
     context "when the category has no subcategories" do
+      before do
+        visit current_path
+      end
+
       it "deletes a category" do
         within find("tr", text: translated(category2.name)) do
           click_link "Destroy"
@@ -100,6 +100,28 @@ RSpec.shared_examples "manage process categories examples" do
 
         within "#categories table" do
           expect(page).to_not have_content(translated(category2.name))
+        end
+      end
+    end
+
+    context "when the category has some subcategories" do
+      let!(:subcategory) { create(:subcategory, parent: category2) }
+
+      before do
+        visit current_path
+      end
+
+      it "deletes a category" do
+        within find("tr", text: translated(category2.name)) do
+          click_link "Destroy"
+        end
+
+        within ".flash" do
+          expect(page).to have_content("error deleting")
+        end
+
+        within "#categories table" do
+          expect(page).to have_content(translated(category2.name))
         end
       end
     end

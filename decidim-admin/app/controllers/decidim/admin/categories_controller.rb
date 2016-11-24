@@ -14,12 +14,12 @@ module Decidim
 
       def new
         authorize! :create, Decidim::Category
-        @form = form(CategoryForm).instance
+        @form = form(CategoryForm).instance(current_process: participatory_process)
       end
 
       def create
         authorize! :create, Decidim::Category
-        @form = form(CategoryForm).from_params(params)
+        @form = form(CategoryForm).from_params(params, current_process: participatory_process)
 
         CreateCategory.call(@form, participatory_process) do
           on(:ok) do
@@ -37,13 +37,13 @@ module Decidim
       def edit
         @category = collection.find(params[:id])
         authorize! :update, @category
-        @form = form(CategoryForm).from_model(@category)
+        @form = form(CategoryForm).from_model(@category, current_process: participatory_process)
       end
 
       def update
         @category = collection.find(params[:id])
         authorize! :update, @category
-        @form = form(CategoryForm).from_params(params)
+        @form = form(CategoryForm).from_params(params, current_process: participatory_process)
 
         UpdateCategory.call(@category, @form) do
           on(:ok) do
@@ -73,7 +73,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("categories.destroy.error", scope: "decidim.admin")
+            flash[:alert] = I18n.t("categories.destroy.error", scope: "decidim.admin")
           end
 
           redirect_back(fallback_location: participatory_process_categories_path(participatory_process))

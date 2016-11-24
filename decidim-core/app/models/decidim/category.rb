@@ -5,7 +5,7 @@ module Decidim
   class Category < ApplicationRecord
     belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: Decidim::ParticipatoryProcess, inverse_of: :categories
     has_many :subcategories, ->(object) { where(parent_id: object.id) }, foreign_key: "parent_id", class_name: Decidim::Category, dependent: :destroy
-    has_one :parent, class_name: Decidim::Category, foreign_key: "parent_id"
+    belongs_to :parent, class_name: Decidim::Category, foreign_key: "parent_id"
 
     validate :forbid_deep_nesting
     before_save :subcategories_have_same_process
