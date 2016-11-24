@@ -40,7 +40,7 @@ module Decidim
     #
     # Returns nothing.
     def seed!
-      @seeds.call if @seeds
+      @seeds&.call
     end
   end
 end
