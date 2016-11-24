@@ -1,18 +1,17 @@
-import { Component }                        from 'react';
-import { ApolloProvider, graphql, compose } from 'react-apollo';
-import gql                                  from 'graphql-tag';
+import { Component, PropTypes } from 'react';
+import { graphql, compose }     from 'react-apollo';
+import gql                      from 'graphql-tag';
 
-import apolloClient                         from '../application/apollo_client';
+import ApolloApplication        from '../application/apollo_application.component';
 
-import FeaturedComment                      from './featured_comment.component';
-import CommentOrderSelector                 from './comment_order_selector.component';
-import CommentThread                        from './comment_thread.component';
-import AddCommentForm                       from './add_comment_form.component';
+import FeaturedComment          from './featured_comment.component';
+import CommentOrderSelector     from './comment_order_selector.component';
+import CommentThread            from './comment_thread.component';
+import AddCommentForm           from './add_comment_form.component';
 
 export class Comments extends Component {
   render() {
-    // const { data: { processes, loading } } = this.props;
-    // console.log(processes);
+    const { data: { processes } } = this.props;
 
     return (
       <div className="columns large-9" id="comments">
@@ -41,23 +40,26 @@ export class Comments extends Component {
   }
 }
 
+Comments.propTypes = {
+  data: PropTypes.shape({
+    comments: PropTypes.object
+  })
+};
+
 const CommentsWithData = compose(
-  graphql(gql`{
-    processes {
-      id,
-      title {
-        translation(locale: "ca")
+  graphql(gql`
+    query {
+      processes {
+        id
       }
     }
-  }`)
+  `)
 )(Comments);
 
-export default class CommentsApplication extends Component {
-  render() {
-    return (
-      <ApolloProvider client={apolloClient}>
-        <CommentsWithData />
-      </ApolloProvider>
-    );
-  }
-}
+const CommentsApplication = () => (
+  <ApolloApplication>
+    <CommentsWithData />
+  </ApolloApplication>
+);
+
+export default CommentsApplication;

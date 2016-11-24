@@ -1,11 +1,16 @@
-import { ApolloProvider } from 'react-apollo';
+import { PropTypes }                 from 'react';
+import { ApolloProvider }            from 'react-apollo';
 
-import apolloClient       from './apollo_client';
+import apolloClient                  from './apollo_client';
 
-const ApolloApplicationComponent = ({ children }) => (
+const ApolloApplication = ({ children }) => (
   <ApolloProvider client={apolloClient}>
     {children}
   </ApolloProvider>
 );
 
-export default ApolloApplicationComponent;
+ApolloApplication.propTypes = {
+  children: PropTypes.element.isRequired
+};
+
+export default ApolloApplication;

@@ -10,5 +10,6 @@ gemspec path: "decidim-admin"
 gemspec path: "decidim-dev"
 gemspec path: "decidim-api"
 gemspec path: "decidim-pages"
+gemspec path: "decidim-comments"
 
 eval(File.read(File.join(File.dirname(__FILE__), "Gemfile.common")))

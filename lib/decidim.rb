@@ -4,6 +4,7 @@ require "decidim/system"
 require "decidim/admin"
 require "decidim/api"
 require "decidim/pages"
+require "decidim/comments"
 
 # Module declaration.
 module Decidim
