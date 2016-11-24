@@ -11,10 +11,11 @@ import AddCommentForm           from './add_comment_form.component';
 
 export class Comments extends Component {
   render() {
-    const { data: { processes } } = this.props;
+    const { comments } = this.props;
 
     return (
       <div className="columns large-9" id="comments">
+        <p>{ JSON.stringify(comments) }</p>
         <FeaturedComment />
         <section className="comments">
           <div className="row collapse order-by">
@@ -26,7 +27,7 @@ export class Comments extends Component {
             </h2>
             <CommentOrderSelector />
           </div>
-          <CommentThread />
+          {this._renderCommentThreads()}
           <div className="show-more show-more--comment-thread">
             <button className="muted-link">
               Ver 16 comentarios más
@@ -38,22 +39,33 @@ export class Comments extends Component {
       </div>
     );
   }
+
+  _renderCommentThreads() {
+    const { comments } = this.props;
+    
+    return comments.map((comment) => (
+      <CommentThread key={comment.id} comment={comment} />
+    ))
+  }
 }
 
 Comments.propTypes = {
-  data: PropTypes.shape({
-    comments: PropTypes.object
-  })
+  comments: PropTypes.arrayOf(PropTypes.object)
 };
 
 const CommentsWithData = compose(
   graphql(gql`
-    query {
+    query GetProcesses {
       processes {
         id
       }
     }
-  `)
+  `, {
+    props: ({ data: { loading, processes }}) => ({
+      loading,
+      comments: processes || []
+    })
+  })
 )(Comments);
 
 const CommentsApplication = () => (
