@@ -7,6 +7,8 @@ require_relative "../shared/manage_process_categories_examples"
 describe "Admin manages participatory process categories", type: :feature do
   include_context "participatory process admin"
 
+  let(:user) { process_admin }
+
   let!(:category) do
     create(
       :category,

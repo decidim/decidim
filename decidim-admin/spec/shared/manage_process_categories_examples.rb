@@ -35,10 +35,10 @@ RSpec.shared_examples "manage process categories examples" do
       )
       fill_in_i18n_editor(
         :category_description,
-        "#short_description-tabs",
-        en: "Short description",
-        es: "Descripción corta",
-        ca: "Descripció curta"
+        "#description-tabs",
+        en: "Description",
+        es: "Descripción",
+        ca: "Descripció"
       )
 
       find("*[type=submit]").click
