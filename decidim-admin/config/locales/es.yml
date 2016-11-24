@@ -37,9 +37,9 @@ es:
           attachments: Archivos adjuntos
           info: Información
           process_admins: Administradores del proceso
-          settings: Ajustes
+          settings: Configuración
           steps: Fases del proceso
-        settings: Ajustes
+        settings: Configuración
         static_pages: Páginas
       models:
         participatory_process:
