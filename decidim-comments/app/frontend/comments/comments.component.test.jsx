@@ -3,7 +3,8 @@ import graphql       from 'graphql-anywhere';
 import gql           from 'graphql-tag';
 
 import { Comments }  from './comments.component';
-import CommentThread from './comment_thread.component';
+
+import commentsQuery from './comments.query.graphql'
 
 describe('<Comments />', () => {
   let comments = [];
@@ -21,13 +22,10 @@ describe('<Comments />', () => {
     };
 
     const query = gql`
-      query GetComments {
-        comments {
-          id,
-          ...CommentThread
-        }
+      ${commentsQuery}
+      fragment CommentThread on Comment {
+        body
       }
-      ${CommentThread.fragments.comment}
     `;
 
     const resolver = (fieldName, root) => root[fieldName];
@@ -37,7 +35,7 @@ describe('<Comments />', () => {
       query,
       commentsData
     );
-    
+   
     comments = result.comments;
   });
 
