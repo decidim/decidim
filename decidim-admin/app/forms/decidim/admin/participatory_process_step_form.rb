@@ -16,7 +16,7 @@ module Decidim
       attribute :start_date, DateTime
       attribute :end_date, DateTime
 
-      translatable_validates :title, :description, :short_description, presence: true
+      validates :title, :description, :short_description, translatable_presence: true
 
       validates :start_date, date: { before: :end_date, allow_blank: true, if: proc { |obj| obj.end_date.present? } }
       validates :end_date, date: { after: :start_date, allow_blank: true, if: proc { |obj| obj.start_date.present? } }

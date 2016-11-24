@@ -20,6 +20,12 @@ class TranslatablePresenceValidator < ActiveModel::EachValidator
 
   def available_locales_for(record)
     return record.available_locales if record.respond_to?(:available_locales)
-    record.current_organization.available_locales
+
+    if record.current_organization
+      record.current_organization.available_locales
+    else
+      record.errors.add(:current_organization, :blank)
+      []
+    end
   end
 end

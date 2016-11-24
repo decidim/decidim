@@ -54,34 +54,5 @@ module Decidim
         expect(model.name_en).to eq("1")
       end
     end
-
-    describe "#translatable_validates" do
-      before do
-        klass.class_eval do
-          translatable_attribute :name, String
-          translatable_attribute :summary, String
-          translatable_attribute :description, String
-
-          translatable_validates :name, :summary, presence: true
-          translatable_validates :description, length: { maximum: 10 }
-        end
-      end
-
-      it "validates the presence in each locale" do
-        model.name_en = "Hola"
-        model.description_ca = "Una descripció mooooolt llarga"
-        model.summary_pt__BR = "Um resumo"
-
-        expect(model.valid?).to eq(false)
-
-        expect(model.errors).to include(
-          :name_ca,
-          :name_pt__BR,
-          :summary_en,
-          :summary_ca,
-        )
-        expect(model.errors).to_not include(:name_en, :description_en, :description_pt__BR)
-      end
-    end
   end
 end

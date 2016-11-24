@@ -13,8 +13,10 @@ module Decidim
       mimic :static_page
 
       validates :slug, :organization, presence: true
-      translatable_validates :title, :content, presence: true
+      validates :title, :content, translatable_presence: true
       validate :slug, :slug_uniqueness
+
+      alias current_organization organization
 
       private
 
