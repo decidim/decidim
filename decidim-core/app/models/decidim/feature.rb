@@ -10,9 +10,7 @@ module Decidim
     validates :participatory_process, presence: true
 
     def manifest
-      @manifest ||= Decidim.features.find do |manifest|
-        manifest.name == feature_type.to_sym
-      end
+      Decidim.find_feature_manifest(feature_type)
     end
   end
 end

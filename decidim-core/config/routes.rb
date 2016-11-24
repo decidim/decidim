@@ -18,7 +18,7 @@ Decidim::Core::Engine.routes.draw do
   resources :participatory_processes, only: [:index, :show]
 
   scope "/participatory_processes/:participatory_process_id/components/:current_component_id" do
-    Decidim.components.each do |component|
+    Decidim.component_manifests.each do |component|
       constraints Decidim::Components::RouteConstraint.new(component) do
         mount component.engine, at: "/", as: :component
       end

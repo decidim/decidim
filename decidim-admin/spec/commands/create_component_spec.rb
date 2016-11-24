@@ -4,9 +4,11 @@ module Decidim
   module Admin
     describe CreateComponent do
       let(:form) do
-        double(
-          name: { en: "My component", es: "Mi componente",
-                  ca: "El meu component" },
+        instance_double(
+          ComponentForm,
+          name: {
+            en: "My component", es: "Mi componente", ca: "El meu component"
+          },
           step_id: step.id,
           invalid?: !valid,
           valid?: valid
@@ -17,10 +19,7 @@ module Decidim
       let!(:participatory_process) { feature.participatory_process }
       let!(:step) { create(:participatory_process_step, participatory_process: participatory_process) }
 
-      let(:manifest) { feature.manifest.components.first }
-
-      before(:each) { manifest.reset_hooks! }
-      after(:each) { manifest.reset_hooks! }
+      let(:manifest) { feature.manifest.component_manifests.first }
 
       let(:valid) { true }
       subject { described_class.new(manifest, form, feature) }

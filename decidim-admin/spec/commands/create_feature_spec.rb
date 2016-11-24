@@ -3,9 +3,9 @@ require "spec_helper"
 module Decidim
   module Admin
     describe CreateFeature do
-      let(:manifest) { Decidim.features.find{ |feature| feature.name == :dummy }}
+      let(:manifest) { Decidim.find_feature_manifest(:dummy) }
       let(:form) do
-        double(
+        instance_double(FeatureForm,
           name: {
             en: "My feature",
             ca: "La meva funcionalitat",

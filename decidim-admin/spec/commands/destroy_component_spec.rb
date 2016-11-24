@@ -8,9 +8,6 @@ module Decidim
 
       subject { described_class.new(component) }
 
-      before(:each) { manifest.reset_hooks! }
-      after(:each) { manifest.reset_hooks! }
-
       context "when everything is ok" do
         it "destroys the component" do
           subject.call

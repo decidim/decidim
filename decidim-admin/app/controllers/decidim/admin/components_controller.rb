@@ -3,7 +3,7 @@ require_dependency "decidim/admin/application_controller"
 
 module Decidim
   module Admin
-    # Controller that allows managing all the Admins.
+    # Controller that allows managing the Components for a Feature.
     #
     class ComponentsController < ApplicationController
       include Concerns::ParticipatoryProcessAdmin
@@ -12,14 +12,7 @@ module Decidim
 
       def new
         authorize! :create, Component
-
-        component = Component.new(
-          participatory_process: participatory_process
-        )
-
-        @form = form(ComponentForm).from_model(component).tap do |form|
-          form.name = default_name(manifest)
-        end
+        @form = form(ComponentForm).instance(name: default_name(manifest))
       end
 
       def create
@@ -51,7 +44,7 @@ module Decidim
 
           on(:error) do
             flash.now[:alert] = I18n.t("components.destroy.error", scope: "decidim.admin")
-            redirect_to action: :index, component: :features
+            redirect_to action: :index, controller: :features
           end
         end
       end
@@ -59,7 +52,7 @@ module Decidim
       private
 
       def manifest
-        @manifest ||= Decidim.components.find { |manifest| manifest.name == params[:type].to_sym }
+        @manifest = Decidim.find_component_manifest(params[:type])
       end
 
       def feature
@@ -67,11 +60,10 @@ module Decidim
       end
 
       def default_name(manifest)
-        current_organization.available_locales.each_with_object({}) do |locale, result|
-          I18n.with_locale(locale) do
-            result[locale] = I18n.t("#{manifest.name}.name", scope: "components")
-          end
-        end
+        TranslationsHelper.multi_translation(
+          "components.#{manifest.name}.name",
+          current_organization.available_locales
+        )
       end
     end
   end

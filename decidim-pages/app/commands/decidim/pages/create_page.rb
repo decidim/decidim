@@ -9,13 +9,12 @@ module Decidim
       end
 
       def call
-        @page = Page.create(
+        @page = Page.new(
           title: @component.name,
           component: @component
         )
 
-        return broadcast(:ok) if @page
-        broadcast(:error)
+        @page.save ? broadcast(:ok) : broadcast(:error)
       end
     end
   end

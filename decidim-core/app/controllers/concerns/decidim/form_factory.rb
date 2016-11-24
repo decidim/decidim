@@ -40,8 +40,8 @@ module Decidim
           end
 
           # Returns a simple instance of the form klass.
-          def instance
-            @klass.new
+          def instance(context = {})
+            @klass.new(context)
           end
 
           # Initializes a form object from a model. Delegates the functionality

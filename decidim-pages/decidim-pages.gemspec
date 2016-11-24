@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = "A pages component for decidim's participatory processes."
   s.summary     = s.description
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim.version
   s.add_dependency "rectify", "~> 0.7.1"

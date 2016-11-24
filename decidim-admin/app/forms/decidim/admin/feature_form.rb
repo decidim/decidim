@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
-    # A form object used to create participatory processes from the admin
-    # dashboard.
+    # A form object used to attach a feature to a participatory process from the
+    # admin panel.
     #
     class FeatureForm < Decidim::Form
       include TranslatableAttributes

@@ -1,8 +1,9 @@
 # Decidim::Pages
-Short description and motivation.
+
+The Pages module adds static page capabilities to any participatory process. It basically provides an interface to include arbitrary HTML content to any step.
 
 ## Usage
-How to use my plugin.
+Pages will be available as a Feature for a Participatory Process.
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -16,13 +17,8 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install decidim-pages
-```
-
 ## Contributing
-Contribution directions go here.
+See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
 
 ## License
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).

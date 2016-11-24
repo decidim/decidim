@@ -5,7 +5,7 @@
       <button class="dropdown button small" data-toggle="add-component-dropdown-<%= feature.id %>"><%= t "features.index.add_component", scope: "decidim.admin" %></button>
       <div class="dropdown-pane" id="add-component-dropdown-<%= feature.id %>" data-dropdown data-auto-focus="true" data-close-on-click="true">
         <ul class="vertical menu add-components">
-          <% feature.manifest.components.each do |manifest| %>
+          <% feature.manifest.component_manifests.each do |manifest| %>
             <li><%= link_to t("#{manifest.name}.name", scope: "components"), new_participatory_process_component_path(type: manifest.name, feature_id: feature.id), class: manifest.name %></li>
           <% end %>
         </ul>

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Decidim
-  # This class deducts the current component we're scoped to by looking at the
+  # This class infers the current component we're scoped to by looking at the
   # request parameters and injects it into the environment.
   class CurrentComponent
     # Initializes the CurrentComponent finder.
@@ -22,12 +22,17 @@ module Decidim
     private
 
     def detect_current_component(params)
-      return unless params[:current_component_id]
+      return nil unless params[:current_component_id]
 
       organization = @env["decidim.current_organization"]
-      participatory_process = organization.participatory_processes.find(params[:participatory_process_id])
 
-      participatory_process.components.find(params[:current_component_id])
+      participatory_process = organization.participatory_processes.find_by(
+        id: params[:participatory_process_id]
+      )
+
+      return nil unless participatory_process
+
+      participatory_process.components.find_by(id: params[:current_component_id])
     end
   end
 end

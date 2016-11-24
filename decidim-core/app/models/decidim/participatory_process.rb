@@ -28,6 +28,9 @@ module Decidim
              dependent: :destroy,
              inverse_of: :participatory_process
 
+    has_many :features, foreign_key: "decidim_participatory_process_id"
+    has_many :components, through: :features
+
     attr_readonly :active_step
 
     validates :slug, presence: true
@@ -37,9 +40,6 @@ module Decidim
 
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
-
-    has_many :components, through: :features
-    has_many :features, foreign_key: "decidim_participatory_process_id"
 
     # Scope to return only the published processes.
     #

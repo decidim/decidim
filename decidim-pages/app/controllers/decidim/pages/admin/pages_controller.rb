@@ -7,11 +7,11 @@ module Decidim
       # This controller allows the user to update a Page.
       class PagesController < Admin::ApplicationController
         def edit
-          @form = Admin::PageForm.from_model(page)
+          @form = form(Admin::PageForm).from_model(page)
         end
 
         def update
-          @form = Admin::PageForm.from_params(params)
+          @form = form(Admin::PageForm).from_params(params)
 
           Admin::UpdatePage.call(@form, page) do
             on(:ok) do

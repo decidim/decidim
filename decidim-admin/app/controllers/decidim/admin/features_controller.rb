@@ -3,7 +3,8 @@ require_dependency "decidim/admin/application_controller"
 
 module Decidim
   module Admin
-    # Controller that allows managing all the Admins.
+    # Controller that allows managing the Participatory Process' Features in the
+    # admin panel.
     #
     class FeaturesController < ApplicationController
       include Concerns::ParticipatoryProcessAdmin
@@ -12,7 +13,7 @@ module Decidim
 
       def index
         authorize! :read, Feature
-        @manifests = Decidim.features
+        @manifests = Decidim.feature_manifests
         @features = participatory_process.features
       end
 
@@ -65,15 +66,14 @@ module Decidim
       private
 
       def manifest
-        Decidim.features.find { |manifest| manifest.name == params[:type].to_sym }
+        Decidim.find_feature_manifest(params[:type])
       end
 
       def default_name(manifest)
-        current_organization.available_locales.each_with_object({}) do |locale, result|
-          I18n.with_locale(locale) do
-            result[locale] = I18n.t("#{manifest.name}.name", scope: "features")
-          end
-        end
+        TranslationsHelper.multi_translation(
+          "features.#{manifest.name}.name",
+          current_organization.available_locales
+        )
       end
     end
   end

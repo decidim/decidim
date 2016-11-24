@@ -21,9 +21,9 @@ Decidim::Admin::Engine.routes.draw do
     end
 
     scope "/participatory_processes/:participatory_process_id/features/:feature_id/components/:current_component_id" do
-      Decidim.components.each do |component|
-        constraints Decidim::Components::RouteConstraint.new(component) do
-          mount component.admin_engine, at: "/", as: :manage_component
+      Decidim.component_manifests.each do |manifest|
+        constraints Decidim::Components::RouteConstraint.new(manifest) do
+          mount manifest.admin_engine, at: "/", as: :manage_component
         end
       end
     end

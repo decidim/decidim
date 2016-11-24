@@ -120,8 +120,10 @@ FactoryGirl.define do
     component_type { "dummy" }
 
     step do
-      create(:participatory_process_step,
-             participatory_process: feature.participatory_process)
+      build(
+        :participatory_process_step,
+        participatory_process: feature.participatory_process
+      )
     end
 
     feature

@@ -3,8 +3,8 @@
 
   <div class="steps">
     <%= form.label :step_id %>
-    <%= form.collection_radio_buttons :step_id, participatory_process.steps, :id, :title do |b| %>
-      <% b.label { b.radio_button + translated_attribute(b.text) } %>
+    <%= form.collection_radio_buttons :step_id, participatory_process.steps, :id, :title do |builder| %>
+      <% builder.label { builder.radio_button + translated_attribute(builder.text) } %>
     <% end %>
     <%= form.error_for :step_id %>
   </div>

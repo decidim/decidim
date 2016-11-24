@@ -26,7 +26,7 @@ module Decidim
             DestroyComponent.call(component)
           end
 
-          @feature.destroy
+          @feature.destroy!
         end
       end
     end
