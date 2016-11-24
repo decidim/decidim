@@ -36,8 +36,8 @@ module Decidim
           title: form.title,
           description: form.description,
           short_description: form.short_description,
-          start_date: form.start_date.at_midnight,
-          end_date: form.end_date.at_midnight,
+          start_date: form.start_date,
+          end_date: form.end_date,
           participatory_process: @participatory_process
         )
       end
