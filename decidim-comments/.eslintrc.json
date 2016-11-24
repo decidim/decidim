@@ -19,7 +19,8 @@
         "React": false,
         "describe": false,
         "it": false,
-        "expect": false
+        "expect": false,
+        "beforeEach": false
     },
     "rules": {
         "accessor-pairs": "error",

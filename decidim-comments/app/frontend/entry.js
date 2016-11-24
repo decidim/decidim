@@ -1,9 +1,6 @@
-import React    from 'react';
-import ReactDOM from 'react-dom';
-
 import Comments from './comments/comments.component';
 
+require('react-dom');
+
 // Expose globals for react-rails
-window.React = React;
-window.ReactDOM = ReactDOM;
 window.Comments = Comments;

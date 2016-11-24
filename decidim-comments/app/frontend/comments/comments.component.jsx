@@ -1,6 +1,7 @@
 import { Component, PropTypes } from 'react';
 import { graphql, compose }     from 'react-apollo';
 import gql                      from 'graphql-tag';
+import { filter }               from 'graphql-anywhere';
 
 import ApolloApplication        from '../application/apollo_application.component';
 
@@ -9,13 +10,12 @@ import CommentOrderSelector     from './comment_order_selector.component';
 import CommentThread            from './comment_thread.component';
 import AddCommentForm           from './add_comment_form.component';
 
+import commentsQuery            from './comments.query.graphql'
+
 export class Comments extends Component {
   render() {
-    const { comments } = this.props;
-
     return (
       <div className="columns large-9" id="comments">
-        <p>{ JSON.stringify(comments) }</p>
         <FeaturedComment />
         <section className="comments">
           <div className="row collapse order-by">
@@ -44,26 +44,28 @@ export class Comments extends Component {
     const { comments } = this.props;
     
     return comments.map((comment) => (
-      <CommentThread key={comment.id} comment={comment} />
+      <CommentThread 
+        key={comment.id} 
+        comment={filter(CommentThread.fragments.comment, comment)} 
+      />
     ))
   }
 }
 
 Comments.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.object)
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired
+  })).isRequired
 };
 
 const CommentsWithData = compose(
   graphql(gql`
-    query GetProcesses {
-      processes {
-        id
-      }
-    }
+    ${commentsQuery}
+    ${CommentThread.fragments.comment}
   `, {
-    props: ({ data: { loading, processes }}) => ({
+    props: ({ data: { loading, comments }}) => ({
       loading,
-      comments: processes || []
+      comments: comments || []
     })
   })
 )(Comments);

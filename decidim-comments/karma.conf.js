@@ -1,3 +1,5 @@
+const webpackConfig = require('./webpack.config');
+
 module.exports = function(config) {
   config.set({
     basePath: '',
@@ -8,31 +10,7 @@ module.exports = function(config) {
     preprocessors: {
       'app/frontend/entry.test.js': ['webpack', 'sourcemap']
     },
-    webpack: {
-      resolve: {
-        extensions: ['', '.js', '.jsx']
-      },
-      module: {
-        noParse: [
-          /\/sinon\.js/
-        ],
-        loaders: [
-          { 
-              test: /\.jsx?$/,
-              exclude: /(node_modules|bower_components)/,
-              loaders: ['babel', 'eslint'] 
-          },
-          { test: require.resolve("react"), loader: "expose?React" },
-          { test: require.resolve("react-dom"), loader: "expose?ReactDOM" }
-        ]
-      },
-      externals: {
-        'cheerio': 'window',
-        'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true,
-        'react/addons': true
-      }
-    },
+    webpack: webpackConfig,
     webpackServer: {
       noInfo: true
     },

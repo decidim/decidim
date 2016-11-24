@@ -1,0 +1,5 @@
+fragment CommentThread on ParticipatoryProcess {
+  title {
+    translation(locale:"ca")
+  }
+}
