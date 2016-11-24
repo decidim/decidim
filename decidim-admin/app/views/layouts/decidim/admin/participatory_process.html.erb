@@ -11,11 +11,6 @@
         <li class="tabs-title is-active">
           <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.participatory_processes_submenu"), participatory_process_path(participatory_process) %>
         </li>
-        <% if can? :update, participatory_process %>
-          <li class="tabs-title">
-            <%= aria_selected_link_to t("settings", scope: "decidim.admin.menu.participatory_processes_submenu"), edit_participatory_process_path(participatory_process) %>
-          </li>
-        <% end %>
         <% if can? :read, Decidim::ParticipatoryProcessStep %>
           <li class="tabs-title">
             <%= aria_selected_link_to t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"), participatory_process_steps_path(participatory_process) %>
@@ -29,6 +24,11 @@
         <% if can? :read, Decidim::ParticipatoryProcessAttachment %>
           <li class="tabs-title">
             <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"), participatory_process_attachments_path(participatory_process) %>
+          </li>
+        <% end %>
+        <% if can? :update, participatory_process %>
+          <li class="tabs-title">
+            <%= aria_selected_link_to t("settings", scope: "decidim.admin.menu.participatory_processes_submenu"), edit_participatory_process_path(participatory_process) %>
           </li>
         <% end %>
       </ul>
