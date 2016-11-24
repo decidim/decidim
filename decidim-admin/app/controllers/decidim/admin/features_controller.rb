@@ -20,10 +20,6 @@ module Decidim
       def new
         authorize! :create, Feature
 
-        feature = Feature.new(
-          participatory_process: participatory_process
-        )
-
         @form = form(FeatureForm).new(name: default_name(manifest))
       end
 

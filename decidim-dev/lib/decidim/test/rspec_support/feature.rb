@@ -5,8 +5,6 @@ end
 
 RSpec.configure do |config|
   config.before(:each) do
-    Decidim.find_feature_manifest(:dummy).component_manifests.each do |manifest|
-      manifest.reset_hooks!
-    end
+    Decidim.find_feature_manifest(:dummy).component_manifests.each(&:reset_hooks!)
   end
 end
