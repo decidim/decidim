@@ -36,7 +36,7 @@ module Decidim
 
       def create_component
         @component = Component.create!(
-          component_type: manifest.name,
+          manifest_name: manifest.name,
           name: form.name,
           feature: feature,
           step: step

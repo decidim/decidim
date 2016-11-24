@@ -7,20 +7,20 @@ module Decidim
 
     describe "manifest" do
       it "finds the manifest for its own type" do
-        subject.component_type = "dummy"
+        subject.manifest_name = "dummy"
         expect(subject.manifest).to eq(Decidim.find_component_manifest("dummy"))
       end
 
       it "returns nil if no manifest is found" do
-        subject.component_type = "invalid_manifest_name"
+        subject.manifest_name = "invalid_manifest_name"
         expect(subject.manifest).to be_nil
       end
     end
 
     describe "manifest=" do
-      it "sets an appropiate component_type" do
+      it "sets an appropiate manifest_name" do
         subject.manifest = Decidim.find_component_manifest("dummy")
-        expect(subject.component_type).to eq("dummy")
+        expect(subject.manifest_name).to eq("dummy")
       end
     end
 
@@ -30,7 +30,7 @@ module Decidim
       let(:feature) do
         create(
           :feature,
-          feature_type: "dummy",
+          manifest_name: "dummy",
           participatory_process: participatory_process
         )
       end
@@ -54,7 +54,7 @@ module Decidim
         let(:feature) do
           create(
             :feature,
-            feature_type: "invalid_feature",
+            manifest_name: "invalid_feature",
             participatory_process: participatory_process
           )
         end

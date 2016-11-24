@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Show a page", type: :feature do
   include_context "component"
 
-  let(:feature_type) { "pages" }
-  let(:component_type) { "page" }
+  let(:feature_manifest) { Decidim.find_feature_manifest("pages") }
+  let(:component_manifest) { Decidim.find_component_manifest("page") }
 
   describe "page show" do
     before do

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 RSpec.shared_context "component" do
-  let!(:feature_type) { raise NotImplementedError }
-  let!(:component_type) { raise NotImplementedError }
+  let!(:feature_manifest) { raise NotImplementedError }
+  let!(:component_manifest) { raise NotImplementedError }
 
   let!(:organization) { create(:organization) }
 
@@ -15,13 +15,13 @@ RSpec.shared_context "component" do
 
   let!(:feature) do
     create(:feature,
-           feature_type: feature_type,
+           manifest: feature_manifest,
            participatory_process: participatory_process)
   end
 
   let!(:component) do
     create(:component,
-           component_type: component_type,
+           component_manifest: component_manifest,
            step: participatory_process_step,
            feature: feature)
   end

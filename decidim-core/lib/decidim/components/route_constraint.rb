@@ -26,7 +26,7 @@ module Decidim
       # Returns True if it matches, False if not.
       def matches?(request)
         component = CurrentComponent.new(request).call
-        component && component.component_type.to_sym == @manifest.name
+        component && component.manifest_name.to_sym == @manifest.name
       end
     end
   end

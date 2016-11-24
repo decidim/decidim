@@ -21,7 +21,7 @@ module Decidim
     #
     # Returns a ComponentManifest.
     def manifest
-      Decidim.find_component_manifest(component_type)
+      Decidim.find_component_manifest(manifest_name)
     end
 
     # Public: Assigns a manifest to this component.
@@ -30,7 +30,7 @@ module Decidim
     #
     # Returns nothing.
     def manifest=(manifest)
-      self.component_type = manifest.name
+      self.manifest_name = manifest.name
     end
 
     private

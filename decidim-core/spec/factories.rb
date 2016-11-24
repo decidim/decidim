@@ -112,12 +112,12 @@ FactoryGirl.define do
   factory :feature, class: Decidim::Feature do
     name { Decidim::Faker::Localized.sentence(3) }
     participatory_process
-    feature_type "dummy"
+    manifest_name "dummy"
   end
 
   factory :component, class: Decidim::Component do
     name { Decidim::Faker::Localized.sentence(3) }
-    component_type { "dummy" }
+    manifest_name { "dummy" }
 
     step do
       build(

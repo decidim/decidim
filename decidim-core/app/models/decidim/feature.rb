@@ -9,8 +9,20 @@ module Decidim
 
     validates :participatory_process, presence: true
 
+    # Public: Fins the manifest this feature is associated to.
+    #
+    # Returns a FeatureManifest.
     def manifest
-      Decidim.find_feature_manifest(feature_type)
+      Decidim.find_feature_manifest(manifest_name)
+    end
+
+    # Public: Assigns a manifest to this feature.
+    #
+    # manifest - The FeatureManifest for this Feature.
+    #
+    # Returns nothing.
+    def manifest=(manifest)
+      self.manifest_name = manifest.name
     end
   end
 end

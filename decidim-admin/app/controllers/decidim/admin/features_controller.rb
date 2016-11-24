@@ -24,9 +24,7 @@ module Decidim
           participatory_process: participatory_process
         )
 
-        @form = form(FeatureForm).from_model(feature).tap do |form|
-          form.name = default_name(manifest)
-        end
+        @form = form(FeatureForm).new(name: default_name(manifest))
       end
 
       def create

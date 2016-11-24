@@ -23,13 +23,13 @@ Decidim.register_feature(:pages) do |feature|
 
       feature = Decidim::Feature.create!(
         name: Decidim::Faker::Localized.sentence(2),
-        feature_type: :pages,
+        manifest_name: :pages,
         participatory_process: process
       )
 
       page_component = Decidim::Component.create!(
         name: Decidim::Faker::Localized.sentence(2),
-        component_type: :page,
+        manifest_name: :page,
         feature: feature,
         step: process.steps.sample
       )
