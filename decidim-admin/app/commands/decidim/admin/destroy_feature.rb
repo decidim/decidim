@@ -5,14 +5,14 @@ module Decidim
     class DestroyFeature < Rectify::Command
       # Public: Initializes the command.
       #
-      # component - The Feature to be destroyed.
+      # feature - The Feature to be destroyed.
       def initialize(feature)
         @feature = feature
       end
 
       # Public: Executes the command.
       #
-      # Broadcasts :ok if it got destroyed.
+      # Broadcasts :ok if it got destroyed, raises an exception otherwise.
       def call
         destroy_feature
         broadcast(:ok)

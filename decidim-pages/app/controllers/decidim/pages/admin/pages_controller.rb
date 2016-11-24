@@ -4,7 +4,7 @@ require "decidim/admin/components/base_controller"
 module Decidim
   module Pages
     module Admin
-      # This controller allows the user to update a page.
+      # This controller allows the user to update a Page.
       class PagesController < Admin::ApplicationController
         def edit
           @form = Admin::PageForm.from_model(page)

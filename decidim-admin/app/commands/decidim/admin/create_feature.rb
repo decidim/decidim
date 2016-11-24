@@ -5,6 +5,11 @@ module Decidim
     class CreateFeature < Rectify::Command
       attr_reader :form, :manifest, :participatory_process
 
+      # Public: Initializes the command.
+      #
+      # manifest              - The component's manifest to create a feature from.
+      # form                  - The form from which the data in this feature comes from.
+      # participatory_process - The participatory process that will hold this feature.
       def initialize(manifest, form, participatory_process)
         @manifest = manifest
         @form = form
