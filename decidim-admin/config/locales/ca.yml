@@ -37,9 +37,9 @@ ca:
           attachments: Adjunts
           info: Informació
           process_admins: Administradors del procés
-          settings: Ajustos
+          settings: Configuració
           steps: Fases del procés
-        settings: Ajustos
+        settings: Configuració
         static_pages: Pàgines
       models:
         participatory_process:
