@@ -22,5 +22,13 @@ module Decidim
       component.validate!
       components << component
     end
+
+    def seeds(&block)
+      @seeds = block
+    end
+
+    def seed!
+      @seeds.call if @seeds
+    end
   end
 end

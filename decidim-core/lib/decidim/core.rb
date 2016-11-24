@@ -14,9 +14,19 @@ module Decidim
 
   # Loads seeds from all engines.
   def self.seed!
-    Rails.application.railties.select do |railtie|
+    railties = Rails.application.railties.to_a.uniq.select do |railtie|
       railtie.respond_to?(:load_seed) && railtie.class.name.include?("Decidim::")
-    end.each(&:load_seed)
+    end
+
+    railties.each do |railtie|
+      puts "Creating #{railtie.class.name} seeds..."
+      railtie.load_seed
+    end
+
+    Decidim.features.each do |feature|
+      puts "Creating Feature (#{feature.name}) seeds..."
+      feature.seed!
+    end
   end
 
   # Exposes a configuration option: The application name String.

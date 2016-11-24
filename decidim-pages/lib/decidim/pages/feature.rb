@@ -16,4 +16,31 @@ Decidim.register_feature(:pages) do |feature|
       end
     end
   end
+
+  feature.seeds do
+    Decidim::ParticipatoryProcess.all.each do |process|
+      next unless process.steps.any?
+
+      feature = Decidim::Feature.create!(
+        name: Decidim::Faker::Localized.sentence(2),
+        feature_type: :pages,
+        participatory_process: process
+      )
+
+      page_component = Decidim::Component.create!(
+        name: Decidim::Faker::Localized.sentence(2),
+        component_type: :page,
+        feature: feature,
+        step: process.steps.sample
+      )
+
+      Decidim::Pages::Page.create!(
+        component: page_component,
+        title: Decidim::Faker::Localized.sentence(2),
+        body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end
+      )
+    end
+  end
 end

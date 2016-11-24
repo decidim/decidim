@@ -10,6 +10,10 @@ module Decidim
         post "/", to: "pages#update", as: :page
         root to: "pages#edit"
       end
+
+      def load_seed
+        nil
+      end
     end
   end
 end

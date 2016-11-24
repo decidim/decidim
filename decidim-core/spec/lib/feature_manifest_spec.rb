@@ -25,5 +25,18 @@ module Decidim
         expect(subject.components).to include(components[:foo], components[:bar])
       end
     end
+
+    describe "seed" do
+      it "registers a block of seeds to be run on development" do
+        data = {}
+        subject.seeds do
+          data[:foo] = :bar
+        end
+
+        subject.seed!
+
+        expect(data[:foo]).to eq(:bar)
+      end
+    end
   end
 end
