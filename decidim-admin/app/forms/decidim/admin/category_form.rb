@@ -13,6 +13,7 @@ module Decidim
       mimic :category
 
       validates :name, :description, translatable_presence: true
+      validates :current_process, presence: true
       validates :parent_id, inclusion: { in: :parent_categories_ids }, allow_blank: true
 
       attr_reader :current_process
