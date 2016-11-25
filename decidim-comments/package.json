@@ -17,6 +17,7 @@
     "chai-as-promised": "^6.0.0",
     "chai-enzyme": "^0.4.1",
     "enzyme": "^2.6.0",
+    "faker": "^3.1.0",
     "graphql-anywhere": "^1.0.0",
     "graphql-tag": "^0.1.17",
     "react": "^15.4.0",
