@@ -1,20 +1,29 @@
 import { shallow }   from 'enzyme';
+import { filter }    from 'graphql-anywhere';
+import gql           from 'graphql-tag';
+
 import CommentThread from './comment_thread.component';
-import Comment       from './comment.component';
+
+import commentThreadFragment from './comment_thread.fragment.graphql'
 
 describe('<CommentThread />', () => {
-  it("should have a descendant h6 of class comment-thread__title", () => {
-    const wrapper = shallow(<CommentThread />);
-    expect(wrapper).to.have.descendants('h6.comment-thread__title');
+  let comment = {};
+
+  beforeEach(() => {
+    let commentData = {
+      comment: {
+        body: "Test",
+        author: {
+          name: "Marc Riera Casals"
+        }
+      }
+    };
+
+    comment = filter(gql`${commentThreadFragment}`, commentData.comment);
   });
 
-  it("should have a descendant div of class comment-thread", () => {
-    const wrapper = shallow(<CommentThread />);
-    expect(wrapper).to.have.descendants('div.comment-thread');
-  }); 
-
-  it("should have a descendant Comment", () => {
-    const wrapper = shallow(<CommentThread />);
-    expect(wrapper).to.have.descendants(Comment);
-  });  
+  it("should render a h6 comment-thread__title with author name", () => {
+    const wrapper = shallow(<CommentThread comment={comment} />);
+    expect(wrapper.find('h6.comment-thread__title')).to.have.text(`Conversation with ${comment.author.name}`);
+  });
 });

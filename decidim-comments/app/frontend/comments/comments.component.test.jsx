@@ -9,8 +9,13 @@ import AddCommentForm      from './add_comment_form.component';
 
 import commentsQuery       from './comments.query.graphql'
 
+import stubComponent       from '../support/stub_component';
+
 describe('<Comments />', () => {
   let comments = [];
+
+  stubComponent(CommentThread);
+  stubComponent(AddCommentForm);
 
   const generateCommentsData = (num = 1) => {
     let commentsData = {

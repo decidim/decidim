@@ -20,7 +20,8 @@
         "describe": false,
         "it": false,
         "expect": false,
-        "beforeEach": false
+        "beforeEach": false,
+        "afterEach": false
     },
     "rules": {
         "accessor-pairs": "error",
