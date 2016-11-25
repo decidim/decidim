@@ -22,7 +22,7 @@ module Decidim
         expect(manifests[:bar]).to be_kind_of(ComponentManifest)
         expect(manifests[:bar].name).to eq(:bar)
 
-        expect(subject.component_manifests).to include(components[:foo], components[:bar])
+        expect(subject.component_manifests).to include(manifests[:foo], manifests[:bar])
       end
     end
 
