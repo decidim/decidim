@@ -24,13 +24,13 @@ module Decidim
       end
 
       def parent_categories
-        current_process.categories.first_class.where.not(id: id)
+        @parent_categories ||= current_process.categories.first_class.where.not(id: id)
       end
 
       private
 
       def parent_categories_ids
-        parent_categories.pluck(:id)
+        @parent_categories_ids ||= parent_categories.pluck(:id)
       end
     end
   end

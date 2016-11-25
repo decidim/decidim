@@ -33,7 +33,7 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "destroys the category in the organization" do
+          it "destroys the category in the process" do
             category
             expect do
               command.call

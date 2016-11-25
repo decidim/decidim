@@ -83,7 +83,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= participatory_process.categories
+        @collection ||= participatory_process.categories.includes(:subcategories)
       end
     end
   end

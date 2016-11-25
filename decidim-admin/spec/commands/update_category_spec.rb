@@ -51,7 +51,7 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "updates the category in the organization" do
+          it "updates the category in the process" do
             command.call
             category.reload
 
