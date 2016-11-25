@@ -21,7 +21,7 @@ RSpec.shared_context "component" do
 
   let!(:component) do
     create(:component,
-           component_manifest: component_manifest,
+           manifest: component_manifest,
            step: participatory_process_step,
            feature: feature)
   end

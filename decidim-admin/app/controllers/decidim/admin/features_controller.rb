@@ -20,7 +20,7 @@ module Decidim
       def new
         authorize! :create, Feature
 
-        @form = form(FeatureForm).new(name: default_name(manifest))
+        @form = form(FeatureForm).instance(name: default_name(manifest))
       end
 
       def create

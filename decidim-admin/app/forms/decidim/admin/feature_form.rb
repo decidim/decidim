@@ -10,7 +10,7 @@ module Decidim
       mimic :feature
 
       translatable_attribute :name, String
-      translatable_validates :name, presence: true
+      validates :name, translatable_presence: true
     end
   end
 end

@@ -4,7 +4,7 @@ module Decidim
   module Admin
     describe DestroyComponent do
       let(:component) { create(:component) }
-      let(:manifest) { component.feature.manifest.components.first }
+      let(:manifest) { component.feature.manifest.component_manifests.first }
 
       subject { described_class.new(component) }
 

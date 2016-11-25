@@ -6,23 +6,23 @@ module Decidim
 
     describe "component" do
       it "exposes a DSL to create a component" do
-        components = {}
+        manifests = {}
 
         subject.component(:foo) do |component|
-          components[:foo] = component
+          manifests[:foo] = component
         end
 
         subject.component(:bar) do |component|
-          components[:bar] = component
+          manifests[:bar] = component
         end
 
-        expect(components[:foo]).to be_kind_of(ComponentManifest)
-        expect(components[:foo].name).to eq(:foo)
+        expect(manifests[:foo]).to be_kind_of(ComponentManifest)
+        expect(manifests[:foo].name).to eq(:foo)
 
-        expect(components[:bar]).to be_kind_of(ComponentManifest)
-        expect(components[:bar].name).to eq(:bar)
+        expect(manifests[:bar]).to be_kind_of(ComponentManifest)
+        expect(manifests[:bar].name).to eq(:bar)
 
-        expect(subject.components).to include(components[:foo], components[:bar])
+        expect(subject.component_manifests).to include(components[:foo], components[:bar])
       end
     end
 

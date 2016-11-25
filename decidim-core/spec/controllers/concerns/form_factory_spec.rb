@@ -2,7 +2,13 @@ require "spec_helper"
 
 module Decidim
   describe FormFactory do
-    let(:form_klass) { Class.new }
+    let(:form_klass) do
+      Class.new do
+        def initialize(context = {})
+        end
+      end
+    end
+
     let(:producer) do
       Class.new do
         include Decidim::FormFactory
