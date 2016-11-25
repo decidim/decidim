@@ -8,3 +8,4 @@ node_modules/
 .vscode
 development_app/
 .projectile
+docker_development_app/
