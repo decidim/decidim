@@ -1,3 +1,4 @@
+---
 es:
   activerecord:
     attributes:
@@ -8,7 +9,7 @@ es:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: '¿Seguro que lo quieres eliminar?'
+        confirm_destroy: "¿Seguro que lo quieres eliminar?"
         create: Crear
         deactivate: Desactivar
         destroy: Eliminar
@@ -73,8 +74,6 @@ es:
         edit:
           title: Editar organización
           update: Actualizar organización
-        show:
-          default: por defecto
         update:
           error: Se produjo un error al actualizar esta organización.
           success: Organización actualizada correctamente.
