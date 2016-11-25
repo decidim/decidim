@@ -17,7 +17,7 @@ module Decidim
     validate :manifest_belongs_to_feature
     validate :participatory_process_is_valid
 
-    # Public: Fins the manifest this particular component is associated to.
+    # Public: Finds the manifest this particular component is associated to.
     #
     # Returns a ComponentManifest.
     def manifest

@@ -50,6 +50,13 @@ module Decidim
         end
       end
 
+      context "when the component participatory process is the same as ths step's" do
+        it "is valid" do
+          subject.feature = feature
+          expect(subject).to be_valid
+        end
+      end
+
       context "when the component doesn't belong to the manifest's feature" do
         let(:feature) do
           create(
