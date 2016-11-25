@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 require_dependency "decidim/components/route_constraint"
 
-# frozen_string_literal: true
 Decidim::Admin::Engine.routes.draw do
   constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
     resource :organization, only: [:show, :edit, :update], controller: "organization"
