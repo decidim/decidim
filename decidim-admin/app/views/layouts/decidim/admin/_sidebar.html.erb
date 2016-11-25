@@ -10,7 +10,7 @@
   <%= active_link_to t("menu.dashboard", scope: "decidim.admin"), decidim_admin.root_path, active: :exact %>
   <%= active_link_to t("menu.participatory_processes", scope: "decidim.admin"), decidim_admin.participatory_processes_path, active: :inclusive %>
   <%= active_link_to t("menu.static_pages", scope: "decidim.admin"), decidim_admin.static_pages_path, active: :inclusive if can? :read, Decidim::StaticPage %>
-  <%= active_link_to t("menu.settings", scope: "decidim.admin"), decidim_admin.organization_path, active: :inclusive if can? :read, current_organization %>
+  <%= active_link_to t("menu.settings", scope: "decidim.admin"), decidim_admin.edit_organization_path, active: :inclusive if can? :read, current_organization %>
 </nav>
 
 <%= render partial: 'layouts/decidim/admin/login_items' %>
