@@ -20,6 +20,8 @@ engines:
     - bbf4868601b2ff72220fde128f9a9bac
     - bb2fd2af291e98418acc55fbb8c790ea
     - efea7ddea03adadd8177a72831e928a3
+    - 92b3f6841512dd90c0f7bb79618fb351
+    - efea7ddea03adadd8177a72831e928a3
   eslint:
     enabled: false
   fixme:
