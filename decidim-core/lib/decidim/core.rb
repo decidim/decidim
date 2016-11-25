@@ -92,7 +92,8 @@ module Decidim
   #
   # Returns a FeatureManifest if found, nil otherwise.
   def self.find_feature_manifest(name)
-    feature_manifests.find { |manifest| manifest.name == name.to_sym }
+    name = name.to_sym
+    feature_manifests.find { |manifest| manifest.name == name }
   end
 
   # Public: Finds a component manifest by the component's name.
@@ -101,6 +102,7 @@ module Decidim
   #
   # Returns a ComponentManifest if found, nil otherwise.
   def self.find_component_manifest(name)
-    component_manifests.find { |manifest| manifest.name == name.to_sym }
+    name = name.to_sym
+    component_manifests.find { |manifest| manifest.name == name }
   end
 end
