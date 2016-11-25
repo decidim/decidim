@@ -3,7 +3,7 @@ require_dependency "decidim/components/route_constraint"
 
 Decidim::Admin::Engine.routes.draw do
   constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
-    resource :organization, only: [:show, :edit, :update], controller: "organization"
+    resource :organization, only: [:edit, :update], controller: "organization"
     resources :participatory_processes do
       resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
 
