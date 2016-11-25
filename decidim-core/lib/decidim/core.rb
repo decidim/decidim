@@ -23,7 +23,7 @@ module Decidim
       railtie.load_seed
     end
 
-    Decidim.features.each do |feature|
+    Decidim.feature_manifests.each do |feature|
       puts "Creating Feature (#{feature.name}) seeds..."
       feature.seed!
     end
