@@ -14,7 +14,7 @@ module Decidim
 
       def new
         authorize! :create, Decidim::Category
-        @form = form(CategoryForm).instance(current_process: participatory_process)
+        @form = form(CategoryForm).from_params({}, current_process: participatory_process)
       end
 
       def create
