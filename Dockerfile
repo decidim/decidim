@@ -1,4 +1,4 @@
-FROM ruby:2.3.1
+FROM ruby:2.3.3
 MAINTAINER david.morcillo@codegram
 
 ENV APP_HOME /code

@@ -91,7 +91,7 @@ Also you can run it as a standalone container like this:
 In order to develop on decidim, you'll need:
 
 * **PostgreSQL** 9.4+
-* **Ruby** 2.3.1
+* **Ruby** 2.3.3
 * **NodeJS** with **yarn** (JavaScript dependency manager, can be installed with `npm install yarn`)
 * **ImageMagick**
 
