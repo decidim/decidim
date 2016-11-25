@@ -89,6 +89,7 @@ en:
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
       invalid_manifest: "Invalid manifest"
       invalid_participatory_process: "Invalid participatory process"
+      nesting_too_deep: can't be inside of a subcategory
   layouts:
     decidim:
       footer:
