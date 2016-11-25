@@ -21,6 +21,13 @@ describe Decidim do
       decidim_railties.each { |r| expect(r).to receive(:load_seed) }
       other_railties.each { |r| expect(r).to_not receive(:load_seed) }
 
+      manifests = [double(name: "Feature A"), double(name: "Feature B")]
+      expect(Decidim).to receive(:feature_manifests).and_return(manifests)
+
+      manifests.each do |manifest|
+        expect(manifest).to receive(:seed!).once
+      end
+
       application = double(railties: (decidim_railties + other_railties))
       expect(Rails).to receive(:application).and_return application
 
