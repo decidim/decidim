@@ -18,7 +18,7 @@ module Decidim
         UpdateOrganization.call(current_organization, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("organization.update.success", scope: "decidim.admin")
-            redirect_to organization_path
+            redirect_to edit_organization_path
           end
 
           on(:invalid) do
@@ -26,10 +26,6 @@ module Decidim
             render :edit
           end
         end
-      end
-
-      def show
-        authorize! :read, current_organization
       end
 
       private

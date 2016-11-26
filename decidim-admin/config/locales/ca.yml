@@ -1,3 +1,4 @@
+---
 ca:
   activerecord:
     attributes:
@@ -73,8 +74,6 @@ ca:
         edit:
           title: Edita organització
           update: Actualitza organitació
-        show:
-          default: per defecte
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: Organització actualitzada correctament.
