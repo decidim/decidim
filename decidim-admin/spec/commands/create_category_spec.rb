@@ -10,12 +10,12 @@ module Decidim
         let(:form_params) do
           {
             "category" => {
-              "name_en" => "Title",
-              "name_es" => "Title",
-              "name_ca" => "Title",
-              "description_en" => "Description",
-              "description_es" => "Description",
-              "description_ca" => "Description"
+              "name_en" => Decidim::Faker::Localized.paragraph(3),
+              "name_es" => Decidim::Faker::Localized.paragraph(3),
+              "name_ca" => Decidim::Faker::Localized.paragraph(3),
+              "description_en" => Decidim::Faker::Localized.paragraph(3),
+              "description_es" => Decidim::Faker::Localized.paragraph(3),
+              "description_ca" => Decidim::Faker::Localized.paragraph(3)
             }
           }
         end
