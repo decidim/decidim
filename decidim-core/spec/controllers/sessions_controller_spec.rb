@@ -11,7 +11,11 @@ module Decidim
           context "and is an admin" do
             let(:user) { build(:user, :admin, sign_in_count: 1) }
 
-            it { is_expected.to eq("/admin/") }
+            before do
+              controller.session[:"user_return_to"] = account_path
+            end
+
+            it { is_expected.to eq account_path }
           end
 
           context "and is not an admin" do
