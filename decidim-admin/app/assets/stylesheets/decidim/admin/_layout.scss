@@ -18,3 +18,10 @@
 dd {
   margin-bottom: 1rem;
 }
+
+tr.subcategory {
+  td:first-child a:before {
+    content: "•";
+    margin-right: 1rem;
+  }
+}

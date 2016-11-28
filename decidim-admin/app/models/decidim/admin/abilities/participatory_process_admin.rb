@@ -40,6 +40,10 @@ module Decidim
           can :manage, Component do |component|
             participatory_processes.include?(component.participatory_process)
           end
+
+          can :manage, Category do |category|
+            participatory_processes.include?(category.participatory_process)
+          end
         end
       end
     end

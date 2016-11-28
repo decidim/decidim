@@ -19,6 +19,22 @@ en:
         publish: Publish
         title: Actions
         unpublish: Unpublish
+      categories:
+        create:
+          error: There was an error creating this category.
+          success: Category created successfully.
+        destroy:
+          error: There was an error deleting this category. Please delete any subcategory first, make sure no other entity belongs to this category and try again.
+          success: Category deleted successfully.
+        edit:
+          title: Edit category
+          update: Update category
+        new:
+          create: Create category
+          title: New category
+        update:
+          error: There was an error updating this category.
+          success: Category updated successfully.
       components:
         create:
           error: There was an error creating this component.
@@ -54,6 +70,9 @@ en:
         title: Features
       decidim:
         admin:
+          categories:
+            index:
+              categories_title: Categories
           participatory_process_attachments:
             index:
               attachments_title: Attachments
@@ -69,6 +88,7 @@ en:
         participatory_processes: Participatory processes
         participatory_processes_submenu:
           attachments: Attachments
+          categories: Categories
           features: Features
           info: Info
           process_admins: Process admins
@@ -77,6 +97,10 @@ en:
         settings: Settings
         static_pages: Pages
       models:
+        category:
+          fields:
+            name: Name
+          name: Category
         participatory_process:
           fields:
             created_at: Created at

@@ -33,6 +33,10 @@ module Decidim::FeatureTestHelpers
   end
 end
 
+def stripped(text)
+  Nokogiri::HTML(text).text
+end
+
 RSpec.configure do |config|
   config.include Decidim::FeatureTestHelpers, type: :feature
 end

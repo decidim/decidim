@@ -1,6 +1,20 @@
 require "decidim/faker/localized"
 
 FactoryGirl.define do
+  factory :category, class: Decidim::Category do
+    name { Decidim::Faker::Localized.sentence(3) }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    participatory_process
+  end
+
+  factory :subcategory, parent: :category do
+    parent { build(:category) }
+
+    before(:create) do |object|
+      object.parent.save unless object.parent.persisted?
+    end
+  end
+
   factory :organization, class: Decidim::Organization do
     name { Faker::Company.name }
     sequence(:host) { |n| "#{n}.lvh.me" }

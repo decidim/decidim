@@ -9,7 +9,7 @@
     <div class="medium-3 columns">
       <ul class="tabs vertical" id="example-vert-tabs">
         <li class="tabs-title is-active">
-          <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_path(participatory_process) %>
+          <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_path(participatory_process), aria_link_type: :exclusive %>
         </li>
         <% if can? :read, Decidim::ParticipatoryProcessStep %>
           <li class="tabs-title">
@@ -19,6 +19,11 @@
         <% if can? :read, Decidim::Feature %>
           <li class="tabs-title">
             <%= aria_selected_link_to t("features", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_features_path(participatory_process) %>
+          </li>
+        <% end %>
+        <% if can? :read, Decidim::Category %>
+          <li class="tabs-title">
+            <%= aria_selected_link_to t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_categories_path(participatory_process) %>
           </li>
         <% end %>
         <% if can? :read, Decidim::Admin::ParticipatoryProcessUserRole %>
