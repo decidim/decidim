@@ -17,6 +17,8 @@ module Decidim
 
     before_create :set_position
 
+    has_many :components, foreign_key: "decidim_participatory_process_step_id"
+
     private
 
     # Internal: Sets the position of the step if it is `nil`. That means that

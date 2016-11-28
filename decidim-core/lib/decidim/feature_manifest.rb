@@ -14,6 +14,8 @@ module Decidim
     attribute :name, Symbol
     attribute :component_manifests, Array[ComponentManifest], default: []
 
+    attribute :graphql_type
+
     validates :name, presence: true
 
     # Public: Registers a component to this feature via the DSL provided by

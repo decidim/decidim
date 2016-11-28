@@ -1,8 +1,12 @@
 # frozen_string_literal: true
+require_relative "page_component_type"
+
 Decidim.register_feature(:pages) do |feature|
   feature.component :page do |component|
     component.engine = Decidim::Pages::Engine
     component.admin_engine = Decidim::Pages::AdminEngine
+
+    component.graphql_type = Decidim::Pages::PageComponentType
 
     component.on(:create) do |instance|
       Decidim::Pages::CreatePage.call(instance) do

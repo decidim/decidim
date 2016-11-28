@@ -13,6 +13,8 @@ module Decidim
       connection :steps, ProcessStepType.connection_type do
         description "All the steps of this process."
       end
+
+      field :features, types[FeatureType], "All the features for this process."
     end
   end
 end

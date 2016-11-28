@@ -8,5 +8,6 @@ module Decidim
   # This namespace holds the logic of the `Pages` component. This component
   # allows the admins to create a custom page for a participatory process.
   module Pages
+    autoload :PageComponentType, "decidim/pages/page_component_type"
   end
 end
