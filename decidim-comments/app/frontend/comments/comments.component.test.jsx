@@ -1,15 +1,15 @@
-import { shallow }         from 'enzyme';
-import graphql, { filter } from 'graphql-anywhere';
-import gql                 from 'graphql-tag';
-import { random }          from 'faker/locale/en';
+import { shallow }          from 'enzyme';
+import gql                  from 'graphql-tag';
 
-import { Comments }        from './comments.component';
-import CommentThread       from './comment_thread.component';
-import AddCommentForm      from './add_comment_form.component';
+import { Comments }         from './comments.component';
+import CommentThread        from './comment_thread.component';
+import AddCommentForm       from './add_comment_form.component';
 
-import commentsQuery       from './comments.query.graphql'
+import commentsQuery        from './comments.query.graphql'
 
-import stubComponent       from '../support/stub_component';
+import stubComponent        from '../support/stub_component';
+import generateCommentsData from '../support/generate_comments_data';
+import resolveGraphQLQuery  from '../support/resolve_graphql_query';
 
 describe('<Comments />', () => {
   let comments = [];
@@ -17,21 +17,6 @@ describe('<Comments />', () => {
   stubComponent(CommentThread);
   stubComponent(AddCommentForm);
 
-  const generateCommentsData = (num = 1) => {
-    let commentsData = {
-      comments: []
-    };
-
-    for (let idx = 0; idx < num; idx += 1) {
-      commentsData.comments.push({
-        id: random.uuid(),
-        body: random.words()
-      })
-    }
-
-    return commentsData;
-  };
-  
   beforeEach(() => {
     const commentsData = generateCommentsData(15);
 
@@ -42,15 +27,7 @@ describe('<Comments />', () => {
       }
     `;
 
-    const resolver = (fieldName, root) => root[fieldName];
-
-    let result = graphql(
-      resolver,
-      query,
-      commentsData
-    );
-
-    comments = filter(query, result).comments;
+    comments = resolveGraphQLQuery(query, commentsData).comments;
   });
 
   it("should render a div of id comments", () => {

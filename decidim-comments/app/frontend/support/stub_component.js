@@ -1,4 +1,4 @@
-// jslint:disable:no-param-reassign
+/* eslint-disable:no-param-reassign */
 const stubComponent = function(componentClass) {
   let originalPropTypes = {};
 
