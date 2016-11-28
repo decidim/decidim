@@ -8,7 +8,9 @@ module Decidim
       layout "application"
 
       def after_sign_in_path_for(user)
-        if user.is_a?(User) && user.sign_in_count == 1 && Decidim.authorization_handlers.any?
+        if user.role?(:admin)
+          decidim_admin.root_path
+        elsif user.is_a?(User) && user.sign_in_count == 1 && Decidim.authorization_handlers.any?
           authorizations_path
         else
           super
