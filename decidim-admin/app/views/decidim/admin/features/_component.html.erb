@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= translated_attribute component.name %>
+  </td>
+  <td class="actions">
+    <%= link_to t("preview", scope: "decidim.admin.actions"), decidim.component_path(participatory_process, component), target: "_blank" %>
+
+    <% if component.manifest.admin_engine %>
+      <%= link_to manage_component_path(participatory_process, component.feature, component), class: "button small" do %>
+        <%= t "actions.configure", scope: "decidim.admin" %>
+      <% end %>
+    <% end %>
+
+    <%= link_to t("actions.destroy", scope: "decidim.admin"), url_for(action: :destroy, id: component, controller: "components"), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, component %>
+  </td>
+</tr>

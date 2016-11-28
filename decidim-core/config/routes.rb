@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_dependency "decidim/components/route_constraint"
 
 Decidim::Core::Engine.routes.draw do
   devise_for :users,
@@ -15,6 +16,14 @@ Decidim::Core::Engine.routes.draw do
 
   resource :locale, only: [:create]
   resources :participatory_processes, only: [:index, :show]
+
+  scope "/participatory_processes/:participatory_process_id/components/:current_component_id" do
+    Decidim.component_manifests.each do |component|
+      constraints Decidim::Components::RouteConstraint.new(component) do
+        mount component.engine, at: "/", as: :component
+      end
+    end
+  end
 
   authenticate(:user) do
     resources :authorizations, only: [:new, :create, :destroy, :index]

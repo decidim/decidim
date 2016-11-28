@@ -21,6 +21,9 @@ module Decidim
           can [:read, :update], Decidim::Organization do |organization|
             organization == user.organization
           end
+
+          can :manage, Feature
+          can :manage, Component
           can :read, :admin_dashboard
           can :manage, ParticipatoryProcessAttachment
         end

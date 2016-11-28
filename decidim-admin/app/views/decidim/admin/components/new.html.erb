@@ -1,0 +1,9 @@
+<h3><%= t ".title", name: t("#{manifest.name}.name", scope: "components") %></h3>
+
+<%= form_for([participatory_process, @form], url: url_for(action: :create, type: params[:type], feature_id: params[:feature_id]), method: "post") do |form| %>
+  <%= render partial: 'form', object: form %>
+
+  <div class="actions">
+    <%= form.submit t(".add") %>
+  </div>
+<% end %>

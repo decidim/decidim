@@ -19,6 +19,39 @@ en:
         publish: Publish
         title: Actions
         unpublish: Unpublish
+      components:
+        create:
+          error: There was an error creating this component.
+          success: Component created successfully.
+        destroy:
+          error: There has been an error destroying this component.
+          success: Component deleted successfully.
+        new:
+          add: Add component
+          title: 'Add component: %{name}'
+      decidim:
+        admin:
+          participatory_process_steps:
+            index:
+              steps_hint: You can drag the rows of the table in order to reorder the process steps.
+              steps_title: Steps
+          participatory_process_user_roles:
+            index:
+              process_admins_title: Participatory process admins
+      features:
+        create:
+          error: There was an error creating this feature.
+          success: Feature created successfully.
+        destroy:
+          error: There has been an error destroying this feature.
+          success: Feature deleted successfully.
+        index:
+          add: Add feature
+          add_component: Add component
+        new:
+          add: Add feature
+          title: 'Add feature: %{name}'
+        title: Features
       decidim:
         admin:
           participatory_process_attachments:
@@ -36,6 +69,7 @@ en:
         participatory_processes: Participatory processes
         participatory_processes_submenu:
           attachments: Attachments
+          features: Features
           info: Info
           process_admins: Process admins
           settings: Settings

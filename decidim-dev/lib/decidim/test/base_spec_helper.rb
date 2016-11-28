@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 ENV["RAILS_ENV"] ||= "test"
 
-engine_path = Dir.pwd
-engine_name = engine_path.split("/").last
-dummy_app_path = File.expand_path(File.join(engine_path, "spec", "#{engine_name}_dummy_app"))
+engine_name = ENV["ENGINE_NAME"]
+dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "#{engine_name}_dummy_app"))
 
 if ENV["CI"]
   require "simplecov"
@@ -32,7 +31,7 @@ require "rectify/rspec"
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/rspec_support/**/*.rb"].each { |f| require f }
-Dir[File.join(File.dirname(__FILE__), "..", "..", "..", "..", ENV["ENGINE_NAME"], "spec", "support", "**", "*.rb")].each { |f| require f }
+Dir[File.join(File.dirname(__FILE__), "..", "..", "..", "..", engine_name, "spec", "support", "**", "*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.color = true

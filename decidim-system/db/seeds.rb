@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 if !Rails.env.production? || ENV["SEED"]
-  puts "Creating Decidim::System seeds..."
-
   Decidim::System::Admin.create!(
     email: "system@decidim.org",
     password: "decidim123456",

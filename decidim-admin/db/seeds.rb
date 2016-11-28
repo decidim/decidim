@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 if !Rails.env.production? || ENV["SEED"]
-  puts "Creating Decidim::Admin seeds..."
-
   staging_organization = Decidim::Organization.order(id: :asc).first
 
   process_admin = Decidim::User.create!(

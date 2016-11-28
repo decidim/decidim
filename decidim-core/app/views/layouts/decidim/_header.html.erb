@@ -30,7 +30,7 @@
                   <% if available_locales.length > 1 %>
                     <ul class="menu is-dropdown-submenu">
                     <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
-                      <li><%= link_to t(locale, scope: "locales"), locale_path(locale: locale), method: :post%></li>
+                      <li><%= link_to t(locale, scope: "locales"), decidim.locale_path(locale: locale), method: :post%></li>
                     <% end %>
                   <% end %>
                   </ul>
@@ -46,7 +46,7 @@
               <div class="topbar__dropmenu topbar__user__logged">
                 <ul class="dropdown menu" data-dropdown-menu>
                   <li class="is-dropdown-submenu-parent show-for-medium">
-                    <%= link_to current_user.name, account_path %>
+                    <%= link_to current_user.name, decidim.account_path %>
                     <ul class="menu is-dropdown-subeenu js-append usermenu-off-canvas">
                       <%= render partial: "layouts/decidim/user_menu" %>
                     </ul>
@@ -62,8 +62,8 @@
             <% else %>
               <div class="topbar__user show-for-medium" data-set="nav-login-holder">
                   <div class="topbar__user__login js-append">
-                    <%= link_to t('.sign_up'), new_user_registration_path, class: "sign-up-link" %>
-                    <%= link_to t('.sign_in'), new_user_session_path, class: "sign-in-link" %>
+                    <%= link_to t('.sign_up'), decidim.new_user_registration_path, class: "sign-up-link" %>
+                    <%= link_to t('.sign_in'), decidim.new_user_session_path, class: "sign-in-link" %>
                   </div>
               </div>
             <% end %>
@@ -74,10 +74,10 @@
             <div class="row">
               <ul class="main-nav">
                 <li>
-                  <%= active_link_to t("menu.home", scope: "decidim"), root_path, active: :exact, class: "main-nav__link", class_active: "main-nav__link--active" %>
+                  <%= active_link_to t("menu.home", scope: "decidim"), decidim.root_path, active: :exact, class: "main-nav__link", class_active: "main-nav__link--active" %>
                 </li>
                 <li>
-                  <%= active_link_to t("menu.processes", scope: "decidim"), participatory_processes_path, active: :inclusive, class: "main-nav__link", class_active: "main-nav__link--active" %>
+                  <%= active_link_to t("menu.processes", scope: "decidim"), decidim.participatory_processes_path, active: :inclusive, class: "main-nav__link", class_active: "main-nav__link--active" %>
                 </li>
               </ul>
             </div>

@@ -1,29 +1,72 @@
 require "spec_helper"
 
 module Decidim
-  describe CurrentOrganization do
-    let(:app) { ->(env) { [200, env, "app"] } }
-    let(:env) { Rack::MockRequest.env_for("https://#{host}", {}) }
-    let(:host) { "city.domain.org" }
-    let(:middleware) { described_class.new(app) }
+  describe CurrentComponent do
+    let(:request) { double(params: params, env: env) }
+    let(:subject) { described_class.new(request) }
+    let(:params) { Hash.new }
 
-    context "when an organization exists for the current host" do
-      let!(:organization) { create(:organization, host: host) }
-
-      it "sets the organization" do
-        _code, new_env = middleware.call(env)
-
-        expect(new_env["decidim.current_organization"]).to eq(organization)
+    context "when the env contains a current organization" do
+      let(:organization) do
+        create(:organization)
       end
-    end
 
-    context "when no orgazanization exists for the current host" do
-      let!(:organization) { create(:organization, host: 'fake.host.com') }
+      let(:participatory_processes) do
+        create_list(:participatory_process, 2, organization: organization)
+      end
 
-      it "doesn't set the organization" do
-        _code, new_env = middleware.call(env)
+      let(:current_participatory_process) { participatory_processes.first }
 
-        expect(new_env["decidim.current_organization"]).to be_nil
+      let(:env) do
+        { "decidim.current_organization" => organization }
+      end
+
+      context "when the params contain a participatory process id" do
+        before do
+          params[:participatory_process_id] = current_participatory_process.id
+        end
+
+        context "when there's no component" do
+          it "doesn't inject the component into the environment" do
+            subject.call
+            expect(env["decidim.current_component"]).to be_blank
+          end
+        end
+
+        context "when the component doesn't belong to the participatory process" do
+          before do
+            params[:current_component_id] = component.id
+          end
+
+          let(:feature) { create(:feature) }
+          let(:component) { create(:component, feature: feature) }
+
+          it "injects the component into the environment" do
+            subject.call
+            expect(env["decidim.current_component"]).to be_blank
+          end
+        end
+
+        context "when the component belongs to the participatory process" do
+          before do
+            params[:current_component_id] = component.id
+          end
+
+          let(:feature) { create(:feature, participatory_process: current_participatory_process) }
+          let(:component) { create(:component, feature: feature) }
+
+          it "injects the component into the environment" do
+            subject.call
+            expect(env["decidim.current_component"]).to eq(component)
+          end
+        end
+      end
+
+      context "when the params doesn't contain a participatory process id" do
+        it "doesn't inject the component into the environment" do
+          subject.call
+          expect(env["decidim.current_component"]).to be_blank
+        end
       end
     end
   end

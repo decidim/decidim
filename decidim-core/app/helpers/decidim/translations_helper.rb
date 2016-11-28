@@ -12,5 +12,22 @@ module Decidim
     def translated_attribute(attribute)
       attribute.try(:[], I18n.locale.to_s)
     end
+
+    # Public: Creates a translation for each available language in the list
+    # given a translation key.
+    #
+    # key     - The key to translate.
+    # locales - A list of locales to scope the translations to. Picks up all the
+    #           available locales by default.
+    #
+    # Returns a Hash with the locales as keys and the translations as values.
+    def multi_translation(key, locales = I18n.available_locales)
+      locales.each_with_object({}) do |locale, result|
+        I18n.with_locale(locale) do
+          result[locale.to_sym] = I18n.t(key)
+        end
+      end
+    end
+    module_function :multi_translation
   end
 end

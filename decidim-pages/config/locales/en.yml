@@ -1,0 +1,22 @@
+---
+en:
+  components:
+    page:
+      name: Page
+  decidim:
+    pages:
+      admin:
+        models:
+          components:
+            body: Body
+            title: Title
+        pages:
+          edit:
+            save: Save page
+            title: Edit page
+          update:
+            invalid: There's been errors when saving the page.
+            success: Page saved successfully.
+  features:
+    pages:
+      name: Pages

@@ -108,7 +108,28 @@ FactoryGirl.define do
       file { test_file("Exampledocument.odt", "application/vnd.oasis.opendocument") }
     end
   end
+
+  factory :feature, class: Decidim::Feature do
+    name { Decidim::Faker::Localized.sentence(3) }
+    participatory_process
+    manifest_name "dummy"
+  end
+
+  factory :component, class: Decidim::Component do
+    name { Decidim::Faker::Localized.sentence(3) }
+    manifest_name { "dummy" }
+
+    step do
+      build(
+        :participatory_process_step,
+        participatory_process: feature.participatory_process
+      )
+    end
+
+    feature
+  end
 end
+
 
 def test_file(filename, content_type)
   Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", filename), content_type)

@@ -39,27 +39,9 @@ module Decidim
         template "carrierwave.rb", "config/initializers/carrierwave.rb"
       end
 
-      def insert_into_layout
-        inject_into_file "app/views/layouts/application.html.erb",
-                         before: "</head>" do
-          "  <%= render partial: 'layouts/decidim/meta' %>\n  "
-        end
-
-        inject_into_file "app/views/layouts/application.html.erb",
-                         after: "<body>" do
-          "\n    <%= render partial: 'layouts/decidim/header' %>"
-        end
-
-        inject_into_file "app/views/layouts/application.html.erb",
-                         before: "</body>" do
-          "  <%= render partial: 'layouts/decidim/footer' %>\n  "
-        end
-      end
-
-      def replace_title
-        gsub_file "app/views/layouts/application.html.erb",
-                  %r{<title>(.*)</title>},
-                  "<title><%= decidim_page_title %></title>"
+      def remove_layout
+        remove_file "app/views/layouts/application.html.erb"
+        remove_file "app/views/layouts/mailer.text.erb"
       end
 
       def append_assets

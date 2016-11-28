@@ -1,0 +1,31 @@
+<%= render "layouts/decidim/application" do %>
+<main class="wrapper">
+  <div class="process-header process-header--home row column">
+    <div class="row column process-header__main"
+      style="background-image:url(<%= current_participatory_process.banner_image.url %>);">
+      <div class="process-header__container row">
+        <div class="columns mediumlarge-9 process-header__info">
+          <h1 class="text-highlight heading1">
+            <%= translated_attribute(current_participatory_process.title) %>
+          </h1>
+          <h2 class="text-highlight heading4">
+            <span class="process-header__hashtag">
+              <%= current_participatory_process.hashtag %>
+            </span>
+            <%= translated_attribute(current_participatory_process.subtitle) %>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row column">
+    <div class="row">
+      <div class="columns medium-7 mediumlarge-8">
+        <div class="section">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<% end %>

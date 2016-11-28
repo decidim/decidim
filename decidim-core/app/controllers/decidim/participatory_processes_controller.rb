@@ -6,6 +6,9 @@ module Decidim
   # public layout.
   class ParticipatoryProcessesController < ApplicationController
     helper_method :participatory_processes, :participatory_process, :promoted_processes
+    helper_method :current_participatory_process
+
+    layout "layouts/decidim/participatory_process", only: [:show]
 
     def index
       authorize! :read, ParticipatoryProcess
@@ -16,6 +19,10 @@ module Decidim
     end
 
     private
+
+    def current_participatory_process
+      participatory_process
+    end
 
     def participatory_process
       @participatory_process ||= ParticipatoryProcess.find(params[:id])

@@ -7,6 +7,8 @@ module Decidim
   class PagesController < ApplicationController
     include HighVoltage::StaticPage
 
+    layout "layouts/decidim/application"
+
     authorize_resource :public_pages, class: false
     delegate :page, to: :page_finder
     helper_method :page
