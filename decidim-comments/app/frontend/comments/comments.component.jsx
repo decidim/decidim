@@ -43,8 +43,7 @@ export class Comments extends Component {
 
 Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired
   }))
 };
 

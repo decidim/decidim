@@ -1,4 +1,4 @@
-import { propType }          from 'graphql-anywhere';
+import { filter, propType }  from 'graphql-anywhere';
 import gql                   from 'graphql-tag';
 
 import Comment               from './comment.component';
@@ -14,7 +14,7 @@ const CommentThread = ({ comment }) => {
         { `Conversation with ${author.name}` }
       </h6>
       <div className="comment-thread">
-        <Comment />
+        <Comment comment={filter(Comment.fragments.comment, comment)} />
       </div>
     </div>
   );
@@ -23,6 +23,7 @@ const CommentThread = ({ comment }) => {
 CommentThread.fragments = {
   comment: gql`
     ${commentThreadFragment}
+    ${Comment.fragments.comment}
   `
 };
 

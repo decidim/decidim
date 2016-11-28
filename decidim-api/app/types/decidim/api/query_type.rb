@@ -12,8 +12,8 @@ module Decidim
 
         resolve -> (_obj, _args, ctx) {
           [
-            Decidim::Comments::Comment.new(id: "1", body: "Comment body 1"),
-            Decidim::Comments::Comment.new(id: "2", body: "Comment body 2")
+            Decidim::Comments::Comment.new(id: "1", body: "Comment body 1", author: { name: "David Morcillo" }),
+            Decidim::Comments::Comment.new(id: "2", body: "Comment body 2", author: { name: "Oriol Gual" })
           ]
         }
       end

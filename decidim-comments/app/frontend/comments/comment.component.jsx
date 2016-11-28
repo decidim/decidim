@@ -1,3 +1,6 @@
+import gql             from 'graphql-tag';
+import commentFragment from './comment.fragment.graphql'
+
 // comment--nested
 // comment--nested--alt
 // comment--highlight
@@ -56,5 +59,11 @@ const Comment = () => (
     </div>
   </article>
 );
+
+Comment.fragments = {
+  comment: gql`
+    ${commentFragment}
+  `
+}
 
 export default Comment;

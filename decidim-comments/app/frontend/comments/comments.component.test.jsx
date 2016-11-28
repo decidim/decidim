@@ -1,4 +1,5 @@
 import { shallow }          from 'enzyme';
+import { filter }           from 'graphql-anywhere';
 import gql                  from 'graphql-tag';
 
 import { Comments }         from './comments.component';
@@ -14,17 +15,25 @@ import resolveGraphQLQuery  from '../support/resolve_graphql_query';
 describe('<Comments />', () => {
   let comments = [];
 
+  const commentThreadFragment = gql`
+    fragment CommentThread on Comment {
+      author
+    }
+  `;
+
   stubComponent(CommentThread);
   stubComponent(AddCommentForm);
 
   beforeEach(() => {
     const commentsData = generateCommentsData(15);
 
+    CommentThread.fragments = {
+      comment: commentThreadFragment
+    };
+
     const query = gql`
       ${commentsQuery}
-      fragment CommentThread on Comment {
-        body
-      }
+      ${commentThreadFragment}
     `;
 
     comments = resolveGraphQLQuery(query, commentsData).comments;
@@ -35,9 +44,12 @@ describe('<Comments />', () => {
     expect(wrapper.find('#comments')).to.be.present();
   });
 
-  it("should render a CommentThread component for each comment", () => {
+  it("should render a CommentThread component for each comment and pass filter comment data as a prop to it", () => {
     const wrapper = shallow(<Comments comments={comments} />);
-    expect(wrapper).to.have.exactly(comments.length).descendants(CommentThread)
+    expect(wrapper).to.have.exactly(comments.length).descendants(CommentThread);
+    wrapper.find(CommentThread).forEach((node, idx) => {
+      expect(node).to.have.prop("comment").deep.equal(filter(commentThreadFragment, comments[idx]));
+    });
   });
 
   it("should render a AddCommentForm component", () => {

@@ -8,6 +8,21 @@ module Decidim
       field :id, !types.ID, "The Comment's unique ID"
 
       field :body, !types.String, "The comment message"
+
+      field :author do
+        type !AuthorType
+
+        resolve -> (obj, _args, ctx) do
+          obj.author
+        end
+      end
+    end
+
+    AuthorType = GraphQL::ObjectType.define do
+      name "Author"
+      description "An author"
+
+      field :name, !types.String
     end
   end
 end
