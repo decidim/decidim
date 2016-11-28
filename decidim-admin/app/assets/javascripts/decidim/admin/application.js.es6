@@ -4,6 +4,7 @@
 //= require turbolinks
 //= require html.sortable
 //= require ./sort_steps
+//= require ./tab_focus
 //= require decidim/editor
 //= require_self
 
