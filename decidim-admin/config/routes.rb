@@ -23,10 +23,13 @@ Decidim::Admin::Engine.routes.draw do
 
     scope "/participatory_processes/:participatory_process_id/features/:feature_id/components/:current_component_id" do
       Decidim.component_manifests.each do |manifest|
+        next unless manifest.admin_engine
         constraints Decidim::Components::RouteConstraint.new(manifest) do
-          mount manifest.admin_engine, at: "/", as: :manage_component
+          mount manifest.admin_engine, at: "/"
         end
       end
+
+      get "/" => proc { raise "Component not found" }, as: :manage_component
     end
 
     resources :static_pages

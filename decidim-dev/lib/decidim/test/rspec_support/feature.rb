@@ -1,6 +1,20 @@
 # frozen_string_literal: true
+
+module Decidim
+  # Dummy engine to be able to test components.
+  class DummyEngine < Rails::Engine
+    engine_name "dummy"
+
+    routes do
+      root to: proc { [200, {}, ["DUMMY ENGINE"]] }
+    end
+  end
+end
+
 Decidim.register_feature(:dummy) do |feature|
-  feature.component(:dummy)
+  feature.component(:dummy) do |component|
+    component.engine = Decidim::DummyEngine
+  end
 end
 
 RSpec.configure do |config|
