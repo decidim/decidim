@@ -7,5 +7,9 @@
 </div>
 
 <div class="field">
+  <%= form.translated :editor, :welcome_text %>
+</div>
+
+<div class="field">
   <%= form.collection_select :default_locale, localized_locales(current_organization.available_locales), :id, :name %>
 </div>

@@ -14,6 +14,17 @@
     </div>
   </div>
 </section>
+<section class="extended subhero home-section">
+  <div class="row">
+    <div class="columns small-centered large-10">
+      <h2 class="heading3"><%== translated_attribute current_organization.welcome_text %></h2>
+      <a href="/user-register" class="button--sc link subhero-cta">
+        <%= t(".register") %>
+        <%= icon "chevron-right", aria_hidden: true %>
+      </a>
+    </div>
+  </div>
+</section>
 <section class="wrapper-home">
   <div class="row">
     <h3 class="section-heading"><%= t(".highlighted_processes") %></h3>
@@ -33,7 +44,7 @@
                 <% end %>
                 <% if process.active_step %>
                   <span class="card--process__small">
-                    <%= t(".active_step", scope: "layouts") %>
+                    <%= t(".active_step") %>
                     <strong><%= translated_attribute process.active_step.title %></strong>
                   </span>
                 <% end %>
@@ -51,6 +62,54 @@
         home-section__cta">
         <%= t(".see_all_processes") %>
       </a>
+    </div>
+  </div>
+</section>
+<section class="extended">
+  <div class="wrapper-home home-section">
+    <div class="row column text-center">
+      <h3 class="heading2"><%t(".how_to_participate") %></h3>
+    </div>
+    <div class="row small-up-1 medium-up-3 home-bullets">
+      <div class="column">
+        <div class="home-bullet">
+          <div class="home-bullet__icon">
+            <%= icon "meetings" %>
+          </div>
+          <div class="home-bullet__desc">
+            <h4 class="heading6"><%= t(".meetings") %></h4>
+            <p><%= t(".meetings_explanation") %></p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="home-bullet">
+          <div class="home-bullet__icon">
+            <%= icon "debates" %>
+          </div>
+          <div class="home-bullet__desc">
+            <h4 class="heading6"><%= t(".debates") %></h4>
+            <p><%= t(".debates_explanation") %></p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="home-bullet">
+          <div class="home-bullet__icon">
+            <%= icon "proposals" %>
+          </div>
+          <div class="home-bullet__desc">
+            <h4 class="heading6"><%= t(".proposals") %></h4>
+            <p><%= t(".proposals_explanation") %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns small-centered small-10
+                smallmedium-8 medium-6 large-4">
+        <%= link_to t(".more_info"), participatory_processes_path, class: "button expanded hollow button--sc" %>
+      </div>
     </div>
   </div>
 </section>
