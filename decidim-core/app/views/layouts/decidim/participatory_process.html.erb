@@ -24,7 +24,7 @@
             <ul>
               <% current_participatory_process.components.each do |component| %>
                 <li>
-                  <%= link_to translated_attribute(component.name), component_path(component), class: "process-nav__link" %>
+                  <%= link_to translated_attribute(component.name), decidim.component_path(current_participatory_process, component), class: "process-nav__link" %>
                 </li>
               <% end %>
             </ul>
