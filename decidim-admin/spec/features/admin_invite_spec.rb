@@ -12,6 +12,7 @@ describe "Admin invite", type: :feature do
       host: "decide.lvh.me",
       organization_admin_name: "Fiorello Henry La Guardia",
       organization_admin_email: "f.laguardia@gotham.gov",
+      welcome_text_en: "Welcome",
       available_locales: ["en"],
       default_locale: "en"
     }

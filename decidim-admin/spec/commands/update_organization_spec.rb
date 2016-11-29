@@ -11,6 +11,9 @@ module Decidim
             organization: {
               name: "My super organization",
               default_locale: "en",
+              welcome_text_en: "Welcome",
+              welcome_text_es: "Hola",
+              welcome_text_ca: "Hola",
               description_en: "My description",
               description_es: "Mi descripción",
               description_ca: "La meva descripció"
