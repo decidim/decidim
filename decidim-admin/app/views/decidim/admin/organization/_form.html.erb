@@ -13,3 +13,7 @@
 <div class="field">
   <%= form.collection_select :default_locale, localized_locales(current_organization.available_locales), :id, :name %>
 </div>
+
+<div class="field">
+  <%= form.file_field :homepage_image %>
+</div>

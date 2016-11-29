@@ -8,5 +8,7 @@ module Decidim
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: Decidim::StaticPage, inverse_of: :organization
 
     validates :name, :host, uniqueness: true
+
+    mount_uploader :homepage_image, Decidim::HomepageImageUploader
   end
 end

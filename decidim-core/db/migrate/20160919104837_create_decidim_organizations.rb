@@ -6,6 +6,7 @@ class CreateDecidimOrganizations < ActiveRecord::Migration[5.0]
       t.string :default_locale, null: false
       t.string :available_locales, array: true, default: []
       t.jsonb :welcome_text, null: false
+      t.string :homepage_image
 
       t.timestamps
     end

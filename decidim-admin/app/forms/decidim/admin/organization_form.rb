@@ -11,6 +11,7 @@ module Decidim
 
       attribute :name, String
       attribute :default_locale, String
+      attribute :homepage_image
       translatable_attribute :description, String
       translatable_attribute :welcome_text, String
 
