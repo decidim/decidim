@@ -16,8 +16,9 @@ describe "Components can be navigated", type: :feature do
     it "renders the content of the page" do
       within ".process-nav" do
         click_link component.name[I18n.locale]
-        expect(page).to have_content("DUMMY ENGINE")
       end
+
+      expect(page).to have_content("DUMMY ENGINE")
     end
   end
 end

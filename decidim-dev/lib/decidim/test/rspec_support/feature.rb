@@ -6,7 +6,7 @@ module Decidim
     engine_name "dummy"
 
     routes do
-      root to: redirect("/")
+      root to: proc { [200, {}, ["DUMMY ENGINE"]] }
     end
   end
 end
