@@ -21,15 +21,16 @@ describe('<Comments />', () => {
     }
   `;
 
-  stubComponent(CommentThread);
+  stubComponent(CommentThread, {
+    fragments: {
+      comment: commentThreadFragment
+    }
+  });
+  
   stubComponent(AddCommentForm);
 
   beforeEach(() => {
     const commentsData = generateCommentsData(15);
-
-    CommentThread.fragments = {
-      comment: commentThreadFragment
-    };
 
     const query = gql`
       ${commentsQuery}

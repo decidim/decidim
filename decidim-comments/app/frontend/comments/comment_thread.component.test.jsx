@@ -19,15 +19,15 @@ describe('<CommentThread />', () => {
     }
   `;
 
-  stubComponent(Comment);
+  stubComponent(Comment, {
+    fragments: {
+      comment: commentFragment
+    }
+  });
 
   beforeEach(() => {
     const commentsData = generateCommentsData(1);
-
-    Comment.fragments = {
-      comment: commentFragment
-    };
-
+  
     const fragment = gql`
       ${commentThreadFragment}
       ${commentFragment}

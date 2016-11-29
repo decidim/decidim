@@ -1,6 +1,6 @@
 query GetComments {
   comments {
-    id,
+    id
     ...CommentThread
   }
 }

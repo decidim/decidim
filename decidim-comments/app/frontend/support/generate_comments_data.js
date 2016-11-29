@@ -1,4 +1,4 @@
-import { random, name } from 'faker/locale/en';
+import { random, name, date } from 'faker/locale/en';
 
 const generateCommentsData = (num = 1) => {
   let commentsData = {
@@ -9,6 +9,7 @@ const generateCommentsData = (num = 1) => {
     commentsData.comments.push({
       id: random.uuid(),
       body: random.words(),
+      createdAt: date.past().toString(),
       author: {
         name: name.findName()
       }
