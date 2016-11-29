@@ -12,6 +12,12 @@ if ENV["CI"]
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
+require "rails"
+require "active_support/core_ext/string"
+require "decidim/core"
+
+require "#{File.dirname(__FILE__)}/rspec_support/feature.rb"
+
 begin
   require "#{dummy_app_path}/config/environment"
 rescue LoadError

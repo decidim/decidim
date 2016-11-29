@@ -17,6 +17,21 @@
         </div>
       </div>
     </div>
+    <% if current_participatory_process.components.any? %>
+      <div class="row column">
+        <div class="process-nav">
+          <div class="row column process-nav__content">
+            <ul>
+              <% current_participatory_process.components.each do |component| %>
+                <li>
+                  <%= link_to translated_attribute(component.name), component_path(component), class: "process-nav__link" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="row column">
     <div class="row">
