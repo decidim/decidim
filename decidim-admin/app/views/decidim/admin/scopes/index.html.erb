@@ -1,0 +1,38 @@
+<% content_for :title do %>
+  <h2><%= t "decidim.admin.titles.scopes" %></h2>
+<% end %>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.scope.name", scope: "decidim.admin")), ['new', 'scope'], class: 'new' %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= t("models.scope.fields.name", scope: "decidim.admin") %></th>
+      <th><%= t("models.scope.fields.created_at", scope: "decidim.admin") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scopes.each do |scope| %>
+      <tr>
+        <td>
+          <%= scope.name %><br />
+        </td>
+        <td>
+          <%= l scope.created_at, format: :short %>
+        </td>
+        <td class="actions">
+          <% if can? :update, scope %>
+            <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', scope] %>
+          <% end %>
+
+          <% if can? :destroy, scope %>
+            <%= link_to t("actions.destroy", scope: "decidim.admin"), scope, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

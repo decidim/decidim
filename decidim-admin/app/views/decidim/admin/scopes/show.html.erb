@@ -1,0 +1,22 @@
+<% content_for :title do %>
+  <h2><%= @scope.ti%></h2>
+<% end %>
+
+<div class="actions">
+  <hr />
+  <% if can? :update, @page %>
+    <%= link_to t("decidim.admin.actions.edit"), ['edit', @page] %>
+  <% end %>
+
+  <% if can? :destroy, @page %>
+    <%= link_to t("decidim.admin.actions.destroy"), @page, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+  <% end %>
+</div>
+
+<dl>
+  <%= display_for @page,
+    :title,
+    :slug,
+    :content
+    %>
+</dl>

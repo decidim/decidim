@@ -94,6 +94,7 @@ en:
           process_admins: Process admins
           settings: Settings
           steps: Steps
+        scopes: Scopes
         settings: Settings
         static_pages: Pages
       models:
@@ -123,6 +124,11 @@ en:
         participatory_process_user_role:
           fields:
             email: Email
+        scope:
+          fields:
+            created_at: Created at
+            name: Name
+          name: Scope
         static_page:
           fields:
             created_at: Created at
@@ -201,6 +207,21 @@ en:
         update:
           error: There was an error when updating this participatory process.
           success: Participatory process updated successfully.
+      scopes:
+        create:
+          error: There was an error creating a new scope.
+          success: Scope created successfully.
+        destroy:
+          success: Scope successfully destroyed
+        edit:
+          title: Edit scope
+          update: Update scope
+        new:
+          create: Create scope
+          title: New scope
+        update:
+          error: There was an error when updating this scope.
+          success: Scope updated successfully
       static_pages:
         actions:
           view: View public page
@@ -221,4 +242,5 @@ en:
       titles:
         dashboard: Dashboard
         participatory_processes: Participatory processes
+        scopes: Scopes
         static_pages: Pages
