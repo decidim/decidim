@@ -10,7 +10,6 @@ require "sass-rails"
 require "turbolinks"
 require "foundation-rails"
 require "foundation_rails_helper"
-require "jbuilder"
 require "rectify"
 
 module Decidim

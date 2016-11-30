@@ -10,7 +10,6 @@ require "sass-rails"
 require "turbolinks"
 require "foundation-rails"
 require "foundation_rails_helper"
-require "jbuilder"
 require "rectify"
 
 require_dependency File.join(File.dirname(__FILE__), "..", "..", "..", "app/models/decidim/admin/abilities/admin_user")
