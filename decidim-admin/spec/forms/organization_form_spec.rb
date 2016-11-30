@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -31,7 +32,8 @@ module Decidim
             "welcome_text_ca" => welcome_text[:ca],
             "description_en" => description[:en],
             "description_es" => description[:es],
-            "description_ca" => description[:ca]
+            "description_ca" => description[:ca],
+            "homepage_image" => Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg"), "image/jpeg")
           }
         }
       end
