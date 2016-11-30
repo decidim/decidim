@@ -2,6 +2,7 @@
 import { Component, PropTypes } from 'react';
 import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
+import { random }               from 'faker/locale/en';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
 
@@ -60,7 +61,33 @@ const AddCommentFormWithMutation = graphql(gql`
   ${addCommentMutation}
 `, {
   props: ({ mutate }) => ({
-    addComment: ({ body }) => mutate({ variables: { body }})
+    addComment: ({ body }) => mutate({ 
+      variables: { body },
+      optimisticResponse: {
+        __typename: 'Mutation',
+        addComment: {
+          __typename: 'Comment',
+          id: random.uuid(),
+          createdAt: (new Date()).toString(),
+          body,
+          author: {
+            __typename: 'Author',
+            name: 'Marc Riera'
+          }
+        }
+      },
+      updateQueries: {
+        GetComments: (prev, { mutationResult: { data } }) => {
+          const comment = data.addComment;
+          return {
+            comments: [
+              ...prev.comments,
+              comment
+            ]
+          };
+        }
+      }
+    })
   })
 })(AddCommentForm);
 
