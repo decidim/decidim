@@ -28,9 +28,23 @@ module Decidim
 
           expect(participatory_process.features).to_not be_empty
         end
+
+        it "fires the hooks" do
+          results = {}
+
+          manifest.on(:create) do |feature|
+            results[:feature] = feature
+          end
+
+          CreateFeature.call(manifest, form, participatory_process)
+
+          feature = results[:feature]
+          expect(feature.name["en"]).to eq("My feature")
+          expect(feature).to be_persisted
+        end
       end
 
-      describe "when in valid" do
+      describe "when invalid" do
         let(:valid) { false }
 
         it "creates the feature" do

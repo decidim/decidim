@@ -17,5 +17,7 @@ module Decidim
     def homepage_big_url
       homepage_image.big.url
     end
+
+    has_many :features, through: :participatory_processes
   end
 end

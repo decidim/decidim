@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-RSpec.shared_context "component" do
-  let!(:feature_manifest) { raise NotImplementedError }
-  let!(:component_manifest) { raise NotImplementedError }
+RSpec.shared_context "feature" do
+  let!(:manifest_name) { raise NotImplementedError }
+  let(:manifest) { Decidim.find_feature_manifest(manifest_name) }
 
   let!(:organization) { create(:organization) }
 
@@ -9,34 +9,23 @@ RSpec.shared_context "component" do
     create(:participatory_process, organization: organization)
   end
 
-  let!(:participatory_process_step) do
-    create(:participatory_process_step, participatory_process: participatory_process)
-  end
-
   let!(:feature) do
     create(:feature,
-           manifest: feature_manifest,
+           manifest: manifest,
            participatory_process: participatory_process)
-  end
-
-  let!(:component) do
-    create(:component,
-           manifest: component_manifest,
-           step: participatory_process_step,
-           feature: feature)
   end
 
   before do
     switch_to_host(organization.host)
   end
 
-  def visit_component
-    visit decidim.component_path(participatory_process, component)
+  def visit_feature
+    visit decidim.feature_path(participatory_process, feature)
   end
 end
 
-RSpec.shared_context "component admin" do
-  include_context "component"
+RSpec.shared_context "feature admin" do
+  include_context "feature"
   let(:user) { create(:user, :confirmed, organization: organization) }
 
   before do
@@ -49,7 +38,7 @@ RSpec.shared_context "component admin" do
     login_as user, scope: :user
   end
 
-  def visit_component_admin
-    visit decidim_admin.manage_component_path(participatory_process, feature, component)
+  def visit_feature_admin
+    visit decidim_admin.manage_feature_path(participatory_process, feature)
   end
 end

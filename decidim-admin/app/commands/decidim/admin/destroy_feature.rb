@@ -22,12 +22,13 @@ module Decidim
 
       def destroy_feature
         transaction do
-          @feature.components.each do |component|
-            DestroyComponent.call(component)
-          end
-
           @feature.destroy!
+          run_hooks
         end
+      end
+
+      def run_hooks
+        @feature.manifest.run_hooks(:destroy, @feature)
       end
     end
   end

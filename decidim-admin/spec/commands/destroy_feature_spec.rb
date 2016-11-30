@@ -4,7 +4,6 @@ module Decidim
   module Admin
     describe DestroyFeature do
       let!(:feature) { create(:feature) }
-      let!(:components) { create_list(:component, 3, feature: feature) }
       subject { described_class.new(feature) }
 
       context "when everything is ok" do
@@ -13,13 +12,17 @@ module Decidim
           expect(Feature.where(id: feature.id)).to_not exist
         end
 
-        it "destroys all its components" do
-          components.each do |component|
-            expect(DestroyComponent).to receive(:call).with(component)
+        it "fires the hooks" do
+          results = {}
+
+          feature.manifest.on(:destroy) do |feature|
+            results[:feature] = feature
           end
 
           subject.call
 
+          feature = results[:feature]
+          expect(feature.id).to eq(feature.id)
           expect(feature).to_not be_persisted
         end
       end

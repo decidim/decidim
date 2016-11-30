@@ -65,7 +65,7 @@ describe "Admin manages features", type: :feature do
     end
 
     it "removes the feature" do
-      within ".feature-#{feature.id} thead" do
+      within ".feature-#{feature.id}" do
         click_link "Destroy"
       end
 

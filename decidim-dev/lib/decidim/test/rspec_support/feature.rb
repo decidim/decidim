@@ -12,13 +12,11 @@ module Decidim
 end
 
 Decidim.register_feature(:dummy) do |feature|
-  feature.component(:dummy) do |component|
-    component.engine = Decidim::DummyEngine
-  end
+  feature.engine = Decidim::DummyEngine
 end
 
 RSpec.configure do |config|
   config.before(:each) do
-    Decidim.find_feature_manifest(:dummy).component_manifests.each(&:reset_hooks!)
+    Decidim.find_feature_manifest(:dummy).reset_hooks!
   end
 end

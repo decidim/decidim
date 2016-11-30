@@ -34,7 +34,6 @@ module Decidim
              inverse_of: :participatory_process
 
     has_many :features, foreign_key: "decidim_participatory_process_id"
-    has_many :components, through: :features
 
     attr_readonly :active_step
 

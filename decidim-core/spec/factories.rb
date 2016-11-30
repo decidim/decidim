@@ -131,20 +131,6 @@ FactoryGirl.define do
     manifest_name "dummy"
   end
 
-  factory :component, class: Decidim::Component do
-    name { Decidim::Faker::Localized.sentence(3) }
-    manifest_name { "dummy" }
-
-    step do
-      build(
-        :participatory_process_step,
-        participatory_process: feature.participatory_process
-      )
-    end
-
-    feature
-  end
-
   factory :scope, class: Decidim::Scope do
     name { Decidim::Faker::Localized.word }
     organization

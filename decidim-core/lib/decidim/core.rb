@@ -78,14 +78,6 @@ module Decidim
     @feature_manifests ||= Set.new
   end
 
-  # Public: Finds all the component manifests defined throughout all the
-  # registered features.
-  #
-  # Returns an Array[ComponentManifest].
-  def self.component_manifests
-    feature_manifests.map(&:component_manifests).flat_map(&:to_a).compact
-  end
-
   # Public: Finds a feature manifest by the feature's name.
   #
   # name - The name of the FeatureManifest to find.
@@ -94,15 +86,5 @@ module Decidim
   def self.find_feature_manifest(name)
     name = name.to_sym
     feature_manifests.find { |manifest| manifest.name == name }
-  end
-
-  # Public: Finds a component manifest by the component's name.
-  #
-  # name - The name of the ComponentManifest to find.
-  #
-  # Returns a ComponentManifest if found, nil otherwise.
-  def self.find_component_manifest(name)
-    name = name.to_sym
-    component_manifests.find { |manifest| manifest.name == name }
   end
 end

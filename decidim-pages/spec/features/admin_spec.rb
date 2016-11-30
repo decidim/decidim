@@ -3,15 +3,13 @@
 require "spec_helper"
 
 describe "Edit a page", type: :feature do
-  include_context "component admin"
-
-  let(:feature_manifest) { Decidim.find_feature_manifest("pages") }
-  let(:component_manifest) { Decidim.find_component_manifest("page") }
+  include_context "feature admin"
+  let(:manifest_name) { "pages" }
 
   describe "admin page" do
     before do
-      create(:page, component: component, title: title, body: body)
-      visit_component_admin
+      create(:page, feature: feature, title: title, body: body)
+      visit_feature_admin
     end
 
     let(:title) do
@@ -53,7 +51,7 @@ describe "Edit a page", type: :feature do
         expect(page).to have_content("successfully")
       end
 
-      visit_component
+      visit_feature
 
       expect(page).to have_title("New title")
       expect(page).to have_content("New body")

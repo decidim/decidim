@@ -1,5 +1,4 @@
 base_locale: en
 locales: [en]
 ignore_unused:
-- "components.page.name"
-- "features.pages.name"
+- "decidim.features.pages.name"

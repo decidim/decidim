@@ -35,18 +35,14 @@ en:
         update:
           error: There was an error updating this category.
           success: Category updated successfully.
-      components:
-        create:
-          error: There was an error creating this component.
-          success: Component created successfully.
-        destroy:
-          error: There has been an error destroying this component.
-          success: Component deleted successfully.
-        new:
-          add: Add component
-          title: 'Add component: %{name}'
       decidim:
         admin:
+          categories:
+            index:
+              categories_title: Categories
+          participatory_process_attachments:
+            index:
+              attachments_title: Attachments
           participatory_process_steps:
             index:
               steps_hint: You can drag the rows of the table in order to reorder the process steps.
@@ -63,26 +59,10 @@ en:
           success: Feature deleted successfully.
         index:
           add: Add feature
-          add_component: Add component
         new:
           add: Add feature
           title: 'Add feature: %{name}'
         title: Features
-      decidim:
-        admin:
-          categories:
-            index:
-              categories_title: Categories
-          participatory_process_attachments:
-            index:
-              attachments_title: Attachments
-          participatory_process_steps:
-            index:
-              steps_hint: You can drag the rows of the table in order to reorder the process steps.
-              steps_title: Steps
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Participatory process admins
       menu:
         dashboard: Dashboard
         participatory_processes: Participatory processes

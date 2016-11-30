@@ -37,8 +37,8 @@ module Decidim
             participatory_processes.include?(step.participatory_process)
           end
 
-          can :manage, Component do |component|
-            participatory_processes.include?(component.participatory_process)
+          can :manage, Feature do |feature|
+            participatory_processes.include?(feature.participatory_process)
           end
 
           can :manage, Category do |category|
