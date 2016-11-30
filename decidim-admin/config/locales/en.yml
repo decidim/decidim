@@ -132,8 +132,6 @@ en:
         edit:
           title: Edit organization
           update: Update organization
-        show:
-          default: default
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
