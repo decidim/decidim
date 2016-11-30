@@ -44,7 +44,7 @@ export class Comments extends Component {
     const { session } = this.props;
 
     if (session && session.currentUser) {
-      return <AddCommentForm />;
+      return <AddCommentForm session={session} />;
     }
 
     return null;
@@ -56,10 +56,7 @@ Comments.propTypes = {
     id: PropTypes.string.isRequired
   })),
   session: PropTypes.shape({
-    currentUser: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
-    }).isRequired
+    currentUser: PropTypes.object.isRequired
   })
 };
 
@@ -68,16 +65,23 @@ const CommentsWithData = compose(
     ${commentsQuery}
     ${CommentThread.fragments.comment}
   `, {
-    props: ({ data: { comments }}) => ({
-      comments: comments || []
+    props: ({ ownProps, data: { comments }}) => ({
+      comments: comments || [],
+      session: ownProps.session
     })
   })
 )(Comments);
 
-const CommentsApplication = () => (
+const CommentsApplication = ({ session }) => (
   <ApolloApplication>
-    <CommentsWithData />
+    <CommentsWithData session={session} />
   </ApolloApplication>
 );
+
+CommentsApplication.propTypes = {
+  session: PropTypes.shape({
+    currentUser: PropTypes.object.isRequired
+  })
+};
 
 export default CommentsApplication;

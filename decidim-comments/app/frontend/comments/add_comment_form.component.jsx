@@ -1,4 +1,4 @@
-/* eslint-disable no-return-assign */
+/* eslint-disable no-return-assign, react/no-unused-prop-types */
 import { Component, PropTypes } from 'react';
 import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
@@ -54,13 +54,22 @@ export class AddCommentForm extends Component {
 }
 
 AddCommentForm.propTypes = {
-  addComment: PropTypes.func.isRequired
+  addComment: PropTypes.func.isRequired,
+  session: PropTypes.shape({
+    currentUser: PropTypes.shape({
+      id: React.PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ]),
+      name: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired
 };
 
 const AddCommentFormWithMutation = graphql(gql`
   ${addCommentMutation}
 `, {
-  props: ({ mutate }) => ({
+  props: ({ ownProps, mutate }) => ({
     addComment: ({ body }) => mutate({ 
       variables: { body },
       optimisticResponse: {
@@ -72,7 +81,7 @@ const AddCommentFormWithMutation = graphql(gql`
           body,
           author: {
             __typename: 'Author',
-            name: 'Marc Riera'
+            name: ownProps.session.currentUser.name
           }
         }
       },

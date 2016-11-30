@@ -1,26 +1,34 @@
 /* eslint-disable no-unused-expressions */
-import { shallow, mount } from 'enzyme';
+import { shallow, mount }  from 'enzyme';
 
-import { AddCommentForm } from './add_comment_form.component';
+import { AddCommentForm }  from './add_comment_form.component';
+
+import generateSessionData from '../support/generate_session_data';
 
 describe("<AddCommentForm />", () => {
+  let session = null;
+
+  beforeEach(() => {
+    session = generateSessionData();
+  });
+
   it("should render a div with class add-comment", () => {
-    const wrapper = shallow(<AddCommentForm addComment={() => {}} />);
+    const wrapper = shallow(<AddCommentForm addComment={() => {}} session={session} />);
     expect(wrapper.find('div.add-comment')).to.present();
   });
 
   it("should have a reference to body textarea", () => {
-    const wrapper = mount(<AddCommentForm addComment={() => {}} />);
+    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} />);
     expect(wrapper.instance().bodyTextArea).to.be.ok;
   });
 
   it("should initialize with a state property disabled as true", () => {
-    const wrapper = mount(<AddCommentForm addComment={() => {}} />);
+    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} />);
     expect(wrapper).to.have.state('disabled', true);
   });
 
   it("should enable the submit button if textarea is not blank", () => {
-    const wrapper = mount(<AddCommentForm addComment={() => {}} />);
+    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} />);
     wrapper.find('textarea').simulate('change', {
       target: {
         value: 'This is a comment'
@@ -30,7 +38,7 @@ describe("<AddCommentForm />", () => {
   });
 
   it("should disable the submit button if textarea is blank", () => {
-    const wrapper = mount(<AddCommentForm addComment={() => {}} />);
+    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} />);
     wrapper.find('textarea').simulate('change', {
       target: {
         value: 'This will be deleted'
@@ -51,7 +59,7 @@ describe("<AddCommentForm />", () => {
 
     beforeEach(() => {
       onAddComment = sinon.spy();
-      wrapper = mount(<AddCommentForm addComment={onAddComment} />);
+      wrapper = mount(<AddCommentForm addComment={onAddComment} session={session} />);
       message = 'This will be submitted';
       wrapper.instance().bodyTextArea.value = message;
     });
