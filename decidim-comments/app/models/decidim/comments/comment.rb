@@ -1,20 +1,9 @@
+# frozen_string_literal: true
 module Decidim
   module Comments
-    class Comment
-      attr_accessor :id, :body, :createdAt, :author
-
-      def initialize(args = {})
-        @id = args[:id]
-        @body = args[:body]
-        @createdAt = args[:createdAt]
-        @author = Class.new do
-          attr_accessor :name
-
-          def initialize(args = {})
-            @name = args[:name]
-          end
-        end.new(args[:author])
-      end
+    class Comment < ApplicationRecord
+      belongs_to :author, class_name: Decidim::User
+      validates :body, presence: true
     end
   end
 end

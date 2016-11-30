@@ -1,5 +1,5 @@
 module Decidim
-  module Api
+  module Comments
     AddCommentType = GraphQL::ObjectType.define do
       name "Add comment"
       description "Add a new comment"

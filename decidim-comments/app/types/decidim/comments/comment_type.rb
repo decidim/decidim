@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Decidim
-  module Api
+  module Comments
     CommentType = GraphQL::ObjectType.define do
       name "Comment"
       description "A comment"
@@ -9,7 +9,11 @@ module Decidim
 
       field :body, !types.String, "The comment message"
 
-      field :createdAt, !types.String, "The comment created at"
+      field :createdAt do
+        type !types.String
+        description "The comment created at"
+        property :created_at
+      end
 
       field :author do
         type !AuthorType
