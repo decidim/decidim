@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 Decidim.register_feature(:meetings) do |feature|
-  feature.component :meeting do |component|
-    component.engine = Decidim::Meetings::Engine
-    component.admin_engine = Decidim::Meetings::AdminEngine
+  feature.component :meeting_list do |component|
+    component.engine = Decidim::Meetings::ListEngine
 
     component.on(:create) do |instance|
       Decidim::Meetings::CreateMeeting.call(instance) do
@@ -29,7 +28,7 @@ Decidim.register_feature(:meetings) do |feature|
 
       meeting_component = Decidim::Component.create!(
         name: Decidim::Faker::Localized.sentence(2),
-        manifest_name: :meeting,
+        manifest_name: :meeting_list,
         feature: feature,
         step: process.steps.sample
       )

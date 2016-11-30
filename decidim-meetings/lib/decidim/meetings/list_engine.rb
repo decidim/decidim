@@ -4,7 +4,7 @@ module Decidim
     # This is the engine that runs on the public interface of `decidim-meetings`.
     # It mostly handles rendering the created meeting associated to a participatory
     # process.
-    class Engine < ::Rails::Engine
+    class ListEngine < ::Rails::Engine
       isolate_namespace Decidim::Meetings
 
       routes do

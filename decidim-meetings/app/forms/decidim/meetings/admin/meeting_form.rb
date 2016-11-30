@@ -18,8 +18,8 @@ module Decidim
         validates :short_description, translatable_presence: true
         validates :description, translatable_presence: true
         validates :address, presence: true
-        validates :start_date, presence: true
-        validates :end_date, presence: true
+        validates :start_date, presence: true, date: { before: :end_date }
+        validates :end_date, presence: true, date: { after: :start_date }
       end
     end
   end
