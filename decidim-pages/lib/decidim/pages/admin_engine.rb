@@ -6,6 +6,8 @@ module Decidim
     class AdminEngine < ::Rails::Engine
       isolate_namespace Decidim::Pages::Admin
 
+      paths["db/migrate"] = nil
+
       routes do
         post "/", to: "pages#update", as: :page
         root to: "pages#edit"
