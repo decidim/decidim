@@ -20,6 +20,7 @@ FactoryGirl.define do
     sequence(:host) { |n| "#{n}.lvh.me" }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     welcome_text { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    homepage_image { test_file("city.jpeg", "image/jpeg") }
     default_locale I18n.default_locale
     available_locales Decidim.available_locales
   end
