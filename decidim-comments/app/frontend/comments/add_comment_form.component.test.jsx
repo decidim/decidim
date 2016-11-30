@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { shallow, mount } from 'enzyme';
 
-import AddCommentForm     from './add_comment_form.component';
+import { AddCommentForm } from './add_comment_form.component';
 
 describe("<AddCommentForm />", () => {
   it("should render a div with class add-comment", () => {

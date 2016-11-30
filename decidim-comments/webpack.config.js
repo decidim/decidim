@@ -24,6 +24,10 @@ module.exports = {
                 exclude: /node_modules/,
                 loaders: ['raw']
             },
+            {
+                test: /\.(jpg|png)$/,
+                loader: 'url'
+            },
             { 
                 test: require.resolve("react"),
                 loader: "expose?React"

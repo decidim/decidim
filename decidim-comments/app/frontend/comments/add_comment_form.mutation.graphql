@@ -1,0 +1,10 @@
+mutation addComment($body: String!)  {
+  addComment(body: $body) {
+    id,
+    body,
+    createdAt,
+    author {
+      name
+    }
+  }
+}

@@ -1,7 +1,11 @@
 /* eslint-disable no-return-assign */
 import { Component, PropTypes } from 'react';
+import { graphql }              from 'react-apollo';
+import gql                      from 'graphql-tag';
 
-export default class AddCommentForm extends Component {
+import addCommentMutation       from './add_comment_form.mutation.graphql';
+
+export class AddCommentForm extends Component {
   constructor(props) {
     super(props);
 
@@ -51,3 +55,13 @@ export default class AddCommentForm extends Component {
 AddCommentForm.propTypes = {
   addComment: PropTypes.func.isRequired
 };
+
+const AddCommentFormWithMutation = graphql(gql`
+  ${addCommentMutation}
+`, {
+  props: ({ mutate }) => ({
+    addComment: ({ body }) => mutate({ variables: { body }})
+  })
+})(AddCommentForm);
+
+export default AddCommentFormWithMutation;
