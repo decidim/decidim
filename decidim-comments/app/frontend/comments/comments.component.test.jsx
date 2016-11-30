@@ -10,6 +10,7 @@ import commentsQuery        from './comments.query.graphql'
 
 import stubComponent        from '../support/stub_component';
 import generateCommentsData from '../support/generate_comments_data';
+import generateSessionData  from '../support/generate_session_data';
 import resolveGraphQLQuery  from '../support/resolve_graphql_query';
 
 describe('<Comments />', () => {
@@ -53,14 +54,31 @@ describe('<Comments />', () => {
     });
   });
 
-  it("should render a AddCommentForm component", () => {
-    const wrapper = shallow(<Comments comments={comments} />);
-    expect(wrapper).to.have.exactly(1).descendants(AddCommentForm);
-  });
-
   it("should render comments count", () => {
     const wrapper = shallow(<Comments comments={comments} />);
     const rex = new RegExp(`${comments.length} comments`);
     expect(wrapper.find('h2.section-heading')).to.have.text().match(rex);
+  });
+
+  describe("if session is not present", () => {
+    let session = null;
+
+    it("should not render a AddCommentForm component", () => {
+      const wrapper = shallow(<Comments comments={comments} session={session} />);
+      expect(wrapper.find(AddCommentForm)).not.to.be.present();
+    });
+  });
+
+  describe("if session is present", () => {
+    let session = null;
+
+    beforeEach(() => {
+      session = generateSessionData();
+    });
+
+    it("should render a AddCommentForm component", () => {
+      const wrapper = shallow(<Comments comments={comments} session={session} />);
+      expect(wrapper).to.have.exactly(1).descendants(AddCommentForm);
+    });
   });
 });

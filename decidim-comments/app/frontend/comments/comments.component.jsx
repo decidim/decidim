@@ -23,7 +23,7 @@ export class Comments extends Component {
             </h2>
           </div>
           {this._renderCommentThreads()}
-          <AddCommentForm />
+          {this._renderAddCommentForm()}
         </section>
       </div>
     );
@@ -39,12 +39,28 @@ export class Comments extends Component {
       />
     ))
   }
+
+  _renderAddCommentForm() {
+    const { session } = this.props;
+
+    if (session && session.currentUser) {
+      return <AddCommentForm />;
+    }
+
+    return null;
+  }
 }
 
 Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired
-  }))
+  })),
+  session: PropTypes.shape({
+    currentUser: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired
+    }).isRequired
+  })
 };
 
 const CommentsWithData = compose(
