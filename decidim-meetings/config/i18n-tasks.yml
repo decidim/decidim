@@ -1,0 +1,5 @@
+base_locale: en
+locales: [en]
+ignore_unused:
+- "components.meeting.name"
+- "features.meetings.name"

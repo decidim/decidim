@@ -1,0 +1,9 @@
+<h3><%= t ".title" %></h3>
+
+<%= form_for(@form, url: meeting_path, method: :post) do |form| %>
+  <%= render partial: 'form', object: form %>
+
+  <div class="actions">
+    <%= form.submit t(".save") %>
+  </div>
+<% end %>

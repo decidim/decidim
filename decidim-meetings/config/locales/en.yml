@@ -1,0 +1,22 @@
+---
+en:
+  components:
+    meeting:
+      name: Meeting
+  decidim:
+    meetings:
+      admin:
+        models:
+          components:
+            body: Body
+            title: Title
+        meetings:
+          edit:
+            save: Save meeting
+            title: Edit meeting
+          update:
+            invalid: "There's been errors when saving the meeting."
+            success: Meeting saved successfully.
+  features:
+    meetings:
+      name: Meetings

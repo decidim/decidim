@@ -18,6 +18,7 @@ PATH
       decidim-api (= 0.0.1.alpha9)
       decidim-comments (= 0.0.1.alpha9)
       decidim-core (= 0.0.1.alpha9)
+      decidim-meetings (= 0.0.1.alpha9)
       decidim-pages (= 0.0.1.alpha9)
       decidim-system (= 0.0.1.alpha9)
       rails (~> 5.0.0, >= 5.0.0.1)
@@ -114,6 +115,14 @@ PATH
       rubocop (~> 0.46)
       simplecov (~> 0.12)
       wisper-rspec
+
+PATH
+  remote: decidim-meetings
+  specs:
+    decidim-meetings (0.0.1.alpha9)
+      date_validator (~> 0.9)
+      decidim-core (= 0.0.1.alpha9)
+      rectify (~> 0.7.1)
 
 PATH
   remote: decidim-pages
@@ -483,6 +492,7 @@ DEPENDENCIES
   decidim-comments!
   decidim-core!
   decidim-dev!
+  decidim-meetings!
   decidim-pages!
   decidim-system!
   foundation_rails_helper!

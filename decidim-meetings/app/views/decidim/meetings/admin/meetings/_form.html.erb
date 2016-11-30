@@ -1,0 +1,27 @@
+<div class="field">
+  <%= form.translated :text_field, :title, autofocus: true, label: t("models.components.title", scope: "decidim.meetings.admin") %>
+</div>
+
+<div class="field">
+  <%= form.translated :editor, :short_description, toolbar: :full, lines: 30, label: t("models.components.short_description", scope: "decidim.meetings.admin")  %>
+</div>
+
+<div class="field">
+  <%= form.translated :editor, :description, toolbar: :full, lines: 30, label: t("models.components.description", scope: "decidim.meetings.admin")  %>
+</div>
+
+<div class="field">
+  <%= form.datetime_field :start_date, label: t("models.components.start_date", scope: "decidim.meetings.admin")  %>
+</div>
+
+<div class="field">
+  <%= form.datetime_field :end_date, label: t("models.components.end_date", scope: "decidim.meetings.admin")  %>
+</div>
+
+<div class="field">
+  <%= form.text_field :address, label: t("models.components.address", scope: "decidim.meetings.admin")  %>
+</div>
+
+<div class="field">
+  <%= form.translated :editor, :location_hints, toolbar: :full, lines: 30, label: t("models.components.location_hints", scope: "decidim.meetings.admin")  %>
+</div>
