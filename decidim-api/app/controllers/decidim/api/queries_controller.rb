@@ -15,7 +15,8 @@ module Decidim
 
       def context
         {
-          current_organization: current_organization
+          current_organization: current_organization,
+          current_user: current_user
         }
       end
 

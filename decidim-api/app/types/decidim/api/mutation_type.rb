@@ -9,7 +9,7 @@ module Decidim
         description "Add a new comment"
 
         resolve -> (_obj, args, ctx) {
-          new_comment = Decidim::Comments::Comment.new(id: SecureRandom.uuid, body: args[:body], createdAt: Time.now.to_s, author: { name: "David Morcillo" })
+          new_comment = Decidim::Comments::Comment.new(id: SecureRandom.uuid, body: args[:body], createdAt: Time.now.to_s, author: { name: ctx[:current_user].name })
           $comments << new_comment
           new_comment
         }
