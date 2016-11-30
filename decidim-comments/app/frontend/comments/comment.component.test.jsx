@@ -28,7 +28,7 @@ describe("<Comment />", () => {
 
   it("should render a time tag with comment's created at", () => {
     const wrapper = shallow(<Comment comment={comment} />);
-    expect(wrapper.find('time')).to.have.text(comment.createdAt);
+    expect(wrapper.find('time')).to.have.text(comment.created_at);
   });
 
   it("should render author's name in a link with class author__name", () => {

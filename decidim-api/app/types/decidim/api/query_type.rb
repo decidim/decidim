@@ -12,8 +12,8 @@ module Decidim
 
         resolve -> (_obj, _args, ctx) {
           [
-            Decidim::Comments::Comment.new(id: "1", body: "Comment body 1", author: { name: "David Morcillo" }),
-            Decidim::Comments::Comment.new(id: "2", body: "Comment body 2", author: { name: "Oriol Gual" })
+            Decidim::Comments::Comment.new(id: "1", body: "Comment body 1", createdAt: (Time.zone.now - 1.hour).to_s, author: { name: "David Morcillo" }),
+            Decidim::Comments::Comment.new(id: "2", body: "Comment body 2", createdAt: (Time.zone.now - 2.hour).to_s, author: { name: "Oriol Gual" })
           ]
         }
       end

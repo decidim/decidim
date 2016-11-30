@@ -3,9 +3,6 @@ import gql             from 'graphql-tag';
 
 import commentFragment from './comment.fragment.graphql'
 
-// comment--nested
-// comment--nested--alt
-// comment--highlight
 const Comment = ({ comment: { author, body, createdAt } }) => (
   <article className="comment">
     <div className="comment__header">

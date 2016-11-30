@@ -21,7 +21,8 @@
         "it": false,
         "expect": false,
         "beforeEach": false,
-        "afterEach": false
+        "afterEach": false,
+        "sinon": false
     },
     "rules": {
         "accessor-pairs": "error",

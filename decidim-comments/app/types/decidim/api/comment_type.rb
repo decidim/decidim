@@ -9,6 +9,8 @@ module Decidim
 
       field :body, !types.String, "The comment message"
 
+      field :createdAt, !types.String, "The comment created at"
+
       field :author do
         type !AuthorType
 

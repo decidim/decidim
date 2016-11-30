@@ -1,24 +1,53 @@
-const AddCommentForm = () => (
-  <div className="add-comment">
-    <h5 className="section-heading">Deixa el teu comentari</h5>
-    <div className="opinion-toggle button-group">
-      <button className="button small button--muted opinion-toggle--ok">
-        Estic a favor
-      </button>
-      <button className="button small button--muted opinion-toggle--ko">
-        Estic en contra
-      </button>
-    </div>
-    <form>
-      <label className="show-for-sr" htmlFor="add-comment">Comentari</label>
-      <textarea
-        id="add-comment"
-        rows="4"
-        placeholder="Què opines d'aquesta proposta?"
-      />
-      <input type="submit" className="button button--sc" value="Enviar" />
-    </form>
-  </div>
-);
+/* eslint-disable no-return-assign */
+import { Component, PropTypes } from 'react';
 
-export default AddCommentForm;
+export default class AddCommentForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      disabled: true
+    };
+  }
+
+  render() {
+    const { disabled } = this.state;
+    
+    return (
+      <div className="add-comment">
+        <h5 className="section-heading">Deixa el teu comentari</h5>
+        <form onSubmit={(evt) => this._addComment(evt)}>
+          <label className="show-for-sr" htmlFor="add-comment">Comentari</label>
+          <textarea
+            ref={(textarea) => this.bodyTextArea = textarea}
+            id="add-comment"
+            rows="4"
+            placeholder="Què opines d'aquesta proposta?"
+            onChange={(evt) => this._checkCommentBody(evt.target.value)}
+          />
+          <input 
+            type="submit"
+            className="button button--sc"
+            value="Enviar"
+            disabled={disabled}
+          />
+        </form>
+      </div>
+    );
+  }
+
+  _checkCommentBody(body) {
+    this.setState({ disabled: body === '' });
+  }
+
+  _addComment(evt) {
+    const { addComment } = this.props;
+    addComment({ body: this.bodyTextArea.value });
+    this.bodyTextArea.value = '';
+    evt.preventDefault();
+  }
+}
+
+AddCommentForm.propTypes = {
+  addComment: PropTypes.func.isRequired
+};
