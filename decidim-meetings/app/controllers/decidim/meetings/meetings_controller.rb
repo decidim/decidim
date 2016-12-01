@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require "decidim/components/base_controller"
 
 module Decidim
   module Meetings
@@ -8,7 +7,14 @@ module Decidim
     #
     # Note that it inherits from `Decidim::Components::BaseController`, which
     # override its layout and provide all kinds of useful methods.
-    class ApplicationController < Decidim::Components::BaseController
+    class MeetingsController < Decidim::Meetings::ApplicationController
+      def index
+        @meetings = Meeting.where(decidim_component_id: current_component.id)
+      end
+
+      def show
+        @meeting = Meeting.find_by(component: current_component)
+      end
     end
   end
 end

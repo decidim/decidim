@@ -33,22 +33,24 @@ Decidim.register_feature(:meetings) do |feature|
         step: process.steps.sample
       )
 
-      Decidim::Meetings::Meeting.create!(
-        component: meeting_component,
-        title: Decidim::Faker::Localized.sentence(2),
-        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
-        end,
-        short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
-        end,
-        location_hints: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
-        end,
-        start_date: 3.weeks.from_now,
-        end_date: 3.weeks.from_now + 4.hours,
-        address: Faker::Lorem.paragraph(3)
-      )
+      3.times do
+        Decidim::Meetings::Meeting.create!(
+          component: meeting_component,
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(3)
+          end,
+          short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(3)
+          end,
+          location_hints: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(3)
+          end,
+          start_date: 3.weeks.from_now,
+          end_date: 3.weeks.from_now + 4.hours,
+          address: Faker::Lorem.paragraph(3)
+        )
+      end
     end
   end
 end

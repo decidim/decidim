@@ -8,7 +8,7 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
-        root to: "application#show"
+        root to: "meetings#index"
       end
     end
   end
