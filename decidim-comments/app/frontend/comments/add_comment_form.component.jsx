@@ -33,7 +33,7 @@ export class AddCommentForm extends Component {
           <input 
             type="submit"
             className="button button--sc"
-            value="Enviar"
+            value="Send"
             disabled={disabled}
           />
         </form>
