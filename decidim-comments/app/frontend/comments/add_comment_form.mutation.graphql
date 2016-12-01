@@ -1,5 +1,5 @@
-mutation addComment($body: String!)  {
-  addComment(body: $body) {
+mutation addComment($commentableId: String!, $commentableType: String!, $body: String!)  {
+  addComment(commentableId: $commentableId, commentableType: $commentableType, body: $body) {
     id,
     body,
     createdAt,

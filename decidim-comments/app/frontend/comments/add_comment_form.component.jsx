@@ -63,7 +63,9 @@ AddCommentForm.propTypes = {
       ]),
       name: PropTypes.string.isRequired
     }).isRequired
-  }).isRequired
+  }).isRequired,
+  commentableId: PropTypes.string.isRequired,
+  commentableType: PropTypes.string.isRequired
 };
 
 const AddCommentFormWithMutation = graphql(gql`
@@ -71,7 +73,11 @@ const AddCommentFormWithMutation = graphql(gql`
 `, {
   props: ({ ownProps, mutate }) => ({
     addComment: ({ body }) => mutate({ 
-      variables: { body },
+      variables: { 
+        commentableId: ownProps.commentableId,
+        commentableType: ownProps.commentableType,
+        body
+      },
       optimisticResponse: {
         __typename: 'Mutation',
         addComment: {

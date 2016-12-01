@@ -6,10 +6,17 @@ module Decidim
 
       field :addComment, Decidim::Comments::CommentType do
         description "Add a new comment"
+        argument :commentableId, !types.String
+        argument :commentableType, !types.String
         argument :body, !types.String
 
         resolve -> (_obj, args, ctx) {
-          Decidim::Comments::Comment.create(body: args[:body], author: ctx[:current_user])
+          Decidim::Comments::Comment.create({
+            author: ctx[:current_user],
+            commentable_id: args[:commentableId],
+            commentable_type: args[:commentableType],
+            body: args[:body]
+          })
         }
       end
     end

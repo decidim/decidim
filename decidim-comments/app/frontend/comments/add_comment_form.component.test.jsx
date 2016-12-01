@@ -7,28 +7,30 @@ import generateSessionData from '../support/generate_session_data';
 
 describe("<AddCommentForm />", () => {
   let session = null;
+  const commentableId = "1";
+  const commentableType = "Decidim::ParticipatoryProcess";
 
   beforeEach(() => {
     session = generateSessionData();
   });
 
   it("should render a div with class add-comment", () => {
-    const wrapper = shallow(<AddCommentForm addComment={() => {}} session={session} />);
+    const wrapper = shallow(<AddCommentForm addComment={() => {}} session={session} commentableId={commentableId} commentableType={commentableType} />);
     expect(wrapper.find('div.add-comment')).to.present();
   });
 
   it("should have a reference to body textarea", () => {
-    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} />);
+    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} commentableId={commentableId} commentableType={commentableType} />);
     expect(wrapper.instance().bodyTextArea).to.be.ok;
   });
 
   it("should initialize with a state property disabled as true", () => {
-    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} />);
+    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} commentableId={commentableId} commentableType={commentableType} />);
     expect(wrapper).to.have.state('disabled', true);
   });
 
   it("should enable the submit button if textarea is not blank", () => {
-    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} />);
+    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} commentableId={commentableId} commentableType={commentableType} />);
     wrapper.find('textarea').simulate('change', {
       target: {
         value: 'This is a comment'
@@ -38,7 +40,7 @@ describe("<AddCommentForm />", () => {
   });
 
   it("should disable the submit button if textarea is blank", () => {
-    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} />);
+    const wrapper = mount(<AddCommentForm addComment={() => {}} session={session} commentableId={commentableId} commentableType={commentableType} />);
     wrapper.find('textarea').simulate('change', {
       target: {
         value: 'This will be deleted'
@@ -59,7 +61,7 @@ describe("<AddCommentForm />", () => {
 
     beforeEach(() => {
       onAddComment = sinon.spy();
-      wrapper = mount(<AddCommentForm addComment={onAddComment} session={session} />);
+      wrapper = mount(<AddCommentForm addComment={onAddComment} session={session} commentableId={commentableId} commentableType={commentableType} />);
       message = 'This will be submitted';
       wrapper.instance().bodyTextArea.value = message;
     });

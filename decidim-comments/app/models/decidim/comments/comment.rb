@@ -5,7 +5,7 @@ module Decidim
       belongs_to :author, class_name: Decidim::User
       belongs_to :commentable, polymorphic: true
       
-      validates :body, presence: true
+      validates :author, :commentable, :body, presence: true
     end
   end
 end

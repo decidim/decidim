@@ -41,10 +41,16 @@ export class Comments extends Component {
   }
 
   _renderAddCommentForm() {
-    const { session } = this.props;
+    const { session, commentableId, commentableType } = this.props;
 
     if (session && session.currentUser) {
-      return <AddCommentForm session={session} />;
+      return (
+        <AddCommentForm 
+          session={session}
+          commentableId={commentableId}
+          commentableType={commentableType}
+        />
+      );
     }
 
     return null;
@@ -57,7 +63,9 @@ Comments.propTypes = {
   })),
   session: PropTypes.shape({
     currentUser: PropTypes.object.isRequired
-  })
+  }),
+  commentableId: PropTypes.string.isRequired,
+  commentableType: PropTypes.string.isRequired
 };
 
 const CommentsWithData = compose(
@@ -67,7 +75,9 @@ const CommentsWithData = compose(
   `, {
     props: ({ ownProps, data: { comments }}) => ({
       comments: comments || [],
-      session: ownProps.session
+      session: ownProps.session,
+      commentableId: ownProps.commentableId,
+      commentableType: ownProps.commentableType
     })
   })
 )(Comments);
