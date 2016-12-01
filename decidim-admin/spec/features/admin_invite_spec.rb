@@ -13,13 +13,14 @@ describe "Admin invite", type: :feature do
       organization_admin_name: "Fiorello Henry La Guardia",
       organization_admin_email: "f.laguardia@gotham.gov",
       welcome_text_en: "Welcome",
+      homepage_image: Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg"), "image/jpg"),
       available_locales: ["en"],
       default_locale: "en"
     }
   end
 
   before(:each) do
-    Decidim::System::RegisterOrganization.new(form).call
+    expect{ Decidim::System::RegisterOrganization.new(form).call }.to broadcast(:ok)
     switch_to_host("decide.lvh.me")
   end
 

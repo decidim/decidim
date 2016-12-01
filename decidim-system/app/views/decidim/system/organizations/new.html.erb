@@ -27,6 +27,10 @@
     <%= f.email_field :organization_admin_email %>
   </div>
 
+  <div class="field">
+    <%= f.file_field :homepage_image %>
+  </div>
+
   <%= f.fields_for :locales do |fields| %>
   <div class="field">
     <%= f.label :organization_locales, '', class: @form.respond_to?(:errors) && @form.errors[:default_locale].present? ? "is-invalid-label" : "" %>

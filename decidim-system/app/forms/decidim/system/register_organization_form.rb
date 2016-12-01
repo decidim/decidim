@@ -14,6 +14,7 @@ module Decidim
       attribute :organization_admin_name, String
       attribute :available_locales, Array
       attribute :default_locale, String
+      attribute :homepage_image
       translatable_attribute :description, String
       translatable_attribute :welcome_text, String
 

@@ -8,8 +8,8 @@ module Decidim
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: Decidim::StaticPage, inverse_of: :organization
 
     validates :name, :host, uniqueness: true
-    validates :homepage_image, presence: true
-    validates :homepage_image, file_size: { less_than_or_equal_to: 10.megabytes }
+    validates :homepage_image, presence: true, on: :create
+    validates :homepage_image, file_size: { less_than_or_equal_to: 10.megabytes }, on: :create
 
     mount_uploader :homepage_image, Decidim::HomepageImageUploader
 
