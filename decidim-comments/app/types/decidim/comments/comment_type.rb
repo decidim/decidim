@@ -18,7 +18,7 @@ module Decidim
       field :author do
         type !AuthorType
 
-        resolve -> (obj, _args, ctx) do
+        resolve ->(obj, _args, _ctx) do
           obj.author
         end
       end

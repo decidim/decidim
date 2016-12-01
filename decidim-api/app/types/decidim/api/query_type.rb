@@ -12,7 +12,7 @@ module Decidim
         argument :commentableId, !types.String
         argument :commentableType, !types.String
 
-        resolve -> (_obj, args, ctx) {
+        resolve ->(_obj, args, _ctx) {
           Decidim::Comments::Comment
             .where(commentable_id: args[:commentableId])
             .where(commentable_type: args[:commentableType])

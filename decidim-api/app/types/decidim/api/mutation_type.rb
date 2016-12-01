@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   module Api
     MutationType = GraphQL::ObjectType.define do
@@ -10,13 +11,13 @@ module Decidim
         argument :commentableType, !types.String
         argument :body, !types.String
 
-        resolve -> (_obj, args, ctx) {
+        resolve ->(_obj, args, ctx) {
           commentable = args[:commentableType].constantize.find(args[:commentableId])
           form = Decidim::Comments::CommentForm.from_params({
-            "comment" => {
-              "body" => args[:body]
-            }
-          }, author: ctx[:current_user], commentable: commentable)
+                                                              "comment" => {
+                                                                "body" => args[:body]
+                                                              }
+                                                            }, author: ctx[:current_user], commentable: commentable)
 
           Decidim::Comments::CreateComment.call(form) do
             on(:ok) do |comment|

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   module Comments
-    class CreateComment < Rectify::Command      
+    class CreateComment < Rectify::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.
@@ -27,11 +27,9 @@ module Decidim
       attr_reader :form
 
       def create_comment
-        @comment = Comment.create({
-          author: form.author,
-          commentable: form.commentable,
-          body: form.body
-        })
+        @comment = Comment.create(author: form.author,
+                                  commentable: form.commentable,
+                                  body: form.body)
       end
     end
   end
