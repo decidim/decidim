@@ -11,12 +11,18 @@ module Decidim
         argument :body, !types.String
 
         resolve -> (_obj, args, ctx) {
-          Decidim::Comments::Comment.create({
-            author: ctx[:current_user],
-            commentable_id: args[:commentableId],
-            commentable_type: args[:commentableType],
-            body: args[:body]
-          })
+          commentable = args[:commentableType].constantize.find(args[:commentableId])
+          form = Decidim::Comments::CommentForm.from_params({
+            "comment" => {
+              "body" => args[:body]
+            }
+          }, author: ctx[:current_user], commentable: commentable)
+
+          Decidim::Comments::CreateComment.call(form) do
+            on(:ok) do |comment|
+              return comment
+            end
+          end
         }
       end
     end
