@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -11,6 +12,9 @@ module Decidim
             organization: {
               name: "My super organization",
               default_locale: "en",
+              welcome_text_en: "Welcome",
+              welcome_text_es: "Hola",
+              welcome_text_ca: "Hola",
               description_en: "My description",
               description_es: "Mi descripción",
               description_ca: "La meva descripció"
@@ -52,6 +56,15 @@ module Decidim
             organization.reload
 
             expect(organization.name).to eq("My super organization")
+          end
+
+          context "when no homepage image is set" do
+            it "does not replace the homepage image" do
+              command.call
+              organization.reload
+
+              expect(organization.homepage_image).to be_present
+            end
           end
         end
       end

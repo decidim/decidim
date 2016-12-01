@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -5,6 +6,13 @@ module Decidim
   module Admin
     describe OrganizationForm do
       let(:name) { "My super organization" }
+      let(:welcome_text) do
+        {
+          en: "Welcome",
+          es: "Hola",
+          ca: "Hola"
+        }
+      end
       let(:description) do
         {
           en: "Description, awesome description",
@@ -19,9 +27,13 @@ module Decidim
             "name" => name,
             "default_locale" => :en,
             "available_locales" => %w{en ca es},
+            "welcome_text_en" => welcome_text[:en],
+            "welcome_text_es" => welcome_text[:es],
+            "welcome_text_ca" => welcome_text[:ca],
             "description_en" => description[:en],
             "description_es" => description[:es],
-            "description_ca" => description[:ca]
+            "description_ca" => description[:ca],
+            "homepage_image" => Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg"), "image/jpeg")
           }
         }
       end

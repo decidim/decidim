@@ -24,6 +24,7 @@ describe "Organizations", type: :feature do
         fill_in "Organization admin email", with: "mayor@citizen.corp"
         check "organization_available_locales_en"
         choose "organization_default_locale_en"
+        attach_file "Homepage image", File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg")
         click_button "Create organization & invite admin"
 
         expect(page).to have_css("div.flash.success")

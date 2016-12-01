@@ -38,6 +38,8 @@ module Decidim
         {
           name: form.name,
           description: form.description,
+          welcome_text: form.welcome_text,
+          homepage_image: form.homepage_image || organization.homepage_image,
           default_locale: form.default_locale
         }
       end

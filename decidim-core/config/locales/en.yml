@@ -87,8 +87,8 @@ en:
   errors:
     messages:
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
-      invalid_manifest: "Invalid manifest"
-      invalid_participatory_process: "Invalid participatory process"
+      invalid_manifest: Invalid manifest
+      invalid_participatory_process: Invalid participatory process
       nesting_too_deep: can't be inside of a subcategory
   layouts:
     decidim:
@@ -134,5 +134,16 @@ en:
       title: There was a problem with our server
       try_later: Please try again later.
     home:
+      active_step: Active step
+      debates: Debates
+      debates_explanation: Let's meet, debate and share what we think it's important for our city.
+      highlighted_processes: Highlighted processes
+      how_to_participate: How do I take part in a process?
+      meetings: Meetings
+      meetings_explanation: Let's meet, debate and share what we think it's important for our city.
+      more_info: More info
+      proposals: Proposals
+      proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
       register: Register
+      see_all_processes: See all processes
       welcome: Welcome to %{organization}!

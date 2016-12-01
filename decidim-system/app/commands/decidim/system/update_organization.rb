@@ -43,6 +43,7 @@ module Decidim
         organization.name = form.name
         organization.host = form.host
         organization.description = form.description
+        organization.welcome_text = form.welcome_text
 
         organization.save!
       end

@@ -14,7 +14,9 @@ module Decidim
       attribute :host, String
 
       translatable_attribute :description, String
+      translatable_attribute :welcome_text, String
 
+      validates :welcome_text, presence: true
       validate :validate_organization_uniqueness
 
       private
