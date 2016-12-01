@@ -72,16 +72,25 @@ const CommentsWithData = compose(
   })
 )(Comments);
 
-const CommentsApplication = ({ session }) => (
+const CommentsApplication = ({ session, commentableId, commentableType }) => (
   <ApolloApplication>
-    <CommentsWithData session={session} />
+    <CommentsWithData 
+      session={session}
+      commentableId={commentableId}
+      commentableType={commentableType}
+    />
   </ApolloApplication>
 );
 
 CommentsApplication.propTypes = {
   session: PropTypes.shape({
     currentUser: PropTypes.object.isRequired
-  })
+  }),
+  commentableId: React.PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  commentableType: PropTypes.string.isRequired
 };
 
 export default CommentsApplication;

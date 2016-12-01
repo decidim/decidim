@@ -38,7 +38,14 @@ describe('<Comments />', () => {
       ${commentThreadFragment}
     `;
 
-    comments = resolveGraphQLQuery(query, commentsData).comments;
+    comments = resolveGraphQLQuery(query, {
+      filterResult: false,
+      rootValue: commentsData,
+      variables: {
+        commentableId: "1",
+        commentableType: "ParticipatoryProcess"
+      }
+    }).comments;
   });
 
   it("should render a div of id comments", () => {

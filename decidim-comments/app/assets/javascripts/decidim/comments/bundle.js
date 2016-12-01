@@ -4343,7 +4343,7 @@
 
 
 	        if (session && session.currentUser) {
-	          return React.createElement(_add_comment_form2['default'], null);
+	          return React.createElement(_add_comment_form2['default'], { session: session });
 	        }
 
 	        return null;
@@ -4361,19 +4361,18 @@
 	    id: _react.PropTypes.string.isRequired
 	  })),
 	  session: _react.PropTypes.shape({
-	    currentUser: _react.PropTypes.shape({
-	      id: _react.PropTypes.string.isRequired,
-	      name: _react.PropTypes.string.isRequired
-	    }).isRequired
+	    currentUser: _react.PropTypes.object.isRequired
 	  })
 	};
 
 	var CommentsWithData = (0, _reactApollo.compose)((0, _reactApollo.graphql)((0, _graphqlTag2['default'])(_templateObject, _commentsQuery2['default'], _comment_thread2['default'].fragments.comment), {
 	  props: function () {
 	    function props(_ref) {
-	      var comments = _ref.data.comments;
+	      var ownProps = _ref.ownProps,
+	          comments = _ref.data.comments;
 	      return {
-	        comments: comments || []
+	        comments: comments || [],
+	        session: ownProps.session
 	      };
 	    }
 
@@ -4382,16 +4381,31 @@
 	}))(Comments);
 
 	var CommentsApplication = function () {
-	  function CommentsApplication() {
+	  function CommentsApplication(_ref2) {
+	    var session = _ref2.session,
+	        commentableId = _ref2.commentableId,
+	        commentableType = _ref2.commentableType;
 	    return React.createElement(
 	      _apollo_application2['default'],
 	      null,
-	      React.createElement(CommentsWithData, null)
+	      React.createElement(CommentsWithData, {
+	        session: session,
+	        commentableId: commentableId,
+	        commentableType: commentableType
+	      })
 	    );
 	  }
 
 	  return CommentsApplication;
 	}();
+
+	CommentsApplication.propTypes = {
+	  session: _react.PropTypes.shape({
+	    currentUser: _react.PropTypes.object.isRequired
+	  }),
+	  commentableId: React.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
+	  commentableType: _react.PropTypes.string.isRequired
+	};
 
 	exports['default'] = CommentsApplication;
 
@@ -28740,7 +28754,7 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint-disable no-return-assign */
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint-disable no-return-assign, react/no-unused-prop-types */
 
 
 	var AddCommentForm = exports.AddCommentForm = function (_Component) {
@@ -28847,13 +28861,20 @@
 	}(_react.Component);
 
 	AddCommentForm.propTypes = {
-	  addComment: _react.PropTypes.func.isRequired
+	  addComment: _react.PropTypes.func.isRequired,
+	  session: _react.PropTypes.shape({
+	    currentUser: _react.PropTypes.shape({
+	      id: React.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
+	      name: _react.PropTypes.string.isRequired
+	    }).isRequired
+	  }).isRequired
 	};
 
 	var AddCommentFormWithMutation = (0, _reactApollo.graphql)((0, _graphqlTag2['default'])(_templateObject, _add_comment_formMutation2['default']), {
 	  props: function () {
 	    function props(_ref) {
-	      var mutate = _ref.mutate;
+	      var ownProps = _ref.ownProps,
+	          mutate = _ref.mutate;
 	      return {
 	        addComment: function () {
 	          function addComment(_ref2) {
@@ -28869,7 +28890,7 @@
 	                  body: body,
 	                  author: {
 	                    __typename: 'Author',
-	                    name: 'Marc Riera'
+	                    name: ownProps.session.currentUser.name
 	                  }
 	                }
 	              },
@@ -48334,7 +48355,7 @@
 /* 480 */
 /***/ function(module, exports) {
 
-	module.exports = "query GetComments {\n  comments {\n    id\n    ...CommentThread\n  }\n}\n"
+	module.exports = "query GetComments($commentableId: String!, $commentableType: String!) {\n  comments(commentableId: $commentableId, commentableType: $commentableType) {\n    id\n    ...CommentThread\n  }\n}\n"
 
 /***/ },
 /* 481 */

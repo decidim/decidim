@@ -5,8 +5,8 @@ module Decidim
       description "The root mutation of this schema"
 
       field :addComment, Decidim::Comments::CommentType do
-        argument :body, !types.String
         description "Add a new comment"
+        argument :body, !types.String
 
         resolve -> (_obj, args, ctx) {
           Decidim::Comments::Comment.create(body: args[:body], author: ctx[:current_user])

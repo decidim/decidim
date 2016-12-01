@@ -1,15 +1,20 @@
+/* eslint-disable no-ternary */
 import graphql, { filter } from 'graphql-anywhere';
 
 const resolver = (fieldName, root) => root[fieldName];
 
-const resolveGraphQLQuery = (query, data) => {
+const resolveGraphQLQuery = (document, options = {}) => {
+  const { filterResult, rootValue, context, variables } = options;
+
   let result = graphql(
     resolver,
-    query,
-    data
+    document,
+    rootValue,
+    context,
+    variables
   );
 
-  return filter(query, result);
+  return filterResult ? filter(document, result) : result;
 }
 
 export default resolveGraphQLQuery;

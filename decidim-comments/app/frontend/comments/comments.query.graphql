@@ -1,5 +1,5 @@
-query GetComments {
-  comments {
+query GetComments($commentableId: String!, $commentableType: String!) {
+  comments(commentableId: $commentableId, commentableType: $commentableType) {
     id
     ...CommentThread
   }
