@@ -3,7 +3,7 @@ class CreateDecidimPages < ActiveRecord::Migration[5.0]
     create_table :decidim_pages_pages do |t|
       t.jsonb :title
       t.jsonb :body
-      t.references :decidim_feature
+      t.references :decidim_feature, index: true
 
       t.timestamps
     end

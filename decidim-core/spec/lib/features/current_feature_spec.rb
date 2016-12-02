@@ -3,7 +3,7 @@ require "spec_helper"
 module Decidim
   describe CurrentFeature do
     let(:request) { double(params: params, env: env) }
-    let(:subject) { described_class.new(request) }
+    let(:subject) { described_class.new }
     let(:params) { Hash.new }
 
     context "when the env contains a current organization" do
@@ -28,7 +28,7 @@ module Decidim
 
         context "when there's no feature" do
           it "doesn't inject the feature into the environment" do
-            subject.call
+            subject.matches?(request)
             expect(env["decidim.current_feature"]).to be_blank
           end
         end
@@ -41,7 +41,7 @@ module Decidim
           let(:feature) { create(:feature) }
 
           it "injects the feature into the environment" do
-            subject.call
+            subject.matches?(request)
             expect(env["decidim.current_feature"]).to be_blank
           end
         end
@@ -54,7 +54,7 @@ module Decidim
           let(:feature) { create(:feature, participatory_process: current_participatory_process) }
 
           it "injects the feature into the environment" do
-            subject.call
+            subject.matches?(request)
             expect(env["decidim.current_feature"]).to eq(feature)
           end
         end
@@ -62,7 +62,7 @@ module Decidim
 
       context "when the params doesn't contain a participatory process id" do
         it "doesn't inject the feature into the environment" do
-          subject.call
+          subject.matches?(request)
           expect(env["decidim.current_feature"]).to be_blank
         end
       end

@@ -19,10 +19,7 @@ Decidim::Core::Engine.routes.draw do
     Decidim.feature_manifests.each do |manifest|
       next unless manifest.engine
 
-      constraints lambda { |request|
-        feature = Decidim::CurrentFeature.new(request).call
-        feature.manifest.name == manifest.name
-      } do
+      constraints Decidim::CurrentFeature.new do
         mount manifest.engine, at: "/"
       end
     end

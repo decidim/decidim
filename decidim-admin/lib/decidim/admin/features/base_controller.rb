@@ -17,7 +17,7 @@ module Decidim
         private
 
         def current_feature
-          @current_feature ||= current_organization.features.find(params[:feature_id])
+          @env["decidim.current_feature"]
         end
       end
     end

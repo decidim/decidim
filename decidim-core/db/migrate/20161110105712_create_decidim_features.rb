@@ -3,7 +3,7 @@ class CreateDecidimFeatures < ActiveRecord::Migration[5.0]
     create_table :decidim_features do |t|
       t.string :manifest_name
       t.jsonb :name
-      t.references :decidim_participatory_process
+      t.references :decidim_participatory_process, index: true
     end
   end
 end
