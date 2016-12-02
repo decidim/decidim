@@ -1,9 +1,6 @@
-/* eslint-disable import/first */
-
-require('es6-object-assign').polyfill();
-require('react-dom');
-
 import Comments from './comments/comments.component';
+
+require('react-dom');
 
 // Expose globals for react-rails
 window.Comments = Comments;
