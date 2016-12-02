@@ -1,0 +1,9 @@
+ca:
+  components:
+    add_comment_form:
+      title: "Deixa el teu comentari"
+      form:
+        body:
+          label: "Comentari"
+          placeholder: "Què opines d'aquesta proposta?"
+        submit: "Enviar"

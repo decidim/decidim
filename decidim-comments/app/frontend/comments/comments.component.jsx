@@ -2,45 +2,28 @@ import { Component, PropTypes } from 'react';
 import { graphql, compose }     from 'react-apollo';
 import gql                      from 'graphql-tag';
 import { filter }               from 'graphql-anywhere';
-import { I18n, Translate }      from 'react-i18nify';
+import { I18n }                 from 'react-i18nify';
 
-import ApolloApplication        from '../application/apollo_application.component';
+import Translatable             from '../application/translatable';
+
+import Application              from '../application/application.component';
 
 import CommentThread            from './comment_thread.component';
 import AddCommentForm           from './add_comment_form.component';
 
-import commentsQuery            from './comments.query.graphql'
+import commentsQuery            from './comments.query.graphql';
 
-I18n.setTranslations({
-  en: {
-    hello: 'World'
-  },
-  es: {
-    hello: 'Mundo'
-  },
-  ca: {
-    hello: 'Món'
-  }
-});
-
+@Translatable()
 export class Comments extends Component {
-  componentWillReceiveProps(nextProps) {
-    const { session } = nextProps;
-    if (session) {
-      I18n.setLocale(session.locale);
-    }
-  }
-
   render() {
     const { comments } = this.props;
 
     return (
       <div className="columns large-9" id="comments">
-        <Translate value="hello" />
         <section className="comments">
           <div className="row collapse order-by">
             <h2 className="order-by__text section-heading">
-              { `${comments.length} comments` }
+              { I18n.t("comments.title", { count: comments.length }) }
             </h2>
           </div>
           {this._renderCommentThreads()}
@@ -83,8 +66,7 @@ Comments.propTypes = {
     id: PropTypes.string.isRequired
   })),
   session: PropTypes.shape({
-    currentUser: PropTypes.object,
-    locale: PropTypes.string.isRequired
+    currentUser: PropTypes.object
   }).isRequired,
   commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired
@@ -105,13 +87,13 @@ const CommentsWithData = compose(
 )(Comments);
 
 const CommentsApplication = ({ session, commentableId, commentableType }) => (
-  <ApolloApplication>
+  <Application session={session}>
     <CommentsWithData 
       session={session}
       commentableId={commentableId}
       commentableType={commentableType}
     />
-  </ApolloApplication>
+  </Application>
 );
 
 CommentsApplication.propTypes = {

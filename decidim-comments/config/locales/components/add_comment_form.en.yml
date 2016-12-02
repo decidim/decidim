@@ -1,0 +1,9 @@
+en:
+  components:
+    add_comment_form:
+      title: "Leave your comment"
+      form:
+        body:
+          label: "Comment"
+          placeholder: "What do you think about this?"
+        submit: "Send"

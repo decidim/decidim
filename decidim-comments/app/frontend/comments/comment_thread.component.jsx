@@ -1,24 +1,32 @@
+import { Component }         from 'react';
 import { filter, propType }  from 'graphql-anywhere';
 import gql                   from 'graphql-tag';
+import { I18n }              from 'react-i18nify';
+
+import Translatable          from '../application/translatable';
 
 import Comment               from './comment.component';
 
 import commentThreadFragment from './comment_thread.fragment.graphql'
 
-const CommentThread = ({ comment }) => {
-  const { author } = comment;
+@Translatable()
+class CommentThread extends Component {
+  render() {
+    const { comment } = this.props;
+    const { author } = comment;
 
-  return (
-    <div>
-      <h6 className="comment-thread__title">
-        { `Conversation with ${author.name}` }
-      </h6>
-      <div className="comment-thread">
-        <Comment comment={filter(Comment.fragments.comment, comment)} />
+    return (
+      <div>
+        <h6 className="comment-thread__title">
+          { I18n.t("comment_thread.title", { authorName: author.name }) }
+        </h6>
+        <div className="comment-thread">
+          <Comment comment={filter(Comment.fragments.comment, comment)} />
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 CommentThread.fragments = {
   comment: gql`

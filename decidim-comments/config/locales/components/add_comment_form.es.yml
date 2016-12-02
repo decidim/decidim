@@ -1,0 +1,9 @@
+es:
+  components:
+    add_comment_form:
+      title: "Deja tu comentario"
+      form:
+        body:
+          label: "Comentario"
+          placeholder: "¿Que opinas sobre esto?"
+        submit: "Enviar"

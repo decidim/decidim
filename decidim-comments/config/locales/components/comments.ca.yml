@@ -1,0 +1,4 @@
+ca:
+  components:
+    comments:
+      title: "%{count} comentaris"

@@ -7,7 +7,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.graphql']
+        extensions: ['', '.js', '.jsx', '.graphql', '.yml']
     },
     module: {
         noParse: [
@@ -27,6 +27,10 @@ module.exports = {
             {
                 test: /\.(jpg|png)$/,
                 loader: 'url'
+            },
+            {
+                test: /\.(yml|yaml)$/,
+                loaders: ['json', 'yaml']
             },
             { 
                 test: require.resolve("react"),

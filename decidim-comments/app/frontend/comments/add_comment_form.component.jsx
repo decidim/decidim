@@ -3,9 +3,13 @@ import { Component, PropTypes } from 'react';
 import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
 import { random }               from 'faker/locale/en';
+import { I18n }                 from 'react-i18nify';
+
+import Translatable             from '../application/translatable';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
 
+@Translatable()
 export class AddCommentForm extends Component {
   constructor(props) {
     super(props);
@@ -20,20 +24,20 @@ export class AddCommentForm extends Component {
     
     return (
       <div className="add-comment">
-        <h5 className="section-heading">Deixa el teu comentari</h5>
+        <h5 className="section-heading">{ I18n.t("add_comment_form.title") }</h5>
         <form onSubmit={(evt) => this._addComment(evt)}>
-          <label className="show-for-sr" htmlFor="add-comment">Comentari</label>
+          <label className="show-for-sr" htmlFor="add-comment">{ I18n.t("add_comment_form.form.body.label") }</label>
           <textarea
             ref={(textarea) => this.bodyTextArea = textarea}
             id="add-comment"
             rows="4"
-            placeholder="Què opines d'aquesta proposta?"
+            placeholder={I18n.t("add_comment_form.form.body.placeholder")}
             onChange={(evt) => this._checkCommentBody(evt.target.value)}
           />
           <input 
             type="submit"
             className="button button--sc"
-            value="Send"
+            value={I18n.t("add_comment_form.form.submit")}
             disabled={disabled}
           />
         </form>
