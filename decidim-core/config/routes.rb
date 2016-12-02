@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require "decidim/features/current_feature"
-
 Decidim::Core::Engine.routes.draw do
   devise_for :users,
              class_name: "Decidim::User",

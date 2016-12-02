@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require "decidim/features/current_feature"
-
 Decidim::Admin::Engine.routes.draw do
   constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
     resource :organization, only: [:edit, :update], controller: "organization"
