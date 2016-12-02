@@ -40,4 +40,3 @@ notifications:
 
 addons:
   postgresql: "9.4"
-  firefox: "50.0"
