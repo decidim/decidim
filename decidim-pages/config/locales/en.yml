@@ -3,7 +3,7 @@ en:
   decidim:
     features:
       pages:
-        name: Pages
+        name: Page
     pages:
       admin:
         models:
