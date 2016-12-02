@@ -15,6 +15,8 @@ module Decidim
     attribute :admin_engine, Rails::Engine
     attribute :hooks, Hash[Symbol => Array[Proc]], default: {}
 
+    attribute :graphql_type
+
     validates :name, presence: true
 
     # Public: Registers a hook to this manifest. Hooks get fired when some

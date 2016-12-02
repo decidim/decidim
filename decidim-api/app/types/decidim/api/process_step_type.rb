@@ -21,6 +21,11 @@ module Decidim
         description "A short description of the step."
         property :short_description
       end
+
+      field :components do
+        type !types[ComponentInterfaceType]
+        description "Components present on this step"
+      end
     end
   end
 end
