@@ -7,3 +7,4 @@ vendor/bundle
 node_modules/
 .vscode
 development_app/
+.projectile
