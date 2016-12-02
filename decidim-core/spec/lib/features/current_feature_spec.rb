@@ -3,8 +3,9 @@ require "spec_helper"
 module Decidim
   describe CurrentFeature do
     let(:request) { double(params: params, env: env) }
-    let(:subject) { described_class.new }
+    let(:subject) { described_class.new(manifest) }
     let(:params) { Hash.new }
+    let(:manifest) { Decidim.find_feature_manifest("dummy") }
 
     context "when the env contains a current organization" do
       let(:organization) do
@@ -40,7 +41,7 @@ module Decidim
 
           let(:feature) { create(:feature) }
 
-          it "injects the feature into the environment" do
+          it "doesn't inject the feature into the environment" do
             subject.matches?(request)
             expect(env["decidim.current_feature"]).to be_blank
           end

@@ -22,7 +22,7 @@ Decidim::Admin::Engine.routes.draw do
       Decidim.feature_manifests.each do |manifest|
         next unless manifest.admin_engine
 
-        constraints Decidim::CurrentFeature.new do
+        constraints Decidim::CurrentFeature.new(manifest) do
           mount manifest.admin_engine, at: "/"
         end
       end

@@ -3,6 +3,9 @@ module Decidim
   # This class infers the current feature we're scoped to by looking at the
   # request parameters and injects it into the environment.
   class CurrentFeature
+    def initialize(manifest)
+      @manifest = manifest
+    end
     # Public: Injects the current feature into the environment.
     #
     # request - The request that holds the current feature relevant
@@ -29,7 +32,11 @@ module Decidim
 
       return nil unless participatory_process
 
-      participatory_process.features.find_by(id: params[:feature_id])
+      feature = participatory_process.features.find_by(id: params[:feature_id])
+
+      return nil unless feature
+
+      feature if @manifest.name == feature.manifest_name.to_sym
     end
   end
 end
