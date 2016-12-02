@@ -1,6 +1,6 @@
-# Features and components
+# Features
 
-Features and components are the core contract between external modules and the core. They're used to define pieces of functionality that are pluggable to participatory processes and can be enabled or disabled by the administrator.
+Features are the core contract between external modules and the core. They're used to define pieces of functionality that are pluggable to participatory processes and can be enabled or disabled by the administrator.
 
 ## How do I create a new feature?
 
@@ -10,39 +10,36 @@ Check out the `lib/decidim/pages` folder: It includes several files, the most im
 
 ## Defining a feature manifest
 
-Features are defined in a manifest, along with its components. You can think of a feature as the abstract functionality (proposals, meetings) while their components are the way they're exposed to the end user.
+Features are defined in a manifest, along with its engine and admin engine counterpart.
 
 There's a DSL available to describe all this:
 
 ```ruby
 # :my_feature is the unique name of the feature that will be globally registered.
 Decidim.register_feature(:my_feature) do |feature|
-  # A feature can have many components. Their names have to be globally unique as
-  # well.
-  feature.component :my_custom_component do |component|
-    # The user will be redirected to the component's engine. A component's engine 
-    # is isolated from the outside so it can deal with its own dependencies
-    # without having to know its render path or its parent resources.
-    component.engine = MyFeature::MyCustomComponentEngine
+  # The user will be redirected to the feature's engine when accessing it through
+  # the public page of a participatory process. A feature's engine is isolated 
+  # from the outside so it can deal with its own dependencies without having to 
+  # know its render path or its parent resources.
+  feature.engine = MyFeature::Engine
 
-    # A component's admin engine will get rendered on the admin panel and follows
-    # the same principles as the engine. It's isolated from the outside and 
-    # doesn't care about external dependencies. It only needs to care about its
-    # underlying `feature`.
-    component.admin_engine = MyFeature::MyCustomComponentAdminEngine
+  # A component's admin engine will get rendered on the admin panel and follows
+  # the same principles as the engine. It's isolated from the outside and 
+  # doesn't care about external dependencies. It only needs to care about its
+  # underlying `feature`.
+  feature.admin_engine = MyFeature::AdminEngine
     
-    # Component hooks get called whenever relevant lifecycle events happen, like
-    # adding a new component o destroying it. You always get passed the instance
-    # so you can act on it. Creating or destroying a comoponent is transactional
-    # along with its hooks, so you can decide to halt the transaction by raising
-    # an exception.
-    #
-    # Valid hook names are :create and :destroy.
-    component.on(:create) do |instance|
-      MyFeature::DoSomething.with(instance)
-    end
+  # Feature hooks get called whenever relevant lifecycle events happen, like
+  # adding a new feature o destroying it. You always get passed the instance
+  # so you can act on it. Creating or destroying a comoponent is transactional
+  # along with its hooks, so you can decide to halt the transaction by raising
+  # an exception.
+  #
+  # Valid hook names are :create and :destroy.
+  feature.on(:create) do |feature|
+    MyFeature::DoSomething.with(feature)
   end
 end
 ```
 
-Every model in a feature doesn't have to (and should not) know about its parent participatory process, but instead should be scoped to the features. This is a way to decouple dependencies and have a way to run, for example, multiple, separate *proposals* processes in the same *participatory process*.
+Every model in a feature doesn't have to (and should not) know about its parent participatory process, but instead should be scoped to the features. 
