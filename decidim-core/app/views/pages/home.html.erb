@@ -18,10 +18,10 @@
   <div class="row">
     <div class="columns small-centered large-10">
       <h2 class="heading3"><%== translated_attribute current_organization.welcome_text %></h2>
-      <a href="/user-register" class="button--sc link subhero-cta">
+      <%= link_to new_user_registration_path, class: "button--sc link subhero-cta" do %>
         <%= t(".register") %>
         <%= icon "chevron-right", aria_hidden: true %>
-      </a>
+      <% end %>
     </div>
   </div>
 </section>
@@ -58,10 +58,7 @@
   <div class="row">
     <div class="columns small-centered small-12
                 smallmedium-8 medium-6 large-4">
-      <a href="/processes" class="button expanded hollow button--sc
-        home-section__cta">
-        <%= t(".see_all_processes") %>
-      </a>
+      <%= link_to t(".see_all_processes"), participatory_processes_path, class: "button expanded hollow button--sc home-section__cta" %>
     </div>
   </div>
 </section>
@@ -108,7 +105,7 @@
     <div class="row">
       <div class="columns small-centered small-10
                 smallmedium-8 medium-6 large-4">
-        <%= link_to t(".more_info"), participatory_processes_path, class: "button expanded hollow button--sc" %>
+        <%= link_to t(".more_info"), page_path("faq"), class: "button expanded hollow button--sc" %>
       </div>
     </div>
   </div>
