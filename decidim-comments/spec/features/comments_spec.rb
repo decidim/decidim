@@ -15,7 +15,7 @@ describe "Comments", type: :feature do
     switch_to_host(organization.host)
   end
 
-  it "user should see a list of comments", driver: :selenium do
+  it "user should see a list of comments" do
     visit decidim.participatory_process_path(participatory_process)
 
     expect(page).to have_selector("#comments")
@@ -30,7 +30,7 @@ describe "Comments", type: :feature do
   end
 
   context "when not authenticated" do
-    it "user should not see the form to add comments", driver: :selenium do
+    it "user should not see the form to add comments" do
       visit decidim.participatory_process_path(participatory_process)
       expect(page).to_not have_selector(".add-comment form")
     end
@@ -41,12 +41,12 @@ describe "Comments", type: :feature do
       login_as user, scope: :user
     end
 
-    it "user should not see the form to add comments", driver: :selenium do
+    it "user should not see the form to add comments" do
       visit decidim.participatory_process_path(participatory_process)
       expect(page).to have_selector(".add-comment form")
     end
 
-    it "user can add a new comment", driver: :selenium do
+    it "user can add a new comment" do
       visit decidim.participatory_process_path(participatory_process)
       expect(page).to have_selector(".add-comment form")
 
