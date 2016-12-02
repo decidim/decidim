@@ -5,7 +5,8 @@ const generateSessionData = () => {
     currentUser: {
       id: random.uuid(),
       name: name.findName()
-    }
+    },
+    locale: 'en'
   };
 };
 

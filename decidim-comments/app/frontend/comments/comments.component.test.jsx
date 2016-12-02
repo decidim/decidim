@@ -15,6 +15,7 @@ import resolveGraphQLQuery  from '../support/resolve_graphql_query';
 
 describe('<Comments />', () => {
   let comments = [];
+  let session = null;
   const commentableId = "1";
   const commentableType = "Decidim::ParticipatoryProcess";
 
@@ -48,15 +49,17 @@ describe('<Comments />', () => {
         commentableType
       }
     }).comments;
+
+    session = generateSessionData();
   });
 
   it("should render a div of id comments", () => {
-    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} session={session} />);
     expect(wrapper.find('#comments')).to.be.present();
   });
 
   it("should render a CommentThread component for each comment and pass filter comment data as a prop to it", () => {
-    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} session={session} />);
     expect(wrapper).to.have.exactly(comments.length).descendants(CommentThread);
     wrapper.find(CommentThread).forEach((node, idx) => {
       expect(node).to.have.prop("comment").deep.equal(filter(commentThreadFragment, comments[idx]));
@@ -64,30 +67,24 @@ describe('<Comments />', () => {
   });
 
   it("should render comments count", () => {
-    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} session={session} />);
     const rex = new RegExp(`${comments.length} comments`);
     expect(wrapper.find('h2.section-heading')).to.have.text().match(rex);
   });
 
-  describe("if session is not present", () => {
-    let session = null;
-
-    it("should not render a AddCommentForm component", () => {
-      const wrapper = shallow(<Comments comments={comments} session={session} commentableId={commentableId} commentableType={commentableType} />);
-      expect(wrapper.find(AddCommentForm)).not.to.be.present();
-    });
+  it("should render a AddCommentForm component", () => {
+    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} session={session} />);
+    expect(wrapper).to.have.exactly(1).descendants(AddCommentForm);
   });
 
-  describe("if session is present", () => {
-    let session = null;
-
+  describe("if session currentUser is not present", () => {
     beforeEach(() => {
-      session = generateSessionData();
+      session.currentUser = null;
     });
 
-    it("should render a AddCommentForm component", () => {
-      const wrapper = shallow(<Comments comments={comments} session={session} commentableId={commentableId} commentableType={commentableType} />);
-      expect(wrapper).to.have.exactly(1).descendants(AddCommentForm);
+    it("should not render a AddCommentForm component", () => {
+      const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} session={session} />);
+      expect(wrapper.find(AddCommentForm)).not.to.be.present();
     });
   });
 });

@@ -2,6 +2,7 @@ import { Component, PropTypes } from 'react';
 import { graphql, compose }     from 'react-apollo';
 import gql                      from 'graphql-tag';
 import { filter }               from 'graphql-anywhere';
+import { I18n, Translate }      from 'react-i18nify';
 
 import ApolloApplication        from '../application/apollo_application.component';
 
@@ -10,12 +11,32 @@ import AddCommentForm           from './add_comment_form.component';
 
 import commentsQuery            from './comments.query.graphql'
 
+I18n.setTranslations({
+  en: {
+    hello: 'World'
+  },
+  es: {
+    hello: 'Mundo'
+  },
+  ca: {
+    hello: 'Món'
+  }
+});
+
 export class Comments extends Component {
+  componentWillReceiveProps(nextProps) {
+    const { session } = nextProps;
+    if (session) {
+      I18n.setLocale(session.locale);
+    }
+  }
+
   render() {
     const { comments } = this.props;
 
     return (
       <div className="columns large-9" id="comments">
+        <Translate value="hello" />
         <section className="comments">
           <div className="row collapse order-by">
             <h2 className="order-by__text section-heading">
@@ -43,7 +64,7 @@ export class Comments extends Component {
   _renderAddCommentForm() {
     const { session, commentableId, commentableType } = this.props;
 
-    if (session && session.currentUser) {
+    if (session.currentUser) {
       return (
         <AddCommentForm 
           session={session}
@@ -62,8 +83,9 @@ Comments.propTypes = {
     id: PropTypes.string.isRequired
   })),
   session: PropTypes.shape({
-    currentUser: PropTypes.object.isRequired
-  }),
+    currentUser: PropTypes.object,
+    locale: PropTypes.string.isRequired
+  }).isRequired,
   commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired
 };
@@ -94,8 +116,9 @@ const CommentsApplication = ({ session, commentableId, commentableType }) => (
 
 CommentsApplication.propTypes = {
   session: PropTypes.shape({
-    currentUser: PropTypes.object.isRequired
-  }),
+    currentUser: PropTypes.object,
+    locale: PropTypes.string.isRequired
+  }).isRequired,
   commentableId: React.PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
