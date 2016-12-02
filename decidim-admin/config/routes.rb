@@ -33,6 +33,7 @@ Decidim::Admin::Engine.routes.draw do
     end
 
     resources :static_pages
+    resources :scopes, except: [:show]
 
     root to: "dashboard#show"
   end

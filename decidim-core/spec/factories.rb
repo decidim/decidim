@@ -144,6 +144,11 @@ FactoryGirl.define do
 
     feature
   end
+
+  factory :scope, class: Decidim::Scope do
+    name { Decidim::Faker::Localized.word }
+    organization
+  end
 end
 
 

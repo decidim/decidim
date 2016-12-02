@@ -27,6 +27,7 @@ module Decidim
           can :manage, Component
           can :read, :admin_dashboard
           can :manage, ParticipatoryProcessAttachment
+          can :manage, Scope
         end
       end
     end
