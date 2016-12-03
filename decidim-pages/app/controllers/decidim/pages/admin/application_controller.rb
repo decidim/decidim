@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require "decidim/admin/components/base_controller"
+require_dependency "decidim/admin/features/base_controller"
 
 module Decidim
   module Pages

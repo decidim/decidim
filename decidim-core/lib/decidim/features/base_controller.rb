@@ -20,6 +20,10 @@ module Decidim
       def current_feature
         env["decidim.current_feature"]
       end
+
+      def current_participatory_process
+        env["decidim.current_participatory_process"]
+      end
     end
   end
 end
