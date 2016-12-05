@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     entry: './app/frontend/entry.js',
     output: {
-        path: path.join(__dirname, 'app/assets/javascripts'),
+        path: path.join(__dirname, 'app/assets/javascripts/decidim/comments'),
         filename: 'bundle.js'
     },
     resolve: {
