@@ -46,6 +46,10 @@
 
 	'use strict';
 
+	var _load_translations = __webpack_require__(1);
+
+	var _load_translations2 = _interopRequireDefault(_load_translations);
+
 	var _comments = __webpack_require__(161);
 
 	var _comments2 = _interopRequireDefault(_comments);
@@ -57,8 +61,49 @@
 	// Expose globals for react-rails
 	window.Comments = _comments2['default'];
 
+	(0, _load_translations2['default'])();
+
 /***/ },
-/* 1 */,
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _reactI18nify = __webpack_require__(2);
+
+	var requireAll = function () {
+	  function requireAll(requireContext) {
+	    return requireContext.keys().map(requireContext);
+	  }
+
+	  return requireAll;
+	}(); /* eslint-disable no-param-reassign */
+
+
+	var loadTranslations = function () {
+	  function loadTranslations() {
+	    var translationsContext = __webpack_require__(157);
+	    var translationFiles = requireAll(translationsContext);
+
+	    var translations = translationsContext.keys().reduce(function (acc, key, index) {
+	      var locale = key.match(/\.\/(.*)\.yml/)[1];
+	      acc[locale] = translationFiles[index][locale].decidim.components;
+	      return acc;
+	    }, {});
+
+	    _reactI18nify.I18n.setTranslations(translations);
+	  }
+
+	  return loadTranslations;
+	}();
+
+	exports['default'] = loadTranslations;
+
+/***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -32456,10 +32501,149 @@
 
 /***/ },
 /* 156 */,
-/* 157 */,
-/* 158 */,
-/* 159 */,
-/* 160 */,
+/* 157 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./ca.yml": 158,
+		"./en.yml": 159,
+		"./es.yml": 160
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 157;
+
+
+/***/ },
+/* 158 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"ca": {
+			"decidim": {
+				"components": {
+					"add_comment_form": {
+						"title": "Deixa el teu comentari",
+						"form": {
+							"body": {
+								"label": "Comentari",
+								"placeholder": "Què opines d'aquesta proposta?"
+							},
+							"submit": "Enviar"
+						}
+					},
+					"comment_order_selector": {
+						"title": "Ordenar per:",
+						"order": {
+							"most_voted": "Més votats",
+							"recent": "Més nous",
+							"older": "Més antics"
+						}
+					},
+					"comment_thread": {
+						"title": "Conversació amb %{authorName}"
+					},
+					"comments": {
+						"title": "%{count} comentaris"
+					},
+					"featured_comment": {
+						"title": "Comentari destacat"
+					}
+				}
+			}
+		}
+	};
+
+/***/ },
+/* 159 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"en": {
+			"decidim": {
+				"components": {
+					"add_comment_form": {
+						"title": "Leave your comment",
+						"form": {
+							"body": {
+								"label": "Comment",
+								"placeholder": "What do you think about this?"
+							},
+							"submit": "Send"
+						}
+					},
+					"comment_order_selector": {
+						"title": "Order by:",
+						"order": {
+							"most_voted": "Most voted",
+							"recent": "Recent",
+							"older": "Older"
+						}
+					},
+					"comment_thread": {
+						"title": "Conversation with %{authorName}"
+					},
+					"comments": {
+						"title": "%{count} comments"
+					},
+					"featured_comment": {
+						"title": "Featured comment"
+					}
+				}
+			}
+		}
+	};
+
+/***/ },
+/* 160 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"es": {
+			"decidim": {
+				"components": {
+					"add_comment_form": {
+						"title": "Deja tu comentario",
+						"form": {
+							"body": {
+								"label": "Comentario",
+								"placeholder": "¿Que opinas sobre esto?"
+							},
+							"submit": "Enviar"
+						}
+					},
+					"comment_order_selector": {
+						"title": "Ordenar por:",
+						"order": {
+							"most_voted": "Más votados",
+							"recent": "Más nuevos",
+							"older": "Más antiguos"
+						}
+					},
+					"comment_thread": {
+						"title": "Conversación con %{authorName}"
+					},
+					"comments": {
+						"title": "%{count} comentarios"
+					},
+					"featured_comment": {
+						"title": "Comentario destacado"
+					}
+				}
+			}
+		}
+	};
+
+/***/ },
 /* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -32486,9 +32670,9 @@
 
 	var _reactI18nify = __webpack_require__(2);
 
-	var _apollo_application = __webpack_require__(630);
+	var _application = __webpack_require__(248);
 
-	var _apollo_application2 = _interopRequireDefault(_apollo_application);
+	var _application2 = _interopRequireDefault(_application);
 
 	var _comment_thread = __webpack_require__(360);
 
@@ -32512,18 +32696,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	_reactI18nify.I18n.setTranslations({
-	  en: {
-	    hello: 'World'
-	  },
-	  es: {
-	    hello: 'Mundo'
-	  },
-	  ca: {
-	    hello: 'Món'
-	  }
-	});
-
 	var Comments = exports.Comments = function (_Component) {
 	  _inherits(Comments, _Component);
 
@@ -32534,19 +32706,6 @@
 	  }
 
 	  _createClass(Comments, [{
-	    key: 'componentWillReceiveProps',
-	    value: function () {
-	      function componentWillReceiveProps(nextProps) {
-	        var session = nextProps.session;
-
-	        if (session) {
-	          _reactI18nify.I18n.setLocale(session.locale);
-	        }
-	      }
-
-	      return componentWillReceiveProps;
-	    }()
-	  }, {
 	    key: 'render',
 	    value: function () {
 	      function render() {
@@ -32556,7 +32715,6 @@
 	        return React.createElement(
 	          'div',
 	          { className: 'columns large-9', id: 'comments' },
-	          React.createElement(_reactI18nify.Translate, { value: 'hello' }),
 	          React.createElement(
 	            'section',
 	            { className: 'comments' },
@@ -32566,7 +32724,7 @@
 	              React.createElement(
 	                'h2',
 	                { className: 'order-by__text section-heading' },
-	                comments.length + ' comments'
+	                _reactI18nify.I18n.t("comments.title", { count: comments.length })
 	              )
 	            ),
 	            this._renderCommentThreads(),
@@ -32627,8 +32785,7 @@
 	    id: _react.PropTypes.string.isRequired
 	  })),
 	  session: _react.PropTypes.shape({
-	    currentUser: _react.PropTypes.object,
-	    locale: _react.PropTypes.string.isRequired
+	    currentUser: _react.PropTypes.object
 	  }).isRequired,
 	  commentableId: _react.PropTypes.string.isRequired,
 	  commentableType: _react.PropTypes.string.isRequired
@@ -32657,8 +32814,8 @@
 	        commentableId = _ref2.commentableId,
 	        commentableType = _ref2.commentableType;
 	    return React.createElement(
-	      _apollo_application2['default'],
-	      null,
+	      _application2['default'],
+	      { session: session },
 	      React.createElement(CommentsWithData, {
 	        session: session,
 	        commentableId: commentableId,
@@ -56651,7 +56808,84 @@
 	//# sourceMappingURL=utilities.js.map
 
 /***/ },
-/* 248 */,
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports['default'] = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(122);
+
+	var _reactApollo = __webpack_require__(162);
+
+	var _reactI18nify = __webpack_require__(2);
+
+	var _apollo_client = __webpack_require__(359);
+
+	var _apollo_client2 = _interopRequireDefault(_apollo_client);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Application = function (_Component) {
+	  _inherits(Application, _Component);
+
+	  function Application(props) {
+	    _classCallCheck(this, Application);
+
+	    var session = props.session;
+
+
+	    if (session) {
+	      _reactI18nify.I18n.setLocale(session.locale);
+	    }
+
+	    return _possibleConstructorReturn(this, (Application.__proto__ || Object.getPrototypeOf(Application)).call(this, props));
+	  }
+
+	  _createClass(Application, [{
+	    key: 'render',
+	    value: function () {
+	      function render() {
+	        var children = this.props.children;
+
+
+	        return React.createElement(
+	          _reactApollo.ApolloProvider,
+	          { client: _apollo_client2['default'] },
+	          children
+	        );
+	      }
+
+	      return render;
+	    }()
+	  }]);
+
+	  return Application;
+	}(_react.Component);
+
+	exports['default'] = Application;
+
+
+	Application.propTypes = {
+	  children: _react.PropTypes.element.isRequired,
+	  session: _react.PropTypes.shape({
+	    locale: _react.PropTypes.string.isRequired
+	  }).isRequired
+	};
+
+/***/ },
 /* 249 */,
 /* 250 */,
 /* 251 */,
@@ -56812,13 +57046,19 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _templateObject = _taggedTemplateLiteral(['\n    ', '\n    ', '\n  '], ['\n    ', '\n    ', '\n  ']);
+
+	var _react = __webpack_require__(122);
 
 	var _graphqlAnywhere = __webpack_require__(243);
 
 	var _graphqlTag = __webpack_require__(241);
 
 	var _graphqlTag2 = _interopRequireDefault(_graphqlTag);
+
+	var _reactI18nify = __webpack_require__(2);
 
 	var _comment = __webpack_require__(361);
 
@@ -56832,30 +57072,51 @@
 
 	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-	var CommentThread = function () {
-	  function CommentThread(_ref) {
-	    var comment = _ref.comment;
-	    var author = comment.author;
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'h6',
-	        { className: 'comment-thread__title' },
-	        'Conversation with ' + author.name
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'comment-thread' },
-	        React.createElement(_comment2['default'], { comment: (0, _graphqlAnywhere.filter)(_comment2['default'].fragments.comment, comment) })
-	      )
-	    );
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var CommentThread = function (_Component) {
+	  _inherits(CommentThread, _Component);
+
+	  function CommentThread() {
+	    _classCallCheck(this, CommentThread);
+
+	    return _possibleConstructorReturn(this, (CommentThread.__proto__ || Object.getPrototypeOf(CommentThread)).apply(this, arguments));
 	  }
 
+	  _createClass(CommentThread, [{
+	    key: 'render',
+	    value: function () {
+	      function render() {
+	        var comment = this.props.comment;
+	        var author = comment.author;
+
+
+	        return React.createElement(
+	          'div',
+	          null,
+	          React.createElement(
+	            'h6',
+	            { className: 'comment-thread__title' },
+	            _reactI18nify.I18n.t("comment_thread.title", { authorName: author.name })
+	          ),
+	          React.createElement(
+	            'div',
+	            { className: 'comment-thread' },
+	            React.createElement(_comment2['default'], { comment: (0, _graphqlAnywhere.filter)(_comment2['default'].fragments.comment, comment) })
+	          )
+	        );
+	      }
+
+	      return render;
+	    }()
+	  }]);
+
 	  return CommentThread;
-	}();
+	}(_react.Component);
 
 	CommentThread.fragments = {
 	  comment: (0, _graphqlTag2['default'])(_templateObject, _comment_threadFragment2['default'], _comment2['default'].fragments.comment)
@@ -57012,6 +57273,8 @@
 
 	var _en = __webpack_require__(371);
 
+	var _reactI18nify = __webpack_require__(2);
+
 	var _add_comment_formMutation = __webpack_require__(479);
 
 	var _add_comment_formMutation2 = _interopRequireDefault(_add_comment_formMutation);
@@ -57058,7 +57321,7 @@
 	          React.createElement(
 	            'h5',
 	            { className: 'section-heading' },
-	            'Deixa el teu comentari'
+	            _reactI18nify.I18n.t("add_comment_form.title")
 	          ),
 	          React.createElement(
 	            'form',
@@ -57072,7 +57335,7 @@
 	            React.createElement(
 	              'label',
 	              { className: 'show-for-sr', htmlFor: 'add-comment' },
-	              'Comentari'
+	              _reactI18nify.I18n.t("add_comment_form.form.body.label")
 	            ),
 	            React.createElement('textarea', {
 	              ref: function () {
@@ -57084,7 +57347,7 @@
 	              }(),
 	              id: 'add-comment',
 	              rows: '4',
-	              placeholder: 'Qu\xE8 opines d\'aquesta proposta?',
+	              placeholder: _reactI18nify.I18n.t("add_comment_form.form.body.placeholder"),
 	              onChange: function () {
 	                function onChange(evt) {
 	                  return _this2._checkCommentBody(evt.target.value);
@@ -57096,7 +57359,7 @@
 	            React.createElement('input', {
 	              type: 'submit',
 	              className: 'button button--sc',
-	              value: 'Send',
+	              value: _reactI18nify.I18n.t("add_comment_form.form.submit"),
 	              disabled: disabled
 	            })
 	          )
@@ -93938,45 +94201,7 @@
 /***/ },
 /* 628 */,
 /* 629 */,
-/* 630 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(122);
-
-	var _reactApollo = __webpack_require__(162);
-
-	var _apollo_client = __webpack_require__(359);
-
-	var _apollo_client2 = _interopRequireDefault(_apollo_client);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var ApolloApplication = function () {
-	  function ApolloApplication(_ref) {
-	    var children = _ref.children;
-	    return React.createElement(
-	      _reactApollo.ApolloProvider,
-	      { client: _apollo_client2['default'] },
-	      children
-	    );
-	  }
-
-	  return ApolloApplication;
-	}();
-
-	ApolloApplication.propTypes = {
-	  children: _react.PropTypes.element.isRequired
-	};
-
-	exports['default'] = ApolloApplication;
-
-/***/ },
+/* 630 */,
 /* 631 */
 /***/ function(module, exports) {
 
