@@ -1,5 +1,5 @@
 import { Component, PropTypes } from 'react';
-import { graphql, compose }     from 'react-apollo';
+import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
 import { filter }               from 'graphql-anywhere';
 import { I18n }                 from 'react-i18nify';
@@ -11,6 +11,11 @@ import AddCommentForm           from './add_comment_form.component';
 
 import commentsQuery            from './comments.query.graphql';
 
+/**
+ * The core class of the Decidim Comments engine.
+ * It renders a collection of comments given a commentable id and type.
+ * @global
+ */
 export class Comments extends Component {
   render() {
     const { comments } = this.props;
@@ -29,7 +34,12 @@ export class Comments extends Component {
       </div>
     );
   }
-
+ 
+  /**
+   * Iterates the comment's collection and render a CommentThread for each one
+   * @private
+   * @returns {ReactComponent[]} - A collection of CommentThread components
+   */
   _renderCommentThreads() {
     const { comments } = this.props;
 
@@ -40,7 +50,12 @@ export class Comments extends Component {
       />
     ))
   }
-
+ 
+  /**
+   * If session's current user is present it renders the add comment form
+   * @private
+   * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
+   */
   _renderAddCommentForm() {
     const { session, commentableId, commentableType } = this.props;
 
@@ -69,20 +84,27 @@ Comments.propTypes = {
   commentableType: PropTypes.string.isRequired
 };
 
-const CommentsWithData = compose(
-  graphql(gql`
-    ${commentsQuery}
-    ${CommentThread.fragments.comment}
-  `, {
-    props: ({ ownProps, data: { comments }}) => ({
-      comments: comments || [],
-      session: ownProps.session,
-      commentableId: ownProps.commentableId,
-      commentableType: ownProps.commentableType
-    })
+/**
+ * Wrap the Comments component with a GraphQL query and children
+ * fragments.
+ */
+const CommentsWithData = graphql(gql`
+  ${commentsQuery}
+  ${CommentThread.fragments.comment}
+`, {
+  props: ({ ownProps, data: { comments }}) => ({
+    comments: comments || [],
+    session: ownProps.session,
+    commentableId: ownProps.commentableId,
+    commentableType: ownProps.commentableType
   })
-)(Comments);
+})(Comments);
 
+/**
+ * Wrap the CommentsWithData component within an Application component to
+ * connect it with Apollo client and store.
+ * @returns {ReactComponent} - A component wrapped within an Application component
+ */
 const CommentsApplication = ({ session, commentableId, commentableType }) => (
   <Application session={session}>
     <CommentsWithData 

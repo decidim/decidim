@@ -7,6 +7,10 @@ import Comment               from './comment.component';
 
 import commentThreadFragment from './comment_thread.fragment.graphql'
 
+/**
+ * Define a collection of comments. It represents a conversation with multiple users.
+ * @todo It doesn't handle multiple comments yet
+ */
 class CommentThread extends Component {
   render() {
     const { comment } = this.props;

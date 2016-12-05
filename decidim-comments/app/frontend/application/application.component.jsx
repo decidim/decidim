@@ -4,6 +4,9 @@ import { I18n }                 from 'react-i18nify';
 
 import apolloClient             from './apollo_client';
 
+/**
+ * Wrapper component for all React applications using Apollo
+ */
 export default class Application extends Component {
   constructor(props) {
     const { session } = props;

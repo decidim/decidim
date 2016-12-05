@@ -3,6 +3,10 @@ import { I18n }      from 'react-i18nify';
 
 import Comment       from './comment.component';
 
+/**
+ * A wrapper component for a highlighted component.
+ * @todo It's not used right now
+ */
 export default class FeaturedComment extends Component {
   render() {
     return (

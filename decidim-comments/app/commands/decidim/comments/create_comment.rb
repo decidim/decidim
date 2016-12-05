@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   module Comments
+    # A command with all the business logic to create a new comment
     class CreateComment < Rectify::Command
       # Public: Initializes the command.
       #

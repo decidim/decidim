@@ -7,6 +7,9 @@ import { I18n }                 from 'react-i18nify';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
 
+/**
+ * Renders a form to create new comments.
+ */
 export class AddCommentForm extends Component {
   constructor(props) {
     super(props);
@@ -41,11 +44,24 @@ export class AddCommentForm extends Component {
       </div>
     );
   }
-
+ 
+  /**
+   * Check comment's body and disable form if it's empty
+   * @private
+   * @param {string} body - The comment's body
+   * @returns {Void} - Returns nothing
+   */
   _checkCommentBody(body) {
     this.setState({ disabled: body === '' });
   }
 
+  /**
+   * Handle form's submission and calls `addComment` prop with the value of the
+   * form's textarea. It prevents the default form submission event.
+   * @private
+   * @param {DOMEvent} evt - The form's submission event
+   * @returns {Void} - Returns nothing
+   */
   _addComment(evt) {
     const { addComment } = this.props;
     addComment({ body: this.bodyTextArea.value });

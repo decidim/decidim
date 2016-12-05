@@ -3,6 +3,9 @@ import gql             from 'graphql-tag';
 
 import commentFragment from './comment.fragment.graphql'
 
+/**
+ * @returns {ReactComponent} - A single comment component with the author info and the comment's body
+ */
 const Comment = ({ comment: { author, body, createdAt } }) => (
   <article className="comment">
     <div className="comment__header">

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   module Comments
+    # This type represents a comment on a commentable object.
     CommentType = GraphQL::ObjectType.define do
       name "Comment"
       description "A comment"
@@ -22,13 +23,6 @@ module Decidim
           obj.author
         end
       end
-    end
-
-    AuthorType = GraphQL::ObjectType.define do
-      name "Author"
-      description "An author"
-
-      field :name, !types.String
     end
   end
 end

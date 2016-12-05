@@ -1,6 +1,10 @@
 import { Component } from 'react';
 import { I18n }      from 'react-i18nify';
 
+/**
+ * A simple static component with the comment's order selector markup
+ * @todo Needs a proper implementation
+ */
 export default class CommentOrderSelector extends Component {
   render() {
     return (

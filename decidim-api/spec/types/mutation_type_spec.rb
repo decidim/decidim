@@ -15,9 +15,9 @@ module Decidim
 
         it "should create a new comment for the given commentable" do
           expect(response["addComment"]).to include("body" => "This is a new comment")
-          #comment = Decidim::Comments::Comment.last
-          #expect(comment.commentable).to eq(participatory_process)
-          #expect(response["addComment"]).to include("id" => comment.id.to_s)
+          comment = Decidim::Comments::Comment.last
+          expect(comment.commentable).to eq(participatory_process)
+          expect(response["addComment"]).to include("id" => comment.id.to_s)
         end
       end
     end
