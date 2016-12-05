@@ -1,4 +1,0 @@
-en:
-  components:
-    comment_thread:
-      title: "Conversation with %{authorName}"

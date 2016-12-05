@@ -3,13 +3,10 @@ import { filter, propType }  from 'graphql-anywhere';
 import gql                   from 'graphql-tag';
 import { I18n }              from 'react-i18nify';
 
-import Translatable          from '../application/translatable';
-
 import Comment               from './comment.component';
 
 import commentThreadFragment from './comment_thread.fragment.graphql'
 
-@Translatable()
 class CommentThread extends Component {
   render() {
     const { comment } = this.props;

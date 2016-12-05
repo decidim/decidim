@@ -1,4 +1,0 @@
-ca:
-  components:
-    comment_thread:
-      title: "Conversació amb %{authorName}"

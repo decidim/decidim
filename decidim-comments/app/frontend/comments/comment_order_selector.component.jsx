@@ -1,9 +1,6 @@
 import { Component } from 'react';
 import { I18n }      from 'react-i18nify';
 
-import Translatable  from '../application/translatable';
-
-@Translatable()
 export default class CommentOrderSelector extends Component {
   render() {
     return (

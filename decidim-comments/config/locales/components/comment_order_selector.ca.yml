@@ -1,8 +1,0 @@
-ca:
-  components:
-    comment_order_selector:
-      title: "Ordenar per:"
-      order:
-        most_voted: "Més votats"
-        recent: "Més nous"
-        older: "Més antics"

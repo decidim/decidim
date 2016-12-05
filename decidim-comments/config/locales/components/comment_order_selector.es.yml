@@ -1,8 +1,0 @@
-es:
-  components:
-    comment_order_selector:
-      title: "Ordenar por:"
-      order:
-        most_voted: "Más votados"
-        recent: "Más nuevos"
-        older: "Más antiguos"

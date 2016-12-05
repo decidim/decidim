@@ -1,0 +1,22 @@
+ca:
+  decidim:
+    components:
+      add_comment_form:
+        title: "Deixa el teu comentari"
+        form:
+          body:
+            label: "Comentari"
+            placeholder: "Què opines d'aquesta proposta?"
+          submit: "Enviar"
+      comment_order_selector:
+        title: "Ordenar per:"
+        order:
+          most_voted: "Més votats"
+          recent: "Més nous"
+          older: "Més antics"
+      comment_thread:
+        title: "Conversació amb %{authorName}"
+      comments:
+        title: "%{count} comentaris"
+      featured_comment:
+        title: "Comentari destacat"

@@ -4,8 +4,6 @@ import gql                      from 'graphql-tag';
 import { filter }               from 'graphql-anywhere';
 import { I18n }                 from 'react-i18nify';
 
-import Translatable             from '../application/translatable';
-
 import Application              from '../application/application.component';
 
 import CommentThread            from './comment_thread.component';
@@ -13,7 +11,6 @@ import AddCommentForm           from './add_comment_form.component';
 
 import commentsQuery            from './comments.query.graphql';
 
-@Translatable()
 export class Comments extends Component {
   render() {
     const { comments } = this.props;

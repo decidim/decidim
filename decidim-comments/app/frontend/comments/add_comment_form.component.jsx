@@ -5,11 +5,8 @@ import gql                      from 'graphql-tag';
 import { random }               from 'faker/locale/en';
 import { I18n }                 from 'react-i18nify';
 
-import Translatable             from '../application/translatable';
-
 import addCommentMutation       from './add_comment_form.mutation.graphql';
 
-@Translatable()
 export class AddCommentForm extends Component {
   constructor(props) {
     super(props);
