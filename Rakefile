@@ -4,7 +4,7 @@ require "rspec/core/rake_task"
 require_relative "lib/generators/decidim/app_generator"
 require_relative "lib/generators/decidim/docker_generator"
 
-DECIDIM_GEMS = %w(core system admin api pages).freeze
+DECIDIM_GEMS = %w(core system admin api pages comments).freeze
 
 RSpec::Core::RakeTask.new(:spec)
 
