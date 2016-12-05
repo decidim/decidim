@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require_dependency "decidim/components/route_constraint"
-
 Decidim::Core::Engine.routes.draw do
   devise_for :users,
              class_name: "Decidim::User",
@@ -17,15 +15,16 @@ Decidim::Core::Engine.routes.draw do
   resource :locale, only: [:create]
   resources :participatory_processes, only: [:index, :show]
 
-  scope "/participatory_processes/:participatory_process_id/components/:current_component_id" do
-    Decidim.component_manifests.each do |manifest|
+  scope "/participatory_processes/:participatory_process_id/features/:feature_id" do
+    Decidim.feature_manifests.each do |manifest|
       next unless manifest.engine
-      constraints Decidim::Components::RouteConstraint.new(manifest) do
+
+      constraints Decidim::CurrentFeature.new(manifest) do
         mount manifest.engine, at: "/"
       end
     end
 
-    get "/" => proc { raise "Component not found" }, as: :component
+    get "/" => proc { raise "Feature not found" }, as: :feature
   end
 
   authenticate(:user) do

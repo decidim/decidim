@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 Decidim.register_feature(:pages) do |feature|
-  feature.component :page do |component|
-    component.engine = Decidim::Pages::Engine
-    component.admin_engine = Decidim::Pages::AdminEngine
+  feature.engine = Decidim::Pages::Engine
+  feature.admin_engine = Decidim::Pages::AdminEngine
 
-    component.on(:create) do |instance|
-      Decidim::Pages::CreatePage.call(instance) do
-        on(:error) { raise "Can't create page" }
-      end
+  feature.on(:create) do |instance|
+    Decidim::Pages::CreatePage.call(instance) do
+      on(:error) { raise "Can't create page" }
     end
+  end
 
-    component.on(:destroy) do |instance|
-      Decidim::Pages::DestroyPage.call(instance) do
-        on(:error) { raise "Can't destroy page" }
-      end
+  feature.on(:destroy) do |instance|
+    Decidim::Pages::DestroyPage.call(instance) do
+      on(:error) { raise "Can't destroy page" }
     end
   end
 
@@ -27,15 +25,8 @@ Decidim.register_feature(:pages) do |feature|
         participatory_process: process
       )
 
-      page_component = Decidim::Component.create!(
-        name: Decidim::Faker::Localized.sentence(2),
-        manifest_name: :page,
-        feature: feature,
-        step: process.steps.sample
-      )
-
       Decidim::Pages::Page.create!(
-        component: page_component,
+        feature: feature,
         title: Decidim::Faker::Localized.sentence(2),
         body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)

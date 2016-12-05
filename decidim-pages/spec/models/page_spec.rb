@@ -6,8 +6,8 @@ module Decidim
     describe Page do
       let(:page) { create(:page) }
 
-      it "has an associated component" do
-        expect(page.component).to be_a(Decidim::Component)
+      it "has an associated feature" do
+        expect(page.feature).to be_a(Decidim::Feature)
       end
 
       it "has an I18n title" do

@@ -7,7 +7,7 @@ module Decidim
 
       # Public: Initializes the command.
       #
-      # manifest              - The component's manifest to create a feature from.
+      # manifest              - The feature's manifest to create a feature from.
       # form                  - The form from which the data in this feature comes from.
       # participatory_process - The participatory process that will hold this feature.
       def initialize(manifest, form, participatory_process)
@@ -22,7 +22,11 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_feature
+        transaction do
+          create_feature
+          run_hooks
+        end
+
         broadcast(:ok)
       end
 
@@ -34,6 +38,10 @@ module Decidim
           name: form.name,
           participatory_process: participatory_process
         )
+      end
+
+      def run_hooks
+        manifest.run_hooks(:create, @feature)
       end
     end
   end

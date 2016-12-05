@@ -3,15 +3,13 @@
 require "spec_helper"
 
 describe "Show a page", type: :feature do
-  include_context "component"
-
-  let(:feature_manifest) { Decidim.find_feature_manifest("pages") }
-  let(:component_manifest) { Decidim.find_component_manifest("page") }
+  include_context "feature"
+  let(:manifest_name) { "pages" }
 
   describe "page show" do
     before do
-      create(:page, component: component, title: title, body: body)
-      visit_component
+      create(:page, feature: feature, title: title, body: body)
+      visit_feature
     end
 
     let(:title) do

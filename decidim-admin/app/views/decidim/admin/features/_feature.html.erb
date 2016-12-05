@@ -1,20 +1,20 @@
-<table class="feature-<%= feature.id %>">
-  <thead>
-    <th><%= translated_attribute feature.name %></th>
-    <th class="actions">
-      <button class="dropdown button small" data-toggle="add-component-dropdown-<%= feature.id %>"><%= t "features.index.add_component", scope: "decidim.admin" %></button>
-      <div class="dropdown-pane" id="add-component-dropdown-<%= feature.id %>" data-dropdown data-auto-focus="true" data-close-on-click="true">
-        <ul class="vertical menu add-components">
-          <% feature.manifest.component_manifests.each do |manifest| %>
-            <li><%= link_to t("#{manifest.name}.name", scope: "components"), new_participatory_process_component_path(type: manifest.name, feature_id: feature.id), class: manifest.name %></li>
-          <% end %>
-        </ul>
-      </div>
+<tr class="feature-<%= feature.id %>">
+  <td>
+    <%= link_to decidim.feature_path(participatory_process, feature), target: "_blank" do %>
+      <%= translated_attribute feature.name %>
+    <% end %>
+  </td>
+  <td>
+    <%= t "features.#{feature.manifest.name}.name" %>
+  </td>
+  <td class="actions">
 
-      <%= link_to t("actions.destroy", scope: "decidim.admin"), url_for(action: :destroy, id: feature, controller: "features"), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, feature %>
-    </th>
-  </thead>
-  <tbody class="components">
-    <%= render partial: "component", collection: feature.components %>
-  </tbody>
-</table>
+    <% if feature.manifest.admin_engine %>
+      <%= link_to manage_feature_path(participatory_process, feature), class: "button small" do %>
+        <%= t "actions.configure", scope: "decidim.admin" %>
+      <% end %>
+    <% end %>
+
+    <%= link_to t("actions.destroy", scope: "decidim.admin"), url_for(action: :destroy, id: feature, controller: "features"), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, feature %>
+  </td>
+</tr>

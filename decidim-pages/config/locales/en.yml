@@ -1,9 +1,9 @@
 ---
 en:
-  components:
-    page:
-      name: Page
   decidim:
+    features:
+      pages:
+        name: Page
     pages:
       admin:
         models:
@@ -17,6 +17,3 @@ en:
           update:
             invalid: There's been errors when saving the page.
             success: Page saved successfully.
-  features:
-    pages:
-      name: Pages

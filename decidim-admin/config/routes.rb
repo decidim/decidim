@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require_dependency "decidim/components/route_constraint"
-
 Decidim::Admin::Engine.routes.draw do
   constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
     resource :organization, only: [:edit, :update], controller: "organization"
@@ -18,18 +16,18 @@ Decidim::Admin::Engine.routes.draw do
       resources :user_roles, controller: "participatory_process_user_roles", only: [:destroy, :create, :index]
       resources :attachments, controller: "participatory_process_attachments"
       resources :features
-      resources :components, only: [:new, :create, :destroy]
     end
 
-    scope "/participatory_processes/:participatory_process_id/features/:feature_id/components/:current_component_id" do
-      Decidim.component_manifests.each do |manifest|
+    scope "/participatory_processes/:participatory_process_id/features/:feature_id/manage" do
+      Decidim.feature_manifests.each do |manifest|
         next unless manifest.admin_engine
-        constraints Decidim::Components::RouteConstraint.new(manifest) do
+
+        constraints Decidim::CurrentFeature.new(manifest) do
           mount manifest.admin_engine, at: "/"
         end
       end
 
-      get "/" => proc { raise "Component not found" }, as: :manage_component
+      get "/" => proc { raise "Feature not found" }, as: :manage_feature
     end
 
     resources :static_pages

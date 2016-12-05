@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require "decidim/admin/components/base_controller"
-
 module Decidim
   module Pages
     module Admin
@@ -15,8 +13,8 @@ module Decidim
 
           Admin::UpdatePage.call(@form, page) do
             on(:ok) do
-              flash.now[:notice] = I18n.t("pages.update.success", scope: "decidim.pages.admin")
-              render action: "edit"
+              flash[:notice] = I18n.t("pages.update.success", scope: "decidim.pages.admin")
+              redirect_to parent_path
             end
 
             on(:invalid) do
@@ -29,7 +27,7 @@ module Decidim
         private
 
         def page
-          @page ||= Pages::Page.find_by(component: current_component)
+          @page ||= Pages::Page.find_by(feature: current_feature)
         end
       end
     end

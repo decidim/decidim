@@ -65,7 +65,7 @@ module Decidim
 
       def default_name(manifest)
         TranslationsHelper.multi_translation(
-          "features.#{manifest.name}.name",
+          "decidim.features.#{manifest.name}.name",
           current_organization.available_locales
         )
       end

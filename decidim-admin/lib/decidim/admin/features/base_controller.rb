@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
-    module Components
-      # This controller is the abstract class from which all component
+    module Features
+      # This controller is the abstract class from which all feature
       # controllers in their admin engines should inherit from.
       class BaseController < Admin::ApplicationController
         skip_authorize_resource
         include Concerns::ParticipatoryProcessAdmin
         include NeedsParticipatoryProcess
-        helper_method :current_component
+        helper_method :current_feature, :current_participatory_process, :parent_path
 
         before_filter do
           authorize! :manage, current_participatory_process
@@ -17,11 +17,15 @@ module Decidim
         private
 
         def current_feature
-          current_component.feature
+          request.env["decidim.current_feature"]
         end
 
-        def current_component
-          env["decidim.current_component"]
+        def current_participatory_process
+          request.env["decidim.current_participatory_process"]
+        end
+
+        def parent_path
+          decidim_admin.participatory_process_features_path(current_participatory_process)
         end
       end
     end

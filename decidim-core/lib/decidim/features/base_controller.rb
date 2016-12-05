@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 module Decidim
-  module Components
-    # Controller from which all component engines inherit from. It's in charge
-    # of setting the appropiate layout, including necessary helpers, and overall
+  module Features
+    # Controller from which all feature engines inherit from. It's in charge of
+    # setting the appropiate layout, including necessary helpers, and overall
     # fooling the engine into thinking it's isolated.
     class BaseController < Decidim::ApplicationController
       layout "layouts/decidim/participatory_process"
@@ -18,11 +18,11 @@ module Decidim
       private
 
       def current_feature
-        current_component.feature
+        env["decidim.current_feature"]
       end
 
-      def current_component
-        env["decidim.current_component"]
+      def current_participatory_process
+        env["decidim.current_participatory_process"]
       end
     end
   end
