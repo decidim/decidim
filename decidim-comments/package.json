@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack",
-    "build:prod": "webpack -p",
+    "build:prod": "NODE_ENV=production webpack -p",
     "start": "webpack --watch --progress --color --display-error-details",
     "test": "./node_modules/karma/bin/karma start --single-run",
     "test:watch": "./node_modules/karma/bin/karma start",

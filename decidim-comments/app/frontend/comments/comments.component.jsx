@@ -20,7 +20,7 @@ export class Comments extends Component {
         <section className="comments">
           <div className="row collapse order-by">
             <h2 className="order-by__text section-heading">
-              { I18n.t("comments.title", { count: comments.length }) }
+              { I18n.t("components.comments.title", { count: comments.length }) }
             </h2>
           </div>
           {this._renderCommentThreads()}

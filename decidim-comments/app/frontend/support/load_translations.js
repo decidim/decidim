@@ -11,7 +11,7 @@ const loadTranslations = () => {
 
   const translations = translationsContext.keys().reduce((acc, key, index) => {
     const locale = key.match(/\.\/(.*)\.yml/)[1];
-    acc[locale] = translationFiles[index][locale].decidim.components;
+    acc[locale] = translationFiles[index][locale].decidim;
     return acc;
   }, {});
 

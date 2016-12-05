@@ -83,13 +83,13 @@ search:
 #   api_key: "AbC-dEf5"
 
 ## Do not consider these keys missing:
-# ignore_missing:
+ignore_missing:
+- 'components.*'
 # - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
 # - '{devise,simple_form}.*'
 
 ## Consider these keys used:
 ignore_unused:
-- decidim.components.*
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'

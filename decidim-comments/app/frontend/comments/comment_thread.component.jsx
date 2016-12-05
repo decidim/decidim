@@ -15,7 +15,7 @@ class CommentThread extends Component {
     return (
       <div>
         <h6 className="comment-thread__title">
-          { I18n.t("comment_thread.title", { authorName: author.name }) }
+          { I18n.t("components.comment_thread.title", { authorName: author.name }) }
         </h6>
         <div className="comment-thread">
           <Comment comment={filter(Comment.fragments.comment, comment)} />

@@ -7,7 +7,7 @@ export default class FeaturedComment extends Component {
   render() {
     return (
       <section className="comments">
-        <h4 className="section-heading">{ I18n.t("featured_comment.title") }</h4>
+        <h4 className="section-heading">{ I18n.t("components.featured_comment.title") }</h4>
         <div className="comment-thread comment--pinned">
           <Comment />
         </div>

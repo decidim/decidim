@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './app/frontend/entry.js',
@@ -9,6 +10,11 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx', '.graphql', '.yml']
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+        }),
+    ],
     module: {
         noParse: [
           /\/sinon\.js/

@@ -21,20 +21,20 @@ export class AddCommentForm extends Component {
     
     return (
       <div className="add-comment">
-        <h5 className="section-heading">{ I18n.t("add_comment_form.title") }</h5>
+        <h5 className="section-heading">{ I18n.t("components.add_comment_form.title") }</h5>
         <form onSubmit={(evt) => this._addComment(evt)}>
-          <label className="show-for-sr" htmlFor="add-comment">{ I18n.t("add_comment_form.form.body.label") }</label>
+          <label className="show-for-sr" htmlFor="add-comment">{ I18n.t("components.add_comment_form.form.body.label") }</label>
           <textarea
             ref={(textarea) => this.bodyTextArea = textarea}
             id="add-comment"
             rows="4"
-            placeholder={I18n.t("add_comment_form.form.body.placeholder")}
+            placeholder={I18n.t("components.add_comment_form.form.body.placeholder")}
             onChange={(evt) => this._checkCommentBody(evt.target.value)}
           />
           <input 
             type="submit"
             className="button button--sc"
-            value={I18n.t("add_comment_form.form.submit")}
+            value={I18n.t("components.add_comment_form.form.submit")}
             disabled={disabled}
           />
         </form>

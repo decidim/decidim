@@ -1,22 +1,23 @@
+---
 en:
   decidim:
     components:
       add_comment_form:
-        title: "Leave your comment"
         form:
           body:
-            label: "Comment"
-            placeholder: "What do you think about this?"
-          submit: "Send"
+            label: Comment
+            placeholder: What do you think about this?
+          submit: Send
+        title: Leave your comment
       comment_order_selector:
-        title: "Order by:"
         order:
-          most_voted: "Most voted"
-          recent: "Recent"
-          older: "Older"
+          most_voted: Most voted
+          older: Older
+          recent: Recent
+        title: 'Order by:'
       comment_thread:
-        title: "Conversation with %{authorName}"
+        title: Conversation with %{authorName}
       comments:
         title: "%{count} comments"
       featured_comment:
-        title: "Featured comment"
+        title: Featured comment

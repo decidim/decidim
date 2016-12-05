@@ -11,3 +11,5 @@ desc "Override release task"
 task "release", [:remote] => ["build", "webpack:build", "release:guard_clean",
                               "release:source_control_push", "release:rubygem_push"] do
 end
+
+Rake::Task[:build].enhance ['webpack:build']
