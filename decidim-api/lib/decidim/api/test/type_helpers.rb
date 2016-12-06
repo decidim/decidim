@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   module Api
     module Test
@@ -45,5 +46,4 @@ module Decidim
       end
     end
   end
-
 end
