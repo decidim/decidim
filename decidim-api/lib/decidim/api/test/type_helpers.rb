@@ -2,6 +2,8 @@
 module Decidim
   module Api
     module Test
+      # These helpers can be mixed in into a RSpec block to allow testing GraphQL
+      # types in an easy, normalized way.
       module TypeHelpers
         extend ActiveSupport::Concern
 
