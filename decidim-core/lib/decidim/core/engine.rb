@@ -27,6 +27,8 @@ require "file_validators"
 
 require "decidim/api"
 
+require "decidim/query_extensions"
+
 module Decidim
   module Core
     # Decidim's core Rails Engine.
@@ -73,17 +75,8 @@ module Decidim
         app.config.i18n.fallbacks = true
       end
 
-      initializer "decidim.register_resolver" do
-        Decidim::Api::QueryType.define do
-          field :processes do
-            type !types[ProcessType]
-            description "Lists all processes."
-
-            resolve ->(_obj, _args, ctx) {
-              OrganizationProcesses.new(ctx[:current_organization])
-            }
-          end
-        end
+      initializer "decidim.query_extensions" do
+        QueryExtensions.extend!(Decidim::Api::QueryType)
       end
     end
   end
