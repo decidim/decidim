@@ -39,5 +39,7 @@ Gem::Specification.new do |s|
   s.add_dependency "mini_magick", "~> 4.5.1"
   s.add_dependency "file_validators", "~> 2.1.0"
 
+  s.add_dependency "decidim-api", Decidim.version
+
   s.add_development_dependency "decidim-dev", Decidim.version
 end

@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 require "spec_helper"
+require "decidim/api/test/type_helpers"
 
 module Decidim
   module Api
     describe LocalizedStringType do
-      include TypeHelpers
+      include Test::TypeHelpers
 
       let(:model) do
         OpenStruct.new(locale: "en", text: "A test locale.")

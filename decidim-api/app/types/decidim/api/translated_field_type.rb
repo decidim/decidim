@@ -3,7 +3,7 @@ module Decidim
   module Api
     # This type represents a translated field in multiple languages.
     TranslatedFieldType = GraphQL::ObjectType.define do
-      name "TranslatedFieldType"
+      name "TranslatedField"
       description "A translated field"
 
       field :locales do

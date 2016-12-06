@@ -25,6 +25,8 @@ require "cancancan"
 require "truncato"
 require "file_validators"
 
+require "decidim/api"
+
 module Decidim
   module Core
     # Decidim's core Rails Engine.
@@ -69,6 +71,19 @@ module Decidim
       initializer "decidim.locales" do |app|
         app.config.i18n.available_locales = Decidim.config.available_locales
         app.config.i18n.fallbacks = true
+      end
+
+      initializer "decidim.register_resolver" do
+        Decidim::Api::QueryType.define do
+          field :processes do
+            type !types[ProcessType]
+            description "Lists all processes."
+
+            resolve ->(_obj, _args, ctx) {
+              OrganizationProcesses.new(ctx[:current_organization])
+            }
+          end
+        end
       end
     end
   end
