@@ -1,6 +1,8 @@
 codecov:
   branch: master
   bot: null
+  notify:
+    after_n_builds: 
 
 coverage:
   precision: 2
@@ -50,13 +52,17 @@ coverage:
   status:
     project:
       default:
+        base: pr
         target: auto
-        threshold: null
+        threshold: 0.5%
         branches: null
 
     patch:
       default:
+        only_pulls: true
+        base: pr
         target: auto
+        target: 50%
         branches: null
 
     changes:
@@ -64,8 +70,9 @@ coverage:
         branches: null
 
   ignore:
-  - spec/**/*
-  - decidim-*/lib/**/*/test/**/*
+  - "decidim-*/spec"
+  - "spec"
+  - "*/lib/*/test/*.rb"
 
 comment:
   layout: "header, diff, changes, sunburst, uncovered, tree"
