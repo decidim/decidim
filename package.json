@@ -16,8 +16,11 @@
     "eslint-plugin-jsx-a11y": "~2.2.3",
     "eslint-plugin-react": "~6.8.0",
     "phantomjs-polyfill": "^0.0.2",
-    "phantomjs-prebuilt": "~2.1.13",
     "phantomjs-polyfill-object-assign": "^0.0.2",
+    "phantomjs-prebuilt": "~2.1.13",
     "promise-polyfill": "~6.0.2"
+  },
+  "dependencies": {
+    "decidim-comments": "file:decidim-comments"
   }
 }

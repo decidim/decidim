@@ -27,9 +27,7 @@
     "react-dom": "^15.4.0",
     "react-i18nify": "^1.6.3",
     "sinon": "^1.17.6",
-    "sinon-chai": "^2.8.0"
-  },
-  "devDependencies": {
+    "sinon-chai": "^2.8.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.1",
