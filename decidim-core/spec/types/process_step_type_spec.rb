@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 require "spec_helper"
-require "decidim/api/test/type_helpers"
+require "decidim/api/test/type_context"
 
 module Decidim
   describe ProcessStepType do
-    include Decidim::Api::Test::TypeHelpers
+    include_context "graphql type"
 
     let(:process) do
       create(:participatory_process, organization: current_organization)
