@@ -1302,6 +1302,7 @@ Metrics/BlockLength:
   Exclude:
     - 'decidim-api/app/schemas/**/*'
     - 'decidim-api/app/types/**/*'
+    - 'decidim-*/lib/**/*/test/**/*'
 
 Lint/HandleExceptions:
   Exclude:
