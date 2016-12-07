@@ -72,7 +72,8 @@ coverage:
   ignore:
   - "decidim-*/spec"
   - "spec"
-  - "*/lib/*/test/*.rb"
+  - "decidim-*/lib/**/*/test"
+  - "lib/**/*/test"
 
 comment:
   layout: "header, diff, changes, sunburst, uncovered, tree"
