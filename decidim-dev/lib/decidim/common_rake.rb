@@ -25,4 +25,4 @@ task :generate_test_app do
 end
 
 RSpec::Core::RakeTask.new(:spec)
-task default: [:build, :generate_test_app, :spec]
+task default: [:generate_test_app, :spec]
