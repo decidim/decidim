@@ -9,7 +9,7 @@ if ENV["CI"]
   SimpleCov.start do
     filters.clear
     add_filter do |src|
-      !(src.filename =~ /^#{SimpleCov.root}/) unless src.filename =~ /decidim-.+/
+      !(src.filename =~ /^#{SimpleCov.root}/) unless src.filename =~ %r{/decidim(-[A-z]+)?/}
     end
   end
 
