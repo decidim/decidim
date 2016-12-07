@@ -25,6 +25,7 @@ ADD decidim-pages/decidim-pages.gemspec /tmp/decidim-pages/decidim-pages.gemspec
 ADD decidim-comments/decidim-comments.gemspec /tmp/decidim-comments/decidim-comments.gemspec
 
 ADD package.json /tmp/package.json
+ADD decidim-comments/package.json /tmp/package.json
 ADD yarn.lock /tmp/yarn.lock
 
 RUN cd /tmp && bundle install && yarn
