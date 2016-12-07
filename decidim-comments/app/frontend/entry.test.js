@@ -14,10 +14,10 @@ chai.use(sinonChai)
 chai.use(chaiAsPromised)
 chai.use(chaiEnzyme())
 // 
-global.chai = chai
-global.sinon = sinon
-global.expect = chai.expect
-global.should = chai.should()
+window.chai = chai
+window.sinon = sinon
+window.expect = chai.expect
+window.should = chai.should()
 
 // ---------------------------------------
 // Require Tests
