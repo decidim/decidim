@@ -2,4 +2,4 @@
 set -ev
 
 yarn
-npm run ci --silent
+yarn run test --silent

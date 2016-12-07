@@ -1,2 +1,2 @@
-//= require react_ujs
-//= require ./bundle
+// = require react_ujs
+// = require ./bundle

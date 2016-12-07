@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* global sortable */
 
 // Needs a `tbody` element inside a `#steps` section. The `tbody` element
@@ -11,8 +12,10 @@ const sortSteps = () => {
 
     sortable('#steps tbody', {
       placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0]
-    })[0].addEventListener('sortupdate', (e) => {
-      const order = $(e.target).children().map((index, child) => $(child).data('id')).toArray();
+    })[0].addEventListener('sortupdate', (event) => {
+      const order = $(event.target).children().
+        map((index, child) => $(child).data('id')).
+        toArray();
 
       $.ajax({
         method: 'POST',

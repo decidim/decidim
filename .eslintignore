@@ -1,4 +1,10 @@
 **/*{.,-}min.js
 decidim-*/vendor/**/*.js
 decidim-*/spec/*_dummy_app/**/*.js
-decidim-comments
+**/node_modules/**
+bundle.js
+karma.conf.js
+webpack.config.js
+entry.test.js
+entry.js
+*_manifest.js

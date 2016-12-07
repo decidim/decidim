@@ -58,7 +58,7 @@ export class Comments extends Component {
    */
   _renderAddCommentForm() {
     const { session, commentableId, commentableType } = this.props;
-
+    
     if (session.currentUser) {
       return (
         <AddCommentForm 

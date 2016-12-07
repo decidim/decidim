@@ -7,7 +7,8 @@
   "author": "Marc Riera <mrc2407@gmail.com>",
   "license": "AGPLv3",
   "scripts": {
-    "test": "eslint **/*/app/**/*.js.es6 **/*/app/**/*.js"
+    "lint": "eslint -c .eslintrc.json --ext .js,.js.es6,.jsx .",
+    "test": "yarn run lint"
   },
   "devDependencies": {
     "eslint": "^3.8.1",

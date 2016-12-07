@@ -1,5 +1,5 @@
-//= require quill.min
-//= require_self
+// = require quill.min
+// = require_self
 
 $(document).on('turbolinks:load', () => {
   $(() => {

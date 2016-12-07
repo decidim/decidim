@@ -8,9 +8,7 @@
     "build:prod": "NODE_ENV=production webpack -p",
     "start": "webpack --watch --progress --color --display-error-details",
     "test": "./node_modules/karma/bin/karma start --single-run",
-    "test:watch": "./node_modules/karma/bin/karma start",
-    "lint": "eslint -c .eslintrc.json --ext .js --ext .jsx app/frontend/**",
-    "ci": "yarn run lint && yarn test"
+    "test:watch": "./node_modules/karma/bin/karma start"
   },
   "dependencies": {
     "apollo-client": "^0.5.6",

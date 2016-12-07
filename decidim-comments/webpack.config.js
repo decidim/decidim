@@ -53,6 +53,9 @@ module.exports = {
         'react/lib/ExecutionEnvironment': true,
         'react/lib/ReactContext': true,
         'react/addons': true
+    },
+    eslint: {
+        configFile: '../.eslintrc.json'
     }
 };
 

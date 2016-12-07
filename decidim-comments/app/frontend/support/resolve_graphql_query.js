@@ -1,4 +1,3 @@
-/* eslint-disable no-ternary */
 import graphql, { filter } from 'graphql-anywhere';
  
 /**
@@ -29,7 +28,10 @@ const resolveGraphQLQuery = (document, options = {}) => {
     variables
   );
 
-  return filterResult ? filter(document, result) : result;
+  if (filterResult) {
+    return filter(document, result);
+  }
+  return result;
 }
 
 export default resolveGraphQLQuery;
