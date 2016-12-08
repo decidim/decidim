@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", *Decidim.rails_version
   s.add_dependency "devise", "~> 4.2"
   s.add_dependency "devise-i18n", "~> 1.1.0"
-  s.add_dependency "rectify", "~> 0.7.1"
+  s.add_dependency "rectify", "~> 0.8.0"
   s.add_dependency "devise_invitable", "~> 1.7.0"
   s.add_dependency "foundation-rails", "~> 6.2.4.0"
   s.add_dependency "sass-rails", "~> 5.0.0"
