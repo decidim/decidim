@@ -6,7 +6,12 @@ dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "#{engine_name}_dum
 
 if ENV["CI"]
   require "simplecov"
-  SimpleCov.start
+  SimpleCov.start do
+    filters.clear
+    add_filter do |src|
+      !(src.filename =~ /^#{SimpleCov.root}/) unless src.filename =~ %r{/decidim(-[A-z]+)?/}
+    end
+  end
 
   require "codecov"
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
