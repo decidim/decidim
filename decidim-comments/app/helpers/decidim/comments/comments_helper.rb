@@ -19,7 +19,7 @@ module Decidim
         end
 
         react_component("Comments", commentableType: resource.class.name, commentableId: resource.id.to_s, session: session)
-          + javascript_include_tag("decidim/comments/comments")
+        + javascript_include_tag("decidim/comments/comments")
       end
     end
   end
