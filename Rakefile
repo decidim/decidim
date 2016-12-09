@@ -10,15 +10,6 @@ RSpec::Core::RakeTask.new(:spec)
 
 task default: :spec
 
-desc "Run buid task in all Decidim engines"
-task :build_all do
-  DECIDIM_GEMS.each do |gem_name|
-    Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
-      sh "rake build"
-    end
-  end
-end
-
 desc "Runs all tests in all Decidim engines"
 task :test_all do
   DECIDIM_GEMS.each do |gem_name|

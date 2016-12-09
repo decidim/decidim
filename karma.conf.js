@@ -5,10 +5,10 @@ module.exports = function(config) {
     basePath: '',
     frameworks: ['jasmine'],
     files: [
-      'app/frontend/entry.test.js'
+      'decidim-*/app/frontend/entry.test.js'
     ],
     preprocessors: {
-      'app/frontend/entry.test.js': ['webpack', 'sourcemap']
+      'decidim-*/app/frontend/entry.test.js': ['webpack', 'sourcemap']
     },
     webpack: webpackConfig,
     webpackServer: {

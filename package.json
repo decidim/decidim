@@ -11,7 +11,9 @@
     "build:prod": "NODE_ENV=production yarn run webpack -- -p",
     "start": "yarn run webpack -- --watch --progress --color --display-error-details",
     "lint": "eslint -c .eslintrc.json --ext .js,.js.es6,.jsx .",
-    "test": "yarn run lint"
+    "test": "yarn run karma start -- --single-run",
+    "test:watch": "yarn run karma start",
+    "test:ci": "yarn run lint && yarn test"
   },
   "devDependencies": {
     "eslint": "^3.8.1",
@@ -22,7 +24,17 @@
     "phantomjs-polyfill": "^0.0.2",
     "phantomjs-polyfill-object-assign": "^0.0.2",
     "phantomjs-prebuilt": "~2.1.13",
-    "promise-polyfill": "~6.0.2"
+    "promise-polyfill": "~6.0.2",
+    "karma": "^1.3.0",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-phantomjs2-launcher": "^0.5.0",
+    "karma-sinon-chai": "^1.2.4",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.8.0"
   },
   "dependencies": {
     "decidim-comments": "file:decidim-comments",
