@@ -38,7 +38,6 @@ Gem::Specification.new do |s|
   s.add_dependency "truncato", "~> 0.7.8"
   s.add_dependency "mini_magick", "~> 4.6.0"
   s.add_dependency "file_validators", "~> 2.1.0"
-  s.add_dependency "selenium-webdriver", "~> 3.0.3"
 
   s.add_dependency "decidim-api", Decidim.version
 

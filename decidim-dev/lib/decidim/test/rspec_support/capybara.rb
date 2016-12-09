@@ -49,7 +49,7 @@ Capybara.register_driver :poltergeist do |app|
 end
 
 Capybara.register_driver :debug do |app|
-  Capybara::Poltergeist::Driver.new(app, capybara_options.merge(inspector: true, js_errors: true))
+  Capybara::Poltergeist::Driver.new(app, capybara_options.merge(inspector: true))
 end
 
 Capybara::Screenshot.prune_strategy = :keep_last_run

@@ -16,12 +16,8 @@ module Decidim
         property :created_at
       end
 
-      field :author do
-        type !AuthorType
-
-        resolve ->(obj, _args, _ctx) do
-          obj.author
-        end
+      field :author, !AuthorType, "The comment's author" do
+        resolve ->(obj, _args, _ctx) { obj.author }
       end
     end
   end
