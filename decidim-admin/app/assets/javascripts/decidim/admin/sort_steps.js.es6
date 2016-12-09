@@ -1,22 +1,13 @@
 /* global sortable */
 
-// consider removing from application.js file
-//
 // Needs a `tbody` element inside a `#steps` section. The `tbody` element
 // should have a `data-sort-url` attribute with the URL where the data should
 // be posted to.
-$(() => {
- sortSteps();
-});
-$( document ).on('turbolinks:load' , function() {
-  sortSteps();
-});
+const sortSteps = () => {
+  const $sortableElement = $('#steps tbody');
 
-function sortSteps(){
-  const sortableElement = $('#steps tbody');
-
-  if (sortableElement[0]) {
-    const sortUrl = sortableElement.data('sort-url');
+  if ($sortableElement.length > 0) {
+    const sortUrl = $sortableElement.data('sort-url');
 
     sortable('#steps tbody', {
       placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0]
@@ -31,4 +22,6 @@ function sortSteps(){
       );
     });
   }
-}
+};
+
+window.sortSteps = sortSteps;
