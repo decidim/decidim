@@ -10,10 +10,10 @@
 // = require decidim/editor
 // = require_self
 
-function pageLoad() {
+const pageLoad = () => {
   $(document).foundation();
   sortSteps();
-}
+};
 
 $(document).on('turbolinks:load', pageLoad);
 $(pageLoad);

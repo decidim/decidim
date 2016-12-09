@@ -2,6 +2,7 @@
 decidim-*/vendor/**/*.js
 decidim-*/spec/*_dummy_app/**/*.js
 **/node_modules/**
+vendor/bundle/**
 bundle.js
 karma.conf.js
 webpack.config.js
