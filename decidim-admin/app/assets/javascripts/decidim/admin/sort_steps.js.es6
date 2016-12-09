@@ -6,6 +6,13 @@
 // should have a `data-sort-url` attribute with the URL where the data should
 // be posted to.
 $(() => {
+ sortSteps();
+});
+$( document ).on('turbolinks:load' , function() {
+  sortSteps();
+});
+
+function sortSteps(){
   const sortableElement = $('#steps tbody');
 
   if (sortableElement[0]) {
@@ -24,4 +31,4 @@ $(() => {
       );
     });
   }
-});
+}
