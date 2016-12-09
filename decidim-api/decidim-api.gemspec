@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
   s.add_dependency "rails", *Decidim.rails_version
-  s.add_dependency "graphql", "~> 1.2.6"
+  s.add_dependency "graphql", "~> 1.3.0"
   s.add_dependency "graphiql-rails", "~> 1.4.0"
   s.add_dependency "rack-cors", "~> 0.4.0"
   s.add_dependency "sprockets-es6", "~> 0.9.2"
