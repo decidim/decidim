@@ -1,99 +1,116 @@
-- rails plugin new decidim-comments
-- Change gemspec:
+# How to create a Decidim engine
 
------
+1. Run the following command:
+```bash
+- rails plugin new decidim-<engine_name>
+```
 
+2. Change the `decidim-<engine_name>.gemspec` file:
+
+> Change this:
+
+```ruby
 $:.push File.expand_path("../lib", __FILE__)
+```
 
-to
+> Into this:
 
+```ruby
 # frozen_string_literal: true
 $LOAD_PATH.push File.expand_path("../lib", __FILE__)
+```
 
------
+---
 
-require "decidim/comments/version"
+> Change this:
 
-to
+```ruby
+require "decidim/<engine_name>/version"
+```
 
+> Into this:
+
+```ruby
 require_relative "../decidim-core/lib/decidim/core/version"
+```
 
------
+---
 
-Gem::Specification.new do |s|
+> Add this:
 
-to
-
+```ruby
 Gem::Specification.new do |s|
   Decidim.add_default_gemspec_properties(s)
 
------
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
+```
 
-s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+---
 
-to
+> Remove this:
 
-s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
-
------
-
-Remove this
-
-s.version     = Decidim::Comments::VERSION
+```ruby
+s.version     = Decidim::<EngineName>::VERSION
 s.authors     = [""]
 s.email       = [""]
 s.homepage    = "TODO"
 s.license     = "MIT"
+```
 
-------
+---
 
-Add this
+> Add this:
 
+```ruby
 s.add_dependency "decidim-core", Decidim.version
+```
 
-------
+---
 
+> Remove this:
+
+```ruby
 s.add_dependency "rails", "~> 5.0.0", ">= 5.0.0.1"
-
-to
-
-s.add_dependency "rails", *Decidim.rails_version
-
-
-------
-
 s.add_development_dependency "sqlite3"
+```
 
-to
+> And add this instead:
 
+```ruby
+s.add_dependency "rails", *Decidim.rails_version
 s.add_development_dependency "decidim-dev", Decidim.version
+```
 
-------
+---
 
-Add more dependencies as needed
+> Add more dependencies as needed:
 
+```ruby
 s.add_dependency "foundation-rails", "~> 6.2.4.0"
 s.add_dependency "sass-rails", "~> 5.0.0"
 s.add_dependency "jquery-rails", "~> 4.0"
 s.add_dependency "turbolinks", *Decidim.rails_version
 s.add_dependency "foundation_rails_helper", "~> 2.0.0"
+```
 
-- Change Gemfile:
+---
 
-------
+3. Replace `Gemfile` content with this:
 
-Replace the whole file with:
-
+```ruby
 source 'https://rubygems.org'
 
 gem 'decidim', path: '..'
 gemspec
 
 eval(File.read(File.join(File.dirname(__FILE__), "..", "Gemfile.common")))
+```
 
-- Remove test folder
-- Remove `bin/test` and add `bin/rails` with this content:
+4. Remove `test` folder
 
+5. Remove `bin/test` and add `bin/rails` with this content:
+
+```ruby
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 # This command will automatically be run when you run "rails" with Rails gems
@@ -108,18 +125,22 @@ require "bundler/setup" if File.exist?(ENV["BUNDLE_GEMFILE"])
 
 require "rails/all"
 require "rails/engine/commands"
+```
 
-- Change lib/decidim/<engine_name>.rb
+6. Change `lib/decidim/<engine_name>.rb`
 
-Add this
+> Add this
 
+```ruby
 # frozen_string_literal: true
 require "decidim/<engine_name>/engine"
+```
 
-- Remove lib/decidim/<engine_name>/version.rb
+7. Remove `lib/decidim/<engine_name>/version.rb`
 
-- Add lib/decidim/<engine_name>/engine.rb with this:
+8. Add `lib/decidim/<engine_name>/engine.rb` with this:
 
+```ruby
 # frozen_string_literal: true
 require "rails"
 require "active_support/all"
@@ -143,17 +164,20 @@ module Decidim
     end
   end
 end
+```
 
-- Replace Rakefile with:
+9. Replace `Rakefile` with:
 
+```ruby
 # frozen_string_literal: true
 require "decidim/common_rake"
+```
 
-- Remove license and change README
+10. Remove `license` and change `README`
 
-- Add spec/spec_helper.rb with:
+11. Add `spec/spec_helper.rb` with:
 
+```ruby
 ENV["ENGINE_NAME"] = File.dirname(File.dirname(__FILE__)).split("/").last
 require "decidim/test/base_spec_helper"
-
--
+```
