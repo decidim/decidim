@@ -5,7 +5,7 @@ module Decidim
     MutationType = GraphQL::ObjectType.define do
       name "Mutation"
       description "The root mutation of this schema"
- 
+
       # Every engine should be able to extend the root muation
       # so this code can be included on its own engine
       field :addComment, Decidim::Comments::CommentType do
