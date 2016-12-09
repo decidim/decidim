@@ -7,6 +7,9 @@
   "author": "Marc Riera <mrc2407@gmail.com>",
   "license": "AGPLv3",
   "scripts": {
+    "build": "yarn run webpack",
+    "build:prod": "NODE_ENV=production yarn run webpack -- -p",
+    "start": "yarn run webpack -- --watch --progress --color --display-error-details",
     "lint": "eslint -c .eslintrc.json --ext .js,.js.es6,.jsx .",
     "test": "yarn run lint"
   },
@@ -22,6 +25,7 @@
     "promise-polyfill": "~6.0.2"
   },
   "dependencies": {
-    "decidim-comments": "file:decidim-comments"
+    "decidim-comments": "file:decidim-comments",
+    "webpack": "^1.14.0"
   }
 }

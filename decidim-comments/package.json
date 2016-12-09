@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "license": "AGPLv3",
   "scripts": {
-    "build": "yarn run webpack",
-    "build:prod": "NODE_ENV=production yarn run webpack -- -p",
-    "start": "yarn run webpack -- --watch --progress --color --display-error-details",
     "test": "yarn run karma start -- --single-run",
     "test:watch": "yarn run karma start"
   },

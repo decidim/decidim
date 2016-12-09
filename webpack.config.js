@@ -2,10 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './app/frontend/entry.js',
+    entry: {
+        comments: './decidim-comments/app/frontend/entry.js'
+    },
     output: {
-        path: path.join(__dirname, 'app/assets/javascripts/decidim/comments'),
-        filename: 'bundle.js'
+        path: __dirname,
+        filename: 'decidim-[name]/app/assets/javascripts/decidim/[name]/bundle.js'
     },
     resolve: {
         extensions: ['', '.js', '.jsx', '.graphql', '.yml']
@@ -55,7 +57,7 @@ module.exports = {
         'react/addons': true
     },
     eslint: {
-        configFile: '../.eslintrc.json'
+        configFile: '.eslintrc.json'
     }
 };
 
