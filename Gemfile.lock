@@ -221,7 +221,9 @@ GEM
       url
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
+    coffee-script-source (1.11.1)
     concurrent-ruby (1.0.2)
+    connection_pool (2.2.1)
     css_parser (1.4.7)
       addressable
     database_cleaner (1.5.3)
@@ -358,6 +360,13 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    react-rails (1.9.0)
+      babel-transpiler (>= 0.7.0)
+      coffee-script-source (~> 1.8)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     rectify (0.8.0)
       activemodel (>= 4.1.0)
       activerecord (>= 4.1.0)
