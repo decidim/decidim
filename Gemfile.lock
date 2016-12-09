@@ -45,7 +45,6 @@ PATH
   remote: decidim-api
   specs:
     decidim-api (0.0.1.alpha9)
-      decidim-core (= 0.0.1.alpha9)
       graphiql-rails (~> 1.4.0)
       graphql (~> 1.2.5)
       rack-cors (~> 0.4.0)
@@ -60,6 +59,7 @@ PATH
       cancancan (~> 1.15.0)
       carrierwave (~> 1.0.0.rc)
       date_validator (~> 0.9.0)
+      decidim-api (= 0.0.1.alpha9)
       devise (~> 4.2)
       devise-i18n (~> 1.1.0)
       file_validators (~> 2.1.0)
@@ -254,7 +254,7 @@ GEM
       activesupport (>= 4.1.0)
     graphiql-rails (1.4.0)
       rails
-    graphql (1.2.5)
+    graphql (1.2.6)
     high_voltage (3.0.0)
     highline (1.7.8)
     htmlentities (4.3.4)

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 Decidim::Core::Engine.routes.draw do
+  mount Decidim::Api::Engine => "/api"
+
   devise_for :users,
              class_name: "Decidim::User",
              module: :devise,

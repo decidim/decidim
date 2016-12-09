@@ -25,6 +25,10 @@ require "cancancan"
 require "truncato"
 require "file_validators"
 
+require "decidim/api"
+
+require "decidim/query_extensions"
+
 module Decidim
   module Core
     # Decidim's core Rails Engine.
@@ -69,6 +73,10 @@ module Decidim
       initializer "decidim.locales" do |app|
         app.config.i18n.available_locales = Decidim.config.available_locales
         app.config.i18n.fallbacks = true
+      end
+
+      initializer "decidim.query_extensions" do
+        QueryExtensions.extend!(Decidim::Api::QueryType)
       end
     end
   end

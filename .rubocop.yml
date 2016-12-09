@@ -628,8 +628,9 @@ Style/Lambda:
     - lambda
     - literal
   Exclude:
-    - 'decidim-api/app/schemas/**/*'
-    - 'decidim-api/app/types/**/*'
+    - 'decidim-*/app/schemas/**/*'
+    - 'decidim-*/app/types/**/*'
+    - 'decidim-core/lib/decidim/query_extensions.rb'
 
 Style/LambdaCall:
   EnforcedStyle: call
@@ -1301,6 +1302,7 @@ Metrics/BlockLength:
   Exclude:
     - 'decidim-api/app/schemas/**/*'
     - 'decidim-api/app/types/**/*'
+    - 'decidim-*/lib/**/*/test/**/*'
 
 Lint/HandleExceptions:
   Exclude:
