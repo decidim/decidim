@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", *Decidim.rails_version
   s.add_dependency "devise", "~> 4.2"
   s.add_dependency "devise-i18n", "~> 1.1.0"
-  s.add_dependency "rectify", "~> 0.7.1"
+  s.add_dependency "rectify", "~> 0.8.0"
   s.add_dependency "foundation-rails", "~> 6.2.4.0"
   s.add_dependency "sass-rails", "~> 5.0.0"
   s.add_dependency "jquery-rails", "~> 4.0"
@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.add_dependency "sprockets-es6", "~> 0.9.2"
   s.add_dependency "cancancan", "~> 1.15.0"
   s.add_dependency "truncato", "~> 0.7.8"
-  s.add_dependency "mini_magick", "~> 4.5.1"
+  s.add_dependency "mini_magick", "~> 4.6.0"
   s.add_dependency "file_validators", "~> 2.1.0"
 
   s.add_dependency "decidim-api", Decidim.version

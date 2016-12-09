@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "factory_girl_rails"
   s.add_dependency "database_cleaner", "~> 1.5.0"
-  s.add_dependency "capybara", "~> 2.10.0"
+  s.add_dependency "capybara", "~> 2.11.0"
   s.add_dependency "capybara-screenshot", "~> 1.0.14"
   s.add_dependency "rspec-rails", "~> 3.5"
   s.add_dependency "rspec-repeat", "~> 1.0.2"
@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency "i18n-tasks", "~> 0.9.6"
   s.add_dependency "bullet", "~> 5"
   s.add_dependency "faker", "~> 1.6.6"
-  s.add_dependency "poltergeist", "~> 1.11.0"
+  s.add_dependency "poltergeist", "~> 1.12.0"
   s.add_dependency "rails-controller-testing", "~> 1.0.1"
   s.add_dependency "simplecov", "~> 0.12"
   s.add_dependency "codecov", "~> 0.1.9"
