@@ -2,6 +2,7 @@
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 require_relative "lib/generators/decidim/app_generator"
+require_relative "lib/generators/decidim/docker_generator"
 
 DECIDIM_GEMS = %w(core system admin api pages).freeze
 
@@ -52,4 +53,17 @@ task :development_app do
     sh "bundle exec rake db:drop db:create db:migrate db:seed"
     sh "bundle exec rails generate decidim:demo"
   end
+end
+
+desc "Generates a development app based on Docker."
+task :docker_development_app do
+  Dir.chdir(File.dirname(__FILE__)) do
+    sh "rm -fR docker_development_app"
+  end
+
+  path = File.dirname(__FILE__) + "/docker_development_app"
+
+  Decidim::Generators::DockerGenerator.start(
+    ["docker_development_app", "--path", path]
+  )
 end
