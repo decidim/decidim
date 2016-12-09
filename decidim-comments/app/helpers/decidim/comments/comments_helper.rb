@@ -19,7 +19,7 @@ module Decidim
           session[:currentUser] = current_user.attributes.slice("id", "name").symbolize_keys
         end
 
-        react_component("Comments", options.merge!(
+        react_component("Comments", options.merge(
                                       commentableType: resource.class.name,
                                       commentableId: resource.id.to_s,
                                       session: session

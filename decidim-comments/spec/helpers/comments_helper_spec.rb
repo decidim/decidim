@@ -11,7 +11,7 @@ module Decidim
       end
 
       let(:commentable) { DummyCommentable.new }
-
+        
       describe "comments_for" do
         context "if user is not logged in" do
           before :each do
@@ -28,6 +28,7 @@ module Decidim
                   locale: I18n.locale
                 }
               })
+              .and_call_original
 
             helper.comments_for(commentable)
           end
@@ -54,6 +55,7 @@ module Decidim
                   locale: I18n.locale
                 }
               })
+              .and_call_original
 
             helper.comments_for(commentable)
           end

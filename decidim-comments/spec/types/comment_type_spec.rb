@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 require "spec_helper"
+require "decidim/api/test/type_context"
 
 module Decidim
   module Comments
     describe CommentType do
-      include Decidim::Api::TypeHelpers
+      include_context "graphql type"
 
       let(:model) { FactoryGirl.create(:comment) }
 
