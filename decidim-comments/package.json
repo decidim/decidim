@@ -55,6 +55,7 @@
     "react-apollo": "^0.6.0",
     "react-dom": "^15.4.0",
     "react-i18nify": "^1.6.3",
+    "react-user-avatar": "^1.8.0",
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",
     "url-loader": "^0.5.7",
