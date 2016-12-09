@@ -29,6 +29,7 @@ cache:
 
 script:
   - yarn run test:ci
+  - yarn run build
   - cd $GEM;
   - $TRAVIS_BUILD_DIR/run_ci.sh
 
