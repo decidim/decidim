@@ -1,3 +1,5 @@
+/* global sortSteps */
+
 //= require jquery
 //= require jquery_ujs
 //= require foundation
@@ -8,7 +10,10 @@
 //= require decidim/editor
 //= require_self
 
-$(document).on('turbolinks:load', () => {
-  $(() => { $(document).foundation(); });
-});
+function pageLoad() {
+  $(document).foundation();
+  sortSteps();
+}
 
+$(document).on('turbolinks:load', pageLoad);
+$(pageLoad);
