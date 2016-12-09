@@ -6,8 +6,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      def initialize(form)
+      def initialize(form, author, commentable)
         @form = form
+        @author = author
+        @commentable = commentable
       end
 
       # Executes the command. Broadcasts these events:
@@ -28,8 +30,8 @@ module Decidim
       attr_reader :form
 
       def create_comment
-        @comment = Comment.create(author: form.author,
-                                  commentable: form.commentable,
+        @comment = Comment.create(author: @author,
+                                  commentable: @commentable,
                                   body: form.body)
       end
     end

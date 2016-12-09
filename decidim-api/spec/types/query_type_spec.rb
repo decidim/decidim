@@ -27,7 +27,7 @@ module Decidim
         let!(:participatory_process_2) { create(:participatory_process, organization: current_organization) }
         let!(:comment_2) { create(:comment, commentable: participatory_process_2) }
 
-        let(:query) { "{ comments(commentableId: \"#{participatory_process_1.id.to_s}\", commentableType: \"Decidim::ParticipatoryProcess\") { id } }" }
+        let(:query) { "{ comments(commentableId: \"#{participatory_process_1.id}\", commentableType: \"Decidim::ParticipatoryProcess\") { id } }" }
 
         it "returns comments from a commentable resource" do
           expect(response["comments"]).to     include("id" => comment_1.id.to_s)

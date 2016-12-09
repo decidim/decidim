@@ -8,15 +8,7 @@ module Decidim
 
       mimic :comment
 
-      validates :author, :commentable, :body, presence: true
-
-      attr_reader :author, :commentable
-
-      def initialize(attributes = {})
-        @author = attributes.delete(:author)
-        @commentable = attributes.delete(:commentable)
-        super
-      end
+      validates :body, presence: true
     end
   end
 end

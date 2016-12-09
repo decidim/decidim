@@ -19,9 +19,9 @@ module Decidim
 
             resolve ->(_obj, args, ctx) {
               params = { "comment" => { "body" => args[:body] } }
+              form = Decidim::Comments::CommentForm.from_params(params)
               commentable = args[:commentableType].constantize.find(args[:commentableId])
-              form = Decidim::Comments::CommentForm.from_params(params, author: ctx[:current_user], commentable: commentable)
-              Decidim::Comments::CreateComment.call(form) do
+              Decidim::Comments::CreateComment.call(form, ctx[:current_user], commentable) do
                 on(:ok) do |comment|
                   return comment
                 end

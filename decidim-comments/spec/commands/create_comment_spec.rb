@@ -17,12 +17,10 @@ module Decidim
         end
         let(:form) do
           CommentForm.from_params(
-            form_params,
-            author: author,
-            commentable: participatory_process
+            form_params
           )
         end
-        let(:command) { described_class.new(form) }
+        let(:command) { described_class.new(form, author, participatory_process) }
 
         describe "when the form is not valid" do
           before do
