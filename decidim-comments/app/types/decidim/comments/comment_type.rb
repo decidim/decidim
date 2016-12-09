@@ -12,7 +12,7 @@ module Decidim
 
       field :createdAt do
         type !types.String
-        description "The comment created at"
+        description "The creation date of the comment"
         property :created_at
       end
 

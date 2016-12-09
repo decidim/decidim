@@ -1,8 +1,7 @@
 {
   "name": "decidim-comments",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "license": "AGPLv3",
   "scripts": {
     "build": "yarn run webpack",
     "build:prod": "NODE_ENV=production yarn run webpack -- -p",

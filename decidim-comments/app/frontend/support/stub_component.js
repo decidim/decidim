@@ -6,7 +6,7 @@
  * evaluated.
  * @param {ReactComponent} componentClass - A component constructor function or class
  * @param {Object} options - An object which properties are used to stub component properties.
- * @returns {ReactCompnent} - A component with some properties stubbed
+ * @returns {ReactComponent} - A component with some properties stubbed
  */
 const stubComponent = function(componentClass, options = {}) {
   let originalPropTypes = {};

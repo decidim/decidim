@@ -6,7 +6,7 @@ module Decidim
       name "Add comment"
       description "Add a new comment"
 
-      field :comment, CommentType, "The new comment created"
+      field :comment, CommentType, "The new created comment"
     end
   end
 end

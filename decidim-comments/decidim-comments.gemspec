@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.name        = "decidim-comments"
   s.summary     = "Pluggable comments system for some components."
   s.description = "Pluggable comments system for some components."
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim.version
   s.add_dependency "rails", *Decidim.rails_version

@@ -7,10 +7,9 @@ module Decidim
       # from react-rails gem
       #
       # resource - A commentable resource
-      # options - An optional hash with options to pass to the component as props
       #
       # Returns a div which contain a RectComponent to be rendered by `react_ujs`
-      def comments_for(resource, options = {})
+      def comments_for(resource)
         session = {
           locale: I18n.locale
         }
@@ -19,11 +18,8 @@ module Decidim
           session[:currentUser] = current_user.attributes.slice("id", "name").symbolize_keys
         end
 
-        react_component("Comments", options.merge(
-                                      commentableType: resource.class.name,
-                                      commentableId: resource.id.to_s,
-                                      session: session
-        )) + javascript_include_tag("decidim/comments/comments")
+        react_component("Comments", commentableType: resource.class.name, commentableId: resource.id.to_s, session: session)) +
+          javascript_include_tag("decidim/comments/comments")
       end
     end
   end

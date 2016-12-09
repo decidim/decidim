@@ -6,7 +6,7 @@ ca:
         form:
           body:
             label: "Comentari"
-            placeholder: "Què opines d'aquesta proposta?"
+            placeholder: "Què opines sobre això?"
           submit: "Enviar"
       comment_order_selector:
         title: "Ordenar per:"
@@ -15,7 +15,7 @@ ca:
           recent: "Més nous"
           older: "Més antics"
       comment_thread:
-        title: "Conversació amb %{authorName}"
+        title: "Conversa amb %{authorName}"
       comments:
         title: "%{count} comentaris"
       featured_comment:
