@@ -1,6 +1,7 @@
 import { propType }    from 'graphql-anywhere';
 import gql             from 'graphql-tag';
 import UserAvatar      from 'react-user-avatar';
+import moment          from 'moment';
 
 import commentFragment from './comment.fragment.graphql'
 
@@ -9,6 +10,7 @@ import commentFragment from './comment.fragment.graphql'
  */
 const Comment = ({ comment: { author, body, createdAt } }) => {
   let authorInitialLetter = " ";
+  const formattedCreatedAt = ` ${moment(createdAt, "YYYY-MM-DD HH:mm:ss z").format("LLL")}`;
   
   if (author.name.length > 0) {
     authorInitialLetter = author.name[0];
@@ -24,7 +26,7 @@ const Comment = ({ comment: { author, body, createdAt } }) => {
                 <UserAvatar size="20" name={authorInitialLetter} />
               </span>
               <a className="author__name">{author.name}</a>
-              <time dateTime={createdAt}>{` ${createdAt}`}</time>
+              <time dateTime={createdAt}>{formattedCreatedAt}</time>
             </div>
           </div>
         </div>

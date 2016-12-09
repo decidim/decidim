@@ -1,6 +1,7 @@
 import { Component, PropTypes } from 'react';
 import { ApolloProvider }       from 'react-apollo';
 import { I18n }                 from 'react-i18nify';
+import moment                   from 'moment';
 
 import apolloClient             from './apollo_client';
 
@@ -13,6 +14,7 @@ export default class Application extends Component {
 
     if (session) {
       I18n.setLocale(session.locale);
+      moment.locale(session.locale);
     }
     
     super(props);
