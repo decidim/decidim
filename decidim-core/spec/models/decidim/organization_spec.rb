@@ -22,7 +22,7 @@ module Decidim
           )
         end
 
-        it { is_expected.not_to be_valid }
+        it { is_expected.to be_valid }
       end
 
       context "when the homepage image is too big" do
