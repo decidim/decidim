@@ -11,6 +11,17 @@ describe "Comments", type: :feature do
     end
   }
 
+  class Decidim::ParticipatoryProcessesController < ApplicationController
+    include ActionView::Helpers::AssetTagHelper
+    include React::Rails::ViewHelper
+    include Decidim::Comments::CommentsHelper
+
+    def show
+      @participatory_process = Decidim::ParticipatoryProcess.find(params[:id])
+      render html: comments_for(@participatory_process)
+    end
+  end
+
   before do
     switch_to_host(organization.host)
   end
