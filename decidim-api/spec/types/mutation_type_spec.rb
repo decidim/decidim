@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 require "spec_helper"
+require "decidim/api/test/type_context"
 
 module Decidim
   module Api
     describe MutationType do
-      include TypeHelpers
+      include_context "graphql type"
 
       describe "addComment" do
         let!(:participatory_process) { create(:participatory_process, organization: current_organization) }

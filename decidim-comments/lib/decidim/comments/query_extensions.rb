@@ -18,12 +18,12 @@ module Decidim
             argument :commentableId, !types.String, "The commentable's ID"
             argument :commentableType, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
 
-            resolve lambda do |_obj, args, _ctx|
+            resolve lambda { |_obj, args, _ctx|
               Comment
                 .where(commentable_id: args[:commentableId])
                 .where(commentable_type: args[:commentableType])
                 .all
-            end
+            }
           end
         end
       end

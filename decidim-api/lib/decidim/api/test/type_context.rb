@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 RSpec.shared_context "graphql type" do
   let!(:current_organization) { create(:organization) }
+  let!(:current_user) { create(:user) }
   let(:model) { OpenStruct.new({}) }
 
   let(:schema) do
@@ -28,7 +29,8 @@ RSpec.shared_context "graphql type" do
     result = schema.execute(
       query,
       context: {
-        current_organization: current_organization
+        current_organization: current_organization,
+        current_user: current_user
       },
       variables: variables
     )
