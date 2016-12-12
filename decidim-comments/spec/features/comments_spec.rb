@@ -16,7 +16,7 @@ describe "Comments", type: :feature do
   end
 
   it "user should see a list of comments" do
-    visit decidim.participatory_process_path(participatory_process)
+    visit decidim.dummy_path(participatory_process)
 
     expect(page).to have_selector("#comments")
     expect(page).to have_selector("article.comment", count: comments.length)
@@ -31,7 +31,7 @@ describe "Comments", type: :feature do
 
   context "when not authenticated" do
     it "user should not see the form to add comments" do
-      visit decidim.participatory_process_path(participatory_process)
+      visit decidim.dummy_path(participatory_process)
       expect(page).to_not have_selector(".add-comment form")
     end
   end
@@ -42,12 +42,12 @@ describe "Comments", type: :feature do
     end
 
     it "user should not see the form to add comments" do
-      visit decidim.participatory_process_path(participatory_process)
+      visit decidim.dummy_path(participatory_process)
       expect(page).to have_selector(".add-comment form")
     end
 
     it "user can add a new comment" do
-      visit decidim.participatory_process_path(participatory_process)
+      visit decidim.dummy_path(participatory_process)
       expect(page).to have_selector(".add-comment form")
 
       within ".add-comment form" do

@@ -44,6 +44,8 @@ exclude_paths:
 - "**/*/Rakefile"
 - "**/vendor/**/*"
 - "**/db/**/*"
+- "**/*.test.js"
+- "**/*.test.jsx"
 - "decidim-core/app/assets/stylesheets/decidim/email.css"
 - .rubocop.yml
 - lib/generators/decidim/templates/app.json.erb
