@@ -7,12 +7,12 @@
   "author": "Marc Riera <mrc2407@gmail.com>",
   "license": "AGPLv3",
   "scripts": {
-    "build": "yarn run webpack",
-    "build:prod": "NODE_ENV=production yarn run webpack -- -p",
-    "start": "yarn run webpack -- --watch --progress --color --display-error-details",
+    "build": "webpack --env.dev",
+    "build:prod": "NODE_ENV=production webpack -p --env.prod",
+    "start": "webpack --env.dev --watch --progress --color --display-error-details",
     "lint": "eslint -c .eslintrc.json --ext .js,.js.es6,.jsx .",
-    "test": "yarn run karma start -- --single-run",
-    "test:watch": "yarn run karma start",
+    "test": "karma start -- --single-run",
+    "test:watch": "karma start",
     "test:ci": "yarn run lint && yarn test"
   },
   "devDependencies": {
@@ -24,6 +24,7 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
+    "decidim-comments": "file:decidim-comments",
     "eslint": "^3.8.1",
     "eslint-config-airbnb": "~13.0.0",
     "eslint-loader": "^1.6.1",
@@ -45,11 +46,12 @@
     "phantomjs-polyfill": "^0.0.2",
     "phantomjs-polyfill-object-assign": "^0.0.2",
     "phantomjs-prebuilt": "~2.1.13",
+    "progress-bar-webpack-plugin": "^1.9.0",
     "promise-polyfill": "~6.0.2",
     "raw-loader": "^0.5.1",
+    "webpack": "2.1.0-beta.27",
+    "webpack-config-utils": "^2.3.0",
     "webpack-validator": "^2.2.12",
-    "yaml-loader": "^0.4.0",
-    "decidim-comments": "file:decidim-comments",
-    "webpack": "2.1.0-beta.27"
+    "yaml-loader": "^0.4.0"
   }
 }
