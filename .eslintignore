@@ -10,3 +10,4 @@ webpack.config.babel.js
 entry.test.js
 entry.js
 *_manifest.js
+coverage

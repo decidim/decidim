@@ -1,6 +1,6 @@
 process.env.BABEL_ENV = 'test';
 const webpackEnv = { test: true };
-const webpackConfig = require('./webpack.config')(webpackEnv);
+const webpackConfig = require('./webpack.config.babel')(webpackEnv);
 
 const testGlob = 'decidim-*/app/frontend/entry.test.js';
 const srcGlob = 'decidim-*/app/frontend/**/!(*.test.*)';
