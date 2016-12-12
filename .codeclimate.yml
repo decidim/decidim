@@ -53,3 +53,4 @@ exclude_paths:
 - "decidim-*/db/seeds.rb"
 - "decidim-*/config/routes.rb"
 - "doc/how_to_create_a_plugin.md"
+- "bundle.js"
