@@ -52,3 +52,4 @@ exclude_paths:
 - lib/generators/decidim/templates/app.json.erb
 - "decidim-*/db/seeds.rb"
 - "decidim-*/config/routes.rb"
+- "doc/how_to_create_a_plugin.md"
