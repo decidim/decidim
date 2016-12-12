@@ -5,5 +5,12 @@
     "react",
     "stage-2"
   ],
-  "plugins": ["transform-decorators-legacy"]
+  "plugins": ["transform-decorators-legacy"],
+  "env": {
+    "test": {
+      "plugins": [
+        ["__coverage__", {"ignore": "*.+(test|stub).*"}]
+      ]
+    }
+  }
 }

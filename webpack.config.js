@@ -19,6 +19,9 @@ module.exports = env => {
     },
     devtool: ifProd('source-map', 'eval'),
     module: {
+      noParse: [
+        /\/sinon\.js/
+      ],
       loaders: [
         { 
           test: /\.jsx?$/,
@@ -50,7 +53,13 @@ module.exports = env => {
           NODE_ENV: ifProd('"production"', '"development"')
         }
       })
-    ]
+    ],
+    externals: {
+      'cheerio': 'window',
+      'react/addons': 'react',
+      'react/lib/ExecutionEnvironment': 'react',
+      'react/lib/ReactContext': 'react'
+    }
   });
   return config;
 };

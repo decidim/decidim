@@ -1,32 +1,36 @@
-const webpackConfig = require('./webpack.config');
+process.env.BABEL_ENV = 'test';
+const webpackEnv = { test: true };
+const webpackConfig = require('./webpack.config')(webpackEnv);
+
+const testGlob = 'decidim-*/app/frontend/entry.test.js';
+const srcGlob = 'decidim-*/app/frontend/**/!(*.test.*)';
 
 module.exports = function(config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine'],
-    files: [
-      'decidim-*/app/frontend/entry.test.js'
-    ],
+    files: [testGlob, srcGlob],
+    exclude: ['decidim-*/app/frontend/entry.js'],
     preprocessors: {
-      'decidim-*/app/frontend/entry.test.js': ['webpack', 'sourcemap']
+      [testGlob]: ['webpack'],
+      [srcGlob]: ['webpack']
     },
     webpack: webpackConfig,
-    webpackServer: {
-      noInfo: true
+    webpackMiddleware: { noInfo: true },
+    reporters: ['progress', 'coverage'],
+    coverageReporter: {
+      reporters: [
+        {type: 'lcov', dir: 'coverage/', subdir: '.'},
+        {type: 'json', dir: 'coverage/', subdir: '.'},
+        {type: 'text-summary'},
+      ],
     },
-    plugins: [
-      'karma-webpack',
-      'karma-jasmine',
-      'karma-sourcemap-loader',
-      'karma-chrome-launcher',
-      'karma-phantomjs-launcher'
-    ],
-    reporters: ['progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
+    autoWatch: false,
     browsers: ['PhantomJS'],
-    singleRun: false
+    singleRun: true,
+    concurrency: Infinity
   })
 };
