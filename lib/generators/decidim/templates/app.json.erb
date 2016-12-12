@@ -8,6 +8,9 @@
     "sendgrid:starter"
   ],
   "env": {
-    "SECRET_KEY_BASE": "<%= secret_token %>"
+    "SECRET_KEY_BASE": {
+      "description": "A secret used by Rails to identify sessions",
+      "generator": "secret"
+    }
   }
 }
