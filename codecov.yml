@@ -74,6 +74,7 @@ coverage:
   - "spec"
   - "decidim-*/lib/**/*/test"
   - "lib/**/*/test"
+  - "bundle.js"
 
 comment:
   layout: "header, diff, changes, sunburst, uncovered, tree"

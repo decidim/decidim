@@ -1,12 +1,12 @@
-//= require_self
+// = require_self
 
 /**
  * When switching tabs in i18n fields, autofocus on the input to save clicks #212
  */
 $(document).on('turbolinks:load', () => {
   // Event launched by foundation
-  $('[data-tabs]').on('change.zf.tabs', () => {
-    const $container = $(this).next('.tabs-content .tabs-panel.is-active');
+  $('[data-tabs]').on('change.zf.tabs', (event) => {
+    const $container = $(event.target).next('.tabs-content .tabs-panel.is-active');
     // Detect quilljs editor inside the tabs-panel
     let $content = $container.find('.editor .ql-editor');
     if ($content.length > 0) {

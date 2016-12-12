@@ -1,10 +1,10 @@
-//= require jquery
-//= require decidim/api/react
-//= require decidim/api/react-dom
-//= require decidim/api/graphql-docs
+// = require jquery
+// = require decidim/api/react
+// = require decidim/api/react-dom
+// = require decidim/api/graphql-docs
 
-function fetcherFactory(path) {
-  return function fetcher(query) {
+const fetcherFactory = (path) => {
+  return (query) => {
     return jQuery.ajax({
       url: path,
       data: JSON.stringify({ query }),
@@ -15,7 +15,7 @@ function fetcherFactory(path) {
   };
 }
 
-window.renderDocumentation = function renderDocumentation(path) {
+window.renderDocumentation = (path) => {
   ReactDOM.render(
     <GraphQLDocs.GraphQLDocs fetcher={fetcherFactory(path)} />,
     document.getElementById('documentation'),

@@ -9,3 +9,6 @@ node_modules/
 development_app/
 .projectile
 docker_development_app/
+npm-debug.log
+karma-*
+yarn-error.log

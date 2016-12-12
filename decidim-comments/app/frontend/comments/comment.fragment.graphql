@@ -1,0 +1,7 @@
+fragment Comment on Comment {
+  body
+  createdAt
+  author {
+    name
+  }
+}

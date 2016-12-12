@@ -8,7 +8,8 @@ engines:
     enabled: true
     config:
       languages:
-        javascript: true
+        javascript:
+          mass_threshold: 50
         ruby:
           mass_threshold: 50
     exclude_fingerprints:
@@ -44,8 +45,12 @@ exclude_paths:
 - "**/*/Rakefile"
 - "**/vendor/**/*"
 - "**/db/**/*"
+- "**/*.test.js"
+- "**/*.test.jsx"
 - "decidim-core/app/assets/stylesheets/decidim/email.css"
 - .rubocop.yml
 - lib/generators/decidim/templates/app.json.erb
 - "decidim-*/db/seeds.rb"
 - "decidim-*/config/routes.rb"
+- "doc/how_to_create_a_plugin.md"
+- "bundle.js"

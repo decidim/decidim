@@ -18,6 +18,15 @@ module Decidim
             OrganizationParticipatoryProcesses.new(ctx[:current_organization])
           }
         end
+
+        field :currentUser do
+          type UserType
+          description "Return's information about the logged in user"
+
+          resolve ->(_obj, _args, ctx) {
+            ctx[:current_user]
+          }
+        end
       end
     end
   end

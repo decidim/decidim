@@ -1,0 +1,22 @@
+es:
+  decidim:
+    components:
+      add_comment_form:
+        title: "Deja tu comentario"
+        form:
+          body:
+            label: "Comentario"
+            placeholder: "¿Qué opinas sobre esto?"
+          submit: "Enviar"
+      comment_order_selector:
+        title: "Ordenar por:"
+        order:
+          most_voted: "Más votados"
+          recent: "Más nuevos"
+          older: "Más antiguos"
+      comment_thread:
+        title: "Conversación con %{authorName}"
+      comments:
+        title: "%{count} comentarios"
+      featured_comment:
+        title: "Comentario destacado"

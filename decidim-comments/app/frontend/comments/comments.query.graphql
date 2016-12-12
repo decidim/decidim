@@ -1,0 +1,9 @@
+query GetComments($commentableId: String!, $commentableType: String!) {
+  currentUser {
+    name
+  }
+  comments(commentableId: $commentableId, commentableType: $commentableType) {
+    id
+    ...CommentThread
+  }
+}

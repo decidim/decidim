@@ -35,6 +35,9 @@ capybara_options = {
     ),
     File.expand_path(
       File.join(node_modules_path, "phantomjs-polyfill", "bind-polyfill.js")
+    ),
+    File.expand_path(
+      File.join(node_modules_path, "phantomjs-polyfill-object-assign", "object-assign-polyfill.js")
     )
   ],
   js_errors: true,
