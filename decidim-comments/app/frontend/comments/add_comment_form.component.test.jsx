@@ -42,6 +42,18 @@ describe("<AddCommentForm />", () => {
     expect(wrapper.find('h5.section-heading')).not.to.be.present();
   });
 
+  it("should have a default prop submitButtonClassName as 'button button--sc'", () => {
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+    expect(wrapper).to.have.prop('submitButtonClassName').equal('button button--sc');
+  });
+
+  it("should use prop submitButtonClassName as a className prop for submit button", () => {
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} submitButtonClassName="button small hollow" />);
+    expect(wrapper.find('input[type="submit"]')).to.have.className('button');
+    expect(wrapper.find('input[type="submit"]')).to.have.className('small');
+    expect(wrapper.find('input[type="submit"]')).to.have.className('hollow');
+  });
+
   it("should enable the submit button if textarea is not blank", () => {
     const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
     wrapper.find('textarea').simulate('change', {

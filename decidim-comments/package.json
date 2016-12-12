@@ -22,6 +22,7 @@
     "react-i18nify": "^1.6.3",
     "react-user-avatar": "^1.8.0",
     "sinon": "^1.17.6",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "uuid": "^3.0.1"
   }
 }

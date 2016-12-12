@@ -85,6 +85,8 @@ class Comment extends Component {
           commentableId={comment.id}
           commentableType="Decidim::Comments::Comment"
           currentUser={currentUser}
+          showTitle={false}
+          submitButtonClassName="button small hollow"
         />
       );
     }

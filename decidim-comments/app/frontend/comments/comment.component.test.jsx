@@ -66,6 +66,8 @@ describe("<Comment />", () => {
     expect(wrapper.find(AddCommentForm)).to.have.prop('currentUser').deep.equal(currentUser);
     expect(wrapper.find(AddCommentForm)).to.have.prop('commentableId').equal(comment.id);
     expect(wrapper.find(AddCommentForm)).to.have.prop('commentableType').equal("Decidim::Comments::Comment");
+    expect(wrapper.find(AddCommentForm)).to.have.prop('showTitle').equal(false);
+    expect(wrapper.find(AddCommentForm)).to.have.prop('submitButtonClassName').equal('button small hollow');
   });
 
   describe("when user is not logged in", () => {

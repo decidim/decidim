@@ -2,8 +2,8 @@
 import { Component, PropTypes } from 'react';
 import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
-import { random }               from 'faker/locale/en';
 import { I18n }                 from 'react-i18nify';
+import uuid                     from 'uuid/v4';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
 
@@ -20,6 +20,7 @@ export class AddCommentForm extends Component {
   }
 
   render() {
+    const { submitButtonClassName } = this.props;
     const { disabled } = this.state;
     
     return (
@@ -36,7 +37,7 @@ export class AddCommentForm extends Component {
           />
           <input 
             type="submit"
-            className="button button--sc"
+            className={submitButtonClassName}
             value={I18n.t("components.add_comment_form.form.submit")}
             disabled={disabled}
           />
@@ -90,7 +91,8 @@ export class AddCommentForm extends Component {
 }
 
 AddCommentForm.defaultProps = {
-  showTitle: true
+  showTitle: true,
+  submitButtonClassName: 'button button--sc'
 };
 
 AddCommentForm.propTypes = {
@@ -100,7 +102,8 @@ AddCommentForm.propTypes = {
   }).isRequired,
   commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired,
-  showTitle: PropTypes.bool.isRequired
+  showTitle: PropTypes.bool.isRequired,
+  submitButtonClassName: PropTypes.string.isRequired
 };
 
 const AddCommentFormWithMutation = graphql(gql`
@@ -117,7 +120,7 @@ const AddCommentFormWithMutation = graphql(gql`
         __typename: 'Mutation',
         addComment: {
           __typename: 'Comment',
-          id: random.uuid(),
+          id: uuid(),
           createdAt: (new Date()).toString(),
           body,
           author: {
