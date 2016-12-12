@@ -3,7 +3,7 @@ module Decidim
   # This type represents a User.
   UserType = GraphQL::ObjectType.define do
     name "User"
-    description "An user"
+    description "A user"
 
     field :name, types.String, "The user's name"
   end

@@ -24,13 +24,13 @@ module Decidim
       describe "currentUser" do
         let(:query) { "{ currentUser { name } } " }
 
-        context "If the user is logged in" do
+        context "When the user is logged in" do
           it "return current user data" do
             expect(response["currentUser"]).to include("name" => current_user.name)
           end
         end
 
-        context "If the user is not logged in" do
+        context "When the user is not logged in" do
           let!(:current_user) { nil }
 
           it "return a nil object" do
