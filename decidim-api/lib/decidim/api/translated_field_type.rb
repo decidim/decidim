@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require_relative "localized_string_type"
+
 module Decidim
   module Api
     # This type represents a translated field in multiple languages.
