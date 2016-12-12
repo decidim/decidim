@@ -1,4 +1,5 @@
 fragment Comment on Comment {
+  id
   body
   createdAt
   author {

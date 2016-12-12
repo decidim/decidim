@@ -1,17 +1,19 @@
-import { shallow }           from 'enzyme';
-import { filter }            from 'graphql-anywhere';
-import gql                   from 'graphql-tag';
+import { shallow }             from 'enzyme';
+import { filter }              from 'graphql-anywhere';
+import gql                     from 'graphql-tag';
 
-import CommentThread         from './comment_thread.component';
-import Comment               from './comment.component';
+import CommentThread           from './comment_thread.component';
+import Comment                 from './comment.component';
 
-import commentThreadFragment from './comment_thread.fragment.graphql'
+import commentThreadFragment   from './comment_thread.fragment.graphql'
 
-import stubComponent         from '../support/stub_component';
-import generateCommentsData  from '../support/generate_comments_data';
+import stubComponent           from '../support/stub_component';
+import generateCommentsData    from '../support/generate_comments_data';
+import generateCurrentUserData from '../support/generate_current_user_data';
 
 describe('<CommentThread />', () => {
   let comment = {};
+  let currentUser = null;
 
   const commentFragment = gql`
     fragment Comment on Comment {
@@ -33,16 +35,24 @@ describe('<CommentThread />', () => {
       ${commentFragment}
     `;
 
+    currentUser = generateCurrentUserData();
     comment = filter(fragment, commentsData[0]);
   });
 
   it("should render a h6 comment-thread__title with author name", () => {
-    const wrapper = shallow(<CommentThread comment={comment} />);
+    const wrapper = shallow(<CommentThread comment={comment} currentUser={currentUser} />);
     expect(wrapper.find('h6.comment-thread__title')).to.have.text(`Conversation with ${comment.author.name}`);
   });
 
-  it("should render a Comment and pass filter comment data as a prop to it", () => {
-    const wrapper = shallow(<CommentThread comment={comment} />);
-    expect(wrapper.find(Comment).first()).to.have.prop("comment").deep.equal(filter(commentFragment, comment));
+  describe("should render a Comment", () => {
+    it("and pass the currentUser as a prop to it", () => {
+      const wrapper = shallow(<CommentThread comment={comment} currentUser={currentUser} />);
+      expect(wrapper.find(Comment).first()).to.have.prop("currentUser").deep.equal(currentUser);
+    });
+
+    it("and pass filter comment data as a prop to it", () => {
+      const wrapper = shallow(<CommentThread comment={comment} currentUser={currentUser} />);
+      expect(wrapper.find(Comment).first()).to.have.prop("comment").deep.equal(filter(commentFragment, comment));
+    });  
   });
 });

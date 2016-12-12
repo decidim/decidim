@@ -63,11 +63,21 @@ describe('<Comments />', () => {
     expect(wrapper.find('#comments')).to.be.present();
   });
 
-  it("should render a CommentThread component for each comment and pass filter comment data as a prop to it", () => {
-    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} />);
-    expect(wrapper).to.have.exactly(comments.length).descendants(CommentThread);
-    wrapper.find(CommentThread).forEach((node, idx) => {
-      expect(node).to.have.prop("comment").deep.equal(filter(commentThreadFragment, comments[idx]));
+  describe("should render a CommentThread component for each comment", () => {
+    it("and pass filter comment data as a prop to it", () => {
+      const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} />);
+      expect(wrapper).to.have.exactly(comments.length).descendants(CommentThread);
+      wrapper.find(CommentThread).forEach((node, idx) => {
+        expect(node).to.have.prop("comment").deep.equal(filter(commentThreadFragment, comments[idx]));
+      });
+    });
+
+    it("and pass the currentUser as a prop to it", () => {
+      const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} />);
+      expect(wrapper).to.have.exactly(comments.length).descendants(CommentThread);
+      wrapper.find(CommentThread).forEach((node) => {
+        expect(node).to.have.prop("currentUser").deep.equal(currentUser);
+      });
     });
   });
 

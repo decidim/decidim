@@ -41,12 +41,13 @@ export class Comments extends Component {
    * @returns {ReactComponent[]} - A collection of CommentThread components
    */
   _renderCommentThreads() {
-    const { comments } = this.props;
+    const { comments, currentUser } = this.props;
 
     return comments.map((comment) => (
       <CommentThread 
         key={comment.id} 
         comment={filter(CommentThread.fragments.comment, comment)} 
+        currentUser={currentUser}
       />
     ))
   }

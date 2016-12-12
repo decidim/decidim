@@ -32,6 +32,16 @@ describe("<AddCommentForm />", () => {
     expect(wrapper).to.have.state('disabled', true);
   });
 
+  it("should have a default prop showTitle as true", () => {
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+    expect(wrapper).to.have.prop('showTitle').equal(true);    
+  });
+
+  it("should not render the title if prop showTitle is false", () => {
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} showTitle={false} />);
+    expect(wrapper.find('h5.section-heading')).not.to.be.present();
+  });
+
   it("should enable the submit button if textarea is not blank", () => {
     const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
     wrapper.find('textarea').simulate('change', {

@@ -48,7 +48,7 @@ class Comment extends Component {
         <div className="comment__content">
           <p>{ body }</p>
         </div>
-        <div className="comment__foter">
+        <div className="comment__footer">
           {this._renderReplyButton()}
         </div>
         {this._renderReplyForm()}
@@ -76,10 +76,17 @@ class Comment extends Component {
   }
 
   _renderReplyForm() {
+    const { currentUser, comment } = this.props;
     const { showReplyForm } = this.state;
 
     if (showReplyForm) {
-      return <AddCommentForm />;
+      return (
+        <AddCommentForm
+          commentableId={comment.id}
+          commentableType="Decidim::Comments::Comment"
+          currentUser={currentUser}
+        />
+      );
     }
 
     return null;

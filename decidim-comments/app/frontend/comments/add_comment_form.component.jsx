@@ -24,7 +24,7 @@ export class AddCommentForm extends Component {
     
     return (
       <div className="add-comment">
-        <h5 className="section-heading">{ I18n.t("components.add_comment_form.title") }</h5>
+        {this._renderHeading()}
         <form onSubmit={(evt) => this._addComment(evt)}>
           <label className="show-for-sr" htmlFor="add-comment">{ I18n.t("components.add_comment_form.form.body.label") }</label>
           <textarea
@@ -43,6 +43,25 @@ export class AddCommentForm extends Component {
         </form>
       </div>
     );
+  }
+
+  /**
+   * Render the form heading based on showTitle prop
+   * @private
+   * @returns {Void|DOMElement} - The heading or an empty element
+   */
+  _renderHeading() {
+    const { showTitle } = this.props;
+
+    if (showTitle) {
+      return (
+        <h5 className="section-heading">
+          { I18n.t("components.add_comment_form.title") }
+        </h5>
+      );
+    }
+
+    return null;
   }
  
   /**
@@ -70,13 +89,18 @@ export class AddCommentForm extends Component {
   }
 }
 
+AddCommentForm.defaultProps = {
+  showTitle: true
+};
+
 AddCommentForm.propTypes = {
   addComment: PropTypes.func.isRequired,
   currentUser: PropTypes.shape({
     name: PropTypes.string.isRequired
   }).isRequired,
   commentableId: PropTypes.string.isRequired,
-  commentableType: PropTypes.string.isRequired
+  commentableType: PropTypes.string.isRequired,
+  showTitle: PropTypes.bool.isRequired
 };
 
 const AddCommentFormWithMutation = graphql(gql`

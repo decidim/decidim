@@ -32759,13 +32759,16 @@
 	    key: '_renderCommentThreads',
 	    value: function () {
 	      function _renderCommentThreads() {
-	        var comments = this.props.comments;
+	        var _props = this.props,
+	            comments = _props.comments,
+	            currentUser = _props.currentUser;
 
 
 	        return comments.map(function (comment) {
 	          return React.createElement(_comment_thread2['default'], {
 	            key: comment.id,
-	            comment: (0, _graphqlAnywhere.filter)(_comment_thread2['default'].fragments.comment, comment)
+	            comment: (0, _graphqlAnywhere.filter)(_comment_thread2['default'].fragments.comment, comment),
+	            currentUser: currentUser
 	          });
 	        });
 	      }
@@ -32783,10 +32786,10 @@
 	    key: '_renderAddCommentForm',
 	    value: function () {
 	      function _renderAddCommentForm() {
-	        var _props = this.props,
-	            currentUser = _props.currentUser,
-	            commentableId = _props.commentableId,
-	            commentableType = _props.commentableType;
+	        var _props2 = this.props,
+	            currentUser = _props2.currentUser,
+	            commentableId = _props2.commentableId,
+	            commentableType = _props2.commentableType;
 
 
 	        if (currentUser) {
@@ -55536,7 +55539,9 @@
 	    key: 'render',
 	    value: function () {
 	      function render() {
-	        var comment = this.props.comment;
+	        var _props = this.props,
+	            comment = _props.comment,
+	            currentUser = _props.currentUser;
 	        var author = comment.author;
 
 
@@ -55551,7 +55556,7 @@
 	          React.createElement(
 	            'div',
 	            { className: 'comment-thread' },
-	            React.createElement(_comment2['default'], { comment: (0, _graphqlAnywhere.filter)(_comment2['default'].fragments.comment, comment) })
+	            React.createElement(_comment2['default'], { comment: (0, _graphqlAnywhere.filter)(_comment2['default'].fragments.comment, comment), currentUser: currentUser })
 	          )
 	        );
 	      }
@@ -55568,6 +55573,9 @@
 	};
 
 	CommentThread.propTypes = {
+	  currentUser: _react.PropTypes.shape({
+	    name: _react.PropTypes.string.isRequired
+	  }),
 	  comment: (0, _graphqlAnywhere.propType)(CommentThread.fragments.comment).isRequired
 	};
 
@@ -55698,7 +55706,7 @@
 	          ),
 	          React.createElement(
 	            'div',
-	            { className: 'comment__foter' },
+	            { className: 'comment__footer' },
 	            this._renderReplyButton()
 	          ),
 	          this._renderReplyForm()
@@ -55748,11 +55756,18 @@
 	    key: '_renderReplyForm',
 	    value: function () {
 	      function _renderReplyForm() {
+	        var _props = this.props,
+	            currentUser = _props.currentUser,
+	            comment = _props.comment;
 	        var showReplyForm = this.state.showReplyForm;
 
 
 	        if (showReplyForm) {
-	          return React.createElement(_add_comment_form2['default'], null);
+	          return React.createElement(_add_comment_form2['default'], {
+	            commentableId: comment.id,
+	            commentableType: 'Decidim::Comments::Comment',
+	            currentUser: currentUser
+	          });
 	        }
 
 	        return null;
@@ -56478,11 +56493,7 @@
 	        return React.createElement(
 	          'div',
 	          { className: 'add-comment' },
-	          React.createElement(
-	            'h5',
-	            { className: 'section-heading' },
-	            _reactI18nify.I18n.t("components.add_comment_form.title")
-	          ),
+	          this._renderHeading(),
 	          React.createElement(
 	            'form',
 	            { onSubmit: function () {
@@ -56530,6 +56541,33 @@
 	    }()
 
 	    /**
+	     * Render the form heading based on showTitle prop
+	     * @private
+	     * @returns {Void|DOMElement} - The heading or an empty element
+	     */
+
+	  }, {
+	    key: '_renderHeading',
+	    value: function () {
+	      function _renderHeading() {
+	        var showTitle = this.props.showTitle;
+
+
+	        if (showTitle) {
+	          return React.createElement(
+	            'h5',
+	            { className: 'section-heading' },
+	            _reactI18nify.I18n.t("components.add_comment_form.title")
+	          );
+	        }
+
+	        return null;
+	      }
+
+	      return _renderHeading;
+	    }()
+
+	    /**
 	     * Check comment's body and disable form if it's empty
 	     * @private
 	     * @param {string} body - The comment's body
@@ -56572,13 +56610,18 @@
 	  return AddCommentForm;
 	}(_react.Component);
 
+	AddCommentForm.defaultProps = {
+	  showTitle: true
+	};
+
 	AddCommentForm.propTypes = {
 	  addComment: _react.PropTypes.func.isRequired,
 	  currentUser: _react.PropTypes.shape({
 	    name: _react.PropTypes.string.isRequired
 	  }).isRequired,
 	  commentableId: _react.PropTypes.string.isRequired,
-	  commentableType: _react.PropTypes.string.isRequired
+	  commentableType: _react.PropTypes.string.isRequired,
+	  showTitle: _react.PropTypes.bool.isRequired
 	};
 
 	var AddCommentFormWithMutation = (0, _reactApollo.graphql)((0, _graphqlTag2['default'])(_templateObject, _add_comment_formMutation2['default']), {
@@ -56650,7 +56693,7 @@
 /* 440 */
 /***/ function(module, exports) {
 
-	module.exports = "fragment Comment on Comment {\n  body\n  createdAt\n  author {\n    name\n  }\n}"
+	module.exports = "fragment Comment on Comment {\n  id\n  body\n  createdAt\n  author {\n    name\n  }\n}"
 
 /***/ },
 /* 441 */

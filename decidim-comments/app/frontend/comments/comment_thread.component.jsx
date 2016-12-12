@@ -1,11 +1,11 @@
-import { Component }         from 'react';
-import { filter, propType }  from 'graphql-anywhere';
-import gql                   from 'graphql-tag';
-import { I18n }              from 'react-i18nify';
+import { Component, PropTypes } from 'react';
+import { filter, propType }     from 'graphql-anywhere';
+import gql                      from 'graphql-tag';
+import { I18n }                 from 'react-i18nify';
 
-import Comment               from './comment.component';
+import Comment                  from './comment.component';
 
-import commentThreadFragment from './comment_thread.fragment.graphql'
+import commentThreadFragment    from './comment_thread.fragment.graphql'
 
 /**
  * Define a collection of comments. It represents a conversation with multiple users.
@@ -13,7 +13,7 @@ import commentThreadFragment from './comment_thread.fragment.graphql'
  */
 class CommentThread extends Component {
   render() {
-    const { comment } = this.props;
+    const { comment, currentUser } = this.props;
     const { author } = comment;
 
     return (
@@ -22,7 +22,7 @@ class CommentThread extends Component {
           { I18n.t("components.comment_thread.title", { authorName: author.name }) }
         </h6>
         <div className="comment-thread">
-          <Comment comment={filter(Comment.fragments.comment, comment)} />
+          <Comment comment={filter(Comment.fragments.comment, comment)} currentUser={currentUser} />
         </div>
       </div>
     );
@@ -37,6 +37,9 @@ CommentThread.fragments = {
 };
 
 CommentThread.propTypes = {
+  currentUser: PropTypes.shape({
+    name: PropTypes.string.isRequired
+  }),
   comment: propType(CommentThread.fragments.comment).isRequired
 };
 

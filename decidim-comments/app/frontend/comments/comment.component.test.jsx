@@ -11,7 +11,7 @@ import stubComponent           from '../support/stub_component';
 import generateCommentsData    from '../support/generate_comments_data';
 import generateCurrentUserData from '../support/generate_current_user_data';
 
-describe("<Comment currentUser={currentUser} />", () => {
+describe("<Comment />", () => {
   let comment = {};
   let currentUser = null;
 
@@ -59,11 +59,13 @@ describe("<Comment currentUser={currentUser} />", () => {
     expect(wrapper).to.have.state('showReplyForm', false);
   });
 
-  it("should render a AddCommentForm component when clicking the reply button", () => {
+  it("should render a AddCommentForm component with the correct props when clicking the reply button", () => {
     const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
     expect(wrapper.find(AddCommentForm)).not.to.be.present();
     wrapper.find('button.comment__reply').simulate('click');
-    expect(wrapper.find(AddCommentForm)).to.be.present();
+    expect(wrapper.find(AddCommentForm)).to.have.prop('currentUser').deep.equal(currentUser);
+    expect(wrapper.find(AddCommentForm)).to.have.prop('commentableId').equal(comment.id);
+    expect(wrapper.find(AddCommentForm)).to.have.prop('commentableType').equal("Decidim::Comments::Comment");
   });
 
   describe("when user is not logged in", () => {
