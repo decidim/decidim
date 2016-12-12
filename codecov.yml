@@ -71,12 +71,12 @@ coverage:
 
   ignore:
   - "decidim-*/spec"
-  - "spec"
-  - "decidim-*/lib/**/*/test"
-  - "lib/**/*/test"
+  - "spec/*"
+  - "decidim-*/lib/**/*/test/*"
+  - "lib/**/*/test/*"
   - "bundle.js"
-  - "vendor"
-  - "node_modules"
+  - "vendor/*"
+  - "node_modules/*"
 
 comment:
   layout: "header, diff, changes, sunburst, uncovered, tree"
