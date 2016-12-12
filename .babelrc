@@ -1,4 +1,4 @@
 { 
   "presets": ["airbnb", "react", "es2015", "stage-2"],
-  "plugins": ["transform-decorators-legacy", "transform-react-jsx-img-import"]
+  "plugins": ["transform-decorators-legacy"]
 }
