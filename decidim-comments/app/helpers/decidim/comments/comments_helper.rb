@@ -10,15 +10,7 @@ module Decidim
       #
       # Returns a div which contain a RectComponent to be rendered by `react_ujs`
       def comments_for(resource)
-        session = {
-          locale: I18n.locale
-        }
-
-        if current_user.present?
-          session[:currentUser] = current_user.attributes.slice("id", "name").symbolize_keys
-        end
-
-        react_component("Comments", commentableType: resource.class.name, commentableId: resource.id.to_s, session: session) + javascript_include_tag("decidim/comments/comments")
+        react_component("Comments", commentableType: resource.class.name, commentableId: resource.id.to_s, locale: I18n.locale) + javascript_include_tag("decidim/comments/comments")
       end
     end
   end

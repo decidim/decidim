@@ -10,12 +10,10 @@ import apolloClient             from './apollo_client';
  */
 export default class Application extends Component {
   constructor(props) {
-    const { session } = props;
+    const { locale } = props;
 
-    if (session) {
-      I18n.setLocale(session.locale);
-      moment.locale(session.locale);
-    }
+    I18n.setLocale(locale);
+    moment.locale(locale);
     
     super(props);
   }
@@ -33,7 +31,5 @@ export default class Application extends Component {
 
 Application.propTypes = {
   children: PropTypes.element.isRequired,
-  session: PropTypes.shape({
-    locale: PropTypes.string.isRequired
-  }).isRequired
+  locale: PropTypes.string.isRequired
 };

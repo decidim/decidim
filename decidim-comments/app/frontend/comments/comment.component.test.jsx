@@ -18,7 +18,7 @@ describe("<Comment />", () => {
       ${commentFragment}
     `;
 
-    comment = filter(fragment, commentsData.comments[0]);
+    comment = filter(fragment, commentsData[0]);
   });
 
   it("should render an article with class comment", () => {

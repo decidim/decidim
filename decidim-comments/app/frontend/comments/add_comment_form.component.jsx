@@ -72,14 +72,8 @@ export class AddCommentForm extends Component {
 
 AddCommentForm.propTypes = {
   addComment: PropTypes.func.isRequired,
-  session: PropTypes.shape({
-    currentUser: PropTypes.shape({
-      id: React.PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-      ]),
-      name: PropTypes.string.isRequired
-    }).isRequired
+  currentUser: PropTypes.shape({
+    name: PropTypes.string.isRequired
   }).isRequired,
   commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired
@@ -104,7 +98,7 @@ const AddCommentFormWithMutation = graphql(gql`
           body,
           author: {
             __typename: 'Author',
-            name: ownProps.session.currentUser.name
+            name: ownProps.currentUser.name
           }
         }
       },

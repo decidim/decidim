@@ -30,9 +30,9 @@ module Decidim
       attr_reader :form
 
       def create_comment
-        @comment = Comment.create(author: @author,
-                                  commentable: @commentable,
-                                  body: form.body)
+        @comment = Comment.create!(author: @author,
+                                   commentable: @commentable,
+                                   body: form.body)
       end
     end
   end

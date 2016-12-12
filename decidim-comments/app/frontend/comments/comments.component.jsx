@@ -52,17 +52,17 @@ export class Comments extends Component {
   }
  
   /**
-   * If session's current user is present it renders the add comment form
+   * If current user is present it renders the add comment form
    * @private
    * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
    */
   _renderAddCommentForm() {
-    const { session, commentableId, commentableType } = this.props;
+    const { currentUser, commentableId, commentableType } = this.props;
     
-    if (session.currentUser) {
+    if (currentUser) {
       return (
         <AddCommentForm 
-          session={session}
+          currentUser={currentUser}
           commentableId={commentableId}
           commentableType={commentableType}
         />
@@ -77,9 +77,9 @@ Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired
   })),
-  session: PropTypes.shape({
-    currentUser: PropTypes.object
-  }).isRequired,
+  currentUser: PropTypes.shape({
+    name: PropTypes.string.isRequired
+  }),
   commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired
 };
@@ -92,9 +92,9 @@ const CommentsWithData = graphql(gql`
   ${commentsQuery}
   ${CommentThread.fragments.comment}
 `, {
-  props: ({ ownProps, data: { comments }}) => ({
+  props: ({ ownProps, data: { currentUser, comments }}) => ({
     comments: comments || [],
-    session: ownProps.session,
+    currentUser: currentUser || null,
     commentableId: ownProps.commentableId,
     commentableType: ownProps.commentableType
   })
@@ -105,10 +105,9 @@ const CommentsWithData = graphql(gql`
  * connect it with Apollo client and store.
  * @returns {ReactComponent} - A component wrapped within an Application component
  */
-const CommentsApplication = ({ session, commentableId, commentableType }) => (
-  <Application session={session}>
+const CommentsApplication = ({ locale, commentableId, commentableType }) => (
+  <Application locale={locale}>
     <CommentsWithData 
-      session={session}
       commentableId={commentableId}
       commentableType={commentableType}
     />
@@ -116,10 +115,7 @@ const CommentsApplication = ({ session, commentableId, commentableType }) => (
 );
 
 CommentsApplication.propTypes = {
-  session: PropTypes.shape({
-    currentUser: PropTypes.object,
-    locale: PropTypes.string.isRequired
-  }).isRequired,
+  locale: PropTypes.string.isRequired,
   commentableId: React.PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number

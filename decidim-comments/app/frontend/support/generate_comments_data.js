@@ -6,12 +6,10 @@ import { random, name, date } from 'faker/locale/en';
  * @returns {Object[]} - An array of objects representing comments data
  */
 const generateCommentsData = (num = 1) => {
-  let commentsData = {
-    comments: []
-  };
+  let commentsData = [];
 
   for (let idx = 0; idx < num; idx += 1) {
-    commentsData.comments.push({
+    commentsData.push({
       id: random.uuid(),
       body: random.words(),
       createdAt: date.past().toString(),

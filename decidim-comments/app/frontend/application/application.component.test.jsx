@@ -9,25 +9,25 @@ describe('<Application />', () => {
     I18n.setLocale('en');
   });
 
-  it("should set I18n locale to session locale", () => {
+  it("should set I18n locale to locale prop", () => {
     sinon.spy(I18n, 'setLocale');
-    const session = { locale: "ca" };
+    const locale = "ca";
     shallow(
-      <Application session={session}>
+      <Application locale={locale}>
         <div>My application</div>
       </Application>
     );
-    expect(I18n.setLocale).to.have.been.calledWith(session.locale);
+    expect(I18n.setLocale).to.have.been.calledWith(locale);
   });
 
-  it("should set moment locale to session locale", () => {
+  it("should set moment locale to locale prop", () => {
     sinon.spy(moment, 'locale');
-    const session = { locale: "ca" };
+    const locale = "ca";
     shallow(
-      <Application session={session}>
+      <Application locale={locale}>
         <div>My application</div>
       </Application>
     );
-    expect(moment.locale).to.have.been.calledWith(session.locale);
+    expect(moment.locale).to.have.been.calledWith(locale);
   });
 });

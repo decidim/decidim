@@ -21,6 +21,24 @@ module Decidim
         end
       end
 
+      describe "currentUser" do
+        let(:query) { "{ currentUser { name } } " }
+
+        context "If the user is logged in" do
+          it "return current user data" do
+            expect(response["currentUser"]).to include("name" => current_user.name)
+          end
+        end
+
+        context "If the user is not logged in" do
+          let!(:current_user) { nil }
+
+          it "return a nil object" do
+            expect(response["currentUser"]).to be_nil
+          end
+        end
+      end
+
       describe "comments" do
         let!(:participatory_process_1) { create(:participatory_process, organization: current_organization) }
         let!(:comment_1) { create(:comment, commentable: participatory_process_1) }

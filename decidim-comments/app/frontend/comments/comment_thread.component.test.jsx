@@ -33,7 +33,7 @@ describe('<CommentThread />', () => {
       ${commentFragment}
     `;
 
-    comment = filter(fragment, commentsData.comments[0]);
+    comment = filter(fragment, commentsData[0]);
   });
 
   it("should render a h6 comment-thread__title with author name", () => {
