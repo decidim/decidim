@@ -4,8 +4,9 @@ require "spec_helper"
 module Decidim
   module Comments
     describe Comment do
-      let(:commentable) { build(:participatory_process) }
-      let(:comment) { build(:comment, commentable: commentable) }
+      let!(:commentable) { create(:participatory_process) }
+      let!(:comment) { create(:comment, commentable: commentable) }
+      let!(:replies) { 3.times.map { create(:comment, commentable: comment) } }
 
       it "is valid" do
         expect(comment).to be_valid
@@ -17,6 +18,10 @@ module Decidim
 
       it "has an associated commentable" do
         expect(comment.commentable).to be_a(Decidim::ParticipatoryProcess)
+      end
+
+      it "has a replies association" do
+        expect(comment.replies).to match_array(replies)
       end
     end
   end

@@ -16,6 +16,20 @@ module Decidim
           expect(response).to include("createdAt" => model.created_at.to_s)
         end
       end
+
+      describe "replies" do
+        let!(:random_comment) { FactoryGirl.create(:comment) }
+        let!(:replies) { 3.times.map { FactoryGirl.create(:comment, commentable: model) } }
+
+        let(:query) { "{ replies { id } }" }
+
+        it "return comment's replies comments data" do
+          replies.each do |reply|
+            expect(response["replies"]).to include("id" => reply.id.to_s)
+          end
+          expect(response["replies"]).to_not include("id" => random_comment.id.to_s)
+        end
+      end
     end
   end
 end

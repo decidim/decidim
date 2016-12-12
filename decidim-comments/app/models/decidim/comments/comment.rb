@@ -7,6 +7,7 @@ module Decidim
     class Comment < ApplicationRecord
       belongs_to :author, class_name: Decidim::User
       belongs_to :commentable, polymorphic: true
+      has_many :replies, as: :commentable, class_name: Comment
 
       validates :author, :commentable, :body, presence: true
     end

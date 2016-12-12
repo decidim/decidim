@@ -19,6 +19,10 @@ module Decidim
       field :author, !AuthorType, "The comment's author" do
         resolve ->(obj, _args, _ctx) { obj.author }
       end
+
+      field :replies, !types[CommentType], "The comment's replies" do
+        resolve ->(obj, _args, _ctx) { obj.replies }
+      end
     end
   end
 end
