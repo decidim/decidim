@@ -1,0 +1,46 @@
+<% content_for(:title, translated_attribute(meeting.title)) %>
+
+<div class="row column view-header">
+  <h2 class="heading2"><%= translated_attribute meeting.title %></h2>
+  <div class="author-data">
+    <div class="author-data__main">
+      <div class="author author--inline">
+        <%= l meeting.created_at.to_date, format: :long %> <%= t(".by") %> <%= meeting.author.name %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
+              large-3 large-push-9">
+    <div class="card extra">
+      <div class="card__content">
+        <div class="extra__date">
+          <%= l meeting.start_date, format: "%d" %> <span class="extra__month"><%= l meeting.start_date, format: "%B" %></span>
+        </div>
+        <div class="extra__time">
+          <%= meeting.start_date.strftime("%H:%M") %> - <%= meeting.end_date.strftime("%H:%M") %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="section">
+      <%== translated_attribute meeting.short_description %>
+      <div class="card card--secondary">
+        <div class="card__content address">
+          <div class="address__info">
+            <div class="address__icon">
+              <%= icon "meetings", removeIconClass: true, width: 40, height: 70 %>
+            </div>
+            <%= render partial: 'address_details', locals: { meeting: meeting } %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h3 class="section-heading"><%= t(".meeting_description") %></h3>
+      <%== translated_attribute meeting.description %>
+    </div>
+  </div>
+</div>

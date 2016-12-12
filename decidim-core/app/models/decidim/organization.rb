@@ -16,5 +16,11 @@ module Decidim
     def homepage_big_url
       homepage_image.big.url
     end
+
+    def admins
+      Decidim::User
+        .where(organization: self)
+        .where("roles @> ?", "{admin}")
+    end
   end
 end
