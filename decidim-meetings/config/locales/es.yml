@@ -1,5 +1,5 @@
 ---
 es:
-  components:
+  features:
     page:
-      name: Página
+      name: Lista de encuentros

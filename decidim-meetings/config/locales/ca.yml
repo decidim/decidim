@@ -1,5 +1,5 @@
 ---
 ca:
-  components:
+  features:
     page:
-      name: Pàgina
+      name: Llistat de trobades

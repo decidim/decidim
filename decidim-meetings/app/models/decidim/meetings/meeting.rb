@@ -5,7 +5,7 @@ module Decidim
     # title, description and any other useful information to render a custom meeting.
     class Meeting < Meetings::ApplicationRecord
       validates :title, presence: true
-      belongs_to :component, foreign_key: "decidim_component_id", class_name: Decidim::Component
+      belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
     end
   end
 end

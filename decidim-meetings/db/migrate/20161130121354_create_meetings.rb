@@ -7,8 +7,9 @@ class CreateMeetings < ActiveRecord::Migration[5.0]
       t.datetime :start_date
       t.datetime :end_date
       t.text :address
+      t.jsonb :location
       t.jsonb :location_hints
-      t.references :decidim_component
+      t.references :decidim_feature, index: true
       t.references :decidim_participatory_process_step,
                    index: { name: "decidim_component_step_meeting" }
 

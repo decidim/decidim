@@ -8,6 +8,7 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
+        resources :meetings
         root to: "meetings#index"
       end
     end

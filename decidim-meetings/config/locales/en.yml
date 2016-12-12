@@ -1,8 +1,5 @@
 ---
 en:
-  components:
+  features:
     meeting_list:
       name: Meeting list
-  features:
-    meetings:
-      name: Meetings
