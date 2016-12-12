@@ -1,0 +1,59 @@
+<div class="row columns">
+    <a href="" class="muted-link">
+      <%= icon "chevron-left", class: "icon--small" %>
+      Volver
+    </a>
+    <h2 class="section-heading">Nueva propuesta</h2>
+  </div>
+  <div class="row">
+    <div class="columns large-6 medium-centered">
+      <div class="card">
+        <div class="card__content">
+          <%= form_for(@form) do |form| %>
+            <div class="field">
+              <%= form.text_field :title %>
+            </div>
+            <div class="field">
+              <%= form.text_area :body, rows: 10 %>
+            </div>
+            <div class="actions">
+              <%= form.submit t(".send"), class: "button expanded" %>
+            </div>
+          <% end %>
+          <form class="register-form">
+            <div>
+              <div>
+                <label>Título de la propuesta
+                  <input type="text" placeholder="Nueva propuesta en decidim.barcelona">
+                </label>
+              </div>
+              <div>
+                <label>Descripción de la propuesta
+                  <textarea placeholder="¿Qué propones?" rows="10"></textarea>
+                </label>
+              </div>
+              <div>
+                <label>Categoría
+                  <select>
+                    <option></option>
+                    <option>Categoría 1</option>
+                    <option>Categoría 2</option>
+                  </select>
+                </label>
+              </div>
+              <div>
+                <label>Subcategoría
+                  <select>
+                    <option></option>
+                    <option>Subcategoría 1</option>
+                    <option>Subcategoría 2</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="button expanded">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

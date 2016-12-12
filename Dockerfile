@@ -24,6 +24,7 @@ ADD decidim-api/decidim-api.gemspec /tmp/decidim-api/decidim-api.gemspec
 ADD decidim-pages/decidim-pages.gemspec /tmp/decidim-pages/decidim-pages.gemspec
 ADD decidim-comments/decidim-comments.gemspec /tmp/decidim-comments/decidim-comments.gemspec
 ADD decidim-meetings/decidim-meetings.gemspec /tmp/decidim-meetings/decidim-meetings.gemspec
+ADD decidim-proposals/decidim-proposals.gemspec /tmp/decidim-proposals/decidim-proposals.gemspec
 
 ADD package.json /tmp/package.json
 ADD decidim-comments/package.json /tmp/package.json

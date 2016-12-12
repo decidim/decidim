@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+require_dependency "decidim/application_controller"
 module Decidim
   module Features
     # Controller from which all feature engines inherit from. It's in charge of
