@@ -29,7 +29,7 @@ task :generate_all do
 end
 
 desc "Pushes a new build for each gem."
-task :release_all => [:webpack] do
+task release_all: [:webpack] do
   sh "rake release"
   DECIDIM_GEMS.each do |gem_name|
     Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
@@ -69,11 +69,11 @@ task :docker_development_app do
 end
 
 desc "Build webpack bundle files"
-task :webpack => ['yarn:install'] do
+task webpack: ["yarn:install"] do
   sh "yarn build:prod"
 end
 
 desc "Install yarn dependencies"
-task 'yarn:install' do
+task "yarn:install" do
   sh "yarn"
 end
