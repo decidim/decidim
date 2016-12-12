@@ -47,10 +47,9 @@
     "phantomjs-prebuilt": "~2.1.13",
     "promise-polyfill": "~6.0.2",
     "raw-loader": "^0.5.1",
-    "yaml-loader": "^0.4.0"
-  },
-  "dependencies": {
+    "webpack-validator": "^2.2.12",
+    "yaml-loader": "^0.4.0",
     "decidim-comments": "file:decidim-comments",
-    "webpack": "^1.14.0"
+    "webpack": "2.1.0-beta.27"
   }
 }
