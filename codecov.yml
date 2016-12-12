@@ -70,7 +70,7 @@ coverage:
         branches: null
 
   ignore:
-  - "decidim-*/spec"
+  - "decidim-*/spec/*"
   - "spec/*"
   - "decidim-*/lib/**/*/test/*"
   - "lib/**/*/test/*"
