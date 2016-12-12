@@ -14,7 +14,7 @@ module Decidim
     mount_uploader :homepage_image, Decidim::HomepageImageUploader
 
     def homepage_big_url
-      homepage_image&.big&.url
+      homepage_image.big.url
     end
   end
 end
