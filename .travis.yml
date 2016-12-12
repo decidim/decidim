@@ -21,6 +21,7 @@ before_install:
   - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
   - yarn
   - export BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
+  - export BUNDLE_PATH="$HOME/.bundle"
 
 cache:
   bundler: true
