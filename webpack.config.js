@@ -1,10 +1,12 @@
-const webpack                     = require('webpack');
-const webpackValidator            = require('webpack-validator');
-const { getIfUtils, removeEmpty } = require('webpack-config-utils');
-const ProgressBarPlugin           = require('progress-bar-webpack-plugin');
+const webpack            = require('webpack');
+const webpackValidator   = require('webpack-validator');
+const webpackConfigUtils = require('webpack-config-utils');
+const getIfUtils         = webpackConfigUtils.getIfUtils;
+const ProgressBarPlugin  = require('progress-bar-webpack-plugin');
 
 module.exports = env => {
-  const { ifProd } = getIfUtils(env);
+  const envUtils = getIfUtils(env);
+  const ifProd = envUtils.ifProd;
 
   const config = webpackValidator({
     entry: {
