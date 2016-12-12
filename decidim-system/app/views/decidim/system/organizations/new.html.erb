@@ -12,23 +12,11 @@
   </div>
 
   <div class="field">
-    <%= f.translated :editor, :description %>
-  </div>
-
-  <div class="field">
-    <%= f.translated :editor, :welcome_text %>
-  </div>
-
-  <div class="field">
     <%= f.text_field :organization_admin_name %>
   </div>
 
   <div class="field">
     <%= f.email_field :organization_admin_email %>
-  </div>
-
-  <div class="field">
-    <%= f.file_field :homepage_image %>
   </div>
 
   <%= f.fields_for :locales do |fields| %>

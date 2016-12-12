@@ -40,9 +40,6 @@ module Decidim
         Decidim::Organization.create!(
           name: form.name,
           host: form.host,
-          description: form.description,
-          welcome_text: form.welcome_text,
-          homepage_image: form.homepage_image,
           available_locales: form.available_locales,
           default_locale: form.default_locale
         )
