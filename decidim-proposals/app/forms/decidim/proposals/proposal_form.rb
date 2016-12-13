@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   module Proposals
     class ProposalForm < Decidim::Form
@@ -11,7 +12,7 @@ module Decidim
       attribute :feature, Decidim::Feature
 
       validates :title, :body, :author, :feature, presence: true
-      validates :category, presence: true, if: lambda { |form| form.category_id.present? }
+      validates :category, presence: true, if: ->(form) { form.category_id.present? }
 
       def category
         @category ||= feature.categories.where(id: category_id).first

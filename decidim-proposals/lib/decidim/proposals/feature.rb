@@ -16,7 +16,7 @@ Decidim.register_feature(:proposals) do |feature|
       next unless process.steps.any?
 
       feature = Decidim::Feature.create!(
-        name: { "en" => "Proposals", "ca" => "Propostes"},
+        name: { "en" => "Proposals", "ca" => "Propostes" },
         manifest_name: :proposals,
         participatory_process: process
       )
