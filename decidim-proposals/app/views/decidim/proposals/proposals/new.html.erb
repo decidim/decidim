@@ -18,7 +18,7 @@
           </div>
           <% if categories&.any? %>
             <div class="field">
-              <%= form.select :category_id, options_for_select([["Select something"]] + categories, selected: @form.category_id, disabled: disabled_categories) %>
+              <%= form.categories_select :category_id, categories %>
             </div>
           <% end %>
           <% if scopes&.any? %>

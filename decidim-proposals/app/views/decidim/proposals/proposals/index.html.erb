@@ -8,33 +8,34 @@
   </div>
 </div>
 <div class="row">
-  <div class="columns mediumlarge-8 large-9">
-    <div class="row small-up-1 medium-up-2 card-grid">
+  <div class="columns mediumlarge-12 large-12">
+    <div class="row small-up-1 medium-up-3 card-grid">
       <% @proposals.each do |proposal| %>
       <div class="column">
         <article class="card card--proposal">
           <div class="card__content">
             <div class="card__header">
-              <a href="/proposal-view" class="card__link">
+              <%= link_to proposal do%>
                 <h5 class="card__title"><%= proposal.title %></h5>
-              </a>
+              <% end %>
               <div class="card__author author-data author-data--small">
                 <div class="author-data__main">
                   <div class="author author--inline">
-                    <a href="#" class="author__avatar author__avatar--small">
-                      <img src="/images/demo-avatar.jpg" alt="">
-                    </a>
-                    <a href="#" class="author__name"><%= proposal.author.name %></a>
+                    <span class="author__avatar author__avatar--small">
+                      <%= image_tag current_user.avatar.url %>
+                    </span>
+                    <span class="author__name"><%= proposal.author.name %></span>
                     <%= l proposal.created_at, format: "%d/%m/%Y" %>
                   </div>
                 </div>
               </div>
             </div>
             <p><%= truncate(proposal.body, length: 100) %></p>
-            <ul class="tags tags--proposal">
-              <li><a href="">transició ecológica</a></li>
-              <li><a href="">mobilitat sostenible</a></li>
-            </ul>
+            <% if proposal.category %>
+              <ul class="tags tags--proposal">
+                <li><a href=""><%= translated_attribute(proposal.category.name) %></a></li>
+              </ul>
+            <% end %>
           </div>
           <div class="card__footer">
             <div class="card__support">

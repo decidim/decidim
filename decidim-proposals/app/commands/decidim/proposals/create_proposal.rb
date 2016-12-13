@@ -7,10 +7,8 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # feature - The feature where the proposal belongs to.
-      def initialize(form, feature)
+      def initialize(form)
         @form = form
-        @feature = feature
       end
 
       # Executes the command. Broadcasts these events:
@@ -28,7 +26,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :proposal, :feature
+      attr_reader :form, :proposal
 
       def create_proposal
         @proposal = Proposal.create!(
@@ -37,7 +35,7 @@ module Decidim
           category: form.category,
           scope: form.scope,
           author: form.author,
-          feature: feature
+          feature: form.feature
         )
       end
     end

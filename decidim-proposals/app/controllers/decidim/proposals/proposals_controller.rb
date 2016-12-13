@@ -1,14 +1,13 @@
 # frozen_string_literal: true
-require_dependency "application_controller"
 
 module Decidim
   module Proposals
     # Exposes the proposal resource so users can view and create them.
     class ProposalsController < Decidim::Proposals::ApplicationController
-      helper_method :scopes, :categories, :disabled_categories
+      helper_method :scopes, :categories
 
       def new
-        @form = ProposalForm.from_params({}, author: current_user)
+        @form = ProposalForm.from_params({}, author: current_user, feature: current_feature)
       end
 
       def index
@@ -16,9 +15,9 @@ module Decidim
       end
 
       def create
-        @form = ProposalForm.from_params(params, author: current_user)
+        @form = ProposalForm.from_params(params, author: current_user, feature: current_feature)
 
-        CreateProposal.call(@form, current_feature) do
+        CreateProposal.call(@form) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
             redirect_to proposal_path(proposal)
@@ -42,25 +41,7 @@ module Decidim
       end
 
       def categories
-        current_feature.categories.first_class.map do |category|
-          parent = {category.name[I18n.locale.to_s] => category.id}
-
-          subcategories = category.subcategories.map do |subcategory|
-            {"- #{subcategory.name[I18n.locale.to_s]}" => subcategory.id}
-          end
-
-          if subcategories.any?
-            subcategories << {"" => ""}
-          end
-
-          [parent , subcategories]
-        end.flatten.map(&:to_a).flatten(1)
-      end
-
-      def disabled_categories
-        @disabled_categories ||= current_feature.categories.first_class.includes(:subcategories).select do |category|
-          category.subcategories.any?
-        end.map(&:id) + [""]
+        current_feature.categories
       end
 
       def collection

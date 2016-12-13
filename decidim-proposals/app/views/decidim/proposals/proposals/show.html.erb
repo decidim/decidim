@@ -3,13 +3,13 @@
   <div class="author-data">
     <div class="author-data__main">
       <div class="author author--inline">
-        <a href="#" class="author__avatar">
-          <img src="/images/demo-avatar.jpg" alt="">
-        </a>
+        <span class="author__avatar">
+          <%= image_tag current_user.avatar.url %>
+        </span>
         <%= l @proposal.created_at, format: :long %>
-        <a href="#" class="author__name">
+        <span class="author__name">
           <%= @proposal.author.name %>
-        </a>
+        </span>
       </div>
     </div>
   </div>
@@ -20,11 +20,11 @@
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <p><%= @proposal.body %></p>
-      <ul class="tags tags--proposal">
-        <li><a href="">transició ecológica</a></li>
-        <li><a href="">mobilitat sostenible</a></li>
-        <li><a href="">barri de Sarrià</a></li>
-      </ul>
+      <% if @proposal.category %>
+        <ul class="tags tags--proposal">
+          <li><a href=""><%= translated_attribute(@proposal.category.name) %></a></li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>
