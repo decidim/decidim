@@ -1,6 +1,9 @@
 ---
 en:
   decidim:
+    features:
+      meetings:
+        name: Meetings
     meetings:
       meetings:
         index:
