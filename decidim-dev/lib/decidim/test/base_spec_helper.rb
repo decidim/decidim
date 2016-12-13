@@ -8,8 +8,13 @@ if ENV["CI"]
   require "simplecov"
   SimpleCov.start do
     filters.clear
+    add_filter "/test/"
+    add_filter "/spec/"
+    add_filter "bundle.js"
+    add_filter "/vendor/"
+
     add_filter do |src|
-      !(src.filename =~ /^#{SimpleCov.root}/) unless src.filename =~ %r{/decidim(-[A-z]+)?/}
+      !(src.filename =~ /^#{ENV["TRAVIS_BUILD_DIR"]}/)
     end
   end
 

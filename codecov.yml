@@ -70,11 +70,13 @@ coverage:
         branches: null
 
   ignore:
-  - "decidim-*/spec"
-  - "spec"
-  - "decidim-*/lib/**/*/test"
-  - "lib/**/*/test"
+  - "decidim-*/spec/*"
+  - "spec/*"
+  - "decidim-*/lib/**/*/test/*"
+  - "lib/**/*/test/*"
   - "bundle.js"
+  - "vendor/*"
+  - "node_modules/*"
 
 comment:
   layout: "header, diff, changes, sunburst, uncovered, tree"
