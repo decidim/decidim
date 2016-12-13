@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require "decidim/features/base_controller"
 
 module Decidim
   module Meetings
