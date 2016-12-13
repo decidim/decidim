@@ -5,6 +5,8 @@ module Decidim
   module Proposals
     # Exposes the proposal resource so users can view and create them.
     class ProposalsController < Decidim::Proposals::ApplicationController
+      helper_method :scopes, :categories, :disabled_categories
+
       def new
         @form = ProposalForm.from_params({}, author: current_user)
       end
@@ -34,6 +36,32 @@ module Decidim
       end
 
       private
+
+      def scopes
+        @scopes ||= current_organization.scopes
+      end
+
+      def categories
+        current_feature.categories.first_class.map do |category|
+          parent = {category.name[I18n.locale.to_s] => category.id}
+
+          subcategories = category.subcategories.map do |subcategory|
+            {"- #{subcategory.name[I18n.locale.to_s]}" => subcategory.id}
+          end
+
+          if subcategories.any?
+            subcategories << {"" => ""}
+          end
+
+          [parent , subcategories]
+        end.flatten.map(&:to_a).flatten(1)
+      end
+
+      def disabled_categories
+        @disabled_categories ||= current_feature.categories.first_class.includes(:subcategories).select do |category|
+          category.subcategories.any?
+        end.map(&:id) + [""]
+      end
 
       def collection
         @collection ||= Proposal.where(feature: current_feature)

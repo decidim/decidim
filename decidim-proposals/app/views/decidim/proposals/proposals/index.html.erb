@@ -1,1 +1,50 @@
-<%= link_to "New proposal", new_proposal_path%>
+<div class="row columns">
+  <div class="title-action">
+    <h2 class="title-action__title section-heading"><%= t(".proposals_count", count: @proposals.length) %></h2>
+    <%= link_to new_proposal_path, class: "title-action__action button small hollow" do %>
+      <%= t(".new_proposal") %>
+      <%= icon "plus" %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="columns mediumlarge-8 large-9">
+    <div class="row small-up-1 medium-up-2 card-grid">
+      <% @proposals.each do |proposal| %>
+      <div class="column">
+        <article class="card card--proposal">
+          <div class="card__content">
+            <div class="card__header">
+              <a href="/proposal-view" class="card__link">
+                <h5 class="card__title"><%= proposal.title %></h5>
+              </a>
+              <div class="card__author author-data author-data--small">
+                <div class="author-data__main">
+                  <div class="author author--inline">
+                    <a href="#" class="author__avatar author__avatar--small">
+                      <img src="/images/demo-avatar.jpg" alt="">
+                    </a>
+                    <a href="#" class="author__name"><%= proposal.author.name %></a>
+                    <%= l proposal.created_at, format: "%d/%m/%Y" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p><%= truncate(proposal.body, length: 100) %></p>
+            <ul class="tags tags--proposal">
+              <li><a href="">transició ecológica</a></li>
+              <li><a href="">mobilitat sostenible</a></li>
+            </ul>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <div class="card__support__data"></div>
+              <%= link_to t(".view_proposal"), proposal, class: "card__button button small secondary" %>
+            </div>
+          </div>
+        </article>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

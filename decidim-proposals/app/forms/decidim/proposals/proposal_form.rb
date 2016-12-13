@@ -7,6 +7,7 @@ module Decidim
       attribute :body, String
       attribute :author, Decidim::User
       attribute :category, Decidim::Category
+      attribute :category_id, Integer
       attribute :scope, Decidim::Scope
 
       validates :title, :body, :author, presence: true

@@ -5,3 +5,9 @@ en:
       proposals:
         new:
           send: "Send"
+          back: "Back"
+          title: "New proposal"
+        index:
+          proposals_count: "%{count} proposals"
+          new_proposal: "New proposal"
+          view_proposal: "View proposal"
