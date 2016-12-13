@@ -71,6 +71,7 @@ FactoryGirl.define do
     organization
     locale                "en"
     tos_agreement         "1"
+    avatar                { test_file("avatar.svg", "image/svg+xml") }
 
     trait :confirmed do
       confirmed_at { Time.current }
