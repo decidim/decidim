@@ -61,7 +61,7 @@ PATH
       foundation_rails_helper (~> 2.0.0)
       jquery-rails (~> 4.0)
       rails (~> 5.0.0, >= 5.0.0.1)
-      react-rails (~> 1.9.0)
+      react-rails (~> 1.10.0)
       sass-rails (~> 5.0.0)
       turbolinks (~> 5.0.0, >= 5.0.0.1)
 
@@ -360,7 +360,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    react-rails (1.9.0)
+    react-rails (1.10.0)
       babel-transpiler (>= 0.7.0)
       coffee-script-source (~> 1.8)
       connection_pool
