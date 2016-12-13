@@ -5,5 +5,4 @@ fragment CommentData on Comment {
   author {
     name
   }
-  canHaveReplies
 }
