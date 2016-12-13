@@ -1,8 +1,12 @@
 fragment Comment on Comment {
-  id
-  body
-  createdAt
-  author {
-    name
+  ...CommentData
+  replies {
+    ...CommentData
+    replies {
+      ...CommentData
+      replies {
+        ...CommentData
+      } 
+    }
   }
 }

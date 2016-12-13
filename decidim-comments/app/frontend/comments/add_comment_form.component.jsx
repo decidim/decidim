@@ -3,7 +3,7 @@ import { Component, PropTypes } from 'react';
 import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
 import { I18n }                 from 'react-i18nify';
-import uuid                     from 'uuid/v4';
+import uuid                     from 'uuid';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
 
@@ -84,9 +84,11 @@ export class AddCommentForm extends Component {
    */
   _addComment(evt) {
     const { addComment } = this.props;
+
+    evt.preventDefault();
+
     addComment({ body: this.bodyTextArea.value });
     this.bodyTextArea.value = '';
-    evt.preventDefault();
   }
 }
 
@@ -126,13 +128,15 @@ const AddCommentFormWithMutation = graphql(gql`
           author: {
             __typename: 'Author',
             name: ownProps.currentUser.name
-          }
+          },
+          replies: []
         }
       },
       updateQueries: {
         GetComments: (prev, { mutationResult: { data } }) => {
           const comment = data.addComment;
           return {
+            ...prev,
             comments: [
               ...prev.comments,
               comment

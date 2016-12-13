@@ -2,5 +2,8 @@ fragment CommentThread on Comment {
   author {
     name
   }
+  replies {
+    id
+  }
   ...Comment
 }

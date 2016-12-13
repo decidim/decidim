@@ -7,6 +7,7 @@ import moment                   from 'moment';
 import AddCommentForm           from './add_comment_form.component';
 
 import commentFragment          from './comment.fragment.graphql';
+import commentDataFragment      from './comment_data.fragment.graphql';
 
 /**
  * A single comment component with the author info and the comment's body
@@ -21,7 +22,7 @@ class Comment extends Component {
   }
 
   render() {
-    const { comment: { author, body, createdAt } } = this.props;
+    const { comment: { author, body, createdAt }, articleClassName } = this.props;
 
     let authorInitialLetter = " ";
     const formattedCreatedAt = ` ${moment(createdAt, "YYYY-MM-DD HH:mm:ss z").format("LLL")}`;
@@ -31,7 +32,7 @@ class Comment extends Component {
     }
 
     return (
-      <article className="comment">
+      <article className={articleClassName}>
         <div className="comment__header">
           <div className="author-data">
             <div className="author-data__main">
@@ -48,6 +49,7 @@ class Comment extends Component {
         <div className="comment__content">
           <p>{ body }</p>
         </div>
+        {this._renderReplies()}
         <div className="comment__footer">
           {this._renderReplyButton()}
         </div>
@@ -57,10 +59,10 @@ class Comment extends Component {
   }
 
   _renderReplyButton() {
-    const { currentUser } = this.props;
+    const { comment: { replies }, currentUser } = this.props;
     const { showReplyForm } = this.state;
 
-    if (currentUser) {
+    if (currentUser && replies) {
       return (
         <button 
           className="comment__reply muted-link"
@@ -72,7 +74,35 @@ class Comment extends Component {
       );
     }
 
-    return <div>&nbsp</div>;
+    return <div>&nbsp;</div>;
+  }
+
+  _renderReplies() {
+    const { comment: { id, replies }, currentUser, articleClassName } = this.props;
+    let replyArticleClassName = 'comment comment--nested';
+   
+    if (articleClassName === 'comment comment--nested') {
+      replyArticleClassName = `${replyArticleClassName} comment--nested--alt`;
+    }
+
+    if (replies) {
+      return (
+        <div>
+          {
+            replies.map((reply) => (
+              <Comment
+                key={`comment_${id}_reply_${reply.id}`}
+                comment={reply}
+                currentUser={currentUser}
+                articleClassName={replyArticleClassName}
+              />
+            ))
+          }
+        </div>
+      );
+    }
+    
+    return null;
   }
 
   _renderReplyForm() {
@@ -98,14 +128,26 @@ class Comment extends Component {
 Comment.fragments = {
   comment: gql`
     ${commentFragment}
+    ${commentDataFragment}
+  `,
+  commentData: gql`
+    ${commentDataFragment}
   `
 };
 
+Comment.defaultProps = {
+  articleClassName: 'comment'
+};
+
 Comment.propTypes = {
-  comment: propType(Comment.fragments.comment).isRequired,
+  comment: PropTypes.oneOfType([
+    propType(Comment.fragments.comment).isRequired,
+    propType(Comment.fragments.commentData).isRequired
+  ]),
   currentUser: PropTypes.shape({
     name: PropTypes.string.isRequired
-  })
+  }),
+  articleClassName: PropTypes.string.isRequired
 };
 
 export default Comment;

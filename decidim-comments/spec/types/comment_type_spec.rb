@@ -17,6 +17,22 @@ module Decidim
         end
       end
 
+      # describe "canHaveReplies" do
+      #   let (:query) { "{ canHaveReplies }" }
+        
+      #   context "when comment depth is below or equal to MAX_REPLY_DEPTH" do
+      #     it "should return true" do
+      #       expect(response).to include("canHaveReplies" => true)
+      #     end
+      #   end
+
+      #   context "when comment depth is greater than MAX_REPLY_DEPTH" do
+      #     it "should return false" do
+      #       expect(response).to include("canHaveReplies" => true)
+      #     end
+      #   end
+      # end
+
       describe "replies" do
         let!(:random_comment) { FactoryGirl.create(:comment) }
         let!(:replies) { 3.times.map { FactoryGirl.create(:comment, commentable: model) } }

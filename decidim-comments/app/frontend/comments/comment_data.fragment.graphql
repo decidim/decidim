@@ -1,0 +1,9 @@
+fragment CommentData on Comment {
+  id
+  body
+  createdAt
+  author {
+    name
+  }
+  canHaveReplies
+}

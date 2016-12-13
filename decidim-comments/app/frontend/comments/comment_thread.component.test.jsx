@@ -39,9 +39,22 @@ describe('<CommentThread />', () => {
     comment = filter(fragment, commentsData[0]);
   });
 
-  it("should render a h6 comment-thread__title with author name", () => {
-    const wrapper = shallow(<CommentThread comment={comment} currentUser={currentUser} />);
-    expect(wrapper.find('h6.comment-thread__title')).to.have.text(`Conversation with ${comment.author.name}`);
+  describe("when comment doesn't have replies", () => {
+    it("should not render a title with author name", () => {
+      const wrapper = shallow(<CommentThread comment={comment} currentUser={currentUser} />);
+      expect(wrapper.find('h6.comment-thread__title')).not.to.present();
+    });
+  });
+
+  describe("when comment does have replies", () => {
+    beforeEach(() => {
+      comment.replies = generateCommentsData(3);  
+    });
+
+    it("should render a h6 comment-thread__title with author name", () => {
+      const wrapper = shallow(<CommentThread comment={comment} currentUser={currentUser} />);
+      expect(wrapper.find('h6.comment-thread__title')).to.have.text(`Conversation with ${comment.author.name}`);
+    });
   });
 
   describe("should render a Comment", () => {

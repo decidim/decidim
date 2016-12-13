@@ -14,18 +14,34 @@ import commentThreadFragment    from './comment_thread.fragment.graphql'
 class CommentThread extends Component {
   render() {
     const { comment, currentUser } = this.props;
-    const { author } = comment;
 
     return (
       <div>
-        <h6 className="comment-thread__title">
-          { I18n.t("components.comment_thread.title", { authorName: author.name }) }
-        </h6>
+        {this._renderTitle()}
         <div className="comment-thread">
           <Comment comment={filter(Comment.fragments.comment, comment)} currentUser={currentUser} />
         </div>
       </div>
     );
+  }
+
+  /**
+   * Render conversation title if comment has replies
+   * @private
+   * @returns {Void|DOMElement} - The conversation's title
+   */
+  _renderTitle() {
+    const { comment: { author, replies } } = this.props;
+    
+    if (replies.length > 0) {
+      return (
+        <h6 className="comment-thread__title">
+          { I18n.t("components.comment_thread.title", { authorName: author.name }) }
+        </h6>
+      );
+    }
+
+    return null;
   }
 }
 

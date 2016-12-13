@@ -38,7 +38,7 @@ describe("<AddCommentForm />", () => {
   });
 
   it("should not render the title if prop showTitle is false", () => {
-    const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} showTitle={false} />);
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} showTitle={false} />);
     expect(wrapper.find('h5.section-heading')).not.to.be.present();
   });
 
@@ -48,7 +48,7 @@ describe("<AddCommentForm />", () => {
   });
 
   it("should use prop submitButtonClassName as a className prop for submit button", () => {
-    const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} submitButtonClassName="button small hollow" />);
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} submitButtonClassName="button small hollow" />);
     expect(wrapper.find('input[type="submit"]')).to.have.className('button');
     expect(wrapper.find('input[type="submit"]')).to.have.className('small');
     expect(wrapper.find('input[type="submit"]')).to.have.className('hollow');

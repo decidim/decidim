@@ -5,6 +5,9 @@ mutation addComment($commentableId: String!, $commentableType: String!, $body: S
     createdAt,
     author {
       name
+    },
+    replies {
+      id
     }
   }
 }

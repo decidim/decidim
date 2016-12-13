@@ -15,7 +15,8 @@ const generateCommentsData = (num = 1) => {
       createdAt: date.past().toString(),
       author: {
         name: name.findName()
-      }
+      },
+      replies: []
     })
   }
 
