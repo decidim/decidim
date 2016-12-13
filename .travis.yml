@@ -24,7 +24,7 @@ before_install:
 cache:
   bundler: true
   directories:
-  - $HOME/.yarn-cache
+    - $HOME/.yarn-cache
 
 script:
   - yarn run eslint $GEM/app/**/*.js.es6 $GEM/app/**/*.js
