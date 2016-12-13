@@ -4,7 +4,7 @@
     <div class="author-data__main">
       <div class="author author--inline">
         <span class="author__avatar">
-          <%= image_tag current_user.avatar.url %>
+          <%= image_tag @proposal.author.avatar.url %>
         </span>
         <%= l @proposal.created_at, format: :long %>
         <span class="author__name">
