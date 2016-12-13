@@ -1,5 +1,13 @@
 ---
 en:
+  decidim:
+    meetings:
+      meetings:
+        index:
+          title: Meetings
+        show:
+          by: by
+          meeting_description: Meeting description
   features:
     meeting_list:
       name: Meeting list

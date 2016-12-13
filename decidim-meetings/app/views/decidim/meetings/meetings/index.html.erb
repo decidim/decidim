@@ -4,10 +4,6 @@
   <% meetings.each do |meeting| %>
     <div class="column">
       <article class="card card--meeting">
-        <span class="card__type">
-          <%= icon "meetings" %>
-          <%= translated_attribute current_feature.name %>
-        </span>
         <div class="card__content">
           <%= link_to meeting, class: "card__link" do %>
             <h5 class="card__title"><%= translated_attribute meeting.title %></h5>
