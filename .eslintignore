@@ -6,6 +6,8 @@ vendor/bundle/**
 bundle.js
 karma.conf.js
 webpack.config.js
+webpack.config.babel.js
 entry.test.js
 entry.js
 *_manifest.js
+coverage
