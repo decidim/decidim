@@ -4,24 +4,44 @@ require "spec_helper"
 module Decidim
   describe User, :db do
     let(:user) { build(:user) }
+    subject { user}
 
-    it "is valid" do
-      expect(user).to be_valid
-    end
+    it { is_expected.to be_valid }
 
     context "with roles" do
       let(:user) { build(:user, :admin) }
 
-      it "is still valid" do
-        expect(user).to be_valid
-      end
+      it { is_expected.to be_valid }
 
       context "with an invalid role" do
         let(:user) { build(:user, roles: ["foo"]) }
 
-        it "is not valid" do
-          expect(user).to_not be_valid
+        it { is_expected.to_not be_valid }
+      end
+    end
+
+    describe "validations" do
+      before do
+        Decidim::AvatarUploader.enable_processing = true
+      end
+
+      context "when the file is too big" do
+        before do
+          expect(subject.avatar).to receive(:size).and_return(11.megabytes)
         end
+
+        it { is_expected.to_not be_valid }
+      end
+
+      context "when the file is a malicious image" do
+        let(:user) do
+          build(
+            :user,
+            avatar: Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "..", "..", "decidim-dev", "spec", "support", "malicious.jpg"), "image/jpg")
+          )
+        end
+
+        it { is_expected.to_not be_valid }
       end
     end
 
@@ -34,9 +54,7 @@ module Decidim
           create(:user, email: email)
         end
 
-        it "is valid" do
-          expect(user).to be_valid
-        end
+        it { is_expected.to be_valid }
       end
     end
 
