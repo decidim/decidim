@@ -8,5 +8,6 @@ module Decidim
   # eye view of the whole admin.
   #
   module Admin
+    autoload :Features, "decidim/admin/features"
   end
 end

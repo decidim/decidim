@@ -9,6 +9,7 @@ module Decidim
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :DeviseFailureApp, "decidim/devise_failure_app"
   autoload :FeatureManifest, "decidim/feature_manifest"
+  autoload :Features, "decidim/features"
 
   include ActiveSupport::Configurable
 
