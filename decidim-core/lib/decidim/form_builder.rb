@@ -76,7 +76,36 @@ module Decidim
       end
     end
 
+    def categories_select(name, collection)
+      selected = object.send(name)
+      categories = [["Select something"]] + categories_for_select(collection)
+      disabled = disabled_categories_for(collection)
+      select(name, @template.options_for_select(categories, selected: selected, disabled: disabled))
+    end
+
     private
+
+    def categories_for_select(scope)
+      scope.first_class.includes(:subcategories).sort_by do |category|
+        category.name[I18n.locale.to_s]
+      end.flat_map do |category|
+        parent = [[category.name[I18n.locale.to_s], category.id]]
+
+        category.subcategories.sort_by do |subcategory|
+          subcategory.name[I18n.locale.to_s]
+        end.each do |subcategory|
+          parent << ["- #{subcategory.name[I18n.locale.to_s]}", subcategory.id]
+        end
+
+        parent
+      end
+    end
+
+    def disabled_categories_for(scope)
+      scope.first_class.includes(:subcategories).select do |category|
+        category.subcategories.any?
+      end.map(&:id)
+    end
 
     def tab_element_class_for(type, index)
       element_class = "tabs-#{type}"
