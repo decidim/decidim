@@ -7,8 +7,8 @@
           <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
             <li><%= link_to t(locale, scope: "locales"), decidim.locale_path(locale: locale), method: :post%></li>
           <% end %>
-      <% end %>
         </ul>
+      <% end %>
     </li>
   </ul>
 </div>
