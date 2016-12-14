@@ -4,7 +4,7 @@
       <div class="columns small-centered large-10">
         <h1 class="text-highlight heading1 hero-heading">
           <% if current_organization.welcome_text.present? %>
-            <%== translated_attribute current_organization.welcome_text %>
+            <%= translated_attribute current_organization.welcome_text %>
           <% else %>
             <%= t('.welcome', organization: current_organization.name) %>
           <% end %>
