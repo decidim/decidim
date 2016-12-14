@@ -1,4 +1,8 @@
 es:
+  activerecord:
+    errors:
+      messages:
+        cannot_have_replies: "no puede tener respuestas"
   decidim:
     components:
       add_comment_form:

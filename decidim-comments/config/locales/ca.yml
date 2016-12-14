@@ -1,4 +1,8 @@
 ca:
+  activerecord:
+    errors:
+      messages:
+        cannot_have_replies: "no pot tenir respostes"
   decidim:
     components:
       add_comment_form:
