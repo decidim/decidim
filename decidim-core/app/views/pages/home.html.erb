@@ -19,7 +19,7 @@
   </div>
 </section>
 
-<% if current_organization.description.present? %>
+<% if !translated_attribute(current_organization.description).blank? %>
   <section class="extended subhero home-section">
     <div class="row">
       <div class="columns small-centered large-10">
