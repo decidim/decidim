@@ -46,7 +46,7 @@ module Decidim
       #
       # Returns an Array of Strings.
       def available_locales
-        @available_locales ||= I18n.available_locales.map(&:to_s)
+        @available_locales ||= current_organization.available_locales.map(&:to_s)
       end
     end
   end

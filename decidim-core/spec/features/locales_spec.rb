@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Locales", type: :feature do
   context "switching locales" do
-    let(:organization) { create(:organization) }
+    let(:organization) { create(:organization, available_locales: %w{en ca}) }
 
     before do
       switch_to_host(organization.host)
@@ -17,6 +17,14 @@ describe "Locales", type: :feature do
       end
 
       expect(page).to have_content("Inici")
+    end
+
+    it "only shows the available locales" do
+      within_language_menu do
+        expect(page).to have_content("Català")
+        expect(page).to have_content("English")
+        expect(page).to have_no_content("Español")
+      end
     end
 
     it "keeps the locale between pages" do
