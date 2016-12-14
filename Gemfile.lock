@@ -119,6 +119,7 @@ PATH
   remote: decidim-pages
   specs:
     decidim-pages (0.0.1.alpha9)
+      decidim-comments (= 0.0.1.alpha9)
       decidim-core (= 0.0.1.alpha9)
       rectify (~> 0.8.0)
 
