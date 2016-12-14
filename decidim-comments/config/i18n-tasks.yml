@@ -92,6 +92,7 @@ ignore_missing:
 
 ## Consider these keys used:
 ignore_unused:
+- 'activerecord.errors.messages.*'
 - 'decidim.components.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
