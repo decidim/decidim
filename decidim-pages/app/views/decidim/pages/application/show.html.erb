@@ -2,6 +2,8 @@
 
 <%== translated_attribute @page.body %>
 
-<% if @page.commentable? %>
-  <%= comments_for @page %>
+<%= content_for :expanded do %>
+  <% if @page.commentable? %>
+    <%= comments_for @page %>
+  <% end %>
 <% end %>
