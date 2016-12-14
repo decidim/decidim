@@ -10,6 +10,7 @@ en:
           components:
             body: Body
             title: Title
+            commentable: Commentable
         pages:
           edit:
             save: Save page

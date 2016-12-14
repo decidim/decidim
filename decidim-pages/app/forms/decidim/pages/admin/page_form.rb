@@ -8,6 +8,7 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :body, String
+        attribute :commentable, Boolean
 
         validates :title, translatable_presence: true
       end
