@@ -12,6 +12,8 @@ import commentDataFragment      from './comment_data.fragment.graphql';
 
 /**
  * A single comment component with the author info and the comment's body
+ * @class
+ * @augments Component
  */
 class Comment extends Component {
   constructor(props) {
@@ -59,6 +61,11 @@ class Comment extends Component {
     );
   }
 
+  /**
+   * Render reply button if user can reply the comment
+   * @private
+   * @returns {Void|DOMElement} - Render the reply button or not if user can reply
+   */
   _renderReplyButton() {
     const { comment: { canHaveReplies }, currentUser } = this.props;
     const { showReplyForm } = this.state;
@@ -78,6 +85,11 @@ class Comment extends Component {
     return <div>&nbsp;</div>;
   }
 
+  /**
+   * Render comment replies alternating the css class
+   * @private
+   * @returns {Void|DomElement} - A wrapper element with comment replies inside
+   */
   _renderReplies() {
     const { comment: { id, replies }, currentUser, articleClassName } = this.props;
     let replyArticleClassName = 'comment comment--nested';
@@ -106,6 +118,11 @@ class Comment extends Component {
     return null;
   }
 
+  /**
+   * Render reply form based on the current component state
+   * @private
+   * @returns {Void|ReactElement} - Render the AddCommentForm component or not
+   */
   _renderReplyForm() {
     const { currentUser, comment } = this.props;
     const { showReplyForm } = this.state;

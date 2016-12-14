@@ -5,6 +5,8 @@ import Comment       from './comment.component';
 
 /**
  * A wrapper component for a highlighted component.
+ * @class
+ * @augments Component
  * @todo It's not used right now
  */
 export default class FeaturedComment extends Component {

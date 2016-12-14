@@ -15,6 +15,8 @@ import commentsQuery            from './comments.query.graphql';
  * The core class of the Decidim Comments engine.
  * It renders a collection of comments given a commentable id and type.
  * @global
+ * @class
+ * @augments Component
  */
 export class Comments extends Component {
   render() {

@@ -3,6 +3,8 @@ import { I18n }      from 'react-i18nify';
 
 /**
  * A simple static component with the comment's order selector markup
+ * @class
+ * @augments Component
  * @todo Needs a proper implementation
  */
 export default class CommentOrderSelector extends Component {

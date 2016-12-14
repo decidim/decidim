@@ -7,9 +7,12 @@ import uuid                     from 'uuid';
 import moment                   from 'moment';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
+import commentDataFragment      from './comment_data.fragment.graphql';
 
 /**
  * Renders a form to create new comments.
+ * @class
+ * @augments Component
  */
 export class AddCommentForm extends Component {
   constructor(props) {
@@ -116,6 +119,7 @@ AddCommentForm.propTypes = {
 
 const AddCommentFormWithMutation = graphql(gql`
   ${addCommentMutation}
+  ${commentDataFragment}
 `, {
   props: ({ ownProps, mutate }) => ({
     addComment: ({ body }) => mutate({ 

@@ -3,7 +3,6 @@
 module Decidim
   # Main module to add application-wide helpers.
   module ApplicationHelper
-    include Decidim::Comments::CommentsHelper
     # Truncates a given text respecting its HTML tags.
     #
     # text    - The String text to be truncated.
