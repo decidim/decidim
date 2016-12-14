@@ -9,7 +9,7 @@ module Decidim
 
     included do
       before_action :set_locale
-      helper_method :current_locale, :available_locales
+      helper_method :current_locale, :available_locales, :default_locale
 
       # Sets the locale for the current session.
       #
@@ -49,6 +49,9 @@ module Decidim
         @available_locales ||= current_organization.available_locales.map(&:to_s)
       end
 
+      # The default locale of this organization.
+      #
+      # Returns a String with the default locale.
       def default_locale
         @default_locale ||= current_organization.default_locale
       end
