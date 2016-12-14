@@ -23,7 +23,7 @@ Decidim::Admin::Engine.routes.draw do
         next unless manifest.admin_engine
 
         constraints Decidim::CurrentFeature.new(manifest) do
-          mount manifest.admin_engine, at: "/"
+          mount manifest.admin_engine, at: "/", as: "decidim_admin_#{manifest.name}"
         end
       end
 

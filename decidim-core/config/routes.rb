@@ -22,7 +22,7 @@ Decidim::Core::Engine.routes.draw do
       next unless manifest.engine
 
       constraints Decidim::CurrentFeature.new(manifest) do
-        mount manifest.engine, at: "/"
+        mount manifest.engine, at: "/", as: "decidim_#{manifest.name}"
       end
     end
 
