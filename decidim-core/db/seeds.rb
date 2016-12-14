@@ -5,9 +5,7 @@ if !Rails.env.production? || ENV["SEED"]
   staging_organization = Decidim::Organization.create!(
     name: Faker::Company.name,
     host: ENV["DECIDIM_HOST"] || "localhost",
-    welcome_text: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-      Decidim::Faker::Localized.sentence(5)
-    end,
+    welcome_text: Decidim::Faker::Localized.sentence(5),
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(15)
     end,
