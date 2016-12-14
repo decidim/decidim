@@ -16,7 +16,7 @@ describe "Locales", type: :feature do
         click_link "Català"
       end
 
-      expect(page).to have_content("Benvingut/da a #{organization.name}")
+      expect(page).to have_content("Inici")
     end
 
     it "keeps the locale between pages" do
@@ -26,7 +26,7 @@ describe "Locales", type: :feature do
 
       click_link "Inici"
 
-      expect(page).to have_content("Benvingut/da a #{organization.name}")
+      expect(page).to have_content("Inici")
     end
 
     context "with a signed in user" do
@@ -38,7 +38,7 @@ describe "Locales", type: :feature do
       end
 
       it "uses the user's locale" do
-        expect(page).to have_content("Benvingut/da a #{organization.name}")
+        expect(page).to have_content("Inici")
       end
     end
   end

@@ -3,7 +3,11 @@
     <div class="row">
       <div class="columns small-centered large-10">
         <h1 class="text-highlight heading1 hero-heading">
-          <%= t('.welcome', organization: current_organization.name) %>
+          <% if current_organization.welcome_text.present? %>
+            <%== translated_attribute current_organization.welcome_text %>
+          <% else %>
+            <%= t('.welcome', organization: current_organization.name) %>
+          <% end %>
         </h1>
       </div>
     </div>
@@ -14,17 +18,21 @@
     </div>
   </div>
 </section>
-<section class="extended subhero home-section">
-  <div class="row">
-    <div class="columns small-centered large-10">
-      <h2 class="heading3"><%== translated_attribute current_organization.welcome_text %></h2>
-      <%= link_to new_user_registration_path, class: "button--sc link subhero-cta" do %>
-        <%= t(".register") %>
-        <%= icon "chevron-right", aria_hidden: true %>
-      <% end %>
+
+<% if current_organization.description.present? %>
+  <section class="extended subhero home-section">
+    <div class="row">
+      <div class="columns small-centered large-10">
+        <h2 class="heading3"><%== translated_attribute current_organization.description %></h2>
+        <%= link_to new_user_registration_path, class: "button--sc link subhero-cta" do %>
+          <%= t(".register") %>
+          <%= icon "chevron-right", aria_hidden: true %>
+        <% end %>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+<% end %>
+
 <section class="wrapper-home">
   <div class="row">
     <h3 class="section-heading"><%= t(".highlighted_processes") %></h3>

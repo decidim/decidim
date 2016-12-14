@@ -6,7 +6,10 @@ if !Rails.env.production? || ENV["SEED"]
     name: Faker::Company.name,
     host: ENV["DECIDIM_HOST"] || "localhost",
     welcome_text: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(5)
+    end,
+    description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+      Decidim::Faker::Localized.sentence(15)
     end,
     homepage_image: File.new(File.join(File.dirname(__FILE__), "seeds", "homepage_image.jpg")),
     default_locale: I18n.default_locale,
