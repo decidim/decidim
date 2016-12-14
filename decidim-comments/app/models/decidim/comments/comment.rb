@@ -19,6 +19,7 @@ module Decidim
 
       validates :author, :commentable, :body, presence: true
       validate :commentable_can_have_replies
+      validates :depth, numericality: { greater_than_or_equal_to: 0 }
 
       before_save :compute_depth
 
