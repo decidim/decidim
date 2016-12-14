@@ -11,7 +11,7 @@ module Decidim
         helper_method :current_feature, :current_participatory_process, :parent_path
 
         before_action do
-          authorize! :manage, current_participatory_process
+          authorize! :manage, current_feature
         end
 
         private

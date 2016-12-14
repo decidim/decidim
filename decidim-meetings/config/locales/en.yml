@@ -5,12 +5,44 @@ en:
       meetings:
         name: Meetings
     meetings:
+      actions:
+        confirm_destroy: Are you sure you want to delete this meeting?
+        destroy: Delete
+        edit: Edit
+        title: Actions
+      admin:
+        meetings:
+          create:
+            invalid: "There's been a problem updating this meeting"
+            success: Meeting successfully created
+          destroy:
+            success: Meeting successfully deleted
+          edit:
+            title: Edit meeting
+            update: Update meeting
+          index:
+            title: Meetings
+          new:
+            create: Create meeting
+            title: New meeting
+          update:
+            invalid: "There's been a problem updating this meeting"
+            success: Meeting successfully updated
+        models:
+          meeting:
+            name: Meeting
       meetings:
         index:
           title: Meetings
         show:
           by: by
           meeting_description: Meeting description
+      models:
+        meeting:
+          fields:
+            end_date: End date
+            start_date: Start date
+            title: Title
   features:
     meeting_list:
       name: Meeting list

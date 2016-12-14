@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 Decidim.register_feature(:meetings) do |feature|
   feature.engine = Decidim::Meetings::ListEngine
+  feature.admin_engine = Decidim::Meetings::AdminEngine
 
   feature.on(:create) do |instance|
     Decidim::Meetings::CreateMeeting.call(instance) do
