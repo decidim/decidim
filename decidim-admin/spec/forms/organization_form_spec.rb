@@ -55,16 +55,6 @@ module Decidim
 
         it { is_expected.to be_invalid }
       end
-
-      context "when some language in description is missing" do
-        let(:description) do
-          {
-            ca: "Descripció"
-          }
-        end
-
-        it { is_expected.to be_invalid }
-      end
     end
   end
 end
