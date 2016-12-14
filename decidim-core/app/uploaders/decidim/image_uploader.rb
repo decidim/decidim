@@ -20,20 +20,27 @@ module Decidim
     # See https://hackerone.com/reports/390
     def validate_dimensions
       manipulate! do |image|
-        raise CarrierWave::IntegrityError, I18n.t("carrierwave.errors.image_too_big") if image.dimensions.any? { |dimension| dimension > max_image_height_or_width }
+        validation_error!(I18n.t("carrierwave.errors.image_too_big")) if image.dimensions.any? { |dimension| dimension > max_image_height_or_width }
         image
       end
     end
 
     def validate_size
       manipulate! do |image|
-        raise CarrierWave::IntegrityError, I18n.t("carrierwave.errors.image_too_big") if image.size > 10.megabytes
+        validation_error!(I18n.t("carrierwave.errors.image_too_big")) if image.size > 10.megabytes
         image
       end
     end
 
     def max_image_height_or_width
       8000
+    end
+
+    private
+
+    def validation_error!(text)
+      model.errors.add(mounted_as, text)
+      raise CarrierWave::IntegrityError, text
     end
   end
 end

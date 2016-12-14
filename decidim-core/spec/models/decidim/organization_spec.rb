@@ -25,14 +25,6 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
-      context "when the homepage image is too big" do
-        before do
-          expect(subject.homepage_image).to receive(:size).and_return(11.megabytes)
-        end
-
-        it { is_expected.to_not be_valid }
-      end
-
       context "when the homepage image is a malicious image" do
         subject do
           build(
