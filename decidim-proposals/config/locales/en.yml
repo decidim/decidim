@@ -2,12 +2,15 @@
 en:
   decidim:
     proposals:
+      create:
+        error: "There's been errors when saving the proposal."
+        success: "Proposal created successfully."
       proposals:
-        new:
-          send: "Send"
-          back: "Back"
-          title: "New proposal"
         index:
+          new_proposal: New proposal
           proposals_count: "%{count} proposals"
-          new_proposal: "New proposal"
-          view_proposal: "View proposal"
+          view_proposal: View proposal
+        new:
+          back: Back
+          send: Send
+          title: New proposal

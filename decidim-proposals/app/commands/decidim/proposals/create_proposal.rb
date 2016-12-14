@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   module Proposals
-    # A command with all the business logic when creating a new participatory
-    # process in the system.
+    # A command with all the business logic when a user creates a new proposal.
     class CreateProposal < Rectify::Command
       # Public: Initializes the command.
       #
@@ -13,7 +12,7 @@ module Decidim
 
       # Executes the command. Broadcasts these events:
       #
-      # - :ok when everything is valid.
+      # - :ok when everything is valid, together with the proposal.
       # - :invalid if the form wasn't valid and we couldn't proceed.
       #
       # Returns nothing.
