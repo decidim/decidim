@@ -1,0 +1,34 @@
+<div class="column">
+  <article class="card card--proposal">
+    <div class="card__content">
+      <div class="card__header">
+        <%= link_to proposal do%>
+          <h5 class="card__title"><%= proposal.title %></h5>
+        <% end %>
+        <div class="card__author author-data author-data--small">
+          <div class="author-data__main">
+            <div class="author author--inline">
+              <span class="author__avatar author__avatar--small">
+                <%= image_tag proposal.author.avatar.url %>
+              </span>
+              <span class="author__name"><%= proposal.author.name %></span>
+              <%= l proposal.created_at, format: "%d/%m/%Y" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p><%= truncate(proposal.body, length: 100) %></p>
+      <% if proposal.category %>
+        <ul class="tags tags--proposal">
+          <li><a href=""><%= translated_attribute(proposal.category.name) %></a></li>
+        </ul>
+      <% end %>
+    </div>
+    <div class="card__footer">
+      <div class="card__support">
+        <div class="card__support__data"></div>
+        <%= link_to t(".view_proposal"), proposal, class: "card__button button small secondary" %>
+      </div>
+    </div>
+  </article>
+</div>

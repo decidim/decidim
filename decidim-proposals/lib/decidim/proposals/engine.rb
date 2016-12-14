@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require "kaminari"
+
 module Decidim
   module Proposals
     # This is the engine that runs on the public interface of `decidim-proposals`.
