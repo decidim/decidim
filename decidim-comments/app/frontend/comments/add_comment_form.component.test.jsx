@@ -80,20 +80,22 @@ describe("<AddCommentForm />", () => {
   });
 
   describe("submitting the form", () => {
-    let onAddComment = null;
+    let addComment = null;
+    let onCommentAdded = null;
     let wrapper = null;
     let message = null;
 
     beforeEach(() => {
-      onAddComment = sinon.spy();
-      wrapper = mount(<AddCommentForm addComment={onAddComment} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+      addComment = sinon.spy();
+      onCommentAdded = sinon.spy();
+      wrapper = mount(<AddCommentForm addComment={addComment} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} onCommentAdded={onCommentAdded} />);
       message = 'This will be submitted';
       wrapper.instance().bodyTextArea.value = message;
     });
 
     it("should call addComment prop with the textarea value", () => {
       wrapper.find('form').simulate('submit');
-      expect(onAddComment).to.calledWith({ body: message });
+      expect(addComment).to.calledWith({ body: message });
     })
 
     it("should reset textarea", () => {
@@ -105,6 +107,11 @@ describe("<AddCommentForm />", () => {
       const preventDefault = sinon.spy();
       wrapper.find('form').simulate('submit', { preventDefault });
       expect(preventDefault).to.have.been.called;
+    });
+
+    it("should call the prop onCommentAdded function", () => {
+      wrapper.find('form').simulate('submit');
+      expect(onCommentAdded).to.have.been.called;
     });
   });
 });

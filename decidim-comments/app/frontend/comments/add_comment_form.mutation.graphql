@@ -8,6 +8,7 @@ mutation addComment($commentableId: String!, $commentableType: String!, $body: S
     },
     replies {
       id
-    }
+    },
+    canHaveReplies
   }
 }

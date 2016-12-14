@@ -4,6 +4,7 @@ import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
 import { I18n }                 from 'react-i18nify';
 import uuid                     from 'uuid';
+import moment                   from 'moment';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
 
@@ -83,12 +84,16 @@ export class AddCommentForm extends Component {
    * @returns {Void} - Returns nothing
    */
   _addComment(evt) {
-    const { addComment } = this.props;
+    const { addComment, onCommentAdded } = this.props;
 
     evt.preventDefault();
 
     addComment({ body: this.bodyTextArea.value });
     this.bodyTextArea.value = '';
+
+    if (onCommentAdded) {
+      onCommentAdded();
+    }
   }
 }
 
@@ -105,7 +110,8 @@ AddCommentForm.propTypes = {
   commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired,
   showTitle: PropTypes.bool.isRequired,
-  submitButtonClassName: PropTypes.string.isRequired
+  submitButtonClassName: PropTypes.string.isRequired,
+  onCommentAdded: PropTypes.func
 };
 
 const AddCommentFormWithMutation = graphql(gql`
@@ -123,24 +129,52 @@ const AddCommentFormWithMutation = graphql(gql`
         addComment: {
           __typename: 'Comment',
           id: uuid(),
-          createdAt: (new Date()).toString(),
+          createdAt: moment().format("YYYY-MM-DD HH:mm:ss z"),
           body,
           author: {
             __typename: 'Author',
             name: ownProps.currentUser.name
           },
-          replies: []
+          replies: [],
+          canHaveReplies: false
         }
       },
       updateQueries: {
         GetComments: (prev, { mutationResult: { data } }) => {
-          const comment = data.addComment;
+          const { commentableId, commentableType } = ownProps;
+          const newComment = data.addComment;
+          let comments = [];
+
+          const commentReducer = (comment) => {
+            const replies = comment.replies || [];
+
+            if (comment.id === commentableId) {
+              return {
+                ...comment,
+                replies: [
+                  ...replies,
+                  newComment
+                ]
+              };
+            }
+            return {
+              ...comment,
+              replies: replies.map(commentReducer)
+            };
+          };
+
+          if (commentableType === "Decidim::Comments::Comment") {
+            comments = prev.comments.map(commentReducer);
+          } else {
+            comments = [
+              ...prev.comments,
+              newComment
+            ];
+          }
+
           return {
             ...prev,
-            comments: [
-              ...prev.comments,
-              comment
-            ]
+            comments
           };
         }
       }

@@ -16,7 +16,8 @@ const generateCommentsData = (num = 1) => {
       author: {
         name: name.findName()
       },
-      replies: []
+      replies: [],
+      canHaveReplies: true
     })
   }
 

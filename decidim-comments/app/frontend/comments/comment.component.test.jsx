@@ -73,8 +73,8 @@ describe("<Comment />", () => {
     expect(wrapper.find(AddCommentForm)).to.have.prop('submitButtonClassName').equal('button small hollow');
   });
 
-  it("should not render the reply button for a comment where replies is undefined", () => {
-    comment.replies = null;
+  it("should not render the reply button if the comment cannot have replies", () => {
+    comment.canHaveReplies = false;
     const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
     expect(wrapper.find('button.comment__reply')).not.to.be.present();
   });

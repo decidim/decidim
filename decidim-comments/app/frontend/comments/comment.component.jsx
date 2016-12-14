@@ -59,10 +59,10 @@ class Comment extends Component {
   }
 
   _renderReplyButton() {
-    const { comment: { replies }, currentUser } = this.props;
+    const { comment: { canHaveReplies }, currentUser } = this.props;
     const { showReplyForm } = this.state;
 
-    if (currentUser && replies) {
+    if (currentUser && canHaveReplies) {
       return (
         <button 
           className="comment__reply muted-link"
@@ -117,6 +117,7 @@ class Comment extends Component {
           currentUser={currentUser}
           showTitle={false}
           submitButtonClassName="button small hollow"
+          onCommentAdded={() => this.setState({ showReplyForm: false })}
         />
       );
     }
@@ -143,7 +144,7 @@ Comment.propTypes = {
   comment: PropTypes.oneOfType([
     propType(Comment.fragments.comment).isRequired,
     propType(Comment.fragments.commentData).isRequired
-  ]),
+  ]).isRequired,
   currentUser: PropTypes.shape({
     name: PropTypes.string.isRequired
   }),

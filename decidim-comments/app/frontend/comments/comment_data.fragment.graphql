@@ -4,5 +4,6 @@ fragment CommentData on Comment {
   createdAt
   author {
     name
-  }
+  },
+  canHaveReplies
 }
