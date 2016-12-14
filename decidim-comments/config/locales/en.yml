@@ -8,6 +8,8 @@ en:
             placeholder: What do you think about this?
           submit: Send
         title: Leave your comment
+      comment:
+        reply: "Reply"
       comment_order_selector:
         order:
           most_voted: Most voted

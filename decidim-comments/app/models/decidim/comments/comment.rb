@@ -34,16 +34,12 @@ module Decidim
       # Private: Check if commentable can have replies and if not adds
       # a validation error to the model
       def commentable_can_have_replies
-        if commentable.respond_to?(:can_have_replies?) && !commentable.can_have_replies?
-          errors.add(:commentable, "can't have replies")
-        end
+        errors.add(:commentable, "can't have replies") if commentable.respond_to?(:can_have_replies?) && !commentable.can_have_replies?
       end
 
       # Private: Compute comment depth inside the current comment tree
       def compute_depth
-        if commentable.respond_to?(:depth)
-          self.depth = commentable.depth + 1
-        end
+        self.depth = commentable.depth + 1 if commentable.respond_to?(:depth)
       end
     end
   end

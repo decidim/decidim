@@ -8,6 +8,8 @@ ca:
             label: "Comentari"
             placeholder: "Què opines sobre això?"
           submit: "Enviar"
+      comment:
+        reply: "Respondre"
       comment_order_selector:
         title: "Ordenar per:"
         order:

@@ -8,6 +8,8 @@ es:
             label: "Comentario"
             placeholder: "¿Qué opinas sobre esto?"
           submit: "Enviar"
+      comment:
+        reply: "Responder"
       comment_order_selector:
         title: "Ordenar por:"
         order:

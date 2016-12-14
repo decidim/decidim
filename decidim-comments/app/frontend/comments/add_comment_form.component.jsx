@@ -21,17 +21,17 @@ export class AddCommentForm extends Component {
   }
 
   render() {
-    const { submitButtonClassName } = this.props;
+    const { submitButtonClassName, commentableType, commentableId } = this.props;
     const { disabled } = this.state;
     
     return (
       <div className="add-comment">
         {this._renderHeading()}
         <form onSubmit={(evt) => this._addComment(evt)}>
-          <label className="show-for-sr" htmlFor="add-comment">{ I18n.t("components.add_comment_form.form.body.label") }</label>
+          <label className="show-for-sr" htmlFor={`add-comment-${commentableType}-${commentableId}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
           <textarea
             ref={(textarea) => this.bodyTextArea = textarea}
-            id="add-comment"
+            id={`add-comment-${commentableType}-${commentableId}`}
             rows="4"
             placeholder={I18n.t("components.add_comment_form.form.body.placeholder")}
             onChange={(evt) => this._checkCommentBody(evt.target.value)}

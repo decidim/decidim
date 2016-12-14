@@ -3,6 +3,7 @@ import { propType }             from 'graphql-anywhere';
 import gql                      from 'graphql-tag';
 import UserAvatar               from 'react-user-avatar';
 import moment                   from 'moment';
+import { I18n }                 from 'react-i18nify';
 
 import AddCommentForm           from './add_comment_form.component';
 
@@ -22,7 +23,7 @@ class Comment extends Component {
   }
 
   render() {
-    const { comment: { author, body, createdAt }, articleClassName } = this.props;
+    const { comment: { id, author, body, createdAt }, articleClassName } = this.props;
 
     let authorInitialLetter = " ";
     const formattedCreatedAt = ` ${moment(createdAt, "YYYY-MM-DD HH:mm:ss z").format("LLL")}`;
@@ -32,7 +33,7 @@ class Comment extends Component {
     }
 
     return (
-      <article className={articleClassName}>
+      <article id={`comment_${id}`} className={articleClassName}>
         <div className="comment__header">
           <div className="author-data">
             <div className="author-data__main">
@@ -69,7 +70,7 @@ class Comment extends Component {
           aria-controls="comment1-reply"
           onClick={() => this.setState({ showReplyForm: !showReplyForm })}
         >
-          Responder
+          { I18n.t("components.comment.reply") }
         </button>
       );
     }

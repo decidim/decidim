@@ -51,7 +51,7 @@ describe "Comments", type: :feature do
       expect(page).to have_selector(".add-comment form")
 
       within ".add-comment form" do
-        fill_in 'add-comment', with: "This is a new comment"
+        fill_in "add-comment-#{participatory_process.class.name}-#{participatory_process.id}", with: "This is a new comment"
         click_button "Send"
       end
 
@@ -60,6 +60,21 @@ describe "Comments", type: :feature do
           expect(page).to have_content user.name
           expect(page).to have_content "This is a new comment"
         end
+      end
+    end
+
+    it "user can reply a comment" do
+      comment = create(:comment, commentable: participatory_process)
+      visit decidim.dummy_path(participatory_process)
+
+      expect(page).to have_selector(".comment__reply")
+ 
+      within "#comments #comment_#{comment.id}" do
+        click_button "Reply"
+        fill_in "add-comment-#{comment.class.name}-#{comment.id}", with: "This is a reply"
+        click_button "Send"
+
+        expect(page).to have_content "This is a reply"
       end
     end
   end
