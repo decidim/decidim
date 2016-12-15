@@ -19,14 +19,14 @@ module Decidim
       delegate :categories, to: :feature
       delegate :scopes, to: :current_organization
 
-      # Finds the Category set with the category_id.
+      # Finds the Category from the category_id.
       #
       # Returns a Decidim::Category
       def category
         @category ||= feature.categories.where(id: category_id).first
       end
 
-      # Finds the Scope set with the scope_id.
+      # Finds the Scope from the scope_id.
       #
       # Returns a Decidim::Scope
       def scope

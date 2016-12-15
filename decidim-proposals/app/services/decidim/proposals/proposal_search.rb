@@ -4,11 +4,12 @@ module Decidim
     # A service to encapsualte all the logic when searching and filtering
     # proposals in a participatory process.
     class ProposalSearch
-      attr_reader :feature
+      attr_reader :feature, :page, :per_page
 
-      def initialize(feature, page, random_seed)
+      def initialize(feature, page = nil, random_seed = nil, per_page = nil)
         @feature = feature
-        @page = page.to_i
+        @page = (page || 1).to_i
+        @per_page = (per_page || 12).to_i
         @random_seed = random_seed.to_f
       end
 
@@ -19,19 +20,9 @@ module Decidim
         end
       end
 
-      private
-
       def random_seed
-        @random_seed = (rand * 2 - 1) if @random_seed == 0.0
+        @random_seed = (rand * 2 - 1) if @random_seed == 0.0 || @random_seed > 1 || @random_seed < -1
         @random_seed
-      end
-
-      def page
-        @page || 1
-      end
-
-      def per_page
-        12
       end
     end
   end
