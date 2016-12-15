@@ -1,4 +1,4 @@
 base_locale: en
 locales: [en]
 ignore_unused:
-- "features.meeting_list.name"
+- "decidim.features.meetings.name"

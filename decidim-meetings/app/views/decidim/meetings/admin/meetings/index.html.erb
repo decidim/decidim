@@ -1,7 +1,7 @@
 <h2><%= t(".title") %></h2>
 
 <div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.meeting.name", scope: "decidim.meetings.admin")), new_meeting_path, class: 'new' if can? :manage, current_feature %>
+  <%= link_to t("actions.new", scope: "decidim.meetings", name: t("models.meeting.name", scope: "decidim.meetings.admin")), new_meeting_path, class: 'new' if can? :manage, current_feature %>
 </div>
 
 <table class="stack">

@@ -20,6 +20,9 @@ module Decidim
         validates :address, presence: true
         validates :start_date, presence: true, date: { before: :end_date }
         validates :end_date, presence: true, date: { after: :start_date }
+
+        validates :current_user, presence: true
+        validates :current_feature, presence: true
       end
     end
   end

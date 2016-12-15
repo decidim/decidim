@@ -9,6 +9,7 @@ en:
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
         edit: Edit
+        new: "New %{name}"
         title: Actions
       admin:
         meetings:
@@ -43,6 +44,3 @@ en:
             end_date: End date
             start_date: Start date
             title: Title
-  features:
-    meeting_list:
-      name: Meeting list

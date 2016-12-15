@@ -30,8 +30,8 @@ module Decidim
             start_date: @form.start_date,
             address: @form.address,
             location_hints: @form.location_hints,
-            feature: current_feature,
-            author: current_user
+            feature: @form.current_feature,
+            author: @form.current_user
           )
         end
       end
