@@ -2,13 +2,17 @@
 import { Component, PropTypes } from 'react';
 import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
-import { random }               from 'faker/locale/en';
 import { I18n }                 from 'react-i18nify';
+import uuid                     from 'uuid';
+import moment                   from 'moment';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
+import commentDataFragment      from './comment_data.fragment.graphql';
 
 /**
  * Renders a form to create new comments.
+ * @class
+ * @augments Component
  */
 export class AddCommentForm extends Component {
   constructor(props) {
@@ -20,29 +24,49 @@ export class AddCommentForm extends Component {
   }
 
   render() {
+    const { submitButtonClassName, commentableType, commentableId } = this.props;
     const { disabled } = this.state;
     
     return (
       <div className="add-comment">
-        <h5 className="section-heading">{ I18n.t("components.add_comment_form.title") }</h5>
+        {this._renderHeading()}
         <form onSubmit={(evt) => this._addComment(evt)}>
-          <label className="show-for-sr" htmlFor="add-comment">{ I18n.t("components.add_comment_form.form.body.label") }</label>
+          <label className="show-for-sr" htmlFor={`add-comment-${commentableType}-${commentableId}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
           <textarea
             ref={(textarea) => this.bodyTextArea = textarea}
-            id="add-comment"
+            id={`add-comment-${commentableType}-${commentableId}`}
             rows="4"
             placeholder={I18n.t("components.add_comment_form.form.body.placeholder")}
             onChange={(evt) => this._checkCommentBody(evt.target.value)}
           />
           <input 
             type="submit"
-            className="button button--sc"
+            className={submitButtonClassName}
             value={I18n.t("components.add_comment_form.form.submit")}
             disabled={disabled}
           />
         </form>
       </div>
     );
+  }
+
+  /**
+   * Render the form heading based on showTitle prop
+   * @private
+   * @returns {Void|DOMElement} - The heading or an empty element
+   */
+  _renderHeading() {
+    const { showTitle } = this.props;
+
+    if (showTitle) {
+      return (
+        <h5 className="section-heading">
+          { I18n.t("components.add_comment_form.title") }
+        </h5>
+      );
+    }
+
+    return null;
   }
  
   /**
@@ -63,12 +87,23 @@ export class AddCommentForm extends Component {
    * @returns {Void} - Returns nothing
    */
   _addComment(evt) {
-    const { addComment } = this.props;
+    const { addComment, onCommentAdded } = this.props;
+
+    evt.preventDefault();
+
     addComment({ body: this.bodyTextArea.value });
     this.bodyTextArea.value = '';
-    evt.preventDefault();
+
+    if (onCommentAdded) {
+      onCommentAdded();
+    }
   }
 }
+
+AddCommentForm.defaultProps = {
+  showTitle: true,
+  submitButtonClassName: 'button button--sc'
+};
 
 AddCommentForm.propTypes = {
   addComment: PropTypes.func.isRequired,
@@ -76,11 +111,15 @@ AddCommentForm.propTypes = {
     name: PropTypes.string.isRequired
   }).isRequired,
   commentableId: PropTypes.string.isRequired,
-  commentableType: PropTypes.string.isRequired
+  commentableType: PropTypes.string.isRequired,
+  showTitle: PropTypes.bool.isRequired,
+  submitButtonClassName: PropTypes.string.isRequired,
+  onCommentAdded: PropTypes.func
 };
 
 const AddCommentFormWithMutation = graphql(gql`
   ${addCommentMutation}
+  ${commentDataFragment}
 `, {
   props: ({ ownProps, mutate }) => ({
     addComment: ({ body }) => mutate({ 
@@ -93,23 +132,53 @@ const AddCommentFormWithMutation = graphql(gql`
         __typename: 'Mutation',
         addComment: {
           __typename: 'Comment',
-          id: random.uuid(),
-          createdAt: (new Date()).toString(),
+          id: uuid(),
+          createdAt: moment().format("YYYY-MM-DD HH:mm:ss z"),
           body,
           author: {
             __typename: 'Author',
             name: ownProps.currentUser.name
-          }
+          },
+          replies: [],
+          canHaveReplies: false
         }
       },
       updateQueries: {
         GetComments: (prev, { mutationResult: { data } }) => {
-          const comment = data.addComment;
-          return {
-            comments: [
+          const { commentableId, commentableType } = ownProps;
+          const newComment = data.addComment;
+          let comments = [];
+
+          const commentReducer = (comment) => {
+            const replies = comment.replies || [];
+
+            if (comment.id === commentableId) {
+              return {
+                ...comment,
+                replies: [
+                  ...replies,
+                  newComment
+                ]
+              };
+            }
+            return {
+              ...comment,
+              replies: replies.map(commentReducer)
+            };
+          };
+
+          if (commentableType === "Decidim::Comments::Comment") {
+            comments = prev.comments.map(commentReducer);
+          } else {
+            comments = [
               ...prev.comments,
-              comment
-            ]
+              newComment
+            ];
+          }
+
+          return {
+            ...prev,
+            comments
           };
         }
       }

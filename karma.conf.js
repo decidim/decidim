@@ -12,7 +12,7 @@ module.exports = function(config) {
     files: [testGlob, srcGlob],
     exclude: ['decidim-*/app/frontend/entry.js'],
     preprocessors: {
-      [testGlob]: ['webpack'],
+      [testGlob]: ['webpack', 'sourcemap'],
       [srcGlob]: ['webpack']
     },
     webpack: webpackConfig,
@@ -25,6 +25,13 @@ module.exports = function(config) {
         {type: 'text-summary'},
       ],
     },
+    plugins: [
+      'karma-webpack',
+      'karma-jasmine',
+      'karma-sourcemap-loader',
+      'karma-phantomjs-launcher',
+      'karma-coverage'
+    ],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

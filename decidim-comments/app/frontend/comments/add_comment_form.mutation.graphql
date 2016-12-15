@@ -1,10 +1,8 @@
 mutation addComment($commentableId: String!, $commentableType: String!, $body: String!)  {
   addComment(commentableId: $commentableId, commentableType: $commentableType, body: $body) {
-    id,
-    body,
-    createdAt,
-    author {
-      name
+    ...CommentData
+    replies {
+      id
     }
   }
 }

@@ -32,6 +32,28 @@ describe("<AddCommentForm />", () => {
     expect(wrapper).to.have.state('disabled', true);
   });
 
+  it("should have a default prop showTitle as true", () => {
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+    expect(wrapper).to.have.prop('showTitle').equal(true);    
+  });
+
+  it("should not render the title if prop showTitle is false", () => {
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} showTitle={false} />);
+    expect(wrapper.find('h5.section-heading')).not.to.be.present();
+  });
+
+  it("should have a default prop submitButtonClassName as 'button button--sc'", () => {
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+    expect(wrapper).to.have.prop('submitButtonClassName').equal('button button--sc');
+  });
+
+  it("should use prop submitButtonClassName as a className prop for submit button", () => {
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} submitButtonClassName="button small hollow" />);
+    expect(wrapper.find('input[type="submit"]')).to.have.className('button');
+    expect(wrapper.find('input[type="submit"]')).to.have.className('small');
+    expect(wrapper.find('input[type="submit"]')).to.have.className('hollow');
+  });
+
   it("should enable the submit button if textarea is not blank", () => {
     const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
     wrapper.find('textarea').simulate('change', {
@@ -58,20 +80,22 @@ describe("<AddCommentForm />", () => {
   });
 
   describe("submitting the form", () => {
-    let onAddComment = null;
+    let addComment = null;
+    let onCommentAdded = null;
     let wrapper = null;
     let message = null;
 
     beforeEach(() => {
-      onAddComment = sinon.spy();
-      wrapper = mount(<AddCommentForm addComment={onAddComment} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+      addComment = sinon.spy();
+      onCommentAdded = sinon.spy();
+      wrapper = mount(<AddCommentForm addComment={addComment} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} onCommentAdded={onCommentAdded} />);
       message = 'This will be submitted';
       wrapper.instance().bodyTextArea.value = message;
     });
 
     it("should call addComment prop with the textarea value", () => {
       wrapper.find('form').simulate('submit');
-      expect(onAddComment).to.calledWith({ body: message });
+      expect(addComment).to.calledWith({ body: message });
     })
 
     it("should reset textarea", () => {
@@ -83,6 +107,11 @@ describe("<AddCommentForm />", () => {
       const preventDefault = sinon.spy();
       wrapper.find('form').simulate('submit', { preventDefault });
       expect(preventDefault).to.have.been.called;
+    });
+
+    it("should call the prop onCommentAdded function", () => {
+      wrapper.find('form').simulate('submit');
+      expect(onCommentAdded).to.have.been.called;
     });
   });
 });

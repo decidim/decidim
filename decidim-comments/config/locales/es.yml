@@ -1,4 +1,8 @@
 es:
+  activerecord:
+    errors:
+      messages:
+        cannot_have_replies: "no puede tener respuestas"
   decidim:
     components:
       add_comment_form:
@@ -8,6 +12,8 @@ es:
             label: "Comentario"
             placeholder: "¿Qué opinas sobre esto?"
           submit: "Enviar"
+      comment:
+        reply: "Responder"
       comment_order_selector:
         title: "Ordenar por:"
         order:

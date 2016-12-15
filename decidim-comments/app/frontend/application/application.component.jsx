@@ -7,6 +7,8 @@ import apolloClient             from './apollo_client';
 
 /**
  * Wrapper component for all React applications using Apollo
+ * @class
+ * @augments Component
  */
 export default class Application extends Component {
   constructor(props) {
