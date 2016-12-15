@@ -5,7 +5,7 @@ Decidim.register_feature(:pages) do |feature|
 
   feature.on(:create) do |instance|
     Decidim::Pages::CreatePage.call(instance) do
-      on(:error) { raise "Can't create page" }
+      on(:invalid) { raise "Can't create page" }
     end
   end
 
