@@ -17,7 +17,7 @@ module Decidim
       end
 
       def meeting
-        @meeting ||= Meeting.find_by(feature: current_feature)
+        @meeting ||= meetings.find(params[:id])
       end
     end
   end
