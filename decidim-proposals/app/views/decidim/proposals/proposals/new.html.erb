@@ -16,14 +16,14 @@
           <div class="field">
             <%= form.text_area :body, rows: 10 %>
           </div>
-          <% if categories&.any? %>
+          <% if @form.categories&.any? %>
             <div class="field">
-              <%= form.categories_select :category_id, categories %>
+              <%= form.categories_select :category_id, @form.categories, t(".select_a_category") %>
             </div>
           <% end %>
-          <% if scopes&.any? %>
+          <% if @form.scopes&.any? %>
             <div class="field">
-              <%= form.collection_select :scope, scopes, :id, :name, include_blank: true %>
+              <%= form.collection_select :scope, @form.scopes, :id, :name, prompt: t(".select_a_scope")%>
             </div>
           <% end %>
           <div class="actions">

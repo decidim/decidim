@@ -16,6 +16,9 @@ module Decidim
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
 
+      delegate :categories, to: :feature
+      delegate :scopes, to: :current_organization
+
       # Finds the Category set with the category_id.
       #
       # Returns a Decidim::Category

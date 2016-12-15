@@ -76,9 +76,17 @@ module Decidim
       end
     end
 
-    def categories_select(name, collection)
+    # Public: Generates a select field with the categories. Only leaf categories can be set as selected.
+    #
+    # name       - The name of the field (usually category_id)
+    # collection - A collection of categories.
+    # prompt     - An optional String with the text to display as prompt.
+    #
+    # Returns a String.
+    def categories_select(name, collection, prompt = nil)
       selected = object.send(name)
-      categories = [["Select something"]] + categories_for_select(collection)
+      categories = categories_for_select(collection)
+      categories = [[prompt]] + categories if prompt.present?
       disabled = disabled_categories_for(collection)
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled))
     end
@@ -86,14 +94,18 @@ module Decidim
     private
 
     def categories_for_select(scope)
-      scope.first_class.includes(:subcategories).sort_by do |category|
+      sorted_main_categories = scope.first_class.includes(:subcategories).sort_by do |category|
         category.name[I18n.locale.to_s]
-      end.flat_map do |category|
+      end
+
+      sorted_main_categories.flat_map do |category|
         parent = [[category.name[I18n.locale.to_s], category.id]]
 
-        category.subcategories.sort_by do |subcategory|
+        sorted_subcategories = category.subcategories.sort_by do |subcategory|
           subcategory.name[I18n.locale.to_s]
-        end.each do |subcategory|
+        end
+
+        sorted_subcategories.each do |subcategory|
           parent << ["- #{subcategory.name[I18n.locale.to_s]}", subcategory.id]
         end
 
@@ -102,9 +114,7 @@ module Decidim
     end
 
     def disabled_categories_for(scope)
-      scope.first_class.includes(:subcategories).select do |category|
-        category.subcategories.any?
-      end.map(&:id)
+      scope.first_class.joins(:subcategories).pluck(:id)
     end
 
     def tab_element_class_for(type, index)

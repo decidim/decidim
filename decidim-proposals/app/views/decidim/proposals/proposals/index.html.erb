@@ -1,6 +1,6 @@
 <div class="row columns">
   <div class="title-action">
-    <h2 class="title-action__title section-heading"><%= t(".proposals_count", count: proposals.total_count) %></h2>
+    <h2 class="title-action__title section-heading"><%= t(".proposals_count", count: @proposals.total_count) %></h2>
     <%= link_to new_proposal_path, class: "title-action__action button small hollow" do %>
       <%= t(".new_proposal") %>
       <%= icon "plus" %>
@@ -10,8 +10,8 @@
 <div class="row">
   <div class="columns mediumlarge-12 large-12">
     <div class="row small-up-1 medium-up-3 card-grid">
-      <%= render proposals %>
+      <%= render @proposals %>
     </div>
-    <%= paginate proposals, theme: "decidim" %>
+    <%= paginate @proposals, theme: "decidim" %>
   </div>
 </div>
