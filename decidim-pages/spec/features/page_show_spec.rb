@@ -36,12 +36,14 @@ describe "Show a page", type: :feature do
 
   describe "page show with comments" do
     let!(:page_feature) { create(:page, feature: feature, title: title, body: body) }
-    let!(:comments) { 3.times.map { create(:comment, commentable: page_feature) } }
+    let!(:comments) { create_list(:comment, 3, commentable: page_feature) }
 
-    context "if page is commentable" do
-      before do
-        page_feature.update_attribute(:commentable, true)
-      end
+    before do
+      page_feature.update_attribute(:commentable, commentable)
+    end
+
+    context "when the page is commentable" do
+      let(:commentable) { true }
 
       it "renders the comments of the page" do
         visit_feature
@@ -53,10 +55,8 @@ describe "Show a page", type: :feature do
       end
     end
 
-    context "if page is commentable" do
-      before do
-        page_feature.update_attribute(:commentable, false)
-      end
+    context "when the page is not commentable" do
+      let(:commentable) { false }
 
       it "doesn't render the comments of the page" do
         visit_feature
