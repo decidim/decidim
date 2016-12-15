@@ -11,18 +11,18 @@ module Decidim
 
       skip_authorize_resource
 
-      before_filter do
+      before_action do
         authorize! :read, current_participatory_process
       end
 
       private
 
       def current_feature
-        env["decidim.current_feature"]
+        request.env["decidim.current_feature"]
       end
 
       def current_participatory_process
-        env["decidim.current_participatory_process"]
+        request.env["decidim.current_participatory_process"]
       end
     end
   end

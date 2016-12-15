@@ -10,7 +10,7 @@ module Decidim
         include NeedsParticipatoryProcess
         helper_method :current_feature, :current_participatory_process, :parent_path
 
-        before_filter do
+        before_action do
           authorize! :manage, current_participatory_process
         end
 

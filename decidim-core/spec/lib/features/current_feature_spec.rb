@@ -30,7 +30,7 @@ module Decidim
         context "when there's no feature" do
           it "doesn't inject the feature into the environment" do
             subject.matches?(request)
-            expect(env["decidim.current_feature"]).to be_blank
+            expect(request.env["decidim.current_feature"]).to be_blank
           end
         end
 
@@ -43,7 +43,7 @@ module Decidim
 
           it "doesn't inject the feature into the environment" do
             subject.matches?(request)
-            expect(env["decidim.current_feature"]).to be_blank
+            expect(request.env["decidim.current_feature"]).to be_blank
           end
         end
 
@@ -56,12 +56,12 @@ module Decidim
 
           it "injects the feature into the environment" do
             subject.matches?(request)
-            expect(env["decidim.current_feature"]).to eq(feature)
+            expect(request.env["decidim.current_feature"]).to eq(feature)
           end
 
           it "injects the participatory process into the environment" do
             subject.matches?(request)
-            expect(env["decidim.current_participatory_process"]).to eq(current_participatory_process)
+            expect(request.env["decidim.current_participatory_process"]).to eq(current_participatory_process)
           end
         end
       end
@@ -69,12 +69,12 @@ module Decidim
       context "when the params doesn't contain a participatory process id" do
         it "doesn't inject the feature into the environment" do
           subject.matches?(request)
-          expect(env["decidim.current_feature"]).to be_blank
+          expect(request.env["decidim.current_feature"]).to be_blank
         end
 
         it "doesn't inject the participatory process into the environment" do
           subject.matches?(request)
-          expect(env["decidim.current_participatory_profess"]).to be_blank
+          expect(request.env["decidim.current_participatory_profess"]).to be_blank
         end
       end
     end
