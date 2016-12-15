@@ -1,5 +1,5 @@
 # Decidim::Meetings
-The Pages module adds meeting capabilities to any participatory process. It adds a CRUD engine to the admin and public view scoped inside the participatory process.
+The Meeetings module adds meeting to any participatory process. It adds a CRUD engine to the admin and public view scoped inside the participatory process.
 
 ## Usage
 Meetings will be available as a Feature for a Participatory Process.

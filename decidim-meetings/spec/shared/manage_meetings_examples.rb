@@ -87,7 +87,7 @@ RSpec.shared_examples "manage meetings" do
     end
   end
 
-  context "deleting a participatory process" do
+  context "deleting a meeting" do
     let!(:meeting2) { create(:meeting, feature: current_feature) }
 
     before do
