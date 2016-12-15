@@ -9,8 +9,8 @@ en:
         models:
           components:
             body: Body
-            title: Title
             commentable: Commentable
+            title: Title
         pages:
           edit:
             save: Save page
