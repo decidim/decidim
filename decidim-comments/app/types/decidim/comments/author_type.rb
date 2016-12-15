@@ -6,7 +6,10 @@ module Decidim
       name "Author"
       description "An author"
 
-      field :name, !types.String
+      field :name, !types.String, "The user's name"
+      field :avatarUrl, !types.String, "The user's avatar url" do
+        resolve ->(obj, _args, _ctx) { obj.avatar.url }
+      end
     end
   end
 end

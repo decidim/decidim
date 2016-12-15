@@ -1,4 +1,4 @@
-import { random, name, date } from 'faker/locale/en';
+import { random, name, date, image } from 'faker/locale/en';
 
 /** 
  * Generate random comment data to emulate a database real content
@@ -14,7 +14,8 @@ const generateCommentsData = (num = 1) => {
       body: random.words(),
       createdAt: date.past().toString(),
       author: {
-        name: name.findName()
+        name: name.findName(),
+        avatarUrl: image.imageUrl()
       },
       replies: [],
       canHaveReplies: true

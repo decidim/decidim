@@ -38,6 +38,10 @@ module.exports = env => {
           test: /\.(graphql|gql)$/,
           loaders: ['raw-loader']
         },
+        {
+          test: /\.json$/,
+          loaders: ['json-loader']
+        },
         { 
           test: require.resolve("react"),
           loader: "expose-loader?React"
@@ -57,7 +61,6 @@ module.exports = env => {
       })
     ],
     externals: {
-      'cheerio': 'window',
       'react/addons': 'react',
       'react/lib/ExecutionEnvironment': 'react',
       'react/lib/ReactContext': 'react'
