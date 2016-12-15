@@ -1,6 +1,7 @@
 query GetComments($commentableId: String!, $commentableType: String!) {
   currentUser {
     name
+    avatarUrl
   }
   comments(commentableId: $commentableId, commentableType: $commentableType) {
     id
