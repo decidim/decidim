@@ -12,13 +12,14 @@ module Decidim
       attribute :name, String
       attribute :default_locale, String
       attribute :homepage_image
+      attribute :logo
+
       translatable_attribute :description, String
       translatable_attribute :welcome_text, String
 
       validates :name, presence: true
       validates :default_locale, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
-      validates :homepage_image, presence: true, on: :create
 
       private
 

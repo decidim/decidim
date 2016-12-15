@@ -9,9 +9,9 @@ module Decidim
     has_many :scopes, foreign_key: "decidim_organization_id", class_name: Decidim::Scope, inverse_of: :organization
 
     validates :name, :host, uniqueness: true
-    validates :homepage_image, file_size: { less_than_or_equal_to: 10.megabytes }, on: :create
 
     mount_uploader :homepage_image, Decidim::HomepageImageUploader
+    mount_uploader :logo, Decidim::OrganizationLogoUploader
 
     def homepage_big_url
       homepage_image.big.url
