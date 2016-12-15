@@ -3,16 +3,8 @@ Decidim.register_feature(:meetings) do |feature|
   feature.engine = Decidim::Meetings::ListEngine
   feature.admin_engine = Decidim::Meetings::AdminEngine
 
-  feature.on(:create) do |instance|
-    Decidim::Meetings::CreateMeeting.call(instance) do
-      on(:error) { raise "Can't create meeting" }
-    end
-  end
-
   feature.on(:destroy) do |instance|
-    Decidim::Meetings::DestroyMeeting.call(instance) do
-      on(:error) { raise "Can't destroy meeting" }
-    end
+    raise StandardError, "Can't remove this feature" if Decidim::Meetings::Meeting.where(feature: instance).any?
   end
 
   feature.seeds do

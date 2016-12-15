@@ -14,7 +14,11 @@ module Decidim
       #
       # Broadcasts :ok if it got destroyed, raises an exception otherwise.
       def call
-        destroy_feature
+        begin
+          destroy_feature
+        rescue StandardError
+          return broadcast(:invalid)
+        end
         broadcast(:ok)
       end
 
