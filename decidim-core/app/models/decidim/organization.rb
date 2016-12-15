@@ -22,8 +22,8 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def admins
       @admins ||= Decidim::User
-        .where(organization: self)
-        .where("roles @> ?", "{admin}")
+                  .where(organization: self)
+                  .where("roles @> ?", "{admin}")
     end
   end
 end
