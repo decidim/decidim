@@ -56,10 +56,8 @@ describe "Comments", type: :feature do
       end
 
       within "#comments" do
-        comments.each do |comment|
-          expect(page).to have_content user.name
-          expect(page).to have_content "This is a new comment"
-        end
+        expect(page).to have_content user.name
+        expect(page).to have_content "This is a new comment"
       end
     end
 
@@ -75,6 +73,23 @@ describe "Comments", type: :feature do
         click_button "Send"
 
         expect(page).to have_content "This is a reply"
+      end
+    end
+
+    context "when arguable option is enabled" do
+      it "user can comment in favor" do
+        visit decidim.dummy_path(participatory_process, arguable: true)
+        expect(page).to have_selector(".add-comment form")
+
+        within ".add-comment form" do
+          fill_in "add-comment-#{participatory_process.class.name}-#{participatory_process.id}", with: "I am in favor about this!"
+          click_button "I am in favor"
+          click_button "Send"
+        end
+
+        within "#comments" do
+          expect(page).to have_selector 'span.success.label', text: "In favor"
+        end
       end
     end
   end
