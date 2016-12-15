@@ -79,6 +79,11 @@ describe("<AddCommentForm />", () => {
     expect(wrapper.find('input[type="submit"]')).to.be.disabled();
   });
 
+  it("should not render a div with class 'opinion-toggle'", () => {
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+    expect(wrapper.find('.opinion-toggle')).not.to.be.present();
+  });
+
   describe("submitting the form", () => {
     let addComment = null;
     let onCommentAdded = null;
@@ -112,6 +117,32 @@ describe("<AddCommentForm />", () => {
     it("should call the prop onCommentAdded function", () => {
       wrapper.find('form').simulate('submit');
       expect(onCommentAdded).to.have.been.called;
+    });
+  });
+
+  describe("when receiving an optional prop arguable with value true", () => {
+    it("should render a div with class 'opinion-toggle'", () => {
+      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} arguable />);
+      expect(wrapper.find('.opinion-toggle')).to.be.present();
+    });
+
+    it("should initialize state with a property alignment and value 0", () => {
+      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} arguable />);
+      expect(wrapper).to.have.state('alignment').equal(0);
+    });
+
+    it("should set state alignment to 1 if user clicks ok button and change its class", () => {
+      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} arguable />);
+      wrapper.find('.opinion-toggle--ok').simulate('click');
+      expect(wrapper.find('.opinion-toggle--ok')).to.have.className('is-active');
+      expect(wrapper).to.have.state('alignment').equal(1);
+    });
+
+    it("should set state alignment to -11 if user clicks ko button and change its class", () => {
+      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} arguable />);
+      wrapper.find('.opinion-toggle--ko').simulate('click');
+      expect(wrapper.find('.opinion-toggle--ko')).to.have.className('is-active');
+      expect(wrapper).to.have.state('alignment').equal(-1);
     });
   });
 });

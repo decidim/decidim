@@ -5,6 +5,7 @@ import gql                      from 'graphql-tag';
 import { I18n }                 from 'react-i18nify';
 import uuid                     from 'uuid';
 import moment                   from 'moment';
+import classnames               from 'classnames';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
 import commentDataFragment      from './comment_data.fragment.graphql';
@@ -21,6 +22,13 @@ export class AddCommentForm extends Component {
     this.state = {
       disabled: true
     };
+
+    if (props.arguable) {
+      this.state = {
+        ...this.state,
+        alignment: 0
+      };
+    }
   }
 
   render() {
@@ -30,6 +38,7 @@ export class AddCommentForm extends Component {
     return (
       <div className="add-comment">
         {this._renderHeading()}
+        {this._renderOpinionButtons()}
         <form onSubmit={(evt) => this._addComment(evt)}>
           <label className="show-for-sr" htmlFor={`add-comment-${commentableType}-${commentableId}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
           <textarea
@@ -63,6 +72,44 @@ export class AddCommentForm extends Component {
         <h5 className="section-heading">
           { I18n.t("components.add_comment_form.title") }
         </h5>
+      );
+    }
+
+    return null;
+  }
+
+  /**
+   * Render opinion buttons or not based on the arguable prop
+   * @private
+   * @returns {Void|DOMElement} - Returns nothing or a wrapper with buttons
+   */
+  _renderOpinionButtons() {
+    const { arguable } = this.props;
+    const { alignment } = this.state;
+    const buttonClassNames = classnames('button', 'small', 'button--muted');
+    const okButtonClassNames = classnames(buttonClassNames, 'opinion-toggle--ok', {
+      'is-active': alignment === 1
+    });
+    const koButtonClassNames = classnames(buttonClassNames, 'opinion-toggle--ko', {
+      'is-active': alignment === -1
+    });
+
+    if (arguable) {
+      return (
+        <div className="opinion-toggle button-group">
+          <button 
+            className={okButtonClassNames}
+            onClick={() => this.setState({ alignment: 1 })}
+          >
+            Estic a favor
+          </button>
+          <button
+            className={koButtonClassNames}
+            onClick={() => this.setState({ alignment: -1 })}
+          >
+            Estic en contra
+          </button>
+        </div>
       );
     }
 
@@ -114,7 +161,8 @@ AddCommentForm.propTypes = {
   commentableType: PropTypes.string.isRequired,
   showTitle: PropTypes.bool.isRequired,
   submitButtonClassName: PropTypes.string.isRequired,
-  onCommentAdded: PropTypes.func
+  onCommentAdded: PropTypes.func,
+  arguable: PropTypes.bool
 };
 
 const AddCommentFormWithMutation = graphql(gql`
