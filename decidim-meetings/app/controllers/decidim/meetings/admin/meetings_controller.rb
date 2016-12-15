@@ -31,7 +31,7 @@ module Decidim
         end
 
         def update
-          @form = form(MeetingForm).from_params(params)
+          @form = form(MeetingForm).from_params(params, current_feature: current_feature)
 
           UpdateMeeting.call(@form, meeting) do
             on(:ok) do

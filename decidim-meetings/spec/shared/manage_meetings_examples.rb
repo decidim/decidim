@@ -29,10 +29,12 @@ RSpec.shared_examples "manage meetings" do
 
   context "previewing meetings" do
     it "allows the user to preview the meeting" do
-      click_link translated(meeting.title)
+      new_window = window_opened_by { click_link translated(meeting.title) }
 
-      expect(current_path).to eq decidim_meetings.meeting_path(id: meeting.id, participatory_process_id: participatory_process.id, feature_id: feature.id)
-      expect(page).to have_content(translated(meeting.title))
+      within_window new_window do
+        expect(current_path).to eq decidim_meetings.meeting_path(id: meeting.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
+        expect(page).to have_content(translated(meeting.title))
+      end
     end
   end
 
@@ -47,7 +49,7 @@ RSpec.shared_examples "manage meetings" do
         es: "Mi meeting",
         ca: "El meu meeting"
       )
-      fill_in_i18n(
+      fill_in_i18n_editor(
         :meeting_location_hints,
         "#location_hints-tabs",
         en: "Location hints",
@@ -93,7 +95,7 @@ RSpec.shared_examples "manage meetings" do
     end
 
     it "deletes a meeting" do
-      within find(:tr, text: translated(meeting2.title)) do
+      within find("tr", text: translated(meeting2.title)) do
         click_link "Delete"
       end
 
