@@ -42,6 +42,10 @@ module.exports = env => {
           test: /\.json$/,
           loaders: ['json-loader']
         },
+        {
+          test: /\.svg$/,
+          loaders: ['url-loader']
+        },
         { 
           test: require.resolve("react"),
           loader: "expose-loader?React"

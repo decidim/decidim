@@ -9,6 +9,8 @@ import moment                   from 'moment';
 import addCommentMutation       from './add_comment_form.mutation.graphql';
 import commentDataFragment      from './comment_data.fragment.graphql';
 
+const defaultAvatarUrl = require('../../../../decidim-core/app/assets/images/decidim/default-avatar.svg');
+
 /**
  * Renders a form to create new comments.
  * @class
@@ -137,7 +139,8 @@ const AddCommentFormWithMutation = graphql(gql`
           body,
           author: {
             __typename: 'Author',
-            name: ownProps.currentUser.name
+            name: ownProps.currentUser.name,
+            avatarUrl: defaultAvatarUrl
           },
           replies: [],
           canHaveReplies: false
