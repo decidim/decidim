@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+
+require_dependency "decidim/features/namer"
+
 Decidim.register_feature(:meetings) do |feature|
   feature.engine = Decidim::Meetings::ListEngine
   feature.admin_engine = Decidim::Meetings::AdminEngine
@@ -12,7 +15,7 @@ Decidim.register_feature(:meetings) do |feature|
       next unless process.steps.any?
 
       feature = Decidim::Feature.create!(
-        name: Decidim::Faker::Localized.sentence(2),
+        name: Decidim::Features::Namer.new(process.organization, :meetings).i18n_name,
         manifest_name: :meetings,
         participatory_process: process
       )

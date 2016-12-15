@@ -1,5 +1,6 @@
 ---
 ca:
-  features:
-    page:
-      name: Llistat de trobades
+  decidim:
+    features:
+      meetings:
+        name: Llistat de trobades

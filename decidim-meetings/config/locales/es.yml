@@ -1,5 +1,6 @@
 ---
 es:
-  features:
-    page:
-      name: Lista de encuentros
+  decidim:
+    features:
+      meetings:
+        name: Lista de encuentros
