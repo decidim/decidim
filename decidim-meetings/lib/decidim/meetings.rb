@@ -5,7 +5,7 @@ require "decidim/meetings/admin_engine"
 require "decidim/meetings/feature"
 
 module Decidim
+  # Base module for this engine.
   module Meetings
-    # Your code goes here...
   end
 end
