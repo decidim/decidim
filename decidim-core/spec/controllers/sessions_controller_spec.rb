@@ -7,6 +7,10 @@ module Decidim
       describe "after_sign_in_path_for" do
         subject { controller.after_sign_in_path_for(user) }
 
+        before do
+          @request.env["decidim.current_organization"] = user.organization
+        end
+
         context "when the given resource is a user" do
           context "and is an admin" do
             let(:user) { build(:user, :admin, sign_in_count: 1) }

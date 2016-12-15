@@ -85,8 +85,11 @@ module Decidim
     end
 
     def locales
-      return @template.current_organization.available_locales if @template.respond_to?(:current_organization)
-      Decidim.available_locales
+      @locales ||= if @template.respond_to?(:available_locales)
+                     Set.new([@template.current_locale] + @template.available_locales).to_a
+                   else
+                     Decidim.available_locales
+                   end
     end
 
     def label_for(attribute)
