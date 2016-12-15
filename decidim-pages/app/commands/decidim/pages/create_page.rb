@@ -14,7 +14,7 @@ module Decidim
           feature: @feature
         )
 
-        @page.save ? broadcast(:ok) : broadcast(:error)
+        @page.save ? broadcast(:ok) : broadcast(:invalid)
       end
     end
   end

@@ -78,7 +78,7 @@ describe "Participatory Processes", type: :feature do
     end
 
     it "shows the details of the given process" do
-      within "main.wrapper" do
+      within "div.wrapper" do
         expect(page).to have_content(translated(participatory_process.title, locale: :en))
         expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
         expect(page).to have_content(translated(participatory_process.description, locale: :en))
@@ -102,11 +102,11 @@ describe "Participatory Processes", type: :feature do
       end
 
       it "shows them" do
-        within "main.wrapper .documents" do
+        within "div.wrapper .documents" do
           expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
         end
 
-        within "main.wrapper .images" do
+        within "div.wrapper .images" do
           expect(page).to have_css("img.thumbnail")
         end
       end

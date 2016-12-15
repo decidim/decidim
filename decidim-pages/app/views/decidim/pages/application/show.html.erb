@@ -1,3 +1,9 @@
 <% content_for(:title, translated_attribute(@page.title)) %>
 
 <%== translated_attribute @page.body %>
+
+<%= content_for :expanded do %>
+  <% if @page.commentable? %>
+    <%= comments_for @page %>
+  <% end %>
+<% end %>
