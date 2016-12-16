@@ -4,8 +4,8 @@ class CreateMeetings < ActiveRecord::Migration[5.0]
       t.jsonb :title
       t.jsonb :description
       t.jsonb :short_description
-      t.datetime :start_date
-      t.datetime :end_date
+      t.datetime :start_time
+      t.datetime :end_time
       t.text :address
       t.jsonb :location
       t.jsonb :location_hints

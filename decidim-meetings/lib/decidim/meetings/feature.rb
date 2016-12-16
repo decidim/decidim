@@ -32,8 +32,8 @@ Decidim.register_feature(:meetings) do |feature|
           end,
           location: Decidim::Faker::Localized.sentence,
           location_hints: Decidim::Faker::Localized.sentence,
-          start_date: 3.weeks.from_now,
-          end_date: 3.weeks.from_now + 4.hours,
+          start_time: 3.weeks.from_now,
+          end_time: 3.weeks.from_now + 4.hours,
           address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}"
         )
       end

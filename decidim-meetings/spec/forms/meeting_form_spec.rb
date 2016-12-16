@@ -28,8 +28,8 @@ describe Decidim::Meetings::Admin::MeetingForm do
     Decidim::Faker::Localized.sentence(3)
   end
   let(:address) { Faker::Lorem.sentence(3) }
-  let(:start_date) { 2.days.from_now }
-  let(:end_date) { 2.days.from_now + 4.hours }
+  let(:start_time) { 2.days.from_now }
+  let(:end_time) { 2.days.from_now + 4.hours }
   let(:attributes) do
     {
       title_en: title[:en],
@@ -38,8 +38,8 @@ describe Decidim::Meetings::Admin::MeetingForm do
       location_en: location[:en],
       location_hints_en: location_hints[:en],
       address: address,
-      start_date: start_date,
-      end_date: end_date
+      start_time: start_time,
+      end_time: end_time
     }
   end
 
@@ -77,14 +77,14 @@ describe Decidim::Meetings::Admin::MeetingForm do
     it { is_expected.not_to be_valid }
   end
 
-  describe "when start_date is missing" do
-    let(:start_date) { nil }
+  describe "when start_time is missing" do
+    let(:start_time) { nil }
 
     it { is_expected.not_to be_valid }
   end
 
-  describe "when end_date is missing" do
-    let(:end_date) { nil }
+  describe "when end_time is missing" do
+    let(:end_time) { nil }
 
     it { is_expected.not_to be_valid }
   end
@@ -95,20 +95,20 @@ describe Decidim::Meetings::Admin::MeetingForm do
     it { is_expected.not_to be_valid }
   end
 
-  describe "when start_date is after end_date" do
-    let(:start_date) { end_date + 3.days }
+  describe "when start_time is after end_time" do
+    let(:start_time) { end_time + 3.days }
 
     it { is_expected.not_to be_valid }
   end
 
-  describe "when end_date is before start_date" do
-    let(:end_date) { start_date - 3.days }
+  describe "when end_time is before start_time" do
+    let(:end_time) { start_time - 3.days }
 
     it { is_expected.not_to be_valid }
   end
 
-  describe "when start_date is equal to start_date" do
-    let(:start_date) { end_date }
+  describe "when start_time is equal to start_time" do
+    let(:start_time) { end_time }
 
     it { is_expected.not_to be_valid }
   end

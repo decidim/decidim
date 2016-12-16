@@ -9,12 +9,12 @@ en:
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
         edit: Edit
-        new: "New %{name}"
+        new: New %{name}
         title: Actions
       admin:
         meetings:
           create:
-            invalid: "There's been a problem creating this meeting"
+            invalid: There's been a problem creating this meeting
             success: Meeting successfully created
           destroy:
             success: Meeting successfully deleted
@@ -27,7 +27,7 @@ en:
             create: Create meeting
             title: New meeting
           update:
-            invalid: "There's been a problem updating this meeting"
+            invalid: There's been a problem updating this meeting
             success: Meeting successfully updated
         models:
           meeting:
@@ -36,11 +36,10 @@ en:
         index:
           title: Meetings
         show:
-          by: by
           meeting_description: Meeting description
       models:
         meeting:
           fields:
-            end_date: End date
-            start_date: Start date
+            end_time: End date
+            start_time: Start date
             title: Title

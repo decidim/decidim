@@ -8,8 +8,8 @@
   <thead>
     <tr>
       <th><%= t("models.meeting.fields.title", scope: "decidim.meetings") %></th>
-      <th><%= t("models.meeting.fields.start_date", scope: "decidim.meetings") %></th>
-      <th><%= t("models.meeting.fields.end_date", scope: "decidim.meetings") %></th>
+      <th><%= t("models.meeting.fields.start_time", scope: "decidim.meetings") %></th>
+      <th><%= t("models.meeting.fields.end_time", scope: "decidim.meetings") %></th>
       <th class="actions"><%= t("actions.title", scope: "decidim.meetings") %></th>
     </tr>
   </thead>
@@ -20,13 +20,13 @@
           <%= link_to translated_attribute(meeting.title), decidim_meetings.meeting_path(id: meeting, feature_id: current_feature, participatory_process_id: current_participatory_process), target: :blank %><br />
         </td>
         <td>
-          <% if meeting.start_date %>
-            <%= l meeting.start_date, format: :long %>
+          <% if meeting.start_time %>
+            <%= l meeting.start_time, format: :long %>
           <%  end%>
         </td>
         <td>
-          <% if meeting.end_date %>
-            <%= l meeting.end_date, format: :long %>
+          <% if meeting.end_time %>
+            <%= l meeting.end_time, format: :long %>
           <%  end%>
         </td>
         <td class="actions">

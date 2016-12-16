@@ -9,10 +9,10 @@
     <div class="card extra">
       <div class="card__content">
         <div class="extra__date">
-          <%= l meeting.start_date, format: "%d" %> <span class="extra__month"><%= l meeting.start_date, format: "%B" %></span>
+          <%= l meeting.start_time, format: "%d" %> <span class="extra__month"><%= l meeting.start_time, format: "%B" %></span>
         </div>
         <div class="extra__time">
-          <%= meeting.start_date.strftime("%H:%M") %> - <%= meeting.end_date.strftime("%H:%M") %>
+          <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
         </div>
       </div>
     </div>

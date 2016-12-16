@@ -79,8 +79,8 @@ RSpec.shared_examples "manage meetings" do
       )
 
       fill_in :meeting_address, with: "Address"
-      fill_in :meeting_start_date, with: 1.day.from_now
-      fill_in :meeting_end_date, with: 1.day.from_now + 2.hours
+      fill_in :meeting_start_time, with: 1.day.from_now
+      fill_in :meeting_end_time, with: 1.day.from_now + 2.hours
 
       find("*[type=submit]").click
     end
