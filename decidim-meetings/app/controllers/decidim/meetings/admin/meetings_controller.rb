@@ -2,7 +2,7 @@
 module Decidim
   module Meetings
     module Admin
-      # This controller allows the user to update a Page.
+      # This controller allows an admin to manage meetings from a Participatory Process
       class MeetingsController < Admin::ApplicationController
         helper_method :meetings
 
