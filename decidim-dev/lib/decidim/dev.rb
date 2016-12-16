@@ -6,5 +6,16 @@ module Decidim
   # create external libraries that create test apps and test themselves against
   # them.
   module Dev
+    # Public: Finds an asset.
+    #
+    # Returns a String with the path for a particular asset.
+    def self.asset(name)
+      File.join(
+        File.dirname(__FILE__),
+        "dev",
+        "assets",
+        name
+      )
+    end
   end
 end

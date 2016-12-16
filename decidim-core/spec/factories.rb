@@ -1,5 +1,5 @@
 require "decidim/faker/localized"
-require "decidim/dev/assets"
+require "decidim/dev"
 
 FactoryGirl.define do
   sequence :name do |n| 
