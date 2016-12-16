@@ -50,8 +50,8 @@ module Decidim
             redirect_to action: :index
           end
 
-          on(:error) do
-            flash.now[:alert] = I18n.t("features.destroy.error", scope: "decidim.admin")
+          on(:invalid) do
+            flash[:alert] = I18n.t("features.destroy.error", scope: "decidim.admin")
             redirect_to action: :index
           end
         end

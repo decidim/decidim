@@ -1,0 +1,6 @@
+---
+ca:
+  decidim:
+    features:
+      meetings:
+        name: Llistat de trobades

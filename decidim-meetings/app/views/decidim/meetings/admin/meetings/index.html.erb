@@ -1,0 +1,39 @@
+<h2><%= t(".title") %></h2>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.meetings", name: t("models.meeting.name", scope: "decidim.meetings.admin")), new_meeting_path, class: 'new' if can? :manage, current_feature %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= t("models.meeting.fields.title", scope: "decidim.meetings") %></th>
+      <th><%= t("models.meeting.fields.start_time", scope: "decidim.meetings") %></th>
+      <th><%= t("models.meeting.fields.end_time", scope: "decidim.meetings") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.meetings") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% meetings.each do |meeting| %>
+      <tr data-id="<%= meeting.id %>">
+        <td>
+          <%= link_to translated_attribute(meeting.title), decidim_meetings.meeting_path(id: meeting, feature_id: current_feature, participatory_process_id: current_participatory_process), target: :blank %><br />
+        </td>
+        <td>
+          <% if meeting.start_time %>
+            <%= l meeting.start_time, format: :long %>
+          <%  end%>
+        </td>
+        <td>
+          <% if meeting.end_time %>
+            <%= l meeting.end_time, format: :long %>
+          <%  end%>
+        </td>
+        <td class="actions">
+          <%= link_to t("actions.edit", scope: "decidim.meetings"), edit_meeting_path(meeting) if can? :update, current_feature %>
+          <%= link_to t("actions.destroy", scope: "decidim.meetings"), meeting_path(meeting), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") } if can? :destroy, current_feature %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

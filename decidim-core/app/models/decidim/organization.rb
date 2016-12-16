@@ -16,5 +16,14 @@ module Decidim
     def homepage_big_url
       homepage_image.big.url
     end
+
+    # Fetches the admins of the given organization.
+    #
+    # Returns an ActiveRecord::Relation.
+    def admins
+      @admins ||= Decidim::User
+                  .where(organization: self)
+                  .where("roles @> ?", "{admin}")
+    end
   end
 end
