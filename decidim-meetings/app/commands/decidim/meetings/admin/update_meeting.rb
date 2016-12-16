@@ -34,6 +34,7 @@ module Decidim
             end_date: @form.end_date,
             start_date: @form.start_date,
             address: @form.address,
+            location: @form.location,
             location_hints: @form.location_hints
           )
         end

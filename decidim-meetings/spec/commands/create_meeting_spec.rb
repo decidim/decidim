@@ -11,6 +11,7 @@ describe Decidim::Meetings::Admin::CreateMeeting do
       title: {en: "title"},
       description: {en: "description"},
       short_description: {en: "short_description"},
+      location: {en: "location"},
       location_hints: {en: "location_hints"},
       start_date: 1.day.from_now,
       end_date: 1.day.from_now + 1.hour,

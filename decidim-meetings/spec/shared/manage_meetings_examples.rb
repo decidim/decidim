@@ -50,6 +50,13 @@ RSpec.shared_examples "manage meetings" do
         ca: "El meu meeting"
       )
       fill_in_i18n_editor(
+        :meeting_location,
+        "#location-tabs",
+        en: "Location",
+        es: "Location",
+        ca: "Location"
+      )
+      fill_in_i18n_editor(
         :meeting_location_hints,
         "#location_hints-tabs",
         en: "Location hints",

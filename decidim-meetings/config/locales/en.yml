@@ -14,7 +14,7 @@ en:
       admin:
         meetings:
           create:
-            invalid: "There's been a problem updating this meeting"
+            invalid: "There's been a problem creating this meeting"
             success: Meeting successfully created
           destroy:
             success: Meeting successfully deleted

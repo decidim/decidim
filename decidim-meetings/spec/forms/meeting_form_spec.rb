@@ -23,6 +23,9 @@ describe Decidim::Meetings::Admin::MeetingForm do
   let(:short_description) do
     Decidim::Faker::Localized.sentence(3)
   end
+  let(:location) do
+    Decidim::Faker::Localized.sentence(3)
+  end
   let(:location_hints) do
     Decidim::Faker::Localized.sentence(3)
   end
@@ -34,6 +37,7 @@ describe Decidim::Meetings::Admin::MeetingForm do
       title_en: title[:en],
       description_en: description[:en],
       short_description_en: short_description[:en],
+      location_en: location[:en],
       location_hints_en: location_hints[:en],
       address: address,
       start_date: start_date,
@@ -59,6 +63,12 @@ describe Decidim::Meetings::Admin::MeetingForm do
 
   describe "when short_description is missing" do
     let(:short_description) { { en: nil } }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "when location is missing" do
+    let(:location) { { en: nil } }
 
     it { is_expected.not_to be_valid }
   end

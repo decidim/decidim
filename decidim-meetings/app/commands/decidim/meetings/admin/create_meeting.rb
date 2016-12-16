@@ -29,6 +29,7 @@ module Decidim
             end_date: @form.end_date,
             start_date: @form.start_date,
             address: @form.address,
+            location: @form.location,
             location_hints: @form.location_hints,
             feature: @form.current_feature,
             author: @form.current_user
