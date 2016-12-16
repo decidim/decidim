@@ -22,6 +22,7 @@ module Decidim
               Comment
                 .where(commentable_id: args[:commentableId])
                 .where(commentable_type: args[:commentableType])
+                .order(created_at: :asc)
                 .all
             }
           end
