@@ -1,7 +1,6 @@
 import { Component, PropTypes } from 'react';
 import { propType }             from 'graphql-anywhere';
 import gql                      from 'graphql-tag';
-import UserAvatar               from 'react-user-avatar';
 import moment                   from 'moment';
 import { I18n }                 from 'react-i18nify';
 
@@ -27,12 +26,7 @@ class Comment extends Component {
   render() {
     const { comment: { id, author, body, createdAt }, articleClassName } = this.props;
 
-    let authorInitialLetter = " ";
     const formattedCreatedAt = ` ${moment(createdAt, "YYYY-MM-DD HH:mm:ss z").format("LLL")}`;
-    
-    if (author.name.length > 0) {
-      authorInitialLetter = author.name[0];
-    }
 
     return (
       <article id={`comment_${id}`} className={articleClassName}>
@@ -40,9 +34,9 @@ class Comment extends Component {
           <div className="author-data">
             <div className="author-data__main">
               <div className="author author--inline">
-                <span style={{ color: "#fff" }} className="author__avatar">
-                  <UserAvatar size="20" name={authorInitialLetter} />
-                </span>
+                <a className="author__avatar">
+                  <img src={author.avatarUrl} alt="author-avatar" />
+                </a>
                 <a className="author__name">{author.name}</a>
                 <time dateTime={createdAt}>{formattedCreatedAt}</time>
               </div>

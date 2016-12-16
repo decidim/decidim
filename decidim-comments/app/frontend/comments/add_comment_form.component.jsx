@@ -137,7 +137,8 @@ const AddCommentFormWithMutation = graphql(gql`
           body,
           author: {
             __typename: 'Author',
-            name: ownProps.currentUser.name
+            name: ownProps.currentUser.name,
+            avatarUrl: ownProps.currentUser.avatarUrl
           },
           replies: [],
           canHaveReplies: false

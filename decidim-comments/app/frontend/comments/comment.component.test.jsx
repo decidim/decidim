@@ -47,9 +47,9 @@ describe("<Comment />", () => {
     expect(wrapper.find('a.author__name')).to.have.text(comment.author.name);
   });
 
-  it("should render author's avatar using the UserAvatar component and the author's name first letter", () => {
+  it("should render author's avatar as a image tag", () => {
     const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
-    expect(wrapper.find('UserAvatar')).to.have.prop('name', comment.author.name[0]);
+    expect(wrapper.find('a.author__avatar img')).to.have.attr('src').equal(comment.author.avatarUrl);
   });
 
   it("should render comment's body on a div with class comment__content", () => {
