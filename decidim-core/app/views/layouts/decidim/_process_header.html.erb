@@ -1,0 +1,33 @@
+<div class="process-header row column">
+  <div class="row column process-header__main"
+       style="background-image:url(<%= current_participatory_process.banner_image.url %>);">
+    <div class="process-header__container row">
+      <div class="columns mediumlarge-9 process-header__info">
+        <h1 class="text-highlight heading1">
+          <%= translated_attribute(current_participatory_process.title) %>
+        </h1>
+        <h2 class="text-highlight heading4">
+          <span class="process-header__hashtag">
+            <%= current_participatory_process.hashtag %>
+          </span>
+          <%= translated_attribute(current_participatory_process.subtitle) %>
+        </h2>
+      </div>
+    </div>
+  </div>
+  <% if current_participatory_process.features.any? %>
+    <div class="row column">
+      <div class="process-nav">
+        <div class="row column process-nav__content">
+          <ul>
+            <% current_participatory_process.features.each do |feature| %>
+              <li>
+                <%= link_to translated_attribute(feature.name), decidim.feature_path(current_participatory_process, feature), class: "process-nav__link" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
