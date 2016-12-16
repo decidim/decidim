@@ -147,3 +147,10 @@ en:
       register: Register
       see_all_processes: See all processes
       welcome: Welcome to %{organization}!
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: Last &raquo;
+      next: Next &rsaquo;
+      previous: "&lsaquo; Prev"
+      truncate: "&hellip;"
