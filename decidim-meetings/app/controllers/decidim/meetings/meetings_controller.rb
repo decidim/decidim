@@ -13,7 +13,7 @@ module Decidim
       private
 
       def meetings
-        @meetings ||= Meeting.where(decidim_feature_id: current_feature.id)
+        @meetings ||= Meeting.where(decidim_feature_id: current_feature.id).order(created_at: :desc)
       end
 
       def meeting
