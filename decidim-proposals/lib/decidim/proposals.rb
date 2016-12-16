@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require "decidim/proposals/admin"
 require "decidim/proposals/engine"
+require "decidim/proposals/admin_engine"
 require "decidim/proposals/feature"
 
 module Decidim

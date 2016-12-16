@@ -1,0 +1,34 @@
+<h2><%= t(".title") %></h2>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'new' if can? :manage, current_feature %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= t("models.proposal.fields.title", scope: "decidim.proposals") %></th>
+      <th><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></th>
+      <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% proposals.each do |proposal| %>
+      <tr data-id="<%= proposal.id %>">
+        <td>
+          <%= link_to proposal.title, decidim_proposals.proposal_path(id: proposal, feature_id: current_feature, participatory_process_id: current_participatory_process), target: :blank %><br />
+        </td>
+        <td>
+          <% if proposal.category %>
+            <%= translated_attribute proposal.category.name %>
+          <% end %>
+        </td>
+        <td>
+          <% if proposal.scope %>
+            <%= translated_attribute proposal.scope.name %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
