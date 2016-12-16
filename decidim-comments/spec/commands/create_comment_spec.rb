@@ -7,11 +7,14 @@ module Decidim
       describe "call" do
         let(:organization) { create(:organization) }
         let(:author) { create(:user, organization: organization) }
-        let(:participatory_process) { create :participatory_process, organization: organization }
+        let(:commentable) { create :participatory_process, organization: organization }
+        let(:body) { ::Faker::Lorem.paragraph }
+        let(:alignment) { 1 }
         let(:form_params) do
           {
             "comment" => {
-              "body" => ::Faker::Lorem.paragraph
+              "body" => body,
+              "alignment" => alignment
             }
           }
         end
@@ -20,7 +23,7 @@ module Decidim
             form_params
           )
         end
-        let(:command) { described_class.new(form, author, participatory_process) }
+        let(:command) { described_class.new(form, author, commentable) }
 
         describe "when the form is not valid" do
           before do
@@ -44,6 +47,12 @@ module Decidim
           end
 
           it "creates a new comment" do
+            expect(Comment).to receive(:create!).with({
+              author: author,
+              commentable: commentable,
+              body: body,
+              alignment: alignment
+            }).and_call_original
             expect do
               command.call
             end.to change { Comment.count }.by(1)

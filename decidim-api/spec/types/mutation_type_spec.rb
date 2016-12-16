@@ -20,6 +20,18 @@ module Decidim
           expect(comment.commentable).to eq(participatory_process)
           expect(response["addComment"]).to include("id" => comment.id.to_s)
         end
+
+        context "if the query contains an argument alignment" do
+          let(:query) { 
+            "{ addComment(commentableId: \"#{participatory_process.id}\", commentableType: \"Decidim::ParticipatoryProcess\", body: \"This is positive comment\", alignment: 1) { alignment } }" 
+          }
+
+          it "should create a comment with that alignment" do
+            expect(response["addComment"]).to include("alignment" => 1)
+            comment = Decidim::Comments::Comment.last
+            expect(comment.alignment).to eq(1)
+          end
+        end
       end
     end
   end

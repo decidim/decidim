@@ -59,13 +59,13 @@ describe('<Comments />', () => {
   });
 
   it("should render a div of id comments", () => {
-    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} />);
+    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} options={{}} />);
     expect(wrapper.find('#comments')).to.be.present();
   });
 
   describe("should render a CommentThread component for each comment", () => {
     it("and pass filter comment data as a prop to it", () => {
-      const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} />);
+      const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} options={{}} />);
       expect(wrapper).to.have.exactly(comments.length).descendants(CommentThread);
       wrapper.find(CommentThread).forEach((node, idx) => {
         expect(node).to.have.prop("comment").deep.equal(filter(commentThreadFragment, comments[idx]));
@@ -73,7 +73,7 @@ describe('<Comments />', () => {
     });
 
     it("and pass the currentUser as a prop to it", () => {
-      const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} />);
+      const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} options={{}} />);
       expect(wrapper).to.have.exactly(comments.length).descendants(CommentThread);
       wrapper.find(CommentThread).forEach((node) => {
         expect(node).to.have.prop("currentUser").deep.equal(currentUser);
@@ -82,14 +82,15 @@ describe('<Comments />', () => {
   });
 
   it("should render comments count", () => {
-    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} />);
+    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} options={{}} />);
     const rex = new RegExp(`${comments.length} comments`);
     expect(wrapper.find('h2.section-heading')).to.have.text().match(rex);
   });
 
-  it("should render a AddCommentForm component", () => {
-    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} />);
+  it("should render a AddCommentForm component and pass 'options.arguable' as a prop", () => {
+    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} options={{ arguable: true }} />);
     expect(wrapper).to.have.exactly(1).descendants(AddCommentForm);
+    expect(wrapper.find(AddCommentForm)).to.have.prop('arguable').equal(true);
   });
 
   describe("if currentUser is not present", () => {
@@ -98,7 +99,7 @@ describe('<Comments />', () => {
     });
 
     it("should not render a AddCommentForm component", () => {
-      const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} />);
+      const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} options={{}} />);
       expect(wrapper.find(AddCommentForm)).not.to.be.present();
     });
   });

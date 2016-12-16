@@ -47,6 +47,11 @@ module Decidim
           expect(comment.can_have_replies?).to be_falsy          
         end
       end
+
+      it "is not valid if alignment is not 0, 1 or -1" do
+        comment.alignment = 2
+        expect(comment).not_to be_valid
+      end
     end
   end
 end

@@ -18,7 +18,8 @@ const generateCommentsData = (num = 1) => {
         avatarUrl: image.imageUrl()
       },
       replies: [],
-      canHaveReplies: true
+      canHaveReplies: true,
+      alignment: 0
     })
   }
 

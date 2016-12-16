@@ -3,6 +3,7 @@ import { propType }             from 'graphql-anywhere';
 import gql                      from 'graphql-tag';
 import moment                   from 'moment';
 import { I18n }                 from 'react-i18nify';
+import classnames               from 'classnames';
 
 import AddCommentForm           from './add_comment_form.component';
 
@@ -44,7 +45,10 @@ class Comment extends Component {
           </div>
         </div>
         <div className="comment__content">
-          <p>{ body }</p>
+          <p>
+            { this._renderAlignmentBadge() }
+            { body }
+          </p>
         </div>
         {this._renderReplies()}
         <div className="comment__footer">
@@ -131,6 +135,38 @@ class Comment extends Component {
           submitButtonClassName="button small hollow"
           onCommentAdded={() => this.setState({ showReplyForm: false })}
         />
+      );
+    }
+
+    return null;
+  }
+
+  /**
+   * Render alignment badge if comment's alignment is 0 or -1
+   * @private
+   * @returns {Void|DOMElement} - The alignment's badge or not
+   */
+  _renderAlignmentBadge() {
+    const { comment: { alignment } } = this.props;
+    const spanClassName = classnames('label', {
+      success: alignment === 1,
+      alert: alignment === -1
+    });
+
+    let label = '';
+    
+    if (alignment === 1) {
+      label = I18n.t('components.comment.alignment.in_favor');
+    } else {
+      label = I18n.t('components.comment.alignment.against');
+    }
+
+    if (alignment === 1 || alignment === -1) {
+      return (
+        <span>
+          <span className={spanClassName}>{ label }</span>
+          &nbsp;
+        </span>
       );
     }
 

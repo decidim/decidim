@@ -11,6 +11,6 @@
 
 <%= content_for :expanded do %>
   <% if @page.commentable? %>
-    <%= comments_for @page %>
+    <%= comments_for @page, arguable: true %>
   <% end %>
 <% end %>

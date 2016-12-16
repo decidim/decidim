@@ -5,10 +5,12 @@ module Decidim
     #
     class CommentForm < Form
       attribute :body, String
+      attribute :alignment, Integer
 
       mimic :comment
 
       validates :body, presence: true
+      validates :alignment, inclusion: { in: [0, 1, -1] }, if: ->(form) { form.alignment.present? }
     end
   end
 end

@@ -81,9 +81,10 @@ describe "Comments", type: :feature do
         visit decidim.dummy_path(participatory_process, arguable: true)
         expect(page).to have_selector(".add-comment form")
 
+        click_button "I am in favor"
+
         within ".add-comment form" do
           fill_in "add-comment-#{participatory_process.class.name}-#{participatory_process.id}", with: "I am in favor about this!"
-          click_button "I am in favor"
           click_button "Send"
         end
 

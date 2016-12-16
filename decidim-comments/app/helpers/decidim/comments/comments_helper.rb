@@ -14,12 +14,10 @@ module Decidim
       def comments_for(resource, options = {})
         commentable_type = resource.class.name
         commentable_id = resource.id.to_s
-        react_component("Comments", {
-          commentableType: commentable_type, 
-          commentableId: commentable_id,
-          options: options.slice(:arguable),
-          locale: I18n.locale
-        }) + javascript_include_tag("decidim/comments/comments")
+        react_component("Comments", commentableType: commentable_type,
+                                    commentableId: commentable_id,
+                                    options: options.slice(:arguable),
+                                    locale: I18n.locale) + javascript_include_tag("decidim/comments/comments")
       end
     end
   end

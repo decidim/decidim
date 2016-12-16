@@ -7,6 +7,8 @@ import uuid                     from 'uuid';
 import moment                   from 'moment';
 import classnames               from 'classnames';
 
+import Icon                     from '../application/icon.component';
+
 import addCommentMutation       from './add_comment_form.mutation.graphql';
 import commentDataFragment      from './comment_data.fragment.graphql';
 
@@ -20,15 +22,9 @@ export class AddCommentForm extends Component {
     super(props);
 
     this.state = {
-      disabled: true
+      disabled: true,
+      alignment: 0
     };
-
-    if (props.arguable) {
-      this.state = {
-        ...this.state,
-        alignment: 0
-      };
-    }
   }
 
   render() {
@@ -86,11 +82,11 @@ export class AddCommentForm extends Component {
   _renderOpinionButtons() {
     const { arguable } = this.props;
     const { alignment } = this.state;
-    const buttonClassNames = classnames('button', 'small', 'button--muted');
-    const okButtonClassNames = classnames(buttonClassNames, 'opinion-toggle--ok', {
+    const buttonClassName = classnames('button', 'small', 'button--muted');
+    const okButtonClassName = classnames(buttonClassName, 'opinion-toggle--ok', {
       'is-active': alignment === 1
     });
-    const koButtonClassNames = classnames(buttonClassNames, 'opinion-toggle--ko', {
+    const koButtonClassName = classnames(buttonClassName, 'opinion-toggle--ko', {
       'is-active': alignment === -1
     });
 
@@ -98,16 +94,18 @@ export class AddCommentForm extends Component {
       return (
         <div className="opinion-toggle button-group">
           <button 
-            className={okButtonClassNames}
+            className={okButtonClassName}
             onClick={() => this.setState({ alignment: 1 })}
           >
-            Estic a favor
+            <Icon name="icon-thumb-up" />
+            { I18n.t("components.add_comment_form.opinion.in_favor") }
           </button>
           <button
-            className={koButtonClassNames}
+            className={koButtonClassName}
             onClick={() => this.setState({ alignment: -1 })}
           >
-            Estic en contra
+            <Icon name="icon-thumb-down" />
+            { I18n.t("components.add_comment_form.opinion.against") }
           </button>
         </div>
       );
@@ -134,12 +132,15 @@ export class AddCommentForm extends Component {
    * @returns {Void} - Returns nothing
    */
   _addComment(evt) {
+    const { alignment } = this.state;
     const { addComment, onCommentAdded } = this.props;
 
     evt.preventDefault();
 
-    addComment({ body: this.bodyTextArea.value });
+    addComment({ body: this.bodyTextArea.value, alignment });
+
     this.bodyTextArea.value = '';
+    this.setState({ alignment: 0 });
 
     if (onCommentAdded) {
       onCommentAdded();
@@ -170,11 +171,12 @@ const AddCommentFormWithMutation = graphql(gql`
   ${commentDataFragment}
 `, {
   props: ({ ownProps, mutate }) => ({
-    addComment: ({ body }) => mutate({ 
+    addComment: ({ body, alignment }) => mutate({ 
       variables: { 
         commentableId: ownProps.commentableId,
         commentableType: ownProps.commentableType,
-        body
+        body,
+        alignment
       },
       optimisticResponse: {
         __typename: 'Mutation',
@@ -183,6 +185,7 @@ const AddCommentFormWithMutation = graphql(gql`
           id: uuid(),
           createdAt: moment().format("YYYY-MM-DD HH:mm:ss z"),
           body,
+          alignment: alignment,
           author: {
             __typename: 'Author',
             name: ownProps.currentUser.name,

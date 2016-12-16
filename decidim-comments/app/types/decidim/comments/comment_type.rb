@@ -21,6 +21,8 @@ module Decidim
       field :canHaveReplies, !types.Boolean, "Define if a comment can or not have replies" do
         property :can_have_replies?
       end
+
+      field :alignment, types.Int, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'"
     end
   end
 end

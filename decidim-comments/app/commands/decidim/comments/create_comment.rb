@@ -32,7 +32,8 @@ module Decidim
       def create_comment
         @comment = Comment.create!(author: @author,
                                    commentable: @commentable,
-                                   body: form.body)
+                                   body: form.body,
+                                   alignment: form.alignment)
       end
     end
   end
