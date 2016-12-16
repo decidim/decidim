@@ -7,13 +7,11 @@ describe Decidim::Meetings::Admin::MeetingForm do
   let(:context) do
     {
       current_organization: organization,
-      current_user: current_user,
       current_feature: current_feature
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, participatory_process: participatory_process }
-  let(:current_user) { instance_double(Decidim::User).as_null_object }
   let(:title) do
     Decidim::Faker::Localized.sentence(3)
   end
@@ -87,12 +85,6 @@ describe Decidim::Meetings::Admin::MeetingForm do
 
   describe "when end_date is missing" do
     let(:end_date) { nil }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when current_user is missing" do
-    let(:current_user) { nil }
 
     it { is_expected.not_to be_valid }
   end

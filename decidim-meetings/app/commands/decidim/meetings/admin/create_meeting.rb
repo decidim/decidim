@@ -31,8 +31,7 @@ module Decidim
             address: @form.address,
             location: @form.location,
             location_hints: @form.location_hints,
-            feature: @form.current_feature,
-            author: @form.current_user
+            feature: @form.current_feature
           )
         end
       end

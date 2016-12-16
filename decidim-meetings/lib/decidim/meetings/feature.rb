@@ -20,8 +20,6 @@ Decidim.register_feature(:meetings) do |feature|
         participatory_process: process
       )
 
-      admin_user = process.organization.admins.first
-
       3.times do
         Decidim::Meetings::Meeting.create!(
           feature: feature,
@@ -36,8 +34,7 @@ Decidim.register_feature(:meetings) do |feature|
           location_hints: Decidim::Faker::Localized.sentence,
           start_date: 3.weeks.from_now,
           end_date: 3.weeks.from_now + 4.hours,
-          address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
-          author: admin_user
+          address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}"
         )
       end
     end

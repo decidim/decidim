@@ -2,16 +2,6 @@
 
 <div class="row column view-header">
   <h2 class="heading2"><%= translated_attribute meeting.title %></h2>
-  <div class="author-data">
-    <div class="author-data__main">
-      <div class="author author--inline">
-        <span class="author__avatar">
-          <%= image_tag meeting.author.avatar.url %>
-        </span>
-        <%= l meeting.created_at.to_date, format: :long %> <%= t(".by") %> <%= meeting.author.name %>
-      </div>
-    </div>
-  </div>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8

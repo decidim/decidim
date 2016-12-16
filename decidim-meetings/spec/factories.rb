@@ -12,10 +12,5 @@ FactoryGirl.define do
     start_date { 1.day.from_now }
     end_date { 1.day.from_now + 2.hours }
     feature
-    author { build(:user) }
-
-    before(:create) do |object|
-      object.author.save unless object.author.persisted?
-    end
   end
 end
