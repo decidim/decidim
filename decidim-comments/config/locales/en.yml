@@ -15,6 +15,7 @@ en:
         opinion:
           against: I am against
           in_favor: I am in favor
+          neutral: I am neutral
         title: Leave your comment
       comment:
         alignment:

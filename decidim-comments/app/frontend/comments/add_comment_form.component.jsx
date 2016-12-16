@@ -89,6 +89,9 @@ export class AddCommentForm extends Component {
     const koButtonClassName = classnames(buttonClassName, 'opinion-toggle--ko', {
       'is-active': alignment === -1
     });
+    const neutralButtonClassName = classnames(buttonClassName, 'opinion-toggle--neutral', {
+      'is-active': alignment === 0
+    });
 
     if (arguable) {
       return (
@@ -99,6 +102,12 @@ export class AddCommentForm extends Component {
           >
             <Icon name="icon-thumb-up" />
             { I18n.t("components.add_comment_form.opinion.in_favor") }
+          </button>
+          <button
+            className={neutralButtonClassName}
+            onClick={() => this.setState({ alignment: 0 })}
+          >
+            { I18n.t("components.add_comment_form.opinion.neutral") }
           </button>
           <button
             className={koButtonClassName}
