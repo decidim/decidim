@@ -12,7 +12,7 @@ module Decidim
       end
 
       def index
-        @search = ProposalSearch.new(current_feature, params[:page], params[:random_seed], 1)
+        @search = ProposalSearch.new(current_feature, params[:page], params[:random_seed])
         @proposals = @search.proposals
         @random_seed = @search.random_seed
       end
