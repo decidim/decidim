@@ -21,23 +21,16 @@ module Decidim
   end
 end
 
-node_modules_path = File.join(
-  File.dirname(__FILE__), "..", "..", "..", "..", "..", "node_modules"
-)
-
 capybara_options = {
-  phantomjs: File.expand_path(
-    File.join(node_modules_path, ".bin", "phantomjs")
-  ),
   extensions: [
     File.expand_path(
-      File.join(node_modules_path, "promise-polyfill", "promise.js")
+      File.join(File.dirname(__FILE__), "phantomjs_polyfills", "promise.js")
     ),
     File.expand_path(
-      File.join(node_modules_path, "phantomjs-polyfill", "bind-polyfill.js")
+      File.join(File.dirname(__FILE__), "phantomjs_polyfills", "bind-polyfill.js")
     ),
     File.expand_path(
-      File.join(node_modules_path, "phantomjs-polyfill-object-assign", "object-assign-polyfill.js")
+      File.join(File.dirname(__FILE__), "phantomjs_polyfills", "object-assign-polyfill.js")
     )
   ],
   js_errors: true,

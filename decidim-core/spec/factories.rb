@@ -1,4 +1,5 @@
 require "decidim/faker/localized"
+require "decidim/dev/assets"
 
 FactoryGirl.define do
   sequence :name do |n| 
@@ -156,5 +157,6 @@ end
 
 
 def test_file(filename, content_type)
-  Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "decidim-dev", "spec", "support", filename), content_type)
+  asset = Decidim::Dev.asset(filename)
+  Rack::Test::UploadedFile.new(asset, content_type)
 end
