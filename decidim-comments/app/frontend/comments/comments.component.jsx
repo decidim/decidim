@@ -95,6 +95,7 @@ const CommentsWithData = graphql(gql`
   ${commentsQuery}
   ${CommentThread.fragments.comment}
 `, {
+  options: { pollInterval: 15000 },
   props: ({ ownProps, data: { currentUser, comments }}) => ({
     comments: comments || [],
     currentUser: currentUser || null,
