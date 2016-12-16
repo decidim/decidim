@@ -8,7 +8,6 @@ require "sass-rails"
 require "turbolinks"
 require "foundation-rails"
 require "foundation_rails_helper"
-require "react-rails"
 
 require "decidim/comments/query_extensions"
 require "decidim/comments/mutation_extensions"

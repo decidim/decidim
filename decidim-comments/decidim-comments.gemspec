@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-rails", "~> 4.0"
   s.add_dependency "turbolinks", *Decidim.rails_version
   s.add_dependency "foundation_rails_helper", "~> 2.0.0"
-  s.add_dependency "react-rails", "~> 1.10.0"
 
   s.add_development_dependency "decidim-dev", Decidim.version
 end

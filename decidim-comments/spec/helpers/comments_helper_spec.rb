@@ -15,8 +15,8 @@ module Decidim
       describe "comments_for" do
         it "should render the react component `Comments` with the correct data" do
           expect(helper)
-            .to receive(:react_component)
-            .with("Comments", {
+            .to receive(:react_comments_component)
+            .with("comments-for-DummyCommentable-1", {
               commentableType: "Decidim::Comments::DummyCommentable",
               commentableId: "1",
               options: {},
@@ -29,8 +29,8 @@ module Decidim
 
         it "should accept an optional hash of options" do
           expect(helper)
-            .to receive(:react_component)
-            .with("Comments", {
+            .to receive(:react_comments_component)
+            .with("comments-for-DummyCommentable-1", {
               commentableType: "Decidim::Comments::DummyCommentable",
               commentableId: "1",
               options: {
