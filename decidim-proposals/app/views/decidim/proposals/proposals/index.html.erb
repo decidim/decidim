@@ -12,6 +12,12 @@
     <div class="row small-up-1 medium-up-3 card-grid">
       <%= render @proposals %>
     </div>
-    <%= paginate @proposals, theme: "decidim" %>
+    <%
+      # Kaminari uses url_for to generate the url, but this doesn't play nice with our engine system
+      # and unless we remove these params they are added again as query string 😩
+      params.delete("participatory_process_id")
+      params.delete("feature_id")
+    %>
+    <%= paginate @proposals, theme: "decidim", params: { random_seed: @random_seed } %>
   </div>
 </div>

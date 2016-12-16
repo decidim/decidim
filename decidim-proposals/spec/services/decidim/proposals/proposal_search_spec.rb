@@ -28,9 +28,9 @@ module Decidim
         end
 
         it "randomizes the order of proposals" do
-            allow(Proposal.connection).to receive(:execute).with(anything)
-            expect_any_instance_of(Decidim::Proposals::Proposal::ActiveRecord_Relation).to receive(:reorder).with("RANDOM()").and_call_original
-            subject
+          allow(Proposal.connection).to receive(:execute).with(anything)
+          expect_any_instance_of(Decidim::Proposals::Proposal::ActiveRecord_Relation).to receive(:reorder).with("RANDOM()").and_call_original
+          subject
         end
 
         it "filters the proposals per page" do
