@@ -108,6 +108,7 @@ PATH
       capybara-screenshot (~> 1.0.14)
       codecov (~> 0.1.9)
       database_cleaner (~> 1.5.0)
+      decidim (= 0.0.1.alpha9)
       factory_girl_rails
       faker (~> 1.6.6)
       i18n-tasks (~> 0.9.6)

@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
+  s.add_dependency "decidim", Decidim.version
   s.add_dependency "factory_girl_rails"
   s.add_dependency "database_cleaner", "~> 1.5.0"
   s.add_dependency "capybara", "~> 2.11.0"
