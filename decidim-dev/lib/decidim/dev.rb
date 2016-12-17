@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require "decidim/dev/assets"
 
 module Decidim
   # Decidim::Dev holds all the convenience logic and libraries to be able to
