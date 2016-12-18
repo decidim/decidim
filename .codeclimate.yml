@@ -23,13 +23,15 @@ engines:
     - efea7ddea03adadd8177a72831e928a3
     - 92b3f6841512dd90c0f7bb79618fb351
     - efea7ddea03adadd8177a72831e928a3
-    - 36e6e110aa6b89faf84bcaebd59ccbb9
   eslint:
     enabled: false
   fixme:
     enabled: true
   rubocop:
     enabled: true
+    checks:
+      Rubocop/Style/PredicateName:
+        enabled: false
 ratings:
   paths:
   - Gemfile.lock
