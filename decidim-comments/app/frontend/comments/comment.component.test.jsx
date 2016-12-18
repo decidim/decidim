@@ -110,4 +110,16 @@ describe("<Comment />", () => {
       expect(wrapper.find('button.comment__reply')).not.to.be.present();
     });
   });
+
+  it("should render a 'in favor' badge if comment's alignment is 1", () => {
+    comment.alignment = 1;
+    const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
+    expect(wrapper.find('span.success.label')).to.have.text('In favor');
+  });
+
+  it("should render a 'against' badge if comment's alignment is -1", () => {
+    comment.alignment = -1;
+    const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
+    expect(wrapper.find('span.alert.label')).to.have.text('Against');
+  });
 });

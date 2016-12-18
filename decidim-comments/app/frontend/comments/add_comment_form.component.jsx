@@ -5,6 +5,9 @@ import gql                      from 'graphql-tag';
 import { I18n }                 from 'react-i18nify';
 import uuid                     from 'uuid';
 import moment                   from 'moment';
+import classnames               from 'classnames';
+
+import Icon                     from '../application/icon.component';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
 import commentDataFragment      from './comment_data.fragment.graphql';
@@ -19,7 +22,8 @@ export class AddCommentForm extends Component {
     super(props);
 
     this.state = {
-      disabled: true
+      disabled: true,
+      alignment: 0
     };
   }
 
@@ -30,6 +34,7 @@ export class AddCommentForm extends Component {
     return (
       <div className="add-comment">
         {this._renderHeading()}
+        {this._renderOpinionButtons()}
         <form onSubmit={(evt) => this._addComment(evt)}>
           <label className="show-for-sr" htmlFor={`add-comment-${commentableType}-${commentableId}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
           <textarea
@@ -68,6 +73,55 @@ export class AddCommentForm extends Component {
 
     return null;
   }
+
+  /**
+   * Render opinion buttons or not based on the arguable prop
+   * @private
+   * @returns {Void|DOMElement} - Returns nothing or a wrapper with buttons
+   */
+  _renderOpinionButtons() {
+    const { arguable } = this.props;
+    const { alignment } = this.state;
+    const buttonClassName = classnames('button', 'small', 'button--muted');
+    const okButtonClassName = classnames(buttonClassName, 'opinion-toggle--ok', {
+      'is-active': alignment === 1
+    });
+    const koButtonClassName = classnames(buttonClassName, 'opinion-toggle--ko', {
+      'is-active': alignment === -1
+    });
+    const neutralButtonClassName = classnames(buttonClassName, 'opinion-toggle--neutral', {
+      'is-active': alignment === 0
+    });
+
+    if (arguable) {
+      return (
+        <div className="opinion-toggle button-group">
+          <button 
+            className={okButtonClassName}
+            onClick={() => this.setState({ alignment: 1 })}
+          >
+            <Icon name="icon-thumb-up" />
+            { I18n.t("components.add_comment_form.opinion.in_favor") }
+          </button>
+          <button
+            className={neutralButtonClassName}
+            onClick={() => this.setState({ alignment: 0 })}
+          >
+            { I18n.t("components.add_comment_form.opinion.neutral") }
+          </button>
+          <button
+            className={koButtonClassName}
+            onClick={() => this.setState({ alignment: -1 })}
+          >
+            <Icon name="icon-thumb-down" />
+            { I18n.t("components.add_comment_form.opinion.against") }
+          </button>
+        </div>
+      );
+    }
+
+    return null;
+  }
  
   /**
    * Check comment's body and disable form if it's empty
@@ -87,12 +141,15 @@ export class AddCommentForm extends Component {
    * @returns {Void} - Returns nothing
    */
   _addComment(evt) {
+    const { alignment } = this.state;
     const { addComment, onCommentAdded } = this.props;
 
     evt.preventDefault();
 
-    addComment({ body: this.bodyTextArea.value });
+    addComment({ body: this.bodyTextArea.value, alignment });
+
     this.bodyTextArea.value = '';
+    this.setState({ alignment: 0 });
 
     if (onCommentAdded) {
       onCommentAdded();
@@ -114,7 +171,8 @@ AddCommentForm.propTypes = {
   commentableType: PropTypes.string.isRequired,
   showTitle: PropTypes.bool.isRequired,
   submitButtonClassName: PropTypes.string.isRequired,
-  onCommentAdded: PropTypes.func
+  onCommentAdded: PropTypes.func,
+  arguable: PropTypes.bool
 };
 
 const AddCommentFormWithMutation = graphql(gql`
@@ -122,11 +180,12 @@ const AddCommentFormWithMutation = graphql(gql`
   ${commentDataFragment}
 `, {
   props: ({ ownProps, mutate }) => ({
-    addComment: ({ body }) => mutate({ 
+    addComment: ({ body, alignment }) => mutate({ 
       variables: { 
         commentableId: ownProps.commentableId,
         commentableType: ownProps.commentableType,
-        body
+        body,
+        alignment
       },
       optimisticResponse: {
         __typename: 'Mutation',
@@ -135,6 +194,7 @@ const AddCommentFormWithMutation = graphql(gql`
           id: uuid(),
           createdAt: moment().format("YYYY-MM-DD HH:mm:ss z"),
           body,
+          alignment: alignment,
           author: {
             __typename: 'Author',
             name: ownProps.currentUser.name,

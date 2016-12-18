@@ -19,11 +19,28 @@ module Decidim
             .with("Comments", {
               commentableType: "Decidim::Comments::DummyCommentable",
               commentableId: "1",
+              options: {},
               locale: I18n.locale
             })
             .and_call_original
 
           helper.comments_for(commentable)
+        end
+
+        it "should accept an optional hash of options" do
+          expect(helper)
+            .to receive(:react_component)
+            .with("Comments", {
+              commentableType: "Decidim::Comments::DummyCommentable",
+              commentableId: "1",
+              options: {
+                arguable: true
+              },
+              locale: I18n.locale
+            })
+            .and_call_original
+
+          helper.comments_for(commentable, arguable: true)
         end
       end
     end

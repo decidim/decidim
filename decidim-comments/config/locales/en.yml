@@ -1,8 +1,9 @@
+---
 en:
   activerecord:
     errors:
       messages:
-        cannot_have_replies: "can't have replies"
+        cannot_have_replies: can't have replies
   decidim:
     components:
       add_comment_form:
@@ -11,9 +12,16 @@ en:
             label: Comment
             placeholder: What do you think about this?
           submit: Send
+        opinion:
+          against: I am against
+          in_favor: I am in favor
+          neutral: I am neutral
         title: Leave your comment
       comment:
-        reply: "Reply"
+        alignment:
+          against: Against
+          in_favor: In favor
+        reply: Reply
       comment_order_selector:
         order:
           most_voted: Most voted

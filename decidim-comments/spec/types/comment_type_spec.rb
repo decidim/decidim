@@ -38,6 +38,14 @@ module Decidim
           expect(response["replies"]).to_not include("id" => random_comment.id.to_s)
         end
       end
+
+      describe "alignment" do
+        let(:query) { "{ alignment }" }
+
+        it "returns the alignment field" do
+          expect(response).to include("alignment" => model.alignment)
+        end
+      end
     end
   end
 end

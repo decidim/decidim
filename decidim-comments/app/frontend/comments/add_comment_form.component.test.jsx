@@ -79,6 +79,11 @@ describe("<AddCommentForm />", () => {
     expect(wrapper.find('input[type="submit"]')).to.be.disabled();
   });
 
+  it("should not render a div with class 'opinion-toggle'", () => {
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+    expect(wrapper.find('.opinion-toggle')).not.to.be.present();
+  });
+
   describe("submitting the form", () => {
     let addComment = null;
     let onCommentAdded = null;
@@ -93,10 +98,10 @@ describe("<AddCommentForm />", () => {
       wrapper.instance().bodyTextArea.value = message;
     });
 
-    it("should call addComment prop with the textarea value", () => {
+    it("should call addComment prop with the textarea value and state property alignment", () => {
       wrapper.find('form').simulate('submit');
-      expect(addComment).to.calledWith({ body: message });
-    })
+      expect(addComment).to.calledWith({ body: message, alignment: 0 });
+    });
 
     it("should reset textarea", () => {
       wrapper.find('form').simulate('submit');
@@ -112,6 +117,57 @@ describe("<AddCommentForm />", () => {
     it("should call the prop onCommentAdded function", () => {
       wrapper.find('form').simulate('submit');
       expect(onCommentAdded).to.have.been.called;
+    });
+  });
+
+  it("should initialize state with a property alignment and value 0", () => {
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} arguable />);
+    expect(wrapper).to.have.state('alignment').equal(0);
+  });
+
+  describe("when receiving an optional prop arguable with value true", () => {
+    it("should render a div with class 'opinion-toggle'", () => {
+      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} arguable />);
+      expect(wrapper.find('.opinion-toggle')).to.be.present();
+    });
+
+    it("should set state alignment to 1 if user clicks ok button and change its class", () => {
+      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} arguable />);
+      wrapper.find('.opinion-toggle--ok').simulate('click');
+      expect(wrapper.find('.opinion-toggle--ok')).to.have.className('is-active');
+      expect(wrapper).to.have.state('alignment').equal(1);
+    });
+
+    it("should set state alignment to -11 if user clicks ko button and change its class", () => {
+      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} arguable />);
+      wrapper.find('.opinion-toggle--ko').simulate('click');
+      expect(wrapper.find('.opinion-toggle--ko')).to.have.className('is-active');
+      expect(wrapper).to.have.state('alignment').equal(-1);
+    });
+
+    describe("submitting the form", () => {
+      let addComment = null;
+      let wrapper = null;
+      let message = null;
+
+      beforeEach(() => {
+        addComment = sinon.spy();
+        wrapper = mount(<AddCommentForm addComment={addComment} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} arguable />);
+        message = 'This will be submitted';
+        wrapper.instance().bodyTextArea.value = message;
+      });
+
+      it("should call addComment prop with the state's property alignment", () => {
+        wrapper.find('button.opinion-toggle--ko').simulate('click');
+        wrapper.find('form').simulate('submit');
+        expect(addComment).to.calledWith({ body: message, alignment: -1 });
+      });
+
+      it("should reset the state to its initial state", () => {
+        wrapper.find('button.opinion-toggle--ok').simulate('click');
+        wrapper.find('form').simulate('submit');
+        expect(wrapper).to.have.state('alignment').eq(0);
+      });
     });
   });
 });

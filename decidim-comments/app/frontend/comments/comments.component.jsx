@@ -60,7 +60,7 @@ export class Comments extends Component {
    * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
    */
   _renderAddCommentForm() {
-    const { currentUser, commentableId, commentableType } = this.props;
+    const { currentUser, commentableId, commentableType, options: { arguable } } = this.props;
     
     if (currentUser) {
       return (
@@ -68,6 +68,7 @@ export class Comments extends Component {
           currentUser={currentUser}
           commentableId={commentableId}
           commentableType={commentableType}
+          arguable={arguable}
         />
       );
     }
@@ -84,7 +85,10 @@ Comments.propTypes = {
     name: PropTypes.string.isRequired
   }),
   commentableId: PropTypes.string.isRequired,
-  commentableType: PropTypes.string.isRequired
+  commentableType: PropTypes.string.isRequired,
+  options: PropTypes.shape({
+    arguable: PropTypes.bool
+  }).isRequired
 };
 
 /**
@@ -100,7 +104,8 @@ const CommentsWithData = graphql(gql`
     comments: comments || [],
     currentUser: currentUser || null,
     commentableId: ownProps.commentableId,
-    commentableType: ownProps.commentableType
+    commentableType: ownProps.commentableType,
+    options: ownProps.options
   })
 })(Comments);
 
@@ -109,11 +114,12 @@ const CommentsWithData = graphql(gql`
  * connect it with Apollo client and store.
  * @returns {ReactComponent} - A component wrapped within an Application component
  */
-const CommentsApplication = ({ locale, commentableId, commentableType }) => (
+const CommentsApplication = ({ locale, commentableId, commentableType, options }) => (
   <Application locale={locale}>
     <CommentsWithData 
       commentableId={commentableId}
       commentableType={commentableType}
+      options={options}
     />
   </Application>
 );
@@ -124,7 +130,10 @@ CommentsApplication.propTypes = {
     PropTypes.string,
     PropTypes.number
   ]),
-  commentableType: PropTypes.string.isRequired
+  commentableType: PropTypes.string.isRequired,
+  options: PropTypes.shape({
+    arguable: PropTypes.bool
+  }).isRequired
 };
 
 export default CommentsApplication;

@@ -5,6 +5,7 @@ fragment CommentData on Comment {
   author {
     name,
     avatarUrl
-  },
+  }
   canHaveReplies
+  alignment
 }
