@@ -1,11 +1,24 @@
+import ReactDOM         from 'react-dom';
+
 import loadTranslations from './support/load_translations';
 import Comments         from './comments/comments.component';
 
-// Dependency for react-rails. It is exposed globally by webpack
-require('react-dom');
+// Expose global components
+window.DecidimComments.renderCommentsComponent = (nodeId, props) => {
+  var node = $(`#${nodeId}`)[0];
 
-// Expose globals for react-rails
-window.Comments = Comments;
+  ReactDOM.render(
+    React.createElement(Comments,props),
+    node
+  );
+
+  function unmountComponent() {
+    ReactDOM.unmountComponentAtNode(node);
+    $(document).off('turbolinks:before-render', unmountComponent);
+  }
+
+  $(document).on('turbolinks:before-render', unmountComponent);
+};
 
 // Load component locales from yaml files
 loadTranslations();

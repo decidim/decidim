@@ -14,10 +14,34 @@ module Decidim
       def comments_for(resource, options = {})
         commentable_type = resource.class.name
         commentable_id = resource.id.to_s
-        react_component("Comments", commentableType: commentable_type,
-                                    commentableId: commentable_id,
-                                    options: options.slice(:arguable),
-                                    locale: I18n.locale) + javascript_include_tag("decidim/comments/comments")
+        node_id = "comments-for-#{commentable_type.demodulize}-#{commentable_id}"
+
+        react_comments_component(node_id, commentableType: commentable_type,
+                                          commentableId: commentable_id,
+                                          options: options.slice(:arguable),
+                                          locale: I18n.locale)
+      end
+
+      # Private: Render Comments component using inline javascript
+      #
+      # node_id - The id of the DOMElement to render the React component
+      # props   - A hash corresponding to Comments component props
+      def react_comments_component(node_id, props)
+        content_tag("div", "", id: node_id) +
+          javascript_tag(%{
+            $.getScript('#{asset_path("decidim/comments/comments")}')
+              .then(function () {
+                window.DecidimComments.renderCommentsComponent(
+                  '#{node_id}',
+                  {
+                    commentableType: "#{props[:commentableType]}",
+                    commentableId: "#{props[:commentableId]}",
+                    options: JSON.parse("#{j(props[:options].to_json)}"),
+                    locale: "#{props[:locale]}"
+                  }
+                );
+              });
+          })
       end
     end
   end
