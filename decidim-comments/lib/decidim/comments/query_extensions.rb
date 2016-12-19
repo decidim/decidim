@@ -20,10 +20,9 @@ module Decidim
 
             resolve lambda { |_obj, args, _ctx|
               Comment
-                .where(commentable_id: args[:commentableId])
-                .where(commentable_type: args[:commentableType])
+                .where(decidim_commentable_id: args[:commentableId])
+                .where(decidim_commentable_type: args[:commentableType])
                 .order(created_at: :asc)
-                .all
             }
           end
         end

@@ -23,6 +23,18 @@ module Decidim
       end
 
       field :alignment, types.Int, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'"
+
+      field :upVotes, !types.Int, "The number of comment's upVotes" do
+        resolve lambda { |obj, _args, _ctx|
+          obj.up_votes.count
+        }
+      end
+
+      field :downVotes, !types.Int, "The number of comment's downVotes" do
+        resolve lambda { |obj, _args, _ctx|
+          obj.down_votes.count
+        }
+      end
     end
   end
 end

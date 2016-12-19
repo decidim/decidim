@@ -79,6 +79,14 @@ describe('<Comments />', () => {
         expect(node).to.have.prop("currentUser").deep.equal(currentUser);
       });
     });
+
+    it("and pass the option votable as a prop to it", () => {
+      const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} options={{ votable: true }} />);
+      expect(wrapper).to.have.exactly(comments.length).descendants(CommentThread);
+      wrapper.find(CommentThread).forEach((node) => {
+        expect(node).to.have.prop("votable").equal(true);
+      });
+    });
   });
 
   it("should render comments count", () => {

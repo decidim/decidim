@@ -7,5 +7,7 @@ fragment CommentData on Comment {
     avatarUrl
   }
   canHaveReplies
-  alignment
+  alignment,
+  upVotes,
+  downVotes
 }

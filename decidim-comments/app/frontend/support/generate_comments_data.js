@@ -19,7 +19,9 @@ const generateCommentsData = (num = 1) => {
       },
       replies: [],
       canHaveReplies: true,
-      alignment: 0
+      alignment: 0,
+      upVotes: random.number(),
+      downVotes: random.number()
     })
   }
 

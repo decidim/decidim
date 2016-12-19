@@ -80,11 +80,12 @@ describe("<Comment />", () => {
   });
 
   it("should render comment replies a separate Comment components", () => {
-    const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
+    const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} votable />);
     wrapper.find(Comment).forEach((node, idx) => {
       expect(node).to.have.prop("comment").deep.equal(comment.replies[idx]);
       expect(node).to.have.prop("currentUser").deep.equal(currentUser);
       expect(node).to.have.prop("articleClassName").equal("comment comment--nested")
+      expect(node).to.have.prop("votable").equal(true);
     });
   });
 
@@ -121,5 +122,27 @@ describe("<Comment />", () => {
     comment.alignment = -1;
     const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
     expect(wrapper.find('span.alert.label')).to.have.text('Against');
+  });
+
+  describe("when the comment is votable", () => {
+    it("should render a link to upVote comments", () => {
+      const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} votable />);
+      expect(wrapper.find('a.comment__votes--up')).to.be.present();
+    });
+
+    it("should render the number of comment's upVotes", () => {
+      const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} votable />);
+      expect(wrapper.find('a.comment__votes--up')).to.contain.text(comment.upVotes);
+    });
+
+    it("should render a link to downVote comments", () => {
+      const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} votable />);
+      expect(wrapper.find('a.comment__votes--down')).to.be.present();
+    });
+
+    it("should render the number of comment's downVotes", () => {
+      const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} votable />);
+      expect(wrapper.find('a.comment__votes--down')).to.contain.text(comment.downVotes);
+    });
   });
 });

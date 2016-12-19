@@ -46,6 +46,22 @@ module Decidim
           expect(response).to include("alignment" => model.alignment)
         end
       end
+
+      describe "upVotes" do
+        let(:query) { "{ upVotes }" }
+
+        it "returns the up_votes count" do
+          expect(response).to include("upVotes" => model.up_votes.count)
+        end
+      end
+
+      describe "downVotes" do
+        let(:query) { "{ downVotes }" }
+
+        it "returns the down_votes count" do
+          expect(response).to include("downVotes" => model.down_votes.count)
+        end
+      end
     end
   end
 end
