@@ -13,7 +13,7 @@ module Decidim
       private
 
       def meetings
-        @meetings ||= Meeting.where(decidim_feature_id: current_feature.id).order(start_time: :asc)
+        @meetings ||= MeetingsSearch.new(current_feature: current_feature, order_start_time: :asc).results
       end
 
       def meeting

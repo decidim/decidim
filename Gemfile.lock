@@ -128,6 +128,7 @@ PATH
       date_validator (~> 0.9)
       decidim-core (= 0.0.1)
       rectify (~> 0.8)
+      searchlight (~> 4.1.0)
 
 PATH
   remote: decidim-pages
@@ -441,6 +442,7 @@ GEM
       sprockets (> 2.11)
       sprockets-rails
       tilt
+    searchlight (4.1.0)
     simplecov (0.12.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)

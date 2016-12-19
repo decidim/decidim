@@ -10,7 +10,7 @@ FactoryGirl.define do
     location_hints { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     address { Faker::Lorem.sentence(3) }
     start_time { 1.day.from_now }
-    end_time { 1.day.from_now + 2.hours }
+    end_time { start_time + 2.hours }
     feature
   end
 end
