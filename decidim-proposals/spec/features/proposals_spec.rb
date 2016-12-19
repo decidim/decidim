@@ -8,6 +8,7 @@ describe "Proposals", type: :feature do
   let!(:proposals) { create_list(:proposal, 3, feature: feature) }
   let!(:category) { create :category, participatory_process: participatory_process }
   let!(:scope) { create :scope, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: organization }
 
   before do
     switch_to_host(organization.host)
@@ -15,31 +16,37 @@ describe "Proposals", type: :feature do
   end
 
   context "creating a new proposal" do
-    it "creates a new proposal" do
-      click_link "Processes"
-      click_link participatory_process.title["en"]
-      click_link "Proposals"
-      click_link "New proposal"
-
-      within ".new_proposal" do
-        fill_in :proposal_title, with: "Oriol for president"
-        fill_in :proposal_body, with: "He will solve everything"
-        select category.name["en"], from: :proposal_category_id
-        select scope.name["en"], from: :proposal_scope_id
-
-        find("*[type=submit]").click
+    context "when the user is logged in" do
+      before do
+        login_as user, scope: :user
       end
 
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Oriol for president")
-      expect(page).to have_content("He will solve everything")
-      expect(page).to have_content(category.name["en"])
-      expect(page).to have_content(scope.name["en"])
+      it "creates a new proposal" do
+        click_link "Processes"
+        click_link participatory_process.title["en"]
+        click_link "Proposals"
+        click_link "New proposal"
+
+        within ".new_proposal" do
+          fill_in :proposal_title, with: "Oriol for president"
+          fill_in :proposal_body, with: "He will solve everything"
+          select category.name["en"], from: :proposal_category_id
+          select scope.name["en"], from: :proposal_scope_id
+
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("successfully")
+        expect(page).to have_content("Oriol for president")
+        expect(page).to have_content("He will solve everything")
+        expect(page).to have_content(category.name["en"])
+        expect(page).to have_content(scope.name["en"])
+      end
     end
   end
 
   context "when it is an official proposal" do
-    let!(:offical_proposal) { create(:proposal, feature: feature, author: nil) }
+    let!(:official_proposal) { create(:proposal, feature: feature, author: nil) }
 
     it "shows the author as official" do
       click_link "Processes"
@@ -47,7 +54,7 @@ describe "Proposals", type: :feature do
       click_link "Proposals"
       click_link official_proposal.title
 
-      expect(page).to have_content("official")
+      expect(page).to have_content("Official proposal")
     end
   end
 

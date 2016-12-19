@@ -4,19 +4,11 @@
     <div class="author-data__main">
       <div class="author author--inline">
         <span class="author__avatar">
-          <% if @proposal.author %>
-            <%= image_tag @proposal.author.avatar.url %>
-          <% else %>
-            <%= image_tag ActionController::Base.helpers.asset_path("decidim/default-avatar.svg") %>
-          <% end %>
+          <%= image_tag @proposal.author_avatar_url %>
         </span>
         <%= l @proposal.created_at, format: :long %>
         <span class="author__name">
-          <% if @proposal.author %>
-            <%= @proposal.author.name %>
-          <% else %>
-            <%= t(".official_proposal") %>
-          <% end %>
+          <%= @proposal.author_name %>
         </span>
       </div>
     </div>

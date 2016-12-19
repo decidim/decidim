@@ -13,6 +13,14 @@ module Decidim
       validate :scope_belongs_to_organization
       validate :author_belongs_to_organization
 
+      def author_name
+        author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
+      end
+
+      def author_avatar_url
+        author&.avatar&.url || ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
+      end
+
       private
 
       def category_belongs_to_feature

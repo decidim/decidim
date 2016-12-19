@@ -9,9 +9,9 @@
           <div class="author-data__main">
             <div class="author author--inline">
               <span class="author__avatar author__avatar--small">
-                <%= image_tag proposal.author.avatar.url %>
+                <%= image_tag proposal.author_avatar_url %>
               </span>
-              <span class="author__name"><%= proposal.author.name %></span>
+              <span class="author__name"><%= proposal.author_name %></span>
               <%= l proposal.created_at, format: "%d/%m/%Y" %>
             </div>
           </div>

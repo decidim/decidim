@@ -30,6 +30,7 @@ en:
         proposal:
           fields:
             category: Category
+            official_proposal: Official proposal
             scope: Scope
             title: Title
       proposals:
@@ -44,5 +45,3 @@ en:
           title: New proposal
         proposal:
           view_proposal: View proposal
-        show:
-          official_proposal: Official proposal
