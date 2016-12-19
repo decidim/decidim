@@ -5,10 +5,13 @@ module Decidim
   # provide a single feature that spans over several steps, each one with its component.
   class Feature < ApplicationRecord
     belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id"
+    has_one :organization, through: :participatory_process
+    has_many :categories, through: :participatory_process
+    has_many :scopes, through: :organization
 
     validates :participatory_process, presence: true
 
-    # Public: Fins the manifest this feature is associated to.
+    # Public: Finds the manifest this feature is associated to.
     #
     # Returns a FeatureManifest.
     def manifest

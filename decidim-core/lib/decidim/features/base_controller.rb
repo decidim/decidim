@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Features
     # Controller from which all feature engines inherit from. It's in charge of

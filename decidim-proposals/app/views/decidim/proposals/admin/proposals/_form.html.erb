@@ -1,0 +1,19 @@
+<div class="field">
+  <%= form.text_field :title %>
+</div>
+
+<div class="field">
+  <%= form.text_area :body, rows: 10 %>
+</div>
+
+<% if @form.categories&.any? %>
+  <div class="field">
+    <%= form.categories_select :category_id, @form.categories, t(".select_a_category") %>
+  </div>
+<% end %>
+
+<% if @form.scopes&.any? %>
+  <div class="field">
+    <%= form.select :scope_id, @form.scopes.map{|s| [translated_attribute(s.name), s.id]}, prompt: t(".select_a_scope") %>
+  </div>
+<% end %>

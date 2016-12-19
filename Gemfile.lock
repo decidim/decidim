@@ -20,9 +20,14 @@ PATH
       decidim-core (= 0.0.1.alpha9)
       decidim-meetings (= 0.0.1.alpha9)
       decidim-pages (= 0.0.1.alpha9)
+      decidim-proposals (= 0.0.1.alpha9)
       decidim-system (= 0.0.1.alpha9)
       rails (~> 5.0.0, >= 5.0.0.1)
       rails-i18n (~> 5.0.0, >= 5.0.0.1)
+    decidim-proposals (0.0.1.alpha9)
+      decidim-core (= 0.0.1.alpha9)
+      kaminari (~> 1.0.0.rc1)
+      rectify (~> 0.8.0)
 
 PATH
   remote: decidim-admin
@@ -298,6 +303,18 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.0.2)
+    kaminari (1.0.0.rc1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.0.rc1)
+      kaminari-activerecord (= 1.0.0.rc1)
+      kaminari-core (= 1.0.0.rc1)
+    kaminari-actionview (1.0.0.rc1)
+      actionview
+      kaminari-core (= 1.0.0.rc1)
+    kaminari-activerecord (1.0.0.rc1)
+      activerecord
+      kaminari-core (= 1.0.0.rc1)
+    kaminari-core (1.0.0.rc1)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.1.5)

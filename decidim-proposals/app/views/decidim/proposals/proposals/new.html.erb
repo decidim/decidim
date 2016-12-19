@@ -1,0 +1,40 @@
+<div class="row columns">
+  <%= link_to :back, class: "muted-link" do %>
+    <%= icon "chevron-left", class: "icon--small" %>
+    <%= t(".back") %>
+  <% end %>
+  <h2 class="section-heading"><%= t(".title") %></h2>
+</div>
+<div class="row">
+  <div class="columns large-6 medium-centered">
+    <div class="card">
+      <div class="card__content">
+        <%= form_for(@form) do |form| %>
+          <div class="field">
+            <%= form.text_field :title %>
+          </div>
+
+          <div class="field">
+            <%= form.text_area :body, rows: 10 %>
+          </div>
+
+          <% if @form.categories&.any? %>
+            <div class="field">
+              <%= form.categories_select :category_id, @form.categories, t(".select_a_category") %>
+            </div>
+          <% end %>
+
+          <% if @form.scopes&.any? %>
+            <div class="field">
+              <%= form.select :scope_id, @form.scopes.map{|s| [translated_attribute(s.name), s.id]}, prompt: t(".select_a_scope") %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= form.submit t(".send"), class: "button expanded" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

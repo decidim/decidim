@@ -20,6 +20,7 @@ module Decidim
         attribute :slug, String
         translatable_attribute :name, String
         translatable_attribute :short_description, String
+        attribute :category_id, Integer
       end.new
     end
 
@@ -112,6 +113,54 @@ module Decidim
             expect(parsed.css(".editor label[for='resource_short_description_en']").first).to be
             expect(parsed.css(".editor .editor-container").first).to be
           end
+        end
+      end
+    end
+
+    describe "caregories_for_select" do
+      let!(:feature) { create(:feature) }
+      let!(:category) { create(:category, name: { "en" => "Nice category" }, participatory_process: feature.participatory_process) }
+      let!(:other_category) { create(:category, name: { "en" => "A better category" }, participatory_process: feature.participatory_process) }
+      let!(:subcategory) { create(:category, name: { "en" => "Subcategory" }, parent: category, participatory_process: feature.participatory_process) }
+      let(:scope) { feature.categories }
+
+      let(:output) { builder.categories_select(:category_id, scope) }
+      subject { Nokogiri::HTML(output) }
+
+      it "includes all the categories" do
+        values = subject.css("option").map(&:text)
+
+        expect(subject.css("option").count).to eq(3)
+        expect(values).to include(category.name["en"])
+        expect(values).to include("- #{subcategory.name["en"]}")
+        expect(values).to include(other_category.name["en"])
+      end
+
+      context "when a category has subcategories" do
+        it "is disabled" do
+          expect(subject.xpath("//option[@disabled='disabled']").count).to eq(1)
+          expect(subject.xpath("//option[@disabled='disabled']").first.text).to eq(category.name["en"])
+        end
+      end
+
+      it "sorts main categories by name" do
+        expect(subject.css("option")[0].text).to eq(other_category.name["en"])
+        expect(subject.css("option")[1].text).to eq(category.name["en"])
+      end
+
+      it "sorts subcategories by name" do
+        subcategory_2 = create(:category, name: { "en" => "First subcategory" }, parent: category, participatory_process: feature.participatory_process)
+
+        expect(subject.css("option")[2].text).to eq("- #{subcategory_2.name["en"]}")
+        expect(subject.css("option")[3].text).to eq("- #{subcategory.name["en"]}")
+      end
+
+      context "when given a prompt" do
+        let(:output) { builder.categories_select(:category_id, scope, "Select something") }
+
+        it "includes it as an option" do
+          expect(subject.css("option")[0].text).to eq("Select something")
+          expect(subject.css("option").count).to eq(4)
         end
       end
     end

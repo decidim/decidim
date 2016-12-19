@@ -1,0 +1,23 @@
+<div class="row columns">
+  <div class="title-action">
+    <h2 class="title-action__title section-heading"><%= t(".proposals_count", count: @proposals.total_count) %></h2>
+    <%= link_to new_proposal_path, class: "title-action__action button small hollow" do %>
+      <%= t(".new_proposal") %>
+      <%= icon "plus" %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="columns mediumlarge-12 large-12">
+    <div class="row small-up-1 medium-up-3 card-grid">
+      <%= render @proposals %>
+    </div>
+    <%
+      # Kaminari uses url_for to generate the url, but this doesn't play nice with our engine system
+      # and unless we remove these params they are added again as query string 😩
+      params.delete("participatory_process_id")
+      params.delete("feature_id")
+    %>
+    <%= paginate @proposals, theme: "decidim", params: { random_seed: @random_seed } %>
+  </div>
+</div>

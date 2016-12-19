@@ -137,7 +137,7 @@ FactoryGirl.define do
   end
 
   factory :scope, class: Decidim::Scope do
-    name { Decidim::Faker::Localized.word }
+    name { Decidim::Faker::Localized.literal(Faker::Address.state) }
     organization
   end
 end

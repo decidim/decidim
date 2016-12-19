@@ -1,0 +1,47 @@
+---
+en:
+  decidim:
+    features:
+      proposals:
+        name: Proposals
+    proposals:
+      actions:
+        new: New proposal
+      admin:
+        models:
+          proposal:
+            name: Proposal
+        proposals:
+          create:
+            invalid: There's been a problem creating this proposal
+            success: Proposal successfully created
+          form:
+            select_a_category: Select a category
+            select_a_scope: Select a scope
+          index:
+            title: Proposals
+          new:
+            create: Create proposal
+            title: New proposal
+      create:
+        error: There's been errors when saving the proposal.
+        success: Proposal created successfully.
+      models:
+        proposal:
+          fields:
+            category: Category
+            official_proposal: Official proposal
+            scope: Scope
+            title: Title
+      proposals:
+        index:
+          new_proposal: New proposal
+          proposals_count: "%{count} proposals"
+        new:
+          back: Back
+          select_a_category: Please select a category
+          select_a_scope: Please select a scope
+          send: Send
+          title: New proposal
+        proposal:
+          view_proposal: View proposal
