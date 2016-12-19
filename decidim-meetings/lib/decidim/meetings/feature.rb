@@ -24,6 +24,7 @@ Decidim.register_feature(:meetings) do |feature|
       3.times do
         Decidim::Meetings::Meeting.create!(
           feature: feature,
+          scope: process.organization.scopes.sample,
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)

@@ -11,6 +11,7 @@ class CreateMeetings < ActiveRecord::Migration[5.0]
       t.jsonb :location_hints
       t.references :decidim_feature, index: true
       t.references :decidim_author, index: true
+      t.references :decidim_scope, index: true
 
       t.timestamps
     end
