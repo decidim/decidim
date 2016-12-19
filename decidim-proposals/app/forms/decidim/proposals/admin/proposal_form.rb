@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 module Decidim
   module Proposals
-    # A form object to be used when public users want to create a proposal.
     module Admin
+      # A form object to be used when admin users want to create a proposal.
       class ProposalForm < Decidim::Form
         mimic :proposal
 

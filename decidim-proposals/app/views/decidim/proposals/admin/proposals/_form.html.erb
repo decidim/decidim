@@ -14,6 +14,6 @@
 
 <% if @form.scopes&.any? %>
   <div class="field">
-    <%= form.collection_select :scope, @form.scopes, :id, :name, prompt: t(".select_a_scope")%>
+    <%= form.select :scope_id, @form.scopes.map{|s| [translated_attribute(s.name), s.id]}, prompt: t(".select_a_scope") %>
   </div>
 <% end %>

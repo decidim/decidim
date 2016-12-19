@@ -6,10 +6,49 @@ describe "Proposals", type: :feature do
   let(:organization) { feature.organization }
   let(:participatory_process) { feature.participatory_process }
   let!(:proposals) { create_list(:proposal, 3, feature: feature) }
+  let!(:category) { create :category, participatory_process: participatory_process }
+  let!(:scope) { create :scope, organization: organization }
 
   before do
     switch_to_host(organization.host)
     visit decidim.root_path
+  end
+
+  context "creating a new proposal" do
+    it "creates a new proposal" do
+      click_link "Processes"
+      click_link participatory_process.title["en"]
+      click_link "Proposals"
+      click_link "New proposal"
+
+      within ".new_proposal" do
+        fill_in :proposal_title, with: "Oriol for president"
+        fill_in :proposal_body, with: "He will solve everything"
+        select category.name["en"], from: :proposal_category_id
+        select scope.name["en"], from: :proposal_scope_id
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Oriol for president")
+      expect(page).to have_content("He will solve everything")
+      expect(page).to have_content(category.name["en"])
+      expect(page).to have_content(scope.name["en"])
+    end
+  end
+
+  context "when it is an official proposal" do
+    let!(:offical_proposal) { create(:proposal, feature: feature, author: nil) }
+
+    it "shows the author as official" do
+      click_link "Processes"
+      click_link participatory_process.title["en"]
+      click_link "Proposals"
+      click_link official_proposal.title
+
+      expect(page).to have_content("official")
+    end
   end
 
   context "listing proposals in a participatory process" do
