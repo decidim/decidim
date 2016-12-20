@@ -23,8 +23,8 @@ es:
         reply: Respuesta
       comment_order_selector:
         order:
-          most_voted: más votado
-          older: Mayor
+          most_voted: Más votado
+          older: Más antiguo
           recent: Reciente
         title: 'Ordenar por:'
       comment_thread:
@@ -32,4 +32,4 @@ es:
       comments:
         title: "%{count} comentarios"
       featured_comment:
-        title: destacado comentario
+        title: Comentario destacado
