@@ -5,6 +5,8 @@ module Decidim
     class SessionsController < ::Devise::SessionsController
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
+      helper Decidim::TranslationsHelper
+
       layout "layouts/decidim/application"
 
       def after_sign_in_path_for(user)
