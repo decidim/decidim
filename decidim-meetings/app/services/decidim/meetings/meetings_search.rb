@@ -7,7 +7,7 @@ module Decidim
     class MeetingsSearch < Searchlight::Search
       def base_query
         raise "Missing feature" unless options[:feature_id]
-        Meeting.where(feature: current_feature)
+        Meeting.page(options[:page] || 1).per(1).where(feature: current_feature)
       end
 
       def search_order_start_time

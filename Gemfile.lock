@@ -127,6 +127,7 @@ PATH
     decidim-meetings (0.0.1)
       date_validator (~> 0.9)
       decidim-core (= 0.0.1)
+      kaminari (~> 1.0.0.rc1)
       rectify (~> 0.8)
       searchlight (~> 4.1.0)
 

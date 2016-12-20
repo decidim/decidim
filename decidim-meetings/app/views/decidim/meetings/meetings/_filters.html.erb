@@ -20,7 +20,7 @@
         <legend><h6 class="heading6">Scopes</h6></legend>
         <% current_organization.scopes.each do |scope| %>
           <label>
-            <input value="<%= scope.id %>" type="checkbox"  name="scope_id[]" <%= "checked" if (search_params[:scope_id] || "").split(",").include?(scope.id.to_s) %>><%= scope.name %>
+            <input value="<%= scope.id %>" type="checkbox"  name="scope_id[]" <%= "checked" if (search_params[:scope_id] || []).include?(scope.id.to_s) %>><%= scope.name %>
           </label>
         <% end %>
       </fieldset>
