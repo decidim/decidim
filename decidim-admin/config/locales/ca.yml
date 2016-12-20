@@ -21,7 +21,7 @@ ca:
       categories:
         create:
           error: S'ha produït un error en crear aquesta categoria.
-          success: Categoria crear correctament.
+          success: Categoria creada correctament.
         destroy:
           error: S'ha produït un error en eliminar aquesta categoria. Si us plau, elimini qualsevol subcategoria en primer lloc, assegureu-vos que cap altra entitat pertany a aquesta categoria i torna a intentar-ho.
           success: Categoria eliminat correctament.
