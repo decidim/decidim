@@ -92,10 +92,7 @@ ca:
   layouts:
     decidim:
       footer:
-        about: Quant a Decidim
-        accessibility: Accessibilitat
         made_with_open_source: 'Aquesta web està feta amb <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software lliure</a>.'
-        terms_of_use: Termes i condicions
       header:
         close_menu: Tancar menú
         navigation: Navegació
