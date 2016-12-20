@@ -18,8 +18,27 @@ ca:
         publish: Publicar
         title: Accions
         unpublish: Despublicar
+      categories:
+        create:
+          error: S'ha produït un error en crear aquesta categoria.
+          success: Categoria crear correctament.
+        destroy:
+          error: S'ha produït un error en eliminar aquesta categoria. Si us plau, elimini qualsevol subcategoria en primer lloc, assegureu-vos que cap altra entitat pertany a aquesta categoria i torna a intentar-ho.
+          success: Categoria eliminat correctament.
+        edit:
+          title: Edita categoria
+          update: actualització de la categoria
+        new:
+          create: crear categoria
+          title: nova categoria
+        update:
+          error: S'ha produït un error en actualitzar aquesta categoria.
+          success: Categoria actualitzat correctament.
       decidim:
         admin:
+          categories:
+            index:
+              categories_title: categories
           participatory_process_attachments:
             index:
               attachments_title: Adjunts
@@ -30,18 +49,38 @@ ca:
           participatory_process_user_roles:
             index:
               process_admins_title: Administradors del procés participatiu
+      features:
+        create:
+          error: S'ha produït un error en crear aquesta funció.
+          success: Característica creat correctament.
+        destroy:
+          error: S'ha produït un error destruir aquesta funció.
+          success: Característica eliminat correctament.
+        index:
+          add: Afegir funció
+        new:
+          add: Afegir funció
+          title: 'Afegir funció: %{name}'
+        title: Característiques
       menu:
         dashboard: Tauler de control
         participatory_processes: Processos participatius
         participatory_processes_submenu:
           attachments: Adjunts
+          categories: categories
+          features: Característiques
           info: Informació
           process_admins: Administradors del procés
           settings: Configuració
           steps: Fases del procés
+        scopes: Scopes
         settings: Configuració
         static_pages: Pàgines
       models:
+        category:
+          fields:
+            name: Nom
+          name: categoria
         participatory_process:
           fields:
             created_at: Data de creació
@@ -67,6 +106,8 @@ ca:
         scope:
           fields:
             created_at: Data de creació
+            name: Nom
+          name: abast
         static_page:
           fields:
             created_at: Data de creació
@@ -145,6 +186,21 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
+      scopes:
+        create:
+          error: S'ha produït un error en crear un nou àmbit.
+          success: Àmbit creat correctament.
+        destroy:
+          success: Àmbit destruir amb èxit
+        edit:
+          title: Edita abast
+          update: àmbit d'aplicació d'actualització
+        new:
+          create: crear abast
+          title: nou abast
+        update:
+          error: S'ha produït un error en l'actualització d'aquest abast.
+          success: Àmbit actualitzat correctament
       static_pages:
         actions:
           view: Visualitzar la pàgina pública
@@ -165,4 +221,5 @@ ca:
       titles:
         dashboard: Tauler de control
         participatory_processes: Processos participatius
+        scopes: Scopes
         static_pages: Pàgines
