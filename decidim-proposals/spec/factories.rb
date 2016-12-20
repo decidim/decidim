@@ -3,7 +3,7 @@ require_relative "../../decidim-admin/spec/factories"
 
 FactoryGirl.define do
   factory :proposal_feature, class: Decidim::Feature do
-    name { { "en" => "Proposals" } }
+    name { Decidim::Features::Namer.new(I18n.locales, :proposals).i18n_name }
     manifest_name :proposals
     participatory_process
   end

@@ -1,6 +1,18 @@
 require "decidim/faker/localized"
 
 FactoryGirl.define do
+  sequence :name do |n| 
+    "#{Faker::Name.name} #{n}"
+  end
+
+  sequence(:email) do |n|
+    "user#{n}@decidim.org"
+  end
+
+  sequence(:slug) do |n|
+    "#{Faker::Internet.slug(nil, "-")}-#{n}"
+  end
+
   factory :category, class: Decidim::Category do
     name { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
@@ -27,7 +39,7 @@ FactoryGirl.define do
 
   factory :participatory_process, class: Decidim::ParticipatoryProcess do
     title { Decidim::Faker::Localized.sentence(3) }
-    slug { Faker::Internet.slug(nil, '-') }
+    slug { generate(:slug) }
     subtitle { Decidim::Faker::Localized.sentence(1) }
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
@@ -64,10 +76,10 @@ FactoryGirl.define do
   end
 
   factory :user, class: Decidim::User do
-    sequence(:email)      { |n| "user#{n}@citizen.corp" }
+    email                 { generate(:email) }
     password              "password1234"
     password_confirmation "password1234"
-    name                  { Faker::Name.name }
+    name                  { generate(:name) }
     organization
     locale                "en"
     tos_agreement         "1"
@@ -97,7 +109,7 @@ FactoryGirl.define do
   end
 
   factory :static_page, class: Decidim::StaticPage do
-    slug { Faker::Internet.slug(nil, '-') }
+    slug { generate(:slug) }
     title { Decidim::Faker::Localized.sentence(3) }
     content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     organization
