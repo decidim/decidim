@@ -2,7 +2,7 @@ es:
   decidim:
     features:
       proposals:
-        name: propuestas
+        name: Propuestas
     proposals:
       actions:
         new: Nueva propuesta
@@ -13,14 +13,14 @@ es:
         proposals:
           create:
             invalid: Ha habido un problema al crear esta propuesta
-            success: Propuesta creado correctamente
+            success: Propuesta creada correctamente
           form:
             select_a_category: Seleccione una categoría
             select_a_scope: Seleccione un ámbito
           index:
-            title: propuestas
+            title: Propuestas
           new:
-            create: crear propuesta
+            create: Crear propuesta
             title: Nueva propuesta
       create:
         error: Ha habido errores al guardar la propuesta.
