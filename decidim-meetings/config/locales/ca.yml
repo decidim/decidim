@@ -30,7 +30,7 @@ ca:
             success: Reunió actualitzada correctament
         models:
           meeting:
-            name: reunió
+            name: Trobada
       meetings:
         index:
           title: Llistat de trobades
