@@ -21,8 +21,11 @@ module Decidim
       validate :commentable_can_have_replies
       validates :depth, numericality: { greater_than_or_equal_to: 0 }
       validates :alignment, inclusion: { in: [0, 1, -1] }
+      validate :same_organization
 
       before_save :compute_depth
+
+      delegate :organization, to: :commentable
 
       # Public: Define if a comment can have replies or not
       #
@@ -42,6 +45,10 @@ module Decidim
       # Private: Compute comment depth inside the current comment tree
       def compute_depth
         self.depth = commentable.depth + 1 if commentable.respond_to?(:depth)
+      end
+
+      def same_organization
+        errors.add(:commentable, :invalid) unless author.organization == organization
       end
     end
   end

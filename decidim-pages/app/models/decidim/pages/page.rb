@@ -6,6 +6,7 @@ module Decidim
     class Page < Pages::ApplicationRecord
       validates :title, :feature, presence: true
       belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
+      has_one :organization, through: :feature
     end
   end
 end

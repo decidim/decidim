@@ -36,6 +36,13 @@ module Decidim
         end
       end
 
+      it "is not valid if the author organization is different" do
+        foreign_user = build(:user)
+        comment = build(:comment, author: foreign_user)
+
+        expect(comment).to_not be_valid
+      end
+
       describe "#can_have_replies?" do
         it "should return true if the comment's depth is below MAX_DEPTH" do
           comment.depth = Comment::MAX_DEPTH - 1
