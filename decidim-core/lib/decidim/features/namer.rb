@@ -12,12 +12,12 @@ module Decidim
     #
     #   Decidim::Feature.create!(
     #     participatory_process: process,
-    #     name: Decidim::Feature::Namer.new(process.organization, :my_feature_name).i18n_name
+    #     name: Decidim::Feature::Namer.new(organization.available_locales, :my_feature_name).i18n_name
     #     manifest_name: :my_feature_name
     #   )
     class Namer
-      def initialize(organization, feature_name)
-        @organization = organization
+      def initialize(locales, feature_name)
+        @locales = locales
         @feature_name = feature_name
       end
 
@@ -29,11 +29,7 @@ module Decidim
 
       private
 
-      attr_reader :organization, :feature_name
-
-      def locales
-        organization.available_locales
-      end
+      attr_reader :locales, :feature_name
     end
   end
 end

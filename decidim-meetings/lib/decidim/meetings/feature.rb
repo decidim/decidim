@@ -15,7 +15,7 @@ Decidim.register_feature(:meetings) do |feature|
       next unless process.steps.any?
 
       feature = Decidim::Feature.create!(
-        name: Decidim::Features::Namer.new(process.organization, :meetings).i18n_name,
+        name: Decidim::Features::Namer.new(process.organization.available_locales, :meetings).i18n_name,
         manifest_name: :meetings,
         participatory_process: process
       )

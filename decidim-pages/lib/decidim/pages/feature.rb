@@ -23,7 +23,7 @@ Decidim.register_feature(:pages) do |feature|
       next unless process.steps.any?
 
       feature = Decidim::Feature.create!(
-        name: Decidim::Features::Namer.new(process.organization, :pages).i18n_name,
+        name: Decidim::Features::Namer.new(process.organization.available_locales, :pages).i18n_name,
         manifest_name: :pages,
         participatory_process: process
       )
