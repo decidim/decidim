@@ -1,6 +1,13 @@
----
 es:
   decidim:
     features:
       pages:
         name: Página
+    pages:
+      admin:
+        models:
+          components:
+            title: Título
+        pages:
+          edit:
+            title: Editar página
