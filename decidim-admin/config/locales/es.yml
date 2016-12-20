@@ -21,19 +21,19 @@ es:
       categories:
         create:
           error: Se ha producido un error al crear esta categoría.
-          success: Categoría creó correctamente.
+          success: Categoría creada correctamente.
         destroy:
-          error: Se ha producido un error al eliminar esta categoría. Por favor, elimine cualquier subcategoría en primer lugar, asegúrese de que ninguna otra entidad pertenece a esta categoría y vuelve a intentarlo.
-          success: Categoría eliminado correctamente.
+          error: Se ha producido un error al eliminar esta categoría. Por favor, elimine cualquier subcategoría en primer lugar, asegúrese de que ninguna otra entidad pertenece a esta categoría y vuelva a intentarlo.
+          success: Categoría eliminada correctamente.
         edit:
           title: Editar categoría
-          update: actualización de la categoría
+          update: Actualizar categoría
         new:
-          create: crear categoría
+          create: Crear categoría
           title: Nueva categoría
         update:
           error: Se ha producido un error al actualizar esta categoría.
-          success: Categoría actualizado correctamente.
+          success: Categoría actualizada correctamente.
       decidim:
         admin:
           categories:
@@ -51,29 +51,29 @@ es:
               process_admins_title: Administradores del proceso participativo
       features:
         create:
-          error: Se ha producido un error al crear esta función.
-          success: Característica creado correctamente.
+          error: Se ha producido un error al añadir esta funcionalidad.
+          success: Funcionalidad añadida correctamente.
         destroy:
-          error: Se ha producido un error destruir esta función.
-          success: Característica eliminado correctamente.
+          error: Se ha producido un error destruir esta funcionalidad.
+          success: Funcionalidad eliminada correctamente.
         index:
-          add: Añadir función
+          add: Añadir funcionalidad
         new:
-          add: Añadir función
-          title: 'Añadir función: %{name}'
-        title: Caracteristicas
+          add: Añadir funcionalidad
+          title: 'Añadir funcionalidad: %{name}'
+        title: Funcionalidades
       menu:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
         participatory_processes_submenu:
           attachments: Archivos adjuntos
           categories: Categorías
-          features: Caracteristicas
+          features: Funcionalidades
           info: Información
           process_admins: Administradores del proceso
           settings: Configuración
           steps: Fases del proceso
-        scopes: Scopes
+        scopes: Ámbitos
         settings: Configuración
         static_pages: Páginas
       models:
@@ -107,7 +107,7 @@ es:
           fields:
             created_at: Fecha de creación
             name: Nombre
-          name: Alcance
+          name: Ámbito
         static_page:
           fields:
             created_at: Fecha de creación
@@ -191,15 +191,15 @@ es:
           error: Se ha producido un error al crear un nuevo ámbito.
           success: Ámbito creado correctamente.
         destroy:
-          success: Ámbito destruyó con éxito
+          success: Ámbito eliminado con éxito
         edit:
           title: Editar alcance
-          update: ámbito de aplicación de actualización
+          update: Actualizar ámbito
         new:
-          create: crear alcance
-          title: nuevo alcance
+          create: Crear ámbito
+          title: Nuevo ámbito
         update:
-          error: Se produjo un error en la actualización de este alcance.
+          error: Se produjo un error en la actualización de este ámbito.
           success: Ámbito actualizado correctamente
       static_pages:
         actions:
@@ -221,5 +221,5 @@ es:
       titles:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
-        scopes: Scopes
+        scopes: Ámbitos
         static_pages: Páginas
