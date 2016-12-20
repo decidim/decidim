@@ -18,8 +18,27 @@ es:
         publish: Publicar
         title: Acciones
         unpublish: Despublicar
+      categories:
+        create:
+          error: Se ha producido un error al crear esta categoría.
+          success: Categoría creó correctamente.
+        destroy:
+          error: Se ha producido un error al eliminar esta categoría. Por favor, elimine cualquier subcategoría en primer lugar, asegúrese de que ninguna otra entidad pertenece a esta categoría y vuelve a intentarlo.
+          success: Categoría eliminado correctamente.
+        edit:
+          title: Editar categoría
+          update: actualización de la categoría
+        new:
+          create: crear categoría
+          title: Nueva categoría
+        update:
+          error: Se ha producido un error al actualizar esta categoría.
+          success: Categoría actualizado correctamente.
       decidim:
         admin:
+          categories:
+            index:
+              categories_title: Categorías
           participatory_process_attachments:
             index:
               attachments_title: Archivos adjuntos
@@ -30,18 +49,38 @@ es:
           participatory_process_user_roles:
             index:
               process_admins_title: Administradores del proceso participativo
+      features:
+        create:
+          error: Se ha producido un error al crear esta función.
+          success: Característica creado correctamente.
+        destroy:
+          error: Se ha producido un error destruir esta función.
+          success: Característica eliminado correctamente.
+        index:
+          add: Añadir función
+        new:
+          add: Añadir función
+          title: 'Añadir función: %{name}'
+        title: Caracteristicas
       menu:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
         participatory_processes_submenu:
           attachments: Archivos adjuntos
+          categories: Categorías
+          features: Caracteristicas
           info: Información
           process_admins: Administradores del proceso
           settings: Configuración
           steps: Fases del proceso
+        scopes: Scopes
         settings: Configuración
         static_pages: Páginas
       models:
+        category:
+          fields:
+            name: Nombre
+          name: Categoría
         participatory_process:
           fields:
             created_at: Fecha de creación
@@ -67,6 +106,8 @@ es:
         scope:
           fields:
             created_at: Fecha de creación
+            name: Nombre
+          name: Alcance
         static_page:
           fields:
             created_at: Fecha de creación
@@ -145,6 +186,21 @@ es:
         update:
           error: Se ha producido un error en la actualización de este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
+      scopes:
+        create:
+          error: Se ha producido un error al crear un nuevo ámbito.
+          success: Ámbito creado correctamente.
+        destroy:
+          success: Ámbito destruyó con éxito
+        edit:
+          title: Editar alcance
+          update: ámbito de aplicación de actualización
+        new:
+          create: crear alcance
+          title: nuevo alcance
+        update:
+          error: Se produjo un error en la actualización de este alcance.
+          success: Ámbito actualizado correctamente
       static_pages:
         actions:
           view: Ver la página pública
@@ -165,4 +221,5 @@ es:
       titles:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
+        scopes: Scopes
         static_pages: Páginas
