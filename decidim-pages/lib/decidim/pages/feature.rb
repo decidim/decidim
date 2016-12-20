@@ -33,7 +33,8 @@ Decidim.register_feature(:pages) do |feature|
         title: Decidim::Faker::Localized.sentence(2),
         body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
-        end
+        end,
+        commentable: true
       )
     end
   end
