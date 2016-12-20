@@ -27,18 +27,18 @@ ca:
           success: Categoria eliminada correctament.
         edit:
           title: Edita categoria
-          update: actualització de la categoria
+          update: Actualitza la categoria
         new:
-          create: crear categoria
-          title: nova categoria
+          create: Crea una categoria
+          title: Nova categoria
         update:
           error: S'ha produït un error en actualitzar aquesta categoria.
-          success: Categoria actualitzat correctament.
+          success: Categoria actualitzada correctament.
       decidim:
         admin:
           categories:
             index:
-              categories_title: categories
+              categories_title: Categories
           participatory_process_attachments:
             index:
               attachments_title: Adjunts
@@ -51,36 +51,36 @@ ca:
               process_admins_title: Administradors del procés participatiu
       features:
         create:
-          error: S'ha produït un error en crear aquesta funció.
-          success: Característica creat correctament.
+          error: S'ha produït un error en afegir aquesta funcionalitat.
+          success: Funcionalitat creada correctament.
         destroy:
-          error: S'ha produït un error destruir aquesta funció.
-          success: Característica eliminat correctament.
+          error: S'ha produït un error destruir aquesta funcionalitat.
+          success: Característica eliminada correctament.
         index:
-          add: Afegir funció
+          add: Afegir funcionalitat
         new:
-          add: Afegir funció
-          title: 'Afegir funció: %{name}'
-        title: Característiques
+          add: Afegir funcionalitat
+          title: 'Afegir funcionalitat: %{name}'
+        title: Funcionalitats
       menu:
         dashboard: Tauler de control
         participatory_processes: Processos participatius
         participatory_processes_submenu:
           attachments: Adjunts
-          categories: categories
-          features: Característiques
+          categories: Categories
+          features: Funcionalitats
           info: Informació
           process_admins: Administradors del procés
           settings: Configuració
           steps: Fases del procés
-        scopes: Scopes
+        scopes: Àmbits
         settings: Configuració
         static_pages: Pàgines
       models:
         category:
           fields:
             name: Nom
-          name: categoria
+          name: Categoria
         participatory_process:
           fields:
             created_at: Data de creació
@@ -107,7 +107,7 @@ ca:
           fields:
             created_at: Data de creació
             name: Nom
-          name: abast
+          name: Àmbit
         static_page:
           fields:
             created_at: Data de creació
