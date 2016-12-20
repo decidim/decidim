@@ -130,5 +130,6 @@ ca:
       title: Hi ha hagut un problema amb el nostre servidor
       try_later: Si us plau, torna-ho a intentar més tard.
     home:
+      meetings: Llistat de trobades
       register: Registra't
       welcome: Benvingut/da a %{organization}!
