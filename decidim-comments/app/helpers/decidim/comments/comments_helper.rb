@@ -29,7 +29,7 @@ module Decidim
       def react_comments_component(node_id, props)
         content_tag("div", "", id: node_id) +
           javascript_tag(%{
-            $.getScript('#{asset_path("decidim/comments/comments")}')
+            $.getScript('#{asset_path("decidim/comments/comments.js")}')
               .then(function () {
                 window.DecidimComments.renderCommentsComponent(
                   '#{node_id}',
