@@ -7,13 +7,13 @@ ca:
       admin:
         models:
           components:
-            body: cos
+            body: Cos
             commentable: Habilitar comentaris per a aquesta pàgina
             title: Títol
         pages:
           edit:
-            save: desa la pàgina
+            save: Desa la pàgina
             title: Editar pàgina
           update:
             invalid: Hi ha hagut errors en desar la pàgina.
-            success: Pàgina guardat correctament.
+            success: Pàgina guardada correctament.
