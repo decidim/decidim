@@ -1,6 +1,17 @@
----
 es:
   decidim:
     features:
       meetings:
         name: Lista de encuentros
+    meetings:
+      admin:
+        meetings:
+          index:
+            title: Lista de encuentros
+      meetings:
+        index:
+          title: Lista de encuentros
+      models:
+        meeting:
+          fields:
+            title: Título
