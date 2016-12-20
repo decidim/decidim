@@ -24,23 +24,23 @@ es:
             title: Nueva propuesta
       create:
         error: Ha habido errores al guardar la propuesta.
-        success: Propuesta creado correctamente.
+        success: Propuesta creada correctamente.
       models:
         proposal:
           fields:
             category: Categoría
-            official_proposal: propuesta oficial
-            scope: Alcance
+            official_proposal: Propuesta oficial
+            scope: Ámbito
             title: Título
       proposals:
         index:
           new_proposal: Nueva propuesta
           proposals_count: "%{count} propuestas"
         new:
-          back: Espalda
-          select_a_category: Porfavor seleccione una categoría
-          select_a_scope: Por favor seleccione un ámbito
+          back: Atrás
+          select_a_category: Por favor, seleccione una categoría
+          select_a_scope: Por favor, seleccione un ámbito
           send: Enviar
           title: Nueva propuesta
         proposal:
-          view_proposal: vista la propuesta
+          view_proposal: Ver propuesta
