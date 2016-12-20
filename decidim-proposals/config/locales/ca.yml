@@ -37,10 +37,10 @@ ca:
           new_proposal: Nova proposta
           proposals_count: "%{count} propostes"
         new:
-          back: esquena
-          select_a_category: Seleccioneu una categoria
-          select_a_scope: Si us plau seleccioni un àmbit
-          send: enviar
-          title: nova proposta
+          back: Enrere
+          select_a_category: Si us plau, seleccioni una categoria
+          select_a_scope: Si us plau, seleccioni un àmbit
+          send: Enviar
+          title: Nova proposta
         proposal:
-          view_proposal: vista la proposta
+          view_proposal: Veure proposta
