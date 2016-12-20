@@ -39,6 +39,6 @@ ca:
       models:
         meeting:
           fields:
-            end_time: data de finalització
+            end_time: Data de finalització
             start_time: Data d'inici
             title: Títol
