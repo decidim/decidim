@@ -18,27 +18,27 @@ es:
           destroy:
             success: El encuentro se ha eliminado correctamente
           edit:
-            title: Editar reunión
-            update: reunión de actualización
+            title: Editar encuentro
+            update: Actualizar encuentro
           index:
             title: Lista de encuentros
           new:
-            create: crear reunión
-            title: nueva reunión
+            create: Crear encuentro
+            title: Nuevo encuentro
           update:
-            invalid: Ha habido un problema al actualizar esta reunión
-            success: Reunión actualizado correctamente
+            invalid: Ha habido un problema al actualizar este encuentro
+            success: Encuentro actualizado correctamente
         models:
           meeting:
-            name: Reunión
+            name: Encuentro
       meetings:
         index:
           title: Lista de encuentros
         show:
-          meeting_description: Descripción de reuniones
+          meeting_description: Descripción del encuentro
       models:
         meeting:
           fields:
-            end_time: Fecha final
+            end_time: Fecha de finalización
             start_time: Fecha de inicio
             title: Título
