@@ -5,18 +5,18 @@ es:
         name: Lista de encuentros
     meetings:
       actions:
-        confirm_destroy: '¿Está seguro de que quiere eliminar esta reunión?'
+        confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
         destroy: Borrar
         edit: Editar
-        new: nueva %{name}
-        title: Comportamiento
+        new: Nuevo/a %{name}
+        title: Acciones
       admin:
         meetings:
           create:
-            invalid: Ha habido un problema al crear esta reunión
-            success: Reunión creado con éxito
+            invalid: Ha habido un problema al crear este encuentro
+            success: Reunión creada con éxito
           destroy:
-            success: La reunión se ha eliminado correctamente
+            success: El encuentro se ha eliminado correctamente
           edit:
             title: Editar reunión
             update: reunión de actualización
