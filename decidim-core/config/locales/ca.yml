@@ -86,6 +86,9 @@ ca:
   errors:
     messages:
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
+      invalid_manifest: manifesta no vàlid
+      invalid_participatory_process: procés de participació no vàlid
+      nesting_too_deep: no pot estar dins d'una subcategoria
   layouts:
     decidim:
       footer:
@@ -130,6 +133,23 @@ ca:
       title: Hi ha hagut un problema amb el nostre servidor
       try_later: Si us plau, torna-ho a intentar més tard.
     home:
+      active_step: pas actiu
+      debates: debats
+      debates_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
+      highlighted_processes: processos ressaltats
+      how_to_participate: Com participo en un procés?
       meetings: Llistat de trobades
+      meetings_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
+      more_info: Més informació
+      proposals: propostes
+      proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
       register: Registra't
+      see_all_processes: Mostra tots els processos
       welcome: Benvingut/da a %{organization}!
+  views:
+    pagination:
+      first: "En primer lloc &laquo;"
+      last: última &raquo;
+      next: següent &rsaquo;
+      previous: "anterior &lsaquo;"
+      truncate: "&hellip;"
