@@ -5,29 +5,29 @@ ca:
         name: Llistat de trobades
     meetings:
       actions:
-        confirm_destroy: Esteu segur que voleu suprimir aquesta reunió?
-        destroy: esborrar
-        edit: editar
-        new: nova %{name}
-        title: accions
+        confirm_destroy: Esteu segur de que voleu suprimir aquesta trobada?
+        destroy: Esborra
+        edit: Edita
+        new: Nou/va %{name}
+        title: Accions
       admin:
         meetings:
           create:
-            invalid: Hi ha hagut un problema en crear aquesta reunió
-            success: Reunió creat amb èxit
+            invalid: Hi ha hagut un problema en crear aquesta trobada
+            success: Reunió creada amb èxit
           destroy:
-            success: La reunió s'ha eliminat correctament
+            success: La trobada s'ha eliminat correctament
           edit:
-            title: Edita reunió
-            update: reunió d'actualització
+            title: Edita trobada
+            update: Actualitzar trobada
           index:
             title: Llistat de trobades
           new:
-            create: crear reunió
-            title: nova reunió
+            create: Crear trobada
+            title: Nova trobada
           update:
-            invalid: Hi ha hagut un problema en actualitzar aquesta reunió
-            success: Reunió actualitzat correctament
+            invalid: Hi ha hagut un problema en actualitzar aquesta trobada
+            success: Reunió actualitzada correctament
         models:
           meeting:
             name: reunió
