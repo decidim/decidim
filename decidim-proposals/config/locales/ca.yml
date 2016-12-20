@@ -1,0 +1,7 @@
+ca:
+  decidim:
+    proposals:
+      models:
+        proposal:
+          fields:
+            title: Títol
