@@ -28,3 +28,10 @@
     </div>
   </div>
 </div>
+
+
+<%= content_for :expanded do %>
+  <% if @proposal.commentable? %>
+    <%= comments_for @proposal, arguable: true %>
+  <% end %>
+<% end %>

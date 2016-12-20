@@ -58,6 +58,26 @@ describe "Proposals", type: :feature do
     end
   end
 
+  context "when a proposal has comments" do
+    let(:proposal) { create(:proposal, feature: feature)}
+    let(:author) { create(:user, :confirmed, organization: feature.organization)}
+    let!(:comments) { create_list(:comment, 3, commentable: proposal) }
+
+    before do
+      click_link "Processes"
+      click_link participatory_process.title["en"]
+      click_link "Proposals"
+    end
+
+    it "shows the comments" do
+      click_link proposal.title
+
+      comments.each do |comment| 
+        expect(page).to have_content(comment.body)
+      end
+    end
+  end
+
   context "listing proposals in a participatory process" do
     before do
       click_link "Processes"
