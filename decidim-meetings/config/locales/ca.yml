@@ -1,6 +1,44 @@
----
 ca:
   decidim:
     features:
       meetings:
         name: Llistat de trobades
+    meetings:
+      actions:
+        confirm_destroy: Esteu segur que voleu suprimir aquesta reunió?
+        destroy: esborrar
+        edit: editar
+        new: nova %{name}
+        title: accions
+      admin:
+        meetings:
+          create:
+            invalid: Hi ha hagut un problema en crear aquesta reunió
+            success: Reunió creat amb èxit
+          destroy:
+            success: La reunió s'ha eliminat correctament
+          edit:
+            title: Edita reunió
+            update: reunió d'actualització
+          index:
+            title: Llistat de trobades
+          new:
+            create: crear reunió
+            title: nova reunió
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquesta reunió
+            success: Reunió actualitzat correctament
+        models:
+          meeting:
+            name: reunió
+      meetings:
+        index:
+          title: Llistat de trobades
+        show:
+          meeting_description: Descripció de reunions
+      models:
+        meeting:
+          fields:
+            end_time: data de finalització
+            start_time: Data d'inici
+            title: Títol
