@@ -86,6 +86,9 @@ es:
   errors:
     messages:
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
+      invalid_manifest: manifiesta no válido
+      invalid_participatory_process: proceso de participación no válido
+      nesting_too_deep: no puede estar dentro de una subcategoría
   layouts:
     decidim:
       footer:
@@ -130,5 +133,23 @@ es:
       title: Ha habido un problema con nuestro servidor
       try_later: Por favor, vuelve a intentarlo más tarde.
     home:
+      active_step: paso activo
+      debates: debates
+      debates_explanation: Vamos a conocer, debatir y compartir lo que pensamos que es importante para nuestra ciudad.
+      highlighted_processes: procesos resaltados
+      how_to_participate: '¿Cómo tomo parte en un proceso?'
+      meetings: Lista de encuentros
+      meetings_explanation: Vamos a conocer, debatir y compartir lo que pensamos que es importante para nuestra ciudad.
+      more_info: Más información
+      proposals: propuestas
+      proposals_explanation: Espacio abierto de propuestas de los ciudadanos sobre qué tipo de ciudad queremos vivir.
       register: Regístrate
+      see_all_processes: Ver todos los procesos
       welcome: Bienvenido/da %{organization}!
+  views:
+    pagination:
+      first: "En primer lugar &laquo;"
+      last: última &raquo;
+      next: Siguiente &rsaquo;
+      previous: "Anterior &lsaquo;"
+      truncate: "&hellip;"
