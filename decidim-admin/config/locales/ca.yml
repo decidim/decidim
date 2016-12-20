@@ -1,4 +1,14 @@
+---
 ca:
+  activemodel:
+    attributes:
+      organization:
+        name: Nom
+        description: Descripció
+        welcome_text: Text de benvinguda
+        default_locale: Idioma per defecte
+        homepage_image: Imatge de la portada
+        logo: Logo
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -115,8 +125,8 @@ ca:
           name: Pàgina
       organization:
         edit:
-          title: Edita organització
-          update: Actualitza organitació
+          title: Editar configuració
+          update: Desar canvis
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: Organització actualitzada correctament.

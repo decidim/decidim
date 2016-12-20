@@ -89,7 +89,8 @@ search:
 
 ## Consider these keys used:
 ignore_unused:
-- activerecord.attributes.decidim/participatory_process.*
+- activerecord.attributes.*
+- activemodel.attributes.*
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'
