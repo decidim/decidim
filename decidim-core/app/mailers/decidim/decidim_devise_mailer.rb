@@ -17,8 +17,8 @@ module Decidim
       with_user(user) do
         @token = token
 
-        if opts[:invitation_instructions] == "organization_admin_invitation_instructions"
-          opts[:subject] = I18n.t("devise.mailer.organization_admin_invitation_instructions.subject", organization: user.organization.name)
+        if opts[:invitation_instructions]
+          opts[:subject] = I18n.t("devise.mailer.#{opts[:invitation_instructions]}.subject", organization: user.organization.name)
         end
       end
 

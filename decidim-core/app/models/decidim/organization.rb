@@ -7,6 +7,7 @@ module Decidim
     has_many :participatory_processes, foreign_key: "decidim_organization_id", class_name: Decidim::ParticipatoryProcess, inverse_of: :organization
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: Decidim::StaticPage, inverse_of: :organization
     has_many :scopes, foreign_key: "decidim_organization_id", class_name: Decidim::Scope, inverse_of: :organization
+    has_many :admins, -> { where("roles @> ?", "{admin}") }, foreign_key: "decidim_organization_id", class_name: Decidim::User
 
     validates :name, :host, uniqueness: true
 
@@ -15,15 +16,6 @@ module Decidim
 
     def homepage_big_url
       homepage_image.big.url
-    end
-
-    # Fetches the admins of the given organization.
-    #
-    # Returns an ActiveRecord::Relation.
-    def admins
-      @admins ||= Decidim::User
-                  .where(organization: self)
-                  .where("roles @> ?", "{admin}")
     end
   end
 end

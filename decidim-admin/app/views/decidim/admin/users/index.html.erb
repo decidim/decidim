@@ -1,0 +1,54 @@
+<% content_for :title do %>
+  <h2><%= t "decidim.admin.titles.users" %></h2>
+<% end %>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.user.name", scope: "decidim.admin")), ['new', 'user'], class: 'new' %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= t("models.user.fields.name", scope: "decidim.admin") %></th>
+      <th><%= t("models.user.fields.email", scope: "decidim.admin") %></th>
+      <th><%= t("models.user.fields.invitation_sent_at", scope: "decidim.admin") %></th>
+      <th><%= t("models.user.fields.invitation_accepted_at", scope: "decidim.admin") %></th>
+      <th><%= t("models.user.fields.last_sign_in_at", scope: "decidim.admin") %></th>
+      <th><%= t("models.user.fields.created_at", scope: "decidim.admin") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <% if user.invitation_sent_at %>
+            <%= l user.invitation_sent_at, format: :short %>
+          <% end %>
+        </td>
+        <td>
+          <% if user.invitation_accepted_at %>
+            <%= l user.invitation_accepted_at, format: :short %>
+          <% end %>
+        </td>
+        <td>
+          <% if user.last_sign_in_at %>
+            <%= l user.last_sign_in_at, format: :short %>
+          <% end %>
+        </td>
+        <td><%= l user.created_at, format: :short %></td>
+        <td class="actions">
+          <% if can?(:invite, user) && user.invited_to_sign_up? %>
+            <%= link_to t("actions.resend_invitation", scope: "decidim.admin"), ['resend_invitation', user], method: :post %>
+          <% end %>
+
+          <% if can? :destroy, user %>
+            <%= link_to t("actions.destroy", scope: "decidim.admin"), user, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

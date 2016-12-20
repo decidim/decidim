@@ -23,7 +23,7 @@ module Decidim
 
         transaction do
           organization = create_organization
-          invite_admin(organization)
+          Decidim::InviteAdmin.call(invite_user_form(organization))
           CreateDefaultPages.call(organization)
         end
 
@@ -45,15 +45,12 @@ module Decidim
         )
       end
 
-      def invite_admin(organization)
-        Decidim::User.invite!(
-          {
-            name: form.organization_admin_name,
-            email: form.organization_admin_email,
-            organization: organization,
-            roles: ["admin"]
-          },
-          nil,
+      def invite_user_form(organization)
+        Decidim::InviteAdminForm.from_params(
+          name: form.organization_admin_name,
+          email: form.organization_admin_email,
+          organization: organization,
+          roles: %w(admin),
           invitation_instructions: "organization_admin_invitation_instructions"
         )
       end
