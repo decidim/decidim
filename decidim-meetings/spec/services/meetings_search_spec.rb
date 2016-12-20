@@ -21,7 +21,7 @@ describe Decidim::Meetings::MeetingsSearch do
     )
   end
   let(:external_meeting) { create :meeting }
-  let(:default_params) { { current_feature: current_feature } }
+  let(:default_params) { { feature_id: current_feature.id } }
 
   subject { described_class.new(params) }
 
@@ -57,10 +57,20 @@ describe Decidim::Meetings::MeetingsSearch do
     end
 
     context "scope_id" do
-      let(:params) { default_params.merge(scope_id: scope1.id) }
+      context "when a single id is being sent" do
+        let(:params) { default_params.merge(scope_id: scope1.id) }
 
-      it "filters meetings by scope" do
-        expect(subject.results).to eq [meeting1]
+        it "filters meetings by scope" do
+          expect(subject.results).to eq [meeting1]
+        end
+      end
+
+      context "when multiple ids are sent" do
+        let(:params) { default_params.merge(scope_id: "#{scope2.id},#{scope1.id}") }
+
+        it "filters meetings by scope" do
+          expect(subject.results).to match_array [meeting1,meeting2]
+        end
       end
     end
   end

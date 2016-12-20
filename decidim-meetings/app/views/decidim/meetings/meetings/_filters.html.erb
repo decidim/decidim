@@ -1,0 +1,31 @@
+<div class="filters">
+  <%= form_tag url_for, method: :get, id: "filter_form", remote: true do %>
+    <div class="filters__section">
+      <fieldset>
+        <legend>
+          <h6 class="heading6">
+            Date
+          </h6>
+        </legend>
+        <label>
+          <input value="asc" type="radio" name="order_start_time" <%= search_params[:order_start_time] == "asc" ? "checked" : nil %>>Ascendent
+        </label>
+        <label>
+          <input value="desc" type="radio" name="order_start_time" <%= search_params[:order_start_time] == "desc" ? "checked" : nil %>>Descendent
+        </label>
+      </fieldset>
+    </div>
+    <div class="filters__section">
+      <fieldset>
+        <legend><h6 class="heading6">Scopes</h6></legend>
+        <% current_organization.scopes.each do |scope| %>
+          <label>
+            <input value="<%= scope.id %>" type="checkbox"  name="scope_id[]" <%= "checked" if (search_params[:scope_id] || "").split(",").include?(scope.id.to_s) %>><%= scope.name %>
+          </label>
+        <% end %>
+      </fieldset>
+    </div>
+  <% end %>
+</div>
+
+<%= javascript_include_tag "decidim/meetings/meetings_filters" %>
