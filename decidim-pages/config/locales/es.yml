@@ -16,4 +16,4 @@ es:
             title: Editar página
           update:
             invalid: Ha habido errores al guardar la página.
-            success: Página guardado correctamente.
+            success: Página guardada correctamente.
