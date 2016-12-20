@@ -22,6 +22,7 @@ module Decidim
               Comment
                 .where(decidim_commentable_id: args[:commentableId])
                 .where(decidim_commentable_type: args[:commentableType])
+                .includes([:author, :replies => [:author, :replies => [:author, :replies => [:author, :replies]]]])
                 .order(created_at: :asc)
             }
           end

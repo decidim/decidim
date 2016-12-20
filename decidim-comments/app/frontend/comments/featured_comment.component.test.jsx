@@ -1,7 +1,7 @@
 import { shallow }     from 'enzyme';
 
 import FeaturedComment from './featured_comment.component';
-import Comment         from './comment.component';
+import { Comment }     from './comment.component';
 
 import stubComponent   from '../support/stub_component';
 

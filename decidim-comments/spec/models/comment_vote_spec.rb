@@ -17,6 +17,15 @@ module Decidim
       it "has an associated comment" do
         expect(comment_vote.comment).to be_a(Decidim::Comments::Comment)
       end
+
+      it "validates uniqueness for author and comment combination" do
+        author = create(:user)
+        comment = create(:comment)
+        create(:comment_vote, comment: comment, author: author)
+        expect {
+          create(:comment_vote, comment: comment, author: author)
+        }.to raise_error(ActiveRecord::RecordInvalid)
+      end
     end
   end
 end

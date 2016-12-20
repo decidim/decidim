@@ -33,6 +33,17 @@ module Decidim
           end
         end
       end
+
+      describe "comment" do
+        let!(:comment) { create(:comment) }
+        let(:query) {
+          "{ comment(id: \"#{comment.id}\") { id } }"
+        }          
+
+        it "should fetch the comment given its id" do
+          expect(response["comment"]).to include("id" => comment.id.to_s)
+        end
+      end
     end
   end
 end

@@ -36,6 +36,13 @@ module Decidim
         depth < MAX_DEPTH
       end
 
+      # Public: Check if the user has upvoted the comment
+      #
+      # Returns a bool value to indicate if the condition is truthy or not
+      def up_voted_by?(user)
+        up_votes.where(author: user).present?
+      end
+
       private
 
       # Private: Check if commentable can have replies and if not adds

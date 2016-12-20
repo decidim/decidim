@@ -29,6 +29,15 @@ module Decidim
               end
             }
           end
+
+          field :comment, Decidim::Comments::CommentMutationType do
+            description "A comment"
+            argument :id, !types.ID, "The comment's id"
+
+            resolve lambda { |_obj, args, _ctx|
+              Comment.find(args["id"])
+            }
+          end
         end
       end
     end

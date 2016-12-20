@@ -1,0 +1,7 @@
+mutation DownVote($id: Int!) {
+  comment(id: $id) {
+    downVote {
+      ...CommentData
+    }
+  }
+}

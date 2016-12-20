@@ -1,5 +1,6 @@
 import { Component, PropTypes } from 'react';
 import { propType }             from 'graphql-anywhere';
+import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
 import moment                   from 'moment';
 import { I18n }                 from 'react-i18nify';
@@ -10,13 +11,15 @@ import AddCommentForm           from './add_comment_form.component';
 
 import commentFragment          from './comment.fragment.graphql';
 import commentDataFragment      from './comment_data.fragment.graphql';
+import upVoteMutation           from './up_vote.mutation.graphql';
+import downVoteMutation         from './down_vote.mutation.graphql';
 
 /**
  * A single comment component with the author info and the comment's body
  * @class
  * @augments Component
  */
-class Comment extends Component {
+export class Comment extends Component {
   constructor(props) {
     super(props);
 
@@ -91,19 +94,19 @@ class Comment extends Component {
    * @returns {Void|DOMElement} - Render the upVote and downVote buttons or not
    */
   _renderVoteButtons() {
-    const { comment: { upVotes, downVotes }, votable } = this.props;
+    const { comment: { upVotes, downVotes }, votable, upVote, downVote } = this.props;
 
     if (votable) {
       return (
         <div className="comment__votes">
-          <a className="comment__votes--up">
+          <button className="comment__votes--up" onClick={() => upVote()}>
             <Icon name="icon-chevron-top" />
             { upVotes }
-          </a>
-          <a className="comment__votes--down">
+          </button>
+          <button className="comment__votes--down" onClick={() => downVote()}>
             <Icon name="icon-chevron-bottom" />
             { downVotes }
-          </a>
+          </button>
         </div>
       );
     }
@@ -226,7 +229,87 @@ Comment.propTypes = {
     name: PropTypes.string.isRequired
   }),
   articleClassName: PropTypes.string.isRequired,
-  votable: PropTypes.bool
+  votable: PropTypes.bool,
+  upVote: PropTypes.func,
+  downVote: PropTypes.func
 };
 
-export default Comment;
+const CommentWithUpVoteMutation = graphql(gql`
+  ${upVoteMutation}
+  ${commentDataFragment}
+`, {
+  props: ({ ownProps, mutate }) => ({
+    upVote: () => mutate({
+      variables: {
+        id: ownProps.comment.id
+      },
+      optimisticResponse: {
+        __typename: 'Mutation',
+        comment: {
+          __typename: 'CommentMutation',
+          upVote: {
+            __typename: 'Comment',
+            ...ownProps.comment,
+            upVotes: ownProps.comment.upVotes + 1,
+            upVoted: true
+          }
+        }
+      },
+      updateQueries: {
+        GetComments: (prev, { mutationResult: { data } }) => {
+          const idx = prev.comments.findIndex((comment) => (
+            comment.id === ownProps.comment.id
+          ));
+
+          return {
+            ...prev,
+            comments: [
+              ...prev.comments.slice(0, idx),
+              data.comment.upVote,
+              ...prev.comments.slice(idx + 1)
+            ]
+          }
+        }
+      }
+    })
+  })  
+})(Comment);
+
+const CommentWithDownVoteMutation = graphql(gql`
+  ${downVoteMutation}
+  ${commentDataFragment}
+`, {
+  props: ({ ownProps, mutate }) => ({
+    downVote: () => mutate({
+      variables: {
+        id: ownProps.comment.id
+      },
+      // optimisticResponse: {
+      //   __typename: 'Mutation',
+      //   upVote: {
+      //     __typename: 'Comment',
+      //     ...ownProps.comment,
+      //     downVoted: false
+      //   }
+      // },
+      updateQueries: {
+        GetComments: (prev, { mutationResult: { data } }) => {
+          const idx = prev.comments.findIndex((comment) => (
+            comment.id === ownProps.comment.id
+          ));
+
+          return {
+            ...prev,
+            comments: [
+              prev.comments.slice(0, idx),
+              data.downVote,
+              prev.comments.slice(idx + 1)
+            ]
+          }
+        }
+      }
+    })
+  })
+})(CommentWithUpVoteMutation);
+
+export default CommentWithDownVoteMutation;

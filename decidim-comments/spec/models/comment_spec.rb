@@ -69,6 +69,18 @@ module Decidim
         comment.alignment = 2
         expect(comment).not_to be_valid
       end
+
+      describe "#up_voted_by?" do
+        let(:user) { create(:user) }
+        it "should return true if the given user has upvoted the comment" do
+          create(:comment_vote, comment: comment, author: user, weight: 1)
+          expect(comment.up_voted_by?(user)).to be_truthy
+        end
+
+        it "should return false if the given user has not upvoted the comment" do
+          expect(comment.up_voted_by?(user)).to be_falsy
+        end
+      end
     end
   end
 end

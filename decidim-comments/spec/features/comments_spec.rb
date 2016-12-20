@@ -99,10 +99,10 @@ describe "Comments", type: :feature do
         visit decidim.dummy_path(participatory_process, votable: true)
 
         within "#comment_#{comments[0].id}" do
-          expect(page).to have_selector('a.comment__votes--up', text: /0/)
-          page.find('a.comment__votes--up').click
-          expect(page).to have_selector('a.comment__votes--up', text: /1/)
-          expect(page).to have_selector('a.comment__votes--down', text: /0/)
+          expect(page).to have_selector('.comment__votes--up', text: /0/)
+          page.find('.comment__votes--up').click
+          expect(page).to have_selector('.comment__votes--up', text: /1/)
+          expect(page).to have_selector('.comment__votes--down', text: /0/)
         end
       end
     end
