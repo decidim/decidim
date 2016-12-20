@@ -1,0 +1,7 @@
+es:
+  decidim:
+    proposals:
+      models:
+        proposal:
+          fields:
+            title: Título
