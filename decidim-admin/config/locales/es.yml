@@ -1,4 +1,3 @@
----
 es:
   activerecord:
     attributes:
@@ -9,7 +8,7 @@ es:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: "¿Seguro que lo quieres eliminar?"
+        confirm_destroy: '¿Seguro que lo quieres eliminar?'
         create: Crear
         deactivate: Desactivar
         destroy: Eliminar
@@ -19,8 +18,27 @@ es:
         publish: Publicar
         title: Acciones
         unpublish: Despublicar
+      categories:
+        create:
+          error: Se ha producido un error al crear esta categoría.
+          success: Categoría creada correctamente.
+        destroy:
+          error: Se ha producido un error al eliminar esta categoría. Por favor, elimine cualquier subcategoría en primer lugar, asegúrese de que ninguna otra entidad pertenece a esta categoría y vuelva a intentarlo.
+          success: Categoría eliminada correctamente.
+        edit:
+          title: Editar categoría
+          update: Actualizar categoría
+        new:
+          create: Crear categoría
+          title: Nueva categoría
+        update:
+          error: Se ha producido un error al actualizar esta categoría.
+          success: Categoría actualizada correctamente.
       decidim:
         admin:
+          categories:
+            index:
+              categories_title: Categorías
           participatory_process_attachments:
             index:
               attachments_title: Archivos adjuntos
@@ -31,18 +49,38 @@ es:
           participatory_process_user_roles:
             index:
               process_admins_title: Administradores del proceso participativo
+      features:
+        create:
+          error: Se ha producido un error al añadir esta funcionalidad.
+          success: Funcionalidad añadida correctamente.
+        destroy:
+          error: Se ha producido un error destruir esta funcionalidad.
+          success: Funcionalidad eliminada correctamente.
+        index:
+          add: Añadir funcionalidad
+        new:
+          add: Añadir funcionalidad
+          title: 'Añadir funcionalidad: %{name}'
+        title: Funcionalidades
       menu:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
         participatory_processes_submenu:
           attachments: Archivos adjuntos
+          categories: Categorías
+          features: Funcionalidades
           info: Información
           process_admins: Administradores del proceso
           settings: Configuración
           steps: Fases del proceso
+        scopes: Ámbitos
         settings: Configuración
         static_pages: Páginas
       models:
+        category:
+          fields:
+            name: Nombre
+          name: Categoría
         participatory_process:
           fields:
             created_at: Fecha de creación
@@ -65,6 +103,11 @@ es:
         participatory_process_user_role:
           fields:
             email: Correo electrónico
+        scope:
+          fields:
+            created_at: Fecha de creación
+            name: Nombre
+          name: Ámbito
         static_page:
           fields:
             created_at: Fecha de creación
@@ -143,6 +186,21 @@ es:
         update:
           error: Se ha producido un error en la actualización de este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
+      scopes:
+        create:
+          error: Se ha producido un error al crear un nuevo ámbito.
+          success: Ámbito creado correctamente.
+        destroy:
+          success: Ámbito eliminado con éxito
+        edit:
+          title: Editar alcance
+          update: Actualizar ámbito
+        new:
+          create: Crear ámbito
+          title: Nuevo ámbito
+        update:
+          error: Se produjo un error en la actualización de este ámbito.
+          success: Ámbito actualizado correctamente
       static_pages:
         actions:
           view: Ver la página pública
@@ -163,4 +221,5 @@ es:
       titles:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
+        scopes: Ámbitos
         static_pages: Páginas

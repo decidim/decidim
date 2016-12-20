@@ -1,0 +1,35 @@
+ca:
+  activerecord:
+    errors:
+      messages:
+        cannot_have_replies: no pot tenir respostes
+  decidim:
+    components:
+      add_comment_form:
+        form:
+          body:
+            label: Comentari
+            placeholder: Què en penses d'això?
+          submit: Envia
+        opinion:
+          against: Hi estic en contra
+          in_favor: Hi estic a favor
+          neutral: Sóc neutral
+        title: Deixa el teu comentari
+      comment:
+        alignment:
+          against: En contra
+          in_favor: A favor
+        reply: Respondre
+      comment_order_selector:
+        order:
+          most_voted: Més votat
+          older: Més antic
+          recent: Recent
+        title: 'Ordenar per:'
+      comment_thread:
+        title: Conversa amb %{authorName}
+      comments:
+        title: "%{count} comentaris"
+      featured_comment:
+        title: Comentari destacat

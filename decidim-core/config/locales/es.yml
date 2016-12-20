@@ -86,13 +86,13 @@ es:
   errors:
     messages:
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
+      invalid_manifest: Manifiesto inválido
+      invalid_participatory_process: Proceso participativo inválido
+      nesting_too_deep: no puede estar dentro de una subcategoría
   layouts:
     decidim:
       footer:
-        about: En cuanto a Decidim
-        accessibility: Accesibilidad
         made_with_open_source: 'Esta web está hecha con <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software libre</a>.'
-        terms_of_use: Términos y condiciones
       header:
         close_menu: Cerrar menú
         navigation: Navegación
@@ -130,5 +130,23 @@ es:
       title: Ha habido un problema con nuestro servidor
       try_later: Por favor, vuelve a intentarlo más tarde.
     home:
+      active_step: Fase activa
+      debates: Debates
+      debates_explanation: Vamos a conocer, debatir y compartir lo que pensamos que es importante para nuestra ciudad.
+      highlighted_processes: Procesos resaltados
+      how_to_participate: '¿Cómo tomo parte en un proceso?'
+      meetings: Lista de encuentros
+      meetings_explanation: Vamos a conocer, debatir y compartir lo que pensamos que es importante para nuestra ciudad.
+      more_info: Más información
+      proposals: Propuestas
+      proposals_explanation: Espacio abierto de propuestas de los ciudadanos sobre en qué tipo de ciudad queremos vivir.
       register: Regístrate
+      see_all_processes: Ver todos los procesos
       welcome: Bienvenido/da %{organization}!
+  views:
+    pagination:
+      first: "&laquo; Primera"
+      last: Última &raquo;
+      next: Siguiente &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"

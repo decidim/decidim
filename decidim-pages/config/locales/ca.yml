@@ -1,6 +1,19 @@
----
 ca:
   decidim:
     features:
       pages:
         name: Pàgina
+    pages:
+      admin:
+        models:
+          components:
+            body: Cos
+            commentable: Habilitar comentaris per a aquesta pàgina
+            title: Títol
+        pages:
+          edit:
+            save: Desa la pàgina
+            title: Editar pàgina
+          update:
+            invalid: Hi ha hagut errors en desar la pàgina.
+            success: Pàgina guardada correctament.

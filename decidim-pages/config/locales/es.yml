@@ -1,6 +1,19 @@
----
 es:
   decidim:
     features:
       pages:
         name: Página
+    pages:
+      admin:
+        models:
+          components:
+            body: Cuerpo
+            commentable: Habilitar comentarios para esta página
+            title: Título
+        pages:
+          edit:
+            save: Guardar página
+            title: Editar página
+          update:
+            invalid: Ha habido errores al guardar la página.
+            success: Página guardada correctamente.
