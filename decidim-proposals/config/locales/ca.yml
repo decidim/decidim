@@ -1,7 +1,46 @@
 ca:
   decidim:
+    features:
+      proposals:
+        name: propostes
     proposals:
+      actions:
+        new: nova proposta
+      admin:
+        models:
+          proposal:
+            name: proposta
+        proposals:
+          create:
+            invalid: Hi ha hagut un problema en crear aquesta proposta
+            success: Proposta creat correctament
+          form:
+            select_a_category: Selecciona una categoria
+            select_a_scope: Seleccioneu un àmbit
+          index:
+            title: propostes
+          new:
+            create: crear proposta
+            title: nova proposta
+      create:
+        error: Hi ha hagut errors en desar la proposta.
+        success: Proposta creat correctament.
       models:
         proposal:
           fields:
+            category: categoria
+            official_proposal: proposta oficial
+            scope: abast
             title: Títol
+      proposals:
+        index:
+          new_proposal: nova proposta
+          proposals_count: "%{count} propostes"
+        new:
+          back: esquena
+          select_a_category: Seleccioneu una categoria
+          select_a_scope: Si us plau seleccioni un àmbit
+          send: enviar
+          title: nova proposta
+        proposal:
+          view_proposal: vista la proposta
