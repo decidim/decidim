@@ -32,4 +32,4 @@ ca:
       comments:
         title: "%{count} comentaris"
       featured_comment:
-        title: destacat comentari
+        title: Comentari destacat
