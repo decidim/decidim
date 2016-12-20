@@ -1,7 +1,46 @@
 es:
   decidim:
+    features:
+      proposals:
+        name: propuestas
     proposals:
+      actions:
+        new: Nueva propuesta
+      admin:
+        models:
+          proposal:
+            name: Propuesta
+        proposals:
+          create:
+            invalid: Ha habido un problema al crear esta propuesta
+            success: Propuesta creado correctamente
+          form:
+            select_a_category: Seleccione una categoría
+            select_a_scope: Seleccione un ámbito
+          index:
+            title: propuestas
+          new:
+            create: crear propuesta
+            title: Nueva propuesta
+      create:
+        error: Ha habido errores al guardar la propuesta.
+        success: Propuesta creado correctamente.
       models:
         proposal:
           fields:
+            category: Categoría
+            official_proposal: propuesta oficial
+            scope: Alcance
             title: Título
+      proposals:
+        index:
+          new_proposal: Nueva propuesta
+          proposals_count: "%{count} propuestas"
+        new:
+          back: Espalda
+          select_a_category: Porfavor seleccione una categoría
+          select_a_scope: Por favor seleccione un ámbito
+          send: Enviar
+          title: Nueva propuesta
+        proposal:
+          view_proposal: vista la propuesta
