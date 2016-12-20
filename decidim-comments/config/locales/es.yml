@@ -1,0 +1,35 @@
+es:
+  activerecord:
+    errors:
+      messages:
+        cannot_have_replies: no pueden tener respuestas
+  decidim:
+    components:
+      add_comment_form:
+        form:
+          body:
+            label: Comentario
+            placeholder: '¿Qué piensas sobre esto?'
+          submit: Enviar
+        opinion:
+          against: Estoy en contra
+          in_favor: Estoy a favor
+          neutral: Yo soy neutral
+        title: Deje su comentario
+      comment:
+        alignment:
+          against: En contra
+          in_favor: A favor
+        reply: Respuesta
+      comment_order_selector:
+        order:
+          most_voted: más votado
+          older: Mayor
+          recent: Reciente
+        title: 'Ordenar por:'
+      comment_thread:
+        title: Conversación con %{authorName}
+      comments:
+        title: "%{count} comentarios"
+      featured_comment:
+        title: destacado comentario
