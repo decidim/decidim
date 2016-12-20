@@ -14,7 +14,7 @@ es:
         opinion:
           against: Estoy en contra
           in_favor: Estoy a favor
-          neutral: Yo soy neutral
+          neutral: Soy neutral
         title: Deje su comentario
       comment:
         alignment:
