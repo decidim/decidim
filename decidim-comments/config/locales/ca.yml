@@ -1,0 +1,35 @@
+ca:
+  activerecord:
+    errors:
+      messages:
+        cannot_have_replies: no poden tenir respostes
+  decidim:
+    components:
+      add_comment_form:
+        form:
+          body:
+            label: comentari
+            placeholder: Què en penses d'això?
+          submit: enviar
+        opinion:
+          against: Estic en contra
+          in_favor: Estic a favor
+          neutral: Jo sóc neutral
+        title: Deixa el teu comentari
+      comment:
+        alignment:
+          against: contra
+          in_favor: A favor
+        reply: respondre
+      comment_order_selector:
+        order:
+          most_voted: més votat
+          older: més vell
+          recent: recent
+        title: 'Demanat per:'
+      comment_thread:
+        title: Conversa amb %{authorName}
+      comments:
+        title: "%{count} comentaris"
+      featured_comment:
+        title: destacat comentari
