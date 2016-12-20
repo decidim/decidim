@@ -4,14 +4,41 @@ es:
       meetings:
         name: Lista de encuentros
     meetings:
+      actions:
+        confirm_destroy: '¿Está seguro de que quiere eliminar esta reunión?'
+        destroy: Borrar
+        edit: Editar
+        new: nueva %{name}
+        title: Comportamiento
       admin:
         meetings:
+          create:
+            invalid: Ha habido un problema al crear esta reunión
+            success: Reunión creado con éxito
+          destroy:
+            success: La reunión se ha eliminado correctamente
+          edit:
+            title: Editar reunión
+            update: reunión de actualización
           index:
             title: Lista de encuentros
+          new:
+            create: crear reunión
+            title: nueva reunión
+          update:
+            invalid: Ha habido un problema al actualizar esta reunión
+            success: Reunión actualizado correctamente
+        models:
+          meeting:
+            name: Reunión
       meetings:
         index:
           title: Lista de encuentros
+        show:
+          meeting_description: Descripción de reuniones
       models:
         meeting:
           fields:
+            end_time: Fecha final
+            start_time: Fecha de inicio
             title: Título
