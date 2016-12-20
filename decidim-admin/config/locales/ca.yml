@@ -191,15 +191,15 @@ ca:
           error: S'ha produït un error en crear un nou àmbit.
           success: Àmbit creat correctament.
         destroy:
-          success: Àmbit destruir amb èxit
+          success: Àmbit eliminat amb èxit
         edit:
-          title: Edita abast
-          update: àmbit d'aplicació d'actualització
+          title: Edita àmbit
+          update: Actualitza àmbit
         new:
-          create: crear abast
-          title: nou abast
+          create: Crea àmbit
+          title: Nou àmbit
         update:
-          error: S'ha produït un error en l'actualització d'aquest abast.
+          error: S'ha produït un error en l'actualització d'aquest àmbit.
           success: Àmbit actualitzat correctament
       static_pages:
         actions:
@@ -221,5 +221,5 @@ ca:
       titles:
         dashboard: Tauler de control
         participatory_processes: Processos participatius
-        scopes: Scopes
+        scopes: Àmbits
         static_pages: Pàgines
