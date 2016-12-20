@@ -34,7 +34,7 @@ ca:
             title: Títol
       proposals:
         index:
-          new_proposal: nova proposta
+          new_proposal: Nova proposta
           proposals_count: "%{count} propostes"
         new:
           back: esquena
