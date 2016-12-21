@@ -100,12 +100,12 @@ export class Comment extends Component {
       return (
         <div className="comment__votes">
           <button className="comment__votes--up" onClick={() => upVote()}>
-            <Icon name="icon-chevron-top" />
-            { upVotes }
+            <Icon name="icon-chevron-top" iconExtraClassName="icon--small" />
+            { ` ${upVotes}` }
           </button>
           <button className="comment__votes--down" onClick={() => downVote()}>
-            <Icon name="icon-chevron-bottom" />
-            { downVotes }
+            <Icon name="icon-chevron-bottom" iconExtraClassName="icon--small" />
+            { ` ${downVotes}` }
           </button>
         </div>
       );

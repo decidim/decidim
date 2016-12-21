@@ -8,6 +8,15 @@ module Decidim
       belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
 
       validates :comment, uniqueness: { scope: :author }
+
+      before_commit :update_counters
+
+      private
+
+      def update_counters
+        Comment.increment_counter(:up_votes_count, comment.id) if weight == 1
+        Comment.increment_counter(:down_votes_count, comment.id) if weight == -1
+      end
     end
   end
 end

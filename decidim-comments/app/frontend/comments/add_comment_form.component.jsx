@@ -203,7 +203,9 @@ const AddCommentFormWithMutation = graphql(gql`
           replies: [],
           canHaveReplies: false,
           upVotes: 0,
-          downVotes: 0
+          upVoted: false,
+          downVotes: 0,
+          downVoted: false
         }
       },
       updateQueries: {

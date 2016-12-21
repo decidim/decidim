@@ -16,9 +16,8 @@ module Decidim
       belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       has_many :replies, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: Comment
-      has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: CommentVote
-      has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: CommentVote
-
+      has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: CommentVote, counter_cache: :up_votes_count
+      has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: CommentVote, counter_cache: :down_votes_count
       validates :author, :commentable, :body, presence: true
       validate :commentable_can_have_replies
       validates :depth, numericality: { greater_than_or_equal_to: 0 }
@@ -40,14 +39,14 @@ module Decidim
       #
       # Returns a bool value to indicate if the condition is truthy or not
       def up_voted_by?(user)
-        up_votes.where(author: user).present?
+        up_votes.any? { |vote| vote.author ==  user }
       end
 
       # Public: Check if the user has downvoted the comment
       #
       # Returns a bool value to indicate if the condition is truthy or not
       def down_voted_by?(user)
-        down_votes.where(author: user).present?
+        down_votes.any? { |vote| vote.author ==  user }        
       end
 
       private

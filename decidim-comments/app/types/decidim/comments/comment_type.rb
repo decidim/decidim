@@ -26,7 +26,7 @@ module Decidim
 
       field :upVotes, !types.Int, "The number of comment's upVotes" do
         resolve lambda { |obj, _args, _ctx|
-          obj.up_votes.count
+          obj.up_votes.size
         }
       end
 
@@ -38,7 +38,7 @@ module Decidim
 
       field :downVotes, !types.Int, "The number of comment's downVotes" do
         resolve lambda { |obj, _args, _ctx|
-          obj.down_votes.count
+          obj.down_votes.size
         }
       end
 
