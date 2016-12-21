@@ -39,14 +39,14 @@ module Decidim
       #
       # Returns a bool value to indicate if the condition is truthy or not
       def up_voted_by?(user)
-        up_votes.any? { |vote| vote.author ==  user }
+        up_votes.any? { |vote| vote.author == user }
       end
 
       # Public: Check if the user has downvoted the comment
       #
       # Returns a bool value to indicate if the condition is truthy or not
       def down_voted_by?(user)
-        down_votes.any? { |vote| vote.author ==  user }        
+        down_votes.any? { |vote| vote.author == user }
       end
 
       private

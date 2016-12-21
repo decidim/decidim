@@ -21,7 +21,9 @@ const generateCommentsData = (num = 1) => {
       canHaveReplies: true,
       alignment: 0,
       upVotes: random.number(),
-      downVotes: random.number()
+      upVoted: false,
+      downVotes: random.number(),
+      downVoted: false
     })
   }
 

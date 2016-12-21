@@ -1,18 +1,16 @@
 import { Component, PropTypes } from 'react';
 import { propType }             from 'graphql-anywhere';
-import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
 import moment                   from 'moment';
 import { I18n }                 from 'react-i18nify';
 import classnames               from 'classnames';
 
-import Icon                     from '../application/icon.component';
 import AddCommentForm           from './add_comment_form.component';
+import UpVoteButton             from './up_vote_button.component';
+import DownVoteButton           from './down_vote_button.component';
 
 import commentFragment          from './comment.fragment.graphql';
 import commentDataFragment      from './comment_data.fragment.graphql';
-import upVoteMutation           from './up_vote.mutation.graphql';
-import downVoteMutation         from './down_vote.mutation.graphql';
 
 /**
  * A single comment component with the author info and the comment's body
@@ -94,19 +92,13 @@ export class Comment extends Component {
    * @returns {Void|DOMElement} - Render the upVote and downVote buttons or not
    */
   _renderVoteButtons() {
-    const { comment: { upVotes, downVotes }, votable, upVote, downVote } = this.props;
+    const { comment, votable } = this.props;
 
     if (votable) {
       return (
         <div className="comment__votes">
-          <button className="comment__votes--up" onClick={() => upVote()}>
-            <Icon name="icon-chevron-top" iconExtraClassName="icon--small" />
-            { ` ${upVotes}` }
-          </button>
-          <button className="comment__votes--down" onClick={() => downVote()}>
-            <Icon name="icon-chevron-bottom" iconExtraClassName="icon--small" />
-            { ` ${downVotes}` }
-          </button>
+          <UpVoteButton comment={comment} />
+          <DownVoteButton comment={comment} />
         </div>
       );
     }
@@ -210,9 +202,13 @@ Comment.fragments = {
   comment: gql`
     ${commentFragment}
     ${commentDataFragment}
+    ${UpVoteButton.fragments.comment}
+    ${DownVoteButton.fragments.comment}
   `,
   commentData: gql`
     ${commentDataFragment}
+    ${UpVoteButton.fragments.comment}
+    ${DownVoteButton.fragments.comment}
   `
 };
 
@@ -229,109 +225,7 @@ Comment.propTypes = {
     name: PropTypes.string.isRequired
   }),
   articleClassName: PropTypes.string.isRequired,
-  votable: PropTypes.bool,
-  upVote: PropTypes.func,
-  downVote: PropTypes.func
+  votable: PropTypes.bool
 };
 
-const CommentWithUpVoteMutation = graphql(gql`
-  ${upVoteMutation}
-  ${commentDataFragment}
-`, {
-  props: ({ ownProps, mutate }) => ({
-    upVote: () => mutate({
-      variables: {
-        id: ownProps.comment.id
-      },
-      optimisticResponse: {
-        __typename: 'Mutation',
-        comment: {
-          __typename: 'CommentMutation',
-          upVote: {
-            __typename: 'Comment',
-            ...ownProps.comment,
-            upVotes: ownProps.comment.upVotes + 1,
-            upVoted: true
-          }
-        }
-      },
-      updateQueries: {
-        GetComments: (prev, { mutationResult: { data } }) => {
-          let idx = -1;
-          
-          for (let itr = 0; itr < prev.comments.length; itr += 1) {
-            if (prev.comments[itr].id === ownProps.comment.id) {
-              idx = itr;
-              break;
-            }
-          }
-
-          if (idx === -1) {
-            return prev;
-          }
-
-          return {
-            ...prev,
-            comments: [
-              ...prev.comments.slice(0, idx),
-              data.comment.upVote,
-              ...prev.comments.slice(idx + 1)
-            ]
-          }
-        }
-      }
-    })
-  })  
-})(Comment);
-
-const CommentWithDownVoteMutation = graphql(gql`
-  ${downVoteMutation}
-  ${commentDataFragment}
-`, {
-  props: ({ ownProps, mutate }) => ({
-    downVote: () => mutate({
-      variables: {
-        id: ownProps.comment.id
-      },
-      optimisticResponse: {
-        __typename: 'Mutation',
-        comment: {
-          __typename: 'CommentMutation',
-          downVote: {
-            __typename: 'Comment',
-            ...ownProps.comment,
-            downVotes: ownProps.comment.downVotes + 1,
-            downVoted: true
-          }
-        }
-      },
-      updateQueries: {
-        GetComments: (prev, { mutationResult: { data } }) => {
-          let idx = -1;
-          
-          for (let itr = 0; itr < prev.comments.length; itr += 1) {
-            if (prev.comments[itr].id === ownProps.comment.id) {
-              idx = itr;
-              break;
-            }
-          }
-
-          if (idx === -1) {
-            return prev;
-          }
-
-          return {
-            ...prev,
-            comments: [
-              ...prev.comments.slice(0, idx),
-              data.comment.downVote,
-              ...prev.comments.slice(idx + 1)
-            ]
-          }
-        }
-      }
-    })
-  })
-})(CommentWithUpVoteMutation);
-
-export default CommentWithDownVoteMutation;
+export default Comment;
