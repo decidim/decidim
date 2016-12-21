@@ -4,7 +4,7 @@ require "active_support/all"
 
 require "decidim/core"
 require "jquery-rails"
-require "sass-rails"
+require "sassc-rails"
 require "turbolinks"
 require "foundation-rails"
 require "foundation_rails_helper"
