@@ -102,7 +102,7 @@ module Decidim
 
       def scss_variables
         variables = File.join(Gem.loaded_specs["decidim-core"].full_gem_path, "app", "assets", "stylesheets", "decidim", "_variables.scss")
-        File.read(variables).split("\n").map { |line| "// #{line}" }.join("\n")
+        File.read(variables).split("\n").map { |line| "// #{line}".gsub(" !default", "") }.join("\n")
       end
     end
   end

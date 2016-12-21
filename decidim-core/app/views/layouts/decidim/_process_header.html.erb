@@ -3,16 +3,17 @@
        style="background-image:url(<%= current_participatory_process.banner_image.url %>);">
     <div class="process-header__container row">
       <div class="columns mediumlarge-9 process-header__info">
-        <h1 class="text-highlight heading1">
+        <h1 class="text-highlight heading2">
           <%= translated_attribute(current_participatory_process.title) %>
         </h1>
-        <h2 class="text-highlight heading4">
+        <h2 class="text-highlight heading-small">
           <span class="process-header__hashtag">
             <%= current_participatory_process.hashtag %>
           </span>
           <%= translated_attribute(current_participatory_process.subtitle) %>
         </h2>
       </div>
+      <%= render partial: "layouts/decidim/process_header_steps", locals: { participatory_process: current_participatory_process } %>
     </div>
   </div>
   <% if current_participatory_process.features.any? %>

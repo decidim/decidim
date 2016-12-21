@@ -9,6 +9,7 @@ module Decidim
       layout "layouts/decidim/participatory_process"
       include NeedsParticipatoryProcess
       helper Decidim::TranslationsHelper
+      helper Decidim::ParticipatoryProcessHelper
       helper_method :current_feature
 
       skip_authorize_resource

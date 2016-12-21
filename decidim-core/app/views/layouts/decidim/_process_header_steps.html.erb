@@ -1,0 +1,26 @@
+<% if participatory_process.steps.any? %>
+  <div class="columns mediumlarge-3">
+    <div class="process-header__phase">
+      <div class="process-header__progress">
+        <ol>
+          <% past_step = true %>
+          <% participatory_process.steps.each_with_index do |step, index| %>
+            <% if past_step %>
+              <li class="phase-item--past"><span></span></li>
+            <% else %>
+              <li><span></span></li>
+            <% end %>
+            <% past_step = false if step.active? %>
+          <% end %>
+        </ol>
+        <span class="phase-current">Fase <%= participatory_process.active_step.position + 1 %> de <%= current_participatory_process.steps.count %></span>
+      </div>
+      <div>
+        <span class="phase-title"><%= translated_attribute participatory_process.active_step.title %></span>
+        <span class="phase-date">
+          <%= participatory_process_step_dates participatory_process.active_step %>
+        </span>
+      </div>
+    </div>
+  </div>
+<% end %>
