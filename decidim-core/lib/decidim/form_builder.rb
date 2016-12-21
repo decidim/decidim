@@ -80,14 +80,29 @@ module Decidim
     #
     # name       - The name of the field (usually category_id)
     # collection - A collection of categories.
-    # prompt     - An optional String with the text to display as prompt.
+    # options    - An optional Hash with options:
+    # - prompt   - An optional String with the text to display as prompt.
+    # - disable_parents - A Boolean to disable parent categories. Defaults to `true`.
     #
     # Returns a String.
-    def categories_select(name, collection, prompt = nil)
+    def categories_select(name, collection, options = {})
+      options = {
+        prompt: nil,
+        disable_parents: true
+      }.merge(options)
+
+      prompt = options[:prompt]
+      disable_parents = options[:disable_parents]
+
       selected = object.send(name)
       categories = categories_for_select(collection)
-      categories = [[prompt]] + categories if prompt.present?
-      disabled = disabled_categories_for(collection)
+      categories = [[prompt]] + categories if prompt
+      disabled = if disable_parents
+                   disabled_categories_for(collection)
+                 else
+                   []
+                 end
+
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled))
     end
 
