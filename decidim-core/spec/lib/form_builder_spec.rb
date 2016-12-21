@@ -117,14 +117,15 @@ module Decidim
       end
     end
 
-    describe "caregories_for_select" do
+    describe "categories_for_select" do
       let!(:feature) { create(:feature) }
       let!(:category) { create(:category, name: { "en" => "Nice category" }, participatory_process: feature.participatory_process) }
       let!(:other_category) { create(:category, name: { "en" => "A better category" }, participatory_process: feature.participatory_process) }
       let!(:subcategory) { create(:category, name: { "en" => "Subcategory" }, parent: category, participatory_process: feature.participatory_process) }
       let(:scope) { feature.categories }
 
-      let(:output) { builder.categories_select(:category_id, scope) }
+      let(:options) { {} }
+      let(:output) { builder.categories_select(:category_id, scope, options) }
       subject { Nokogiri::HTML(output) }
 
       it "includes all the categories" do
@@ -137,9 +138,18 @@ module Decidim
       end
 
       context "when a category has subcategories" do
-        it "is disabled" do
-          expect(subject.xpath("//option[@disabled='disabled']").count).to eq(1)
-          expect(subject.xpath("//option[@disabled='disabled']").first.text).to eq(category.name["en"])
+        context "`disable_parents` is true" do
+          it "is disabled" do
+            expect(subject.xpath("//option[@disabled='disabled']").count).to eq(1)
+            expect(subject.xpath("//option[@disabled='disabled']").first.text).to eq(category.name["en"])
+          end
+        end
+
+        context "`disable_parents` is false" do
+          let(:options) { { disable_parents: false } }
+          it "is not disabled" do
+            expect(subject.xpath("//option[@disabled='disabled']").count).to eq(0)
+          end
         end
       end
 
@@ -156,7 +166,7 @@ module Decidim
       end
 
       context "when given a prompt" do
-        let(:output) { builder.categories_select(:category_id, scope, "Select something") }
+        let(:options) { { prompt: "Select something" } }
 
         it "includes it as an option" do
           expect(subject.css("option")[0].text).to eq("Select something")
