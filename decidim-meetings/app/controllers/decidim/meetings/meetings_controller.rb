@@ -28,7 +28,7 @@ module Decidim
       end
 
       def search_params
-        default_search_params.merge(params)
+        default_search_params.merge(params.to_unsafe_h)
       end
 
       def default_search_params
