@@ -17,6 +17,9 @@ $card-grid-margin-bottom: map-get($grid-column-gutter, medium);
     display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: space-between;
+  }
+  
+  .card__content{
+    flex-grow: 1;
   }
 }

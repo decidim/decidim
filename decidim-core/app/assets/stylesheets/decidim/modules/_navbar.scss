@@ -83,6 +83,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
     vertical-align: middle;
   }
   .is-dropdown-submenu{
+    z-index: 2;
     text-align: left;
     padding-left: .3rem;
     background-color: $white;

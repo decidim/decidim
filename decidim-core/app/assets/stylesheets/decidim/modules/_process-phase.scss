@@ -1,0 +1,80 @@
+.phase-title{
+  display: block;
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1;
+  text-transform: uppercase;
+  .is-inactive & {
+    color: $muted;
+  }
+}
+
+.phase-date{
+  color: $muted;
+  font-weight: 600;
+  font-size: 90%;
+}
+
+
+.process-header__progress{
+  margin-bottom: 1rem;
+  ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  li{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    &::after{
+      content: "";
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: $muted;
+      position: absolute;
+      top: 4px;
+      z-index: 0;
+    }
+    span{
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $muted;
+      margin: auto;
+      z-index: 1;
+    }
+  }
+  //Between 11 and 20 elements
+  li:nth-last-child(n+11):nth-last-child(-n+20):first-child,
+  li:nth-last-child(n+11):nth-last-child(-n+20):first-child ~ li {
+    span{
+      width: 5px;
+      height: 5px;
+    }
+    &::after{
+      height: 1px;
+      top: 2px;
+    }
+  }
+  .phase-item--past{
+    &::after{
+      background-color: $primary;
+    }
+    span{
+      background-color: $primary;
+      opacity: 1;
+    }
+  }
+}
+
+.phase-current{
+  font-weight: 600;
+  font-size: 90%;
+}
