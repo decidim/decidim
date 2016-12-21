@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "devise-i18n", "~> 1.1.0"
   s.add_dependency "rectify", "~> 0.8.0"
   s.add_dependency "foundation-rails", "~> 6.2.4.0"
-  s.add_dependency "sass-rails", "~> 5.0.0"
+  s.add_dependency "sassc-rails", "~> 1.3.0"
   s.add_dependency "jquery-rails", "~> 4.0"
   s.add_dependency "turbolinks", *Decidim.rails_version
   s.add_dependency "carrierwave", "~> 1.0.0.rc"
