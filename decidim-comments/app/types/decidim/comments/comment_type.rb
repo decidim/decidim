@@ -26,22 +26,19 @@ module Decidim
 
       field :upVotes, !types.Int, "The number of comment's upVotes" do
         resolve lambda { |obj, _args, _ctx|
-          # obj.up_votes.count
-          1
+          obj.up_votes.count
         }
       end
 
       field :upVoted, !types.Boolean, "Check if the current user has up voted the comment" do
         resolve lambda { |obj, _args, ctx|
-          # obj.up_voted_by?(ctx[:current_user])
-          false
+          obj.up_voted_by?(ctx[:current_user])
         }
       end
 
       field :downVotes, !types.Int, "The number of comment's downVotes" do
         resolve lambda { |obj, _args, _ctx|
-          # obj.down_votes.count
-          1
+          obj.down_votes.count
         }
       end
     end

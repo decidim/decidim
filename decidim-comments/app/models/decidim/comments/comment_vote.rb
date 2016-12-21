@@ -6,7 +6,7 @@ module Decidim
     class CommentVote < ApplicationRecord
       belongs_to :comment, foreign_key: "decidim_comment_id", class_name: Comment
       belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
-      
+
       validates :comment, uniqueness: { scope: :author }
     end
   end

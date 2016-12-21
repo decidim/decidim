@@ -257,9 +257,18 @@ const CommentWithUpVoteMutation = graphql(gql`
       },
       updateQueries: {
         GetComments: (prev, { mutationResult: { data } }) => {
-          const idx = prev.comments.findIndex((comment) => (
-            comment.id === ownProps.comment.id
-          ));
+          let idx = -1;
+          
+          for (let itr = 0; itr < prev.comments.length; itr += 1) {
+            if (prev.comments[itr].id === ownProps.comment.id) {
+              idx = itr;
+              break;
+            }
+          }
+
+          if (idx === -1) {
+            return prev;
+          }
 
           return {
             ...prev,
