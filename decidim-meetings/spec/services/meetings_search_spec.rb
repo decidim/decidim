@@ -22,20 +22,37 @@ describe Decidim::Meetings::MeetingsSearch do
   end
   let(:external_meeting) { create :meeting }
   let(:default_params) { { feature_id: current_feature.id } }
+  let(:params) { default_params }
 
   subject { described_class.new(params) }
 
   describe "base query" do
-    context "when no current_feature is passed" do
-      let(:params) {}
+    context "when no feature_id is passed" do
+      let(:params) { {} }
 
       it "raises an error" do
-        expect{ subject.results }.to raise_error(StandardError)
+        expect{ subject.results }.to raise_error(StandardError, "Missing feature")
+      end
+    end
+
+    context "when the fature does not exist" do
+      let(:params) { { feature_id: current_feature.id + 100000 } }
+
+      it "raises an error" do
+        expect{ subject.results }.to raise_error(StandardError, "Missing feature")
       end
     end
   end
 
   describe "filters" do
+    context "feature_id" do
+      it "only returns meetings from the given feature" do
+        external_meeting = create(:meeting)
+
+        expect(subject.results).not_to include(external_meeting)
+      end
+    end
+
     context "order_start_time" do
       let(:params) { default_params.merge(order_start_time: order) }
 
@@ -66,12 +83,28 @@ describe Decidim::Meetings::MeetingsSearch do
       end
 
       context "when multiple ids are sent" do
-        let(:params) { default_params.merge(scope_id: "#{scope2.id},#{scope1.id}") }
+        let(:params) { default_params.merge(scope_id: [scope2.id, scope1.id]) }
 
         it "filters meetings by scope" do
           expect(subject.results).to match_array [meeting1,meeting2]
         end
       end
+    end
+  end
+
+  context "pagination" do
+    let(:params) do
+      default_params.merge(
+        per_page: 2
+      )
+    end
+
+    it "filters the meetings per page" do
+      create(:meeting, feature: current_feature)
+      meetings = subject.results
+
+      expect(meetings.total_pages).to eq(2)
+      expect(meetings.total_count).to eq(3)
     end
   end
 end

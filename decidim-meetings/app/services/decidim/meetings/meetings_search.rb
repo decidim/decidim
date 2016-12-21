@@ -6,8 +6,12 @@ module Decidim
     # find the meetings.
     class MeetingsSearch < Searchlight::Search
       def base_query
-        raise "Missing feature" unless options[:feature_id]
-        Meeting.page(options[:page] || 1).per(1).where(feature: current_feature)
+        raise "Missing feature" unless current_feature
+
+        Meeting
+          .page(options[:page] || 1)
+          .per(options[:per_page] || 12)
+          .where(feature: current_feature)
       end
 
       def search_order_start_time
@@ -25,6 +29,7 @@ module Decidim
       end
 
       def current_feature
+        return unless options[:feature_id].present?
         @feature ||= Feature.where(id: options[:feature_id]).first
       end
     end
