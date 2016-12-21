@@ -49,14 +49,14 @@ RSpec.shared_examples "manage meetings" do
         es: "Mi meeting",
         ca: "El meu meeting"
       )
-      fill_in_i18n_editor(
+      fill_in_i18n(
         :meeting_location,
         "#location-tabs",
         en: "Location",
         es: "Location",
         ca: "Location"
       )
-      fill_in_i18n_editor(
+      fill_in_i18n(
         :meeting_location_hints,
         "#location_hints-tabs",
         en: "Location hints",
@@ -81,6 +81,8 @@ RSpec.shared_examples "manage meetings" do
       fill_in :meeting_address, with: "Address"
       fill_in :meeting_start_time, with: 1.day.from_now
       fill_in :meeting_end_time, with: 1.day.from_now + 2.hours
+
+      select scope.name, from: :meeting_decidim_scope_id
 
       find("*[type=submit]").click
     end

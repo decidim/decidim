@@ -4,6 +4,7 @@ describe Decidim::Meetings::Admin::CreateMeeting do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, participatory_process: participatory_process }
+  let(:scope) { create :scope, organization: organization }
   let(:form) do
     double(
       :invalid? => invalid,
@@ -15,6 +16,7 @@ describe Decidim::Meetings::Admin::CreateMeeting do
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
       address: "address",
+      decidim_scope_id: scope.id,
       current_feature: current_feature
     )
   end
