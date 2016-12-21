@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 module Decidim
+  # Helpers related to the Participatory Process layout.
   module ParticipatoryProcessHelper
     def participatory_process_step_dates(participatory_process_step)
       dates = [participatory_process_step.start_date, participatory_process_step.end_date]
