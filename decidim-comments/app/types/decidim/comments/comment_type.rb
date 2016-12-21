@@ -30,7 +30,7 @@ module Decidim
         }
       end
 
-      field :upVoted, !types.Boolean, "Check if the current user has up voted the comment" do
+      field :upVoted, !types.Boolean, "Check if the current user has upvoted the comment" do
         resolve lambda { |obj, _args, ctx|
           obj.up_voted_by?(ctx[:current_user])
         }
@@ -39,6 +39,12 @@ module Decidim
       field :downVotes, !types.Int, "The number of comment's downVotes" do
         resolve lambda { |obj, _args, _ctx|
           obj.down_votes.count
+        }
+      end
+
+      field :downVoted, !types.Boolean, "Check if the current user has downvoted the comment" do
+        resolve lambda { |obj, _args, ctx|
+          obj.down_voted_by?(ctx[:current_user])
         }
       end
     end

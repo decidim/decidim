@@ -81,6 +81,18 @@ module Decidim
           expect(comment.up_voted_by?(user)).to be_falsy
         end
       end
+
+      describe "#down_voted_by?" do
+        let(:user) { create(:user) }
+        it "should return true if the given user has downvoted the comment" do
+          create(:comment_vote, comment: comment, author: user, weight: -1)
+          expect(comment.down_voted_by?(user)).to be_truthy
+        end
+
+        it "should return false if the given user has not downvoted the comment" do
+          expect(comment.down_voted_by?(user)).to be_falsy
+        end
+      end
     end
   end
 end

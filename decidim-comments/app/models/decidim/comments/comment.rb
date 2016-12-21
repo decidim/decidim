@@ -43,6 +43,13 @@ module Decidim
         up_votes.where(author: user).present?
       end
 
+      # Public: Check if the user has downvoted the comment
+      #
+      # Returns a bool value to indicate if the condition is truthy or not
+      def down_voted_by?(user)
+        down_votes.where(author: user).present?
+      end
+
       private
 
       # Private: Check if commentable can have replies and if not adds

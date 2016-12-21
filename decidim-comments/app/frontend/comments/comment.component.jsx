@@ -293,26 +293,39 @@ const CommentWithDownVoteMutation = graphql(gql`
       variables: {
         id: ownProps.comment.id
       },
-      // optimisticResponse: {
-      //   __typename: 'Mutation',
-      //   upVote: {
-      //     __typename: 'Comment',
-      //     ...ownProps.comment,
-      //     downVoted: false
-      //   }
-      // },
+      optimisticResponse: {
+        __typename: 'Mutation',
+        comment: {
+          __typename: 'CommentMutation',
+          downVote: {
+            __typename: 'Comment',
+            ...ownProps.comment,
+            downVotes: ownProps.comment.downVotes + 1,
+            downVoted: true
+          }
+        }
+      },
       updateQueries: {
         GetComments: (prev, { mutationResult: { data } }) => {
-          const idx = prev.comments.findIndex((comment) => (
-            comment.id === ownProps.comment.id
-          ));
+          let idx = -1;
+          
+          for (let itr = 0; itr < prev.comments.length; itr += 1) {
+            if (prev.comments[itr].id === ownProps.comment.id) {
+              idx = itr;
+              break;
+            }
+          }
+
+          if (idx === -1) {
+            return prev;
+          }
 
           return {
             ...prev,
             comments: [
-              prev.comments.slice(0, idx),
-              data.downVote,
-              prev.comments.slice(idx + 1)
+              ...prev.comments.slice(0, idx),
+              data.comment.downVote,
+              ...prev.comments.slice(idx + 1)
             ]
           }
         }

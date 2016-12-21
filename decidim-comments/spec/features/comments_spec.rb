@@ -95,14 +95,23 @@ describe "Comments", type: :feature do
     end
 
     context "when votable option is enabled" do
-      it "user can vote a comment" do
+      before do
         visit decidim.dummy_path(participatory_process, votable: true)
+      end
 
+      it "user can upvote a comment" do
         within "#comment_#{comments[0].id}" do
           expect(page).to have_selector('.comment__votes--up', text: /0/)
           page.find('.comment__votes--up').click
           expect(page).to have_selector('.comment__votes--up', text: /1/)
+        end
+      end
+
+      it "user can downvote a comment" do
+        within "#comment_#{comments[0].id}" do
           expect(page).to have_selector('.comment__votes--down', text: /0/)
+          page.find('.comment__votes--down').click
+          expect(page).to have_selector('.comment__votes--down', text: /1/)
         end
       end
     end

@@ -8,13 +8,11 @@ module Decidim
       field :id, !types.ID, "The Comment's unique ID"
 
       field :upVote, Decidim::Comments::CommentType do
-        resolve lambda { |obj, _args, ctx|
-          Decidim::Comments::UpVoteComment.call(obj, ctx[:current_user]) do
-            on(:ok) do |comment|
-              return comment
-            end
-          end
-        }
+        resolve VoteCommentResolver.new(weight: 1)
+      end
+
+      field :downVote, Decidim::Comments::CommentType do
+        resolve VoteCommentResolver.new(weight: -1)
       end
     end
   end

@@ -14,7 +14,7 @@ module Decidim
         }
 
         before do
-          allow(Decidim::Comments::UpVoteComment).to receive(:call).with(model, current_user).and_return (
+          allow(Decidim::Comments::VoteComment).to receive(:call).with(model, current_user, weight: 1).and_return (
             model
           )
         end
@@ -22,6 +22,23 @@ module Decidim
         it "should call UpVoteComment command" do
           expect(model).to receive(:up_voted_by?).with(current_user).and_return(true)
           expect(response["upVote"]).to include("upVoted" => true)
+        end
+      end
+
+      describe "downVote" do
+        let(:query) {
+          "{ downVote { downVoted } }"
+        }
+
+        before do
+          allow(Decidim::Comments::VoteComment).to receive(:call).with(model, current_user, weight: -1).and_return (
+            model
+          )
+        end
+
+        it "should call UpVoteComment command" do
+          expect(model).to receive(:down_voted_by?).with(current_user).and_return(true)
+          expect(response["downVote"]).to include("downVoted" => true)
         end
       end
     end

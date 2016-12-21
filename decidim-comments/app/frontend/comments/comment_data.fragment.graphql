@@ -9,5 +9,7 @@ fragment CommentData on Comment {
   canHaveReplies
   alignment,
   upVotes,
+  upVoted,
   downVotes
+  downVoted
 }

@@ -71,6 +71,15 @@ module Decidim
           expect(response).to include("upVoted" => true)
         end
       end
+
+      describe "downVoted" do
+        let(:query) { "{ downVoted }" }
+
+        it "returns the down_voted_by? method evaluation with the current user" do
+          expect(model).to receive(:down_voted_by?).with(current_user).and_return(true)
+          expect(response).to include("downVoted" => true)
+        end
+      end
     end
   end
 end
