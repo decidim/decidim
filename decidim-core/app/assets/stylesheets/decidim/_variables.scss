@@ -1,23 +1,25 @@
 // Variables
-$body-font-color: #3D393C;
 
-$primary: #ef604d !default;
-$secondary: #599aa6 !default;
-$success: #3adb76 !default;
-$warning: #ffae00 !default;
-$alert: #ec5840 !default;
+$primary: map-get($foundation-palette, primary);
+$secondary: map-get($foundation-palette, secondary);
+$success: map-get($foundation-palette, success);
+$warning: map-get($foundation-palette, warning);
+$alert: map-get($foundation-palette, alert);
 
-$light-gray: #fafafa !default;
-$light-gray-dark: darken($light-gray, 2.5) !default;
-$medium-gray: #e8e8e8 !default;
-$dark-gray: #2c2930 !default;
-$black: #1a181d !default;
-$white: #fff !default;
+$light-gray-dark: darken($light-gray, 2.5);
 
-$twitter: #55acee !default;
-$facebook: #3b5998 !default;
-$google: #dd4b39 !default;
+$proposals: #238FF7;
+$actions: #57D685;
+$debates: #FA6C96;
+$meetings: #FABC6C;
 
-$muted: lighten($body-font-color, 30) !default;
+$twitter: #55acee;
+$facebook: #3b5998;
+$google: #dd4b39;
 
-$border: 1px solid $medium-gray !default;
+$muted: lighten($body-font-color, 30);
+
+$border: 1px solid $medium-gray;
+
+
+
