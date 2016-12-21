@@ -5,6 +5,7 @@ describe Decidim::Meetings::Admin::CreateMeeting do
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, participatory_process: participatory_process }
   let(:scope) { create :scope, organization: organization }
+  let(:category) { create :category, participatory_process: participatory_process }
   let(:form) do
     double(
       :invalid? => invalid,
@@ -17,6 +18,7 @@ describe Decidim::Meetings::Admin::CreateMeeting do
       end_time: 1.day.from_now + 1.hour,
       address: "address",
       decidim_scope_id: scope.id,
+      decidim_category_id: category.id,
       current_feature: current_feature
     )
   end
@@ -33,8 +35,25 @@ describe Decidim::Meetings::Admin::CreateMeeting do
   end
 
   context "when everything is ok" do
+    let(:meeting) { Decidim::Meetings::Meeting.last }
+
     it "creates the meeting" do
       expect { subject.call }.to change { Decidim::Meetings::Meeting.count }.by(1)
+    end
+
+    it "sets the scope" do
+      subject.call
+      expect(meeting.scope).to eq scope
+    end
+
+    it "sets the category" do
+      subject.call
+      expect(meeting.category).to eq category
+    end
+
+    it "sets the feature" do
+      subject.call
+      expect(meeting.feature).to eq current_feature
     end
   end
 end

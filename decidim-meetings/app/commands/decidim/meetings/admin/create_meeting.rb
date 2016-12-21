@@ -24,6 +24,7 @@ module Decidim
         def create_meeting
           Meeting.create!(
             decidim_scope_id: @form.decidim_scope_id,
+            decidim_category_id: @form.decidim_category_id,
             title: @form.title,
             short_description: @form.short_description,
             description: @form.description,

@@ -6,6 +6,7 @@ module Decidim
     class Meeting < Meetings::ApplicationRecord
       belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
       belongs_to :scope, foreign_key: "decidim_scope_id", class_name: Decidim::Scope
+      belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
 
       validates :title, presence: true
 

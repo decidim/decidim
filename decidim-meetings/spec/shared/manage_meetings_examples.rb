@@ -83,6 +83,7 @@ RSpec.shared_examples "manage meetings" do
       fill_in :meeting_end_time, with: 1.day.from_now + 2.hours
 
       select scope.name, from: :meeting_decidim_scope_id
+      select translated(category.name), from: :meeting_decidim_category_id
 
       find("*[type=submit]").click
     end

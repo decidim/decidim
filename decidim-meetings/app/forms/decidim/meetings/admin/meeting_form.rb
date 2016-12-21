@@ -15,6 +15,7 @@ module Decidim
         attribute :start_time, DateTime
         attribute :end_time, DateTime
         attribute :decidim_scope_id, Integer
+        attribute :decidim_category_id, Integer
 
         validates :title, translatable_presence: true
         validates :short_description, translatable_presence: true
@@ -28,6 +29,7 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
 
         def scope
+          return unless current_feature
           @scope ||= current_feature.scopes.where(id: decidim_scope_id).first
         end
       end

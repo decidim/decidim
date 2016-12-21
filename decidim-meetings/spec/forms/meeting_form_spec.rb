@@ -30,8 +30,12 @@ describe Decidim::Meetings::Admin::MeetingForm do
   let(:address) { Faker::Lorem.sentence(3) }
   let(:start_time) { 2.days.from_now }
   let(:end_time) { 2.days.from_now + 4.hours }
+  let(:scope) { create :scope, organization: organization }
+  let(:category) { create :category, participatory_process: participatory_process }
   let(:attributes) do
     {
+      decidim_scope_id: scope.id,
+      decidim_category_id: category.id,
       title_en: title[:en],
       description_en: description[:en],
       short_description_en: short_description[:en],
