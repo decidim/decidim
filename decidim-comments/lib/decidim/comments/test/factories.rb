@@ -7,8 +7,8 @@ FactoryGirl.define do
   end
 
   factory :comment_vote, class: Decidim::Comments::CommentVote do
-    author { build(:user) }
     comment { build(:comment) }
+    author { build(:user, organization: comment.organization) }
     weight { [-1, 1].sample }
 
     trait :up_vote do

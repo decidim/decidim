@@ -8,6 +8,15 @@ module Decidim
       belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
 
       validates :comment, uniqueness: { scope: :author }
+      validates :weight, inclusion: { in: [-1, 1] }
+      validate :author_and_comment_same_organization
+
+      private
+
+      # Private: check if the comment and the author have the same organization
+      def author_and_comment_same_organization
+        errors.add(:comment, :invalid) unless author.organization == comment.organization
+      end
     end
   end
 end

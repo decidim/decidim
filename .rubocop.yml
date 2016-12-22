@@ -1303,7 +1303,7 @@ Rails/Validation:
 Metrics/BlockLength:
   Exclude:
     - 'decidim-api/lib/decidim/api/schema.rb'
-    - 'decidim-api/lib/decidim/api/types/**/*'
+    - 'decidim-api/lib/decidim/**/types/**/*'
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'
 

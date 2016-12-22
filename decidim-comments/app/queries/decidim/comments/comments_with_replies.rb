@@ -24,8 +24,7 @@ module Decidim
       # level of nested replies.
       def query
         Comment
-          .where(decidim_commentable_id: commentable.id)
-          .where(decidim_commentable_type: commentable.class.name)
+          .where(commentable: commentable)
           .includes(:author, :up_votes, :down_votes)
           .includes(
             replies: [:author, :up_votes, :down_votes,
