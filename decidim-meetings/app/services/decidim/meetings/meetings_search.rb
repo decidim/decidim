@@ -23,10 +23,17 @@ module Decidim
       end
 
       def search_category_id
-        query.where(decidim_category_id: category_id)
+        query.where(decidim_category_id: category_ids)
       end
 
       private
+
+      def category_ids
+        Category
+          .where(id: category_id)
+          .or(Category.where(parent_id: category_id))
+          .pluck(:id)
+      end
 
       def current_feature
         return unless options[:feature_id].present?

@@ -4,14 +4,14 @@ describe Decidim::Meetings::MeetingsSearch do
   let(:current_feature) { create :feature }
   let(:scope1) { create :scope, organization: current_feature.organization }
   let(:scope2) { create :scope, organization: current_feature.organization }
-  let(:category1) { create :category, participatory_process: current_feature.participatory_process }
-  let(:category2) { create :category, participatory_process: current_feature.participatory_process }
+  let(:parent_category) { create :category, participatory_process: current_feature.participatory_process }
+  let(:subcategory) { create :subcategory, parent: parent_category }
   let!(:meeting1) do
     create(
       :meeting,
       feature: current_feature,
       start_time: 1.day.from_now,
-      category: category1,
+      category: parent_category,
       scope: scope1
     )
   end
@@ -20,7 +20,7 @@ describe Decidim::Meetings::MeetingsSearch do
       :meeting,
       feature: current_feature,
       start_time: 2.day.from_now,
-      category: category2,
+      category: subcategory,
       scope: scope2
     )
   end
@@ -96,10 +96,20 @@ describe Decidim::Meetings::MeetingsSearch do
     end
 
     context "category_id" do
-      let(:params) { default_params.merge(category_id: category1.id) }
+      context "when the given category has no subcategories" do
+        let(:params) { default_params.merge(category_id: subcategory.id) }
 
-      it "filters meetings by category" do
-        expect(subject.results).to eq [meeting1]
+        it "returns only meetings from the given category" do
+          expect(subject.results).to eq [meeting2]
+        end
+      end
+
+      context "when the given category has some subcategories" do
+        let(:params) { default_params.merge(category_id: parent_category.id) }
+
+        it "returns meetings from this category and its children's" do
+          expect(subject.results).to match_array [meeting2, meeting1]
+        end
       end
     end
   end
