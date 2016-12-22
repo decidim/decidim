@@ -40,14 +40,15 @@ module Decidim
       end
     end
 
-    def external_icon(path, options = {})
-      image_tag(
-        path,
-        options.merge(
-          class: "#{options[:class]} external-svg",
-          style: "display: none"
-        )
-      )
+    # Outputs a SVG icon from an external file. It apparently renders an image
+    # tag, but then a JS script kicks in and replaces it with an inlined SVG
+    # version.
+    #
+    # path    - The asset's path
+    #
+    # Returns an <img /> tag with the SVG icon.
+    def external_icon(path)
+      image_tag(path, class: "external-svg", style: "display: none")
     end
   end
 end
