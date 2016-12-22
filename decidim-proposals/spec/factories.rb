@@ -1,6 +1,6 @@
-require_relative "../../decidim-core/spec/factories"
-require_relative "../../decidim-admin/spec/factories"
-require_relative "../../decidim-comments/spec/factories"
+require "decidim/core/test/factories"
+require "decidim/admin/test/factories"
+require "decidim/comments/test/factories"
 
 FactoryGirl.define do
   factory :proposal_feature, class: Decidim::Feature do
