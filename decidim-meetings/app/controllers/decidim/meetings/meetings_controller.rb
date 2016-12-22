@@ -30,7 +30,7 @@ module Decidim
       def search_params
         default_search_params
           .merge(params.to_unsafe_h.except(:filter))
-          .merge(params.to_unsafe_h[:filter])
+          .merge(params.to_unsafe_h[:filter] || {})
       end
 
       def filter
