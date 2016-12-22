@@ -39,5 +39,15 @@ module Decidim
         content_tag :use, nil, "xlink:href" => "#{asset_url("decidim/icons.svg")}#icon-#{name}"
       end
     end
+
+    def external_icon(path, options = {})
+      image_tag(
+        path,
+        options.merge(
+          class: "#{options[:class]} external-svg",
+          style: "display: none"
+        )
+      )
+    end
   end
 end
