@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 require "decidim/faker/localized"
 require "decidim/dev"
 
 FactoryGirl.define do
-  sequence :name do |n| 
+  sequence :name do |n|
     "#{Faker::Name.name} #{n}"
   end
 
@@ -154,7 +155,6 @@ FactoryGirl.define do
     organization
   end
 end
-
 
 def test_file(filename, content_type)
   asset = Decidim::Dev.asset(filename)
