@@ -9,11 +9,7 @@ engines:
     config:
       languages:
         javascript:
-          mass_threshold: 50
-          duplication:
-            checks:
-              Similar code:
-                enabled: false
+          mass_threshold: 1000
         ruby:
           mass_threshold: 50
     exclude_fingerprints:
