@@ -1,4 +1,4 @@
-require_relative "decidim/core/spec/factories"
+require "decidim/core/test/factories"
 
 FactoryGirl.define do
   factory :admin, class: Decidim::System::Admin do
