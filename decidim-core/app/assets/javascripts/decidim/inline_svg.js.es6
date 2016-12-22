@@ -1,6 +1,6 @@
-//= require svg-injector
+// = require svg-injector
 
-(function(){
+(function() {
   let inlineSVG = function () {
     let $externalSvg = $("img.external-svg");
     SVGInjector($externalSvg, {
@@ -9,4 +9,4 @@
   }
 
   $(document).on('turbolinks:load', inlineSVG);
-})(window);
+}(window));

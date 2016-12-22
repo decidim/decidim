@@ -1,6 +1,6 @@
 // = require appendAround
 
-(function(){
+(function() {
   let $appendableElements = $('.js-append');
   $appendableElements.appendAround();
-})(window);
+}(window));
