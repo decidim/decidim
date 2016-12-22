@@ -13,7 +13,13 @@ import upVoteFragment      from './up_vote.fragment.graphql';
 import downVoteFragment    from './down_vote.fragment.graphql';
 
 export const DownVoteButton = ({ comment: { downVotes, upVoted, downVoted }, downVote }) => (
-  <VoteButton buttonClassName="comment__votes--down" iconName="icon-chevron-bottom" votes={downVotes} voteAction={downVote} disabled={upVoted || downVoted} />
+  <VoteButton
+    buttonClassName="comment__votes--down"
+    iconName="icon-chevron-bottom"
+    votes={downVotes}
+    voteAction={downVote}
+    disabled={upVoted || downVoted}
+  />
 );
 
 DownVoteButton.fragments = {
