@@ -3,6 +3,7 @@ $(document).ready(() => {
   const $form = $('form#new_filter');
   const $scopes = $form.find('input[type=checkbox]');
   const $sort = $form.find('input[type=radio]');
+
   $form.on('change', 'input, select', (event) => {
     $form.submit();
 
@@ -20,32 +21,30 @@ $(document).ready(() => {
   });
 
   window.onpopstate = function(event) {
-    const location = decodeURIComponent(document.location);
-
     $scopes.attr('checked', false);
     $sort.attr('checked', false)
 
-    try {
-      const [, sortValue] = location.match(/order_start_time=([^&]*)/);
-      $form.find(`input[type=radio][value=${sortValue}]`)[0].checked = true;
-    } catch(e) {
-      $form.find('input[type=radio][value=asc]')[0].checked = true;
-    }
+    let [sortValue] = getLocationParams(/order_start_time=([^&]*)/g) || ["asc"];
+    $form.find(`input[type=radio][value=${sortValue}]`)[0].checked = true;
 
-    let scopeValues = location.match(/scope_id\[\]=([^&]*)/g);
-    if (scopeValues) {
-      scopeValues = scopeValues.map(val => val.match(/scope_id\[\]=(.*)/)[1]);
-      scopeValues.forEach(value => {
-        $form.find(`input[type=checkbox][value=${value}]`)[0].checked = true;
-      })
-    }
+    let scopeValues = getLocationParams(/scope_id\[\]=([^&]*)/g) || [];
+    console.log(scopeValues)
+    scopeValues.forEach(value => {
+      $form.find(`input[type=checkbox][value=${value}]`)[0].checked = true;
+    })
 
-    let categoryIdValues = location.match(/filter\[category_id\]=([^&]*)/g);
-    if (categoryIdValues) {
-      categoryIdValues = categoryIdValues[0].match(/=(.*)/)[1];
-      $form.find(`select#filter_category_id`).first().val(categoryIdValues);
-    }
+    let [categoryIdValue] = getLocationParams(/filter\[category_id\]=([^&]*)/g) || [];
+    $form.find(`select#filter_category_id`).first().val(categoryIdValue);
 
     $form.submit();
+  };
+
+  const getLocationParams = (regex) => {
+    const location = decodeURIComponent(document.location);
+    let values = location.match(regex);
+    if (values) {
+      values = values.map(val => val.match(/=(.*)/)[1]);
+    }
+    return values;
   };
 });
