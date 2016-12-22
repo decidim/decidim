@@ -19,11 +19,8 @@ module Decidim
             argument :commentableType, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
 
             resolve lambda { |_obj, args, _ctx|
-              Comment
-                .where(decidim_commentable_id: args[:commentableId])
-                .where(decidim_commentable_type: args[:commentableType])
-                .includes([:author, :up_votes, :down_votes, replies: [:author, :up_votes, :down_votes, replies: [:author, :up_votes, :down_votes, replies: [:author, :up_votes, :down_votes, :replies]]]])
-                .order(created_at: :asc)
+              commentable = args[:commentableType].constantize.find(args[:commentableId])
+              CommentsWithReplies.for(commentable)
             }
           end
         end
