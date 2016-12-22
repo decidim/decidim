@@ -71,7 +71,7 @@ module Decidim
       end
 
       describe "#up_voted_by?" do
-        let(:user) { create(:user) }
+        let(:user) { create(:user, organization: comment.organization) }
         it "should return true if the given user has upvoted the comment" do
           create(:comment_vote, comment: comment, author: user, weight: 1)
           expect(comment.up_voted_by?(user)).to be_truthy
@@ -83,7 +83,7 @@ module Decidim
       end
 
       describe "#down_voted_by?" do
-        let(:user) { create(:user) }
+        let(:user) { create(:user, organization: comment.organization) }
         it "should return true if the given user has downvoted the comment" do
           create(:comment_vote, comment: comment, author: user, weight: -1)
           expect(comment.down_voted_by?(user)).to be_truthy

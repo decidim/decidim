@@ -3,7 +3,7 @@ import { shallow, mount }      from 'enzyme';
 import { filter }              from 'graphql-anywhere';
 import gql                     from 'graphql-tag';
 
-import { Comment }             from './comment.component';
+import Comment                 from './comment.component';
 import AddCommentForm          from './add_comment_form.component';
 import UpVoteButton            from './up_vote_button.component';
 import DownVoteButton          from './down_vote_button.component';
