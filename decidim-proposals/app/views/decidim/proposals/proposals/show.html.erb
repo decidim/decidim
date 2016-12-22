@@ -32,6 +32,6 @@
 
 <%= content_for :expanded do %>
   <% if @proposal.commentable? %>
-    <%= comments_for @proposal, arguable: true %>
+    <%= comments_for @proposal, arguable: true, votable: true %>
   <% end %>
 <% end %>

@@ -54,12 +54,14 @@ const UpVoteButtonWithMutation = graphql(gql`
       updateQueries: {
         GetComments: (prev, { mutationResult: { data } }) => {          
           const commentReducer = (comment) => {
+            const replies = comment.replies || [];
+            
             if (comment.id === ownProps.comment.id) {
               return data.comment.upVote;
             }
             return {
               ...comment,
-              replies: comment.replies.map(commentReducer)
+              replies: replies.map(commentReducer)
             };
           };
 

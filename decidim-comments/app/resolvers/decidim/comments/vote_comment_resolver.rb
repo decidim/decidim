@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 module Decidim
   module Comments
+    # A GraphQL resolver to handle `upVote` and `downVote` mutations
+    # It creates a vote for a comment by the current user.
     class VoteCommentResolver
       def initialize(options = { weight: 1 })
         @weight = options[:weight]

@@ -29,10 +29,8 @@ module Decidim
           .includes(:author, :up_votes, :down_votes)
           .includes(
             replies: [:author, :up_votes, :down_votes,
-              replies: [:author, :up_votes, :down_votes,
-                replies: [:author, :up_votes, :down_votes]
-              ]
-            ]
+                      replies: [:author, :up_votes, :down_votes,
+                                replies: [:author, :up_votes, :down_votes]]]
           )
           .order(created_at: :asc)
       end

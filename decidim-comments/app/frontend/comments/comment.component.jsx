@@ -17,7 +17,7 @@ import commentDataFragment      from './comment_data.fragment.graphql';
  * @class
  * @augments Component
  */
-export class Comment extends Component {
+class Comment extends Component {
   constructor(props) {
     super(props);
 
