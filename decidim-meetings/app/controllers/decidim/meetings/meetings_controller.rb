@@ -8,7 +8,7 @@ module Decidim
     # Note that it inherits from `Decidim::Features::BaseController`, which
     # override its layout and provide all kinds of useful methods.
     class MeetingsController < Decidim::Meetings::ApplicationController
-      helper_method :meetings, :meeting, :search_params
+      helper_method :meetings, :meeting, :search_params, :filter
 
       def index
         respond_to do |format|
@@ -28,7 +28,17 @@ module Decidim
       end
 
       def search_params
-        default_search_params.merge(params.to_unsafe_h)
+        default_search_params
+          .merge(params.to_unsafe_h.except(:filter))
+          .merge(params.to_unsafe_h[:filter])
+      end
+
+      def filter
+        @filter ||= filter_klass.new(params.dig(:filter, :category_id), params[:order_start_time], params[:scope_id])
+      end
+
+      def filter_klass
+        Struct.new(:category_id, :order_start_time, :scope_id)
       end
 
       def default_search_params

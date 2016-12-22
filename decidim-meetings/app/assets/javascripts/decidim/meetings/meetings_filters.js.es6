@@ -1,9 +1,9 @@
 // = require_self
 $(document).ready(() => {
-  const $form = $('form#filter_form');
+  const $form = $('form#new_filter');
   const $scopes = $form.find('input[type=checkbox]');
   const $sort = $form.find('input[type=radio]');
-  $form.on('change', 'input', (event) => {
+  $form.on('change', 'input, select', (event) => {
     $form.submit();
 
     let newUrl;
@@ -33,12 +33,17 @@ $(document).ready(() => {
     }
 
     let scopeValues = location.match(/scope_id\[\]=([^&]*)/g);
-
     if (scopeValues) {
       scopeValues = scopeValues.map(val => val.match(/scope_id\[\]=(.*)/)[1]);
       scopeValues.forEach(value => {
         $form.find(`input[type=checkbox][value=${value}]`)[0].checked = true;
       })
+    }
+
+    let categoryIdValues = location.match(/filter\[category_id\]=([^&]*)/g);
+    if (categoryIdValues) {
+      categoryIdValues = categoryIdValues[0].match(/=(.*)/)[1];
+      $form.find(`select#filter_category_id`).first().val(categoryIdValues);
     }
 
     $form.submit();

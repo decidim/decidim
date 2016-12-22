@@ -19,14 +19,14 @@ module Decidim
       end
 
       def search_scope_id
-        query.where(decidim_scope_id: parsed_scope_id)
+        query.where(decidim_scope_id: scope_id)
+      end
+
+      def search_category_id
+        query.where(decidim_category_id: category_id)
       end
 
       private
-
-      def parsed_scope_id
-        scope_id
-      end
 
       def current_feature
         return unless options[:feature_id].present?

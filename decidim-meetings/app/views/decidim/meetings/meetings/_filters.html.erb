@@ -1,5 +1,5 @@
 <div class="filters">
-  <%= form_tag url_for, method: :get, id: "filter_form", remote: true do %>
+  <%= form_for filter, url: url_for, as: :filter, method: :get, remote: true do |form| %>
     <div class="filters__section">
       <fieldset>
         <legend>
@@ -20,9 +20,15 @@
         <legend><h6 class="heading6"><%= t('.scopes') %></h6></legend>
         <% current_organization.scopes.each do |scope| %>
           <label>
-            <input value="<%= scope.id %>" type="checkbox"  name="scope_id[]" <%= "checked" if (search_params[:scope_id] || []).include?(scope.id.to_s) %>><%= scope.name %>
+            <input value="<%= scope.id %>" type="checkbox"  name="scope_id[]" <%= "checked" if (filter.scope_id || []).include?(scope.id.to_s) %>><%= scope.name %>
           </label>
         <% end %>
+      </fieldset>
+    </div>
+    <div class="filters__section">
+      <fieldset>
+        <legend><h6 class="heading6"><%= t('.category') %></h6></legend>
+        <%= form.categories_select :category_id, current_feature.categories, disable_parents: false, label: false, include_blank: true %>
       </fieldset>
     </div>
   <% end %>

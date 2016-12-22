@@ -35,6 +35,7 @@ en:
       meetings:
         filters:
           ascendent: Ascendent
+          category: Category
           date: Date
           descendent: Descendent
           scopes: Scopes

@@ -4,11 +4,14 @@ describe Decidim::Meetings::MeetingsSearch do
   let(:current_feature) { create :feature }
   let(:scope1) { create :scope, organization: current_feature.organization }
   let(:scope2) { create :scope, organization: current_feature.organization }
+  let(:category1) { create :category, participatory_process: current_feature.participatory_process }
+  let(:category2) { create :category, participatory_process: current_feature.participatory_process }
   let!(:meeting1) do
     create(
       :meeting,
       feature: current_feature,
       start_time: 1.day.from_now,
+      category: category1,
       scope: scope1
     )
   end
@@ -17,6 +20,7 @@ describe Decidim::Meetings::MeetingsSearch do
       :meeting,
       feature: current_feature,
       start_time: 2.day.from_now,
+      category: category2,
       scope: scope2
     )
   end
@@ -88,6 +92,14 @@ describe Decidim::Meetings::MeetingsSearch do
         it "filters meetings by scope" do
           expect(subject.results).to match_array [meeting1,meeting2]
         end
+      end
+    end
+
+    context "category_id" do
+      let(:params) { default_params.merge(category_id: category1.id) }
+
+      it "filters meetings by category" do
+        expect(subject.results).to eq [meeting1]
       end
     end
   end
