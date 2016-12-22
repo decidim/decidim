@@ -10,6 +10,10 @@ engines:
       languages:
         javascript:
           mass_threshold: 50
+          duplication:
+            checks:
+              Similar code:
+                enabled: false
         ruby:
           mass_threshold: 50
     exclude_fingerprints:
