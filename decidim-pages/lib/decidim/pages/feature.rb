@@ -5,6 +5,7 @@ require_dependency "decidim/features/namer"
 Decidim.register_feature(:pages) do |feature|
   feature.engine = Decidim::Pages::Engine
   feature.admin_engine = Decidim::Pages::AdminEngine
+  feature.icon = "decidim/pages/icon.svg"
 
   feature.on(:create) do |instance|
     Decidim::Pages::CreatePage.call(instance) do

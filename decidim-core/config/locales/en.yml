@@ -115,6 +115,8 @@ en:
           active_step: 'Current step:'
           more_info: More info
           take_part: Take part
+      process_header:
+        process_menu_item: The process
       user_menu:
         profile: My account
         sign_out: Sign out

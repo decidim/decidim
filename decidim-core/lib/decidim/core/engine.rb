@@ -48,6 +48,10 @@ module Decidim
 
       initializer "decidim.assets" do |app|
         app.config.assets.precompile += %w(decidim_core_manifest.js)
+
+        Decidim.feature_manifests.each do |feature|
+          app.config.assets.precompile += [feature.icon]
+        end
       end
 
       initializer "decidim.high_voltage" do |_app|

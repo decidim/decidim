@@ -5,6 +5,7 @@ require_dependency "decidim/features/namer"
 Decidim.register_feature(:meetings) do |feature|
   feature.engine = Decidim::Meetings::ListEngine
   feature.admin_engine = Decidim::Meetings::AdminEngine
+  feature.icon = "decidim/meetings/icon.svg"
 
   feature.on(:destroy) do |instance|
     raise StandardError, "Can't remove this feature" if Decidim::Meetings::Meeting.where(feature: instance).any?
