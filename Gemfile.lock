@@ -107,6 +107,7 @@ PATH
       capybara-screenshot (~> 1.0.14)
       codecov (~> 0.1.9)
       database_cleaner (~> 1.5.0)
+      db-query-matchers (~> 0.7.0)
       decidim (= 0.0.1)
       factory_girl_rails
       faker (~> 1.6.6)
@@ -240,6 +241,7 @@ GEM
     date_validator (0.9.0)
       activemodel
       activesupport
+    db-query-matchers (0.7.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.2.0)
@@ -261,10 +263,10 @@ GEM
     equalizer (0.0.11)
     erubis (2.7.0)
     execjs (2.7.0)
-    factory_girl (4.7.0)
+    factory_girl (4.8.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.7.0)
-      factory_girl (~> 4.7.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
     faker (1.6.6)
       i18n (~> 0.5)
