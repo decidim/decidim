@@ -39,5 +39,16 @@ module Decidim
         content_tag :use, nil, "xlink:href" => "#{asset_url("decidim/icons.svg")}#icon-#{name}"
       end
     end
+
+    # Outputs a SVG icon from an external file. It apparently renders an image
+    # tag, but then a JS script kicks in and replaces it with an inlined SVG
+    # version.
+    #
+    # path    - The asset's path
+    #
+    # Returns an <img /> tag with the SVG icon.
+    def external_icon(path)
+      image_tag(path, class: "external-svg", style: "display: none")
+    end
   end
 end

@@ -14,7 +14,7 @@ describe "Features can be navigated", type: :feature do
 
     it "renders the content of the page" do
       within ".process-nav" do
-        click_link feature.name[I18n.locale]
+        click_link feature.name[I18n.locale.to_s]
       end
 
       expect(page).to have_content("DUMMY ENGINE")

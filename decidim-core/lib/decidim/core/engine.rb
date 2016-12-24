@@ -9,7 +9,7 @@ require "devise"
 require "devise-i18n"
 require "devise_invitable"
 require "jquery-rails"
-require "sass-rails"
+require "sassc-rails"
 require "turbolinks"
 require "foundation-rails"
 require "foundation_rails_helper"
@@ -48,6 +48,10 @@ module Decidim
 
       initializer "decidim.assets" do |app|
         app.config.assets.precompile += %w(decidim_core_manifest.js)
+
+        Decidim.feature_manifests.each do |feature|
+          app.config.assets.precompile += [feature.icon]
+        end
       end
 
       initializer "decidim.high_voltage" do |_app|

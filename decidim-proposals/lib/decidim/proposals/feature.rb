@@ -5,6 +5,7 @@ require_dependency "decidim/features/namer"
 Decidim.register_feature(:proposals) do |feature|
   feature.engine = Decidim::Proposals::Engine
   feature.admin_engine = Decidim::Proposals::AdminEngine
+  feature.icon = "decidim/proposals/icon.svg"
 
   feature.on(:destroy) do |instance|
     if Decidim::Proposals::Proposal.where(feature: instance).any?

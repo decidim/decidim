@@ -28,6 +28,7 @@
         "sinon": false,
         "GraphQLDocs": false,
         "Quill": false,
+        "SVGInjector": false,
         "require": false
     },
     "rules": {

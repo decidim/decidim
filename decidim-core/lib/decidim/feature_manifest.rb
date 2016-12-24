@@ -15,6 +15,10 @@ module Decidim
     attribute :name, Symbol
     attribute :hooks, Hash[Symbol => Array[Proc]], default: {}
 
+    # A String with the feature's icon. The icon must be stored in the
+    # engine's assets path.
+    attribute :icon, String
+
     validates :name, presence: true
 
     # Public: Registers a hook to this manifest. Hooks get fired when some

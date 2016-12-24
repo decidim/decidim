@@ -21,9 +21,20 @@
       <div class="process-nav">
         <div class="row column process-nav__content">
           <ul>
+            <li>
+              <%= active_link_to decidim.participatory_process_path(current_participatory_process), active: :exact, class: "process-nav__link", class_active: "is-active" do %>
+                <%= icon "process" %>
+                <%= t ".process_menu_item" %>
+              <% end %>
+            </li>
+
             <% current_participatory_process.features.each do |feature| %>
               <li>
-                <%= link_to translated_attribute(feature.name), decidim.feature_path(current_participatory_process, feature), class: "process-nav__link" %>
+                <%= active_link_to decidim.feature_path(current_participatory_process, feature), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
+                  <%= feature_icon(feature) %>
+
+                  <%= translated_attribute(feature.name) %>
+                <% end %>
               </li>
             <% end %>
           </ul>
