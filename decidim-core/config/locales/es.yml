@@ -114,6 +114,8 @@ es:
           active_step: 'Fase actual:'
           more_info: Más información
           take_part: Participa
+      process_header:
+        process_menu_item: El proceso
       user_menu:
         profile: Mi cuenta
         sign_out: Sal
