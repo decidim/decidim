@@ -1,4 +1,49 @@
 es:
+  activemodel:
+    attributes:
+      category:
+        description: Descripción
+        name: Nombre
+        parent: Padre
+      feature:
+        name: Nombre
+      organization:
+        default_locale: Configuración regional predeterminada
+        description: Descripción
+        homepage_image: Imagen de portada
+        logo: Logotipo
+        name: Nombre
+        welcome_text: Texto de bienvenida
+      participatory_process:
+        banner_image: Imagen de bandera
+        description: Descripción
+        hashtag: Hashtag
+        hero_image: Imagen de portada
+        promoted: Destacado
+        short_description: Breve descripción
+        slug: Texto corto de URL
+        subtitle: Subtítulo
+        title: Título
+      participatory_process_attachment:
+        description: Descripción
+        file: Archivo
+        title: Título
+      participatory_process_step:
+        description: Descripción
+        end_date: Fecha de finalización
+        short_description: Breve descripción
+        start_date: Fecha de inicio
+        title: Título
+      participatory_process_user_role:
+        email: Email
+      scope:
+        name: Nombre
+        organization: Organización
+      static_page:
+        content: Contenido
+        organization: Organización
+        slug: Texto corto de URL
+        title: Título
   activerecord:
     attributes:
       decidim/participatory_process:
