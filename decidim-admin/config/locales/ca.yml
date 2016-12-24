@@ -1,4 +1,49 @@
 ca:
+  activemodel:
+    attributes:
+      category:
+        description: Descripció
+        name: Nom
+        parent: Pare
+      feature:
+        name: Nom
+      organization:
+        default_locale: Idioma per defecte
+        description: Descripció
+        homepage_image: Imatge de la portada
+        logo: Logotip
+        name: Nom
+        welcome_text: Text de benvinguda
+      participatory_process:
+        banner_image: Imatge de bandera
+        description: Descripció
+        hashtag: Etiqueta
+        hero_image: Imatge de portada
+        promoted: Promogut
+        short_description: Descripció breu
+        slug: Nom curt d'URL
+        subtitle: Subtítol
+        title: Títol
+      participatory_process_attachment:
+        description: Descripció
+        file: Arxiu
+        title: Títol
+      participatory_process_step:
+        description: Descripció
+        end_date: Data de finalització
+        short_description: Descripció breu
+        start_date: Data d'inici
+        title: Títol
+      participatory_process_user_role:
+        email: Correu electrònic
+      scope:
+        name: Nom
+        organization: Organització
+      static_page:
+        content: Contingut
+        organization: Organització
+        slug: Nom curt d'URL
+        title: Títol
   activerecord:
     attributes:
       decidim/participatory_process:
