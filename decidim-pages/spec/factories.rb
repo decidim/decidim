@@ -1,5 +1,5 @@
-require "decidim/core/spec/factories"
-require "decidim/comments/spec/factories"
+require "decidim/core/test/factories"
+require "decidim/comments/test/factories"
 
 FactoryGirl.define do
   factory :page, class: Decidim::Pages::Page do

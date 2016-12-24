@@ -1,5 +1,5 @@
-require_relative "decidim/core/test/factories"
-require_relative "decidim/admin/test/factories"
+require "decidim/core/test/factories"
+require "decidim/admin/test/factories"
 
 FactoryGirl.define do
   factory :meeting, class: Decidim::Meetings::Meeting do

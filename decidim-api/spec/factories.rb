@@ -1,2 +1,2 @@
-require_relative "decidim/core/test/factories"
-require_relative "decidim/comments/test/factories"
+require "decidim/core/test/factories"
+require "decidim/comments/test/factories"
