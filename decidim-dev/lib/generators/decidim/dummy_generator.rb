@@ -49,8 +49,8 @@ module Decidim
         end
       end
 
-      def bullet
-        template "bullet.rb", "#{dummy_path}/config/initializers/bullet.rb"
+      def decidim_dev
+        template "decidim_dev.rb", "#{dummy_path}/config/initializers/decidim_dev.rb"
       end
 
       private

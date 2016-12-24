@@ -102,12 +102,12 @@ PATH
   remote: decidim-dev
   specs:
     decidim-dev (0.0.1)
-      bullet (~> 5.4.3)
       byebug
       capybara (~> 2.11.0)
       capybara-screenshot (~> 1.0.14)
       codecov (~> 0.1.9)
       database_cleaner (~> 1.5.0)
+      decidim (= 0.0.1)
       factory_girl_rails
       faker (~> 1.6.6)
       i18n-tasks (~> 0.9.6)
@@ -210,9 +210,6 @@ GEM
       execjs (~> 2.0)
     bcrypt (3.1.11)
     builder (3.2.2)
-    bullet (5.4.3)
-      activesupport (>= 3.0.0)
-      uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
     cancancan (1.15.0)
     capybara (2.11.0)
@@ -477,7 +474,6 @@ GEM
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unicode-display_width (1.1.2)
-    uniform_notifier (1.10.0)
     url (0.3.2)
     virtus (1.0.5)
       axiom-types (~> 0.1)

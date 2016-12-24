@@ -1,14 +1,15 @@
-# Decidim::System
-Short description and motivation.
+# Decidim::Dev
+
+This gem allows local development of decidim's features and other features.
 
 ## Usage
-How to use my plugin.
+TODO: Write docs.
 
 ## Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-system'
+gem 'decidim-dev'
 ```
 
 And then execute:
@@ -16,13 +17,8 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install decidim-system
-```
-
 ## Contributing
-Contribution directions go here.
+See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
 
 ## License
-The gem is available as open source under the terms of the [AGPLv3 License](https://opensource.org/licenses/AGPL-3.0).
+See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
