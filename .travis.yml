@@ -7,6 +7,10 @@ services:
 
 language: ruby
 
+branches:
+  only: 
+    - master
+
 env:
   - GEM=. DB=postgres
   - GEM=decidim-admin DB=postgres
