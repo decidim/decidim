@@ -5,8 +5,10 @@ module Decidim
   module Comments
     describe VoteComment, :db do
       describe "call" do
-        let(:author) { create :user }
-        let(:comment) { create :comment }
+        let(:organization) { create :organization }
+        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:author) { create(:user, organization: organization) }
+        let(:comment) { create(:comment, commentable: participatory_process) }
         let(:command) { described_class.new(comment, author) }
 
         describe "when the vote is not created" do
