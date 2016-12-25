@@ -8,4 +8,6 @@ fragment CommentData on Comment {
   }
   canHaveReplies
   alignment
+  ...UpVote
+  ...DownVote
 }

@@ -18,7 +18,7 @@ module Decidim
 
         react_comments_component(node_id, commentableType: commentable_type,
                                           commentableId: commentable_id,
-                                          options: options.slice(:arguable),
+                                          options: options.slice(:arguable, :votable),
                                           locale: I18n.locale)
       end
 

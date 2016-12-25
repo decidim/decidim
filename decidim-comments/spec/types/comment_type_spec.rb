@@ -46,6 +46,40 @@ module Decidim
           expect(response).to include("alignment" => model.alignment)
         end
       end
+
+      describe "upVotes" do
+        let(:query) { "{ upVotes }" }
+
+        it "returns the up_votes count" do
+          expect(response).to include("upVotes" => model.up_votes.count)
+        end
+      end
+
+      describe "downVotes" do
+        let(:query) { "{ downVotes }" }
+
+        it "returns the down_votes count" do
+          expect(response).to include("downVotes" => model.down_votes.count)
+        end
+      end
+
+      describe "upVoted" do
+        let(:query) { "{ upVoted }" }
+
+        it "returns the up_voted_by? method evaluation with the current user" do
+          expect(model).to receive(:up_voted_by?).with(current_user).and_return(true)
+          expect(response).to include("upVoted" => true)
+        end
+      end
+
+      describe "downVoted" do
+        let(:query) { "{ downVoted }" }
+
+        it "returns the down_voted_by? method evaluation with the current user" do
+          expect(model).to receive(:down_voted_by?).with(current_user).and_return(true)
+          expect(response).to include("downVoted" => true)
+        end
+      end
     end
   end
 end

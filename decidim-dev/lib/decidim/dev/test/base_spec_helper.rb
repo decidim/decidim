@@ -43,6 +43,8 @@ require "database_cleaner"
 require "byebug"
 require "cancan/matchers"
 require "rectify/rspec"
+require "wisper/rspec/stub_wisper_publisher"
+require "db-query-matchers"
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.

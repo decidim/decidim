@@ -32,4 +32,5 @@ Gem::Specification.new do |s|
   s.add_dependency "simplecov", "~> 0.12"
   s.add_dependency "codecov", "~> 0.1.9"
   s.add_dependency "rubocop", "~> 0.46"
+  s.add_dependency "db-query-matchers", "~> 0.7.0"
 end

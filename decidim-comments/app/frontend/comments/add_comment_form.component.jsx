@@ -10,7 +10,11 @@ import classnames               from 'classnames';
 import Icon                     from '../application/icon.component';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
+
+import commentFragment          from './comment.fragment.graphql';
 import commentDataFragment      from './comment_data.fragment.graphql';
+import upVoteFragment           from './up_vote.fragment.graphql';
+import downVoteFragment         from './down_vote.fragment.graphql';
 
 /**
  * Renders a form to create new comments.
@@ -177,7 +181,10 @@ AddCommentForm.propTypes = {
 
 const AddCommentFormWithMutation = graphql(gql`
   ${addCommentMutation}
+  ${commentFragment}  
   ${commentDataFragment}
+  ${upVoteFragment}
+  ${downVoteFragment}
 `, {
   props: ({ ownProps, mutate }) => ({
     addComment: ({ body, alignment }) => mutate({ 
@@ -201,7 +208,11 @@ const AddCommentFormWithMutation = graphql(gql`
             avatarUrl: ownProps.currentUser.avatarUrl
           },
           replies: [],
-          canHaveReplies: false
+          canHaveReplies: false,
+          upVotes: 0,
+          upVoted: false,
+          downVotes: 0,
+          downVoted: false
         }
       },
       updateQueries: {
