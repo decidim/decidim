@@ -24,9 +24,8 @@ module Decidim
         transaction do
           @organization = create_organization
           CreateDefaultPages.call(@organization)
+          Decidim::InviteUser.call(invite_user_form(@organization))
         end
-
-        Decidim::InviteUser.call(invite_user_form(@organization))
 
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique

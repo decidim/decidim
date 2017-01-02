@@ -26,6 +26,12 @@ describe Decidim::Admin::Abilities::AdminUser do
   it { is_expected.to be_able_to(:new, Decidim::StaticPage) }
   it { is_expected.to be_able_to(:read, Decidim::StaticPage) }
 
+  it { is_expected.to be_able_to(:create, Decidim::User) }
+  it { is_expected.to be_able_to(:index, Decidim::User) }
+  it { is_expected.to be_able_to(:new, Decidim::User) }
+  it { is_expected.to be_able_to(:read, Decidim::User) }
+  it { is_expected.to be_able_to(:invite, Decidim::User) }
+
   context "when a page is a default one" do
     let(:page) { build(:static_page, :default) }
     let(:form) { Decidim::Admin::StaticPageForm.new(slug: page.slug) }
@@ -58,5 +64,18 @@ describe Decidim::Admin::Abilities::AdminUser do
 
     it { is_expected.not_to be_able_to(:update, organization) }
     it { is_expected.not_to be_able_to(:read, organization) }
+  end
+
+  context "when destroying a user" do
+    context "when the user is themselves" do
+      let(:user_to_destroy) { user }
+      it { is_expected.not_to be_able_to(:destroy, user_to_destroy) }
+    end
+
+    context "when it is another user" do
+      let(:user_to_destroy) { build(:user) }
+
+      it { is_expected.to be_able_to(:destroy, user_to_destroy) }
+    end
   end
 end

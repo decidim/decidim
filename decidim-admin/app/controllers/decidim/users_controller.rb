@@ -42,9 +42,9 @@ module Decidim
       end
 
       def resend_invitation
-        authorize! :invite, admin
+        authorize! :invite, user
 
-        InviteUserAgain.call(admin, "invite_admin") do
+        InviteUserAgain.call(user, "invite_admin") do
           on(:ok) do
             flash[:notice] = I18n.t("users.resend_invitation.success", scope: "decidim.admin")
           end
@@ -58,9 +58,9 @@ module Decidim
       end
 
       def destroy
-        authorize! :destroy, admin
+        authorize! :destroy, user
 
-        RemoveUserRole.call(admin, "admin") do
+        RemoveUserRole.call(user, "admin") do
           on(:ok) do
             flash[:notice] = I18n.t("users.destroy.success", scope: "decidim.admin")
           end
@@ -75,8 +75,8 @@ module Decidim
 
       private
 
-      def admin
-        @admin ||= collection.find(params[:id])
+      def user
+        @user ||= collection.find(params[:id])
       end
 
       def collection
