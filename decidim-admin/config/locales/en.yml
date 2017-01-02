@@ -64,6 +64,7 @@ en:
         publish: Publish
         title: Actions
         unpublish: Unpublish
+        resend_invitation: Resend invitation
       categories:
         create:
           error: There was an error creating this category.
@@ -286,6 +287,10 @@ en:
           success: User invited successfully.
         destroy:
           success: User is no longer an administrator.
+          error: There was an error when trying to delete this user.
         new:
           create: Invite
           title: Invite user as administrator
+        resend_invitation:
+          success: Invitation email send successfully.
+          error: There was an error when trying to send the invitation email.
