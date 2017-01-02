@@ -62,9 +62,9 @@ en:
         new: New %{name}
         preview: Preview
         publish: Publish
+        resend_invitation: Resend invitation
         title: Actions
         unpublish: Unpublish
-        resend_invitation: Resend invitation
       categories:
         create:
           error: There was an error creating this category.
@@ -286,11 +286,11 @@ en:
           error: There was an error when inviting this user.
           success: User invited successfully.
         destroy:
-          success: User is no longer an administrator.
           error: There was an error when trying to delete this user.
+          success: User is no longer an administrator.
         new:
           create: Invite
           title: Invite user as administrator
         resend_invitation:
-          success: Invitation email send successfully.
           error: There was an error when trying to send the invitation email.
+          success: Invitation email send successfully.
