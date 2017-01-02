@@ -22,10 +22,11 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
-          organization = create_organization
-          Decidim::InviteAdmin.call(invite_user_form(organization))
-          CreateDefaultPages.call(organization)
+          @organization = create_organization
+          CreateDefaultPages.call(@organization)
         end
+
+        Decidim::InviteUser.call(invite_user_form(@organization))
 
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
@@ -46,12 +47,13 @@ module Decidim
       end
 
       def invite_user_form(organization)
-        Decidim::InviteAdminForm.from_params(
+        Decidim::InviteAdminForm.from_params({
           name: form.organization_admin_name,
           email: form.organization_admin_email,
-          organization: organization,
           roles: %w(admin),
           invitation_instructions: "organization_admin_invitation_instructions"
+        },
+          { current_organization: organization }
         )
       end
     end

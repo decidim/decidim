@@ -64,15 +64,6 @@ en:
         publish: Publish
         title: Actions
         unpublish: Unpublish
-      users:
-        create:
-          error: There was an error when inviting this user.
-          success: User invited successfully.
-        destroy:
-          success: User is no longer an administrator.
-        new:
-          create: Invite
-          title: Invite user as administrator
       categories:
         create:
           error: There was an error creating this category.
@@ -118,7 +109,6 @@ en:
           title: 'Add feature: %{name}'
         title: Features
       menu:
-        users: Admin users
         dashboard: Dashboard
         participatory_processes: Participatory processes
         participatory_processes_submenu:
@@ -132,16 +122,8 @@ en:
         scopes: Scopes
         settings: Settings
         static_pages: Pages
+        users: Admin users
       models:
-        user:
-          fields:
-            created_at: Creation date
-            email: Email
-            invitation_accepted_at: Invitation accepted date
-            invitation_sent_at: Invitation sent date
-            last_sign_in_at: Last sign in date
-            name: Name
-          name: User
         category:
           fields:
             name: Name
@@ -178,6 +160,15 @@ en:
             created_at: Created at
             title: Title
           name: Page
+        user:
+          fields:
+            created_at: Creation date
+            email: Email
+            invitation_accepted_at: Invitation accepted date
+            invitation_sent_at: Invitation sent date
+            last_sign_in_at: Last sign in date
+            name: Name
+          name: User
       organization:
         edit:
           title: Edit organization
@@ -284,8 +275,17 @@ en:
           error: There was an error when updating this page.
           success: Page updated successfully
       titles:
-        users: Users
         dashboard: Dashboard
         participatory_processes: Participatory processes
         scopes: Scopes
         static_pages: Pages
+        users: Users
+      users:
+        create:
+          error: There was an error when inviting this user.
+          success: User invited successfully.
+        destroy:
+          success: User is no longer an administrator.
+        new:
+          create: Invite
+          title: Invite user as administrator
