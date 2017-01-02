@@ -80,9 +80,9 @@ en:
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}, you can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}, you can accept it through the link below.
       invite_admin:
-        subject: You've been invited manage to %{organization}
+        subject: You've been invited to manage %{organization}
       organization_admin_invitation_instructions:
-        subject: You've been invited manage to %{organization}
+        subject: You've been invited to manage %{organization}
       password_change:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
