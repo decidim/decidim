@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   # A command with the business logic to invite a user to an organization.
   class InviteUser < Rectify::Command
