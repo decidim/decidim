@@ -47,13 +47,14 @@ module Decidim
       end
 
       def invite_user_form(organization)
-        Decidim::InviteAdminForm.from_params({
-          name: form.organization_admin_name,
-          email: form.organization_admin_email,
-          roles: %w(admin),
-          invitation_instructions: "organization_admin_invitation_instructions"
-        },
-          { current_organization: organization }
+        Decidim::InviteAdminForm.from_params(
+          {
+            name: form.organization_admin_name,
+            email: form.organization_admin_email,
+            roles: %w(admin),
+            invitation_instructions: "organization_admin_invitation_instructions"
+          },
+          current_organization: organization
         )
       end
     end
