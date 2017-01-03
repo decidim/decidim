@@ -11,16 +11,16 @@ module Decidim
     class DemoGenerator < Rails::Generators::Base
       def source_paths
         [
-          File.expand_path("../../../../decidim-dev/lib/decidim", __FILE__)
+          File.expand_path("../../../../decidim-dev/lib/decidim/dev", __FILE__)
         ]
       end
 
       def authorization_handlers
         remove_file "app/services/example_authorization_handler.rb"
+        template "dummy_authorization_handler.rb", "app/services/decidim/dummy_authorization_handler.rb"
         gsub_file "config/initializers/decidim.rb",
                   /ExampleAuthorizationHandler/,
                   "Decidim::DummyAuthorizationHandler"
-        template "dummy_authorization_handler.rb", "app/services/decidim/dummy_authorization_handler.rb"
       end
     end
   end
