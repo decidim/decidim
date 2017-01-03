@@ -26,9 +26,14 @@ module Decidim
 
       def destroy_feature
         transaction do
+          run_before_hooks
           @feature.destroy!
           run_hooks
         end
+      end
+
+      def run_before_hooks
+        @feature.manifest.run_hooks(:before_destroy, @feature)
       end
 
       def run_hooks

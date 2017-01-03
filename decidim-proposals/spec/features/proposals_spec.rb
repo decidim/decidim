@@ -31,7 +31,7 @@ describe "Proposals", type: :feature do
           fill_in :proposal_title, with: "Oriol for president"
           fill_in :proposal_body, with: "He will solve everything"
           select category.name["en"], from: :proposal_category_id
-          select scope.name["en"], from: :proposal_scope_id
+          select scope.name, from: :proposal_scope_id
 
           find("*[type=submit]").click
         end
@@ -40,7 +40,7 @@ describe "Proposals", type: :feature do
         expect(page).to have_content("Oriol for president")
         expect(page).to have_content("He will solve everything")
         expect(page).to have_content(category.name["en"])
-        expect(page).to have_content(scope.name["en"])
+        expect(page).to have_content(scope.name)
       end
     end
   end
