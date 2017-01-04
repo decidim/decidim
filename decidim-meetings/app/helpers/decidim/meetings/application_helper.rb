@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 module Decidim
-  module Proposals
-    # Custom helpers, scoped to the proposals engine.
+  module Meetings
+    # Custom helpers, scoped to the meetings engine.
     #
     module ApplicationHelper
-      include Decidim::Comments::CommentsHelper
       include PaginateHelper
     end
   end
