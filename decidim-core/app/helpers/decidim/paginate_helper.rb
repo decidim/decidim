@@ -6,13 +6,13 @@ module Decidim
     # `nil` values as `false`.
     #
     # boolean - a Boolean that will be displayed in a human way.
-    def decidim_paginate(collection, params)
+    def decidim_paginate(collection, paginate_params)
       # Kaminari uses url_for to generate the url, but this doesn't play nice with our engine system
       # and unless we remove these params they are added again as query string :(
       params.delete("participatory_process_id")
       params.delete("feature_id")
 
-      paginate collection, theme: "decidim", params: { order_start_time: params[:order_start_time], scope_id: params[:scope_id] }
+      paginate collection, theme: "decidim", params: paginate_params
     end
   end
 end
