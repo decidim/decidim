@@ -1,4 +1,10 @@
 /* eslint-disable no-div-regex, no-useless-escape, no-param-reassign */
+
+/**
+ * A component that handles the meetings filter form.
+ * @class
+ * @augments Component
+ */
 ((exports) => {
   class MeetingsFormFilterComponent {
     constructor(selector) {
@@ -9,6 +15,11 @@
       this._onPopState = this._onPopState.bind(this);
     }
 
+    /**
+     * Handles the logic for unmounting the component
+     * @public
+     * @returns {Void} - Returns nothing
+     */
     unmountComponent() {
       if (this.mounted) {
         this.mounted = false;
@@ -18,6 +29,11 @@
       }
     }
 
+    /**
+     * Handles the logic for mounting the component
+     * @public
+     * @returns {Void} - Returns nothing
+     */
     mountComponent() {
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
@@ -27,10 +43,21 @@
       }
     }
 
+    /**
+     * Finds the current location.
+     * @private
+     * @returns {String} - Returns the current location.
+     */
     _getLocation() {
       return exports.location;
     }
 
+    /**
+     * Finds the values of the location prams that match the given regexp.
+     * @private
+     * @param {Regexp} regex - a Regexp to match the params.
+     * @returns {String[]} - An array of values of the params that match the regexp.
+     */
     _getLocationParams(regex) {
       const location = decodeURIComponent(this._getLocation());
       let values = location.match(regex);
@@ -40,11 +67,21 @@
       return values;
     }
 
+    /**
+     * Clears the form to start with a clean state.
+     * @private
+     * @returns {Void} - Returns nothing.
+     */
     _clearForm() {
       this.$form.find('input[type=checkbox]').attr('checked', false);
       this.$form.find('input[type=radio]').attr('checked', false);
     }
 
+    /**
+     * Handles the logic when going back to a previous state in the filter form.
+     * @private
+     * @returns {Void} - Returns nothing.
+     */
     _onPopState() {
       this._clearForm();
 
@@ -62,6 +99,11 @@
       this.$form.submit();
     }
 
+    /**
+     * Handles the logic to update the current location after a form change event.
+     * @private
+     * @returns {Void} - Returns nothing.
+     */
     _onFormChange() {
       let newUrl = '';
       const formAction = this.$form.attr('action');
