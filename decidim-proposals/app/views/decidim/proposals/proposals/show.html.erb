@@ -1,3 +1,6 @@
+<% @description = @proposal.body %>
+<% @title = @proposal.title %>
+
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
   <div class="author-data">
@@ -16,6 +19,7 @@
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <%= render partial: "share" %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">

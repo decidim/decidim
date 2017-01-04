@@ -1,3 +1,5 @@
+<% @image_url = current_participatory_process.banner_image.url %>
+<% @url = decidim.participatory_process_url(current_participatory_process) %>
 <%= render "layouts/decidim/application" do %>
   <div class="wrapper">
     <%= render partial: "layouts/decidim/process_header" %>

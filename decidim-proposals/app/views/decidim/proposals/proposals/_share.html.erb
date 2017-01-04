@@ -1,0 +1,43 @@
+<div class="text-center">
+  <button class="link text-center" data-open="processShare">
+    Compartir
+    <%= icon "share", class: "icon--after"%>
+  </button>
+</div>
+<div class="reveal" id="processShare" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title">Compartir:</h3>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="button-group text-center">
+    <a class="button button--twitter">
+      <%= icon "twitter" %>
+    </a>
+    <a class="button button--facebook">
+      <%= icon "facebook" %>
+    </a>
+    <a class="button button--google">
+      <%= icon "google" %>
+    </a>
+    <a class="button secondary">
+      <%= icon "github" %>
+    </a>
+    <a class="button secondary">
+      <%= icon "instagram" %>
+    </a>
+    <a class="button secondary" data-open="urlShare">
+      <%= icon "link-intact" %>
+    </a>
+  </div>
+</div>
+<div class="reveal" id="urlShare" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title">Compartir enlace:</h3>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <h4 class="heading4">https://decidim.barcelona/thislinkinparticular</h4>
+</div>
