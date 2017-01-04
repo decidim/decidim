@@ -11,7 +11,8 @@
 </div>
 
 <div class="field">
-  <%= form.text_field :hashtag %>
+  <%= form.text_field :hashtag, data: { length: 20 } %>
+  <span></span>
 </div>
 
 <div class="field">
@@ -33,3 +34,13 @@
 <div class="field">
   <%= form.check_box :promoted %>
 </div>
+
+<script>
+ var counters = function(){
+  var element = $('input[data-length]');
+  var span = element.siblings('span');
+
+  span.html(element.data('length') - element.val().length);
+ };
+ $('form').on('keyup', 'input, textarea', counters());
+</script>
