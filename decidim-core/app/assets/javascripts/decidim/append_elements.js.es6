@@ -1,6 +1,8 @@
 // = require appendAround
 
 (function() {
-  let $appendableElements = $('.js-append');
-  $appendableElements.appendAround();
+  $(document).on("turbolinks:load", function () {
+    let $appendableElements = $('.js-append');
+    $appendableElements.appendAround();
+  })
 }(window));
