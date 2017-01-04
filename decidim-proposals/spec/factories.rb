@@ -4,7 +4,7 @@ require "decidim/comments/test/factories"
 
 FactoryGirl.define do
   factory :proposal_feature, class: Decidim::Feature do
-    name { Decidim::Features::Namer.new(I18n.locales, :proposals).i18n_name }
+    name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :proposals).i18n_name }
     manifest_name :proposals
     participatory_process
   end

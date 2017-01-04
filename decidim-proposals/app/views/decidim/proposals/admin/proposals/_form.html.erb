@@ -8,12 +8,12 @@
 
 <% if @form.categories&.any? %>
   <div class="field">
-    <%= form.categories_select :category_id, @form.categories, t(".select_a_category") %>
+    <%= form.categories_select :category_id, @form.categories, prompt: t(".select_a_category") %>
   </div>
 <% end %>
 
 <% if @form.scopes&.any? %>
   <div class="field">
-    <%= form.select :scope_id, @form.scopes.map{|s| [translated_attribute(s.name), s.id]}, prompt: t(".select_a_scope") %>
+    <%= form.select :scope_id, @form.scopes.map{|s| [s.name, s.id]}, prompt: t(".select_a_scope") %>
   </div>
 <% end %>

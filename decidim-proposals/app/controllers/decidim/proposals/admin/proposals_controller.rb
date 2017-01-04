@@ -7,13 +7,13 @@ module Decidim
         helper_method :proposals
 
         def new
-          @form = form(ProposalForm).from_params({}, feature: current_feature)
+          @form = form(Admin::ProposalForm).from_params({}, feature: current_feature)
         end
 
         def create
-          @form = form(ProposalForm).from_params(params, feature: current_feature)
+          @form = form(Admin::ProposalForm).from_params(params, feature: current_feature)
 
-          CreateProposal.call(@form) do
+          Admin::CreateProposal.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("proposals.create.success", scope: "decidim.proposals.admin")
               redirect_to proposals_path

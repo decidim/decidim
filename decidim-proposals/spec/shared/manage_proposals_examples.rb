@@ -19,7 +19,7 @@ RSpec.shared_examples "manage proposals" do
       fill_in :proposal_title, with: "Make decidim great again"
       fill_in :proposal_body, with: "Decidim is great but it can be better"
       select category.name["en"], from: :proposal_category_id
-      select scope.name["en"], from: :proposal_scope_id
+      select scope.name, from: :proposal_scope_id
 
       find("*[type=submit]").click
     end

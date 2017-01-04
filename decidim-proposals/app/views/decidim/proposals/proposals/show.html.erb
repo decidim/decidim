@@ -20,15 +20,19 @@
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <p><%= @proposal.body %></p>
-      <% if @proposal.category %>
+      <% if @proposal.category || @proposal.scope %>
         <ul class="tags tags--proposal">
-          <li><a href=""><%= translated_attribute(@proposal.category.name) %></a></li>
+          <% if @proposal.category %>
+            <li><a href=""><%= translated_attribute(@proposal.category.name) %></a></li>
+          <% end %>
+          <% if @proposal.scope %>
+            <li><a href=""><%= @proposal.scope.name %></a></li>
+          <% end %>
         </ul>
       <% end %>
     </div>
   </div>
 </div>
-
 
 <%= content_for :expanded do %>
   <% if @proposal.commentable? %>
