@@ -15,8 +15,8 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
       location_hints: {en: "location_hints"},
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
-      decidim_scope_id: scope.id,
-      decidim_category_id: category.id,
+      scope: scope,
+      category: category,
       address: "address"
     )
   end

@@ -17,8 +17,8 @@ describe Decidim::Meetings::Admin::CreateMeeting do
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
       address: "address",
-      decidim_scope_id: scope.id,
-      decidim_category_id: category.id,
+      scope: scope,
+      category: category,
       current_feature: current_feature
     )
   end
