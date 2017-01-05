@@ -29,15 +29,24 @@ module Decidim
       private
 
       def category_ids
-        Category
+        current_feature
+          .categories
           .where(id: category_id)
-          .or(Category.where(parent_id: category_id))
+          .or(current_feature.categories.where(parent_id: category_id))
           .pluck(:id)
       end
 
       def current_feature
-        return unless options[:feature_id].present?
-        @feature ||= Feature.where(id: options[:feature_id]).first
+        return unless options[:feature_id].present? || !current_organization
+        @feature ||= Feature.where(
+          id: options[:feature_id],
+          decidim_participatory_process_id: current_organization.participatory_processes.pluck(:id)
+        ).first
+      end
+
+      def current_organization
+        return unless options[:organization_id].present?
+        @organization ||= Organization.where(id: options[:organization_id]).first
       end
     end
   end

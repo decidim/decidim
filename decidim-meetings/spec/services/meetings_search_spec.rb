@@ -25,22 +25,32 @@ describe Decidim::Meetings::MeetingsSearch do
     )
   end
   let(:external_meeting) { create :meeting }
-  let(:default_params) { { feature_id: current_feature.id } }
+  let(:feature_id) { current_feature.id }
+  let(:organization_id) { current_feature.organization.id }
+  let(:default_params) { { feature_id: feature_id, organization_id: organization_id } }
   let(:params) { default_params }
 
   subject { described_class.new(params) }
 
   describe "base query" do
     context "when no feature_id is passed" do
-      let(:params) { {} }
+      let(:feature_id) { nil }
 
       it "raises an error" do
         expect{ subject.results }.to raise_error(StandardError, "Missing feature")
       end
     end
 
-    context "when the fature does not exist" do
-      let(:params) { { feature_id: current_feature.id + 100000 } }
+    context "when the feature_id is from another organization" do
+      let(:feature_id) { create(:feature).id }
+
+      it "raises an error" do
+        expect{ subject.results }.to raise_error(StandardError, "Missing feature")
+      end
+    end
+
+    context "when the feature does not exist" do
+      let(:feature_id) { current_feature.id + 100000 }
 
       it "raises an error" do
         expect{ subject.results }.to raise_error(StandardError, "Missing feature")
@@ -109,6 +119,15 @@ describe Decidim::Meetings::MeetingsSearch do
 
         it "returns meetings from this category and its children's" do
           expect(subject.results).to match_array [meeting2, meeting1]
+        end
+      end
+
+      context "when the category does not belong to the current feature" do
+        let(:external_category) { create :category }
+        let(:params) { default_params.merge(category_id: external_category.id) }
+
+        it "returns an empty array" do
+          expect(subject.results).to eq []
         end
       end
     end

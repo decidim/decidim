@@ -11,12 +11,18 @@ module Decidim
       validates :title, presence: true
 
       validate :scope_belongs_to_organization
+      validate :category_belongs_to_organization
 
       private
 
       def scope_belongs_to_organization
         return unless scope
         errors.add(:scope, :invalid) unless feature.scopes.where(id: scope.id).exists?
+      end
+
+      def category_belongs_to_organization
+        return unless category
+        errors.add(:category, :invalid) unless feature.categories.where(id: category.id).exists?
       end
     end
   end

@@ -27,10 +27,16 @@ module Decidim
 
         validates :current_feature, presence: true
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
+        validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
         def scope
           return unless current_feature
           @scope ||= current_feature.scopes.where(id: decidim_scope_id).first
+        end
+
+        def category
+          return unless current_feature
+          @category ||= current_feature.categories.where(id: decidim_category_id).first
         end
       end
     end

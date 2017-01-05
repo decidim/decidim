@@ -20,7 +20,7 @@ module Decidim
       private
 
       def meetings
-        @meetings ||= MeetingsSearch.new(search_params.merge(feature_id: current_feature.id)).results
+        @meetings ||= MeetingsSearch.new(search_params.merge(context_params)).results
       end
 
       def meeting
@@ -37,6 +37,9 @@ module Decidim
         @filter ||= filter_klass.new(params.dig(:filter, :category_id), params[:order_start_time], params[:scope_id])
       end
 
+      # Internal: Defines a class that will wrap in an object the URL params used by the filter.
+      # this way we can use Rails' form helpers and have automatically cehcked checkboxes and
+      # radio buttons in the view, for example.
       def filter_klass
         Struct.new(:category_id, :order_start_time, :scope_id)
       end
@@ -45,6 +48,13 @@ module Decidim
         {
           order_start_time: "asc"
         }.with_indifferent_access
+      end
+
+      def context_params
+        {
+          feature_id: current_feature.id,
+          organization_id: current_organization.id
+        }
       end
     end
   end

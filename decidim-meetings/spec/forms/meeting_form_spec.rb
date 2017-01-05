@@ -31,11 +31,13 @@ describe Decidim::Meetings::Admin::MeetingForm do
   let(:start_time) { 2.days.from_now }
   let(:end_time) { 2.days.from_now + 4.hours }
   let(:scope) { create :scope, organization: organization }
+  let(:scope_id) { scope.id }
   let(:category) { create :category, participatory_process: participatory_process }
+  let(:category_id) { category.id }
   let(:attributes) do
     {
-      decidim_scope_id: scope.id,
-      decidim_category_id: category.id,
+      decidim_scope_id: scope_id,
+      decidim_category_id: category_id,
       title_en: title[:en],
       description_en: description[:en],
       short_description_en: short_description[:en],
@@ -113,6 +115,18 @@ describe Decidim::Meetings::Admin::MeetingForm do
 
   describe "when start_time is equal to start_time" do
     let(:start_time) { end_time }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "when the scope does not exist" do
+    let(:scope_id) { scope.id + 10 }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  describe "when the category does not exist" do
+    let(:category_id) { category.id + 10 }
 
     it { is_expected.not_to be_valid }
   end
