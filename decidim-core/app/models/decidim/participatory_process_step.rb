@@ -16,6 +16,7 @@ module Decidim
     validates :position, uniqueness: { scope: :decidim_participatory_process_id }
 
     before_create :set_position
+    before_create :set_as_active
 
     private
 
@@ -33,6 +34,12 @@ module Decidim
       return self.position = 0 if participatory_process.steps.empty?
 
       self.position = participatory_process.steps.pluck(:position).last + 1
+    end
+
+    # Internal: As there always have to be an active step, the first step
+    # to be created hast to be set as so.
+    def set_as_active
+      self.active = true if participatory_process.steps.empty?
     end
   end
 end

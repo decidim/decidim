@@ -37,6 +37,31 @@ module Decidim
     end
 
     context "active" do
+      context "is set before creation" do
+        context "when the step is the only one" do
+          it "automatically sets the step to be active" do
+            subject.active = false;
+            subject.save
+
+            expect(subject.active).to be_truthy
+          end
+        end
+
+        context "when there are more steps in the same process" do
+          let(:active_step) { create :participatory_process_step, :active }
+          let(:participatory_process_step) do
+            build(:participatory_process_step, participatory_process: active_step.participatory_process)
+          end
+
+          it "should not change step active state" do
+            subject.active = false;
+            subject.save
+
+            expect(subject.active).to be_falsy
+          end
+        end
+      end
+
       context "when there's an active step in the same process" do
         let(:active_step) { create :participatory_process_step, :active }
         let(:participatory_process_step) do

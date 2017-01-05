@@ -56,16 +56,20 @@ describe "Participatory Processes", type: :feature do
       let!(:step) { create(:participatory_process_step, participatory_process: participatory_process) }
       let!(:active_step) do
         create(:participatory_process_step,
-               :active,
                participatory_process: participatory_process,
                title: { en: "Active step", ca: "Fase activa", es: "Fase activa" },
               )
       end
 
+      before do
+        participatory_process.steps.update_all(active: false)
+        active_step.update_attribute(:active, true)
+      end
+
       it "links to the active step" do
         visit decidim.participatory_processes_path
 
-        within "#processes-grid .column:nth-child(2) .card__footer" do
+        within "#processes-grid .column:nth-child(1) .card__footer" do
           expect(page).to have_content("Current step: Active step")
         end
       end
