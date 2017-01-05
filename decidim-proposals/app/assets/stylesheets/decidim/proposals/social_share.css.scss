@@ -1,0 +1,11 @@
+/*= require social-share-button */
+
+$size: 50px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}

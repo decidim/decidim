@@ -29,6 +29,7 @@ PATH
       decidim-core (= 0.0.1)
       kaminari (~> 1.0.0.rc1)
       rectify (~> 0.8.0)
+      social-share-button
 
 PATH
   remote: decidim-admin
@@ -233,6 +234,13 @@ GEM
       url
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
+    coffee-rails (4.2.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.2.x)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
     css_parser (1.4.7)
       addressable
@@ -447,6 +455,8 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    social-share-button (0.8.8)
+      coffee-rails
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)

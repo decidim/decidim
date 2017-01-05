@@ -19,7 +19,7 @@
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <%= render partial: "share" %>
+    <%= render partial: "share", locals: { proposal: @proposal } %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
@@ -43,3 +43,7 @@
     <%= comments_for @proposal, arguable: true, votable: true %>
   <% end %>
 <% end %>
+
+<%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>
+
