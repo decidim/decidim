@@ -1,5 +1,7 @@
 <div class="field">
-  <%= form.translated :text_field, :title, autofocus: true %>
+  <%= form.translated :text_field, :title, autofocus: true, data: { length: 50 } do %>
+    <span></span>
+  <% end %>
 </div>
 
 <div class="field">
@@ -7,7 +9,8 @@
 </div>
 
 <div class="field">
-  <%= form.text_field :slug %>
+  <%= form.text_field :slug, data: { length: 50 } %>
+  <span></span>
 </div>
 
 <div class="field">
@@ -37,10 +40,16 @@
 
 <script>
  var counters = function(){
-  var element = $('input[data-length]');
-  var span = element.siblings('span');
+   $('input[data-length]').each(function(_index, element) {
+     var $element = $(element);
+     var span = $element.siblings('span');
 
-  span.html(element.data('length') - element.val().length);
+     if (span) {
+       span.html($element.data('length') - $element.val().length);
+     }
+   });
  };
- $('form').on('keyup', 'input, textarea', counters());
+
+ $('form').on('keyup', 'input, textarea', counters);
+ counters();
 </script>

@@ -14,7 +14,7 @@ module Decidim
     # options - The set of options to send to the field
     #
     # Renders form fields for each locale.
-    def translated(type, name, options = {})
+    def translated(type, name, options = {}, &block)
       if locales.count == 1
         return send(
           type,
@@ -42,7 +42,9 @@ module Decidim
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: "#{name}-tabs" }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: "#{name}-panel-#{index}") do
-            send(type, name_with_locale(name, locale), options.merge(label: false))
+            content = send(type, name_with_locale(name, locale), options.merge(label: false))
+            content += block.call.html_safe if block_given?
+            content
           end
         end
       end
