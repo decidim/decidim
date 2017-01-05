@@ -9,6 +9,13 @@ RSpec.shared_examples "manage process steps examples" do
     )
   end
 
+  let!(:inactive_step) do
+    create(
+      :participatory_process_step,
+      participatory_process: participatory_process,
+    )
+  end
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
@@ -127,26 +134,12 @@ RSpec.shared_examples "manage process steps examples" do
 
   context "activating a step" do
     it "activates a step" do
-      within find("tr", text: translated(process_step.title)) do
+      within find("tr", text: translated(inactive_step.title)) do
         click_link "Activate"
       end
 
-      within find("tr", text: translated(process_step.title)) do
-        expect(page).to have_content("Deactivate")
-      end
-    end
-  end
-
-  context "deactivating a step" do
-    let(:active) { true }
-
-    it "deactivates a step" do
-      within find("tr", text: translated(process_step.title)) do
-        click_link "Deactivate"
-      end
-
-      within find("tr", text: translated(process_step.title)) do
-        expect(page).to have_content("Activate")
+      within find("tr", text: translated(inactive_step.title)) do
+        expect(page).to_not have_content("Activate")
       end
     end
   end

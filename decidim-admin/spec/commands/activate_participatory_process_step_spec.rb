@@ -1,7 +1,9 @@
 require "spec_helper"
 
 describe Decidim::Admin::ActivateParticipatoryProcessStep do
-  let(:process_step) { create :participatory_process_step }
+  let(:active_step) { create :participatory_process_step }
+  let(:participatory_process) { active_step.participatory_process }
+  let(:process_step) { create :participatory_process_step, participatory_process: participatory_process }
 
   subject { described_class.new(process_step) }
 
@@ -14,7 +16,7 @@ describe Decidim::Admin::ActivateParticipatoryProcessStep do
   end
 
   context "when the step is active" do
-    let(:process_step) { create :participatory_process_step, :active }
+    subject { described_class.new(active_step) }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)
@@ -22,9 +24,6 @@ describe Decidim::Admin::ActivateParticipatoryProcessStep do
   end
 
   context "when the step is not active" do
-    let!(:active_step) do
-      create :participatory_process_step, :active, participatory_process: process_step.participatory_process
-    end
 
     it "is valid" do
       expect { subject.call }.to broadcast(:ok)

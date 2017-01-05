@@ -14,7 +14,9 @@ describe Decidim::Admin::DeactivateParticipatoryProcessStep do
   end
 
   context "when the step is inactive" do
-    let(:process_step) { create :participatory_process_step }
+    before do
+      process_step.update_attribute(:active, false)
+    end
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)

@@ -56,7 +56,6 @@ en:
         configure: Configure
         confirm_destroy: Are you sure you want to delete this?
         create: Create
-        deactivate: Deactivate
         destroy: Destroy
         edit: Edit
         new: New %{name}
