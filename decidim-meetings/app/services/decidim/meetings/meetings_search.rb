@@ -37,16 +37,7 @@ module Decidim
       end
 
       def current_feature
-        return unless options[:feature_id].present? || !current_organization
-        @feature ||= Feature.where(
-          id: options[:feature_id],
-          decidim_participatory_process_id: current_organization.participatory_processes.pluck(:id)
-        ).first
-      end
-
-      def current_organization
-        return unless options[:organization_id].present?
-        @organization ||= Organization.where(id: options[:organization_id]).first
+        options[:feature]
       end
     end
   end

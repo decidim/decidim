@@ -27,30 +27,14 @@ describe Decidim::Meetings::MeetingsSearch do
   let(:external_meeting) { create :meeting }
   let(:feature_id) { current_feature.id }
   let(:organization_id) { current_feature.organization.id }
-  let(:default_params) { { feature_id: feature_id, organization_id: organization_id } }
+  let(:default_params) { { feature: current_feature } }
   let(:params) { default_params }
 
   subject { described_class.new(params) }
 
   describe "base query" do
-    context "when no feature_id is passed" do
-      let(:feature_id) { nil }
-
-      it "raises an error" do
-        expect{ subject.results }.to raise_error(StandardError, "Missing feature")
-      end
-    end
-
-    context "when the feature_id is from another organization" do
-      let(:feature_id) { create(:feature).id }
-
-      it "raises an error" do
-        expect{ subject.results }.to raise_error(StandardError, "Missing feature")
-      end
-    end
-
-    context "when the feature does not exist" do
-      let(:feature_id) { current_feature.id + 100000 }
+    context "when no feature is passed" do
+      let(:default_params) { { feature: nil } }
 
       it "raises an error" do
         expect{ subject.results }.to raise_error(StandardError, "Missing feature")

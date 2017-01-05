@@ -52,8 +52,7 @@ module Decidim
 
       def context_params
         {
-          feature_id: current_feature.id,
-          organization_id: current_organization.id
+          feature: current_feature
         }
       end
     end
