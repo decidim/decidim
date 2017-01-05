@@ -40,7 +40,7 @@ script:
   - $TRAVIS_BUILD_DIR/run_ci.sh
 
 rvm:
-  - 2.3.3
+  - 2.4.0
 
 notifications:
     email: false
