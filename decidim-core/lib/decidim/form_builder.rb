@@ -42,9 +42,7 @@ module Decidim
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: "#{name}-tabs" }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: "#{name}-panel-#{index}") do
-            content = send(type, name_with_locale(name, locale), options.merge(label: false))
-            content += block.call.html_safe if block_given?
-            content
+            send(type, name_with_locale(name, locale), options.merge(label: false))
           end
         end
       end
@@ -106,6 +104,13 @@ module Decidim
                  end
 
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled))
+    end
+
+    def text_field(name, options)
+      return super unless options.dig(:data, :length)
+      super + content_tag(:div, class: "character-counter") do
+        "Characters left: ".html_safe + content_tag(:span, nil, class: "counter")
+      end
     end
 
     private
