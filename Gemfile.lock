@@ -1,4 +1,21 @@
 GIT
+  remote: https://github.com/Mange/roadie.git
+  revision: 2c44ffc52139f2cfba3880c7b266fd78c9d0fba6
+  specs:
+    roadie (3.2.0)
+      css_parser (~> 1.4.5)
+      nokogiri (>= 1.5.0, < 1.8.0)
+
+GIT
+  remote: https://github.com/mrcasals/truncato.git
+  revision: caa3e7f6611dc5525106d09caebe2f68f19af8d9
+  branch: patch-1
+  specs:
+    truncato (0.7.8)
+      htmlentities (~> 4.3.1)
+      nokogiri (~> 1.7.0)
+
+GIT
   remote: https://github.com/sgruhier/foundation_rails_helper.git
   revision: df0bd8eca1b43b8bfdcb163f9e1e3b3b9ab0595e
   tag: df0bd8e
@@ -333,7 +350,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     nio4r (1.2.1)
-    nokogiri (1.6.8.1)
+    nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
     parser (2.3.3.1)
@@ -393,9 +410,6 @@ GEM
     redis (3.3.2)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
-    roadie (3.2.0)
-      css_parser (~> 1.4.5)
-      nokogiri (>= 1.5.0, < 1.7.0)
     roadie-rails (1.1.1)
       railties (>= 3.0, < 5.1)
       roadie (~> 3.1)
@@ -467,9 +481,6 @@ GEM
     thread_safe (0.3.5)
     tilt (2.0.5)
     tins (1.13.0)
-    truncato (0.7.8)
-      htmlentities (~> 4.3.1)
-      nokogiri (~> 1.6.1)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
@@ -507,8 +518,11 @@ DEPENDENCIES
   decidim-pages!
   decidim-system!
   foundation_rails_helper!
+  nokogiri (~> 1.7.0.1)
   rake (~> 12.0.0)
+  roadie!
   rspec (~> 3.0)
+  truncato!
 
 RUBY VERSION
    ruby 2.4.0p0
