@@ -20,8 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rectify", "~> 0.8.0"
   s.add_dependency "devise_invitable", "~> 1.7.0"
   s.add_dependency "sassc-rails", "~> 1.3.0"
-  s.add_dependency "foundation-rails", "~> 6.3.0.0"
-  s.add_dependency "jquery-rails", "~> 4.0"
+  s.add_dependency "jquery-rails", "~> 4.2.2"
   s.add_dependency "turbolinks", *Decidim.rails_version
   s.add_dependency "foundation_rails_helper", "~> 2.0.0"
   s.add_dependency "active_link_to", "~> 1.0.0"
