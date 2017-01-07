@@ -3,5 +3,3 @@ gem "foundation_rails_helper", git: "https://github.com/sgruhier/foundation_rail
 # TODO: Once roadie gets a v3.3 release supporting nokogiri 1.7,
 # please remove these two lines.
 gem "roadie", git: "https://github.com/Mange/roadie.git"
-gem "truncato", git: "https://github.com/mrcasals/truncato.git", branch: "patch-1"
-gem "nokogiri", "~> 1.7.0.1"
