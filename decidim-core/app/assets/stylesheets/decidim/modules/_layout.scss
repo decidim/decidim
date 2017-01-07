@@ -17,6 +17,10 @@
 }
 
 //Flexbox sticky footer
+html{
+  height: 100%;
+}
+
 body{
   display: flex;
   flex-direction: column;
@@ -32,6 +36,10 @@ body{
 }
 
 //fixes for off-canvas wrappers
+.off-canvas-wrapper{
+  background-color: $white;
+}
+
 .off-canvas-wrapper,
 .off-canvas-wrapper-inner,
 .off-canvas-content{

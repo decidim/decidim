@@ -39,7 +39,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   @include breakpoint(medium){
     top: 50%;
     margin-top: -19px;
-    img{ 
+    img{
       height: 38px !important;
     }
   }
@@ -62,9 +62,9 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   }
   img{
     display: block;
-    max-width: 100px;
+    max-height: 33px;
     @include breakpoint(mediumlarge){
-      max-width: 140px;
+      max-height: 45px;
     }
   }
 }
@@ -190,6 +190,9 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   text-align: right;
   font-size: 20px;
   margin-right: .1rem;
+  button {
+    color: inherit;
+  }
 }
 
 .usermenu-off-canvas-holder .usermenu-off-canvas{
@@ -251,7 +254,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
     background: $navbar-bg-hover;
     color: $navbar-color-hover;
   }
-  
+
   @include breakpoint(medium){
     padding: .75em 2em;
   }
