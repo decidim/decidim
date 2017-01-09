@@ -108,7 +108,7 @@ module Decidim
 
     def text_field(name, options)
       return super unless options.dig(:data, :length)
-      super + content_tag(:div, class: "character-counter") do
+      super + content_tag(:p, class: "character-counter help-text") do
         "Characters left: ".html_safe + content_tag(:span, nil, class: "counter")
       end
     end
