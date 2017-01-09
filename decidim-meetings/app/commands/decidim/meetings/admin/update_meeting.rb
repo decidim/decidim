@@ -28,6 +28,8 @@ module Decidim
 
         def update_meeting
           @meeting.update_attributes!(
+            scope: @form.scope,
+            category: @form.category,
             title: @form.title,
             short_description: @form.short_description,
             description: @form.description,

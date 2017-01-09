@@ -3,6 +3,8 @@ require "spec_helper"
 describe Decidim::Meetings::Admin::UpdateMeeting do
   let(:meeting) { create :meeting}
   let(:organization) { meeting.feature.organization }
+  let(:scope) { create :scope, organization: organization }
+  let(:category) { create :category, participatory_process: meeting.feature.participatory_process }
   let(:form) do
     double(
       :invalid? => invalid,
@@ -13,6 +15,8 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
       location_hints: {en: "location_hints"},
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
+      scope: scope,
+      category: category,
       address: "address"
     )
   end
@@ -29,8 +33,19 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
   end
 
   context "when everything is ok" do
-    it "creates the meeting" do
-      expect { subject.call }.to change { Decidim::Meetings::Meeting.count }.by(1)
+    it "updates the meeting" do
+      subject.call
+      expect(translated(meeting.title)).to eq "title"
+    end
+
+    it "sets the scope" do
+      subject.call
+      expect(meeting.scope).to eq scope
+    end
+
+    it "sets the category" do
+      subject.call
+      expect(meeting.category).to eq category
     end
   end
 end

@@ -14,6 +14,13 @@ if !Rails.env.production? || ENV["SEED"]
     available_locales: Decidim.available_locales
   )
 
+  3.times do
+    Decidim::Scope.create!(
+      name: Faker::Lorem.word,
+      organization: staging_organization
+    )
+  end
+
   Decidim::User.create!(
     name: Faker::Name.name,
     email: "admin@decidim.org",

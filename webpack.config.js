@@ -25,10 +25,14 @@ module.exports = env => {
         /\/sinon\.js/
       ],
       loaders: [
-        { 
+        {
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          loaders: ['babel-loader', 'eslint-loader'] 
+          loaders: ['babel-loader', 'eslint-loader']
+        },
+        {
+          test: /\.js.es6$/,
+          loaders: ['babel-loader', 'eslint-loader']
         },
         {
           test: /\.(yml|yaml)$/,
@@ -42,9 +46,13 @@ module.exports = env => {
           test: /\.json$/,
           loaders: ['json-loader']
         },
-        { 
+        {
           test: require.resolve("react"),
           loader: "expose-loader?React"
+        },
+        {
+          test: require.resolve("jquery"),
+          loader: "expose-loader?$"
         }
       ]
     },

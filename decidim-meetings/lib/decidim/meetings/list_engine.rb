@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+require "searchlight"
+require "kaminari"
+
 module Decidim
   module Meetings
     # This is the engine that runs on the public interface of `decidim-meetings`.
@@ -10,6 +13,10 @@ module Decidim
       routes do
         resources :meetings, only: [:index, :show]
         root to: "meetings#index"
+      end
+
+      initializer "decidim_meetings.assets" do |app|
+        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
       end
     end
   end
