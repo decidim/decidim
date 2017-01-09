@@ -62,6 +62,7 @@ en:
         new: New %{name}
         preview: Preview
         publish: Publish
+        resend_invitation: Resend invitation
         title: Actions
         unpublish: Unpublish
       categories:
@@ -122,6 +123,7 @@ en:
         scopes: Scopes
         settings: Settings
         static_pages: Pages
+        users: Admin users
       models:
         category:
           fields:
@@ -159,6 +161,15 @@ en:
             created_at: Created at
             title: Title
           name: Page
+        user:
+          fields:
+            created_at: Creation date
+            email: Email
+            invitation_accepted_at: Invitation accepted date
+            invitation_sent_at: Invitation sent date
+            last_sign_in_at: Last sign in date
+            name: Name
+          name: User
       organization:
         edit:
           title: Edit organization
@@ -269,3 +280,17 @@ en:
         participatory_processes: Participatory processes
         scopes: Scopes
         static_pages: Pages
+        users: Users
+      users:
+        create:
+          error: There was an error when inviting this user.
+          success: User invited successfully.
+        destroy:
+          error: There was an error when trying to delete this user.
+          success: User is no longer an administrator.
+        new:
+          create: Invite
+          title: Invite user as administrator
+        resend_invitation:
+          error: There was an error when trying to send the invitation email.
+          success: Invitation email sent successfully.

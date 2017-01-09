@@ -73,13 +73,16 @@ en:
       invitation_instructions:
         accept: Accept invitation
         accept_until: This invitation will be due in %{due_date}.
-        hello: Hello %{email}
+        hello: Hello %{email},
         ignore: |-
           If you don't want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your password.
+        invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}, you can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}, you can accept it through the link below.
+      invite_admin:
+        subject: You've been invited to manage %{organization}
       organization_admin_invitation_instructions:
-        subject: You've been invited to admin %{organization}
+        subject: You've been invited to manage %{organization}
       password_change:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.

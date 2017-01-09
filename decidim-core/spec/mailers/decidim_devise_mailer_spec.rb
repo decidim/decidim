@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require "spec_helper"
 
 RSpec.shared_examples "localised email" do
@@ -65,7 +66,7 @@ module Decidim
 
       let(:subject) { "T'han convidat a administrar #{user.organization.name}" }
       let(:body) { "Acceptar invitaci" }
-      let(:default_subject) {"You've been invited to admin #{user.organization.name}"}
+      let(:default_subject) {"You've been invited to manage #{user.organization.name}"}
       let(:default_body) {"Accept invitation"}
 
       include_examples "localised email"

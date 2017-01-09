@@ -1,6 +1,6 @@
 <%= t("devise.mailer.invitation_instructions.hello", email: @resource.email) %>
 
-<%= t("devise.mailer.invitation_instructions.someone_invited_you", application: Decidim.config.application_name) %>
+<%= t("devise.mailer.invitation_instructions.someone_invited_you", application: @resource.organization.name) %>
 
 <%= accept_invitation_url(@resource, invitation_token: @token, invite_redirect: decidim_admin.root_path, host: @resource.organization.host) %>
 

@@ -27,6 +27,10 @@ module Decidim
           can :read, :admin_dashboard
           can :manage, ParticipatoryProcessAttachment
           can :manage, Scope
+          can [:create, :index, :new, :read, :invite], User
+          can [:destroy], [User] do |user_to_destroy|
+            user != user_to_destroy
+          end
         end
       end
     end
