@@ -20,7 +20,7 @@ module Decidim
 
       field :hasReplies, !types.Boolean, "Check if the comment has replies" do
         resolve lambda { |obj, _args, _ctx|
-          obj.replies.size > 0
+          obj.replies.size.positive?
         }
       end
 
