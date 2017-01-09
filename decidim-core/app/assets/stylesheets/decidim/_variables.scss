@@ -1,4 +1,4 @@
-// Decidim Variables
+// Variables
 
 $primary: map-get($foundation-palette, primary) !default;
 $secondary: map-get($foundation-palette, secondary) !default;
@@ -20,3 +20,6 @@ $google: #dd4b39 !default;
 $muted: lighten($body-font-color, 30) !default;
 
 $border: 1px solid $medium-gray !default;
+
+
+

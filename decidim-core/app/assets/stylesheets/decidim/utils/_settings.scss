@@ -42,6 +42,7 @@
 
 @import 'util/util';
 
+
 // 1. Global
 // ---------
 
@@ -195,14 +196,14 @@ $input-error-font-weight: $global-weight-bold;
 // 7. Accordion
 // ------------
 
-$accordion-background: $white;
+$accordion-background: $primary-color;
 $accordion-plusminus: true;
-$accordion-item-color: foreground($accordion-background, $primary-color);
+$accordion-item-color: $white;
 $accordion-item-background-hover: $light-gray;
 $accordion-item-padding: 1.25rem 1rem;
 $accordion-content-background: $white;
 $accordion-content-border: 1px solid $light-gray;
-$accordion-content-color: foreground($accordion-content-background, $body-font-color);
+$accordion-content-color: inherit;
 $accordion-content-padding: 1rem;
 
 // 8. Accordion Menu
@@ -215,7 +216,7 @@ $accordionmenu-arrow-color: $primary-color;
 // --------
 
 $badge-background: $primary-color;
-$badge-color: foreground($badge-background);
+$badge-color: $white;
 $badge-padding: 0.3em;
 $badge-minwidth: 1.5em;
 $badge-font-size: 0.6rem;
@@ -363,7 +364,8 @@ $input-radius: $global-radius;
 // ---------
 
 $label-background: $primary-color;
-$label-color: foreground($label-background);
+$label-color: $white;
+$label-color-alt: $body-font-color;
 $label-font-size: 0.8rem;
 $label-padding: 0.33333rem 0.5rem;
 $label-radius: $global-radius;
@@ -434,7 +436,7 @@ $pagination-item-spacing: rem-calc(1);
 $pagination-radius: $global-radius;
 $pagination-item-background-hover: $white;
 $pagination-item-background-current: $secondary-color;
-$pagination-item-color-current: foreground($pagination-item-background-current);
+$pagination-item-color-current: $white;
 $pagination-item-color-disabled: lighten($body-font-color, 30);
 $pagination-ellipsis-color: $body-font-color;
 $pagination-mobile-items: false;
@@ -520,7 +522,7 @@ $tab-item-padding: 1.25rem 1.5rem;
 $tab-expand-max: 6;
 $tab-content-background: $white;
 $tab-content-border: transparent;
-$tab-content-color: foreground(transparent, transparent);
+$tab-content-color: inherit;
 $tab-content-padding: 0;
 
 // 33. Thumbnail
@@ -566,4 +568,3 @@ $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
-

@@ -1,0 +1,22 @@
+.cookie-warning{
+  background: $medium-gray;
+  padding: .5em 1em;
+  text-align: center;
+  a{
+    color: darken($anchor-color, 10%);
+  }
+}
+
+.cookie-warning__action{
+  text-align: center;
+  .button{
+    margin: .5em 0;
+  }
+  @include breakpoint(mediumlarge){
+    vertical-align: baseline;
+    display: inline-block;
+    .button{
+      margin: 0 0 0 1em;
+    }
+  }
+}
