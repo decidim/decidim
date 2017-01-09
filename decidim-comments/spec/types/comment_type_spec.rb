@@ -27,7 +27,7 @@ module Decidim
 
       describe "replies" do
         let!(:random_comment) { FactoryGirl.create(:comment) }
-        let!(:replies) { 3.times.map { FactoryGirl.create(:comment, commentable: model) } }
+        let!(:replies) { FactoryGirl.create_list(:comment, 3, commentable: model) }
 
         let(:query) { "{ replies { id } }" }
 
@@ -36,6 +36,12 @@ module Decidim
             expect(response["replies"]).to include("id" => reply.id.to_s)
           end
           expect(response["replies"]).to_not include("id" => random_comment.id.to_s)
+        end
+
+        it "return comment's replies ordered by date" do
+          response_ids = response["replies"].map{|reply| reply["id"].to_i }
+          replies_ids = replies.map(&:id)
+          expect(response_ids).to eq(replies_ids)
         end
       end
 
