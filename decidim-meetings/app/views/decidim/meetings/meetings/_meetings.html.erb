@@ -15,16 +15,7 @@
             </div>
           </div>
           <%== translated_attribute meeting.description %>
-          <% if meeting.category.present? || meeting.scope.present? %>
-            <ul class="tags tags--meeting" >
-              <% if meeting.category.present? %>
-                <li><a><%= translated_attribute meeting.category.name %></a></li>
-              <% end %>
-              <% if meeting.scope.present? %>
-                <li><a><%= meeting.scope.name %></a></li>
-              <% end %>
-            </ul>
-          <% end %>
+          <%= render partial: "tags", locals: { meeting: meeting } %>
           <div class="address card__extra">
             <div class="address__icon">
               <%= icon "meetings", removeIconClass: true, width: 40, height: 70 %>

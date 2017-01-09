@@ -34,6 +34,7 @@ describe "Explore meetings", type: :feature do
 
   context "show" do
     let(:path) { decidim_meetings.meeting_path(id: meeting.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
+    let(:meetings_count) { 1 }
     let(:meeting) { meetings.first }
 
     it "shows all meeting info" do
@@ -48,6 +49,58 @@ describe "Explore meetings", type: :feature do
         expect(page).to have_content(13)
         expect(page).to have_content(/December/i)
         expect(page).to have_content("14:15 - 16:17")
+      end
+    end
+
+    context "without category or scope" do
+      it "does not show any tag" do
+        expect(page).not_to have_selector("ul.tags.tags--meeting")
+      end
+    end
+
+    context "with a category" do
+      let(:meeting) do
+        meeting = meetings.first
+        meeting.category = create :category, participatory_process: participatory_process
+        meeting.save
+        meeting
+      end
+
+      it "shows tags for category" do
+        expect(page).to have_selector("ul.tags.tags--meeting")
+        within "ul.tags.tags--meeting" do
+          expect(page).to have_content(translated(meeting.category.name))
+        end
+      end
+
+      it "links to the filter for this category" do
+        within "ul.tags.tags--meeting" do
+          click_link translated(meeting.category.name)
+        end
+        expect(page).to have_select("filter_category_id", selected: translated(meeting.category.name))
+      end
+    end
+
+    context "with a scope" do
+      let(:meeting) do
+        meeting = meetings.first
+        meeting.scope = create :scope, organization: organization
+        meeting.save
+        meeting
+      end
+
+      it "shows tags for scope" do
+        expect(page).to have_selector("ul.tags.tags--meeting")
+        within "ul.tags.tags--meeting" do
+          expect(page).to have_content(meeting.scope.name)
+        end
+      end
+
+      it "links to the filter for this scope" do
+        within "ul.tags.tags--meeting" do
+          click_link meeting.scope.name
+        end
+        expect(page).to have_checked_field(meeting.scope.name)
       end
     end
   end
