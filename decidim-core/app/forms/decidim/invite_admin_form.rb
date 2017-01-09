@@ -10,14 +10,22 @@ module Decidim
     attribute :name, String
     attribute :invitation_instructions, String
     attribute :roles, Array[String]
-    attribute :organization, Decidim::Organization, default: :current_organization
-    attribute :invited_by, Decidim::User, default: :current_user
+    attribute :organization, Decidim::Organization
+    attribute :invited_by, Decidim::User
 
-    validates :email, :name, :organization, :invitation_instructions, :roles, presence: true
+    validates :email, :name, :organization, :invitation_instructions, :roles, :invited_by, presence: true
     validate :admin_uniqueness
 
     def email
       super&.downcase
+    end
+
+    def organization
+      super || current_organization
+    end
+
+    def invited_by
+      super || current_user
     end
 
     private

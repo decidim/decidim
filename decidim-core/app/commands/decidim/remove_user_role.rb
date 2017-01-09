@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Decidim
-  # A command with the business logic to invite an user to an organization.
+  # A command to remove a role from a given User.
   class RemoveUserRole < Rectify::Command
     # Public: Initializes the command.
     #
