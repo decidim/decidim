@@ -4,7 +4,6 @@ import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
 import { I18n }                 from 'react-i18nify';
 import uuid                     from 'uuid';
-import moment                   from 'moment';
 import classnames               from 'classnames';
 
 import Icon                     from '../application/icon.component';
@@ -199,7 +198,7 @@ const AddCommentFormWithMutation = graphql(gql`
         addComment: {
           __typename: 'Comment',
           id: uuid(),
-          createdAt: moment().format("YYYY-MM-DD HH:mm:ss z"),
+          createdAt: Math.floor(new Date().getTime() / 1000),
           body,
           alignment: alignment,
           author: {
