@@ -1,11 +1,14 @@
 /*= require social-share-button */
-
-$size: 50px;
+$size: 45px;
 
 .social-share-button {
+  display: inline-block;
+  vertical-align: top;
   .ssb-icon {
+    margin-right: 5px;
     background-size: $size $size;
     height: $size;
     width: $size;
   }
 }
+

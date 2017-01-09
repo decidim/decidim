@@ -12,7 +12,11 @@
     </button>
   </div>
   <div class="button-group text-center">
-    <%= social_share_button_tag(proposal.title) %>
+  <%= social_share_button_tag(proposal.title) %>
+                                # url: proposal_url(proposal.id),
+                                # image: current_participatory_process.banner_image.current_path,
+                                # desc: proposal.body,
+                                # via: "decidimbcn") %>
     <a class="button secondary" data-open="urlShare">
       <%= icon "link-intact" %>
     </a>
@@ -25,5 +29,5 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <h4 class="heading4">https://decidim.barcelona/thislinkinparticular</h4>
+  <h4 class="heading4"><%= "#{proposal_url(proposal.id)}" %></h4>
 </div>

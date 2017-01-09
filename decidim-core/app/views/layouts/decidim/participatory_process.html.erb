@@ -1,4 +1,6 @@
-<% @image_url = current_participatory_process.banner_image.url %>
+<% content_for :social_image_url do %>
+  <% current_participatory_process.banner_image.url %>
+<% end %>
 <% @url = decidim.participatory_process_url(current_participatory_process) %>
 <%= render "layouts/decidim/application" do %>
   <div class="wrapper">
