@@ -12,8 +12,8 @@ module Decidim
       describe "createdAt" do
         let(:query) { "{ createdAt }" }
 
-        it "returns its created_at field to timestamp" do
-          expect(response).to include("createdAt" => model.created_at.to_i)
+        it "returns its created_at field to iso format" do
+          expect(response).to include("createdAt" => model.created_at.to_time.iso8601)
         end
       end
 

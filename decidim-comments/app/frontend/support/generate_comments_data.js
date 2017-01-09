@@ -12,7 +12,7 @@ const generateCommentsData = (num = 1) => {
     commentsData.push({
       id: random.uuid(),
       body: random.words(),
-      createdAt: Math.floor(date.past().getTime() / 1000),
+      createdAt: date.past().toISOString(),
       author: {
         name: name.findName(),
         avatarUrl: image.imageUrl()

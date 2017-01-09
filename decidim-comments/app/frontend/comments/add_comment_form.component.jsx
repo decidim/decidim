@@ -199,7 +199,7 @@ const AddCommentFormWithMutation = graphql(gql`
         addComment: {
           __typename: 'Comment',
           id: uuid(),
-          createdAt: Math.floor(new Date().getTime() / 1000),
+          createdAt: new Date().toISOString(),
           body,
           alignment: alignment,
           author: {

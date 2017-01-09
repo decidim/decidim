@@ -28,7 +28,7 @@ class Comment extends Component {
 
   render() {
     const { comment: { id, author, body, createdAt }, articleClassName } = this.props;
-    const formattedCreatedAt = ` ${moment(createdAt, 'X').format("LLL")}`;
+    const formattedCreatedAt = ` ${moment(createdAt).format("LLL")}`;
 
     return (
       <article id={`comment_${id}`} className={articleClassName}>
