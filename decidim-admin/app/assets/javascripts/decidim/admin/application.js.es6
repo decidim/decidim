@@ -16,4 +16,3 @@ const pageLoad = () => {
 };
 
 $(document).on('turbolinks:load', pageLoad);
-$(pageLoad);
