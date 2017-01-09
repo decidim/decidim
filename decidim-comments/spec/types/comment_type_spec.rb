@@ -17,6 +17,19 @@ module Decidim
         end
       end
 
+      describe "hasReplies" do
+        let (:query) { "{ hasReplies }" }
+
+        it "returns false if the comment has not replies" do
+          expect(response).to include("hasReplies" => false)
+        end
+
+        it "returns true if the comment has replies" do
+          FactoryGirl.create(:comment, commentable: model)
+          expect(response).to include("hasReplies" => true)
+        end
+      end
+
       describe "canHaveReplies" do
         let (:query) { "{ canHaveReplies }" }
         

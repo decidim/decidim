@@ -48,7 +48,7 @@ describe('<CommentThread />', () => {
 
   describe("when comment does have replies", () => {
     beforeEach(() => {
-      comment.replies = generateCommentsData(3);  
+      comment.hasReplies = true;
     });
 
     it("should render a h6 comment-thread__title with author name", () => {

@@ -33,9 +33,9 @@ class CommentThread extends Component {
    * @returns {Void|DOMElement} - The conversation's title
    */
   _renderTitle() {
-    const { comment: { author, replies } } = this.props;
+    const { comment: { author, hasReplies } } = this.props;
     
-    if (replies.length > 0) {
+    if (hasReplies) {
       return (
         <h6 className="comment-thread__title">
           { I18n.t("components.comment_thread.title", { authorName: author.name }) }

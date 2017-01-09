@@ -18,6 +18,12 @@ module Decidim
 
       field :replies, !types[CommentType], "The comment's replies"
 
+      field :hasReplies, !types.Boolean, "Check if the comment has replies" do
+        resolve lambda { |obj, _args, _ctx|
+          obj.replies.size.positive?
+        }
+      end
+
       field :canHaveReplies, !types.Boolean, "Define if a comment can or not have replies" do
         property :can_have_replies?
       end
