@@ -10,12 +10,12 @@ module Decidim
     def decidim_paginate(collection, paginate_params)
       # Kaminari uses url_for to generate the url, but this doesn't play nice with our engine system
       # and unless we remove these params they are added again as query string :(
-      # Please do not mix `params` with `paginate_params`. We're removing elements from the
-      # global `params` object.
-      params.delete("participatory_process_id")
-      params.delete("feature_id")
+      default_params = {
+        participatory_process_id: nil,
+        feature_id: nil
+      }
 
-      paginate collection, theme: "decidim", params: paginate_params
+      paginate collection, theme: "decidim", params: paginate_params.merge(default_params)
     end
   end
 end
