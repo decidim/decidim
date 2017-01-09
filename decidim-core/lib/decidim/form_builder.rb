@@ -14,7 +14,7 @@ module Decidim
     # options - The set of options to send to the field
     #
     # Renders form fields for each locale.
-    def translated(type, name, options = {}, &block)
+    def translated(type, name, options = {})
       if locales.count == 1
         return send(
           type,
