@@ -13,7 +13,7 @@ module Decidim
     attribute :organization, Decidim::Organization
     attribute :invited_by, Decidim::User
 
-    validates :email, :name, :organization, :invitation_instructions, :roles, :invited_by, presence: true
+    validates :email, :name, :organization, :invitation_instructions, :roles, presence: true
     validate :admin_uniqueness
 
     def email

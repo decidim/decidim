@@ -24,7 +24,9 @@ module Decidim
         transaction do
           @organization = create_organization
           CreateDefaultPages.call(@organization)
-          Decidim::InviteUser.call(invite_user_form(@organization))
+          invite_form = invite_user_form(@organization)
+          return broadcast(:invalid) if invite_form.invalid?
+          Decidim::InviteUser.call(invite_form)
         end
 
         broadcast(:ok)
@@ -53,6 +55,7 @@ module Decidim
             roles: %w(admin),
             invitation_instructions: "organization_admin_invitation_instructions"
           },
+          current_user: form.current_user,
           current_organization: organization
         )
       end

@@ -293,4 +293,4 @@ en:
           title: Invite user as administrator
         resend_invitation:
           error: There was an error when trying to send the invitation email.
-          success: Invitation email send successfully.
+          success: Invitation email sent successfully.

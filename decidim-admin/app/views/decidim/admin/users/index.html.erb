@@ -20,7 +20,7 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
-      <tr>
+      <tr data-user-id="<%= user.id %>">
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td>
