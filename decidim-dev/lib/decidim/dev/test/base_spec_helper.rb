@@ -6,6 +6,8 @@ dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "#{engine_name}_dum
 
 if ENV["CI"]
   require "simplecov"
+  SimpleCov.root(ENV["TRAVIS_BUILD_DIR"])
+
   SimpleCov.start do
     filters.clear
     add_filter "/test/"
