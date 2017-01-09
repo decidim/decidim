@@ -208,6 +208,7 @@ const AddCommentFormWithMutation = graphql(gql`
             avatarUrl: ownProps.currentUser.avatarUrl
           },
           replies: [],
+          hasReplies: false,
           canHaveReplies: false,
           upVotes: 0,
           upVoted: false,
