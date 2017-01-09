@@ -55,7 +55,6 @@ ca:
         configure: Configurar
         confirm_destroy: Segur que ho vols eliminar?
         create: Crear
-        deactivate: Desactivar
         destroy: Eliminar
         edit: Editar
         new: Nou %{name}
