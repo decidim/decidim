@@ -1,0 +1,5 @@
+{
+  "actions": ["opened", "labeled", "unlabeled", "edited"],
+  "withLabel": "pending-review",
+  "createReviewRequest": false
+}
