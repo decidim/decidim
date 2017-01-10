@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 RSpec.shared_examples "manage process attachments examples" do
   let!(:attachment) do
@@ -42,7 +43,7 @@ RSpec.shared_examples "manage process attachments examples" do
         ca: "Document Molt Important"
       )
 
-      fill_in_i18n_editor(
+      fill_in_i18n(
         :participatory_process_attachment_description,
         "#description-tabs",
         en: "This document contains important information",
