@@ -113,5 +113,23 @@ describe "Proposals", type: :feature do
         expect(page).to have_css(".card--proposal", 8)
       end
     end
+
+    context "when filtering" do
+      context "by scope" do
+        it "lists the filtered proposals" do
+          create(:proposal, feature: feature, scope: scope)
+
+          visit decidim_proposals.proposals_path(:proposals, feature_id: feature, participatory_process_id: participatory_process)
+          within ".filters" do
+            check scope.name
+          end
+
+          expect(page).to have_css(".card--proposal", 1)
+          within ".tags--proposal" do
+            expect(page).to have_content scope.name
+          end
+        end
+      end
+    end
   end
 end
