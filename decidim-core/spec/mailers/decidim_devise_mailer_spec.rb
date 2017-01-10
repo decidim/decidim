@@ -64,7 +64,7 @@ module Decidim
         described_class.invitation_instructions(user, "foo", {invitation_instructions: "organization_admin_invitation_instructions"})
       end
 
-      let(:subject) { "T'han convidat a administrar #{user.organization.name}" }
+      let(:subject) { "Has estat convidat a gestionar #{user.organization.name}" }
       let(:body) { "Acceptar invitaci" }
       let(:default_subject) {"You've been invited to manage #{user.organization.name}"}
       let(:default_body) {"Accept invitation"}
