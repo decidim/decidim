@@ -3,6 +3,6 @@
   "userBlacklist": ["decidim-bot"],
   "actions": ["opened", "labeled", "unlabeled", "edited"],
   "skipAlreadyMentionedPR": true,
-  "withLabel": "pending-review",
+  "skipTitle": "WIP",
   "createReviewRequest": true
 }
