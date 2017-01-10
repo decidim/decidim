@@ -16,7 +16,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   3.times do
     Decidim::Scope.create!(
-      name: Faker::Lorem.word,
+      name: Faker::Address.state,
       organization: staging_organization
     )
   end
