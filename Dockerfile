@@ -27,7 +27,6 @@ ADD decidim-meetings/decidim-meetings.gemspec /tmp/decidim-meetings/decidim-meet
 ADD decidim-proposals/decidim-proposals.gemspec /tmp/decidim-proposals/decidim-proposals.gemspec
 
 ADD package.json /tmp/package.json
-ADD decidim-comments/package.json /tmp/package.json
 ADD yarn.lock /tmp/yarn.lock
 
 RUN cd /tmp && bundle install && yarn
