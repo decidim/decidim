@@ -14,10 +14,11 @@ module Decidim
       end
 
       def index
-        @proposals = ProposalSearch.new(search_params.merge(context_params)).results
+        @search = ProposalSearch.new(search_params.merge(context_params))
+        @proposals = @search.results
+        @random_seed = @search.random_seed        
         # @search = ProposalSearch.new(current_feature, params[:page], params[:random_seed])
         # @proposals = @search.proposals
-        # @random_seed = @search.random_seed
       end
 
       def new
@@ -61,7 +62,7 @@ module Decidim
 
       def default_search_params
         {
-
+          page: params[:page]
         }.with_indifferent_access
       end
 

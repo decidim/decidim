@@ -7,6 +7,9 @@
  */
 ((exports) => {
   class MeetingsFormFilterComponent {
+    mounted;
+    $form;
+
     constructor(selector) {
       this.$form = $(selector);
       this.mounted = false;
@@ -49,7 +52,7 @@
      * @returns {String} - Returns the current location.
      */
     _getLocation() {
-      return exports.location;
+      return exports.location.toString();
     }
 
     /**
@@ -85,15 +88,15 @@
     _onPopState() {
       this._clearForm();
 
-      let [sortValue] = this._getLocationParams(/order_start_time=([^&]*)/g) || ["asc"];
+      let [sortValue] = this._getLocationParams(/filter\[order_start_time\]=([^&]*)/g) || ["asc"];
       this.$form.find(`input[type=radio][value=${sortValue}]`)[0].checked = true;
 
-      let scopeValues = this._getLocationParams(/scope_id\[\]=([^&]*)/g) || [];
+      let scopeValues = this._getLocationParams(/filter\[scope_id\]\[\]=([^&]*)/g) || [];
       scopeValues.forEach((value) => {
         this.$form.find(`input[type=checkbox][value=${value}]`)[0].checked = true;
       })
 
-      let [categoryIdValue] = this._getLocationParams(/filter\[category_id\]=([^&]*)/g) || [];
+      let [categoryIdValue] = this._getLocationParams(/filter\[category_id\]=([^&]*)/g) || [null];
       this.$form.find(`select#filter_category_id`).first().val(categoryIdValue);
 
       this.$form.submit();

@@ -8,10 +8,10 @@
           </h6>
         </legend>
         <label>
-          <input value="asc" type="radio" name="order_start_time" <%= search_params[:order_start_time] == "asc" ? "checked" : nil %>><%= t('.ascendent') %>
+          <input value="asc" type="radio" name="filter[order_start_time]" <%= search_params[:order_start_time] == "asc" ? "checked" : nil %>><%= t('.ascendent') %>
         </label>
         <label>
-          <input value="desc" type="radio" name="order_start_time" <%= search_params[:order_start_time] == "desc" ? "checked" : nil %>><%= t('.descendent') %>
+          <input value="desc" type="radio" name="filter[order_start_time]" <%= search_params[:order_start_time] == "desc" ? "checked" : nil %>><%= t('.descendent') %>
         </label>
       </fieldset>
     </div>
@@ -22,7 +22,7 @@
           <legend><h6 class="heading6"><%= t('.scopes') %></h6></legend>
           <% current_organization.scopes.each do |scope| %>
             <label>
-              <input value="<%= scope.id %>" type="checkbox"  name="scope_id[]" <%= "checked" if (filter.scope_id || []).include?(scope.id.to_s) %>><%= scope.name %>
+              <input value="<%= scope.id %>" type="checkbox"  name="filter[scope_id][]" <%= "checked" if (filter.scope_id || []).include?(scope.id.to_s) %>><%= scope.name %>
             </label>
           <% end %>
         </fieldset>

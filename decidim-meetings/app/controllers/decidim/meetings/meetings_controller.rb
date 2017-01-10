@@ -12,7 +12,7 @@ module Decidim
       private
 
       def meetings
-        @meetings ||= MeetingsSearch.new(search_params.merge(context_params)).results
+        @meetings ||= MeetingSearch.new(search_params.merge(context_params)).results
       end
 
       def meeting
@@ -21,7 +21,6 @@ module Decidim
 
       def search_params
         default_search_params
-          .merge(params.to_unsafe_h.except(:filter))
           .merge(params.to_unsafe_h[:filter] || {})
       end
 

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Decidim::Meetings::MeetingsSearch do
+describe Decidim::Meetings::MeetingSearch do
   let(:current_feature) { create :feature }
   let(:scope1) { create :scope, organization: current_feature.organization }
   let(:scope2) { create :scope, organization: current_feature.organization }

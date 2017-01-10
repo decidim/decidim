@@ -34,6 +34,8 @@ en:
             scope: Scope
             title: Title
       proposals:
+        filters:
+          category: Category
         index:
           new_proposal: New proposal
           proposals_count: "%{count} proposals"
