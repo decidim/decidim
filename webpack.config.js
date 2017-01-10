@@ -1,12 +1,14 @@
-const webpack            = require('webpack');
-const webpackValidator   = require('webpack-validator');
-const webpackConfigUtils = require('webpack-config-utils');
-const getIfUtils         = webpackConfigUtils.getIfUtils;
-const ProgressBarPlugin  = require('progress-bar-webpack-plugin');
+const webpack              = require('webpack');
+const webpackValidator     = require('webpack-validator');
+const webpackConfigUtils   = require('webpack-config-utils');
+const getIfUtils           = webpackConfigUtils.getIfUtils;
+const ProgressBarPlugin    = require('progress-bar-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = env => {
   const envUtils = getIfUtils(env);
   const ifProd = envUtils.ifProd;
+  const ifTest = envUtils.ifTest;
 
   const config = webpackValidator({
     entry: {
@@ -62,6 +64,11 @@ module.exports = env => {
         'process.env': {
           NODE_ENV: ifProd('"production"', '"development"')
         }
+      }),
+      new BundleAnalyzerPlugin({
+        analyzerMode: ifTest('disabled', 'static'),
+        reportFilename: 'webpack.report.html',
+        openAnalyzer: false
       })
     ],
     externals: {
