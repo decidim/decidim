@@ -4,13 +4,12 @@ import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';
 import { I18n }                 from 'react-i18nify';
 import uuid                     from 'uuid';
-import moment                   from 'moment';
 import classnames               from 'classnames';
 
 import Icon                     from '../application/icon.component';
 
 import addCommentMutation       from './add_comment_form.mutation.graphql';
-
+import commentThreadFragment    from './comment_thread.fragment.graphql'
 import commentFragment          from './comment.fragment.graphql';
 import commentDataFragment      from './comment_data.fragment.graphql';
 import upVoteFragment           from './up_vote.fragment.graphql';
@@ -181,7 +180,8 @@ AddCommentForm.propTypes = {
 
 const AddCommentFormWithMutation = graphql(gql`
   ${addCommentMutation}
-  ${commentFragment}  
+  ${commentThreadFragment}
+  ${commentFragment}
   ${commentDataFragment}
   ${upVoteFragment}
   ${downVoteFragment}
@@ -199,7 +199,7 @@ const AddCommentFormWithMutation = graphql(gql`
         addComment: {
           __typename: 'Comment',
           id: uuid(),
-          createdAt: moment().format("YYYY-MM-DD HH:mm:ss z"),
+          createdAt: new Date().toISOString(),
           body,
           alignment: alignment,
           author: {

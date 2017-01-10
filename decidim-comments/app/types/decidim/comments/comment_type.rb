@@ -11,7 +11,9 @@ module Decidim
       field :body, !types.String, "The comment message"
 
       field :createdAt, !types.String, "The creation date of the comment" do
-        property :created_at
+        resolve lambda { |obj, _args, _ctx|
+          obj.created_at.iso8601
+        }
       end
 
       field :author, !AuthorType, "The comment's author"
