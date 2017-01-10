@@ -13,7 +13,7 @@ module Decidim
         let(:query) { "{ createdAt }" }
 
         it "returns its created_at field to iso format" do
-          expect(response).to include("createdAt" => model.created_at.to_time.iso8601)
+          expect(response).to include("createdAt" => model.created_at.iso8601)
         end
       end
 

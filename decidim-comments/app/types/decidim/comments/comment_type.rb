@@ -12,7 +12,7 @@ module Decidim
 
       field :createdAt, !types.String, "The creation date of the comment" do
         resolve lambda { |obj, _args, _ctx|
-          obj.created_at.to_time.iso8601
+          obj.created_at.iso8601
         }
       end
 
