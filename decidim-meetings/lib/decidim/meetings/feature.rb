@@ -7,7 +7,7 @@ Decidim.register_feature(:meetings) do |feature|
   feature.admin_engine = Decidim::Meetings::AdminEngine
   feature.icon = "decidim/meetings/icon.svg"
 
-  feature.on(:destroy) do |instance|
+  feature.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this feature" if Decidim::Meetings::Meeting.where(feature: instance).any?
   end
 
@@ -24,6 +24,8 @@ Decidim.register_feature(:meetings) do |feature|
       3.times do
         Decidim::Meetings::Meeting.create!(
           feature: feature,
+          scope: process.organization.scopes.sample,
+          category: process.categories.sample,
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)

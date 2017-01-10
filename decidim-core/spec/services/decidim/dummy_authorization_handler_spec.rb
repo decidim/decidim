@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require "spec_helper"
-require "decidim/test/authorization_shared_examples"
+require "decidim/dev/test/authorization_shared_examples"
 
 module Decidim
   describe DummyAuthorizationHandler do

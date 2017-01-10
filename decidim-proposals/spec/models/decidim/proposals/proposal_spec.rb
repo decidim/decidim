@@ -9,19 +9,19 @@ module Decidim
       it { is_expected.to be_valid }
 
       context "when the category is from another feature" do
-        subject { create(:proposal, category: create(:category))}
+        subject { build(:proposal, category: create(:category))}
 
         it { is_expected.to be_invalid}
       end
 
       context "when the author is from another organization" do
-        subject { create(:proposal, author: create(:user))}
+        subject { build(:proposal, author: create(:user))}
 
         it { is_expected.to be_invalid}
       end
 
       context "when the scope is from another organization" do
-        subject { create(:proposal, scope: create(:scope))}
+        subject { build(:proposal, scope: create(:scope))}
 
         it { is_expected.to be_invalid}
       end

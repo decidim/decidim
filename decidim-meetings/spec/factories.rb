@@ -1,5 +1,5 @@
-require_relative "../../decidim-core/spec/factories"
-require_relative "../../decidim-admin/spec/factories"
+require "decidim/core/test/factories"
+require "decidim/admin/test/factories"
 
 FactoryGirl.define do
   factory :meeting, class: Decidim::Meetings::Meeting do
@@ -10,7 +10,7 @@ FactoryGirl.define do
     location_hints { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     address { Faker::Lorem.sentence(3) }
     start_time { 1.day.from_now }
-    end_time { 1.day.from_now + 2.hours }
+    end_time { start_time.advance(hours: 2) }
     feature
   end
 end

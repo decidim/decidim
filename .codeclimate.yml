@@ -9,7 +9,7 @@ engines:
     config:
       languages:
         javascript:
-          mass_threshold: 50
+          mass_threshold: 1000
         ruby:
           mass_threshold: 50
     exclude_fingerprints:
@@ -29,6 +29,9 @@ engines:
     enabled: true
   rubocop:
     enabled: true
+    checks:
+      Rubocop/Style/PredicateName:
+        enabled: false
 ratings:
   paths:
   - Gemfile.lock

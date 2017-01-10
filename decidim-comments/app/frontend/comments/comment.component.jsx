@@ -6,6 +6,8 @@ import { I18n }                 from 'react-i18nify';
 import classnames               from 'classnames';
 
 import AddCommentForm           from './add_comment_form.component';
+import UpVoteButton             from './up_vote_button.component';
+import DownVoteButton           from './down_vote_button.component';
 
 import commentFragment          from './comment.fragment.graphql';
 import commentDataFragment      from './comment_data.fragment.graphql';
@@ -53,6 +55,7 @@ class Comment extends Component {
         {this._renderReplies()}
         <div className="comment__footer">
           {this._renderReplyButton()}
+          {this._renderVoteButtons()}
         </div>
         {this._renderReplyForm()}
       </article>
@@ -80,7 +83,27 @@ class Comment extends Component {
       );
     }
 
-    return <div>&nbsp;</div>;
+    return <span>&nbsp;</span>;
+  }
+
+  /**
+   * Render upVote and downVote buttons when the comment is votable
+   * @private
+   * @returns {Void|DOMElement} - Render the upVote and downVote buttons or not
+   */
+  _renderVoteButtons() {
+    const { comment, votable } = this.props;
+
+    if (votable) {
+      return (
+        <div className="comment__votes">
+          <UpVoteButton comment={comment} />
+          <DownVoteButton comment={comment} />
+        </div>
+      );
+    }
+
+    return <span>&nbsp;</span>;
   }
 
   /**
@@ -89,7 +112,7 @@ class Comment extends Component {
    * @returns {Void|DomElement} - A wrapper element with comment replies inside
    */
   _renderReplies() {
-    const { comment: { id, replies }, currentUser, articleClassName } = this.props;
+    const { comment: { id, replies }, currentUser, votable, articleClassName } = this.props;
     let replyArticleClassName = 'comment comment--nested';
    
     if (articleClassName === 'comment comment--nested') {
@@ -105,6 +128,7 @@ class Comment extends Component {
                 key={`comment_${id}_reply_${reply.id}`}
                 comment={reply}
                 currentUser={currentUser}
+                votable={votable}
                 articleClassName={replyArticleClassName}
               />
             ))
@@ -178,9 +202,13 @@ Comment.fragments = {
   comment: gql`
     ${commentFragment}
     ${commentDataFragment}
+    ${UpVoteButton.fragments.comment}
+    ${DownVoteButton.fragments.comment}
   `,
   commentData: gql`
     ${commentDataFragment}
+    ${UpVoteButton.fragments.comment}
+    ${DownVoteButton.fragments.comment}
   `
 };
 
@@ -196,7 +224,8 @@ Comment.propTypes = {
   currentUser: PropTypes.shape({
     name: PropTypes.string.isRequired
   }),
-  articleClassName: PropTypes.string.isRequired
+  articleClassName: PropTypes.string.isRequired,
+  votable: PropTypes.bool
 };
 
 export default Comment;

@@ -1,30 +1,12 @@
 <% content_for(:title, t(".title")) %>
 
-<div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-  <% meetings.each do |meeting| %>
-    <div class="column">
-      <article class="card card--meeting">
-        <div class="card__content">
-          <%= link_to meeting, class: "card__link" do %>
-            <h5 class="card__title"><%= translated_attribute meeting.title %></h5>
-          <% end %>
-          <div class="card__datetime">
-            <div class="card__datetime__date">
-              <%= l meeting.start_time, format: "%d" %> <span class="card__datetime__month"><%= l meeting.start_time, format: "%B" %></span>
-            </div>
-            <div class="card__datetime__time">
-              <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
-            </div>
-          </div>
-          <%== translated_attribute meeting.description %>
-          <div class="address card__extra">
-            <div class="address__icon">
-              <%= icon "meetings", removeIconClass: true, width: 40, height: 70 %>
-            </div>
-            <%= render partial: 'address_details', locals: { meeting: meeting } %>
-          </div>
-        </div>
-      </article>
+<div class="row">
+  <div class="columns mediumlarge-4 large-3">
+    <div class="card card--secondary show-for-mediumlarge" >
+      <%= render partial: "filters" %>
     </div>
-  <% end %>
+  </div>
+  <div id="meetings" class="columns mediumlarge-8 large-9">
+    <%= render partial: "meetings" %>
+  </div>
 </div>

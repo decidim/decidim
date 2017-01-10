@@ -1,12 +1,17 @@
+/* eslint-disable no-unused-expressions */
 import { shallow, mount }      from 'enzyme';
 import { filter }              from 'graphql-anywhere';
 import gql                     from 'graphql-tag';
 
 import Comment                 from './comment.component';
 import AddCommentForm          from './add_comment_form.component';
+import UpVoteButton            from './up_vote_button.component';
+import DownVoteButton          from './down_vote_button.component';
 
 import commentFragment         from './comment.fragment.graphql';
 import commentDataFragment     from './comment_data.fragment.graphql';
+import upVoteFragment          from './up_vote.fragment.graphql';
+import downVoteFragment        from './down_vote.fragment.graphql';
 
 import stubComponent           from '../support/stub_component';
 import generateCommentsData    from '../support/generate_comments_data';
@@ -17,6 +22,8 @@ describe("<Comment />", () => {
   let currentUser = null;
 
   stubComponent(AddCommentForm);
+  stubComponent(UpVoteButton);
+  stubComponent(DownVoteButton);
 
   beforeEach(() => {
     let commentsData = generateCommentsData(1);
@@ -26,6 +33,8 @@ describe("<Comment />", () => {
     const fragment = gql`
       ${commentFragment}
       ${commentDataFragment}
+      ${upVoteFragment}
+      ${downVoteFragment}
     `;
 
     comment = filter(fragment, commentsData[0]);
@@ -80,11 +89,12 @@ describe("<Comment />", () => {
   });
 
   it("should render comment replies a separate Comment components", () => {
-    const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
+    const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} votable />);
     wrapper.find(Comment).forEach((node, idx) => {
       expect(node).to.have.prop("comment").deep.equal(comment.replies[idx]);
       expect(node).to.have.prop("currentUser").deep.equal(currentUser);
       expect(node).to.have.prop("articleClassName").equal("comment comment--nested")
+      expect(node).to.have.prop("votable").equal(true);
     });
   });
 
@@ -121,5 +131,17 @@ describe("<Comment />", () => {
     comment.alignment = -1;
     const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
     expect(wrapper.find('span.alert.label')).to.have.text('Against');
+  });
+
+  describe("when the comment is votable", () => {
+    it("should render an UpVoteButton component", () => {
+      const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} votable />);
+      expect(wrapper.find(UpVoteButton)).to.have.prop("comment").deep.equal(comment);
+    })
+
+    it("should render an DownVoteButton component", () => {
+      const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} votable />);
+      expect(wrapper.find(DownVoteButton)).to.have.prop("comment").deep.equal(comment);
+    })
   });
 });

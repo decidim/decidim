@@ -22,7 +22,7 @@ describe "Proposals feature" do
       it "raises an error" do
         expect do
           Decidim::Admin::DestroyFeature.call(feature)
-        end.to raise_error
+        end.to broadcast(:invalid)
 
         expect(feature).to_not be_destroyed
       end

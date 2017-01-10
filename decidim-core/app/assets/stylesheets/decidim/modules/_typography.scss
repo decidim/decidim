@@ -2,6 +2,10 @@
 
 
 /* Typography - Foundation overrides */
+button,
+input{
+  font-family: inherit;
+}
 
 .heading1{
   line-height: 1.1;

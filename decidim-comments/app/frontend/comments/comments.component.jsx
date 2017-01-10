@@ -43,13 +43,14 @@ export class Comments extends Component {
    * @returns {ReactComponent[]} - A collection of CommentThread components
    */
   _renderCommentThreads() {
-    const { comments, currentUser } = this.props;
+    const { comments, currentUser, options: { votable } } = this.props;
 
     return comments.map((comment) => (
       <CommentThread 
         key={comment.id} 
         comment={filter(CommentThread.fragments.comment, comment)} 
         currentUser={currentUser}
+        votable={votable}
       />
     ))
   }

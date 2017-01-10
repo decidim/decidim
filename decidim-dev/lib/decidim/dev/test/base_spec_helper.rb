@@ -6,6 +6,8 @@ dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "#{engine_name}_dum
 
 if ENV["CI"]
   require "simplecov"
+  SimpleCov.root(ENV["TRAVIS_BUILD_DIR"])
+
   SimpleCov.start do
     filters.clear
     add_filter "/test/"
@@ -43,11 +45,12 @@ require "database_cleaner"
 require "byebug"
 require "cancan/matchers"
 require "rectify/rspec"
+require "wisper/rspec/stub_wisper_publisher"
+require "db-query-matchers"
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/rspec_support/**/*.rb"].each { |f| require f }
-Dir[File.join(File.dirname(__FILE__), "..", "..", "..", "..", engine_name, "spec", "support", "**", "*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.color = true

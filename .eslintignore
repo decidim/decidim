@@ -12,3 +12,4 @@ entry.test.js
 entry.js
 *_manifest.js
 coverage
+decidim-dev/**/*/test/**/*.js

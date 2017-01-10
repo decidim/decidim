@@ -32,6 +32,11 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :static_pages
     resources :scopes, except: [:show]
+    resources :users, except: [:edit, :update], controller: "users" do
+      member do
+        post :resend_invitation, to: "users#resend_invitation"
+      end
+    end
 
     root to: "dashboard#show"
   end

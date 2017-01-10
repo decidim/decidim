@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
-require_relative "../generators/decidim/dummy_generator"
+require_relative "../../generators/decidim/dummy_generator"
 
 engine_path = Dir.pwd
 engine_name = engine_path.split("/").last

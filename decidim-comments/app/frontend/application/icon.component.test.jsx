@@ -1,6 +1,6 @@
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
-import Icon        from './icon.component';
+import Icon               from './icon.component';
 
 describe("<Icon /", () => {
   beforeEach(() => {
@@ -39,5 +39,15 @@ describe("<Icon /", () => {
   it("should render a simple span with the icon name", () => {
     const wrapper = shallow(<Icon name="icon-thumb-up" />);
     expect(wrapper.find('span')).to.have.text('icon-thumb-up');
+  });
+
+  it("should have a default prop iconExtraClassName with value 'icon--before'", () => {
+    const wrapper = mount(<Icon name="icon-thumb-up" />);
+    expect(wrapper).to.have.prop('iconExtraClassName').equal('icon--before');    
+  });
+
+  it("should render the svg with an extra class defined by iconExtraClassName", () => {
+    const wrapper = mount(<Icon name="icon-thumb-up" iconExtraClassName="icon--small" />);
+    expect(wrapper.find('.icon--small')).to.be.present();
   });
 });

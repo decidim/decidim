@@ -87,23 +87,20 @@ module Decidim
     # Returns a String.
     def categories_select(name, collection, options = {})
       options = {
-        prompt: nil,
         disable_parents: true
       }.merge(options)
 
-      prompt = options[:prompt]
       disable_parents = options[:disable_parents]
 
       selected = object.send(name)
       categories = categories_for_select(collection)
-      categories = [[prompt]] + categories if prompt
       disabled = if disable_parents
                    disabled_categories_for(collection)
                  else
                    []
                  end
 
-      select(name, @template.options_for_select(categories, selected: selected, disabled: disabled))
+      select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options)
     end
 
     private

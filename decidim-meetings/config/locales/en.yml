@@ -33,6 +33,12 @@ en:
           meeting:
             name: Meeting
       meetings:
+        filters:
+          ascendent: Ascendent
+          category: Category
+          date: Date
+          descendent: Descendent
+          scopes: Scopes
         index:
           title: Meetings
         show:

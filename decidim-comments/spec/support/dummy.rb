@@ -10,7 +10,7 @@ class Decidim::DummyController < Decidim::ApplicationController
 
   def show
     @participatory_process = Decidim::ParticipatoryProcess.find(params[:id])
-    @options = params.slice(:arguable)
+    @options = params.slice(:arguable, :votable)
     @options.each { |key, val| @options[key] = val === 'true' }
     render inline: %{
       <%= javascript_include_tag 'application' %>

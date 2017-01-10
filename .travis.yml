@@ -7,6 +7,10 @@ services:
 
 language: ruby
 
+branches:
+  only: 
+    - master
+
 env:
   - GEM=. DB=postgres
   - GEM=decidim-admin DB=postgres
@@ -16,6 +20,7 @@ env:
   - GEM=decidim-pages DB=postgres
   - GEM=decidim-comments DB=postgres
   - GEM=decidim-meetings DB=postgres
+  - GEM=decidim-proposals DB=postgres
 
 before_install:
   # Repo for newer Node.js versions
@@ -35,7 +40,7 @@ script:
   - $TRAVIS_BUILD_DIR/run_ci.sh
 
 rvm:
-  - 2.3.3
+  - 2.4.0
 
 notifications:
     email: false

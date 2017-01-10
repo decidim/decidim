@@ -2,6 +2,7 @@
 RSpec.configure do |config|
   config.before(:suite) do
     I18n.config.enforce_available_locales = false
+    Rails.application.config.action_view.raise_on_missing_translations = true
   end
 
   config.around(:each) do |example|

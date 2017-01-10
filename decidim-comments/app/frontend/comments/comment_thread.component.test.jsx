@@ -48,7 +48,7 @@ describe('<CommentThread />', () => {
 
   describe("when comment does have replies", () => {
     beforeEach(() => {
-      comment.replies = generateCommentsData(3);  
+      comment.hasReplies = true;
     });
 
     it("should render a h6 comment-thread__title with author name", () => {
@@ -66,6 +66,11 @@ describe('<CommentThread />', () => {
     it("and pass filter comment data as a prop to it", () => {
       const wrapper = shallow(<CommentThread comment={comment} currentUser={currentUser} />);
       expect(wrapper.find(Comment).first()).to.have.prop("comment").deep.equal(filter(commentFragment, comment));
-    });  
+    });
+
+    it("and pass the votable as a prop to it", () => {
+      const wrapper = shallow(<CommentThread comment={comment} currentUser={currentUser} votable />);
+      expect(wrapper.find(Comment).first()).to.have.prop("votable").equal(true);
+    });
   });
 });

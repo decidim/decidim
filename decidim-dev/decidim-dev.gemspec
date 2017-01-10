@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
+  s.add_dependency "decidim", Decidim.version
   s.add_dependency "factory_girl_rails"
   s.add_dependency "database_cleaner", "~> 1.5.0"
   s.add_dependency "capybara", "~> 2.11.0"
@@ -24,12 +25,12 @@ Gem::Specification.new do |s|
   s.add_dependency "wisper-rspec"
   s.add_dependency "listen", "~> 3.1.0"
   s.add_dependency "launchy"
-  s.add_dependency "i18n-tasks", "~> 0.9.6"
-  s.add_dependency "bullet", "~> 5.4.3"
-  s.add_dependency "faker", "~> 1.6.6"
+  s.add_dependency "i18n-tasks", "~> 0.9.8"
+  s.add_dependency "faker", "~> 1.7.2"
   s.add_dependency "poltergeist", "~> 1.12.0"
   s.add_dependency "rails-controller-testing", "~> 1.0.1"
   s.add_dependency "simplecov", "~> 0.12"
   s.add_dependency "codecov", "~> 0.1.9"
   s.add_dependency "rubocop", "~> 0.46"
+  s.add_dependency "db-query-matchers", "~> 0.7.0"
 end
