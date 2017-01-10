@@ -1,3 +1,9 @@
 <div class="field">
   <%= form.translated :text_field, :name, autofocus: true %>
+
+  <%= form.fields_for :configuration, form.object.configuration do |configuration_fields| %>
+    <%= render partial: "decidim/admin/features/configuration_fields",
+               locals: { form: configuration_fields, configuration: @form.manifest.configuration(:global) }
+    %>
+  <% end %>
 </div>

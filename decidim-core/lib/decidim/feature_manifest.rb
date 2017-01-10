@@ -74,10 +74,12 @@ module Decidim
       @seeds&.call
     end
 
-    def configuration(&block)
-      @configuration ||= FeatureConfiguration.new
-      yield(@configuration) if block
-      @configuration
+    def configuration(name = :global, &block)
+      @configurations ||= {}
+      name = name.to_sym
+      configuration = (@configurations[name] ||= FeatureConfiguration.new)
+      yield(configuration) if block
+      configuration
     end
   end
 end

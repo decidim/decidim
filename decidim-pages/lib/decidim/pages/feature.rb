@@ -19,8 +19,8 @@ Decidim.register_feature(:pages) do |feature|
     end
   end
 
-  feature.configuration do |configuration|
-    configuration.attribute :comments, type: :boolean
+  feature.configuration(:global) do |configuration|
+    configuration.attribute :comments_enabled, type: :boolean
   end
 
   feature.seeds do

@@ -20,7 +20,7 @@ module Decidim
       def new
         authorize! :create, Feature
 
-        @form = form(FeatureForm).instance(name: default_name(manifest))
+        @form = form(FeatureForm).instance(name: default_name(manifest)).with_context(manifest: manifest)
       end
 
       def create
@@ -35,6 +35,31 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("features.create.error", scope: "decidim.admin")
+            render action: "new"
+          end
+        end
+      end
+
+      def edit
+        @feature = participatory_process.features.find(params[:id])
+        authorize! :update, @feature
+
+        @form = FeatureForm.from_model(@feature).with_context(manifest: @feature.manifest)
+      end
+
+      def update
+        @feature = participatory_process.features.find(params[:id])
+        @form = form(FeatureForm).from_params(params).with_context(manifest: @feature.manifest)
+        authorize! :update, @feature
+
+        UpdateFeature.call(@form, @feature) do
+          on(:ok) do
+            flash[:notice] = I18n.t("features.update.success", scope: "decidim.admin")
+            redirect_to action: :index
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("features.update.error", scope: "decidim.admin")
             render action: "new"
           end
         end

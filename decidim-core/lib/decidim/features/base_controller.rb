@@ -10,7 +10,7 @@ module Decidim
       include NeedsParticipatoryProcess
       helper Decidim::TranslationsHelper
       helper Decidim::ParticipatoryProcessHelper
-      helper_method :current_feature
+      helper_method :current_feature, :current_manifest, :global_configuration
 
       skip_authorize_resource
 
@@ -22,10 +22,18 @@ module Decidim
         request.env["decidim.current_feature"]
       end
 
-      private
+      def current_manifest
+        current_feature.manifest
+      end
 
       def current_participatory_process
         request.env["decidim.current_participatory_process"]
+      end
+
+      def global_configuration
+        @global_configuration ||= current_manifest.configuration(:global).schema.new(
+          current_feature.configuration.try(:[], "global")
+        )
       end
     end
   end
