@@ -8,6 +8,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = env => {
   const envUtils = getIfUtils(env);
   const ifProd = envUtils.ifProd;
+  const ifTest = envUtils.ifTest;
 
   const config = webpackValidator({
     entry: {
@@ -65,7 +66,7 @@ module.exports = env => {
         }
       }),
       new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
+        analyzerMode: ifTest('disabled', 'static'),
         reportFilename: 'webpack.report.html',
         openAnalyzer: false
       })
