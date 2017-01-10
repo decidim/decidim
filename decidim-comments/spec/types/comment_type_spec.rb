@@ -27,7 +27,8 @@ module Decidim
 
       describe "replies" do
         let!(:random_comment) { FactoryGirl.create(:comment) }
-        let!(:replies) { FactoryGirl.create_list(:comment, 3, commentable: model) }
+        let!(:replies) { 3.times.map { |n| FactoryGirl.create(:comment, commentable: model, created_at: Time.now - n.days) } }
+
 
         let(:query) { "{ replies { id } }" }
 
@@ -40,7 +41,7 @@ module Decidim
 
         it "return comment's replies ordered by date" do
           response_ids = response["replies"].map{|reply| reply["id"].to_i }
-          replies_ids = replies.map(&:id)
+          replies_ids = replies.sort_by(&:created_at).map(&:id)
           expect(response_ids).to eq(replies_ids)
         end
       end
