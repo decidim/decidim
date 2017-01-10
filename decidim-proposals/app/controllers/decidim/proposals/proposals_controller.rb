@@ -4,6 +4,8 @@ module Decidim
   module Proposals
     # Exposes the proposal resource so users can view and create them.
     class ProposalsController < Decidim::Proposals::ApplicationController
+      helper_method :filter, :search_params
+
       include FormFactory
       before_action :authenticate_user!, only: [:new, :create]
 
@@ -12,9 +14,10 @@ module Decidim
       end
 
       def index
-        @search = ProposalSearch.new(current_feature, params[:page], params[:random_seed])
-        @proposals = @search.proposals
-        @random_seed = @search.random_seed
+        @proposals = ProposalSearch.new(search_params.merge(context_params)).results
+        # @search = ProposalSearch.new(current_feature, params[:page], params[:random_seed])
+        # @proposals = @search.proposals
+        # @random_seed = @search.random_seed
       end
 
       def new
@@ -35,6 +38,37 @@ module Decidim
             render :new
           end
         end
+      end
+
+      private
+
+      def filter
+        @filter ||= filter_klass.new(params.dig(:filter, :category_id))
+      end
+
+      def search_params
+        default_search_params
+          .merge(params.to_unsafe_h.except(:filter))
+          .merge(params.to_unsafe_h[:filter] || {})
+      end
+
+      # Internal: Defines a class that will wrap in an object the URL params used by the filter.
+      # this way we can use Rails' form helpers and have automatically checked checkboxes and
+      # radio buttons in the view, for example.
+      def filter_klass
+        Struct.new(:category_id)
+      end
+
+      def default_search_params
+        {
+
+        }.with_indifferent_access
+      end
+
+      def context_params
+        {
+          feature: current_feature
+        }
       end
     end
   end

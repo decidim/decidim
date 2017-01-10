@@ -2,19 +2,11 @@
 
 module Decidim
   module Meetings
-    # This controller is the abstract class from which all other controllers of
-    # this engine inherit.
-    #
-    # Note that it inherits from `Decidim::Features::BaseController`, which
-    # override its layout and provide all kinds of useful methods.
+    # Exposes the meeting resource so users can view them
     class MeetingsController < Decidim::Meetings::ApplicationController
       helper_method :meetings, :meeting, :search_params, :filter
 
       def index
-        respond_to do |format|
-          format.html
-          format.js
-        end
       end
 
       private
@@ -38,7 +30,7 @@ module Decidim
       end
 
       # Internal: Defines a class that will wrap in an object the URL params used by the filter.
-      # this way we can use Rails' form helpers and have automatically cehcked checkboxes and
+      # this way we can use Rails' form helpers and have automatically checked checkboxes and
       # radio buttons in the view, for example.
       def filter_klass
         Struct.new(:category_id, :order_start_time, :scope_id)
