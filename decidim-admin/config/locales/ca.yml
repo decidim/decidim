@@ -55,11 +55,13 @@ ca:
         configure: Configurar
         confirm_destroy: Segur que ho vols eliminar?
         create: Crear
+        deactivate: Desactiva-ho
         destroy: Eliminar
         edit: Editar
         new: Nou %{name}
         preview: Previsualitzar
         publish: Publicar
+        resend_invitation: Tornar a enviar invitació
         title: Accions
         unpublish: Despublicar
       categories:
@@ -120,6 +122,7 @@ ca:
         scopes: Àmbits
         settings: Configuració
         static_pages: Pàgines
+        users: Administradors
       models:
         category:
           fields:
@@ -157,6 +160,15 @@ ca:
             created_at: Data de creació
             title: Títol
           name: Pàgina
+        user:
+          fields:
+            created_at: Data de creació
+            email: Correu electrònic
+            invitation_accepted_at: Data d'acceptació de la invitació
+            invitation_sent_at: Data d'enviament de la invitació
+            last_sign_in_at: Darrera data d'identificació
+            name: Nom
+          name: Usuari
       organization:
         edit:
           title: Edita organització
@@ -267,3 +279,17 @@ ca:
         participatory_processes: Processos participatius
         scopes: Àmbits
         static_pages: Pàgines
+        users: Usuaris
+      users:
+        create:
+          error: Hi ha hagut un error en convidar a aquest usuari.
+          success: Usuari convidat amb èxit.
+        destroy:
+          error: S'ha produït un error en intentar eliminar aquest usuari.
+          success: L'usuari ja no és un administrador.
+        new:
+          create: Convidar
+          title: Convidar un usuari com a administrador
+        resend_invitation:
+          error: S'ha produït un error en intentar enviar el missatge d'invitació.
+          success: Invitació enviada correctament.
