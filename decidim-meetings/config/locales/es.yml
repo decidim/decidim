@@ -32,6 +32,9 @@ es:
           meeting:
             name: Encuentro
       meetings:
+        filters:
+          ascendent: Ascendente
+          descendent: Descendiente
         index:
           title: Lista de encuentros
         show:
