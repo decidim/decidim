@@ -45,3 +45,7 @@ en:
           title: New proposal
         proposal:
           view_proposal: View proposal
+        share:
+          share: Share
+          share_link: Share link
+          close_window: Close window

@@ -1,5 +1,12 @@
-<% @description = @proposal.body %>
-<% @title = @proposal.title %>
+<% content_for :proposal_description do %>
+  <% @proposal.body %>
+<% end %>
+<% content_for :proposal_title do %>
+  <% @proposal.title %>
+<% end %>
+<% content_for :proposal_url do %>
+  <% proposal_url(@proposal.id) %>
+<% end %>
 
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>

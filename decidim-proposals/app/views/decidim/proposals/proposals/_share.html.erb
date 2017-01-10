@@ -1,22 +1,22 @@
 <div class="text-center">
   <button class="link text-center" data-open="processShare">
-    Compartir
+    <%= t(".share") %>
     <%= icon "share", class: "icon--after"%>
   </button>
 </div>
 <div class="reveal" id="processShare" data-reveal>
   <div class="reveal__header">
-    <h3 class="reveal__title">Compartir:</h3>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
+    <h3 class="reveal__title"><%= t(".share") %>:</h3>
+    <button class="close-button" data-close aria-label="<%= t(".close_window") %>" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="button-group text-center">
-  <%= social_share_button_tag(proposal.title) %>
-                                # url: proposal_url(proposal.id),
-                                # image: current_participatory_process.banner_image.current_path,
-                                # desc: proposal.body,
-                                # via: "decidimbcn") %>
+  <%= social_share_button_tag(content_for(:proposal_title),
+        url: content_for(:proposal_url),
+        image: content_for(:social_image_url),
+        desc: content_for(:proposal_description),
+        via: "decidimbcn") %>
     <a class="button secondary" data-open="urlShare">
       <%= icon "link-intact" %>
     </a>
@@ -24,10 +24,10 @@
 </div>
 <div class="reveal" id="urlShare" data-reveal>
   <div class="reveal__header">
-    <h3 class="reveal__title">Compartir enlace:</h3>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
+    <h3 class="reveal__title"><%= t(".share_link") %>:</h3>
+    <button class="close-button" data-close aria-label="<%= t(".close_window") %>" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <h4 class="heading4"><%= "#{proposal_url(proposal.id)}" %></h4>
+  <h4 class="heading4"><%= "#{content_for(:proposal_url)}" %></h4>
 </div>

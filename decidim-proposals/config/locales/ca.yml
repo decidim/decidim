@@ -44,3 +44,7 @@ ca:
           title: Nova proposta
         proposal:
           view_proposal: Veure proposta
+        share:
+          share: Compartir
+          share_link: Compartir enllaç
+          close_window: Tancar finestra
