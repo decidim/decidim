@@ -72,13 +72,16 @@ es:
       invitation_instructions:
         accept: Aceptar invitación
         accept_until: Esta invitación caducará el día %{due_date}.
-        hello: Hola %{email}
+        hello: Hola %{email},
         ignore: |-
           Si no quieres aceptar la invitación ignora este correo.<br />
           Tu cuenta no se creará hasta que accedas al enlance de abajo y escojas tu contraseña.
+        invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}, puedes aceptar la invitación con el enlace a continuación.
+      invite_admin:
+        subject: Has sido invitado para gestionar %{organization}
       organization_admin_invitation_instructions:
-        subject: Te han invitado a administrar %{organization}
+        subject: Has sido invitado para gestionar %{organization}
       password_change:
         greeting: '¡Hola %{recipient}!'
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.

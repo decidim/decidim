@@ -32,6 +32,12 @@ ca:
           meeting:
             name: Trobada
       meetings:
+        filters:
+          ascendent: Ascendent
+          category: Categoria
+          date: Data
+          descendent: Descendent
+          scopes: Àmbits
         index:
           title: Llistat de trobades
         show:

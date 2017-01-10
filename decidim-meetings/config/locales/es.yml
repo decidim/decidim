@@ -32,6 +32,12 @@ es:
           meeting:
             name: Encuentro
       meetings:
+        filters:
+          ascendent: Ascendente
+          category: Categoría
+          date: Fecha
+          descendent: Descendiente
+          scopes: Ámbitos
         index:
           title: Lista de encuentros
         show:
