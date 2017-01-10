@@ -16,7 +16,11 @@ module Decidim
 
       field :author, !AuthorType, "The comment's author"
 
-      field :replies, !types[CommentType], "The comment's replies"
+      field :replies, !types[CommentType], "The comment's replies" do
+        resolve lambda { |obj, _args, _ctx|
+          obj.replies.sort_by(&:created_at)
+        }
+      end
 
       field :hasReplies, !types.Boolean, "Check if the comment has replies" do
         resolve lambda { |obj, _args, _ctx|
