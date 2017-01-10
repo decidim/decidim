@@ -120,6 +120,7 @@ es:
         scopes: Ámbitos
         settings: Configuración
         static_pages: Páginas
+        users: Administradores
       models:
         category:
           fields:
@@ -157,6 +158,11 @@ es:
             created_at: Fecha de creación
             title: Título
           name: Página
+        user:
+          fields:
+            email: Correo electrónico
+            invitation_accepted_at: Fecha de aceptación de la invitación
+            invitation_sent_at: Fecha de envío de la invitación
       organization:
         edit:
           title: Editar organización
