@@ -53,6 +53,7 @@
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",
     "webpack": "2.2.0-rc.3",
+    "webpack-bundle-analyzer": "^2.2.1",
     "webpack-config-utils": "^2.3.0",
     "webpack-validator": "^2.2.12",
     "yaml-loader": "^0.4.0"
