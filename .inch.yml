@@ -1,0 +1,5 @@
+files:
+  included:
+    - lib/**/*.rb
+    - decidim-*/{app,lib}/**/*.rb
+    - decidim-*/{app,lib}/**/*.js
