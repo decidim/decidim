@@ -79,9 +79,9 @@ ca:
         invited_you_as_admin: "%{invited_by} t'ha convidat com un administrador de %{application}, pots acceptar-ho mitjançant el següent enllaç."
         someone_invited_you: Algú t'ha convidat a %{application}, pots acceptar la invitació amb l'enllaç a continuació.
       invite_admin:
-        subject: Has estat convidat per gestionar %{organization}
+        subject: Has estat convidat a gestionar %{organization}
       organization_admin_invitation_instructions:
-        subject: Has estat convidat per gestionar %{organization}
+        subject: Has estat convidat a gestionar %{organization}
       password_change:
         greeting: Hola %{recipient}!
         message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
