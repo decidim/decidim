@@ -1,3 +1,5 @@
+require_dependency "decidim/features/configuration"
+
 # frozen_string_literal: true
 module Decidim
   # This class handles all the logic associated to configuring a feature
@@ -70,6 +72,12 @@ module Decidim
     # Returns nothing.
     def seed!
       @seeds&.call
+    end
+
+    def configuration(&block)
+      @configuration ||= FeatureConfiguration.new
+      yield(@configuration) if block
+      @configuration
     end
   end
 end

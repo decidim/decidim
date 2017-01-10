@@ -19,6 +19,10 @@ Decidim.register_feature(:pages) do |feature|
     end
   end
 
+  feature.configuration do |configuration|
+    configuration.attribute :comments, type: :boolean
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?
