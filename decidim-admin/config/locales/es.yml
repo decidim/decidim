@@ -55,11 +55,13 @@ es:
         configure: Configurar
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
         create: Crear
+        deactivate: Desactivar
         destroy: Eliminar
         edit: Editar
         new: Nuevo %{name}
         preview: Previsualizar
         publish: Publicar
+        resend_invitation: Reenviar invitación
         title: Acciones
         unpublish: Despublicar
       categories:
@@ -160,9 +162,13 @@ es:
           name: Página
         user:
           fields:
+            created_at: Fecha de creación
             email: Correo electrónico
             invitation_accepted_at: Fecha de aceptación de la invitación
             invitation_sent_at: Fecha de envío de la invitación
+            last_sign_in_at: Última fecha de identificación
+            name: Nombre
+          name: Usuario
       organization:
         edit:
           title: Editar organización
@@ -273,3 +279,17 @@ es:
         participatory_processes: Procesos participativos
         scopes: Ámbitos
         static_pages: Páginas
+        users: Usuarios
+      users:
+        create:
+          error: Hubo un error al invitar a este usuario.
+          success: Usuario invitado con éxito.
+        destroy:
+          error: Hubo un error al tratar de eliminar este usuario.
+          success: El usuario ya no es un administrador.
+        new:
+          create: Invitar
+          title: Invitar a un usuario como administrador
+        resend_invitation:
+          error: Se produjo un error al intentar enviar el mensaje de invitación.
+          success: Invitación enviada con éxito.
