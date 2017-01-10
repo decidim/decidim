@@ -16,7 +16,7 @@
         url: content_for(:proposal_url),
         image: content_for(:social_image_url),
         desc: content_for(:proposal_description),
-        via: "decidimbcn") %>
+        via: content_for(:twitter_handler)) %>
     <a class="button secondary" data-open="urlShare">
       <%= icon "link-intact" %>
     </a>

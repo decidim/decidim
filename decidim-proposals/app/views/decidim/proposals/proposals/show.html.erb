@@ -7,6 +7,9 @@
 <% content_for :proposal_url do %>
   <% proposal_url(@proposal.id) %>
 <% end %>
+<% content_for :twitter_handler do %>
+  <% current_organization.twitter_handler %>
+<% end %>
 
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
@@ -53,4 +56,3 @@
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>
-
