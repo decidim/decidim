@@ -15,12 +15,12 @@ module Decidim
         @filter = filter
       end
 
-      def method_missing(method_name, *arguments, &block)
-        @filter.present? && @filter.has_key?(method_name) ? @filter[method_name] : ""
+      def method_missing(method_name, *_arguments)
+        @filter.present? && @filter.key?(method_name) ? @filter[method_name] : ""
       end
 
       def respond_to_missing?(method_name, include_private = false)
-        @filter.present? && @filter.has_key?(method_name) || super
+        @filter.present? && @filter.key?(method_name) || super
       end
     end
 
@@ -40,7 +40,7 @@ module Decidim
       def filter
         @filter ||= Filter.new(params[:filter] || default_filter_params)
       end
-      
+
       def search_params
         default_search_params
           .merge(params.to_unsafe_h[:filter] || {})

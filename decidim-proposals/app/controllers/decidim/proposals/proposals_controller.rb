@@ -15,7 +15,7 @@ module Decidim
 
       def index
         @proposals = search.results
-        @random_seed = search.random_seed        
+        @random_seed = search.random_seed
       end
 
       def new

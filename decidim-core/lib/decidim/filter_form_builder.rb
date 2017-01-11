@@ -6,11 +6,11 @@ module Decidim
   class FilterFormBuilder < FormBuilder
     # Wrap the radio buttons collection in a custom fieldset.
     # It also renders the inputs inside its labels.
-    def collection_radio_buttons(method, collection, value_method, label_method, options = {}, html_options = {}, &block)
+    def collection_radio_buttons(method, collection, value_method, label_method, options = {}, html_options = {})
       fieldset_wrapper options[:legend_title] do
         super(method, collection, value_method, label_method, options, html_options) do |b|
           if block_given?
-            block.call b
+            yield b
           else
             b.label { b.radio_button + b.text }
           end
@@ -19,12 +19,12 @@ module Decidim
     end
 
     # Wrap the check_boxes collection in a custom fieldset.
-    # It also renders the inputs inside its labels.    
-    def collection_check_boxes(method, collection, value_method, label_method, options = {}, html_options = {}, &block)
+    # It also renders the inputs inside its labels.
+    def collection_check_boxes(method, collection, value_method, label_method, options = {}, html_options = {})
       fieldset_wrapper options[:legend_title] do
         super(method, collection, value_method, label_method, options, html_options) do |b|
           if block_given?
-            block.call b
+            yield b
           else
             b.label { b.check_box + b.text }
           end
@@ -42,12 +42,12 @@ module Decidim
     private
 
     # Private: Renders a custom fieldset and execute the given block.
-    def fieldset_wrapper(legend_title, &block)
-      @template.content_tag(:div, '', class: "filters__section") do
+    def fieldset_wrapper(legend_title)
+      @template.content_tag(:div, "", class: "filters__section") do
         @template.content_tag(:fieldset) do
           @template.content_tag(:legend) do
-            @template.content_tag(:h6, legend_title, class: 'heading6')
-          end + block.call
+            @template.content_tag(:h6, legend_title, class: "heading6")
+          end + yield
         end
       end
     end

@@ -8,8 +8,7 @@ module Decidim
 
       helper_method :meetings, :meeting
 
-      def index
-      end
+      def index; end
 
       private
 
