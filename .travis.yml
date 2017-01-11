@@ -29,8 +29,9 @@ before_install:
   - export BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
   - export BUNDLE_PATH="$TRAVIS_BUILD_DIR/.bundle"
 
+bundler_args: --path=$BUNDLE_PATH
+
 cache:
-  bundler: true
   directories:
     - $TRAVIS_BUILD_DIR/.yarn-cache
     - $TRAVIS_BUILD_DIR/node_modules
