@@ -1,15 +1,7 @@
-<% content_for :proposal_description do %>
-  <% @proposal.body %>
-<% end %>
-<% content_for :proposal_title do %>
-  <% @proposal.title %>
-<% end %>
-<% content_for :proposal_url do %>
-  <% proposal_url(@proposal.id) %>
-<% end %>
-<% content_for :twitter_handler do %>
-  <% current_organization.twitter_handler %>
-<% end %>
+<% content_for(:meta_description){ @proposal.body } %>
+<% content_for(:meta_title){ @proposal.title } %>
+<% content_for(:meta_url){ proposal_url(@proposal.id) } %>
+<% content_for(:twitter_handler){ current_organization.twitter_handler } %>
 
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>

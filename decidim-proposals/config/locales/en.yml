@@ -46,6 +46,6 @@ en:
         proposal:
           view_proposal: View proposal
         share:
+          close_window: Close window
           share: Share
           share_link: Share link
-          close_window: Close window
