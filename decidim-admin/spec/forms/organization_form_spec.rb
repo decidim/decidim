@@ -6,6 +6,7 @@ module Decidim
   module Admin
     describe OrganizationForm do
       let(:name) { "My super organization" }
+      let(:twitter_handler) { "My awesome handler" }
       let(:welcome_text) do
         {
           en: "Welcome",
