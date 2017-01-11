@@ -29,7 +29,7 @@ PATH
       decidim-core (= 0.0.1)
       kaminari (~> 1.0.0.rc1)
       rectify (~> 0.8.0)
-      social-share-button
+      social-share-button (~> 0.8.8)
 
 PATH
   remote: decidim-admin

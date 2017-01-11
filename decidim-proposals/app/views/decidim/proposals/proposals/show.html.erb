@@ -1,7 +1,7 @@
-<% content_for(:meta_description){ @proposal.body } %>
-<% content_for(:meta_title){ @proposal.title } %>
-<% content_for(:meta_url){ proposal_url(@proposal.id) } %>
-<% content_for(:twitter_handler){ current_organization.twitter_handler } %>
+<% content_for :meta_description, @proposal.body %>
+<% content_for :meta_title, @proposal.title %>
+<% content_for :meta_url, proposal_url(@proposal.id) %>
+<% content_for :twitter_handler, current_organization.twitter_handler %>
 
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
