@@ -57,9 +57,11 @@ $comment-form-bg: $light-gray;
   }
 }
 
-.comment__footer{
+.comment__footer,
+.comment__additionalreply{
   padding: $comment-padding;
   font-size: 90%;
+  @include clearfix;
 }
 
 .comment--nested{
@@ -72,10 +74,6 @@ $comment-form-bg: $light-gray;
   &:first-of-type{
     margin-top: 0;
   }
-}
-
-.comment__footer{
-  @include clearfix;
 }
 
 .comment__reply{
@@ -116,4 +114,3 @@ $comment-form-bg: $light-gray;
     display: block;
   }
 }
-
