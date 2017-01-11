@@ -51,11 +51,12 @@ class Comment extends Component {
             { body }
           </p>
         </div>
-        {this._renderReplies()}
         <div className="comment__footer">
           {this._renderReplyButton()}
           {this._renderVoteButtons()}
         </div>
+        {this._renderReplies()}
+        {this._renderAdditionalReplyButton()}
         {this._renderReplyForm()}
       </article>
     );
@@ -83,6 +84,33 @@ class Comment extends Component {
     }
 
     return <span>&nbsp;</span>;
+  }
+
+   /**
+   * Render additional reply button if user can reply the comment at the bottom of a conversation
+   * @private
+   * @returns {Void|DOMElement} - Render the reply button or not if user can reply
+   */
+  _renderAdditionalReplyButton() {
+    const { comment: { canHaveReplies, hasReplies }, currentUser } = this.props;
+    const { showReplyForm } = this.state;
+
+    if (currentUser && canHaveReplies) {
+      if (hasReplies) {
+        return (
+          <div className="comment__additionalreply">
+            <button
+              className="comment__reply muted-link"
+              aria-controls="comment1-reply"
+              onClick={() => this.setState({ showReplyForm: !showReplyForm })}
+            >
+              { I18n.t("components.comment.reply") }
+            </button>
+          </div>
+        );
+      }
+    }
+    return null;
   }
 
   /**

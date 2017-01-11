@@ -41,6 +41,7 @@ export class AddCommentForm extends Component {
         <form onSubmit={(evt) => this._addComment(evt)}>
           <label className="show-for-sr" htmlFor={`add-comment-${commentableType}-${commentableId}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
           <textarea
+            autoFocus
             ref={(textarea) => this.bodyTextArea = textarea}
             id={`add-comment-${commentableType}-${commentableId}`}
             rows="4"
@@ -228,6 +229,7 @@ const AddCommentFormWithMutation = graphql(gql`
             if (comment.id === commentableId) {
               return {
                 ...comment,
+                hasReplies: true,
                 replies: [
                   ...replies,
                   newComment

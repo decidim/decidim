@@ -59,6 +59,7 @@ module Decidim
           obj.down_voted_by?(ctx[:current_user])
         }
       end
+      
     end
   end
 end
