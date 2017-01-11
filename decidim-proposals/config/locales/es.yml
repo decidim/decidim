@@ -44,3 +44,7 @@ es:
           title: Nueva propuesta
         proposal:
           view_proposal: Ver propuesta
+        share:
+          share: Compartir
+          share_link: Compartir enlace
+          close_window: Cerrar ventana

@@ -10,6 +10,7 @@ module Decidim
       mimic :organization
 
       attribute :name, String
+      attribute :twitter_handler, String
       attribute :default_locale, String
       attribute :homepage_image
       attribute :logo
