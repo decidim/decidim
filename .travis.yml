@@ -8,7 +8,7 @@ services:
 language: ruby
 
 branches:
-  only: 
+  only:
     - master
 
 env:
@@ -34,6 +34,7 @@ cache:
   directories:
     - $TRAVIS_BUILD_DIR/.yarn-cache
     - $TRAVIS_BUILD_DIR/node_modules
+    - $BUNDLE_PATH
 
 script:
   - cd $GEM;
