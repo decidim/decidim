@@ -37,6 +37,7 @@ module Decidim
       def attributes
         {
           name: form.name,
+          twitter_handler: form.twitter_handler,
           description: form.description,
           welcome_text: form.welcome_text,
           homepage_image: form.homepage_image || organization.homepage_image,
