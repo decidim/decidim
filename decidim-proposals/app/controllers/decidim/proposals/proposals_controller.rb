@@ -51,6 +51,12 @@ module Decidim
           random_seed: params[:random_seed]
         }.with_indifferent_access
       end
+
+      def default_filter_params
+        {
+          category_id: ""
+        }
+      end
     end
   end
 end

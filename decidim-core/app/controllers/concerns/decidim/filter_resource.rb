@@ -16,7 +16,7 @@ module Decidim
       end
 
       def method_missing(method_name, *_arguments)
-        @filter.present? && @filter.key?(method_name) ? @filter[method_name] : ""
+        @filter.present? && @filter.key?(method_name) ? @filter[method_name] : super
       end
 
       def respond_to_missing?(method_name, include_private = false)
