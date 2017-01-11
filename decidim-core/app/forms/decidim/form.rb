@@ -9,7 +9,7 @@ module Decidim
              to: :context, prefix: false, allow_nil: true
 
     def available_locales
-      current_organization.available_locales
+      current_organization&.available_locales
     end
   end
 end

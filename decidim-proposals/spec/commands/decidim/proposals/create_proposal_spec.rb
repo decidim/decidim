@@ -12,18 +12,25 @@ module Decidim
           {
             title: "Proposal title",
             body: "Proposal body",
-            author: create(:user, organization: organization),
             feature: feature
           }
         end
+
+        let(:author) do
+          create(:user, organization: organization)
+        end
+
         let(:form) do
           ProposalForm.from_params(
-            form_params,
+            form_params
+          ).with_context(
             current_organization: organization,
+            current_feature: feature,
             current_process: participatory_process
           )
         end
-        let(:command) { described_class.new(form) }
+
+        let(:command) { described_class.new(form, author) }
 
         describe "when the form is not valid" do
           before do
