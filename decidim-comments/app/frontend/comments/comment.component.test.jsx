@@ -95,6 +95,13 @@ describe("<Comment />", () => {
     expect(wrapper.find('div.comment__additionalreply')).not.to.be.present();
   });
 
+  it("should render the additional reply button if the parent comment has replies", () => {
+    comment.canHaveReplies = true;
+    comment.hasReplies = true;
+    const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
+    expect(wrapper.find('div.comment__additionalreply')).to.be.present();
+  });
+
   it("should render comment replies a separate Comment components", () => {
     const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} votable />);
     wrapper.find(Comment).forEach((node, idx) => {
