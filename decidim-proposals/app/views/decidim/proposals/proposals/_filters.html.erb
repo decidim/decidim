@@ -1,4 +1,17 @@
 <%= filter_form_for filter do |form| %>
+  <div class="filters__section">
+    <div class="filters__search">
+      <div class="input-group">
+        <%= form.search_field :search_text, label: false, class: "input-group-field", placeholder: t('.search') %>
+        <div class="input-group-button">
+          <button type="submit" class="button button--muted">
+            <%= icon "magnifying-glass", aria_label: t('.search') %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <%= form.collection_radio_buttons :origin, [["all", t('.all')], ["official", t('.official')], ["citizenship", t('.citizenship')]], :first, :last, legend_title: t('.origin') %>
 
   <% if current_feature.categories.any? %>
@@ -7,5 +20,3 @@
 
   <%= form.hidden_field :random_seed %>
 <% end %>
-
-<%= javascript_include_tag "decidim/meetings/meetings_filters" %>

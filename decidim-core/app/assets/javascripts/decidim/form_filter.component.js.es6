@@ -1,12 +1,12 @@
 /* eslint-disable no-div-regex, no-useless-escape, no-param-reassign */
 
 /**
- * A component that handles the meetings filter form.
+ * A component that handles the form filter.
  * @class
  * @augments Component
  */
 ((exports) => {
-  class MeetingsFormFilterComponent {
+  class FormFilterComponent {
     mounted;
     $form;
 
@@ -76,8 +76,8 @@
      * @returns {Void} - Returns nothing.
      */
     _clearForm() {
-      this.$form.find('input[type=checkbox]').attr('checked', false);
-      this.$form.find('input[type=radio]').attr('checked', false);
+      // this.$form.find('input[type=checkbox]').attr('checked', false);
+      // this.$form.find('input[type=radio]').attr('checked', false);
     }
 
     /**
@@ -88,16 +88,25 @@
     _onPopState() {
       this._clearForm();
 
-      let [sortValue] = this._getLocationParams(/filter\[order_start_time\]=([^&]*)/g) || ["asc"];
-      this.$form.find(`input[type=radio][value=${sortValue}]`)[0].checked = true;
+      const filterParams = decodeURIComponent(this._getLocation())
+        .match(/filter\[([^\]]*)\](?:\[\])?=([^&]*)/g)
+        .reduce((acc, result) => {
+          const [, key, value] = result.match(/filter\[([^\]]*)\](?:\[\])?=([^&]*)/);
+          acc[key] = value;
+          return acc;
+        }, {});
 
-      let scopeValues = this._getLocationParams(/filter\[scope_id\]\[\]=([^&]*)/g) || [];
-      scopeValues.forEach((value) => {
-        this.$form.find(`input[type=checkbox][value=${value}]`)[0].checked = true;
-      })
+      
+      // let [sortValue] = this._getLocationParams(/filter\[order_start_time\]=([^&]*)/g) || ["asc"];
+      // this.$form.find(`input[type=radio][value=${sortValue}]`)[0].checked = true;
 
-      let [categoryIdValue] = this._getLocationParams(/filter\[category_id\]=([^&]*)/g) || [null];
-      this.$form.find(`select#filter_category_id`).first().val(categoryIdValue);
+      // let scopeValues = this._getLocationParams(/filter\[scope_id\]\[\]=([^&]*)/g) || [];
+      // scopeValues.forEach((value) => {
+      //   this.$form.find(`input[type=checkbox][value=${value}]`)[0].checked = true;
+      // })
+
+      // let [categoryIdValue] = this._getLocationParams(/filter\[category_id\]=([^&]*)/g) || [null];
+      // this.$form.find(`select#filter_category_id`).first().val(categoryIdValue);
 
       this.$form.submit();
     }
@@ -124,6 +133,6 @@
     }
   }
 
-  exports.DecidimMeetings = exports.DecidimMeetings || {};
-  exports.DecidimMeetings.MeetingsFormFilterComponent = MeetingsFormFilterComponent;
+  exports.Decidim = exports.Decidim || {};
+  exports.Decidim.FormFilterComponent = FormFilterComponent;
 })(window);

@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-expressions */
 require('jquery');
-require('./meetings_form_filter.component.js.es6');
+require('./form_filter.component.js.es6');
 
-const { DecidimMeetings: { MeetingsFormFilterComponent } } = window;
+const { Decidim: { FormFilterComponent } } = window;
 
-describe('MeetingsFormFilterComponent', () => {
+describe('FormFilterComponent', () => {
   const selector = 'form#new_filter';
   let subject = null;
 
@@ -28,11 +28,11 @@ describe('MeetingsFormFilterComponent', () => {
     window.history = {
       pushState: sinon.stub()
     };
-    subject = new MeetingsFormFilterComponent(selector);
+    subject = new FormFilterComponent(selector);
   });
 
   it('exists', () => {
-    expect(MeetingsFormFilterComponent).to.exist;
+    expect(FormFilterComponent).to.exist;
   });
 
   it('initializes unmounted', () => {

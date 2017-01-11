@@ -1,19 +1,19 @@
-// = require ./meetings_form_filter.component
+// = require ./form_filter.component
 // = require_self
 
-// Initializes the meetings filter. We're unmounting the component before
+// Initializes the form filter. We're unmounting the component before
 // changing the page so that we stop listening to events and we don't bind
 // multiple times when re-visiting the page.
 ((exports) => {
-  const { DecidimMeetings: { MeetingsFormFilterComponent } } = exports;
-  const meetingsFormFilter = new MeetingsFormFilterComponent('form#new_filter');
+  const { Decidim: { FormFilterComponent } } = exports;
+  const formFilter = new FormFilterComponent('form#new_filter');
 
   const onDocumentReady = () => {
-    meetingsFormFilter.mountComponent();
+   formFilter.mountComponent();
   };
 
   const onTurboLinksBeforeVisit = () => {
-    meetingsFormFilter.unmountComponent();
+    formFilter.unmountComponent();
     $(document).off('turbolinks:before-visit', onTurboLinksBeforeVisit);
   };
 

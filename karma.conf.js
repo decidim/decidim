@@ -9,13 +9,13 @@ module.exports = function(config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine'],
-    files: [testGlob, srcGlob, 'decidim-meetings/**/*.component.js.es6', 'decidim-meetings/**/*.test.js'],
+    files: [testGlob, srcGlob, 'decidim-core/**/*.component.js.es6', 'decidim-core/**/*.test.js'],
     exclude: ['decidim-*/app/frontend/entry.js'],
     preprocessors: {
       [testGlob]: ['webpack', 'sourcemap'],
       [srcGlob]: ['webpack'],
-      'decidim-meetings/**/*.test.js': ['webpack', 'sourcemap'],
-      'decidim-meetings/**/*.component.js.es6': ['webpack']
+      'decidim-core/**/*.test.js': ['webpack', 'sourcemap'],
+      'decidim-core/**/*.component.js.es6': ['webpack']
     },
     webpack: webpackConfig,
     webpackMiddleware: { noInfo: true },

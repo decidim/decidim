@@ -26,6 +26,13 @@ module Decidim
         end
       end
 
+      # Handle the search_text filter
+      def search_search_text
+        query
+          .where("title ILIKE ?", "%#{search_text}%")
+          .or(query.where("body ILIKE ?", "%#{search_text}%"))
+      end
+
       # Returns the random proposals for the current page.
       def results
         @proposals ||= Proposal.transaction do

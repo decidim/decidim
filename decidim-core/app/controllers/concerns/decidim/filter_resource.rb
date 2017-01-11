@@ -25,12 +25,12 @@ module Decidim
     end
 
     included do
-      helper_method :search, :filter, :search_params
+      helper_method :search, :filter
 
       private
 
       def search
-        @search ||= search_klass.new(search_params.merge(context_params))
+        @search ||= search_klass.new(search_params)
       end
 
       def search_klass
@@ -38,12 +38,18 @@ module Decidim
       end
 
       def filter
-        @filter ||= Filter.new(params[:filter] || default_filter_params)
+        @filter ||= Filter.new(filter_params)
       end
 
       def search_params
         default_search_params
-          .merge(params.to_unsafe_h[:filter] || {})
+          .merge(filter_params)
+          .merge(context_params)
+      end
+
+      def filter_params
+        default_filter_params
+          .merge(params.to_unsafe_h[:filter].try(:symbolize_keys) || {})
       end
 
       def default_search_params
@@ -55,9 +61,7 @@ module Decidim
       end
 
       def context_params
-        {
-          feature: current_feature
-        }
+        { feature: current_feature }
       end
     end
   end

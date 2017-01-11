@@ -35,7 +35,12 @@ en:
             title: Title
       proposals:
         filters:
+          all: All
           category: Category
+          citizenship: Citizenship
+          official: Official
+          origin: Origin
+          search: Search
         index:
           new_proposal: New proposal
           proposals_count: "%{count} proposals"
