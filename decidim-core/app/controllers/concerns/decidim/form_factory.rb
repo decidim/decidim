@@ -33,45 +33,48 @@ module Decidim
           # Initializes the form factory object.
           #
           # klass - the class name of the Form object that will be initialized
-          # context - the Controller where the form is built.
-          def initialize(klass, context)
+          # controller - the Controller where the form is built.
+          def initialize(klass, controller)
             @klass = klass
-            @context = context
+            @controller = controller
           end
 
           # Returns a simple instance of the form klass.
-          def instance(context = {})
-            @klass.new(context)
+          #
+          # extra_context - A Hash with optional extra context data.
+          def instance(extra_context = {})
+            @klass.new(context.merge(extra_context))
           end
 
           # Initializes a form object from a model. Delegates the functionality
           # to the form object class method.
           #
-          # model - the model instance from which the form object will be
-          #   initialized.
-          # context - a Hash with optional context data.
-          def from_model(model, context = {})
-            from_params(model.attributes, context)
+          # model         - the model instance from which the form object will be
+          #                 initialized.
+          # extra_context - a Hash with optional context data.
+          def from_model(model, extra_context = {})
+            @klass.from_model(model).with_context(context.merge(extra_context))
           end
 
           # Initializes a form object instance from params, and it
           # automatically adds some context. Context can be extended.
           #
-          # params - a Hash with params. Mostly a set of params from a form.
-          # context - a Hash with optional context data.
-          def from_params(params, context = {})
-            @klass.from_params(params, context_hash.merge(context))
+          # params        - a Hash with params. Mostly a set of params from a form.
+          # extra_context - a Hash with optional context data.
+          def from_params(params, extra_context = {})
+            @klass.from_params(params).with_context(context.merge(extra_context))
           end
 
           # Sets a base context from the current controller. Since this can be
           # used from some controllers that do not respond to the helper
           # methods used here, this Hash can have different keys depending on
           # the controller that uses it.
-          def context_hash
+          def context
             {
-              current_organization: @context.try(:current_organization),
-              current_user: @context.try(:current_user)
-            }.compact
+              current_organization: @controller.try(:current_organization),
+              current_feature: @controller.try(:current_feature),
+              current_user: @controller.try(:current_user)
+            }
           end
         end.new(klass, self)
       end
