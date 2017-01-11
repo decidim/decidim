@@ -21,7 +21,12 @@ class CommentThread extends Component {
       <div>
         {this._renderTitle()}
         <div className="comment-thread">
-          <Comment comment={filter(Comment.fragments.comment, comment)} currentUser={currentUser} votable={votable} />
+          <Comment 
+            comment={filter(Comment.fragments.comment, comment)} 
+            currentUser={currentUser} 
+            votable={votable}
+            isRootComment
+          />
         </div>
       </div>
     );

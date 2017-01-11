@@ -72,5 +72,10 @@ describe('<CommentThread />', () => {
       const wrapper = shallow(<CommentThread comment={comment} currentUser={currentUser} votable />);
       expect(wrapper.find(Comment).first()).to.have.prop("votable").equal(true);
     });
-  });
+    
+    it("and pass the isRootComment equal true", () => {
+      const wrapper = shallow(<CommentThread comment={comment} currentUser={currentUser} votable isRootComment />);
+      expect(wrapper.find(Comment).first()).to.have.prop("isRootComment").equal(true);
+    });
+  }); 
 });
