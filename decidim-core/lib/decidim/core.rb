@@ -15,6 +15,11 @@ module Decidim
 
   # Loads seeds from all engines.
   def self.seed!
+    # Faker needs to have the `:en` locale in order to work properly, so we
+    # must enforce it during the seeds.
+    original_locale = I18n.available_locales
+    I18n.available_locales = original_locale + [:en] unless original_locale.include?(:en)
+
     railties = Rails.application.railties.to_a.uniq.select do |railtie|
       railtie.respond_to?(:load_seed) && railtie.class.name.include?("Decidim::")
     end
@@ -28,6 +33,8 @@ module Decidim
       puts "Creating Feature (#{feature.name}) seeds..."
       feature.seed!
     end
+
+    I18n.available_locales = original_locale
   end
 
   # Exposes a configuration option: The application name String.
