@@ -15,6 +15,8 @@ module Decidim
       attribute :configuration, Object
       attribute :manifest
 
+      attribute :step_configurations, Hash[String => Object]
+
       def map_model(model)
         self.attributes = model.attributes
         self.configuration = model.configuration

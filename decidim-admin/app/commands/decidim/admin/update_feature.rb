@@ -34,7 +34,8 @@ module Decidim
       def update_feature
         @feature.update_attributes(
           name: form.name,
-          configuration: form.configuration
+          configuration: form.configuration,
+          step_configurations: form.step_configurations
         )
       end
 

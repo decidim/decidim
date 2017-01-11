@@ -29,7 +29,7 @@ module Decidim
 
     def configuration
       manifest.configuration(:global).schema.new(
-        self[:configuration].try(:[], "global") || {}
+        self[:configuration].try(:[], "global")
       )
     end
 
@@ -37,10 +37,38 @@ module Decidim
       self[:configuration] ||= {}
 
       self[:configuration]["global"] = if data.is_a?(Hash)
-                                         data
+                                         manifest.configuration(:global).schema.new(
+                                           data
+                                         )
+                                       elsif data.nil?
+                                         {}
                                        else
                                          data.attributes
                                        end
+    end
+
+    def step_configurations
+      participatory_process.steps.inject({}) do |result, step|
+        configuration = manifest.configuration(:step).schema.new(
+          self[:configuration].try(:[], step.id.to_s)
+        )
+
+        result.merge(step.id.to_s => configuration)
+      end
+    end
+
+    def step_configurations=(data)
+      self[:configuration] ||= {}
+
+      data.each do |key, value|
+        self[:configuration][key.to_s] = if value.is_a?(Hash)
+                                           manifest.configuration(:step).schema.new(value)
+                                         elsif value.nil?
+                                           {}
+                                         else
+                                           value.attributes
+                                         end
+      end
     end
   end
 end

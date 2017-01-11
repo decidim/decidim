@@ -23,6 +23,10 @@ Decidim.register_feature(:pages) do |feature|
     configuration.attribute :comments_enabled, type: :boolean
   end
 
+  feature.configuration(:step) do |configuration|
+    configuration.attribute :comments_enabled
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?

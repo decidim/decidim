@@ -22,7 +22,8 @@ module Decidim
 
         @feature = Feature.new(
           name: default_name(manifest),
-          manifest_name: params[:type]
+          manifest_name: params[:type],
+          participatory_process: participatory_process
         )
 
         @form = form(FeatureForm).from_model(@feature)

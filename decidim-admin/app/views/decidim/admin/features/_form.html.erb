@@ -1,9 +1,42 @@
 <div class="field">
   <%= form.translated :text_field, :name, autofocus: true %>
 
-  <%= form.fields_for :configuration, form.object.configuration do |configuration_fields| %>
-    <%= render partial: "decidim/admin/features/configuration_fields",
-               locals: { form: configuration_fields }
-    %>
+  <% if form.object.configuration.schema.attributes.any? %>
+    <div class="card">
+      <div class="card-section">
+        <fieldset>
+          <legend><%= t ".global_configuration" %></legend>
+          <%= form.fields_for :configuration, form.object.configuration do |configuration_fields| %>
+            <%= render partial: "decidim/admin/features/configuration_fields",
+                      locals: { form: configuration_fields }
+            %>
+          <% end %>
+        </fieldset>
+      </div>
+    </div>
+  <% end %>
+
+  <% if participatory_process.steps.any? %>
+    <div class="card">
+      <div class="card-section">
+        <fieldset>
+          <legend><%= t ".step_configurations" %></legend>
+          <% participatory_process.steps.each do |step| %>
+            <fieldset>
+              <legend><%= step.position + 1 %>. <%= translated_attribute step.title %></legend>
+              <% step_configuration = form.object.step_configurations[step.id.to_s] %>
+
+              <%= form.fields_for "step_configurations", nil do |configuration_fields| %>
+                <%= configuration_fields.fields_for step.id.to_s, step_configuration do |configuration_fields| %>
+                  <%= render partial: "decidim/admin/features/configuration_fields",
+                  locals: { form: configuration_fields }
+                  %>
+                <% end %>
+              <% end %>
+            </fieldset>
+          <% end %>
+        </fieldset>
+      </div>
+    </div>
   <% end %>
 </div>
