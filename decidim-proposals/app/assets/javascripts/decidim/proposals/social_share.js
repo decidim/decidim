@@ -1,2 +1,2 @@
-//= require social-share-button
-//= require_self
+// = require social-share-button
+// = require_self
