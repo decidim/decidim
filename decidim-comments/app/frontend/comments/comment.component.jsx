@@ -92,11 +92,12 @@ class Comment extends Component {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   _renderAdditionalReplyButton() {
-    const { comment: { canHaveReplies, hasReplies }, currentUser } = this.props;
+    const { comment: { canHaveReplies, hasReplies }, currentUser, isRootComment } = this.props;
     const { showReplyForm } = this.state;
-
+    
     if (currentUser && canHaveReplies) {
-      if (hasReplies) {
+      if (hasReplies && isRootComment) {
+
         return (
           <div className="comment__additionalreply">
             <button
@@ -240,7 +241,8 @@ Comment.fragments = {
 };
 
 Comment.defaultProps = {
-  articleClassName: 'comment'
+  articleClassName: 'comment',
+  isRootComment: false
 };
 
 Comment.propTypes = {
@@ -252,6 +254,7 @@ Comment.propTypes = {
     name: PropTypes.string.isRequired
   }),
   articleClassName: PropTypes.string.isRequired,
+  isRootComment: PropTypes.bool,
   votable: PropTypes.bool
 };
 

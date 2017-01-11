@@ -88,17 +88,24 @@ describe("<Comment />", () => {
     expect(wrapper.find('button.comment__reply')).not.to.be.present();
   });
 
-  it("should not render the additional reply button if the parent comment has no replies", () => {
+  it("should not render the additional reply button if the parent comment has no replies and isRootcomment", () => {
     comment.canHaveReplies = true;
     comment.hasReplies = false;
+    const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} isRootComment />);
+    expect(wrapper.find('div.comment__additionalreply')).not.to.be.present();
+  });
+
+ it("should not render the additional reply button if the parent comment has replies and not isRootcomment", () => {
+    comment.canHaveReplies = true;
+    comment.hasReplies = true;
     const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
     expect(wrapper.find('div.comment__additionalreply')).not.to.be.present();
   });
 
-  it("should render the additional reply button if the parent comment has replies", () => {
+  it("should render the additional reply button if the parent comment has replies and isRootcomment", () => {
     comment.canHaveReplies = true;
     comment.hasReplies = true;
-    const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} />);
+    const wrapper = shallow(<Comment comment={comment} currentUser={currentUser} isRootComment />);
     expect(wrapper.find('div.comment__additionalreply')).to.be.present();
   });
 
@@ -122,6 +129,11 @@ describe("<Comment />", () => {
   it("should have a default prop articleClassName with value 'comment'", () => {
     const wrapper = mount(<Comment comment={comment} currentUser={currentUser} />);
     expect(wrapper).to.have.prop("articleClassName").equal("comment");
+  });
+
+  it("should have a default prop isRootComment with value false", () => {
+    const wrapper = mount(<Comment comment={comment} currentUser={currentUser} />);
+    expect(wrapper).to.have.prop("isRootComment").equal(false);
   });
 
   describe("when user is not logged in", () => {
