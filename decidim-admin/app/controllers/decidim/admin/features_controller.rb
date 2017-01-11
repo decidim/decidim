@@ -20,7 +20,12 @@ module Decidim
       def new
         authorize! :create, Feature
 
-        @form = form(FeatureForm).instance(name: default_name(manifest)).with_context(manifest: manifest)
+        @feature = Feature.new(
+          name: default_name(manifest),
+          manifest_name: params[:type]
+        )
+
+        @form = form(FeatureForm).from_model(@feature)
       end
 
       def create
@@ -44,12 +49,12 @@ module Decidim
         @feature = participatory_process.features.find(params[:id])
         authorize! :update, @feature
 
-        @form = FeatureForm.from_model(@feature).with_context(manifest: @feature.manifest)
+        @form = form(FeatureForm).from_model(@feature).with_context(current_organization: current_organization)
       end
 
       def update
         @feature = participatory_process.features.find(params[:id])
-        @form = form(FeatureForm).from_params(params).with_context(manifest: @feature.manifest)
+        @form = form(FeatureForm).from_params(params)
         authorize! :update, @feature
 
         UpdateFeature.call(@form, @feature) do

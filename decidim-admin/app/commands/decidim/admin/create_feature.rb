@@ -33,22 +33,12 @@ module Decidim
       private
 
       def create_feature
-        @feature = Feature.create!(
+        @feature = Feature.create(
           manifest_name: manifest.name,
           name: form.name,
           participatory_process: participatory_process,
-          configuration: {
-            "global" => global_configuration_attributes
-          }
+          configuration: @form.configuration
         )
-      end
-
-      def configuration_schema
-        manifest.configuration(:global).schema
-      end
-
-      def global_configuration
-        configuration_schema.new(form.configuration).attributes
       end
 
       def run_hooks

@@ -1,4 +1,4 @@
-<% configuration.attributes.each do |name, attribute| %>
+<% form.object.schema.attributes.each do |name, attribute| %>
   <% if attribute.type == :boolean %>
     <%= form.check_box name %>
   <% end %>

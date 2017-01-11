@@ -16,15 +16,8 @@ module Decidim
       attribute :manifest
 
       def map_model(model)
-        self.name = model.name
-
-        self.configuration = configuration_schema.new(
-          model.configuration.try(:[], "global")
-        )
-      end
-
-      def configuration_schema
-        manifest.configuration(:global).schema
+        self.attributes = model.attributes
+        self.configuration = model.configuration
       end
     end
   end

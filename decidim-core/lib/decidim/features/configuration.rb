@@ -13,21 +13,30 @@ module Decidim
     end
 
     def schema
-      configuration_attributes = self.attributes
+      configuration_schema = self
 
-      Class.new do
+      @klass = Class.new do
         include Virtus.model
         include ActiveModel::Validations
+
+        cattr_accessor :schema
 
         def self.model_name
           ActiveModel::Name.new(self, nil, "FeatureConfiguration")
         end
 
-        configuration_attributes.each do |name, attribute|
+        def schema
+          self.class.schema
+        end
+
+        configuration_schema.attributes.each do |name, attribute|
           attribute name, attribute.type_class, default: attribute.default_value
           validates name, presence: true
         end
       end
+
+      @klass.schema = self
+      @klass
     end
 
     class Attribute

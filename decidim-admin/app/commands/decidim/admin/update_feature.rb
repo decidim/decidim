@@ -32,24 +32,10 @@ module Decidim
       private
 
       def update_feature
-        @feature = feature.update_attributes(
+        @feature.update_attributes(
           name: form.name,
-          configuration: configuration
+          configuration: form.configuration
         )
-      end
-
-      def configuration
-        (@feature.configuration || {}).merge(
-          "global" => global_configuration
-        )
-      end
-
-      def configuration_schema
-        @manifest.configuration(:global).schema
-      end
-
-      def global_configuration
-        configuration_schema.new(form.configuration).attributes
       end
 
       def run_hooks

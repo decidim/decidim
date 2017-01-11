@@ -3,7 +3,7 @@
 
   <%= form.fields_for :configuration, form.object.configuration do |configuration_fields| %>
     <%= render partial: "decidim/admin/features/configuration_fields",
-               locals: { form: configuration_fields, configuration: @form.manifest.configuration(:global) }
+               locals: { form: configuration_fields }
     %>
   <% end %>
 </div>

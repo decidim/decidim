@@ -26,5 +26,21 @@ module Decidim
     def manifest=(manifest)
       self.manifest_name = manifest.name
     end
+
+    def configuration
+      manifest.configuration(:global).schema.new(
+        self[:configuration].try(:[], "global") || {}
+      )
+    end
+
+    def configuration=(data)
+      self[:configuration] ||= {}
+
+      self[:configuration]["global"] = if data.is_a?(Hash)
+                                         data
+                                       else
+                                         data.attributes
+                                       end
+    end
   end
 end
