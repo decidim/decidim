@@ -38,7 +38,7 @@ module Decidim
       end
 
       def filter
-        @filter ||= Filter.new(params[:filter])
+        @filter ||= Filter.new(params[:filter] || default_filter_params)
       end
       
       def search_params
@@ -47,6 +47,10 @@ module Decidim
       end
 
       def default_search_params
+        {}
+      end
+
+      def default_filter_params
         {}
       end
 

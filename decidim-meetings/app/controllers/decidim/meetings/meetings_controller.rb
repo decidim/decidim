@@ -28,8 +28,14 @@ module Decidim
       def default_search_params
         {
           page: params[:page],
-          order_start_time: "asc"
+          per_page: 12
         }.with_indifferent_access
+      end
+
+      def default_filter_params
+        {
+          order_start_time: "asc"
+        }
       end
     end
   end

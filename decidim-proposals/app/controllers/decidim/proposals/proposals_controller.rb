@@ -47,6 +47,7 @@ module Decidim
       def default_search_params
         {
           page: params[:page],
+          per_page: 12,
           random_seed: params[:random_seed]
         }.with_indifferent_access
       end

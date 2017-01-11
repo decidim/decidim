@@ -1,14 +1,7 @@
-<div class="filters">
-  <%= form_for filter, url: url_for, as: :filter, method: :get, remote: true do |form| %>
-    <% if current_feature.categories.any? %>
-      <div class="filters__section">
-        <fieldset>
-          <legend><h6 class="heading6"><%= t('.category') %></h6></legend>
-          <%= form.categories_select :category_id, current_feature.categories, disable_parents: false, label: false, include_blank: true %>
-        </fieldset>
-      </div>
-    <% end %>
+<%= filter_form_for filter do |form| %>
+  <% if current_feature.categories.any? %>
+    <%= form.categories_select :category_id, current_feature.categories, legend_title: t('.category'), disable_parents: false, label: false, include_blank: true %>  
   <% end %>
-</div>
+<% end %>
 
 <%= javascript_include_tag "decidim/meetings/meetings_filters" %>
