@@ -48,13 +48,14 @@ module Decidim
         {
           page: params[:page],
           per_page: 12,
-          random_seed: params[:random_seed]
         }.with_indifferent_access
       end
 
       def default_filter_params
         {
-          category_id: ""
+          origin: "all",
+          category_id: "",
+          random_seed: params[:random_seed] || @random_seed
         }
       end
     end

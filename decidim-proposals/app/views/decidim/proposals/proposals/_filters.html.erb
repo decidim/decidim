@@ -1,7 +1,11 @@
 <%= filter_form_for filter do |form| %>
+  <%= form.collection_radio_buttons :origin, [["all", t('.all')], ["official", t('.official')], ["citizenship", t('.citizenship')]], :first, :last, legend_title: t('.origin') %>
+
   <% if current_feature.categories.any? %>
     <%= form.categories_select :category_id, current_feature.categories, legend_title: t('.category'), disable_parents: false, label: false, include_blank: true %>  
   <% end %>
+
+  <%= form.hidden_field :random_seed %>
 <% end %>
 
 <%= javascript_include_tag "decidim/meetings/meetings_filters" %>

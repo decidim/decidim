@@ -14,6 +14,18 @@ module Decidim
         @random_seed = options[:random_seed].to_f
       end
 
+      # Handle the origin filter
+      # The 'official' proposals doesn't have an author id
+      def search_origin
+        if origin == "official"
+          query.where(decidim_author_id: nil)
+        elsif origin == "citizenship"
+          query.where.not(decidim_author_id: nil)
+        else # Assume 'all'
+          query
+        end
+      end
+
       # Returns the random proposals for the current page.
       def results
         @proposals ||= Proposal.transaction do
