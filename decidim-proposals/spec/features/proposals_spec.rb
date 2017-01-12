@@ -115,19 +115,17 @@ describe "Proposals", type: :feature do
     end
 
     context "when filtering" do
-      context "by scope" do
+      context "by origin" do
         it "lists the filtered proposals" do
-          create(:proposal, feature: feature, scope: scope)
+          create(:proposal, feature: feature, scope: scope, decidim_author_id: nil)
 
           visit decidim_proposals.proposals_path(:proposals, feature_id: feature, participatory_process_id: participatory_process)
           within ".filters" do
-            check scope.name
+            choose "Official"
           end
 
-          expect(page).to have_css(".card--proposal", 1)
-          within ".tags--proposal" do
-            expect(page).to have_content scope.name
-          end
+          expect(page).to have_css(".card--proposal", count: 1)
+          expect(page).to have_content("1 PROPOSAL")
         end
       end
     end

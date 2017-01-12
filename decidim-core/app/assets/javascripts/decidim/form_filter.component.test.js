@@ -11,17 +11,23 @@ describe('FormFilterComponent', () => {
   beforeEach(() => {
     let form = `
       <form id="new_filter" action="/filters" method="get">
-        <input value="asc" type="radio" name="order_start_time" checked />
-        <input value="desc" type="radio" name="order_start_time" />
+        <fieldset>
+          <input id="filter_order_start_time_asc" value="asc" type="radio" name="order_start_time" checked />
+          <input id="filter_order_start_time_desc" value="desc" type="radio" name="order_start_time" />
+        </fieldset>
 
-        <input value="1" type="checkbox" name="scope_id[]" />
-        <input value="2" type="checkbox" name="scope_id[]" />
-        <input value="3" type="checkbox" name="scope_id[]" />
+        <fieldset>
+          <input id="filter_scope_id_1" value="1" type="checkbox" name="scope_id[]" />
+          <input id="filter_scope_id_2" value="2" type="checkbox" name="scope_id[]" />
+          <input id="filter_scope_id_3" value="3" type="checkbox" name="scope_id[]" />
+        </fieldset>
 
-        <select id="filter_category_id" name="filter[category_id]">
-          <option value="1">Category 1</option>
-          <option value="2">Category 2</option>
-        </select>
+        <fieldset>
+          <select id="filter_category_id" name="filter[category_id]">
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+          </select>
+        </fieldset>
       </form>
     `;
     $('body').append(form);

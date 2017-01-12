@@ -1,6 +1,8 @@
 <div class="row columns">
   <div class="title-action">
-    <h2 class="title-action__title section-heading"><%= t(".proposals_count", count: @proposals.total_count) %></h2>
+    <h2 id="proposals-count" class="title-action__title section-heading">
+      <%= render partial: "count" %>
+    </h2>
     <%= link_to new_proposal_path, class: "title-action__action button small hollow" do %>
       <%= t(".new_proposal") %>
       <%= icon "plus" %>

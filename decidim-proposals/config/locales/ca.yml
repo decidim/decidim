@@ -35,7 +35,10 @@ ca:
       proposals:
         index:
           new_proposal: Nova proposta
-          proposals_count: "%{count} propostes"
+        count:
+          proposals_count: 
+            one: "1 proposta"
+            other: "%{count} propostes"
         new:
           back: Enrere
           select_a_category: Si us plau, seleccioni una categoria

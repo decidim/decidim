@@ -34,6 +34,10 @@ en:
             scope: Scope
             title: Title
       proposals:
+        count:
+          proposals_count:
+            one: 1 proposal
+            other: "%{count} proposals"
         filters:
           all: All
           category: Category
@@ -43,7 +47,6 @@ en:
           search: Search
         index:
           new_proposal: New proposal
-          proposals_count: "%{count} proposals"
         new:
           back: Back
           select_a_category: Please select a category
