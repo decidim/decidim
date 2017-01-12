@@ -4,7 +4,7 @@
       <%= t('.already_voted') %>
     </button>
   <% else %>
-    <%= button_to t('.vote'), proposal_proposal_votes_path(proposal_id: proposal), remote: true, class: "card__button button #{button_class}" %>
+    <%= button_to t('.vote'), proposal_proposal_votes_path(proposal_id: proposal), remote: true, data: { disable: true }, class: "card__button button #{button_class}" %>
   <% end %>
 <% else %>
   <button class="card__button button <%= button_class %>" data-toggle="loginModal">

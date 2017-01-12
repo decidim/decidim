@@ -36,9 +36,7 @@ module Decidim
       end
 
       def request_from_list_page?
-        URI(request.referer).path ==
-          URI(decidim_proposals.root_path(feature: @proposal.feature)).path.chomp("/") ||
-          URI(decidim_proposals.proposals_path(feature: @proposal.feature)).path.chomp("/")
+        URI(request.referer).path == (URI(decidim_proposals.root_path(feature: @proposal.feature)).path.chomp("/") || URI(decidim_proposals.proposals_path(feature: @proposal.feature)).path.chomp("/"))
       end
     end
   end
