@@ -42,5 +42,23 @@ describe "Vote Proposal", type: :feature do
         end
       end
     end
+
+    context "when the proposal is already voted" do
+      it "should not be able to vote it again" do
+        create(:proposal_vote, proposal: proposals.first, author: user)
+
+        visit decidim_proposals.proposals_path(feature_id: feature, participatory_process_id: participatory_process)
+
+        within "#proposal-#{proposals.first.id}-vote-button" do
+          expect(page).to have_css('.card__button.success', text: "Already voted")
+          
+          page.find('.card__button').click
+        end
+
+        within "#proposal-#{proposals.first.id}-votes-count" do
+          expect(page).to have_content("1 SUPPORT")          
+        end
+      end
+    end
   end
 end
