@@ -1,4 +1,6 @@
-<span class="card__support__number">
+<span class="<%= number_class %>">
   <%= proposal.votes.size %>
 </span>
-<%= t('.count', count: proposal.votes.size) %>
+<span class="<%= label_class %>">
+  <%= t('.count', count: proposal.votes.size) %>
+</span>

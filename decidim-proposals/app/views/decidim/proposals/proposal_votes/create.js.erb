@@ -1,5 +1,5 @@
-var $proposalVoteButton = $('#proposal-<%= @proposal.id %>-vote-button');
 var $proposalVotesCount = $('#proposal-<%= @proposal.id %>-votes-count');
+var $proposalVoteButton = $('#proposal-<%= @proposal.id %>-vote-button');
 
-$proposalVoteButton.html('<%= j(render partial: 'decidim/proposals/proposals/vote_button', locals: { proposal: @proposal }) %>');
-$proposalVotesCount.html('<%= j(render partial: 'decidim/proposals/proposals/votes_count', locals: { proposal: @proposal }) %>');
+$proposalVotesCount.html('<%= j(render partial: 'decidim/proposals/proposals/votes_count', locals: { proposal: @proposal, number_class: @number_class, label_class: @label_class }) %>');
+$proposalVoteButton.html('<%= j(render partial: 'decidim/proposals/proposals/vote_button', locals: { proposal: @proposal, button_class: @button_class  }) %>');

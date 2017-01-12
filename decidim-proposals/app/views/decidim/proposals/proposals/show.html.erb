@@ -21,6 +21,16 @@
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <div class="card extra">
+      <div class="card__content">
+        <div id="proposal-<%= @proposal.id %>-votes-count">
+          <%= render partial: "votes_count", locals: { proposal: @proposal, number_class: "extra__suport-number", label_class: "extra__suport-text" } %>
+        </div>
+        <div id="proposal-<%= @proposal.id %>-vote-button"> 
+          <%= render partial: "vote_button", locals: { proposal: @proposal, button_class: "expanded button--sc" } %>
+        </div>
+      </div>
+    </div>
     <%= render partial: "share", locals: { proposal: @proposal } %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
