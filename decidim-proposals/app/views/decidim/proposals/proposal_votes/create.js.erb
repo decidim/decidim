@@ -1,0 +1,5 @@
+var $proposalVoteButton = $('#proposal-<%= @proposal.id %>-vote-button');
+var $proposalVotesCount = $('#proposal-<%= @proposal.id %>-votes-count');
+
+$proposalVoteButton.html('<%= j(render partial: 'decidim/proposals/proposals/vote_button', locals: { proposal: @proposal }) %>');
+$proposalVotesCount.html('<%= j(render partial: 'decidim/proposals/proposals/votes_count', locals: { proposal: @proposal }) %>');

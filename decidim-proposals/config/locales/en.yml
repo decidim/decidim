@@ -53,10 +53,14 @@ en:
           select_a_scope: Please select a scope
           send: Send
           title: New proposal
-        proposal:
-          already_voted: Already voted
-          vote: Vote
         share:
           close_window: Close window
           share: Share
           share_link: Share link
+        vote_button:
+          already_voted: Already voted
+          vote: Vote
+        votes_count:
+          count: 
+            one: SUPPORT
+            other: "SUPPORTS"
