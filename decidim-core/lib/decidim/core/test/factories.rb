@@ -152,7 +152,7 @@ FactoryGirl.define do
   end
 
   factory :scope, class: Decidim::Scope do
-    name { Faker::Address.state }
+    name { generate(:name) }
     organization
   end
 end
