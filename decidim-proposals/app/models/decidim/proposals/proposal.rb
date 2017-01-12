@@ -8,6 +8,7 @@ module Decidim
       belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
       belongs_to :scope, foreign_key: "decidim_scope_id", class_name: Decidim::Scope
       has_one :organization, through: :feature
+      has_many :votes, foreign_key: "decidim_proposal_id", class_name: ProposalVote, dependent: :destroy
 
       validates :title, :feature, :body, presence: true
       validate :category_belongs_to_feature
@@ -30,6 +31,13 @@ module Decidim
       # Returns Boolean
       def commentable?
         true
+      end
+
+      # Public: Check if the user has voted the proposal
+      #
+      # Returns Boolean
+      def voted_by?(user)
+        votes.any? { |vote| vote.author == user }
       end
 
       private

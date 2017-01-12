@@ -27,9 +27,21 @@
     <div class="card__footer">
       <div class="card__support">
         <div class="card__support__data"></div>
-        <button class="card__button button small" data-toggle="loginModal">
-          <%= t('.vote') %>
-        </button>
+        <% if current_user %>
+          <% if proposal.voted_by? current_user %>
+            <button class="card__button button small success">
+              <%= t('.already_voted') %>
+            </button>
+          <% else %>
+            <button class="card__button button small">
+              <%= t('.vote') %>
+            </button>
+          <% end %>
+        <% else %>
+          <button class="card__button button small" data-toggle="loginModal">
+            <%= t('.vote') %>
+          </button>
+        <% end %>
       </div>
     </div>
   </article>

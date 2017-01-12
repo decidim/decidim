@@ -14,7 +14,7 @@ describe "Vote Proposal", type: :feature do
   end
 
   context "when the user is not logged in" do
-    it "when the vote proposal button is clicked the sign in popup is shown" do
+    it "should be given the option to sign in" do
       visit decidim_proposals.proposals_path(feature_id: feature, participatory_process_id: participatory_process)
 
       within ".card__support", match: :first do
@@ -28,6 +28,19 @@ describe "Vote Proposal", type: :feature do
   context "when the user is logged in" do
     before do
       login_as user, scope: :user
+    end
+
+    context "when the proposal is not voted yet" do
+      it "should be able to vote the proposal" do
+        visit decidim_proposals.proposals_path(feature_id: feature, participatory_process_id: participatory_process)
+
+        within ".card__support", match: :first do
+          page.find('.card__button').click
+
+          expect(page).to have_css('.card__button.success', text: "Already voted")
+          expect(page).to have_content("1 SUPPORT")
+        end
+      end
     end
   end
 end
