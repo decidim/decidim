@@ -47,7 +47,7 @@ module Decidim
       def default_search_params
         {
           page: params[:page],
-          per_page: 12,
+          per_page: 12
         }
       end
 
