@@ -54,7 +54,7 @@ en:
           send: Send
           title: New proposal
         proposal:
-          view_proposal: View proposal
+          vote: Vote
         share:
           close_window: Close window
           share: Share
