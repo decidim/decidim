@@ -20,40 +20,4 @@
   </div>
 </div>
 
-<div class="reveal" id="loginModal" data-reveal>
-  <div class="reveal__header">
-    <h3 class="reveal__title">Por favor, inicia sesión</h3>
-    <button class="close-button" data-close aria-label="Close modal"
-      type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="row">
-    <div class="columns medium-8 medium-centered">
-      <form class="register-form">
-        <div>
-          <div>
-            <label>Adreça electrònica
-              <input type="email" placeholder="exemple@domini.com">
-            </label>
-          </div>
-          <div>
-            <label>Contrasenya
-              <input type="password" placeholder="Contrasenya">
-            </label>
-          </div>
-        </div>
-        <fieldset>
-          <label>
-            <input type="checkbox">
-            Recorda'm
-          </label>
-        </fieldset>
-        <button type="submit" class="button expanded">Entra</button>
-      </form>
-      <p class="text-center">
-        Ets nou a la plataforma? <a href="#">Registra't</a>
-      </p>
-    </div>
-  </div>
-</div>
+<%= render partial: "login_modal" %>

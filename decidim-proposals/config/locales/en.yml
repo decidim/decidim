@@ -47,6 +47,10 @@ en:
           search: Search
         index:
           new_proposal: New proposal
+          proposals_count: "%{count} proposals"
+        login_modal:
+          please_sign_in: Please sign in
+          sign_up: Sign up
         new:
           back: Back
           select_a_category: Please select a category
@@ -61,6 +65,10 @@ en:
           already_voted: Already voted
           vote: Vote
         votes_count:
-          count: 
+          count:
             one: SUPPORT
-            other: "SUPPORTS"
+            other: SUPPORTS
+  devise:
+    sessions:
+      new:
+        sign_in: Sign in
