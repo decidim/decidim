@@ -55,6 +55,7 @@ module Decidim
         {
           search_text: "",
           origin: "all",
+          activity: "",
           category_id: "",
           random_seed: params[:random_seed]
         }

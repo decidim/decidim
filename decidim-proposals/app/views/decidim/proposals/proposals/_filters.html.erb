@@ -14,6 +14,10 @@
 
   <%= form.collection_radio_buttons :origin, [["all", t('.all')], ["official", t('.official')], ["citizenship", t('.citizenship')]], :first, :last, legend_title: t('.origin') %>
 
+  <% if current_user %>
+    <%= form.collection_check_boxes :activity, [["voted", t('.voted')]], :first, :last, legend_title: t('.activity') %>
+  <% end %>
+
   <% if current_feature.categories.any? %>
     <%= form.categories_select :category_id, current_feature.categories, legend_title: t('.category'), disable_parents: false, label: false, include_blank: true %>  
   <% end %>

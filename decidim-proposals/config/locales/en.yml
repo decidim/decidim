@@ -39,15 +39,16 @@ en:
             one: 1 proposal
             other: "%{count} proposals"
         filters:
+          activity: Activity
           all: All
           category: Category
           citizenship: Citizenship
           official: Official
           origin: Origin
           search: Search
+          voted: Voted
         index:
           new_proposal: New proposal
-          proposals_count: "%{count} proposals"
         login_modal:
           please_sign_in: Please sign in
           sign_up: Sign up

@@ -14,6 +14,20 @@ module Decidim
         @random_seed = options[:random_seed].to_f
       end
 
+      # Overrides the default base_query to preload associations
+      def base_query
+        super
+          .includes(:author)
+          .includes(votes: [:author])
+      end
+
+      # Handle the search_text filter
+      def search_search_text
+        query
+          .where("title ILIKE ?", "%#{search_text}%")
+          .or(query.where("body ILIKE ?", "%#{search_text}%"))
+      end
+
       # Handle the origin filter
       # The 'official' proposals doesn't have an author id
       def search_origin
@@ -26,11 +40,16 @@ module Decidim
         end
       end
 
-      # Handle the search_text filter
-      def search_search_text
-        query
-          .where("title ILIKE ?", "%#{search_text}%")
-          .or(query.where("body ILIKE ?", "%#{search_text}%"))
+      # Handle the activity filter
+      def search_activity
+        if activity.include? "voted"
+          query
+            .where(decidim_proposals_proposal_votes: { 
+              decidim_author_id: options[:current_user]
+            })
+        else
+          query
+        end
       end
 
       # Returns the random proposals for the current page.
