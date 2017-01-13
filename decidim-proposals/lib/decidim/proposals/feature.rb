@@ -24,12 +24,14 @@ Decidim.register_feature(:proposals) do |feature|
       )
 
       20.times do
-        Decidim::Proposals::Proposal.create!(
+        proposal = Decidim::Proposals::Proposal.create!(
           feature: feature,
           title: Faker::Lorem.sentence(2),
           body: Faker::Lorem.paragraphs(2).join("\n"),
           author: Decidim::User.where(organization: feature.organization).all.sample
         )
+
+        Decidim::Comments::Seed.comments_for(proposal)
       end
     end
   end

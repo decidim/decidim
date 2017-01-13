@@ -29,7 +29,7 @@ Decidim.register_feature(:pages) do |feature|
         participatory_process: process
       )
 
-      Decidim::Pages::Page.create!(
+      page = Decidim::Pages::Page.create!(
         feature: feature,
         title: Decidim::Faker::Localized.sentence(2),
         body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -37,6 +37,8 @@ Decidim.register_feature(:pages) do |feature|
         end,
         commentable: true
       )
+
+      Decidim::Comments::Seed.comments_for(page)
     end
   end
 end
