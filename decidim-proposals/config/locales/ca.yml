@@ -33,6 +33,13 @@ ca:
             scope: Àmbit
             title: Títol
       proposals:
+        filters:
+          all: Tots
+          category: Categoria
+          citizenship: Ciutadania
+          official: Oficial
+          origin: Origen
+          search: Cerca
         index:
           new_proposal: Nova proposta
         new:
@@ -43,3 +50,7 @@ ca:
           title: Nova proposta
         proposal:
           view_proposal: Veure proposta
+        share:
+          close_window: Tanca la finestra
+          share: Compartir
+          share_link: Comparteix l'enllaç
