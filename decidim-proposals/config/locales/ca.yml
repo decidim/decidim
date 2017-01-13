@@ -33,6 +33,10 @@ ca:
             scope: Àmbit
             title: Títol
       proposals:
+        count:
+          proposals_count:
+            one: 1 proposta
+            other: "%{count} propostes"
         filters:
           all: Tots
           category: Categoria
