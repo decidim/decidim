@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# rubocop:disable Metrics/ParameterLists
 require "decidim/form_builder"
 
 module Decidim
