@@ -44,9 +44,9 @@ module Decidim
       def search_activity
         if activity.include? "voted"
           query
-            .where(decidim_proposals_proposal_votes: { 
-              decidim_author_id: options[:current_user]
-            })
+            .where(decidim_proposals_proposal_votes: {
+                     decidim_author_id: options[:current_user]
+                   })
         else
           query
         end
