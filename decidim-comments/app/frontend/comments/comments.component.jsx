@@ -8,6 +8,7 @@ import Application              from '../application/application.component';
 
 import CommentThread            from './comment_thread.component';
 import AddCommentForm           from './add_comment_form.component';
+import CommentOrderSelector     from './comment_order_selector.component';
 
 import commentsQuery            from './comments.query.graphql';
 
@@ -29,6 +30,7 @@ export class Comments extends Component {
             <h2 className="order-by__text section-heading">
               { I18n.t("components.comments.title", { count: comments.length }) }
             </h2>
+            <CommentOrderSelector />
           </div>
           {this._renderCommentThreads()}
           {this._renderAddCommentForm()}

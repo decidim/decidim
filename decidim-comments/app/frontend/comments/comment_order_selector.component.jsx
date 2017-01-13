@@ -7,7 +7,10 @@ import { I18n }      from 'react-i18nify';
  * @augments Component
  * @todo Needs a proper implementation
  */
-export default class CommentOrderSelector extends Component {
+class CommentOrderSelector extends Component {
+  componentDidMount() {
+    $(document).foundation();
+  }
   render() {
     return (
       <div className="order-by__dropdown order-by__dropdown--right">
@@ -26,3 +29,5 @@ export default class CommentOrderSelector extends Component {
     );
   }
 }
+
+export default CommentOrderSelector;
