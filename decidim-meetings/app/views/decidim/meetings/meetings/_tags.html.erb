@@ -4,7 +4,7 @@
       <li><%= link_to translated_attribute(meeting.category.name), decidim_meetings.meetings_path(filter: { category_id: meeting.category.id }) %></li>
     <% end %>
     <% if meeting.scope.present? %>
-      <li><%= link_to meeting.scope.name, decidim_meetings.meetings_path(scope_id: [meeting.scope.id]) %></li>
+      <li><%= link_to meeting.scope.name, decidim_meetings.meetings_path(filter: { scope_id: [meeting.scope.id] }) %></li>
     <% end %>
   </ul>
 <% end %>
