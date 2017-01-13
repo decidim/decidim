@@ -73,7 +73,6 @@ coverage:
   - "bundle.js"
   - "vendor/*"
   - "node_modules/*"
-  - ".bundle/*"
 
 comment:
   layout: "header, diff, changes, sunburst, uncovered, tree"
