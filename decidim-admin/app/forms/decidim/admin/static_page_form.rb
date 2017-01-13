@@ -15,10 +15,12 @@ module Decidim
       validates :title, :content, translatable_presence: true
       validate :slug, :slug_uniqueness
 
+      alias organization current_organization
+
       private
 
       def slug_uniqueness
-        return unless current_organization && current_organization.static_pages.where(slug: slug).where.not(id: id).any?
+        return unless organization && organization.static_pages.where(slug: slug).where.not(id: id).any?
 
         errors.add(:slug, :taken)
       end

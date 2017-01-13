@@ -13,12 +13,12 @@ module Decidim
 
       def new
         authorize! :new, StaticPage
-        @form = StaticPageForm.new
+        @form = form(StaticPageForm).instance
       end
 
       def create
         authorize! :new, StaticPage
-        @form = StaticPageForm.from_params(form_params)
+        @form = form(StaticPageForm).from_params(form_params)
 
         CreateStaticPage.call(@form) do
           on(:ok) do
@@ -35,13 +35,13 @@ module Decidim
 
       def edit
         authorize! :update, page
-        @form = StaticPageForm.from_model(page)
+        @form = form(StaticPageForm).from_model(page)
       end
 
       def update
         @page = collection.find(params[:id])
         authorize! :update, page
-        @form = StaticPageForm.from_params(form_params)
+        @form = form(StaticPageForm).from_params(form_params)
 
         UpdateStaticPage.call(page, @form) do
           on(:ok) do
