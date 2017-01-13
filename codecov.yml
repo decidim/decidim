@@ -70,10 +70,6 @@ coverage:
         branches: null
 
   ignore:
-  - "decidim-*/spec/*"
-  - "spec/*"
-  - "decidim-*/lib/**/*/test/*"
-  - "lib/**/*/test/*"
   - "bundle.js"
   - "vendor/*"
   - "node_modules/*"
