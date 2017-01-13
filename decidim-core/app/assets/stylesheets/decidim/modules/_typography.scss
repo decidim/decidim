@@ -7,56 +7,41 @@ input{
   font-family: inherit;
 }
 
-.heading1{
-  line-height: 1.1;
-  font-weight: 600;
-  font-size: map-get(map-get($header-sizes, small), h1) / 16 + em;
+@mixin heading($heading) {
+  line-height: 1.2;
+  font-size: map-get(map-get(map-get($header-styles, small), $heading), 'font-size') / 16 + em;
   @include breakpoint(medium){
-    font-size: map-get(map-get($header-sizes, medium), h1) / 16 + em;
+    font-size: map-get(map-get(map-get($header-styles, medium), $heading), 'font-size') / 16 + em;
   }
+}
+
+.heading1{
+  font-weight: 600;
+  @include heading(h1);
+  line-height: 1.1;
 }
 
 .heading2{
-  line-height: 1.2;
-  //font-weight: 600;
-  font-size: map-get(map-get($header-sizes, small), h2) / 16 + em;
-  @include breakpoint(medium){
-    font-size: map-get(map-get($header-sizes, medium), h2) / 16 + em;
-  }
+  @include heading(h2);
 }
 
 .heading3{
-  line-height: 1.2;
-  font-size: map-get(map-get($header-sizes, small), h3) / 16 + em;
-  @include breakpoint(medium){
-    font-size: map-get(map-get($header-sizes, medium), h3) / 16 + em;
-  }
+  @include heading(h3);
 }
 
 .heading4{
-  line-height: 1.2;
-  font-size: map-get(map-get($header-sizes, small), h4) / 16 + em;
-  @include breakpoint(medium){
-    font-size: map-get(map-get($header-sizes, medium), h4) / 16 + em;
-  }
+  @include heading(h4);
 }
 
 .heading5{
-  line-height: 1.2;
-  font-size: map-get(map-get($header-sizes, small), h5) / 16 + em;
-  @include breakpoint(medium){
-    font-size: map-get(map-get($header-sizes, medium), h5) / 16 + em;
-  }
+  @include heading(h5);
 }
 
 .heading6{
   text-transform: uppercase;
   letter-spacing: .03em;
   font-weight: 600;
-  font-size: map-get(map-get($header-sizes, small), h6) / 16 + em;
-  @include breakpoint(medium){
-    font-size: map-get(map-get($header-sizes, medium), h6) / 16 + em;
-  }
+  @include heading(h6);
 }
 
 .heading-small{

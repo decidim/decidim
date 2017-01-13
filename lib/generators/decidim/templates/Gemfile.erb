@@ -4,9 +4,9 @@ ruby '<%= RUBY_VERSION %>'
 <% if options[:path] %>
 gem "decidim", path: "<%= options[:path] %>"
 <% elsif options[:edge] %>
-gem "decidim", github: 'AjuntamentdeBarcelona/decidim'
+gem "decidim", git: 'https://github.com/AjuntamentdeBarcelona/decidim.git'
 <% elsif options[:branch] %>
-gem "decidim", github: 'AjuntamentdeBarcelona/decidim', branch: "<%= options[:branch] %>"
+gem "decidim", git: 'https://github.com/AjuntamentdeBarcelona/decidim.git', branch: "<%= options[:branch] %>"
 <% else %>
 gem "decidim", "<%= Gem::Specification.find_by_name("decidim").version %>"
 <% end %>

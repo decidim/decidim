@@ -6,6 +6,7 @@ module Decidim
   module Admin
     describe OrganizationForm do
       let(:name) { "My super organization" }
+      let(:twitter_handler) { "My awesome handler" }
       let(:welcome_text) do
         {
           en: "Welcome",
@@ -44,7 +45,11 @@ module Decidim
         }
       end
 
-      subject { described_class.from_params(attributes, context) }
+      subject do
+        described_class.from_params(attributes).with_context(
+          context
+        )
+      end
 
       context "when everything is OK" do
         it { is_expected.to be_valid }

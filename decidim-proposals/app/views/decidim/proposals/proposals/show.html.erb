@@ -1,3 +1,8 @@
+<% content_for :meta_description, @proposal.body %>
+<% content_for :meta_title, @proposal.title %>
+<% content_for :meta_url, proposal_url(@proposal.id) %>
+<% content_for :twitter_handler, current_organization.twitter_handler %>
+
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
   <div class="author-data">
@@ -16,6 +21,7 @@
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+    <%= render partial: "share", locals: { proposal: @proposal } %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
@@ -39,3 +45,6 @@
     <%= comments_for @proposal, arguable: true, votable: true %>
   <% end %>
 <% end %>
+
+<%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>

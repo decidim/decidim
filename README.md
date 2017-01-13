@@ -9,6 +9,7 @@
 [![codecov](https://img.shields.io/codecov/c/github/AjuntamentdeBarcelona/decidim.svg)](https://codecov.io/gh/AjuntamentdeBarcelona/decidim)
 [![Dependency Status](https://img.shields.io/gemnasium/AjuntamentdeBarcelona/decidim.svg)](https://gemnasium.com/github.com/AjuntamentdeBarcelona/decidim)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim/invite)
+[![Inline docs](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim.svg?branch=master)](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim)
 
 ### Project management
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/pulls)
@@ -22,7 +23,7 @@
 ## What do you need to do?
 
 - [Contribute to the project](#how-to-contribute)
-- [Create & browse development app](#browse-participatory-processes)
+- [Create & browse development app](#browse-decidim)
 - [Install "Decidim" for an organization](#installation-instructions)
 - [Upgrade an already existing "Decidim" installation](#upgrade-instructions)
 - [Use Docker to deploy "Decidim"](#docker-instructions)

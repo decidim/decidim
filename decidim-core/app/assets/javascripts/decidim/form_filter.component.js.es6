@@ -1,12 +1,15 @@
 /* eslint-disable no-div-regex, no-useless-escape, no-param-reassign */
 
 /**
- * A component that handles the meetings filter form.
+ * A plain Javascript component that handles the form filter.
  * @class
  * @augments Component
  */
 ((exports) => {
-  class MeetingsFormFilterComponent {
+  class FormFilterComponent {
+    mounted;
+    $form;
+
     constructor(selector) {
       this.$form = $(selector);
       this.mounted = false;
@@ -49,7 +52,7 @@
      * @returns {String} - Returns the current location.
      */
     _getLocation() {
-      return exports.location;
+      return exports.location.toString();
     }
 
     /**
@@ -68,6 +71,30 @@
     }
 
     /**
+     * Parse current location and get filter values.
+     * @private
+     * @returns {Object} - An object where a key correspond to a filter field
+     *                     and the value is the current value for the filter.
+     */
+    _parseLocationFilterValues() {
+      // Every location param is constructed like this: filter[key]=value
+      let regexpResult = decodeURIComponent(this._getLocation()).match(/filter\[([^\]]*)\](?:\[\])?=([^&]*)/g);
+
+      // The RegExp g flag returns null or an array of coincidences. It doesn't return the match groups
+      if (regexpResult) {
+        const filterParams = regexpResult.reduce((acc, result) => {
+          const [, key, value] = result.match(/filter\[([^\]]*)\](?:\[\])?=([^&]*)/);
+          acc[key] = value;
+          return acc;
+        }, {});
+
+        return filterParams;
+      }
+
+      return null;
+    }
+
+    /**
      * Clears the form to start with a clean state.
      * @private
      * @returns {Void} - Returns nothing.
@@ -75,6 +102,13 @@
     _clearForm() {
       this.$form.find('input[type=checkbox]').attr('checked', false);
       this.$form.find('input[type=radio]').attr('checked', false);
+
+      // This ensure the form is reset in a valid state where a fieldset of
+      // radio buttons has the first selected.
+      this.$form.find('fieldset input[type=radio]:first').each(function () {
+        // I need the this to iterate a jQuery collection
+        $(this)[0].checked = true; // eslint-disable-line no-invalid-this
+      });
     }
 
     /**
@@ -85,16 +119,32 @@
     _onPopState() {
       this._clearForm();
 
-      let [sortValue] = this._getLocationParams(/order_start_time=([^&]*)/g) || ["asc"];
-      this.$form.find(`input[type=radio][value=${sortValue}]`)[0].checked = true;
+      const filterParams = this._parseLocationFilterValues();
 
-      let scopeValues = this._getLocationParams(/scope_id\[\]=([^&]*)/g) || [];
-      scopeValues.forEach((value) => {
-        this.$form.find(`input[type=checkbox][value=${value}]`)[0].checked = true;
-      })
+      if (filterParams) {
+        const fieldIds = Object.keys(filterParams);
 
-      let [categoryIdValue] = this._getLocationParams(/filter\[category_id\]=([^&]*)/g) || [];
-      this.$form.find(`select#filter_category_id`).first().val(categoryIdValue);
+        // Iterate the filter params and set the correct form values
+        fieldIds.forEach((fieldId) => {
+          let field = null;
+          
+          // Since we are using Ruby on Rails generated forms the field ids for a
+          // checkbox or a radio button has the following form: filter_${key}_${value}
+          field = this.$form.find(`input#filter_${fieldId}_${filterParams[fieldId]}`);
+
+          if (field.length > 0) {
+            field[0].checked = true;
+          } else {
+            // If the field is not a checkbox neither a radio it means is a input or a select.
+            // Ruby on Rails ensure the ids are constructed like this: filter_${key}
+            field = this.$form.find(`input#filter_${fieldId},select#filter_${fieldId}`);
+            
+            if (field.length > 0) {
+              field.val(filterParams[fieldId]);
+            }
+          }
+        });
+      }
 
       this.$form.submit();
     }
@@ -121,6 +171,6 @@
     }
   }
 
-  exports.DecidimMeetings = exports.DecidimMeetings || {};
-  exports.DecidimMeetings.MeetingsFormFilterComponent = MeetingsFormFilterComponent;
+  exports.Decidim = exports.Decidim || {};
+  exports.Decidim.FormFilterComponent = FormFilterComponent;
 })(window);

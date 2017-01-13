@@ -31,6 +31,7 @@ FactoryGirl.define do
 
   factory :organization, class: Decidim::Organization do
     name { Faker::Company.name }
+    twitter_handler { Faker::Hipster.word }
     sequence(:host) { |n| "#{n}.lvh.me" }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     welcome_text { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
@@ -151,7 +152,7 @@ FactoryGirl.define do
   end
 
   factory :scope, class: Decidim::Scope do
-    name { Faker::Address.state }
+    name { generate(:name) }
     organization
   end
 end

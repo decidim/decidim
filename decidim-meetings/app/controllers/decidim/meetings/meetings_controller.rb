@@ -2,57 +2,40 @@
 
 module Decidim
   module Meetings
-    # This controller is the abstract class from which all other controllers of
-    # this engine inherit.
-    #
-    # Note that it inherits from `Decidim::Features::BaseController`, which
-    # override its layout and provide all kinds of useful methods.
+    # Exposes the meeting resource so users can view them
     class MeetingsController < Decidim::Meetings::ApplicationController
-      helper_method :meetings, :meeting, :search_params, :filter
+      include FilterResource
 
-      def index
-        respond_to do |format|
-          format.html
-          format.js
-        end
-      end
+      helper_method :meetings, :meeting
+
+      def index; end
 
       private
 
       def meetings
-        @meetings ||= MeetingsSearch.new(search_params.merge(context_params)).results
+        @meetings ||= search.results
       end
 
       def meeting
         @meeting ||= meetings.find(params[:id])
       end
 
-      def search_params
-        default_search_params
-          .merge(params.to_unsafe_h.except(:filter))
-          .merge(params.to_unsafe_h[:filter] || {})
-      end
-
-      def filter
-        @filter ||= filter_klass.new(params.dig(:filter, :category_id), params[:order_start_time], params[:scope_id])
-      end
-
-      # Internal: Defines a class that will wrap in an object the URL params used by the filter.
-      # this way we can use Rails' form helpers and have automatically cehcked checkboxes and
-      # radio buttons in the view, for example.
-      def filter_klass
-        Struct.new(:category_id, :order_start_time, :scope_id)
+      def search_klass
+        MeetingSearch
       end
 
       def default_search_params
         {
-          order_start_time: "asc"
-        }.with_indifferent_access
+          page: params[:page],
+          per_page: 12
+        }
       end
 
-      def context_params
+      def default_filter_params
         {
-          feature: current_feature
+          order_start_time: "asc",
+          scope_id: "",
+          category_id: ""
         }
       end
     end

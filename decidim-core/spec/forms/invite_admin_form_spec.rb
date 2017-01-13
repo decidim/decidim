@@ -10,7 +10,8 @@ module Decidim
 
     subject do
       described_class.from_params(
-        attributes,
+        attributes
+      ).with_context(
         current_user: current_user,
         current_organization: current_organization
       )

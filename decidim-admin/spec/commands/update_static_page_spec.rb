@@ -9,8 +9,9 @@ module Decidim
         let(:page) { create(:static_page, organization: organization) }
         let(:form) do
           StaticPageForm.from_params(
-            static_page: page.attributes.merge(slug: "new-slug"),
-            organization: page.organization
+            static_page: page.attributes.merge(slug: "new-slug")
+          ).with_context(
+            current_organization: page.organization
           )
         end
         let(:command) { described_class.new(page, form) }

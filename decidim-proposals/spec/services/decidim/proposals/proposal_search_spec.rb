@@ -7,10 +7,16 @@ module Decidim
       let!(:proposal) { create(:proposal, feature: feature)}
       let(:page) { 1 }
 
-      describe "proposals" do
+      describe "results" do
         let(:random_seed) { 0.2 }
 
-        subject { described_class.new(feature, page, random_seed).proposals }
+        subject do 
+          described_class.new({
+            feature: feature,
+            page: page,
+            random_seed: random_seed
+          }).results
+        end
 
         context "when given a random seed" do
           it "sets the seed at the database" do
@@ -35,7 +41,12 @@ module Decidim
 
         it "filters the proposals per page" do
           create_list(:proposal, 3, feature: feature)
-          proposals = described_class.new(feature, page, random_seed, 2).proposals
+          proposals = described_class.new({
+            feature: feature,
+            per_page: 2,
+            page: page,
+            random_seed: random_seed
+          }).results
 
           expect(proposals.total_pages).to eq(2)
           expect(proposals.total_count).to eq(4)
@@ -43,7 +54,13 @@ module Decidim
       end
 
       describe "random_seed" do
-        subject { described_class.new(feature, page, random_seed).random_seed }
+        subject do
+          described_class.new({
+            feature: feature,
+            page: page,
+            random_seed: random_seed
+          }).random_seed
+        end
 
         context "without a given random seed" do
           let(:random_seed) { nil }

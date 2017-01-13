@@ -28,8 +28,7 @@ class Comment extends Component {
 
   render() {
     const { comment: { id, author, body, createdAt }, articleClassName } = this.props;
-
-    const formattedCreatedAt = ` ${moment(createdAt, "YYYY-MM-DD HH:mm:ss z").format("LLL")}`;
+    const formattedCreatedAt = ` ${moment(createdAt).format("LLL")}`;
 
     return (
       <article id={`comment_${id}`} className={articleClassName}>
@@ -52,11 +51,12 @@ class Comment extends Component {
             { body }
           </p>
         </div>
-        {this._renderReplies()}
         <div className="comment__footer">
           {this._renderReplyButton()}
           {this._renderVoteButtons()}
         </div>
+        {this._renderReplies()}
+        {this._renderAdditionalReplyButton()}
         {this._renderReplyForm()}
       </article>
     );
@@ -84,6 +84,34 @@ class Comment extends Component {
     }
 
     return <span>&nbsp;</span>;
+  }
+
+   /**
+   * Render additional reply button if user can reply the comment at the bottom of a conversation
+   * @private
+   * @returns {Void|DOMElement} - Render the reply button or not if user can reply
+   */
+  _renderAdditionalReplyButton() {
+    const { comment: { canHaveReplies, hasReplies }, currentUser, isRootComment } = this.props;
+    const { showReplyForm } = this.state;
+    
+    if (currentUser && canHaveReplies) {
+      if (hasReplies && isRootComment) {
+
+        return (
+          <div className="comment__additionalreply">
+            <button
+              className="comment__reply muted-link"
+              aria-controls="comment1-reply"
+              onClick={() => this.setState({ showReplyForm: !showReplyForm })}
+            >
+              { I18n.t("components.comment.reply") }
+            </button>
+          </div>
+        );
+      }
+    }
+    return null;
   }
 
   /**
@@ -213,7 +241,8 @@ Comment.fragments = {
 };
 
 Comment.defaultProps = {
-  articleClassName: 'comment'
+  articleClassName: 'comment',
+  isRootComment: false
 };
 
 Comment.propTypes = {
@@ -225,6 +254,7 @@ Comment.propTypes = {
     name: PropTypes.string.isRequired
   }),
   articleClassName: PropTypes.string.isRequired,
+  isRootComment: PropTypes.bool,
   votable: PropTypes.bool
 };
 

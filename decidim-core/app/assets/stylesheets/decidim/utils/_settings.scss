@@ -109,27 +109,29 @@ $header-font-family: $body-font-family;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
-$header-sizes: (
-  small: (
-    'h1': 40,
-    'h2': 32,
-    'h3': 28,
-    'h4': 24,
-    'h5': 20,
-    'h6': 16,
-  ),
-  medium: (
-    'h1': 48,
-    'h2': 32,
-    'h3': 28,
-    'h4': 24,
-    'h5': 20,
-    'h6': 16,
-  ),
-);
-$header-color: inherit;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
+
+$header-styles: (
+  'small': (
+    'h1': ('font-size': 40),
+    'h2': ('font-size': 32),
+    'h3': ('font-size': 28),
+    'h4': ('font-size': 24),
+    'h5': ('font-size': 20),
+    'h6': ('font-size': 16)
+  ),
+  'medium': (
+    'h1': ('font-size': 48),
+    'h2': ('font-size': 32),
+    'h3': ('font-size': 28),
+    'h4': ('font-size': 24),
+    'h5': ('font-size': 20),
+    'h6': ('font-size': 16)
+  )
+);
+
+$header-color: inherit;
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 90%;
 $header-small-font-color: lighten($body-font-color, 30);

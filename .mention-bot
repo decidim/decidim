@@ -1,0 +1,8 @@
+{
+  "findPotentialReviewers": true,
+  "userBlacklist": ["decidim-bot"],
+  "actions": ["opened", "labeled", "unlabeled", "edited"],
+  "skipAlreadyMentionedPR": true,
+  "skipTitle": "WIP",
+  "createReviewRequest": true
+}

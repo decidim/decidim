@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -54,7 +55,7 @@ module Decidim
         }
       end
 
-      subject { described_class.from_params(attributes, current_organization: organization) }
+      subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }

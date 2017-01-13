@@ -17,6 +17,7 @@ module Decidim
 
       route = route(scope)
 
+      opts[:locale] = params[:locale] if params[:locale]
       opts[:format] = request_format unless skip_format?
 
       opts[:script_name] = relative_url_root if relative_url_root?

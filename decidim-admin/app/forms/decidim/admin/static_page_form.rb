@@ -6,17 +6,16 @@ module Decidim
       include TranslatableAttributes
 
       attribute :slug, String
-      attribute :organization, Decidim::Organization
       translatable_attribute :title, String
       translatable_attribute :content, String
 
       mimic :static_page
 
-      validates :slug, :organization, presence: true
+      validates :slug, presence: true
       validates :title, :content, translatable_presence: true
       validate :slug, :slug_uniqueness
 
-      alias current_organization organization
+      alias organization current_organization
 
       private
 

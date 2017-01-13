@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -6,7 +7,7 @@ module Decidim
     module Admin
       describe PageForm do
         let(:current_organization) { create(:organization) }
-        
+
         let(:title) do
           {
             "en" => "Hello world",
@@ -36,8 +37,7 @@ module Decidim
         end
 
         subject do
-          described_class.from_params(
-            attributes,
+          described_class.from_params(attributes).with_context(
             current_organization: current_organization
           )
         end

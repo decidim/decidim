@@ -1,3 +1,7 @@
+<% content_for :meta_image_url do %>
+  <% current_participatory_process.banner_image.url %>
+<% end %>
+
 <%= render "layouts/decidim/application" do %>
   <div class="wrapper">
     <%= render partial: "layouts/decidim/process_header" %>
