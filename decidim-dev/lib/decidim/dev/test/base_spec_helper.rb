@@ -4,25 +4,7 @@ ENV["RAILS_ENV"] ||= "test"
 engine_name = ENV["ENGINE_NAME"]
 dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "#{engine_name}_dummy_app"))
 
-if ENV["CI"]
-  require "simplecov"
-  SimpleCov.root(ENV["TRAVIS_BUILD_DIR"])
-
-  SimpleCov.start do
-    filters.clear
-    add_filter "/test/"
-    add_filter "/spec/"
-    add_filter "bundle.js"
-    add_filter "/vendor/"
-
-    add_filter do |src|
-      !(src.filename =~ /^#{ENV["TRAVIS_BUILD_DIR"]}/)
-    end
-  end
-
-  require "codecov"
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
-end
+require "#{File.dirname(__FILE__)}/rspec_support/coverage.rb"
 
 require "rails"
 require "active_support/core_ext/string"
