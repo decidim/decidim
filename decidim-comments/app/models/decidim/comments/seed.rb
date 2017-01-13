@@ -6,15 +6,19 @@ module Decidim
     # app.
     class Seed
       # Public: adds a random amount of comments for a given resource.
+      #
       # resource - the resource to add the coments to.
       #
       # Returns nothing.
       def self.comments_for(resource)
+        organization = resource.organization
+        random = rand(Decidim::User.count)
+
         rand(1..5).times do
           Comment.create(
             commentable: resource,
             body: Decidim::Faker::Localized.sentence,
-            author: Decidim::User.offset(rand(Decidim::User.count)).first
+            author: Decidim::User.where(organization: organization).offset(random).first
           )
         end
       end
