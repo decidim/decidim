@@ -7,11 +7,11 @@ module Decidim
         helper_method :proposals
 
         def new
-          @form = form(Admin::ProposalForm).from_params({}, feature: current_feature)
+          @form = form(Admin::ProposalForm).from_params({})
         end
 
         def create
-          @form = form(Admin::ProposalForm).from_params(params, feature: current_feature)
+          @form = form(Admin::ProposalForm).from_params(params)
 
           Admin::CreateProposal.call(@form) do
             on(:ok) do

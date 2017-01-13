@@ -18,11 +18,11 @@ module Decidim
         authorize! :read, current_participatory_process
       end
 
-      private
-
       def current_feature
         request.env["decidim.current_feature"]
       end
+
+      private
 
       def current_participatory_process
         request.env["decidim.current_participatory_process"]

@@ -18,13 +18,13 @@ module Decidim
       end
 
       def new
-        @form = form(ProposalForm).from_params({}, author: current_user, feature: current_feature)
+        @form = form(ProposalForm).from_params({})
       end
 
       def create
-        @form = form(ProposalForm).from_params(params, author: current_user, feature: current_feature)
+        @form = form(ProposalForm).from_params(params)
 
-        CreateProposal.call(@form) do
+        CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
             redirect_to proposal_path(proposal)

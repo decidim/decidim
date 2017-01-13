@@ -25,7 +25,7 @@ module Decidim
           { current_organization: organization }
         end
         let(:form) do
-          OrganizationForm.from_params(params, context)
+          OrganizationForm.from_params(params).with_context(context)
         end
         let(:command) { described_class.new(organization, form) }
 

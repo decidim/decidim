@@ -45,7 +45,11 @@ module Decidim
         }
       end
 
-      subject { described_class.from_params(attributes, context) }
+      subject do
+        described_class.from_params(attributes).with_context(
+          context
+        )
+      end
 
       context "when everything is OK" do
         it { is_expected.to be_valid }

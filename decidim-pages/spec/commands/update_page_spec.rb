@@ -20,7 +20,8 @@ module Decidim
         end
         let(:form) do
           PageForm.from_params(
-            form_params,
+            form_params
+          ).with_context(
             current_organization: current_organization
           )
         end
