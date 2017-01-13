@@ -9,11 +9,11 @@ module Decidim
     # It also renders the inputs inside its labels.
     def collection_radio_buttons(method, collection, value_method, label_method, options = {}, html_options = {})
       fieldset_wrapper options[:legend_title] do
-        super(method, collection, value_method, label_method, options, html_options) do |b|
+        super(method, collection, value_method, label_method, options, html_options) do |builder|
           if block_given?
-            yield b
+            yield builder
           else
-            b.label { b.radio_button + b.text }
+            builder.label { builder.radio_button + builder.text }
           end
         end
       end
@@ -23,11 +23,11 @@ module Decidim
     # It also renders the inputs inside its labels.
     def collection_check_boxes(method, collection, value_method, label_method, options = {}, html_options = {})
       fieldset_wrapper options[:legend_title] do
-        super(method, collection, value_method, label_method, options, html_options) do |b|
+        super(method, collection, value_method, label_method, options, html_options) do |builder|
           if block_given?
-            yield b
+            yield builder
           else
-            b.label { b.check_box + b.text }
+            builder.label { builder.check_box + builder.text }
           end
         end
       end

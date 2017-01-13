@@ -56,7 +56,7 @@ module Decidim
           search_text: "",
           origin: "all",
           category_id: "",
-          random_seed: params[:random_seed] || @random_seed
+          random_seed: params[:random_seed]
         }
       end
     end

@@ -20,11 +20,11 @@ module Decidim
     let(:builder) { FilterFormBuilder.new(:resource, resource, helper, {}) }
 
     shared_examples "fieldset_wrapper" do
-      it "should wrap fields in a fieldset inside a div with class 'filters__section'" do
+      it "wraps fields in a fieldset inside a div with class 'filters__section'" do
         expect(parsed.css('.filters__section fieldset').first).to be
       end
 
-      it "should add a legend tag with a h6 tag inside with value provided by 'legend' option" do
+      it "adds a legend tag with a h6 tag inside with value provided by 'legend' option" do
         expect(parsed.css('legend h6.heading6').first.text).to eq("Date")
       end
     end
@@ -37,7 +37,7 @@ module Decidim
 
       include_examples "fieldset_wrapper"
 
-      it "should render the radio buttons inside its labels" do
+      it "renders the radio buttons inside its labels" do
         expect(parsed.css('label input').first).to be
       end
     end
@@ -50,7 +50,7 @@ module Decidim
 
       include_examples "fieldset_wrapper"
 
-      it "should render the check boxes inside its labels" do
+      it "renders the check boxes inside its labels" do
         expect(parsed.css('label input').first).to be
       end
     end

@@ -1,7 +1,7 @@
 /* eslint-disable no-div-regex, no-useless-escape, no-param-reassign */
 
 /**
- * A component that handles the form filter.
+ * A plain Javascript component that handles the form filter.
  * @class
  * @augments Component
  */

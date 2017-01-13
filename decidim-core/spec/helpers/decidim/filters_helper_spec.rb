@@ -21,7 +21,7 @@ module Decidim
         allow(helper).to receive(:dummies_path)
       end
 
-      it "should wrap everything in a div with class 'filters'" do
+      it "wraps everything in a div with class 'filters'" do
         expect(helper)
           .to receive(:content_tag)
           .with(:div, { class: "filters" }, any_args)
@@ -31,7 +31,7 @@ module Decidim
         end
       end
       
-      it "should call form_for helper with specific arguments" do
+      it "calls form_for helper with specific arguments" do
         expect(helper)
           .to receive(:form_for)
           .with(filter, { builder: FilterFormBuilder, url: helper.url_for, as: :filter, method: :get, remote: true }, any_args)
