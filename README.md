@@ -23,7 +23,7 @@
 ## What do you need to do?
 
 - [Contribute to the project](#how-to-contribute)
-- [Create & browse development app](#browse-participatory-processes)
+- [Create & browse development app](#browse-decidim)
 - [Install "Decidim" for an organization](#installation-instructions)
 - [Upgrade an already existing "Decidim" installation](#upgrade-instructions)
 - [Use Docker to deploy "Decidim"](#docker-instructions)
