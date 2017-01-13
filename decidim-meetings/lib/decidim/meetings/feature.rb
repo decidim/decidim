@@ -42,7 +42,6 @@ Decidim.register_feature(:meetings) do |feature|
 
         Decidim::Comments::Seed.comments_for(meeting)
       end
-
     end
   end
 end

@@ -12,9 +12,9 @@ module Decidim
       # Returns nothing.
       def self.comments_for(resource)
         organization = resource.organization
-        random = rand(Decidim::User.count)
 
         rand(1..5).times do
+          random = rand(Decidim::User.count)
           Comment.create(
             commentable: resource,
             body: Decidim::Faker::Localized.sentence,
