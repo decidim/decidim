@@ -33,9 +33,19 @@ es:
             scope: Ámbito
             title: Título
       proposals:
+        count:
+          proposals_count:
+            one: 1 propuesta
+            other: "%{count} propuestas"
+        filters:
+          all: Todas
+          category: Categoría
+          citizenship: Ciudadanía
+          official: Oficial
+          origin: Origen
+          search: Buscar
         index:
           new_proposal: Nueva propuesta
-          proposals_count: "%{count} propuestas"
         new:
           back: Atrás
           select_a_category: Por favor, seleccione una categoría
@@ -45,6 +55,6 @@ es:
         proposal:
           view_proposal: Ver propuesta
         share:
+          close_window: Cerrar ventana
           share: Compartir
           share_link: Compartir enlace
-          close_window: Cerrar ventana

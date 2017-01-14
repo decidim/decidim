@@ -8,7 +8,7 @@ services:
 language: ruby
 
 branches:
-  only:
+  only: 
     - master
 
 env:
@@ -27,15 +27,13 @@ before_install:
   - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
   - yarn
   - export BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
-  - export BUNDLE_PATH="$TRAVIS_BUILD_DIR/.bundle"
-
-bundler_args: --jobs=3 --retry=3 --deployment --path=$BUNDLE_PATH
+  - export BUNDLE_PATH="$HOME/.bundle"
 
 cache:
   directories:
-    - $TRAVIS_BUILD_DIR/.yarn-cache
-    - $TRAVIS_BUILD_DIR/node_modules
-    - $BUNDLE_PATH
+    - $HOME/.bundle
+    - $HOME/.yarn-cache
+    - $HOME/node_modules
 
 script:
   - cd $GEM;

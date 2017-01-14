@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -37,7 +38,8 @@ module Decidim
 
       subject do
         described_class.from_params(
-          attributes,
+          attributes
+        ).with_context(
           current_process: participatory_process,
           current_organization: organization
         )
@@ -45,12 +47,6 @@ module Decidim
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
-      end
-
-      context "when participatory process is not set" do
-        let(:participatory_process) { nil }
-
-        it { is_expected.not_to be_valid }
       end
 
       context "when some language in name is missing" do

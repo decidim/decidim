@@ -86,7 +86,7 @@ describe "Proposals", type: :feature do
     end
 
     it "lists all the proposals" do
-      expect(page).to have_css(".card--proposal", 3)
+      expect(page).to have_css(".card--proposal", count: 3)
     end
 
     it "allows viewing a single proposal" do
@@ -101,16 +101,44 @@ describe "Proposals", type: :feature do
 
     context "when there are a lot of proposals" do
       before do
-        create_list(:proposal, 20, feature: feature)
+        create_list(:proposal, 17, feature: feature)
         visit current_path
       end
 
       it "paginates them" do
-        expect(page).to have_css(".card--proposal", 12)
+        expect(page).to have_css(".card--proposal", count: 12)
 
         find(".pagination-next a").click
 
-        expect(page).to have_css(".card--proposal", 8)
+        expect(page).to have_css(".card--proposal", count: 8)
+      end
+    end
+
+    context "when filtering" do
+      context "by origin 'official'" do
+        it "lists the filtered proposals" do
+          create(:proposal, feature: feature, scope: scope, decidim_author_id: nil)
+
+          visit decidim_proposals.proposals_path(:proposals, feature_id: feature, participatory_process_id: participatory_process)
+          within ".filters" do
+            choose "Official"
+          end
+
+          expect(page).to have_css(".card--proposal", count: 1)
+          expect(page).to have_content("1 PROPOSAL")
+        end
+      end
+
+      context "by origin 'citizenship'" do
+        it "lists the filtered proposals" do
+          visit decidim_proposals.proposals_path(:proposals, feature_id: feature, participatory_process_id: participatory_process)
+          within ".filters" do
+            choose "Citizenship"
+          end
+
+          expect(page).to have_css(".card--proposal", count: proposals.size)
+          expect(page).to have_content("#{proposals.size} PROPOSALS")
+        end
       end
     end
   end

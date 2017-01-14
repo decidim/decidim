@@ -33,9 +33,19 @@ ca:
             scope: Àmbit
             title: Títol
       proposals:
+        count:
+          proposals_count:
+            one: 1 proposta
+            other: "%{count} propostes"
+        filters:
+          all: Tots
+          category: Categoria
+          citizenship: Ciutadania
+          official: Oficial
+          origin: Origen
+          search: Cerca
         index:
           new_proposal: Nova proposta
-          proposals_count: "%{count} propostes"
         new:
           back: Enrere
           select_a_category: Si us plau, seleccioni una categoria
@@ -45,6 +55,6 @@ ca:
         proposal:
           view_proposal: Veure proposta
         share:
+          close_window: Tanca la finestra
           share: Compartir
-          share_link: Compartir enllaç
-          close_window: Tancar finestra
+          share_link: Comparteix l'enllaç

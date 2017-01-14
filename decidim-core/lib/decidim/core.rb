@@ -7,6 +7,7 @@ module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
+  autoload :FilterFormBuilder, "decidim/filter_form_builder"
   autoload :DeviseFailureApp, "decidim/devise_failure_app"
   autoload :FeatureManifest, "decidim/feature_manifest"
   autoload :Features, "decidim/features"

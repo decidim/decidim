@@ -3,13 +3,13 @@ module Decidim
   # A base form object to hold common logic, like automatically adding as
   # public method the params sent as context by the `FormFactory` concern.
   class Form < Rectify::Form
-    attr_reader :current_organization, :current_user, :current_feature
+    delegate :current_organization,
+             :current_user,
+             :current_feature,
+             to: :context, prefix: false, allow_nil: true
 
-    def initialize(attributes = {})
-      @current_organization = attributes.delete("current_organization") || attributes.delete(:current_organization)
-      @current_user = attributes.delete("current_user") || attributes.delete(:current_user)
-      @current_feature = attributes.delete("current_feature") || attributes.delete(:current_feature)
-      super
+    def available_locales
+      current_organization&.available_locales
     end
   end
 end

@@ -1,6 +1,8 @@
 <div class="row columns">
   <div class="title-action">
-    <h2 class="title-action__title section-heading"><%= t(".proposals_count", count: @proposals.total_count) %></h2>
+    <h2 id="proposals-count" class="title-action__title section-heading">
+      <%= render partial: "count" %>
+    </h2>
     <%= link_to new_proposal_path, class: "title-action__action button small hollow" do %>
       <%= t(".new_proposal") %>
       <%= icon "plus" %>
@@ -8,10 +10,12 @@
   </div>
 </div>
 <div class="row">
-  <div class="columns mediumlarge-12 large-12">
-    <div class="row small-up-1 medium-up-3 card-grid">
-      <%= render @proposals %>
+  <div class="columns mediumlarge-4 large-3">
+    <div class="card card--secondary show-for-mediumlarge" >
+      <%= render partial: "filters" %>
     </div>
-    <%= decidim_paginate @proposals, random_seed: @random_seed %>
+  </div>
+  <div id="proposals" class="columns mediumlarge-8 large-9">
+    <%= render partial: "proposals" %>
   </div>
 </div>

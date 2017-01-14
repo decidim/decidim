@@ -49,7 +49,7 @@ describe Decidim::Meetings::Admin::MeetingForm do
     }
   end
 
-  subject { described_class.from_params(attributes, context).with_context(current_feature: current_feature) }
+  subject { described_class.from_params(attributes).with_context(context) }
 
   it { is_expected.to be_valid }
 

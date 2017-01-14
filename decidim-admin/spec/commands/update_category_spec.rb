@@ -23,8 +23,9 @@ module Decidim
         let(:form) do
           CategoryForm.from_params(
             form_params,
-            current_organization: organization,
             current_process: participatory_process
+          ).with_context(
+            current_organization: organization
           )
         end
         let(:command) { described_class.new(category, form) }

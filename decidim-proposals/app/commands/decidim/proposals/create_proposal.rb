@@ -5,9 +5,11 @@ module Decidim
     class CreateProposal < Rectify::Command
       # Public: Initializes the command.
       #
-      # form - A form object with the params.
-      def initialize(form)
+      # form         - A form object with the params.
+      # current_user - The current user.
+      def initialize(form, current_user)
         @form = form
+        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -33,7 +35,7 @@ module Decidim
           body: form.body,
           category: form.category,
           scope: form.scope,
-          author: form.author,
+          author: @current_user,
           feature: form.feature
         )
       end

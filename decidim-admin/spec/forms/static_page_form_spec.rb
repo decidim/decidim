@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -35,7 +36,7 @@ module Decidim
         }
       end
 
-      subject { described_class.from_params(attributes) }
+      subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
@@ -64,12 +65,6 @@ module Decidim
 
       context "when slug is missing" do
         let(:slug) { nil }
-
-        it { is_expected.to be_invalid }
-      end
-
-      context "when organization is missing" do
-        let(:organization) { nil }
 
         it { is_expected.to be_invalid }
       end

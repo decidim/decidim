@@ -13,15 +13,9 @@ module Decidim
       mimic :category
 
       validates :name, :description, translatable_presence: true
-      validates :current_process, presence: true
       validates :parent_id, inclusion: { in: :parent_categories_ids }, allow_blank: true
 
-      attr_reader :current_process
-
-      def initialize(attributes = {})
-        @current_process = attributes.delete("current_process") || attributes.delete(:current_process)
-        super
-      end
+      delegate :current_process, to: :context, prefix: false
 
       def parent_categories
         @parent_categories ||= current_process.categories.first_class.where.not(id: id)

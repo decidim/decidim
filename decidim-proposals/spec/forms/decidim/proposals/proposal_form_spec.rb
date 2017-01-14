@@ -18,12 +18,18 @@ module Decidim
           body: body,
           author: author,
           category_id: category_id,
-          scope_id: scope_id,
-          feature: feature
+          scope_id: scope_id
         }
       end
 
-      subject { described_class.from_params(params) }
+      let(:form) do
+        described_class.from_params(params).with_context(
+          current_feature: feature,
+          current_organization: feature.organization
+        )
+      end
+
+      subject { form }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
@@ -36,11 +42,6 @@ module Decidim
 
       context "when there's no body" do
         let(:body) { nil }
-        it { is_expected.to be_invalid }
-      end
-
-      context "when there's no author" do
-        let(:author) { nil }
         it { is_expected.to be_invalid }
       end
 
@@ -65,7 +66,7 @@ module Decidim
       end
 
       describe "category" do
-        subject { described_class.from_params(params).category }
+        subject { form.category }
 
         context "when the category exists" do
           it { is_expected.to be_kind_of(Decidim::Category) }
@@ -83,7 +84,7 @@ module Decidim
       end
 
       describe "scope" do
-        subject { described_class.from_params(params).scope }
+        subject { form.scope }
 
         context "when the scope exists" do
           it { is_expected.to be_kind_of(Decidim::Scope) }

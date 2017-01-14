@@ -11,7 +11,7 @@ engines:
         javascript:
           mass_threshold: 1000
         ruby:
-          mass_threshold: 50
+          mass_threshold: 80
     exclude_fingerprints:
     - 645ddab80611224e15d61c8426285296
     - 82b4059b3b55d7b7f06d8aba6cb7b81a
