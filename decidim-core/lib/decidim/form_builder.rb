@@ -32,7 +32,7 @@ module Decidim
             string + content_tag(:li, class: tab_element_class_for("title", index)) do
               title = I18n.t(locale, scope: "locales")
               element_class = ""
-              element_class += "alert" if has_error?(name_with_locale(name, locale))
+              element_class += "alert" if error?(name_with_locale(name, locale))
               content_tag(:a, title, href: "##{name}-panel-#{index}", class: element_class)
             end
           end
@@ -71,7 +71,7 @@ module Decidim
         template += content_tag(:div, nil, class: "editor-container", data: {
                                   toolbar: options[:toolbar]
                                 }, style: "height: #{options[:lines]}rem")
-        template += error_for(name, options) if has_error?(name)
+        template += error_for(name, options) if error?(name)
         template.html_safe
       end
     end
@@ -156,7 +156,7 @@ module Decidim
     end
 
     def label_i18n(attribute, text = nil, options = {})
-      errored = has_error?(attribute) || locales.any? { |locale| has_error?(name_with_locale(attribute, locale)) }
+      errored = error?(attribute) || locales.any? { |locale| error?(name_with_locale(attribute, locale)) }
 
       if errored
         options[:class] ||= ""
