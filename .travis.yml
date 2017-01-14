@@ -30,8 +30,8 @@ before_install:
   - export BUNDLE_PATH="$HOME/.bundle"
 
 cache:
-  bundler: true
   directories:
+    - $HOME/.bundle
     - $HOME/.yarn-cache
     - $HOME/node_modules
 
