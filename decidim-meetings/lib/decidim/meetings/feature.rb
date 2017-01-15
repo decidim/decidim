@@ -22,7 +22,7 @@ Decidim.register_feature(:meetings) do |feature|
       )
 
       3.times do
-        Decidim::Meetings::Meeting.create!(
+        meeting = Decidim::Meetings::Meeting.create!(
           feature: feature,
           scope: process.organization.scopes.sample,
           category: process.categories.sample,
@@ -39,6 +39,8 @@ Decidim.register_feature(:meetings) do |feature|
           end_time: 3.weeks.from_now + 4.hours,
           address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}"
         )
+
+        Decidim::Comments::Seed.comments_for(meeting)
       end
     end
   end
