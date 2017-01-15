@@ -1,4 +1,4 @@
-require_dependency "decidim/features/configuration"
+require_dependency "decidim/features/configuration_manifest"
 
 # frozen_string_literal: true
 module Decidim
@@ -77,7 +77,7 @@ module Decidim
     def configuration(name = :global, &block)
       @configurations ||= {}
       name = name.to_sym
-      configuration = (@configurations[name] ||= FeatureConfiguration.new)
+      configuration = (@configurations[name] ||= FeatureConfigurationManifest.new)
       yield(configuration) if block
       configuration
     end
