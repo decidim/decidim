@@ -10,9 +10,14 @@ module Decidim
       include NeedsParticipatoryProcess
       helper Decidim::TranslationsHelper
       helper Decidim::ParticipatoryProcessHelper
-      helper_method :current_feature, :current_manifest, :global_configuration
+      helper_method :current_feature,
+                    :current_manifest,
+                    :global_configuration,
+                    :current_configuration
 
       skip_authorize_resource
+
+      delegate :active_step, to: :participatory_process, prefix: false
 
       before_action do
         authorize! :read, current_participatory_process
@@ -32,6 +37,10 @@ module Decidim
 
       def global_configuration
         current_feature.configuration
+      end
+
+      def current_configuration
+        current_feature.step_configurations[active_step.id.to_s]
       end
     end
   end

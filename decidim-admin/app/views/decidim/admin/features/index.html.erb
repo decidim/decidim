@@ -16,6 +16,12 @@
   </div>
 
   <table>
+    <thead>
+      <th><%= t(".headers.name") %></th>
+      <th><%= t(".headers.type") %></th>
+      <th><%= t(".headers.actions") %></th>
+    </thead>
+
     <tbody>
       <%= render partial: "feature", collection: @features %>
     </tbody>

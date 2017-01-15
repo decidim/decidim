@@ -20,11 +20,11 @@ Decidim.register_feature(:pages) do |feature|
   end
 
   feature.configuration(:global) do |configuration|
-    configuration.attribute :comments_enabled, type: :boolean
+    configuration.attribute :comments_enabled, type: :boolean, default: true
   end
 
   feature.configuration(:step) do |configuration|
-    configuration.attribute :comments_enabled
+    configuration.attribute :comments_enabled, type: :boolean
   end
 
   feature.seeds do

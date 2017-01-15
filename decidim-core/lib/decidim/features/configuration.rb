@@ -50,6 +50,8 @@ module Decidim
       }.freeze
 
       attribute :type, Symbol, default: :boolean
+      attribute :default
+
       validates :type, inclusion: { in: TYPES.keys }
 
       def type_class
@@ -57,7 +59,7 @@ module Decidim
       end
 
       def default_value
-        TYPES[type][:default]
+        default || TYPES[type][:default]
       end
     end
   end

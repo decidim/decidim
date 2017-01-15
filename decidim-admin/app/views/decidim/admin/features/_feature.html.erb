@@ -2,6 +2,7 @@
   <td>
     <%= link_to decidim.feature_path(participatory_process, feature), target: "_blank" do %>
       <%= translated_attribute feature.name %>
+      <%= icon "external-link" %>
     <% end %>
   </td>
   <td>
@@ -11,11 +12,11 @@
 
     <% if feature.manifest.admin_engine %>
       <%= link_to manage_feature_path(participatory_process, feature), class: "button small" do %>
-        <%= t "actions.configure", scope: "decidim.admin" %>
+        <%= t "actions.manage", scope: "decidim.admin" %>
       <% end %>
     <% end %>
 
-    <%= link_to t("actions.edit", scope: "decidim.admin"), url_for(action: :edit, id: feature, controller: "features"), class: "small button" if can? :update, feature %>
+    <%= link_to t("actions.configure", scope: "decidim.admin"), url_for(action: :edit, id: feature, controller: "features"), class: "small button" if can? :update, feature %>
 
     <%= link_to t("actions.destroy", scope: "decidim.admin"), url_for(action: :destroy, id: feature, controller: "features"), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, feature %>
   </td>
