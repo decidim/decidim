@@ -13,7 +13,7 @@ module Decidim
       helper_method :current_feature,
                     :current_manifest,
                     :global_configuration,
-                    :current_configuration
+                    :current_step_configuration
 
       skip_authorize_resource
 
