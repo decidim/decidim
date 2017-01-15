@@ -56,16 +56,5 @@ describe "Edit a page", type: :feature do
       expect(page).to have_title("New title")
       expect(page).to have_content("New body")
     end
-
-    it "enable comments to the page" do
-      within "form.edit_page" do
-        check "page_commentable"
-        find("*[type=submit]").click
-      end
-
-      visit_feature_admin
-
-      expect(page.find("#page_commentable")).to be_checked
-    end
   end
 end

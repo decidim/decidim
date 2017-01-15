@@ -22,9 +22,10 @@ describe "Show a page", type: :feature do
     }
   end
 
+  let!(:page_feature){ create(:page, feature: feature, title: title, body: body) }
+
   describe "page show" do  
     before do
-      create(:page, feature: feature, title: title, body: body)
       visit_feature
     end
 
@@ -35,11 +36,12 @@ describe "Show a page", type: :feature do
   end
 
   describe "page show with comments" do
-    let!(:page_feature) { create(:page, feature: feature, title: title, body: body) }
     let!(:comments) { create_list(:comment, 3, commentable: page_feature) }
 
     before do
-      page_feature.update_attribute(:commentable, commentable)
+      page_feature.feature.configuration = {
+        comments_enabled: commentable
+      }
     end
 
     context "when the page is commentable" do

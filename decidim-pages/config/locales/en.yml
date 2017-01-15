@@ -9,7 +9,6 @@ en:
         models:
           components:
             body: Body
-            commentable: Enable comments for this page
             title: Title
         pages:
           edit:

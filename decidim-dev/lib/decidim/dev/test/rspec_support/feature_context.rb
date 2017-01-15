@@ -20,7 +20,7 @@ RSpec.shared_context "feature" do
   end
 
   def visit_feature
-    visit decidim.feature_path(participatory_process, feature)
+    page.visit decidim.feature_path(participatory_process, feature)
   end
 end
 

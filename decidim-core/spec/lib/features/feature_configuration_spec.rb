@@ -1,7 +1,7 @@
 require "spec_helper"
 
 module Decidim
-  describe FeatureConfiguration do
+  describe FeatureConfigurationManifest do
     subject { described_class.new }
 
     describe "attribute" do
