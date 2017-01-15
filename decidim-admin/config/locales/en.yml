@@ -103,12 +103,21 @@ en:
         destroy:
           error: There has been an error destroying this feature.
           success: Feature deleted successfully.
+        edit:
+          title: Edit feature
+          update: Update
+        form:
+          global_configuration: Global configuration
+          step_configurations: Step configurations
         index:
           add: Add feature
         new:
           add: Add feature
           title: 'Add feature: %{name}'
         title: Features
+        update:
+          error: There has been an error updating this feature.
+          success: The feature was updated successfully.
       menu:
         dashboard: Dashboard
         participatory_processes: Participatory processes
