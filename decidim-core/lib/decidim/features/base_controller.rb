@@ -17,7 +17,7 @@ module Decidim
 
       skip_authorize_resource
 
-      delegate :active_step, to: :participatory_process, prefix: false
+      delegate :active_step, to: :current_participatory_process, prefix: false
 
       before_action do
         authorize! :read, current_participatory_process
