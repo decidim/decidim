@@ -1,8 +1,8 @@
 <div class="field">
   <%= form.translated :text_field, :name, autofocus: true %>
 
-  <% if form.object.configuration.schema.attributes.any? %>
-    <fieldset>
+  <% if form.object.configuration.manifest.attributes.any? %>
+    <fieldset class="global-configuration">
       <div class="card">
         <div class="card-divider">
           <legend><%= t ".global_configuration" %></legend>
@@ -10,32 +10,38 @@
         <div class="card-section">
           <%= form.fields_for :configuration, form.object.configuration do |configuration_fields| %>
             <%= render partial: "decidim/admin/features/configuration_fields",
-                      locals: { form: configuration_fields }
-            %>
+                       locals: {
+                         form: configuration_fields,
+                         feature: @feature,
+                         configuration_name: "global"
+                       } %>
           <% end %>
         </div>
       </div>
     </fieldset>
   <% end %>
 
-  <% if form.object.step_configurations.values.map(&:schema).flat_map(&:attributes).flat_map(&:keys).any? %>
+  <% if form.object.step_configurations.values.map(&:manifest).flat_map(&:attributes).flat_map(&:keys).any? %>
     <% if participatory_process.steps.any? %>
-      <fieldset>
+      <fieldset class="step-configurations">
         <div class="card">
           <div class="card-divider">
             <legend><%= t ".step_configurations" %></legend>
           </div>
           <div class="card-section">
             <% participatory_process.steps.each do |step| %>
-              <fieldset>
+              <fieldset class="step-configuration step-configuration-<%= step.id %>">
                 <legend><%= step.position + 1 %>. <%= translated_attribute step.title %></legend>
                 <% step_configuration = form.object.step_configurations[step.id.to_s] %>
 
                 <%= form.fields_for "step_configurations", nil do |configuration_fields| %>
                   <%= configuration_fields.fields_for step.id.to_s, step_configuration do |configuration_fields| %>
                     <%= render partial: "decidim/admin/features/configuration_fields",
-                    locals: { form: configuration_fields }
-                    %>
+                               locals: {
+                                 form: configuration_fields,
+                                 feature: feature,
+                                 configuration_name: "step"
+                               } %>
                   <% end %>
                 <% end %>
               </fieldset>

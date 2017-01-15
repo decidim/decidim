@@ -50,7 +50,7 @@ module Decidim
         @feature = participatory_process.features.find(params[:id])
         authorize! :update, @feature
 
-        @form = form(FeatureForm).from_model(@feature).with_context(current_organization: current_organization)
+        @form = form(FeatureForm).from_model(@feature)
       end
 
       def update

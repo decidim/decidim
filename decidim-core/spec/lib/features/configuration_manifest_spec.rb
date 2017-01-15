@@ -16,8 +16,9 @@ module Decidim
       end
 
       it "coerces options" do
-        subject.attribute "something", "type" => "boolean"
+        subject.attribute "something", "type" => "boolean", "default" => true
         expect(subject.attributes[:something].type).to eq(:boolean)
+        expect(subject.attributes[:something].default_value).to eq(true)
       end
 
       it "only allows valid types" do

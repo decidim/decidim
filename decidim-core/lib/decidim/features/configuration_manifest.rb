@@ -23,6 +23,8 @@ module Decidim
       attribute = Attribute.new(options)
       attribute.validate!
       @attributes[name.to_sym] = attribute
+
+      @schema = nil
     end
 
     # Public: Creates a model Class that sanitizes, coerces and filters data to
@@ -30,30 +32,32 @@ module Decidim
     #
     # Returns a Class.
     def schema
-      configuration_schema = self
+      return @schema if @schema
 
-      @klass = Class.new do
+      manifest = self
+
+      @schema = Class.new do
         include Virtus.model
         include ActiveModel::Validations
 
-        cattr_accessor :schema
+        cattr_accessor :manifest
 
         def self.model_name
           ActiveModel::Name.new(self, nil, "FeatureConfiguration")
         end
 
-        def schema
-          self.class.schema
+        def manifest
+          self.class.manifest
         end
 
-        configuration_schema.attributes.each do |name, attribute|
+        manifest.attributes.each do |name, attribute|
           attribute name, attribute.type_class, default: attribute.default_value
           validates name, presence: true
         end
       end
 
-      @klass.schema = self
-      @klass
+      @schema.manifest = self
+      @schema
     end
 
     # Semi-private: Attributes are an abstraction used by FeatureConfigurationManifest

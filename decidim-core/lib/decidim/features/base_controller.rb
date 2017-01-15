@@ -39,8 +39,10 @@ module Decidim
         current_feature.configuration
       end
 
-      def current_configuration
-        current_feature.step_configurations[active_step.id.to_s]
+      def current_step_configuration
+        return nil unless active_step
+
+        current_feature.step_configurations.fetch(active_step.id.to_s)
       end
     end
   end

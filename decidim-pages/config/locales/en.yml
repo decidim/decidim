@@ -4,6 +4,11 @@ en:
     features:
       pages:
         name: Page
+        configurations:
+          global:
+            comments_enabled: Comments enabled
+          step:
+            comments_enabled: Comments enabled
     pages:
       admin:
         models:
