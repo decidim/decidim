@@ -54,12 +54,12 @@ en:
       actions:
         activate: Activate
         configure: Configure
-        manage: Manage
         confirm_destroy: Are you sure you want to delete this?
         create: Create
         deactivate: Deactivate
         destroy: Destroy
         edit: Edit
+        manage: Manage
         new: New %{name}
         preview: Preview
         publish: Publish
@@ -112,6 +112,10 @@ en:
           step_configurations: Step configurations
         index:
           add: Add feature
+          headers:
+            actions: Actions
+            name: Feature name
+            type: Feature type
         new:
           add: Add feature
           title: 'Add feature: %{name}'

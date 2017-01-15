@@ -12,7 +12,9 @@ module Decidim
             es: "Mi funcionalidad"
           },
           invalid?: !valid,
-          valid?: valid
+          valid?: valid,
+          configuration: {},
+          step_configurations: {}
         )
       end
 
