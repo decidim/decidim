@@ -31,9 +31,7 @@ module Decidim
       end
 
       def global_configuration
-        @global_configuration ||= current_manifest.configuration(:global).schema.new(
-          current_feature.configuration.try(:[], "global")
-        )
+        current_feature.configuration
       end
     end
   end

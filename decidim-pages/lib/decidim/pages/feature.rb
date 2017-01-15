@@ -42,8 +42,7 @@ Decidim.register_feature(:pages) do |feature|
         title: Decidim::Faker::Localized.sentence(2),
         body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
-        end,
-        commentable: true
+        end
       )
 
       Decidim::Comments::Seed.comments_for(page)

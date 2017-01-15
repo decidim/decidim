@@ -11,6 +11,8 @@ module Decidim
 
     validates :participatory_process, presence: true
 
+    after_initialize :default_values
+
     # Public: Finds the manifest this feature is associated to.
     #
     # Returns a FeatureManifest.
@@ -28,47 +30,41 @@ module Decidim
     end
 
     def configuration
-      manifest.configuration(:global).schema.new(
-        self[:configuration].try(:[], "global")
-      )
+      configuration_schema(:global).new(self[:configuration]["global"])
     end
 
     def configuration=(data)
-      self[:configuration] ||= {}
-
-      self[:configuration]["global"] = if data.is_a?(Hash)
-                                         manifest.configuration(:global).schema.new(
-                                           data
-                                         )
-                                       elsif data.nil?
-                                         {}
-                                       else
-                                         data.attributes
-                                       end
+      self[:configuration]["global"] = serialize_configuration(configuration_schema(:global), data)
     end
 
     def step_configurations
-      participatory_process.steps.inject({}) do |result, step|
-        configuration = manifest.configuration(:step).schema.new(
-          self[:configuration].try(:[], step.id.to_s)
-        )
-
-        result.merge(step.id.to_s => configuration)
+      participatory_process.steps.each_with_object({}) do |step, result|
+        result[step.id.to_s] = configuration_schema(:step).new(self[:configuration].dig("steps", step.id.to_s))
       end
     end
 
     def step_configurations=(data)
-      self[:configuration] ||= {}
-
-      data.each do |key, value|
-        self[:configuration][key.to_s] = if value.is_a?(Hash)
-                                           manifest.configuration(:step).schema.new(value)
-                                         elsif value.nil?
-                                           {}
-                                         else
-                                           value.attributes
-                                         end
+      self[:configuration]["steps"] = data.each_with_object({}) do |(key, value), result|
+        result[key.to_s] = serialize_configuration(configuration_schema(:step), value)
       end
+    end
+
+    private
+
+    def serialize_configuration(schema, value)
+      if value.respond_to?(:attributes)
+        value.attributes
+      else
+        schema.new(value)
+      end
+    end
+
+    def configuration_schema(name)
+      manifest.configuration(name.to_sym).schema
+    end
+
+    def default_values
+      self[:configuration] ||= {}
     end
   end
 end
