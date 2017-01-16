@@ -32,7 +32,6 @@ describe "Authentication", type: :feature, perform_enqueued: true do
     end
 
     context "using facebook" do
-      let(:verified) { true }
       let(:omniauth_hash) {
         OmniAuth::AuthHash.new({
           provider: 'facebook',
@@ -40,7 +39,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
           info: {
             email: "user@from-facebook.com",
             name: "Facebook User",
-            verified: verified
+            verified: true
           }
         })
       }
@@ -63,37 +62,6 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
           expect(page).to have_content("Successfully authenticated from Facebook account.")
           expect(page).to have_content(last_user.name)
-          expect(last_user.email).to eq("user@from-facebook.com")
-          expect(last_user.organization).to eq(organization)
-        end
-      end
-
-      context "when the user has not confirmed the email in facebook" do
-        let(:verified) { false }
-
-        it "creates a new User and send confirmation instructions" do
-          find(".sign-up-link").click
-
-          click_link "Sign in with Facebook"   
-          
-          expect(page).to have_content("confirmation link")
-          expect(emails.count).to eq(1)
-          expect(last_user.email).to eq("user@from-facebook.com")          
-          expect(last_user.organization).to eq(organization)
-        end
-      end
-
-      context "when there is another account with the same email" do
-        it "cannot be registered" do
-          create(:user, organization: organization, email: "user@from-facebook.com")
-
-          find(".sign-up-link").click
-
-          expect {
-            click_link "Sign in with Facebook"   
-
-            expect(page).to have_content("already exists")
-          }.to_not change { Decidim::User.count }
         end
       end
     end

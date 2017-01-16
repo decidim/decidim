@@ -72,6 +72,7 @@ module Decidim
 
     describe ".find_or_create_from_oauth" do
       let(:verified) { true }
+      let(:email) { "user@from-facebook.com"}
       let(:omniauth_hash) {
         {
           provider: 'facebook',
@@ -84,13 +85,35 @@ module Decidim
         }
       }
       
-      context "when the user doesn't exist" do
+      context "when a user with the same email doesn't exists" do
         context "and the email is verified" do
           it "creates a confirmed user" do
             user = User.find_or_create_from_oauth(omniauth_hash, organization)
             expect(user).to be_persisted
             expect(user).to be_confirmed
           end
+        end
+
+        context "and the email is not verified" do
+          let(:verified) { false }
+          
+          it "doesn't confirm the user" do
+            user = User.find_or_create_from_oauth(omniauth_hash, organization)
+            expect(user).to be_persisted
+            expect(user).not_to be_confirmed
+          end
+        end
+      end
+
+      context "when a user with the same email exists" do
+        it "doesn't create the user" do
+          create(:user, organization: organization, email: email)
+
+          expect {
+            user = User.find_or_create_from_oauth(omniauth_hash, organization)
+          }.not_to change {
+            User.count
+          }
         end
       end
     end
