@@ -40,7 +40,7 @@ module Decidim
       end
 
       def context_params
-        {feature: current_feature, organization: current_organization }
+        { feature: current_feature, organization: current_organization }
       end
     end
   end
