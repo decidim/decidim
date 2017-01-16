@@ -113,6 +113,12 @@ FactoryGirl.define do
     end
   end
 
+  factory :identity, class: Decidim::Identity do
+    provider "facebook"
+    sequence(:uid)
+    user
+  end
+
   factory :authorization, class: Decidim::Authorization do
     name "decidim/dummy_authorization_handler"
     user

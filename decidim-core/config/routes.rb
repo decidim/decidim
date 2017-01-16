@@ -11,7 +11,8 @@ Decidim::Core::Engine.routes.draw do
                sessions: "decidim/devise/sessions",
                confirmations: "decidim/devise/confirmations",
                registrations: "decidim/devise/registrations",
-               passwords: "decidim/devise/passwords"
+               passwords: "decidim/devise/passwords",
+               omniauth_callbacks: "decidim/devise/omniauth_callbacks"
              }
 
   resource :locale, only: [:create]

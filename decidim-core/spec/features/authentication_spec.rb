@@ -51,17 +51,18 @@ describe "Authentication", type: :feature, perform_enqueued: true do
       end
 
       after :each do
-        OmniAuth.config.test_mode = false        
+        OmniAuth.config.test_mode = false
+        OmniAuth.config.mock_auth[:facebook] = nil         
       end
 
       context "when the user has confirmed the email in facebook" do
         it "creates a new User without sending confirmation instructions" do
           find(".sign-up-link").click
 
-          click_link "Sign up with Facebook"   
+          click_link "Sign in with Facebook"   
 
-          expect(page).to have_content("Signed in successfully")
-          expect(page).to have_content(user.name)
+          expect(page).to have_content("Successfully authenticated from Facebook account.")
+          expect(page).to have_content(last_user.name)
           expect(last_user.email).to eq("user@from-facebook.com")
           expect(last_user.organization).to eq(organization)
         end
@@ -73,7 +74,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         it "creates a new User and send confirmation instructions" do
           find(".sign-up-link").click
 
-          click_link "Sign up with Facebook"   
+          click_link "Sign in with Facebook"   
           
           expect(page).to have_content("confirmation link")
           expect(emails.count).to eq(1)
