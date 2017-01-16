@@ -87,7 +87,7 @@ en:
       password_change:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
-        subject: Password Changed
+        subject: Password changed
   errors:
     messages:
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}

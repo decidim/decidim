@@ -11,8 +11,14 @@ module Decidim
         @user = User.find_or_create_from_oauth(env["omniauth.auth"], current_organization)
 
         if @user.persisted?
-          sign_in_and_redirect @user, event: :authentication
-          set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
+          if @user.active_for_authentication?
+            sign_in_and_redirect @user, event: :authentication
+            set_flash_message :notice, :success, kind: "Facebook"
+          else
+            expire_data_after_sign_in!
+            redirect_to root_path
+            flash[:notice] = t("devise.registrations.signed_up_but_unconfirmed")
+          end
         end
       end
 
