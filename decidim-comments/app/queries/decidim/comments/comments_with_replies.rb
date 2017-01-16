@@ -43,7 +43,7 @@ module Decidim
                   order_by_best_rated(scope)
                 when "most_discussed"
                   order_by_most_discussed(scope)
-              end
+                end
 
         scope
       end
