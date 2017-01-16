@@ -57,16 +57,14 @@ module Decidim
         identity.user
       else
         info = omniauth_hash[:info]
+        generated_password = SecureRandom.hex
 
-        if info[:verified]
-          generated_password = SecureRandom.hex
+        user = User.create(email: info[:email], name: info[:name], password: generated_password, password_confirmation: generated_password, organization: organization, tos_agreement: true)
+        user.identities.create(provider: omniauth_hash[:provider], uid: omniauth_hash[:uid])
 
-          user = User.create(email: info[:email], name: info[:name], password: generated_password, password_confirmation: generated_password, organization: organization, tos_agreement: true)
-          user.identities.create(provider: omniauth_hash[:provider], uid: omniauth_hash[:uid])
+        user.skip_confirmation! if info[:verified]
 
-          user.skip_confirmation!
-          user
-        end
+        user
       end
     end
 
