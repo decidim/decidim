@@ -1,8 +1,9 @@
 # frozen_string_literal: true
-# rubocop:disable Metrics/BlockLength
 require "active_support/concern"
 
 module Decidim
+  # This concern groups methods and helpers related to accessing the settings
+  # of a feature from a controller.
   module FeatureSettings
     extend ActiveSupport::Concern
 
