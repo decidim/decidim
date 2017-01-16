@@ -51,5 +51,25 @@
       </div>
     </div>
   </div>
+
+  <%- if devise_mapping.omniauthable? %>
+    <div class="row">
+      <div class="columns large-4 mediumlarge-6 medium-8 medium-centered">
+        <span class="register__separator">
+          <span class="register__separator__text"><%= t('.or') %></span>
+        </span>
+        <%- resource_class.omniauth_providers.each do |provider| %>  
+          <div class="social-register">
+            <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--facebook" do %>
+              <span class="button--social__icon">
+                <%= icon provider.to_s %>
+              </span>
+              <%= t("devise.shared.links.sign_in_with_provider", provider: provider.to_s.titleize) %>
+            <% end %> 
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
 </main>

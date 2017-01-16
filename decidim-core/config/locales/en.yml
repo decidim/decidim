@@ -50,6 +50,7 @@ en:
       registrations:
         new:
           already_have_an_account?: Already have an account?
+          or: Or
           sign_in: Log in
           sign_up: Sign up
           subtitle: Sign up to participate in discussions and support proposals.
