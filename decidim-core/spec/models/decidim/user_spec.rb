@@ -3,10 +3,15 @@ require "spec_helper"
 
 module Decidim
   describe User, :db do
-    let(:user) { build(:user) }
+    let(:organization) { build(:organization) }
+    let(:user) { build(:user, organization: organization) }
     subject { user}
 
     it { is_expected.to be_valid }
+
+    it "has an association for identities" do
+      expect(subject.identities).to eq([])
+    end
 
     context "with roles" do
       let(:user) { build(:user, :admin) }
@@ -62,6 +67,54 @@ module Decidim
       it "sends them asynchronously" do
         create(:user)
         expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+      end
+    end
+
+    describe ".find_or_create_from_oauth" do
+      let(:verified) { true }
+      let(:email) { "user@from-facebook.com"}
+      let(:omniauth_hash) {
+        {
+          provider: 'facebook',
+          uid: '123545',
+          info: {
+            email: "user@from-facebook.com",
+            name: "Facebook User",
+            verified: verified
+          }
+        }
+      }
+      
+      context "when a user with the same email doesn't exists" do
+        context "and the email is verified" do
+          it "creates a confirmed user" do
+            user = User.find_or_create_from_oauth(omniauth_hash, organization)
+            expect(user).to be_persisted
+            expect(user).to be_confirmed
+          end
+        end
+
+        context "and the email is not verified" do
+          let(:verified) { false }
+          
+          it "doesn't confirm the user" do
+            user = User.find_or_create_from_oauth(omniauth_hash, organization)
+            expect(user).to be_persisted
+            expect(user).not_to be_confirmed
+          end
+        end
+      end
+
+      context "when a user with the same email exists" do
+        it "doesn't create the user" do
+          create(:user, organization: organization, email: email)
+
+          expect {
+            user = User.find_or_create_from_oauth(omniauth_hash, organization)
+          }.not_to change {
+            User.count
+          }
+        end
       end
     end
   end

@@ -47,6 +47,9 @@ en:
       actions:
         unauthorized: You are not authorized to perform this action
     devise:
+      omniauth_callbacks:
+        facebook:
+          email_already_exists: Email already exists
       registrations:
         new:
           already_have_an_account?: Already have an account?
@@ -60,6 +63,9 @@ en:
         new:
           are_you_new?: New to the platform?
           register: Create an account
+      shared:
+        omniauth_buttons:
+          or: Or
     menu:
       home: Home
       processes: Processes
@@ -86,7 +92,7 @@ en:
       password_change:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
-        subject: Password Changed
+        subject: Password changed
   errors:
     messages:
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
