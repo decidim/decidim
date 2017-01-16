@@ -40,7 +40,7 @@ describe "Show a page", type: :feature do
 
     context "when the page is commentable" do
       before do
-        feature.configuration = { comments_always_enabled: true }
+        feature.settings = { comments_always_enabled: true }
         feature.save
         visit_feature
       end
@@ -56,7 +56,7 @@ describe "Show a page", type: :feature do
 
     context "when the page is not commentable" do
       before do
-        feature.configuration = { comments_always_enabled: false }
+        feature.settings = { comments_always_enabled: false }
         feature.save
         visit_feature
       end
