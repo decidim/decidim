@@ -3,7 +3,7 @@ en:
   decidim:
     features:
       pages:
-        configurations:
+        settings:
           global:
             comments_always_enabled: Comments always enabled
           step:
