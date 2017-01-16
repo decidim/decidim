@@ -53,6 +53,10 @@ module Decidim
         template "decidim_dev.rb", "#{dummy_path}/config/initializers/decidim_dev.rb"
       end
 
+      def secrets
+        template "secrets.yml.erb", "config/secrets.yml", force: true
+      end
+
       private
 
       def dummy_path
