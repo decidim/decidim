@@ -26,24 +26,24 @@ module Decidim
       # level of nested replies.
       def query
         scope = Comment
-          .where(commentable: commentable)
-          .includes(:author, :up_votes, :down_votes)
-          .includes(
-            replies: [:author, :up_votes, :down_votes,
-                      replies: [:author, :up_votes, :down_votes,
-                                replies: [:author, :up_votes, :down_votes]]]
-          )
+                .where(commentable: commentable)
+                .includes(:author, :up_votes, :down_votes)
+                .includes(
+                  replies: [:author, :up_votes, :down_votes,
+                            replies: [:author, :up_votes, :down_votes,
+                                      replies: [:author, :up_votes, :down_votes]]]
+                )
 
         scope = case @options[:order_by]
-                  when "older"
-                    order_by_older(scope)
-                  when "recent"
-                    order_by_recent(scope)
-                  when "best_rated"
-                    order_by_best_rated(scope)
-                  when "most_discussed"
-                    order_by_most_discussed(scope)
-                end
+                when "older"
+                  order_by_older(scope)
+                when "recent"
+                  order_by_recent(scope)
+                when "best_rated"
+                  order_by_best_rated(scope)
+                when "most_discussed"
+                  order_by_most_discussed(scope)
+              end
 
         scope
       end
