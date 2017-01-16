@@ -24,6 +24,8 @@ require "sprockets/es6"
 require "cancancan"
 require "truncato"
 require "file_validators"
+require "omniauth"
+require "omniauth-facebook"
 
 require "decidim/api"
 
