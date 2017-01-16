@@ -1,0 +1,48 @@
+<% content_for(:title, translated_attribute(result.title)) %>
+
+<div class="row column view-header">
+  <h2 class="heading2"><%= translated_attribute result.title %></h2>
+</div>
+<div class="row">
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
+              large-3 large-push-9">
+    <div class="card extra">
+      <div class="definition-data">
+        <div class="definition-data__item definition-data__item--double">
+          <span class="definition-data__title">Suports</span>
+					<span class="definition-data__number">27</span>
+        </div>
+        <div class="definition-data__item definition-data__item--double">
+          <span class="definition-data__title">Propostes</span>
+					<span class="definition-data__number">130</span>
+        </div>
+        <div class="definition-data__item definition-data__item--double">
+          <span class="definition-data__title">Comentaris</span>
+					<span class="definition-data__number">2567</span>
+        </div>
+        <div class="definition-data__item definition-data__item--double">
+          <span class="definition-data__title">Participacions</span>
+					<span class="definition-data__number">130</span>
+        </div>
+        <div class="definition-data__item definition-data__item--double">
+          <span class="definition-data__title">Intervencions</span>
+					<span class="definition-data__number">27</span>
+        </div>
+        <div class="definition-data__item definition-data__item--double">
+          <span class="definition-data__title">Intervencions totals</span>
+					<span class="definition-data__number">25677</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="section">
+      <%== translated_attribute result.short_description %>
+      <%= render partial: "tags", locals: { result: result } %>
+    </div>
+    <div class="section">
+      <h3 class="section-heading"><%= t(".result_description") %></h3>
+      <%== translated_attribute result.description %>
+    </div>
+  </div>
+</div>

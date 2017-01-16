@@ -1,0 +1,50 @@
+es:
+  decidim:
+    features:
+      meetings:
+        name: Lista de encuentros
+    meetings:
+      actions:
+        confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
+        destroy: Borrar
+        edit: Editar
+        new: Nuevo/a %{name}
+        title: Acciones
+      admin:
+        meetings:
+          create:
+            invalid: Ha habido un problema al crear este encuentro
+            success: Reunión creada con éxito
+          destroy:
+            success: El encuentro se ha eliminado correctamente
+          edit:
+            title: Editar encuentro
+            update: Actualizar encuentro
+          index:
+            title: Lista de encuentros
+          new:
+            create: Crear encuentro
+            title: Nuevo encuentro
+          update:
+            invalid: Ha habido un problema al actualizar este encuentro
+            success: Encuentro actualizado correctamente
+        models:
+          meeting:
+            name: Encuentro
+      meetings:
+        filters:
+          ascendent: Ascendente
+          category: Categoría
+          date: Fecha
+          descendent: Descendiente
+          scopes: Ámbitos
+        index:
+          title: Lista de encuentros
+        show:
+          meeting_description: Descripción del encuentro
+      models:
+        meeting:
+          fields:
+            end_time: Fecha de finalización
+            start_time: Fecha de inicio
+            title: Título
