@@ -21,7 +21,7 @@ module Decidim
           end
         else
           redirect_to root_path
-          set_flash_message :alert, :failure, kind: "Facebook", reason: t('.email_already_exists')
+          set_flash_message :alert, :failure, kind: "Facebook", reason: t(".email_already_exists")
         end
       end
 
