@@ -40,6 +40,7 @@ en:
         filters:
           category: Category
           scopes: Scopes
+          search: Search
         index:
           title: Results
         show:
