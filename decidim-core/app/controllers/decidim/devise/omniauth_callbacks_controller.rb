@@ -8,7 +8,7 @@ module Decidim
       helper Decidim::TranslationsHelper
 
       def facebook
-        @user = User.find_or_create_from_oauth(env["omniauth.auth"], current_organization)
+        @user = User.find_or_create_from_oauth(request.env["omniauth.auth"], current_organization)
 
         if @user.persisted?
           if @user.active_for_authentication?
