@@ -28,6 +28,21 @@ describe "Comments", type: :feature do
       end
     end
   end
+  
+  it "user should be able to sort the comments" do
+    comment = create(:comment, commentable: participatory_process, body: "Most Rated Comment")
+    create(:comment_vote, comment: comment, author: user, weight: 1)
+
+    visit decidim.dummy_path(participatory_process)
+    page.find("div.order-by__dropdown.order-by__dropdown--right").hover
+    within "div.order-by__dropdown.order-by__dropdown--right" do
+      click_link "Best Rated"
+    end
+
+    within "#comments" do
+      expect(page.find('.comment', match: :first)).to have_content "Most Rated Comment"
+    end
+  end
 
   context "when not authenticated" do
     it "user should not see the form to add comments" do

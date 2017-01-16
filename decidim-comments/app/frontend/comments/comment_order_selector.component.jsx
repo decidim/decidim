@@ -31,7 +31,7 @@ class CommentOrderSelector extends Component {
             <a>{ I18n.t(`components.comment_order_selector.${orderBy}`) }</a>
             <ul className="menu">
               <li>
-                <a href="" onClick={(event) => this._updateOrder(event, "best_rated")} >
+                <a href="" className="test" onClick={(event) => this._updateOrder(event, "best_rated")} >
                   { I18n.t("components.comment_order_selector.order.best_rated") }
                 </a>
               </li>
