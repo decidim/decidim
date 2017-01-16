@@ -9,19 +9,19 @@ module Decidim
           @form = form
         end
 
-        # Creates the meeting if valid.
+        # Creates the result if valid.
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          create_meeting
+          create_result
           broadcast(:ok)
         end
 
         private
 
-        def create_meeting
+        def create_result
           Result.create!(
             scope: @form.scope,
             category: @form.category,

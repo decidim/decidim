@@ -2,7 +2,7 @@
 module Decidim
   module Results
     module Admin
-      # This class holds a Form to create/update meetings from Decidim's admin panel.
+      # This class holds a Form to create/update results from Decidim's admin panel.
       class ResultForm < Decidim::Form
         include TranslatableAttributes
 

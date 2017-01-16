@@ -5,29 +5,29 @@ module Decidim
       # This command is executed when the user changes a Result from the admin
       # panel.
       class UpdateResult < Rectify::Command
-        # Initializes a UpdateResult Command.
+        # Initializes an UpdateResult Command.
         #
         # form - The form from which to get the data.
-        # meeting - The current instance of the page to be updated.
-        def initialize(form, meeting)
+        # result - The current instance of the page to be updated.
+        def initialize(form, result)
           @form = form
-          @meeting = meeting
+          @result = result
         end
 
-        # Updates the meeting if valid.
+        # Updates the result if valid.
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          update_meeting
+          update_result
           broadcast(:ok)
         end
 
         private
 
-        def update_meeting
-          @meeting.update_attributes!(
+        def update_result
+          @result.update_attributes!(
             scope: @form.scope,
             category: @form.category,
             title: @form.title,
