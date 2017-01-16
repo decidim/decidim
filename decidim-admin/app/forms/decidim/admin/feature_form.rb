@@ -16,6 +16,7 @@ module Decidim
       attribute :manifest
 
       attribute :step_settings, Hash[String => Object]
+      attribute :participatory_process
 
       def map_model(model)
         self.attributes = model.attributes

@@ -36,11 +36,11 @@ describe "Admin manages features", type: :feature do
           es: "Mi funcionalitat"
         )
 
-        within ".global-configuration" do
+        within ".global-settings" do
           all("input[type=checkbox]").last.click
         end
 
-        within ".step-configurations" do
+        within ".step-settings" do
           all("input[type=checkbox]").first.click
         end
 
@@ -57,11 +57,11 @@ describe "Admin manages features", type: :feature do
         click_link "Configure"
       end
 
-      within ".global-configuration" do
+      within ".global-settings" do
         expect(all("input[type=checkbox]").last).to be_checked
       end
 
-      within ".step-configurations" do
+      within ".step-settings" do
         expect(all("input[type=checkbox]").first).to be_checked
       end
     end
@@ -98,11 +98,11 @@ describe "Admin manages features", type: :feature do
           es: "Mi funcionalidad actualizada"
         )
 
-        within ".global-configuration" do
+        within ".global-settings" do
           all("input[type=checkbox]").last.click
         end
 
-        within ".step-configurations" do
+        within ".step-settings" do
           all("input[type=checkbox]").first.click
         end
 
@@ -119,11 +119,11 @@ describe "Admin manages features", type: :feature do
         click_link "Configure"
       end
 
-      within ".global-configuration" do
+      within ".global-settings" do
         expect(all("input[type=checkbox]").last).to be_checked
       end
 
-      within ".step-configurations" do
+      within ".step-settings" do
         expect(all("input[type=checkbox]").first).to be_checked
       end
     end

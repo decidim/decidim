@@ -108,8 +108,8 @@ en:
           title: Edit feature
           update: Update
         form:
-          global_configuration: Global configuration
-          step_configurations: Step configurations
+          global_settings: Global settings
+          step_settings: Step settings
         index:
           add: Add feature
           headers:

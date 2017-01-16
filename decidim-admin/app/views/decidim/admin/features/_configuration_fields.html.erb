@@ -1,5 +1,0 @@
-<% form.object.manifest.attributes.each do |name, attribute| %>
-  <% if attribute.type == :boolean %>
-    <%= form.check_box name, label: t("decidim.features.#{feature.manifest.name}.configurations.#{configuration_name}.#{name}") %>
-  <% end %>
-<% end %>
