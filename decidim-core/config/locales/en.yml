@@ -47,6 +47,9 @@ en:
       actions:
         unauthorized: You are not authorized to perform this action
     devise:
+      omniauth_callbacks:
+        facebook:
+          email_already_exists: Email already exists
       registrations:
         new:
           already_have_an_account?: Already have an account?
