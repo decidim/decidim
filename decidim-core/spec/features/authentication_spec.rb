@@ -82,6 +82,20 @@ describe "Authentication", type: :feature, perform_enqueued: true do
           expect(last_user.organization).to eq(organization)
         end
       end
+
+      context "when there is another account with the same email" do
+        it "cannot be registered" do
+          create(:user, organization: organization, email: "user@from-facebook.com")
+
+          find(".sign-up-link").click
+
+          expect {
+            click_link "Sign in with Facebook"   
+
+            expect(page).to have_content("already exists")
+          }.to_not change { Decidim::User.count }
+        end
+      end
     end
   end
 

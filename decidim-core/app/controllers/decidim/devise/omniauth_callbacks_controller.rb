@@ -19,6 +19,9 @@ module Decidim
             redirect_to root_path
             flash[:notice] = t("devise.registrations.signed_up_but_unconfirmed")
           end
+        else
+          redirect_to root_path
+          set_flash_message :alert, :failure, kind: "Facebook", reason: t('.email_already_exists')
         end
       end
 
