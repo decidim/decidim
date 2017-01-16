@@ -36,7 +36,9 @@ module Decidim
       #
       # The Hash with the `:text` key is required or it won't work.
       def localized_search_text_in(field)
-        options[:organization].available_locales.map{|l| "#{field} ->> '#{l}' ILIKE :text"}.join(" OR ")
+        options[:organization].available_locales.map do |l|
+          "#{field} ->> '#{l}' ILIKE :text"
+        end.join(" OR ")
       end
     end
   end
