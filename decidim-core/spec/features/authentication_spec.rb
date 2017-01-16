@@ -65,6 +65,45 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         end
       end
     end
+
+    context "using twitter" do
+      let(:omniauth_hash) {
+        OmniAuth::AuthHash.new({
+          provider: 'twitter',
+          uid: '123545',
+          info: {
+            name: "Twitter User",
+          }
+        })
+      }
+
+      before :each do
+        OmniAuth.config.test_mode = true
+        OmniAuth.config.mock_auth[:twitter] = omniauth_hash
+      end
+
+      after :each do
+        OmniAuth.config.test_mode = false
+        OmniAuth.config.mock_auth[:twitter] = nil         
+      end
+
+      it "redirects the user to a finish signup page" do
+        find(".sign-up-link").click
+
+        click_link "Sign in with Twitter"   
+
+        within ".new_user" do
+          fill_in :user_email, with: "user@from-twitter.com"
+          check :user_tos_agreement
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("confirmation link")
+        expect(emails.count).to eq(1)
+        expect(last_user.email).to eq("user@from-twitter.com")          
+        expect(last_user.organization).to eq(organization)
+      end
+    end
   end
 
   describe "Confirm email" do
