@@ -33,7 +33,7 @@ module Decidim
       private
 
       def create_feature
-        @feature = Feature.create(
+        @feature = Feature.create!(
           manifest_name: manifest.name,
           name: form.name,
           participatory_process: participatory_process,
