@@ -83,26 +83,6 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      context "when some language in description is missing" do
-        let(:description) do
-          {
-            ca: "Descripció"
-          }
-        end
-
-        it { is_expected.to be_invalid }
-      end
-
-      context "when some language in short_description is missing" do
-        let(:short_description) do
-          {
-            en: "Short description"
-          }
-        end
-
-        it { is_expected.to be_invalid }
-      end
-
       context "when the start_date is later than end_date" do
         let(:start_date) { 1.month.from_now }
         let(:end_date) { 2.months.ago }
