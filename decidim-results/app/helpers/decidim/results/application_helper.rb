@@ -5,6 +5,7 @@ module Decidim
     #
     module ApplicationHelper
       include PaginateHelper
+      include Decidim::Comments::CommentsHelper
     end
   end
 end

@@ -20,6 +20,7 @@ PATH
       rectify (~> 0.8.0)
       social-share-button (~> 0.8.8)
     decidim-results (0.0.2)
+      decidim-comments (= 0.0.2)
       decidim-core (= 0.0.2)
       kaminari (~> 1.0.0.rc1)
       rectify (~> 0.8)

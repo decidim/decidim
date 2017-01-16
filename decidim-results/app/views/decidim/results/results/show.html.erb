@@ -46,3 +46,9 @@
     </div>
   </div>
 </div>
+
+<%= content_for :expanded do %>
+  <% if result.commentable? %>
+    <%= comments_for result, arguable: true, votable: true %>
+  <% end %>
+<% end %>

@@ -96,5 +96,21 @@ describe "Explore results", type: :feature do
         expect(page).to have_checked_field(result.scope.name)
       end
     end
+
+    context "when a proposal has comments" do
+      let(:result) { results.first }
+      let(:author) { create(:user, :confirmed, organization: feature.organization)}
+      let!(:comments) { create_list(:comment, 3, commentable: result) }
+
+      before do
+        visit current_path
+      end
+
+      it "shows the comments" do
+        comments.each do |comment|
+          expect(page).to have_content(comment.body)
+        end
+      end
+    end
   end
 end
