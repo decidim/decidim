@@ -30,7 +30,7 @@ module Decidim
           decidim_admin.participatory_process_features_path(current_participatory_process)
         end
 
-        def global_configuration
+        def feature_configuration
           current_feature.configuration
         end
 

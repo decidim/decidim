@@ -47,14 +47,14 @@ module Decidim
       end
 
       def edit
-        @feature = participatory_process.features.find(params[:id])
+        @feature = query_scope.find(params[:id])
         authorize! :update, @feature
 
         @form = form(FeatureForm).from_model(@feature)
       end
 
       def update
-        @feature = participatory_process.features.find(params[:id])
+        @feature = query_scope.find(params[:id])
         @form = form(FeatureForm).from_params(params)
         authorize! :update, @feature
 
@@ -72,7 +72,7 @@ module Decidim
       end
 
       def destroy
-        @feature = participatory_process.features.find(params[:id])
+        @feature = query_scope.find(params[:id])
         authorize! :destroy, @feature
 
         DestroyFeature.call(@feature) do
@@ -89,6 +89,10 @@ module Decidim
       end
 
       private
+
+      def query_scope
+        participatory_process.features
+      end
 
       def manifest
         Decidim.find_feature_manifest(params[:type])

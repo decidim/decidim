@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<% if global_configuration.comments_enabled || current_step_configuration.comments_enabled %>
+<% if global_configuration.comments_always_enabled || current_step_configuration.comments_enabled %>
   <%= content_for :expanded do %>
     <%= comments_for @page, arguable: true, votable: true %>
   <% end %>

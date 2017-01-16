@@ -22,7 +22,7 @@ describe "Show a page", type: :feature do
     }
   end
 
-  let!(:page_feature){ create(:page, feature: feature, title: title, body: body) }
+  let!(:page_feature) { create(:page, feature: feature, title: title, body: body) }
 
   describe "page show" do
     before do
@@ -40,7 +40,7 @@ describe "Show a page", type: :feature do
 
     context "when the page is commentable" do
       before do
-        feature.configuration = { comments_enabled: true }
+        feature.configuration = { comments_always_enabled: true }
         feature.save
         visit_feature
       end
@@ -56,7 +56,7 @@ describe "Show a page", type: :feature do
 
     context "when the page is not commentable" do
       before do
-        feature.configuration = { comments_enabled: false }
+        feature.configuration = { comments_always_enabled: false }
         feature.save
         visit_feature
       end

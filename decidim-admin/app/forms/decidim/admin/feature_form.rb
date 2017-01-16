@@ -21,6 +21,21 @@ module Decidim
         self.attributes = model.attributes
         self.configuration = model.configuration
       end
+
+      def configuration?
+        configuration.manifest.attributes.any?
+      end
+
+      def step_configurations?
+        return false unless participatory_process.steps.any?
+
+        step_configurations
+          .values
+          .map(&:manifest)
+          .flat_map(&:attributes)
+          .flat_map(&:keys)
+          .any?
+      end
     end
   end
 end

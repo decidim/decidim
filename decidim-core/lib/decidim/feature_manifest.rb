@@ -74,6 +74,19 @@ module Decidim
       @seeds&.call
     end
 
+    # Public: Adds configurable attributes for this feature, scoped to a name. It
+    # uses the DSL specified under `Decidim::FeatureConfigurationManifest`.
+    #
+    # name - Either `global` or `step`
+    # &block - The DSL present on `Decidim::FeatureConfigurationManifest`
+    #
+    # Examples:
+    #
+    #   feature.configuration(:global) do |configuration|
+    #     configuration.attribute :voting_enabled, type: :boolean, default: true
+    #   end
+    #
+    # Returns nothing.
     def configuration(name = :global, &block)
       @configurations ||= {}
       name = name.to_sym
