@@ -46,7 +46,7 @@ module Decidim
           process.steps.create!(
             title: TranslationsHelper.multi_translation(
               "decidim.admin.participatory_process_steps.default_title",
-              form.current_organization.available_locales,
+              form.current_organization.available_locales
             ),
             active: true
           )
