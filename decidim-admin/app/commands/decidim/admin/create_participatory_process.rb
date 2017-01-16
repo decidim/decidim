@@ -20,8 +20,8 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_participatory_process
-        broadcast(:ok)
+        process = create_participatory_process
+        broadcast(:ok, process)
       end
 
       private
@@ -29,18 +29,30 @@ module Decidim
       attr_reader :form
 
       def create_participatory_process
-        ParticipatoryProcess.create!(
-          title: form.title,
-          subtitle: form.subtitle,
-          slug: form.slug,
-          hashtag: form.hashtag,
-          description: form.description,
-          short_description: form.short_description,
-          hero_image: form.hero_image,
-          banner_image: form.banner_image,
-          promoted: form.promoted,
-          organization: form.current_organization
-        )
+        transaction do
+          process = ParticipatoryProcess.create!(
+            title: form.title,
+            subtitle: form.subtitle,
+            slug: form.slug,
+            hashtag: form.hashtag,
+            description: form.description,
+            short_description: form.short_description,
+            hero_image: form.hero_image,
+            banner_image: form.banner_image,
+            promoted: form.promoted,
+            organization: form.current_organization
+          )
+
+          process.steps.create!(
+            title: TranslationsHelper.multi_translation(
+              "decidim.admin.participatory_process_steps.default_title",
+              form.current_organization.available_locales,
+            ),
+            active: true
+          )
+
+          process
+        end
       end
     end
   end

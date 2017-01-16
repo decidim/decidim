@@ -17,6 +17,13 @@ module Decidim
 
     before_create :set_position
 
+    before_destroy do
+      if participatory_process.steps.count == 1
+        errors.add(:base, I18n.t("errors.messages.at_least_one_step_required"))
+        throw(:abort) if errors.present?
+      end
+    end
+
     private
 
     # Internal: Sets the position of the step if it is `nil`. That means that

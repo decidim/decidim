@@ -36,6 +36,24 @@ module Decidim
       it { is_expected.to be_valid }
     end
 
+    context "when it's the last step of a process" do
+      it "can't be destroyed" do
+        subject.save!
+        participatory_process = subject.participatory_process
+
+        extra_step = create(
+          :participatory_process_step,
+          participatory_process: participatory_process
+        )
+
+        extra_step.destroy!
+
+        expect {
+          subject.destroy!
+        }.to raise_error(ActiveRecord::RecordNotDestroyed)
+      end
+    end
+
     context "active" do
       context "when there's an active step in the same process" do
         let(:active_step) { create :participatory_process_step, :active }

@@ -30,8 +30,20 @@ describe Decidim::Admin::CreateParticipatoryProcess do
   end
 
   context "when everything is ok" do
-    it "creates the user role" do
+    it "creates a participatory process" do
       expect { subject.call }.to change { Decidim::ParticipatoryProcess.count }.by(1)
+    end
+
+    it "broadcasts ok" do
+      expect { subject.call }.to broadcast(:ok)
+    end
+
+    it "adds an extra step" do
+      subject.call do
+        on(:ok) do |process|
+          expect(process.steps.length).to eq(1)
+        end
+      end
     end
   end
 end

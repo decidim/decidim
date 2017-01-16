@@ -24,22 +24,6 @@ module Decidim
         end
       end
 
-      def destroy
-        authorize! :deactivate, process_step
-
-        DeactivateParticipatoryProcessStep.call(process_step) do
-          on(:ok) do
-            flash[:notice] = I18n.t("participatory_process_step_activations.destroy.success", scope: "decidim.admin")
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("participatory_process_step_activations.destroy.error", scope: "decidim.admin")
-          end
-
-          redirect_to participatory_process_steps_path(participatory_process)
-        end
-      end
-
       private
 
       def process_step

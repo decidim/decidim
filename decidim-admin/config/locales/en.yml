@@ -207,10 +207,14 @@ en:
           error: There was an error deactivating this participatory process step.
           success: Participatory process step deactivated successfully.
       participatory_process_steps:
+        default_title: Introduction
         create:
           error: There was an error creating a new participatory process step.
           success: Participatory process step created successfully.
         destroy:
+          error:
+            last_step: Can't delete the last step of a process.
+            active_step: Can't delete the active step.
           success: Participatory process step destroyed successfully.
         edit:
           title: Edit participatory process step

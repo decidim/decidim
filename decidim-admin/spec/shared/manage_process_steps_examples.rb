@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 RSpec.shared_examples "manage process steps examples" do
   let(:active) { false }
