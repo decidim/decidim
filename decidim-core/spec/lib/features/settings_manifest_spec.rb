@@ -1,7 +1,7 @@
 require "spec_helper"
 
 module Decidim
-  describe FeatureConfigurationManifest do
+  describe FeatureSettingsManifest do
     subject { described_class.new }
 
     describe "attribute" do
@@ -29,22 +29,22 @@ module Decidim
     end
 
     describe "schema" do
-      it "creates a model from the configuration" do
+      it "creates a model from the settings" do
         subject.attribute :something_enabled
         subject.attribute :comments_enabled
 
-        configuration = subject.schema.new(
+        settings = subject.schema.new(
           something_enabled: true,
           comments_enabled: false,
           invalid_option: true
         )
 
-        expect(configuration.something_enabled).to eq(true)
-        expect(configuration.comments_enabled).to eq(false)
+        expect(settings.something_enabled).to eq(true)
+        expect(settings.comments_enabled).to eq(false)
 
-        expect(configuration.attributes).to include(something_enabled: true)
-        expect(configuration.attributes).to include(comments_enabled: false)
-        expect(configuration.attributes).to_not include(invalid_option: true)
+        expect(settings.attributes).to include(something_enabled: true)
+        expect(settings.attributes).to include(comments_enabled: false)
+        expect(settings.attributes).to_not include(invalid_option: true)
       end
     end
   end

@@ -29,29 +29,29 @@ module Decidim
       self.manifest_name = manifest.name
     end
 
-    def configuration
-      configuration_schema(:global).new(self[:configuration]["global"])
+    def settings
+      settings_schema(:global).new(self[:settings]["global"])
     end
 
-    def configuration=(data)
-      self[:configuration]["global"] = serialize_configuration(configuration_schema(:global), data)
+    def settings=(data)
+      self[:settings]["global"] = serialize_settings(settings_schema(:global), data)
     end
 
-    def step_configurations
+    def step_settings
       participatory_process.steps.each_with_object({}) do |step, result|
-        result[step.id.to_s] = configuration_schema(:step).new(self[:configuration].dig("steps", step.id.to_s))
+        result[step.id.to_s] = settings_schema(:step).new(self[:settings].dig("steps", step.id.to_s))
       end
     end
 
-    def step_configurations=(data)
-      self[:configuration]["steps"] = data.each_with_object({}) do |(key, value), result|
-        result[key.to_s] = serialize_configuration(configuration_schema(:step), value)
+    def step_settings=(data)
+      self[:settings]["steps"] = data.each_with_object({}) do |(key, value), result|
+        result[key.to_s] = serialize_settings(settings_schema(:step), value)
       end
     end
 
     private
 
-    def serialize_configuration(schema, value)
+    def serialize_settings(schema, value)
       if value.respond_to?(:attributes)
         value.attributes
       else
@@ -59,12 +59,12 @@ module Decidim
       end
     end
 
-    def configuration_schema(name)
-      manifest.configuration(name.to_sym).schema
+    def settings_schema(name)
+      manifest.settings(name.to_sym).schema
     end
 
     def default_values
-      self[:configuration] ||= {}
+      self[:settings] ||= {}
     end
   end
 end

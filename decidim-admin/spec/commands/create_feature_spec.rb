@@ -13,8 +13,8 @@ module Decidim
           },
           invalid?: !valid,
           valid?: valid,
-          configuration: {},
-          step_configurations: {}
+          settings: {},
+          step_settings: {}
         )
       end
 

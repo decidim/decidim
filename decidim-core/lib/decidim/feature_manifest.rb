@@ -1,4 +1,4 @@
-require_dependency "decidim/features/configuration_manifest"
+require_dependency "decidim/features/settings_manifest"
 
 # frozen_string_literal: true
 module Decidim
@@ -75,24 +75,24 @@ module Decidim
     end
 
     # Public: Adds configurable attributes for this feature, scoped to a name. It
-    # uses the DSL specified under `Decidim::FeatureConfigurationManifest`.
+    # uses the DSL specified under `Decidim::FeatureSettingsManifest`.
     #
     # name - Either `global` or `step`
-    # &block - The DSL present on `Decidim::FeatureConfigurationManifest`
+    # &block - The DSL present on `Decidim::FeatureSettingsManifest`
     #
     # Examples:
     #
-    #   feature.configuration(:global) do |configuration|
-    #     configuration.attribute :voting_enabled, type: :boolean, default: true
+    #   feature.settings(:global) do |settings|
+    #     settings.attribute :voting_enabled, type: :boolean, default: true
     #   end
     #
     # Returns nothing.
-    def configuration(name = :global, &block)
-      @configurations ||= {}
+    def settings(name = :global, &block)
+      @settings ||= {}
       name = name.to_sym
-      configuration = (@configurations[name] ||= FeatureConfigurationManifest.new)
-      yield(configuration) if block
-      configuration
+      settings = (@settings[name] ||= FeatureSettingsManifest.new)
+      yield(settings) if block
+      settings
     end
   end
 end

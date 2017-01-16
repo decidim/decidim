@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 module Decidim
-  # This class serves as a DSL that enables specifying an arbitrary configuration
+  # This class serves as a DSL that enables specifying an arbitrary settings
   # to a feature, so the admin panel can show a standarized UI to configure them.
   #
-  class FeatureConfigurationManifest
+  class FeatureSettingsManifest
     attr_reader :attributes
 
-    # Initializes a FeatureConfigurationManifest.
+    # Initializes a FeatureSettingsManifest.
     def initialize
       @attributes = {}
     end
 
-    # Public: Adds a new attribute field to the FeatureConfigurationManifest.
+    # Public: Adds a new attribute field to the FeatureSettingsManifest.
     #
     # name - The name of the attribute to inject.
     # options - A set of options to configure the attribute.
     #           :type - The type of the attribute as found in Attribute::TYPES
-    #           :default - The default value of this configuration field.
+    #           :default - The default value of this settings field.
     #
     # Returns nothing.
     def attribute(name, options = {})
@@ -43,7 +43,7 @@ module Decidim
         cattr_accessor :manifest
 
         def self.model_name
-          ActiveModel::Name.new(self, nil, "FeatureConfiguration")
+          ActiveModel::Name.new(self, nil, "FeatureSettings")
         end
 
         def manifest
@@ -60,8 +60,8 @@ module Decidim
       @schema
     end
 
-    # Semi-private: Attributes are an abstraction used by FeatureConfigurationManifest
-    # to encapsulate behavior related to each individual configuration field. Shouldn't
+    # Semi-private: Attributes are an abstraction used by FeatureSettingsManifest
+    # to encapsulate behavior related to each individual settings field. Shouldn't
     # be used from the outside.
     class Attribute
       include Virtus.model

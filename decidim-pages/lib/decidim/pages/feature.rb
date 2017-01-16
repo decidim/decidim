@@ -19,12 +19,12 @@ Decidim.register_feature(:pages) do |feature|
     end
   end
 
-  feature.configuration(:global) do |configuration|
-    configuration.attribute :comments_always_enabled, type: :boolean
+  feature.settings(:global) do |settings|
+    settings.attribute :comments_always_enabled, type: :boolean
   end
 
-  feature.configuration(:step) do |configuration|
-    configuration.attribute :comments_enabled, type: :boolean
+  feature.settings(:step) do |settings|
+    settings.attribute :comments_enabled, type: :boolean
   end
 
   feature.seeds do

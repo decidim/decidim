@@ -14,14 +14,14 @@ end
 Decidim.register_feature(:dummy) do |feature|
   feature.engine = Decidim::DummyEngine
 
-  feature.configuration(:global) do |configuration|
-    configuration.attribute :dummy_global_attribute_1, type: :boolean
-    configuration.attribute :dummy_global_attribute_2, type: :boolean
+  feature.settings(:global) do |settings|
+    settings.attribute :dummy_global_attribute_1, type: :boolean
+    settings.attribute :dummy_global_attribute_2, type: :boolean
   end
 
-  feature.configuration(:step) do |configuration|
-    configuration.attribute :dummy_step_attribute_1, type: :boolean
-    configuration.attribute :dummy_step_attribute_2, type: :boolean
+  feature.settings(:step) do |settings|
+    settings.attribute :dummy_step_attribute_1, type: :boolean
+    settings.attribute :dummy_step_attribute_2, type: :boolean
   end
 end
 

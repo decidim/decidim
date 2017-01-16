@@ -12,24 +12,24 @@ module Decidim
       translatable_attribute :name, String
       validates :name, translatable_presence: true
 
-      attribute :configuration, Object
+      attribute :settings, Object
       attribute :manifest
 
-      attribute :step_configurations, Hash[String => Object]
+      attribute :step_settings, Hash[String => Object]
 
       def map_model(model)
         self.attributes = model.attributes
-        self.configuration = model.configuration
+        self.settings = model.settings
       end
 
-      def configuration?
-        configuration.manifest.attributes.any?
+      def settings?
+        settings.manifest.attributes.any?
       end
 
-      def step_configurations?
+      def step_settings?
         return false unless participatory_process.steps.any?
 
-        step_configurations
+        step_settings
           .values
           .map(&:manifest)
           .flat_map(&:attributes)

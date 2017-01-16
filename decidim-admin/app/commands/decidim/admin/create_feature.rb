@@ -37,8 +37,8 @@ module Decidim
           manifest_name: manifest.name,
           name: form.name,
           participatory_process: participatory_process,
-          configuration: @form.configuration,
-          step_configurations: form.step_configurations
+          settings: @form.settings,
+          step_settings: form.step_settings
         )
       end
 
