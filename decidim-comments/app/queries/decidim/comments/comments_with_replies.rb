@@ -18,7 +18,7 @@ module Decidim
       #
       # commentable = a resource that can have comments
       # options - The Hash options is used to refine the selection ( default: {}):
-      #           :order_by - The string order_by to sort by ( optional )     
+      #           :order_by - The string order_by to sort by ( optional )
       def initialize(commentable, options = {})
         options[:order_by] ||= "older"
         @commentable = commentable
