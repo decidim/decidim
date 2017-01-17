@@ -8,6 +8,7 @@ module Decidim
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # commentable - a resource that can have comments
+      # options - Any additional options for this query.
       def self.for(commentable, options = {})
         new(commentable, options).query
       end
@@ -15,6 +16,7 @@ module Decidim
       # Initializes the class.
       #
       # commentable = a resource that can have comments
+      # options - Any additional options that can have comments.
       def initialize(commentable, options = {})
         options[:order_by] ||= "older"
         @commentable = commentable
@@ -43,6 +45,8 @@ module Decidim
                   order_by_best_rated(scope)
                 when "most_discussed"
                   order_by_most_discussed(scope)
+                else
+                  order_by_older(scope)
                 end
 
         scope
