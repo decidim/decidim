@@ -16,7 +16,7 @@ FactoryGirl.define do
   end
 
   factory :category, class: Decidim::Category do
-    name { Decidim::Faker::Localized.sentence(3) }
+    name { generate(:name) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     participatory_process
   end
@@ -41,7 +41,7 @@ FactoryGirl.define do
   end
 
   factory :participatory_process, class: Decidim::ParticipatoryProcess do
-    title { Decidim::Faker::Localized.sentence(3) }
+    title { generate(:name) }
     slug { generate(:slug) }
     subtitle { Decidim::Faker::Localized.sentence(1) }
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
@@ -65,7 +65,7 @@ FactoryGirl.define do
   end
 
   factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do
-    title { Decidim::Faker::Localized.sentence(3) }
+    title { generate(:name) }
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     start_date 1.month.ago.at_midnight
@@ -113,7 +113,7 @@ FactoryGirl.define do
 
   factory :static_page, class: Decidim::StaticPage do
     slug { generate(:slug) }
-    title { Decidim::Faker::Localized.sentence(3) }
+    title { generate(:name) }
     content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     organization
 
@@ -123,7 +123,7 @@ FactoryGirl.define do
   end
 
   factory :participatory_process_attachment, class: Decidim::ParticipatoryProcessAttachment do
-    title { Decidim::Faker::Localized.sentence(3) }
+    title { generate(:name) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { test_file("city.jpeg", "image/jpeg") }
     participatory_process
@@ -146,7 +146,7 @@ FactoryGirl.define do
   end
 
   factory :feature, class: Decidim::Feature do
-    name { Decidim::Faker::Localized.sentence(3) }
+    name { generate(:name) }
     participatory_process
     manifest_name "dummy"
   end
