@@ -51,9 +51,7 @@ module Decidim
     # Returns an <img /> tag with the SVG icon.
     def external_icon(path)
       # Ugly hack to prevent PhantomJS from freaking out with SVGs.
-      if Rails.env.test?
-        return content_tag(:span, "?", class: "external-svg")
-      end
+      return content_tag(:span, "?", class: "external-svg") if Rails.env.test?
 
       image_tag(path, class: "external-svg", style: "display: none")
     end
