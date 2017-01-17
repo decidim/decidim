@@ -50,8 +50,8 @@ module Decidim
           self.class.manifest
         end
 
-        def ==(o)
-          o.attributes == self.attributes
+        def ==(other)
+          other.attributes == attributes
         end
 
         manifest.attributes.each do |name, attribute|
