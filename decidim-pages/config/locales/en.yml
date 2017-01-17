@@ -3,12 +3,12 @@ en:
   decidim:
     features:
       pages:
+        name: Page
         settings:
           global:
             comments_always_enabled: Comments always enabled
           step:
             comments_enabled: Comments enabled
-        name: Page
     pages:
       admin:
         models:
