@@ -186,6 +186,7 @@ class Comment extends Component {
           showTitle={false}
           submitButtonClassName="button small hollow"
           onCommentAdded={() => this.setState({ showReplyForm: false })}
+          autoFocus
         />
       );
     }

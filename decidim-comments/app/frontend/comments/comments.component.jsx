@@ -75,6 +75,7 @@ export class Comments extends Component {
           commentableId={commentableId}
           commentableType={commentableType}
           arguable={arguable}
+          autoFocus={false}
         />
       );
     }

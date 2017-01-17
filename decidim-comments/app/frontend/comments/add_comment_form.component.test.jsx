@@ -53,6 +53,11 @@ describe("<AddCommentForm />", () => {
     expect(wrapper.find('input[type="submit"]')).to.have.className('small');
     expect(wrapper.find('input[type="submit"]')).to.have.className('hollow');
   });
+  
+  it("should not render a textarea with autoFocus attribute if it recieves the autofocus prop false", () => {
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} submitButtonClassName="button small hollow" autofocus={false} />);
+    expect(wrapper.find('textarea')).not.to.have.attr('autoFocus');
+});
 
   it("should enable the submit button if textarea is not blank", () => {
     const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
