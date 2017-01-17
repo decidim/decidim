@@ -12,7 +12,7 @@
           <div class="card__content">
             <%= authorization_form_for(handler) do |form| %>
               <% if lookup_context.exists?(handler.to_partial_path, [], true) %>
-                <%= render partial: handler, as: "handler", locals: { form: form } %>
+                <%= render partial: handler.to_partial_path, locals: { handler: handler, form: form } %>
               <% else %>
                 <%= form.all_fields %>
                 <div class="actions">
