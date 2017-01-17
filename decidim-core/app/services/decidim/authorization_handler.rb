@@ -98,15 +98,14 @@ module Decidim
     def identifier_uniqueness
       return true if unique_id.nil?
 
-      existing = Authorization.where(
+      duplicates = Authorization.where(
         user: User.where(organization: user.organization.id),
         name: handler_name,
         unique_id: unique_id
-      ).any?
+      )
 
-      if existing
-        errors.add(:base, I18n.t("decidim.authorization_handlers.errors.duplicate_authorization"))
-      end
+      return true if duplicates.empty?
+      errors.add(:base, I18n.t("decidim.authorization_handlers.errors.duplicate_authorization"))
     end
   end
 end
