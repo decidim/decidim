@@ -4,7 +4,7 @@ module Decidim
   module OmniauthHelper
     # Public: returns true if the social provider is enabled
     def social_provider_enabled?(provider)
-      Rails.application.secrets.omniauth.dig(provider.to_s, "enabled")
+      Rails.application.secrets.dig(:omniauth, provider.to_s, "enabled")
     end
 
     # Public: returns true if any provider is enabled

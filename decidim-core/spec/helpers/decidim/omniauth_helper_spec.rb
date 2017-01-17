@@ -6,15 +6,17 @@ module Decidim
   describe OmniauthHelper do
     let(:facebook_enabled) { true }    
     let(:twitter_enabled) { true }
-    let(:omniauth) do
-      { 
-        "facebook" => { "enabled" => facebook_enabled },
-        "twitter" => { "enabled" => twitter_enabled }
+    let(:secrets) do
+      {
+        omniauth: {
+          "facebook" => { "enabled" => facebook_enabled },
+          "twitter" => { "enabled" => twitter_enabled }
+        }
       }
     end
 
     before :each do
-      allow(Rails.application.secrets).to receive(:omniauth).and_return(omniauth)
+      allow(Rails.application).to receive(:secrets).and_return(secrets)
     end
     
     describe "#social_provider_enabled?" do
