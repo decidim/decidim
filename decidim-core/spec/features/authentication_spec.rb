@@ -25,9 +25,6 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         end
 
         expect(page).to have_content("confirmation link")
-        expect(emails.count).to eq(1)
-        expect(last_user.email).to eq("user@example.org")
-        expect(last_user.organization).to eq(organization)
       end
     end
 
@@ -61,7 +58,8 @@ describe "Authentication", type: :feature, perform_enqueued: true do
           click_link "Sign in with Facebook"   
 
           expect(page).to have_content("Successfully")
-          expect(page).to have_content(last_user.name)
+          expect(page).not_to have_content("Complete your profile")
+          expect(page).not_to have_content("confirmation link")
         end
       end
     end

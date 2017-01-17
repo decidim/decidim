@@ -6,6 +6,7 @@ module Decidim
     mimic :user
 
     attribute :email, String
+    attribute :email_verified, Boolean
     attribute :name, String
     attribute :provider, String
     attribute :uid, String
@@ -15,7 +16,7 @@ module Decidim
     validates :name, presence: true
     validates :provider, presence: true
     validates :uid, presence: true
-    validates :tos_agreement, acceptance: true, allow_nil: false
+    validates :tos_agreement, acceptance: true, allow_nil: false, if: ->(form) { form.provider.to_s != "facebook" }
 
     def oauth_signature
       OmniauthRegistrationForm.create_signature(provider, uid)

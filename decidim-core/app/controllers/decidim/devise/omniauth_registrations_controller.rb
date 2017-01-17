@@ -12,7 +12,7 @@ module Decidim
       layout "layouts/decidim/application"
 
       def new
-        @form = form(OmniauthRegistrationForm).from_params(params[:user])        
+        @form = form(OmniauthRegistrationForm).from_params(params[:user])
       end
 
       def create
@@ -21,13 +21,24 @@ module Decidim
 
         CreateOmniauthRegistration.call(@form) do
           on(:ok) do |user|
-            sign_in_and_redirect user, event: :authentication
-            set_flash_message :notice, :success, kind: @form.provider.capitalize
+            if user.active_for_authentication?
+              sign_in_and_redirect user, event: :authentication
+              set_flash_message :notice, :success, kind: @form.provider.capitalize
+            else
+              expire_data_after_sign_in!
+              redirect_to root_path
+              flash[:notice] = t("devise.registrations.signed_up_but_unconfirmed")
+            end
           end
 
           on(:invalid) do
             set_flash_message :notice, :success, kind: @form.provider.capitalize
             render :new
+          end
+
+          on(:error) do
+            redirect_to decidim.new_user_session_path
+            set_flash_message :alert, :failure, kind: @form.provider, reason: t("decidim.devise.omniauth_registrations.create.email_already_exists")
           end
         end
       end
@@ -68,6 +79,7 @@ module Decidim
           provider: oauth_data[:provider],
           uid: oauth_data[:uid],
           email: oauth_data[:info][:email],
+          email_verified: oauth_data[:info][:verified],
           name: oauth_data[:info][:name]
         }
       end
@@ -78,7 +90,7 @@ end
 # raise InvalidOauthSignature unless verify_oauth_signature
 
 # def verify_oauth_signature
-#   user_params = params[:user]        
+#   user_params = params[:user]
 #   return true if user_params.nil? || user_params[:oauth_signature].blank?
 #   OmniauthFinishSignupForm.verify_signature(user_params[:provider], user_params[:uid], user_params[:oauth_signature])
 # end
@@ -122,7 +134,7 @@ end
 #     sign_in_and_redirect @user, event: :authentication
 #     set_flash_message :notice, :success, kind: @form.provider.capitalize
 #   else
-#     flash[:notice] = t("devise.registrations.signed_up_but_unconfirmed")            
+#     flash[:notice] = t("devise.registrations.signed_up_but_unconfirmed")
 #     expire_data_after_sign_in!
 #     respond_with resource, location: after_inactive_sign_up_path_for(resource)
 #   end

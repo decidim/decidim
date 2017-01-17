@@ -6,12 +6,14 @@ module Decidim
     describe CreateOmniauthRegistration, :db do
       describe "call" do
         let(:organization) { create(:organization) }
+        let(:email) { "user@from-facebook.com" }
         let(:form_params) do
           {
             "user" => {
               "provider" => "facebook",
               "uid" => "12345",
-              "email" => "user@from-facebook.com",
+              "email" => email,
+              "email_verified" => true,
               "name" => "Facebook User",
               "tos_agreement" => true
             }
@@ -69,6 +71,18 @@ module Decidim
             last_identity = Identity.last
             expect(last_identity.provider).to eq(form.provider)
             expect(last_identity.uid).to eq(form.uid)
+          end
+
+          it "confirms the user if the email is already verified" do
+            expect_any_instance_of(User).to receive(:skip_confirmation!)
+            command.call
+          end
+        end
+
+        describe "when the email is already used" do
+          it "broadcasts error" do
+            create(:user, email: email)
+            expect { command.call }.to broadcast(:error)
           end
         end
       end

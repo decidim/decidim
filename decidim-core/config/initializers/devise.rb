@@ -302,7 +302,7 @@ Devise.setup do |config|
   if Rails.application.secrets.dig(:omniauth, "facebook").present?
     config.omniauth :facebook, Rails.application.secrets.omniauth["facebook"]["app_id"], Rails.application.secrets.omniauth["facebook"]["app_secret"]
   end
-  if Rails.application.secrets.dig(:omniauth, "twitter").present?  
+  if Rails.application.secrets.dig(:omniauth, "twitter").present?
     config.omniauth :twitter, Rails.application.secrets.omniauth["twitter"]["api_key"], Rails.application.secrets.omniauth["twitter"]["api_secret"]
   end
 

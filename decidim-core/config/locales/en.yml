@@ -50,6 +50,8 @@ en:
         unauthorized: You are not authorized to perform this action
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Another account is using the same email address
         new:
           sign_up: Complete your profile
           subtitle: Please fill in the following form in order to complete the sign up

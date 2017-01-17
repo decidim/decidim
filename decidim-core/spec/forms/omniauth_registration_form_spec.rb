@@ -13,14 +13,13 @@ module Decidim
     let(:email) { "user@from-facebook.com" }
     let(:provider) { "facebook" }
     let(:uid) { "12345" }
-    let(:tos_agreement) { true }
     let(:attributes) do
       {
         email: email,
+        email_verified: true,
         name: name,
         provider: provider,
-        uid: uid,
-        tos_agreement: tos_agreement
+        uid: uid
       }
     end
 
@@ -52,7 +51,8 @@ module Decidim
       it { is_expected.not_to be_valid }
     end
 
-    context "when tos_agreement is not accepted" do
+    context "when tos_agreement is not accepted and provider is different from facebok" do
+      let(:provider) { "twitter" }
       let(:tos_agreement) { false }
 
       it { is_expected.not_to be_valid }
