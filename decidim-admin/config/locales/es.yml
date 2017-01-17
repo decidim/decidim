@@ -58,6 +58,7 @@ es:
         deactivate: Desactivar
         destroy: Eliminar
         edit: Editar
+        manage: Gestionar
         new: Nuevo %{name}
         preview: Previsualizar
         publish: Publicar
@@ -102,12 +103,25 @@ es:
         destroy:
           error: Se ha producido un error destruir esta funcionalidad.
           success: Funcionalidad eliminada correctamente.
+        edit:
+          title: Editar funcionalidad
+          update: Actualizar
+        form:
+          global_settings: Ajustes globales
+          step_settings: Configuración de fase
         index:
           add: Añadir funcionalidad
+          headers:
+            actions: Acciones
+            name: Nombre de la funcionalidad
+            type: Tipo de funcionalidad
         new:
           add: Añadir funcionalidad
           title: 'Añadir funcionalidad: %{name}'
         title: Funcionalidades
+        update:
+          error: Se ha producido un error al actualizar esta funcionalidad.
+          success: La funcionalidad se ha actualizado correctamente.
       menu:
         dashboard: Panel de control
         participatory_processes: Procesos participativos
