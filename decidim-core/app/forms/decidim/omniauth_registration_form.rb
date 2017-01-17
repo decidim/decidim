@@ -22,12 +22,15 @@ module Decidim
       OmniauthRegistrationForm.create_signature(provider, uid)
     end
 
+    def verify_oauth_signature!(signature)
+      raise InvalidOauthSignature unless oauth_signature == signature
+    end
+
     def self.create_signature(provider, uid)
       Digest::MD5.hexdigest("#{provider}-#{uid}-#{Rails.application.secrets.secret_key_base}")
     end
+  end
 
-    def self.verify_signature(provider, uid, signature)
-      create_signature(provider, uid) === signature
-    end
+  class InvalidOauthSignature < StandardError
   end
 end

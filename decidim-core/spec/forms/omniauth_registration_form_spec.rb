@@ -65,13 +65,17 @@ module Decidim
       end
     end
 
-    describe ".verify_signature" do
-      it "returns true if the signature is correct" do
-        expect(OmniauthRegistrationForm.verify_signature(subject.provider, subject.uid, subject.oauth_signature)).to be_truthy
+    describe "#verify_oauth_signature!" do
+      it "doesn't raise an exception if the signature is incorrect" do
+        expect {
+          subject.verify_oauth_signature!(subject.oauth_signature)
+        }.not_to raise_error
       end
 
-      it "returns false if the signature is not correct" do
-        expect(OmniauthRegistrationForm.verify_signature(subject.provider, subject.uid, "abcdefg")).to be_falsy
+      it "raise an exception if the signature is incorrect" do
+        expect {
+          subject.verify_oauth_signature!("1234")
+        }.to raise_error InvalidOauthSignature
       end
     end
   end

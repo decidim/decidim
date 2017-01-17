@@ -52,7 +52,7 @@ module Decidim
 
       let(:subject) { "Contrasenya canviada" }
       let(:body) { "Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament" }
-      let(:default_subject) {"Password Changed"}
+      let(:default_subject) {"Password changed"}
       let(:default_body) {"contacting you to notify you that your password has been changed"}
 
       include_examples "localised email"
