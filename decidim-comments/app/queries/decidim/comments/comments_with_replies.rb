@@ -8,7 +8,8 @@ module Decidim
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # commentable - a resource that can have comments
-      # options - Any additional options for the comments query.
+      # options - The Hash options is used to refine the selection ( default: {}):
+      #           :order_by - The string order_by to sort by ( optional )
       def self.for(commentable, options = {})
         new(commentable, options).query
       end
@@ -16,7 +17,8 @@ module Decidim
       # Initializes the class.
       #
       # commentable = a resource that can have comments
-      # options - Any additional options that can have comments.
+      # options - The Hash options is used to refine the selection ( default: {}):
+      #           :order_by - The string order_by to sort by ( optional )     
       def initialize(commentable, options = {})
         options[:order_by] ||= "older"
         @commentable = commentable
