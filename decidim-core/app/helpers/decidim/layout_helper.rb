@@ -35,7 +35,7 @@ module Decidim
       html_properties["aria-hidden"] = options[:aria_hidden]
 
       icon_class = (options[:remove_icon_class] ? "" : "icon")
-      html_properties["class"] = "icon--#{name} #{icon_class}"
+      html_properties["class"] = "icon--#{name} #{icon_class} #{options[:class]}"
 
       content_tag :svg, html_properties do
         content_tag :use, nil, "xlink:href" => "#{asset_url("decidim/icons.svg")}#icon-#{name}"
