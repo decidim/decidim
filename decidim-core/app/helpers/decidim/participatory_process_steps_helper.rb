@@ -8,7 +8,7 @@ module Decidim
     #
     # Returns a String.
     def status_class_for(step)
-      status = step.end_date > Time.current  ? "timeline__item--inactive" : ""
+      status = step.end_date > Time.current ? "timeline__item--inactive" : ""
       step.active? ? "timeline__item--current" : status
     end
   end

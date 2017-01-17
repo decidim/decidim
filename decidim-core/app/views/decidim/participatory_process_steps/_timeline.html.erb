@@ -1,5 +1,3 @@
 <ol class="timeline">
-  <% current_participatory_process.steps.each do |step| %>
-    <%= render partial: "step", locals: {step: step} %>
-  <% end %>
+  <%= render current_participatory_process.steps %>
 </ol>
