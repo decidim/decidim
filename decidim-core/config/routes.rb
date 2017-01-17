@@ -14,6 +14,10 @@ Decidim::Core::Engine.routes.draw do
                passwords: "decidim/devise/passwords",
                omniauth_callbacks: "decidim/devise/omniauth_callbacks"
              }
+             
+  devise_scope :user do
+    post 'finish_signup' => 'devise/omniauth_callbacks#finish_signup'
+  end
 
   resource :locale, only: [:create]
   resources :participatory_processes, only: [:index, :show]

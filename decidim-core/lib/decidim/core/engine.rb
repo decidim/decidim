@@ -26,6 +26,7 @@ require "truncato"
 require "file_validators"
 require "omniauth"
 require "omniauth-facebook"
+require "omniauth-twitter"
 
 require "decidim/api"
 

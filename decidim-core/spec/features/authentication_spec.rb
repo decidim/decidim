@@ -60,7 +60,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
           click_link "Sign in with Facebook"   
 
-          expect(page).to have_content("Successfully authenticated from Facebook account.")
+          expect(page).to have_content("Successfully")
           expect(page).to have_content(last_user.name)
         end
       end
@@ -92,16 +92,16 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
         click_link "Sign in with Twitter"   
 
+        expect(page).to have_content("Successfully")
+        expect(page).to have_content("Complete your profile")
+
         within ".new_user" do
-          fill_in :user_email, with: "user@from-twitter.com"
+          fill_in :user_email, with: "user@from-twitter.com"          
           check :user_tos_agreement
           find("*[type=submit]").click
         end
 
         expect(page).to have_content("confirmation link")
-        expect(emails.count).to eq(1)
-        expect(last_user.email).to eq("user@from-twitter.com")          
-        expect(last_user.organization).to eq(organization)
       end
     end
   end

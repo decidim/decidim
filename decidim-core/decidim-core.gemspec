@@ -41,6 +41,7 @@ Gem::Specification.new do |s|
   s.add_dependency "file_validators", "~> 2.1.0"
   s.add_dependency "omniauth", "~> 1.3.1"
   s.add_dependency "omniauth-facebook", "~> 4.0.0"
+  s.add_dependency "omniauth-twitter", "~> 1.3.0"
 
   s.add_dependency "decidim-api", Decidim.version
 

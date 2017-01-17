@@ -6,7 +6,7 @@
       </span>
       <%- resource_class.omniauth_providers.each do |provider| %>  
         <div class="social-register">
-          <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--facebook" do %>
+          <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--#{provider}" do %>
             <span class="button--social__icon">
               <%= icon provider.to_s %>
             </span>

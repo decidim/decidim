@@ -6,7 +6,7 @@ module Decidim
   class User < ApplicationRecord
     devise :invitable, :database_authenticatable, :registerable, :confirmable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
-           :omniauthable, omniauth_providers: [:facebook]
+           :omniauthable, omniauth_providers: [:facebook, :twitter]
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
     has_many :authorizations, foreign_key: "decidim_user_id", class_name: Decidim::Authorization, inverse_of: :user
@@ -49,6 +49,9 @@ module Decidim
     # omniauth_hash - A Hash that represents the omniauth data. See
     #                 https://github.com/omniauth/omniauth/wiki/Auth-Hash-Schema
     #                 for more information.
+    # organization  - A Decidim::Organization object
+    #
+    # Returns a Decidim::User object
     def self.find_or_create_from_oauth(omniauth_hash, organization)
       omniauth_hash = omniauth_hash.with_indifferent_access
       identity = Identity.where(provider: omniauth_hash[:provider], uid: omniauth_hash[:uid]).first

@@ -1,0 +1,44 @@
+<main class="wrapper">
+<div class="row collapse">
+  <div class="row collapse">
+    <div class="columns large-8 large-centered text-center page-title">
+      <h1><%= t(".sign_up") %></h1>
+      <p>
+        <%= t(".subtitle") %>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns large-6 medium-10 medium-centered">
+      <div class="card">
+        <div class="card__content">
+          <%= form_for(@form, as: resource_name, url: finish_signup_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+            <div class="field">
+              <%= f.email_field :email %>
+            </div>
+              
+            <fieldset>
+              <div class="field">
+                <%= f.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t(".terms"), page_path("terms-and-conditions"))) %>
+              </div>
+            </fieldset>
+
+            <%= f.hidden_field :name %>            
+            <%= f.hidden_field :password %>
+            <%= f.hidden_field :password_confirmation %>
+
+            <%= f.hidden_field :uid %>
+            <%= f.hidden_field :provider %>
+            <%= f.hidden_field :oauth_signature %>
+
+            <div class="actions">
+              <%= f.submit t("devise.registrations.new.sign_up"), class: "button expanded" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>

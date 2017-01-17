@@ -50,7 +50,12 @@ en:
         unauthorized: You are not authorized to perform this action
     devise:
       omniauth_callbacks:
-        facebook:
+        finish_signup:
+          sign_up: Complete your profile
+          subtitle: Please fill in the required fields to complete the sign up
+          terms: Terms
+          tos_agreement: Tos agreement
+        provider_callback_for:
           email_already_exists: Email already exists
       registrations:
         new:
