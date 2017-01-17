@@ -44,40 +44,6 @@ module Decidim
       roles.include?(role.to_s)
     end
 
-    # Class: Find or create a user from a omniauth hash.
-    #
-    # omniauth_hash - A Hash that represents the omniauth data. See
-    #                 https://github.com/omniauth/omniauth/wiki/Auth-Hash-Schema
-    #                 for more information.
-    # organization  - A Decidim::Organization object
-    #
-    # Returns a Decidim::User object
-    def self.find_or_create_from_oauth(omniauth_hash, organization)
-      omniauth_hash = omniauth_hash.with_indifferent_access
-      identity = Identity.where(provider: omniauth_hash[:provider], uid: omniauth_hash[:uid]).first
-
-      if identity.present?
-        identity.user
-      else
-        info = omniauth_hash[:info]
-        generated_password = SecureRandom.hex
-
-        user = User.create(email: info[:email],
-                           name: info[:name],
-                           password: generated_password,
-                           password_confirmation: generated_password,
-                           organization: organization,
-                           tos_agreement: true)
-
-        if user.valid?
-          user.identities.create(provider: omniauth_hash[:provider], uid: omniauth_hash[:uid])
-          user.skip_confirmation! if info[:verified]
-        end
-
-        user
-      end
-    end
-
     private
 
     def all_roles_are_valid

@@ -49,14 +49,10 @@ en:
       actions:
         unauthorized: You are not authorized to perform this action
     devise:
-      omniauth_callbacks:
-        finish_signup:
+      omniauth_registrations:
+        new:
           sign_up: Complete your profile
-          subtitle: Please fill in the required fields to complete the sign up
-          terms: Terms
-          tos_agreement: Tos agreement
-        provider_callback_for:
-          email_already_exists: Email already exists
+          subtitle: Please fill in the following form in order to complete the sign up
       registrations:
         new:
           already_have_an_account?: Already have an account?

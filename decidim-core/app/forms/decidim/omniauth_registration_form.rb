@@ -2,20 +2,23 @@
 
 module Decidim
   # A form object used to fisnish signup from omniauth data
-  class OmniauthFinishSignupForm < Form
+  class OmniauthRegistrationForm < Form
     mimic :user
 
     attribute :email, String
     attribute :name, String
-    attribute :password, String
-    attribute :password_confirmation, String
     attribute :provider, String
     attribute :uid, String
     attribute :tos_agreement, Boolean
 
+    validates :email, presence: true
+    validates :name, presence: true
+    validates :provider, presence: true
+    validates :uid, presence: true
+    validates :tos_agreement, acceptance: true, allow_nil: false
+
     def oauth_signature
-      return "1234"
-      OmniauthFinishSignupForm.create_signature(provider, uid)
+      OmniauthRegistrationForm.create_signature(provider, uid)
     end
 
     def self.create_signature(provider, uid)

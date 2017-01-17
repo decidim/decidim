@@ -12,11 +12,11 @@ Decidim::Core::Engine.routes.draw do
                confirmations: "decidim/devise/confirmations",
                registrations: "decidim/devise/registrations",
                passwords: "decidim/devise/passwords",
-               omniauth_callbacks: "decidim/devise/omniauth_callbacks"
+               omniauth_callbacks: "decidim/devise/omniauth_registrations"
              }
-             
+
   devise_scope :user do
-    post 'finish_signup' => 'devise/omniauth_callbacks#finish_signup'
+    post "omniauth_registrations" => "devise/omniauth_registrations#create"
   end
 
   resource :locale, only: [:create]
