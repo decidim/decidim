@@ -40,14 +40,7 @@ export class AddCommentForm extends Component {
         {this._renderOpinionButtons()}
         <form onSubmit={(evt) => this._addComment(evt)}>
           <label className="show-for-sr" htmlFor={`add-comment-${commentableType}-${commentableId}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
-          <textarea
-            autoFocus
-            ref={(textarea) => this.bodyTextArea = textarea}
-            id={`add-comment-${commentableType}-${commentableId}`}
-            rows="4"
-            placeholder={I18n.t("components.add_comment_form.form.body.placeholder")}
-            onChange={(evt) => this._checkCommentBody(evt.target.value)}
-          />
+          {this._renderTextArea()}
           <input 
             type="submit"
             className={submitButtonClassName}
@@ -78,6 +71,30 @@ export class AddCommentForm extends Component {
     return null;
   }
 
+  /**
+   * Render the form heading based on showTitle prop
+   * @private
+   * @returns {Void|DOMElement} - The heading or an empty element
+   */
+  _renderTextArea() {
+    const { commentableType, commentableId, autoFocus} = this.props;
+
+    let textAreaProps = {
+      ref: (textarea) => {this.bodyTextArea = textarea},
+      id: `add-comment-${commentableType}-${commentableId}`,
+      rows: "4",
+      placeholder: I18n.t("components.add_comment_form.form.body.placeholder"),
+      onChange: (evt) => this._checkCommentBody(evt.target.value)
+    };
+    if (autoFocus) {
+      textAreaProps.autoFocus = 'autoFocus';
+    }
+
+    return (
+      <textarea {...textAreaProps} />
+    );
+  }
+       
   /**
    * Render opinion buttons or not based on the arguable prop
    * @private
@@ -176,7 +193,8 @@ AddCommentForm.propTypes = {
   showTitle: PropTypes.bool.isRequired,
   submitButtonClassName: PropTypes.string.isRequired,
   onCommentAdded: PropTypes.func,
-  arguable: PropTypes.bool
+  arguable: PropTypes.bool,
+  autoFocus: PropTypes.bool
 };
 
 const AddCommentFormWithMutation = graphql(gql`
