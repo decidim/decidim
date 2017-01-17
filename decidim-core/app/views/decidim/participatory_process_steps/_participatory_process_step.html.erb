@@ -1,11 +1,11 @@
-<li class="<%= "timeline__item #{status_class_for(participatory_process_step)}" %>">
+<li class="<%= "timeline__item #{step_status_class}" %>">
   <div class="timeline__phase">
     <span class="timeline__phase__number"><%= participatory_process_step.position %></span>
   </div>
   <div class="timeline__info">
     <div class="timeline__header">
       <span class="timeline__date text-small">
-        <%= participatory_process_step.start_date.strftime("%d/%m/%Y") %> - <%= participatory_process_step.end_date.strftime("%d/%m/%Y") %>
+        <%= localize(participatory_process_step.start_date, format: "%d/%m/%Y") %> - <%= localize(participatory_process_step.end_date, format: "%d/%m/%Y") %>
       </span>
       <h6 class="timeline__title heading6"><%= t('.info') %></h6>
     </div>
