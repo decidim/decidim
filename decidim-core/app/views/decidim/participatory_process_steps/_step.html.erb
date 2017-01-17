@@ -1,8 +1,4 @@
-<% # TODO: Move to decorator? %>
-<% status_class = step.end_date > Time.zone.now  ? "timeline__item--inactive" : "" %>
-<% status_class = step.active? ? "timeline__item--current" : status_class %>
-
-<li class="<%= "timeline__item #{status_class}" %>">
+<li class="<%= "timeline__item #{status_class_for(step)}" %>">
   <div class="timeline__phase">
     <span class="timeline__phase__number"><%= step.position %></span>
   </div>
