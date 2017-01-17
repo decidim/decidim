@@ -50,6 +50,10 @@ module Decidim
           self.class.manifest
         end
 
+        def ==(o)
+          o.attributes == self.attributes
+        end
+
         manifest.attributes.each do |name, attribute|
           attribute name, attribute.type_class, default: attribute.default_value
           validates name, presence: true

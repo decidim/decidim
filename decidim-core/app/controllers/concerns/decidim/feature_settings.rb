@@ -12,13 +12,12 @@ module Decidim
 
       helper_method :feature_settings, :current_settings
 
-      delegate :active_step, to: :current_participatory_process, prefix: false
-
       def feature_settings
         current_feature.settings
       end
 
       def current_settings
+        active_step = current_participatory_process.active_step
         return nil unless active_step
 
         current_feature.step_settings.fetch(active_step.id.to_s)
