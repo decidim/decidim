@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'social-share-button', "~> 0.8.8"
 
   s.add_development_dependency "decidim-dev", Decidim.version
+  s.add_development_dependency "decidim-meetings", Decidim.version
 end

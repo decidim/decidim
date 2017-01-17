@@ -52,6 +52,10 @@ en:
           voted: Voted
         index:
           new_proposal: New proposal
+        linked_proposals:
+          proposal_votes:
+            one: 1 proposal
+            other: "%{count} proposals"
         new:
           back: Back
           select_a_category: Please select a category
@@ -71,3 +75,6 @@ en:
           count:
             one: VOTE
             other: VOTES
+    resource_links:
+      proposals_from_meeting:
+        meetings: Related meetings
