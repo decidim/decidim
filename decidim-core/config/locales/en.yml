@@ -68,6 +68,10 @@ en:
         related_documents: Related documents
       photos:
         related_photos: Related photos
+    participatory_process_steps:
+      index:
+        process_steps: Process steps
+        info: Information
   devise:
     mailer:
       invitation_instructions:
@@ -118,6 +122,8 @@ en:
           active_step: 'Current step:'
           more_info: More info
           take_part: Take part
+      process_header_steps:
+        view_steps: View steps
       process_header:
         process_menu_item: The process
       user_menu:
