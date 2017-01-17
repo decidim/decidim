@@ -20,7 +20,13 @@ module Decidim
       def new
         authorize! :create, Feature
 
-        @form = form(FeatureForm).instance(name: default_name(manifest))
+        @feature = Feature.new(
+          name: default_name(manifest),
+          manifest_name: params[:type],
+          participatory_process: participatory_process
+        )
+
+        @form = form(FeatureForm).from_model(@feature)
       end
 
       def create
@@ -40,8 +46,33 @@ module Decidim
         end
       end
 
+      def edit
+        @feature = query_scope.find(params[:id])
+        authorize! :update, @feature
+
+        @form = form(FeatureForm).from_model(@feature)
+      end
+
+      def update
+        @feature = query_scope.find(params[:id])
+        @form = form(FeatureForm).from_params(params)
+        authorize! :update, @feature
+
+        UpdateFeature.call(@form, @feature) do
+          on(:ok) do
+            flash[:notice] = I18n.t("features.update.success", scope: "decidim.admin")
+            redirect_to action: :index
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("features.update.error", scope: "decidim.admin")
+            render action: "new"
+          end
+        end
+      end
+
       def destroy
-        @feature = participatory_process.features.find(params[:id])
+        @feature = query_scope.find(params[:id])
         authorize! :destroy, @feature
 
         DestroyFeature.call(@feature) do
@@ -58,6 +89,10 @@ module Decidim
       end
 
       private
+
+      def query_scope
+        participatory_process.features
+      end
 
       def manifest
         Decidim.find_feature_manifest(params[:type])

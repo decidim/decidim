@@ -1,7 +1,7 @@
 <h3><%= t ".title", name: t("#{manifest.name}.name", scope: "decidim.features") %></h3>
 
 <%= form_for([participatory_process, @form], url: participatory_process_features_path(type: params[:type]), method: "post") do |form| %>
-  <%= render partial: 'form', object: form %>
+  <%= render partial: 'form', object: form, locals: { feature: @feature } %>
 
   <div class="actions">
     <%= form.submit t(".add") %>

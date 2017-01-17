@@ -9,8 +9,8 @@
   </div>
 </div>
 
-<%= content_for :expanded do %>
-  <% if @page.commentable? %>
+<% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
+  <%= content_for :expanded do %>
     <%= comments_for @page, arguable: true, votable: true %>
   <% end %>
 <% end %>

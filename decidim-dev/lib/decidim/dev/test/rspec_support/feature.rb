@@ -13,6 +13,16 @@ end
 
 Decidim.register_feature(:dummy) do |feature|
   feature.engine = Decidim::DummyEngine
+
+  feature.settings(:global) do |settings|
+    settings.attribute :dummy_global_attribute_1, type: :boolean
+    settings.attribute :dummy_global_attribute_2, type: :boolean
+  end
+
+  feature.settings(:step) do |settings|
+    settings.attribute :dummy_step_attribute_1, type: :boolean
+    settings.attribute :dummy_step_attribute_2, type: :boolean
+  end
 end
 
 RSpec.configure do |config|

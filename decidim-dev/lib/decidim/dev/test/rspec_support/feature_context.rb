@@ -6,7 +6,7 @@ RSpec.shared_context "feature" do
   let!(:organization) { create(:organization) }
 
   let(:participatory_process) do
-    create(:participatory_process, organization: organization)
+    create(:participatory_process, :with_steps, organization: organization)
   end
 
   let!(:feature) do
@@ -20,7 +20,7 @@ RSpec.shared_context "feature" do
   end
 
   def visit_feature
-    visit decidim.feature_path(participatory_process, feature)
+    page.visit decidim.feature_path(participatory_process, feature)
   end
 end
 

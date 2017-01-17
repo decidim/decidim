@@ -11,6 +11,8 @@ module Decidim
 
     validates :participatory_process, presence: true
 
+    after_initialize :default_values
+
     # Public: Finds the manifest this feature is associated to.
     #
     # Returns a FeatureManifest.
@@ -25,6 +27,44 @@ module Decidim
     # Returns nothing.
     def manifest=(manifest)
       self.manifest_name = manifest.name
+    end
+
+    def settings
+      settings_schema(:global).new(self[:settings]["global"])
+    end
+
+    def settings=(data)
+      self[:settings]["global"] = serialize_settings(settings_schema(:global), data)
+    end
+
+    def step_settings
+      participatory_process.steps.each_with_object({}) do |step, result|
+        result[step.id.to_s] = settings_schema(:step).new(self[:settings].dig("steps", step.id.to_s))
+      end
+    end
+
+    def step_settings=(data)
+      self[:settings]["steps"] = data.each_with_object({}) do |(key, value), result|
+        result[key.to_s] = serialize_settings(settings_schema(:step), value)
+      end
+    end
+
+    private
+
+    def serialize_settings(schema, value)
+      if value.respond_to?(:attributes)
+        value.attributes
+      else
+        schema.new(value)
+      end
+    end
+
+    def settings_schema(name)
+      manifest.settings(name.to_sym).schema
+    end
+
+    def default_values
+      self[:settings] ||= {}
     end
   end
 end

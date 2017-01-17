@@ -1,3 +1,5 @@
+require_dependency "decidim/features/settings_manifest"
+
 # frozen_string_literal: true
 module Decidim
   # This class handles all the logic associated to configuring a feature
@@ -70,6 +72,27 @@ module Decidim
     # Returns nothing.
     def seed!
       @seeds&.call
+    end
+
+    # Public: Adds configurable attributes for this feature, scoped to a name. It
+    # uses the DSL specified under `Decidim::FeatureSettingsManifest`.
+    #
+    # name - Either `global` or `step`
+    # &block - The DSL present on `Decidim::FeatureSettingsManifest`
+    #
+    # Examples:
+    #
+    #   feature.settings(:global) do |settings|
+    #     settings.attribute :voting_enabled, type: :boolean, default: true
+    #   end
+    #
+    # Returns nothing.
+    def settings(name = :global, &block)
+      @settings ||= {}
+      name = name.to_sym
+      settings = (@settings[name] ||= FeatureSettingsManifest.new)
+      yield(settings) if block
+      settings
     end
   end
 end

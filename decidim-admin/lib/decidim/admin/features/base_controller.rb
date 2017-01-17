@@ -8,7 +8,13 @@ module Decidim
         skip_authorize_resource
         include Concerns::ParticipatoryProcessAdmin
         include NeedsParticipatoryProcess
-        helper_method :current_feature, :current_participatory_process, :parent_path
+        include FeatureSettings
+
+        helper_method :current_feature,
+                      :current_participatory_process,
+                      :parent_path
+
+        delegate :active_step, to: :current_participatory_process, prefix: false
 
         before_action do
           authorize! :manage, current_feature
@@ -17,8 +23,6 @@ module Decidim
         def current_feature
           request.env["decidim.current_feature"]
         end
-
-        private
 
         def current_participatory_process
           request.env["decidim.current_participatory_process"]

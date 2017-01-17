@@ -62,6 +62,14 @@ FactoryGirl.define do
     trait :published do
       published_at { Time.current }
     end
+
+    trait :with_steps do
+      after(:create) do |participatory_process, _evaluator|
+        create(:participatory_process_step,
+               active: true,
+               participatory_process: participatory_process)
+      end
+    end
   end
 
   factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do

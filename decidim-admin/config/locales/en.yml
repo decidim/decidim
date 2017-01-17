@@ -59,6 +59,7 @@ en:
         deactivate: Deactivate
         destroy: Destroy
         edit: Edit
+        manage: Manage
         new: New %{name}
         preview: Preview
         publish: Publish
@@ -103,12 +104,25 @@ en:
         destroy:
           error: There has been an error destroying this feature.
           success: Feature deleted successfully.
+        edit:
+          title: Edit feature
+          update: Update
+        form:
+          global_settings: Global settings
+          step_settings: Step settings
         index:
           add: Add feature
+          headers:
+            actions: Actions
+            name: Feature name
+            type: Feature type
         new:
           add: Add feature
           title: 'Add feature: %{name}'
         title: Features
+        update:
+          error: There has been an error updating this feature.
+          success: The feature was updated successfully.
       menu:
         dashboard: Dashboard
         participatory_processes: Participatory processes

@@ -19,6 +19,14 @@ Decidim.register_feature(:pages) do |feature|
     end
   end
 
+  feature.settings(:global) do |settings|
+    settings.attribute :comments_always_enabled, type: :boolean
+  end
+
+  feature.settings(:step) do |settings|
+    settings.attribute :comments_enabled, type: :boolean
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?
@@ -34,8 +42,7 @@ Decidim.register_feature(:pages) do |feature|
         title: Decidim::Faker::Localized.sentence(2),
         body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
-        end,
-        commentable: true
+        end
       )
 
       Decidim::Comments::Seed.comments_for(page)

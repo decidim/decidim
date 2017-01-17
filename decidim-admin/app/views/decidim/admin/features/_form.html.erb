@@ -1,3 +1,52 @@
 <div class="field">
   <%= form.translated :text_field, :name, autofocus: true %>
+
+  <% if form.object.settings? %>
+    <fieldset class="global-settings">
+      <div class="card">
+        <div class="card-divider">
+          <legend><%= t ".global_settings" %></legend>
+        </div>
+        <div class="card-section">
+          <%= form.fields_for :settings, form.object.settings do |settings_fields| %>
+            <%= render partial: "decidim/admin/features/settings_fields",
+                       locals: {
+                         form: settings_fields,
+                         feature: @feature,
+                         settings_name: "global"
+                       } %>
+          <% end %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+
+  <% if form.object.step_settings? %>
+    <fieldset class="step-settings">
+      <div class="card">
+        <div class="card-divider">
+          <legend><%= t ".step_settings" %></legend>
+        </div>
+        <div class="card-section">
+          <% participatory_process.steps.each do |step| %>
+            <fieldset class="step-settings-<%= step.id %>">
+              <legend><%= step.position + 1 %>. <%= translated_attribute step.title %></legend>
+              <% step_settings = form.object.step_settings[step.id.to_s] %>
+
+              <%= form.fields_for "step_settings", nil do |settings_fields| %>
+                <%= settings_fields.fields_for step.id.to_s, step_settings do |settings_fields| %>
+                  <%= render partial: "decidim/admin/features/settings_fields",
+                  locals: {
+                    form: settings_fields,
+                    feature: feature,
+                    settings_name: "step"
+                  } %>
+                <% end %>
+              <% end %>
+            </fieldset>
+          <% end %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
 </div>

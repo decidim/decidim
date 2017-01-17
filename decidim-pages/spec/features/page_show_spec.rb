@@ -22,9 +22,10 @@ describe "Show a page", type: :feature do
     }
   end
 
-  describe "page show" do  
+  let!(:page_feature) { create(:page, feature: feature, title: title, body: body) }
+
+  describe "page show" do
     before do
-      create(:page, feature: feature, title: title, body: body)
       visit_feature
     end
 
@@ -35,18 +36,16 @@ describe "Show a page", type: :feature do
   end
 
   describe "page show with comments" do
-    let!(:page_feature) { create(:page, feature: feature, title: title, body: body) }
     let!(:comments) { create_list(:comment, 3, commentable: page_feature) }
 
-    before do
-      page_feature.update_attribute(:commentable, commentable)
-    end
-
     context "when the page is commentable" do
-      let(:commentable) { true }
+      before do
+        feature.settings = { comments_always_enabled: true }
+        feature.save
+        visit_feature
+      end
 
       it "renders the comments of the page" do
-        visit_feature
         expect(page).to have_selector('.comment', count: comments.length)
 
         comments.each do |comment|
@@ -56,7 +55,11 @@ describe "Show a page", type: :feature do
     end
 
     context "when the page is not commentable" do
-      let(:commentable) { false }
+      before do
+        feature.settings = { comments_always_enabled: false }
+        feature.save
+        visit_feature
+      end
 
       it "doesn't render the comments of the page" do
         visit_feature

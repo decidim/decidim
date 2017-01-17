@@ -36,7 +36,9 @@ module Decidim
         @feature = Feature.create!(
           manifest_name: manifest.name,
           name: form.name,
-          participatory_process: participatory_process
+          participatory_process: participatory_process,
+          settings: @form.settings,
+          step_settings: form.step_settings
         )
       end
 

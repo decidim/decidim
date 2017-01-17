@@ -8,9 +8,12 @@ module Decidim
     class BaseController < Decidim::ApplicationController
       layout "layouts/decidim/participatory_process"
       include NeedsParticipatoryProcess
+      include FeatureSettings
       helper Decidim::TranslationsHelper
       helper Decidim::ParticipatoryProcessHelper
-      helper_method :current_feature
+
+      helper_method :current_feature,
+                    :current_manifest
 
       skip_authorize_resource
 
@@ -22,7 +25,9 @@ module Decidim
         request.env["decidim.current_feature"]
       end
 
-      private
+      def current_manifest
+        current_feature.manifest
+      end
 
       def current_participatory_process
         request.env["decidim.current_participatory_process"]
