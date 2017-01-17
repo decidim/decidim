@@ -8,7 +8,7 @@ module Decidim
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # commentable - a resource that can have comments
-      # options - Any additional options for this query.
+      # options - Any additional options for the comments query.
       def self.for(commentable, options = {})
         new(commentable, options).query
       end
