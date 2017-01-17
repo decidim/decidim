@@ -1,6 +1,6 @@
+# frozen_string_literal: true
 require_dependency "decidim/features/settings_manifest"
 
-# frozen_string_literal: true
 module Decidim
   # This class handles all the logic associated to configuring a feature
   # associated to a participatory process.
@@ -93,6 +93,37 @@ module Decidim
       settings = (@settings[name] ||= FeatureSettingsManifest.new)
       yield(settings) if block
       settings
+    end
+
+    # Public: Registers a resource inside a feature manifest. Exposes a DSL
+    # defined by `Decidim::ResourceManifest`.
+    #
+    # Resource manifests are a way to expose a resource from one engine to
+    # the whole system. This was resoruces can be linked between them.
+    #
+    # block - A Block that will be called to set the Resource attributes.
+    #
+    # Returns nothing.
+    def register_resource(&block)
+      registered_manifests << block
+    end
+
+    def registered_manifests
+      @registered_manifests ||= Set.new
+    end
+
+    # Public: Finds all the registered resource manifest's via the
+    # `register_resource` method.
+    #
+    # Returns an Array[ResourceManifest].
+    def resource_manifests
+      @resource_manifests ||= registered_manifests.map do |block|
+        manifest = ResourceManifest.new
+        manifest.feature_manifest = self
+        block.call(manifest)
+        manifest.validate!
+        manifest
+      end
     end
   end
 end
