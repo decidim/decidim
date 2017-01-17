@@ -89,7 +89,6 @@ en:
         subject: Password Changed
   errors:
     messages:
-      at_least_one_step_required: At least one step is required in any participatory process.
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
       invalid_manifest: Invalid manifest
       invalid_participatory_process: Invalid participatory process

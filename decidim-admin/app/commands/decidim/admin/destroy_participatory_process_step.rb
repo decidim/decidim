@@ -21,20 +21,8 @@ module Decidim
         return broadcast(:invalid, :last_step) if @participatory_process.steps.count == 1
         return broadcast(:invalid, :active_step) if @step.active?
 
-        destroy_step
-        broadcast(:ok)
-      end
-
-      private
-
-      attr_reader :step
-
-      def destroy_step
         @step.destroy!
-      end
-
-      def sibling_steps
-        participatory_process.steps
+        broadcast(:ok)
       end
     end
   end

@@ -38,10 +38,10 @@ describe Decidim::Admin::CreateParticipatoryProcess do
       expect { subject.call }.to broadcast(:ok)
     end
 
-    it "adds an extra step" do
+    it "adds the default step" do
       subject.call do
         on(:ok) do |process|
-          expect(process.steps.length).to eq(1)
+          expect(process.steps.count).to eq(1)
         end
       end
     end
