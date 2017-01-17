@@ -58,6 +58,7 @@ ca:
         deactivate: Desactiva-ho
         destroy: Eliminar
         edit: Editar
+        manage: Gestionar
         new: Nou %{name}
         preview: Previsualitzar
         publish: Publicar
@@ -102,12 +103,25 @@ ca:
         destroy:
           error: S'ha produït un error destruir aquesta funcionalitat.
           success: Característica eliminada correctament.
+        edit:
+          title: Editar funcionalitat
+          update: Actualitza
+        form:
+          global_settings: Configuració global
+          step_settings: Configuració de fase
         index:
           add: Afegir funcionalitat
+          headers:
+            actions: Accions
+            name: Nom de la funcionalitat
+            type: Tipus de funcionalitat
         new:
           add: Afegir funcionalitat
           title: 'Afegir funcionalitat: %{name}'
         title: Funcionalitats
+        update:
+          error: S'ha produït un error en actualitzar aquesta funcionalitat.
+          success: La funcionalitat s'ha actualitzat correctament.
       menu:
         dashboard: Tauler de control
         participatory_processes: Processos participatius
