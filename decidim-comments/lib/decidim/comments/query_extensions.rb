@@ -17,10 +17,11 @@ module Decidim
 
             argument :commentableId, !types.String, "The commentable's ID"
             argument :commentableType, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
+            argument :orderBy, types.String, "Order the comments"
 
             resolve lambda { |_obj, args, _ctx|
               commentable = args[:commentableType].constantize.find(args[:commentableId])
-              CommentsWithReplies.for(commentable)
+              CommentsWithReplies.for(commentable, order_by: args[:orderBy])
             }
           end
         end

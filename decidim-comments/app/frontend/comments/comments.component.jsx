@@ -8,6 +8,7 @@ import Application              from '../application/application.component';
 
 import CommentThread            from './comment_thread.component';
 import AddCommentForm           from './add_comment_form.component';
+import CommentOrderSelector     from './comment_order_selector.component';
 
 import commentsQuery            from './comments.query.graphql';
 
@@ -20,7 +21,7 @@ import commentsQuery            from './comments.query.graphql';
  */
 export class Comments extends Component {
   render() {
-    const { comments } = this.props;
+    const { comments, reorderComments, orderBy } = this.props;
 
     return (
       <div className="columns large-9" id="comments">
@@ -29,6 +30,10 @@ export class Comments extends Component {
             <h2 className="order-by__text section-heading">
               { I18n.t("components.comments.title", { count: comments.length }) }
             </h2>
+            <CommentOrderSelector 
+              reorderComments={reorderComments}
+              defaultOrderBy={orderBy}
+            />
           </div>
           {this._renderCommentThreads()}
           {this._renderAddCommentForm()}
@@ -89,7 +94,9 @@ Comments.propTypes = {
   commentableType: PropTypes.string.isRequired,
   options: PropTypes.shape({
     arguable: PropTypes.bool
-  }).isRequired
+  }).isRequired,
+  orderBy: PropTypes.string.isRequired,
+  reorderComments: PropTypes.func.isRequired
 };
 
 /**
@@ -100,13 +107,21 @@ const CommentsWithData = graphql(gql`
   ${commentsQuery}
   ${CommentThread.fragments.comment}
 `, {
-  options: { pollInterval: 15000 },
-  props: ({ ownProps, data: { currentUser, comments }}) => ({
+  options: {
+    pollInterval: 15000
+  },
+  props: ({ ownProps, data: { currentUser, comments, refetch }}) => ({
     comments: comments || [],
     currentUser: currentUser || null,
     commentableId: ownProps.commentableId,
     commentableType: ownProps.commentableType,
-    options: ownProps.options
+    orderBy: ownProps.orderBy,
+    options: ownProps.options,
+    reorderComments: (orderBy) => {
+      return refetch({
+        orderBy
+      });
+    }
   })
 })(Comments);
 
@@ -121,6 +136,7 @@ const CommentsApplication = ({ locale, commentableId, commentableType, options }
       commentableId={commentableId}
       commentableType={commentableType}
       options={options}
+      orderBy="older"
     />
   </Application>
 );

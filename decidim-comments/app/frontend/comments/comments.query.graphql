@@ -1,9 +1,9 @@
-query GetComments($commentableId: String!, $commentableType: String!) {
+query GetComments($commentableId: String!, $commentableType: String!, $orderBy: String) {
   currentUser {
     name
     avatarUrl
   }
-  comments(commentableId: $commentableId, commentableType: $commentableType) {
+  comments(commentableId: $commentableId, commentableType: $commentableType, orderBy: $orderBy) {
     id
     ...CommentThread
   }
