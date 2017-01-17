@@ -8,7 +8,6 @@ ca:
         models:
           components:
             body: Cos
-            commentable: Habilitar comentaris per a aquesta pàgina
             title: Títol
         pages:
           edit:

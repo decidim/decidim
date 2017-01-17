@@ -8,7 +8,6 @@ es:
         models:
           components:
             body: Cuerpo
-            commentable: Habilitar comentarios para esta página
             title: Título
         pages:
           edit:
