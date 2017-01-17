@@ -17,7 +17,7 @@ module Decidim
           random = rand(Decidim::User.count)
           Comment.create(
             commentable: resource,
-            body: Faker::Lorem.sentence,
+            body: ::Faker::Lorem.sentence,
             author: Decidim::User.where(organization: organization).offset(random).first
           )
         end
