@@ -2,8 +2,12 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe CreateFeature do
-      let(:manifest) { Decidim.find_feature_manifest(:dummy) }
+    describe UpdateFeature do
+      let!(:participatory_process) { create(:participatory_process, :with_steps) }
+      let(:step) { participatory_process.steps.first }
+      let!(:feature) { create(:feature, participatory_process: participatory_process) }
+      let(:manifest) { feature.manifest }
+
       let(:form) do
         instance_double(FeatureForm,
           name: {
@@ -26,20 +30,15 @@ module Decidim
         )
       end
 
-      let(:participatory_process) { create(:participatory_process, :with_steps) }
-      let(:step) { participatory_process.steps.first }
-
       describe "when valid" do
         let(:valid) { true }
 
-        it "broadcasts :ok and creates the feature" do
+        it "broadcasts :ok and updates the feature" do
           expect {
-            CreateFeature.call(manifest, form, participatory_process)
+            described_class.call(form, feature)
           }.to broadcast(:ok)
 
-          expect(participatory_process.features).to_not be_empty
-
-          feature = participatory_process.features.first
+          expect(feature["name"]["en"]).to eq("My feature")
           expect(feature.settings.dummy_global_attribute_1).to eq(true)
           expect(feature.settings.dummy_global_attribute_2).to eq(false)
 
@@ -51,11 +50,11 @@ module Decidim
         it "fires the hooks" do
           results = {}
 
-          manifest.on(:create) do |feature|
+          manifest.on(:update) do |feature|
             results[:feature] = feature
           end
 
-          CreateFeature.call(manifest, form, participatory_process)
+          described_class.call(form, feature)
 
           feature = results[:feature]
           expect(feature.name["en"]).to eq("My feature")
@@ -68,10 +67,11 @@ module Decidim
 
         it "creates the feature" do
           expect {
-            CreateFeature.call(manifest, form, participatory_process)
+            described_class.call(form, feature)
           }.to broadcast(:invalid)
 
-          expect(participatory_process.features).to be_empty
+          feature.reload
+          expect(feature.name["en"]).to_not eq("My feature")
         end
       end
     end
