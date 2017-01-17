@@ -8,10 +8,6 @@ module Decidim
     validates :document_number, presence: true
     validate :valid_document_number
 
-    def authorized?
-      valid?
-    end
-
     def metadata
       super.merge(document_number: document_number)
     end

@@ -16,8 +16,8 @@ module Decidim
       it { is_expected.to eq(document_number: "123456") }
     end
 
-    describe "authorized?" do
-      subject { handler.authorized? }
+    describe "valid?" do
+      subject { handler.valid? }
       let(:params) { { document_number: document_number } }
 
       context "when no document number" do

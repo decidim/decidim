@@ -27,6 +27,8 @@ en:
         title: My account
     authorization_handlers:
       decidim/dummy_authorization_handler: Example authorization
+      errors:
+        duplicate_authorization: A user is already authorized with the same data.
     authorizations:
       create:
         error: There was an error creating the authorization.
