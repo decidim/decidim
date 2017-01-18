@@ -30,11 +30,11 @@ module Decidim
       end
 
       context "when proposal and author have different organization" do
-        let(:author) { create(:user) }
-        let(:proposal) { create(:proposal) }
+        let(:other_author) { create(:user) }
+        let(:other_proposal) { create(:proposal) }
 
         it "is invalid" do
-          proposal_vote = build(:proposal_vote, proposal: proposal, author: author)
+          proposal_vote = build(:proposal_vote, proposal: other_proposal, author: other_author)
           expect(proposal_vote).to be_invalid
         end
       end

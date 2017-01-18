@@ -24,16 +24,35 @@ Decidim.register_feature(:proposals) do |feature|
       feature = Decidim::Feature.create!(
         name: Decidim::Features::Namer.new(process.organization.available_locales, :proposals).i18n_name,
         manifest_name: :proposals,
-        participatory_process: process
+        participatory_process: process,
+        step_settings: {
+          process.active_step.id => { votes_enabled: true }
+        }
       )
 
-      20.times do
+      20.times do |n|
         proposal = Decidim::Proposals::Proposal.create!(
           feature: feature,
           title: Faker::Lorem.sentence(2),
           body: Faker::Lorem.paragraphs(2).join("\n"),
           author: Decidim::User.where(organization: feature.organization).all.sample
         )
+
+        rand(3).times do |m|
+          email = "vote-author-#{process.id}-#{n}-#{m}@decidim.org"
+          name = "#{Faker::Name.name} #{process.id} #{n} #{m}"
+
+          author = Decidim::User.create!(email: email,
+                                         password: "password1234",
+                                         password_confirmation: "password1234",
+                                         name: name,
+                                         organization: feature.organization,
+                                         tos_agreement: "1",
+                                         confirmed_at: Time.now)
+
+          Decidim::Proposals::ProposalVote.create!(proposal: proposal,
+                                                   author: author)
+        end
 
         Decidim::Comments::Seed.comments_for(proposal)
       end
