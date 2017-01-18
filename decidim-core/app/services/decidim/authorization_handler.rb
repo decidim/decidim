@@ -2,9 +2,12 @@
 module Decidim
   # This is the base class for authorization handlers, all implementations
   # should inherit from it.
-  # Each AuthorizationHandler must define an `authorized?` method that will be
-  # used to check if the authorization is valid or not. When it is valid a new
-  # authorization will be created for the user.
+  # Each AuthorizationHandler is a form that will be used to check if the
+  # authorization is valid or not. When it is valid a new authorization will
+  # be created for the user.
+  #
+  # Feel free to use validations to assert fields against a remote API,
+  # local database, or whatever.
   #
   # It also sets two default attributes, `user` and `handler_name`.
   class AuthorizationHandler < Form
@@ -15,22 +18,21 @@ module Decidim
     # infer the class name of the authorization handler.
     attribute :handler_name, String
 
+    validate :identifier_uniqueness
+
+    # A unique ID to be implemented by the authorization handler that ensures
+    # no duplicates are created. This uniqueness check will be skipped if
+    # unique_id returns nil.
+    def unique_id
+      nil
+    end
+
     # THe attributes of the handler that should be exposed as form input when
     # rendering the handler in a form.
     #
     # Returns an Array of Strings.
     def form_attributes
       attributes.except(:id, :user).keys
-    end
-
-    # Whether the authorization is valid or not. Each AuthorizationHandler
-    # implementation must implemement this method. This is were you check for
-    # validation errors or against third party systems to validate the
-    # authorization.
-    #
-    # Returns a Boolean.
-    def authorized?
-      raise NotImplementedError
     end
 
     # The String partial path so Rails can render the handler as a form. This
@@ -89,6 +91,21 @@ module Decidim
       handler_klass.from_params(params || {})
     rescue NameError
       nil
+    end
+
+    private
+
+    def identifier_uniqueness
+      return true if unique_id.nil?
+
+      duplicates = Authorization.where(
+        user: User.where(organization: user.organization.id),
+        name: handler_name,
+        unique_id: unique_id
+      )
+
+      return true if duplicates.empty?
+      errors.add(:base, I18n.t("decidim.authorization_handlers.errors.duplicate_authorization"))
     end
   end
 end

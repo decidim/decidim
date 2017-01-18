@@ -67,5 +67,40 @@ module Decidim
         end
       end
     end
+
+    describe "uniqueness" do
+      let(:user) { create(:user) }
+
+      before do
+        subject.user = user
+        allow(subject).to receive(:unique_id).and_return "foo"
+        Decidim.authorization_handlers.push(described_class)
+      end
+
+      after do
+        Decidim.authorization_handlers.delete(described_class)
+      end
+
+      context "when there's no other authorizations" do
+        it "is valid if there's no authorization with the same id" do
+          expect(subject).to be_valid
+        end
+      end
+
+      context "when there's other authorizations" do
+        let!(:other_user) { create(:user, organization: user.organization)}
+
+        before do
+          create(:authorization,
+                 user: other_user,
+                 unique_id: "foo",
+                 name: handler.handler_name)
+        end
+
+        it "is invalid if there's another authorization with the same id" do
+          expect(subject).to be_invalid
+        end
+      end
+    end
   end
 end

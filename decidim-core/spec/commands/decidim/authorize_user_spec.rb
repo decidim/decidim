@@ -11,7 +11,7 @@ module Decidim
     end
 
     before do
-      expect(handler).to receive(:authorized?).and_return(authorized)
+      expect(handler).to receive(:valid?).and_return(authorized)
     end
 
     subject { described_class.new(handler) }

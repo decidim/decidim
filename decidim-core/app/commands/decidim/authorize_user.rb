@@ -16,7 +16,7 @@ module Decidim
     #
     # Returns nothing.
     def call
-      return broadcast(:invalid) unless handler.authorized?
+      return broadcast(:invalid) unless handler.valid?
 
       create_authorization
       broadcast(:ok)
@@ -29,6 +29,7 @@ module Decidim
     def create_authorization
       Authorization.create!(
         user: handler.user,
+        unique_id: handler.unique_id,
         name: handler.handler_name,
         metadata: handler.metadata
       )
