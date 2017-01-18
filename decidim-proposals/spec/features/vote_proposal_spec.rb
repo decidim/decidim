@@ -38,7 +38,7 @@ describe "Vote Proposal", type: :feature do
           page.find('.card__button').click
 
           expect(page).to have_css('.card__button.success', text: "Already voted")
-          expect(page).to have_content("1 SUPPORT")
+          expect(page).to have_content("1 VOTE")
         end
       end
     end
@@ -56,7 +56,7 @@ describe "Vote Proposal", type: :feature do
         end
 
         within "#proposal-#{proposals.first.id}-votes-count" do
-          expect(page).to have_content("1 SUPPORT")          
+          expect(page).to have_content("1 VOTE")          
         end
       end
     end

@@ -67,8 +67,8 @@ en:
           vote: Vote
         votes_count:
           count:
-            one: SUPPORT
-            other: SUPPORTS
+            one: VOTE
+            other: VOTES
   devise:
     sessions:
       new:

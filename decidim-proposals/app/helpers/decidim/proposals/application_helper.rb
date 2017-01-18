@@ -6,6 +6,7 @@ module Decidim
     module ApplicationHelper
       include Decidim::Comments::CommentsHelper
       include PaginateHelper
+      include ProposalVotesHelper
     end
   end
 end

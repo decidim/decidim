@@ -29,11 +29,14 @@ module Decidim
         }.to raise_error(ActiveRecord::RecordInvalid)
       end
 
-      it "is invalid if proposal and author have different organizations" do
-        author = create(:user)
-        proposal = create(:proposal)
-        proposal_vote = build(:proposal_vote, proposal: proposal, author: author)
-        expect(proposal_vote).to be_invalid
+      context "when proposal and author have different organization" do
+        let(:author) { create(:user) }
+        let(:proposal) { create(:proposal) }
+
+        it "is invalid" do
+          proposal_vote = build(:proposal_vote, proposal: proposal, author: author)
+          expect(proposal_vote).to be_invalid
+        end
       end
     end
   end

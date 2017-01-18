@@ -27,10 +27,10 @@
     <div class="card__footer">
       <div class="card__support">
         <div id="proposal-<%= proposal.id %>-votes-count" class="card__support__data">
-          <%= render partial: "votes_count", locals: { proposal: proposal, number_class: "card__support__number", label_class: "" } %>
+          <%= render partial: "votes_count", locals: { proposal: proposal, from_proposals_list: true } %>
         </div>
         <div id="proposal-<%= proposal.id %>-vote-button"> 
-          <%= render partial: "vote_button", locals: { proposal: proposal, button_class: "small" } %>
+          <%= render partial: "vote_button", locals: { proposal: proposal, from_proposals_list: true } %>
         </div>
       </div>
     </div>

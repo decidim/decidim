@@ -1,13 +1,13 @@
 <% if current_user %>
   <% if proposal.voted_by? current_user %>
-    <button class="card__button button <%= button_class %> success">
+    <button class="card__button button <%= vote_button_classes(from_proposals_list) %> success">
       <%= t('.already_voted') %>
     </button>
   <% else %>
-    <%= button_to t('.vote'), proposal_proposal_votes_path(proposal_id: proposal), remote: true, data: { disable: true }, class: "card__button button #{button_class}" %>
+    <%= button_to t('.vote'), proposal_proposal_votes_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)}" %>
   <% end %>
 <% else %>
-  <button class="card__button button <%= button_class %>" data-toggle="loginModal">
+  <button class="card__button button <%= vote_button_classes(from_proposals_list) %>" data-toggle="loginModal">
     <%= t('.vote') %>
   </button>
 <% end %>

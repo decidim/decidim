@@ -33,11 +33,11 @@ module Decidim
       describe "#voted_by?" do
         let(:user) { create(:user, organization: subject.organization) }
 
-        it "should return false if the proposal is not voted by the given user" do
+        it "returns false if the proposal is not voted by the given user" do
           expect(subject.voted_by?(user)).to be_falsey
         end
 
-        it "should return true if the proposal is not voted by the given user" do
+        it "returns true if the proposal is not voted by the given user" do
           create(:proposal_vote, proposal: subject, author: user)
           expect(subject.voted_by?(user)).to be_truthy
         end
