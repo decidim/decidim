@@ -6,14 +6,6 @@ RSpec.shared_examples "an authorization handler" do
     end
   end
 
-  describe "authorized?" do
-    it "is implemented" do
-      expect do
-        handler.authorized?
-      end.to_not raise_error
-    end
-  end
-
   describe "to_partial_path" do
     subject { handler.to_partial_path }
     it { is_expected.to be_kind_of(String) }
