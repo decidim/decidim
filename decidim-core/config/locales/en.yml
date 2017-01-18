@@ -70,6 +70,10 @@ en:
         related_documents: Related documents
       photos:
         related_photos: Related photos
+    shared:
+      login_modal:
+        please_sign_in: Please sign in
+        sign_up: Sign up
   devise:
     mailer:
       invitation_instructions:

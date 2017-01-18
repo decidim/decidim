@@ -4,6 +4,9 @@ en:
     features:
       proposals:
         name: Proposals
+        settings:
+          step:
+            votes_enabled: Votes enabled
     proposals:
       actions:
         new: New proposal
@@ -49,15 +52,14 @@ en:
           voted: Voted
         index:
           new_proposal: New proposal
-        login_modal:
-          please_sign_in: Please sign in
-          sign_up: Sign up
         new:
           back: Back
           select_a_category: Please select a category
           select_a_scope: Please select a scope
           send: Send
           title: New proposal
+        proposal:
+          view_proposal: View proposal
         share:
           close_window: Close window
           share: Share
@@ -69,7 +71,3 @@ en:
           count:
             one: VOTE
             other: VOTES
-  devise:
-    sessions:
-      new:
-        sign_in: Sign in

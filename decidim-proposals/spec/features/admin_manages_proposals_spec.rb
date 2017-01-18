@@ -7,6 +7,8 @@ require_relative "../shared/manage_proposals_examples"
 describe "Admin manages proposals", type: :feature do
   include_context "admin"
   it_behaves_like "manage proposals"
+  include_context "feature"
+  let(:manifest_name) { "proposals" }
 
   before do
     switch_to_host(organization.host)

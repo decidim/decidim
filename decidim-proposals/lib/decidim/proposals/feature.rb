@@ -13,6 +13,10 @@ Decidim.register_feature(:proposals) do |feature|
     end
   end
 
+  feature.settings(:step) do |settings|
+    settings.attribute :votes_enabled, type: :boolean
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?

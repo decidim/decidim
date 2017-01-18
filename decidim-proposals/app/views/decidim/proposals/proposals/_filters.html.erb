@@ -14,7 +14,7 @@
 
   <%= form.collection_radio_buttons :origin, [["all", t('.all')], ["official", t('.official')], ["citizenship", t('.citizenship')]], :first, :last, legend_title: t('.origin') %>
 
-  <% if current_user %>
+  <% if current_user && current_settings.votes_enabled? %>
     <%= form.collection_check_boxes :activity, [["voted", t('.voted')]], :first, :last, legend_title: t('.activity') %>
   <% end %>
 
