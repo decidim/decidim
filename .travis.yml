@@ -35,7 +35,8 @@ cache:
   directories:
     - $HOME/.bundle
     - $TRAVIS_BUILD_DIR/.yarn-cache
-    - $HOME/node_modules
+    - $TRAVIS_BUILD_DIR/node_modules
+    - $BUNDLE_PATH
 
 script:
   - cd $GEM;
