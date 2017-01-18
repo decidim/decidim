@@ -12,7 +12,8 @@ describe Decidim::Meetings::MeetingSearch do
       feature: current_feature,
       start_time: 1.day.from_now,
       category: parent_category,
-      scope: scope1
+      scope: scope1,
+      description: Decidim::Faker.literal("Nulla porttitor accumsan tincidunt.")
     )
   end
   let!(:meeting2) do
@@ -21,7 +22,8 @@ describe Decidim::Meetings::MeetingSearch do
       feature: current_feature,
       start_time: 2.day.from_now,
       category: subcategory,
-      scope: scope2
+      scope: scope2,
+      description: Decidim::Faker.literal("Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.")
     )
   end
   let(:external_meeting) { create :meeting }
@@ -68,6 +70,14 @@ describe Decidim::Meetings::MeetingSearch do
         it "sorts the meetings by start_time desc" do
           expect(subject.results).to eq [meeting2, meeting1]
         end
+      end
+    end
+
+    context "search_search_text" do
+      let(:params) { default_params.merge(search_search_text: "porttitor") }
+      
+      it "show the meetings containing the search_search_text" do
+        expect(subject.results).to eq (meeting1)
       end
     end
 
