@@ -31,8 +31,9 @@ before_install:
   - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
   - yarn
   - gem environment
+  - $BUNDLE_PATH
   
-bundler_args: --jobs=3 --retry=3 --deployment --path="$BUNDLE_PATH"
+bundler_args: --jobs=3 --retry=3 --deployment --path="$HOME/.bundle"
 
 cache:
   directories:
