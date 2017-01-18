@@ -55,7 +55,6 @@ ca:
         configure: Configurar
         confirm_destroy: Segur que ho vols eliminar?
         create: Crear
-        deactivate: Desactiva-ho
         destroy: Eliminar
         edit: Editar
         manage: Gestionar
@@ -216,9 +215,6 @@ ca:
         create:
           error: S'ha produït un error en activar aquesta fase de procés participatiu.
           success: La fase de procés participatiu s'ha activat correctament.
-        destroy:
-          error: S'ha produït un error en desactivar aquesta fase de procés participatiu.
-          success: La fase de procés participatiu s'ha desactivat correctament.
       participatory_process_steps:
         create:
           error: S'ha produït un error en crear una nova fase de procés participatiu.
