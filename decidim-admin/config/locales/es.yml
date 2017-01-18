@@ -55,7 +55,6 @@ es:
         configure: Configurar
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
         create: Crear
-        deactivate: Desactivar
         destroy: Eliminar
         edit: Editar
         manage: Gestionar
@@ -216,9 +215,6 @@ es:
         create:
           error: Se ha producido un error al activar esta fase de proceso participativo.
           success: La fase de proceso participativo se ha activado correctamente.
-        destroy:
-          error: Se ha producido un error al desactivar esta fase de proceso participativo.
-          success: La fase de proceso participativo se ha desactivado correctamente.
       participatory_process_steps:
         create:
           error: Se ha producido un error al crear una nueva fase de proceso participativo.
