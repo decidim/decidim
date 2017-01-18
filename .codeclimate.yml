@@ -27,11 +27,7 @@ engines:
     enabled: false
   fixme:
     enabled: true
-  rubocop:
-    enabled: true
-    checks:
-      Rubocop/Style/PredicateName:
-        enabled: false
+
 ratings:
   paths:
   - Gemfile.lock
