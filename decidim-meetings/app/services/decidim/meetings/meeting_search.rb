@@ -31,18 +31,18 @@ module Decidim
         query.where(decidim_scope_id: scope_id)
       end
 
-     private
+      private
 
-     # Internal: builds the needed query to search for a text in the organization's
-     # available locales. Note that it is intended to be used as follows:
-     #
-     # Example:
-     #   Resource.where(localized_search_text_for(:title, text: "my_query"))
-     #
-     # The Hash with the `:text` key is required or it won't work.
-     def localized_search_text_in(field)
-       options[:organization].available_locales.map { |l| "#{field} ->> '#{l}' ILIKE :text" }.join(" OR ")
-     end
+      # Internal: builds the needed query to search for a text in the organization's
+      # available locales. Note that it is intended to be used as follows:
+      #
+      # Example:
+      #   Resource.where(localized_search_text_for(:title, text: "my_query"))
+      #
+      # The Hash with the `:text` key is required or it won't work.
+      def localized_search_text_in(field)
+        options[:organization].available_locales.map { |l| "#{field} ->> '#{l}' ILIKE :text" }.join(" OR ")
+      end
     end
   end
 end
