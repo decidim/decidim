@@ -34,9 +34,14 @@ module Decidim
       def default_filter_params
         {
           order_start_time: "asc",
+          search_text: "",
           scope_id: "",
           category_id: ""
         }
+      end
+
+      def context_params
+         {feature: current_feature, organization: current_organization }
       end
     end
   end
