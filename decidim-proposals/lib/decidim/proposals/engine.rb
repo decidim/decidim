@@ -11,7 +11,9 @@ module Decidim
       isolate_namespace Decidim::Proposals
 
       routes do
-        resources :proposals, only: [:create, :new, :index, :show]
+        resources :proposals, only: [:create, :new, :index, :show] do
+          resources :proposal_votes, only: [:create]
+        end
         root to: "proposals#index"
       end
 

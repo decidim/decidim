@@ -15,4 +15,9 @@ FactoryGirl.define do
     feature
     author { create(:user, organization: feature.organization) }
   end
+
+  factory :proposal_vote, class: Decidim::Proposals::ProposalVote do
+    proposal { build(:proposal) }
+    author { build(:user, organization: proposal.organization) }
+  end
 end

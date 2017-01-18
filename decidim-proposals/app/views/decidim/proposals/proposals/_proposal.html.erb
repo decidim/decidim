@@ -26,8 +26,17 @@
     </div>
     <div class="card__footer">
       <div class="card__support">
-        <div class="card__support__data"></div>
-        <%= link_to t(".view_proposal"), proposal, class: "card__button button small secondary" %>
+        <% if current_settings.votes_enabled? %>
+          <div id="proposal-<%= proposal.id %>-votes-count" class="card__support__data">
+            <%= render partial: "votes_count", locals: { proposal: proposal, from_proposals_list: true } %>
+          </div>
+          <div id="proposal-<%= proposal.id %>-vote-button"> 
+            <%= render partial: "vote_button", locals: { proposal: proposal, from_proposals_list: true } %>
+          </div>
+        <% else %>
+          <div class="card__support__data"></div>
+          <%= link_to t(".view_proposal"), proposal, class: "card__button button small secondary" %>  
+        <% end %>
       </div>
     </div>
   </article>

@@ -14,7 +14,10 @@ module Decidim
       end
 
       def index
-        @proposals = search.results
+        @proposals = search
+                     .results
+                     .includes(:author)
+                     .includes(votes: [:author])
         @random_seed = search.random_seed
       end
 
@@ -55,6 +58,7 @@ module Decidim
         {
           search_text: "",
           origin: "all",
+          activity: "",
           category_id: "",
           random_seed: params[:random_seed]
         }

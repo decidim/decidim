@@ -1,0 +1,30 @@
+<div class="reveal" id="loginModal" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t('.please_sign_in') %></h3>
+    <button class="close-button" data-close aria-label="Close modal"
+      type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="row">
+    <div class="columns medium-8 medium-centered">
+      <%= form_for(Decidim::User.new, as: :user, url: session_path(:user), html: { class: "register-form new_user" }) do |f| %>
+        <div>
+          <div class="field">
+            <%= f.email_field :email, autofocus: true  %>
+          </div>
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= f.submit t("devise.sessions.new.sign_in"), class: "button expanded" %>
+        </div>
+      <% end %>
+      
+      <p class="text-center">
+        <%= link_to t('.sign_up'), decidim.new_user_registration_path, class: "sign-up-link" %>
+      </p>
+    </div>
+  </div>
+</div>

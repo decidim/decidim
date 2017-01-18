@@ -2,3 +2,4 @@ base_locale: en
 locales: [en]
 ignore_unused:
 - "decidim.features.proposals.name"
+- "decidim.features.proposals.settings.*"

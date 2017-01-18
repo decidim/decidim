@@ -2,29 +2,26 @@
 require "spec_helper"
 
 describe "Proposals", type: :feature do
-  let(:feature) { create(:proposal_feature) }
-  let(:organization) { feature.organization }
-  let(:participatory_process) { feature.participatory_process }
+  include_context "feature"
+  let(:manifest_name) { "proposals" }
+
   let!(:proposals) { create_list(:proposal, 3, feature: feature) }
   let!(:category) { create :category, participatory_process: participatory_process }
   let!(:scope) { create :scope, organization: organization }
   let!(:user) { create :user, :confirmed, organization: organization }
 
   before do
-    switch_to_host(organization.host)
-    visit decidim.root_path
+    visit_feature
   end
 
   context "creating a new proposal" do
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
+        visit_feature      
       end
 
       it "creates a new proposal" do
-        click_link "Processes"
-        click_link participatory_process.title["en"]
-        click_link "Proposals"
         click_link "New proposal"
 
         within ".new_proposal" do
@@ -49,11 +46,8 @@ describe "Proposals", type: :feature do
     let!(:official_proposal) { create(:proposal, feature: feature, author: nil) }
 
     it "shows the author as official" do
-      click_link "Processes"
-      click_link participatory_process.title["en"]
-      click_link "Proposals"
+      visit_feature
       click_link official_proposal.title
-
       expect(page).to have_content("Official proposal")
     end
   end
@@ -63,13 +57,8 @@ describe "Proposals", type: :feature do
     let(:author) { create(:user, :confirmed, organization: feature.organization)}
     let!(:comments) { create_list(:comment, 3, commentable: proposal) }
 
-    before do
-      click_link "Processes"
-      click_link participatory_process.title["en"]
-      click_link "Proposals"
-    end
-
     it "shows the comments" do
+      visit_feature
       click_link proposal.title
 
       comments.each do |comment| 
@@ -79,12 +68,6 @@ describe "Proposals", type: :feature do
   end
 
   context "listing proposals in a participatory process" do
-    before do
-      click_link "Processes"
-      click_link participatory_process.title["en"]
-      click_link "Proposals"
-    end
-
     it "lists all the proposals" do
       expect(page).to have_css(".card--proposal", count: 3)
     end
@@ -102,7 +85,7 @@ describe "Proposals", type: :feature do
     context "when there are a lot of proposals" do
       before do
         create_list(:proposal, 17, feature: feature)
-        visit current_path
+        visit_feature
       end
 
       it "paginates them" do
@@ -118,8 +101,8 @@ describe "Proposals", type: :feature do
       context "by origin 'official'" do
         it "lists the filtered proposals" do
           create(:proposal, feature: feature, scope: scope, decidim_author_id: nil)
+          visit_feature
 
-          visit decidim_proposals.proposals_path(:proposals, feature_id: feature, participatory_process_id: participatory_process)
           within ".filters" do
             choose "Official"
           end
@@ -131,7 +114,6 @@ describe "Proposals", type: :feature do
 
       context "by origin 'citizenship'" do
         it "lists the filtered proposals" do
-          visit decidim_proposals.proposals_path(:proposals, feature_id: feature, participatory_process_id: participatory_process)
           within ".filters" do
             choose "Citizenship"
           end
