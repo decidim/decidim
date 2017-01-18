@@ -9,12 +9,23 @@ describe "Vote Proposal", type: :feature do
   let!(:proposal) { Decidim::Proposals::Proposal.where(feature: feature).first }
   let!(:user) { create :user, :confirmed, organization: organization }
 
-  context "when votes are enabled" do
-    before do
-      feature.step_settings = { participatory_process.active_step.id => { votes_enabled: true } }
-      feature.save
-      visit_feature      
+  let(:votes_enabled) { false }
+
+  before do
+    feature.step_settings = { participatory_process.active_step.id => { votes_enabled: votes_enabled } }
+    feature.save
+    visit_feature      
+  end
+
+  context "when votes are not enabled" do
+    it "doesn't show the vote proposal button and counts" do
+      expect(page).not_to have_css('.card__button', text: "Vote")
+      expect(page).not_to have_css('.card__support__data span', text: "0 VOTES")
     end
+  end
+
+  context "when votes are enabled" do
+    let(:votes_enabled) { true }   
       
     context "when the user is not logged in" do
       it "should be given the option to sign in" do

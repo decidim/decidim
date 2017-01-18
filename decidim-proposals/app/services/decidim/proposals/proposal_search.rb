@@ -14,13 +14,6 @@ module Decidim
         @random_seed = options[:random_seed].to_f
       end
 
-      # Overrides the default base_query to preload associations
-      def base_query
-        super
-          .includes(:author)
-          .includes(votes: [:author])
-      end
-
       # Handle the search_text filter
       def search_search_text
         query
