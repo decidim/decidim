@@ -8,26 +8,28 @@ services:
 language: ruby
 
 branches:
-  only: 
+  only:
     - master
 
 env:
-  - GEM=. DB=postgres
-  - GEM=decidim-admin DB=postgres
-  - GEM=decidim-core DB=postgres
-  - GEM=decidim-system DB=postgres
-  - GEM=decidim-api DB=postgres
-  - GEM=decidim-pages DB=postgres
-  - GEM=decidim-comments DB=postgres
-  - GEM=decidim-meetings DB=postgres
-  - GEM=decidim-proposals DB=postgres
+  global:
+    - BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
+    - BUNDLE_PATH="$HOME/.bundle"
+  matrix:
+    - GEM=. DB=postgres
+    - GEM=decidim-admin DB=postgres
+    - GEM=decidim-core DB=postgres
+    - GEM=decidim-system DB=postgres
+    - GEM=decidim-api DB=postgres
+    - GEM=decidim-pages DB=postgres
+    - GEM=decidim-comments DB=postgres
+    - GEM=decidim-meetings DB=postgres
+    - GEM=decidim-proposals DB=postgres
 
 before_install:
   # Repo for newer Node.js versions
   - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
   - yarn
-  - export BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
-  - export BUNDLE_PATH="$HOME/.bundle"
 
 cache:
   directories:
