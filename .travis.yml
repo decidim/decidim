@@ -32,7 +32,7 @@ before_install:
   - yarn
   - gem environment
   
-bundler_args: --jobs=3 --retry=3 --deployment --path=$BUNDLE_PATH
+bundler_args: --jobs=3 --retry=3 --deployment --path="$BUNDLE_PATH"
 
 cache:
   directories:
