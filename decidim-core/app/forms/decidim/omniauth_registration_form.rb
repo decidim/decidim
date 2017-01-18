@@ -11,6 +11,7 @@ module Decidim
     attribute :provider, String
     attribute :uid, String
     attribute :tos_agreement, Boolean
+    attribute :oauth_signature, String
 
     validates :email, presence: true
     validates :name, presence: true
@@ -18,19 +19,20 @@ module Decidim
     validates :uid, presence: true
     validates :tos_agreement, acceptance: true, allow_nil: false, if: ->(form) { form.provider.to_s != "facebook" }
 
-    def oauth_signature
-      OmniauthRegistrationForm.create_signature(provider, uid)
-    end
+    validate :verify_oauth_signature
 
-    def verify_oauth_signature!(signature)
-      raise InvalidOauthSignature unless oauth_signature == signature
+    def tos_agreement
+      %w(facebook twitter).include?(provider.to_s) || super
     end
 
     def self.create_signature(provider, uid)
       Digest::MD5.hexdigest("#{provider}-#{uid}-#{Rails.application.secrets.secret_key_base}")
     end
-  end
 
-  class InvalidOauthSignature < StandardError
+    private
+
+    def verify_oauth_signature
+      errors.add :oauth_signature, "Invalid oauth signature" if oauth_signature != OmniauthRegistrationForm.create_signature(provider, uid)
+    end
   end
 end

@@ -19,9 +19,6 @@ module Decidim
         params[:user] = user_params_from_oauth_hash if request.env["omniauth.auth"].present?
         @form = form(OmniauthRegistrationForm).from_params(params[:user])
 
-        # It checks if the oauth form data has been manipulated
-        @form.verify_oauth_signature!(params[:user][:oauth_signature])
-
         CreateOmniauthRegistration.call(@form) do
           on(:ok) do |user|
             if user.active_for_authentication?
@@ -40,7 +37,7 @@ module Decidim
           end
 
           on(:error) do
-            redirect_to decidim.new_user_session_path
+            redirect_to decidim.new_user_registration_path
             set_flash_message :alert, :failure, kind: @form.provider, reason: t("decidim.devise.omniauth_registrations.create.email_already_exists")
           end
         end

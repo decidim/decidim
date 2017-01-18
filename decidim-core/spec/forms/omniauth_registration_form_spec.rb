@@ -13,13 +13,15 @@ module Decidim
     let(:email) { "user@from-facebook.com" }
     let(:provider) { "facebook" }
     let(:uid) { "12345" }
+    let(:oauth_signature) { OmniauthRegistrationForm.create_signature(provider, uid) }
     let(:attributes) do
       {
         email: email,
         email_verified: true,
         name: name,
         provider: provider,
-        uid: uid
+        uid: uid,
+        oauth_signature: oauth_signature
       }
     end
 
@@ -51,32 +53,17 @@ module Decidim
       it { is_expected.not_to be_valid }
     end
 
-    context "when tos_agreement is not accepted and provider is different from facebok" do
-      let(:provider) { "twitter" }
-      let(:tos_agreement) { false }
+    context "when oauth_signature is wrong" do
+      let(:oauth_signature) { "abcde" }
 
       it { is_expected.not_to be_valid }
     end
 
-    describe "#oauth_signature" do
-      it "generates a signature based on the provider and uid" do
-        expect(OmniauthRegistrationForm).to receive(:create_signature).with(subject.provider, subject.uid).and_return("mysignature")
-        expect(subject.oauth_signature).to eq("mysignature")
-      end
-    end
+    context "when tos_agreement is not accepted and provider is different from facebok or twitter" do
+      let(:provider) { "google" }
+      let(:tos_agreement) { false }
 
-    describe "#verify_oauth_signature!" do
-      it "doesn't raise an exception if the signature is incorrect" do
-        expect {
-          subject.verify_oauth_signature!(subject.oauth_signature)
-        }.not_to raise_error
-      end
-
-      it "raise an exception if the signature is incorrect" do
-        expect {
-          subject.verify_oauth_signature!("1234")
-        }.to raise_error InvalidOauthSignature
-      end
+      it { is_expected.not_to be_valid }
     end
   end
 end

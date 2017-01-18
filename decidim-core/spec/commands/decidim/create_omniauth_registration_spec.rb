@@ -7,15 +7,18 @@ module Decidim
       describe "call" do
         let(:organization) { create(:organization) }
         let(:email) { "user@from-facebook.com" }
+        let(:provider) { "facebook" }
+        let(:uid) { "12345" }
         let(:form_params) do
           {
             "user" => {
-              "provider" => "facebook",
-              "uid" => "12345",
+              "provider" => provider,
+              "uid" => uid,
               "email" => email,
               "email_verified" => true,
               "name" => "Facebook User",
-              "tos_agreement" => true
+              "tos_agreement" => true,
+              "oauth_signature" => OmniauthRegistrationForm.create_signature(provider, uid)
             }
           }
         end

@@ -29,6 +29,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
     end
 
     context "using facebook" do
+      let(:verified) { true }
       let(:omniauth_hash) {
         OmniAuth::AuthHash.new({
           provider: 'facebook',
@@ -36,7 +37,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
           info: {
             email: "user@from-facebook.com",
             name: "Facebook User",
-            verified: true
+            verified: verified
           }
         })
       }
@@ -60,6 +61,18 @@ describe "Authentication", type: :feature, perform_enqueued: true do
           expect(page).to have_content("Successfully")
           expect(page).not_to have_content("Complete your profile")
           expect(page).not_to have_content("confirmation link")
+        end
+      end
+
+      context "when the user has not confirmed the email in facebook" do
+        let(:verified) { false }
+
+        it "creates a new User" do
+          find(".sign-up-link").click
+
+          click_link "Sign in with Facebook"   
+
+          expect(page).to have_content("confirmation link")        
         end
       end
     end

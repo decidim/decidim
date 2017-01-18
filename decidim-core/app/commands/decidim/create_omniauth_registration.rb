@@ -23,7 +23,7 @@ module Decidim
         create_identity
 
         broadcast(:ok, @user)
-      rescue ActiveRecord::RecordNotUnique
+      rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
         broadcast(:error)
       end
     end
@@ -40,7 +40,7 @@ module Decidim
                            password: generated_password,
                            password_confirmation: generated_password,
                            organization: form.current_organization,
-                           tos_agreement: tos_agreement)
+                           tos_agreement: form.tos_agreement)
 
       @user.skip_confirmation! if form.email_verified?
     end
@@ -48,10 +48,6 @@ module Decidim
     def create_identity
       @user.identities.create!(provider: form.provider,
                                uid: form.uid)
-    end
-
-    def tos_agreement
-      form.provider.to_s == "facebook" || form.tos_agreement
     end
   end
 end
