@@ -39,6 +39,7 @@ en:
           date: Date
           descendent: Descendent
           scopes: Scopes
+          search: Search
         index:
           title: Meetings
         show:
