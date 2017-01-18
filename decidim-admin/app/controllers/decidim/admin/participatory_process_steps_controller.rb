@@ -66,11 +66,18 @@ module Decidim
       def destroy
         @participatory_process_step = collection.find(params[:id])
         authorize! :destroy, @participatory_process_step
-        @participatory_process_step.destroy!
 
-        flash[:notice] = I18n.t("participatory_process_steps.destroy.success", scope: "decidim.admin")
+        DestroyParticipatoryProcessStep.call(@participatory_process_step) do
+          on(:ok) do
+            flash[:notice] = I18n.t("participatory_process_steps.destroy.success", scope: "decidim.admin")
+            redirect_to participatory_process_steps_path(participatory_process)
+          end
 
-        redirect_to participatory_process_steps_path(@participatory_process_step.participatory_process)
+          on(:invalid) do |reason|
+            flash[:alert] = I18n.t("participatory_process_steps.destroy.error.#{reason}", scope: "decidim.admin")
+            redirect_to participatory_process_steps_path(participatory_process)
+          end
+        end
       end
 
       private

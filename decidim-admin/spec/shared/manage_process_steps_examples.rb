@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 RSpec.shared_examples "manage process steps examples" do
   let(:active) { false }
@@ -132,21 +133,7 @@ RSpec.shared_examples "manage process steps examples" do
       end
 
       within find("tr", text: translated(process_step.title)) do
-        expect(page).to have_content("Deactivate")
-      end
-    end
-  end
-
-  context "deactivating a step" do
-    let(:active) { true }
-
-    it "deactivates a step" do
-      within find("tr", text: translated(process_step.title)) do
-        click_link "Deactivate"
-      end
-
-      within find("tr", text: translated(process_step.title)) do
-        expect(page).to have_content("Activate")
+        expect(page).to have_no_content("Activate")
       end
     end
   end

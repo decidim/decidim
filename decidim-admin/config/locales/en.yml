@@ -56,7 +56,6 @@ en:
         configure: Configure
         confirm_destroy: Are you sure you want to delete this?
         create: Create
-        deactivate: Deactivate
         destroy: Destroy
         edit: Edit
         manage: Manage
@@ -217,14 +216,15 @@ en:
         create:
           error: There was an error activating this participatory process step.
           success: Participatory process step activated successfully.
-        destroy:
-          error: There was an error deactivating this participatory process step.
-          success: Participatory process step deactivated successfully.
       participatory_process_steps:
         create:
           error: There was an error creating a new participatory process step.
           success: Participatory process step created successfully.
+        default_title: Introduction
         destroy:
+          error:
+            active_step: Can't delete the active step.
+            last_step: Can't delete the last step of a process.
           success: Participatory process step destroyed successfully.
         edit:
           title: Edit participatory process step
