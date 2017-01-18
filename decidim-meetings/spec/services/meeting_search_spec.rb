@@ -13,7 +13,7 @@ describe Decidim::Meetings::MeetingSearch do
       start_time: 1.day.from_now,
       category: parent_category,
       scope: scope1,
-      description: Decidim::Faker.literal("Nulla porttitor accumsan tincidunt.")
+      description: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt.")
     )
   end
   let!(:meeting2) do
@@ -23,13 +23,13 @@ describe Decidim::Meetings::MeetingSearch do
       start_time: 2.day.from_now,
       category: subcategory,
       scope: scope2,
-      description: Decidim::Faker.literal("Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.")
+      description: Decidim::Faker::Localized.literal("Curabitur arcu erat, accumsan id imperdiet et.")
     )
   end
   let(:external_meeting) { create :meeting }
   let(:feature_id) { current_feature.id }
   let(:organization_id) { current_feature.organization.id }
-  let(:default_params) { { feature: current_feature } }
+  let(:default_params) { { feature: current_feature, organization: current_feature.organization } }
   let(:params) { default_params }
 
   subject { described_class.new(params) }
@@ -73,11 +73,12 @@ describe Decidim::Meetings::MeetingSearch do
       end
     end
 
-    context "search_search_text" do
-      let(:params) { default_params.merge(search_search_text: "porttitor") }
+    context "search_text" do
+      let(:params) { default_params.merge(search_text: "TestCheck") }
       
-      it "show the meetings containing the search_search_text" do
-        expect(subject.results).to eq (meeting1)
+      it "show only the meeting containing the search_text" do
+        expect(subject.results).to include(meeting1)
+        expect(subject.results.length).to eq(1)
       end
     end
 
