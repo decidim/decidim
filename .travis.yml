@@ -34,7 +34,7 @@ before_install:
 cache:
   directories:
     - $HOME/.bundle
-    - $HOME/.yarn-cache
+    - $TRAVIS_BUILD_DIR/.yarn-cache
     - $HOME/node_modules
 
 script:
