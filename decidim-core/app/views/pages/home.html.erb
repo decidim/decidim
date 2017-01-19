@@ -117,11 +117,12 @@
       </div>
     </div>
   </div>
-</section>
- <section class="extended">
+</section>               
+<% if current_organization.show_statistics %>
+  <section class="extended">
     <div class="wrapper-home">
       <div class="row column text-center">
-        <h3 class="heading2"><%= t(".stats.headline") %></h3>
+        <h3 class="heading2"><%= t(".stats.headline", organization: current_organization.name) %></h3>
       </div>
       <div class="row">
         <div class="columns small-centered mediumlarge-10 large-8">
@@ -141,3 +142,4 @@
       </div>
     </div>
   </section>
+<% end %>

@@ -165,6 +165,10 @@ en:
       register: Register
       see_all_processes: See all processes
       welcome: Welcome to %{organization}!
+      stats:
+        headline: Current state of %{organization}
+        users: Users
+        processes: Processes
   views:
     pagination:
       first: "&laquo; First"
