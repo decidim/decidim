@@ -40,6 +40,10 @@ module Decidim
         template "social_share_button.rb", "config/initializers/social_share_button.rb"
       end
 
+      def secrets
+        template "secrets.yml.erb", "config/secrets.yml", force: true
+      end
+
       def remove_layout
         remove_file "app/views/layouts/application.html.erb"
         remove_file "app/views/layouts/mailer.text.erb"
@@ -83,10 +87,6 @@ module Decidim
   end
           )
         end
-      end
-
-      def secrets
-        template "secrets.yml.erb", "config/secrets.yml", force: true
       end
 
       private

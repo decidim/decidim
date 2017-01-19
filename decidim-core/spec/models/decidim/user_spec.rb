@@ -3,10 +3,15 @@ require "spec_helper"
 
 module Decidim
   describe User, :db do
-    let(:user) { build(:user) }
+    let(:organization) { build(:organization) }
+    let(:user) { build(:user, organization: organization) }
     subject { user}
 
     it { is_expected.to be_valid }
+
+    it "has an association for identities" do
+      expect(subject.identities).to eq([])
+    end
 
     context "with roles" do
       let(:user) { build(:user, :admin) }

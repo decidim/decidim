@@ -5,10 +5,12 @@ module Decidim
   # A User is a citizen that wants to join the platform to participate.
   class User < ApplicationRecord
     devise :invitable, :database_authenticatable, :registerable, :confirmable,
-           :recoverable, :rememberable, :trackable, :decidim_validatable
+           :recoverable, :rememberable, :trackable, :decidim_validatable,
+           :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
     has_many :authorizations, foreign_key: "decidim_user_id", class_name: Decidim::Authorization, inverse_of: :user
+    has_many :identities, foreign_key: "decidim_user_id", class_name: Decidim::Identity
 
     ROLES = %w(admin moderator official).freeze
 

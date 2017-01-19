@@ -1,6 +1,6 @@
 # Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![License: AGPL v3](https://img.shields.io/github/license/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/LICENSE-AGPLv3.txt)
 
-[[Documentation](https://github.com/AjuntamentdeBarcelona/decidim/tree/master/doc)] - [[Demo](http://staging.decidim.codegram.com)]
+[[Documentation](https://github.com/AjuntamentdeBarcelona/decidim/tree/master/docs)] - [[Demo](http://staging.decidim.codegram.com)]
 
 ### Code quality
 [![Build Status](https://img.shields.io/travis/AjuntamentdeBarcelona/decidim/master.svg)](https://travis-ci.org/AjuntamentdeBarcelona/decidim)
@@ -28,6 +28,7 @@
 - [Upgrade an already existing "Decidim" installation](#upgrade-instructions)
 - [Use Docker to deploy "Decidim"](#docker-instructions)
 - [Check current components](#components)
+- [Further configuration](#further-configuration)
 
 ---
 
@@ -165,5 +166,8 @@ After you create a development app (`bundle exec rake development_app`):
 | [Proposals](https://github.com/AjuntamentdeBarcelona/decidim/tree/master/decidim-proposals) | The Proposals module adds one of the main features of Decidim: allows users to contribute to a participatory process by creating proposals. |
 | [System](https://github.com/AjuntamentdeBarcelona/decidim/tree/master/decidim-system) | Multitenant Admin to manage multiple organizations in a single installation |
 
+## Further configuration
+
+- [Social providers integration](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/social_providers.md): Enable sign up from social networks.
 
 TODO: Improve guide.

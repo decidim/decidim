@@ -11,8 +11,13 @@ Decidim::Core::Engine.routes.draw do
                sessions: "decidim/devise/sessions",
                confirmations: "decidim/devise/confirmations",
                registrations: "decidim/devise/registrations",
-               passwords: "decidim/devise/passwords"
+               passwords: "decidim/devise/passwords",
+               omniauth_callbacks: "decidim/devise/omniauth_registrations"
              }
+
+  devise_scope :user do
+    post "omniauth_registrations" => "devise/omniauth_registrations#create"
+  end
 
   resource :locale, only: [:create]
   resources :participatory_processes, only: [:index, :show]

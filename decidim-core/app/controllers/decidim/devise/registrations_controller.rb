@@ -7,6 +7,7 @@ module Decidim
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
       helper Decidim::TranslationsHelper
+      helper Decidim::OmniauthHelper
 
       layout "layouts/decidim/application"
       before_action :configure_permitted_parameters
