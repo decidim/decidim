@@ -23,8 +23,8 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
+          create_or_find_identity
           create_or_find_user
-          create_identity
         end
 
         broadcast(:ok, @user)
@@ -41,8 +41,7 @@ module Decidim
 
     def create_or_find_user
       generated_password = SecureRandom.hex
-
-      @user = User.find_or_initialize_by(
+      @user = identity.try(:user) || User.find_or_initialize_by(
         email: verified_email,
         organization: organization
       )
@@ -69,7 +68,11 @@ module Decidim
     end
 
     def identity
-      @identity ||= Identity.where(provider: form.provider, uid: form.uid).first
+      @identity ||= Identity.where(
+        user: organization.users,
+        provider: form.provider,
+        uid: form.uid
+      ).first
     end
 
     def verify_oauth_signature!

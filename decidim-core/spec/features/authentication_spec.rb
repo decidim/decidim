@@ -36,8 +36,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
           uid: '123545',
           info: {
             email: "user@from-facebook.com",
-            name: "Facebook User",
-            verified: verified
+            name: "Facebook User"
           }
         })
       }
