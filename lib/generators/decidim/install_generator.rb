@@ -35,7 +35,9 @@ module Decidim
       end
 
       def add_seeds
-        append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads"
+        file ".gitignore" do
+          append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads"
+        end
       end
 
       def copy_initializer
