@@ -20,10 +20,7 @@
           <%= form_for(@form, as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
             <fieldset class="text-center">
               <legend class="text-center heading5"><%= t(".sign_up_as.legend") %></legend>
-              <input type="radio" name="sign_up_as" value="user" id="sign_up_as_user" checked="">
-              <label for="sign_up_as_user"><%= t(".sign_up_as.user") %></label>
-              <input type="radio" name="sign_up_as" value="user_group" id="sign_up_as_user_group">
-              <label for="sign_up_as_user_group"><%= t(".sign_up_as.user_group") %></label>
+              <%= f.collection_radio_buttons :sign_up_as, [["user", t(".sign_up_as.user")], ["user_group", t(".sign_up_as.user_group") ]], :first, :last %>
             </fieldset>
 
             <div class="user-person">

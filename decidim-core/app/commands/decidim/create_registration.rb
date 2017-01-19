@@ -19,6 +19,8 @@ module Decidim
       return broadcast(:invalid) if form.invalid?
 
       create_user
+      create_user_group if form.is_user_group?
+
       broadcast(:ok, @user)
     end
 
@@ -33,6 +35,17 @@ module Decidim
                            password_confirmation: form.password_confirmation,
                            organization: form.current_organization,
                            tos_agreement: form.tos_agreement)
+    end
+
+    def create_user_group
+      UserGroupMembership.create!({
+        user: @user,
+        user_group: UserGroup.new({
+          name: form.user_group_name,
+          document_number: form.user_group_document_number,
+          phone: form.user_group_phone
+        })
+      })
     end
   end
 end

@@ -9,24 +9,38 @@ module Decidim
       )
     end
 
+    let(:sign_up_as) { "user" }
     let(:name) { "User" }
     let(:email) { "user@decidim.org" }
     let(:password) { "password1234" }
     let(:password_confirmation) { password }
     let(:tos_agreement) { "1" }
 
+    let(:user_group_name) { nil }
+    let(:user_group_document_number) { nil }
+    let(:user_group_phone) { nil }
+
     let(:attributes) do
       {
+        sign_up_as: sign_up_as,
         name: name,
         email: email,
         password: password,
         password_confirmation: password_confirmation,
-        tos_agreement: tos_agreement
+        tos_agreement: tos_agreement,
+        user_group_name: user_group_name,
+        user_group_document_number: user_group_document_number,
+        user_group_phone: user_group_phone
       }
     end
 
     context "when everything is OK" do
       it { is_expected.to be_valid }
+    end
+
+    context "when the sign_up_as is different from 'user' and 'user_group'" do
+      let(:sign_up_as) { "community" }      
+      it { is_expected.to be_invalid }
     end
 
     context "when the name is not present" do
@@ -52,6 +66,33 @@ module Decidim
     context "when the tos_agreement is not accepted" do
       let(:tos_agreement) { "0" }      
       it { is_expected.to be_invalid }
+    end
+
+    describe "when sign_up_as is 'user_group'" do
+      let(:sign_up_as) { "user_group" }
+
+      let(:user_group_name) { "My organization" }
+      let(:user_group_document_number) { "123456789Z" }
+      let(:user_group_phone) { "333-333-333" }
+
+      context "when everything is OK" do
+        it { is_expected.to be_valid }
+      end
+
+      context "when user_group_name is not present" do
+        let(:user_group_name) { nil }
+        it { is_expected.to be_invalid }
+      end
+
+      context "when user_group_document_number is not present" do
+        let(:user_group_document_number) { nil }        
+        it { is_expected.to be_invalid }
+      end
+
+      context "when user_group_phone is not present" do
+        let(:user_group_phone) { nil }        
+        it { is_expected.to be_invalid }
+      end
     end
   end
 end

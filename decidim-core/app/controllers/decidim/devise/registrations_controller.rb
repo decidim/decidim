@@ -14,7 +14,11 @@ module Decidim
       before_action :configure_permitted_parameters
 
       def new
-        @form = form(RegistrationForm).from_params({})
+        @form = form(RegistrationForm).from_params({
+          user: {
+            sign_up_as: "user"
+          }
+        })
       end
 
       def create
