@@ -53,7 +53,7 @@
     "react-addons-test-utils": "^15.4.0",
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",
-    "webpack": "2.2.0-rc.3",
+    "webpack": "2.2.0",
     "webpack-bundle-analyzer": "^2.2.1",
     "webpack-config-utils": "^2.3.0",
     "webpack-validator": "^2.2.12",
