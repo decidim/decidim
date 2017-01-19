@@ -61,6 +61,10 @@ en:
           already_have_an_account?: Already have an account?
           sign_in: Log in
           sign_up: Sign up
+          sign_up_as:
+            legend: Legend
+            user: User
+            user_group: Organization/Collective
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.

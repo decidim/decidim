@@ -6,12 +6,39 @@ module Decidim
     class RegistrationsController < ::Devise::RegistrationsController
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
+      include FormFactory
       helper Decidim::TranslationsHelper
       helper Decidim::OmniauthHelper
 
       layout "layouts/decidim/application"
       before_action :configure_permitted_parameters
 
+      def new
+        @form = form(RegistrationForm).from_params({})
+      end
+
+      def create
+        @form = form(RegistrationForm).from_params(params[:user])
+        
+        CreateRegistration.call(@form) do
+          on(:ok) do |user|
+            if user.active_for_authentication?
+              set_flash_message! :notice, :signed_up
+              sign_up(:user, user)
+              respond_with user, location: after_sign_up_path_for(user)
+            else
+              set_flash_message! :notice, :"signed_up_but_#{user.inactive_message}"
+              expire_data_after_sign_in!
+              respond_with user, location: after_inactive_sign_up_path_for(user)
+            end
+          end
+
+          on(:invalid) do
+            render :new
+          end
+        end
+      end
+      
       protected
 
       def configure_permitted_parameters
