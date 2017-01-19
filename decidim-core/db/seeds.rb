@@ -15,9 +15,9 @@ if !Rails.env.production? || ENV["SEED"]
     available_locales: Decidim.available_locales
   )
 
-  3.times do
+  3.times.each do |index|
     Decidim::Scope.create!(
-      name: Faker::Address.state,
+      name: Faker::Address.unique.state,
       organization: organization
     )
   end
@@ -48,7 +48,7 @@ if !Rails.env.production? || ENV["SEED"]
   3.times do
     Decidim::ParticipatoryProcess.create!(
       title: Decidim::Faker::Localized.sentence(5),
-      slug: Faker::Internet.slug(nil, "-"),
+      slug: Faker::Internet.unique.slug(nil, "-"),
       subtitle: Decidim::Faker::Localized.sentence(2),
       hashtag: "##{Faker::Lorem.word}",
       short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
