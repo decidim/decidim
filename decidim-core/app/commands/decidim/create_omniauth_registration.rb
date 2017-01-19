@@ -16,11 +16,19 @@ module Decidim
     #
     # Returns nothing.
     def call
-      return broadcast(:invalid) if form.invalid?
+      verify_oauth_signature!
 
       begin
-        create_user
-        create_identity
+        find_identity
+
+        if @identity.present?
+          @user = @identity.user
+        else
+          return broadcast(:invalid) if form.invalid?
+
+          create_user
+          create_identity
+        end
 
         broadcast(:ok, @user)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
@@ -40,7 +48,7 @@ module Decidim
                            password: generated_password,
                            password_confirmation: generated_password,
                            organization: form.current_organization,
-                           tos_agreement: form.tos_agreement)
+                           tos_agreement: "1")
 
       @user.skip_confirmation! if form.email_verified?
     end
@@ -49,5 +57,16 @@ module Decidim
       @user.identities.create!(provider: form.provider,
                                uid: form.uid)
     end
+
+    def find_identity
+      @identity = Identity.where(provider: form.provider, uid: form.uid).first
+    end
+
+    def verify_oauth_signature!
+      raise InvalidOauthSignature, "Invalid oauth signature" if form.oauth_signature != OmniauthRegistrationForm.create_signature(form.provider, form.uid)
+    end
+  end
+
+  class InvalidOauthSignature < StandardError
   end
 end

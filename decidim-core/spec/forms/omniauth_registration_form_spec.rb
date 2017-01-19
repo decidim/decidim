@@ -52,18 +52,5 @@ module Decidim
 
       it { is_expected.not_to be_valid }
     end
-
-    context "when oauth_signature is wrong" do
-      let(:oauth_signature) { "abcde" }
-
-      it { is_expected.not_to be_valid }
-    end
-
-    context "when tos_agreement is not accepted and provider is different from facebok, twitter and google_oauth2" do
-      let(:provider) { "linkedin" }
-      let(:tos_agreement) { false }
-
-      it { is_expected.not_to be_valid }
-    end
   end
 end

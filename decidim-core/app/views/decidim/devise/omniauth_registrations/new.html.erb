@@ -23,19 +23,13 @@
             <div class="field">
               <%= f.email_field :email %>
             </div>
-              
-            <fieldset>
-              <div class="field">
-                <%= f.check_box :tos_agreement, label: t("devise.registrations.new.tos_agreement", link: link_to(t("devise.registrations.new.terms"), page_path("terms-and-conditions"))) %>
-              </div>
-            </fieldset>
 
             <%= f.hidden_field :uid %>
             <%= f.hidden_field :provider %>
             <%= f.hidden_field :oauth_signature %>
 
             <div class="actions">
-              <%= f.submit t("devise.registrations.new.sign_up"), class: "button expanded" %>
+              <%= f.submit t(".complete_profile"), class: "button expanded" %>
             </div>
           <% end %>
         </div>

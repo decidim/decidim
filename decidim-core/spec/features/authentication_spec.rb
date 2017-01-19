@@ -257,4 +257,42 @@ describe "Authentication", type: :feature, perform_enqueued: true do
       end
     end
   end
+
+  context "When a user is already registered with a social provider" do
+    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:identity) { create(:identity, user: user, provider: "facebook", uid: "12345") }
+
+    let(:omniauth_hash) {
+        OmniAuth::AuthHash.new({
+          provider: identity.provider,
+          uid: identity.uid,
+          info: {
+            email: user.email,
+            name: "Facebook User",
+            verified: true
+          }
+        })
+      }
+
+    before :each do
+      OmniAuth.config.test_mode = true
+      OmniAuth.config.mock_auth[:facebook] = omniauth_hash
+    end
+
+    after :each do
+      OmniAuth.config.test_mode = false
+      OmniAuth.config.mock_auth[:facebook] = nil         
+    end
+
+    describe "Sign in" do
+      it "authenticates an existing User" do
+        find(".sign-in-link").click
+        
+        click_link "Sign in with Facebook"   
+
+        expect(page).to have_content("Successfully")
+        expect(page).to have_content(user.name)
+      end
+    end
+  end
 end

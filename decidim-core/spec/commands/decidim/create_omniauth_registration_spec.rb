@@ -9,6 +9,7 @@ module Decidim
         let(:email) { "user@from-facebook.com" }
         let(:provider) { "facebook" }
         let(:uid) { "12345" }
+        let(:oauth_signature) { OmniauthRegistrationForm.create_signature(provider, uid) }
         let(:form_params) do
           {
             "user" => {
@@ -17,8 +18,7 @@ module Decidim
               "email" => email,
               "email_verified" => true,
               "name" => "Facebook User",
-              "tos_agreement" => true,
-              "oauth_signature" => OmniauthRegistrationForm.create_signature(provider, uid)
+              "oauth_signature" => oauth_signature
             }
           }
         end
@@ -30,6 +30,16 @@ module Decidim
           )
         end
         let(:command) { described_class.new(form) }
+
+        describe "when the form oauth_signature cannot ve verified" do
+          let(:oauth_signature) { "1234" }
+
+          it "raises a InvalidOauthSignature exception" do
+            expect {
+              command.call
+            }.to raise_error InvalidOauthSignature
+          end
+        end
 
         describe "when the form is not valid" do
           before do
@@ -59,7 +69,7 @@ module Decidim
               name: form.name,
               password: "abcde1234",
               password_confirmation: "abcde1234",
-              tos_agreement: form.tos_agreement,
+              tos_agreement: "1",
               organization: organization
             }).and_call_original
             expect do
@@ -82,6 +92,15 @@ module Decidim
           end
         end
 
+        describe "when a user exists with that identity" do
+          it "broadcasts ok" do
+            user = create(:user, email: email)
+            create(:identity, user: user, provider: provider, uid: uid)
+            
+            expect { command.call }.to broadcast(:ok)
+          end
+        end
+        
         describe "when the email is already used" do
           it "broadcasts error" do
             create(:user, email: email)
