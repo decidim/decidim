@@ -45,6 +45,7 @@ module Decidim
                            name: form.name,
                            password: generated_password,
                            password_confirmation: generated_password,
+                           confirmed_at: Time.current,
                            organization: form.current_organization,
                            tos_agreement: "1")
 

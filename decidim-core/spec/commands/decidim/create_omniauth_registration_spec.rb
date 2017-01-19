@@ -70,11 +70,20 @@ module Decidim
               password: "abcde1234",
               password_confirmation: "abcde1234",
               tos_agreement: "1",
+              confirmed_at: anything,
               organization: organization
             }).and_call_original
+
             expect do
               command.call
             end.to change { User.count }.by(1)
+          end
+
+          it "confirms the new user" do
+            command.call
+
+            user = User.find_by_email(form.email)
+            expect(user).to be_confirmed
           end
 
           it "creates a new identity" do
