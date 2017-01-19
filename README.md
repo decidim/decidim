@@ -105,6 +105,20 @@ If you want to enable sign up through social providers like Facebook you will ne
 8. (Optional) Navigate to the "Permissions" tab and check the "Request email addresses from users" checkbox.
 9. Paste credentials in `config/secrets.yml`. Ensure the `enabled` attribute is `true`.
 
+#### Google
+
+1. Navigate to [Google Developers Page](https://console.developers.google.com)
+2. Follow the 'Create projecte' link.
+3. Fill in the name of your app.
+4. Navigate to the projecte dashboard and click on "Enable API"
+5. Click on `Google+ API` and then "Enable"
+6. Navigate to the project credentials page and click on `OAuth consent screen`.
+7. Fill in the `Product name` field
+8. Click on `Credentials` tab and click on "Create credentials" button. Select `OAuth client ID`.
+9. Select `Web applications`. Fill in the `Authorized Javascript origins` with your url. Then fill in the `Authorized redirect URIs` with your url and append the path `/users/auth/google_oauth2/callback`.
+10. Copy the CLIENT_ID AND CLIENT_SECRET
+11. Paste credentials in `config/secrets.yml`. Ensure the `enabled` attribute is `true`.
+
 ## Upgrade instructions
 
 ```

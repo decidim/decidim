@@ -38,5 +38,13 @@ module Decidim
         it { expect(helper.any_social_provider_enabled?).to be_falsy }
       end
     end
+
+    describe "#normalize_provider_name" do
+      describe "when provider is google_oauth2" do
+        it "returns just google" do
+          expect(helper.normalize_provider_name(:google_oauth2)).to eq("google")
+        end
+      end
+    end
   end
 end

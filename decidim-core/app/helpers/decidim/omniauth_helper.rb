@@ -13,5 +13,11 @@ module Decidim
         social_provider_enabled? provider
       end
     end
+
+    # Public: normalize providers names to they can be used for buttons
+    # and icons.
+    def normalize_provider_name(provider)
+      provider.to_s.split("_").first
+    end
   end
 end

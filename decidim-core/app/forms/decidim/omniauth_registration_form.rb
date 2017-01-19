@@ -17,12 +17,12 @@ module Decidim
     validates :name, presence: true
     validates :provider, presence: true
     validates :uid, presence: true
-    validates :tos_agreement, acceptance: true, allow_nil: false, if: ->(form) { form.provider.to_s != "facebook" }
+    validates :tos_agreement, acceptance: true, allow_nil: false
 
     validate :verify_oauth_signature
 
     def tos_agreement
-      %w(facebook twitter).include?(provider.to_s) || super
+      %w(facebook twitter google_oauth2).include?(provider.to_s) || super
     end
 
     def self.create_signature(provider, uid)

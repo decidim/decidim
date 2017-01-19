@@ -6,7 +6,7 @@ module Decidim
   class User < ApplicationRecord
     devise :invitable, :database_authenticatable, :registerable, :confirmable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
-           :omniauthable, omniauth_providers: [:facebook, :twitter]
+           :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
     has_many :authorizations, foreign_key: "decidim_user_id", class_name: Decidim::Authorization, inverse_of: :user

@@ -7,11 +7,11 @@
       <%- resource_class.omniauth_providers.each do |provider| %>
         <% if social_provider_enabled? provider %>
           <div class="social-register">
-            <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--#{provider}" do %>
+            <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--#{normalize_provider_name(provider)}" do %>
               <span class="button--social__icon">
-                <%= icon provider.to_s %>
+                <%= icon normalize_provider_name(provider) %>
               </span>
-              <%= t("devise.shared.links.sign_in_with_provider", provider: provider.to_s.titleize) %>
+              <%= t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(provider).titleize) %>
             <% end %> 
           </div>
         <% end %>

@@ -78,12 +78,14 @@ describe "Authentication", type: :feature, perform_enqueued: true do
     end
 
     context "using twitter" do
+      let(:email) { nil }
       let(:omniauth_hash) {
         OmniAuth::AuthHash.new({
           provider: 'twitter',
           uid: '123545',
           info: {
             name: "Twitter User",
+            email: email
           }
         })
       }
@@ -98,21 +100,65 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         OmniAuth.config.mock_auth[:twitter] = nil         
       end
 
-      it "redirects the user to a finish signup page" do
+      context "when the response doesn't include the email" do
+        it "redirects the user to a finish signup page" do
+          find(".sign-up-link").click
+
+          click_link "Sign in with Twitter"   
+
+          expect(page).to have_content("Successfully")
+          expect(page).to have_content("Complete your profile")
+
+          within ".new_user" do
+            fill_in :user_email, with: "user@from-twitter.com"          
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_content("confirmation link")
+        end
+      end
+
+      context "when the response includes the email" do
+        let(:email) { "user@from-twitter.com" }
+
+        it "creates a new User" do
+          find(".sign-up-link").click
+
+          click_link "Sign in with Twitter"   
+
+          expect(page).to have_content("confirmation link")        
+        end
+      end
+    end
+
+    context "using google" do
+      let(:omniauth_hash) {
+        OmniAuth::AuthHash.new({
+          provider: 'google_oauth2',
+          uid: '123545',
+          info: {
+            name: "Google User",
+            email: "user@from-google.com"
+          }
+        })
+      }
+
+      before :each do
+        OmniAuth.config.test_mode = true
+        OmniAuth.config.mock_auth[:google_oauth2] = omniauth_hash
+      end
+
+      after :each do
+        OmniAuth.config.test_mode = false
+        OmniAuth.config.mock_auth[:google_oauth2] = nil         
+      end
+
+      it "creates a new User" do
         find(".sign-up-link").click
 
-        click_link "Sign in with Twitter"   
+        click_link "Sign in with Google"   
 
-        expect(page).to have_content("Successfully")
-        expect(page).to have_content("Complete your profile")
-
-        within ".new_user" do
-          fill_in :user_email, with: "user@from-twitter.com"          
-          check :user_tos_agreement
-          find("*[type=submit]").click
-        end
-
-        expect(page).to have_content("confirmation link")
+        expect(page).to have_content("confirmation link")        
       end
     end
   end

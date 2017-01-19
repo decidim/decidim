@@ -59,8 +59,8 @@ module Decidim
       it { is_expected.not_to be_valid }
     end
 
-    context "when tos_agreement is not accepted and provider is different from facebok or twitter" do
-      let(:provider) { "google" }
+    context "when tos_agreement is not accepted and provider is different from facebok, twitter and google_oauth2" do
+      let(:provider) { "linkedin" }
       let(:tos_agreement) { false }
 
       it { is_expected.not_to be_valid }

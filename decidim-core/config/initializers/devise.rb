@@ -306,6 +306,9 @@ Devise.setup do |config|
   if Rails.application.secrets.dig(:omniauth, "twitter").present?
     config.omniauth :twitter, Rails.application.secrets.omniauth["twitter"]["api_key"], Rails.application.secrets.omniauth["twitter"]["api_secret"]
   end
+  if Rails.application.secrets.dig(:omniauth, "google_oauth2").present?
+    config.omniauth :google_oauth2, Rails.application.secrets.omniauth["google_oauth2"]["client_id"], Rails.application.secrets.omniauth["google_oauth2"]["client_secret"]
+  end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
