@@ -81,7 +81,6 @@ module Decidim
       end
 
       def add_ignore_uploads
-        p options.inspect
         unless options["skip_git"]
           append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads"
         end
