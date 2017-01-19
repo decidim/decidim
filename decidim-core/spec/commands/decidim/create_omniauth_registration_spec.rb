@@ -78,6 +78,30 @@ module Decidim
             expect(user.valid_password?("abcde1234")).to eq(true)
           end
 
+          describe "user linking" do
+            context "with a verified email" do
+              let(:verified_email) { email }
+
+              it "links a previously existing user" do
+                user = create(:user, email: email, organization: organization)
+                expect { command.call }.to change { User.count }.by(0)
+
+                expect(user.identities.length).to eq(1)
+              end
+            end
+
+            context "with an unverified email" do
+              let(:verified_email) { nil }
+
+              it "doesn't link a previously existing user" do
+                user = create(:user, email: email, organization: organization)
+                expect { command.call }.to broadcast(:invalid)
+
+                expect(user.identities.length).to eq(0)
+              end
+            end
+          end
+
           it "creates a new identity" do
             expect do
               command.call
@@ -99,15 +123,6 @@ module Decidim
             create(:identity, user: user, provider: provider, uid: uid)
 
             expect { command.call }.to broadcast(:ok)
-          end
-        end
-
-        describe "when the unverified email is already used" do
-          let(:verified_email) { nil }
-
-          it "broadcasts error" do
-            create(:user, email: email, organization: organization)
-            expect { command.call }.to broadcast(:error)
           end
         end
       end

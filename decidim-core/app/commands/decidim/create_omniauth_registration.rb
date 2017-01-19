@@ -28,7 +28,9 @@ module Decidim
         end
 
         broadcast(:ok, @user)
-      rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
+      rescue ActiveRecord::RecordInvalid
+        broadcast(:invalid)
+      rescue ActiveRecord::RecordNotUnique
         broadcast(:error)
       end
     end
