@@ -92,7 +92,7 @@ FactoryGirl.define do
     password_confirmation "password1234"
     name                  { generate(:name) }
     organization
-    locale                { I18n.default_locale }
+    locale                { organization.default_locale }
     tos_agreement         "1"
     avatar                { test_file("avatar.svg", "image/svg+xml") }
 
