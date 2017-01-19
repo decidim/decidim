@@ -34,12 +34,6 @@ module Decidim
         append_file "db/seeds.rb", "\n# You can remove the 'faker' gem if you don't want Decidim seeds.\nDecidim.seed!"
       end
 
-      def add_seeds
-        file ".gitignore" do
-          append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads"
-        end
-      end
-
       def copy_initializer
         template "initializer.rb", "config/initializers/decidim.rb"
         template "carrierwave.rb", "config/initializers/carrierwave.rb"
