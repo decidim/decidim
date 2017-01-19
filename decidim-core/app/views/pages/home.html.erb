@@ -118,3 +118,26 @@
     </div>
   </div>
 </section>
+ <section class="extended">
+    <div class="wrapper-home">
+      <div class="row column text-center">
+        <h3 class="heading2"><%= t(".stats.headline") %></h3>
+      </div>
+      <div class="row">
+        <div class="columns small-centered mediumlarge-10 large-8">
+          <div class="home-pam">
+            <div class="home-pam__highlight">
+              <div class="home-pam__data">
+                <h4 class="home-pam__title"><%= t(".stats.users") %></h4>
+                <span class="home-pam__number"><%= participatory_processes.count %></span>
+              </div>
+              <div class="home-pam__data">
+                <h4 class="home-pam__title"><%= t(".stats.process") %></h4>
+                <span class="home-pam__number"><%= participatory_processes.count %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
