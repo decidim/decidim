@@ -5,8 +5,9 @@ module Decidim
     # Public: Initializes the command.
     #
     # form - A form object with the params.
-    def initialize(form)
+    def initialize(form, verified_email = nil)
       @form = form
+      @verified_email = verified_email
     end
 
     # Executes the command. Broadcasts these events:
@@ -19,12 +20,10 @@ module Decidim
       verify_oauth_signature!
 
       begin
-        if identity.present?
-          @user = identity.user
-        else
-          return broadcast(:invalid) if form.invalid?
+        return broadcast(:invalid) if form.invalid?
 
-          create_user
+        transaction do
+          create_or_find_user
           create_identity
         end
 
@@ -36,25 +35,35 @@ module Decidim
 
     private
 
-    attr_reader :form
+    attr_reader :form, :verified_email
 
-    def create_user
+    def create_or_find_user
       generated_password = SecureRandom.hex
 
-      @user = User.create!(email: form.email,
-                           name: form.name,
-                           password: generated_password,
-                           password_confirmation: generated_password,
-                           confirmed_at: Time.current,
-                           organization: form.current_organization,
-                           tos_agreement: "1")
+      @user = User.find_or_initialize_by(
+        email: verified_email,
+        organization: organization
+      )
 
-      @user.skip_confirmation! if form.email_verified?
+      unless @user.persisted?
+        @user.email = (verified_email || form.email)
+        @user.name = form.name
+        @user.password = generated_password
+        @user.password_confirmation = generated_password
+      end
+
+      @user.skip_confirmation!
+      @user.tos_agreement = "1"
+      @user.save!
     end
 
     def create_identity
-      @user.identities.create!(provider: form.provider,
-                               uid: form.uid)
+      @user.identities.find_or_create_by!(provider: form.provider,
+                                          uid: form.uid)
+    end
+
+    def organization
+      @form.current_organization
     end
 
     def identity
