@@ -19,10 +19,8 @@ module Decidim
       verify_oauth_signature!
 
       begin
-        find_identity
-
-        if @identity.present?
-          @user = @identity.user
+        if identity.present?
+          @user = identity.user
         else
           return broadcast(:invalid) if form.invalid?
 
@@ -58,8 +56,8 @@ module Decidim
                                uid: form.uid)
     end
 
-    def find_identity
-      @identity = Identity.where(provider: form.provider, uid: form.uid).first
+    def identity
+      @identity ||= Identity.where(provider: form.provider, uid: form.uid).first
     end
 
     def verify_oauth_signature!
