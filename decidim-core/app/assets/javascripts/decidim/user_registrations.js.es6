@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', () => {
     }
   }
 
-  setGroupFieldsVisibility($userRegistrationForm.find(inputSelector).val());
+  setGroupFieldsVisibility($userRegistrationForm.find(`${inputSelector}:checked`).val());
   
   $userRegistrationForm.on('change', inputSelector, (event) => {
     const value = event.target.value;
