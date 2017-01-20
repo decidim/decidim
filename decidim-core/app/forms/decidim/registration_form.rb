@@ -25,7 +25,7 @@ module Decidim
     validates :user_group_name, presence: true, if: :is_user_group?
     validates :user_group_document_number, presence: true, if: :is_user_group?
     validates :user_group_phone, presence: true, if: :is_user_group?
-    
+
     validate :email_unique_in_organization
 
     def is_user_group?

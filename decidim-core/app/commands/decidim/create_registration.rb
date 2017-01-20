@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module Decidim
-  # A command with all the business logic to create a user
+  # A command with all the business logic to create a user through the sign up form.
+  # It enables the option to sign up as a user group.
   class CreateRegistration < Rectify::Command
     # Public: Initializes the command.
     #
@@ -18,8 +19,10 @@ module Decidim
     def call
       return broadcast(:invalid) if form.invalid?
 
-      create_user
-      create_user_group if form.is_user_group?
+      transaction do
+        create_user
+        create_user_group if form.is_user_group?
+      end
 
       broadcast(:ok, @user)
     end
@@ -38,14 +41,10 @@ module Decidim
     end
 
     def create_user_group
-      UserGroupMembership.create!({
-        user: @user,
-        user_group: UserGroup.new({
-          name: form.user_group_name,
-          document_number: form.user_group_document_number,
-          phone: form.user_group_phone
-        })
-      })
+      UserGroupMembership.create!(user: @user,
+                                  user_group: UserGroup.new(name: form.user_group_name,
+                                                            document_number: form.user_group_document_number,
+                                                            phone: form.user_group_phone))
     end
   end
 end

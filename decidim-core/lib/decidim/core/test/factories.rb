@@ -115,11 +115,11 @@ FactoryGirl.define do
 
   factory :user_group, class: Decidim::UserGroup do
     name { Faker::Educator.course }
-    document_number { Faker::Number.number(8) + 'X' }
+    document_number { Faker::Number.number(8) + "X" }
     phone { Faker::PhoneNumber.phone_number }
   end
 
-   factory :user_group_membership, class: Decidim::UserGroupMembership do
+  factory :user_group_membership, class: Decidim::UserGroupMembership do
     user
     user_group
   end

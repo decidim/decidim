@@ -14,16 +14,16 @@ module Decidim
       before_action :configure_permitted_parameters
 
       def new
-        @form = form(RegistrationForm).from_params({
+        @form = form(RegistrationForm).from_params(
           user: {
             sign_up_as: "user"
           }
-        })
+        )
       end
 
       def create
         @form = form(RegistrationForm).from_params(params[:user])
-        
+
         CreateRegistration.call(@form) do
           on(:ok) do |user|
             if user.active_for_authentication?
@@ -42,7 +42,7 @@ module Decidim
           end
         end
       end
-      
+
       protected
 
       def configure_permitted_parameters
