@@ -7,19 +7,10 @@ module Decidim
   class ParticipatoryProcessStepsController < ApplicationController
     helper_method :participatory_process, :current_participatory_process
     layout "layouts/decidim/participatory_process", only: [:index]
+    include NeedsParticipatoryProcess
 
     def index
       authorize! :read, ParticipatoryProcess
-    end
-
-    private
-
-    def current_participatory_process
-      participatory_process
-    end
-
-    def participatory_process
-      @participatory_process ||= ParticipatoryProcess.find(params[:participatory_process_id])
     end
   end
 end
