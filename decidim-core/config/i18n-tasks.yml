@@ -92,6 +92,7 @@ ignore_unused:
   - devise.mailer.password_change.subject
   - activerecord.attributes.decidim/user.*
   - activerecord.models.decidim/user
+  - activemodel.attributes.user.*
   - booleans.*
   - errors.messages.file_size_is_less_than_or_equal_to
   - errors.messages.nesting_too_deep
