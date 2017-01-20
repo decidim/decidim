@@ -32,6 +32,9 @@ describe Decidim::Admin::Abilities::AdminUser do
   it { is_expected.to be_able_to(:read, Decidim::User) }
   it { is_expected.to be_able_to(:invite, Decidim::User) }
 
+  it { is_expected.to be_able_to(:index, Decidim::UserGroup) }  
+  it { is_expected.to be_able_to(:verify, Decidim::UserGroup) }  
+
   context "when a page is a default one" do
     let(:page) { build(:static_page, :default) }
     let(:form) { Decidim::Admin::StaticPageForm.new(slug: page.slug) }

@@ -12,6 +12,7 @@
   <%= active_link_to t("menu.static_pages", scope: "decidim.admin"), decidim_admin.static_pages_path, active: :inclusive if can? :read, Decidim::StaticPage %>
   <%= active_link_to t("menu.scopes", scope: "decidim.admin"), decidim_admin.scopes_path, active: :inclusive if can? :read, Decidim::Scope %>
   <%= active_link_to t("menu.users", scope: "decidim.admin"), decidim_admin.users_path, active: :inclusive if can? :read, Decidim::User %>
+  <%= active_link_to t("menu.user_groups", scope: "decidim.admin"), decidim_admin.user_groups_path, active: :inclusive if can? :index, Decidim::UserGroup %>
   <%= active_link_to t("menu.settings", scope: "decidim.admin"), decidim_admin.edit_organization_path, active: :inclusive if can? :read, current_organization %>
 </nav>
 

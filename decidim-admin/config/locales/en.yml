@@ -66,6 +66,7 @@ en:
         resend_invitation: Resend invitation
         title: Actions
         unpublish: Unpublish
+        verify: Verify
       categories:
         create:
           error: There was an error creating this category.
@@ -137,6 +138,7 @@ en:
         scopes: Scopes
         settings: Settings
         static_pages: Pages
+        user_groups: User groups
         users: Admin users
       models:
         category:
@@ -184,6 +186,13 @@ en:
             last_sign_in_at: Last sign in date
             name: Name
           name: User
+        user_group:
+          fields:
+            created_at: Created at
+            document_number: Document number
+            name: Name
+            phone: Phone
+            users_count: Users count
       organization:
         edit:
           title: Edit organization
@@ -295,7 +304,11 @@ en:
         participatory_processes: Participatory processes
         scopes: Scopes
         static_pages: Pages
+        user_groups: User groups
         users: Users
+      user_groups:
+        verify:
+          success: The user group was verified successfully.
       users:
         create:
           error: There was an error when inviting this user.

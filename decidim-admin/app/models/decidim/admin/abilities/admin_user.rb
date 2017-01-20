@@ -31,6 +31,8 @@ module Decidim
           can [:destroy], [User] do |user_to_destroy|
             user != user_to_destroy
           end
+
+          can [:index, :verify], UserGroup
         end
       end
     end
