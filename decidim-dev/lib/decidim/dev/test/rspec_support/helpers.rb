@@ -31,6 +31,10 @@ module Decidim::FeatureTestHelpers
       yield
     end
   end
+
+  def expect_user_logged
+    expect(page).to have_css(".topbar__user__logged")
+  end
 end
 
 def stripped(text)

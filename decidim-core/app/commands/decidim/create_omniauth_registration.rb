@@ -20,11 +20,12 @@ module Decidim
       verify_oauth_signature!
 
       begin
+        return broadcast(:ok, existing_identity.user) if existing_identity
         return broadcast(:invalid) if form.invalid?
 
         transaction do
-          create_or_find_identity
           create_or_find_user
+          create_identity
         end
 
         broadcast(:ok, @user)
@@ -41,7 +42,8 @@ module Decidim
 
     def create_or_find_user
       generated_password = SecureRandom.hex
-      @user = identity.try(:user) || User.find_or_initialize_by(
+
+      @user = User.find_or_initialize_by(
         email: verified_email,
         organization: organization
       )
@@ -51,24 +53,26 @@ module Decidim
         @user.name = form.name
         @user.password = generated_password
         @user.password_confirmation = generated_password
+        @user.skip_confirmation! if verified_email
       end
 
-      @user.skip_confirmation!
       @user.tos_agreement = "1"
       @user.save!
     end
 
     def create_identity
-      @user.identities.find_or_create_by!(provider: form.provider,
-                                          uid: form.uid)
+      @user.identities.create!(
+        provider: form.provider,
+        uid: form.uid
+      )
     end
 
     def organization
       @form.current_organization
     end
 
-    def identity
-      @identity ||= Identity.where(
+    def existing_identity
+      @existing_identity ||= Identity.where(
         user: organization.users,
         provider: form.provider,
         uid: form.uid
@@ -76,7 +80,12 @@ module Decidim
     end
 
     def verify_oauth_signature!
-      raise InvalidOauthSignature, "Invalid oauth signature" if form.oauth_signature != OmniauthRegistrationForm.create_signature(form.provider, form.uid)
+      raise InvalidOauthSignature, "Invalid oauth signature: #{form.oauth_signature}" unless signature_valid?
+    end
+
+    def signature_valid?
+      signature = OmniauthRegistrationForm.create_signature(form.provider, form.uid)
+      form.oauth_signature == signature
     end
   end
 

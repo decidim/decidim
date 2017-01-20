@@ -48,30 +48,17 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
       after :each do
         OmniAuth.config.test_mode = false
-        OmniAuth.config.mock_auth[:facebook] = nil         
+        OmniAuth.config.mock_auth[:facebook] = nil
       end
 
       context "when the user has confirmed the email in facebook" do
         it "creates a new User without sending confirmation instructions" do
           find(".sign-up-link").click
 
-          click_link "Sign in with Facebook"   
+          click_link "Sign in with Facebook"
 
           expect(page).to have_content("Successfully")
-          expect(page).not_to have_content("Complete your profile")
-          expect(page).not_to have_content("confirmation link")
-        end
-      end
-
-      context "when the user has not confirmed the email in facebook" do
-        let(:verified) { false }
-
-        it "creates a new User" do
-          find(".sign-up-link").click
-
-          click_link "Sign in with Facebook"   
-
-          expect(page).to have_content("confirmation link")        
+          expect_user_logged
         end
       end
     end
@@ -103,7 +90,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         it "redirects the user to a finish signup page" do
           find(".sign-up-link").click
 
-          click_link "Sign in with Twitter"   
+          click_link "Sign in with Twitter"
 
           expect(page).to have_content("Successfully")
           expect(page).to have_content("Complete your profile")
@@ -123,9 +110,9 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         it "creates a new User" do
           find(".sign-up-link").click
 
-          click_link "Sign in with Twitter"   
+          click_link "Sign in with Twitter"
 
-          expect(page).to have_content("confirmation link")        
+          expect_user_logged
         end
       end
     end
@@ -155,9 +142,9 @@ describe "Authentication", type: :feature, perform_enqueued: true do
       it "creates a new User" do
         find(".sign-up-link").click
 
-        click_link "Sign in with Google"   
+        click_link "Sign in with Google"
 
-        expect(page).to have_content("confirmation link")        
+        expect_user_logged
       end
     end
   end
