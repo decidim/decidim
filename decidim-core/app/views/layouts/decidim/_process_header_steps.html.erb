@@ -21,6 +21,7 @@
           <%= participatory_process_step_dates participatory_process.active_step %>
         </span>
       </div>
+      <%= link_to t('.view_steps'), decidim.participatory_process_participatory_process_steps_path(current_participatory_process), class: "button tiny hollow" %>
     </div>
   </div>
 <% end %>

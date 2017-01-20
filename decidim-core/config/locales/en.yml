@@ -75,6 +75,11 @@ en:
     menu:
       home: Home
       processes: Processes
+    participatory_process_steps:
+      index:
+        process_steps: Process steps
+      participatory_process_step:
+        info: Information
     participatory_processes:
       documents:
         related_documents: Related documents
@@ -136,6 +141,8 @@ en:
           take_part: Take part
       process_header:
         process_menu_item: The process
+      process_header_steps:
+        view_steps: View steps
       user_menu:
         profile: My account
         sign_out: Sign out

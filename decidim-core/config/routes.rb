@@ -20,7 +20,9 @@ Decidim::Core::Engine.routes.draw do
   end
 
   resource :locale, only: [:create]
-  resources :participatory_processes, only: [:index, :show]
+  resources :participatory_processes, only: [:index, :show] do
+    resources :participatory_process_steps, only: [:index]
+  end
 
   scope "/participatory_processes/:participatory_process_id/features/:feature_id" do
     Decidim.feature_manifests.each do |manifest|

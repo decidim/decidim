@@ -13,7 +13,6 @@ $timeline-padding: 1rem;
 .timeline {
 	list-style: none;
   margin: 2rem 0 0;
-	transition: all .4s ease;
 }
 
 .timeline__item {
@@ -27,9 +26,6 @@ $timeline-padding: 1rem;
 		left: 1rem;
 		top: 0;
 		position: absolute;
-    @include breakpoint(medium){
-      left: 50%;
-    }
 	}
 	&:after {
 		content: "";
@@ -56,9 +52,6 @@ $timeline-padding: 1rem;
   background: $timeline-color;
   border: 2px solid $white;
   box-shadow: 0 0 0 1px $medium-gray;
-  @include breakpoint(medium){
-    left: 50%;
-  }
 }
 
 .timeline__phase__number{
@@ -73,81 +66,88 @@ $timeline-padding: 1rem;
   margin-top: -1px;
 }
 
-.timeline__desc{
+.timeline__info{
   width: 90%;
   width: calc(100% - 45px);
   float: right;
-  padding: $timeline-padding/2 $timeline-padding 0;
-  border: 1px solid $timeline-color;
-  border-radius: $global-radius;
-  transition: all .3s ease;
-  transform: translateY(-.4rem);
-  @include breakpoint(medium){
-    width: 45%;
-    float: left;
+  background-color: $white;
+  border: $border;
+  .timeline__item--current &{
+    border-color: $timeline-color;
   }
-  &:before {
-    content: '';
-    position: absolute;
-    right: 100%;
-    top: .6rem;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid $timeline-color;
-    @include breakpoint(medium){
-      left: 100%;
-      border-right: 0;
-      border-left: 10px solid $timeline-color;
-    }
+}
+
+.timeline__header{
+  background: $medium-gray;
+  padding: $timeline-padding/2 $timeline-padding;
+  .timeline__item--current &{
+    background-color: $timeline-color;
+    color: $white;
   }
-  .timeline__item:nth-of-type(even) &{
-    float: right;
-    &:before{
-      content: '';
-      right: 100%;
-      left: inherit;
-      border-left: 0;
-      border-right: 10px solid $timeline-color;
-    }
+}
+
+.timeline__date{
+  color: $muted;
+  .timeline__item--current &{
+    color: rgba($white,.8);
   }
 }
 
 .timeline__title{
-  display: block;
-  padding: $timeline-padding/2 $timeline-padding;
-  background: $timeline-color;
-  color: $white;
-  margin: (-$timeline-padding/2) (-$timeline-padding) 0 (-$timeline-padding);
-  &:hover,
-  &:active{
-    color: $white;
-  }
-  > h6{
+  margin-bottom: 0;
+}
+
+.timeline__content{
+  padding: $timeline-padding;
+  :last-child{
     margin-bottom: 0;
   }
 }
 
-.timeline__title__icon{
-  margin-left: 3px;
-  vertical-align: middle;
+.timeline__footer{
+  list-style: none;
+  margin: 0;
+  border-top: $border;
+  @include breakpoint(medium){
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
-.timeline__content{
-  display: none;
-  padding-top: $timeline-padding/2;
+.timeline__footer-item{
+  flex-grow: 1;
+  text-align: center;
+  padding: .5em;
+  border-bottom: $border;
+  &:last-child{
+    border-bottom: 0;
+  }
+  @include breakpoint(medium){
+    border-bottom: 0;
+    border-right: $border;
+    &:last-child{
+      border-right: 0;
+    }
+  }
 }
 
-/* Collapse styles */
+.timeline__footer-inner{
+  display: block;
+}
 
-.timeline__desc.is-expanded{
-  .timeline__content{
-    display: block;
-  }
-  .timeline__title__icon{
-    transform: rotate(180deg);
-  }
+.timeline__item-icon{
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.timeline__item-text{
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 90%;
+  color: $body-font-color;
+  font-weight: 600;
+  line-height: 1;
 }
 
 /* Inactive timeline */
@@ -167,23 +167,5 @@ $timeline-padding: 1rem;
   }
   .timeline__phase__number{
     text-shadow: 0 1px 2px rgba(black, 0.1);
-  }
-  .timeline__desc{
-    border-color: $timeline-inactive-color;
-    &:before{
-      border-right-color: $timeline-inactive-color;
-      @include breakpoint(medium){
-        border-left-color: $timeline-inactive-color;
-      }
-    }
-  }
-  .timeline__title{
-    background: $timeline-inactive-color;
-    color: inherit;
-  }
-}
-.timeline__item:nth-of-type(even).timeline__item--inactive{
-  .timeline__desc:before{
-    border-right-color: $timeline-inactive-color;
   }
 }
