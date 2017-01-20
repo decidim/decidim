@@ -18,8 +18,6 @@ module Decidim
     # infer the class name of the authorization handler.
     attribute :handler_name, String
 
-    validate :identifier_uniqueness
-
     # A unique ID to be implemented by the authorization handler that ensures
     # no duplicates are created. This uniqueness check will be skipped if
     # unique_id returns nil.
@@ -91,21 +89,6 @@ module Decidim
       handler_klass.from_params(params || {})
     rescue NameError
       nil
-    end
-
-    private
-
-    def identifier_uniqueness
-      return true if unique_id.nil?
-
-      duplicates = Authorization.where(
-        user: User.where(organization: user.organization.id),
-        name: handler_name,
-        unique_id: unique_id
-      )
-
-      return true if duplicates.empty?
-      errors.add(:base, I18n.t("decidim.authorization_handlers.errors.duplicate_authorization"))
     end
   end
 end
