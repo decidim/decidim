@@ -171,6 +171,10 @@ en:
       proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
       register: Register
       see_all_processes: See all processes
+      stats:
+        headline: Current state of %{organization}
+        processes: Processes
+        users: Users
       welcome: Welcome to %{organization}!
   views:
     pagination:

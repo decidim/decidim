@@ -42,7 +42,8 @@ module Decidim
           welcome_text: form.welcome_text,
           homepage_image: form.homepage_image || organization.homepage_image,
           logo: form.logo || organization.logo,
-          default_locale: form.default_locale
+          default_locale: form.default_locale,
+          show_statistics: form.show_statistics
         }
       end
     end

@@ -39,7 +39,7 @@
     <div class="row collapse">
       <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
                   large-up-4 card-grid">
-        <% participatory_processes.each do |process| %>
+        <% promoted_participatory_processes.each do |process| %>
           <div class="column">
             <article class="card card--process card--mini">
               <%= link_to participatory_process_path(process), class: "card__link" do %>
@@ -70,6 +70,7 @@
     </div>
   </div>
 </section>
+
 <section class="extended">
   <div class="wrapper-home home-section">
     <div class="row column text-center">
@@ -117,4 +118,30 @@
       </div>
     </div>
   </div>
-</section>
+</section>   
+
+<% if current_organization.show_statistics? %>
+  <section class="extended" id="statistics">
+    <div class="wrapper-home">
+      <div class="row column text-center">
+        <h3 class="heading2"><%= t(".stats.headline", organization: current_organization.name) %></h3>
+      </div>
+      <div class="row">
+        <div class="columns small-centered mediumlarge-10 large-8">
+          <div class="home-pam">
+            <div class="home-pam__highlight">
+              <div class="home-pam__data">
+                <h4 class="home-pam__title"><%= t(".stats.users") %></h4>
+                <span class="home-pam__number users-count"><%= users.count %></span>
+              </div>
+              <div class="home-pam__data">
+                <h4 class="home-pam__title"><%= t(".stats.processes") %></h4>
+                <span class="home-pam__number processes-count"><%= participatory_processes.count %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>

@@ -14,6 +14,7 @@ en:
         homepage_image: Homepage image
         logo: Logo
         name: Name
+        show_statistics: Show statistics
         welcome_text: Welcome text
       participatory_process:
         banner_image: Banner image
