@@ -18,7 +18,7 @@ module Decidim
     end
 
     def show
-      authorize! :read, participatory_process
+      authorize! :read, current_participatory_process
     end
 
     private

@@ -12,19 +12,14 @@ module Decidim
 
     included do
       after_action :verify_participatory_process
-      helper_method :current_participatory_process, :participatory_process
-
-      def participatory_process
-        current_participatory_process
-      end
+      helper_method :current_participatory_process
 
       # Public: Finds the current Participatory Process given this controller's
       # context.
       #
       # Returns the current ParticipatoryProcess.
       def current_participatory_process
-        @current_participatory_process ||=
-          current_organization.participatory_processes.find_by(id: params[:participatory_process_id] || params[:id])
+        @current_participatory_process ||= current_organization.participatory_processes.find_by(id: params[:participatory_process_id] || params[:id])
       end
 
       private
