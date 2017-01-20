@@ -70,6 +70,7 @@
     </div>
   </div>
 </section>
+
 <section class="extended">
   <div class="wrapper-home home-section">
     <div class="row column text-center">
@@ -117,8 +118,9 @@
       </div>
     </div>
   </div>
-</section>               
-<% if current_organization.show_statistics %>
+</section>   
+
+<% if current_organization.show_statistics? %>
   <section class="extended">
     <div class="wrapper-home">
       <div class="row column text-center">
