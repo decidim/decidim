@@ -31,6 +31,10 @@ en:
       show:
         authorizations: Authorizations
         title: My account
+        user_groups: Organizations
+      user_groups:
+        not_verified: Not verified
+        verified: Verified
     authorization_handlers:
       decidim/dummy_authorization_handler: Example authorization
       errors:
