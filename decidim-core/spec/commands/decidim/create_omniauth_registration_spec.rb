@@ -95,7 +95,7 @@ module Decidim
 
               it "doesn't link a previously existing user" do
                 user = create(:user, email: email, organization: organization)
-                expect { command.call }.to broadcast(:invalid)
+                expect { command.call }.to broadcast(:error)
 
                 expect(user.identities.length).to eq(0)
               end

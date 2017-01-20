@@ -37,9 +37,12 @@ module Decidim
             render :new
           end
 
-          on(:error) do
-            redirect_to decidim.new_user_registration_path
-            set_flash_message :alert, :failure, kind: @form.provider, reason: t("decidim.devise.omniauth_registrations.create.email_already_exists")
+          on(:error) do |user|
+            if user.errors[:email]
+              set_flash_message :alert, :failure, kind: @form.provider.capitalize, reason: t("decidim.devise.omniauth_registrations.create.email_already_exists")
+            end
+
+            render :new
           end
         end
       end
