@@ -170,4 +170,16 @@ describe("<AddCommentForm />", () => {
       });
     });
   });
+
+  describe("when user groups is greater than 0", () => {
+    beforeEach(() => {
+      currentUser.user_groups = [
+
+      ];
+    });
+
+    it("should render a select with option tags for each user_group", () => {
+      const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+    });
+  })
 });
