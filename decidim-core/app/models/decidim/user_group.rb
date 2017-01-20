@@ -10,6 +10,8 @@ module Decidim
     validates :document_number, presence: true
     validates :phone, presence: true
 
+    scope :verified, -> { where(verified: true) }
+
     # Public: Mark the user group as verified
     def verify!
       update_attribute(:verified, true)

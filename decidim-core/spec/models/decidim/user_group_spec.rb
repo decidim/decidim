@@ -21,5 +21,14 @@ module Decidim
         expect(subject).to be_verified
       end
     end
+
+    describe "scopes" do
+      describe "#verified" do
+        it "returns verified organizations" do
+          create(:user_group, :verified)
+          expect(UserGroup.verified.count).to eq(1)
+        end
+      end
+    end
   end
 end

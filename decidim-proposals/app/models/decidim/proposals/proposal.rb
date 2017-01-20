@@ -9,6 +9,7 @@ module Decidim
       belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
       belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
       belongs_to :scope, foreign_key: "decidim_scope_id", class_name: Decidim::Scope
+      belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: Decidim::UserGroup
       has_one :organization, through: :feature
       has_many :votes, foreign_key: "decidim_proposal_id", class_name: ProposalVote, dependent: :destroy
 
@@ -18,7 +19,7 @@ module Decidim
       validate :author_belongs_to_organization
 
       def author_name
-        author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
+        user_group&.name || author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
       end
 
       def author_avatar_url

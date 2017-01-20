@@ -36,6 +36,7 @@ module Decidim
           category: form.category,
           scope: form.scope,
           author: @current_user,
+          decidim_user_group_id: form.user_group_id,
           feature: form.feature
         )
       end

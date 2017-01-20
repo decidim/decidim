@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "spec_helper"
 
-describe "User groups actions", type: :feature, perform_enqueued: true do
+describe "User groups", type: :feature, perform_enqueued: true do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization: organization) }
   let(:user_group) { create(:user_group) }
