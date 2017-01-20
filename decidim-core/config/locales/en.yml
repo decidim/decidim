@@ -1,5 +1,11 @@
 ---
 en:
+  activemodel:
+    attributes:
+      user:
+        user_group_document_number: Organization document number
+        user_group_name: Organization name
+        user_group_phone: Organization phone
   activerecord:
     attributes:
       decidim/user:
@@ -62,8 +68,8 @@ en:
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
-            legend: Legend
-            user: User
+            legend: Sign up as
+            user: Individual
             user_group: Organization/Collective
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
