@@ -164,11 +164,11 @@ en:
       proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
       register: Register
       see_all_processes: See all processes
-      welcome: Welcome to %{organization}!
       stats:
         headline: Current state of %{organization}
-        users: Users
         processes: Processes
+        users: Users
+      welcome: Welcome to %{organization}!
   views:
     pagination:
       first: "&laquo; First"
