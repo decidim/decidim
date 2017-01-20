@@ -14,5 +14,12 @@ module Decidim
       subject.users << create(:user)
       expect(subject.users.count).to eq(2)
     end
+
+    describe "#verify!" do
+      it "mark the user group as verified" do
+        subject.verify!
+        expect(subject).to be_verified
+      end
+    end
   end
 end

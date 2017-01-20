@@ -9,5 +9,10 @@ module Decidim
     validates :name, presence: true
     validates :document_number, presence: true
     validates :phone, presence: true
+
+    # Public: Mark the user group as verified
+    def verify!
+      update_attribute(:verified, true)
+    end
   end
 end
