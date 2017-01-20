@@ -3,18 +3,18 @@
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
         <div class="lead">
-          <%== translated_attribute(participatory_process.short_description) %>
+          <%== translated_attribute(current_participatory_process.short_description) %>
         </div>
-        <%== translated_attribute(participatory_process.description) %>
+        <%== translated_attribute(current_participatory_process.description) %>
       </div>
     </div>
   </div>
 </div>
-<% if participatory_process.attachments.any? %>
+<% if current_participatory_process.attachments.any? %>
   <div class="row attachments">
     <div class="columns large-8">
-      <%= render partial: "documents", locals: { documents: participatory_process.documents } %>
-      <%= render partial: "photos", locals: { photos: participatory_process.photos } %>
+      <%= render partial: "documents", locals: { documents: current_participatory_process.documents } %>
+      <%= render partial: "photos", locals: { photos: current_participatory_process.photos } %>
     </div>
   </div>
 <% end %>
