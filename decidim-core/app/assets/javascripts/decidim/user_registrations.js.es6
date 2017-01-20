@@ -1,16 +1,22 @@
 $(document).on('turbolinks:load', () => {
   const $userRegistrationForm = $('.register-form');
-  const $userGroupFields = $userRegistrationForm.find('.user-group-fields');
+  const $userGroupFields      = $userRegistrationForm.find('.user-group-fields');
+  const inputSelector         = 'input[name="user[sign_up_as]"]';
 
-  $userGroupFields.hide();
-  
-  $userRegistrationForm.on('change', 'input[name="user[sign_up_as]"]', (event) => {
-    const value = event.target.value;
-
+  const setGroupFieldsVisibility = (value) => {
     if (value === 'user') {
       $userGroupFields.hide();
     } else {
       $userGroupFields.show();
     }
+  }
+
+  setGroupFieldsVisibility($userRegistrationForm.find(inputSelector).val());
+  
+  $userRegistrationForm.on('change', inputSelector, (event) => {
+    const value = event.target.value;
+
+    setGroupFieldsVisibility(value);
   });
+
 });

@@ -26,8 +26,16 @@ module Decidim
     validates :user_group_document_number, presence: true, if: :is_user_group?
     validates :user_group_phone, presence: true, if: :is_user_group?
     
+    validate :email_unique_in_organization
+
     def is_user_group?
       sign_up_as == "user_group"
+    end
+
+    private
+
+    def email_unique_in_organization
+      errors.add :email, :taken if User.where(email: email, organization: current_organization).first.present?
     end
   end
 end

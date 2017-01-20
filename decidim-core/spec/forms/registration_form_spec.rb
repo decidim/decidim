@@ -6,9 +6,12 @@ module Decidim
     subject do
       described_class.from_params(
         attributes
+      ).with_context(
+        context
       )
     end
 
+    let(:organization) { create(:organization) }
     let(:sign_up_as) { "user" }
     let(:name) { "User" }
     let(:email) { "user@decidim.org" }
@@ -30,7 +33,13 @@ module Decidim
         tos_agreement: tos_agreement,
         user_group_name: user_group_name,
         user_group_document_number: user_group_document_number,
-        user_group_phone: user_group_phone
+        user_group_phone: user_group_phone,
+      }
+    end
+
+    let(:context) do
+      {
+        current_organization: organization
       }
     end
 
@@ -50,6 +59,11 @@ module Decidim
 
     context "when the email is not present" do
       let(:email) { nil }      
+      it { is_expected.to be_invalid }
+    end
+    
+    context "when the email already exists" do
+      let!(:user) { create(:user, organization: organization, email: email) }
       it { is_expected.to be_invalid }
     end
 
