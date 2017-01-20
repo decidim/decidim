@@ -85,7 +85,6 @@ es:
       password_change:
         greeting: '¡Hola %{recipient}!'
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
-        subject: Contraseña cambiada
   errors:
     messages:
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}

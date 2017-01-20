@@ -85,7 +85,6 @@ ca:
       password_change:
         greeting: Hola %{recipient}!
         message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
-        subject: Contrasenya canviada
   errors:
     messages:
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
