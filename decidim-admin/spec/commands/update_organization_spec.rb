@@ -17,7 +17,8 @@ module Decidim
               welcome_text_ca: "Hola",
               description_en: "My description",
               description_es: "Mi descripción",
-              description_ca: "La meva descripció"
+              description_ca: "La meva descripció",
+              show_statistics: false
             }
           }
         end
