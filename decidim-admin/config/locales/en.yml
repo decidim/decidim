@@ -15,6 +15,7 @@ en:
         logo: Logo
         name: Name
         welcome_text: Welcome text
+        show_statistics: Show statistics
       participatory_process:
         banner_image: Banner image
         description: Description
