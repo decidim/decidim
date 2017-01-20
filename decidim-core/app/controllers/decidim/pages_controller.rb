@@ -28,6 +28,5 @@ module Decidim
     def users
       @users ||= Decidim::User.where(organization: current_organization)
     end
-    
   end
 end

@@ -51,6 +51,7 @@ describe "Homepage", type: :feature do
 
       context "when organization show_statistics attribute is false" do
         let(:organization) { create(:organization, show_statistics: false) }
+        
         it "should not show the statistics block" do
           expect(page).to_not have_content("Current state of #{organization.name}")
         end
@@ -75,6 +76,7 @@ describe "Homepage", type: :feature do
           within ".users-count" do
             expect(page).to have_content("4")
           end     
+
           within ".processes-count" do
             expect(page).to have_content("2")
           end 
