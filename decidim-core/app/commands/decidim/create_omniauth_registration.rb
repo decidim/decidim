@@ -5,8 +5,9 @@ module Decidim
     # Public: Initializes the command.
     #
     # form - A form object with the params.
-    def initialize(form)
+    def initialize(form, verified_email = nil)
       @form = form
+      @verified_email = verified_email
     end
 
     # Executes the command. Broadcasts these events:
@@ -19,49 +20,70 @@ module Decidim
       verify_oauth_signature!
 
       begin
-        if identity.present?
-          @user = identity.user
-        else
-          return broadcast(:invalid) if form.invalid?
+        return broadcast(:ok, existing_identity.user) if existing_identity
+        return broadcast(:invalid) if form.invalid?
 
-          create_user
+        transaction do
+          create_or_find_user
           create_identity
         end
 
         broadcast(:ok, @user)
-      rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
-        broadcast(:error)
+      rescue ActiveRecord::RecordInvalid
+        broadcast(:invalid)
       end
     end
 
     private
 
-    attr_reader :form
+    attr_reader :form, :verified_email
 
-    def create_user
+    def create_or_find_user
       generated_password = SecureRandom.hex
 
-      @user = User.create!(email: form.email,
-                           name: form.name,
-                           password: generated_password,
-                           password_confirmation: generated_password,
-                           organization: form.current_organization,
-                           tos_agreement: "1")
+      @user = User.find_or_initialize_by(
+        email: verified_email,
+        organization: organization
+      )
 
-      @user.skip_confirmation! if form.email_verified?
+      unless @user.persisted?
+        @user.email = (verified_email || form.email)
+        @user.name = form.name
+        @user.password = generated_password
+        @user.password_confirmation = generated_password
+        @user.skip_confirmation! if verified_email
+      end
+
+      @user.tos_agreement = "1"
+      @user.save!
     end
 
     def create_identity
-      @user.identities.create!(provider: form.provider,
-                               uid: form.uid)
+      @user.identities.create!(
+        provider: form.provider,
+        uid: form.uid
+      )
     end
 
-    def identity
-      @identity ||= Identity.where(provider: form.provider, uid: form.uid).first
+    def organization
+      @form.current_organization
+    end
+
+    def existing_identity
+      @existing_identity ||= Identity.where(
+        user: organization.users,
+        provider: form.provider,
+        uid: form.uid
+      ).first
     end
 
     def verify_oauth_signature!
-      raise InvalidOauthSignature, "Invalid oauth signature" if form.oauth_signature != OmniauthRegistrationForm.create_signature(form.provider, form.uid)
+      raise InvalidOauthSignature, "Invalid oauth signature: #{form.oauth_signature}" unless signature_valid?
+    end
+
+    def signature_valid?
+      signature = OmniauthRegistrationForm.create_signature(form.provider, form.uid)
+      form.oauth_signature == signature
     end
   end
 

@@ -6,7 +6,6 @@ module Decidim
     mimic :user
 
     attribute :email, String
-    attribute :email_verified, Boolean
     attribute :name, String
     attribute :provider, String
     attribute :uid, String

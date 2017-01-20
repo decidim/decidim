@@ -16,10 +16,11 @@ module Decidim
       end
 
       def create
-        params[:user] = user_params_from_oauth_hash if request.env["omniauth.auth"].present?
-        @form = form(OmniauthRegistrationForm).from_params(params[:user])
+        form_params = user_params_from_oauth_hash || params[:user]
+        @form = form(OmniauthRegistrationForm).from_params(form_params)
+        @form.email ||= verified_email
 
-        CreateOmniauthRegistration.call(@form) do
+        CreateOmniauthRegistration.call(@form, verified_email) do
           on(:ok) do |user|
             if user.active_for_authentication?
               sign_in_and_redirect user, event: :authentication
@@ -70,19 +71,25 @@ module Decidim
 
       private
 
+      def oauth_data
+        return {} unless request.env["omniauth.auth"]
+        @oauth_data ||= request.env["omniauth.auth"].slice(:provider, :uid, :info)
+      end
+
       # Private: Create form params from omniauth hash
       # Since we are using trusted omniauth data we are generating a valid signature.
       def user_params_from_oauth_hash
-        oauth_data = request.env["omniauth.auth"].slice(:provider, :uid, :info)
-
+        return nil unless request.env["omniauth.auth"]
         {
           provider: oauth_data[:provider],
           uid: oauth_data[:uid],
-          email: oauth_data[:info][:email],
-          email_verified: oauth_data[:info][:verified],
           name: oauth_data[:info][:name],
           oauth_signature: OmniauthRegistrationForm.create_signature(oauth_data[:provider], oauth_data[:uid])
         }
+      end
+
+      def verified_email
+        @verified_email ||= oauth_data.dig(:info, :email)
       end
     end
   end

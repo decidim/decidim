@@ -10,6 +10,7 @@ module Decidim
         let(:provider) { "facebook" }
         let(:uid) { "12345" }
         let(:oauth_signature) { OmniauthRegistrationForm.create_signature(provider, uid) }
+        let(:verified_email) { email }
         let(:form_params) do
           {
             "user" => {
@@ -29,7 +30,7 @@ module Decidim
             current_organization: organization
           )
         end
-        let(:command) { described_class.new(form) }
+        let(:command) { described_class.new(form, verified_email) }
 
         describe "when the form oauth_signature cannot ve verified" do
           let(:oauth_signature) { "1234" }
@@ -64,17 +65,41 @@ module Decidim
 
           it "creates a new user" do
             expect(SecureRandom).to receive(:hex).and_return("abcde1234")
-            expect(User).to receive(:create!).with({
-              email: form.email,
-              name: form.name,
-              password: "abcde1234",
-              password_confirmation: "abcde1234",
-              tos_agreement: "1",
-              organization: organization
-            }).and_call_original
+
             expect do
               command.call
             end.to change { User.count }.by(1)
+
+            user = User.find_by_email(form.email)
+            expect(user.encrypted_password).to_not be_nil
+            expect(user.email).to eq(form.email)
+            expect(user.organization).to eq(organization)
+            expect(user).to be_confirmed
+            expect(user.valid_password?("abcde1234")).to eq(true)
+          end
+
+          describe "user linking" do
+            context "with a verified email" do
+              let(:verified_email) { email }
+
+              it "links a previously existing user" do
+                user = create(:user, email: email, organization: organization)
+                expect { command.call }.to change { User.count }.by(0)
+
+                expect(user.identities.length).to eq(1)
+              end
+            end
+
+            context "with an unverified email" do
+              let(:verified_email) { nil }
+
+              it "doesn't link a previously existing user" do
+                user = create(:user, email: email, organization: organization)
+                expect { command.call }.to broadcast(:invalid)
+
+                expect(user.identities.length).to eq(0)
+              end
+            end
           end
 
           it "creates a new identity" do
@@ -94,17 +119,10 @@ module Decidim
 
         describe "when a user exists with that identity" do
           it "broadcasts ok" do
-            user = create(:user, email: email)
+            user = create(:user, email: email, organization: organization)
             create(:identity, user: user, provider: provider, uid: uid)
-            
+
             expect { command.call }.to broadcast(:ok)
-          end
-        end
-        
-        describe "when the email is already used" do
-          it "broadcasts error" do
-            create(:user, email: email)
-            expect { command.call }.to broadcast(:error)
           end
         end
       end
