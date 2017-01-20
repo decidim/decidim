@@ -32,5 +32,6 @@ en:
         title: Conversation with %{authorName}
       comments:
         title: "%{count} comments"
+        loading: "Loading comments ..."
       featured_comment:
         title: Featured comment

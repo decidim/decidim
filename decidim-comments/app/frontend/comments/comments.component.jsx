@@ -21,8 +21,21 @@ import commentsQuery            from './comments.query.graphql';
  */
 export class Comments extends Component {
   render() {
-    const { comments, reorderComments, orderBy } = this.props;
+    const { comments, reorderComments, orderBy, loading } = this.props;
 
+    if (loading) {
+      return (
+        <div className="columns large-9" id="comments">
+          <section className="comments">
+            <div className="row collapse order-by">
+              <h2 className="order-by__text section-heading">
+                { I18n.t("components.comments.loading") }
+              </h2>
+            </div>
+          </section>
+        </div>
+      );
+    }
     return (
       <div className="columns large-9" id="comments">
         <section className="comments">
@@ -84,6 +97,7 @@ export class Comments extends Component {
 }
 
 Comments.propTypes = {
+  loading: PropTypes.bool.isRequired,
   comments: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired
   })),
@@ -110,7 +124,8 @@ const CommentsWithData = graphql(gql`
   options: {
     pollInterval: 15000
   },
-  props: ({ ownProps, data: { currentUser, comments, refetch }}) => ({
+  props: ({ ownProps, data: {loading, currentUser, comments, refetch }}) => ({
+    loading: loading,
     comments: comments || [],
     currentUser: currentUser || null,
     commentableId: ownProps.commentableId,
