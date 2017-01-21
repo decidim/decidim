@@ -13,6 +13,7 @@ es:
         homepage_image: Imagen de portada
         logo: Logotipo
         name: Nombre
+        show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
       participatory_process:
         banner_image: Imagen de bandera
@@ -64,6 +65,7 @@ es:
         resend_invitation: Reenviar invitación
         title: Acciones
         unpublish: Despublicar
+        verify: Verificar
       categories:
         create:
           error: Se ha producido un error al crear esta categoría.
@@ -135,6 +137,7 @@ es:
         scopes: Ámbitos
         settings: Configuración
         static_pages: Páginas
+        user_groups: Grupos de usuarios
         users: Administradores
       models:
         category:
@@ -182,6 +185,13 @@ es:
             last_sign_in_at: Última fecha de identificación
             name: Nombre
           name: Usuario
+        user_group:
+          fields:
+            created_at: Fecha de creación
+            document_number: Número del documento
+            name: Nombre
+            phone: Teléfono
+            users_count: Número de usuarios
       organization:
         edit:
           title: Editar organización
@@ -219,7 +229,11 @@ es:
         create:
           error: Se ha producido un error al crear una nueva fase de proceso participativo.
           success: La fase de proceso participativo se ha creado correctamente.
+        default_title: Introducción
         destroy:
+          error:
+            active_step: No se puede eliminar la fase activa.
+            last_step: No se puede eliminar la última fase de un proceso.
           success: La fase de proceso participativo se ha eliminado correctamente.
         edit:
           title: Editar fase de proceso participativo
@@ -289,7 +303,11 @@ es:
         participatory_processes: Procesos participativos
         scopes: Ámbitos
         static_pages: Páginas
+        user_groups: Grupos de usuarios
         users: Usuarios
+      user_groups:
+        verify:
+          success: El grupo de usuarios se verificó con éxito.
       users:
         create:
           error: Hubo un error al invitar a este usuario.
