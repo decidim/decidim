@@ -3,6 +3,9 @@ es:
     features:
       proposals:
         name: Propuestas
+        settings:
+          step:
+            votes_enabled: Votos habilitados
     proposals:
       actions:
         new: Nueva propuesta
@@ -38,12 +41,14 @@ es:
             one: 1 propuesta
             other: "%{count} propuestas"
         filters:
+          activity: Actividad
           all: Todas
           category: Categoría
           citizenship: Ciudadanía
           official: Oficial
           origin: Origen
           search: Buscar
+          voted: Votado
         index:
           new_proposal: Nueva propuesta
         new:
@@ -58,3 +63,10 @@ es:
           close_window: Cerrar ventana
           share: Compartir
           share_link: Compartir enlace
+        vote_button:
+          already_voted: Ya votado
+          vote: Votar
+        votes_count:
+          count:
+            one: VOTAR
+            other: VOTOS
