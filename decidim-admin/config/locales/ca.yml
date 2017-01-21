@@ -13,6 +13,7 @@ ca:
         homepage_image: Imatge de la portada
         logo: Logotip
         name: Nom
+        show_statistics: Mostra Estadístiques
         welcome_text: Text de benvinguda
       participatory_process:
         banner_image: Imatge de bandera
@@ -64,6 +65,7 @@ ca:
         resend_invitation: Tornar a enviar invitació
         title: Accions
         unpublish: Despublicar
+        verify: Verificar
       categories:
         create:
           error: S'ha produït un error en crear aquesta categoria.
@@ -135,6 +137,7 @@ ca:
         scopes: Àmbits
         settings: Configuració
         static_pages: Pàgines
+        user_groups: Grups d'usuaris
         users: Administradors
       models:
         category:
@@ -182,6 +185,13 @@ ca:
             last_sign_in_at: Darrera data d'identificació
             name: Nom
           name: Usuari
+        user_group:
+          fields:
+            created_at: Data de creació
+            document_number: Número de document
+            name: Nom
+            phone: Telèfon
+            users_count: Número d'usuaris
       organization:
         edit:
           title: Edita organització
@@ -219,7 +229,11 @@ ca:
         create:
           error: S'ha produït un error en crear una nova fase de procés participatiu.
           success: La fase de procés participatiu s'ha creat correctament.
+        default_title: Introducció
         destroy:
+          error:
+            active_step: No es pot eliminar la fase activa.
+            last_step: No es pot eliminar l'última fase d'un procés.
           success: La fase de procés participatiu s'ha eliminat correctament.
         edit:
           title: Editar fase de procés participatiu
@@ -289,7 +303,11 @@ ca:
         participatory_processes: Processos participatius
         scopes: Àmbits
         static_pages: Pàgines
+        user_groups: Grups d'usuaris
         users: Usuaris
+      user_groups:
+        verify:
+          success: El grup d'usuaris ha estat verificat exitosament.
       users:
         create:
           error: Hi ha hagut un error en convidar a aquest usuari.
