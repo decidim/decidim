@@ -54,7 +54,7 @@ module Decidim
       end
 
       context "when there's other authorizations" do
-        let!(:other_user) { create(:user, organization: user.organization)}
+        let!(:other_user) { create(:user, organization: user.organization) }
 
         before do
           create(:authorization,
