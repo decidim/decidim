@@ -3,6 +3,9 @@ es:
     features:
       pages:
         name: Página
+        settings:
+          global:
+            comments_always_enabled: Comentarios siempre habilitados
     pages:
       admin:
         models:
