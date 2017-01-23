@@ -4,6 +4,7 @@ import { shallow, mount }      from 'enzyme';
 import { AddCommentForm }      from './add_comment_form.component';
 
 import generateCurrentUserData from '../support/generate_current_user_data';
+import generateUserGroupData   from '../support/generate_user_group_data';
 
 describe("<AddCommentForm />", () => {
   let currentUser = null;
@@ -34,7 +35,7 @@ describe("<AddCommentForm />", () => {
 
   it("should have a default prop showTitle as true", () => {
     const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
-    expect(wrapper).to.have.prop('showTitle').equal(true);    
+    expect(wrapper).to.have.prop('showTitle').equal(true);
   });
 
   it("should not render the title if prop showTitle is false", () => {
@@ -171,15 +172,54 @@ describe("<AddCommentForm />", () => {
     });
   });
 
-  describe("when user groups is greater than 0", () => {
+  describe("when user groups are greater than 0", () => {
     beforeEach(() => {
-      currentUser.user_groups = [
-
+      currentUser.verifiedUserGroups = [
+        generateUserGroupData(),
+        generateUserGroupData()
       ];
     });
 
-    it("should render a select with option tags for each user_group", () => {
+    it("should have a reference to user_group_id select", () => {
       const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+      expect(wrapper.instance().userGroupIdSelect).to.be.ok;
+    });
+
+    it("should render a select with option tags for each verified user group", () => {
+      const wrapper = mount(<AddCommentForm addComment={addCommentStub} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+      expect(wrapper.find('select')).to.have.exactly(3).descendants('option');
+    });
+
+    describe("submitting the form", () => {
+      let addComment = null;
+      let wrapper = null;
+      let message = null;
+      let userGroupId = null;
+
+      beforeEach(() => {
+        addComment = sinon.spy();
+        wrapper = mount(<AddCommentForm addComment={addComment} currentUser={currentUser} commentableId={commentableId} commentableType={commentableType} />);
+        message = 'This will be submitted';
+        userGroupId = currentUser.verifiedUserGroups[1].id;
+        wrapper.instance().bodyTextArea.value = message;
+        wrapper.instance().userGroupIdSelect.value = userGroupId;
+      });
+
+      it("should call addComment prop with the body textarea, alignment and user_group_id select values", () => {
+        wrapper.find('form').simulate('submit');
+        expect(addComment).to.calledWith({ body: message, alignment: 0, userGroupId });
+      });
+
+      describe("when user_group_id is blank", () => {
+        beforeEach(() => {
+          wrapper.instance().userGroupIdSelect.value = '';
+        });
+
+        it("should call addComment prop with the body textarea and alignment", () => {
+          wrapper.find('form').simulate('submit');
+          expect(addComment).to.calledWith({ body: message, alignment: 0 });
+        });
+      });
     });
   })
 });

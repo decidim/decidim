@@ -11,6 +11,8 @@ en:
           body:
             label: Comment
             placeholder: What do you think about this?
+          user_group_id:
+            label: Comment as
           submit: Send
         opinion:
           against: I am against

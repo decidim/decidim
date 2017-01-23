@@ -6,7 +6,8 @@ import { name } from 'faker/locale/en';
  */
 const generateCurrentUserData = () => {
   return {
-    name: name.findName()
+    name: name.findName(),
+    verifiedUserGroups: []
   };
 };
 

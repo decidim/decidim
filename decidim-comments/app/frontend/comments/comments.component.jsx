@@ -37,7 +37,7 @@ export class Comments extends Component {
             <h2 className="order-by__text section-heading">
               { commentHeader }
             </h2>
-            <CommentOrderSelector 
+            <CommentOrderSelector
               reorderComments={reorderComments}
               defaultOrderBy={orderBy}
             />
@@ -58,9 +58,9 @@ export class Comments extends Component {
     const { comments, currentUser, options: { votable } } = this.props;
 
     return comments.map((comment) => (
-      <CommentThread 
-        key={comment.id} 
-        comment={filter(CommentThread.fragments.comment, comment)} 
+      <CommentThread
+        key={comment.id}
+        comment={filter(CommentThread.fragments.comment, comment)}
         currentUser={currentUser}
         votable={votable}
       />
@@ -77,7 +77,7 @@ export class Comments extends Component {
 
     if (currentUser) {
       return (
-        <AddCommentForm 
+        <AddCommentForm
           currentUser={currentUser}
           commentableId={commentableId}
           commentableType={commentableType}
@@ -113,6 +113,7 @@ Comments.propTypes = {
  */
 const CommentsWithData = graphql(gql`
   ${commentsQuery}
+  ${AddCommentForm.fragments.user}
   ${CommentThread.fragments.comment}
 `, {
   options: {
@@ -141,7 +142,7 @@ const CommentsWithData = graphql(gql`
  */
 const CommentsApplication = ({ locale, commentableId, commentableType, options }) => (
   <Application locale={locale}>
-    <CommentsWithData 
+    <CommentsWithData
       commentableId={commentableId}
       commentableType={commentableType}
       options={options}

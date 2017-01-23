@@ -29,7 +29,7 @@ describe("<Comment />", () => {
     let commentsData = generateCommentsData(1);
     commentsData[0].replies = generateCommentsData(3);
     const currentUserData = generateCurrentUserData();
-    
+
     const fragment = gql`
       ${commentFragment}
       ${commentDataFragment}

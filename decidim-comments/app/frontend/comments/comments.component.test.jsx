@@ -28,6 +28,14 @@ describe('<Comments />', () => {
     }
   `;
 
+  const addCommentFragment = gql`
+    fragment AddCommentForm on User {
+      verifiedUserGroups {
+        id
+      }
+    }
+  `;
+
   stubComponent(CommentOrderSelector)
 
   stubComponent(CommentThread, {
@@ -36,7 +44,11 @@ describe('<Comments />', () => {
     }
   });
 
-  stubComponent(AddCommentForm);
+  stubComponent(AddCommentForm, {
+    fragments: {
+      user: addCommentFragment
+    }
+  });
 
   beforeEach(() => {
     const currentUserData = generateCurrentUserData();
@@ -45,6 +57,7 @@ describe('<Comments />', () => {
     const query = gql`
       ${commentsQuery}
       ${commentThreadFragment}
+      ${addCommentFragment}
     `;
 
     const result = resolveGraphQLQuery(query, {

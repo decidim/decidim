@@ -1,0 +1,6 @@
+fragment AddCommentForm on User {
+  verifiedUserGroups {
+    id
+    name
+  }
+}

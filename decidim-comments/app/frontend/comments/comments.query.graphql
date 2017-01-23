@@ -2,6 +2,7 @@ query GetComments($commentableId: String!, $commentableType: String!, $orderBy: 
   currentUser {
     name
     avatarUrl
+    ...AddCommentForm
   }
   comments(commentableId: $commentableId, commentableType: $commentableType, orderBy: $orderBy) {
     id
