@@ -50,6 +50,9 @@ en:
           origin: Origin
           search: Search
           voted: Voted
+        filters_small_view:
+          filter: Filter
+          filter_for: Filter for
         index:
           new_proposal: New proposal
         linked_proposals:
