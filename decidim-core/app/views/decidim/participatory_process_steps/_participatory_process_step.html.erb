@@ -5,7 +5,7 @@
   <div class="timeline__info">
     <div class="timeline__header">
       <span class="timeline__date text-small">
-        <%= localize(participatory_process_step.start_date, format: "%d/%m/%Y") %> - <%= localize(participatory_process_step.end_date, format: "%d/%m/%Y") %>
+        <%= participatory_process_step_dates(participatory_process_step) %>
       </span>
       <h6 class="timeline__title heading6"><%= t('.info') %></h6>
     </div>
