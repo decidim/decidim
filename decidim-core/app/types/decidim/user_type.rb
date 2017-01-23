@@ -14,9 +14,5 @@ module Decidim
     field :avatarUrl, !types.String, "The user's avatar url" do
       resolve ->(obj, _args, _ctx) { obj.avatar.url }
     end
-
-    field :verifiedUserGroups, !types[UserGroupType], "The user's verified user groups" do
-      resolve ->(obj, _args, _ctx) { obj.user_groups.verified }
-    end
   end
 end

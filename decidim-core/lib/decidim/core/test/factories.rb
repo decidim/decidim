@@ -117,6 +117,7 @@ FactoryGirl.define do
     name { Faker::Educator.course }
     document_number { Faker::Number.number(8) + "X" }
     phone { Faker::PhoneNumber.phone_number }
+    avatar { test_file("avatar.svg", "image/svg+xml") }
 
     trait :verified do
       verified { true }

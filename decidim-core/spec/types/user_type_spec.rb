@@ -23,15 +23,5 @@ module Decidim
         expect(response).to include("avatarUrl" => model.avatar.url)
       end
     end
-
-    describe "verifiedUserGroups" do
-      let (:query) { "{ verifiedUserGroups { id } }" }
-      let (:user_group) { create(:user_group, :verified) }
-      let! (:membership) { create(:user_group_membership, user: model, user_group: user_group)}
-
-      it "returns the user verified user groups" do
-        expect(response).to include("verifiedUserGroups" => [{"id" => user_group.id.to_s}] )
-      end
-    end
   end
 end

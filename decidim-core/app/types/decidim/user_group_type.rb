@@ -14,7 +14,7 @@ module Decidim
     field :name, !types.String, "The user group's name"
 
     field :avatarUrl, !types.String, "The user's avatar url" do
-      resolve ->(_obj, _args, _ctx) { "" }
+      resolve ->(obj, _args, _ctx) { obj.avatar.url }
     end
   end
 end

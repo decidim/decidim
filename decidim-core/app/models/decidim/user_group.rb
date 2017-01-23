@@ -9,6 +9,8 @@ module Decidim
     validates :name, presence: true
     validates :document_number, presence: true
     validates :phone, presence: true
+    validates :avatar, file_size: { less_than_or_equal_to: 5.megabytes }
+    mount_uploader :avatar, Decidim::AvatarUploader
 
     scope :verified, -> { where(verified: true) }
 
