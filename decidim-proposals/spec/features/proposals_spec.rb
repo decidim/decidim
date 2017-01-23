@@ -67,6 +67,25 @@ describe "Proposals", type: :feature do
     end
   end
 
+  context "when a proposal has been linked in a meeting" do
+    let(:proposal) { create(:proposal, feature: feature)}
+    let(:meeting_feature) do
+      create(:feature, manifest_name: :meetings, participatory_process: proposal.feature.participatory_process)
+    end
+    let(:meeting) { create(:meeting, feature: meeting_feature) }
+
+    before do
+      meeting.link_resources([proposal], "proposals_from_meeting")
+    end
+
+    it "shows related meetings" do
+      visit_feature
+      click_link proposal.title
+
+      expect(page).to have_i18n_content(meeting.title)
+    end
+  end
+
   context "listing proposals in a participatory process" do
     it "lists all the proposals" do
       expect(page).to have_css(".card--proposal", count: 3)

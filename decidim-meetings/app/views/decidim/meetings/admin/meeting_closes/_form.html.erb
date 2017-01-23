@@ -1,0 +1,23 @@
+<div class="field" >
+  <%= form.translated :text_area, :closing_report, autofocus: true, rows: 15 %>
+</div>
+
+<div class="field" >
+  <%= form.text_area :attending_organizations, rows: 5 %>
+</div>
+
+<div class="field" >
+  <%= form.number_field :attendees_count, min: 0 %>
+</div>
+
+<div class="field" >
+  <%= form.number_field :contributions_count, min: 0 %>
+</div>
+
+<% if @form.proposals %>
+  <%= form.select :proposal_ids,
+                  @form.proposals.order("title ASC").pluck(:title, :id),
+                  { include_blank: true },
+                  { multiple: true, class: "chosen-select" }
+  %>
+<% end %>

@@ -1,0 +1,5 @@
+en:
+  decidim:
+    resource_links:
+      test_link:
+        dummy: Related dummy

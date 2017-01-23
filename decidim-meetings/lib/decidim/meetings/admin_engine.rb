@@ -10,7 +10,9 @@ module Decidim
       paths["db/migrate"] = nil
 
       routes do
-        resources :meetings
+        resources :meetings do
+          resources :meeting_closes, only: [:edit, :update]
+        end
         root to: "meetings#index"
       end
 

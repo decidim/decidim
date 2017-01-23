@@ -180,6 +180,17 @@ FactoryGirl.define do
     name { generate(:name) }
     organization
   end
+
+  factory :dummy_resource, class: Decidim::DummyResource do
+    title { generate(:name) }
+    feature
+  end
+
+  factory :resource_link, class: Decidim::ResourceLink do
+    name { generate(:slug) }
+    to { build(:dummy_resource) }
+    from { build(:dummy_resource, feature: to.feature) }
+  end
 end
 
 def test_file(filename, content_type)

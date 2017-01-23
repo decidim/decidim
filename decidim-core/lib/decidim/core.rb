@@ -10,6 +10,8 @@ module Decidim
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
   autoload :DeviseFailureApp, "decidim/devise_failure_app"
   autoload :FeatureManifest, "decidim/feature_manifest"
+  autoload :ResourceManifest, "decidim/resource_manifest"
+  autoload :Resourceable, "decidim/resourceable"
   autoload :Features, "decidim/features"
 
   include ActiveSupport::Configurable
@@ -95,5 +97,23 @@ module Decidim
   def self.find_feature_manifest(name)
     name = name.to_sym
     feature_manifests.find { |manifest| manifest.name == name }
+  end
+
+  # Public: Finds a resource manifest by the resource's name.
+  #
+  # resource_name_or_class - The String of the ResourceManifest name or the class of the ResourceManifest model_class to find.
+  #
+  # Returns a ResourceManifest if found, nil otherwise.
+  def self.find_resource_manifest(resource_name_or_klass)
+    resource_manifests.find do |manifest|
+      manifest.model_class == resource_name_or_klass || manifest.name.to_s == resource_name_or_klass.to_s
+    end
+  end
+
+  # Private: Stores all the resource manifest across all feature manifest.
+  #
+  # Returns an Array[ResourceManifest]
+  def self.resource_manifests
+    @resource_manifests ||= feature_manifests.flat_map(&:resource_manifests)
   end
 end

@@ -11,6 +11,7 @@ module Decidim
       include FeatureSettings
       helper Decidim::TranslationsHelper
       helper Decidim::ParticipatoryProcessHelper
+      helper Decidim::ResourceHelper
 
       helper_method :current_feature,
                     :current_manifest

@@ -3,6 +3,8 @@ module Decidim
   module Proposals
     # The data store for a Proposal in the Decidim::Proposals component.
     class Proposal < Proposals::ApplicationRecord
+      include Decidim::Resourceable
+
       belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
       belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
       belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category

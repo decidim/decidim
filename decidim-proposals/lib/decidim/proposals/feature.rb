@@ -17,6 +17,11 @@ Decidim.register_feature(:proposals) do |feature|
     settings.attribute :votes_enabled, type: :boolean
   end
 
+  feature.register_resource do |resource|
+    resource.model_class = Decidim::Proposals::Proposal
+    resource.template = "decidim/proposals/proposals/linked_proposals"
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?
