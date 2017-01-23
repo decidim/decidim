@@ -5,6 +5,11 @@ module Decidim
     Schema = GraphQL::Schema.define do
       query QueryType
       mutation MutationType
+
+      resolve_type lambda { |obj, _ctx|
+        return Decidim::UserType if obj.is_a? Decidim::User
+        return Decidim::UserGroupType if obj.is_a? Decidim::UserGroup
+      }
     end
   end
 end

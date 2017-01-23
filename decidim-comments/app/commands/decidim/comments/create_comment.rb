@@ -33,7 +33,8 @@ module Decidim
         @comment = Comment.create!(author: @author,
                                    commentable: @commentable,
                                    body: form.body,
-                                   alignment: form.alignment)
+                                   alignment: form.alignment,
+                                   decidim_user_group_id: form.user_group_id)
       end
     end
   end

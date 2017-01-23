@@ -89,7 +89,7 @@ describe "Comments", type: :feature do
 
         within ".add-comment form" do
           fill_in "add-comment-#{participatory_process.class.name}-#{participatory_process.id}", with: "This is a new comment"
-          select user_group.name, from: :comment_user_group_id
+          select user_group.name, from: "Comment as"
           click_button "Send"
         end
 

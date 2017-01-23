@@ -11,9 +11,9 @@ en:
           body:
             label: Comment
             placeholder: What do you think about this?
+          submit: Send
           user_group_id:
             label: Comment as
-          submit: Send
         opinion:
           against: I am against
           in_favor: I am in favor

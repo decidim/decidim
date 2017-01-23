@@ -1,4 +1,4 @@
-fragment AddCommentForm on User {
+fragment AddCommentForm on Session {
   verifiedUserGroups {
     id
     name

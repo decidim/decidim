@@ -154,8 +154,8 @@ export class AddCommentForm extends Component {
    * @returns {Void|DOMElement} - Returns nothing or a form field.
    */
   _renderCommentAs() {
-    const { currentUser, commentableType, commentableId } = this.props;
-    const { verifiedUserGroups } = currentUser;
+    const { session, commentableType, commentableId } = this.props;
+    const { user, verifiedUserGroups } = session;
 
     if (verifiedUserGroups.length > 0) {
       return (
@@ -167,7 +167,7 @@ export class AddCommentForm extends Component {
             ref={(select) => {this.userGroupIdSelect = select}}
             id={`add-comment-${commentableType}-${commentableId}-user-group-id`}
           >
-            <option>{ currentUser.name }</option>
+            <option value="">{ user.name }</option>
             {
               verifiedUserGroups.map((userGroup) => (
                 <option key={userGroup.id} value={userGroup.id}>{userGroup.name}</option>
@@ -227,8 +227,15 @@ AddCommentForm.defaultProps = {
 
 AddCommentForm.propTypes = {
   addComment: PropTypes.func.isRequired,
-  currentUser: PropTypes.shape({
-    name: PropTypes.string.isRequired
+  session: PropTypes.shape({
+    user: PropTypes.shape({
+      name: PropTypes.string.isRequired
+    }),
+    verifiedUserGroups: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired
+      })
+    ).isRequired
   }).isRequired,
   commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired,
@@ -254,12 +261,13 @@ const AddCommentFormWithMutation = graphql(gql`
   ${downVoteFragment}
 `, {
   props: ({ ownProps, mutate }) => ({
-    addComment: ({ body, alignment }) => mutate({
+    addComment: ({ body, alignment, userGroupId }) => mutate({
       variables: {
         commentableId: ownProps.commentableId,
         commentableType: ownProps.commentableType,
         body,
-        alignment
+        alignment,
+        userGroupId
       },
       optimisticResponse: {
         __typename: 'Mutation',
@@ -271,8 +279,8 @@ const AddCommentFormWithMutation = graphql(gql`
           alignment: alignment,
           author: {
             __typename: 'Author',
-            name: ownProps.currentUser.name,
-            avatarUrl: ownProps.currentUser.avatarUrl
+            name: ownProps.session.user.name,
+            avatarUrl: ownProps.session.user.avatarUrl
           },
           replies: [],
           hasReplies: false,

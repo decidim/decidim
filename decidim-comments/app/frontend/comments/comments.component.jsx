@@ -55,13 +55,13 @@ export class Comments extends Component {
    * @returns {ReactComponent[]} - A collection of CommentThread components
    */
   _renderCommentThreads() {
-    const { comments, currentUser, options: { votable } } = this.props;
+    const { comments, session, options: { votable } } = this.props;
 
     return comments.map((comment) => (
       <CommentThread
         key={comment.id}
         comment={filter(CommentThread.fragments.comment, comment)}
-        currentUser={currentUser}
+        session={session}
         votable={votable}
       />
     ))
@@ -73,12 +73,12 @@ export class Comments extends Component {
    * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
    */
   _renderAddCommentForm() {
-    const { currentUser, commentableId, commentableType, options: { arguable } } = this.props;
+    const { session, commentableId, commentableType, options: { arguable } } = this.props;
 
-    if (currentUser) {
+    if (session) {
       return (
         <AddCommentForm
-          currentUser={currentUser}
+          session={session}
           commentableId={commentableId}
           commentableType={commentableType}
           arguable={arguable}
@@ -95,8 +95,8 @@ Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired
   })),
-  currentUser: PropTypes.shape({
-    name: PropTypes.string.isRequired
+  session: PropTypes.shape({
+    user: PropTypes.any.isRequired
   }),
   commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired,
@@ -119,10 +119,10 @@ const CommentsWithData = graphql(gql`
   options: {
     pollInterval: 15000
   },
-  props: ({ ownProps, data: {loading, currentUser, comments, refetch }}) => ({
+  props: ({ ownProps, data: { loading, session, comments, refetch }}) => ({
     loading: loading,
     comments: comments || [],
-    currentUser: currentUser || null,
+    session,
     commentableId: ownProps.commentableId,
     commentableType: ownProps.commentableType,
     orderBy: ownProps.orderBy,

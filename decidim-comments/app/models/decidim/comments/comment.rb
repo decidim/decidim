@@ -15,6 +15,7 @@ module Decidim
 
       belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
+      belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: Decidim::UserGroup
       has_many :replies, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: Comment
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: CommentVote, dependent: :destroy
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: CommentVote, dependent: :destroy

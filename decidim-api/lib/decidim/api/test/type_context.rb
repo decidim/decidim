@@ -18,6 +18,7 @@ RSpec.shared_context "graphql type" do
 
     GraphQL::Schema.define do
       query query_type
+      resolve_type lambda { |obj, ctx| }
     end
   end
 
