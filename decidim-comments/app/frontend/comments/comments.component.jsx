@@ -22,26 +22,20 @@ import commentsQuery            from './comments.query.graphql';
 export class Comments extends Component {
   render() {
     const { comments, reorderComments, orderBy, loading } = this.props;
-
-    if (loading) {
-      return (
-        <div className="columns large-9" id="comments">
-          <section className="comments loading-comments">
-            <div className="row collapse order-by">
-              <h2 className="order-by__text section-heading">
-                { I18n.t("components.comments.loading") }
-              </h2>
-            </div>
-          </section>
-        </div>
-      );
+    let commentClasses = "comments";
+    let commentHeader = I18n.t("components.comments.title", { count: comments.length });
+    
+    if (loading) { 
+      commentClasses += " loading-comments"
+      commentHeader = I18n.t("components.comments.loading");
     }
+
     return (
       <div className="columns large-9" id="comments">
-        <section className="comments">
+        <section className={commentClasses}>
           <div className="row collapse order-by">
             <h2 className="order-by__text section-heading">
-              { I18n.t("components.comments.title", { count: comments.length }) }
+              { commentHeader }
             </h2>
             <CommentOrderSelector 
               reorderComments={reorderComments}
@@ -54,7 +48,7 @@ export class Comments extends Component {
       </div>
     );
   }
- 
+
   /**
    * Iterates the comment's collection and render a CommentThread for each one
    * @private
