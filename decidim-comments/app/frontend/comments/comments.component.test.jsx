@@ -80,7 +80,7 @@ describe('<Comments />', () => {
   });
 
   it("should render loading-comments calss and the respective loading text", () => {
-    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} currentUser={currentUser} options={{}} reorderComments={reorderComments} orderBy={orderBy} loading />);
+    const wrapper = shallow(<Comments comments={comments} commentableId={commentableId} commentableType={commentableType} session={session} options={{}} reorderComments={reorderComments} orderBy={orderBy} loading />);
     expect(wrapper.find('.loading-comments')).to.be.present();
     expect(wrapper.find('h2')).to.have.text("Loading comments ...");
   });
