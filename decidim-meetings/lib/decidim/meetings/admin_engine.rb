@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require "geocoder"
+
 module Decidim
   module Meetings
     # This is the engine that runs on the public interface of `decidim-meetings`.

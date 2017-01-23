@@ -15,6 +15,8 @@ module Decidim
       validate :scope_belongs_to_organization
       validate :category_belongs_to_organization
 
+      geocoded_by :address
+
       def closed?
         closed_at.present?
       end
