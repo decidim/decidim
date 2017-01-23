@@ -30,6 +30,7 @@ es:
       comment_thread:
         title: Conversación con %{authorName}
       comments:
+        loading: Cargando los comentarios ...
         title: "%{count} comentarios"
       featured_comment:
         title: Comentario destacado

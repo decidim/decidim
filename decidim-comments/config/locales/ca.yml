@@ -30,6 +30,7 @@ ca:
       comment_thread:
         title: Conversa amb %{authorName}
       comments:
+        loading: Carregant els comentaris ...
         title: "%{count} comentaris"
       featured_comment:
         title: Comentari destacat
