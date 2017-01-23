@@ -21,14 +21,21 @@ import commentsQuery            from './comments.query.graphql';
  */
 export class Comments extends Component {
   render() {
-    const { comments, reorderComments, orderBy } = this.props;
+    const { comments, reorderComments, orderBy, loading } = this.props;
+    let commentClasses = "comments";
+    let commentHeader = I18n.t("components.comments.title", { count: comments.length });
+    
+    if (loading) { 
+      commentClasses += " loading-comments"
+      commentHeader = I18n.t("components.comments.loading");
+    }
 
     return (
       <div className="columns large-9" id="comments">
-        <section className="comments">
+        <section className={commentClasses}>
           <div className="row collapse order-by">
             <h2 className="order-by__text section-heading">
-              { I18n.t("components.comments.title", { count: comments.length }) }
+              { commentHeader }
             </h2>
             <CommentOrderSelector 
               reorderComments={reorderComments}
@@ -41,7 +48,7 @@ export class Comments extends Component {
       </div>
     );
   }
- 
+
   /**
    * Iterates the comment's collection and render a CommentThread for each one
    * @private
@@ -59,7 +66,7 @@ export class Comments extends Component {
       />
     ))
   }
- 
+
   /**
    * If current user is present it renders the add comment form
    * @private
@@ -67,7 +74,7 @@ export class Comments extends Component {
    */
   _renderAddCommentForm() {
     const { currentUser, commentableId, commentableType, options: { arguable } } = this.props;
-    
+
     if (currentUser) {
       return (
         <AddCommentForm 
@@ -84,6 +91,7 @@ export class Comments extends Component {
 }
 
 Comments.propTypes = {
+  loading: PropTypes.bool,
   comments: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired
   })),
@@ -110,7 +118,8 @@ const CommentsWithData = graphql(gql`
   options: {
     pollInterval: 15000
   },
-  props: ({ ownProps, data: { currentUser, comments, refetch }}) => ({
+  props: ({ ownProps, data: {loading, currentUser, comments, refetch }}) => ({
+    loading: loading,
     comments: comments || [],
     currentUser: currentUser || null,
     commentableId: ownProps.commentableId,
