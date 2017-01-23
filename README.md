@@ -88,10 +88,10 @@ And don't forget to run the upgrade script:
 
 ```
 $ rails decidim:upgrade
+
 ```
 
 If new migrations appear, remember to:
-
 ```
 $ rails db:migrate
 ```
@@ -101,7 +101,9 @@ $ rails db:migrate
 You can use Docker instead of installing the gems yourself. Run `docker-compose build` and then you can generate a new decidim application using `docker-compose run --rm decidim bundle exec bin/decidim <app-name>`.
 
 Also you can run it as a standalone container like this:
-`docker run --rm codegram/decidim bundle exec bin/decidim <app-name>`.
+`docker run --rm -v $(pwd):/tmp -it codegram/decidim bundle exec bin/decidim /tmp/<app-name>`
+
+Now you have a new Decidim app created at `<app-name>` 🎉
 
 ## How to contribute
 
