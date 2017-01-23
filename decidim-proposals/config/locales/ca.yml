@@ -3,6 +3,9 @@ ca:
     features:
       proposals:
         name: Propostes
+        settings:
+          step:
+            votes_enabled: Vots habilitats
     proposals:
       actions:
         new: Nova proposta
@@ -38,12 +41,14 @@ ca:
             one: 1 proposta
             other: "%{count} propostes"
         filters:
+          activity: Activitat
           all: Tots
           category: Categoria
           citizenship: Ciutadania
           official: Oficial
           origin: Origen
           search: Cerca
+          voted: Votat
         index:
           new_proposal: Nova proposta
         new:
@@ -58,3 +63,10 @@ ca:
           close_window: Tanca la finestra
           share: Compartir
           share_link: Comparteix l'enllaç
+        vote_button:
+          already_voted: Ja has votat
+          vote: Votar
+        votes_count:
+          count:
+            one: VOT
+            other: VOTS

@@ -1,4 +1,10 @@
 es:
+  activemodel:
+    attributes:
+      user:
+        user_group_document_number: Número de documento acreditativo
+        user_group_name: Nombre de la Organización
+        user_group_phone: Teléfono de la organización
   activerecord:
     attributes:
       decidim/user:
@@ -26,6 +32,8 @@ es:
         title: Mi cuenta
     authorization_handlers:
       decidim/dummy_authorization_handler: Autorización de ejemplo
+      errors:
+        duplicate_authorization: Un usuario ya está autorizado con los mismos datos.
     authorizations:
       create:
         error: Se ha producido un error al crear la autorización.
@@ -46,11 +54,22 @@ es:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
     devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
+        new:
+          complete_profile: Completar perfil
+          sign_up: Complete su perfil
+          subtitle: Por favor, rellene el siguiente formulario con el fin de completar la inscripción
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           sign_in: Entra
           sign_up: Regístrate
+          sign_up_as:
+            legend: Inscribirse como
+            user: Individual
+            user_group: Organización/Colectivo
           subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
           terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
@@ -59,14 +78,26 @@ es:
         new:
           are_you_new?: '¿Eres nuevo en la plataforma?'
           register: Créate una cuenta
+      shared:
+        omniauth_buttons:
+          or: O
     menu:
       home: Inicio
       processes: Procesos
+    participatory_process_steps:
+      index:
+        process_steps: Las fases de proceso
+      participatory_process_step:
+        info: Información
     participatory_processes:
       documents:
         related_documents: Documentos relacionados
       photos:
         related_photos: Fotos relacionadas
+    shared:
+      login_modal:
+        please_sign_in: Por favor, regístrese
+        sign_up: Regístrese
   devise:
     mailer:
       invitation_instructions:
@@ -85,6 +116,7 @@ es:
       password_change:
         greeting: '¡Hola %{recipient}!'
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
+        subject: Contraseña modificada
   errors:
     messages:
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
@@ -118,6 +150,8 @@ es:
           take_part: Participa
       process_header:
         process_menu_item: El proceso
+      process_header_steps:
+        view_steps: Ver las fases
       user_menu:
         profile: Mi cuenta
         sign_out: Sal
@@ -146,6 +180,10 @@ es:
       proposals_explanation: Espacio abierto de propuestas de los ciudadanos sobre en qué tipo de ciudad queremos vivir.
       register: Regístrate
       see_all_processes: Ver todos los procesos
+      stats:
+        headline: Estado actual de %{organization}
+        processes: Procesos
+        users: Usuarios
       welcome: Bienvenido/da %{organization}!
   views:
     pagination:

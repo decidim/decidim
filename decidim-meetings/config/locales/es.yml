@@ -38,6 +38,7 @@ es:
           date: Fecha
           descendent: Descendiente
           scopes: Ámbitos
+          search: Buscar
         index:
           title: Lista de encuentros
         show:

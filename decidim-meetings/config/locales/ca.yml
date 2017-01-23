@@ -38,6 +38,7 @@ ca:
           date: Data
           descendent: Descendent
           scopes: Àmbits
+          search: Cerca
         index:
           title: Llistat de trobades
         show:
