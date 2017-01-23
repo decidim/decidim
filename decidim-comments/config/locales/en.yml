@@ -31,7 +31,7 @@ en:
       comment_thread:
         title: Conversation with %{authorName}
       comments:
+        loading: Loading comments ...
         title: "%{count} comments"
-        loading: "Loading comments ..."
       featured_comment:
         title: Featured comment
