@@ -42,7 +42,7 @@ module Decidim
 
       initializer "decidim.action_controller" do |_app|
         ActiveSupport.on_load :action_controller do
-          helper Decidim::LayoutHelper
+          helper Decidim::LayoutHelper if respond_to?(:helper)
         end
       end
 
