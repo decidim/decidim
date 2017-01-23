@@ -6,10 +6,6 @@
       <p>
         <%= t(".subtitle") %>
       </p>
-      <p>
-        <%= t(".already_have_an_account?") %>
-        <%= link_to t(".sign_in"), new_user_session_path %>
-      </p>
     </div>
   </div>
 
@@ -17,9 +13,10 @@
 
   <div class="row">
     <div class="columns large-6 medium-10 medium-centered">
-      <span class="register__separator">
-        <span class="register__separator__text"><%= t('.or') %></span>
-      </span>
+      <p class="text-center">
+        <%= t(".already_have_an_account?") %>
+        <%= link_to t(".sign_in"), new_user_session_path %>
+      </p>
       <div class="card">
         <div class="card__content">
           <%= form_for(@form, as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
