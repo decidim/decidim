@@ -90,11 +90,11 @@ describe "Participatory Processes", type: :feature do
     context "when it has attachments" do
       let!(:document) do
         Decidim::AttachmentUploader.enable_processing = true
-        create(:participatory_process_attachment, :with_pdf, participatory_process: participatory_process)
+        create(:attachment, :with_pdf, attachable: participatory_process)
       end
       let!(:image) do
         Decidim::AttachmentUploader.enable_processing = true
-        create(:participatory_process_attachment, participatory_process: participatory_process)
+        create(:attachment, attachable: participatory_process)
       end
 
       before do

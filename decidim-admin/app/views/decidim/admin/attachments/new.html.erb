@@ -1,0 +1,9 @@
+<h3><%= t ".title" %></h3>
+
+<%= form_for(@form, url: [attachable, @form]) do |f| %>
+  <%= render partial: 'decidim/admin/attachments/form', object: f %>
+
+  <div class="actions">
+    <%= f.submit t(".create") %>
+  </div>
+<% end %>

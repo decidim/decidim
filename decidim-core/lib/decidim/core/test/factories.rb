@@ -147,11 +147,11 @@ FactoryGirl.define do
     end
   end
 
-  factory :participatory_process_attachment, class: Decidim::ParticipatoryProcessAttachment do
+  factory :attachment, class: Decidim::Attachment do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { test_file("city.jpeg", "image/jpeg") }
-    participatory_process
+    attachable { build(:participatory_process) }
 
     trait :with_image do
       file { test_file("city.jpeg", "image/jpeg") }

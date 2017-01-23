@@ -25,7 +25,7 @@ ca:
         slug: Nom curt d'URL
         subtitle: Subtítol
         title: Títol
-      participatory_process_attachment:
+      attachment:
         description: Descripció
         file: Arxiu
         title: Títol
@@ -87,7 +87,7 @@ ca:
           categories:
             index:
               categories_title: Categories
-          participatory_process_attachments:
+          attachments:
             index:
               attachments_title: Adjunts
           participatory_process_steps:
@@ -151,7 +151,7 @@ ca:
             published: Publicat
             title: Títol
           name: Procés participatiu
-        participatory_process_attachment:
+        attachment:
           fields:
             content_type: Tipus
             title: Títol
@@ -199,7 +199,7 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: Organització actualitzada correctament.
-      participatory_process_attachments:
+      attachments:
         create:
           error: S'ha produït un error en crear un nou arxiu adjunt.
           success: Adjunt creat correctament.

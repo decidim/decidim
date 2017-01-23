@@ -2,8 +2,8 @@
 require "spec_helper"
 
 module Decidim
-  describe ParticipatoryProcessAttachment do
-    subject { build(:participatory_process_attachment) }
+  describe Attachment do
+    subject { build(:attachment) }
 
     before do
       Decidim::AttachmentUploader.enable_processing = true
@@ -23,7 +23,7 @@ module Decidim
       context "when the file is a malicious image" do
         subject do
           build(
-            :participatory_process_attachment,
+            :attachment,
             file: Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "..", "..", "decidim-dev", "spec", "support", "malicious.jpg"), "image/jpg")
           )
         end
@@ -39,7 +39,7 @@ module Decidim
     end
 
     context "when it has an image" do
-      subject { build(:participatory_process_attachment, :with_image) }
+      subject { build(:attachment, :with_image) }
 
       it "has a thumbnail" do
         expect(subject.thumbnail_url).to be
@@ -63,7 +63,7 @@ module Decidim
     end
 
     context "when it has a document" do
-      subject { build(:participatory_process_attachment, :with_pdf) }
+      subject { build(:attachment, :with_pdf) }
 
       it "does not have a thumbnail" do
         expect(subject.thumbnail_url).to be_nil
