@@ -26,7 +26,7 @@ export class Comments extends Component {
     if (loading) {
       return (
         <div className="columns large-9" id="comments">
-          <section className="comments">
+          <section className="comments loading-comments">
             <div className="row collapse order-by">
               <h2 className="order-by__text section-heading">
                 { I18n.t("components.comments.loading") }
@@ -72,7 +72,7 @@ export class Comments extends Component {
       />
     ))
   }
- 
+
   /**
    * If current user is present it renders the add comment form
    * @private
@@ -80,7 +80,7 @@ export class Comments extends Component {
    */
   _renderAddCommentForm() {
     const { currentUser, commentableId, commentableType, options: { arguable } } = this.props;
-    
+
     if (currentUser) {
       return (
         <AddCommentForm 
@@ -97,7 +97,7 @@ export class Comments extends Component {
 }
 
 Comments.propTypes = {
-  loading: PropTypes.bool.isRequired,
+  loading: PropTypes.bool,
   comments: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired
   })),
