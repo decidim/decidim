@@ -51,9 +51,9 @@ en:
           search: Search
           voted: Voted
         filters_small_view:
+          close_modal: Close modal
           filter: Filter
           filter_for: Filter by
-          close_modal: Close modal
           unfold: Unfold
         index:
           new_proposal: New proposal
