@@ -20,6 +20,7 @@ module Decidim
     end
 
     def first_login
+      authorize! :read, Authorization
       redirect_to(action: :new, handler: handlers.first.handler_name) if handlers.length == 1
     end
 
