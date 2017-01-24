@@ -6,8 +6,37 @@ module Decidim
   class AccountController < ApplicationController
     helper_method :authorizations, :handlers
     authorize_resource :user_account, class: false
+    include FormFactory
 
     layout "layouts/decidim/user_profile"
+
+    def show
+      authorize! :show, current_user
+      @account = form(AccountForm).from_model(current_user)
+    end
+
+    def update
+      authorize! :update, current_user
+      @account = form(AccountForm).from_params(params)
+
+      UpdateAccount.call(current_user, @account) do
+        on(:ok) do
+          flash.now[:notice] = if current_user.unconfirmed_email.present?
+                                 t("account.update.success_with_email_confirmation", scope: "decidim")
+                               else
+                                 t("account.update.success", scope: "decidim")
+                               end
+
+          bypass_sign_in(current_user)
+        end
+
+        on(:invalid) do
+          flash.now[:alert] = t("account.update.error", scope: "decidim")
+        end
+      end
+
+      render action: :show
+    end
 
     private
 

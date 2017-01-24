@@ -42,7 +42,7 @@ Decidim::Core::Engine.routes.draw do
         get :first_login
       end
     end
-    resource :account, only: [:show], controller: "account"
+    resource :account, only: [:show, :update], controller: "account"
   end
 
   get "/pages/*id" => "pages#show", as: :page, format: false

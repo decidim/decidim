@@ -1,0 +1,22 @@
+<div class="row">
+  <%= form_for(@account, url: account_path, method: :put, class: "user-form") do |f| %>
+    <div class="columns large-4 text-center">
+      <%= image_tag current_user.avatar.big.url, width: "100%" %>
+      <%= f.file_field :avatar, label: false %>
+    </div>
+
+    <div class="columns large-8 end">
+      <%= f.text_field :name %>
+      <%= f.email_field :email %>
+      <p>
+        <a data-toggle="passwordChange"><%= t ".change_password" %></a>
+      </p>
+      <div id="passwordChange" class="toggle-show"
+           data-toggler=".is-expanded">
+        <%= f.password_field :password %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <%= f.submit t(".update_account") %>
+    <% end %>
+  </div>
+</div>
