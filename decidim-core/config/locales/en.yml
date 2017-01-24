@@ -25,12 +25,6 @@ en:
     errors:
       image_too_big: The image is too big
   decidim:
-    account:
-      authorizations:
-        authorization_confirm_destroy: Are you sure you want to delete this authorization?
-      show:
-        authorizations: Authorizations
-        title: My account
     authorization_handlers:
       decidim/dummy_authorization_handler: Example authorization
       errors:
@@ -42,11 +36,13 @@ en:
       current_participatory_processes: take a look at the current processes
       destroy:
         success: Authorization successfully destroyed
-      index:
+      first_login:
         actions:
           decidim/dummy_authorization_handler: Verify against the example authorization
         title: Verify your identity
         verify_with_these_options: 'These are the available options to verify your identity:'
+      index:
+        authorization_confirm_destroy: Are you sure you want to delete this authorization?
       new:
         authorize: Send
         authorize_with: Verify with %{authorizer}
@@ -156,6 +152,10 @@ en:
       user_menu:
         profile: My account
         sign_out: Sign out
+      user_profile:
+        account: Account
+        authorizations: Authorizations
+        title: User settings
   locales:
     ca: Català
     en: English

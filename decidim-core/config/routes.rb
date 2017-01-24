@@ -37,7 +37,11 @@ Decidim::Core::Engine.routes.draw do
   end
 
   authenticate(:user) do
-    resources :authorizations, only: [:new, :create, :destroy, :index]
+    resources :authorizations, only: [:new, :create, :destroy, :index] do
+      collection do
+        get :first_login
+      end
+    end
     resource :account, only: [:show], controller: "account"
   end
 

@@ -7,6 +7,8 @@ module Decidim
     helper_method :authorizations, :handlers
     authorize_resource :user_account, class: false
 
+    layout "layouts/decidim/user_profile"
+
     private
 
     def handlers

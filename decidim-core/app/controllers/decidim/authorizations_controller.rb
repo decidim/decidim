@@ -7,7 +7,8 @@ module Decidim
   class AuthorizationsController < ApplicationController
     helper_method :handler, :handlers
     before_action :valid_handler, only: [:new, :create]
-    before_action :only_one_handler?, only: [:index]
+
+    layout "layouts/decidim/user_profile", only: [:index]
 
     def new
       authorize! current_user, Authorization
@@ -15,6 +16,11 @@ module Decidim
 
     def index
       authorize! current_user, Authorization
+      @authorizations = current_user.authorizations
+    end
+
+    def first_login
+      redirect_to(action: :new, handler: handlers.first.handler_name) if handlers.length == 1
     end
 
     def create
