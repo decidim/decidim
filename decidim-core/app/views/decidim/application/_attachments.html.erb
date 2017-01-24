@@ -1,0 +1,8 @@
+<% if attachable.attachments.any? %>
+  <div class="row attachments">
+    <div class="columns large-8">
+      <%= render partial: "documents", locals: { documents: attachable.documents } %>
+      <%= render partial: "photos", locals: { photos: attachable.photos } %>
+    </div>
+  </div>
+<% end %>
