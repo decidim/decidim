@@ -88,8 +88,6 @@ en:
     participatory_process_steps:
       index:
         process_steps: Process steps
-      participatory_process_step:
-        info: Information
     participatory_processes:
       documents:
         related_documents: Related documents
