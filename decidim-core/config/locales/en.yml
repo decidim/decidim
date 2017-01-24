@@ -3,21 +3,13 @@ en:
   activemodel:
     attributes:
       user:
-        user_group_document_number: Organization document number
-        user_group_name: Organization name
-        user_group_phone: Organization phone
-  activerecord:
-    attributes:
-      decidim/user:
-        current_password: Current password
         email: Email
         name: Username
         password: Password
         password_confirmation: Password confirmation
-        remember_me: Remember me
-        tos_agreement: Terms & conditions
-    models:
-      decidim/user: User
+        user_group_document_number: Organization document number
+        user_group_name: Organization name
+        user_group_phone: Organization phone
   booleans:
     'false': 'No'
     'true': 'Yes'
@@ -60,24 +52,18 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
-          email: Email
-          name: Username
           sign_up: Complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         new:
           already_have_an_account?: Already have an account?
-          email: Email
-          name: Username
-          password: Password
-          password_confirmation: Password confirmation
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
             legend: Sign up as
             user: Individual
-            user_group: Organization/
+            user_group: Organization/Collective
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
