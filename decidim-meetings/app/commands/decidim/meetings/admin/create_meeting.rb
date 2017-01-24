@@ -22,7 +22,7 @@ module Decidim
         private
 
         def create_meeting
-          Meeting.create!(
+          @meeting = Meeting.create!(
             scope: @form.scope,
             category: @form.category,
             title: @form.title,
@@ -35,6 +35,8 @@ module Decidim
             location_hints: @form.location_hints,
             feature: @form.current_feature
           )
+          @meeting.geocode
+          @meeting.save
         end
       end
     end

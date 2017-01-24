@@ -33,6 +33,11 @@
         <td>
           <%= humanize_boolean meeting.closed? %>
         </td>
+        <td>
+          <%= meeting.latitude %>
+          <br />
+          <%= meeting.longitude %>
+        </td>
         <td class="actions">
           <%= link_to t("actions.edit", scope: "decidim.meetings"), edit_meeting_path(meeting) if can? :update, current_feature %>
           <%= link_to t("actions.close", scope: "decidim.meetings"), edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id) if can? :update, current_feature %>

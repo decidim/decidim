@@ -27,6 +27,11 @@ module Decidim
         private
 
         def update_meeting
+          if address_changed?
+            @meeting.geocode
+            @meeting.save
+          end
+
           @meeting.update_attributes!(
             scope: @form.scope,
             category: @form.category,
@@ -39,6 +44,10 @@ module Decidim
             location: @form.location,
             location_hints: @form.location_hints
           )
+        end
+
+        def address_changed?
+          @form.address != @meeting.address
         end
       end
     end
