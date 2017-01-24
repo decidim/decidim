@@ -16,7 +16,7 @@
         <%= f.password_field :password %>
         <%= f.password_field :password_confirmation %>
       </div>
-      <%= f.submit t(".update_account") %>
+      <%= f.submit t(".update_account"), disable_with: true %>
     <% end %>
   </div>
 </div>

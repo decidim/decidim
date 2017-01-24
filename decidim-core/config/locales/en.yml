@@ -25,6 +25,9 @@ en:
     errors:
       image_too_big: The image is too big
   decidim:
+    account:
+      show:
+        update_account: Update account
     authorization_handlers:
       decidim/dummy_authorization_handler: Example authorization
       errors:
