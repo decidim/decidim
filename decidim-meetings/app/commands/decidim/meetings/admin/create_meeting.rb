@@ -36,7 +36,7 @@ module Decidim
             feature: @form.current_feature
           )
           @meeting.geocode
-          @meeting.save
+          @meeting.save!
         end
       end
     end

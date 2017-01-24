@@ -12,6 +12,7 @@ module Decidim
         def initialize(form, meeting)
           @form = form
           @meeting = meeting
+          @previous_address = meeting.address
         end
 
         # Updates the meeting if valid.
@@ -27,11 +28,6 @@ module Decidim
         private
 
         def update_meeting
-          if address_changed?
-            @meeting.geocode
-            @meeting.save
-          end
-
           @meeting.update_attributes!(
             scope: @form.scope,
             category: @form.category,
@@ -44,10 +40,15 @@ module Decidim
             location: @form.location,
             location_hints: @form.location_hints
           )
+
+          if address_changed?
+            @meeting.geocode
+            @meeting.save
+          end
         end
 
         def address_changed?
-          @form.address != @meeting.address
+          @form.address != @previous_address
         end
       end
     end

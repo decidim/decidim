@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'httparty'
 
 module Decidim
   module Meetings
@@ -9,6 +10,31 @@ module Decidim
       helper_method :meetings, :meeting
 
       def index; end
+
+      def static_map
+        @meeting = Meeting.where(feature: current_feature).find(params[:id])
+
+        static_map_data = Rails.cache.fetch(@meeting.cache_key) do
+          params = {
+            c: "#{@meeting.latitude}, #{@meeting.longitude}",
+            z: "15",
+            w: "120",
+            h: "120",
+            f: "1",
+            app_id: Rails.application.secrets.dig(:geocoder, "api_key").try(&:first),
+            app_code: Rails.application.secrets.dig(:geocoder, "api_key").try(&:last)
+          }
+
+          uri = URI.parse('https://image.maps.cit.api.here.com/mia/1.6/mapview').tap do |uri|
+            uri.query = URI.encode_www_form params
+          end
+
+          request = HTTParty.get(uri)
+          request.body
+        end
+
+        send_data static_map_data, type: "image/jpeg", disposition: 'inline'
+      end
 
       private
 

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Meetings
     # The data store for a Meeting in the Decidim::Meetings component. It stores a

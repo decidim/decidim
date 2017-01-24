@@ -11,7 +11,11 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
-        resources :meetings, only: [:index, :show]
+        resources :meetings, only: [:index, :show] do
+          member do
+            get :static_map
+          end
+        end
         root to: "meetings#index"
       end
     end

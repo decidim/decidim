@@ -11,6 +11,7 @@
       <th><%= t("models.meeting.fields.start_time", scope: "decidim.meetings") %></th>
       <th><%= t("models.meeting.fields.end_time", scope: "decidim.meetings") %></th>
       <th><%= t("models.meeting.fields.closed", scope: "decidim.meetings") %></th>
+      <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
       <th class="actions"><%= t("actions.title", scope: "decidim.meetings") %></th>
     </tr>
   </thead>
@@ -34,9 +35,7 @@
           <%= humanize_boolean meeting.closed? %>
         </td>
         <td>
-          <%= meeting.latitude %>
-          <br />
-          <%= meeting.longitude %>
+          <%= static_map_image_tag(meeting) %>
         </td>
         <td class="actions">
           <%= link_to t("actions.edit", scope: "decidim.meetings"), edit_meeting_path(meeting) if can? :update, current_feature %>
