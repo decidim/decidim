@@ -152,6 +152,7 @@ en:
       process_header_steps:
         view_steps: View steps
       user_menu:
+        admin_dashboard: Admin dashboard
         profile: My account
         sign_out: Sign out
   locales:
