@@ -18,7 +18,7 @@ module Decidim
         invite_user
       end
 
-      broadcast(:ok)
+      broadcast(:ok, user)
     end
 
     private
@@ -35,7 +35,7 @@ module Decidim
     end
 
     def invite_user
-      Decidim::User.invite!(
+      @user = Decidim::User.invite!(
         {
           name: form.name,
           email: form.email.downcase,
