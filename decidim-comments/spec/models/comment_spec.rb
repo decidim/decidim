@@ -7,7 +7,7 @@ module Decidim
   module Comments
     describe Comment do
       let!(:commentable) { create(:participatory_process) }
-      let!(:comment)  { create(:comment, commentable: commentable) }
+      let!(:comment) { create(:comment, commentable: commentable) }
       let!(:replies) { 3.times.map { create(:comment, commentable: comment) } }
       let!(:up_vote) { create(:comment_vote, :up_vote, comment: comment) }
       let!(:down_vote) { create(:comment_vote, :down_vote, comment: comment) }
