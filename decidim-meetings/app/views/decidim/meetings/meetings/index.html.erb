@@ -1,16 +1,73 @@
 <% content_for(:title, t(".title")) %>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-<%= javascript_include_tag "leaflet-tilelayer-here.js" %>
-<div style="height: 500px;" id="mapid"></div>
-<script>
-  var map = L.map('mapid').setView([44, 2], 13);
-  L.tileLayer.here({
-    appId: 'cBAhW024awh3maEKSe1g',
-    appCode: '_LzlwfdbJ70EY1-BIOBsLg'
-  }).addTo(map);
-</script>
+
+<div class="row column">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  <%= javascript_include_tag "leaflet-tilelayer-here.js" %>
+  <%= javascript_include_tag "leaflet-svg-icon.js" %>
+  <div class="google-map" id="mapid"></div>
+  <script>
+    var map = L.map('mapid');
+    var arrayOfLatLngs = <%= meetings.select(&:geocoded?).map { |meeting| [meeting.latitude, meeting.longitude] } %>;
+    var bounds = new L.LatLngBounds(arrayOfLatLngs);
+
+    L.tileLayer.here({
+      appId: '<%= Rails.application.secrets.dig(:geocoder, "api_key").try(&:first) %>',
+      appCode: '<%= Rails.application.secrets.dig(:geocoder, "api_key").try(&:last) %>'
+    }).addTo(map);
+
+    let markerCoords;
+    let marker;
+
+    L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
+      options: {
+        fillColor: '#ef604d',
+        opacity: 0
+      },
+      _createPathDescription: function() {
+        return 'M18,6.78a7.79,7.79,0,0,0-7.79,7.79c0,7.5,6.82,13.74,7.11,14a1,1,0,0,0,1.35,0c0.29-.29,7.11-6.54,7.11-14A7.79,7.79,0,0,0,18,6.78Zm0,11.61A3.39,3.39,0,1,1,21.39,15,3.39,3.39,0,0,1,18,18.39Z';
+      },
+       _createCircle: function() {
+        return ""
+      }
+    });
+
+    <% meetings.select(&:geocoded?).each do |meeting| %>
+      markerCoords = [<%= meeting.latitude %>, <%= meeting.longitude %>];
+      marker = L.marker(markerCoords, { icon: new L.DivIcon.SVGIcon.DecidimIcon() }).addTo(map);
+
+      marker.bindPopup(`
+        <div class="map-info__content">
+          <h3><%= translated_attribute meeting.title %></h3>
+          <div id="bodyContent">
+            <p><%== translated_attribute meeting.short_description %></p>
+            <div class="map__date-adress">
+              <%= render partial: "datetime", locals: { meeting: meeting } %>
+              <div class="address card__extra">
+                <div class="address__icon">
+                  <%= icon "meetings", width: 40, height: 70, remove_icon_class: true %>
+                </div>
+                <%= render partial: "address_details", locals: { meeting: meeting } %>
+              </div>
+            </div>
+            <div class="map-info__button">
+              <%= link_to t('.see_meeting'), meeting, class: "button button--sc" %>
+            </div>
+          </div>
+        </div>
+      `, {
+        maxwidth: 640,
+        minWidth: 500,
+        keepInView: true,
+        className: 'map-info'
+      }).openPopup();
+    <% end %>
+
+    map.fitBounds(bounds);
+    map.zoomOut();
+  </script>
+</div>
 
 <div class="row">
   <div class="columns mediumlarge-4 large-3">

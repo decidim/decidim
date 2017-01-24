@@ -35,7 +35,7 @@
           <%= humanize_boolean meeting.closed? %>
         </td>
         <td>
-          <%= static_map_image_tag(meeting) %>
+          <%= static_map_link(meeting) %>
         </td>
         <td class="actions">
           <%= link_to t("actions.edit", scope: "decidim.meetings"), edit_meeting_path(meeting) if can? :update, current_feature %>

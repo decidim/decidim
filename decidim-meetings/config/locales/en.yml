@@ -63,6 +63,7 @@ en:
           filter_for: Filter by
           unfold: Unfold
         index:
+          see_meeting: See meeting
           title: Meetings
         show:
           meeting_description: Meeting description

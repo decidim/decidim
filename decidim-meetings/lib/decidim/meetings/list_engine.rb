@@ -20,7 +20,7 @@ module Decidim
       end
 
       initializer "decidim_meetings.assets" do |app|
-        app.config.assets.precompile += %w(leaflet-tilelayer-here.js)
+        app.config.assets.precompile += %w(leaflet-tilelayer-here.js leaflet-svg-icon.js)
       end
     end
   end
