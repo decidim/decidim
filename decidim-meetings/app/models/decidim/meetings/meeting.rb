@@ -10,6 +10,11 @@ module Decidim
       belongs_to :scope, foreign_key: "decidim_scope_id", class_name: Decidim::Scope
       belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
       has_one :organization, through: :feature
+      has_many :attachments,
+        class_name: Decidim::Attachment,
+        dependent: :destroy,
+        inverse_of: :attachable,
+        as: :attachable
       validates :title, presence: true
       validate :scope_belongs_to_organization
       validate :category_belongs_to_organization
