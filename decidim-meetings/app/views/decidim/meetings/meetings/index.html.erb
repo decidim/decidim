@@ -1,5 +1,17 @@
 <% content_for(:title, t(".title")) %>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<%= javascript_include_tag "leaflet-tilelayer-here.js" %>
+<div style="height: 500px;" id="mapid"></div>
+<script>
+  var map = L.map('mapid').setView([44, 2], 13);
+  L.tileLayer.here({
+    appId: 'cBAhW024awh3maEKSe1g',
+    appCode: '_LzlwfdbJ70EY1-BIOBsLg'
+  }).addTo(map);
+</script>
+
 <div class="row">
   <div class="columns mediumlarge-4 large-3">
     <%= render partial: "filters_small_view" %>

@@ -29,9 +29,7 @@
             <%= render partial: "address_details", locals: { meeting: meeting } %>
           </div>
           <div class="address__map">
-            <a href="#">
-              <%= static_map_image_tag(meeting) %>
-            </a>
+            <%= static_map_link(meeting) %>
           </div>
         </div>
       </div>

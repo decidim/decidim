@@ -18,6 +18,10 @@ module Decidim
         end
         root to: "meetings#index"
       end
+
+      initializer "decidim_meetings.assets" do |app|
+        app.config.assets.precompile += %w(leaflet-tilelayer-here.js)
+      end
     end
   end
 end
