@@ -6,6 +6,10 @@ en:
         user_group_document_number: Organization document number
         user_group_name: Organization name
         user_group_phone: Organization phone
+        name: Your name
+        email: Your email
+        password: New password
+        password_confirmation: Confirm your new password
   activerecord:
     attributes:
       decidim/user:
