@@ -58,7 +58,9 @@ en:
           search: Search
         filters_small_view:
           filter: Filter
-          filter_for: Filter for
+          filter_for: Filter by
+          close_modal: Close modal
+          unfold: Unfold
         index:
           title: Meetings
         show:

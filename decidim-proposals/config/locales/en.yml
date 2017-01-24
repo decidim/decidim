@@ -52,7 +52,9 @@ en:
           voted: Voted
         filters_small_view:
           filter: Filter
-          filter_for: Filter for
+          filter_for: Filter by
+          close_modal: Close modal
+          unfold: Unfold
         index:
           new_proposal: New proposal
         linked_proposals:
