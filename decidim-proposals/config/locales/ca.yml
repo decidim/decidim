@@ -49,8 +49,15 @@ ca:
           origin: Origen
           search: Cerca
           voted: Votat
+        filters_small_view:
+          filter_for: Filtrar per
+          unfold: Desplegar
         index:
           new_proposal: Nova proposta
+        linked_proposals:
+          proposal_votes:
+            one: 1 proposta
+            other: "%{count} propostes"
         new:
           back: Enrere
           select_a_category: Si us plau, seleccioni una categoria
