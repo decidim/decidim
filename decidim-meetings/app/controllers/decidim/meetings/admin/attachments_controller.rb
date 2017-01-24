@@ -4,7 +4,7 @@ module Decidim
     module Admin
       # This controller allows an admin to manage meetings from a Participatory Process
       class AttachmentsController < Admin::ApplicationController
-        include Concerns::Attachable
+        include Decidim::Admin::Concerns::Attachable
 
         def attachable
           meeting
