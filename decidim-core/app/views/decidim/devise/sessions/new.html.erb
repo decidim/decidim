@@ -3,14 +3,17 @@
     <div class="row collapse">
       <div class="columns large-8 large-centered text-center page-title">
         <h1 class="heading1"><%= t("devise.sessions.new.sign_in") %></h1>
-        <p>
+      </div>
+    </div>
+
+    <%= render "decidim/devise/shared/omniauth_buttons" %>
+
+    <div class="row">
+      <div class="columns large-6 medium-centered">
+        <p class="text-center">
           <%= t('.are_you_new?') %>
           <%= link_to t(".register"), new_user_registration_path %>
         </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="columns large-6 medium-centered">
         <div class="card">
           <div class="card__content">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
@@ -38,6 +41,5 @@
         </div>
       </div>
     </div>
-    <%= render "decidim/devise/shared/omniauth_buttons" %>
   </div>
 </main>
