@@ -33,7 +33,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
 
-    get "/" => proc { raise "Feature not found" }, as: :feature
+    get "/", to: redirect("/404"), as: :feature
   end
 
   authenticate(:user) do
