@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency "foundation_rails_helper", "~> 3.0.0.rc"
   s.add_dependency "active_link_to", "~> 1.0.0"
   s.add_dependency "pg", "~> 0.19.0"
-  s.add_dependency "redis", "~> 3.3.0"
+  s.add_dependency "redis", "~> 3.3.3"
   s.add_dependency "roadie-rails", "~> 1.0"
   s.add_dependency "roadie", "~> 3.2.1"
   s.add_dependency "high_voltage", "~> 3.0.0"
