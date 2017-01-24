@@ -6,7 +6,8 @@ module Decidim
     describe CommentForm do
       let(:body) { "This is a new comment" }
       let(:alignment) { 1 }
-      let(:user_group_id) { nil }
+      let(:user_group) { create(:user_group, :verified) }
+      let(:user_group_id) { user_group.id }
 
       let(:attributes) do
         {

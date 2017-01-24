@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Decidim
-  # This type represents a User.
+  # This type represents the current user session.
   SessionType = GraphQL::ObjectType.define do
     name "Session"
     description "The current session"

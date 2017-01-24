@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   module Api
-    # This type represents an author who owns a resource
+    # This interface represents an author who owns a resource.
     AuthorInterface = GraphQL::InterfaceType.define do
       name "Author"
       description "An author"
