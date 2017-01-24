@@ -20,7 +20,7 @@ module MailerHelpers
   end
 
   def last_email_body
-    (last_email.body || last_email.html_part.body).encoded
+    last_email.html_part.body.encoded
   end
 
   def last_email_link
