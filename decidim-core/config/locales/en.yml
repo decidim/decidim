@@ -27,7 +27,12 @@ en:
   decidim:
     account:
       show:
+        change_password: Change password
         update_account: Update account
+      update:
+        error: There's been an error updating your account.
+        success: Your account was updated successfully.
+        success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
     authorization_handlers:
       decidim/dummy_authorization_handler: Example authorization
       errors:
