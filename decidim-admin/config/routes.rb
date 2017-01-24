@@ -27,7 +27,7 @@ Decidim::Admin::Engine.routes.draw do
         end
       end
 
-      get "/" => proc { raise "Feature not found" }, as: :manage_feature
+      get "/", to: redirect("/404"), as: :manage_feature
     end
 
     resources :static_pages
