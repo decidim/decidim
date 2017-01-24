@@ -23,10 +23,10 @@ module Decidim
             dependent: :destroy,
             inverse_of: :participatory_process
     has_many :attachments,
-             foreign_key: "decidim_participatory_process_id",
-             class_name: Decidim::ParticipatoryProcessAttachment,
+             class_name: Decidim::Attachment,
              dependent: :destroy,
-             inverse_of: :participatory_process
+             inverse_of: :attachable,
+             as: :attachable
     has_many :categories,
              foreign_key: "decidim_participatory_process_id",
              class_name: Decidim::Category,
