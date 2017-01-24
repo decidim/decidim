@@ -7,7 +7,7 @@
       <span class="timeline__date text-small">
         <%= participatory_process_step_dates(participatory_process_step) %>
       </span>
-      <h6 class="timeline__title heading6"><%= t('.info') %></h6>
+      <h6 class="timeline__title heading6"><%= translated_attribute(participatory_process_step.title) %></h6>
     </div>
     <div class="timeline__content">
       <%= translated_attribute(participatory_process_step.description).html_safe %>
