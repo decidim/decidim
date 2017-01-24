@@ -87,8 +87,6 @@ ca:
     participatory_process_steps:
       index:
         process_steps: Fases del procés
-      participatory_process_step:
-        info: Informació
     participatory_processes:
       documents:
         related_documents: Documents relacionats
