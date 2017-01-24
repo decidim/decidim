@@ -26,8 +26,8 @@ module Decidim
     # Which kind of file this is.
     #
     # Returns String.
-    def file_type
-      file.file.extension
+    def file_extension
+      file.url&.split(".").last&.downcase
     end
 
     # The URL to download the file.
