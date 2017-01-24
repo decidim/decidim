@@ -1,17 +1,33 @@
 ca:
+  activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: Nombre d'assistents
+        attending_organizations: Llista d'organitzacions que han participat
+        closing_report: Informe
+        contributions_count: Nombre de contribucions
+        proposal_ids: Propostes creades en una trobada
   decidim:
     features:
       meetings:
         name: Llistat de trobades
     meetings:
       actions:
+        close: Tancar
         confirm_destroy: Esteu segur de que voleu suprimir aquesta trobada?
         destroy: Esborra
         edit: Edita
         new: Nou/va %{name}
         title: Accions
       admin:
+        meeting_closes:
+          edit:
+            close: Tancar
+            title: Tancar trobada
         meetings:
+          close:
+            invalid: Hi ha hagut un problema en tancar aquesta trobada
+            success: Trobada tancada amb èxit
           create:
             invalid: Hi ha hagut un problema en crear aquesta trobada
             success: Reunió creada amb èxit
@@ -39,6 +55,11 @@ ca:
           descendent: Descendent
           scopes: Àmbits
           search: Cerca
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_for: Filtra per
+          unfold: Desplegar
         index:
           title: Llistat de trobades
         show:
@@ -46,6 +67,10 @@ ca:
       models:
         meeting:
           fields:
+            closed: Tancada
             end_time: Data de finalització
             start_time: Data d'inici
             title: Títol
+    resource_links:
+      proposals_from_meeting:
+        proposals: Propostes relacionades

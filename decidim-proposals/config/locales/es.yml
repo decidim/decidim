@@ -49,6 +49,11 @@ es:
           origin: Origen
           search: Buscar
           voted: Votado
+        filters_small_view:
+          close_modal: Cerrar ventana
+          filter: Filtrar
+          filter_for: Filtrar por
+          unfold: Desplegar
         index:
           new_proposal: Nueva propuesta
         new:
@@ -70,3 +75,6 @@ es:
           count:
             one: VOTAR
             other: VOTOS
+    resource_links:
+      proposals_from_meeting:
+        meetings: Encuentros relacionados
