@@ -25,33 +25,33 @@
 
             <div class="user-person">
               <div class="field">
-                <%= f.text_field :name, help_text: t(".username_help") %>
+                <%= f.text_field :name, help_text: t(".username_help"), label: t("devise.registrations.new.name")  %>
               </div>
             </div>
 
             <div class="field">
-              <%= f.email_field :email %>
+              <%= f.email_field :email, label: t("devise.registrations.new.email") %>
             </div>
 
             <div class="field">
-              <%= f.password_field :password, autocomplete: "off" %>
+              <%= f.password_field :password, autocomplete: "off", label: t("devise.registrations.new.password") %>
             </div>
 
             <div class="field">
-              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", label: t("devise.registrations.new.password_confirmation") %>
             </div>
 
             <div class="user-group-fields">
               <div class="field">
-                <%= f.text_field :user_group_name %>
+                <%= f.text_field :user_group_name, label: t("devise.registrations.new.user_group_name") %>
               </div>
 
               <div class="field">
-                <%= f.text_field :user_group_document_number %>
+                <%= f.text_field :user_group_document_number, label: t("devise.registrations.new.user_group_document_number")%>
               </div>
 
               <div class="field">
-                <%= f.text_field :user_group_phone %>
+                <%= f.text_field :user_group_phone, label: t("devise.registrations.new.user_group_phone") %>
               </div>
             </div>
 

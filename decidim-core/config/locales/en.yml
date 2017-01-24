@@ -62,6 +62,9 @@ en:
           complete_profile: Complete profile
           sign_up: Complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
+          name: Username
+          email: Email
+          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         new:
           already_have_an_account?: Already have an account?
@@ -70,7 +73,14 @@ en:
           sign_up_as:
             legend: Sign up as
             user: Individual
-            user_group: Organization/Collective
+            user_group: Organization/
+          name: Username
+          email: Email
+          password: Password
+          password_confirmation: Password confirmation
+          user_group_document_number: Organization document number
+          user_group_name: Organization name
+          user_group_phone: Organization phone
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
