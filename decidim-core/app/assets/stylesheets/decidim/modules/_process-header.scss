@@ -51,7 +51,8 @@
     margin-bottom: 0;
     color: $white;
     border-color: $white;
-    &:hover{
+    &:hover,
+    &.is-active{
       color: $primary;
       border-color: $primary;
     }
