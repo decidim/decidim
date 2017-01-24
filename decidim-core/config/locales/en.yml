@@ -67,9 +67,6 @@ en:
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
-          user_group_document_number: Organization document number
-          user_group_name: Organization name
-          user_group_phone: Organization phone
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       sessions:
         new:
