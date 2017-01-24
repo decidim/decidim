@@ -1,0 +1,24 @@
+//Variables
+
+$filter-tags-color: $light-gray-dark;
+$filter-tags-padding: .2rem;
+
+/* Filter tags */
+.filter-tags__title{
+  margin-right: $filter-tags-padding * 2;
+}
+.filter-tags{
+  margin-bottom: 1rem - $filter-tags-padding;
+}
+.filter-tag{
+  display: inline-block;
+  background-color: $filter-tags-color;
+  border: $border;
+  padding: $filter-tags-padding $filter-tags-padding * 2;
+  margin-right: $filter-tags-padding * 2;
+  margin-bottom: $filter-tags-padding;
+}
+.filter-tag__close{
+  padding-left: .5rem;
+  color: $body-font-color;
+}

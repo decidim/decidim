@@ -54,12 +54,17 @@ en:
           origin: Origin
           search: Search
           voted: Voted
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_for: Filter by
+          unfold: Unfold
         index:
           new_proposal: New proposal
         linked_proposals:
           proposal_votes:
-            one: 1 proposal
-            other: "%{count} proposals"
+            one: 1 vote
+            other: "%{count} votes"
         new:
           back: Back
           select_a_category: Please select a category

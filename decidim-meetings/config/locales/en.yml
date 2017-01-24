@@ -56,6 +56,11 @@ en:
           descendent: Descendent
           scopes: Scopes
           search: Search
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_for: Filter by
+          unfold: Unfold
         index:
           title: Meetings
         show:

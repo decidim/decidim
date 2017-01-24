@@ -87,8 +87,6 @@ es:
     participatory_process_steps:
       index:
         process_steps: Las fases de proceso
-      participatory_process_step:
-        info: Información
     participatory_processes:
       documents:
         related_documents: Documentos relacionados
