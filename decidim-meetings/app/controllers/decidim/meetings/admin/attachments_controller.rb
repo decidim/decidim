@@ -6,6 +6,10 @@ module Decidim
       class AttachmentsController < Admin::ApplicationController
         include Decidim::Admin::Concerns::Attachable
 
+        def after_destroy_path
+          meetings_path
+        end
+
         def attachable
           meeting
         end
