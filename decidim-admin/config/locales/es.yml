@@ -66,6 +66,21 @@ es:
         title: Acciones
         unpublish: Despublicar
         verify: Verificar
+      attachments:
+        create:
+          error: Se ha producido un error al crear un nuevo archivo adjunto.
+          success: Adjunto creado correctamente.
+        destroy:
+          success: El archivo adjunto se ha eliminado correctamente.
+        edit:
+          title: Editar archivo adjunto
+          update: Actualizar archivo adjunto
+        new:
+          create: Crear archivo adjunto
+          title: Nuevo archivo adjunto
+        update:
+          error: Se ha producido un error al actualizar este archivo adjunto.
+          success: Adjunto actualizado correctamente.
       categories:
         create:
           error: Se ha producido un error al crear esta categoría.
@@ -84,6 +99,9 @@ es:
           success: Categoría actualizada correctamente.
       decidim:
         admin:
+          attachments:
+            index:
+              attachments_title: Archivos adjuntos
           categories:
             index:
               categories_title: Categorías
@@ -137,6 +155,11 @@ es:
         user_groups: Grupos de usuarios
         users: Administradores
       models:
+        attachment:
+          fields:
+            content_type: Tipo
+            title: Título
+          name: Archivo adjunto
         category:
           fields:
             name: Nombre
