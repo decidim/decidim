@@ -46,6 +46,35 @@ if !Rails.env.production? || ENV["SEED"]
   )
 
   3.times do
+    Decidim::User.all.each do |user|
+      user_group = Decidim::UserGroup.create!(
+        name: Faker::Company.name,
+        document_number: Faker::Number.number(10),
+        phone: Faker::PhoneNumber.phone_number,
+        verified: true
+      )
+
+      Decidim::UserGroupMembership.create!(
+        user: user,
+        user_group: user_group
+      )
+
+      user_group = Decidim::UserGroup.create!(
+        name: Faker::Company.name,
+        document_number: Faker::Number.number(10),
+        phone: Faker::PhoneNumber.phone_number,
+        verified: false
+      )
+
+      Decidim::UserGroupMembership.create!(
+        user: user,
+        user_group: user_group
+      )
+    end
+  end
+
+
+  3.times do
     Decidim::ParticipatoryProcess.create!(
       title: Decidim::Faker::Localized.sentence(5),
       slug: Faker::Internet.unique.slug(nil, "-"),
