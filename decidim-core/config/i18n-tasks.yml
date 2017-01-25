@@ -85,7 +85,6 @@ search:
 ## Do not consider these keys missing:
 ignore_missing:
 - '{devise,simple_form}.*'
-- errors.messages.taken
 
 ## Consider these keys used:
 ignore_unused:
