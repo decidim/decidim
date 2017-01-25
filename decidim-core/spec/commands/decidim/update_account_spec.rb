@@ -33,9 +33,9 @@ module Decidim
 
       it "Doesn't update anything" do
         data[:name] = "John Doe"
-        old_attributes = user.attributes.dup
+        old_name = user.name
         expect { command.call }.to broadcast(:invalid)
-        expect(user.reload.attributes).to eq(old_attributes)
+        expect(user.reload.name).to eq(old_name)
       end
     end
 
