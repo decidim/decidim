@@ -75,11 +75,6 @@ es:
     participatory_process_steps:
       index:
         process_steps: Las fases de proceso
-    participatory_processes:
-      documents:
-        related_documents: Documentos relacionados
-      photos:
-        related_photos: Fotos relacionadas
     shared:
       login_modal:
         please_sign_in: Por favor, regístrese
