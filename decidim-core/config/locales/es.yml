@@ -5,18 +5,6 @@ es:
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
-  activerecord:
-    attributes:
-      decidim/user:
-        current_password: Contraseña actual
-        email: Correo electrónico
-        name: Nombre de usuario
-        password: Contraseña
-        password_confirmation: Confirmación de la contraseña
-        remember_me: Recordarme
-        tos_agreement: Términos y condiciones de uso
-    models:
-      decidim/user: Usuario
   booleans:
     'false': 'No'
     'true': 'Sí'
@@ -151,6 +139,7 @@ es:
       process_header_steps:
         view_steps: Ver las fases
       user_menu:
+        admin_dashboard: Tablero de administración
         profile: Mi cuenta
         sign_out: Sal
   locales:
