@@ -146,6 +146,7 @@ es:
       process_header:
         process_menu_item: El proceso
       process_header_steps:
+        step: Fase %{current} de %{total}
         view_steps: Ver las fases
       user_menu:
         admin_dashboard: Tablero de administración
