@@ -4,8 +4,6 @@ module Decidim
     module Admin
       # This controller allows an admin to manage meetings from a Participatory Process
       class MeetingsController < Admin::ApplicationController
-        helper_method :meetings
-
         def new
           @form = form(MeetingForm).instance
         end
@@ -52,16 +50,6 @@ module Decidim
           flash[:notice] = I18n.t("meetings.destroy.success", scope: "decidim.meetings.admin")
 
           redirect_to meetings_path
-        end
-
-        private
-
-        def meetings
-          @meetings ||= Meeting.where(feature: current_feature)
-        end
-
-        def meeting
-          @meeting ||= meetings.find(params[:id])
         end
       end
     end

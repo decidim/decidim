@@ -5,18 +5,6 @@ ca:
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
-  activerecord:
-    attributes:
-      decidim/user:
-        current_password: Contrasenya actual
-        email: Correu electrònic
-        name: Nom d'usuari
-        password: Contrasenya
-        password_confirmation: Confirmar contrasenya
-        remember_me: Recordar-me
-        tos_agreement: Termes i condicions d'ús
-    models:
-      decidim/user: Usuari
   booleans:
     'false': 'No'
     'true': 'Sí'

@@ -36,6 +36,14 @@ en:
         error: There's been an error updating your account.
         success: Your account was updated successfully.
         success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
+      user_groups:
+        not_verified: Not verified
+        verified: Verified
+    application:
+      documents:
+        related_documents: Related documents
+      photos:
+        related_photos: Related photos
     authorization_handlers:
       decidim/dummy_authorization_handler: Example authorization
       errors:
@@ -100,11 +108,6 @@ en:
     participatory_process_steps:
       index:
         process_steps: Process steps
-    participatory_processes:
-      documents:
-        related_documents: Related documents
-      photos:
-        related_photos: Related photos
     shared:
       login_modal:
         please_sign_in: Please sign in

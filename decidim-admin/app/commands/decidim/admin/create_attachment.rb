@@ -7,10 +7,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # attachable - The ActiveRecord::Base that will hold the attachment
-      def initialize(form, attachable)
+      # attached_to - The ActiveRecord::Base that will hold the attachment
+      def initialize(form, attached_to)
         @form = form
-        @attachable = attachable
+        @attached_to = attached_to
       end
 
       # Executes the command. Broadcasts these events:
@@ -35,7 +35,7 @@ module Decidim
           title: form.title,
           description: form.description,
           file: form.file,
-          attachable: @attachable
+          attached_to: @attached_to
         )
       end
     end

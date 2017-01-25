@@ -7,7 +7,7 @@
     </div>
   <% end %>
 
-  <% if attachable.attachments.any? %>
+  <% if attached_to.attachments.any? %>
     <table class="stack">
       <thead>
         <tr>
@@ -17,17 +17,17 @@
         </tr>
       </thead>
       <tbody>
-        <% attachable.attachments.each do |attachment| %>
+        <% attached_to.attachments.each do |attachment| %>
           <tr data-id="<%= attachment.id %>">
             <td>
-              <%= link_to translated_attribute(attachment.title), polymorphic_path([attachable, attachment]) %><br />
+              <%= link_to translated_attribute(attachment.title), polymorphic_path([attached_to, attachment]) %><br />
             </td>
             <td>
               <%= attachment.file_type %>
             </td>
             <td class="actions">
-              <%= link_to t("actions.edit", scope: "decidim.admin"), edit_polymorphic_path([attachable, attachment]) if can? :update, authorization_object %>
-              <%= link_to t("actions.destroy", scope: "decidim.admin"), polymorphic_path([attachable, attachment]), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, authorization_object %>
+              <%= link_to t("actions.edit", scope: "decidim.admin"), edit_polymorphic_path([attached_to, attachment]) if can? :update, authorization_object %>
+              <%= link_to t("actions.destroy", scope: "decidim.admin"), polymorphic_path([attached_to, attachment]), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, authorization_object %>
             </td>
           </tr>
         <% end %>
