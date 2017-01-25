@@ -6,7 +6,7 @@ module Decidim
   # steps that get enabled or disabled depending on which step is currently
   # active.
   class ParticipatoryProcess < ApplicationRecord
-    include Decidim::Attachable
+    include Decidim::HasAttachment
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

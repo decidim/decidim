@@ -5,7 +5,7 @@ module Decidim
     # title, description and any other useful information to render a custom meeting.
     class Meeting < Meetings::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::Attachable
+      include Decidim::HasAttachment
 
       belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
       belongs_to :scope, foreign_key: "decidim_scope_id", class_name: Decidim::Scope

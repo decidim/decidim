@@ -8,7 +8,7 @@ module Decidim
       # process.
       #
       class AttachmentsController < Admin::ApplicationController
-        include Decidim::Admin::Concerns::Attachable
+        include Decidim::Admin::Concerns::HasAttachment
 
         def after_destroy_path
           meetings_path

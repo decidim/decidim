@@ -8,7 +8,7 @@ module Decidim
     #
     class ParticipatoryProcessAttachmentsController < ApplicationController
       include Concerns::ParticipatoryProcessAdmin
-      include Concerns::Attachable
+      include Concerns::HasAttachment
 
       def attachable
         participatory_process

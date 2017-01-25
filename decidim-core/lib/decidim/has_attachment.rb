@@ -4,7 +4,7 @@ require "active_support/concern"
 module Decidim
   # A concern with the features needed when you want a model to be able to create
   # links from it to another resource.
-  module Attachable
+  module HasAttachment
     extend ActiveSupport::Concern
 
     included do
