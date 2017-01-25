@@ -30,6 +30,7 @@ env:
 before_install:
   # Repo for newer Node.js versions
   - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  - gem update --system
   - yarn
 
 bundler_args: --jobs=3 --retry=3 --deployment --path="$HOME/.bundle"
