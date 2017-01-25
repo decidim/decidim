@@ -2,8 +2,8 @@
 
 <div class="actions">
   <hr />
-  <%= link_to t("decidim.admin.actions.edit"), ['edit', @attachment.attachable, @attachment] if can? :update, @attachment %>
-  <%= link_to t("decidim.admin.actions.destroy"), [@attachment.attachable, @attachment], method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } if can? :destroy, @attachment %>
+  <%= link_to t("decidim.admin.actions.edit"), ['edit', @attachment.attached_to, @attachment] if can? :update, @attachment %>
+  <%= link_to t("decidim.admin.actions.destroy"), [@attachment.attached_to, @attachment], method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } if can? :destroy, @attachment %>
 </div>
 
 <dl>

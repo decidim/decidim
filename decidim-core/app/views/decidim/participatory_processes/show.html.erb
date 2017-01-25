@@ -10,11 +10,4 @@
     </div>
   </div>
 </div>
-<% if current_participatory_process.attachments.any? %>
-  <div class="row attachments">
-    <div class="columns large-8">
-      <%= render partial: "documents", locals: { documents: current_participatory_process.documents } %>
-      <%= render partial: "photos", locals: { photos: current_participatory_process.photos } %>
-    </div>
-  </div>
-<% end %>
+<%= attachments_for current_participatory_process %>

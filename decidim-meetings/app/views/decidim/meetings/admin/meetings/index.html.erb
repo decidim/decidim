@@ -36,6 +36,7 @@
         <td class="actions">
           <%= link_to t("actions.edit", scope: "decidim.meetings"), edit_meeting_path(meeting) if can? :update, current_feature %>
           <%= link_to t("actions.close", scope: "decidim.meetings"), edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id) if can? :update, current_feature %>
+          <%= link_to t("actions.attachments", scope: "decidim.meetings"), meeting_attachments_path(meeting) if can? :update, current_feature %>
           <%= link_to t("actions.destroy", scope: "decidim.meetings"), meeting_path(meeting), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") } if can? :destroy, current_feature %>
         </td>
       </tr>
