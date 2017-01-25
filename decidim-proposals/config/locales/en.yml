@@ -91,3 +91,5 @@ en:
     resource_links:
       proposals_from_meeting:
         meetings: Related meetings
+      proposals_from_result:
+        results: "Proposal appearing in these results:"

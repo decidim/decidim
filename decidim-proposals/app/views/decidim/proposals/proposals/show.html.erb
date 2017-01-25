@@ -49,6 +49,7 @@
         </ul>
       <% end %>
     </div>
+    <%= linked_resources_for @proposal, :results, "proposals_from_result" %>
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
   </div>
 </div>
