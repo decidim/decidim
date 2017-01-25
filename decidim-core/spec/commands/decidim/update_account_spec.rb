@@ -17,7 +17,7 @@ module Decidim
     end
 
     let(:form) do
-      double(
+      form = double(
         name: data[:name],
         email: data[:email],
         password: data[:password],
@@ -26,6 +26,10 @@ module Decidim
         remove_avatar: data[:remove_avatar],
         valid?: valid
       )
+
+      allow(form).to receive(:remove_avatar=).with(anything)
+
+      form
     end
 
     context "when invalid" do
@@ -58,7 +62,7 @@ module Decidim
         end
 
         it "sends a reconfirmation email" do
-          expect { command.call }.to change{ emails.length }.by(1)
+          expect { command.call }.to broadcast(:ok, true)
           expect(last_email.to).to include("new@email.com")
         end
       end

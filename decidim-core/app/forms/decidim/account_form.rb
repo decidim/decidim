@@ -34,7 +34,7 @@ module Decidim
         email: email
       ).where.not(id: context.current_user.id).empty?
 
-      errors.add :email, I18n.t("errors.messages.taken")
+      errors.add :email, :taken
       false
     end
   end

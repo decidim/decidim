@@ -19,7 +19,8 @@ module Decidim
       update_password
       @user.save!
 
-      broadcast(:ok, @form)
+      @form.remove_avatar = false
+      broadcast(:ok, @user.unconfirmed_email.present?)
     end
 
     private
