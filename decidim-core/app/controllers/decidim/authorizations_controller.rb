@@ -23,8 +23,6 @@ module Decidim
     end
 
     def create
-      authorize! :create, @authorization
-
       AuthorizeUser.call(handler) do
         on(:ok) do
           flash[:notice] = t("authorizations.create.success", scope: "decidim")
