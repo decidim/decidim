@@ -12,6 +12,7 @@ en:
         parent: Parent
       feature:
         name: Name
+        weight: Weight
       organization:
         default_locale: Default locale
         description: Description
