@@ -1,6 +1,7 @@
 # coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
+require "decidim/core/test/shared_examples/has_attachments"
 
 describe "Participatory Processes", type: :feature do
   let(:organization) { create(:organization) }
@@ -87,29 +88,7 @@ describe "Participatory Processes", type: :feature do
       end
     end
 
-    context "when it has attachments" do
-      let!(:document) do
-        Decidim::AttachmentUploader.enable_processing = true
-        create(:attachment, :with_pdf, attachable: participatory_process)
-      end
-      let!(:image) do
-        Decidim::AttachmentUploader.enable_processing = true
-        create(:attachment, attachable: participatory_process)
-      end
-
-      before do
-        visit current_path
-      end
-
-      it "shows them" do
-        within "div.wrapper .documents" do
-          expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
-        end
-
-        within "div.wrapper .images" do
-          expect(page).to have_css("img.thumbnail")
-        end
-      end
-    end
+    let(:attached_to) { participatory_process }
+    it_behaves_like "has attachments"
   end
 end

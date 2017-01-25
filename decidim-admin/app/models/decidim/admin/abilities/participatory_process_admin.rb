@@ -30,7 +30,7 @@ module Decidim
           end
 
           can :manage, Attachment do |attachment|
-            participatory_processes.include?(attachment.attachable)
+            participatory_processes.include?(attachment.attached_to)
           end
 
           can :manage, ParticipatoryProcessStep do |step|

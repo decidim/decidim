@@ -3,7 +3,7 @@
 RSpec.shared_examples "manage attachments examples" do
   let!(:attachment) do
     Decidim::AttachmentUploader.enable_processing = true
-    create(:attachment, attachable: attachable)
+    create(:attachment, attached_to: attached_to)
   end
 
   before do

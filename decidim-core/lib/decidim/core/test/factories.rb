@@ -156,7 +156,7 @@ FactoryGirl.define do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { test_file("city.jpeg", "image/jpeg") }
-    attachable { build(:participatory_process) }
+    attached_to { build(:participatory_process) }
 
     trait :with_image do
       file { test_file("city.jpeg", "image/jpeg") }
