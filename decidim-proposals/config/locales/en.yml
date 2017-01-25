@@ -3,7 +3,11 @@ en:
   activemodel:
     attributes:
       proposal:
-        user_group_id: "Create proposal as"
+        body: Body
+        category: Category
+        scope: Scope
+        title: Title
+        user_group_id: Create proposal as
   decidim:
     features:
       proposals:

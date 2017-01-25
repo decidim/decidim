@@ -147,6 +147,7 @@ en:
       process_header:
         process_menu_item: The process
       process_header_steps:
+        step: Step %{current} of %{total}
         view_steps: View steps
       user_menu:
         admin_dashboard: Admin dashboard
