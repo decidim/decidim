@@ -16,6 +16,7 @@ module Decidim
           return broadcast(:invalid) if @form.invalid?
 
           create_result
+          link_proposals
           broadcast(:ok)
         end
 
@@ -30,6 +31,14 @@ module Decidim
             short_description: @form.short_description,
             description: @form.description
           )
+        end
+
+        def proposals
+          @result.sibling_scope(:proposals).where(id: @form.proposal_ids)
+        end
+
+        def link_proposals
+          @result.link_resources(proposals, "proposals_from_result")
         end
       end
     end

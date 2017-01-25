@@ -44,6 +44,8 @@
       <h3 class="section-heading"><%= t(".result_description") %></h3>
       <%== translated_attribute result.description %>
     </div>
+
+    <%= linked_resources_for result, :proposals, "proposals_from_result" %>
   </div>
 </div>
 

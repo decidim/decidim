@@ -17,3 +17,11 @@
 <div class="field" >
   <%= form.categories_select :decidim_category_id, current_participatory_process.categories, prompt: "", disable_parents: false %>
 </div>
+
+<% if @form.proposals %>
+  <%= form.select :proposal_ids,
+                  @form.proposals,
+                  { include_blank: true },
+                  { multiple: true, class: "chosen-select" }
+  %>
+<% end %>

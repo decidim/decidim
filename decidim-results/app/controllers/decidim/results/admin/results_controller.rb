@@ -11,7 +11,7 @@ module Decidim
         end
 
         def create
-          @form = form(ResultForm).from_params(params, current_feature: current_feature)
+          @form = form(ResultForm).from_params(params)
 
           CreateResult.call(@form) do
             on(:ok) do
@@ -31,7 +31,7 @@ module Decidim
         end
 
         def update
-          @form = form(ResultForm).from_params(params, current_feature: current_feature)
+          @form = form(ResultForm).from_params(params)
 
           UpdateResult.call(@form, result) do
             on(:ok) do

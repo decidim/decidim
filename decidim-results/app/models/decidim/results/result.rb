@@ -4,6 +4,8 @@ module Decidim
     # The data store for a Result in the Decidim::Results component. It stores a
     # title, description and any other useful information to render a custom result.
     class Result < Results::ApplicationRecord
+      include Decidim::Resourceable
+
       belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
       belongs_to :scope, foreign_key: "decidim_scope_id", class_name: Decidim::Scope
       belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
