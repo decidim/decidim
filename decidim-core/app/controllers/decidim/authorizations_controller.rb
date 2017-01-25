@@ -12,8 +12,7 @@ module Decidim
 
     layout "layouts/decidim/user_profile", only: [:index]
 
-    def new
-    end
+    def new; end
 
     def index
       @authorizations = current_user.authorizations

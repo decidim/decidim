@@ -86,6 +86,18 @@ module Decidim
           expect(user.reload.avatar).to be_blank
         end
       end
+
+      describe "when the password is present" do
+        before do
+          data[:password] = "test123"
+          data[:password_confirmation] = "test123"
+        end
+
+        it "broadcasts invalid" do
+          expect { command.call }.to broadcast(:ok)
+          expect(user.reload.valid_password?("test123")).to eq(true)
+        end
+      end
     end
   end
 end
