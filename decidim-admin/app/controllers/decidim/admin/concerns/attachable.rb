@@ -8,7 +8,7 @@ module Decidim
       #
       # The only requirement is to define a `attachable` method that
       # returns an instance of the model to attach the attachment to.
-      module HasAttachment
+      module Attachable
         extend ActiveSupport::Concern
 
         included do

@@ -8,15 +8,6 @@ module Decidim
       # Note that it inherits from `Decidim::Features::BaseController`, which
       # override its layout and provide all kinds of useful methods.
       class ApplicationController < Decidim::Admin::Features::BaseController
-        helper_method :meetings, :meeting
-
-        def meetings
-          @meetings ||= Meeting.where(feature: current_feature)
-        end
-
-        def meeting
-          @meeting ||= meetings.find(params[:id])
-        end
       end
     end
   end
