@@ -14,7 +14,7 @@ describe "User groups", type: :feature, perform_enqueued: true do
 
   context "when the user group is not verified" do
     it "the user can check its status on his account page" do
-      visit decidim.account_path
+      visit decidim.own_user_groups_path
 
       click_link "Organizations"
 
@@ -29,7 +29,7 @@ describe "User groups", type: :feature, perform_enqueued: true do
     end
 
     it "the user can check its status on his account page" do
-      visit decidim.account_path
+      visit decidim.own_user_groups_path
 
       click_link "Organizations"
 
