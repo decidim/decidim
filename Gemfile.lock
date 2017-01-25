@@ -553,6 +553,7 @@ DEPENDENCIES
   decidim-meetings!
   decidim-pages!
   decidim-proposals (= 0.0.2)
+  decidim-results (= 0.0.2)
   decidim-system!
   rake (~> 12.0.0)
   rspec (~> 3.0)
