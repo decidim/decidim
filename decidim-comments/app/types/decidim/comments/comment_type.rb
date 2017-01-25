@@ -16,7 +16,11 @@ module Decidim
         }
       end
 
-      field :author, !AuthorType, "The comment's author"
+      field :author, !Decidim::Api::AuthorInterface, "The comment's author" do
+        resolve lambda { |obj, _args, _ctx|
+          obj.user_group || obj.author
+        }
+      end
 
       field :replies, !types[CommentType], "The comment's replies" do
         resolve lambda { |obj, _args, _ctx|

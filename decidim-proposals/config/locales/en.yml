@@ -1,5 +1,9 @@
 ---
 en:
+  activemodel:
+    attributes:
+      proposal:
+        user_group_id: "Create proposal as"
   decidim:
     features:
       proposals:

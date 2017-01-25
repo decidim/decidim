@@ -10,11 +10,13 @@ module Decidim
         let(:commentable) { create :participatory_process, organization: organization }
         let(:body) { ::Faker::Lorem.paragraph }
         let(:alignment) { 1 }
+        let(:user_group_id) { nil }
         let(:form_params) do
           {
             "comment" => {
               "body" => body,
-              "alignment" => alignment
+              "alignment" => alignment,
+              "user_group_id" => user_group_id
             }
           }
         end
@@ -51,7 +53,8 @@ module Decidim
               author: author,
               commentable: commentable,
               body: body,
-              alignment: alignment
+              alignment: alignment,
+              decidim_user_group_id: user_group_id
             }).and_call_original
             expect do
               command.call

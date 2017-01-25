@@ -4,9 +4,9 @@ module Decidim
     # The data store for a Proposal in the Decidim::Proposals component.
     class Proposal < Proposals::ApplicationRecord
       include Decidim::Resourceable
+      include Decidim::Authorable
 
       belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
-      belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
       belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
       belongs_to :scope, foreign_key: "decidim_scope_id", class_name: Decidim::Scope
       has_one :organization, through: :feature
@@ -18,7 +18,7 @@ module Decidim
       validate :author_belongs_to_organization
 
       def author_name
-        author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
+        user_group&.name || author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
       end
 
       def author_avatar_url

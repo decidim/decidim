@@ -7,6 +7,7 @@ module Decidim
   module Api
     autoload :MutationType, "decidim/api/types/mutation"
     autoload :QueryType, "decidim/api/types/query"
+    autoload :AuthorInterface, "decidim/api/types/author_interface"
 
     autoload :TranslatedFieldType, "decidim/api/types/translated_field"
     autoload :LocalizedStringType, "decidim/api/types/localized_string"

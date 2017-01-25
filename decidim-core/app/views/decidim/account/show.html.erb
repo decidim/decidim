@@ -16,6 +16,11 @@
                 <a href="#authorizations"><%= t(".authorizations") %></a>
               </li>
             <% end %>
+            <% if current_user.user_groups.any? %>
+              <li class="tabs-title">
+                <a href="#user-groups"><%= t(".user_groups") %></a>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -23,6 +28,7 @@
         <div class="main-container__content">
           <div class="tabs-content vertical" data-tabs-content="user-settings-tabs">
             <%= render partial: "authorizations" %>
+            <%= render partial: "user_groups" %>
           </div>
         </div>
       </div>

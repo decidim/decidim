@@ -76,6 +76,30 @@ describe "Comments", type: :feature do
       end
     end
 
+    context "when the user has verified organizations" do
+      let(:user_group) { create(:user_group, :verified) }
+
+      before do
+        create(:user_group_membership, user: user, user_group: user_group)
+      end
+
+      it "user can add a new comment as a user group" do
+        visit decidim.dummy_path(participatory_process)
+        expect(page).to have_selector(".add-comment form")
+
+        within ".add-comment form" do
+          fill_in "add-comment-#{participatory_process.class.name}-#{participatory_process.id}", with: "This is a new comment"
+          select user_group.name, from: "Comment as"
+          click_button "Send"
+        end
+
+        within "#comments" do
+          expect(page).to have_content user_group.name
+          expect(page).to have_content "This is a new comment"
+        end
+      end
+    end
+
     it "user can reply a comment" do
       comment = create(:comment, commentable: participatory_process)
       visit decidim.dummy_path(participatory_process)
