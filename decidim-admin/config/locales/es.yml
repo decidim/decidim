@@ -1,6 +1,10 @@
 es:
   activemodel:
     attributes:
+      attachment:
+        description: Descripción
+        file: Archivo
+        title: Título
       category:
         description: Descripción
         name: Nombre
