@@ -14,6 +14,7 @@ module Decidim
 
       attribute :settings, Object
       attribute :manifest
+      attribute :weight, Integer, default: 0
 
       attribute :step_settings, Hash[String => Object]
       attribute :participatory_process
