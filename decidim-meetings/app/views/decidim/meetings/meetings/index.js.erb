@@ -1,2 +1,6 @@
 var $meetings = $('#meetings');
+var $meetingsMapContainer = $('#meetings-map-container');
+
 $meetings.html('<%= j(render partial: "meetings") %>');
+$meetingsMapContainer.html('<%= j(render partial: "map") %>');
+window.DecidimMeetings.loadMap();

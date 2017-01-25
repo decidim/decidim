@@ -1,8 +1,10 @@
 <% content_for(:title, t(".title")) %>
 
 <div class="row column">
-  <div class="google-map" id="decidim-meetings-map" data-meetings="<%= meetings_data_for_map(Decidim::Meetings::Meeting.all) %>">
+  <div id="meetings-map-container">
+    <%= render partial: "map" %>
   </div>
+
   <template id="meeting-popup">
     <div class="map-info__content">
       <h3>${title}</h3>

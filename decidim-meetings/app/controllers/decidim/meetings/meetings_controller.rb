@@ -9,7 +9,9 @@ module Decidim
 
       helper_method :meetings, :meeting
 
-      def index; end
+      def index
+        @geocoded_meetings = search.results.select(&:geocoded?)
+      end
 
       def static_map
         @meeting = Meeting.where(feature: current_feature).find(params[:id])
@@ -39,7 +41,7 @@ module Decidim
       private
 
       def meetings
-        @meetings ||= search.results
+        @meetings ||= search.results.page(params[:page]).per(12)
       end
 
       def meeting
@@ -48,13 +50,6 @@ module Decidim
 
       def search_klass
         MeetingSearch
-      end
-
-      def default_search_params
-        {
-          page: params[:page],
-          per_page: 12
-        }
       end
 
       def default_filter_params

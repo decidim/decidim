@@ -18,6 +18,9 @@ module Decidim
                      .results
                      .includes(:author)
                      .includes(votes: [:author])
+                     .page(params[:page])
+                     .per(12)
+
         @random_seed = search.random_seed
       end
 
@@ -45,13 +48,6 @@ module Decidim
 
       def search_klass
         ProposalSearch
-      end
-
-      def default_search_params
-        {
-          page: params[:page],
-          per_page: 12
-        }
       end
 
       def default_filter_params

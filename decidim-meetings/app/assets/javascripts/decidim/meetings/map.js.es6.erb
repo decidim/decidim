@@ -19,8 +19,8 @@ L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
   }
 });
 
-$(() => {
-  const mapId = 'decidim-meetings-map';
+const loadMap = () => {
+  const mapId = 'meetings-map';
   const $map = $(`#${mapId}`);
 
   if ($map.length > 0) {
@@ -50,7 +50,14 @@ $(() => {
       }).openPopup();
     });
 
-    map.fitBounds(bounds);
-    map.zoomOut();
+    map.fitBounds(bounds, { padding: [10, 10] });
   }
+};
+
+window.DecidimMeetings = {
+  loadMap
+};
+
+$(() => {
+  window.DecidimMeetings.loadMap();
 });
