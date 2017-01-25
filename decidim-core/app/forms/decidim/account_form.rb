@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A form object used to invite admins to an organization.
-  #
+  # The form object that handles the data behind updating a user's
+  # account in her profile page.
   class AccountForm < Form
     mimic :user
 

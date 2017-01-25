@@ -29,8 +29,6 @@ module Decidim
     end
 
     context "abilities" do
-      it { is_expected.to be_able_to(:read, :user_account) }
-
       context "own authorizations" do
         let(:authorization) { build(:authorization, user: user) }
 

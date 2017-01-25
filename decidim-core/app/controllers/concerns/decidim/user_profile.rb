@@ -1,12 +1,13 @@
 # frozen_string_literal: true
-
 require "active_support/concern"
 
 module Decidim
+  # The UserProfile concern must be included in all the controllers
+  # that are shown in the user's profile settings. It adds the
+  # proper layout, as well as helper methods that help render the
+  # side menu, amongst others.
   module UserProfile
     extend ActiveSupport::Concern
-
-    include NeedsOrganization
     include FormFactory
 
     delegate :user_groups, to: :current_user, prefix: false
@@ -20,6 +21,8 @@ module Decidim
       authorize_resource :current_user
     end
 
+    # Public: Available authorization handlers in order to conditionally
+    # show the menu element.
     def available_authorization_handlers
       Decidim.authorization_handlers
     end

@@ -23,6 +23,8 @@ module Decidim
     end
 
     def create
+      authorize! :create, @authorization
+
       AuthorizeUser.call(handler) do
         on(:ok) do
           flash[:notice] = t("authorizations.create.success", scope: "decidim")
@@ -38,6 +40,7 @@ module Decidim
 
     def destroy
       @authorization = current_user.authorizations.find(params[:id])
+      authorize! :destroy, @authorization
 
       @authorization.destroy
       flash[:notice] = t("authorizations.destroy.success", scope: "decidim")
