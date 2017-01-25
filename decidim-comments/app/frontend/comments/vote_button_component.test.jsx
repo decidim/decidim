@@ -21,7 +21,7 @@ describe("<VoteButton />", () => {
   });
 
   it("should render a Icon component with the correct name prop", () => {
-    const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} />); 
+    const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} />);
     expect(wrapper.find(Icon)).to.have.prop("name").equal('vote-icon');
   });
 
@@ -32,7 +32,12 @@ describe("<VoteButton />", () => {
   });
 
   it("should disable the button based on the disabled prop", () => {
-    const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} disabled />);    
+    const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} disabled />);
     expect(wrapper.find('button')).to.be.disabled();
+  })
+
+  it("should render a button with the given selectedClass", () => {
+    const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} disabled selectedClass="is-vote-selected" />);
+    expect(wrapper.find('.is-vote-selected')).to.be.present();
   })
 });

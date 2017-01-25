@@ -12,15 +12,26 @@ import commentDataFragment from './comment_data.fragment.graphql';
 import upVoteFragment      from './up_vote.fragment.graphql';
 import downVoteFragment    from './down_vote.fragment.graphql';
 
-export const UpVoteButton = ({ comment: { upVotes, upVoted, downVoted }, upVote }) => (
-  <VoteButton
-    buttonClassName="comment__votes--up"
-    iconName="icon-chevron-top"
-    votes={upVotes} 
-    voteAction={upVote} 
-    disabled={upVoted || downVoted}
-  />
-);
+export const UpVoteButton = ({ comment: { upVotes, upVoted, downVoted }, upVote }) => {
+  let selectedClass = '';
+
+  if (upVoted) {
+    selectedClass = 'is-vote-selected';
+  } else if (downVoted) {
+     selectedClass = 'is-vote-notselected';
+  }
+
+  return (
+    <VoteButton
+      buttonClassName="comment__votes--up"
+      iconName="icon-chevron-top"
+      votes={upVotes}
+      voteAction={upVote}
+      disabled={upVoted || downVoted}
+      selectedClass={selectedClass}
+    />
+  );
+}
 
 UpVoteButton.fragments = {
   comment: gql`
@@ -58,10 +69,10 @@ const UpVoteButtonWithMutation = graphql(gql`
         }
       },
       updateQueries: {
-        GetComments: (prev, { mutationResult: { data } }) => {          
+        GetComments: (prev, { mutationResult: { data } }) => {
           const commentReducer = (comment) => {
             const replies = comment.replies || [];
-            
+
             if (comment.id === ownProps.comment.id) {
               return data.comment.upVote;
             }
@@ -78,7 +89,7 @@ const UpVoteButtonWithMutation = graphql(gql`
         }
       }
     })
-  })  
+  })
 })(UpVoteButton);
 
 export default UpVoteButtonWithMutation;
