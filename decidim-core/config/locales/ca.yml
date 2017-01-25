@@ -2,6 +2,10 @@ ca:
   activemodel:
     attributes:
       user:
+        email: Correu electrònic
+        name: Nom d'usuari
+        password: Contrasenya
+        password_confirmation: Confirmació de la contrasenya
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
@@ -18,6 +22,15 @@ ca:
       show:
         authorizations: Autoritzacions
         title: El meu compte
+        user_groups: Organitzacions
+      user_groups:
+        not_verified: No verificat
+        verified: Verificada
+    application:
+      documents:
+        related_documents: Documents relacionats
+      photos:
+        related_photos: Fotos relacionades
     authorization_handlers:
       decidim/dummy_authorization_handler: Autorització d'exemple
       errors:
@@ -49,6 +62,7 @@ ca:
           complete_profile: Completa el perfil
           sign_up: Completi el seu perfil
           subtitle: Si us plau, ompli el següent formulari per tal de completar la seva inscripció
+          username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
       registrations:
         new:
           already_have_an_account?: Ja tens un compte?
@@ -132,6 +146,7 @@ ca:
       process_header:
         process_menu_item: El procés
       process_header_steps:
+        step: Fase %{current} de %{total}
         view_steps: Veure les fases
       user_menu:
         admin_dashboard: Tauler d'administració
