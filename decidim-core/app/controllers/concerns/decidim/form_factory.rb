@@ -43,7 +43,7 @@ module Decidim
           #
           # extra_context - A Hash with optional extra context data.
           def instance(extra_context = {})
-            @klass.new(context.merge(extra_context))
+            @klass.new.with_context(context.merge(extra_context))
           end
 
           # Initializes a form object from a model. Delegates the functionality
