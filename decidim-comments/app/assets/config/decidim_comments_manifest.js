@@ -1,1 +1,1 @@
-//= link decidim/comments/comments.js
+//= link decidim/meetings/map.js

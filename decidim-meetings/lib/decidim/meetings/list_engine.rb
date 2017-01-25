@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require "searchlight"
 require "kaminari"
+require "jquery-tmpl-rails"
 
 module Decidim
   module Meetings
@@ -20,7 +21,7 @@ module Decidim
       end
 
       initializer "decidim_meetings.assets" do |app|
-        app.config.assets.precompile += %w(leaflet-tilelayer-here.js leaflet-svg-icon.js)
+        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
       end
     end
   end
