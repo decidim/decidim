@@ -14,7 +14,7 @@
         <%= render partial: "password_fields", locals: { form: f } %>
       <% else %>
         <p>
-          <a data-toggle="passwordChange"><%= t ".change_password" %></a>
+          <a data-toggle="passwordChange" class="change-password"><%= t ".change_password" %></a>
         </p>
         <div id="passwordChange" class="toggle-show" data-toggler=".is-expanded">
           <%= render partial: "password_fields", locals: { form: f } %>

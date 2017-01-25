@@ -20,10 +20,22 @@ module Decidim
     validates :password, length: { in: Decidim::User.password_length, allow_blank: true }
     validates :password_confirmation, presence: true, if: :password_present
 
+    validate :unique_email
+
     private
 
     def password_present
       !password.blank?
+    end
+
+    def unique_email
+      return true if Decidim::User.where(
+        organization: context.current_organization,
+        email: email
+      ).empty?
+
+      errors.add :email, I18n.t("errors.messages.taken")
+      false
     end
   end
 end
