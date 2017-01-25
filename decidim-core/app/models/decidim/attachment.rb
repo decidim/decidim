@@ -2,10 +2,10 @@
 module Decidim
   # Attachment can be any type of document or images related to a partcipatory
   # process.
-  class ParticipatoryProcessAttachment < ApplicationRecord
-    belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: Decidim::ParticipatoryProcess, inverse_of: :attachments
+  class Attachment < ApplicationRecord
+    belongs_to :attachable, polymorphic: true
 
-    validates :file, :participatory_process, :content_type, presence: true
+    validates :file, :attachable, :content_type, presence: true
     validates :file, file_size: { less_than_or_equal_to: 10.megabytes }
     mount_uploader :file, Decidim::AttachmentUploader
 
@@ -27,7 +27,7 @@ module Decidim
     #
     # Returns String.
     def file_type
-      file.file.extension
+      file.url&.split(".").last&.downcase
     end
 
     # The URL to download the file.

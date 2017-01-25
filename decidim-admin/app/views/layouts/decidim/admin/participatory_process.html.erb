@@ -31,9 +31,9 @@
             <%= aria_selected_link_to t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_user_roles_path(participatory_process) %>
           </li>
         <% end %>
-        <% if can? :read, Decidim::ParticipatoryProcessAttachment %>
+        <% if can? :read, Decidim::Attachment %>
           <li class="tabs-title">
-            <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_attachments_path(participatory_process) %>
+            <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_attachments_path(participatory_process.id) %>
           </li>
         <% end %>
         <% if can? :update, participatory_process %>

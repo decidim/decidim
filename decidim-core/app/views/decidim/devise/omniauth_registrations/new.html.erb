@@ -16,7 +16,7 @@
           <%= form_for(@form, as: resource_name, url: omniauth_registrations_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
             <div class="user-person">
               <div class="field">
-                <%= f.text_field :name, help_text: t("devise.registrations.new.username_help") %>
+                <%= f.text_field :name, help_text: t(".username_help"), label: t(".username_help") %>
               </div>
             </div>
 

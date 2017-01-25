@@ -3,14 +3,15 @@ module Decidim
   module Admin
     # A command with all the business logic to update an attachment from a
     # participatory process.
-    class UpdateParticipatoryProcessAttachment < Rectify::Command
-      attr_reader :participatory_process_attachment
+    class UpdateAttachment < Rectify::Command
+      attr_reader :attachment
+
       # Public: Initializes the command.
       #
-      # participatory_process_attachment - the ParticipatoryProcessAttachment to update
+      # attachment - the Attachment to update
       # form - A form object with the params.
-      def initialize(participatory_process_attachment, form)
-        @participatory_process_attachment = participatory_process_attachment
+      def initialize(attachment, form)
+        @attachment = attachment
         @form = form
       end
 
@@ -32,7 +33,7 @@ module Decidim
       attr_reader :form
 
       def update_attachment
-        participatory_process_attachment.update_attributes!(attributes)
+        attachment.update_attributes!(attributes)
       end
 
       def attributes

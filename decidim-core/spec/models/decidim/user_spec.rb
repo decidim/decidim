@@ -5,7 +5,8 @@ module Decidim
   describe User, :db do
     let(:organization) { build(:organization) }
     let(:user) { build(:user, organization: organization) }
-    subject { user}
+
+    subject { user }
 
     it { is_expected.to be_valid }
 
@@ -13,6 +14,11 @@ module Decidim
       expect(subject.identities).to eq([])
     end
 
+    it "has an association for user groups" do
+      user_group = create(:user_group)
+      create(:user_group_membership, user: subject, user_group: user_group)
+      expect(subject.user_groups).to eq([user_group])
+    end
     context "with roles" do
       let(:user) { build(:user, :admin) }
 

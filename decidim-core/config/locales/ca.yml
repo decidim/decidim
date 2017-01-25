@@ -87,8 +87,6 @@ ca:
     participatory_process_steps:
       index:
         process_steps: Fases del procés
-      participatory_process_step:
-        info: Informació
     participatory_processes:
       documents:
         related_documents: Documents relacionats
@@ -153,6 +151,7 @@ ca:
       process_header_steps:
         view_steps: Veure les fases
       user_menu:
+        admin_dashboard: Tauler d'administració
         profile: El meu compte
         sign_out: Surt
   locales:

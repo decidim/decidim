@@ -37,7 +37,7 @@ body{
 
 //fixes for off-canvas wrappers
 .off-canvas-wrapper{
-  background-color: $white;
+  background-color: $light-gray;
 }
 
 .off-canvas-wrapper,
@@ -63,4 +63,8 @@ body{
   @include breakpoint(large){
     margin-bottom: 5rem;
   }
+}
+
+.m-bottom{
+  margin-bottom: 1rem;
 }

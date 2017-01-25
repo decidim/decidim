@@ -3,13 +3,13 @@ en:
   activemodel:
     attributes:
       user:
+        email: Your email
+        name: Your name
+        password: New password
+        password_confirmation: Confirm your new password
         user_group_document_number: Organization document number
         user_group_name: Organization name
         user_group_phone: Organization phone
-        name: Your name
-        email: Your email
-        password: New password
-        password_confirmation: Confirm your new password
   activerecord:
     attributes:
       decidim/user:
@@ -18,10 +18,9 @@ en:
         name: Username
         password: Password
         password_confirmation: Password confirmation
-        remember_me: Remember me
-        tos_agreement: Terms & conditions
-    models:
-      decidim/user: User
+        user_group_document_number: Organization document number
+        user_group_name: Organization name
+        user_group_phone: Organization phone
   booleans:
     'false': 'No'
     'true': 'Yes'
@@ -70,6 +69,7 @@ en:
           complete_profile: Complete profile
           sign_up: Complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
+          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         new:
           already_have_an_account?: Already have an account?
@@ -93,11 +93,13 @@ en:
     menu:
       home: Home
       processes: Processes
+    own_user_groups:
+      index:
+        not_verified: Not verified
+        verified: Verified
     participatory_process_steps:
       index:
         process_steps: Process steps
-      participatory_process_step:
-        info: Information
     participatory_processes:
       documents:
         related_documents: Related documents
@@ -162,12 +164,14 @@ en:
       process_header_steps:
         view_steps: View steps
       user_menu:
+        admin_dashboard: Admin dashboard
         profile: My account
         sign_out: Sign out
       user_profile:
         account: Account
         authorizations: Authorizations
         title: User settings
+        user_groups: Organizations
   locales:
     ca: Català
     en: English

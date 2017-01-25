@@ -42,7 +42,6 @@
 
 @import 'util/util';
 
-
 // 1. Global
 // ---------
 
@@ -50,19 +49,21 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #ef604d,
-  secondary: #599aa6,
-  success: #57d685,
-  warning: #ffae00,
-  alert: #ec5840,
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  warning: $warning,
+  alert: $alert,
 );
 $light-gray: #fafafa;
 $medium-gray: #e8e8e8;
 $dark-gray: #2c2930;
 $black: #1a181d;
 $white: #fff;
+$light-gray-dark: darken($light-gray, 2.5) !default;
 $body-background: $light-gray;
 $body-font-color: #3D393C;
+$muted: lighten($body-font-color, 30) !default;
 $body-font-family: 'Source Sans Pro', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -73,6 +74,8 @@ $global-radius: 4px;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
+
+$border: 1px solid $medium-gray !default;
 
 @include add-foundation-colors;
 

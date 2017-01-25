@@ -1,2 +1,5 @@
 <li><%= link_to t(".profile"), decidim.account_path %></li>
+<% if can? :read, :admin_dashboard %>
+  <li><%= link_to t(".admin_dashboard"), decidim_admin.root_path %></li>
+<% end %>
 <li><%= link_to t(".sign_out"), decidim.destroy_user_session_path, method: :delete, class: "sign-out-link" %></li>

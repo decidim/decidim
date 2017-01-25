@@ -12,8 +12,11 @@
             <div class="side-panel">
               <ul class="tabs vertical side-panel__tabs" id="user-settings-tabs">
                 <%= user_profile_tab t("account", scope: "layouts.decidim.user_profile"), account_path %>
-                <% if handlers.any? || authorizations.any? %>
+                <% if available_authorization_handlers.any? %>
                   <%= user_profile_tab t("authorizations", scope: "layouts.decidim.user_profile"), authorizations_path %>
+                <% end %>
+                <% if user_groups.any? %>
+                  <%= user_profile_tab t("user_groups", scope: "layouts.decidim.user_profile"), own_user_groups_path %>
                 <% end %>
               </ul>
             </div>

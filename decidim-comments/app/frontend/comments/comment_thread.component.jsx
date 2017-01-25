@@ -15,15 +15,15 @@ import commentThreadFragment    from './comment_thread.fragment.graphql'
  */
 class CommentThread extends Component {
   render() {
-    const { comment, currentUser, votable } = this.props;
+    const { comment, session, votable } = this.props;
 
     return (
       <div>
         {this._renderTitle()}
         <div className="comment-thread">
-          <Comment 
-            comment={filter(Comment.fragments.comment, comment)} 
-            currentUser={currentUser} 
+          <Comment
+            comment={filter(Comment.fragments.comment, comment)}
+            session={session}
             votable={votable}
             isRootComment
           />
@@ -39,7 +39,7 @@ class CommentThread extends Component {
    */
   _renderTitle() {
     const { comment: { author, hasReplies } } = this.props;
-    
+
     if (hasReplies) {
       return (
         <h6 className="comment-thread__title">
@@ -60,8 +60,8 @@ CommentThread.fragments = {
 };
 
 CommentThread.propTypes = {
-  currentUser: PropTypes.shape({
-    name: PropTypes.string.isRequired
+  session: PropTypes.shape({
+    user: PropTypes.any.isRequired
   }),
   comment: propType(CommentThread.fragments.comment).isRequired,
   votable: PropTypes.bool

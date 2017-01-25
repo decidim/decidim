@@ -37,7 +37,7 @@ export class Comments extends Component {
             <h2 className="order-by__text section-heading">
               { commentHeader }
             </h2>
-            <CommentOrderSelector 
+            <CommentOrderSelector
               reorderComments={reorderComments}
               defaultOrderBy={orderBy}
             />
@@ -55,13 +55,13 @@ export class Comments extends Component {
    * @returns {ReactComponent[]} - A collection of CommentThread components
    */
   _renderCommentThreads() {
-    const { comments, currentUser, options: { votable } } = this.props;
+    const { comments, session, options: { votable } } = this.props;
 
     return comments.map((comment) => (
-      <CommentThread 
-        key={comment.id} 
-        comment={filter(CommentThread.fragments.comment, comment)} 
-        currentUser={currentUser}
+      <CommentThread
+        key={comment.id}
+        comment={filter(CommentThread.fragments.comment, comment)}
+        session={session}
         votable={votable}
       />
     ))
@@ -73,12 +73,12 @@ export class Comments extends Component {
    * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
    */
   _renderAddCommentForm() {
-    const { currentUser, commentableId, commentableType, options: { arguable } } = this.props;
+    const { session, commentableId, commentableType, options: { arguable } } = this.props;
 
-    if (currentUser) {
+    if (session) {
       return (
-        <AddCommentForm 
-          currentUser={currentUser}
+        <AddCommentForm
+          session={session}
           commentableId={commentableId}
           commentableType={commentableType}
           arguable={arguable}
@@ -95,8 +95,8 @@ Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired
   })),
-  currentUser: PropTypes.shape({
-    name: PropTypes.string.isRequired
+  session: PropTypes.shape({
+    user: PropTypes.any.isRequired
   }),
   commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired,
@@ -113,15 +113,16 @@ Comments.propTypes = {
  */
 const CommentsWithData = graphql(gql`
   ${commentsQuery}
+  ${AddCommentForm.fragments.user}
   ${CommentThread.fragments.comment}
 `, {
   options: {
     pollInterval: 15000
   },
-  props: ({ ownProps, data: {loading, currentUser, comments, refetch }}) => ({
+  props: ({ ownProps, data: { loading, session, comments, refetch }}) => ({
     loading: loading,
     comments: comments || [],
-    currentUser: currentUser || null,
+    session,
     commentableId: ownProps.commentableId,
     commentableType: ownProps.commentableType,
     orderBy: ownProps.orderBy,
@@ -141,7 +142,7 @@ const CommentsWithData = graphql(gql`
  */
 const CommentsApplication = ({ locale, commentableId, commentableType, options }) => (
   <Application locale={locale}>
-    <CommentsWithData 
+    <CommentsWithData
       commentableId={commentableId}
       commentableType={commentableType}
       options={options}

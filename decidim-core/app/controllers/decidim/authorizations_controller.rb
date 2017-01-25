@@ -8,25 +8,22 @@ module Decidim
     helper_method :handler, :handlers
     before_action :valid_handler, only: [:new, :create]
 
+    include Decidim::UserProfile
+
     layout "layouts/decidim/user_profile", only: [:index]
 
     def new
-      authorize! current_user, Authorization
     end
 
     def index
-      authorize! current_user, Authorization
       @authorizations = current_user.authorizations
     end
 
     def first_login
-      authorize! :read, Authorization
       redirect_to(action: :new, handler: handlers.first.handler_name) if handlers.length == 1
     end
 
     def create
-      authorize! current_user, Authorization
-
       AuthorizeUser.call(handler) do
         on(:ok) do
           flash[:notice] = t("authorizations.create.success", scope: "decidim")
@@ -42,7 +39,6 @@ module Decidim
 
     def destroy
       @authorization = current_user.authorizations.find(params[:id])
-      authorize! current_user, @authorization
 
       @authorization.destroy
       flash[:notice] = t("authorizations.destroy.success", scope: "decidim")
@@ -78,6 +74,16 @@ module Decidim
 
     def only_one_handler?
       redirect_to(action: :new, handler: handlers.first.handler_name) && return if handlers.length == 1
+    end
+
+    def handlers
+      @handlers ||= available_authorization_handlers.reject do |handler|
+        authorized_handlers.include?(handler.handler_name)
+      end
+    end
+
+    def authorized_handlers
+      current_user.authorizations.map(&:name)
     end
   end
 end

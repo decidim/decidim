@@ -25,7 +25,7 @@ es:
         slug: Texto corto de URL
         subtitle: Subtítulo
         title: Título
-      participatory_process_attachment:
+      attachment:
         description: Descripción
         file: Archivo
         title: Título
@@ -87,7 +87,7 @@ es:
           categories:
             index:
               categories_title: Categorías
-          participatory_process_attachments:
+          attachments:
             index:
               attachments_title: Archivos adjuntos
           participatory_process_steps:
@@ -151,7 +151,7 @@ es:
             published: Publicado
             title: Título
           name: Proceso participativo
-        participatory_process_attachment:
+        attachment:
           fields:
             content_type: Tipo
             title: Título
@@ -199,7 +199,7 @@ es:
         update:
           error: Se produjo un error al actualizar esta organización.
           success: Organización actualizada correctamente.
-      participatory_process_attachments:
+      attachments:
         create:
           error: Se ha producido un error al crear un nuevo archivo adjunto.
           success: Adjunto creado correctamente.

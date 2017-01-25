@@ -33,7 +33,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
 
-    get "/" => proc { raise "Feature not found" }, as: :feature
+    get "/", to: redirect("/404"), as: :feature
   end
 
   authenticate(:user) do
@@ -43,6 +43,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
     resource :account, only: [:show, :update], controller: "account"
+    resources :own_user_groups, only: [:index]
   end
 
   get "/pages/*id" => "pages#show", as: :page, format: false

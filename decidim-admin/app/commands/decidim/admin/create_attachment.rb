@@ -3,15 +3,14 @@ module Decidim
   module Admin
     # A command with all the business logic to add an attachment to a
     # participatory process.
-    class CreateParticipatoryProcessAttachment < Rectify::Command
+    class CreateAttachment < Rectify::Command
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # participatory_process - The ParticipatoryProcess that will hold the
-      #   attachment
-      def initialize(form, participatory_process)
+      # attachable - The ActiveRecord::Base that will hold the attachment
+      def initialize(form, attachable)
         @form = form
-        @participatory_process = participatory_process
+        @attachable = attachable
       end
 
       # Executes the command. Broadcasts these events:
@@ -32,11 +31,11 @@ module Decidim
       attr_reader :form
 
       def create_attachment
-        ParticipatoryProcessAttachment.create!(
+        Attachment.create!(
           title: form.title,
           description: form.description,
           file: form.file,
-          participatory_process: @participatory_process
+          attachable: @attachable
         )
       end
     end
