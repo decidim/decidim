@@ -12,7 +12,7 @@ Decidim.register_feature(:meetings) do |feature|
   end
 
   feature.register_resource do |resource|
-    resource.model_class = Decidim::Meetings::Meeting
+    resource.model_class_name = "Decidim::Meetings::Meeting"
     resource.template = "decidim/meetings/meetings/linked_meetings"
   end
 

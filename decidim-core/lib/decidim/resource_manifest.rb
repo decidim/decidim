@@ -22,8 +22,8 @@ module Decidim
     # The parent feature manifest
     attribute :feature_manifest, Decidim::FeatureManifest
 
-    # The ActiveRecord class of the model we're exposing
-    attribute :model_class, ActiveRecord::Base
+    # The ActiveRecord class name of the model we're exposing
+    attribute :model_class_name, String
 
     # The name of the named Rails route to create the url to the resource.
     # When not explicitly set, it will use the model name.
@@ -32,20 +32,31 @@ module Decidim
     # The template to use to render the collection of a resource.
     attribute :template, String
 
-    validates :feature_manifest, :model_class, :route_name, presence: true
+    validates :feature_manifest, :model_class_name, :route_name, presence: true
+
+    def resource_scope(feature)
+      feature_ids = Decidim::Feature.where(participatory_process: feature.participatory_process, manifest_name: feature_manifest.name).pluck(:id)
+      return model_class.none if feature_ids.empty?
+
+      model_class.where(feature: feature_ids)
+    end
+
+    def model_class
+      model_class_name.constantize
+    end
 
     # The name of the resource we are exposing.
     #
     # Returns a String.
     def name
-      super || model_class.name.demodulize.underscore.pluralize.to_sym
+      super || model_class_name.demodulize.underscore.pluralize.to_sym
     end
 
     # The name of the named Rails route to create the url to the resource.
     #
     # Returns a String.
     def route_name
-      super || model_class.name.demodulize.underscore
+      super || model_class_name.demodulize.underscore
     end
 
     # The engine for the resource. It will be used to build routes.

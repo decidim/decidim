@@ -11,6 +11,11 @@ Decidim.register_feature(:results) do |feature|
     raise StandardError, "Can't remove this feature" if Decidim::Results::Result.where(feature: instance).any?
   end
 
+  feature.register_resource do |resource|
+    resource.model_class_name = "Decidim::Results::Result"
+    resource.template = "decidim/results/results/linked_results"
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?
