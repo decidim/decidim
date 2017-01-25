@@ -42,7 +42,7 @@ module Decidim
             locationHints: translated_attribute(meeting.location_hints),
             link: meeting_path(meeting)
           })
-        end.to_json
+        end
       end
     end
   end

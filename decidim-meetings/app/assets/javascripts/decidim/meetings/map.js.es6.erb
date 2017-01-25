@@ -19,45 +19,65 @@ L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
   }
 });
 
-const loadMap = () => {
-  const mapId = 'meetings-map';
-  const $map = $(`#${mapId}`);
+const popupTemplateId = 'meeting-popup';
+$.template('meeting-popup', $(`#${popupTemplateId}`).html());
 
-  if ($map.length > 0) {
-    const popupTemplateId = 'meeting-popup';
-    const meetingsData = $map.data('meetings');
-    const bounds = new L.LatLngBounds(meetingsData.map((meeting) => [meeting.latitude, meeting.longitude]));
-    const map = L.map(mapId);
+const addMarkers = (meetingsData, map) => {
+  const bounds = new L.LatLngBounds(meetingsData.map((meeting) => [meeting.latitude, meeting.longitude]));
 
-    $.template('meeting-popup', $(`#${popupTemplateId}`).html());
-
-    L.tileLayer.here({
-      appId: '<%= Rails.application.secrets.dig(:geocoder, "api_key").try(&:first) %>',
-      appCode: '<%= Rails.application.secrets.dig(:geocoder, "api_key").try(&:last) %>'
+  meetingsData.forEach((meeting) => {
+    let marker = L.marker([meeting.latitude, meeting.longitude], { 
+      icon: new L.DivIcon.SVGIcon.DecidimIcon() 
     }).addTo(map);
+    let node = document.createElement('div');
 
-    meetingsData.forEach((meeting) => {
-      let marker = L.marker([meeting.latitude, meeting.longitude], { icon: new L.DivIcon.SVGIcon.DecidimIcon() }).addTo(map);
-      let node = document.createElement('div');
+    $.tmpl('meeting-popup', meeting).appendTo(node);
 
-      $.tmpl('meeting-popup', meeting).appendTo(node);
+    marker.bindPopup(node, {
+      maxwidth: 640,
+      minWidth: 500,
+      keepInView: true,
+      className: 'map-info'
+    }).openPopup();
+  });
 
-      marker.bindPopup(node, {
-        maxwidth: 640,
-        minWidth: 500,
-        keepInView: true,
-        className: 'map-info'
-      }).openPopup();
-    });
+  map.fitBounds(bounds, { padding: [10, 10] });
+};
 
-    map.fitBounds(bounds, { padding: [10, 10] });
+const loadMap = (mapId, meetingsData) => {
+  if (window.DecidimMeetings.currentMap) {
+    window.DecidimMeetings.currentMap.remove();
+    window.DecidimMeetings.currentMap = null;
   }
+
+  const map = L.map(mapId);
+
+  L.tileLayer.here({
+    appId: '<%= Rails.application.secrets.dig(:geocoder, "api_key").try(&:first) %>',
+    appCode: '<%= Rails.application.secrets.dig(:geocoder, "api_key").try(&:last) %>'
+  }).addTo(map);
+
+  if (meetingsData.length > 0) {
+    addMarkers(meetingsData, map);
+  } else {
+    map.fitWorld();
+  }
+
+  return map;
 };
 
 window.DecidimMeetings = {
-  loadMap
+  loadMap,
+  currentMap: null
 };
 
 $(() => {
-  window.DecidimMeetings.loadMap();
+  const mapId = 'meetings-map';
+  const $map = $(`#${mapId}`);
+
+  const meetingsData = $map.data('meetings');
+
+  if ($map.length > 0) {
+    window.DecidimMeetings.currentMap = loadMap(mapId, meetingsData);
+  }
 });

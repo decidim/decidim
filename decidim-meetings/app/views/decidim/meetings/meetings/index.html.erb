@@ -1,8 +1,7 @@
 <% content_for(:title, t(".title")) %>
 
 <div class="row column">
-  <div id="meetings-map-container">
-    <%= render partial: "map" %>
+  <div class="google-map" id="meetings-map" data-meetings="<%= meetings_data_for_map(@geocoded_meetings).to_json %>">
   </div>
 
   <template id="meeting-popup">

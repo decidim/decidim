@@ -6,6 +6,8 @@ FactoryGirl.define do
     location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     location_hints { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     address { Faker::Lorem.sentence(3) }
+    latitude { Faker::Address.latitude }
+    longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
     feature
