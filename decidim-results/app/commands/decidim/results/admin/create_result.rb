@@ -15,8 +15,10 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          create_result
-          link_proposals
+          transaction do
+            create_result
+            link_proposals
+          end
           broadcast(:ok)
         end
 
