@@ -75,11 +75,6 @@ ca:
     participatory_process_steps:
       index:
         process_steps: Fases del procés
-    participatory_processes:
-      documents:
-        related_documents: Documents relacionats
-      photos:
-        related_photos: Fotos relacionades
     shared:
       login_modal:
         please_sign_in: Si us plau, inicii sessió
