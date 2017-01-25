@@ -11,8 +11,19 @@ module Decidim
     attribute :password
     attribute :password_confirmation
     attribute :avatar
+    attribute :remove_avatar
 
     validates :name, presence: true
     validates :email, presence: true
+
+    validates :password, confirmation: true
+    validates :password, length: { in: Decidim::User.password_length, allow_blank: true }
+    validates :password_confirmation, presence: true, if: :password_present
+
+    private
+
+    def password_present
+      !password.blank?
+    end
   end
 end

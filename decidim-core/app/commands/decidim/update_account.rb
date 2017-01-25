@@ -1,5 +1,10 @@
 module Decidim
+  # This command updates the user's account.
   class UpdateAccount < Rectify::Command
+    # Updates a user's account.
+    #
+    # user - The user to be updated.
+    # form - The form with the data.
     def initialize(user, form)
       @user = user
       @form = form
@@ -13,7 +18,11 @@ module Decidim
         email: @form.email
       }
 
-      @user.avatar = @form.avatar if @form.avatar
+      if @form.avatar
+        @user.avatar = @form.avatar
+      elsif @form.remove_avatar
+        @user.remove_avatar = true
+      end
 
       if @form.password.present?
         @user.password = @form.password
@@ -22,7 +31,7 @@ module Decidim
 
       @user.save!
 
-      broadcast(:ok)
+      broadcast(:ok, @form)
     rescue ActiveRecord::RecordInvalid
       broadcast(:invalid)
     end
