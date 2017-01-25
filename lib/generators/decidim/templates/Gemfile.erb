@@ -15,11 +15,20 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  <% if options[:path] %>
+  gem "decidim-dev", path: "<%= options[:path] %>"
+  <% elsif options[:edge] %>
+  gem "decidim-dev", git: 'https://github.com/AjuntamentdeBarcelona/decidim.git'
+  <% elsif options[:branch] %>
+  gem "decidim-dev", git: 'https://github.com/AjuntamentdeBarcelona/decidim.git', branch: "<%= options[:branch] %>"
+  <% else %>
+  gem "decidim-dev", "<%= Gem::Specification.find_by_name("decidim").version %>"
+  <% end %>
 end
 
 group :development do
   gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '~> 3.1.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'faker', '~> <%= Gem::Specification.find_by_name("faker").version %>'
