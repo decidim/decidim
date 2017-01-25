@@ -76,3 +76,5 @@ en:
     resource_links:
       proposals_from_meeting:
         proposals: Related proposals
+      meetings_from_result:
+        results: "Meeting appearing in these results:"
