@@ -32,7 +32,7 @@ module Decidim
       return true if Decidim::User.where(
         organization: context.current_organization,
         email: email
-      ).empty?
+      ).where.not(id: context.current_user.id).empty?
 
       errors.add :email, I18n.t("errors.messages.taken")
       false
