@@ -5,6 +5,7 @@ module Decidim
       # This class holds a Form to create/update results from Decidim's admin panel.
       class ResultForm < Decidim::Form
         include TranslatableAttributes
+        include TranslationsHelper
 
         translatable_attribute :title, String
         translatable_attribute :short_description, String
@@ -12,6 +13,7 @@ module Decidim
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
         attribute :proposal_ids, Array[Integer]
+        attribute :meeting_ids, Array[Integer]
 
         validates :title, translatable_presence: true
         validates :short_description, translatable_presence: true
@@ -26,6 +28,12 @@ module Decidim
 
         def proposals
           @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, context.current_feature)&.order(title: :asc)&.pluck(:title, :id)
+        end
+
+        def meetings
+          @meetings ||= Decidim.find_resource_manifest(:meetings).try(:resource_scope, context.current_feature)&.order(title: :asc)&.pluck(:title, :id)&.map do |element|
+            [translated_attribute(element[0]), element[1]]
+          end
         end
 
         def scope

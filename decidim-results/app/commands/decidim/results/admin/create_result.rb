@@ -39,8 +39,16 @@ module Decidim
           @result.sibling_scope(:proposals).where(id: @form.proposal_ids)
         end
 
+        def meetings
+          @result.sibling_scope(:meetings).where(id: @form.meeting_ids)
+        end
+
         def link_proposals
           @result.link_resources(proposals, "proposals_from_result")
+        end
+
+        def link_meetings
+          @result.link_resources(meetings, "meetings_from_result")
         end
       end
     end
