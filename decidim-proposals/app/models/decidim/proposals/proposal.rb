@@ -25,16 +25,6 @@ module Decidim
         author&.avatar&.url || ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
       end
 
-      # Public: Canpeople comment on this proposal?
-      #
-      # Until we have a way to store options fore features and its resources we
-      # assume all proposals can be commented.
-      #
-      # Returns Boolean
-      def commentable?
-        true
-      end
-
       # Public: Check if the user has voted the proposal
       #
       # Returns Boolean
