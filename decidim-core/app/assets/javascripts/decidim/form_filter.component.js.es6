@@ -10,8 +10,8 @@
     mounted;
     $form;
 
-    constructor(selector) {
-      this.$form = $(selector);
+    constructor($form) {
+      this.$form = $form;
       this.mounted = false;
 
       this._onFormChange = this._onFormChange.bind(this);
@@ -154,13 +154,12 @@
      * @private
      * @returns {Void} - Returns nothing.
      */
-    _onFormChange(event) {
-      const $form = $(event.target).parents('form');
-      const formAction = $form.attr('action');
-      const params = $form.serialize();
+    _onFormChange() {
+      const formAction = this.$form.attr('action');
+      const params = this.$form.serialize();
       let newUrl = '';
 
-      $form.submit();
+      this.$form.submit();
 
       if (formAction.indexOf('?') < 0) {
         newUrl = `${formAction}?${params}`;

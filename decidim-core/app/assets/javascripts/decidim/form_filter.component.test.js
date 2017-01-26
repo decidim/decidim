@@ -34,7 +34,7 @@ describe('FormFilterComponent', () => {
     window.history = {
       pushState: sinon.stub()
     };
-    subject = new FormFilterComponent(selector);
+    subject = new FormFilterComponent($(document).find('form'));
   });
 
   it('exists', () => {

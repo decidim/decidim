@@ -1,3 +1,4 @@
+/* eslint-disable no-invalid-this */
 // = require ./form_filter.component
 // = require_self
 
@@ -6,9 +7,12 @@
 // multiple times when re-visiting the page.
 ((exports) => {
   const { Decidim: { FormFilterComponent } } = exports;
-  const formFilter = new FormFilterComponent('form.new_filter');
 
   $(() => {
-    formFilter.mountComponent();
+    $('form.new_filter').each(function () {
+      const formFilter = new FormFilterComponent($(this));
+
+      formFilter.mountComponent();
+    })
   });
 })(window);
