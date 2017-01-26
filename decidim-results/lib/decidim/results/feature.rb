@@ -16,6 +16,14 @@ Decidim.register_feature(:results) do |feature|
     resource.template = "decidim/results/results/linked_results"
   end
 
+  feature.settings(:global) do |settings|
+    settings.attribute :comments_always_enabled, type: :boolean, default: true
+  end
+
+  feature.settings(:step) do |settings|
+    settings.attribute :comments_enabled, type: :boolean, default: true
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?

@@ -51,7 +51,7 @@
 </div>
 
 <%= content_for :expanded do %>
-  <% if result.commentable? %>
+  <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
     <%= comments_for result, arguable: true, votable: true %>
   <% end %>
 <% end %>

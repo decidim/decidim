@@ -15,16 +15,6 @@ module Decidim
       validate :category_belongs_to_organization
       validates :feature, presence: true
 
-      # Public: Canpeople comment on this proposal?
-      #
-      # Until we have a way to store options fore features and its resources we
-      # assume all results can be commented.
-      #
-      # Returns Boolean
-      def commentable?
-        true
-      end
-
       private
 
       def scope_belongs_to_organization
