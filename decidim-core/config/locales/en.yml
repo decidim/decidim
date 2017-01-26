@@ -3,6 +3,17 @@ en:
   activemodel:
     attributes:
       user:
+        email: Your email
+        name: Your name
+        password: New password
+        password_confirmation: Confirm your new password
+        user_group_document_number: Organization document number
+        user_group_name: Organization name
+        user_group_phone: Organization phone
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Current password
         email: Email
         name: Username
         password: Password
@@ -18,15 +29,18 @@ en:
       image_too_big: The image is too big
   decidim:
     account:
-      authorizations:
-        authorization_confirm_destroy: Are you sure you want to delete this authorization?
       show:
-        authorizations: Authorizations
-        title: My account
-        user_groups: Organizations
-      user_groups:
-        not_verified: Not verified
-        verified: Verified
+        change_password: Change password
+        update_account: Update account
+      update:
+        error: There's been an error updating your account.
+        success: Your account was updated successfully.
+        success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
+    application:
+      documents:
+        related_documents: Related documents
+      photos:
+        related_photos: Related photos
     authorization_handlers:
       decidim/dummy_authorization_handler: Example authorization
       errors:
@@ -38,11 +52,13 @@ en:
       current_participatory_processes: take a look at the current processes
       destroy:
         success: Authorization successfully destroyed
-      index:
+      first_login:
         actions:
           decidim/dummy_authorization_handler: Verify against the example authorization
         title: Verify your identity
         verify_with_these_options: 'These are the available options to verify your identity:'
+      index:
+        authorization_confirm_destroy: Are you sure you want to delete this authorization?
       new:
         authorize: Send
         authorize_with: Verify with %{authorizer}
@@ -82,14 +98,13 @@ en:
     menu:
       home: Home
       processes: Processes
+    own_user_groups:
+      index:
+        not_verified: Not verified
+        verified: Verified
     participatory_process_steps:
       index:
         process_steps: Process steps
-    participatory_processes:
-      documents:
-        related_documents: Related documents
-      photos:
-        related_photos: Related photos
     shared:
       login_modal:
         please_sign_in: Please sign in
@@ -147,11 +162,17 @@ en:
       process_header:
         process_menu_item: The process
       process_header_steps:
+        step: Step %{current} of %{total}
         view_steps: View steps
       user_menu:
         admin_dashboard: Admin dashboard
         profile: My account
         sign_out: Sign out
+      user_profile:
+        account: Account
+        authorizations: Authorizations
+        title: User settings
+        user_groups: Organizations
   locales:
     ca: Català
     en: English

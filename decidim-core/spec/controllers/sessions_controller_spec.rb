@@ -31,7 +31,7 @@ module Decidim
                   Decidim.authorization_handlers = [Decidim::DummyAuthorizationHandler]
                 end
 
-                it { is_expected.to eq("/authorizations") }
+                it { is_expected.to eq("/authorizations/first_login") }
               end
 
               context "otherwise" do

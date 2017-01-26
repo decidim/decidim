@@ -3,7 +3,7 @@
 require "decidim/admin/test/manage_attachments_examples"
 
 RSpec.shared_examples "manage process attachments examples" do
-  let(:attachable) { participatory_process }
+  let(:attached_to) { participatory_process }
 
   before do
     switch_to_host(organization.host)

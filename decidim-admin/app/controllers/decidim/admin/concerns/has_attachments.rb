@@ -6,13 +6,13 @@ module Decidim
       # manage the attachments for a given type, you should create a new
       # controller and include this concern.
       #
-      # The only requirement is to define a `attachable` method that
+      # The only requirement is to define a `attached_to` method that
       # returns an instance of the model to attach the attachment to.
-      module Attachable
+      module HasAttachments
         extend ActiveSupport::Concern
 
         included do
-          helper_method :attachable, :authorization_object
+          helper_method :attached_to, :authorization_object
 
           def index
             authorize! :read, authorization_object
@@ -30,7 +30,7 @@ module Decidim
             authorize! :create, authorization_object
             @form = form(AttachmentForm).from_params(params)
 
-            CreateAttachment.call(@form, attachable) do
+            CreateAttachment.call(@form, attached_to) do
               on(:ok) do
                 flash[:notice] = I18n.t("attachments.create.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -85,29 +85,29 @@ module Decidim
           end
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after
-          # destroying an attachment. By default it redirects to the attachable.
+          # destroying an attachment. By default it redirects to the attached_to.
           #
           # It can be redefined at controller level if you need to redirect elsewhere.
           def after_destroy_path
-            attachable
+            attached_to
           end
 
           # Public: The only method to be implemented at the controller. You need to
           # return the object where the attachment will be attached to.
-          def attachable
+          def attached_to
             raise NotImplementedError
           end
 
           # Public: The Class or Object to be used with the authorization layer to
           # verify the user can manage the attachments
           #
-          # By default is the same as the attachable.
+          # By default is the same as the attached_to.
           def authorization_object
-            attachable
+            attached_to
           end
 
           def collection
-            @collection ||= attachable.attachments
+            @collection ||= attached_to.attachments
           end
         end
       end

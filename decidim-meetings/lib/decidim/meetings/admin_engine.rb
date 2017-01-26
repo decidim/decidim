@@ -12,6 +12,7 @@ module Decidim
       routes do
         resources :meetings do
           resources :meeting_closes, only: [:edit, :update]
+          resources :attachments
         end
         root to: "meetings#index"
       end

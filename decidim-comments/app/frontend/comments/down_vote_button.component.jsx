@@ -12,15 +12,26 @@ import commentDataFragment from './comment_data.fragment.graphql';
 import upVoteFragment      from './up_vote.fragment.graphql';
 import downVoteFragment    from './down_vote.fragment.graphql';
 
-export const DownVoteButton = ({ comment: { downVotes, upVoted, downVoted }, downVote }) => (
-  <VoteButton
-    buttonClassName="comment__votes--down"
-    iconName="icon-chevron-bottom"
-    votes={downVotes}
-    voteAction={downVote}
-    disabled={upVoted || downVoted}
-  />
-);
+export const DownVoteButton = ({ comment: { downVotes, upVoted, downVoted }, downVote }) => {
+  let selectedClass = '';
+
+  if (downVoted) {
+    selectedClass = 'is-vote-selected';
+  } else if (upVoted) {
+     selectedClass = 'is-vote-notselected';
+  }
+
+  return (
+    <VoteButton
+      buttonClassName="comment__votes--down"
+      iconName="icon-chevron-bottom"
+      votes={downVotes}
+      voteAction={downVote}
+      disabled={upVoted || downVoted}
+      selectedClass={selectedClass}
+    />
+  );
+};
 
 DownVoteButton.fragments = {
   comment: gql`
@@ -35,7 +46,7 @@ DownVoteButton.propTypes = {
 
 const DownVoteButtonWithMutation = graphql(gql`
   ${downVoteMutation}
-  ${commentFragment}  
+  ${commentFragment}
   ${commentDataFragment}
   ${upVoteFragment}
   ${downVoteFragment}

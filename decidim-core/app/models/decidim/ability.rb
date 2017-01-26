@@ -25,8 +25,6 @@ module Decidim
       can :manage, Authorization do |authorization|
         authorization.user == user
       end
-
-      can :read, :user_account if user
     end
   end
 end

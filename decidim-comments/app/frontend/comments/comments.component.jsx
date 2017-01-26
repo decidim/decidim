@@ -24,8 +24,8 @@ export class Comments extends Component {
     const { comments, reorderComments, orderBy, loading } = this.props;
     let commentClasses = "comments";
     let commentHeader = I18n.t("components.comments.title", { count: comments.length });
-    
-    if (loading) { 
+
+    if (loading) {
       commentClasses += " loading-comments"
       commentHeader = I18n.t("components.comments.loading");
     }
