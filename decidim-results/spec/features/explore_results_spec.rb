@@ -41,7 +41,12 @@ describe "Explore results", type: :feature do
       expect(page).to have_i18n_content(result.short_description)
 
       within ".section.view-side" do
-        # TODO: check correct data
+        expect(page).to have_content(/Proposals/i)
+        expect(page).to have_content(/Meetings/i)
+        expect(page).to have_content(/Comments/i)
+        expect(page).to have_content(/Attendees/i)
+        expect(page).to have_content(/Supports/i)
+        expect(page).to have_content(/Contributions/i)
       end
     end
 

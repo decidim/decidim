@@ -5,9 +5,7 @@ module Decidim
     # order to find the stats.
     class ResultStatsCalculator
       # Public: Initializes the service.
-      # feature     - A Decidim::Feature to get the results from.
-      # page        - The page number to paginate the results.
-      # per_page    - The number of proposals to return per page.
+      # result - The result from which to calculate the stats.
       def initialize(result)
         @result = result
       end
@@ -22,15 +20,15 @@ module Decidim
       end
 
       def comments_count
-        Decidim::Comments::Comment.where(commentable: proposals).uniq.count
+        Decidim::Comments::Comment.where(commentable: proposals).count
       end
 
       def attendees_count
-        meetings.pluck(:attendees_count).map(&:to_i).sum
+        meetings.where("attendees_count > 0").sum(:attendees_count)
       end
 
       def contributions_count
-        meetings.pluck(:contributions_count).map(&:to_i).sum
+        meetings.where("contributions_count > 0").sum(:contributions_count)
       end
 
       def meetings_count
