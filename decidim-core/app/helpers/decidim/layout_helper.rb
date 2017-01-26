@@ -54,10 +54,8 @@ module Decidim
       return content_tag(:span, "?", class: "external-svg", "data-src" => path) if Rails.env.test?
 
       if path.split(".").last == "svg"
-        Rails.application.assets.find_asset(path)
-          .source
-          .gsub("<svg", '<svg class="icon"')
-          .html_safe
+        asset = (Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)).find_asset(path)
+        asset.source.gsub("<svg", '<svg class="icon"').html_safe
       else
         image_tag(path, class: "external-icon", style: "display: none")
       end
