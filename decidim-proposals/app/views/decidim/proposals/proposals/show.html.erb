@@ -27,7 +27,7 @@
             <div id="proposal-<%= @proposal.id %>-votes-count">
               <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
             </div>
-            <div id="proposal-<%= @proposal.id %>-vote-button"> 
+            <div id="proposal-<%= @proposal.id %>-vote-button">
               <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
             </div>
         </div>
@@ -49,7 +49,7 @@
         </ul>
       <% end %>
     </div>
-    <%= linked_resources_for @proposal, :results, "proposals_from_result" %>
+    <%= linked_resources_for @proposal, :results, "included_proposals" %>
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
   </div>
 </div>

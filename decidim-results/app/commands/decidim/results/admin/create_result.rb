@@ -47,11 +47,11 @@ module Decidim
         end
 
         def link_proposals
-          result.link_resources(proposals, "proposals_from_result")
+          result.link_resources(proposals, "included_proposals")
         end
 
         def link_meetings
-          result.link_resources(meetings, "meetings_from_result")
+          result.link_resources(meetings, "meetings_through_proposals")
         end
       end
     end

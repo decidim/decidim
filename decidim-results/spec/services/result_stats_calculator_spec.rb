@@ -37,8 +37,8 @@ describe Decidim::Results::ResultStatsCalculator do
   end
 
   before do
-    result.link_resources(proposals, "proposals_from_result")
-    result.link_resources(meetings, "meetings_from_result")
+    result.link_resources(proposals, "included_proposals")
+    result.link_resources(meetings, "meetings_through_proposals")
   end
 
   subject { described_class.new(result) }

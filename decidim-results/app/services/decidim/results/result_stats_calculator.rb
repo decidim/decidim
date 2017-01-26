@@ -40,11 +40,11 @@ module Decidim
       attr_reader :result
 
       def proposals
-        @proposals ||= result.linked_resources(:proposals, "proposals_from_result")
+        @proposals ||= result.linked_resources(:proposals, "included_proposals")
       end
 
       def meetings
-        @meetings ||= result.linked_resources(:meetings, "meetings_from_result")
+        @meetings ||= result.linked_resources(:meetings, "meetings_through_proposals")
       end
     end
   end

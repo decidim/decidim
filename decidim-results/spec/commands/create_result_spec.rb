@@ -75,13 +75,13 @@ describe Decidim::Results::Admin::CreateResult do
 
     it "links proposals" do
       subject.call
-      linked_proposals = result.linked_resources(:proposals, "proposals_from_result")
+      linked_proposals = result.linked_resources(:proposals, "included_proposals")
       expect(linked_proposals).to match_array(proposals)
     end
 
     it "links meetings" do
       subject.call
-      linked_meetings = result.linked_resources(:meetings, "meetings_from_result")
+      linked_meetings = result.linked_resources(:meetings, "meetings_through_proposals")
       expect(linked_meetings).to match_array(meetings)
     end
   end

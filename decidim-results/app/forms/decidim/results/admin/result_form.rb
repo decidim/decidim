@@ -23,7 +23,7 @@ module Decidim
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
         def map_model(model)
-          self.proposal_ids = model.linked_resources(:proposals, "proposals_from_result").pluck(:id)
+          self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
         end
 
         def proposals

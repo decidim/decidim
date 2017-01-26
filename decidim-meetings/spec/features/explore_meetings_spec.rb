@@ -132,7 +132,7 @@ describe "Explore meetings", type: :feature do
       let(:results) { create_list(:result, 3, feature: result_feature) }
 
       before do
-        meeting.link_resources(results, "meetings_from_result")
+        meeting.link_resources(results, "meetings_through_proposals")
         visit current_path
       end
 

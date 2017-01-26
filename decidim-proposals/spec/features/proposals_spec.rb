@@ -18,7 +18,7 @@ describe "Proposals", type: :feature do
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
-        visit_feature      
+        visit_feature
       end
 
       it "creates a new proposal" do
@@ -38,7 +38,7 @@ describe "Proposals", type: :feature do
         expect(page).to have_content("He will solve everything")
         expect(page).to have_content(category.name["en"])
         expect(page).to have_content(scope.name)
-        expect(page).to have_content(user.name)       
+        expect(page).to have_content(user.name)
       end
 
       context "when the user has verified organizations" do
@@ -66,7 +66,7 @@ describe "Proposals", type: :feature do
           expect(page).to have_content("He will solve everything")
           expect(page).to have_content(category.name["en"])
           expect(page).to have_content(scope.name)
-          expect(page).to have_content(user_group.name)          
+          expect(page).to have_content(user_group.name)
         end
       end
     end
@@ -91,7 +91,7 @@ describe "Proposals", type: :feature do
       visit_feature
       click_link proposal.title
 
-      comments.each do |comment| 
+      comments.each do |comment|
         expect(page).to have_content(comment.body)
       end
     end
@@ -124,7 +124,7 @@ describe "Proposals", type: :feature do
     let(:result) { create(:result, feature: result_feature) }
 
     before do
-      result.link_resources([proposal], "proposals_from_result")
+      result.link_resources([proposal], "included_proposals")
     end
 
     it "shows related results" do

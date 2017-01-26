@@ -125,7 +125,7 @@ describe "Explore results", type: :feature do
       let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
 
       before do
-        result.link_resources(proposals, "proposals_from_result")
+        result.link_resources(proposals, "included_proposals")
         visit current_path
       end
 
@@ -145,7 +145,7 @@ describe "Explore results", type: :feature do
       let(:meetings) { create_list(:meeting, 3, feature: meeting_feature) }
 
       before do
-        result.link_resources(meetings, "meetings_from_result")
+        result.link_resources(meetings, "meetings_through_proposals")
         visit current_path
       end
 

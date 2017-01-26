@@ -45,8 +45,8 @@
       <%== translated_attribute result.description %>
     </div>
 
-    <%= linked_resources_for result, :proposals, "proposals_from_result" %>
-    <%= linked_resources_for result, :meetings, "meetings_from_result" %>
+    <%= linked_resources_for result, :proposals, "included_proposals" %>
+    <%= linked_resources_for result, :meetings, "meetings_through_proposals" %>
   </div>
 </div>
 
