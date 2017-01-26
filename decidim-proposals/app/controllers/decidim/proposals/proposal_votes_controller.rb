@@ -4,8 +4,11 @@ module Decidim
   module Proposals
     # Exposes the proposal vote resource so users can vote proposals.
     class ProposalVotesController < Decidim::Proposals::ApplicationController
+      include ProposalVotesHelper
+
       before_action :authenticate_user!
       before_action :check_current_settings!
+      before_action :check_vote_limit_reached!, only: [:create]
 
       def create
         proposal.votes.create!(author: current_user)
@@ -25,6 +28,12 @@ module Decidim
       # This ensure the votes cannot be created using a POST request directly.
       def check_current_settings!
         raise "This setting is not enabled for this step" unless current_settings.votes_enabled?
+      end
+
+      # The vote buttons should not be enabled if the vote limit is reached.
+      # This ensure the votes cannot be created using a POST request directly.
+      def check_vote_limit_reached!
+        raise "Vote limit reached" if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0
       end
 
       def proposal
