@@ -17,6 +17,7 @@ module Decidim
 
           transaction do
             create_result
+            link_meetings
             link_proposals
           end
           broadcast(:ok)
@@ -24,8 +25,10 @@ module Decidim
 
         private
 
+        attr_reader :result
+
         def create_result
-          Result.create!(
+          @result = Result.create!(
             scope: @form.scope,
             category: @form.category,
             feature: @form.current_feature,
@@ -36,19 +39,19 @@ module Decidim
         end
 
         def proposals
-          @result.sibling_scope(:proposals).where(id: @form.proposal_ids)
+          result.sibling_scope(:proposals).where(id: @form.proposal_ids)
         end
 
         def meetings
-          @result.sibling_scope(:meetings).where(id: @form.meeting_ids)
+          result.sibling_scope(:meetings).where(id: @form.meeting_ids)
         end
 
         def link_proposals
-          @result.link_resources(proposals, "proposals_from_result")
+          result.link_resources(proposals, "proposals_from_result")
         end
 
         def link_meetings
-          @result.link_resources(meetings, "meetings_from_result")
+          result.link_resources(meetings, "meetings_from_result")
         end
       end
     end

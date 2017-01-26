@@ -57,12 +57,6 @@ describe Decidim::Results::Admin::ResultForm do
     it { is_expected.not_to be_valid }
   end
 
-  describe "when current_feature is missing" do
-    let(:current_feature) { nil }
-
-    it { is_expected.not_to be_valid }
-  end
-
   describe "when the scope does not exist" do
     let(:scope_id) { scope.id + 10 }
 
