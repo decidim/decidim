@@ -10,12 +10,11 @@ module Decidim
     #
     # Returns the filter resource form wrapped in a div
     def filter_form_for(filter)
-      filters_container = content_tag :div, class: "filters" do
-        form_for filter, builder: FilterFormBuilder, url: url_for, as: :filter, method: :get, remote: true do |form|
+      content_tag :div, class: "filters" do
+        form_for filter, builder: FilterFormBuilder, url: url_for, as: :filter, method: :get, remote: true, html: { id: nil } do |form|
           yield form
         end
       end
-      filters_container + javascript_include_tag("decidim/filters")
     end
   end
 end
