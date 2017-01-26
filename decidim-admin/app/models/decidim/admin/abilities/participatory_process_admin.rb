@@ -14,7 +14,7 @@ module Decidim
         def initialize(user)
           @user = user
 
-          return if user&.role?(:admin)
+          return unless user && !user.role?(:admin)
 
           can :read, :admin_dashboard do
             participatory_processes.any?
