@@ -8,8 +8,6 @@ module Decidim
 
       helper_method :results, :result, :stats_calculator
 
-      def index; end
-
       private
 
       def results

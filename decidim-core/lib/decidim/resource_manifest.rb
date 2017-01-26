@@ -41,6 +41,10 @@ module Decidim
       model_class.where(feature: feature_ids)
     end
 
+    # Finds the current class with the given `model_class_name`
+    # in order to avoid problems with Rails' autoloading.
+    #
+    # Returns a class.
     def model_class
       model_class_name.constantize
     end

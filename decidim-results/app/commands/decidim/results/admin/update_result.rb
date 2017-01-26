@@ -25,6 +25,7 @@ module Decidim
             link_proposals
             link_meetings
           end
+
           broadcast(:ok)
         end
 
