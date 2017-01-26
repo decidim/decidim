@@ -22,6 +22,21 @@ module Decidim
         return "small" if from_proposals_list
         "expanded button--sc"
       end
+
+      # Return the remaining votes for a user if the current feature has a vote limit
+      #
+      # user - A User object
+      #
+      # Returns a number with the remaining votes for that user
+      def remaining_votes_count_for(user)
+        vote_limit = 10#feature_settings.vote_limit
+
+        if vote_limit.present? && vote_limit > 0
+          proposals = Proposal.where(feature: current_feature)
+          votes_count = ProposalVote.where(author: user, proposal: proposals).size
+          vote_limit - votes_count
+        end
+      end
     end
   end
 end

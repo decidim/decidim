@@ -14,7 +14,7 @@ describe "Vote Proposal", type: :feature do
   before do
     feature.step_settings = { participatory_process.active_step.id => { votes_enabled: votes_enabled } }
     feature.save
-    visit_feature      
+    visit_feature
   end
 
   context "when votes are not enabled" do
@@ -25,8 +25,8 @@ describe "Vote Proposal", type: :feature do
   end
 
   context "when votes are enabled" do
-    let(:votes_enabled) { true }   
-      
+    let(:votes_enabled) { true }
+
     context "when the user is not logged in" do
       it "should be given the option to sign in" do
         within ".card__support", match: :first do
@@ -58,7 +58,7 @@ describe "Vote Proposal", type: :feature do
 
       context "when the proposal is already voted" do
         before do
-          create(:proposal_vote, proposal: proposal, author: user) 
+          create(:proposal_vote, proposal: proposal, author: user)
           visit_feature
         end
 
@@ -69,7 +69,38 @@ describe "Vote Proposal", type: :feature do
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1 VOTE")          
+            expect(page).to have_content("1 VOTE")
+          end
+        end
+      end
+
+      context "when the feature has a vote limit" do
+        # TODO: add vote limit to 10
+
+        context "when the proposal is not voted yet" do
+          it "should update the remaining votes counter" do
+            within "#proposal-#{proposal.id}-vote-button" do
+              page.find('.card__button').click
+              expect(page).to have_css('.card__button.success', text: "Already voted")
+            end
+
+            expect(page).to have_content("REMAINING 9 VOTES")
+          end
+        end
+
+        context "when the proposal is already voted" do
+          before do
+            create(:proposal_vote, proposal: proposal, author: user)
+            visit_feature
+          end
+
+          it "should be able to undo the vote" do
+            within "#proposal-#{proposal.id}-vote-button" do
+              expect(page).to have_css('.card__button.success', text: "Already voted")
+              page.find('.card__button').click
+            end
+
+            expect(page).to have_content("REMAINING 10 VOTES")
           end
         end
       end
