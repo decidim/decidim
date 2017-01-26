@@ -74,7 +74,7 @@ en:
             start_time: Start date
             title: Title
     resource_links:
+      meetings_from_result:
+        results: 'Meeting appearing in these results:'
       proposals_from_meeting:
         proposals: Related proposals
-      meetings_from_result:
-        results: "Meeting appearing in these results:"

@@ -2,6 +2,7 @@ require "decidim/core/test/factories"
 require "decidim/admin/test/factories"
 require "decidim/comments/test/factories"
 require "decidim/meetings/test/factories"
+require "decidim/results/test/factories"
 
 FactoryGirl.define do
   factory :proposal_feature, class: Decidim::Feature do

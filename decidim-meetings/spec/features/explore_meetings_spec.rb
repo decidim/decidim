@@ -125,6 +125,24 @@ describe "Explore meetings", type: :feature do
       end
     end
 
+    context "with linked results" do
+      let(:result_feature) do
+        create(:feature, manifest_name: :results, participatory_process: meeting.feature.participatory_process)
+      end
+      let(:results) { create_list(:result, 3, feature: result_feature) }
+
+      before do
+        meeting.link_resources(results, "meetings_from_result")
+        visit current_path
+      end
+
+      it "shows related results" do
+        results.each do |result|
+          expect(page).to have_i18n_content(result.title)
+        end
+      end
+    end
+
     let(:attached_to) { meeting }
     it_behaves_like "has attachments"
   end
