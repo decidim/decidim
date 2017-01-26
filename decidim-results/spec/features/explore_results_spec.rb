@@ -3,7 +3,7 @@ require "spec_helper"
 describe "Explore results", type: :feature do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization: organization) }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "results" }
+  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: :results }
   let(:results_count) { 5 }
   let!(:results) do
     create_list(
@@ -109,6 +109,45 @@ describe "Explore results", type: :feature do
       it "shows the comments" do
         comments.each do |comment|
           expect(page).to have_content(comment.body)
+        end
+      end
+    end
+
+    context "with linked proposals" do
+      let(:proposal_feature) do
+        create(:feature, manifest_name: :proposals, participatory_process: result.feature.participatory_process)
+      end
+      let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+
+      before do
+        result.link_resources(proposals, "proposals_from_result")
+        visit current_path
+      end
+
+      it "shows related proposals" do
+        proposals.each do |proposal|
+          expect(page).to have_content(proposal.title)
+          expect(page).to have_content(proposal.author_name)
+          expect(page).to have_content(proposal.votes.size)
+        end
+      end
+    end
+
+    context "with linked proposals" do
+      let(:meeting_feature) do
+        create(:feature, manifest_name: :meetings, participatory_process: result.feature.participatory_process)
+      end
+      let(:meetings) { create_list(:meeting, 3, feature: meeting_feature) }
+
+      before do
+        result.link_resources(meetings, "meetings_from_result")
+        visit current_path
+      end
+
+      it "shows related meetings" do
+        meetings.each do |meeting|
+          expect(page).to have_i18n_content(meeting.title)
+          expect(page).to have_i18n_content(meeting.short_description)
         end
       end
     end
