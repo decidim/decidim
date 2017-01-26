@@ -2,6 +2,21 @@ ca:
   activemodel:
     attributes:
       user:
+        email: El teu email
+        name: El teu nom
+        password: Nova contrasenya
+        password_confirmation: Confirmeu la vostra nova contrasenya
+        user_group_document_number: Número de document acreditatiu
+        user_group_name: Nom de l'organització
+        user_group_phone: Telèfon de l'organització
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Contrasenya actual
+        email: Correu electrònic
+        name: Nom d'usuari
+        password: Contrasenya
+        password_confirmation: Confirmació de la contrasenya
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
@@ -12,6 +27,14 @@ ca:
     errors:
       image_too_big: La imatge és massa gran
   decidim:
+    account:
+      show:
+        change_password: Canvia la contrasenya
+        update_account: Actualitzar compte
+      update:
+        error: S'ha produït un error en actualitzar el seu compte.
+        success: El seu compte s'ha actualitzat correctament.
+        success_with_email_confirmation: El seu compte s'ha actualitzat correctament. Rebrà un correu electrònic per confirmar la seva nova adreça de correu electrònic.
     application:
       documents:
         related_documents: Documents relacionats
@@ -28,6 +51,13 @@ ca:
       current_participatory_processes: fer una ullada als processos actuals
       destroy:
         success: L'autorització s'ha destruït correctament
+      first_login:
+        actions:
+          decidim/dummy_authorization_handler: Verificar contra l'exemple d'autorització
+        title: Verificar la seva identitat
+        verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la seva identitat:'
+      index:
+        authorization_confirm_destroy: Esteu segur que voleu suprimir aquesta autorització?
       new:
         authorize: Enviar
         authorize_with: Verificar-me amb %{authorizer}
@@ -67,6 +97,10 @@ ca:
     menu:
       home: Inici
       processes: Processos
+    own_user_groups:
+      index:
+        not_verified: No verificada
+        verified: Verificada
     participatory_process_steps:
       index:
         process_steps: Fases del procés
@@ -133,6 +167,11 @@ ca:
         admin_dashboard: Tauler d'administració
         profile: El meu compte
         sign_out: Surt
+      user_profile:
+        account: Compta
+        authorizations: Autoritzacions
+        title: Configuració d'usuari
+        user_groups: Organitzacions
   locales:
     ca: Català
     en: English
