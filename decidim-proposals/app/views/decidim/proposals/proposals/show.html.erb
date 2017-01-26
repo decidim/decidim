@@ -3,6 +3,7 @@
 <% content_for :meta_url, proposal_url(@proposal.id) %>
 <% content_for :twitter_handler, current_organization.twitter_handler %>
 
+<%= render partial: "votes_limit" %>
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
   <div class="author-data">

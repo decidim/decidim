@@ -8,6 +8,26 @@ FactoryGirl.define do
     name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :proposals).i18n_name }
     manifest_name :proposals
     participatory_process
+
+    trait :with_votes_enabled do
+      step_settings do
+        {
+          participatory_process.active_step.id => { votes_enabled: true}
+        }
+      end
+    end
+
+    trait :with_vote_limit do
+      transient do
+        vote_limit 10
+      end
+
+      settings do
+        {
+          vote_limit: vote_limit
+        }
+      end
+    end
   end
 
   factory :proposal, class: Decidim::Proposals::Proposal do

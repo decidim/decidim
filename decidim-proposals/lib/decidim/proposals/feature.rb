@@ -13,6 +13,10 @@ Decidim.register_feature(:proposals) do |feature|
     end
   end
 
+  feature.settings(:global) do |settings|
+    settings.attribute :vote_limit, type: :integer, default: 0
+  end
+
   feature.settings(:step) do |settings|
     settings.attribute :votes_enabled, type: :boolean
   end
@@ -38,6 +42,9 @@ Decidim.register_feature(:proposals) do |feature|
         name: Decidim::Features::Namer.new(process.organization.available_locales, :proposals).i18n_name,
         manifest_name: :proposals,
         participatory_process: process,
+        settings: {
+          vote_limit: 0
+        },
         step_settings: {
           process.active_step.id => { votes_enabled: true }
         }

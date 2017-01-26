@@ -1,0 +1,20 @@
+var $proposalVotesCount = $('#proposal-<%= proposal.id %>-votes-count');
+var $proposalVoteButton = $('#proposal-<%= proposal.id %>-vote-button');
+
+$proposalVotesCount.html('<%= j(render partial: 'decidim/proposals/proposals/votes_count', locals: { proposal: proposal, from_proposals_list: @from_proposals_list }) %>');
+$proposalVoteButton.html('<%= j(render partial: 'decidim/proposals/proposals/vote_button', locals: { proposal: proposal, from_proposals_list: @from_proposals_list }) %>');
+
+<% if vote_limit_enabled? %>
+  var $remainingVotesCount = $('#remaining-votes-count');
+  var $notVotedButtons = $('.card__button.button').not('.success');
+
+  $remainingVotesCount.html('<%= j(render partial: 'decidim/proposals/proposals/remaining_votes_count') %>');
+
+  <% if remaining_votes_count_for(current_user) == 0 %>
+    $notVotedButtons.attr('disabled', true);
+    $notVotedButtons.val('<%= t('decidim.proposals.proposals.vote_button.no_votes_remaining') %>');
+  <% else %>
+    $notVotedButtons.attr('disabled', false);
+    $notVotedButtons.val('<%= t('decidim.proposals.proposals.vote_button.vote') %>');
+  <% end %>
+<% end %>
