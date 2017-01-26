@@ -2,6 +2,21 @@ es:
   activemodel:
     attributes:
       user:
+        email: Tu correo electrónico
+        name: Tu nombre
+        password: Nueva contraseña
+        password_confirmation: Confirme su nueva contraseña
+        user_group_document_number: Número de documento acreditativo
+        user_group_name: Nombre de la Organización
+        user_group_phone: Teléfono de la organización
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Contraseña actual
+        email: Correo electrónico
+        name: Nombre de usuario
+        password: Contraseña
+        password_confirmation: Confirmación de contraseña
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
@@ -12,6 +27,14 @@ es:
     errors:
       image_too_big: La imagen es demasiado grande
   decidim:
+    account:
+      show:
+        change_password: Cambia la contraseña
+        update_account: Actualizar cuenta
+      update:
+        error: Se ha producido un error al actualizar su cuenta.
+        success: Su cuenta se ha actualizado correctamente.
+        success_with_email_confirmation: Su cuenta se ha actualizado correctamente. Usted recibirá un correo electrónico para confirmar su nueva dirección de correo electrónico.
     application:
       documents:
         related_documents: Documentos relacionados
@@ -28,6 +51,13 @@ es:
       current_participatory_processes: echar un vistazo a los procesos actuales
       destroy:
         success: Autorización destruida con éxito
+      first_login:
+        actions:
+          decidim/dummy_authorization_handler: Verificar ejemplo autorización en contra de la
+        title: Verifica tu identidad
+        verify_with_these_options: 'Estas son las opciones disponibles para verificar su identidad:'
+      index:
+        authorization_confirm_destroy: '¿Está seguro de que quiere eliminar esta autorización?'
       new:
         authorize: Enviar
         authorize_with: Verificarme con %{authorizer}
@@ -67,6 +97,10 @@ es:
     menu:
       home: Inicio
       processes: Procesos
+    own_user_groups:
+      index:
+        not_verified: No verificada
+        verified: Verificada
     participatory_process_steps:
       index:
         process_steps: Las fases de proceso
@@ -133,6 +167,11 @@ es:
         admin_dashboard: Tablero de administración
         profile: Mi cuenta
         sign_out: Sal
+      user_profile:
+        account: Cuenta
+        authorizations: Autorizaciones
+        title: Ajustes de usuario
+        user_groups: Organizaciones
   locales:
     ca: Català
     en: English
