@@ -21,14 +21,19 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
+          change_meeting
+          if address_changed?
+            return broadcast(:invalid) unless geocode_meeting
+          end
           update_meeting
+
           broadcast(:ok)
         end
 
         private
 
-        def update_meeting
-          @meeting.update_attributes!(
+        def change_meeting
+           @meeting.assign_attributes(
             scope: @form.scope,
             category: @form.category,
             title: @form.title,
@@ -40,11 +45,16 @@ module Decidim
             location: @form.location,
             location_hints: @form.location_hints
           )
+        end
 
-          if address_changed?
-            @meeting.geocode
-            @meeting.save
-          end
+        def geocode_meeting
+          result = @meeting.geocode
+          @form.errors.add :address, :invalid unless result
+          result
+        end
+
+        def update_meeting
+          @meeting.save!
         end
 
         def address_changed?

@@ -26,8 +26,8 @@ const addMarkers = (meetingsData, map) => {
   const bounds = new L.LatLngBounds(meetingsData.map((meeting) => [meeting.latitude, meeting.longitude]));
 
   meetingsData.forEach((meeting) => {
-    let marker = L.marker([meeting.latitude, meeting.longitude], { 
-      icon: new L.DivIcon.SVGIcon.DecidimIcon() 
+    let marker = L.marker([meeting.latitude, meeting.longitude], {
+      icon: new L.DivIcon.SVGIcon.DecidimIcon()
     }).addTo(map);
     let node = document.createElement('div');
 
@@ -41,7 +41,7 @@ const addMarkers = (meetingsData, map) => {
     }).openPopup();
   });
 
-  map.fitBounds(bounds, { padding: [10, 10] });
+  map.fitBounds(bounds, { padding: [100, 100] });
 };
 
 const loadMap = (mapId, meetingsData) => {

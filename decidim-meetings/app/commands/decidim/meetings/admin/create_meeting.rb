@@ -15,14 +15,17 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
+          build_meeting
+          return broadcast(:invalid) unless geocode_meeting
           create_meeting
+
           broadcast(:ok)
         end
 
         private
 
-        def create_meeting
-          @meeting = Meeting.create!(
+        def build_meeting
+          @meeting = Meeting.build(
             scope: @form.scope,
             category: @form.category,
             title: @form.title,
@@ -35,7 +38,15 @@ module Decidim
             location_hints: @form.location_hints,
             feature: @form.current_feature
           )
-          @meeting.geocode
+        end
+
+        def geocode_meeting
+          result = @meeting.geocode
+          @form.errors.add :address, :invalid unless result
+          result
+        end
+
+        def create_meeting
           @meeting.save!
         end
       end
