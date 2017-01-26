@@ -5,10 +5,10 @@ en:
       results:
         name: Results
     resource_links:
-      proposals_from_result:
-        proposals: Proposals included in this result
       meetings_from_result:
         meetings: Related meetings
+      proposals_from_result:
+        proposals: Proposals included in this result
     results:
       actions:
         confirm_destroy: Are you sure you want to delete this result?
