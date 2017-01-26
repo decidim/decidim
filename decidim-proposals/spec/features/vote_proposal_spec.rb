@@ -9,14 +9,10 @@ describe "Vote Proposal", type: :feature do
   let!(:proposal) { Decidim::Proposals::Proposal.where(feature: feature).first }
   let!(:user) { create :user, :confirmed, organization: organization }
 
-  let(:votes_enabled) { false }
-
-  before do
-    feature.step_settings = {
-      participatory_process.active_step.id => { votes_enabled: votes_enabled }
-    }
-    feature.save
-    visit_feature
+  let!(:feature) do
+    create(:proposal_feature,
+           manifest: manifest,
+           participatory_process: participatory_process)
   end
 
   context "when votes are not enabled" do
@@ -27,10 +23,17 @@ describe "Vote Proposal", type: :feature do
   end
 
   context "when votes are enabled" do
-    let(:votes_enabled) { true }
+    let!(:feature) do
+      create(:proposal_feature,
+            :with_votes_enabled,
+            manifest: manifest,
+            participatory_process: participatory_process)
+    end
 
     context "when the user is not logged in" do
       it "should be given the option to sign in" do
+        visit_feature
+        
         within ".card__support", match: :first do
           page.find('.card__button').click
         end
@@ -77,12 +80,15 @@ describe "Vote Proposal", type: :feature do
       end
 
       context "when the feature has a vote limit" do
-        before do
-          feature.settings = {
-            vote_limit: 10
-          }
-          feature.save
-          visit_feature
+        let(:vote_limit) { 10 }
+
+        let!(:feature) do
+          create(:proposal_feature,
+                :with_votes_enabled,
+                :with_vote_limit,
+                vote_limit: vote_limit,
+                manifest: manifest,
+                participatory_process: participatory_process)
         end
 
         context "when the proposal is not voted yet" do
@@ -113,11 +119,9 @@ describe "Vote Proposal", type: :feature do
         end
 
          context "when the user has reached the votes limit" do
+          let(:vote_limit) { 1 }
+
           before do
-            feature.settings = {
-              vote_limit: 1
-            }
-            feature.save
             create(:proposal_vote, proposal: proposal, author: user)
             visit_feature
           end

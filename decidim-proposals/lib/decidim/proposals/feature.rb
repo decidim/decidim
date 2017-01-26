@@ -14,7 +14,7 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.settings(:global) do |settings|
-    settings.attribute :vote_limit, type: :integer
+    settings.attribute :vote_limit, type: :integer, default: 0
   end
 
   feature.settings(:step) do |settings|
