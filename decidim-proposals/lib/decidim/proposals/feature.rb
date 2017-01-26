@@ -22,6 +22,14 @@ Decidim.register_feature(:proposals) do |feature|
     resource.template = "decidim/proposals/proposals/linked_proposals"
   end
 
+  feature.settings(:global) do |settings|
+    settings.attribute :comments_always_enabled, type: :boolean, default: true
+  end
+
+  feature.settings(:step) do |settings|
+    settings.attribute :comments_enabled, type: :boolean, default: true
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?
