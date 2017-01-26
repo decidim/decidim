@@ -47,7 +47,7 @@
     "karma-sinon-chai": "^1.2.4",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
-    "phantomjs-prebuilt": "~2.1.13",
+    "phantomjs-prebuilt": "~2.1.14",
     "progress-bar-webpack-plugin": "^1.9.0",
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^15.4.0",
@@ -60,7 +60,7 @@
     "yaml-loader": "^0.4.0"
   },
   "dependencies": {
-    "apollo-client": "^0.7.1",
+    "apollo-client": "^0.8.0",
     "classnames": "^2.2.5",
     "graphql-anywhere": "^2.0.0",
     "graphql-tag": "~1.2.1",
