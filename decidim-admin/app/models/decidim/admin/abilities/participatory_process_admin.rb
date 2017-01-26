@@ -12,11 +12,13 @@ module Decidim
         include CanCan::Ability
 
         def initialize(user)
-          return if user.role?(:admin)
-          participatory_processes = ManageableParticipatoryProcessesForUser.for(user)
-          return unless participatory_processes.any?
+          @user = user
 
-          can :read, :admin_dashboard
+          return if user&.role?(:admin)
+
+          can :read, :admin_dashboard do
+            participatory_processes.any?
+          end
 
           can :manage, ParticipatoryProcess do |process|
             participatory_processes.include?(process)
@@ -44,6 +46,10 @@ module Decidim
           can :manage, Category do |category|
             participatory_processes.include?(category.participatory_process)
           end
+        end
+
+        def participatory_processes
+          @participatory_processes ||= ManageableParticipatoryProcessesForUser.for(@user)
         end
       end
     end
