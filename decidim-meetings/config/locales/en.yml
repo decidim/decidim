@@ -75,6 +75,6 @@ en:
             title: Title
     resource_links:
       meetings_through_proposals:
-        results: 'Meeting appearing in these results:'
+        results: 'Related results:'
       proposals_from_meeting:
         proposals: Related proposals
