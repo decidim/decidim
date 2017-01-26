@@ -83,6 +83,7 @@ en:
           share_link: Share link
         vote_button:
           already_voted: Already voted
+          no_votes_remaining: No votes remaining
           vote: Vote
         votes_count:
           count:

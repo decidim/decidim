@@ -111,6 +111,21 @@ describe "Vote Proposal", type: :feature do
             expect(page).to have_content("REMAINING 10 VOTES")
           end
         end
+
+         context "when the user has reached the votes limit" do
+          before do
+            feature.settings = {
+              vote_limit: 1
+            }
+            feature.save
+            create(:proposal_vote, proposal: proposal, author: user)
+            visit_feature
+          end
+
+          it "should not be able to vote other proposals" do
+            expect(page).to have_css('.card__button[disabled]', count: 2)
+          end
+        end
       end
     end
   end

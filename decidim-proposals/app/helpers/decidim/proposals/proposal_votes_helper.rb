@@ -23,18 +23,27 @@ module Decidim
         "expanded button--sc"
       end
 
+      # Check if the vote limit is enabled for the current feature
+      #
+      # Returns true if the vote limit is enabled
+      def vote_limit_enabled?
+        current_user && feature_settings.vote_limit.present? && feature_settings.vote_limit > 0
+      end
+
       # Return the remaining votes for a user if the current feature has a vote limit
       #
       # user - A User object
       #
       # Returns a number with the remaining votes for that user
       def remaining_votes_count_for(user)
-        vote_limit = feature_settings.vote_limit
+        @remaining_votes_count_for ||= begin
+          vote_limit = feature_settings.vote_limit
 
-        if vote_limit.present? && vote_limit > 0
-          proposals = Proposal.where(feature: current_feature)
-          votes_count = ProposalVote.where(author: user, proposal: proposals).size
-          vote_limit - votes_count
+          if vote_limit.present? && vote_limit > 0
+            proposals = Proposal.where(feature: current_feature)
+            votes_count = ProposalVote.where(author: user, proposal: proposals).size
+            vote_limit - votes_count
+          end
         end
       end
     end
