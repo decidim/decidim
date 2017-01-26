@@ -91,10 +91,7 @@ en:
             other: VOTES
         votes_limit:
           vote_limit:
-            description: In this process you can distribute %{limit} votes because
-              lorem ipsum dolor sit amet , consectetur adipiscing elit. Praesent ullamcorper
-              ipsum malesuada tempor ultrices. Duis eu scelerisque enim. Mauris varius
-              risus id tellus imperdiet porttitor.
+            description: Instead of voting as many proposals as you want you can only vote up to %{limit} proposals.
             left: Remaining
             title: You have %{limit} votes to distribute
             votes: Votes
