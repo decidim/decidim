@@ -56,8 +56,6 @@ Decidim.register_feature(:meetings) do |feature|
           file: File.new(Decidim::Dev.asset("Exampledocument.pdf")),
           attached_to: meeting
         )
-
-        Decidim::Comments::Seed.comments_for(meeting)
       end
     end
   end
