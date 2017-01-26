@@ -10,13 +10,13 @@ module Decidim
       def create
         proposal.votes.create!(author: current_user)
         @from_proposals_list = params[:from_proposals_list] == "true"
-        render :update_counters
+        render :update_buttons_and_counters
       end
 
       def destroy
         proposal.votes.where(author: current_user).first.destroy
         @from_proposals_list = params[:from_proposals_list] == "true"
-        render :update_counters
+        render :update_buttons_and_counters
       end
 
       private
