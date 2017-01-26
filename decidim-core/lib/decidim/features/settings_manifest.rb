@@ -73,6 +73,7 @@ module Decidim
 
       TYPES = {
         boolean: { klass: Boolean, default: false },
+        integer: { klass: Integer, default: 0 },
         string: { klass: String, default: nil },
         text: { klass: String, default: nil }
       }.freeze
