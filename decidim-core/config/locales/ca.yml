@@ -2,10 +2,6 @@ ca:
   activemodel:
     attributes:
       user:
-        email: Correu electrònic
-        name: Nom d'usuari
-        password: Contrasenya
-        password_confirmation: Confirmació de la contrasenya
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
@@ -16,16 +12,6 @@ ca:
     errors:
       image_too_big: La imatge és massa gran
   decidim:
-    account:
-      authorizations:
-        authorization_confirm_destroy: Segur que vols suprimir aquesta autorització?
-      show:
-        authorizations: Autoritzacions
-        title: El meu compte
-        user_groups: Organitzacions
-      user_groups:
-        not_verified: No verificat
-        verified: Verificada
     application:
       documents:
         related_documents: Documents relacionats
@@ -42,11 +28,6 @@ ca:
       current_participatory_processes: fer una ullada als processos actuals
       destroy:
         success: L'autorització s'ha destruït correctament
-      index:
-        actions:
-          decidim/dummy_authorization_handler: Verificar-me amb l'exemple
-        title: Verificar la teva identitat
-        verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
       new:
         authorize: Enviar
         authorize_with: Verificar-me amb %{authorizer}
