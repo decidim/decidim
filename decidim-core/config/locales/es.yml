@@ -2,10 +2,6 @@ es:
   activemodel:
     attributes:
       user:
-        email: Correo electrónico
-        name: Nombre de usuario
-        password: Contraseña
-        password_confirmation: Confirmación de contraseña
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
@@ -16,16 +12,6 @@ es:
     errors:
       image_too_big: La imagen es demasiado grande
   decidim:
-    account:
-      authorizations:
-        authorization_confirm_destroy: '¿Seguro que quieres eliminar esta autorización?'
-      show:
-        authorizations: Autorizaciones
-        title: Mi cuenta
-        user_groups: Organizaciones
-      user_groups:
-        not_verified: No verificado
-        verified: Verificada
     application:
       documents:
         related_documents: Documentos relacionados
@@ -42,11 +28,6 @@ es:
       current_participatory_processes: echar un vistazo a los procesos actuales
       destroy:
         success: Autorización destruida con éxito
-      index:
-        actions:
-          decidim/dummy_authorization_handler: Verificarme con el ejemplo
-        title: Verifica tu identidad
-        verify_with_these_options: 'Éstas son las opciones disponibles para verificar tu identidad:'
       new:
         authorize: Enviar
         authorize_with: Verificarme con %{authorizer}
