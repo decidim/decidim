@@ -29,6 +29,7 @@
 - [Use Docker to deploy "Decidim"](#docker-instructions)
 - [Check current components](#components)
 - [Further configuration](#further-configuration)
+- [Technical tradeoffs](#technical-tradeoffs)
 
 ---
 
@@ -171,5 +172,15 @@ After you create a development app (`bundle exec rake development_app`):
 ## Further configuration
 
 - [Social providers integration](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/social_providers.md): Enable sign up from social networks.
+
+## Technical tradeoffs
+
+### Turbolinks
+
+Decidim doesn't support `turbolinks` so it isn't included on our generated apps and it's removed for existing Rails applications which install the Decidim engine.
+
+The main reason for this is we are injecting some scripts into the body for some individual pages and Turbolinks loads the scripts in parallel. For some libraries like [leaflet](http://leafletjs.com/) it's very inconvenient because its plugins extend an existing global object.
+
+The support of Turbolinks was dropped in ![#616](https://github.com/AjuntamentdeBarcelona/decidim/pull/616). If you're interested in bringing turbolinks back, further discussion is welcome.
 
 TODO: Improve guide.

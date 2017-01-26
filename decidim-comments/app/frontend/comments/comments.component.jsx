@@ -111,6 +111,9 @@ Comments.propTypes = {
  * Wrap the Comments component with a GraphQL query and children
  * fragments.
  */
+
+window.Comments = Comments;
+
 const CommentsWithData = graphql(gql`
   ${commentsQuery}
   ${AddCommentForm.fragments.user}

@@ -28,23 +28,18 @@ module Decidim
       # props   - A hash corresponding to Comments component props
       def react_comments_component(node_id, props)
         content_tag("div", "", id: node_id) +
-          javascript_tag(%{
-            jQuery.ajax({
-              url: '#{asset_path("decidim/comments/comments.js")}',
-              dataType: 'script',
-              cache: true
-            }).then(function () {
-                window.DecidimComments.renderCommentsComponent(
-                  '#{node_id}',
-                  {
-                    commentableType: "#{props[:commentableType]}",
-                    commentableId: "#{props[:commentableId]}",
-                    options: JSON.parse("#{j(props[:options].to_json)}"),
-                    locale: "#{props[:locale]}"
-                  }
-                );
-              });
-          })
+        javascript_include_tag("decidim/comments/comments") +
+        javascript_tag(%{
+          window.DecidimComments.renderCommentsComponent(
+            '#{node_id}',
+            {
+              commentableType: "#{props[:commentableType]}",
+              commentableId: "#{props[:commentableId]}",
+              options: JSON.parse("#{j(props[:options].to_json)}"),
+              locale: "#{props[:locale]}"
+            }
+          );
+        })
       end
     end
   end

@@ -3,7 +3,6 @@
 // = require jquery
 // = require jquery_ujs
 // = require foundation
-// = require turbolinks
 // = require html.sortable
 // = require ./sort_steps
 // = require ./tab_focus
@@ -15,4 +14,6 @@ const pageLoad = () => {
   sortSteps();
 };
 
-$(document).on('turbolinks:load', pageLoad);
+$(() => {
+  pageLoad();
+});

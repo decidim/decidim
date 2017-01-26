@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', () => {
+$(() => {
   const $userRegistrationForm = $('.register-form');
   const $userGroupFields      = $userRegistrationForm.find('.user-group-fields');
   const inputSelector         = 'input[name="user[sign_up_as]"]';
@@ -12,11 +12,10 @@ $(document).on('turbolinks:load', () => {
   }
 
   setGroupFieldsVisibility($userRegistrationForm.find(`${inputSelector}:checked`).val());
-  
+
   $userRegistrationForm.on('change', inputSelector, (event) => {
     const value = event.target.value;
 
     setGroupFieldsVisibility(value);
   });
-
 });

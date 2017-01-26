@@ -8,15 +8,7 @@
   const { Decidim: { FormFilterComponent } } = exports;
   const formFilter = new FormFilterComponent('form.new_filter');
 
-  const onDocumentReady = () => {
-   formFilter.mountComponent();
-  };
-
-  const onTurboLinksBeforeVisit = () => {
-    formFilter.unmountComponent();
-    $(document).off('turbolinks:before-visit', onTurboLinksBeforeVisit);
-  };
-
-  $(document).ready(onDocumentReady);
-  $(document).on('turbolinks:before-visit', onTurboLinksBeforeVisit);
+  $(() => {
+    formFilter.mountComponent();
+  });
 })(window);
