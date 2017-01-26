@@ -13,6 +13,10 @@ Decidim.register_feature(:proposals) do |feature|
     end
   end
 
+  feature.settings(:global) do |settings|
+    settings.attribute :vote_limit, type: :boolean
+  end
+
   feature.settings(:step) do |settings|
     settings.attribute :votes_enabled, type: :boolean
   end

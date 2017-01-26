@@ -29,7 +29,7 @@ module Decidim
       #
       # Returns a number with the remaining votes for that user
       def remaining_votes_count_for(user)
-        vote_limit = 10#feature_settings.vote_limit
+        vote_limit = feature_settings.vote_limit
 
         if vote_limit.present? && vote_limit > 0
           proposals = Proposal.where(feature: current_feature)

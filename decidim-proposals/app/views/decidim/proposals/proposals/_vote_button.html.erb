@@ -1,10 +1,14 @@
 <% if current_user %>
   <% if proposal.voted_by? current_user %>
-    <button class="card__button button <%= vote_button_classes(from_proposals_list) %> success">
-      <%= t('.already_voted') %>
-    </button>
+    <% if feature_settings.vote_limit.present? && feature_settings.vote_limit > 0 %>
+      <%= button_to t('.already_voted'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), method: :delete, remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)} success" %>
+    <% else %>
+      <button class="card__button button <%= vote_button_classes(from_proposals_list) %> success">
+        <%= t('.already_voted') %>
+      </button>
+    <% end %>
   <% else %>
-    <%= button_to t('.vote'), proposal_proposal_votes_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)}" %>
+    <%= button_to t('.vote'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)}" %>
   <% end %>
 <% else %>
   <button class="card__button button <%= vote_button_classes(from_proposals_list) %>" data-toggle="loginModal">

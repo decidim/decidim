@@ -12,7 +12,9 @@ describe "Vote Proposal", type: :feature do
   let(:votes_enabled) { false }
 
   before do
-    feature.step_settings = { participatory_process.active_step.id => { votes_enabled: votes_enabled } }
+    feature.step_settings = {
+      participatory_process.active_step.id => { votes_enabled: votes_enabled }
+    }
     feature.save
     visit_feature
   end
@@ -75,13 +77,19 @@ describe "Vote Proposal", type: :feature do
       end
 
       context "when the feature has a vote limit" do
-        # TODO: add vote limit to 10
+        before do
+          feature.settings = {
+            vote_limit: 10
+          }
+          feature.save
+          visit_feature
+        end
 
         context "when the proposal is not voted yet" do
           it "should update the remaining votes counter" do
             within "#proposal-#{proposal.id}-vote-button" do
               page.find('.card__button').click
-              expect(page).to have_css('.card__button.success', text: "Already voted")
+              expect(page).to have_css('.card__button.success')
             end
 
             expect(page).to have_content("REMAINING 9 VOTES")
@@ -96,7 +104,7 @@ describe "Vote Proposal", type: :feature do
 
           it "should be able to undo the vote" do
             within "#proposal-#{proposal.id}-vote-button" do
-              expect(page).to have_css('.card__button.success', text: "Already voted")
+              expect(page).to have_css('.card__button.success')
               page.find('.card__button').click
             end
 

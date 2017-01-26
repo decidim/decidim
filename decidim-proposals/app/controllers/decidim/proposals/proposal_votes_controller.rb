@@ -8,9 +8,15 @@ module Decidim
       before_action :check_current_settings!
 
       def create
-        @proposal = Proposal.where(feature: current_feature).find(params[:proposal_id])
-        @proposal.votes.create!(author: current_user)
+        proposal.votes.create!(author: current_user)
         @from_proposals_list = params[:from_proposals_list] == "true"
+        render :update_counters
+      end
+
+      def destroy
+        proposal.votes.where(author: current_user).first.destroy
+        @from_proposals_list = params[:from_proposals_list] == "true"
+        render :update_counters
       end
 
       private
@@ -19,6 +25,10 @@ module Decidim
       # This ensure the votes cannot be created using a POST request directly.
       def check_current_settings!
         raise "This setting is not enabled for this step" unless current_settings.votes_enabled?
+      end
+
+      def proposal
+        @proposal ||= Proposal.where(feature: current_feature).find(params[:proposal_id])
       end
     end
   end
