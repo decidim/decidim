@@ -11,6 +11,8 @@ es:
             label: Comentario
             placeholder: '¿Qué piensas sobre esto?'
           submit: Enviar
+          user_group_id:
+            label: Comentar como
         opinion:
           against: Estoy en contra
           in_favor: Estoy a favor

@@ -8,11 +8,6 @@ describe Decidim::Admin::Abilities::ParticipatoryProcessAdmin do
   subject { described_class.new(user) }
 
   context "when the user does not admin any process" do
-    it "doesn't have any permission" do
-      expect(subject.permissions[:can]).to be_empty
-      expect(subject.permissions[:cannot]).to be_empty
-    end
-
     it { is_expected.not_to be_able_to(:read, :admin_dashboard) }
   end
 

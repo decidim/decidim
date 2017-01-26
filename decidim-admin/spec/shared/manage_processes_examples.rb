@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 RSpec.shared_examples "manage processes examples" do
   context "previewing processes" do
@@ -9,7 +10,7 @@ RSpec.shared_examples "manage processes examples" do
           click_link "Preview"
         end
 
-        expect(current_path).to eq decidim.participatory_process_path(participatory_process)
+        expect(page).to have_css(".process-header")
         expect(page).to have_content(translated(participatory_process.title))
       end
     end

@@ -8,7 +8,7 @@
 
 /* globals svg4everybody */
 
-$(document).on('turbolinks:load', () => {
+$(() => {
   $(document).foundation();
   svg4everybody();
 });

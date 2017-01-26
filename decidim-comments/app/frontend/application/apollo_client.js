@@ -2,7 +2,7 @@ import ApolloClient, { createNetworkInterface } from 'apollo-client';
 
 // Create a custom network interface for Apollo since our
 // API endpoint is not the default.
-const networkInterface = createNetworkInterface({ 
+const networkInterface = createNetworkInterface({
   uri: '/api',
   opts: {
     credentials: 'same-origin'

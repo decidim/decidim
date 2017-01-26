@@ -16,7 +16,7 @@ export default class Application extends Component {
 
     I18n.setLocale(locale);
     moment.locale(locale);
-    
+
     super(props);
   }
 

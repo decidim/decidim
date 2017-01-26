@@ -1,4 +1,12 @@
 es:
+  activemodel:
+    attributes:
+      proposal:
+        body: Cuerpo
+        category: Categoría
+        scope: Ámbito
+        title: Título
+        user_group_id: Crear propuesta
   decidim:
     features:
       proposals:
@@ -56,6 +64,10 @@ es:
           unfold: Desplegar
         index:
           new_proposal: Nueva propuesta
+        linked_proposals:
+          proposal_votes:
+            one: 1 voto
+            other: "%{count} votos"
         new:
           back: Atrás
           select_a_category: Por favor, seleccione una categoría

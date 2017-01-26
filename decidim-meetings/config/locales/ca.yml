@@ -13,6 +13,7 @@ ca:
         name: Llistat de trobades
     meetings:
       actions:
+        attachments: Adjunts
         close: Tancar
         confirm_destroy: Esteu segur de que voleu suprimir aquesta trobada?
         destroy: Esborra

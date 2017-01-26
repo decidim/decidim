@@ -8,5 +8,7 @@
     });
   }
 
-  $(document).on('turbolinks:load', inlineSVG);
+  $(() => {
+    inlineSVG();
+  });
 }(window));
