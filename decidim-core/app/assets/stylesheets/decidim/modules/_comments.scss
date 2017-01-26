@@ -30,11 +30,8 @@ $comment-form-bg: $light-gray;
 }
 
 .show-more--comment-thread{
-  text-align: right;
-  margin-top: -$card-margin-bottom;
+  margin-top: -$card-margin-bottom / 2;
   margin-bottom: $card-margin-bottom;
-  padding-top: 3px;
-  font-size: 90%;
 }
 
 .comment{
