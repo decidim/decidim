@@ -1,4 +1,4 @@
-// = require foundation
+// = require decidim/foundation
 // = require modernizr
 // = require owl.carousel.min
 // = require svg4everybody.min
