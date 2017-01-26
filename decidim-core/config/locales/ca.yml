@@ -12,12 +12,11 @@ ca:
     errors:
       image_too_big: La imatge és massa gran
   decidim:
-    account:
-      authorizations:
-        authorization_confirm_destroy: Segur que vols suprimir aquesta autorització?
-      show:
-        authorizations: Autoritzacions
-        title: El meu compte
+    application:
+      documents:
+        related_documents: Documents relacionats
+      photos:
+        related_photos: Fotos relacionades
     authorization_handlers:
       decidim/dummy_authorization_handler: Autorització d'exemple
       errors:
@@ -29,11 +28,6 @@ ca:
       current_participatory_processes: fer una ullada als processos actuals
       destroy:
         success: L'autorització s'ha destruït correctament
-      index:
-        actions:
-          decidim/dummy_authorization_handler: Verificar-me amb l'exemple
-        title: Verificar la teva identitat
-        verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
       new:
         authorize: Enviar
         authorize_with: Verificar-me amb %{authorizer}
@@ -49,6 +43,7 @@ ca:
           complete_profile: Completa el perfil
           sign_up: Completi el seu perfil
           subtitle: Si us plau, ompli el següent formulari per tal de completar la seva inscripció
+          username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
       registrations:
         new:
           already_have_an_account?: Ja tens un compte?
@@ -132,6 +127,7 @@ ca:
       process_header:
         process_menu_item: El procés
       process_header_steps:
+        step: Fase %{current} de %{total}
         view_steps: Veure les fases
       user_menu:
         admin_dashboard: Tauler d'administració

@@ -12,12 +12,11 @@ es:
     errors:
       image_too_big: La imagen es demasiado grande
   decidim:
-    account:
-      authorizations:
-        authorization_confirm_destroy: '¿Seguro que quieres eliminar esta autorización?'
-      show:
-        authorizations: Autorizaciones
-        title: Mi cuenta
+    application:
+      documents:
+        related_documents: Documentos relacionados
+      photos:
+        related_photos: Fotos relacionadas
     authorization_handlers:
       decidim/dummy_authorization_handler: Autorización de ejemplo
       errors:
@@ -29,11 +28,6 @@ es:
       current_participatory_processes: echar un vistazo a los procesos actuales
       destroy:
         success: Autorización destruida con éxito
-      index:
-        actions:
-          decidim/dummy_authorization_handler: Verificarme con el ejemplo
-        title: Verifica tu identidad
-        verify_with_these_options: 'Éstas son las opciones disponibles para verificar tu identidad:'
       new:
         authorize: Enviar
         authorize_with: Verificarme con %{authorizer}
@@ -49,6 +43,7 @@ es:
           complete_profile: Completar perfil
           sign_up: Complete su perfil
           subtitle: Por favor, rellene el siguiente formulario con el fin de completar la inscripción
+          username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
@@ -132,6 +127,7 @@ es:
       process_header:
         process_menu_item: El proceso
       process_header_steps:
+        step: Fase %{current} de %{total}
         view_steps: Ver las fases
       user_menu:
         admin_dashboard: Tablero de administración
