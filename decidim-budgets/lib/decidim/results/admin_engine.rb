@@ -2,16 +2,16 @@
 module Decidim
   module Budgets
     # This is the engine that runs on the public interface of `decidim-budgets`.
-    # It mostly handles rendering the created reuslts associated to a participatory
+    # It mostly handles rendering the created projects associated to a participatory
     # process.
     class AdminEngine < ::Rails::Engine
-      isolate_namespace Decidim::Results::Admin
+      isolate_namespace Decidim::Budgets::Admin
 
       paths["db/migrate"] = nil
 
       routes do
-        resources :results
-        root to: "results#index"
+        # resources :results
+        # root to: "results#index"
       end
 
       def load_seed

@@ -3,16 +3,16 @@ require "searchlight"
 require "kaminari"
 
 module Decidim
-  module Results
-    # This is the engine that runs on the public interface of `decidim-results`.
-    # It mostly handles rendering the created results associated to a participatory
+  module Budgets
+    # This is the engine that runs on the public interface of `decidim-budgets`.
+    # It mostly handles rendering the created projects associated to a participatory
     # process.
     class ListEngine < ::Rails::Engine
-      isolate_namespace Decidim::Results
+      isolate_namespace Decidim::Budgets
 
       routes do
-        resources :results, only: [:index, :show]
-        root to: "results#index"
+        # resources :results, only: [:index, :show]
+        # root to: "results#index"
       end
     end
   end
