@@ -1,5 +1,13 @@
 ---
 en:
+  activemodel:
+    attributes:
+      proposal:
+        body: Body
+        category: Category
+        scope: Scope
+        title: Title
+        user_group_id: Create proposal as
   decidim:
     features:
       proposals:
@@ -59,8 +67,8 @@ en:
           new_proposal: New proposal
         linked_proposals:
           proposal_votes:
-            one: 1 proposal
-            other: "%{count} proposals"
+            one: 1 vote
+            other: "%{count} votes"
         new:
           back: Back
           select_a_category: Please select a category

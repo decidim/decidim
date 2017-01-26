@@ -37,8 +37,13 @@ Decidim::Core::Engine.routes.draw do
   end
 
   authenticate(:user) do
-    resources :authorizations, only: [:new, :create, :destroy, :index]
-    resource :account, only: [:show], controller: "account"
+    resources :authorizations, only: [:new, :create, :destroy, :index] do
+      collection do
+        get :first_login
+      end
+    end
+    resource :account, only: [:show, :update], controller: "account"
+    resources :own_user_groups, only: [:index]
   end
 
   get "/pages/*id" => "pages#show", as: :page, format: false

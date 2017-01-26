@@ -1,17 +1,21 @@
 # frozen_string_literal: true
 require "spec_helper"
 
+require "decidim/core/test/shared_examples/authorable"
+
 module Decidim
   module Proposals
     describe Proposal do
       subject { create(:proposal) }
+
+      it_behaves_like "authorable"
 
       it { is_expected.to be_valid }
 
       it "has a votes association returning proposal votes" do
         expect(subject.votes.count).to eq(0)
       end
-      
+
       context "when the category is from another feature" do
         subject { build(:proposal, category: create(:category))}
 

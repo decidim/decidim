@@ -1,0 +1,25 @@
+<h3><%= translated_attribute(@attachment.title) %></h3>
+
+<div class="actions">
+  <hr />
+  <%= link_to t("decidim.admin.actions.edit"), ['edit', @attachment.attached_to, @attachment] if can? :update, @attachment %>
+  <%= link_to t("decidim.admin.actions.destroy"), [@attachment.attached_to, @attachment], method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } if can? :destroy, @attachment %>
+</div>
+
+<dl>
+  <%= display_for @attachment,
+    :title,
+    :description,
+    :file_type
+    %>
+  <dt><%= display_label(@attachment, :file_size) %></dt>
+  <dd><%= number_to_human_size(@attachment.file_size) %></dd>
+  <dt><%= display_label(@attachment, :file) %></dt>
+  <% if @attachment.photo? %>
+    <%= link_to @attachment.big_url do %>
+      <%= image_tag @attachment.thumbnail_url, class: "thumbnail", alt: strip_tags(translated_attribute(@attachment.description)) %>
+    <% end %>
+  <% else %>
+    <%= link_to translated_attribute(@attachment.title), @attachment.url %>
+  <% end %>
+</dl>

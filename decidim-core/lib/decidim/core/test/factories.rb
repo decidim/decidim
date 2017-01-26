@@ -117,6 +117,11 @@ FactoryGirl.define do
     name { Faker::Educator.course }
     document_number { Faker::Number.number(8) + "X" }
     phone { Faker::PhoneNumber.phone_number }
+    avatar { test_file("avatar.svg", "image/svg+xml") }
+
+    trait :verified do
+      verified { true }
+    end
   end
 
   factory :user_group_membership, class: Decidim::UserGroupMembership do
@@ -147,11 +152,11 @@ FactoryGirl.define do
     end
   end
 
-  factory :participatory_process_attachment, class: Decidim::ParticipatoryProcessAttachment do
+  factory :attachment, class: Decidim::Attachment do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { test_file("city.jpeg", "image/jpeg") }
-    participatory_process
+    attached_to { build(:participatory_process) }
 
     trait :with_image do
       file { test_file("city.jpeg", "image/jpeg") }

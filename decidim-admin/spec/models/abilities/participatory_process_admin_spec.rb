@@ -22,11 +22,11 @@ describe Decidim::Admin::Abilities::ParticipatoryProcessAdmin do
     let(:unmanaged_process_step) { create :participatory_process_step, participatory_process: unmanaged_process }
     let(:user_process_attachment) do
       Decidim::AttachmentUploader.enable_processing = true
-      create :participatory_process_attachment, participatory_process: user_process
+      create :attachment, attached_to: user_process
     end
     let(:unmanaged_process_attachment) do
       Decidim::AttachmentUploader.enable_processing = true
-      create :participatory_process_attachment, participatory_process: unmanaged_process
+      create :attachment, attached_to: unmanaged_process
     end
 
     before do

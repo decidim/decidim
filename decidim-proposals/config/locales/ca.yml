@@ -49,6 +49,11 @@ ca:
           origin: Origen
           search: Cerca
           voted: Votat
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_for: Filtrar per
+          unfold: Desplegar
         index:
           new_proposal: Nova proposta
         new:
@@ -70,3 +75,6 @@ ca:
           count:
             one: VOT
             other: VOTS
+    resource_links:
+      proposals_from_meeting:
+        meetings: Trobades relacionades

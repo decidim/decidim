@@ -12,7 +12,9 @@ module Decidim
   autoload :FeatureManifest, "decidim/feature_manifest"
   autoload :ResourceManifest, "decidim/resource_manifest"
   autoload :Resourceable, "decidim/resourceable"
+  autoload :Authorable, "decidim/authorable"
   autoload :Features, "decidim/features"
+  autoload :HasAttachments, "decidim/has_attachments"
 
   include ActiveSupport::Configurable
 

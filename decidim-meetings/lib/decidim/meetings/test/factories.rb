@@ -1,7 +1,3 @@
-require "decidim/core/test/factories"
-require "decidim/admin/test/factories"
-require "decidim/proposals/test/factories"
-
 FactoryGirl.define do
   factory :meeting, class: Decidim::Meetings::Meeting do
     title { Decidim::Faker::Localized.sentence(3) }

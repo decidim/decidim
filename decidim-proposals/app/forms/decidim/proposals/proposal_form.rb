@@ -9,6 +9,7 @@ module Decidim
       attribute :body, String
       attribute :category_id, Integer
       attribute :scope_id, Integer
+      attribute :user_group_id, Integer
 
       validates :title, :body, presence: true
       validates :category, presence: true, if: ->(form) { form.category_id.present? }

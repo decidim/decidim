@@ -29,8 +29,8 @@ module Decidim
             role.user != user
           end
 
-          can :manage, ParticipatoryProcessAttachment do |step|
-            participatory_processes.include?(step.participatory_process)
+          can :manage, Attachment do |attachment|
+            participatory_processes.include?(attachment.attached_to)
           end
 
           can :manage, ParticipatoryProcessStep do |step|

@@ -7,6 +7,7 @@ module Decidim
       include Decidim::LocalizedLocalesHelper
       include Decidim::TranslationsHelper
       include Decidim::HumanizeBooleansHelper
+      include Decidim::AriaSelectedLinkToHelper
 
       def title
         current_organization.name

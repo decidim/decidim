@@ -44,6 +44,18 @@ Decidim.register_feature(:meetings) do |feature|
           end_time: 3.weeks.from_now + 4.hours,
           address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}"
         )
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5),
+          file: File.new(Decidim::Dev.asset("city.jpeg")),
+          attached_to: meeting
+        )
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5),
+          file: File.new(Decidim::Dev.asset("Exampledocument.pdf")),
+          attached_to: meeting
+        )
 
         Decidim::Comments::Seed.comments_for(meeting)
       end

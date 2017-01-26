@@ -1,20 +1,36 @@
 es:
+  activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: Número de asistentes
+        attending_organizations: Lista de organizaciones que han participado
+        closing_report: Informe
+        contributions_count: Número de contribuciones
+        proposal_ids: Propuestas creadas en el encuentro
   decidim:
     features:
       meetings:
         name: Lista de encuentros
     meetings:
       actions:
+        close: Cerrar
         confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
         destroy: Borrar
         edit: Editar
         new: Nuevo/a %{name}
         title: Acciones
       admin:
+        meeting_closes:
+          edit:
+            close: Cerrar
+            title: Cerrar encuentro
         meetings:
+          close:
+            invalid: Ha habido un problema al cerrar este encuentro
+            success: Encuentro cerrado con éxito
           create:
             invalid: Ha habido un problema al crear este encuentro
-            success: Reunión creada con éxito
+            success: Encuentro creado con éxito
           destroy:
             success: El encuentro se ha eliminado correctamente
           edit:
@@ -39,6 +55,11 @@ es:
           descendent: Descendiente
           scopes: Ámbitos
           search: Buscar
+        filters_small_view:
+          close_modal: Cerrar ventana
+          filter: Filtrar
+          filter_for: Filtrar por
+          unfold: Desplegar
         index:
           title: Lista de encuentros
         show:
@@ -46,6 +67,10 @@ es:
       models:
         meeting:
           fields:
+            closed: Cerrado
             end_time: Fecha de finalización
             start_time: Fecha de inicio
             title: Título
+    resource_links:
+      proposals_from_meeting:
+        proposals: Propuestas relacionadas

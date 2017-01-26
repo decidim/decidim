@@ -19,8 +19,8 @@ module Decidim
           }
         end
 
-        field :currentUser do
-          type UserType
+        field :session do
+          type SessionType
           description "Return's information about the logged in user"
 
           resolve ->(_obj, _args, ctx) {

@@ -1,5 +1,5 @@
-mutation addComment($commentableId: String!, $commentableType: String!, $body: String!, $alignment: Int)  {
-  addComment(commentableId: $commentableId, commentableType: $commentableType, body: $body, alignment: $alignment) {
+mutation addComment($commentableId: String!, $commentableType: String!, $body: String!, $alignment: Int, $userGroupId: ID)  {
+  addComment(commentableId: $commentableId, commentableType: $commentableType, body: $body, alignment: $alignment, userGroupId: $userGroupId) {
     ...CommentThread
   }
 }

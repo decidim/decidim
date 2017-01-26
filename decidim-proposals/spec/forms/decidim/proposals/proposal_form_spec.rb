@@ -12,13 +12,16 @@ module Decidim
       let(:scope) { create(:scope, organization: feature.organization) }
       let(:category_id) { category.try(:id)}
       let(:scope_id) { scope.try(:id)}
+      let(:user_group) { create(:user_group, :verified) }
+      let(:user_group_id) { user_group.id }
       let(:params) do
         {
           title: title,
           body: body,
           author: author,
           category_id: category_id,
-          scope_id: scope_id
+          scope_id: scope_id,
+          user_group_id: user_group_id
         }
       end
 

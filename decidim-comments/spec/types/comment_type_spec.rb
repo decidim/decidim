@@ -32,7 +32,7 @@ module Decidim
 
       describe "canHaveReplies" do
         let (:query) { "{ canHaveReplies }" }
-        
+
         it "returns the return value of can_have_replies? method" do
           expect(response).to include("canHaveReplies" => model.can_have_replies?)
         end

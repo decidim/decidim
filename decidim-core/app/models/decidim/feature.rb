@@ -11,6 +11,8 @@ module Decidim
 
     validates :participatory_process, presence: true
 
+    default_scope { order(arel_table[:weight].asc) }
+
     after_initialize :default_values
 
     # Public: Finds the manifest this feature is associated to.
