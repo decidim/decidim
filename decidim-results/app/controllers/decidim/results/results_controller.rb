@@ -6,7 +6,7 @@ module Decidim
     class ResultsController < Decidim::Results::ApplicationController
       include FilterResource
 
-      helper_method :results, :result
+      helper_method :results, :result, :stats_calculator
 
       def index; end
 
@@ -18,6 +18,10 @@ module Decidim
 
       def result
         @result ||= results.find(params[:id])
+      end
+
+      def stats_calculator
+        @stats_calculator ||= ResultStatsCalculator.new(result)
       end
 
       def search_klass

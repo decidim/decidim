@@ -50,3 +50,10 @@ en:
           title: Results
         show:
           result_description: Result description
+          stats:
+            attendees: Attendees
+            comments: Comments
+            contributions: Contributions
+            meetings: Meetings
+            proposals: Proposals
+            votes: Supports
