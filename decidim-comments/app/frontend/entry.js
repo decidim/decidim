@@ -8,16 +8,9 @@ window.DecidimComments.renderCommentsComponent = (nodeId, props) => {
   var node = $(`#${nodeId}`)[0];
 
   ReactDOM.render(
-    React.createElement(Comments,props),
+    React.createElement(Comments, props),
     node
   );
-
-  function unmountComponent() {
-    ReactDOM.unmountComponentAtNode(node);
-    $(document).off('turbolinks:before-render', unmountComponent);
-  }
-
-  $(document).on('turbolinks:before-render', unmountComponent);
 };
 
 // Load component locales from yaml files

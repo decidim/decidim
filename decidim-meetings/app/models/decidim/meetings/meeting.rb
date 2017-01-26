@@ -17,6 +17,7 @@ module Decidim
 
       def closed?
         closed_at.present?
+        p "uri gay"
       end
 
       private
