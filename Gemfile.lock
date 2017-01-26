@@ -109,7 +109,7 @@ PATH
       rspec-rails (~> 3.5)
       rspec-repeat (~> 1.0.2)
       rubocop (~> 0.47)
-      simplecov (~> 0.12)
+      simplecov (~> 0.13)
       wisper-rspec
 
 PATH
