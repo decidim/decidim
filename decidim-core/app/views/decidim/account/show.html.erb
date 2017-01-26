@@ -1,38 +1,27 @@
-<main class="wrapper">
-<div class="row collapse">
-  <div class="columns">
-    <h1 class="heading1 user-header"><%= t(".title") %></h1>
-  </div>
-</div>
-<div class="row collapse">
-  <div class="main-container">
-    <div class="row collapse main-container--side-panel">
-      <div class="columns medium-4 large-3">
-        <div class="side-panel">
-          <ul class="tabs vertical side-panel__tabs" id="user-settings-tabs"
-            data-tabs>
-            <% if handlers.any? || authorizations.any? %>
-              <li class="tabs-title">
-                <a href="#authorizations"><%= t(".authorizations") %></a>
-              </li>
-            <% end %>
-            <% if current_user.user_groups.any? %>
-              <li class="tabs-title">
-                <a href="#user-groups"><%= t(".user_groups") %></a>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-      <div class="columns medium-8 large-9">
-        <div class="main-container__content">
-          <div class="tabs-content vertical" data-tabs-content="user-settings-tabs">
-            <%= render partial: "authorizations" %>
-            <%= render partial: "user_groups" %>
-          </div>
-        </div>
-      </div>
+<div class="row">
+  <%= form_for(@account, url: account_path, method: :put, class: "user-form") do |f| %>
+    <div class="columns large-4">
+      <%= image_tag current_user.avatar.big.url, width: "100%" %>
+      <%= f.file_field :avatar, label: false %>
+      <%= f.check_box :remove_avatar %>
     </div>
+
+    <div class="columns large-8 end">
+      <%= f.text_field :name %>
+      <%= f.email_field :email %>
+
+      <% if @account.errors[:password].any? || @account.errors[:password_confirmation].any? %>
+        <%= render partial: "password_fields", locals: { form: f } %>
+      <% else %>
+        <p>
+          <a data-toggle="passwordChange" class="change-password"><%= t ".change_password" %></a>
+        </p>
+        <div id="passwordChange" class="toggle-show" data-toggler=".is-expanded">
+          <%= render partial: "password_fields", locals: { form: f } %>
+        </div>
+      <% end %>
+
+      <%= f.submit t(".update_account"), disable_with: true %>
+    <% end %>
   </div>
 </div>
-</main>

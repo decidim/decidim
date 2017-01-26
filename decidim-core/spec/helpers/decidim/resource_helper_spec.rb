@@ -19,7 +19,7 @@ module Decidim
     end
 
     describe "linked_resources_for" do
-      let(:linked_resource) { create(:dummy_resource, feature: feature) }
+      let(:linked_resource) { create(:dummy_resource, feature: feature, title: "Dummy title") }
 
       before do
         resource.link_resources(linked_resource, "test_link")
@@ -27,9 +27,10 @@ module Decidim
 
       it "renders the linked resources using the template" do
         content = helper.linked_resources_for(resource, :dummy, "test_link")
-        expected = "<div class=\"section\"><h3 class=\"section-heading\">Related dummy</h3><ul>\n    <li>#{linked_resource.title}</li>\n</ul>\n</div>"
 
-        expect(content).to eq(expected)
+        expect(content).to include("Dummy title")
+        expect(content).to include("section-heading")
+        expect(content).to include("Related dummy")
       end
     end
   end

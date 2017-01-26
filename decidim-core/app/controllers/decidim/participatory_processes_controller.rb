@@ -11,7 +11,7 @@ module Decidim
 
     helper_method :participatory_processes, :promoted_processes
 
-    skip_after_action :verify_participatory_process , only: [:index]
+    skip_after_action :verify_participatory_process, only: [:index]
 
     def index
       authorize! :read, ParticipatoryProcess
