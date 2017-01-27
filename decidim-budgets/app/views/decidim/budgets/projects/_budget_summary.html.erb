@@ -1,0 +1,49 @@
+<div class="card budget-summary" data-progress-reference>
+  <div class="card__content">
+    <h3 class="heading3">Tú decides los presupuestos</h3>
+    <p>
+      ¿En qué proyectos crees que debería trabajar el Ayuntamiento el próximo año?
+      <br>Asigna como mínimo 75 millones a los proyectos que quieras y vota con
+       tus preferencias cómo serán los próximos presupuestos.
+    </p>
+    <div class="budget-summary__total">
+      <span class="mini-title">Presupuesto total:
+        <strong class="mini-title__strong mini-title__strong--highlight">
+          100.000.000€
+        </strong>
+      </span>
+    </div>
+    <!-- Initially visible Progressbox -->
+    <div class="budget-summary__progressbox">
+      <!--Change de aria-valuenow and aria-valuetext dynamically. Set a minimum in aria-valuenmin.-->
+      <div class="progress budget-progress" role="progressbar" tabindex="0" aria-valuenow="30" aria-valuemin="75" aria-valuetext="30%" aria-valuemax="100">
+        <!-- Set minimum in the style="width:"-->
+        <div class="progress-meter progress-meter--minimum" style="width: 75%"></div>
+        <!--Change width and text dynamically.-->
+        <div class="progress-meter budget-progress__meter" style="width: 30%">
+          <p class="progress-meter-text progress-meter-text--right">30%</p>
+        </div>
+      </div>
+      <button class="button small button--sc" disabled>Votar</button>
+    </div>
+
+    <!-- Clone/fixed Progressbox -->
+    <div class="progressbox-fixed-wrapper" data-progressbox-fixed>
+      <div class="budget-summary__progressbox budget-summary__progressbox--fixed">
+        <!--Change de aria-valuenow and aria-valuetext dynamically. Set a minimum in aria-valuenmin.-->
+        <div class="progress budget-progress budget-progress--fixed" role="progressbar" tabindex="0" aria-valuenow="30" aria-valuemin="75" aria-valuetext="30%" aria-valuemax="100">
+          <!-- Set minimum in the style="width:"-->
+          <div class="progress-meter progress-meter--minimum" style="width: 75%"></div>
+          <!--Change width and text dynamically.-->
+          <div class="progress-meter budget-progress__meter" style="width: 30%">
+            <p class="progress-meter-text progress-meter-text--right">30%</p>
+          </div>
+        </div>
+        <button class="button small button--sc" disabled>Votar</button>
+      </div>
+    </div>
+
+    <div>
+      <span class="mini-title">Asignado: <strong class="mini-title__strong">30.000.000€</strong></span>
+    </div>
+  </div>

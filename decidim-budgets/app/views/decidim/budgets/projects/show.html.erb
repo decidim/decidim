@@ -1,9 +1,26 @@
 <% content_for(:title, translated_attribute(project.title)) %>
 
 <div class="row column view-header">
+  <%= render partial: "budget_summary_mini" %>
+  <a href="" class="muted-link">
+    <%= icon "chevron-left", class: "icon--small" %>
+    Ver todos los proyectos
+  </a>
   <h2 class="heading2"><%= translated_attribute project.title %></h2>
 </div>
 <div class="row">
+  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
+    large-3 large-push-9">
+    <div class="card extra">
+      <div class="card__content">
+        <div class="m-bottom">
+          <span class="definition-data__title">Presupuesto:</span>
+          <span class="definition-data__number"><%= number_to_currency project.budget %></span>
+        </div>
+        <button class="button expanded button--sc">Agregar</button>
+      </div>
+    </div>
+  </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <%== translated_attribute project.short_description %>
@@ -13,7 +30,6 @@
       <h3 class="section-heading"><%= t(".project_description") %></h3>
       <%== translated_attribute project.description %>
     </div>
-
     <%= linked_resources_for project, :proposals, "included_proposals" %>
   </div>
 </div>
