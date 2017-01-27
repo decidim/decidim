@@ -13,7 +13,7 @@
 
   <dt><%= display_label(participatory_process, :end_date) %></dt>
   <dd>
-    <% if participatory_process.hero_image? %>
+    <% if participatory_process.end_date %>
       <%=  l(participatory_process.end_date, format: :long) %>
     <% end %>
   </dd>
