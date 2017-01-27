@@ -5,8 +5,18 @@
     :hashtag,
     :slug,
     :short_description,
-    :description
+    :description,
+    :scope,
+    :domain,
+    :developer_group
   %>
+
+  <dt><%= display_label(participatory_process, :end_date) %></dt>
+  <dd>
+    <% if participatory_process.end_date %>
+      <%=  l(participatory_process.end_date, format: :long) %>
+    <% end %>
+  </dd>
 
   <dt><%= display_label(participatory_process, :hero_image) %></dt>
   <dd>

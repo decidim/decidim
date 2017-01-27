@@ -105,6 +105,12 @@ en:
     participatory_process_steps:
       index:
         process_steps: Process steps
+    participatory_processes:
+      show:
+        developer_group: Developer group
+        domain: Domain
+        end_date: End date
+        scope: Scope
     shared:
       login_modal:
         please_sign_in: Please sign in
