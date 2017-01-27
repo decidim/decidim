@@ -1,6 +1,6 @@
 <%= link_to root_path do %>
   <% if current_organization.logo.present? %>
-    <%= image_tag current_organization.logo.medium.url, height: "20" %>
+    <%= image_tag current_organization.logo.medium.url %>
   <% else %>
     <!-- Remove this, use the final SVG logo -->
     <span><%= current_organization.name %></span>

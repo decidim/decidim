@@ -3,7 +3,8 @@ module Decidim
   # This class deals with uploading hero images to ParticipatoryProcesses.
   class OrganizationLogoUploader < ImageUploader
     version :medium do
-      process resize_to_limit: [500, 500]
+      process resize_to_limit: [600, 160]
+      process quality: 90
     end
   end
 end
