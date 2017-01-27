@@ -11,9 +11,14 @@ module Decidim
       translatable_attribute :subtitle, String
       translatable_attribute :description, String
       translatable_attribute :short_description, String
+      translatable_attribute :domain, String
+      translatable_attribute :scope, String
 
       mimic :participatory_process
 
+      attribute :scope, String
+      attribute :end_date, Date
+      attribute :developer_group, String
       attribute :slug, String
       attribute :hashtag, String
       attribute :promoted, Boolean
