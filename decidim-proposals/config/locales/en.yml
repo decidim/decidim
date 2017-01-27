@@ -67,8 +67,8 @@ en:
           new_proposal: New proposal
         linked_proposals:
           proposal_votes:
-            one: 1 vote
-            other: "%{count} votes"
+            one: <span class="card--list__data__number">1</span>vote
+            other: <span class="card--list__data__number">%{count}</span>votes
         new:
           back: Back
           select_a_category: Please select a category
@@ -96,5 +96,7 @@ en:
             title: You have %{limit} votes to distribute
             votes: Votes
     resource_links:
+      included_proposals:
+        results: 'Proposal appearing in these results:'
       proposals_from_meeting:
         meetings: Related meetings

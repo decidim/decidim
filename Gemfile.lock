@@ -9,6 +9,7 @@ PATH
       decidim-meetings (= 0.0.2)
       decidim-pages (= 0.0.2)
       decidim-proposals (= 0.0.2)
+      decidim-results (= 0.0.2)
       decidim-system (= 0.0.2)
       rails (~> 5.0.0, >= 5.0.0.1)
       rails-i18n (~> 5.0.0, >= 5.0.0.1)
@@ -18,6 +19,12 @@ PATH
       kaminari (~> 1.0.1)
       rectify (~> 0.8.0)
       social-share-button (~> 0.8.8)
+    decidim-results (0.0.2)
+      decidim-comments (= 0.0.2)
+      decidim-core (= 0.0.2)
+      kaminari (~> 1.0.0.rc1)
+      rectify (~> 0.8)
+      searchlight (~> 4.1.0)
 
 PATH
   remote: decidim-admin
@@ -539,6 +546,7 @@ DEPENDENCIES
   decidim-meetings!
   decidim-pages!
   decidim-proposals (= 0.0.2)
+  decidim-results (= 0.0.2)
   decidim-system!
   rake (~> 12.0.0)
   rspec (~> 3.0)

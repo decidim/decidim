@@ -1,0 +1,5 @@
+base_locale: en
+locales: [en]
+ignore_unused:
+- "decidim.features.results.name"
+- "decidim.resource_links.*"

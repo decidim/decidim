@@ -12,7 +12,7 @@ Decidim.register_feature(:meetings) do |feature|
   end
 
   feature.register_resource do |resource|
-    resource.model_class = Decidim::Meetings::Meeting
+    resource.model_class_name = "Decidim::Meetings::Meeting"
     resource.template = "decidim/meetings/meetings/linked_meetings"
   end
 
@@ -56,8 +56,6 @@ Decidim.register_feature(:meetings) do |feature|
           file: File.new(Decidim::Dev.asset("Exampledocument.pdf")),
           attached_to: meeting
         )
-
-        Decidim::Comments::Seed.comments_for(meeting)
       end
     end
   end

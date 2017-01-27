@@ -22,7 +22,7 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.register_resource do |resource|
-    resource.model_class = Decidim::Proposals::Proposal
+    resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
   end
 

@@ -37,6 +37,7 @@
       <%== translated_attribute meeting.description %>
     </div>
     <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
+    <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
   </div>
 </div>
 <%= attachments_for meeting %>

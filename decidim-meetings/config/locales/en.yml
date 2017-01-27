@@ -74,5 +74,7 @@ en:
             start_time: Start date
             title: Title
     resource_links:
+      meetings_through_proposals:
+        results: 'Related results:'
       proposals_from_meeting:
         proposals: Related proposals
