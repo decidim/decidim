@@ -6,7 +6,7 @@ module Decidim
 
     version :big do
       process quality: 80
-      process resize_to_limit: [nil, 2000]
+      process resize_to_fill: [1920, 666]
     end
 
     def max_image_height_or_width
