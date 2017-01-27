@@ -36,7 +36,7 @@ module Decidim
           UpdateProject.call(@form, project) do
             on(:ok) do
               flash[:notice] = I18n.t("projects.update.success", scope: "decidim.budgets.admin")
-              redirect_to results_path
+              redirect_to projects_path
             end
 
             on(:invalid) do

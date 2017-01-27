@@ -1,0 +1,25 @@
+<% content_for(:title, translated_attribute(project.title)) %>
+
+<div class="row column view-header">
+  <h2 class="heading2"><%= translated_attribute project.title %></h2>
+</div>
+<div class="row">
+  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <div class="section">
+      <%== translated_attribute project.short_description %>
+      <%= render partial: "tags", locals: { project: project } %>
+    </div>
+    <div class="section">
+      <h3 class="section-heading"><%= t(".project_description") %></h3>
+      <%== translated_attribute project.description %>
+    </div>
+
+    <%= linked_resources_for project, :proposals, "included_proposals" %>
+  </div>
+</div>
+
+<%= content_for :expanded do %>
+  <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
+    <%= comments_for project, arguable: true, votable: true %>
+  <% end %>
+<% end %>

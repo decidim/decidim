@@ -3,37 +3,37 @@ en:
   decidim:
     budgets:
       actions:
-        confirm_destroy: Confirm destroy
-        destroy: Destroy
+        confirm_destroy: Are you sure you want to delete this project?
+        destroy: Delete
         edit: Edit
-        new: New
-        title: Title
+        new: New %{name}
+        title: Actions
       admin:
         models:
           project:
-            name: Name
+            name: Project
         projects:
           create:
-            invalid: Invalid
-            success: Success
+            invalid: There's been a problem creating this project
+            success: Project successfully created
           destroy:
-            success: Success
+            success: Project successfully created
           edit:
-            title: Title
-            update: Update
+            title: Edit project
+            update: Update project
           index:
-            title: Title
+            title: Projects
           new:
-            create: Create
-            title: Title
+            create: Create project
+            title: New result
           update:
-            invalid: Invalid
-            success: Success
+            invalid: There's been a problem updating this project
+            success: Project successfully updated
       models:
         project:
           fields:
             title: Title
-      results:
+      projects:
         filters:
           category: Category
           scopes: Scopes
@@ -41,14 +41,7 @@ en:
         index:
           title: Title
         show:
-          result_description: Result description
-          stats:
-            attendees: Attendees
-            comments: Comments
-            contributions: Contributions
-            meetings: Meetings
-            proposals: Proposals
-            votes: Votes
+          project_description: Project description
     features:
       budgets:
         name: Budgets

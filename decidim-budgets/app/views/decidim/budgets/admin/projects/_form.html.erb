@@ -11,6 +11,10 @@
 </div>
 
 <div class="field" >
+  <%= form.number_field :budget %>
+</div>
+
+<div class="field" >
   <%= form.collection_select :decidim_scope_id, current_organization.scopes, :id, :name, include_blank: true %>
 </div>
 
