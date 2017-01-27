@@ -6,17 +6,15 @@ module Decidim
       let(:feature) { create(:feature) }
       let(:user) { create(:user, organization: feature.organization) }
       let!(:proposal) { create(:proposal, feature: feature)}
-      let(:page) { 1 }
 
       describe "results" do
         let(:random_seed) { 0.2 }
         let(:activity) { [] }
-        let(:search_text) { nil }        
+        let(:search_text) { nil }
 
-        subject do 
+        subject do
           described_class.new({
             feature: feature,
-            page: page,
             random_seed: random_seed,
             activity: activity,
             search_text: search_text,
@@ -45,28 +43,15 @@ module Decidim
           subject
         end
 
-        it "filters the proposals per page" do
-          create_list(:proposal, 3, feature: feature)
-          proposals = described_class.new({
-            feature: feature,
-            per_page: 2,
-            page: page,
-            random_seed: random_seed
-          }).results
-
-          expect(proposals.total_pages).to eq(2)
-          expect(proposals.total_count).to eq(4)
-        end
-
         describe "when the filter includes search_text" do
-          let(:search_text) { "dog" }        
-          
+          let(:search_text) { "dog" }
+
           it "returns the proposals containing the search in the title or the body" do
             create_list(:proposal, 3, feature: feature)
-            create(:proposal, title: "A dog", feature: feature)            
+            create(:proposal, title: "A dog", feature: feature)
             create(:proposal, body: "There is a dog in the office", feature: feature)
 
-            expect(subject.total_count).to eq(2)            
+            expect(subject.size).to eq(2)
           end
         end
 
@@ -77,7 +62,7 @@ module Decidim
             create_list(:proposal, 3, feature: feature)
             create(:proposal_vote, proposal: Proposal.first, author: user)
 
-            expect(subject.total_count).to eq(1)            
+            expect(subject.size).to eq(1)
           end
         end
       end
@@ -86,7 +71,6 @@ module Decidim
         subject do
           described_class.new({
             feature: feature,
-            page: page,
             random_seed: random_seed
           }).random_seed
         end
