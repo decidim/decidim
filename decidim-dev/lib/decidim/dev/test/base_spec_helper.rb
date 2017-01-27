@@ -68,10 +68,4 @@ RSpec.configure do |config|
   config.include Rectify::RSpec::Helpers
 end
 
-# Enable dummy geocoder configuration
-Decidim.geocoder = {
-  lookup: "test",
-  api_key: %w(1234 5678)
-}
-
 require_relative "i18n_spec"

@@ -9,10 +9,7 @@ Decidim.configure do |config|
 
   # Geocoder configuration
   # config.geocoder = {
-  #   lookup: Rails.application.secets.geocoder["lookup"]
-  #   api_key: [
-  #     Rails.application.secets.geocoder["api_key"].first,
-  #     Rails.application.secets.geocoder["api_key"].last
-  #   ]
+  #   here_app_id: Rails.application.secrets.geocoder["here_app_id"],
+  #   here_app_code: Rails.application.secrets.geocoder["here_app_code"]
   # }
 end

@@ -28,6 +28,10 @@ describe Decidim::Meetings::Admin::CreateMeeting do
   let(:longitude) { 2.1234 }
 
   before do
+    Decidim.geocoder = {
+      here_app_id: "1234",
+      here_app_code: "5678"
+    }
     Geocoder::Lookup::Test.add_stub(address, [
       { 'latitude' => latitude, 'longitude' => longitude }
     ])

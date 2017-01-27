@@ -1,32 +1,33 @@
 require "spec_helper"
 
-describe Decidim::Meetings::StaticMapGenerator do
-  let(:meeting) { create(:meeting) }
-  let(:options) do
-    {
-      zoom: 10,
-      width: 200,
-      height: 200
-    }
-  end
-  subject { described_class.new(meeting, options) }
+module Decidim
+  module Meetings
+    describe StaticMapGenerator do
+      let(:meeting) { create(:meeting) }
+      let(:options) do
+        {
+          zoom: 10,
+          width: 200,
+          height: 200
+        }
+      end
+      let(:body) { "1234" }
+      subject { described_class.new(meeting, options) }
 
-  describe "#uri" do
-    it "returns the uri for the generated static map" do
-      uri = subject.uri
+      before do
+        Decidim.geocoder = {
+          here_app_id: '1234',
+          here_app_code: '5678'
+        }
 
-      expect(uri.host).to eq(Decidim::Meetings::StaticMapGenerator::BASE_HOST)
-      expect(uri.path).to eq(Decidim::Meetings::StaticMapGenerator::BASE_PATH)
+        stub_request(:get, Regexp.new(StaticMapGenerator::BASE_HOST)).to_return(body: body)
+      end
 
-      expect(uri.query).to match meeting.latitude.to_s
-      expect(uri.query).to match meeting.longitude.to_s
-
-      expect(uri.query).to match "z=#{options[:zoom]}"
-      expect(uri.query).to match "w=#{options[:width]}"
-      expect(uri.query).to match "h=#{options[:height]}"
-
-      expect(uri.query).to match "app_id=#{Decidim.geocoder[:api_key].first}"
-      expect(uri.query).to match "app_code=#{Decidim.geocoder[:api_key].last}"
+      describe "#data" do
+        it "should return the request body" do
+          expect(subject.data).to eq(body)
+        end
+      end
     end
   end
 end

@@ -26,6 +26,10 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
   let(:longitude) { 2.1234 }
 
   before do
+    Decidim.geocoder = {
+      here_app_id: "1234",
+      here_app_code: "5678"
+    }
     Geocoder::Lookup::Test.add_stub(address, [
       { 'latitude' => latitude, 'longitude' => longitude }
     ])
@@ -68,6 +72,7 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
       let(:address) { "New address" }
 
       it "geocodes the meeting" do
+        allow(form).to receive_message_chain(:errors, :add)
         expect(meeting).to receive(:geocode)
         subject.call
       end

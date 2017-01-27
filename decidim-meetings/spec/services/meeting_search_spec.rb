@@ -127,20 +127,4 @@ describe Decidim::Meetings::MeetingSearch do
       end
     end
   end
-
-  context "pagination" do
-    let(:params) do
-      default_params.merge(
-        per_page: 2
-      )
-    end
-
-    it "filters the meetings per page" do
-      create(:meeting, feature: current_feature)
-      meetings = subject.results
-
-      expect(meetings.total_pages).to eq(2)
-      expect(meetings.total_count).to eq(3)
-    end
-  end
 end

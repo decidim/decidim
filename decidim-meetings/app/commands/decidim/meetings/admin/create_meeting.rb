@@ -25,7 +25,7 @@ module Decidim
         private
 
         def build_meeting
-          @meeting = Meeting.build(
+          @meeting = Meeting.new(
             scope: @form.scope,
             category: @form.category,
             title: @form.title,

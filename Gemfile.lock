@@ -232,6 +232,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     css_parser (1.4.7)
       addressable
     database_cleaner (1.5.3)
@@ -289,6 +291,7 @@ GEM
     graphiql-rails (1.4.1)
       rails
     graphql (1.4.1)
+    hashdiff (0.3.2)
     hashie (3.4.6)
     high_voltage (3.0.0)
     highline (1.7.8)
@@ -471,6 +474,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     ruby_dep (1.5.0)
+    safe_yaml (1.0.4)
     sass (3.4.23)
     sassc (1.11.2)
       bundler
@@ -525,6 +529,10 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.6)
       rack (>= 1.0)
+    webmock (2.3.2)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -550,6 +558,7 @@ DEPENDENCIES
   decidim-system!
   rake (~> 12.0.0)
   rspec (~> 3.0)
+  webmock (~> 2.3.2)
 
 RUBY VERSION
    ruby 2.4.0p0

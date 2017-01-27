@@ -53,8 +53,8 @@ const loadMap = (mapId, meetingsData) => {
   const map = L.map(mapId);
 
   L.tileLayer.here({
-    appId: '<%= Decidim.geocoder&.fetch(:api_key)&.first %>',
-    appCode: '<%= Decidim.geocoder&.fetch(:api_key)&.last %>'
+    appId: '<%= Decidim.geocoder&.fetch(:here_app_id) %>',
+    appCode: '<%= Decidim.geocoder&.fetch(:here_app_code) %>'
   }).addTo(map);
 
   if (meetingsData.length > 0) {

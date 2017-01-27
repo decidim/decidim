@@ -1,9 +1,11 @@
 # frozen_string_literal: true
+require "httparty"
+
 module Decidim
   module Meetings
     # This class generates a url to create a static map image for a geocoded meeting
     class StaticMapGenerator
-      BASE_HOST = "mage.maps.cit.api.here.com"
+      BASE_HOST = "image.maps.cit.api.here.com"
       BASE_PATH = "/mia/1.6/mapview"
 
       def initialize(meeting, options = {})
@@ -15,6 +17,17 @@ module Decidim
         @options[:height] ||= 120
       end
 
+      def data
+        return if Decidim.geocoder.nil?
+
+        Rails.cache.fetch(@meeting.cache_key) do
+          request = HTTParty.get(uri)
+          request.body
+        end
+      end
+
+      private
+
       def uri
         params = {
           c: "#{@meeting.latitude}, #{@meeting.longitude}",
@@ -22,8 +35,8 @@ module Decidim
           w: @options[:width],
           h: @options[:height],
           f: "1",
-          app_id: Decidim.geocoder&.fetch(:api_key)&.first,
-          app_code: Decidim.geocoder&.fetch(:api_key)&.last
+          app_id: Decidim.geocoder&.fetch(:here_app_id)&.first,
+          app_code: Decidim.geocoder&.fetch(:here_app_code)&.last
         }
 
         uri = URI.parse("https://#{BASE_HOST}#{BASE_PATH}").tap do |uri|

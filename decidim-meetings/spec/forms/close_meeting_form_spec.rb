@@ -80,7 +80,7 @@ module Decidim
 
           context "when the meeting is already linked to some proposals" do
             it "sets the proposal_ids" do
-              expect(subject.proposal_ids).to eq(proposals.map(&:id))
+              expect(subject.proposal_ids).to match_array(proposals.map(&:id))
             end
           end
         end

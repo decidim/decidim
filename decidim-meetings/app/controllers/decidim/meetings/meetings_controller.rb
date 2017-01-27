@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require "httparty"
 
 module Decidim
   module Meetings
@@ -13,14 +12,7 @@ module Decidim
 
       def static_map
         @meeting = Meeting.where(feature: current_feature).find(params[:id])
-
-        static_map_data = Rails.cache.fetch(@meeting.cache_key) do
-          uri = StaticMapGenerator.new(@meeting).uri
-          request = HTTParty.get(uri)
-          request.body
-        end
-
-        send_data static_map_data, type: "image/jpeg", disposition: "inline"
+        send_data StaticMapGenerator.new(@meeting).data, type: "image/jpeg", disposition: "inline"
       end
 
       private
