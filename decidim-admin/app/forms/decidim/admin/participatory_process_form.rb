@@ -16,7 +16,6 @@ module Decidim
 
       mimic :participatory_process
 
-      attribute :scope, String
       attribute :end_date, Date
       attribute :developer_group, String
       attribute :slug, String
