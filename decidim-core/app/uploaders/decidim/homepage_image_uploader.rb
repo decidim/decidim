@@ -5,6 +5,7 @@ module Decidim
     include CarrierWave::MiniMagick
 
     version :big do
+      process quality: 80
       process resize_to_limit: [nil, 2000]
     end
 

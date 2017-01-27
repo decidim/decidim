@@ -5,6 +5,7 @@ module Decidim
     include CarrierWave::MiniMagick
 
     process :validate_size, :validate_dimensions
+    process quality: 80
 
     # CarrierWave automatically calls this method and validates the content
     # type fo the temp file to match against any of these options.
@@ -34,6 +35,14 @@ module Decidim
 
     def max_image_height_or_width
       2000
+    end
+
+    def quality
+      manipulate! do |img|
+        img.quality(percentage.to_s)
+        img = yield(img) if block_given?
+        img
+      end
     end
 
     private

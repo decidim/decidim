@@ -7,11 +7,15 @@ module Decidim
 
     process :set_content_type_and_size_in_model
     process :validate_dimensions
+    process quality: 80
+
     version :thumbnail, if: :image? do
       process resize_to_fit: [nil, 237]
+      process quality: 80
     end
     version :big, if: :image? do
       process resize_to_limit: [nil, 1000]
+      process quality: 80
     end
 
     protected
@@ -66,6 +70,14 @@ module Decidim
 
     def max_image_height_or_width
       8000
+    end
+
+    def quality
+      manipulate! do |img|
+        img.quality(percentage.to_s)
+        img = yield(img) if block_given?
+        img
+      end
     end
   end
 end
