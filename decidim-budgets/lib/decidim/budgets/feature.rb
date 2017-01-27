@@ -8,21 +8,21 @@ Decidim.register_feature(:budgets) do |feature|
   feature.icon = "decidim/budgets/icon.svg"
 
   feature.on(:before_destroy) do |instance|
-    # raise StandardError, "Can't remove this feature" if Decidim::Results::Result.where(feature: instance).any?
+    raise StandardError, "Can't remove this feature" if Decidim::Budgets::Project.where(feature: instance).any?
   end
 
-  # feature.register_resource do |resource|
-  #   resource.model_class_name = "Decidim::Results::Result"
-  #   resource.template = "decidim/results/results/linked_results"
-  # end
+  feature.register_resource do |resource|
+    resource.model_class_name = "Decidim::Budgets::Project"
+    resource.template = "decidim/budgets/projects/linked_projects"
+  end
 
-  # feature.settings(:global) do |settings|
-  #   settings.attribute :comments_always_enabled, type: :boolean, default: true
-  # end
+  feature.settings(:global) do |settings|
+    settings.attribute :comments_always_enabled, type: :boolean, default: true
+  end
 
-  # feature.settings(:step) do |settings|
-  #   settings.attribute :comments_enabled, type: :boolean, default: true
-  # end
+  feature.settings(:step) do |settings|
+    settings.attribute :comments_enabled, type: :boolean, default: true
+  end
 
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
@@ -34,22 +34,23 @@ Decidim.register_feature(:budgets) do |feature|
         participatory_process: process
       )
 
-      # 3.times do
-      #   result = Decidim::Results::Result.create!(
-      #     feature: feature,
-      #     scope: process.organization.scopes.sample,
-      #     category: process.categories.sample,
-      #     title: Decidim::Faker::Localized.sentence(2),
-      #     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-      #       Decidim::Faker::Localized.paragraph(3)
-      #     end,
-      #     short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-      #       Decidim::Faker::Localized.paragraph(3)
-      #     end
-      #   )
+      3.times do
+        project = Decidim::Budgets::Project.create!(
+          feature: feature,
+          scope: process.organization.scopes.sample,
+          category: process.categories.sample,
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(3)
+          end,
+          short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(3)
+          end,
+          budget: Faker::Number.number(8)
+        )
 
-      #   Decidim::Comments::Seed.comments_for(result)
-      # end
+        Decidim::Comments::Seed.comments_for(project)
+      end
     end
   end
 end

@@ -1,7 +1,54 @@
 ---
 en:
   decidim:
+    budgets:
+      actions:
+        confirm_destroy: Confirm destroy
+        destroy: Destroy
+        edit: Edit
+        new: New
+        title: Title
+      admin:
+        models:
+          project:
+            name: Name
+        projects:
+          create:
+            invalid: Invalid
+            success: Success
+          destroy:
+            success: Success
+          edit:
+            title: Title
+            update: Update
+          index:
+            title: Title
+          new:
+            create: Create
+            title: Title
+          update:
+            invalid: Invalid
+            success: Success
+      models:
+        project:
+          fields:
+            title: Title
+      results:
+        filters:
+          category: Category
+          scopes: Scopes
+          search: Search
+        index:
+          title: Title
+        show:
+          result_description: Result description
+          stats:
+            attendees: Attendees
+            comments: Comments
+            contributions: Contributions
+            meetings: Meetings
+            proposals: Proposals
+            votes: Votes
     features:
       budgets:
         name: Budgets
-   

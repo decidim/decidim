@@ -10,8 +10,8 @@ module Decidim
       paths["db/migrate"] = nil
 
       routes do
-        # resources :results
-        # root to: "results#index"
+        resources :projects
+        root to: "projects#index"
       end
 
       def load_seed

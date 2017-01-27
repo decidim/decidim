@@ -11,8 +11,8 @@ module Decidim
       isolate_namespace Decidim::Budgets
 
       routes do
-        # resources :results, only: [:index, :show]
-        # root to: "results#index"
+        resources :projects, only: [:index, :show]
+        root to: "projects#index"
       end
     end
   end
