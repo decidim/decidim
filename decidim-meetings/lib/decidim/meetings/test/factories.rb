@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 FactoryGirl.define do
   factory :meeting, class: Decidim::Meetings::Meeting do
     title { Decidim::Faker::Localized.sentence(3) }
@@ -16,7 +17,7 @@ FactoryGirl.define do
       closing_report { Decidim::Faker::Localized.sentence(3) }
       attendees_count { rand(50) }
       contributions_count { rand(50) }
-      attending_organizations { 3.times.map { Faker::GameOfThrones.house }.join(", ") }
+      attending_organizations { Array.new(3) { Faker::GameOfThrones.house }.join(", ") }
     end
   end
 end

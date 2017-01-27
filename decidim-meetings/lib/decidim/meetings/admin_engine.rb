@@ -23,16 +23,16 @@ module Decidim
         nil
       end
 
-      initializer "decidim_meetings.geocoder" do |app|
+      initializer "decidim_meetings.geocoder" do |_app|
         Geocoder.configure(
           # geocoding service (see below for supported options):
-          lookup: Rails.application.secrets.dig(:geocoder, "lookup").try(&:to_sym),
+          lookup: Decidim.geocoder&.fetch(:lookup).try(&:to_sym),
 
           # IP address geocoding service (see below for supported options):
           # :ip_lookup => :maxmind,
 
           # to use an API key:
-          api_key: Rails.application.secrets.dig(:geocoder, "api_key")
+          api_key: Decidim.geocoder&.fetch(:api_key)
 
           # geocoding service request timeout, in seconds (default 3):
           # :timeout => 5,

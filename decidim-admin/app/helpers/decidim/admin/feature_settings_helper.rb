@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   module Admin
     # This class contains helpers needed in order for feature settings to
@@ -8,7 +9,7 @@ module Decidim
         integer: :number_field,
         string: :text_field,
         text: :text_area
-      }
+      }.freeze
 
       # Public: Renders a form field that matches a settings attribute's
       # type.

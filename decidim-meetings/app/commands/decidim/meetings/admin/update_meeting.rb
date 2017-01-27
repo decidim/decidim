@@ -12,7 +12,6 @@ module Decidim
         def initialize(form, meeting)
           @form = form
           @meeting = meeting
-          @previous_address = meeting.address
         end
 
         # Updates the meeting if valid.
@@ -22,9 +21,7 @@ module Decidim
           return broadcast(:invalid) if @form.invalid?
 
           change_meeting
-          if address_changed?
-            return broadcast(:invalid) unless geocode_meeting
-          end
+          return broadcast(:invalid) if Decidim.geocoder.present? && @meeting.address_changed? && !geocode_meeting
           update_meeting
 
           broadcast(:ok)
@@ -33,7 +30,7 @@ module Decidim
         private
 
         def change_meeting
-           @meeting.assign_attributes(
+          @meeting.assign_attributes(
             scope: @form.scope,
             category: @form.category,
             title: @form.title,
@@ -55,10 +52,6 @@ module Decidim
 
         def update_meeting
           @meeting.save!
-        end
-
-        def address_changed?
-          @form.address != @previous_address
         end
       end
     end

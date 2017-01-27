@@ -66,6 +66,9 @@ module Decidim
     %w(en ca es)
   end
 
+  # Exposes a configuration option: an object to configure geocoder
+  config_accessor :geocoder
+
   # Public: Registers a feature, usually held in an external library or in a
   # separate folder in the main repository. Exposes a DSL defined by
   # `Decidim::FeatureManifest`.

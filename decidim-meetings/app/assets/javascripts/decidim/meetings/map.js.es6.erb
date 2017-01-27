@@ -53,8 +53,8 @@ const loadMap = (mapId, meetingsData) => {
   const map = L.map(mapId);
 
   L.tileLayer.here({
-    appId: '<%= Rails.application.secrets.dig(:geocoder, "api_key").try(&:first) %>',
-    appCode: '<%= Rails.application.secrets.dig(:geocoder, "api_key").try(&:last) %>'
+    appId: '<%= Decidim.geocoder&.fetch(:api_key)&.first %>',
+    appCode: '<%= Decidim.geocoder&.fetch(:api_key)&.last %>'
   }).addTo(map);
 
   if (meetingsData.length > 0) {

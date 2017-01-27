@@ -16,7 +16,7 @@ module Decidim
           return broadcast(:invalid) if @form.invalid?
 
           build_meeting
-          return broadcast(:invalid) unless geocode_meeting
+          return broadcast(:invalid) if Decidim.geocoder.present? && !geocode_meeting
           create_meeting
 
           broadcast(:ok)

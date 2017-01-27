@@ -28,8 +28,6 @@ describe Decidim::Meetings::Admin::CreateMeeting do
   let(:longitude) { 2.1234 }
 
   before do
-    Geocoder.configure(:lookup => :test)
-
     Geocoder::Lookup::Test.add_stub(address, [
       { 'latitude' => latitude, 'longitude' => longitude }
     ])
