@@ -8,7 +8,7 @@ module Decidim
         # Initializes an UpdateResult Command.
         #
         # form - The form from which to get the data.
-        # result - The current instance of the page to be updated.
+        # result - The current instance of the result to be updated.
         def initialize(form, result)
           @form = form
           @result = result
