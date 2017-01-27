@@ -40,7 +40,7 @@ describe Decidim::Meetings::Meeting do
       ])
     end
 
-    it "should geocode address and find latitude and longitude" do
+    it "geocodes address and find latitude and longitude" do
       subject.geocode
       expect(subject.latitude).to eq(latitude)
       expect(subject.longitude).to eq(longitude)

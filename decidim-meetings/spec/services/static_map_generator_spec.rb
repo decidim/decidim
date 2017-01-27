@@ -24,7 +24,7 @@ module Decidim
       end
 
       describe "#data" do
-        it "should return the request body" do
+        it "returns the request body" do
           expect(subject.data).to eq(body)
         end
       end
