@@ -50,6 +50,10 @@ FactoryGirl.define do
     banner_image { test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
     organization
+    scope  { Decidim::Faker::Localized.word }
+    domain { Decidim::Faker::Localized.word }
+    developer_group { Faker::Company.name }
+    end_date 2.month.from_now.at_midnight
 
     trait :promoted do
       promoted true

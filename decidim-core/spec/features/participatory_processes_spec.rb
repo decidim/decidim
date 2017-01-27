@@ -84,6 +84,10 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
         expect(page).to have_content(translated(participatory_process.description, locale: :en))
         expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
+        expect(page).to have_content(translated(participatory_process.domain, locale: :en))
+        expect(page).to have_content(translated(participatory_process.scope, locale: :en))
+        expect(page).to have_content(participatory_process.developer_group)
+        expect(page).to have_content(I18n.l(participatory_process.end_date, format: :long))
         expect(page).to have_content(participatory_process.hashtag)
       end
     end
