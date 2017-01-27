@@ -1,5 +1,5 @@
 <div class="field">
-  <%= form.translated :text_field, :title, autofocus: true %>
+  <%= form.translated :text_field, :title, autofocus: true, data: { length: 50 } %>
 </div>
 
 <div class="field">
@@ -7,11 +7,11 @@
 </div>
 
 <div class="field">
-  <%= form.text_field :slug %>
+  <%= form.text_field :slug, data: { length: 50 } %>
 </div>
 
 <div class="field">
-  <%= form.text_field :hashtag %>
+  <%= form.text_field :hashtag, data: { length: 20 } %>
 </div>
 
 <div class="field">
@@ -33,3 +33,32 @@
 <div class="field">
   <%= form.check_box :promoted %>
 </div>
+
+<script>
+ var counters = function(){
+   $('input[data-length]').each(function(_index, element) {
+     var $element = $(element);
+     var $counterWrapper = $element.siblings('.character-counter');
+     var span = $counterWrapper.children('span.counter');
+     var charsLeft = $element.data('length') - $element.val().length;
+
+     if (span) {
+       if (charsLeft < 0) {
+         span.addClass('too-long');
+       } else {
+         span.removeClass('too-long');
+       }
+       span.html(charsLeft);
+     }
+   });
+ };
+
+ $('form').on('keyup', 'input, textarea', counters);
+ counters();
+</script>
+
+<style>
+ .field span.too-long {
+   color: red;
+ }
+</style>

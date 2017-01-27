@@ -103,6 +103,13 @@ module Decidim
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options)
     end
 
+    def text_field(name, options)
+      return super unless options.dig(:data, :length)
+      super + content_tag(:p, class: "character-counter help-text") do
+        "Characters left: ".html_safe + content_tag(:span, nil, class: "counter")
+      end
+    end
+
     private
 
     def categories_for_select(scope)
