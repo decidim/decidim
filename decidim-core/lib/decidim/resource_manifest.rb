@@ -34,6 +34,13 @@ module Decidim
 
     validates :feature_manifest, :model_class_name, :route_name, presence: true
 
+    # Finds an ActiveRecord::Relation of the resource `model_class`, scoped to the
+    # given feature. This way you can find resources from another engine without
+    # actually coupling both engines.
+    #
+    # feature - a Decidim::Feature
+    #
+    # Returns an ActiveRecord::Relation.
     def resource_scope(feature)
       feature_ids = Decidim::Feature.where(participatory_process: feature.participatory_process, manifest_name: feature_manifest.name).pluck(:id)
       return model_class.none if feature_ids.empty?
