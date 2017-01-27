@@ -27,6 +27,8 @@ require "omniauth"
 require "omniauth-facebook"
 require "omniauth-twitter"
 require "omniauth-google-oauth2"
+require "sidekiq"
+require "devise-async"
 
 require "decidim/api"
 
