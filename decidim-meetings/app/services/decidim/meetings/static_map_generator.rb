@@ -35,8 +35,8 @@ module Decidim
           w: @options[:width],
           h: @options[:height],
           f: "1",
-          app_id: Decidim.geocoder&.fetch(:here_app_id)&.first,
-          app_code: Decidim.geocoder&.fetch(:here_app_code)&.last
+          app_id: Decidim.geocoder&.fetch(:here_app_id),
+          app_code: Decidim.geocoder&.fetch(:here_app_code)
         }
 
         uri = URI.parse("https://#{BASE_HOST}#{BASE_PATH}").tap do |uri|
