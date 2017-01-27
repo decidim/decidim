@@ -12,19 +12,19 @@
       <div class="card extra definition-data">
         <div class="definition-data__item scope">
           <span class="definition-data__title">Ámbito</span>
-            Districte de Gràcia
+            <%== translated_attribute(current_participatory_process.scope) %>
         </div>
         <div class="definition-data__item end-date">
           <span class="definition-data__title">Finalización</span>
-            18 septiembre 2016
+            <%== current_participatory_process.end_date %>
         </div>
         <div class="definition-data__item developer-group">
           <span class="definition-data__title">Grupo promotor</span>
-            Ajuntament de Barcelona
+            <%== current_participatory_process.developer_group %>
         </div>
         <div class="definition-data__item domain">
           <span class="definition-data__title">Área</span>
-            Urbanismo
+            <%== translated_attribute(current_participatory_process.domain) %>
         </div>
       </div>
     </div>
