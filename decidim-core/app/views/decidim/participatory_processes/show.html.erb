@@ -16,7 +16,7 @@
         </div>
         <div class="definition-data__item end-date">
           <span class="definition-data__title"><%= t(".end_date")=%></span>
-            <%== current_participatory_process.end_date %>
+            <%== l(current_participatory_process.end_date, format: :long) %>
         </div>
         <div class="definition-data__item developer-group">
           <span class="definition-data__title"><%= t(".developer_group") =%></span>
