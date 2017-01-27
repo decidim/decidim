@@ -9,10 +9,9 @@ describe Decidim::Results::Admin::CreateResult do
   let(:meeting_feature) do
     create(:feature, manifest_name: :meetings, participatory_process: participatory_process)
   end
-  let(:meetings) do
-    create_list(
+  let(:meeting) do
+    create(
       :meeting,
-      3,
       feature: meeting_feature
     )
   end
@@ -32,7 +31,6 @@ describe Decidim::Results::Admin::CreateResult do
       title: {en: "title"},
       description: {en: "description"},
       short_description: {en: "short_description"},
-      meeting_ids: meetings.map(&:id),
       proposal_ids: proposals.map(&:id),
       scope: scope,
       category: category,
@@ -80,9 +78,14 @@ describe Decidim::Results::Admin::CreateResult do
     end
 
     it "links meetings" do
+      proposals.each do |proposal|
+        proposal.link_resources([meeting], "proposals_from_meeting")
+      end
+
       subject.call
       linked_meetings = result.linked_resources(:meetings, "meetings_through_proposals")
-      expect(linked_meetings).to match_array(meetings)
+
+      expect(linked_meetings).to eq [meeting]
     end
   end
 end

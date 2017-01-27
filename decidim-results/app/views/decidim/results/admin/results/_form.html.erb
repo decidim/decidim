@@ -25,11 +25,3 @@
                   { multiple: true, class: "chosen-select" }
   %>
 <% end %>
-
-<% if @form.meetings %>
-  <%= form.select :meeting_ids,
-                  @form.meetings,
-                  {},
-                  { multiple: true, class: "chosen-select" }
-  %>
-<% end %>

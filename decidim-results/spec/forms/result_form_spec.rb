@@ -68,4 +68,34 @@ describe Decidim::Results::Admin::ResultForm do
 
     it { is_expected.not_to be_valid }
   end
+
+  context "with proposals" do
+    let(:proposals_feature) { create :feature, manifest_name: :proposals, participatory_process: participatory_process }
+    let!(:proposal) { create :proposal, feature: proposals_feature }
+
+    describe "#proposals" do
+      it "returns the available proposals in a way suitable for the form" do
+        expect(subject.proposals)
+          .to eq([[proposal.title, proposal.id]])
+      end
+    end
+
+    describe "#map_model" do
+      let(:result) do
+        create(
+          :result,
+          feature: current_feature,
+          scope: scope,
+          category: category
+        )
+      end
+
+      subject { described_class.from_model(result).with_context(context) }
+
+      it "sets the proposal_ids correctly" do
+        result.link_resources([proposal], "included_proposals")
+        expect(subject.proposal_ids).to eq [proposal.id]
+      end
+    end
+  end
 end

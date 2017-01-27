@@ -40,11 +40,17 @@ module Decidim
         end
 
         def proposals
-          result.sibling_scope(:proposals).where(id: @form.proposal_ids)
+          @proposals ||= result.sibling_scope(:proposals).where(id: @form.proposal_ids)
+        end
+
+        def meeting_ids
+          @meeting_ids ||= proposals.flat_map do |proposal|
+            proposal.linked_resources(:meetings, "proposals_from_meeting").pluck(:id)
+          end.uniq
         end
 
         def meetings
-          result.sibling_scope(:meetings).where(id: @form.meeting_ids)
+          @meetings ||= result.sibling_scope(:meetings).where(id: meeting_ids)
         end
 
         def link_proposals

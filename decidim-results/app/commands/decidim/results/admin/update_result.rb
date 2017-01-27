@@ -18,7 +18,7 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid) if @form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
           transaction do
             update_result
@@ -31,30 +31,38 @@ module Decidim
 
         private
 
+        attr_reader :result, :form
+
         def update_result
-          @result.update_attributes!(
-            scope: @form.scope,
-            category: @form.category,
-            title: @form.title,
-            short_description: @form.short_description,
-            description: @form.description
+          result.update_attributes!(
+            scope: form.scope,
+            category: form.category,
+            title: form.title,
+            short_description: form.short_description,
+            description: form.description
           )
         end
 
         def proposals
-          @result.sibling_scope(:proposals).where(id: @form.proposal_ids)
+          @proposals ||= result.sibling_scope(:proposals).where(id: form.proposal_ids)
+        end
+
+        def meeting_ids
+          @meeting_ids ||= proposals.flat_map do |proposal|
+            proposal.linked_resources(:meetings, "proposals_from_meeting").pluck(:id)
+          end.uniq
         end
 
         def meetings
-          @result.sibling_scope(:meetings).where(id: @form.meeting_ids)
+          @meetings ||= result.sibling_scope(:meetings).where(id: meeting_ids)
         end
 
         def link_proposals
-          @result.link_resources(proposals, "included_proposals")
+          result.link_resources(proposals, "included_proposals")
         end
 
         def link_meetings
-          @result.link_resources(meetings, "meetings_through_proposals")
+          result.link_resources(meetings, "meetings_through_proposals")
         end
       end
     end
