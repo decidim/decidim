@@ -90,7 +90,11 @@ if !Rails.env.production? || ENV["SEED"]
       banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),
       promoted: true,
       published_at: 2.weeks.ago,
-      organization: organization
+      organization: organization,
+      scope: Decidim::Faker::Localized.word,
+      domain: Decidim::Faker::Localized.word,
+      developer_group: Faker::Company.name,
+      end_date: 2.month.from_now.at_midnight
     )
   end
 
