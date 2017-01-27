@@ -4,10 +4,11 @@
     <title><%= decidim_page_title %></title>
     <%= csrf_meta_tags %>
 
-    <%= javascript_include_tag 'application', async: true %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= render partial: 'layouts/decidim/meta' %>
     <%= render partial: 'layouts/decidim/social_meta' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
