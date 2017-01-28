@@ -51,7 +51,7 @@ if !Rails.env.production? || ENV["SEED"]
         name: Faker::Company.name,
         document_number: Faker::Number.number(10),
         phone: Faker::PhoneNumber.phone_number,
-        verified: true
+        verified_at: Time.current
       )
 
       Decidim::UserGroupMembership.create!(
@@ -62,8 +62,7 @@ if !Rails.env.production? || ENV["SEED"]
       user_group = Decidim::UserGroup.create!(
         name: Faker::Company.name,
         document_number: Faker::Number.number(10),
-        phone: Faker::PhoneNumber.phone_number,
-        verified: false
+        phone: Faker::PhoneNumber.phone_number
       )
 
       Decidim::UserGroupMembership.create!(
