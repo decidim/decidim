@@ -14,7 +14,8 @@ module Decidim
     describe "validations" do
       context "when the file is too big" do
         before do
-          expect(subject.file).to receive(:size).and_return(11.megabytes)
+          allow(Decidim).to receive(:maximum_attachment_size).and_return(5.megabytes)
+          expect(subject.file).to receive(:size).and_return(6.megabytes)
         end
 
         it { is_expected.to_not be_valid }
