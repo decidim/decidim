@@ -60,6 +60,15 @@ module Decidim
         template "decidim.scss.erb", "app/assets/stylesheets/decidim.scss", force: true
       end
 
+      def sidekiq
+        inject_into_file "config/application.rb",
+                         after: "class Application < Rails::Application" do
+          %(
+  config.active_job.queue_adapter = :sidekiq
+)
+        end
+      end
+
       def smtp_environment
         inject_into_file "config/environments/production.rb",
                          after: "config.log_formatter = ::Logger::Formatter.new" do
