@@ -1,0 +1,27 @@
+<h2><%= t(".title") %></h2>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.results", name: t("models.result.name", scope: "decidim.results.admin")), new_result_path, class: 'new' if can? :manage, current_feature %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= t("models.result.fields.title", scope: "decidim.results") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.results") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% results.each do |result| %>
+      <tr data-id="<%= result.id %>">
+        <td>
+          <%= link_to translated_attribute(result.title), decidim_results.result_path(id: result, feature_id: current_feature, participatory_process_id: current_participatory_process), target: :blank %><br />
+        </td>
+        <td class="actions">
+          <%= link_to t("actions.edit", scope: "decidim.results"), edit_result_path(result) if can? :update, current_feature %>
+          <%= link_to t("actions.destroy", scope: "decidim.results"), result_path(result), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.results") } if can? :destroy, current_feature %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

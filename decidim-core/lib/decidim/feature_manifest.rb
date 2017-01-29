@@ -105,11 +105,11 @@ module Decidim
     #
     # Returns nothing.
     def register_resource(&block)
-      registered_manifests << block
-    end
-
-    def registered_manifests
-      @registered_manifests ||= Set.new
+      manifest = ResourceManifest.new
+      manifest.feature_manifest = self
+      block.call(manifest)
+      manifest.validate!
+      resource_manifests << manifest
     end
 
     # Public: Finds all the registered resource manifest's via the
@@ -117,13 +117,7 @@ module Decidim
     #
     # Returns an Array[ResourceManifest].
     def resource_manifests
-      @resource_manifests ||= registered_manifests.map do |block|
-        manifest = ResourceManifest.new
-        manifest.feature_manifest = self
-        block.call(manifest)
-        manifest.validate!
-        manifest
-      end
+      @resource_manifests ||= []
     end
   end
 end

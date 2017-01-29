@@ -1,0 +1,59 @@
+---
+en:
+  decidim:
+    features:
+      results:
+        name: Results
+    resource_links:
+      included_proposals:
+        proposals: Proposals included in this result
+      meetings_through_proposals:
+        meetings: Related meetings
+    results:
+      actions:
+        confirm_destroy: Are you sure you want to delete this result?
+        destroy: Delete
+        edit: Edit
+        new: New %{name}
+        title: Actions
+      admin:
+        models:
+          result:
+            name: Result
+        results:
+          create:
+            invalid: There's been a problem creating this result
+            success: Result successfully created
+          destroy:
+            success: Result successfully deleted
+          edit:
+            title: Edit result
+            update: Update result
+          index:
+            title: Results
+          new:
+            create: Create result
+            title: New result
+          update:
+            invalid: There's been a problem updating this result
+            success: Result successfully updated
+      models:
+        result:
+          fields:
+            title: Title
+      results:
+        filters:
+          category: Category
+          scopes: Scopes
+          search: Search
+        index:
+          title: Results
+        show:
+          result_description: Result description
+          stats:
+            attendees: Attendees
+            comments: Comments
+            contributions: Contributions
+            meetings: Meetings
+            proposals: Proposals
+            votes: Supports

@@ -64,10 +64,6 @@ ca:
           unfold: Desplegar
         index:
           new_proposal: Nova proposta
-        linked_proposals:
-          proposal_votes:
-            one: 1 vot
-            other: "%{count} vots"
         new:
           back: Enrere
           select_a_category: Si us plau, seleccioni una categoria

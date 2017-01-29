@@ -33,7 +33,7 @@ Decidim.register_feature(:dummy) do |feature|
 
   feature.register_resource do |resource|
     resource.name = :dummy
-    resource.model_class = Decidim::DummyResource
+    resource.model_class_name = "Decidim::DummyResource"
     resource.template = "decidim/dummy_resource/linked_dummys"
   end
 end
