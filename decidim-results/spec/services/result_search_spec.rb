@@ -94,20 +94,4 @@ describe Decidim::Results::ResultSearch do
       end
     end
   end
-
-  context "pagination" do
-    let(:params) do
-      default_params.merge(
-        per_page: 2
-      )
-    end
-
-    it "filters the results per page" do
-      create(:result, feature: current_feature)
-      results = subject.results
-
-      expect(results.total_pages).to eq(2)
-      expect(results.total_count).to eq(3)
-    end
-  end
 end
