@@ -50,13 +50,6 @@ RSpec.shared_examples "manage results" do
         ca: "El meu result"
       )
       fill_in_i18n_editor(
-        :result_short_description,
-        "#short_description-tabs",
-        en: "Short description",
-        es: "Descripción corta",
-        ca: "Descripció curta"
-      )
-      fill_in_i18n_editor(
         :result_description,
         "#description-tabs",
         en: "A longer description",

@@ -38,7 +38,6 @@ describe "Explore results", type: :feature do
     it "shows all result info" do
       expect(page).to have_i18n_content(result.title)
       expect(page).to have_i18n_content(result.description)
-      expect(page).to have_i18n_content(result.short_description)
 
       within ".section.view-side" do
         expect(page).to have_content(/Proposals/i)
