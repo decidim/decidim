@@ -41,6 +41,14 @@ FactoryGirl.define do
         }
       end
     end
+
+    trait :with_creation_enabled do
+      step_settings do
+        {
+          participatory_process.active_step.id => { creation_enabled: true }
+        }
+      end
+    end
   end
 
   factory :proposal, class: Decidim::Proposals::Proposal do

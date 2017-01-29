@@ -140,7 +140,7 @@ describe "Vote Proposal", type: :feature do
 
             it "shows the vote count but not the vote button" do
               expect(page).to have_css('.card__support__data', text: "1 VOTE")
-              expect(page).not_to have_css('.card__button')
+              expect(page).to have_content("Voting disabled")
             end
           end
         end

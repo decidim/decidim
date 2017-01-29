@@ -18,15 +18,15 @@ module Decidim
         sign_in user
       end
 
-      describe "POST create" do
-        let(:params) do
-          {
-            proposal_id: proposal.id,
-            feature_id: feature.id,
-            participatory_process_id: feature.participatory_process.id
-          }
-        end
+      let(:params) do
+        {
+          proposal_id: proposal.id,
+          feature_id: feature.id,
+          participatory_process_id: feature.participatory_process.id
+        }
+      end
 
+      describe "POST create" do
         context "with votes enabled" do
           let(:feature) do
             create(:proposal_feature, :with_votes_enabled)
@@ -50,7 +50,7 @@ module Decidim
           it "doesn't allow voting" do
             expect do
               post :create, format: :js, params: params
-            end.to_not change { ProposalVote.count }
+            end.not_to change { ProposalVote.count }
 
             expect(response).to have_http_status(422)
           end
@@ -64,9 +64,44 @@ module Decidim
           it "doesn't allow voting" do
             expect do
               post :create, format: :js, params: params
-            end.to_not change { ProposalVote.count }
+            end.not_to change { ProposalVote.count }
 
             expect(response).to have_http_status(422)
+          end
+        end
+      end
+
+      describe "destroy" do
+        before do
+          create(:proposal_vote, proposal: proposal, author: user)
+        end
+
+        context "with vote limit enabled" do
+          let(:feature) do
+            create(:proposal_feature, :with_votes_enabled, :with_vote_limit)
+          end
+
+          it "deletes the vote" do
+            expect do
+              delete :destroy, format: :js, params: params
+            end.to change { ProposalVote.count }.by(-1)
+
+            expect(ProposalVote.count).to eq(0)
+          end
+        end
+
+        context "with vote limit disabled" do
+          let(:feature) do
+            create(:proposal_feature, :with_votes_enabled)
+          end
+
+          it "does not allow deleting a vote" do
+            expect do
+              delete :destroy, format: :js, params: params
+            end.not_to change { ProposalVote.count }
+
+            expect(response).to have_http_status(422)
+            expect(ProposalVote.count).to eq(1)
           end
         end
       end

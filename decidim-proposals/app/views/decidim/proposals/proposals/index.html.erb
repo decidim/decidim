@@ -4,9 +4,11 @@
     <h2 id="proposals-count" class="title-action__title section-heading">
       <%= render partial: "count" %>
     </h2>
-    <%= link_to new_proposal_path, class: "title-action__action button small hollow" do %>
-      <%= t(".new_proposal") %>
-      <%= icon "plus" %>
+    <% if current_settings.creation_enabled? %>
+      <%= link_to new_proposal_path, class: "title-action__action button small hollow" do %>
+        <%= t(".new_proposal") %>
+        <%= icon "plus" %>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -22,6 +22,7 @@ Decidim.register_feature(:proposals) do |feature|
     settings.attribute :votes_enabled, type: :boolean
     settings.attribute :votes_blocked, type: :boolean
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :creation_enabled, type: :boolean
   end
 
   feature.register_resource do |resource|
@@ -41,7 +42,7 @@ Decidim.register_feature(:proposals) do |feature|
           vote_limit: 0
         },
         step_settings: {
-          process.active_step.id => { votes_enabled: true, votes_blocked: false }
+          process.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
         }
       )
 

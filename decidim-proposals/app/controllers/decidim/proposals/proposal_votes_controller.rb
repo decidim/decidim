@@ -11,6 +11,7 @@ module Decidim
       before_action :authenticate_user!
       before_action :check_current_settings!
       before_action :check_vote_limit_reached!, only: [:create]
+      before_action :check_vote_limit_enabled!, only: [:destroy]
 
       def create
         proposal.votes.create!(author: current_user)
@@ -36,6 +37,11 @@ module Decidim
       # This ensure the votes cannot be created using a POST request directly.
       def check_vote_limit_reached!
         head(422) and return if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0
+      end
+
+      # This ensures votes can't be deleted unless users can vote multiple times.
+      def check_vote_limit_enabled!
+        head(422) and return unless vote_limit_enabled?
       end
 
       def proposal

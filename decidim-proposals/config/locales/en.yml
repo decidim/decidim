@@ -14,6 +14,7 @@ en:
         name: Proposals
         settings:
           step:
+            creation_enabled: Proposal creation enabled
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
     proposals:
@@ -86,6 +87,7 @@ en:
           already_voted: Already voted
           no_votes_remaining: No votes remaining
           vote: Vote
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: VOTE

@@ -29,6 +29,8 @@ module Decidim
       end
 
       def create
+        raise "Proposal creation is not enabled" unless current_settings.creation_enabled?
+
         @form = form(ProposalForm).from_params(params)
 
         CreateProposal.call(@form, current_user) do
