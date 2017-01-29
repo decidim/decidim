@@ -11,7 +11,7 @@ module Decidim
       private
 
       def results
-        @results ||= search.results
+        @results ||= search.results.page(params[:page]).per(12)
       end
 
       def result
@@ -24,13 +24,6 @@ module Decidim
 
       def search_klass
         ResultSearch
-      end
-
-      def default_search_params
-        {
-          page: params[:page],
-          per_page: 12
-        }
       end
 
       def default_filter_params

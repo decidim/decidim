@@ -122,6 +122,9 @@ PATH
     decidim-meetings (0.0.2)
       date_validator (~> 0.9)
       decidim-core (= 0.0.2)
+      geocoder (~> 1.4.1)
+      httparty (~> 0.14.0)
+      jquery-tmpl-rails (~> 1.1.0)
       kaminari (~> 1.0.1)
       rectify (~> 0.8)
       searchlight (~> 4.1.0)
@@ -236,6 +239,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     css_parser (1.4.7)
       addressable
     database_cleaner (1.5.3)
@@ -287,15 +292,19 @@ GEM
       activesupport (>= 4.1)
       railties (>= 4.1)
       tzinfo (~> 1.2, >= 1.2.2)
+    geocoder (1.4.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     graphiql-rails (1.4.1)
       rails
     graphql (1.4.1)
+    hashdiff (0.3.2)
     hashie (3.4.6)
     high_voltage (3.0.0)
     highline (1.7.8)
     htmlentities (4.3.4)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     i18n-tasks (0.9.8)
       activesupport (>= 4.0.2)
@@ -312,6 +321,8 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-tmpl-rails (1.1.0)
+      rails (>= 3.1.0)
     json (2.0.3)
     jwt (1.5.6)
     kaminari (1.0.1)
@@ -470,6 +481,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     ruby_dep (1.5.0)
+    safe_yaml (1.0.4)
     sass (3.4.23)
     sassc (1.11.2)
       bundler
@@ -524,6 +536,10 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.6)
       rack (>= 1.0)
+    webmock (2.3.2)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -550,6 +566,7 @@ DEPENDENCIES
   decidim-system!
   rake (~> 12.0.0)
   rspec (~> 3.0)
+  webmock (~> 2.3.2)
 
 RUBY VERSION
    ruby 2.4.0p0

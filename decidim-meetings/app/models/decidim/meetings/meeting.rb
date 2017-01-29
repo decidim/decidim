@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Meetings
     # The data store for a Meeting in the Decidim::Meetings component. It stores a
@@ -14,6 +15,8 @@ module Decidim
       validates :title, presence: true
       validate :scope_belongs_to_organization
       validate :category_belongs_to_organization
+
+      geocoded_by :address
 
       def closed?
         closed_at.present?

@@ -17,7 +17,7 @@ module Decidim
       @account = form(AccountForm).from_params(params)
 
       UpdateAccount.call(current_user, @account) do
-        on(:ok) do |account, unconfirmed_email|
+        on(:ok) do |_account, unconfirmed_email|
           flash.now[:notice] = if unconfirmed_email
                                  t("account.update.success_with_email_confirmation", scope: "decidim")
                                else

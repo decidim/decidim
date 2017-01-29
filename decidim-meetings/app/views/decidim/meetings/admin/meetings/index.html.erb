@@ -11,6 +11,9 @@
       <th><%= t("models.meeting.fields.start_time", scope: "decidim.meetings") %></th>
       <th><%= t("models.meeting.fields.end_time", scope: "decidim.meetings") %></th>
       <th><%= t("models.meeting.fields.closed", scope: "decidim.meetings") %></th>
+      <% if Decidim.geocoder.present? %>
+        <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
+      <% end %>
       <th class="actions"><%= t("actions.title", scope: "decidim.meetings") %></th>
     </tr>
   </thead>
@@ -33,6 +36,11 @@
         <td>
           <%= humanize_boolean meeting.closed? %>
         </td>
+        <% if Decidim.geocoder.present? %>
+          <td>
+            <%= static_map_link(meeting) %>
+          </td>
+        <% end %>
         <td class="actions">
           <%= link_to t("actions.edit", scope: "decidim.meetings"), edit_meeting_path(meeting) if can? :update, current_feature %>
           <%= link_to t("actions.close", scope: "decidim.meetings"), edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id) if can? :update, current_feature %>

@@ -1,10 +1,11 @@
 require "spec_helper"
 
 describe Decidim::Meetings::Admin::UpdateMeeting do
-  let(:meeting) { create :meeting}
+  let(:meeting) { create(:meeting) }
   let(:organization) { meeting.feature.organization }
   let(:scope) { create :scope, organization: organization }
   let(:category) { create :category, participatory_process: meeting.feature.participatory_process }
+  let(:address) { meeting.address }
   let(:form) do
     double(
       :invalid? => invalid,
@@ -17,10 +18,22 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
       end_time: 1.day.from_now + 1.hour,
       scope: scope,
       category: category,
-      address: "address"
+      address: address
     )
   end
   let(:invalid) { false }
+  let(:latitude) { 40.1234 }
+  let(:longitude) { 2.1234 }
+
+  before do
+    Decidim.geocoder = {
+      here_app_id: "1234",
+      here_app_code: "5678"
+    }
+    Geocoder::Lookup::Test.add_stub(address, [
+      { 'latitude' => latitude, 'longitude' => longitude }
+    ])
+  end
 
   subject { described_class.new(form, meeting) }
 
@@ -46,6 +59,23 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
     it "sets the category" do
       subject.call
       expect(meeting.category).to eq category
+    end
+
+    context "when the address has not changed" do
+      it "doesn't geocode the meeting" do
+        expect(meeting).not_to receive(:geocode)
+        subject.call
+      end
+    end
+
+    context "when the address has changed" do
+      let(:address) { "New address" }
+
+      it "geocodes the meeting" do
+        allow(form).to receive_message_chain(:errors, :add)
+        expect(meeting).to receive(:geocode)
+        subject.call
+      end
     end
   end
 end

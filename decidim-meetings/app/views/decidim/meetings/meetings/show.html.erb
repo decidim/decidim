@@ -28,6 +28,11 @@
             </div>
             <%= render partial: "address_details", locals: { meeting: meeting } %>
           </div>
+          <% if Decidim.geocoder.present? %>
+            <div class="address__map">
+              <%= static_map_link(meeting) %>
+            </div>
+          <% end %>
         </div>
       </div>
       <%= render partial: "tags", locals: { meeting: meeting } %>

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require "searchlight"
 require "kaminari"
+require "jquery-tmpl-rails"
 
 module Decidim
   module Meetings
@@ -11,8 +12,16 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
-        resources :meetings, only: [:index, :show]
+        resources :meetings, only: [:index, :show] do
+          member do
+            get :static_map
+          end
+        end
         root to: "meetings#index"
+      end
+
+      initializer "decidim_meetings.assets" do |app|
+        app.config.assets.precompile += %w(decidim_meetings_manifest.js)
       end
     end
   end
