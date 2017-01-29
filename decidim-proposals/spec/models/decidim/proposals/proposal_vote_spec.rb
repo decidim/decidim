@@ -11,6 +11,8 @@ module Decidim
       let!(:proposal) { create(:proposal, feature: feature, author: author)}
       let!(:proposal_vote) { create(:proposal_vote, proposal: proposal, author: author) }
 
+      subject { proposal_vote }
+
       it "is valid" do
         expect(proposal_vote).to be_valid
       end
@@ -27,6 +29,22 @@ module Decidim
         expect {
           create(:proposal_vote, proposal: proposal, author: author)
         }.to raise_error(ActiveRecord::RecordInvalid)
+      end
+
+      context "when no author" do
+        before do
+          proposal_vote.author = nil
+        end
+
+        it { is_expected.to be_invalid }
+      end
+
+      context "when no proposal" do
+        before do
+          proposal_vote.proposal = nil
+        end
+
+        it { is_expected.to be_invalid }
       end
 
       context "when proposal and author have different organization" do
