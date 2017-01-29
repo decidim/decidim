@@ -3,11 +3,11 @@ require "spec_helper"
 describe Decidim::Results::Admin::CreateResult do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, manifest_name: :results, participatory_process: participatory_process }
+  let(:current_feature) { create :feature, manifest_name: "results", participatory_process: participatory_process }
   let(:scope) { create :scope, organization: organization }
   let(:category) { create :category, participatory_process: participatory_process }
   let(:meeting_feature) do
-    create(:feature, manifest_name: :meetings, participatory_process: participatory_process)
+    create(:feature, manifest_name: "meetings", participatory_process: participatory_process)
   end
   let(:meeting) do
     create(
@@ -16,7 +16,7 @@ describe Decidim::Results::Admin::CreateResult do
     )
   end
   let(:proposal_feature) do
-    create(:feature, manifest_name: :proposals, participatory_process: participatory_process)
+    create(:feature, manifest_name: "proposals", participatory_process: participatory_process)
   end
   let(:proposals) do
     create_list(

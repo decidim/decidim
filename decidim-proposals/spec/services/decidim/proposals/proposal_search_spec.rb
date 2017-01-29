@@ -3,7 +3,7 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe ProposalSearch do
-      let(:feature) { create(:feature) }
+      let(:feature) { create(:feature, manifest_name: "proposals") }
       let(:user) { create(:user, organization: feature.organization) }
       let!(:proposal) { create(:proposal, feature: feature)}
 

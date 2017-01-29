@@ -9,6 +9,18 @@ describe Decidim::Meetings::Meeting do
 
   it { is_expected.to be_valid }
 
+  context "without a feature" do
+    let(:meeting) { build :meeting, feature: nil }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  context "without a valid feature" do
+    let(:meeting) { build :meeting, feature: build(:feature, manifest_name: "proposals") }
+
+    it { is_expected.not_to be_valid }
+  end
+
   context "without a title" do
     let(:meeting) { build :meeting, title: nil }
 

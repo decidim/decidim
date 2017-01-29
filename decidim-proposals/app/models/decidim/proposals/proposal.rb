@@ -13,6 +13,7 @@ module Decidim
       has_many :votes, foreign_key: "decidim_proposal_id", class_name: ProposalVote, dependent: :destroy
 
       validates :title, :feature, :body, presence: true
+      validate :feature_manifest_matches
       validate :category_belongs_to_feature
       validate :scope_belongs_to_organization
       validate :author_belongs_to_organization
@@ -45,8 +46,13 @@ module Decidim
       end
 
       def author_belongs_to_organization
-        return unless author
+        return if !author || !feature
         errors.add(:author, :invalid) unless Decidim::User.where(decidim_organization_id: feature.organization.id, id: author.id).exists?
+      end
+
+      def feature_manifest_matches
+        return unless feature
+        errors.add(:feature, :invalid) unless feature.manifest_name == "proposals"
       end
     end
   end

@@ -11,7 +11,7 @@ FactoryGirl.define do
     longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
-    feature
+    feature { build(:feature, manifest_name: "meetings") }
 
     trait :closed do
       closing_report { Decidim::Faker::Localized.sentence(3) }

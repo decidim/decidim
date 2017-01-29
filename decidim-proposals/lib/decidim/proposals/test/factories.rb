@@ -54,8 +54,10 @@ FactoryGirl.define do
   factory :proposal, class: Decidim::Proposals::Proposal do
     title { Faker::Lorem.sentence }
     body { Faker::Lorem.sentences(3).join("\n") }
-    feature
-    author { create(:user, organization: feature.organization) }
+    feature { create(:proposal_feature) }
+    author do
+      create(:user, organization: feature.organization) if feature
+    end
   end
 
   factory :proposal_vote, class: Decidim::Proposals::ProposalVote do

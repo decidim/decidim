@@ -5,7 +5,7 @@ module Decidim
   module Proposals
     describe ProposalVote do
       let!(:organization) { create(:organization) }
-      let!(:feature) { create(:feature, organization: organization)}      
+      let!(:feature) { create(:feature, organization: organization, manifest_name: "proposals") }
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:author) { create(:user, organization: organization) }
       let!(:proposal) { create(:proposal, feature: feature, author: author)}

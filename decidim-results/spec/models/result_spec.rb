@@ -14,6 +14,12 @@ describe Decidim::Results::Result do
     it { is_expected.not_to be_valid }
   end
 
+  context "without a valid feature" do
+    let(:result) { build :result, feature: build(:feature, manifest_name: "proposals") }
+
+    it { is_expected.not_to be_valid }
+  end
+
   context "when the scope is from another organization" do
     let(:scope) { create :scope }
     let(:result) { build :result, scope: scope }

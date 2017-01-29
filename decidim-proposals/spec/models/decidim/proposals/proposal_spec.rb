@@ -6,11 +6,24 @@ require "decidim/core/test/shared_examples/authorable"
 module Decidim
   module Proposals
     describe Proposal do
-      subject { create(:proposal) }
+      let(:proposal) { build(:proposal) }
+      subject { proposal }
 
       it_behaves_like "authorable"
 
       it { is_expected.to be_valid }
+
+      context "without a feature" do
+        let(:proposal) { build :proposal, feature: nil }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "without a valid feature" do
+        let(:proposal) { build :proposal, feature: create(:feature, manifest_name: "meetings") }
+
+        it { is_expected.not_to be_valid }
+      end
 
       it "has a votes association returning proposal votes" do
         expect(subject.votes.count).to eq(0)

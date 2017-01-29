@@ -12,7 +12,9 @@ module Decidim
       belongs_to :scope, foreign_key: "decidim_scope_id", class_name: Decidim::Scope
       belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
       has_one :organization, through: :feature
-      validates :title, presence: true
+
+      validates :title, :feature, presence: true
+      validate :feature_manifest_matches
       validate :scope_belongs_to_organization
       validate :category_belongs_to_organization
 
@@ -32,6 +34,11 @@ module Decidim
       def category_belongs_to_organization
         return unless category
         errors.add(:category, :invalid) unless feature.categories.where(id: category.id).exists?
+      end
+
+      def feature_manifest_matches
+        return unless feature
+        errors.add(:feature, :invalid) unless feature.manifest_name == "meetings"
       end
     end
   end
