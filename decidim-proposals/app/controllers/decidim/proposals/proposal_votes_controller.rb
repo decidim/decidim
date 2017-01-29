@@ -29,13 +29,13 @@ module Decidim
       # The vote buttons should not be visible if the setting is not enabled.
       # This ensure the votes cannot be created using a POST request directly.
       def check_current_settings!
-        render nothing: true, status: 422 and return unless current_settings.votes_enabled?
+        head(422) and return if !current_settings.votes_enabled? || current_settings.votes_blocked?
       end
 
       # The vote buttons should not be enabled if the vote limit is reached.
       # This ensure the votes cannot be created using a POST request directly.
       def check_vote_limit_reached!
-        render nothing: true, status: 422 and return if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0
+        head(422) and return if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0
       end
 
       def proposal

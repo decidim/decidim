@@ -15,23 +15,18 @@ Decidim.register_feature(:proposals) do |feature|
 
   feature.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
+    settings.attribute :comments_always_enabled, type: :boolean, default: true
   end
 
   feature.settings(:step) do |settings|
     settings.attribute :votes_enabled, type: :boolean
+    settings.attribute :votes_blocked, type: :boolean
+    settings.attribute :comments_enabled, type: :boolean, default: true
   end
 
   feature.register_resource do |resource|
     resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
-  end
-
-  feature.settings(:global) do |settings|
-    settings.attribute :comments_always_enabled, type: :boolean, default: true
-  end
-
-  feature.settings(:step) do |settings|
-    settings.attribute :comments_enabled, type: :boolean, default: true
   end
 
   feature.seeds do
@@ -46,7 +41,7 @@ Decidim.register_feature(:proposals) do |feature|
           vote_limit: 0
         },
         step_settings: {
-          process.active_step.id => { votes_enabled: true }
+          process.active_step.id => { votes_enabled: true, votes_blocked: false }
         }
       )
 
