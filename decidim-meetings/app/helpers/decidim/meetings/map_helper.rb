@@ -31,7 +31,7 @@ module Decidim
       def meetings_data_for_map(geocoded_meetings)
         geocoded_meetings.map do |meeting|
           meeting.slice(:latitude, :longitude, :address).merge(title: translated_attribute(meeting.title),
-                                                               description: translated_attribute(meeting.short_description),
+                                                               description: translated_attribute(meeting.description),
                                                                startTimeDay: l(meeting.start_time, format: "%d"),
                                                                startTimeMonth: l(meeting.start_time, format: "%B"),
                                                                startTime: "#{meeting.start_time.strftime("%H:%M")} - #{meeting.end_time.strftime("%H:%M")}",

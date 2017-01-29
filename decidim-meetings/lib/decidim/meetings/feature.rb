@@ -35,9 +35,6 @@ Decidim.register_feature(:meetings) do |feature|
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end,
-          short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
-          end,
           location: Decidim::Faker::Localized.sentence,
           location_hints: Decidim::Faker::Localized.sentence,
           start_time: 3.weeks.from_now,

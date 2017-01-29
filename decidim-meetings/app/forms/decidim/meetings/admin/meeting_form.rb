@@ -7,7 +7,6 @@ module Decidim
         include TranslatableAttributes
 
         translatable_attribute :title, String
-        translatable_attribute :short_description, String
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
@@ -18,7 +17,6 @@ module Decidim
         attribute :decidim_category_id, Integer
 
         validates :title, translatable_presence: true
-        validates :short_description, translatable_presence: true
         validates :description, translatable_presence: true
         validates :location, translatable_presence: true
         validates :address, presence: true

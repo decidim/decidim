@@ -5,7 +5,7 @@ module Decidim
   module Meetings
     describe MeetingsController, type: :controller do
       let(:organization) { create(:organization) }
-      let(:feature) { create(:feature, organization: organization) }
+      let(:feature) { create(:feature, organization: organization, manifest_name: "meetings") }
       let(:meeting) { create(:meeting, feature: feature) }
 
       load_routes Decidim::Meetings::ListEngine

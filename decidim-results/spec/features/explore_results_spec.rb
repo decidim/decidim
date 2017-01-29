@@ -152,7 +152,7 @@ describe "Explore results", type: :feature do
       it "shows related meetings" do
         meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
-          expect(page).to have_i18n_content(meeting.short_description)
+          expect(page).to have_i18n_content(meeting.description)
         end
       end
     end

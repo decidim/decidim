@@ -3,7 +3,6 @@ FactoryGirl.define do
   factory :meeting, class: Decidim::Meetings::Meeting do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     location_hints { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     address { Faker::Lorem.sentence(3) }
@@ -18,6 +17,7 @@ FactoryGirl.define do
       attendees_count { rand(50) }
       contributions_count { rand(50) }
       attending_organizations { Array.new(3) { Faker::GameOfThrones.house }.join(", ") }
+      closed_at { Time.current }
     end
   end
 end
