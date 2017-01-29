@@ -41,7 +41,6 @@ describe "Explore meetings", type: :feature do
     it "shows all meeting info" do
       expect(page).to have_i18n_content(meeting.title)
       expect(page).to have_i18n_content(meeting.description)
-      expect(page).to have_i18n_content(meeting.short_description)
       expect(page).to have_i18n_content(meeting.location)
       expect(page).to have_i18n_content(meeting.location_hints)
       expect(page).to have_content(meeting.address)
@@ -145,5 +144,19 @@ describe "Explore meetings", type: :feature do
 
     let(:attached_to) { meeting }
     it_behaves_like "has attachments"
+
+    context "when the meeting is closed" do
+      let(:meeting) { create(:meeting, :closed, feature: current_feature) }
+
+      it "shows the closing report" do
+        expect(page).to have_i18n_content(meeting.closing_report)
+
+        within ".definition-data" do
+          expect(page).to have_content(meeting.attendees_count)
+          expect(page).to have_content(meeting.contributions_count)
+          expect(page).to have_content(meeting.attending_organizations)
+        end
+      end
+    end
   end
 end
