@@ -108,7 +108,7 @@ describe "Comments", type: :feature do
  
       within "#comments #comment_#{comment.id}" do
         click_button "Reply"
-        fill_in "add-comment-#{comment.class.name}-#{comment.id}", with: "This is a reply"
+        find("textarea").set("This is a reply")
         click_button "Send"
 
         expect(page).to have_content "This is a reply"
