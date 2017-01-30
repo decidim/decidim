@@ -99,7 +99,7 @@ FactoryGirl.define do
     organization
     locale                { organization.default_locale }
     tos_agreement         "1"
-    avatar                { test_file("avatar.svg", "image/svg+xml") }
+    avatar                { test_file("avatar.jpg", "image/jpeg") }
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -122,7 +122,7 @@ FactoryGirl.define do
     name { Faker::Educator.course }
     document_number { Faker::Number.number(8) + "X" }
     phone { Faker::PhoneNumber.phone_number }
-    avatar { test_file("avatar.svg", "image/svg+xml") }
+    avatar { test_file("avatar.jpg", "image/jpeg") }
 
     trait :verified do
       verified { true }
