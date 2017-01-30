@@ -1,1 +1,58 @@
 ca:
+  decidim:
+    features:
+      results:
+        name: Resultats
+    resource_links:
+      included_proposals:
+        proposals: Propostes incloses en aquest resultat
+      meetings_through_proposals:
+        meetings: Trobades relacionades
+    results:
+      actions:
+        confirm_destroy: Esteu segur que voleu suprimir aquest resultat?
+        destroy: Esborra
+        edit: Edita
+        new: Nou/va %{name}
+        title: Accions
+      admin:
+        models:
+          result:
+            name: Resultat
+        results:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest resultat
+            success: El resultat ha estat creat correctament
+          destroy:
+            success: El resultat ha estat eliminat correctament
+          edit:
+            title: Edita resultat
+            update: Actualitza resultat
+          index:
+            title: Resultats
+          new:
+            create: Crea resultat
+            title: Nou resultat
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquest resultat
+            success: El resultat ha estat actualitzat correctament
+      models:
+        result:
+          fields:
+            title: Títol
+      results:
+        filters:
+          category: Categoria
+          scopes: Àmbits
+          search: Cerca
+        index:
+          title: Resultats
+        show:
+          result_description: Descripció del resultat
+          stats:
+            attendees: Assistents
+            comments: Comentaris
+            contributions: Aportacions
+            meetings: Llistat de trobades
+            proposals: Propostes
+            votes: Suports
