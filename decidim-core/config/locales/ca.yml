@@ -104,6 +104,12 @@ ca:
     participatory_process_steps:
       index:
         process_steps: Fases del procés
+    participatory_processes:
+      show:
+        developer_group: Grup promotor
+        domain: Domini
+        end_date: Data de finalització
+        scope: Àmbit
     shared:
       login_modal:
         please_sign_in: Si us plau, inicii sessió
@@ -188,7 +194,7 @@ ca:
       active_step: Fase activa
       debates: Debats
       debates_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
-      highlighted_processes: Processos ressaltats
+      highlighted_processes: Processos destacats
       how_to_participate: Com participo en un procés?
       meetings: Llistat de trobades
       meetings_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
