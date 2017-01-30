@@ -3,10 +3,10 @@ ca:
     attributes:
       proposal:
         body: Cos
-        category: Categoria
-        scope: Àmbit
+        category_id: Categoria
+        scope_id: Àmbit
         title: Títol
-        user_group_id: Crear proposta
+        user_group_id: Crear proposta com a
   decidim:
     features:
       proposals:
