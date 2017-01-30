@@ -64,6 +64,10 @@ ca:
           unfold: Desplegar
         index:
           new_proposal: Nova proposta
+        linked_proposals:
+          proposal_votes:
+            one: <span class="card--list__data__number">1</span>vot
+            other: <span class="card--list__data__number">%{count}</span>vots
         new:
           back: Enrere
           select_a_category: Si us plau, seleccioni una categoria
@@ -78,11 +82,20 @@ ca:
           share_link: Comparteix l'enllaç
         vote_button:
           already_voted: Ja has votat
+          no_votes_remaining: No hi ha vots restants
           vote: Votar
         votes_count:
           count:
             one: VOT
             other: VOTS
+        votes_limit:
+          vote_limit:
+            description: En lloc de votar tantes propostes com vulgui, només es pot votar fins %{limit} propostes.
+            left: Restant
+            title: Té %{limit} vots a distribuir
+            votes: Vots
     resource_links:
+      included_proposals:
+        results: 'La proposta apareix en aquests resultats:'
       proposals_from_meeting:
         meetings: Trobades relacionades
