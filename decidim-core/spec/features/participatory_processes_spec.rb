@@ -1,7 +1,6 @@
 # coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
-require "decidim/core/test/shared_examples/has_attachments"
 
 describe "Participatory Processes", type: :feature do
   let(:organization) { create(:organization) }

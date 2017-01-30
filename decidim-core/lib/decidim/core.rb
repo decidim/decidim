@@ -15,6 +15,9 @@ module Decidim
   autoload :Authorable, "decidim/authorable"
   autoload :Features, "decidim/features"
   autoload :HasAttachments, "decidim/has_attachments"
+  autoload :HasFeature, "decidim/has_feature"
+  autoload :HasScope, "decidim/has_scope"
+  autoload :HasCategory, "decidim/has_category"
 
   include ActiveSupport::Configurable
 

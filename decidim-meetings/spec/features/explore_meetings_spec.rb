@@ -1,5 +1,4 @@
 require "spec_helper"
-require "decidim/core/test/shared_examples/has_attachments"
 
 describe "Explore meetings", type: :feature do
   let(:organization) { create(:organization) }

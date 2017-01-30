@@ -27,6 +27,7 @@ end
 require "rails"
 require "active_support/core_ext/string"
 require "decidim/core"
+require "decidim/core/test"
 
 require "#{File.dirname(__FILE__)}/rspec_support/feature.rb"
 
