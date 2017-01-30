@@ -3,7 +3,7 @@ module Decidim
   # View helpers related to the layout.
   module LayoutHelper
     def decidim_page_title
-      title = content_for(:title)
+      title = content_for(:meta_title)
       title ? "#{title} - #{current_organization.name}" : current_organization.name
     end
 
