@@ -64,8 +64,6 @@ ca:
         index:
           title: Llistat de trobades
           view_meeting: Veure trobada
-        show:
-          meeting_description: Descripció de reunions
       models:
         meeting:
           fields:
