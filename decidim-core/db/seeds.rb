@@ -100,7 +100,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::ParticipatoryProcess.find_each do |process|
     Decidim::ParticipatoryProcessStep.create!(
-      title: Decidim::Faker::Localized.words(2),
+      title: Decidim::Faker::Localized.sentence(1, false, 2),
       short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.sentence(3)
       end,
