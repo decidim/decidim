@@ -25,7 +25,6 @@ ca:
         reply: Respondre
       comment_order_selector:
         order:
-          most_voted: Més votat
           older: Més antic
           recent: Recent
         title: 'Ordenar per:'
