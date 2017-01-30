@@ -118,13 +118,13 @@ if !Rails.env.production? || ENV["SEED"]
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
-      file: File.new(Decidim::Dev.asset("city.jpeg")),
+      file: File.new(Decidim.find_asset("city.jpeg")),
       attached_to: process
     )
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
-      file: File.new(Decidim::Dev.asset("Exampledocument.pdf")),
+      file: File.new(Decidim.find_asset("Exampledocument.pdf")),
       attached_to: process
     )
     2.times do

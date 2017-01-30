@@ -6,7 +6,6 @@ module Decidim
     include CarrierWave::MiniMagick
 
     process :validate_dimensions
-    process quality: 80
 
     version :big do
       process resize_to_fill: [500, 500]
