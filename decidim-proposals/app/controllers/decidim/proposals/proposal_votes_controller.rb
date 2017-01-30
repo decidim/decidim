@@ -9,40 +9,24 @@ module Decidim
       helper_method :proposal
 
       before_action :authenticate_user!
-      before_action :check_current_settings!
-      before_action :check_vote_limit_reached!, only: [:create]
-      before_action :check_vote_limit_enabled!, only: [:destroy]
 
       def create
+        authorize! :vote, proposal
+
         proposal.votes.create!(author: current_user)
         @from_proposals_list = params[:from_proposals_list] == "true"
         render :update_buttons_and_counters
       end
 
       def destroy
+        authorize! :unvote, proposal
+
         proposal.votes.where(author: current_user).delete_all
         @from_proposals_list = params[:from_proposals_list] == "true"
         render :update_buttons_and_counters
       end
 
       private
-
-      # The vote buttons should not be visible if the setting is not enabled.
-      # This ensure the votes cannot be created using a POST request directly.
-      def check_current_settings!
-        head(422) and return if !current_settings.votes_enabled? || current_settings.votes_blocked?
-      end
-
-      # The vote buttons should not be enabled if the vote limit is reached.
-      # This ensure the votes cannot be created using a POST request directly.
-      def check_vote_limit_reached!
-        head(422) and return if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0
-      end
-
-      # This ensures votes can't be deleted unless users can vote multiple times.
-      def check_vote_limit_enabled!
-        head(422) and return unless vote_limit_enabled?
-      end
 
       def proposal
         @proposal ||= Proposal.where(feature: current_feature).find(params[:proposal_id])

@@ -52,7 +52,8 @@ module Decidim
               post :create, format: :js, params: params
             end.not_to change { ProposalVote.count }
 
-            expect(response).to have_http_status(422)
+            expect(flash[:alert]).not_to be_empty
+            expect(response).to have_http_status(302)
           end
         end
 
@@ -66,7 +67,8 @@ module Decidim
               post :create, format: :js, params: params
             end.not_to change { ProposalVote.count }
 
-            expect(response).to have_http_status(422)
+            expect(flash[:alert]).not_to be_empty
+            expect(response).to have_http_status(302)
           end
         end
       end
@@ -100,7 +102,8 @@ module Decidim
               delete :destroy, format: :js, params: params
             end.not_to change { ProposalVote.count }
 
-            expect(response).to have_http_status(422)
+            expect(flash[:alert]).not_to be_empty
+            expect(response).to have_http_status(302)
             expect(ProposalVote.count).to eq(1)
           end
         end

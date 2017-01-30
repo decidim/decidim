@@ -4,11 +4,16 @@
     <h2 id="proposals-count" class="title-action__title section-heading">
       <%= render partial: "count" %>
     </h2>
-    <% if current_settings.creation_enabled? %>
+    <% if can? :create, Decidim::Proposals::Proposal %>
       <%= link_to new_proposal_path, class: "title-action__action button small hollow" do %>
         <%= t(".new_proposal") %>
         <%= icon "plus" %>
       <% end %>
+    <% else %>
+      <span class="title-action__action button small hollow disabled">
+        <%= t(".new_proposal") %>
+        <%= icon "plus" %>
+      </span>
     <% end %>
   </div>
 </div>

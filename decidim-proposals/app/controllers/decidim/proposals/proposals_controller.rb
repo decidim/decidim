@@ -25,11 +25,13 @@ module Decidim
       end
 
       def new
+        authorize! :create, Proposal
+
         @form = form(ProposalForm).from_params({})
       end
 
       def create
-        raise "Proposal creation is not enabled" unless current_settings.creation_enabled?
+        authorize! :create, Proposal
 
         @form = form(ProposalForm).from_params(params)
 

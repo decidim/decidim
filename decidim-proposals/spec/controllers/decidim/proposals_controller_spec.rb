@@ -31,9 +31,10 @@ module Decidim
           it "raises an error" do
             expect(CreateProposal).not_to receive(:call)
 
-            expect do
-              post :create, params: params
-            end.to raise_error RuntimeError, "Proposal creation is not enabled"
+            post :create, params: params
+
+            expect(flash[:alert]).not_to be_empty
+            expect(response).to have_http_status(302)
           end
         end
 
