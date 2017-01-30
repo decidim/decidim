@@ -7,7 +7,7 @@ module Decidim
       class AdminUser
         include CanCan::Ability
 
-        def initialize(user)
+        def initialize(user, _context)
           return unless user && user.role?(:admin)
 
           can :manage, ParticipatoryProcess
