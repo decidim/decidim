@@ -34,6 +34,15 @@ en:
           fields:
             title: Title
       projects:
+        budget_summary:
+          assigned: Assigned
+          description: Description
+          title: Title
+          vote: Vote
+        count:
+          projects_count:
+            one: 1 project
+            other: "%{count} projects"
         filters:
           category: Category
           scopes: Scopes
@@ -41,7 +50,11 @@ en:
         index:
           title: Title
         show:
+          add: Add
+          budget: Budget
           project_description: Project description
+          view_all_projects: View all projects
     features:
       budgets:
         name: Budgets
+  total_budget: Total budget

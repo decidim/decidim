@@ -1,10 +1,10 @@
 <% content_for(:title, translated_attribute(project.title)) %>
 
 <div class="row column view-header">
-  <%= render partial: "budget_summary_mini" %>
+  <%= render partial: "budget_summary", locals: { include_heading: false } %>
   <a href="" class="muted-link">
     <%= icon "chevron-left", class: "icon--small" %>
-    Ver todos los proyectos
+    <%= t('.view_all_projects') %>
   </a>
   <h2 class="heading2"><%= translated_attribute project.title %></h2>
 </div>
@@ -14,10 +14,10 @@
     <div class="card extra">
       <div class="card__content">
         <div class="m-bottom">
-          <span class="definition-data__title">Presupuesto:</span>
+          <span class="definition-data__title"><%= t('.budget') %></span>
           <span class="definition-data__number"><%= number_to_currency project.budget %></span>
         </div>
-        <button class="button expanded button--sc">Agregar</button>
+        <button class="button expanded button--sc"><%= t('.add') %></button>
       </div>
     </div>
   </div>

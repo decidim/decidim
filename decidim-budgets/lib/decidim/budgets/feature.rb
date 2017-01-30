@@ -17,6 +17,7 @@ Decidim.register_feature(:budgets) do |feature|
   end
 
   feature.settings(:global) do |settings|
+    settings.attribute :total_budget, type: :integer, default: 100_000_000
     settings.attribute :comments_always_enabled, type: :boolean, default: true
   end
 

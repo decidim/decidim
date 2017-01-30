@@ -1,0 +1,32 @@
+.budget-list__title{
+  @include breakpoint(smallmedium down){
+    font-size: $global-font-size;
+  }
+}
+.budget-list__data{
+  flex-basis: 9rem;
+  @include breakpoint(medium){
+    flex-direction: row;
+    flex-basis: 16rem;
+  }
+}
+.budget-list__data--added{
+  background-color: tint($success, 80%);
+}
+
+.budget-list__number{
+  @include breakpoint(medium down){
+    font-size: 1rem;
+  }
+  @include breakpoint(medium){
+    flex-grow: 1;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    margin-bottom: 0;
+    text-align: right;
+  }
+}
+
+.budget--list__action{
+  margin-bottom: 0;
+}
