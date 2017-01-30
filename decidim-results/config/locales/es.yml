@@ -41,6 +41,10 @@ es:
           fields:
             title: Título
       results:
+        count:
+          results_count:
+            one: 1 resultado
+            other: "%{count} resultados"
         filters:
           category: Categoría
           scopes: Ámbitos
