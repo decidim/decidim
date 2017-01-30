@@ -1,5 +1,5 @@
 <!-- Initially visible Progressbox -->
-<div class="budget-summary__progressbox">
+<div class="budget-summary__progressbox" data-current-budget="<%= current_order ? current_order.total_budget : 0 %>">
   <!--Change de aria-valuenow and aria-valuetext dynamically. Set a minimum in aria-valuenmin.-->
   <div class="progress budget-progress" role="progressbar" tabindex="0" aria-valuenow="<%= current_order_total_budget_percentage %>" aria-valuemin="75" aria-valuetext="<%= current_order_total_budget_percentage %>%" aria-valuemax="100">
     <!-- Set minimum in the style="width:"-->

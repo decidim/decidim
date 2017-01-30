@@ -18,6 +18,10 @@ module Decidim
 
         root to: "projects#index"
       end
+
+      initializer "decidim_budgets.assets" do |app|
+        app.config.assets.precompile += %w(decidim_budgets_manifest.js)
+      end
     end
   end
 end

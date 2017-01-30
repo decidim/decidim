@@ -16,6 +16,18 @@ describe "Orders", type: :feature do
            participatory_process: participatory_process)
   end
 
+  context "when the user is not logged in" do
+    it "is given the option to sign in" do
+      visit_feature
+
+      within "#project-#{project.id}-item" do
+        page.find('.budget--list__action').click
+      end
+
+      expect(page).to have_css('#loginModal', visible: true)
+    end
+  end
+
   context "when the user is logged in" do
     before do
       login_as user, scope: :user
@@ -64,6 +76,20 @@ describe "Orders", type: :feature do
         end
 
         expect(page).not_to have_selector '.budget-list__data--added'
+      end
+
+      context "when the user try to vote a project that exceed the total budget" do
+        let!(:expensive_project) { create(:project, feature: feature, budget: 250_000_000) }
+
+        it "cannot add the project" do
+          visit_feature
+
+          within "#project-#{expensive_project.id}-item" do
+            page.find('.budget--list__action').click
+          end
+
+          expect(page).to have_css('#budget-confirm', visible: true)
+        end
       end
     end
   end
