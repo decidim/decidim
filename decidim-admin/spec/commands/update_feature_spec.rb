@@ -73,7 +73,7 @@ module Decidim
           }.to broadcast(:invalid)
 
           feature.reload
-          expect(feature.name["en"]).to_not eq("My feature")
+          expect(feature.name["en"]).not_to eq("My feature")
         end
       end
     end

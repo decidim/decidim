@@ -18,14 +18,21 @@ module Decidim
                      .results
                      .includes(:author)
                      .includes(votes: [:author])
+                     .page(params[:page])
+                     .per(12)
+
         @random_seed = search.random_seed
       end
 
       def new
+        authorize! :create, Proposal
+
         @form = form(ProposalForm).from_params({})
       end
 
       def create
+        authorize! :create, Proposal
+
         @form = form(ProposalForm).from_params(params)
 
         CreateProposal.call(@form, current_user) do
@@ -45,13 +52,6 @@ module Decidim
 
       def search_klass
         ProposalSearch
-      end
-
-      def default_search_params
-        {
-          page: params[:page],
-          per_page: 12
-        }
       end
 
       def default_filter_params

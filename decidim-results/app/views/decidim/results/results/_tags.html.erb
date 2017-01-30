@@ -1,0 +1,10 @@
+<% if result.category.present? || result.scope.present? %>
+  <ul class="tags tags--result" >
+    <% if result.category.present? %>
+      <li><%= link_to translated_attribute(result.category.name), decidim_results.results_path(filter: { category_id: result.category.id }) %></li>
+    <% end %>
+    <% if result.scope.present? %>
+      <li><%= link_to result.scope.name, decidim_results.results_path(filter: { scope_id: [result.scope.id] }) %></li>
+    <% end %>
+  </ul>
+<% end %>

@@ -1,7 +1,6 @@
 # coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
-require "decidim/core/test/shared_examples/has_attachments"
 
 describe "Participatory Processes", type: :feature do
   let(:organization) { create(:organization) }
@@ -43,7 +42,7 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_content(translated(promoted_process.title, locale: :en))
         expect(page).to have_selector("article.card", count: 2)
 
-        expect(page).to_not have_content(translated(unpublished_process.title, locale: :en))
+        expect(page).not_to have_content(translated(unpublished_process.title, locale: :en))
       end
     end
 
@@ -84,6 +83,10 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
         expect(page).to have_content(translated(participatory_process.description, locale: :en))
         expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
+        expect(page).to have_content(translated(participatory_process.domain, locale: :en))
+        expect(page).to have_content(translated(participatory_process.scope, locale: :en))
+        expect(page).to have_content(participatory_process.developer_group)
+        expect(page).to have_content(I18n.l(participatory_process.end_date, format: :long))
         expect(page).to have_content(participatory_process.hashtag)
       end
     end

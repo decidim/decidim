@@ -15,6 +15,9 @@ module Decidim
   autoload :Authorable, "decidim/authorable"
   autoload :Features, "decidim/features"
   autoload :HasAttachments, "decidim/has_attachments"
+  autoload :HasFeature, "decidim/has_feature"
+  autoload :HasScope, "decidim/has_scope"
+  autoload :HasCategory, "decidim/has_category"
 
   include ActiveSupport::Configurable
 
@@ -66,6 +69,14 @@ module Decidim
     %w(en ca es)
   end
 
+  # Exposes a configuration option: an object to configure geocoder
+  config_accessor :geocoder
+
+  # Exposes a configuration option: The maximum file size of an attachment.
+  config_accessor :maximum_attachment_size do
+    10.megabytes
+  end
+
   # Public: Registers a feature, usually held in an external library or in a
   # separate folder in the main repository. Exposes a DSL defined by
   # `Decidim::FeatureManifest`.
@@ -103,7 +114,8 @@ module Decidim
 
   # Public: Finds a resource manifest by the resource's name.
   #
-  # resource_name_or_class - The String of the ResourceManifest name or the class of the ResourceManifest model_class to find.
+  # resource_name_or_class - The String of the ResourceManifest name or the class of
+  # the ResourceManifest model_class to find.
   #
   # Returns a ResourceManifest if found, nil otherwise.
   def self.find_resource_manifest(resource_name_or_klass)
@@ -117,5 +129,15 @@ module Decidim
   # Returns an Array[ResourceManifest]
   def self.resource_manifests
     @resource_manifests ||= feature_manifests.flat_map(&:resource_manifests)
+  end
+
+  # Public: Searches for an asset present in any of decidim's asset paths. Mainly
+  # useful during the app's seeding, where we need to provide default assets.
+  #
+  # path - The name of the asset under `decidim/*`.
+  #
+  # Returns a String with the path of the asset.
+  def self.find_asset(path)
+    Rails.application.assets_manifest.find("decidim/#{path}").first&.pathname
   end
 end

@@ -20,10 +20,7 @@ module Decidim
       # raise order_start_time.inspect
       raise "Missing feature" unless feature
 
-      @scope
-        .page(options[:page] || 1)
-        .per(options[:per_page] || 12)
-        .where(feature: feature)
+      @scope.where(feature: feature)
     end
 
     # Handle the category_id filter

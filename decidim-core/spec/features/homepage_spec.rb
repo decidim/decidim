@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -53,7 +54,7 @@ describe "Homepage", type: :feature do
         let(:organization) { create(:organization, show_statistics: false) }
         
         it "should not show the statistics block" do
-          expect(page).to_not have_content("Current state of #{organization.name}")
+          expect(page).not_to have_content("Current state of #{organization.name}")
         end
       end
       

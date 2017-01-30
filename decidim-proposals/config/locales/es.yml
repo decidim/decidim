@@ -1,4 +1,12 @@
 es:
+  activemodel:
+    attributes:
+      proposal:
+        body: Cuerpo
+        category_id: Categoría
+        scope_id: Ámbito
+        title: Título
+        user_group_id: Crear propuesta como
   decidim:
     features:
       proposals:
@@ -56,6 +64,10 @@ es:
           unfold: Desplegar
         index:
           new_proposal: Nueva propuesta
+        linked_proposals:
+          proposal_votes:
+            one: <span class="card--list__data__number">1</span>vote
+            other: <span class="card--list__data__number">%{count}</span>votos
         new:
           back: Atrás
           select_a_category: Por favor, seleccione una categoría
@@ -70,11 +82,20 @@ es:
           share_link: Compartir enlace
         vote_button:
           already_voted: Ya votado
+          no_votes_remaining: No hay votos restantes
           vote: Votar
         votes_count:
           count:
             one: VOTAR
             other: VOTOS
+        votes_limit:
+          vote_limit:
+            description: En lugar de votación tantas propuestas como desee, sólo se puede votar hasta %{limit} propuestas.
+            left: Restante
+            title: Tiene %{limit} votos a distribuir
+            votes: Votos
     resource_links:
+      included_proposals:
+        results: 'Propuesta formulada en estos resultados:'
       proposals_from_meeting:
         meetings: Encuentros relacionados

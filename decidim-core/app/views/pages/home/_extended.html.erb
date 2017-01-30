@@ -1,0 +1,48 @@
+<section class="extended">
+  <div class="wrapper-home home-section">
+    <div class="row column text-center">
+      <h3 class="heading2"><%t(".how_to_participate") %></h3>
+    </div>
+    <div class="row small-up-1 medium-up-3 home-bullets">
+      <div class="column">
+        <div class="home-bullet">
+          <div class="home-bullet__icon">
+            <%= icon "meetings" %>
+          </div>
+          <div class="home-bullet__desc">
+            <h4 class="heading6"><%= t(".meetings") %></h4>
+            <p><%= t(".meetings_explanation") %></p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="home-bullet">
+          <div class="home-bullet__icon">
+            <%= icon "debates" %>
+          </div>
+          <div class="home-bullet__desc">
+            <h4 class="heading6"><%= t(".debates") %></h4>
+            <p><%= t(".debates_explanation") %></p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="home-bullet">
+          <div class="home-bullet__icon">
+            <%= icon "proposals" %>
+          </div>
+          <div class="home-bullet__desc">
+            <h4 class="heading6"><%= t(".proposals") %></h4>
+            <p><%= t(".proposals_explanation") %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns small-centered small-10
+                smallmedium-8 medium-6 large-4">
+        <%= link_to t(".more_info"), page_path("faq"), class: "button expanded hollow button--sc" %>
+      </div>
+    </div>
+  </div>
+</section>

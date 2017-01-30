@@ -49,7 +49,7 @@ module Decidim
           replies.each do |reply|
             expect(response["replies"]).to include("id" => reply.id.to_s)
           end
-          expect(response["replies"]).to_not include("id" => random_comment.id.to_s)
+          expect(response["replies"]).not_to include("id" => random_comment.id.to_s)
         end
 
         it "return comment's replies ordered by date" do

@@ -3,8 +3,20 @@ module Decidim
   # View helpers related to the layout.
   module LayoutHelper
     def decidim_page_title
-      title = content_for(:title)
+      title = content_for(:meta_title)
       title ? "#{title} - #{current_organization.name}" : current_organization.name
+    end
+
+    # Public: Generates a set of meta tags that generate the different favicon
+    # versions for an organization.
+    #
+    # Returns a safe String with the versions.
+    def favicon
+      return unless current_organization.favicon.present?
+
+      safe_join(Decidim::OrganizationFaviconUploader::SIZES.map do |version, size|
+        favicon_link_tag(current_organization.favicon.send(version).url, sizes: "#{size}x#{size}")
+      end)
     end
 
     # Outputs an SVG-based icon.
@@ -34,8 +46,7 @@ module Decidim
       html_properties["role"] = options[:role]
       html_properties["aria-hidden"] = options[:aria_hidden]
 
-      icon_class = (options[:remove_icon_class] ? "" : "icon")
-      html_properties["class"] = "icon--#{name} #{icon_class} #{options[:class]}"
+      html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
 
       content_tag :svg, html_properties do
         content_tag :use, nil, "xlink:href" => "#{asset_url("decidim/icons.svg")}#icon-#{name}"
@@ -49,11 +60,23 @@ module Decidim
     # path    - The asset's path
     #
     # Returns an <img /> tag with the SVG icon.
-    def external_icon(path)
+    def external_icon(path, options = {})
       # Ugly hack to prevent PhantomJS from freaking out with SVGs.
-      return content_tag(:span, "?", class: "external-svg", "data-src" => path) if Rails.env.test?
+      classes = _icon_classes(options) + ["external-icon"]
+      return content_tag(:span, "?", class: classes.join(" "), "data-src" => path) if Rails.env.test?
 
-      image_tag(path, class: "external-svg", style: "display: none")
+      if path.split(".").last == "svg"
+        asset = Rails.application.assets_manifest.find_sources(path).first
+        asset.gsub("<svg ", "<svg class=\"#{classes.join(" ")}\" ").html_safe
+      else
+        image_tag(path, class: classes.join(" "), style: "display: none")
+      end
+    end
+
+    def _icon_classes(options = {})
+      classes = options[:remove_icon_class] ? [] : ["icon"]
+      classes += [options[:class]]
+      classes.compact
     end
   end
 end

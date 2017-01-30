@@ -19,7 +19,7 @@
                   <tr>
                     <th class="small-12 first columns decidim-bar">
                       <center class="decidim-logo">
-                        <%= link_to @organization.name, root_url(host: @organization.host) %>
+                        <%= render partial: "layouts/decidim/logo", locals: { organization: @organization } %>
                       </center>
                     </th>
                     <th class="expander"></th>

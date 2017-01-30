@@ -1,11 +1,19 @@
+<%= render partial: "votes_limit" %>
 <div class="row columns">
   <div class="title-action">
     <h2 id="proposals-count" class="title-action__title section-heading">
       <%= render partial: "count" %>
     </h2>
-    <%= link_to new_proposal_path, class: "title-action__action button small hollow" do %>
-      <%= t(".new_proposal") %>
-      <%= icon "plus" %>
+    <% if can? :create, Decidim::Proposals::Proposal %>
+      <%= link_to new_proposal_path, class: "title-action__action button small hollow" do %>
+        <%= t(".new_proposal") %>
+        <%= icon "plus" %>
+      <% end %>
+    <% else %>
+      <span class="title-action__action button small hollow disabled">
+        <%= t(".new_proposal") %>
+        <%= icon "plus" %>
+      </span>
     <% end %>
   </div>
 </div>
@@ -21,4 +29,6 @@
   </div>
 </div>
 
+<%= javascript_include_tag("decidim/filters") %>
 <%= render partial: "decidim/shared/login_modal" %>
+<%= javascript_include_tag("decidim/filters") %>

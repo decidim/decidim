@@ -32,7 +32,7 @@ describe Decidim::Admin::DestroyParticipatoryProcessStep, class: true do
 
       it "destroys the step" do
         subject.call(inactive_step)
-        expect(inactive_step).to_not be_persisted
+        expect(inactive_step).not_to be_persisted
       end
     end
   end

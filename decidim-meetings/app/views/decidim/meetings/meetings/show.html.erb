@@ -15,11 +15,27 @@
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
         </div>
       </div>
-    </div>
+      </div>
+      <% if meeting.closed? %>
+        <div class="card card--secondary extra definition-data">
+          <div class="definition-data__item definition-data__item--double">
+            <span class="definition-data__title"><%= t(".attendees") %></span>
+            <span class="definition-data__number"><%= meeting.attendees_count %></span>
+          </div>
+          <div class="definition-data__item definition-data__item--double">
+            <span class="definition-data__title"><%= t(".contributions") %></span>
+            <span class="definition-data__number"><%= meeting.contributions_count %></span>
+          </div>
+          <div class="definition-data__item">
+            <span class="definition-data__title"><%= t(".organizations") %></span>
+            <span class="definition-data__text"><%= meeting.attending_organizations %></span>
+          </div>
+        </div>
+      <% end %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <%== translated_attribute meeting.short_description %>
+      <p><%== translated_attribute meeting.description %></p>
       <div class="card card--secondary">
         <div class="card__content address">
           <div class="address__info">
@@ -28,15 +44,23 @@
             </div>
             <%= render partial: "address_details", locals: { meeting: meeting } %>
           </div>
+          <% if Decidim.geocoder.present? %>
+            <div class="address__map">
+              <%= static_map_link(meeting) %>
+            </div>
+          <% end %>
         </div>
       </div>
       <%= render partial: "tags", locals: { meeting: meeting } %>
     </div>
-    <div class="section">
-      <h3 class="section-heading"><%= t(".meeting_description") %></h3>
-      <%== translated_attribute meeting.description %>
-    </div>
+    <% if meeting.closed? %>
+      <div class="section">
+        <h3 class="section-heading"><%= t(".meeting_report") %></h3>
+        <%== translated_attribute meeting.closing_report %>
+      </div>
+    <% end %>
     <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
+    <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
   </div>
 </div>
 <%= attachments_for meeting %>

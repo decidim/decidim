@@ -5,6 +5,7 @@ module Decidim
     #
     module ApplicationHelper
       include PaginateHelper
+      include MapHelper
     end
   end
 end

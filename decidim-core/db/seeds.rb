@@ -51,7 +51,7 @@ if !Rails.env.production? || ENV["SEED"]
         name: Faker::Company.name,
         document_number: Faker::Number.number(10),
         phone: Faker::PhoneNumber.phone_number,
-        verified: true
+        verified_at: Time.current
       )
 
       Decidim::UserGroupMembership.create!(
@@ -62,8 +62,7 @@ if !Rails.env.production? || ENV["SEED"]
       user_group = Decidim::UserGroup.create!(
         name: Faker::Company.name,
         document_number: Faker::Number.number(10),
-        phone: Faker::PhoneNumber.phone_number,
-        verified: false
+        phone: Faker::PhoneNumber.phone_number
       )
 
       Decidim::UserGroupMembership.create!(
@@ -90,13 +89,17 @@ if !Rails.env.production? || ENV["SEED"]
       banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),
       promoted: true,
       published_at: 2.weeks.ago,
-      organization: organization
+      organization: organization,
+      scope: Decidim::Faker::Localized.word,
+      domain: Decidim::Faker::Localized.word,
+      developer_group: Faker::Company.name,
+      end_date: 2.month.from_now.at_midnight
     )
   end
 
   Decidim::ParticipatoryProcess.find_each do |process|
     Decidim::ParticipatoryProcessStep.create!(
-      title: Decidim::Faker::Localized.sentence(5),
+      title: Decidim::Faker::Localized.sentence(1, false, 2),
       short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.sentence(3)
       end,
@@ -114,13 +117,13 @@ if !Rails.env.production? || ENV["SEED"]
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
-      file: File.new(Decidim::Dev.asset("city.jpeg")),
+      file: File.new(Decidim.find_asset("city.jpeg")),
       attached_to: process
     )
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
-      file: File.new(Decidim::Dev.asset("Exampledocument.pdf")),
+      file: File.new(Decidim.find_asset("Exampledocument.pdf")),
       attached_to: process
     )
     2.times do

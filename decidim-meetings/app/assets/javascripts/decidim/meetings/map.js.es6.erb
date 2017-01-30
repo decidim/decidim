@@ -1,0 +1,87 @@
+// = require leaflet
+// = require leaflet-tilelayer-here
+// = require leaflet-svg-icon
+// = require jquery-tmpl
+// = require_self
+
+/* globals L */
+
+L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
+  options: {
+    fillColor: '#ef604d',
+    opacity: 0
+  },
+  _createPathDescription: function() {
+    return 'M14 1.17a11.685 11.685 0 0 0-11.685 11.685c0 11.25 10.23 20.61 10.665 21a1.5 1.5 0 0 0 2.025 0c0.435-.435 10.665-9.81 10.665-21A11.685 11.685 0 0 0 14 1.17Zm0 17.415A5.085 5.085 0 1 1 19.085 13.5 5.085 5.085 0 0 1 14 18.585Z';
+  },
+  _createCircle: function() {
+    return ""
+  }
+});
+
+const popupTemplateId = 'meeting-popup';
+$.template('meeting-popup', $(`#${popupTemplateId}`).html());
+
+const addMarkers = (meetingsData, map) => {
+  const bounds = new L.LatLngBounds(meetingsData.map((meeting) => [meeting.latitude, meeting.longitude]));
+
+  meetingsData.forEach((meeting) => {
+    let marker = L.marker([meeting.latitude, meeting.longitude], {
+      icon: new L.DivIcon.SVGIcon.DecidimIcon()
+    }).addTo(map);
+    let node = document.createElement('div');
+
+    $.tmpl('meeting-popup', meeting).appendTo(node);
+
+    marker.bindPopup(node, {
+      maxwidth: 640,
+      minWidth: 500,
+      keepInView: true,
+      className: 'map-info'
+    }).openPopup();
+  });
+
+  map.fitBounds(bounds, { padding: [100, 100] });
+};
+
+const loadMap = (mapId, meetingsData, hereAppId, hereAppCode) => {
+  if (window.DecidimMeetings.currentMap) {
+    window.DecidimMeetings.currentMap.remove();
+    window.DecidimMeetings.currentMap = null;
+  }
+
+  const map = L.map(mapId);
+
+  L.tileLayer.here({
+    appId: hereAppId,
+    appCode: hereAppCode,
+  }).addTo(map);
+
+  if (meetingsData.length > 0) {
+    addMarkers(meetingsData, map);
+  } else {
+    map.fitWorld();
+  }
+
+  map.scrollWheelZoom.disable();
+
+  return map;
+};
+
+window.DecidimMeetings = {
+  loadMap,
+  currentMap: null
+};
+
+$(() => {
+  const mapId = 'meetings-map';
+  const $map = $(`#${mapId}`);
+
+  const meetingsData = $map.data('meetings');
+  const hereAppId = $map.data('here-app-id');
+  const hereAppCode = $map.data('here-app-code');
+
+  if ($map.length > 0) {
+    window.DecidimMeetings.currentMap = loadMap(mapId, meetingsData, hereAppId, hereAppCode);
+  }
+});

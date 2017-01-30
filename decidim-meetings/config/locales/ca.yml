@@ -13,6 +13,7 @@ ca:
         name: Llistat de trobades
     meetings:
       actions:
+        attachments: Adjunts
         close: Tancar
         confirm_destroy: Esteu segur de que voleu suprimir aquesta trobada?
         destroy: Esborra
@@ -30,7 +31,7 @@ ca:
             success: Trobada tancada amb èxit
           create:
             invalid: Hi ha hagut un problema en crear aquesta trobada
-            success: Reunió creada amb èxit
+            success: Trobada creada amb èxit
           destroy:
             success: La trobada s'ha eliminat correctament
           edit:
@@ -43,7 +44,7 @@ ca:
             title: Nova trobada
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta trobada
-            success: Reunió actualitzada correctament
+            success: Trobada actualitzada correctament
         models:
           meeting:
             name: Trobada
@@ -62,15 +63,17 @@ ca:
           unfold: Desplegar
         index:
           title: Llistat de trobades
-        show:
-          meeting_description: Descripció de reunions
+          view_meeting: Veure trobada
       models:
         meeting:
           fields:
             closed: Tancada
             end_time: Data de finalització
+            map: Mapa
             start_time: Data d'inici
             title: Títol
     resource_links:
+      meetings_through_proposals:
+        results: 'Resultats relacionats:'
       proposals_from_meeting:
         proposals: Propostes relacionades

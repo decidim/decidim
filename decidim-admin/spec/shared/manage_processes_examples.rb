@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 RSpec.shared_examples "manage processes examples" do
   context "previewing processes" do
@@ -9,7 +10,7 @@ RSpec.shared_examples "manage processes examples" do
           click_link "Preview"
         end
 
-        expect(current_path).to eq decidim.participatory_process_path(participatory_process)
+        expect(page).to have_css(".process-header")
         expect(page).to have_content(translated(participatory_process.title))
       end
     end
@@ -80,7 +81,7 @@ RSpec.shared_examples "manage processes examples" do
     end
 
     within "dl" do
-      expect(page).to_not have_css("img[src*='#{image2_filename}']")
+      expect(page).not_to have_css("img[src*='#{image2_filename}']")
       expect(page).to have_css("img[src*='#{image3_filename}']")
     end
   end
@@ -132,7 +133,7 @@ RSpec.shared_examples "manage processes examples" do
 
     it "doesn't let the admin manage processes form other organizations" do
       within "table" do
-        expect(page).to_not have_content(external_participatory_process.title)
+        expect(page).not_to have_content(external_participatory_process.title)
       end
     end
   end

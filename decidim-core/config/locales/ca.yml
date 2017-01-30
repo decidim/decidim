@@ -2,6 +2,21 @@ ca:
   activemodel:
     attributes:
       user:
+        email: El teu email
+        name: El teu nom
+        password: Nova contrasenya
+        password_confirmation: Confirmeu la vostra nova contrasenya
+        user_group_document_number: Número de document acreditatiu
+        user_group_name: Nom de l'organització
+        user_group_phone: Telèfon de l'organització
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Contrasenya actual
+        email: Correu electrònic
+        name: Nom d'usuari
+        password: Contrasenya
+        password_confirmation: Confirmació de la contrasenya
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
@@ -13,11 +28,18 @@ ca:
       image_too_big: La imatge és massa gran
   decidim:
     account:
-      authorizations:
-        authorization_confirm_destroy: Segur que vols suprimir aquesta autorització?
       show:
-        authorizations: Autoritzacions
-        title: El meu compte
+        change_password: Canvia la contrasenya
+        update_account: Actualitzar compte
+      update:
+        error: S'ha produït un error en actualitzar el seu compte.
+        success: El seu compte s'ha actualitzat correctament.
+        success_with_email_confirmation: El seu compte s'ha actualitzat correctament. Rebrà un correu electrònic per confirmar la seva nova adreça de correu electrònic.
+    application:
+      documents:
+        related_documents: Documents relacionats
+      photos:
+        related_photos: Fotos relacionades
     authorization_handlers:
       decidim/dummy_authorization_handler: Autorització d'exemple
       errors:
@@ -29,11 +51,13 @@ ca:
       current_participatory_processes: fer una ullada als processos actuals
       destroy:
         success: L'autorització s'ha destruït correctament
-      index:
+      first_login:
         actions:
-          decidim/dummy_authorization_handler: Verificar-me amb l'exemple
-        title: Verificar la teva identitat
-        verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
+          decidim/dummy_authorization_handler: Verificar contra l'exemple d'autorització
+        title: Verificar la seva identitat
+        verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la seva identitat:'
+      index:
+        authorization_confirm_destroy: Esteu segur que voleu suprimir aquesta autorització?
       new:
         authorize: Enviar
         authorize_with: Verificar-me amb %{authorizer}
@@ -49,6 +73,7 @@ ca:
           complete_profile: Completa el perfil
           sign_up: Completi el seu perfil
           subtitle: Si us plau, ompli el següent formulari per tal de completar la seva inscripció
+          username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
       registrations:
         new:
           already_have_an_account?: Ja tens un compte?
@@ -72,9 +97,19 @@ ca:
     menu:
       home: Inici
       processes: Processos
+    own_user_groups:
+      index:
+        not_verified: No verificada
+        verified: Verificada
     participatory_process_steps:
       index:
         process_steps: Fases del procés
+    participatory_processes:
+      show:
+        developer_group: Grup promotor
+        domain: Domini
+        end_date: Data de finalització
+        scope: Àmbit
     shared:
       login_modal:
         please_sign_in: Si us plau, inicii sessió
@@ -132,11 +167,17 @@ ca:
       process_header:
         process_menu_item: El procés
       process_header_steps:
+        step: Fase %{current} de %{total}
         view_steps: Veure les fases
       user_menu:
         admin_dashboard: Tauler d'administració
         profile: El meu compte
         sign_out: Surt
+      user_profile:
+        account: Compta
+        authorizations: Autoritzacions
+        title: Configuració d'usuari
+        user_groups: Organitzacions
   locales:
     ca: Català
     en: English
@@ -150,23 +191,28 @@ ca:
       title: Hi ha hagut un problema amb el nostre servidor
       try_later: Si us plau, torna-ho a intentar més tard.
     home:
-      active_step: Fase activa
-      debates: Debats
-      debates_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
-      highlighted_processes: Processos ressaltats
-      how_to_participate: Com participo en un procés?
-      meetings: Llistat de trobades
-      meetings_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
-      more_info: Més informació
-      proposals: Propostes
-      proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
-      register: Registra't
-      see_all_processes: Mostra tots els processos
-      stats:
+      extended:
+        debates: Debats
+        debates_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
+        how_to_participate: Com participo en un procés?
+        meetings: Trobades
+        meetings_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
+        more_info: Més informació
+        proposals: Propostes
+        proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
+      hero:
+        register: Registre
+        welcome: Benvingut a %{organization}!
+      highlighted_processes:
+        active_step: Fase activa
+        highlighted_processes: Processos destacats
+        see_all_processes: Mostra tots els processos
+      statistics:
         headline: Estat actual de %{organization}
         processes: Processos
         users: Usuaris
-      welcome: Benvingut/da a %{organization}!
+      sub_hero:
+        register: Registre
   views:
     pagination:
       first: "&laquo; Primera"

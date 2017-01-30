@@ -4,14 +4,14 @@ require "spec_helper"
 module Decidim
   describe Ability do
     let(:user) { build(:user) }
-    subject { described_class.new(user) }
+    subject { described_class.new(user, {}) }
 
     context "when there are some abilities injected from configuration" do
       let(:ability_class) do
         Class.new do
           include CanCan::Ability
 
-          def initialize(user)
+          def initialize(_user, _context)
             can :read, Decidim::ParticipatoryProcess
           end
         end

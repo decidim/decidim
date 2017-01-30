@@ -12,13 +12,19 @@ module Decidim
 
       routes do
         resources :proposals, only: [:create, :new, :index, :show] do
-          resources :proposal_votes, only: [:create]
+          resource :proposal_vote, only: [:create, :destroy]
         end
         root to: "proposals#index"
       end
 
       initializer "decidim_proposals.assets" do |app|
-        app.config.assets.precompile += %w(decidim_proposals_manifest.js decidim_proposals_manifest.css)
+        app.config.assets.precompile += %w(decidim_proposals_manifest.js)
+      end
+
+      initializer "decidim_proposals.inject_abilities_to_user" do |_app|
+        Decidim.configure do |config|
+          config.abilities += [Decidim::Proposals::Abilities::CurrentUser]
+        end
       end
     end
   end

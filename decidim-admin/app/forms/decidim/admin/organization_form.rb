@@ -14,6 +14,7 @@ module Decidim
       attribute :default_locale, String
       attribute :homepage_image
       attribute :logo
+      attribute :favicon
       attribute :show_statistics
 
       translatable_attribute :description, String

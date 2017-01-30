@@ -39,7 +39,7 @@ module Decidim
           it "doesn't create a comment" do
             expect do
               command.call
-            end.to_not change { Comment.count }
+            end.not_to change { Comment.count }
           end
         end
 

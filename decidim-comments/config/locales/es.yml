@@ -11,6 +11,8 @@ es:
             label: Comentario
             placeholder: '¿Qué piensas sobre esto?'
           submit: Enviar
+          user_group_id:
+            label: Comentar como
         opinion:
           against: Estoy en contra
           in_favor: Estoy a favor
@@ -23,7 +25,8 @@ es:
         reply: Respuesta
       comment_order_selector:
         order:
-          most_voted: Más votado
+          best_rated: Mejor valorado
+          most_discussed: Más discutido
           older: Más antiguo
           recent: Reciente
         title: 'Ordenar por:'

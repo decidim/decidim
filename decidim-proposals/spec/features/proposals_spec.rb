@@ -18,37 +18,18 @@ describe "Proposals", type: :feature do
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
-        visit_feature      
+        visit_feature
       end
 
-      it "creates a new proposal" do
-        click_link "New proposal"
-
-        within ".new_proposal" do
-          fill_in :proposal_title, with: "Oriol for president"
-          fill_in :proposal_body, with: "He will solve everything"
-          select category.name["en"], from: :proposal_category_id
-          select scope.name, from: :proposal_scope_id
-
-          find("*[type=submit]").click
+      context "with creation enabled" do
+        let!(:feature) do
+          create(:proposal_feature,
+            :with_creation_enabled,
+            manifest: manifest,
+            participatory_process: participatory_process)
         end
 
-        expect(page).to have_content("successfully")
-        expect(page).to have_content("Oriol for president")
-        expect(page).to have_content("He will solve everything")
-        expect(page).to have_content(category.name["en"])
-        expect(page).to have_content(scope.name)
-        expect(page).to have_content(user.name)       
-      end
-
-      context "when the user has verified organizations" do
-        let(:user_group) { create(:user_group, :verified) }
-
-        before do
-          create(:user_group_membership, user: user, user_group: user_group)
-        end
-
-        it "creates a new proposal as a user group" do
+        it "creates a new proposal" do
           click_link "New proposal"
 
           within ".new_proposal" do
@@ -56,7 +37,6 @@ describe "Proposals", type: :feature do
             fill_in :proposal_body, with: "He will solve everything"
             select category.name["en"], from: :proposal_category_id
             select scope.name, from: :proposal_scope_id
-            select user_group.name, from: :proposal_user_group_id
 
             find("*[type=submit]").click
           end
@@ -66,7 +46,42 @@ describe "Proposals", type: :feature do
           expect(page).to have_content("He will solve everything")
           expect(page).to have_content(category.name["en"])
           expect(page).to have_content(scope.name)
-          expect(page).to have_content(user_group.name)          
+          expect(page).to have_content(user.name)
+        end
+
+        context "when the user has verified organizations" do
+          let(:user_group) { create(:user_group, :verified) }
+
+          before do
+            create(:user_group_membership, user: user, user_group: user_group)
+          end
+
+          it "creates a new proposal as a user group" do
+            click_link "New proposal"
+
+            within ".new_proposal" do
+              fill_in :proposal_title, with: "Oriol for president"
+              fill_in :proposal_body, with: "He will solve everything"
+              select category.name["en"], from: :proposal_category_id
+              select scope.name, from: :proposal_scope_id
+              select user_group.name, from: :proposal_user_group_id
+
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_content("successfully")
+            expect(page).to have_content("Oriol for president")
+            expect(page).to have_content("He will solve everything")
+            expect(page).to have_content(category.name["en"])
+            expect(page).to have_content(scope.name)
+            expect(page).to have_content(user_group.name)
+          end
+        end
+      end
+
+      context "when creation is not enabled" do
+        it "does not show the creation button" do
+          expect(page).to have_no_link("New proposal")
         end
       end
     end
@@ -91,7 +106,7 @@ describe "Proposals", type: :feature do
       visit_feature
       click_link proposal.title
 
-      comments.each do |comment| 
+      comments.each do |comment|
         expect(page).to have_content(comment.body)
       end
     end
@@ -113,6 +128,25 @@ describe "Proposals", type: :feature do
       click_link proposal.title
 
       expect(page).to have_i18n_content(meeting.title)
+    end
+  end
+
+  context "when a proposal has been linked in a result" do
+    let(:proposal) { create(:proposal, feature: feature)}
+    let(:result_feature) do
+      create(:feature, manifest_name: :results, participatory_process: proposal.feature.participatory_process)
+    end
+    let(:result) { create(:result, feature: result_feature) }
+
+    before do
+      result.link_resources([proposal], "included_proposals")
+    end
+
+    it "shows related results" do
+      visit_feature
+      click_link proposal.title
+
+      expect(page).to have_i18n_content(result.title)
     end
   end
 

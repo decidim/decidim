@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
   <head>
     <title><%= decidim_page_title %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render partial: 'layouts/decidim/meta' %>
     <%= render partial: 'layouts/decidim/social_meta' %>
+
+    <%= favicon %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>

@@ -43,7 +43,7 @@ module Decidim
             command.call
             category.reload
 
-            expect(translated(category.name)).to_not eq("New title")
+            expect(translated(category.name)).not_to eq("New title")
           end
         end
 

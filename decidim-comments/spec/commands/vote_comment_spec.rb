@@ -23,7 +23,7 @@ module Decidim
           it "doesn't create a comment vote" do
             expect do
               command.call
-            end.to_not change { CommentVote.count }
+            end.not_to change { CommentVote.count }
           end
         end
 
@@ -39,7 +39,7 @@ module Decidim
           it "doesn't create a comment vote" do
             expect do
               command.call
-            end.to_not change { CommentVote.count }
+            end.not_to change { CommentVote.count }
           end
         end
 
@@ -74,7 +74,7 @@ module Decidim
               it "doesn't create a comment vote" do
                 expect do
                   command.call
-                end.to_not change { CommentVote.count }
+                end.not_to change { CommentVote.count }
               end
             end
 
@@ -90,7 +90,7 @@ module Decidim
               it "doesn't create a comment vote" do
                 expect do
                   command.call
-                end.to_not change { CommentVote.count }
+                end.not_to change { CommentVote.count }
               end
             end
 

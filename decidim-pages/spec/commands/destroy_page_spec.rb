@@ -5,7 +5,7 @@ module Decidim
   module Pages
     describe DestroyPage, :db do
       describe "call" do
-        let(:feature) { create(:feature) }
+        let(:feature) { create(:feature, manifest_name: "pages") }
         let!(:page)   { create(:page, feature: feature) }
         let(:command) { described_class.new(feature) }
 

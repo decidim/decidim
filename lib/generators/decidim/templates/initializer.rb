@@ -6,4 +6,10 @@ Decidim.configure do |config|
 
   # Uncomment this lines to set your preferred locales
   # config.available_locales = %i{en ca es}
+
+  # Geocoder configuration
+  # config.geocoder = {
+  #   here_app_id: Rails.application.secrets.geocoder["here_app_id"],
+  #   here_app_code: Rails.application.secrets.geocoder["here_app_code"]
+  # }
 end

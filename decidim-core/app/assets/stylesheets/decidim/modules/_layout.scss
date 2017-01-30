@@ -56,15 +56,3 @@ body{
     margin-right: -.5rem;
   }
 }
-
-//Sections
-.section{
-  margin-bottom: 3rem;
-  @include breakpoint(large){
-    margin-bottom: 5rem;
-  }
-}
-
-.m-bottom{
-  margin-bottom: 1rem;
-}

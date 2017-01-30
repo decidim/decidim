@@ -6,6 +6,7 @@ Decidim.register_feature(:proposals) do |feature|
   feature.engine = Decidim::Proposals::Engine
   feature.admin_engine = Decidim::Proposals::AdminEngine
   feature.icon = "decidim/proposals/icon.svg"
+  feature.stylesheet = "decidim/proposals/application"
 
   feature.on(:before_destroy) do |instance|
     if Decidim::Proposals::Proposal.where(feature: instance).any?
@@ -13,12 +14,20 @@ Decidim.register_feature(:proposals) do |feature|
     end
   end
 
+  feature.settings(:global) do |settings|
+    settings.attribute :vote_limit, type: :integer, default: 0
+    settings.attribute :comments_always_enabled, type: :boolean, default: true
+  end
+
   feature.settings(:step) do |settings|
     settings.attribute :votes_enabled, type: :boolean
+    settings.attribute :votes_blocked, type: :boolean
+    settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :creation_enabled, type: :boolean
   end
 
   feature.register_resource do |resource|
-    resource.model_class = Decidim::Proposals::Proposal
+    resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
   end
 
@@ -30,8 +39,11 @@ Decidim.register_feature(:proposals) do |feature|
         name: Decidim::Features::Namer.new(process.organization.available_locales, :proposals).i18n_name,
         manifest_name: :proposals,
         participatory_process: process,
+        settings: {
+          vote_limit: 0
+        },
         step_settings: {
-          process.active_step.id => { votes_enabled: true }
+          process.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
         }
       )
 

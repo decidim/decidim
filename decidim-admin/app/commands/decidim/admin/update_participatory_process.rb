@@ -44,7 +44,11 @@ module Decidim
           banner_image: form.banner_image,
           promoted: form.promoted,
           description: form.description,
-          short_description: form.short_description
+          short_description: form.short_description,
+          domain: form.domain,
+          scope: form.scope,
+          developer_group: form.developer_group,
+          end_date: form.end_date
         }.compact
       end
     end

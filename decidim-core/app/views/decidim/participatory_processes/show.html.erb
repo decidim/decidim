@@ -8,6 +8,38 @@
         <%== translated_attribute(current_participatory_process.description) %>
       </div>
     </div>
+    <div class="section columns medium-5 mediumlarge-4 large-3">
+      <div class="card extra definition-data">
+        <% if translated_attribute(current_participatory_process.scope).present? %>
+          <div class="definition-data__item scope">
+            <span class="definition-data__title"><%= t(".scope") =%></span>
+              <%== translated_attribute(current_participatory_process.scope) %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_process.end_date.present? %>
+          <div class="definition-data__item end-date">
+            <span class="definition-data__title"><%= t(".end_date")=%></span>
+              <%== l(current_participatory_process.end_date, format: :long) %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_process.developer_group.present? %>
+          <div class="definition-data__item developer-group">
+            <span class="definition-data__title"><%= t(".developer_group") =%></span>
+              <%== current_participatory_process.developer_group %>
+          </div>
+        <% end %>
+
+        <% if translated_attribute(current_participatory_process.domain).present? %>
+          <div class="definition-data__item domain">
+            <span class="definition-data__title"><%= t(".domain") =%></span>
+              <%== translated_attribute(current_participatory_process.domain) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+
+  <%= attachments_for current_participatory_process %>
 </div>
-<%= attachments_for current_participatory_process %>

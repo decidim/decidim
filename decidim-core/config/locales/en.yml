@@ -36,6 +36,7 @@ en:
         error: There's been an error updating your account.
         success: Your account was updated successfully.
         success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
+    anonymous_user: Anonymous
     application:
       documents:
         related_documents: Related documents
@@ -105,6 +106,12 @@ en:
     participatory_process_steps:
       index:
         process_steps: Process steps
+    participatory_processes:
+      show:
+        developer_group: Developer group
+        domain: Domain
+        end_date: End date
+        scope: Scope
     shared:
       login_modal:
         please_sign_in: Please sign in
@@ -186,23 +193,28 @@ en:
       title: There was a problem with our server
       try_later: Please try again later.
     home:
-      active_step: Active step
-      debates: Debates
-      debates_explanation: Let's meet, debate and share what we think it's important for our city.
-      highlighted_processes: Highlighted processes
-      how_to_participate: How do I take part in a process?
-      meetings: Meetings
-      meetings_explanation: Let's meet, debate and share what we think it's important for our city.
-      more_info: More info
-      proposals: Proposals
-      proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
-      register: Register
-      see_all_processes: See all processes
-      stats:
+      extended:
+        debates: Debates
+        debates_explanation: Let's meet, debate and share what we think it's important for our city.
+        how_to_participate: How do I take part in a process?
+        meetings: Meetings
+        meetings_explanation: Let's meet, debate and share what we think it's important for our city.
+        more_info: More info
+        proposals: Proposals
+        proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
+      hero:
+        register: Register
+        welcome: Welcome to %{organization}!
+      highlighted_processes:
+        active_step: Active step
+        highlighted_processes: Highlighted processes
+        see_all_processes: See all processes
+      statistics:
         headline: Current state of %{organization}
         processes: Processes
         users: Users
-      welcome: Welcome to %{organization}!
+      sub_hero:
+        register: Register
   views:
     pagination:
       first: "&laquo; First"

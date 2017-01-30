@@ -45,10 +45,7 @@ module Decidim
         manifest = Decidim.find_resource_manifest(resource_name)
         return self.class.none unless manifest
 
-        feature_ids = Decidim::Feature.where(participatory_process: feature.participatory_process, manifest_name: manifest.feature_manifest.name).pluck(:id)
-        return self.class.none if feature_ids.empty?
-
-        scope = manifest.model_class.where(feature: feature_ids)
+        scope = manifest.resource_scope(feature)
         scope = scope.where("#{self.class.table_name}.id != ?", id) if manifest.model_class == self.class
 
         scope

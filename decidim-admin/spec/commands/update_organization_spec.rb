@@ -18,7 +18,8 @@ module Decidim
               description_en: "My description",
               description_es: "Mi descripción",
               description_ca: "La meva descripció",
-              show_statistics: false
+              show_statistics: false,
+              favicon: File.new(Decidim::Dev.asset("icon.png"))
             }
           }
         end
@@ -43,7 +44,7 @@ module Decidim
             command.call
             organization.reload
 
-            expect(organization.name).to_not eq("My super organization")
+            expect(organization.name).not_to eq("My super organization")
           end
         end
 
@@ -65,6 +66,15 @@ module Decidim
               organization.reload
 
               expect(organization.homepage_image).to be_present
+            end
+          end
+
+          context "when there's a favicon in the params" do
+            it "does set a favicon for the organization" do
+              command.call
+              organization.reload
+
+              expect(organization.favicon.small).to be_present
             end
           end
         end

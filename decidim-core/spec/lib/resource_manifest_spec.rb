@@ -11,13 +11,13 @@ module Decidim
         feature_manifest: feature_manifest,
         name: name,
         route_name: route_name,
-        model_class: model_class
+        model_class_name: model_class
       )
     end
 
     let(:name) { :dummy }
     let(:route_name) { :dummy }
-    let(:model_class) { DummyResource }
+    let(:model_class) { "DummyResource" }
 
     context "when no name is set" do
       let(:name) { nil }

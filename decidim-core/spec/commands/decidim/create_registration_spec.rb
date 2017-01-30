@@ -54,7 +54,7 @@ module Decidim
           it "doesn't create a user" do
             expect do
               command.call
-            end.to_not change { User.count }
+            end.not_to change { User.count }
           end
         end
 
@@ -97,7 +97,7 @@ module Decidim
             it "doesn't create a user group" do
               expect do
                 command.call
-              end.to_not change { UserGroup.count }
+              end.not_to change { UserGroup.count }
             end
           end
 

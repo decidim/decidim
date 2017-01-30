@@ -11,6 +11,8 @@ ca:
             label: Comentari
             placeholder: Què en penses d'això?
           submit: Envia
+          user_group_id:
+            label: Comentar com a
         opinion:
           against: Hi estic en contra
           in_favor: Hi estic a favor
@@ -23,7 +25,8 @@ ca:
         reply: Respondre
       comment_order_selector:
         order:
-          most_voted: Més votat
+          best_rated: Més ben valorat
+          most_discussed: Més discutit
           older: Més antic
           recent: Recent
         title: 'Ordenar per:'

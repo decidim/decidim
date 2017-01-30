@@ -1,16 +1,22 @@
 .opinion-toggle{
   margin: 2rem 0;
+  display: flex;
+  text-align: center;
 }
 
-.button-group .opinion-toggle--ok,
-.button-group .opinion-toggle--ko{
-  @include breakpoint(small down){
-    margin-bottom: 2px;  
+.opinion-toggle--ok,
+.opinion-toggle--ko,
+.opinion-toggle--meh{
+  &.is-inactive{
+    opacity: .3;
   }
 }
 
 .opinion-toggle--ok{
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   &:hover,
+  &:focus,
   &.is-active{
     background-color: $success;
   }
@@ -20,11 +26,25 @@
 }
 
 .opinion-toggle--ko{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   &:hover,
+  &:focus,
   &.is-active{
     background-color: $alert;
   }
   .icon{
     vertical-align: middle;
+  }
+}
+
+.opinion-toggle--meh{
+  border-radius: 0;
+  padding-left: .5em;
+  padding-right: .5em;
+  &:hover,
+  &:focus,
+  &.is-active{
+    background-color: $secondary;
   }
 }

@@ -4,8 +4,8 @@ en:
     attributes:
       proposal:
         body: Body
-        category: Category
-        scope: Scope
+        category_id: Category
+        scope_id: Scope
         title: Title
         user_group_id: Create proposal as
   decidim:
@@ -14,6 +14,8 @@ en:
         name: Proposals
         settings:
           step:
+            creation_enabled: Proposal creation enabled
+            votes_blocked: Votes blocked
             votes_enabled: Votes enabled
     proposals:
       actions:
@@ -67,8 +69,8 @@ en:
           new_proposal: New proposal
         linked_proposals:
           proposal_votes:
-            one: 1 vote
-            other: "%{count} votes"
+            one: <span class="card--list__data__number">1</span>vote
+            other: <span class="card--list__data__number">%{count}</span>votes
         new:
           back: Back
           select_a_category: Please select a category
@@ -83,11 +85,22 @@ en:
           share_link: Share link
         vote_button:
           already_voted: Already voted
+          no_votes_remaining: No votes remaining
           vote: Vote
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: VOTE
             other: VOTES
+        votes_limit:
+          vote_limit:
+            description: Instead of voting as many proposals as you want you can only
+              vote up to %{limit} proposals.
+            left: Remaining
+            title: You have %{limit} votes to distribute
+            votes: Votes
     resource_links:
+      included_proposals:
+        results: 'Proposal appearing in these results:'
       proposals_from_meeting:
         meetings: Related meetings

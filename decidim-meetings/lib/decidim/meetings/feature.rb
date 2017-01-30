@@ -12,7 +12,7 @@ Decidim.register_feature(:meetings) do |feature|
   end
 
   feature.register_resource do |resource|
-    resource.model_class = Decidim::Meetings::Meeting
+    resource.model_class_name = "Decidim::Meetings::Meeting"
     resource.template = "decidim/meetings/meetings/linked_meetings"
   end
 
@@ -35,14 +35,13 @@ Decidim.register_feature(:meetings) do |feature|
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end,
-          short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
-          end,
           location: Decidim::Faker::Localized.sentence,
           location_hints: Decidim::Faker::Localized.sentence,
           start_time: 3.weeks.from_now,
           end_time: 3.weeks.from_now + 4.hours,
-          address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}"
+          address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
+          latitude: Faker::Address.latitude,
+          longitude: Faker::Address.longitude
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
@@ -56,8 +55,6 @@ Decidim.register_feature(:meetings) do |feature|
           file: File.new(Decidim::Dev.asset("Exampledocument.pdf")),
           attached_to: meeting
         )
-
-        Decidim::Comments::Seed.comments_for(meeting)
       end
     end
   end

@@ -7,9 +7,11 @@ module Decidim
 
     process :set_content_type_and_size_in_model
     process :validate_dimensions
+
     version :thumbnail, if: :image? do
       process resize_to_fit: [nil, 237]
     end
+
     version :big, if: :image? do
       process resize_to_limit: [nil, 1000]
     end

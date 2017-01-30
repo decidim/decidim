@@ -10,8 +10,8 @@
     mounted;
     $form;
 
-    constructor(selector) {
-      this.$form = $(selector);
+    constructor($form) {
+      this.$form = $form;
       this.mounted = false;
 
       this._onFormChange = this._onFormChange.bind(this);
@@ -127,7 +127,7 @@
         // Iterate the filter params and set the correct form values
         fieldIds.forEach((fieldId) => {
           let field = null;
-          
+
           // Since we are using Ruby on Rails generated forms the field ids for a
           // checkbox or a radio button has the following form: filter_${key}_${value}
           field = this.$form.find(`input#filter_${fieldId}_${filterParams[fieldId]}`);
@@ -138,7 +138,7 @@
             // If the field is not a checkbox neither a radio it means is a input or a select.
             // Ruby on Rails ensure the ids are constructed like this: filter_${key}
             field = this.$form.find(`input#filter_${fieldId},select#filter_${fieldId}`);
-            
+
             if (field.length > 0) {
               field.val(filterParams[fieldId]);
             }
@@ -155,9 +155,9 @@
      * @returns {Void} - Returns nothing.
      */
     _onFormChange() {
-      let newUrl = '';
       const formAction = this.$form.attr('action');
       const params = this.$form.serialize();
+      let newUrl = '';
 
       this.$form.submit();
 

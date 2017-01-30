@@ -41,7 +41,7 @@ module Decidim
           it "doesn't create a category" do
             expect do
               command.call
-            end.to_not change { Category.count }
+            end.not_to change { Category.count }
           end
         end
 

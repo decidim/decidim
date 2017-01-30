@@ -17,7 +17,18 @@ module Decidim
       # Overwrites `cancancan`'s method to point to the correct ability class,
       # since the gem expects the ability class to be in the root namespace.
       def current_ability
-        @current_ability ||= Decidim::Ability.new(current_user)
+        @current_ability ||= current_ability_klass.new(current_user, ability_context)
+      end
+
+      def current_ability_klass
+        Decidim::Ability
+      end
+
+      def ability_context
+        {
+          current_organization: try(:current_organization),
+          current_feature: try(:current_feature)
+        }
       end
 
       # Handles the case when a user visits a path that is not allowed to them.

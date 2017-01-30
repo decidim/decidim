@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 require "spec_helper"
 
-require "decidim/core/test/shared_examples/authorable"
-
 module Decidim
   module Comments
     describe Comment do
@@ -14,7 +12,7 @@ module Decidim
 
       subject { comment }
 
-      it_behaves_like "authorable"
+      include_examples "authorable"
 
       it "is valid" do
         expect(subject).to be_valid
@@ -46,13 +44,6 @@ module Decidim
         comment.replies.each do |reply|
           expect(reply.depth).to eq(1)
         end
-      end
-
-      it "is not valid if the author organization is different" do
-        foreign_user = build(:user)
-        comment = build(:comment, author: foreign_user)
-
-        expect(comment).to_not be_valid
       end
 
       describe "#can_have_replies?" do

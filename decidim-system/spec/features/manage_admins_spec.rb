@@ -61,7 +61,7 @@ describe "Manage admins", type: :feature do
     end
 
     within "table" do
-      expect(page).to_not have_content(admin2.email)
+      expect(page).not_to have_content(admin2.email)
     end
   end
 end

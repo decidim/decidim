@@ -16,6 +16,7 @@ en:
       organization:
         default_locale: Default locale
         description: Description
+        favicon: Icon
         homepage_image: Homepage image
         logo: Logo
         name: Name

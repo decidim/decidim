@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 RSpec.shared_examples "manage process categories examples" do
   before do
@@ -99,7 +100,7 @@ RSpec.shared_examples "manage process categories examples" do
         end
 
         within "#categories table" do
-          expect(page).to_not have_content(translated(category2.name))
+          expect(page).not_to have_content(translated(category2.name))
         end
       end
     end

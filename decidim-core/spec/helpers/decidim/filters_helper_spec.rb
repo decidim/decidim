@@ -9,7 +9,7 @@ module Decidim
         def self.model_name
           ActiveModel::Name.new(self, nil, "dummy")
         end
-        
+
         include ActiveModel::Model
       end.new
     end
@@ -30,11 +30,11 @@ module Decidim
         helper.filter_form_for(filter) do
         end
       end
-      
+
       it "calls form_for helper with specific arguments" do
         expect(helper)
           .to receive(:form_for)
-          .with(filter, { builder: FilterFormBuilder, url: helper.url_for, as: :filter, method: :get, remote: true }, any_args)
+          .with(filter, { builder: FilterFormBuilder, url: helper.url_for, as: :filter, method: :get, remote: true, html: { id: nil } }, any_args)
 
         helper.filter_form_for(filter) do
         end

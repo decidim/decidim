@@ -1,0 +1,23 @@
+<% if vote_limit_enabled? %>
+  <div class="row column">
+    <div class="callout secondary">
+      <div class="row">
+        <div class="columns medium-8 large-9">
+          <h3 class="heading3"><%= t('.vote_limit.title', limit: feature_settings.vote_limit) %></h3>
+          <p><%= t('.vote_limit.description', limit: feature_settings.vote_limit) %></p>
+        </div>
+        <div class="columns medium-4 large-3">
+          <div class="card card--nomargin text-center">
+            <div class="card__content">
+              <span class="definition-data__title"><%= t('.vote_limit.left', limit: feature_settings.vote_limit) %></span>
+              <span id="remaining-votes-count" class="extra__suport-number">
+                <%= render partial: "remaining_votes_count" %>
+              </span>
+              <span class="extra__suport-text"><%= t('.vote_limit.votes') %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -21,6 +21,32 @@ module Decidim
         expect(subject.attributes[:something].default_value).to eq(true)
       end
 
+      describe "supported types" do
+        it "supports booleans" do
+          attribute = FeatureSettingsManifest::Attribute.new(type: :boolean)
+          expect(attribute.type_class).to eq(Virtus::Attribute::Boolean)
+          expect(attribute.default_value).to eq(false)
+        end
+
+        it "supports integers" do
+          attribute = FeatureSettingsManifest::Attribute.new(type: :integer)
+          expect(attribute.type_class).to eq(Integer)
+          expect(attribute.default_value).to eq(0)
+        end
+
+        it "supports strings" do
+          attribute = FeatureSettingsManifest::Attribute.new(type: :string)
+          expect(attribute.type_class).to eq(String)
+          expect(attribute.default_value).to eq(nil)
+        end
+
+        it "supports texts" do
+          attribute = FeatureSettingsManifest::Attribute.new(type: :text)
+          expect(attribute.type_class).to eq(String)
+          expect(attribute.default_value).to eq(nil)
+        end
+      end
+
       it "only allows valid types" do
         expect { subject.attribute :something, type: :fake_type }.to(
           raise_error(ActiveModel::ValidationError)
@@ -44,7 +70,7 @@ module Decidim
 
         expect(settings.attributes).to include(something_enabled: true)
         expect(settings.attributes).to include(comments_enabled: false)
-        expect(settings.attributes).to_not include(invalid_option: true)
+        expect(settings.attributes).not_to include(invalid_option: true)
       end
     end
   end
