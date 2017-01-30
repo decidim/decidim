@@ -21,7 +21,7 @@
         <div class="title-bar">
           <div class="row column topbar">
             <div class="logo-wrapper">
-              <%= render partial: "layouts/decidim/logo" %>
+              <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
             </div>
             <%= render partial: "layouts/decidim/language_chooser" %>
             <div class="hide-for-medium topbar__menu">

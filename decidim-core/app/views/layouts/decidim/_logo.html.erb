@@ -1,9 +1,9 @@
 <%= link_to root_path do %>
-  <% if current_organization.logo.present? %>
-    <%= image_tag current_organization.logo.medium.url %>
+  <% if organization.logo.present? %>
+    <%= image_tag organization.logo.medium.url %>
   <% else %>
     <!-- Remove this, use the final SVG logo -->
-    <span><%= current_organization.name %></span>
+    <span><%= organization.name %></span>
     <style>
       .logo-wrapper span{ color: white; font-weight: 600;
         font-size: 1.4em;
