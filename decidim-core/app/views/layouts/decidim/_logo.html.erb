@@ -1,4 +1,4 @@
-<%= link_to root_path do %>
+<%= link_to root_url(host: organization.host) do %>
   <% if organization.logo.present? %>
     <%= image_tag organization.logo.medium.url %>
   <% else %>
