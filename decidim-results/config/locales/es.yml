@@ -1,1 +1,62 @@
 es:
+  decidim:
+    features:
+      results:
+        name: Resultados
+    resource_links:
+      included_proposals:
+        proposals: Propuestas incluidas en este resultado
+      meetings_through_proposals:
+        meetings: Encuentros relacionados
+    results:
+      actions:
+        confirm_destroy: '¿Está seguro de que quiere eliminar este resultado?'
+        destroy: Borrar
+        edit: Editar
+        new: Nuevo/a %{name}
+        title: Acciones
+      admin:
+        models:
+          result:
+            name: Resultado
+        results:
+          create:
+            invalid: Ha habido un problema al crear este resultado
+            success: El resultado ha sido creado correctamente
+          destroy:
+            success: El resultado se ha eliminado correctamente
+          edit:
+            title: Editar resultado
+            update: Actualizar resultado
+          index:
+            title: Resultados
+          new:
+            create: Crear resultado
+            title: Nuevo resultado
+          update:
+            invalid: Ha habido un problema al actualizar este resultado
+            success: El resultado ha actualizado correctamente
+      models:
+        result:
+          fields:
+            title: Título
+      results:
+        count:
+          results_count:
+            one: 1 resultado
+            other: "%{count} resultados"
+        filters:
+          category: Categoría
+          scopes: Ámbitos
+          search: Buscar
+        index:
+          title: Resultados
+        show:
+          result_description: Descripción del resultado
+          stats:
+            attendees: Asistentes
+            comments: Comentarios
+            contributions: Aportes
+            meetings: Lista de encuentros
+            proposals: Propuestas
+            votes: Soportes

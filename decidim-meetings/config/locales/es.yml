@@ -63,6 +63,7 @@ es:
           unfold: Desplegar
         index:
           title: Lista de encuentros
+          view_meeting: Ver encuentro
         show:
           meeting_description: Descripción del encuentro
       models:
@@ -70,8 +71,11 @@ es:
           fields:
             closed: Cerrado
             end_time: Fecha de finalización
+            map: Mapa
             start_time: Fecha de inicio
             title: Título
     resource_links:
+      meetings_through_proposals:
+        results: 'Resultados relacionados:'
       proposals_from_meeting:
         proposals: Propuestas relacionadas

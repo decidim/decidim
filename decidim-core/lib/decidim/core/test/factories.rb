@@ -36,6 +36,7 @@ FactoryGirl.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     welcome_text { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     homepage_image { test_file("city.jpeg", "image/jpeg") }
+    favicon { test_file("icon.png", "image/png") }
     default_locale I18n.default_locale
     available_locales Decidim.available_locales
   end
@@ -98,7 +99,7 @@ FactoryGirl.define do
     organization
     locale                { organization.default_locale }
     tos_agreement         "1"
-    avatar                { test_file("avatar.svg", "image/svg+xml") }
+    avatar                { test_file("avatar.jpg", "image/jpeg") }
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -121,7 +122,7 @@ FactoryGirl.define do
     name { Faker::Educator.course }
     document_number { Faker::Number.number(8) + "X" }
     phone { Faker::PhoneNumber.phone_number }
-    avatar { test_file("avatar.svg", "image/svg+xml") }
+    avatar { test_file("avatar.jpg", "image/jpeg") }
 
     trait :verified do
       verified { true }

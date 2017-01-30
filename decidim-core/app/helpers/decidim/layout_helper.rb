@@ -7,6 +7,18 @@ module Decidim
       title ? "#{title} - #{current_organization.name}" : current_organization.name
     end
 
+    # Public: Generates a set of meta tags that generate the different favicon
+    # versions for an organization.
+    #
+    # Returns a safe String with the versions.
+    def favicon
+      return unless current_organization.favicon.present?
+
+      safe_join(Decidim::OrganizationFaviconUploader::SIZES.map do |version, size|
+        favicon_link_tag(current_organization.favicon.send(version).url, sizes: "#{size}x#{size}")
+      end)
+    end
+
     # Outputs an SVG-based icon.
     #
     # name    - The String with the icon name.

@@ -14,6 +14,7 @@ module Decidim
 
     mount_uploader :homepage_image, Decidim::HomepageImageUploader
     mount_uploader :logo, Decidim::OrganizationLogoUploader
+    mount_uploader :favicon, Decidim::OrganizationFaviconUploader
 
     def homepage_big_url
       homepage_image.big.url
