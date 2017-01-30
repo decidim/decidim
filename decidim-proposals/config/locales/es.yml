@@ -3,10 +3,10 @@ es:
     attributes:
       proposal:
         body: Cuerpo
-        category: Categoría
-        scope: Ámbito
+        category_id: Categoría
+        scope_id: Ámbito
         title: Título
-        user_group_id: Crear propuesta
+        user_group_id: Crear propuesta como
   decidim:
     features:
       proposals:

@@ -4,8 +4,8 @@ en:
     attributes:
       proposal:
         body: Body
-        category: Category
-        scope: Scope
+        category_id: Category
+        scope_id: Scope
         title: Title
         user_group_id: Create proposal as
   decidim:
