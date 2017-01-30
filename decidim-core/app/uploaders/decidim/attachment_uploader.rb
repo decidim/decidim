@@ -4,19 +4,15 @@ module Decidim
   # This class deals with uploading attachments to a ParticipatoryProcess.
   class AttachmentUploader < ApplicationUploader
     include CarrierWave::MiniMagick
-    include UploaderQuality
 
     process :set_content_type_and_size_in_model
     process :validate_dimensions
-    process quality: 80
 
     version :thumbnail, if: :image? do
       process resize_to_fit: [nil, 237]
-      process quality: 80
     end
     version :big, if: :image? do
       process resize_to_limit: [nil, 1000]
-      process quality: 80
     end
 
     protected
