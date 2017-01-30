@@ -44,7 +44,12 @@
     </div>
 
     <div>
-      <span class="mini-title"><%= t('.assigned') %> <strong class="mini-title__strong"><%= budget_to_currency 0 %></strong></span>
+      <span class="mini-title">
+        <%= t('.assigned') %>
+        <strong id="order-total-budget" class="mini-title__strong">
+          <%= render partial: 'order_total_budget' %>
+        </strong>
+      </span>
     </div>
   </div>
 </div>

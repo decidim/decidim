@@ -1,8 +1,10 @@
 <% content_for(:title, t(".title")) %>
 
-<div class="row column">
-  <%= render partial: "budget_summary", locals: { include_heading: true } %>
-</div>
+<% if current_order.present? %>
+  <div class="row column">
+    <%= render partial: "budget_summary", locals: { include_heading: true } %>
+  </div>
+<% end %>
 <div class="row columns">
   <h2 class="section-heading">
     <%= render partial: "count" %>

@@ -5,6 +5,7 @@ module Decidim
     # Exposes the project resource so users can view them
     class ProjectsController < Decidim::Budgets::ApplicationController
       include FilterResource
+      include NeedsCurrentOrder
 
       helper_method :projects, :project
 

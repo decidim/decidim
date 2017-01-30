@@ -8,13 +8,8 @@
           </h5>
         <% end %>
       </div>
-      <div class="card--list__data budget-list__data budget-list__data--added">
-        <span class="card--list__data__number budget-list__number">
-          <%= budget_to_currency(project.budget) %>
-        </span>
-        <a href="#" class="button tiny budget--list__action success">
-          <%= icon("check", class: "icon--small", aria_label: "Afegir", role: "img") %>
-        </a>
+      <div id="project-<%= project.id %>-data" class="card--list__data budget-list__data">
+        <%= render partial: "data", locals: { project: project } %>
       </div>
     </div>
   <% end %>

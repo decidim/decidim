@@ -94,20 +94,4 @@ describe Decidim::Budgets::ProjectSearch do
       end
     end
   end
-
-  context "pagination" do
-    let(:params) do
-      default_params.merge(
-        per_page: 2
-      )
-    end
-
-    it "filters the projects per page" do
-      create(:project, feature: current_feature)
-      projects = subject.results
-
-      expect(projects.total_pages).to eq(2)
-      expect(projects.total_count).to eq(3)
-    end
-  end
 end

@@ -35,7 +35,7 @@ en:
             title: Title
       projects:
         budget_summary:
-          assigned: Assigned
+          assigned: 'Assigned:'
           description: Description
           title: Title
           vote: Vote
@@ -43,6 +43,8 @@ en:
           projects_count:
             one: 1 project
             other: "%{count} projects"
+        data:
+          add: Add
         filters:
           category: Category
           scopes: Scopes
