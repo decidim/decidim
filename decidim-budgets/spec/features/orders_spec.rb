@@ -11,7 +11,7 @@ describe "Orders", type: :feature do
 
   let!(:feature) do
     create(:budget_feature,
-           :with_total_budget,
+           :with_total_budget_and_vote_threshold_percent,
            manifest: manifest,
            participatory_process: participatory_process)
   end
@@ -40,6 +40,8 @@ describe "Orders", type: :feature do
           page.find('.budget--list__action').click
         end
 
+        expect(page).to have_selector '.budget-list__data--added', count: 1
+
         expect(page).to have_content "ASSIGNED: 25.000.000 €"
         expect(page).to have_content "1 project selected"
 
@@ -49,13 +51,12 @@ describe "Orders", type: :feature do
 
         within ".budget-summary__progressbox" do
           expect(page).to have_content "25%"
+          expect(page).to have_selector("button.small:disabled")
         end
-
-        expect(page).to have_selector '.budget-list__data--added', count: 1
       end
     end
 
-    context "when the user has pending order" do
+    context "and has pending order" do
       let!(:order) { create(:order, user: user, feature: feature) }
       let!(:line_item) { create(:line_item, order: order, project: project) }
 
@@ -78,7 +79,7 @@ describe "Orders", type: :feature do
         expect(page).not_to have_selector '.budget-list__data--added'
       end
 
-      context "when the user try to vote a project that exceed the total budget" do
+      context "and try to vote a project that exceed the total budget" do
         let!(:expensive_project) { create(:project, feature: feature, budget: 250_000_000) }
 
         it "cannot add the project" do
@@ -89,6 +90,12 @@ describe "Orders", type: :feature do
           end
 
           expect(page).to have_css('#budget-confirm', visible: true)
+        end
+      end
+
+      context "and add another project exceeding vote threshold" do
+        it "checkouts the order" do
+          pending
         end
       end
     end

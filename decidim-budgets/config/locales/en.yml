@@ -34,11 +34,16 @@ en:
           fields:
             title: Title
       projects:
+        budget_confirm:
+          are_you_sure: Are you sure
+          cancel: Cancel
+          confirm: Confirm
+          description: Description
+          title: Title
         budget_excess:
-          budget_exceed:
-            description: Description
-            ok: Ok
-            title: Title
+          description: Description
+          ok: Ok
+          title: Title
         budget_summary:
           assigned: 'Assigned:'
           description: Description

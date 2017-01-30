@@ -8,14 +8,16 @@ FactoryGirl.define do
     manifest_name :budgets
     participatory_process
 
-    trait :with_total_budget do
+    trait :with_total_budget_and_vote_threshold_percent do
       transient do
         total_budget 100_000_000
+        vote_threshold_percent 70
       end
 
       settings do
         {
-          total_budget: total_budget
+          total_budget: total_budget,
+          vote_threshold_percent: vote_threshold_percent
         }
       end
     end

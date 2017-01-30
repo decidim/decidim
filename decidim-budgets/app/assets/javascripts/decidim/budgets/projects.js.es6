@@ -3,7 +3,7 @@
 $(() => {
   const $projects = $('#projects');
   const $budgetSummaryTotal = $('.budget-summary__total');
-  const $budgetExceedModal = $('#budget-confirm');
+  const $budgetExceedModal = $('#budget-excess');
 
   const totalBudget = $budgetSummaryTotal.data('total-budget');
 
