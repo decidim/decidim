@@ -26,7 +26,8 @@ en:
         reply: Reply
       comment_order_selector:
         order:
-          most_voted: Most voted
+          best_rated: Best rated
+          most_discussed: Most discussed
           older: Older
           recent: Recent
         title: 'Order by:'

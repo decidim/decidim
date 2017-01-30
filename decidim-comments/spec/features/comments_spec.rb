@@ -36,7 +36,7 @@ describe "Comments", type: :feature do
     visit decidim.dummy_path(participatory_process)
     page.find("div.order-by__dropdown.order-by__dropdown--right").hover
     within "div.order-by__dropdown.order-by__dropdown--right" do
-      click_link "Best Rated"
+      click_link "Best rated"
     end
 
     within "#comments" do

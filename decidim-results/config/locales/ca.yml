@@ -52,7 +52,6 @@ ca:
         index:
           title: Resultats
         show:
-          result_description: Descripció del resultat
           stats:
             attendees: Assistents
             comments: Comentaris

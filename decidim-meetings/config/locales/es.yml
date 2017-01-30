@@ -64,8 +64,7 @@ es:
         index:
           title: Lista de encuentros
           view_meeting: Ver encuentro
-        show:
-          meeting_description: Descripción del encuentro
+
       models:
         meeting:
           fields:
