@@ -31,7 +31,7 @@ ca:
             success: Trobada tancada amb èxit
           create:
             invalid: Hi ha hagut un problema en crear aquesta trobada
-            success: Reunió creada amb èxit
+            success: Trobada creada amb èxit
           destroy:
             success: La trobada s'ha eliminat correctament
           edit:
@@ -44,7 +44,7 @@ ca:
             title: Nova trobada
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta trobada
-            success: Reunió actualitzada correctament
+            success: Trobada actualitzada correctament
         models:
           meeting:
             name: Trobada
@@ -63,6 +63,7 @@ ca:
           unfold: Desplegar
         index:
           title: Llistat de trobades
+          view_meeting: Veure trobada
         show:
           meeting_description: Descripció de reunions
       models:
@@ -70,8 +71,11 @@ ca:
           fields:
             closed: Tancada
             end_time: Data de finalització
+            map: Mapa
             start_time: Data d'inici
             title: Títol
     resource_links:
+      meetings_through_proposals:
+        results: 'Resultats relacionats:'
       proposals_from_meeting:
         proposals: Propostes relacionades

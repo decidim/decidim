@@ -191,28 +191,28 @@ es:
       title: Ha habido un problema con nuestro servidor
       try_later: Por favor, vuelve a intentarlo más tarde.
     home:
-      hero:
-        welcome: Bienvenido/da %{organization}!
-        register: Regístrate
-      sub:hero:
-        register: Regístrate
-      highlighted_processes:
-        highlighted_processes: Procesos resaltados
-        active_step: Fase activa
-        see_all_processes: Ver todos los procesos
       extended:
-        how_to_participate: '¿Cómo tomo parte en un proceso?'
-        meetings: Lista de encuentros
-        meetings_explanation: Vamos a conocer, debatir y compartir lo que pensamos que es importante para nuestra ciudad.
         debates: Debates
         debates_explanation: Vamos a conocer, debatir y compartir lo que pensamos que es importante para nuestra ciudad.
+        how_to_participate: '¿Cómo tomo parte en un proceso?'
+        meetings: Encuentros
+        meetings_explanation: Vamos a conocer, debatir y compartir lo que pensamos que es importante para nuestra ciudad.
+        more_info: Más información
         proposals: Propuestas
         proposals_explanation: Espacio abierto de propuestas de los ciudadanos sobre en qué tipo de ciudad queremos vivir.
-        more_info: Más información
+      hero:
+        register: Registro
+        welcome: Bienvenido a %{organization}!
+      highlighted_processes:
+        active_step: Fase activa
+        highlighted_processes: Procesos destacados
+        see_all_processes: Ver todos los procesos
       statistics:
         headline: Estado actual de %{organization}
         processes: Procesos
         users: Usuarios
+      sub_hero:
+        register: Registro
   views:
     pagination:
       first: "&laquo; Primera"
