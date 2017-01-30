@@ -25,10 +25,14 @@ module Decidim
       end
 
       def new
+        authorize! :create, Proposal
+
         @form = form(ProposalForm).from_params({})
       end
 
       def create
+        authorize! :create, Proposal
+
         @form = form(ProposalForm).from_params(params)
 
         CreateProposal.call(@form, current_user) do

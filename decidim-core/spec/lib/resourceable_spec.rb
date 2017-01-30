@@ -57,8 +57,8 @@ module Decidim
 
           it "returns a relation scoped to the sibling feature" do
             expect(resource.sibling_scope(:dummy)).to include(target_resource)
-            expect(resource.sibling_scope(:dummy)).to_not include(resource)
-            expect(resource.sibling_scope(:dummy)).to_not include(other_resource)
+            expect(resource.sibling_scope(:dummy)).not_to include(resource)
+            expect(resource.sibling_scope(:dummy)).not_to include(other_resource)
           end
         end
       end

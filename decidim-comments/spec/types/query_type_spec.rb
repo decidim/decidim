@@ -35,7 +35,7 @@ describe Decidim::Api::QueryType do
     it "returns comments from a commentable resource" do
       expect(response["comments"]).to     include("id" => comment_1.id.to_s)
       expect(response["comments"]).to     include("id" => comment_2.id.to_s)
-      expect(response["comments"]).to_not include("id" => comment_3.id.to_s)
+      expect(response["comments"]).not_to include("id" => comment_3.id.to_s)
     end
 
     it "returns comments ordered by creation date" do

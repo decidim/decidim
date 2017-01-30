@@ -36,7 +36,7 @@ describe "Comments", type: :feature do
     visit decidim.dummy_path(participatory_process)
     page.find("div.order-by__dropdown.order-by__dropdown--right").hover
     within "div.order-by__dropdown.order-by__dropdown--right" do
-      click_link "Best Rated"
+      click_link "Best rated"
     end
 
     within "#comments" do
@@ -47,7 +47,7 @@ describe "Comments", type: :feature do
   context "when not authenticated" do
     it "user should not see the form to add comments" do
       visit decidim.dummy_path(participatory_process)
-      expect(page).to_not have_selector(".add-comment form")
+      expect(page).not_to have_selector(".add-comment form")
     end
   end
 

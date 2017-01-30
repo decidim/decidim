@@ -33,6 +33,15 @@ module Decidim
       def current_participatory_process
         request.env["decidim.current_participatory_process"]
       end
+
+      def ability_context
+        super.merge(
+          current_manifest: current_manifest,
+          current_participatory_process: current_participatory_process,
+          current_settings: current_settings,
+          feature_settings: feature_settings
+        )
+      end
     end
   end
 end

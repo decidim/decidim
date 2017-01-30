@@ -33,11 +33,11 @@ module Decidim
         end
 
         it "excludes the organization's unpublished processes" do
-          expect(subject).to_not include(*unpublished_participatory_processes)
+          expect(subject).not_to include(*unpublished_participatory_processes)
         end
 
         it "excludes other organization's published processes" do
-          expect(subject).to_not include(*foreign_participatory_processes)
+          expect(subject).not_to include(*foreign_participatory_processes)
         end
       end
 

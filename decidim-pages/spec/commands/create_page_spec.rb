@@ -5,7 +5,7 @@ module Decidim
   module Pages
     describe CreatePage, :db do
       describe "call" do
-        let(:feature) { create(:feature) }
+        let(:feature) { create(:feature, manifest_name: "pages") }
         let(:command) { described_class.new(feature) }
 
         describe "when the page is not saved" do
@@ -20,7 +20,7 @@ module Decidim
           it "doesn't create a page" do
             expect do
               command.call
-            end.to_not change { Page.count }
+            end.not_to change { Page.count }
           end
         end
 

@@ -3,7 +3,7 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe ProposalSearch do
-      let(:feature) { create(:feature) }
+      let(:feature) { create(:feature, manifest_name: "proposals") }
       let(:user) { create(:user, organization: feature.organization) }
       let!(:proposal) { create(:proposal, feature: feature)}
 
@@ -34,7 +34,7 @@ module Decidim
           other_proposal = create(:proposal)
 
           expect(subject).to include(proposal)
-          expect(subject).to_not include(other_proposal)
+          expect(subject).not_to include(other_proposal)
         end
 
         it "randomizes the order of proposals" do

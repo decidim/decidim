@@ -43,7 +43,7 @@ module Decidim
           expect(subject.avatar).to receive(:size).and_return(11.megabytes)
         end
 
-        it { is_expected.to_not be_valid }
+        it { is_expected.not_to be_valid }
       end
 
       context "when the file is a malicious image" do
@@ -54,7 +54,7 @@ module Decidim
           )
         end
 
-        it { is_expected.to_not be_valid }
+        it { is_expected.not_to be_valid }
       end
     end
   end

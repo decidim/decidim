@@ -121,7 +121,7 @@ RSpec.shared_examples "manage process steps examples" do
       end
 
       within "#steps table" do
-        expect(page).to_not have_content(translated(process_step2.title))
+        expect(page).not_to have_content(translated(process_step2.title))
       end
     end
   end

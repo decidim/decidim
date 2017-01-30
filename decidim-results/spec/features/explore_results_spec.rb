@@ -1,25 +1,25 @@
 require "spec_helper"
 
 describe "Explore results", type: :feature do
-  let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: :results }
+  include_context "feature"
+  let(:manifest_name) { "results" }
+
   let(:results_count) { 5 }
+  let!(:scope) { create :scope, organization: organization }
   let!(:results) do
     create_list(
       :result,
       results_count,
-      feature: current_feature
+      feature: feature
     )
   end
 
   before do
-    switch_to_host(organization.host)
     visit path
   end
 
   context "index" do
-    let(:path) { decidim_results.results_path(participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
+    let(:path) { decidim_results.results_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
 
     it "shows all results for the given process" do
       expect(page).to have_selector("article.card", count: results_count)
@@ -31,14 +31,13 @@ describe "Explore results", type: :feature do
   end
 
   context "show" do
-    let(:path) { decidim_results.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
+    let(:path) { decidim_results.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: feature.id) }
     let(:results_count) { 1 }
     let(:result) { results.first }
 
     it "shows all result info" do
       expect(page).to have_i18n_content(result.title)
       expect(page).to have_i18n_content(result.description)
-      expect(page).to have_i18n_content(result.short_description)
 
       within ".section.view-side" do
         expect(page).to have_content(/Proposals/i)
@@ -152,7 +151,34 @@ describe "Explore results", type: :feature do
       it "shows related meetings" do
         meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
-          expect(page).to have_i18n_content(meeting.short_description)
+          expect(page).to have_i18n_content(meeting.description)
+        end
+      end
+    end
+
+    context "when filtering" do
+      before do
+        create(:result, feature: feature, scope: scope)
+        visit_feature
+      end
+
+      context "by origin 'official'" do
+        it "lists the filtered results" do
+          within ".filters" do
+            check scope.name
+          end
+
+          expect(page).to have_css(".card--result", count: 1)
+        end
+      end
+
+      context "by origin 'citizenship'" do
+        it "lists the filtered results" do
+          within ".filters" do
+            check scope.name
+          end
+
+          expect(page).to have_css(".card--result", count: results.size)
         end
       end
     end

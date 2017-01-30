@@ -4,8 +4,8 @@ en:
     attributes:
       proposal:
         body: Body
-        category: Category
-        scope: Scope
+        category_id: Category
+        scope_id: Scope
         title: Title
         user_group_id: Create proposal as
   decidim:
@@ -14,6 +14,8 @@ en:
         name: Proposals
         settings:
           step:
+            creation_enabled: Proposal creation enabled
+            votes_blocked: Votes blocked
             votes_enabled: Votes enabled
     proposals:
       actions:
@@ -85,13 +87,15 @@ en:
           already_voted: Already voted
           no_votes_remaining: No votes remaining
           vote: Vote
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: VOTE
             other: VOTES
         votes_limit:
           vote_limit:
-            description: Instead of voting as many proposals as you want you can only vote up to %{limit} proposals.
+            description: Instead of voting as many proposals as you want you can only
+              vote up to %{limit} proposals.
             left: Remaining
             title: You have %{limit} votes to distribute
             votes: Votes

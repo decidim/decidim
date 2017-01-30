@@ -19,5 +19,13 @@ shared_examples_for "authorable" do
         expect(subject).not_to be_valid
       end
     end
+
+    context "when the author is from another organization" do
+      before do
+        subject.author = create(:user)
+      end
+
+      it { is_expected.to be_invalid }
+    end
   end
 end

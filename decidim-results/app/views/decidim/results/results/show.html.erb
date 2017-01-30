@@ -37,14 +37,9 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <%== translated_attribute result.short_description %>
+      <%== translated_attribute result.description %>
       <%= render partial: "tags", locals: { result: result } %>
     </div>
-    <div class="section">
-      <h3 class="section-heading"><%= t(".result_description") %></h3>
-      <%== translated_attribute result.description %>
-    </div>
-
     <%= linked_resources_for result, :proposals, "included_proposals" %>
     <%= linked_resources_for result, :meetings, "meetings_through_proposals" %>
   </div>

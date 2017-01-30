@@ -9,12 +9,12 @@ FactoryGirl.define do
   factory :proposal_feature, class: Decidim::Feature do
     name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :proposals).i18n_name }
     manifest_name :proposals
-    participatory_process
+    participatory_process { create(:participatory_process, :with_steps) }
 
     trait :with_votes_enabled do
       step_settings do
         {
-          participatory_process.active_step.id => { votes_enabled: true}
+          participatory_process.active_step.id => { votes_enabled: true }
         }
       end
     end
@@ -30,13 +30,34 @@ FactoryGirl.define do
         }
       end
     end
+
+    trait :with_votes_blocked do
+      step_settings do
+        {
+          participatory_process.active_step.id => {
+            votes_enabled: true,
+            votes_blocked: true
+          }
+        }
+      end
+    end
+
+    trait :with_creation_enabled do
+      step_settings do
+        {
+          participatory_process.active_step.id => { creation_enabled: true }
+        }
+      end
+    end
   end
 
   factory :proposal, class: Decidim::Proposals::Proposal do
     title { Faker::Lorem.sentence }
     body { Faker::Lorem.sentences(3).join("\n") }
-    feature
-    author { create(:user, organization: feature.organization) }
+    feature { create(:proposal_feature) }
+    author do
+      create(:user, organization: feature.organization) if feature
+    end
   end
 
   factory :proposal_vote, class: Decidim::Proposals::ProposalVote do

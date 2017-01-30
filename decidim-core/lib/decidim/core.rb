@@ -15,6 +15,9 @@ module Decidim
   autoload :Authorable, "decidim/authorable"
   autoload :Features, "decidim/features"
   autoload :HasAttachments, "decidim/has_attachments"
+  autoload :HasFeature, "decidim/has_feature"
+  autoload :HasScope, "decidim/has_scope"
+  autoload :HasCategory, "decidim/has_category"
 
   include ActiveSupport::Configurable
 
@@ -68,6 +71,11 @@ module Decidim
 
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
+
+  # Exposes a configuration option: The maximum file size of an attachment.
+  config_accessor :maximum_attachment_size do
+    10.megabytes
+  end
 
   # Public: Registers a feature, usually held in an external library or in a
   # separate folder in the main repository. Exposes a DSL defined by

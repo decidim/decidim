@@ -17,6 +17,11 @@ module Decidim
     attribute :name, Symbol
     attribute :hooks, Hash[Symbol => Array[Proc]], default: {}
 
+    # A path with the `scss` stylesheet this engine provides. It is used to
+    # mix this engine's stylesheets with the main app's stylesheets so it can
+    # use the scss variables and mixins provided by Decidim::Core.
+    attribute :stylesheet, String, default: nil
+
     # A String with the feature's icon. The icon must be stored in the
     # engine's assets path.
     attribute :icon, String
@@ -104,10 +109,10 @@ module Decidim
     # block - A Block that will be called to set the Resource attributes.
     #
     # Returns nothing.
-    def register_resource(&block)
+    def register_resource
       manifest = ResourceManifest.new
       manifest.feature_manifest = self
-      block.call(manifest)
+      yield(manifest)
       manifest.validate!
       resource_manifests << manifest
     end

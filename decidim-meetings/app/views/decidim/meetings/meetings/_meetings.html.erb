@@ -7,7 +7,7 @@
             <h5 class="card__title"><%= translated_attribute meeting.title %></h5>
           <% end %>
           <%= render partial: "datetime", locals: { meeting: meeting } %>
-          <%== translated_attribute meeting.short_description %>
+          <%== translated_attribute meeting.description %>
           <%= render partial: "tags", locals: { meeting: meeting } %>
           <div class="address card__extra">
             <div class="address__icon">

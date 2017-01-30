@@ -34,7 +34,6 @@ module Decidim
             category: @form.category,
             feature: @form.current_feature,
             title: @form.title,
-            short_description: @form.short_description,
             description: @form.description
           )
         end

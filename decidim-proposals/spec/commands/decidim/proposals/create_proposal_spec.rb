@@ -7,7 +7,7 @@ module Decidim
       describe "call" do
         let(:organization) { create(:organization) }
         let(:participatory_process) { create :participatory_process, organization: organization }
-        let(:feature) { create(:feature, participatory_process: participatory_process) }
+        let(:feature) { create(:feature, participatory_process: participatory_process, manifest_name: "proposals") }
         let(:form_params) do
           {
             title: "Proposal title",
@@ -44,7 +44,7 @@ module Decidim
           it "doesn't create a proposal" do
             expect do
               command.call
-            end.to_not change { Proposal.count }
+            end.not_to change { Proposal.count }
           end
         end
 

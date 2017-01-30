@@ -33,7 +33,7 @@
           <div id="proposal-<%= proposal.id %>-vote-button"> 
             <%= render partial: "vote_button", locals: { proposal: proposal, from_proposals_list: true } %>
           </div>
-        <% else %>
+        <% elsif !current_settings.votes_enabled? || current_settings.votes_enabled? && current_settings.votes_blocked? %>
           <div class="card__support__data"></div>
           <%= link_to t(".view_proposal"), proposal, class: "card__button button small secondary" %>  
         <% end %>

@@ -42,6 +42,10 @@ en:
           fields:
             title: Title
       results:
+        count:
+          results_count:
+            one: 1 result
+            other: "%{count} results"
         filters:
           category: Category
           scopes: Scopes
@@ -49,7 +53,6 @@ en:
         index:
           title: Results
         show:
-          result_description: Result description
           stats:
             attendees: Attendees
             comments: Comments

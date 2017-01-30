@@ -72,7 +72,7 @@ describe "Organization scopes", type: :feature do
         end
 
         within "table" do
-          expect(page).to_not have_content(scope.name)
+          expect(page).not_to have_content(scope.name)
         end
       end
     end

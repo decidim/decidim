@@ -13,7 +13,7 @@ module Decidim
       )
     end
     let(:ability) do
-      Decidim::Admin::Abilities::AdminUser.new(build(:user, :admin))
+      Decidim::Admin::Abilities::AdminUser.new(build(:user, :admin), {})
     end
 
     before do
@@ -24,7 +24,7 @@ module Decidim
 
     context "with a default static page" do
       let(:slug) { Decidim::StaticPage::DEFAULT_PAGES.sample }
-      it { is_expected.to_not include("slug") }
+      it { is_expected.not_to include("slug") }
     end
 
     context "with a normal static page" do
