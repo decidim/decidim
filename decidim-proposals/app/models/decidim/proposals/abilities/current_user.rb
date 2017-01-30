@@ -16,7 +16,7 @@ module Decidim
           @context = context
 
           can :vote, Proposal do |_proposal|
-            voting_enabled && remaining_votes.positive?
+            voting_enabled? && remaining_votes.positive?
           end
 
           can :unvote, Proposal do |_proposal|

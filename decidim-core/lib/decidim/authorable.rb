@@ -8,7 +8,6 @@ module Decidim
       belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
       belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: Decidim::UserGroup
 
-      validates :author, presence: true
       validate :verified_user_group, :user_group_membership
       validate :author_belongs_to_organization
 

@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Meetings
     describe Meeting do
-      let(:address) { Faker::Lorem.sentence(3) }
+      let(:address) { ::Faker::Lorem.sentence(3) }
       let(:meeting) { build :meeting, address: address }
 
       subject { meeting }

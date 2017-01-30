@@ -81,7 +81,7 @@ describe "Proposals", type: :feature do
 
       context "when creation is not enabled" do
         it "does not show the creation button" do
-          expect(page).not_to have_content("New proposal")
+          expect(page).to have_no_link("New proposal")
         end
       end
     end

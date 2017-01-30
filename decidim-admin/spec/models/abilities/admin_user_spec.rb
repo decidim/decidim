@@ -4,7 +4,7 @@ require "spec_helper"
 describe Decidim::Admin::Abilities::AdminUser do
   let(:user) { build(:user, :admin) }
 
-  subject { described_class.new(user) }
+  subject { described_class.new(user, {}) }
 
   context "when the user is not an admin" do
     let(:user) { build(:user) }
