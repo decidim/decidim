@@ -2,9 +2,9 @@
 module Decidim
   module Proposals
     module Abilities
-      # Defines the base abilities for any user. Guest users will use these too.
+      # Defines the abilities related to proposals for a logged in user.
       # Intended to be used with `cancancan`.
-      class Everyone
+      class CurrentUser
         include CanCan::Ability
 
         attr_reader :user, :context
