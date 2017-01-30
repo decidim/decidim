@@ -192,28 +192,28 @@ en:
       title: There was a problem with our server
       try_later: Please try again later.
     home:
-      hero:
-        welcome: Welcome to %{organization}!
-        register: Register
-      sub_hero:
-        register: Register
-      highlighted_processes:
-        highlighted_processes: Highlighted processes
-        active_step: Active step
-        see_all_processes: See all processes
       extended:
+        debates: Debates
+        debates_explanation: Let's meet, debate and share what we think it's important for our city.
         how_to_participate: How do I take part in a process?
         meetings: Meetings
         meetings_explanation: Let's meet, debate and share what we think it's important for our city.
+        more_info: More info
         proposals: Proposals
         proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
-        debates: Debates
-        debates_explanation: Let's meet, debate and share what we think it's important for our city.
-        more_info: More info
+      hero:
+        register: Register
+        welcome: Welcome to %{organization}!
+      highlighted_processes:
+        active_step: Active step
+        highlighted_processes: Highlighted processes
+        see_all_processes: See all processes
       statistics:
         headline: Current state of %{organization}
         processes: Processes
         users: Users
+      sub_hero:
+        register: Register
   views:
     pagination:
       first: "&laquo; First"
