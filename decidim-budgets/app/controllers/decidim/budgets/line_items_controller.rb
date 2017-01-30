@@ -9,32 +9,34 @@ module Decidim
       helper_method :project
 
       def create
-        order.projects << project
-        save_order!
+        AddLineItem.call(current_order, project, current_user) do
+          on(:ok) do |order|
+            self.current_order = order
+            render 'update_budget'
+          end
+
+          on(:invalid) do
+            render nothing: true, status: 422
+          end
+        end
       end
 
       def destroy
-        order.projects.destroy(project)
-        save_order!
+        RemoveLineItem.call(current_order, project) do
+          on(:ok) do |order|
+            render 'update_budget'
+          end
+
+          on(:invalid) do
+            render nothing: true, status: 422
+          end
+        end
       end
 
       private
 
       def project
         @project ||= Project.where(id: params[:project_id], feature: current_feature).first
-      end
-
-      def order
-        @order ||= (current_order || Order.create(user: current_user, feature: current_feature))
-      end
-
-      def save_order!
-        if order.save
-          self.current_order = order
-          render 'update_budget'
-        else
-          render nothing: true, status: 422
-        end
       end
     end
   end
