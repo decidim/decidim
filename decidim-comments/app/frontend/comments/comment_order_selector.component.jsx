@@ -28,7 +28,7 @@ class CommentOrderSelector extends Component {
         <span className="order-by__text">{ I18n.t("components.comment_order_selector.title") }</span>
         <ul className="dropdown menu" data-dropdown-menu>
           <li>
-            <a>{ I18n.t(`components.comment_order_selector.${orderBy}`) }</a>
+            <a>{ I18n.t(`components.comment_order_selector.order.${orderBy}`) }</a>
             <ul className="menu">
               <li>
                 <a href="" className="test" onClick={(event) => this._updateOrder(event, "best_rated")} >
