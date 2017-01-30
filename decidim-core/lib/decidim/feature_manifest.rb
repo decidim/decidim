@@ -104,10 +104,10 @@ module Decidim
     # block - A Block that will be called to set the Resource attributes.
     #
     # Returns nothing.
-    def register_resource(&block)
+    def register_resource
       manifest = ResourceManifest.new
       manifest.feature_manifest = self
-      block.call(manifest)
+      yield(manifest)
       manifest.validate!
       resource_manifests << manifest
     end

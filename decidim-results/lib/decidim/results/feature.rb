@@ -42,9 +42,6 @@ Decidim.register_feature(:results) do |feature|
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
-          end,
-          short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
           end
         )
 

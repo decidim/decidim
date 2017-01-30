@@ -49,7 +49,7 @@ RSpec.shared_examples "manage process admins examples" do
       end
 
       within "#process_admins table" do
-        expect(page).to_not have_content(other_user.email)
+        expect(page).not_to have_content(other_user.email)
       end
     end
   end

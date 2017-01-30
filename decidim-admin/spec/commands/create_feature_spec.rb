@@ -37,7 +37,7 @@ module Decidim
             CreateFeature.call(manifest, form, participatory_process)
           }.to broadcast(:ok)
 
-          expect(participatory_process.features).to_not be_empty
+          expect(participatory_process.features).not_to be_empty
 
           feature = participatory_process.features.first
           expect(feature.settings.dummy_global_attribute_1).to eq(true)

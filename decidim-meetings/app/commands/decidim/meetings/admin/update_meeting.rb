@@ -34,7 +34,6 @@ module Decidim
             scope: @form.scope,
             category: @form.category,
             title: @form.title,
-            short_description: @form.short_description,
             description: @form.description,
             end_time: @form.end_time,
             start_time: @form.start_time,

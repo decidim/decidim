@@ -12,11 +12,16 @@ module Decidim
     validates :avatar, file_size: { less_than_or_equal_to: 5.megabytes }
     mount_uploader :avatar, Decidim::AvatarUploader
 
-    scope :verified, -> { where(verified: true) }
+    scope :verified, -> { where.not(verified_at: nil) }
 
     # Public: Mark the user group as verified
     def verify!
-      update_attribute(:verified, true)
+      update_attribute(:verified_at, Time.current)
+    end
+
+    # Public: Checks if the user group is verified.
+    def verified?
+      verified_at.present?
     end
   end
 end

@@ -54,7 +54,7 @@ module Decidim
           it "doesn't create a comment" do
             expect do
               command.call
-            end.to_not change { User.count }
+            end.not_to change { User.count }
           end
         end
 
@@ -71,7 +71,7 @@ module Decidim
             end.to change { User.count }.by(1)
 
             user = User.find_by_email(form.email)
-            expect(user.encrypted_password).to_not be_nil
+            expect(user.encrypted_password).not_to be_nil
             expect(user.email).to eq(form.email)
             expect(user.organization).to eq(organization)
             expect(user).to be_confirmed

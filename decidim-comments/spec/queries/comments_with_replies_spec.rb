@@ -20,7 +20,7 @@ describe Decidim::Comments::CommentsWithReplies do
       expect(comment.author.name).to be_present
       expect(comment.up_votes.size).to eq(0)
       expect(comment.down_votes.size).to eq(0)        
-    }.to_not make_database_queries
+    }.not_to make_database_queries
   end
 
   it "eager loads a comment tree based on the MAX_DEPTH" do
@@ -39,7 +39,7 @@ describe Decidim::Comments::CommentsWithReplies do
       expect(comment.author.name).to be_present
       expect(comment.up_votes.size).to eq(0)
       expect(comment.down_votes.size).to eq(0)
-    }.to_not make_database_queries
+    }.not_to make_database_queries
   end
 
   it "return the comments ordered by created_at asc by default" do

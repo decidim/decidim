@@ -125,7 +125,7 @@ FactoryGirl.define do
     avatar { test_file("avatar.jpg", "image/jpeg") }
 
     trait :verified do
-      verified { true }
+      verified_at { Time.current }
     end
   end
 

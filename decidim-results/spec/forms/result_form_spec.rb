@@ -11,14 +11,11 @@ describe Decidim::Results::Admin::ResultForm do
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_process: participatory_process }
+  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "results" }
   let(:title) do
     Decidim::Faker::Localized.sentence(3)
   end
   let(:description) do
-    Decidim::Faker::Localized.sentence(3)
-  end
-  let(:short_description) do
     Decidim::Faker::Localized.sentence(3)
   end
   let(:scope) { create :scope, organization: organization }
@@ -31,7 +28,6 @@ describe Decidim::Results::Admin::ResultForm do
       decidim_category_id: category_id,
       title_en: title[:en],
       description_en: description[:en],
-      short_description_en: short_description[:en]
     }
   end
 
@@ -47,12 +43,6 @@ describe Decidim::Results::Admin::ResultForm do
 
   describe "when description is missing" do
     let(:description) { { en: nil } }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when short_description is missing" do
-    let(:short_description) { { en: nil } }
 
     it { is_expected.not_to be_valid }
   end

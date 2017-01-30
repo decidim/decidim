@@ -8,14 +8,12 @@ module Decidim
         include TranslationsHelper
 
         translatable_attribute :title, String
-        translatable_attribute :short_description, String
         translatable_attribute :description, String
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
         attribute :proposal_ids, Array[Integer]
 
         validates :title, translatable_presence: true
-        validates :short_description, translatable_presence: true
         validates :description, translatable_presence: true
 
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }

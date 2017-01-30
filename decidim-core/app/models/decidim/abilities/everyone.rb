@@ -6,7 +6,7 @@ module Decidim
     class Everyone
       include CanCan::Ability
 
-      def initialize(user)
+      def initialize(user, _context)
         can :read, ParticipatoryProcess, &:published?
         can :read, :public_pages
         can :manage, :locales

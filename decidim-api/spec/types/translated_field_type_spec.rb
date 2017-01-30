@@ -40,7 +40,7 @@ module Decidim
           it "returns the translations on the provided locales" do
             translations = response["translations"]
             expect(translations).to include({ "locale" => "ca", "text" => "Hola"})
-            expect(translations).to_not include({ "locale" => "en", "text" => "Hello"})
+            expect(translations).not_to include({ "locale" => "en", "text" => "Hello"})
           end
         end
       end

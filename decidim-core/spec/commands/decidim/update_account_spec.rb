@@ -74,7 +74,7 @@ module Decidim
 
         it "updates the avatar" do
           command.call
-          expect(user.reload.avatar).to_not be_blank
+          expect(user.reload.avatar).not_to be_blank
         end
       end
 

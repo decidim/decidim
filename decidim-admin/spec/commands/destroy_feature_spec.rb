@@ -9,7 +9,7 @@ module Decidim
       context "when everything is ok" do
         it "destroys the feature" do
           subject.call
-          expect(Feature.where(id: feature.id)).to_not exist
+          expect(Feature.where(id: feature.id)).not_to exist
         end
 
         it "fires the hooks" do
@@ -23,7 +23,7 @@ module Decidim
 
           feature = results[:feature]
           expect(feature.id).to eq(feature.id)
-          expect(feature).to_not be_persisted
+          expect(feature).not_to be_persisted
         end
       end
     end

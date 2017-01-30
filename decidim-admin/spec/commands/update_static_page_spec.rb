@@ -29,7 +29,7 @@ module Decidim
             command.call
             page.reload
 
-            expect(page.slug).to_not eq("new_slug")
+            expect(page.slug).not_to eq("new_slug")
           end
         end
 

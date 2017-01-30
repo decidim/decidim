@@ -15,12 +15,12 @@ module Decidim
         build(:participatory_process_step, start_date: 2.months.from_now, end_date: 1.month.ago)
       end
 
-      it { is_expected.to_not be_valid }
+      it { is_expected.not_to be_valid }
 
       it "has an error in end_date" do
         subject.valid?
 
-        expect(subject.errors[:end_date]).to_not be_empty
+        expect(subject.errors[:end_date]).not_to be_empty
       end
     end
 
@@ -43,7 +43,7 @@ module Decidim
           build(:participatory_process_step, :active, participatory_process: active_step.participatory_process)
         end
 
-        it { is_expected.to_not be_valid }
+        it { is_expected.not_to be_valid }
       end
 
       context "with multiple inactive steps" do
@@ -99,7 +99,7 @@ module Decidim
             let(:position) { 3 }
 
             it "does not let two steps to have the same position" do
-              expect(subject).to_not be_valid
+              expect(subject).not_to be_valid
             end
           end
         end

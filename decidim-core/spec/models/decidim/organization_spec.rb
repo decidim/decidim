@@ -33,7 +33,7 @@ module Decidim
           )
         end
 
-        it { is_expected.to_not be_valid }
+        it { is_expected.not_to be_valid }
       end
     end
   end

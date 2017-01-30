@@ -47,7 +47,7 @@ describe "Comments", type: :feature do
   context "when not authenticated" do
     it "user should not see the form to add comments" do
       visit decidim.dummy_path(participatory_process)
-      expect(page).to_not have_selector(".add-comment form")
+      expect(page).not_to have_selector(".add-comment form")
     end
   end
 

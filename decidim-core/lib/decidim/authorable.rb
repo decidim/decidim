@@ -9,6 +9,7 @@ module Decidim
       belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: Decidim::UserGroup
 
       validate :verified_user_group, :user_group_membership
+      validate :author_belongs_to_organization
 
       private
 
@@ -20,6 +21,11 @@ module Decidim
       def user_group_membership
         return unless user_group
         errors.add :user_group, :invalid unless user_group.users.include? author
+      end
+
+      def author_belongs_to_organization
+        return if !author || !organization
+        errors.add(:author, :invalid) unless author.organization == organization
       end
     end
   end

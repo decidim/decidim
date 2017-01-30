@@ -10,6 +10,10 @@
   <% else %>
     <% if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0 %>
       <%= button_to t('.no_votes_remaining'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)}", disabled: true %>
+    <% elsif current_settings.votes_blocked? %>
+      <button class="card__button button <%= vote_button_classes(from_proposals_list) %> disabled">
+        <%= t('.votes_blocked') %>
+      </button>
     <% else %>
       <%= button_to t('.vote'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)}" %>
     <% end %>

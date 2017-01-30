@@ -10,7 +10,7 @@ describe Decidim do
     end
 
     it "actually seeds" do
-      expect { described_class.seed! }.to_not raise_error
+      expect { described_class.seed! }.not_to raise_error
     end
   end
 end

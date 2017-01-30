@@ -33,7 +33,7 @@ module Decidim
       end
 
       def ability
-        Decidim::Admin::Abilities::Base.new(user)
+        Decidim::Admin::Abilities::Base.new(user, current_organization: organization)
       end
     end
   end

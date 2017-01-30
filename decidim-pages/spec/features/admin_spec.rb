@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Edit a page", type: :feature do
   include_context "feature admin"
+  let(:feature) { create(:feature, manifest_name: "pages", participatory_process: participatory_process) }
   let(:manifest_name) { "pages" }
 
   describe "admin page" do

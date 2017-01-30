@@ -11,8 +11,8 @@ describe "Vote Proposal", type: :feature do
 
   let!(:feature) do
     create(:proposal_feature,
-           manifest: manifest,
-           participatory_process: participatory_process)
+      manifest: manifest,
+      participatory_process: participatory_process)
   end
 
   context "when votes are not enabled" do
@@ -25,9 +25,9 @@ describe "Vote Proposal", type: :feature do
   context "when votes are enabled" do
     let!(:feature) do
       create(:proposal_feature,
-            :with_votes_enabled,
-            manifest: manifest,
-            participatory_process: participatory_process)
+        :with_votes_enabled,
+        manifest: manifest,
+        participatory_process: participatory_process)
     end
 
     context "when the user is not logged in" do
@@ -84,11 +84,11 @@ describe "Vote Proposal", type: :feature do
 
         let!(:feature) do
           create(:proposal_feature,
-                :with_votes_enabled,
-                :with_vote_limit,
-                vote_limit: vote_limit,
-                manifest: manifest,
-                participatory_process: participatory_process)
+            :with_votes_enabled,
+            :with_vote_limit,
+            vote_limit: vote_limit,
+            manifest: manifest,
+            participatory_process: participatory_process)
         end
 
         context "when the proposal is not voted yet" do
@@ -118,7 +118,7 @@ describe "Vote Proposal", type: :feature do
           end
         end
 
-         context "when the user has reached the votes limit" do
+        context "when the user has reached the votes limit" do
           let(:vote_limit) { 1 }
 
           before do
@@ -128,6 +128,20 @@ describe "Vote Proposal", type: :feature do
 
           it "should not be able to vote other proposals" do
             expect(page).to have_css('.card__button[disabled]', count: 2)
+          end
+
+          context "when votes are blocked" do
+            let!(:feature) do
+              create(:proposal_feature,
+                :with_votes_blocked,
+                manifest: manifest,
+                participatory_process: participatory_process)
+            end
+
+            it "shows the vote count but not the vote button" do
+              expect(page).to have_css('.card__support__data', text: "1 VOTE")
+              expect(page).to have_content("Voting disabled")
+            end
           end
         end
       end

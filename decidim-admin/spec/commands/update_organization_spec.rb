@@ -44,7 +44,7 @@ module Decidim
             command.call
             organization.reload
 
-            expect(organization.name).to_not eq("My super organization")
+            expect(organization.name).not_to eq("My super organization")
           end
         end
 

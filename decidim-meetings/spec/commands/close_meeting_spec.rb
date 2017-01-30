@@ -36,8 +36,8 @@ describe Decidim::Meetings::Admin::CloseMeeting do
     end
 
     it "doesn't perform any other action" do
-      expect(meeting).to_not receive(:update_attributes!)
-      expect(Decidim::ResourceLink).to_not receive(:create!)
+      expect(meeting).not_to receive(:update_attributes!)
+      expect(Decidim::ResourceLink).not_to receive(:create!)
 
       subject.call
     end
@@ -63,7 +63,7 @@ describe Decidim::Meetings::Admin::CloseMeeting do
         subject.call
 
         expect(meeting.linked_resources(:proposals, "proposals_from_meeting").length).to eq(3)
-        expect(meeting.linked_resources(:proposals, "proposals_from_meeting")).to_not match_array(previous_proposals)
+        expect(meeting.linked_resources(:proposals, "proposals_from_meeting")).not_to match_array(previous_proposals)
         expect(meeting.linked_resources(:proposals, "proposals_from_meeting")).to match_array(proposals)
       end
     end

@@ -19,6 +19,7 @@ module Decidim
       create(:user_group_membership, user: subject, user_group: user_group)
       expect(subject.user_groups).to eq([user_group])
     end
+
     context "with roles" do
       let(:user) { build(:user, :admin) }
 
@@ -27,8 +28,27 @@ module Decidim
       context "with an invalid role" do
         let(:user) { build(:user, roles: ["foo"]) }
 
-        it { is_expected.to_not be_valid }
+        it { is_expected.not_to be_valid }
       end
+    end
+
+    describe "name" do
+      context "when it has a name" do
+        let(:user) { build(:user, name: "Oriol") }
+
+        it "returns the name" do
+          expect(user.name).to eq("Oriol")
+        end
+      end
+
+      context "when it doesn't have a name" do
+        let(:user) { build(:user, name: nil) }
+
+        it "returns anonymous" do
+          expect(user.name).to eq("Anonymous")
+        end
+      end
+
     end
 
     describe "validations" do
@@ -41,7 +61,7 @@ module Decidim
           expect(subject.avatar).to receive(:size).and_return(11.megabytes)
         end
 
-        it { is_expected.to_not be_valid }
+        it { is_expected.not_to be_valid }
       end
 
       context "when the file is a malicious image" do
@@ -52,7 +72,7 @@ module Decidim
           )
         end
 
-        it { is_expected.to_not be_valid }
+        it { is_expected.not_to be_valid }
       end
     end
 

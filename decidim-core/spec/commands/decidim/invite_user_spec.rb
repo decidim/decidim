@@ -25,7 +25,7 @@ module Decidim
       it "does not create another user" do
         expect do
           command.call
-        end.to_not change { User.count }
+        end.not_to change { User.count }
       end
 
       it "broadcasts ok and the user" do

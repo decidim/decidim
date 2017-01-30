@@ -70,7 +70,7 @@ module Decidim
 
         expect(settings.attributes).to include(something_enabled: true)
         expect(settings.attributes).to include(comments_enabled: false)
-        expect(settings.attributes).to_not include(invalid_option: true)
+        expect(settings.attributes).not_to include(invalid_option: true)
       end
     end
   end

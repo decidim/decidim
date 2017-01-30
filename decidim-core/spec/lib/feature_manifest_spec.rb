@@ -39,7 +39,7 @@ module Decidim
           subject.run_hooks(:foo, context)
           expect(context[:foo_1]).to eq(1)
           expect(context[:foo_2]).to eq(1)
-          expect(context[:bar]).to_not be
+          expect(context[:bar]).not_to be
         end
       end
 
@@ -50,7 +50,7 @@ module Decidim
           end
 
           subject.reset_hooks!
-          expect { subject.run_hooks(:foo) }.to_not raise_error
+          expect { subject.run_hooks(:foo) }.not_to raise_error
         end
       end
     end

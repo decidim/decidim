@@ -70,7 +70,7 @@ RSpec.shared_examples "manage attachments examples" do
       expect(page).to have_content("successfully")
     end
 
-    expect(page).to_not have_content(translated(attachment.title, locale: :en))
+    expect(page).not_to have_content(translated(attachment.title, locale: :en))
   end
 
   it "can update an attachment" do

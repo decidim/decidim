@@ -30,7 +30,6 @@ describe Decidim::Results::Admin::UpdateResult do
       :invalid? => invalid,
       title: {en: "title"},
       description: {en: "description"},
-      short_description: {en: "short_description"},
       proposal_ids: proposals.map(&:id),
       scope: scope,
       category: category

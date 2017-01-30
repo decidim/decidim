@@ -46,6 +46,10 @@ module Decidim
       roles.include?(role.to_s)
     end
 
+    def name
+      super || I18n.t("decidim.anonymous_user")
+    end
+
     private
 
     def all_roles_are_valid
