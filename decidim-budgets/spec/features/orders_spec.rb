@@ -24,7 +24,7 @@ describe "Orders", type: :feature do
 
     context "when the user has not a pending order" do
       it "adds a project to the current order" do
-        within "#project-#{project.id}-data" do
+        within "#project-#{project.id}-item" do
           page.find('.budget--list__action').click
         end
 
@@ -32,11 +32,38 @@ describe "Orders", type: :feature do
         expect(page).to have_content "1 project selected"
 
         within ".budget-summary__selected" do
-          expect(page).to have_content project.title
+          expect(page).to have_content project.title[I18n.locale]
         end
 
-        expect(page).to have_selector ".budget-progress[aria-valuenow=25]"
+        within ".budget-summary__progressbox" do
+          expect(page).to have_content "25%"
+        end
+
         expect(page).to have_selector '.budget-list__data--added', count: 1
+      end
+    end
+
+    context "when the user has pending order" do
+      let!(:order) { create(:order, user: user, feature: feature) }
+      let!(:line_item) { create(:line_item, order: order, project: project) }
+
+      it "removes a project from the current order" do
+        visit_feature
+        expect(page).to have_content "ASSIGNED: 25.000.000 €"
+
+        within "#project-#{project.id}-item" do
+          page.find('.budget--list__action').click
+        end
+
+        expect(page).to have_content "ASSIGNED: 0 €"
+        expect(page).not_to have_content "1 project selected"
+        expect(page).not_to have_selector ".budget-summary__selected"
+
+        within ".budget-summary__progressbox" do
+          expect(page).to have_content "0%"
+        end
+
+        expect(page).not_to have_selector '.budget-list__data--added'
       end
     end
   end

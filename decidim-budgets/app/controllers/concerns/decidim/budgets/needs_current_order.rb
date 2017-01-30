@@ -5,7 +5,7 @@ require "active_support/concern"
 module Decidim
   module Budgets
     # Shared behaviour for controllers that need the current order to be present.
-    module NeedsOrganization
+    module NeedsCurrentOrder
       extend ActiveSupport::Concern
 
       included do
@@ -15,7 +15,11 @@ module Decidim
         #
         # Returns an Order.
         def current_order
-          @current_order ||= Order.find_or_create_by(user: current_user, feature: current_feature)
+          @current_order ||= Order.find_by(user: current_user, feature: current_feature)
+        end
+
+        def current_order=(order)
+          @current_order = order
         end
       end
     end

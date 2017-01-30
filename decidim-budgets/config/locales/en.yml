@@ -38,19 +38,27 @@ en:
           assigned: 'Assigned:'
           description: Description
           title: Title
-          vote: Vote
         count:
           projects_count:
             one: 1 project
             other: "%{count} projects"
-        data:
-          add: Add
         filters:
           category: Category
           scopes: Scopes
           search: Search
         index:
           title: Title
+        order_progress:
+          vote: Vote
+        order_selected_projects:
+          remove: Remove
+          selected_projects:
+            one: project selected
+            other: projects selected
+          view: View
+        project:
+          add: Add
+          remove: Remove
         show:
           add: Add
           budget: Budget

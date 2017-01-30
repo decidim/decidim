@@ -1,6 +1,6 @@
 <% content_for(:title, t(".title")) %>
 
-<% if current_order.present? %>
+<% if current_user.present? %>
   <div class="row column">
     <%= render partial: "budget_summary", locals: { include_heading: true } %>
   </div>

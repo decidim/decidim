@@ -13,7 +13,7 @@ module Decidim
       routes do
         resources :projects, only: [:index, :show]
         resource :order, only: [] do
-          resources :line_items, only: [:create, :delete]
+          resource :line_item, only: [:create, :destroy]
         end
 
         root to: "projects#index"

@@ -1,1 +1,1 @@
-<%= budget_to_currency current_order.total_budget %>
+<%= budget_to_currency current_order ? current_order.total_budget : 0 %>

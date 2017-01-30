@@ -1,16 +1,7 @@
 <div class="card card--list budget-list">
   <% projects.each do |project| %>
-    <div class="card--list__item">
-      <div class="card--list__text">
-        <%= link_to project, class: "card__link" do %>
-          <h5 class="card__title budget-list__title">
-            <%= translated_attribute project.title %>
-          </h5>
-        <% end %>
-      </div>
-      <div id="project-<%= project.id %>-data" class="card--list__data budget-list__data">
-        <%= render partial: "data", locals: { project: project } %>
-      </div>
+    <div id="project-<%= project.id %>-item" class="card--list__item">
+      <%= render partial: 'project', locals: { project: project } %>
     </div>
   <% end %>
 </div>

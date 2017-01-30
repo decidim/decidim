@@ -8,10 +8,15 @@ module Decidim
       belongs_to :feature, class_name: Decidim::Feature, foreign_key: "decidim_feature_id"
 
       has_many :projects, through: :line_items, class_name: Decidim::Budgets::Project, foreign_key: "decidim_project_id"
-      has_many :line_items, class_name: Decidim::Budgets::LineItem, foreign_key: "decidim_order_id"
+      has_many :line_items, class_name: Decidim::Budgets::LineItem, foreign_key: "decidim_order_id", dependent: :destroy
 
-      validates :user, presence: true, uniqueness: { scope: :feature }
+      # validates :user, presence: true, uniqueness: { scope: :feature }
       validates :feature, presence: true
+
+      # Public: Returns the sum of project budgets
+      def total_budget
+        projects.sum(&:budget)
+      end
     end
   end
 end

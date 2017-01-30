@@ -6,14 +6,16 @@ module Decidim
     class LineItemsController < Decidim::Budgets::ApplicationController
       include NeedsCurrentOrder
 
+      helper_method :project
+
       def create
-        current_order.projects << project
-        save_current_order!
+        order.projects << project
+        save_order!
       end
 
       def destroy
-        current_order.projects.destroy(project)
-        save_current_order!
+        order.projects.destroy(project)
+        save_order!
       end
 
       private
@@ -22,8 +24,13 @@ module Decidim
         @project ||= Project.where(id: params[:project_id], feature: current_feature).first
       end
 
-      def save_current_order!
-        if current_order.save
+      def order
+        @order ||= (current_order || Order.create(user: current_user, feature: current_feature))
+      end
+
+      def save_order!
+        if order.save
+          self.current_order = order
           render 'update_budget'
         else
           render nothing: true, status: 422

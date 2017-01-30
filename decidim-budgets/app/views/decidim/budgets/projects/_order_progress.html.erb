@@ -1,0 +1,29 @@
+<!-- Initially visible Progressbox -->
+<div class="budget-summary__progressbox">
+  <!--Change de aria-valuenow and aria-valuetext dynamically. Set a minimum in aria-valuenmin.-->
+  <div class="progress budget-progress" role="progressbar" tabindex="0" aria-valuenow="<%= current_order_total_budget_percentage %>" aria-valuemin="75" aria-valuetext="<%= current_order_total_budget_percentage %>%" aria-valuemax="100">
+    <!-- Set minimum in the style="width:"-->
+    <div class="progress-meter progress-meter--minimum" style="width: <%= 100 - current_order_total_budget_percentage %>%"></div>
+    <!--Change width and text dynamically.-->
+    <div class="progress-meter budget-progress__meter" style="width: <%= current_order_total_budget_percentage %>%">
+      <p class="progress-meter-text progress-meter-text--right"><%= current_order_total_budget_percentage %>%</p>
+    </div>
+  </div>
+  <button class="button small button--sc" disabled><%= t('.vote') %></button>
+</div>
+
+<!-- Clone/fixed Progressbox -->
+<div class="progressbox-fixed-wrapper" data-progressbox-fixed>
+  <div class="budget-summary__progressbox budget-summary__progressbox--fixed">
+    <!--Change de aria-valuenow and aria-valuetext dynamically. Set a minimum in aria-valuenmin.-->
+    <div class="progress budget-progress budget-progress--fixed" role="progressbar" tabindex="0" aria-valuenow="<%= current_order_total_budget_percentage %>" aria-valuemin="75" aria-valuetext="<%= current_order_total_budget_percentage %>%" aria-valuemax="100">
+      <!-- Set minimum in the style="width:"-->
+      <div class="progress-meter progress-meter--minimum" style="width: <%= 100 - current_order_total_budget_percentage %>%"></div>
+      <!--Change width and text dynamically.-->
+      <div class="progress-meter budget-progress__meter" style="width: <%= current_order_total_budget_percentage %>%">
+        <p class="progress-meter-text progress-meter-text--right"><%= current_order_total_budget_percentage %>%</p>
+      </div>
+    </div>
+    <button class="button small button--sc" disabled><%= t('.vote') %></button>
+  </div>
+</div>

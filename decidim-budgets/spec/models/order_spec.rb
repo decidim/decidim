@@ -27,4 +27,12 @@ describe Decidim::Budgets::Order do
       expect(new_order).to be_invalid
     end
   end
+
+  describe "#total_budget" do
+    it "returns the sum of project budgets" do
+      subject.projects << build(:project, feature: subject.feature)
+
+      expect(subject.total_budget).to eq(subject.projects.sum(&:budget))
+    end
+  end
 end

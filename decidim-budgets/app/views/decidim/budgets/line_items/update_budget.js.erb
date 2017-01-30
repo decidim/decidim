@@ -1,0 +1,11 @@
+var $orderTotalBudget = $('#order-total-budget');
+var $orderSelectedProjects = $('#order-selected-projects');
+var $orderProgress = $('#order-progress');
+var $projectItem = $('#project-<%= project.id %>-item');
+
+$orderTotalBudget.html('<%= j(render partial: 'decidim/budgets/projects/order_total_budget') %>');
+$orderSelectedProjects.html('<%= j(render partial: 'decidim/budgets/projects/order_selected_projects') %>');
+$orderProgress.html('<%= j(render partial: 'decidim/budgets/projects/order_progress') %>');
+$projectItem.html('<%= j(render partial: 'decidim/budgets/projects/project', locals: { project: project }) %>');
+
+$(document).foundation();
