@@ -16,6 +16,10 @@ module Decidim
         end
         root to: "proposals#index"
       end
+
+      initializer "decidim_proposals.assets" do |app|
+        app.config.assets.precompile += %w(decidim_proposals_manifest.js)
+      end
     end
   end
 end
