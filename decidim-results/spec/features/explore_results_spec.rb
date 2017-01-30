@@ -4,26 +4,22 @@ describe "Explore results", type: :feature do
   include_context "feature"
   let(:manifest_name) { "results" }
 
-  let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: :results }
   let(:results_count) { 5 }
   let!(:scope) { create :scope, organization: organization }
   let!(:results) do
     create_list(
       :result,
       results_count,
-      feature: current_feature
+      feature: feature
     )
   end
 
   before do
-    switch_to_host(organization.host)
     visit path
   end
 
   context "index" do
-    let(:path) { decidim_results.results_path(participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
+    let(:path) { decidim_results.results_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
 
     it "shows all results for the given process" do
       expect(page).to have_selector("article.card", count: results_count)
@@ -35,7 +31,7 @@ describe "Explore results", type: :feature do
   end
 
   context "show" do
-    let(:path) { decidim_results.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
+    let(:path) { decidim_results.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: feature.id) }
     let(:results_count) { 1 }
     let(:result) { results.first }
 
