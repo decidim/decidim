@@ -17,6 +17,11 @@ module Decidim
     attribute :name, Symbol
     attribute :hooks, Hash[Symbol => Array[Proc]], default: {}
 
+    # A path with the `scss` stylesheet this engine provides. It is used to
+    # mix this engine's stylesheets with the main app's stylesheets so it can
+    # use the scss variables and mixins provided by Decidim::Core.
+    attribute :stylesheet, String, default: nil
+
     # A String with the feature's icon. The icon must be stored in the
     # engine's assets path.
     attribute :icon, String
