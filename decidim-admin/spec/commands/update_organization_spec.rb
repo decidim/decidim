@@ -19,7 +19,7 @@ module Decidim
               description_es: "Mi descripción",
               description_ca: "La meva descripció",
               show_statistics: false,
-              favicon: File.new(Decidim::Dev.asset("city.jpeg"))
+              favicon: File.new(Decidim::Dev.asset("icon.png"))
             }
           }
         end
