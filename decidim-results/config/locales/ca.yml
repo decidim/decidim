@@ -41,6 +41,10 @@ ca:
           fields:
             title: Títol
       results:
+        count:
+          results_count:
+            one: 1 resultat
+            other: "%{count} resultats"
         filters:
           category: Categoria
           scopes: Àmbits
