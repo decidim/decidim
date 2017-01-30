@@ -1,10 +1,14 @@
 require "spec_helper"
 
 describe "Explore results", type: :feature do
+  include_context "feature"
+  let(:manifest_name) { "results" }
+
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization: organization) }
   let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: :results }
   let(:results_count) { 5 }
+  let!(:scope) { create :scope, organization: organization }
   let!(:results) do
     create_list(
       :result,
@@ -153,6 +157,33 @@ describe "Explore results", type: :feature do
         meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
           expect(page).to have_i18n_content(meeting.short_description)
+        end
+      end
+    end
+
+    context "when filtering" do
+      before do
+        create(:result, feature: feature, scope: scope)
+        visit_feature
+      end
+
+      context "by origin 'official'" do
+        it "lists the filtered results" do
+          within ".filters" do
+            check scope.name
+          end
+
+          expect(page).to have_css(".card--result", count: 1)
+        end
+      end
+
+      context "by origin 'citizenship'" do
+        it "lists the filtered results" do
+          within ".filters" do
+            check scope.name
+          end
+
+          expect(page).to have_css(".card--result", count: results.size)
         end
       end
     end
