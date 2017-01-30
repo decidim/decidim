@@ -4,7 +4,6 @@ module Decidim
   class OrganizationLogoUploader < ImageUploader
     version :medium do
       process resize_to_limit: [600, 160]
-      process quality: 90
     end
   end
 end
