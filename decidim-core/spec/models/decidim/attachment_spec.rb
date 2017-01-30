@@ -18,7 +18,7 @@ module Decidim
           expect(subject.file).to receive(:size).and_return(6.megabytes)
         end
 
-        it { is_expected.to_not be_valid }
+        it { is_expected.not_to be_valid }
       end
 
       context "when the file is a malicious image" do
@@ -29,7 +29,7 @@ module Decidim
           )
         end
 
-        it { is_expected.to_not be_valid }
+        it { is_expected.not_to be_valid }
       end
     end
 

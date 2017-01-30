@@ -20,7 +20,7 @@ module Decidim
           it "doesn't create a page" do
             expect do
               command.call
-            end.to_not change { Page.count }
+            end.not_to change { Page.count }
           end
         end
 

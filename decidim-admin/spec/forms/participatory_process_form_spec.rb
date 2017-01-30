@@ -116,8 +116,8 @@ module Decidim
           end
 
           it "is not valid" do
-            expect(subject).to_not be_valid
-            expect(subject.errors[:slug]).to_not be_empty
+            expect(subject).not_to be_valid
+            expect(subject.errors[:slug]).not_to be_empty
           end
         end
 

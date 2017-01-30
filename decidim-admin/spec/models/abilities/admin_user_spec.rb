@@ -39,10 +39,10 @@ describe Decidim::Admin::Abilities::AdminUser do
     let(:page) { build(:static_page, :default) }
     let(:form) { Decidim::Admin::StaticPageForm.new(slug: page.slug) }
 
-    it { is_expected.to_not be_able_to(:update_slug, page) }
-    it { is_expected.to_not be_able_to(:update_slug, form) }
-    it { is_expected.to_not be_able_to(:destroy, page) }
-    it { is_expected.to_not be_able_to(:destroy, form) }
+    it { is_expected.not_to be_able_to(:update_slug, page) }
+    it { is_expected.not_to be_able_to(:update_slug, form) }
+    it { is_expected.not_to be_able_to(:destroy, page) }
+    it { is_expected.not_to be_able_to(:destroy, form) }
   end
 
   context "when a page is not default one" do

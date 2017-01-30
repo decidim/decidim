@@ -42,7 +42,7 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_content(translated(promoted_process.title, locale: :en))
         expect(page).to have_selector("article.card", count: 2)
 
-        expect(page).to_not have_content(translated(unpublished_process.title, locale: :en))
+        expect(page).not_to have_content(translated(unpublished_process.title, locale: :en))
       end
     end
 

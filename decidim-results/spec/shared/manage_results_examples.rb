@@ -89,7 +89,7 @@ RSpec.shared_examples "manage results" do
       end
 
       within "table" do
-        expect(page).to_not have_content(translated(result2.title))
+        expect(page).not_to have_content(translated(result2.title))
       end
     end
   end

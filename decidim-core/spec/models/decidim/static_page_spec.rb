@@ -13,7 +13,7 @@ module Decidim
         page = create(:static_page)
         invalid_page = build(:static_page, slug: page.slug, organization: page.organization)
 
-        expect(invalid_page).to_not be_valid
+        expect(invalid_page).not_to be_valid
       end
 
       it "does allow two pages with the same slug in different organizations" do
@@ -49,7 +49,7 @@ module Decidim
         context "when destroying" do
           it "cannot be destroyed" do
             expect(page.destroy).to eq(false)
-            expect(page).to_not be_destroyed
+            expect(page).not_to be_destroyed
           end
         end
       end
@@ -86,7 +86,7 @@ module Decidim
 
       context "when the slug is a regular one" do
         let(:slug) { "some-slug" }
-        it { is_expected.to_not be_default }
+        it { is_expected.not_to be_default }
       end
     end
   end

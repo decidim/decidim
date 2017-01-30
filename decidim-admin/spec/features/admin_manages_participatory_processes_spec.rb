@@ -88,7 +88,7 @@ describe "Admin manage participatory processes", type: :feature do
       end
 
       within "table" do
-        expect(page).to_not have_content(translated(participatory_process2.title))
+        expect(page).not_to have_content(translated(participatory_process2.title))
       end
     end
   end

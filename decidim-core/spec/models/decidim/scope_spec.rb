@@ -13,7 +13,7 @@ module Decidim
         scope = create(:scope)
         invalid_scope = build(:scope, name: scope.name, organization: scope.organization)
 
-        expect(invalid_scope).to_not be_valid
+        expect(invalid_scope).not_to be_valid
       end
 
       it "does allow two scopes with the same name in different organizations" do

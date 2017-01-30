@@ -64,7 +64,7 @@ describe "Organization admins", type: :feature do
           click_link "Destroy"
         end
 
-        expect(page).to_not have_content(other_admin.name)
+        expect(page).not_to have_content(other_admin.name)
       end
     end
   end

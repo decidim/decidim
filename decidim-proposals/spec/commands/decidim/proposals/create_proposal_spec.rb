@@ -44,7 +44,7 @@ module Decidim
           it "doesn't create a proposal" do
             expect do
               command.call
-            end.to_not change { Proposal.count }
+            end.not_to change { Proposal.count }
           end
         end
 

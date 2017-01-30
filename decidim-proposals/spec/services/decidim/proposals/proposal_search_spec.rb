@@ -34,7 +34,7 @@ module Decidim
           other_proposal = create(:proposal)
 
           expect(subject).to include(proposal)
-          expect(subject).to_not include(other_proposal)
+          expect(subject).not_to include(other_proposal)
         end
 
         it "randomizes the order of proposals" do
