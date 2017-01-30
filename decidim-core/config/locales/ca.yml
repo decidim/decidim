@@ -191,23 +191,28 @@ ca:
       title: Hi ha hagut un problema amb el nostre servidor
       try_later: Si us plau, torna-ho a intentar més tard.
     home:
-      active_step: Fase activa
-      debates: Debats
-      debates_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
-      highlighted_processes: Processos destacats
-      how_to_participate: Com participo en un procés?
-      meetings: Llistat de trobades
-      meetings_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
-      more_info: Més informació
-      proposals: Propostes
-      proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
-      register: Registra't
-      see_all_processes: Mostra tots els processos
-      stats:
+      hero:
+        welcome: Benvingut/da a %{organization}!
+        register: Registra't
+      sub_hero:
+        register: Registra't
+      highlighted_processes:
+        highlighted_processes: Processos ressaltats
+        active_step: Fase activa
+        see_all_processes: Mostra tots els processos
+      extended:
+        how_to_participate: Com participo en un procés?
+        meetings: Llistat de trobades
+        meetings_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
+        debates: Debats
+        debates_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
+        proposals: Propostes
+        proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
+        more_info: Més informació
+      statistics:
         headline: Estat actual de %{organization}
         processes: Processos
         users: Usuaris
-      welcome: Benvingut/da a %{organization}!
   views:
     pagination:
       first: "&laquo; Primera"
