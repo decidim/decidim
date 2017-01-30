@@ -1,0 +1,11 @@
+  <section class="extended subhero home-section">
+    <div class="row">
+      <div class="columns small-centered large-10">
+        <h2 class="heading3"><%== translated_attribute current_organization.description %></h2>
+        <%= link_to new_user_registration_path, class: "button--sc link subhero-cta" do %>
+          <%= t(".register") %>
+          <%= icon "chevron-right", aria_hidden: true %>
+        <% end %>
+      </div>
+    </div>
+  </section>

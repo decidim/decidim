@@ -1,147 +1,15 @@
-<section class="extended hero" style="background-image:url(<%= current_organization.homepage_image.url %>);">
-  <div class="hero__container">
-    <div class="row">
-      <div class="columns small-centered large-10">
-        <h1 class="text-highlight heading1 hero-heading">
-          <% if translated_attribute(current_organization.welcome_text).blank? %>
-            <%= t('.welcome', organization: current_organization.name) %>
-          <% else %>
-            <%== translated_attribute current_organization.welcome_text %>
-          <% end %>
-        </h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="columns small-centered small-6 medium-4 mediumlarge-3">
-        <%= link_to t('.register'), new_user_registration_path, class: "hero-cta button expanded large button--sc" %>
-      </div>
-    </div>
-  </div>
-</section>
+<%= render partial: 'pages/home/hero' %>
 
 <% if !translated_attribute(current_organization.description).blank? %>
-  <section class="extended subhero home-section">
-    <div class="row">
-      <div class="columns small-centered large-10">
-        <h2 class="heading3"><%== translated_attribute current_organization.description %></h2>
-        <%= link_to new_user_registration_path, class: "button--sc link subhero-cta" do %>
-          <%= t(".register") %>
-          <%= icon "chevron-right", aria_hidden: true %>
-        <% end %>
-      </div>
-    </div>
-  </section>
+  <%= render partial: 'pages/home/sub_hero' %>
 <% end %>
 
-<section class="wrapper-home">
-  <div class="row">
-    <h3 class="section-heading"><%= t(".highlighted_processes") %></h3>
-    <div class="row collapse">
-      <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
-                  large-up-4 card-grid">
-        <% promoted_participatory_processes.each do |process| %>
-          <div class="column">
-            <article class="card card--process card--mini">
-              <%= link_to participatory_process_path(process), class: "card__link" do %>
-                <div class="card__image-top"
-                     style="background-image:url(<%= process.banner_image.url %>)"></div>
-              <% end %>
-              <div class="card__content">
-                <%= link_to participatory_process_path(process), class: "card__link" do %>
-                  <h4 class="card__title"><%= translated_attribute process.title %></h4>
-                <% end %>
-                <% if process.active_step %>
-                  <span class="card--process__small">
-                    <%= t(".active_step") %>
-                    <strong><%= translated_attribute process.active_step.title %></strong>
-                  </span>
-                <% end %>
-              </div>
-            </article>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="columns small-centered small-12
-                smallmedium-8 medium-6 large-4">
-      <%= link_to t(".see_all_processes"), participatory_processes_path, class: "button expanded hollow button--sc home-section__cta" %>
-    </div>
-  </div>
-</section>
+<%= render partial: 'pages/home/highlighted_processes' %>
 
-<section class="extended">
-  <div class="wrapper-home home-section">
-    <div class="row column text-center">
-      <h3 class="heading2"><%t(".how_to_participate") %></h3>
-    </div>
-    <div class="row small-up-1 medium-up-3 home-bullets">
-      <div class="column">
-        <div class="home-bullet">
-          <div class="home-bullet__icon">
-            <%= icon "meetings" %>
-          </div>
-          <div class="home-bullet__desc">
-            <h4 class="heading6"><%= t(".meetings") %></h4>
-            <p><%= t(".meetings_explanation") %></p>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="home-bullet">
-          <div class="home-bullet__icon">
-            <%= icon "debates" %>
-          </div>
-          <div class="home-bullet__desc">
-            <h4 class="heading6"><%= t(".debates") %></h4>
-            <p><%= t(".debates_explanation") %></p>
-          </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="home-bullet">
-          <div class="home-bullet__icon">
-            <%= icon "proposals" %>
-          </div>
-          <div class="home-bullet__desc">
-            <h4 class="heading6"><%= t(".proposals") %></h4>
-            <p><%= t(".proposals_explanation") %></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="columns small-centered small-10
-                smallmedium-8 medium-6 large-4">
-        <%= link_to t(".more_info"), page_path("faq"), class: "button expanded hollow button--sc" %>
-      </div>
-    </div>
-  </div>
-</section>   
+<%= render partial: 'pages/home/extended' %>
+
+
 
 <% if current_organization.show_statistics? %>
-  <section class="extended" id="statistics">
-    <div class="wrapper-home">
-      <div class="row column text-center">
-        <h3 class="heading2"><%= t(".stats.headline", organization: current_organization.name) %></h3>
-      </div>
-      <div class="row">
-        <div class="columns small-centered mediumlarge-10 large-8">
-          <div class="home-pam">
-            <div class="home-pam__highlight">
-              <div class="home-pam__data">
-                <h4 class="home-pam__title"><%= t(".stats.users") %></h4>
-                <span class="home-pam__number users-count"><%= users.count %></span>
-              </div>
-              <div class="home-pam__data">
-                <h4 class="home-pam__title"><%= t(".stats.processes") %></h4>
-                <span class="home-pam__number processes-count"><%= participatory_processes.count %></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <%= render partial: 'pages/home/statistics' %>
 <% end %>
