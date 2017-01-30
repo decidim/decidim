@@ -104,6 +104,12 @@ es:
     participatory_process_steps:
       index:
         process_steps: Las fases de proceso
+    participatory_processes:
+      show:
+        developer_group: Grupo promotor
+        domain: Dominio
+        end_date: Fecha de finalización
+        scope: Ámbito
     shared:
       login_modal:
         please_sign_in: Por favor, regístrese
