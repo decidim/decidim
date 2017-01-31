@@ -7,17 +7,15 @@ module Decidim
     subject { described_class.new(user, {}) }
 
     context "when there are some abilities injected from configuration" do
-      let(:ability_class) do
-        Class.new do
-          include CanCan::Ability
+      class FakeAbility
+        include CanCan::Ability
 
-          def initialize(_user, _context)
-            can :read, Decidim::ParticipatoryProcess
-          end
+        def initialize(_user, _context)
+          can :read, Decidim::ParticipatoryProcess
         end
       end
 
-      let(:abilities) { [ability_class] }
+      let(:abilities) { ["Decidim::FakeAbility"] }
 
       before do
         allow(Decidim)

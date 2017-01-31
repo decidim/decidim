@@ -20,7 +20,7 @@ module Decidim
     # context - a Hash with some context related to the current request.
     def initialize(user, context = {})
       Decidim.abilities.each do |ability|
-        merge ability.new(user, context)
+        merge ability.constantize.new(user, context)
       end
 
       can :manage, Authorization do |authorization|
