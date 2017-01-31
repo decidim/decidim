@@ -1,6 +1,6 @@
 <% if current_user.present? %>
   <% if current_order && current_order.projects.include?(project) %>
-    <%= button_to t('.added'), order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget, add: true }, disabled: current_order_checked_out?, class: "button expanded button--sc success budget--list__action" %>
+    <%= button_to t('.added'), order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget }, disabled: current_order_checked_out?, class: "button expanded button--sc success budget--list__action" %>
   <% else %>
     <%= button_to t('.add'), order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true }, disabled: current_order_checked_out?, class: "button expanded button--sc budget--list__action" %>
   <% end %>
