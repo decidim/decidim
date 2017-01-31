@@ -3,6 +3,8 @@ ca:
     attributes:
       proposal:
         body: Cos
+        category_id: Categoria
+        scope_id: Àmbit
         title: Títol
         user_group_id: Crear proposta
   decidim:
