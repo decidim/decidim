@@ -11,7 +11,7 @@ describe Decidim::Budgets::Admin::ProjectForm do
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_process: participatory_process }
+  let(:current_feature) { create :budget_feature, participatory_process: participatory_process }
   let(:title) do
     Decidim::Faker::Localized.sentence(3)
   end

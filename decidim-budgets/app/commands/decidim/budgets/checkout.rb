@@ -19,20 +19,15 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if invalid_order?
+        return broadcast(:invalid) unless @order&.can_checkout?
         checkout!
         broadcast(:ok, @order)
       end
 
       private
 
-      def invalid_order?
-        return true unless @order
-        @order.total_budget.to_f < (@feature.settings.total_budget.to_f * (@feature.settings.vote_threshold_percent.to_f / 100))
-      end
-
       def checkout!
-        @order.update_attributes!(checked_out_at: Time.zone.now)
+        @order.update_attributes!(checked_out_at: Time.current)
       end
     end
   end

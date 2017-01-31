@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Decidim::Budgets::Admin::UpdateProject do
-  let(:project) { create :project}
+  let(:project) { create :project }
   let(:organization) { project.feature.organization }
   let(:scope) { create :scope, organization: organization }
   let(:category) { create :category, participatory_process: project.feature.participatory_process }

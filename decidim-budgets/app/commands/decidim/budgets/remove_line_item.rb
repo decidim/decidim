@@ -22,8 +22,6 @@ module Decidim
         return broadcast(:invalid) if @order.checked_out?
         remove_line_item
         broadcast(:ok, @order)
-      rescue
-        return broadcast(:invalid)
       end
 
       private

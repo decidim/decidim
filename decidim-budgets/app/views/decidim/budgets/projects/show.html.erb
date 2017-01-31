@@ -40,7 +40,7 @@
 
 <%= content_for :expanded do %>
   <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
-    <%= comments_for project, arguable: true, votable: true %>
+    <%= comments_for project, votable: true %>
   <% end %>
 <% end %>
 

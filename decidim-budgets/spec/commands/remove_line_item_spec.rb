@@ -28,12 +28,4 @@ describe Decidim::Budgets::RemoveLineItem do
       expect { subject.call }.to broadcast(:invalid)
     end
   end
-
-  context "when the project is not present" do
-    let(:project) { nil }
-
-    it "broadcasts invalid" do
-      expect { subject.call }.to broadcast(:invalid)
-    end
-  end
 end

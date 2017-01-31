@@ -25,7 +25,7 @@ module Decidim
       private
 
       def invalid_order?
-        !@order || !@order.checked_out?
+        !@order&.checked_out?
       end
 
       def cancel_order!

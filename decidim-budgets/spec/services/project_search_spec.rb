@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Decidim::Budgets::ProjectSearch do
-  let(:current_feature) { create :feature }
+  let(:current_feature) { create :budget_feature }
   let(:scope1) { create :scope, organization: current_feature.organization }
   let(:scope2) { create :scope, organization: current_feature.organization }
   let(:parent_category) { create :category, participatory_process: current_feature.participatory_process }

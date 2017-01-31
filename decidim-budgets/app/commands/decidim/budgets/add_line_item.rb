@@ -22,24 +22,21 @@ module Decidim
       # Returns nothing.
       def call
         transaction do
-          find_or_create_order
-          return broadcast(:invalid) if @order.checked_out?
+          return broadcast(:invalid) if order.checked_out?
           add_line_item
-          broadcast(:ok, @order)
+          broadcast(:ok, order)
         end
-      rescue
-        return broadcast(:invalid)
       end
 
       private
 
-      def find_or_create_order
+      def order
         @order ||= Order.create!(user: @current_user, feature: @project.feature)
       end
 
       def add_line_item
-        @order.projects << @project
-        @order.save!
+        order.projects << @project
+        order.save!
       end
     end
   end

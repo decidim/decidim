@@ -28,16 +28,16 @@ FactoryGirl.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     budget { Faker::Number.number(8) }
-    feature
+    feature { create(:budget_feature) }    
   end
 
   factory :order, class: Decidim::Budgets::Order do
-    user
-    feature
+    feature { create(:budget_feature) }
+    user { create(:user, organization: feature.organization) }
   end
 
   factory :line_item, class: Decidim::Budgets::LineItem do
     order
-    project { build(:project, feature: order.feature) }
+    project { create(:project, feature: order.feature) }
   end
 end

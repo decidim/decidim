@@ -1,4 +1,4 @@
-<% if current_order && current_order.projects.any? %>
+<% if current_order&.projects&.any? %>
   <div class="card__content budget-summary__selected">
     <button data-toggle="reveal-selected">
       <strong><%= current_order.projects.size %> </strong><%= t('.selected_projects', count: current_order.projects.size) %>

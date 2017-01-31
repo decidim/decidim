@@ -8,6 +8,8 @@ module Decidim
       include Decidim::HasFeature
       include Decidim::HasScope
       include Decidim::HasCategory
+
+      feature_manifest_name "results"
     end
   end
 end

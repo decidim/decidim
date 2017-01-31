@@ -2,7 +2,7 @@
 
 module Decidim
   module Budgets
-    # Exposes the line order resource so users can checkout it.
+    # Exposes the order resource so users can checkout it.
     class OrdersController < Decidim::Budgets::ApplicationController
       include NeedsCurrentOrder
 

@@ -11,6 +11,8 @@ module Decidim
       include Decidim::HasScope
       include Decidim::HasCategory
 
+      feature_manifest_name "meetings"
+
       validates :title, presence: true
 
       geocoded_by :address
