@@ -13,6 +13,9 @@ module Decidim
       routes do
         resources :projects, only: [:index, :show]
         resource :order, only: [] do
+          member do
+            post :checkout
+          end
           resource :line_item, only: [:create, :destroy]
         end
 

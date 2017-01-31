@@ -89,13 +89,37 @@ describe "Orders", type: :feature do
             page.find('.budget--list__action').click
           end
 
-          expect(page).to have_css('#budget-confirm', visible: true)
+          expect(page).to have_css('#budget-excess', visible: true)
         end
       end
 
       context "and add another project exceeding vote threshold" do
-        it "checkouts the order" do
-          pending
+        let!(:other_project) { create(:project, feature: feature, budget: 50_000_000) }
+
+        it "can complete the checkout process" do
+          visit_feature
+
+          within "#project-#{other_project.id}-item" do
+            page.find('.budget--list__action').click
+          end
+
+          expect(page).to have_selector '.budget-list__data--added', count: 2
+
+          within ".budget-summary__progressbox" do
+            page.find('.button.small').click
+          end
+
+          expect(page).to have_css('#budget-confirm', visible: true)
+
+          within "#budget-confirm" do
+            page.find('.button.expanded').click
+          end
+
+          expect(page).to have_content("successfully")
+
+          within ".budget-summary__progressbox" do
+            expect(page).not_to have_selector("button.small")
+          end
         end
       end
     end

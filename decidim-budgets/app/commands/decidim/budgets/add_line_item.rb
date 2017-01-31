@@ -24,6 +24,7 @@ module Decidim
         begin
           transaction do
             find_or_create_order
+            return broadcast(:invalid) if @order.checked_out?
             add_line_item
             broadcast(:ok, @order)
           end

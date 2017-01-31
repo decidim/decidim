@@ -11,7 +11,7 @@
       <span class="card--list__data__number budget-list__number">
         <%= budget_to_currency(project.budget) %>
       </span>
-      <%= link_to order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget }, class: "button tiny budget--list__action success" do %>
+      <%= link_to order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget }, disabled: current_order_checked_out?, class: "button tiny budget--list__action success" do %>
         <%= icon("check", class: "icon--small", aria_label: t('.remove'), role: "img") %>
       <% end %>
     </div>
@@ -20,7 +20,7 @@
       <span class="card--list__data__number budget-list__number">
         <%= budget_to_currency(project.budget) %>
       </span>
-      <%= link_to order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true }, class: "button tiny hollow budget--list__action" do %>
+      <%= link_to order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true }, disabled: current_order_checked_out?, class: "button tiny hollow budget--list__action" do %>
         <%= icon("check", class: "icon--small", aria_label: t('.add'), role: "img") %>
       <% end %>
     </div>

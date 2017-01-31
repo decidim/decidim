@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
     create_table :decidim_budgets_orders do |t|
       t.references :decidim_user, index: true
       t.references :decidim_feature, index: true
-      t.datetime :checkout_at
+      t.datetime :checked_out_at
 
       t.timestamps
     end

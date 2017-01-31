@@ -17,6 +17,11 @@ module Decidim
       def total_budget
         projects.sum(&:budget)
       end
+
+      # Public: Returns true if the order has been checked out
+      def checked_out?
+        checked_out_at.present?
+      end
     end
   end
 end

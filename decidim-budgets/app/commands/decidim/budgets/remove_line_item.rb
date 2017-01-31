@@ -20,6 +20,7 @@ module Decidim
       # Returns nothing.
       def call
         begin
+          return broadcast(:invalid) if @order.checked_out?
           remove_line_item
           broadcast(:ok, @order)
         rescue

@@ -35,4 +35,11 @@ describe Decidim::Budgets::Order do
       expect(subject.total_budget).to eq(subject.projects.sum(&:budget))
     end
   end
+
+  describe "#checked_out?" do
+    it "returns true if the checked_out_at attribute is present" do
+      subject.checked_out_at = Time.zone.now
+      expect(subject).to be_checked_out
+    end
+  end
 end

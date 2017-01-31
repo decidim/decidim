@@ -1,8 +1,13 @@
 <div class="card budget-summary" data-progress-reference>
   <div class="card__content">
     <% if include_heading %>
-      <h3 class="heading3"><%= t('.title') %></h3>
-      <p><%= t('.description') %></p>
+      <% if current_order_checked_out? %>
+        <h3 class="heading3"><%= t('.checked_out.title') %></h3>
+        <p><%= t('.checked_out.description') %></p>
+      <% else %>
+        <h3 class="heading3"><%= t('.title') %></h3>
+        <p><%= t('.description') %></p>
+      <% end %>
     <% end %>
 
     <div class="budget-summary__total" data-total-budget="<%= feature_settings.total_budget %>">

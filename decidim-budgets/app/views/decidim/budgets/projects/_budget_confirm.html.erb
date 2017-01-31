@@ -21,7 +21,7 @@
   <p class="text-center"><%= t('.are_you_sure') %></p>
     <div class="row">
       <div class="columns medium-8 medium-offset-2">
-        <button class="button expanded"><%= t('.confirm') %></button>
+        <%= button_to t('.confirm'), checkout_order_path, class: "button expanded" %>
       </div>
     </div>
   <div class="text-center">

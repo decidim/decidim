@@ -21,7 +21,15 @@ describe Decidim::Budgets::RemoveLineItem do
     end
   end
 
-  context "when line item can't be deleted" do
+  context "when the order is checked out" do
+    let!(:order) { create(:order,user: user, feature: feature, checked_out_at: Time.zone.now) }
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+  end
+
+  context "when the project is not present" do
     let(:project) { nil }
 
     it "broadcasts invalid" do

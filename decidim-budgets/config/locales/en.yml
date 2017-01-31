@@ -46,6 +46,9 @@ en:
           title: Title
         budget_summary:
           assigned: 'Assigned:'
+          checked_out:
+            description: Description
+            title: Title
           description: Description
           title: Title
         count:
@@ -77,4 +80,8 @@ en:
     features:
       budgets:
         name: Budgets
+    orders:
+      checkout:
+        error: An eror ocurred while processing your order
+        success: Your order has been accepted successfully
   total_budget: Total budget
