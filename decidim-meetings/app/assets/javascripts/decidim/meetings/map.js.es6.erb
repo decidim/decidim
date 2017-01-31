@@ -44,7 +44,9 @@ const addMarkers = (meetingsData, map) => {
   map.fitBounds(bounds, { padding: [100, 100] });
 };
 
-const loadMap = (mapId, meetingsData, hereAppId, hereAppCode) => {
+const loadMap = (mapId, meetingsData) => {
+  const { hereAppId, hereAppCode } = window.DecidimMeetings.mapConfiguration;
+
   if (window.DecidimMeetings.currentMap) {
     window.DecidimMeetings.currentMap.remove();
     window.DecidimMeetings.currentMap = null;
@@ -70,7 +72,8 @@ const loadMap = (mapId, meetingsData, hereAppId, hereAppCode) => {
 
 window.DecidimMeetings = {
   loadMap,
-  currentMap: null
+  currentMap: null,
+  mapConfiguration: {}
 };
 
 $(() => {
@@ -81,7 +84,9 @@ $(() => {
   const hereAppId = $map.data('here-app-id');
   const hereAppCode = $map.data('here-app-code');
 
+  window.DecidimMeetings.mapConfiguration = { hereAppId, hereAppCode };
+
   if ($map.length > 0) {
-    window.DecidimMeetings.currentMap = loadMap(mapId, meetingsData, hereAppId, hereAppCode);
+    window.DecidimMeetings.currentMap = loadMap(mapId, meetingsData);
   }
 });
