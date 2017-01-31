@@ -11,6 +11,8 @@ ca:
         name: Propostes
         settings:
           step:
+            creation_enabled: Habilitar de creació de propostes
+            votes_blocked: Vots bloquejats
             votes_enabled: Vots habilitats
     proposals:
       actions:
@@ -82,6 +84,7 @@ ca:
           already_voted: Ja has votat
           no_votes_remaining: No hi ha vots restants
           vote: Votar
+          votes_blocked: Votació desactivada
         votes_count:
           count:
             one: VOT

@@ -35,6 +35,7 @@ ca:
         error: S'ha produït un error en actualitzar el seu compte.
         success: El seu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El seu compte s'ha actualitzat correctament. Rebrà un correu electrònic per confirmar la seva nova adreça de correu electrònic.
+    anonymous_user: Anònim
     application:
       documents:
         related_documents: Documents relacionats
@@ -104,7 +105,10 @@ ca:
     participatory_process_steps:
       index:
         process_steps: Fases del procés
+        title: Fases del procés participatiu
     participatory_processes:
+      index:
+        title: Processos participatius
       show:
         developer_group: Grup promotor
         domain: Domini
@@ -166,6 +170,7 @@ ca:
           take_part: Participa
       process_header:
         process_menu_item: El procés
+        unfold: Desplegar
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Veure les fases

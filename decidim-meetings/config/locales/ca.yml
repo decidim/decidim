@@ -64,6 +64,11 @@ ca:
         index:
           title: Llistat de trobades
           view_meeting: Veure trobada
+        show:
+          attendees: Nombre d'assistents
+          contributions: Nombre d'aportacions
+          meeting_report: Informe de la trobada
+          organizations: Llista d'organitzacions que han atès
       models:
         meeting:
           fields:

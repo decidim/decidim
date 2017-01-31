@@ -25,6 +25,8 @@ es:
         reply: Respuesta
       comment_order_selector:
         order:
+          best_rated: Mejor valoración
+          most_discussed: Más discutidos
           older: Más antiguo
           recent: Reciente
         title: 'Ordenar por:'
