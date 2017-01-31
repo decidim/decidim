@@ -6,7 +6,7 @@ Decidim.register_feature(:proposals) do |feature|
   feature.engine = Decidim::Proposals::Engine
   feature.admin_engine = Decidim::Proposals::AdminEngine
   feature.icon = "decidim/proposals/icon.svg"
-  feature.stylesheet = "decidim/proposals/application"
+  feature.stylesheet = "decidim/proposals"
 
   feature.on(:before_destroy) do |instance|
     if Decidim::Proposals::Proposal.where(feature: instance).any?
