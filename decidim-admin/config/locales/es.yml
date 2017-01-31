@@ -11,9 +11,11 @@ es:
         parent: Padre
       feature:
         name: Nombre
+        weight: Peso
       organization:
         default_locale: Configuración regional predeterminada
         description: Descripción
+        favicon: Icono
         homepage_image: Imagen de portada
         logo: Logotipo
         name: Nombre
