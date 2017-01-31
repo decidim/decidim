@@ -1,7 +1,7 @@
 // = require_self
 
 $(() => {
-  const $projects = $('#projects');
+  const $projects = $('#projects, #project');
   const $budgetSummaryTotal = $('.budget-summary__total');
   const $budgetExceedModal = $('#budget-excess');
 

@@ -72,8 +72,10 @@ en:
         project:
           add: Add
           remove: Remove
-        show:
+        project_budget_button:
           add: Add
+          added: Added
+        show:
           budget: Budget
           project_description: Project description
           view_all_projects: View all projects
