@@ -1,6 +1,11 @@
 /*= require social-share-button */
 $size: 45px;
 
+.share-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .social-share-button {
   display: inline-block;
   vertical-align: top;
