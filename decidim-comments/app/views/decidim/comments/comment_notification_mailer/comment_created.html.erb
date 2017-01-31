@@ -1,0 +1,26 @@
+<table class="row">
+  <tr>
+    <th class="small-12 first columns"><h4><%= t(".title") %></h4></th>
+    <th class="expander"></th>
+  </tr>
+</table>
+<table class="row">
+  <tr>
+    <th class="small-12 first columns">
+      <p>
+        <%= t(".hi") %> <strong><%= @commentable.author.name %></strong>,
+      </p>
+
+      <p>
+        <%= t(".new_comment_by_html", commenter: @comment.author.name) %> <%= link_to @commentable.title, @commentable %>
+      </p>
+      <blockquote>
+        <%= @comment.body %>
+      </blockquote>
+      <p>
+        Manage my account
+      </p>
+    </th>
+    <th class="expander"></th>
+  </tr>
+</table>

@@ -5,6 +5,16 @@ en:
       messages:
         cannot_have_replies: can't have replies
   decidim:
+    comments:
+      comment_notification_mailer:
+        comment_created:
+          hi: Hi
+          new_comment_by_html: New comment by html
+          title: Title
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: Subject
     components:
       add_comment_form:
         form:
