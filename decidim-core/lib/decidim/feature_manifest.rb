@@ -26,6 +26,17 @@ module Decidim
     # engine's assets path.
     attribute :icon, String
 
+    # Actions are used to validate permissions of a feature against particular
+    # authorizations or potentially other authorization rules.
+    #
+    # An example would be `vote` on participatory processes, or `create_meeting`
+    # on meetings.
+    #
+    # A Feature can expose as many actions as it wants and the admin panel will
+    # generate a UI to handle them. There's a set of controller helpers available
+    # as well that allows checking for those permissions.
+    attribute :actions, Array[String]
+
     validates :name, presence: true
 
     # Public: Registers a hook to this manifest. Hooks get fired when some
