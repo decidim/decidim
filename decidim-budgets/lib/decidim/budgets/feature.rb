@@ -6,7 +6,7 @@ Decidim.register_feature(:budgets) do |feature|
   feature.engine = Decidim::Budgets::ListEngine
   feature.admin_engine = Decidim::Budgets::AdminEngine
   feature.icon = "decidim/budgets/icon.svg"
-  feature.stylesheet = "decidim/budgets/application"
+  feature.stylesheet = "decidim/budgets/budgets"
 
   feature.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this feature" if Decidim::Budgets::Project.where(feature: instance).any?
