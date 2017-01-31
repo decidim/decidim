@@ -7,6 +7,23 @@ module Decidim
       include Decidim::Comments::CommentsHelper
       include PaginateHelper
       include ProposalVotesHelper
+
+      # Public: The state of a proposal in a way a human can understand.
+      #
+      # state - The String state of the proposal.
+      #
+      # Returns a String.
+      def humanize_proposal_state(state)
+        value = if state == "accepted"
+                  "accepted"
+                elsif state == "rejected"
+                  "rejected"
+                else
+                  "not_answered"
+                end
+
+        I18n.t(value, scope: "decidim.proposals.answers")
+      end
     end
   end
 end

@@ -4,13 +4,9 @@ require_relative "../../../shared/proposal_form_examples"
 
 module Decidim
   module Proposals
-    describe ProposalForm do
-      it_behaves_like "a proposal form"
-
-      let(:params) do
-        super.merge(
-          user_group_id: user_group_id
-        )
+    module Admin
+      describe ProposalForm do
+        it_behaves_like "a proposal form"
       end
     end
   end

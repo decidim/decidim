@@ -54,6 +54,17 @@ Decidim.register_feature(:proposals) do |feature|
           author: Decidim::User.where(organization: feature.organization).all.sample
         )
 
+        if n > 15
+          proposal.state = "accepted"
+          proposal.answered_at = Time.current
+          proposal.save!
+        elsif n > 9
+          proposal.state = "rejected"
+          proposal.answered_at = Time.current
+          proposal.answer = Decidim::Faker::Localized.sentence(10)
+          proposal.save!
+        end
+
         rand(3).times do |m|
           email = "vote-author-#{process.id}-#{n}-#{m}@decidim.org"
           name = "#{Faker::Name.name} #{process.id} #{n} #{m}"

@@ -60,6 +60,7 @@ module Decidim
           origin: "all",
           activity: "",
           category_id: "",
+          state: "all",
           random_seed: params[:random_seed]
         }
       end

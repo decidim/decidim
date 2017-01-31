@@ -4,6 +4,7 @@ module Decidim
     module Admin
       # This controller allows admins to manage proposals in a participatory process.
       class ProposalsController < Admin::ApplicationController
+        helper Proposals::ApplicationHelper
         helper_method :proposals
 
         def new
