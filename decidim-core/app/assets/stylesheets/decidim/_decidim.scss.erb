@@ -8,4 +8,6 @@
 @import "modules/modules";
 @import "layouts/*";
 
-@import "features/budget/*";
+<% Decidim.feature_manifests.map(&:stylesheet).compact.each do |stylesheet| %>
+@import "<%= stylesheet %>";
+<% end %>

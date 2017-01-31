@@ -12,7 +12,7 @@ module Decidim
       validate :same_feature
 
       def same_feature
-        return unless order
+        return unless order && project
         errors.add(:order, :invalid) unless order.feature == project.feature
       end
     end
