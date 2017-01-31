@@ -13,6 +13,9 @@ module Decidim
 
       validates :title, :body, presence: true
 
+      scope :accepted, -> { where(state: "accepted") }
+      scope :rejected, -> { where(state: "rejected") }
+
       def author_name
         user_group&.name || author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
       end
@@ -21,11 +24,32 @@ module Decidim
         author&.avatar&.url || ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
       end
 
-      # Public: Check if the user has voted the proposal
+      # Public: Check if the user has voted the proposal.
       #
-      # Returns Boolean
+      # Returns Boolean.
       def voted_by?(user)
         votes.any? { |vote| vote.author == user }
+      end
+
+      # Public: Checks if the organization has given an answer for the proposal.
+      #
+      # Returns Boolean.
+      def answered?
+        answered_at.present?
+      end
+
+      # Public: Checks if the organization has accepted a proposal.
+      #
+      # Returns Boolean.
+      def accepted?
+        state == "accepted"
+      end
+
+      # Public: Checks if the organization has rejected a proposal.
+      #
+      # Returns Boolean.
+      def rejected?
+        state == "rejected"
       end
     end
   end

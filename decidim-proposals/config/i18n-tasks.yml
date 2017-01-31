@@ -5,3 +5,4 @@ ignore_unused:
 - "decidim.features.proposals.settings.*"
 - "decidim.resource_links.*"
 - "activemodel.attributes.proposal.*"
+- "decidim.proposals.answers.*"

@@ -58,6 +58,21 @@ FactoryGirl.define do
     author do
       create(:user, organization: feature.organization) if feature
     end
+
+    trait :official do
+      author nil
+    end
+
+    trait :accepted do
+      state "accepted"
+      answered_at { Time.current }
+    end
+
+    trait :rejected do
+      state "rejected"
+      answer { Decidim::Faker::Localized.sentence }
+      answered_at { Time.current }
+    end
   end
 
   factory :proposal_vote, class: Decidim::Proposals::ProposalVote do
