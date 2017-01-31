@@ -29,7 +29,10 @@ module Decidim
 
       validate :slug, :slug_uniqueness
 
-      private
+      validates :hero_image, file_size: { less_than_or_equal_to: 10.megabytes }, file_content_type: { allow: ['image/jpeg', 'image/png'] }
+      validates :banner_image, file_size: { less_than_or_equal_to: 10.megabytes }, file_content_type: { allow: ['image/jpeg', 'image/png'] }
+
+       private
 
       def slug_uniqueness
         return unless current_organization.participatory_processes.where(slug: slug).where.not(id: id).any?

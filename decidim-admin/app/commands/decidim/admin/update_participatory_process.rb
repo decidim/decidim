@@ -21,9 +21,15 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
+        begin
+          update_participatory_process
+          broadcast(:ok)
 
-        update_participatory_process
-        broadcast(:ok)
+        rescue ActiveRecord::RecordInvalid => exception
+            byebug
+            form.errors.add(:hero_image, :invalid)
+            broadcast(:invalid)
+        end
       end
 
       private
