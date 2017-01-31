@@ -63,6 +63,8 @@ const loadMap = (mapId, meetingsData, hereAppId, hereAppCode) => {
     map.fitWorld();
   }
 
+  map.scrollWheelZoom.disable();
+
   return map;
 };
 

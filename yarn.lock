@@ -102,9 +102,9 @@ anymatch@^1.3.0:
     arrify "^1.0.0"
     micromatch "^2.1.5"
 
-apollo-client@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-0.7.1.tgz#68a5e92cb393368d2f6745c42e54e5af9b6e57ec"
+apollo-client@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-0.8.0.tgz#1bc0164bca0caf22d940e88984b20a82802c7323"
   dependencies:
     graphql-anywhere "^2.0.0"
     graphql-tag "^1.1.1"
@@ -3822,7 +3822,7 @@ pend@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
 
-phantomjs-prebuilt@^2.1.7, phantomjs-prebuilt@~2.1.13:
+phantomjs-prebuilt@^2.1.7:
   version "2.1.14"
   resolved "https://registry.yarnpkg.com/phantomjs-prebuilt/-/phantomjs-prebuilt-2.1.14.tgz#d53d311fcfb7d1d08ddb24014558f1188c516da0"
   dependencies:
@@ -4020,9 +4020,9 @@ react-addons-update@^15.4.1:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-apollo@~0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-0.8.1.tgz#3b49368f6f60f309e2e5e695ddbcd759fdc73f2e"
+react-apollo@~0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-0.9.0.tgz#a95d05ccf2f92b16a21fd41795e2876c9ea28d6e"
   dependencies:
     graphql-anywhere "^2.0.0"
     hoist-non-react-statics "^1.2.0"
@@ -4032,8 +4032,10 @@ react-apollo@~0.8.1:
     lodash.isobject "^3.0.2"
     lodash.pick "^4.4.0"
     object-assign "^4.0.1"
+  optionalDependencies:
+    react-dom "0.14.x || 15.* || ^15.0.0"
 
-react-dom@^15.4.1:
+"react-dom@0.14.x || 15.* || ^15.0.0", react-dom@^15.4.1:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
   dependencies:
