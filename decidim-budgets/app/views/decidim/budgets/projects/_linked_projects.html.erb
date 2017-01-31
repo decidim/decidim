@@ -1,5 +1,5 @@
 <div class="card card--action card--list">
-  <% projects.each do |project| %>
+  <% resources.each do |project| %>
     <div class="card--list__item">
       <%= icon "actions", class: "card--list__icon", remove_icon_class: true %>
       <%= link_to decidim_resource_path(project), class: "card--list__text card__link card__link--block" do %>

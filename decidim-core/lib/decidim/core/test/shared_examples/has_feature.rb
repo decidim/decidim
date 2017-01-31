@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "spec_helper"
 
-shared_examples_for "has feature" do 
+shared_examples_for "has feature" do
   context "without a feature" do
     before do
       subject.feature = nil

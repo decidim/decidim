@@ -1,6 +1,3 @@
-@import "decidim/variables";
-@import "decidim/utils/settings";
-
-@import "foundation";
-
-@import "budget/*";
+@import "budget/budget-list";
+@import "budget/budget-meter";
+@import "budget/progress";
