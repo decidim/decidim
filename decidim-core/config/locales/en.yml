@@ -106,7 +106,10 @@ en:
     participatory_process_steps:
       index:
         process_steps: Process steps
+        title: Participatory process steps
     participatory_processes:
+      index:
+        title: Participatory processes
       show:
         developer_group: Developer group
         domain: Domain
