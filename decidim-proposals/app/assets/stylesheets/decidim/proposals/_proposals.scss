@@ -1,0 +1,7 @@
+@import "social_share";
+
+.budget-list__title{
+  @include breakpoint(smallmedium down){
+    font-size: $global-font-size;
+  }
+}
