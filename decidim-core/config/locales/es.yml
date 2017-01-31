@@ -35,6 +35,7 @@ es:
         error: Se ha producido un error al actualizar su cuenta.
         success: Su cuenta se ha actualizado correctamente.
         success_with_email_confirmation: Su cuenta se ha actualizado correctamente. Usted recibirá un correo electrónico para confirmar su nueva dirección de correo electrónico.
+    anonymous_user: Anónimo
     application:
       documents:
         related_documents: Documentos relacionados
@@ -104,7 +105,10 @@ es:
     participatory_process_steps:
       index:
         process_steps: Las fases de proceso
+        title: Fases del proceso participativo
     participatory_processes:
+      index:
+        title: Procesos participativos
       show:
         developer_group: Grupo promotor
         domain: Dominio
@@ -166,6 +170,7 @@ es:
           take_part: Participa
       process_header:
         process_menu_item: El proceso
+        unfold: Desplegar
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Ver las fases
