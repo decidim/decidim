@@ -168,6 +168,7 @@ en:
           take_part: Take part
       process_header:
         process_menu_item: The process
+        unfold: Unfold
       process_header_steps:
         step: Step %{current} of %{total}
         view_steps: View steps

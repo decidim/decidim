@@ -20,7 +20,7 @@
     <div class="row column">
       <div class="process-nav">
         <button class="process-nav__trigger hide-for-medium"  data-toggle="process-nav-content">
-          <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: "Desplegar", role: "img" %>
+          <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: t('.unfold'), role: "img" %>
           <div class="process-nav__link">
             <%  if self.try(:current_feature) %>
                 <%= feature_icon(current_feature) %>
