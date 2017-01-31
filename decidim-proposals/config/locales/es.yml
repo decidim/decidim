@@ -3,6 +3,8 @@ es:
     attributes:
       proposal:
         body: Cuerpo
+        category_id: Categoría
+        scope_id: Ámbito
         title: Título
         user_group_id: Crear propuesta
   decidim:
