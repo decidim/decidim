@@ -8,7 +8,7 @@ module Decidim
 
       def checkout
         Checkout.call(current_order, current_feature) do
-          on(:ok) do |order|
+          on(:ok) do |_order|
             flash[:notice] = I18n.t("orders.checkout.success", scope: "decidim")
             redirect_to projects_path
           end

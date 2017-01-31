@@ -12,7 +12,7 @@ module Decidim
         AddLineItem.call(current_order, project, current_user) do
           on(:ok) do |order|
             self.current_order = order
-            render 'update_budget'
+            render "update_budget"
           end
 
           on(:invalid) do
@@ -23,8 +23,8 @@ module Decidim
 
       def destroy
         RemoveLineItem.call(current_order, project) do
-          on(:ok) do |order|
-            render 'update_budget'
+          on(:ok) do |_order|
+            render "update_budget"
           end
 
           on(:invalid) do

@@ -21,16 +21,14 @@ module Decidim
       #
       # Returns nothing.
       def call
-        begin
-          transaction do
-            find_or_create_order
-            return broadcast(:invalid) if @order.checked_out?
-            add_line_item
-            broadcast(:ok, @order)
-          end
-        rescue
-          return broadcast(:invalid)
+        transaction do
+          find_or_create_order
+          return broadcast(:invalid) if @order.checked_out?
+          add_line_item
+          broadcast(:ok, @order)
         end
+      rescue
+        return broadcast(:invalid)
       end
 
       private
