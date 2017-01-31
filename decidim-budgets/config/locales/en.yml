@@ -46,8 +46,9 @@ en:
           title: Title
         budget_summary:
           assigned: 'Assigned:'
+          cancel_order: Cancel order
           checked_out:
-            description: Description
+            description: Description %{cancel_link}
             title: Title
           description: Description
           title: Title
@@ -86,4 +87,7 @@ en:
       checkout:
         error: An eror ocurred while processing your order
         success: Your order has been accepted successfully
+      destroy:
+        error: An eror ocurred while canceling your order
+        success: Your order has been canceled successfully
   total_budget: Total budget

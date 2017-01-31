@@ -12,7 +12,7 @@ module Decidim
 
       routes do
         resources :projects, only: [:index, :show]
-        resource :order, only: [] do
+        resource :order, only: [:destroy] do
           member do
             post :checkout
           end

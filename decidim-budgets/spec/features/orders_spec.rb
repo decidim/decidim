@@ -34,7 +34,7 @@ describe "Orders", type: :feature do
       visit_feature
     end
 
-    context "when the user has not a pending order" do
+    context "and has not a pending order" do
       it "adds a project to the current order" do
         within "#project-#{project.id}-item" do
           page.find('.budget--list__action').click
@@ -120,6 +120,28 @@ describe "Orders", type: :feature do
           within ".budget-summary__progressbox" do
             expect(page).not_to have_selector("button.small")
           end
+        end
+      end
+    end
+
+    context "and has a finished order" do
+      let!(:order) { create(:order, user: user, feature: feature, checked_out_at: Time.zone.now) }
+
+      it "can cancel the order" do
+        visit_feature
+
+        within ".budget-summary" do
+          page.find('.cancel-order').click
+        end
+
+        expect(page).to have_content("successfully")
+
+        within ".budget-summary__progressbox" do
+          expect(page).to have_selector("button.small:disabled")
+        end
+
+        within ".budget-summary" do
+          expect(page).not_to have_selector('.cancel-order')
         end
       end
     end

@@ -3,7 +3,9 @@
     <% if include_heading %>
       <% if current_order_checked_out? %>
         <h3 class="heading3"><%= t('.checked_out.title') %></h3>
-        <p><%= t('.checked_out.description') %></p>
+        <p>
+          <%= raw t('.checked_out.description', cancel_link: link_to(t('.cancel_order'), order_path, method: :delete, class: 'cancel-order')) %>
+        </p>
       <% else %>
         <h3 class="heading3"><%= t('.title') %></h3>
         <p><%= t('.description') %></p>

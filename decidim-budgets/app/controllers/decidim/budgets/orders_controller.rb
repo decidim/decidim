@@ -8,13 +8,27 @@ module Decidim
 
       def checkout
         Checkout.call(current_order, current_feature) do
-          on(:ok) do |_order|
+          on(:ok) do
             flash[:notice] = I18n.t("orders.checkout.success", scope: "decidim")
             redirect_to projects_path
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("orders.checkout.error", scope: "decidim")
+            redirect_to projects_path
+          end
+        end
+      end
+
+      def destroy
+        CancelOrder.call(current_order) do
+          on(:ok) do
+            flash[:notice] = I18n.t("orders.destroy.success", scope: "decidim")
+            redirect_to projects_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("orders.destroy.error", scope: "decidim")
             redirect_to projects_path
           end
         end
