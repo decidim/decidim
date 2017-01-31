@@ -7,12 +7,16 @@ module Decidim
       include FilterResource
       include NeedsCurrentOrder
 
-      helper_method :projects, :project
+      helper_method :projects, :random_seed, :project
 
       private
 
       def projects
         @projects ||= search.results.page(params[:page]).per(12)
+      end
+
+      def random_seed
+        @random_seed ||= search.random_seed
       end
 
       def project
@@ -27,7 +31,8 @@ module Decidim
         {
           search_text: "",
           scope_id: "",
-          category_id: ""
+          category_id: "",
+          random_seed: params[:random_seed]
         }
       end
 

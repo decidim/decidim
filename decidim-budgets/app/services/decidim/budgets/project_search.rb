@@ -9,6 +9,7 @@ module Decidim
       # feature     - A Decidim::Feature to get the projects from.
       def initialize(options = {})
         super(Project.all, options)
+        @random_seed = options[:random_seed].to_f
       end
 
       # Handle the search_text filter
@@ -22,6 +23,20 @@ module Decidim
       # Handle the scope_id filter
       def search_scope_id
         query.where(decidim_scope_id: scope_id)
+      end
+
+      # Returns the random projects for the current page.
+      def results
+        @projects ||= Project.transaction do
+          Project.connection.execute("SELECT setseed(#{Project.connection.quote(random_seed)})")
+          super.reorder("RANDOM()").load
+        end
+      end
+
+      # Returns the random seed used to randomize the proposals.
+      def random_seed
+        @random_seed = (rand * 2 - 1) if @random_seed == 0.0 || @random_seed > 1 || @random_seed < -1
+        @random_seed
       end
 
       private
