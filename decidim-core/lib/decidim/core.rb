@@ -130,14 +130,4 @@ module Decidim
   def self.resource_manifests
     @resource_manifests ||= feature_manifests.flat_map(&:resource_manifests)
   end
-
-  # Public: Searches for an asset present in any of decidim's asset paths. Mainly
-  # useful during the app's seeding, where we need to provide default assets.
-  #
-  # path - The name of the asset under `decidim/*`.
-  #
-  # Returns a String with the path of the asset.
-  def self.find_asset(path)
-    Rails.application.assets_manifest.find("decidim/#{path}").first&.pathname
-  end
 end
