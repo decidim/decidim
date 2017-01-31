@@ -11,9 +11,11 @@ ca:
         parent: Pare
       feature:
         name: Nom
+        weight: Pes
       organization:
         default_locale: Idioma per defecte
         description: Descripció
+        favicon: Icona
         homepage_image: Imatge de la portada
         logo: Logotip
         name: Nom
