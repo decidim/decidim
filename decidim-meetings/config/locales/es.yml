@@ -64,6 +64,11 @@ es:
         index:
           title: Lista de encuentros
           view_meeting: Ver encuentro
+        show:
+          attendees: Número de asistentes
+          contributions: Número de contribuciones
+          meeting_report: Informe del encuentro
+          organizations: Organizaciones que han asistido
       models:
         meeting:
           fields:
