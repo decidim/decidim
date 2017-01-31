@@ -19,17 +19,29 @@
   <% if current_participatory_process.features.any? %>
     <div class="row column">
       <div class="process-nav">
-        <div class="row column process-nav__content">
+        <button class="process-nav__trigger hide-for-medium"  data-toggle="process-nav-content">
+          <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: "Desplegar", role: "img" %>
+          <div class="process-nav__link">
+            <%  if self.try(:current_feature) %>
+                <%= feature_icon(current_feature) %>
+                <%= translated_attribute(current_feature.name) %>
+            <% else %>
+                <%= icon "process" %>
+                <%= t ".process_menu_item" %>
+            <% end %>
+          </div>
+        </button>
+
+        <div class="row column process-nav__content" id="process-nav-content" data-toggler=".is-active">
           <ul>
-            <li>
+            <li class="<% is_active_link?(decidim.participatory_process_path, :inclusive) %>is-active<% end %>">
               <%= active_link_to decidim.participatory_process_path(current_participatory_process), active: :exact, class: "process-nav__link", class_active: "is-active" do %>
                 <%= icon "process" %>
                 <%= t ".process_menu_item" %>
               <% end %>
             </li>
-
             <% current_participatory_process.features.each do |feature| %>
-              <li>
+              <li class="<% is_active_link?(decidim.feature_path, :inclusive) %>is-active<% end %>">
                 <%= active_link_to decidim.feature_path(current_participatory_process, feature), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
                   <%= feature_icon(feature) %>
 
