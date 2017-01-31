@@ -6,13 +6,15 @@ es:
         category_id: Categoría
         scope_id: Ámbito
         title: Título
-        user_group_id: Crear propuesta
+        user_group_id: Crear propuesta como
   decidim:
     features:
       proposals:
         name: Propuestas
         settings:
           step:
+            creation_enabled: Habilitar creación de propuestas
+            votes_blocked: Votación bloqueada
             votes_enabled: Votos habilitados
     proposals:
       actions:
@@ -84,6 +86,7 @@ es:
           already_voted: Ya votado
           no_votes_remaining: No hay votos restantes
           vote: Votar
+          votes_blocked: Votación desactivada
         votes_count:
           count:
             one: VOTAR
