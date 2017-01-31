@@ -7,7 +7,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
+      belongs_to :feature, foreign_key: "decidim_feature_id", class_name: "Decidim::Feature"
       has_one :organization, through: :feature
     end
 

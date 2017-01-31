@@ -16,8 +16,6 @@ class FeatureValidator < ActiveModel::EachValidator
       return
     end
 
-    manifest_name = options[:manifest].respond_to?(:call) ? options[:manifest].call : options[:manifest].to_s
-
-    record.errors[attribute] << :invalid if feature.manifest_name.to_s != manifest_name
+    record.errors[attribute] << :invalid if feature.manifest_name.to_s != options[:manifest].to_s
   end
 end

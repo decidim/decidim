@@ -12,9 +12,9 @@ module Decidim
   end
 
   class DummyResource < ActiveRecord::Base
+    include HasFeature
     include Resourceable
-    belongs_to :feature, foreign_key: "decidim_feature_id", class_name: "Decidim::Feature"
-    has_one :organization, through: :feature
+    include Authorable
   end
 end
 
@@ -44,6 +44,7 @@ RSpec.configure do |config|
       ActiveRecord::Migration.create_table :decidim_dummy_resources do |t|
         t.string :title
         t.references :decidim_feature, index: true
+        t.references :decidim_author, index: true
 
         t.timestamps
       end

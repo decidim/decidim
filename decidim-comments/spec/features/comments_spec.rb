@@ -28,7 +28,7 @@ describe "Comments", type: :feature do
       end
     end
   end
-  
+
   it "user should be able to sort the comments" do
     comment = create(:comment, commentable: participatory_process, body: "Most Rated Comment")
     create(:comment_vote, comment: comment, author: user, weight: 1)
@@ -105,7 +105,7 @@ describe "Comments", type: :feature do
       visit decidim.dummy_path(participatory_process)
 
       expect(page).to have_selector(".comment__reply")
- 
+
       within "#comments #comment_#{comment.id}" do
         click_button "Reply"
         find("textarea").set("This is a reply")
