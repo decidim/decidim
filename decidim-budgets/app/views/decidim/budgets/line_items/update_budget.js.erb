@@ -1,0 +1,21 @@
+var $orderTotalBudget = $('#order-total-budget');
+var $orderSelectedProjects = $('#order-selected-projects');
+var $orderProgress = $('#order-progress');
+var $projectItem = $('#project-<%= project.id %>-item');
+var $projectBudgetButton = $('#project-<%= project.id %>-budget-button');
+var $budgetConfirm = $('#budget-confirm');
+
+$orderTotalBudget.html('<%= j(render partial: 'decidim/budgets/projects/order_total_budget') %>');
+$orderSelectedProjects.html('<%= j(render partial: 'decidim/budgets/projects/order_selected_projects') %>');
+$orderProgress.html('<%= j(render partial: 'decidim/budgets/projects/order_progress') %>');
+$budgetConfirm.html('<%= j(render partial: 'decidim/budgets/projects/budget_confirm') %>')
+
+$(document).foundation();
+
+if ($projectItem.length > 0) {
+  $projectItem.html('<%= j(render partial: 'decidim/budgets/projects/project', locals: { project: project }) %>');
+}
+
+if ($projectBudgetButton.length > 0) {
+  $projectBudgetButton.html('<%= j(render partial: 'decidim/budgets/projects/project_budget_button', locals: { project: project }) %>');
+}

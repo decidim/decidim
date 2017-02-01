@@ -9,6 +9,8 @@ module Decidim
       include Decidim::HasScope
       include Decidim::HasCategory
 
+      feature_manifest_name "proposals"
+
       has_many :votes, foreign_key: "decidim_proposal_id", class_name: ProposalVote, dependent: :destroy
 
       validates :title, :body, presence: true

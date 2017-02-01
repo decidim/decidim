@@ -185,6 +185,25 @@ describe "Proposals", type: :feature do
     end
   end
 
+  context "when a proposal has been linked in a project" do
+    let(:proposal) { create(:proposal, feature: feature)}
+    let(:budget_feature) do
+      create(:feature, manifest_name: :budgets, participatory_process: proposal.feature.participatory_process)
+    end
+    let(:project) { create(:project, feature: budget_feature) }
+
+    before do
+      project.link_resources([proposal], "included_proposals")
+    end
+
+    it "shows related projects" do
+      visit_feature
+      click_link proposal.title
+
+      expect(page).to have_i18n_content(project.title)
+    end
+  end
+
   context "listing proposals in a participatory process" do
     it "lists all the proposals" do
       expect(page).to have_css(".card--proposal", count: 3)
