@@ -8,6 +8,7 @@ module Decidim
       include FilterResource
 
       before_action :authenticate_user!, only: [:new, :create]
+      authorize_action! :vote, only: [:index]
 
       def show
         @proposal = Proposal.where(feature: current_feature).find(params[:id])

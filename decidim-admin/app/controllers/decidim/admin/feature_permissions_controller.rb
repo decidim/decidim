@@ -22,9 +22,13 @@ module Decidim
 
         if @permissions_form.valid?
           permissions = @permissions_form.permissions.inject({}) do |result, (key, value)|
-            result.update(
-              key => value.attributes
-            )
+            serialized = {
+              "authorization_handler_name" => value.authorization_handler_name
+            }
+
+            serialized["options"] = JSON.parse(value.options) if value.options
+
+            result.update(key => serialized)
           end
 
           feature.update_attributes!(
