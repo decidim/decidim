@@ -123,7 +123,7 @@ en:
     invitations:
       edit:
         header: Set your password
-        submit_button: SDave
+        submit_button: Save
     mailer:
       invitation_instructions:
         accept: Accept invitation

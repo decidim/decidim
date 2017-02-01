@@ -17,7 +17,7 @@ en:
             invalid: There's been a problem creating this project
             success: Project successfully created
           destroy:
-            success: Project successfully created
+            success: Project successfully destroyed
           edit:
             title: Edit project
             update: Update project
@@ -46,7 +46,7 @@ en:
           ok: OK
           title: Maximum budget exceeded
         budget_summary:
-          are_you_sure: Are you sure you want to cancel your order?
+          are_you_sure: Are you sure you want to cancel your vote?
           assigned: 'Assigned:'
           cancel_order: delete your vote and start over
           checked_out:
@@ -87,9 +87,9 @@ en:
         name: Budgets
     orders:
       checkout:
-        error: An eror ocurred while processing your order
-        success: Your order has been accepted successfully
+        error: An error ocurred while processing your vote
+        success: Your vote has been accepted successfully
       destroy:
-        error: An eror ocurred while canceling your order
-        success: Your order has been canceled successfully
+        error: An error ocurred while canceling your vote
+        success: Your vote has been canceled successfully
   total_budget: Total budget
