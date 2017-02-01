@@ -223,6 +223,26 @@ en:
         users: Users
       sub_hero:
         register: Register
+  social_share_button:
+    delicious: Delicious
+    douban: Douban
+    email: Email
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Share to %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Open your WeChat, click "Discover" button then click the "Scan QR Code" menu.
+    weibo: Sina Weibo
+    xing: Xing
   views:
     pagination:
       first: "&laquo; First"
