@@ -121,8 +121,7 @@ ca:
   devise:
     invitations:
       edit:
-        header: Defineix la teva contrasenya
-        submit_button: Desar
+        header: Establir la contrasenya
     mailer:
       invitation_instructions:
         accept: Acceptar invitació

@@ -121,8 +121,7 @@ es:
   devise:
     invitations:
       edit:
-        header: Define tu contraseña
-        submit_button: Guardar
+        header: Escribe tu contraseña
     mailer:
       invitation_instructions:
         accept: Aceptar invitación

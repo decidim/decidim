@@ -1,0 +1,84 @@
+es:
+  decidim:
+    budgets:
+      actions:
+        confirm_destroy: '¿Estás seguro de que deseas eliminar este proyecto?'
+        destroy: Borrar
+        edit: Editar
+        new: Nuevo %{name}
+        title: Acciones
+      admin:
+        models:
+          project:
+            name: Proyecto
+        projects:
+          create:
+            invalid: Ha habido un problema al crear este proyecto
+            success: Proyecto creado con éxito
+          edit:
+            title: Editar proyecto
+            update: Actualizar proyecto
+          index:
+            title: Proyectos
+          new:
+            create: Crear proyecto
+            title: Nuevo resultado
+          update:
+            invalid: Ha habido un problema al actualizar este proyecto
+            success: Proyecto actualizado correctamente
+      models:
+        project:
+          fields:
+            title: Título
+      projects:
+        budget_confirm:
+          are_you_sure: '¿Estás de acuerdo? Una vez que hayas confirmado tu voto, no puedes cambiarlo.'
+          cancel: Cancelar
+          confirm: Confirmar
+          description: Estos son los proyectos que has elegido para formar parte del presupuesto.
+          title: Confirmar voto
+        budget_excess:
+          close: Cerrar
+          description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puede eliminar un proyecto que ya hayas seleccionado o votar con tus preferencias.
+          ok: De acuerdo
+          title: Presupuesto excedido
+        budget_summary:
+          assigned: 'Asignado:'
+          cancel_order: eliminar tu voto y empezar de nuevo
+          checked_out:
+            description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
+            title: Voto enviado correctamente
+          description: "¿Qué proyectos crees que deberíamos asignar el presupuesto? Asigna por lo menos %{minimum_budget} a los proyectos que desees y vota para definir el presupuesto."
+          title: Tú decides el presupuesto
+        count:
+          projects_count:
+            one: 1 proyecto
+            other: "%{count} proyectos"
+        filters:
+          category: Categoría
+          scopes: Ámbitos
+          search: Buscar
+        index:
+          title: Título
+        order_progress:
+          vote: Votar
+        order_selected_projects:
+          remove: Eliminar
+          selected_projects:
+            one: proyecto seleccionado
+            other: proyectos seleccionados
+          view: Ver
+        project:
+          add: Añadir
+          remove: Eliminar
+        project_budget_button:
+          add: Añadir
+          added: Añadido
+        show:
+          budget: Presupuesto
+          project_description: Descripción del proyecto
+          view_all_projects: Ver todos los proyectos
+    features:
+      budgets:
+        name: Presupuestos
+  total_budget: Presupuesto total
