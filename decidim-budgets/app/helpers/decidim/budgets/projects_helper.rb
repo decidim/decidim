@@ -7,7 +7,7 @@ module Decidim
       #
       # budget - A integer to represent a budget
       def budget_to_currency(budget)
-        number_to_currency budget, unit: "€", delimiter: ".", precision: 0, format: "%n %u"
+        number_to_currency budget, unit: Decidim.currency_unit, precision: 0
       end
 
       # Return a percentage of the current order budget from the total budget
@@ -21,7 +21,7 @@ module Decidim
       end
 
       # Return true if the user can continue to the checkout process
-      def user_can_checkout?
+      def current_order_can_be_checked_out?
         current_order&.can_checkout?
       end
     end

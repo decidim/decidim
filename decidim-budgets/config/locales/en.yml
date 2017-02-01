@@ -35,32 +35,25 @@ en:
             title: Title
       projects:
         budget_confirm:
-          are_you_sure: "¿Estás de acuerdo? Una vez hayas confirmado tu voto, no se
-            puede cambiar."
+          are_you_sure: Do you agree? Once you have confirmed your vote, you can not change it.
           cancel: Cancel
           confirm: Confirm
-          description: Estos son los proyectos que has elegido para que formen parte
-            de los presupuestos.
-          title: Confirmar voto
+          description: These are the projects you have chosen to be part of the budget.
+          title: Confirm vote
         budget_excess:
           close: Close
-          description: Ese proyecto supera el presupuesto máximo y no puede ser añadido.
-            Si quieres, puedes eliminar un proyecto de los que ya has seleccionado
-            para añadir este, o bien realizar ya tu voto con tus preferencias.
-          ok: Ok
-          title: Máximo superado
+          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          ok: OK
+          title: Maximum budget exceeded
         budget_summary:
           are_you_sure: Are you sure you want to cancel your order?
           assigned: 'Assigned:'
-          cancel_order: eliminar tu voto y volver a votar
+          cancel_order: delete your vote and start over
           checked_out:
-            description: Ya has emitido tu voto para los presupuestos. Si has cambiado
-              de idea, puedes %{cancel_link}.
-            title: Votación de presupuestos completada
-          description: "¿En qué proyectos crees que debería trabajar el Ayuntamiento
-            el próximo año? Asigna como mínimo 75 millones a los proyectos que quieras
-            y vota con tus preferencias cómo serán los próximos presupuestos."
-          title: Tú decides los presupuestos
+            description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
+            title: Budget vote completed
+          description: "What projects do you think should allocate the budget? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget."
+          title: You decide the budget
         count:
           projects_count:
             one: 1 project

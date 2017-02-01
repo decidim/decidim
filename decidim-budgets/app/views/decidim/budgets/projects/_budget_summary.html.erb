@@ -8,7 +8,7 @@
         </p>
       <% else %>
         <h3 class="heading3"><%= t('.title') %></h3>
-        <p><%= t('.description') %></p>
+        <p><%= t('.description', minimum_budget: budget_to_currency(current_order&.minimum_budget)) %></p>
       <% end %>
     <% end %>
 

@@ -12,4 +12,7 @@ Decidim.configure do |config|
   #   here_app_id: Rails.application.secrets.geocoder["here_app_id"],
   #   here_app_code: Rails.application.secrets.geocoder["here_app_code"]
   # }
+
+  # Currency unit
+  # config.currency_unit = "€"
 end

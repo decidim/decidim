@@ -13,7 +13,7 @@
               <%= budget_to_currency project.budget %>
             </strong>
             <% unless current_order_checked_out? %>
-              <%= link_to order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true } do %>
+              <%= button_to order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true }, form: { style: "display: inline" } do %>
                 <%= icon("trash", aria_label: t('.remove'), role: "img") %>
               <% end %>
             <% end %>
