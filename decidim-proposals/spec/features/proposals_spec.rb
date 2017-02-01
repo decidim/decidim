@@ -155,7 +155,7 @@ describe "Proposals", type: :feature do
     let(:budget_feature) do
       create(:feature, manifest_name: :budgets, participatory_process: proposal.feature.participatory_process)
     end
-    let(:project) { create(:project, feature: project_feature) }
+    let(:project) { create(:project, feature: budget_feature) }
 
     before do
       project.link_resources([proposal], "included_proposals")
