@@ -42,7 +42,7 @@ describe "Orders", type: :feature do
 
         expect(page).to have_selector '.budget-list__data--added', count: 1
 
-        expect(page).to have_content "ASSIGNED: 25.000.000 €"
+        expect(page).to have_content "ASSIGNED: €25,000,000"
         expect(page).to have_content "1 project selected"
 
         within ".budget-summary__selected" do
@@ -62,13 +62,13 @@ describe "Orders", type: :feature do
 
       it "removes a project from the current order" do
         visit_feature
-        expect(page).to have_content "ASSIGNED: 25.000.000 €"
+        expect(page).to have_content "ASSIGNED: €25,000,000"
 
         within "#project-#{project.id}-item" do
           page.find('.budget--list__action').click
         end
 
-        expect(page).to have_content "ASSIGNED: 0 €"
+        expect(page).to have_content "ASSIGNED: €0"
         expect(page).not_to have_content "1 project selected"
         expect(page).not_to have_selector ".budget-summary__selected"
 
