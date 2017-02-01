@@ -120,6 +120,10 @@ en:
         please_sign_in: Please sign in
         sign_up: Sign up
   devise:
+    invitations:
+      edit:
+        header: Set your password
+        submit_button: SDave
     mailer:
       invitation_instructions:
         accept: Accept invitation
