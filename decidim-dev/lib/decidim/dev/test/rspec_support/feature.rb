@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'decidim/feature_validator'
-# require 'decidim/comments/helpers/comments_helper'
+require 'decidim/comments/comments_helper'
 
 module Decidim
   # Dummy engine to be able to test components.
@@ -10,7 +10,7 @@ module Decidim
 
     routes do
       root to: proc { [200, {}, ["DUMMY ENGINE"]] }
-      resources :dummy_resource
+      resources :dummy_resources, controller: 'decidim/dummy_resources'
     end
   end
 
@@ -23,7 +23,7 @@ module Decidim
   end
 
   class DummyResourcesController < ActionController::Base
-    # helper Decidim::Comments::CommentsHelper
+    helper Decidim::Comments::CommentsHelper
     skip_authorization_check
 
     def show

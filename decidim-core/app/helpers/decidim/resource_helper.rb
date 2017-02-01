@@ -21,7 +21,7 @@ module Decidim
     #
     # Returns a String.
     def decidim_resource_url(resource, options = {})
-      _decidim_resource_route(resource, "url", options)
+      _decidim_resource_route(resource, "url", options.merge(host: resource.organization.host))
     end
 
     # Renders a collection of linked resources for a resource.
@@ -60,7 +60,7 @@ module Decidim
         participatory_process_id: resource.feature.participatory_process.id
       }
 
-      engine.send("#{manifest.route_name}_#{route_type}", url_params, options)
+      engine.send("#{manifest.route_name}_#{route_type}", url_params.merge(options))
     end
   end
 end

@@ -22,6 +22,8 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         create_comment
+        send_notification_to_author
+
         broadcast(:ok, @comment)
       end
 
@@ -35,6 +37,10 @@ module Decidim
                                    body: form.body,
                                    alignment: form.alignment,
                                    decidim_user_group_id: form.user_group_id)
+      end
+
+      def send_notification_to_author
+        CommentNotificationMailer.comment_created(@author, @comment, @commentable).deliver_later
       end
     end
   end

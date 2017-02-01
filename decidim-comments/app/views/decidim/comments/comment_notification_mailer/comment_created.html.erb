@@ -4,7 +4,7 @@
     <th class="expander"></th>
   </tr>
 </table>
-<table class="row">
+<table class="row content">
   <tr>
     <th class="small-12 first columns">
       <p>
@@ -12,7 +12,7 @@
       </p>
 
       <p>
-        <%= t(".new_comment_by_html", commenter: @comment.author.name) %> <%= link_to @commentable.title, decidim_resource_url(@commentable, host: @commentable.organization.host, feature_id: @commentable.feature.id, participatory_process_id: @commentable.feature.participatory_process.id) %>
+        <%= t(".new_comment_by_html", commenter: @comment.author.name) %> <%= link_to @commentable.title, decidim_resource_url(@commentable) %>
       </p>
       <blockquote>
         <%= @comment.body %>
