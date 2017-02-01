@@ -26,6 +26,20 @@ module MailerHelpers
   def last_email_link
     Nokogiri::HTML(last_email_body).css("table.content a").last["href"]
   end
+
+  def wait_for_last_email_sent_with_subject(subject, max_attempts = 3)
+    attempts = 0
+    loop do
+      if attempts >= max_attempts
+        raise StandardError, "An email with subject containing '#{subject}' wasn't sent.'"
+      end
+
+      return if last_email&.subject.match? subject
+
+      sleep 1
+      attempts += 1
+    end
+  end
 end
 
 RSpec.configure do |config|
