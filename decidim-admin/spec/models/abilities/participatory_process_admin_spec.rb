@@ -36,7 +36,7 @@ describe Decidim::Admin::Abilities::ParticipatoryProcessAdmin do
     it { is_expected.not_to be_able_to(:create, Decidim::ParticipatoryProcess) }
     it { is_expected.not_to be_able_to(:manage, unmanaged_process) }
 
-    it { is_expected.not_to be_able_to(:manage, Decidim::User) }
+    it { is_expected.not_to be_able_to(:manage, :admin_users) }
 
     it { is_expected.to be_able_to(:manage, user_process_step) }
     it { is_expected.not_to be_able_to(:manage, unmanaged_process_step) }

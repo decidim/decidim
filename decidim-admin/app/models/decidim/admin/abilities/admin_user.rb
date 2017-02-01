@@ -24,6 +24,7 @@ module Decidim
 
           can :manage, Feature
           can :read, :admin_dashboard
+          can :manage, :admin_users
           can :manage, Attachment
           can :manage, Scope
           can [:create, :index, :new, :read, :invite], User
