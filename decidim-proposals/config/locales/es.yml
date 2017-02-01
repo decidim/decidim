@@ -18,12 +18,23 @@ es:
             votes_enabled: Votos habilitados
     proposals:
       actions:
+        answer: Respuesta
         new: Nueva propuesta
+        title: Acciones
       admin:
         models:
           proposal:
             name: Propuesta
+        proposal_answers:
+          edit:
+            accepted: Aceptada
+            answer_proposal: Respuesta a la propuesta
+            rejected: Rechazada
+            title: Responder a la propuesta %{title}
         proposals:
+          answer:
+            invalid: Ha habido un problema al responder a esta propuesta
+            success: Propuesta respuesta con éxito
           create:
             invalid: Ha habido un problema al crear esta propuesta
             success: Propuesta creada correctamente
@@ -35,6 +46,10 @@ es:
           new:
             create: Crear propuesta
             title: Nueva propuesta
+      answers:
+        accepted: Aceptadas
+        not_answered: No contestada
+        rejected: Rechazada
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada correctamente.
@@ -44,6 +59,7 @@ es:
             category: Categoría
             official_proposal: Propuesta oficial
             scope: Ámbito
+            state: Estado
             title: Título
       proposals:
         count:
@@ -51,13 +67,16 @@ es:
             one: 1 propuesta
             other: "%{count} propuestas"
         filters:
+          accepted: Aceptadas
           activity: Actividad
           all: Todas
           category: Categoría
           citizenship: Ciudadanía
           official: Oficial
           origin: Origen
+          rejected: Rechazadas
           search: Buscar
+          state: Estado
           voted: Votado
         filters_small_view:
           close_modal: Cerrar ventana
@@ -82,6 +101,8 @@ es:
           close_window: Cerrar ventana
           share: Compartir
           share_link: Compartir enlace
+        show:
+          proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
         vote_button:
           already_voted: Ya votado
           no_votes_remaining: No hay votos restantes
