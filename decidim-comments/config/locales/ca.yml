@@ -4,6 +4,16 @@ ca:
       messages:
         cannot_have_replies: no pot tenir respostes
   decidim:
+    comments:
+      comment_notification_mailer:
+        comment_created:
+          hi: Hola
+          new_comment_by_html: Hi ha un comentari nou de <b>%{commenter}</b> en
+          title: Title
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: Tens un nou comentari
     components:
       add_comment_form:
         form:

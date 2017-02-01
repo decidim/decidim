@@ -30,9 +30,10 @@ require "active_support/core_ext/string"
 require "decidim/core"
 require "decidim/core/test"
 
+require "#{File.dirname(__FILE__)}/rspec_support/feature.rb"
+
 begin
   require "#{dummy_app_path}/config/environment"
-  require "#{File.dirname(__FILE__)}/rspec_support/feature.rb"
 rescue LoadError
   puts "Could not load dummy application. Please ensure you have run `bundle exec rake generate_test_app`"
   puts "Tried to load it from #{dummy_app_path}"

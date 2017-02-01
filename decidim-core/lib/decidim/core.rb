@@ -18,6 +18,7 @@ module Decidim
   autoload :HasFeature, "decidim/has_feature"
   autoload :HasScope, "decidim/has_scope"
   autoload :HasCategory, "decidim/has_category"
+  autoload :FeatureValidator, "decidim/feature_validator"
 
   include ActiveSupport::Configurable
 

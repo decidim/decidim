@@ -4,6 +4,8 @@ module Decidim
     # A custom mailer for sending notifications to users when
     # a comment is created.
     class CommentNotificationMailer < Decidim::ApplicationMailer
+      helper Decidim::ResourceHelper
+
       def comment_created(user, comment, commentable)
         with_user(user) do
           @comment = comment

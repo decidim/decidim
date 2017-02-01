@@ -12,7 +12,7 @@
       </p>
 
       <p>
-        <%= t(".new_comment_by_html", commenter: @comment.author.name) %> <%= link_to @commentable.title, @commentable %>
+        <%= t(".new_comment_by_html", commenter: @comment.author.name) %> <%= link_to @commentable.title, decidim_resource_url(@commentable, host: @commentable.organization.host, feature_id: @commentable.feature.id, participatory_process_id: @commentable.feature.participatory_process.id) %>
       </p>
       <blockquote>
         <%= @comment.body %>

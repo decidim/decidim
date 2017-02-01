@@ -6,20 +6,22 @@ module Decidim
     # another engine.
     #
     # resource - An object that is a valid resource exposed by some feature.
+    # options - An optional hash of options to pass to the Rails router
     #
     # Returns a String.
-    def decidim_resource_path(resource)
-      _decidim_resource_route(resource, "path")
+    def decidim_resource_path(resource, options = {})
+      _decidim_resource_route(resource, "path", options)
     end
 
     # Builds the url to a resource. Useful when linking to a resource from
     # another engine.
     #
     # resource - An object that is a valid resource exposed by some feature.
+    # options - An optional hash of options to pass to the Rails router
     #
     # Returns a String.
-    def decidim_resource_url(resource)
-      _decidim_resource_route(resource, "url")
+    def decidim_resource_url(resource, options = {})
+      _decidim_resource_route(resource, "url", options)
     end
 
     # Renders a collection of linked resources for a resource.
@@ -48,7 +50,7 @@ module Decidim
     # Private: Build the route to a given resource.
     #
     # Returns a String.
-    def _decidim_resource_route(resource, route_type)
+    def _decidim_resource_route(resource, route_type, options)
       manifest = resource.class.resource_manifest
       engine = send(manifest.mounted_engine_name)
 
@@ -58,7 +60,7 @@ module Decidim
         participatory_process_id: resource.feature.participatory_process.id
       }
 
-      engine.send("#{manifest.route_name}_#{route_type}", url_params)
+      engine.send("#{manifest.route_name}_#{route_type}", url_params, options)
     end
   end
 end

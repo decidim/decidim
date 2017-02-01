@@ -183,7 +183,7 @@ FactoryGirl.define do
   factory :feature, class: Decidim::Feature do
     name { Decidim::Faker::Localized.sentence(3) }
     participatory_process
-    manifest_name "dummyresources"
+    manifest_name "dummy"
   end
 
   factory :scope, class: Decidim::Scope do
@@ -193,7 +193,7 @@ FactoryGirl.define do
 
   factory :dummy_resource, class: Decidim::DummyResource do
     title { generate(:name) }
-    feature { create(:feature, manifest_name: "dummyresources") }
+    feature { create(:feature, manifest_name: "dummy") }
     author { create(:user, organization: feature.organization) }
   end
 
