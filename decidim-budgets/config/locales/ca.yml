@@ -15,8 +15,6 @@ ca:
           create:
             invalid: Hi ha hagut un problema creant aquest projecte
             success: Projecte creat correctament
-          destroy:
-            success: Projecte creat amb èxit
           edit:
             title: Editar projecte
             update: Actualitzar projecte
@@ -45,7 +43,6 @@ ca:
           ok: D'acord
           title: Pressupost superat
         budget_summary:
-          are_you_sure: Estàs segur que vols cancel·lar el teu vot?
           assigned: 'Assignat:'
           cancel_order: eliminar el teu vot i començar de nou
           checked_out:
@@ -84,11 +81,4 @@ ca:
     features:
       budgets:
         name: Pressupostos
-    orders:
-      checkout:
-        error: Hi ha hagut un error en processar el teu vot
-        success: Vot enviat correctament
-      destroy:
-        error: Hi ha hagut un error en processar el teu vot
-        success: Vot eliminat correctament
   total_budget: Pressupost total
