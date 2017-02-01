@@ -40,7 +40,7 @@ module Decidim
       end
 
       def send_notification_to_author
-        CommentNotificationMailer.comment_created(@author, @comment, @commentable).deliver_later
+        CommentNotificationMailer.comment_created(@author, @comment, @commentable).deliver_now
       end
     end
   end

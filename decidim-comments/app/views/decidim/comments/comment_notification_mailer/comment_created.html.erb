@@ -1,26 +1,14 @@
-<table class="row">
-  <tr>
-    <th class="small-12 first columns"><h4><%= t(".title") %></h4></th>
-    <th class="expander"></th>
-  </tr>
-</table>
-<table class="row content">
-  <tr>
-    <th class="small-12 first columns">
-      <p>
-        <%= t(".hi") %> <strong><%= @commentable.author.name %></strong>,
-      </p>
+<p><%= t("devise.mailer.invitation_instructions.hello", email: @commentable.author.name) %></p>
 
-      <p>
-        <%= t(".new_comment_by_html", commenter: @comment.author.name) %> <%= link_to @commentable.title, decidim_resource_url(@commentable) %>
-      </p>
-      <blockquote>
-        <%= @comment.body %>
-      </blockquote>
-      <p>
-        Manage my account
-      </p>
-    </th>
-    <th class="expander"></th>
-  </tr>
-</table>
+<p>
+  <%=
+    t(".new_comment_by_html", {
+      commenter: @comment.author.name,
+      commentable_link: link_to(@commentable.title, decidim_resource_url(@commentable))
+    })
+  %>
+</p>
+
+<blockquote>
+  <%= @comment.body %>
+</blockquote>

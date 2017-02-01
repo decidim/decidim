@@ -9,7 +9,7 @@ en:
       comment_notification_mailer:
         comment_created:
           hi: Hi
-          new_comment_by_html: There is a new comment from <b>%{commenter}</b>
+          new_comment_by_html: There is a new comment from <b>%{commenter}</b> in <b>%{commentable_link}</b>
           title: Title
       mailer:
         comment_notification:

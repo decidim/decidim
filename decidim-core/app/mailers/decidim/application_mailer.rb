@@ -7,6 +7,6 @@ module Decidim
     include Roadie::Rails::Automatic
 
     default from: Decidim.config.mailer_sender
-    layout "mailer"
+    layout "decidim/mailer"
   end
 end
