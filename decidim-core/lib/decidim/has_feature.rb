@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require "active_support/concern"
+require "decidim/feature_validator"
 
 module Decidim
   # A concern with the features needed when you want a model to have a feature.

@@ -34,7 +34,7 @@ module MailerHelpers
         raise StandardError, "An email with subject containing '#{subject}' wasn't sent.'"
       end
 
-      return if last_email&.subject.match? subject
+      return if last_email&.subject&.match? subject
 
       sleep 1
       attempts += 1
