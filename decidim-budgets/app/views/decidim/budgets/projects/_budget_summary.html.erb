@@ -1,0 +1,46 @@
+<div class="card budget-summary" data-progress-reference>
+  <div class="card__content">
+    <% if include_heading %>
+      <% if current_order_checked_out? %>
+        <h3 class="heading3"><%= t('.checked_out.title') %></h3>
+        <p>
+          <%= raw t('.checked_out.description', cancel_link: link_to(t('.cancel_order'), order_path, method: :delete, class: 'cancel-order', data: { confirm: t('.are_you_sure') })) %>
+        </p>
+      <% else %>
+        <h3 class="heading3"><%= t('.title') %></h3>
+        <p><%= t('.description', minimum_budget: budget_to_currency(current_order&.minimum_budget)) %></p>
+      <% end %>
+    <% end %>
+
+    <div class="budget-summary__total" data-total-budget="<%= feature_settings.total_budget %>">
+      <span class="mini-title"><%= t('total_budget') %>
+        <strong class="mini-title__strong mini-title__strong--highlight">
+          <%= budget_to_currency(feature_settings.total_budget) %>
+        </strong>
+      </span>
+    </div>
+
+    <div id="order-progress">
+      <%= render partial: 'order_progress' %>
+    </div>
+
+    <div>
+      <span class="mini-title">
+        <%= t('.assigned') %>
+        <strong id="order-total-budget" class="mini-title__strong">
+          <%= render partial: 'order_total_budget' %>
+        </strong>
+      </span>
+    </div>
+  </div>
+
+  <div id="order-selected-projects">
+    <%= render partial: 'order_selected_projects' %>
+  </div>
+</div>
+
+<%= render partial: "budget_excess" %>
+
+<div class="reveal" data-reveal id="budget-confirm">
+  <%= render partial: "budget_confirm" %>
+</div>

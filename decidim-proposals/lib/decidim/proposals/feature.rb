@@ -6,7 +6,6 @@ Decidim.register_feature(:proposals) do |feature|
   feature.engine = Decidim::Proposals::Engine
   feature.admin_engine = Decidim::Proposals::AdminEngine
   feature.icon = "decidim/proposals/icon.svg"
-  feature.stylesheet = "decidim/proposals/application"
 
   feature.on(:before_destroy) do |instance|
     if Decidim::Proposals::Proposal.where(feature: instance).any?
@@ -54,6 +53,17 @@ Decidim.register_feature(:proposals) do |feature|
           body: Faker::Lorem.paragraphs(2).join("\n"),
           author: Decidim::User.where(organization: feature.organization).all.sample
         )
+
+        if n > 15
+          proposal.state = "accepted"
+          proposal.answered_at = Time.current
+          proposal.save!
+        elsif n > 9
+          proposal.state = "rejected"
+          proposal.answered_at = Time.current
+          proposal.answer = Decidim::Faker::Localized.sentence(10)
+          proposal.save!
+        end
 
         rand(3).times do |m|
           email = "vote-author-#{process.id}-#{n}-#{m}@decidim.org"

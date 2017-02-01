@@ -38,6 +38,7 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
+      <%= render partial: "proposal_badge", locals: { proposal: @proposal } %>
       <p><%= @proposal.body %></p>
       <% if @proposal.category || @proposal.scope %>
         <ul class="tags tags--proposal">
@@ -50,7 +51,16 @@
         </ul>
       <% end %>
     </div>
+    <% if @proposal.rejected? %>
+      <div class="section">
+        <div class="callout warning">
+          <h5><%= t(".proposal_rejected_reason") %></h5>
+          <p><%= translated_attribute @proposal.answer %></p>
+        </div>
+      </div>
+    <% end %>
     <%= linked_resources_for @proposal, :results, "included_proposals" %>
+    <%= linked_resources_for @proposal, :projects, "included_proposals" %>
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
   </div>
 </div>
@@ -62,4 +72,6 @@
 <% end %>
 
 <%= render partial: "decidim/shared/login_modal" %>
+
 <%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>

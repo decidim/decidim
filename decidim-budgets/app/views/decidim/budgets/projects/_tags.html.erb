@@ -1,0 +1,10 @@
+<% if project.category.present? || project.scope.present? %>
+  <ul class="tags tags--project" >
+    <% if project.category.present? %>
+      <li><%= link_to translated_attribute(project.category.name), decidim_budgets.projects_path(filter: { category_id: project.category.id }) %></li>
+    <% end %>
+    <% if project.scope.present? %>
+      <li><%= link_to project.scope.name, decidim_budgets.projects_path(filter: { scope_id: [project.scope.id] }) %></li>
+    <% end %>
+  </ul>
+<% end %>

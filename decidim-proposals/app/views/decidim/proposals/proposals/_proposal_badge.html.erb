@@ -1,0 +1,3 @@
+<% if proposal.answered? %>
+  <span class="<%= (proposal.accepted? ? 'success' : 'warning') %> label proposal-status"><%= humanize_proposal_state proposal.state %></span>
+<% end %>

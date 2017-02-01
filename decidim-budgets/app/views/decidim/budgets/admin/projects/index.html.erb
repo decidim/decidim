@@ -1,0 +1,27 @@
+<h2><%= t(".title") %></h2>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_project_path, class: 'new' if can? :manage, current_feature %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= t("models.project.fields.title", scope: "decidim.budgets") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% projects.each do |project| %>
+      <tr data-id="<%= project.id %>">
+        <td>
+          <%= link_to translated_attribute(project.title), decidim_budgets.project_path(id: project, feature_id: current_feature, participatory_process_id: current_participatory_process), target: :blank %><br />
+        </td>
+        <td class="actions">
+          <%= link_to t("actions.edit", scope: "decidim.budgets"), edit_project_path(project) if can? :update, current_feature %>
+          <%= link_to t("actions.destroy", scope: "decidim.budgets"), project_path(project), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } if can? :destroy, current_feature %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

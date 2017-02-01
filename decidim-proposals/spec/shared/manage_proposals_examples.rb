@@ -37,4 +37,53 @@ RSpec.shared_examples "manage proposals" do
       expect(proposal.scope).to eq(scope)
     end
   end
+
+  it "can reject a proposal" do
+    within find("tr", text: proposal.title) do
+      click_link "Answer"
+    end
+
+    within ".edit_proposal_answer" do
+      fill_in_i18n(
+        :proposal_answer_answer,
+        "#answer-tabs",
+        en: "The proposal doesn't make any sense",
+        es: "La propuesta no tiene sentido",
+        ca: "La proposta no te sentit"
+      )
+      choose "Rejected"
+      click_button "Answer proposal"
+    end
+
+    within ".flash" do
+      expect(page).to have_content("Proposal successfully answered")
+    end
+
+    within find("tr", text: proposal.title) do
+      within find("td:nth-child(4)") do
+        expect(page).to have_content("Rejected")
+      end
+    end
+  end
+
+  it "can accept a proposal" do
+    within find("tr", text: proposal.title) do
+      click_link "Answer"
+    end
+
+    within ".edit_proposal_answer" do
+      choose "Accepted"
+      click_button "Answer proposal"
+    end
+
+    within ".flash" do
+      expect(page).to have_content("Proposal successfully answered")
+    end
+
+    within find("tr", text: proposal.title) do
+      within find("td:nth-child(4)") do
+        expect(page).to have_content("Accepted")
+      end
+    end
+  end
 end

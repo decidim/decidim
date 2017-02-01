@@ -28,6 +28,7 @@ env:
     - GEM=decidim-meetings DB=postgres
     - GEM=decidim-proposals DB=postgres
     - GEM=decidim-results DB=postgres
+    - GEM=decidim-budgets DB=postgres
 
 before_install:
   # Upgrade PhantomJS

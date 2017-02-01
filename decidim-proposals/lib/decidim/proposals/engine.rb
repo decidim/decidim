@@ -18,7 +18,7 @@ module Decidim
       end
 
       initializer "decidim_proposals.assets" do |app|
-        app.config.assets.precompile += %w(decidim_proposals_manifest.js)
+        app.config.assets.precompile += %w(decidim_proposals_manifest.js decidim_proposals_manifest.css)
       end
 
       initializer "decidim_proposals.inject_abilities_to_user" do |_app|

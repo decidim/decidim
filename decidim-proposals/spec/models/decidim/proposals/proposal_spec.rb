@@ -30,6 +30,20 @@ module Decidim
           expect(subject.voted_by?(user)).to be_truthy
         end
       end
+
+      context "when it has been accepted" do
+        let(:proposal) { build(:proposal, :accepted) }
+
+        it { is_expected.to be_answered }
+        it { is_expected.to be_accepted }
+      end
+
+      context "when it has been rejected" do
+        let(:proposal) { build(:proposal, :rejected) }
+
+        it { is_expected.to be_answered }
+        it { is_expected.to be_rejected }
+      end
     end
   end
 end

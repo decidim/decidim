@@ -4,6 +4,7 @@ require "decidim/admin/test/factories"
 require "decidim/comments/test/factories"
 require "decidim/meetings/test/factories"
 require "decidim/results/test/factories"
+require "decidim/budgets/test/factories"
 
 FactoryGirl.define do
   factory :proposal_feature, class: Decidim::Feature do
@@ -57,6 +58,21 @@ FactoryGirl.define do
     feature { create(:proposal_feature) }
     author do
       create(:user, organization: feature.organization) if feature
+    end
+
+    trait :official do
+      author nil
+    end
+
+    trait :accepted do
+      state "accepted"
+      answered_at { Time.current }
+    end
+
+    trait :rejected do
+      state "rejected"
+      answer { Decidim::Faker::Localized.sentence }
+      answered_at { Time.current }
     end
   end
 

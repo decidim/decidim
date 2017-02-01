@@ -9,7 +9,12 @@ module Decidim
     included do
       belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
       has_one :organization, through: :feature
-      validates :feature, feature: { manifest: name.demodulize.pluralize.downcase }
+    end
+
+    class_methods do
+      def feature_manifest_name(manifest_name)
+        validates :feature, feature: { manifest: manifest_name || name.demodulize.pluralize.downcase }
+      end
     end
   end
 end

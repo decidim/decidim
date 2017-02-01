@@ -46,6 +46,17 @@ module Decidim
         end
       end
 
+      # Handle the state filter
+      def search_state
+        if state == "accepted"
+          query.accepted
+        elsif state == "rejected"
+          query.rejected
+        else # Assume 'all'
+          query
+        end
+      end
+
       # Returns the random proposals for the current page.
       def results
         @proposals ||= Proposal.transaction do

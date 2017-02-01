@@ -122,6 +122,7 @@ ca:
     invitations:
       edit:
         header: Establir la contrasenya
+        submit_button: Desar
     mailer:
       invitation_instructions:
         accept: Acceptar invitació
