@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require_relative "../shared/admin_shared_context"
-require_relative "../shared/manage_proposals_examples"
 
 describe "Admin manages proposals", type: :feature do
   include_context "admin"
