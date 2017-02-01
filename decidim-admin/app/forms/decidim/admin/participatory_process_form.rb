@@ -29,8 +29,8 @@ module Decidim
 
       validate :slug, :slug_uniqueness
 
-      validates :hero_image, file_size: { less_than_or_equal_to: 10.megabytes }, file_content_type: { allow: ['image/jpeg', 'image/png'] }
-      validates :banner_image, file_size: { less_than_or_equal_to: 10.megabytes }, file_content_type: { allow: ['image/jpeg', 'image/png'] }
+      validates :hero_image, file_size: { less_than_or_equal_to: lambda { |_record| Decidim.maximum_attachment_size } }, file_content_type: { allow: ['image/jpeg', 'image/png'] }
+      validates :banner_image, file_size: { less_than_or_equal_to:lambda { |_record| Decidim.maximum_attachment_size } }, file_content_type: { allow: ['image/jpeg', 'image/png'] }
 
        private
 
