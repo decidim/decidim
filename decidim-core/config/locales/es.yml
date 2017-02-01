@@ -122,7 +122,6 @@ es:
     invitations:
       edit:
         header: Escribe tu contraseña
-        submit_button: Enviar
     mailer:
       invitation_instructions:
         accept: Aceptar invitación
