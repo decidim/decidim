@@ -21,17 +21,25 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
-
         update_participatory_process
-        broadcast(:ok)
+
+        if @participatory_process.valid?
+          broadcast(:ok, @participatory_process)
+        else
+          form.errors.add(:hero_image, @participatory_process.errors[:hero_image]) if @participatory_process.errors.include? :hero_image
+          form.errors.add(:banner_image, @participatory_process.errors[:banner_image]) if @participatory_process.errors.include? :banner_image
+          broadcast(:invalid)
+        end
       end
+
 
       private
 
       attr_reader :form
 
       def update_participatory_process
-        @participatory_process.update_attributes!(attributes)
+        @participatory_process.assign_attributes(attributes)
+        @participatory_process.save! if @participatory_process.valid?
       end
 
       def attributes
