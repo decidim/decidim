@@ -119,6 +119,10 @@ ca:
         please_sign_in: Si us plau, inicii sessió
         sign_up: Donar-se d'alta
   devise:
+    invitations:
+      edit:
+        header: Defineix la teva contrasenya
+        submit_button: Desar
     mailer:
       invitation_instructions:
         accept: Acceptar invitació
