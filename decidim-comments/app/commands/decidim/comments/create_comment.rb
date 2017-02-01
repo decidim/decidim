@@ -22,7 +22,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         create_comment
-        send_notification_to_author
+        send_notification_to_author unless @author == @commentable.author
 
         broadcast(:ok, @comment)
       end
@@ -40,7 +40,11 @@ module Decidim
       end
 
       def send_notification_to_author
-        CommentNotificationMailer.comment_created(@author, @comment, @commentable).deliver_now
+        if @comment.depth > 0
+          CommentNotificationMailer.reply_created(@author, @comment, @commentable, @comment.root_commentable).deliver_later
+        else
+          CommentNotificationMailer.comment_created(@author, @comment, @commentable).deliver_later
+        end
       end
     end
   end

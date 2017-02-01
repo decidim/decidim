@@ -8,13 +8,15 @@ en:
     comments:
       comment_notification_mailer:
         comment_created:
-          hi: Hi
           new_comment_by_html: There is a new comment from <b>%{commenter}</b> in <b>%{commentable_link}</b>
-          title: Title
+        reply_created:
+          new_reply_by_html: There is a new reply of your comment from <b>%{commenter}</b> in <b>%{commentable_link}</b>
       mailer:
         comment_notification:
           comment_created:
             subject: You have a new comment
+          reply_created:
+            subject: You have a new reply of your comment
     components:
       add_comment_form:
         form:
@@ -48,3 +50,7 @@ en:
         title: "%{count} comments"
       featured_comment:
         title: Featured comment
+  devise:
+    mailer:
+      invitation_instructions:
+        hello: Hello

@@ -1,0 +1,14 @@
+<p><%= t("devise.mailer.invitation_instructions.hello", email: @comment.author.name) %></p>
+
+<p>
+  <%=
+    t(".new_reply_by_html", {
+      commenter: @reply.author.name,
+      commentable_link: link_to(@commentable.title, decidim_resource_url(@commentable))
+    })
+  %>
+</p>
+
+<blockquote>
+  <%= @reply.body %>
+</blockquote>
