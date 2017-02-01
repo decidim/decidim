@@ -12,9 +12,8 @@ module Decidim
       )
     end
 
-    before do
-      @request.env["decidim.current_organization"] = organization
-    end
+    include_examples "with participatory processes"
+    include_examples "with promoted participatory processes"
 
     describe "GET show" do
       context "when the process is unpublished" do
