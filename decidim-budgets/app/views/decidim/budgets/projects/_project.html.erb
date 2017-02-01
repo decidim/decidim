@@ -1,9 +1,12 @@
 <div class="card--list__text">
-  <%= link_to project, class: "card__link" do %>
-    <h5 class="card__title budget-list__title">
-      <%= translated_attribute project.title %>
-    </h5>
-  <% end %>
+  <div>
+    <%= link_to project, class: "card__link" do %>
+      <h5 class="card__title budget-list__title">
+        <%= translated_attribute project.title %>
+      </h5>
+    <% end %>
+    <%= render partial: "tags", locals: { project: project } %>
+  </div>
 </div>
 <% if current_user.present? %>
   <% if current_order && current_order.projects.include?(project) %>
