@@ -119,6 +119,10 @@ es:
         please_sign_in: Por favor, regístrese
         sign_up: Regístrese
   devise:
+    invitations:
+      edit:
+        header: Escribe tu contraseña
+        submit_button: Enviar
     mailer:
       invitation_instructions:
         accept: Aceptar invitación
