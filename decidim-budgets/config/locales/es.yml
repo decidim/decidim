@@ -15,8 +15,6 @@ es:
           create:
             invalid: Ha habido un problema al crear este proyecto
             success: Proyecto creado con éxito
-          destroy:
-            success: Proyecto eliminado con éxito
           edit:
             title: Editar proyecto
             update: Actualizar proyecto
@@ -45,7 +43,6 @@ es:
           ok: De acuerdo
           title: Presupuesto excedido
         budget_summary:
-          are_you_sure: '¿Seguro que quieres eliminar tu voto?'
           assigned: 'Asignado:'
           cancel_order: eliminar tu voto y empezar de nuevo
           checked_out:
@@ -84,11 +81,4 @@ es:
     features:
       budgets:
         name: Presupuestos
-    orders:
-      checkout:
-        error: Ha habido un error procesando tu voto
-        success: Voto enviado con éxito
-      destroy:
-        error: Ha habido un error eliminando tu voto
-        success: Voto eliminado correctamente
   total_budget: Presupuesto total
