@@ -1,5 +1,8 @@
 <% provide(:title, translated_attribute(meeting.title)) %>
 
+<% content_for :meta_description, translated_attribute(meeting.description) %>
+<% content_for :meta_title, translated_attribute(meeting.title)) %>
+
 <div class="row column view-header">
   <h2 class="heading2"><%= translated_attribute meeting.title %></h2>
 </div>
@@ -32,6 +35,7 @@
           </div>
         </div>
       <% end %>
+    <%= render partial: "share" %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
@@ -64,3 +68,6 @@
   </div>
 </div>
 <%= attachments_for meeting %>
+
+<%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>

@@ -1,4 +1,5 @@
-<% provide(:title, t(".title")) %>
+<% content_for(:title, t(".title")) %>
+<% content_for :meta_title, t(".meta_title", organization: current_organization.name) %>
 
 <div class="row columns">
   <div class="title-action">

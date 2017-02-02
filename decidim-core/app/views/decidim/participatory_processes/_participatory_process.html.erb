@@ -1,3 +1,7 @@
+<% content_for :meta_title, participatory_process.title %>
+<% content_for :meta_description, strip_tags(participatory_process.description) %>
+<% content_for :meta_image_url, current_organization.hero_image.url %>
+
 <div class="column">
   <article class="card card--process">
     <%= link_to participatory_process_path(participatory_process), class: "card__link" do %>
