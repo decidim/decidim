@@ -67,4 +67,9 @@ CommentThread.propTypes = {
   votable: PropTypes.bool
 };
 
+CommentThread.defaultProps = {
+  session: null,
+  votable: false
+};
+
 export default CommentThread;

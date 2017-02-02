@@ -24,4 +24,9 @@ VoteButton.propTypes = {
   disabled: PropTypes.bool
 };
 
+VoteButton.defaultProps = {
+  selectedClass: "selected",
+  disabled: false
+};
+
 export default VoteButton;
