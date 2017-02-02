@@ -14,8 +14,8 @@
               </div>
             </div>
             <div class="card--list__data">
-              <%= link_to authorization, method: :delete, class: "card--list__data__icon", data: { confirm: t(".authorization_confirm_destroy") } do %>
-                <%= icon "circle-x" %>
+              <%= link_to new_authorization_path(handler: authorization.name), class: "card--list__data__icon" do %>
+                <%= icon "reload" %>
               <% end %>
             </div>
           </div>

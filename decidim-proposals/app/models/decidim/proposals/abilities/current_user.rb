@@ -16,17 +16,21 @@ module Decidim
           @context = context
 
           can :vote, Proposal do |_proposal|
-            voting_enabled? && remaining_votes.positive?
+            authorized?(:vote) && voting_enabled? && remaining_votes.positive?
           end
 
           can :unvote, Proposal do |_proposal|
-            voting_enabled? && vote_limit_enabled?
+            authorized?(:vote) && voting_enabled? && vote_limit_enabled?
           end
 
           can :create, Proposal if current_settings.try(:creation_enabled?)
         end
 
         private
+
+        def authorized?(action)
+          ActionAuthorizer.new(user, feature, action).authorize.ok?
+        end
 
         def vote_limit_enabled?
           return unless feature_settings
@@ -52,6 +56,10 @@ module Decidim
 
         def feature_settings
           context.fetch(:feature_settings, nil)
+        end
+
+        def feature
+          context.fetch(:current_feature)
         end
       end
     end

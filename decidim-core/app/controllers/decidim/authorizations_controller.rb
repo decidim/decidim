@@ -12,21 +12,27 @@ module Decidim
 
     layout "layouts/decidim/user_profile", only: [:index]
 
-    def new; end
+    def new
+      flash.now[:notice] = params[:reason] if params[:reason]
+    end
 
     def index
       @authorizations = current_user.authorizations
     end
 
     def first_login
-      redirect_to(action: :new, handler: handlers.first.handler_name) if handlers.length == 1
+      redirect_to(
+        action: :new,
+        handler: handlers.first.handler_name,
+        redirect_url: account_path
+      ) if handlers.length == 1
     end
 
     def create
       AuthorizeUser.call(handler) do
         on(:ok) do
           flash[:notice] = t("authorizations.create.success", scope: "decidim")
-          redirect_to account_path
+          redirect_to params[:redirect_url] || authorizations_path
         end
 
         on(:invalid) do
@@ -34,15 +40,6 @@ module Decidim
           render action: :new
         end
       end
-    end
-
-    def destroy
-      @authorization = current_user.authorizations.find(params[:id])
-      authorize! :destroy, @authorization
-
-      @authorization.destroy
-      flash[:notice] = t("authorizations.destroy.success", scope: "decidim")
-      redirect_to account_path
     end
 
     def handler
@@ -73,7 +70,7 @@ module Decidim
     end
 
     def only_one_handler?
-      redirect_to(action: :new, handler: handlers.first.handler_name) && return if handlers.length == 1
+      redirect_to(action: :new, handler: available_handlers.first.handler_name) && return if available_handlers.length == 1
     end
 
     def handlers

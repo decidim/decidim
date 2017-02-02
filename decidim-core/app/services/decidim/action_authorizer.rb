@@ -25,7 +25,7 @@ module Decidim
     #
     # Returns nil.
     def authorize
-      raise AuthorizationError, "Missing data" unless feature && action && user
+      raise AuthorizationError, "Missing data" unless feature && action
 
       return status(:ok) unless authorization_handler_name
 
@@ -48,9 +48,9 @@ module Decidim
       return nil unless user
       return nil unless permission["authorization_handler_name"]
 
-      @authorization ||= user.authorizations.find_by(
-        name: permission.fetch("authorization_handler_name")
-      )
+      @authorization ||= user.authorizations.to_a.find do |authorization|
+        authorization.name == permission.fetch("authorization_handler_name")
+      end
     end
 
     def unmatched_fields
@@ -72,7 +72,7 @@ module Decidim
     end
 
     def authorization_handler_name
-      permission&.fetch("authorization_handler_name")
+      permission&.fetch("authorization_handler_name", nil)
     end
 
     def permission
@@ -83,16 +83,35 @@ module Decidim
     end
 
     class AuthorizationStatus
-      attr_reader :status
+      attr_reader :code
       attr_reader :data
 
-      def initialize(status, data)
-        @status = status.to_sym
+      def initialize(code, data)
+        @code = code.to_sym
         @data = data.symbolize_keys
       end
 
       def ok?
-        @status == :ok
+        @code == :ok
+      end
+
+      def invalid?
+        @code == :invalid
+      end
+
+      def reauthorize?
+        @code == :missing || @code == :incomplete
+      end
+
+      def reason
+        case @status
+        when :missing
+          I18n.t("missing", scope: "decidim.action_authorization")
+        when :incomplete
+          I18n.t("incomplete", scope: "decidim.action_authorization")
+        when :invalid
+          I18n.t("invalid", scope: "decidim.action_authorization")
+        end
       end
     end
 

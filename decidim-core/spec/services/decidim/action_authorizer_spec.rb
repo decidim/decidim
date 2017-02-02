@@ -3,26 +3,43 @@ require "spec_helper"
 
 module Decidim
   describe ActionAuthorizer do
-    let(:user) { double }
+    let(:user) { double(authorizations: [authorization]) }
     let(:feature) { double(permissions: permissions) }
     let(:action) { "vote" }
     let(:permissions) { {action => permission} }
     let(:permission) { {} }
-    let(:authorization) { double(metadata: metadata) }
+    let(:authorization) { double(name: "foo_handler", metadata: metadata) }
     let(:metadata) { { postal_code: "1234", location: "Tomorrowland" } }
     let(:response) { subject.authorize }
 
+    let(:permission) do
+      {
+        "authorization_handler_name" => "foo_handler",
+        "options" => options
+      }
+    end
 
-    let(:user) { create(:user) }
+    let(:options) { {} }
+
     subject { described_class.new(user, feature, action) }
 
     describe "authorized?" do
+      context "when no permissions are set" do
+        let(:permission) { {} }
+
+        it "returns ok" do
+          expect(response).to be_ok
+        end
+      end
+
       context "when the data is incomplete" do
         context "when the user is not logged in" do
           let(:user) { nil }
 
-          it "raises an exception" do
-            expect { subject.authorize }.to raise_error(ActionAuthorizer::AuthorizationError)
+          it "returns missing" do
+            expect(response).to_not be_ok
+            expect(response.code).to eq(:missing)
+            expect(response.data).to include(handler: "foo_handler")
           end
         end
 
@@ -44,18 +61,6 @@ module Decidim
       end
 
       context "when the data is valid" do
-        before do
-          authorizations = double
-
-          allow(user).to(
-            receive(:authorizations)
-          ).and_return authorizations
-
-          allow(authorizations).to(
-            receive(:find_by).with(name: "foo_handler")
-          ).and_return authorization
-        end
-
         let(:permission) do
           {
             "authorization_handler_name" => "foo_handler",
@@ -63,14 +68,12 @@ module Decidim
           }
         end
 
-        let(:options) { {} }
-
         context "when the user doesn't have a valid authorization" do
-          let(:authorization) { nil }
+          let(:authorization) { double(name: "bar_handler") }
 
-          it "broadcasts missing" do
+          it "returns missing" do
             expect(response).to_not be_ok
-            expect(response.status).to eq(:missing)
+            expect(response.code).to eq(:missing)
             expect(response.data).to include(handler: "foo_handler")
           end
         end
@@ -79,7 +82,7 @@ module Decidim
           context "when it doesn't have options" do
             let(:options) { {} }
 
-            it "broadcasts ok" do
+            it "returns ok" do
               expect(response).to be_ok
             end
           end
@@ -87,9 +90,9 @@ module Decidim
           context "when has options that doesn't match the authorization" do
             let(:options) { { postal_code: "789" } }
 
-            it "broadcasts invalid" do
+            it "returns invalid" do
               expect(response).to_not be_ok
-              expect(response.status).to eq(:invalid)
+              expect(response.code).to eq(:invalid)
               expect(response.data).to include(fields: [:postal_code])
             end
           end
@@ -97,7 +100,7 @@ module Decidim
           context "when has options that exactly match the authorization" do
             let(:options) { { postal_code: "1234", location: "Tomorrowland" } }
 
-            it "broadcasts ok" do
+            it "returns ok" do
               expect(response).to be_ok
             end
           end
@@ -105,7 +108,7 @@ module Decidim
           context "when has options that partially match the authorization" do
             let(:options) { { postal_code: "1234" } }
 
-            it "broadcasts ok" do
+            it "returns ok" do
               expect(response).to be_ok
             end
           end
@@ -115,7 +118,7 @@ module Decidim
 
             it "returns incomplete with the fields" do
               expect(response).to_not be_ok
-              expect(response.status).to eq(:incomplete)
+              expect(response.code).to eq(:incomplete)
               expect(response.data).to include(handler: "foo_handler", fields: [:age])
             end
           end
