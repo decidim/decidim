@@ -1,6 +1,7 @@
 <% content_for(:title, translated_attribute(result.title)) %>
 <% content_for :meta_description, translated_attribute(result.description) %>
 <% content_for :meta_title, translated_attribute(result.title) %>
+<% content_for :meta_url, result_url(result.id) %>
 
 <div class="row column view-header">
   <h2 class="heading2"><%= translated_attribute result.title %></h2>
@@ -53,3 +54,6 @@
     <%= comments_for result, arguable: true, votable: true %>
   <% end %>
 <% end %>
+
+<%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>
