@@ -2,7 +2,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require_relative "../shared/participatory_admin_shared_context"
 
 describe "Admin manage user groups", type: :feature do
   include_context "participatory process admin"
@@ -18,7 +17,6 @@ describe "Admin manage user groups", type: :feature do
     click_button "Verify", match: :first
 
     expect(page).not_to have_selector(".actions button", match: :first)
-    
     expect(page).to have_content("verified successfully")
   end
 end

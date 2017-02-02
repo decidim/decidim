@@ -1,34 +1,34 @@
 PATH
   remote: .
   specs:
-    decidim (0.0.2)
-      decidim-admin (= 0.0.2)
-      decidim-api (= 0.0.2)
-      decidim-budgets (= 0.0.2)
-      decidim-comments (= 0.0.2)
-      decidim-core (= 0.0.2)
-      decidim-meetings (= 0.0.2)
-      decidim-pages (= 0.0.2)
-      decidim-proposals (= 0.0.2)
-      decidim-results (= 0.0.2)
-      decidim-system (= 0.0.2)
+    decidim (0.0.3)
+      decidim-admin (= 0.0.3)
+      decidim-api (= 0.0.3)
+      decidim-budgets (= 0.0.3)
+      decidim-comments (= 0.0.3)
+      decidim-core (= 0.0.3)
+      decidim-meetings (= 0.0.3)
+      decidim-pages (= 0.0.3)
+      decidim-proposals (= 0.0.3)
+      decidim-results (= 0.0.3)
+      decidim-system (= 0.0.3)
       rails (~> 5.0.0, >= 5.0.0.1)
       rails-i18n (~> 5.0.0, >= 5.0.0.1)
-    decidim-budgets (0.0.2)
-      decidim-comments (= 0.0.2)
-      decidim-core (= 0.0.2)
+    decidim-budgets (0.0.3)
+      decidim-comments (= 0.0.3)
+      decidim-core (= 0.0.3)
       kaminari (~> 1.0.0.rc1)
       rectify (~> 0.8)
       searchlight (~> 4.1.0)
-    decidim-proposals (0.0.2)
-      decidim-comments (= 0.0.2)
-      decidim-core (= 0.0.2)
+    decidim-proposals (0.0.3)
+      decidim-comments (= 0.0.3)
+      decidim-core (= 0.0.3)
       kaminari (~> 1.0.1)
       rectify (~> 0.8.0)
       social-share-button (~> 0.8.8)
-    decidim-results (0.0.2)
-      decidim-comments (= 0.0.2)
-      decidim-core (= 0.0.2)
+    decidim-results (0.0.3)
+      decidim-comments (= 0.0.3)
+      decidim-core (= 0.0.3)
       kaminari (~> 1.0.0.rc1)
       rectify (~> 0.8)
       searchlight (~> 4.1.0)
@@ -36,11 +36,11 @@ PATH
 PATH
   remote: decidim-admin
   specs:
-    decidim-admin (0.0.2)
+    decidim-admin (0.0.3)
       active_link_to (~> 1.0.0)
       cancancan (~> 1.15.0)
       carrierwave (~> 1.0.0.rc)
-      decidim-core (= 0.0.2)
+      decidim-core (= 0.0.3)
       devise (~> 4.2)
       devise-i18n (~> 1.1.0)
       devise_invitable (~> 1.7.0)
@@ -53,7 +53,7 @@ PATH
 PATH
   remote: decidim-api
   specs:
-    decidim-api (0.0.2)
+    decidim-api (0.0.3)
       graphiql-rails (~> 1.4.1)
       graphql (~> 1.4.2)
       rack-cors (~> 0.4.0)
@@ -63,20 +63,20 @@ PATH
 PATH
   remote: decidim-comments
   specs:
-    decidim-comments (0.0.2)
-      decidim-core (= 0.0.2)
+    decidim-comments (0.0.3)
+      decidim-core (= 0.0.3)
       jquery-rails (~> 4.0)
       rails (~> 5.0.0, >= 5.0.0.1)
 
 PATH
   remote: decidim-core
   specs:
-    decidim-core (0.0.2)
+    decidim-core (0.0.3)
       active_link_to (~> 1.0.0)
       cancancan (~> 1.15.0)
       carrierwave (~> 1.0.0)
       date_validator (~> 0.9.0)
-      decidim-api (= 0.0.2)
+      decidim-api (= 0.0.3)
       devise (~> 4.2)
       devise-i18n (~> 1.1.0)
       file_validators (~> 2.1.0)
@@ -103,14 +103,14 @@ PATH
 PATH
   remote: decidim-dev
   specs:
-    decidim-dev (0.0.2)
+    decidim-dev (0.0.3)
       byebug
       capybara (~> 2.12.0)
       capybara-screenshot (~> 1.0.14)
       codecov (~> 0.1.9)
       database_cleaner (~> 1.5.0)
       db-query-matchers (~> 0.7.0)
-      decidim (= 0.0.2)
+      decidim (= 0.0.3)
       factory_girl_rails
       faker (~> 1.7.2)
       i18n-tasks (= 0.9.8)
@@ -127,10 +127,10 @@ PATH
 PATH
   remote: decidim-meetings
   specs:
-    decidim-meetings (0.0.2)
+    decidim-meetings (0.0.3)
       date_validator (~> 0.9)
-      decidim-core (= 0.0.2)
-      geocoder (~> 1.4.1)
+      decidim-core (= 0.0.3)
+      geocoder (~> 1.4.2)
       httparty (~> 0.14.0)
       jquery-tmpl-rails (~> 1.1.0)
       kaminari (~> 1.0.1)
@@ -140,17 +140,17 @@ PATH
 PATH
   remote: decidim-pages
   specs:
-    decidim-pages (0.0.2)
-      decidim-comments (= 0.0.2)
-      decidim-core (= 0.0.2)
+    decidim-pages (0.0.3)
+      decidim-comments (= 0.0.3)
+      decidim-core (= 0.0.3)
       rectify (~> 0.8.0)
 
 PATH
   remote: decidim-system
   specs:
-    decidim-system (0.0.2)
+    decidim-system (0.0.3)
       active_link_to (~> 1.0.0)
-      decidim-core (= 0.0.2)
+      decidim-core (= 0.0.3)
       devise (~> 4.2)
       devise-i18n (~> 1.1.0)
       devise_invitable (~> 1.7.0)
@@ -300,7 +300,7 @@ GEM
       activesupport (>= 4.1)
       railties (>= 4.1)
       tzinfo (~> 1.2, >= 1.2.2)
-    geocoder (1.4.1)
+    geocoder (1.4.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     graphiql-rails (1.4.1)
@@ -313,7 +313,7 @@ GEM
     htmlentities (4.3.4)
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
-    i18n (0.7.0)
+    i18n (0.8.0)
     i18n-tasks (0.9.8)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
@@ -405,7 +405,7 @@ GEM
     powerpack (0.1.1)
     public_suffix (2.0.5)
     rack (2.0.1)
-    rack-cors (0.4.0)
+    rack-cors (0.4.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.1)
@@ -569,8 +569,8 @@ DEPENDENCIES
   decidim-dev!
   decidim-meetings!
   decidim-pages!
-  decidim-proposals (= 0.0.2)
-  decidim-results (= 0.0.2)
+  decidim-proposals (= 0.0.3)
+  decidim-results (= 0.0.3)
   decidim-system!
   rake (~> 12.0.0)
   rspec (~> 3.0)

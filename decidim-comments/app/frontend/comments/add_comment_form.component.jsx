@@ -220,11 +220,6 @@ export class AddCommentForm extends Component {
   }
 }
 
-AddCommentForm.defaultProps = {
-  showTitle: true,
-  submitButtonClassName: 'button button--sc'
-};
-
 AddCommentForm.propTypes = {
   addComment: PropTypes.func.isRequired,
   session: PropTypes.shape({
@@ -244,6 +239,14 @@ AddCommentForm.propTypes = {
   onCommentAdded: PropTypes.func,
   arguable: PropTypes.bool,
   autoFocus: PropTypes.bool
+};
+
+AddCommentForm.defaultProps = {
+  onCommentAdded: function() {},
+  showTitle: true,
+  submitButtonClassName: 'button button--sc',
+  arguable: false,
+  autoFocus: false
 };
 
 AddCommentForm.fragments = {

@@ -19,8 +19,9 @@ module Decidim
     validates :organization, :name, presence: true
     validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
-    validate :all_roles_are_valid
     validates :avatar, file_size: { less_than_or_equal_to: 5.megabytes }
+    validates :email, uniqueness: { scope: :organization }
+    validate :all_roles_are_valid
     mount_uploader :avatar, Decidim::AvatarUploader
 
     # Public: Allows customizing the invitation instruction email content when

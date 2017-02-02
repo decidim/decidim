@@ -83,7 +83,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
       after :each do
         OmniAuth.config.test_mode = false
-        OmniAuth.config.mock_auth[:twitter] = nil         
+        OmniAuth.config.mock_auth[:twitter] = nil
       end
 
       context "when the response doesn't include the email" do
@@ -93,14 +93,34 @@ describe "Authentication", type: :feature, perform_enqueued: true do
           click_link "Sign in with Twitter"
 
           expect(page).to have_content("Successfully")
-          expect(page).to have_content("Complete your profile")
+          expect(page).to have_content("Please complete your profile")
 
           within ".new_user" do
-            fill_in :user_email, with: "user@from-twitter.com"          
+            fill_in :user_email, with: "user@from-twitter.com"
             find("*[type=submit]").click
           end
 
           expect(page).to have_content("confirmation link")
+        end
+
+        context "and a user already exists with the given email" do
+          it "doesn't allow it" do
+            create(:user, :confirmed, email: "user@from-twitter.com", organization: organization)
+            find(".sign-up-link").click
+
+            click_link "Sign in with Twitter"
+
+            expect(page).to have_content("Successfully")
+            expect(page).to have_content("Please complete your profile")
+
+            within ".new_user" do
+              fill_in :user_email, with: "user@from-twitter.com"
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_content("Please complete your profile")
+            expect(page).to have_content("Another account is using the same email address")
+          end
         end
       end
 
@@ -136,7 +156,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
       after :each do
         OmniAuth.config.test_mode = false
-        OmniAuth.config.mock_auth[:google_oauth2] = nil         
+        OmniAuth.config.mock_auth[:google_oauth2] = nil
       end
 
       it "creates a new User" do
@@ -291,14 +311,14 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
     after :each do
       OmniAuth.config.test_mode = false
-      OmniAuth.config.mock_auth[:facebook] = nil         
+      OmniAuth.config.mock_auth[:facebook] = nil
     end
 
     describe "Sign in" do
       it "authenticates an existing User" do
         find(".sign-in-link").click
-        
-        click_link "Sign in with Facebook"   
+
+        click_link "Sign in with Facebook"
 
         expect(page).to have_content("Successfully")
         expect(page).to have_content(user.name)

@@ -77,7 +77,7 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
-          sign_up: Complete your profile
+          sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:

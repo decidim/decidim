@@ -241,11 +241,6 @@ Comment.fragments = {
   `
 };
 
-Comment.defaultProps = {
-  articleClassName: 'comment',
-  isRootComment: false
-};
-
 Comment.propTypes = {
   comment: PropTypes.oneOfType([
     propType(Comment.fragments.comment).isRequired,
@@ -257,6 +252,13 @@ Comment.propTypes = {
   articleClassName: PropTypes.string.isRequired,
   isRootComment: PropTypes.bool,
   votable: PropTypes.bool
+};
+
+Comment.defaultProps = {
+  articleClassName: 'comment',
+  isRootComment: false,
+  session: null,
+  votable: false
 };
 
 export default Comment;

@@ -9,9 +9,9 @@ module Decidim
 
     layout "layouts/decidim/participatory_process", only: [:show]
 
-    helper_method :participatory_processes, :promoted_processes
-
     skip_after_action :verify_participatory_process, only: [:index]
+
+    helper_method :participatory_processes, :promoted_participatory_processes
 
     def index
       authorize! :read, ParticipatoryProcess
@@ -24,11 +24,11 @@ module Decidim
     private
 
     def participatory_processes
-      @participatory_processes ||= current_organization.participatory_processes.includes(:active_step).published
+      @processes ||= OrganizationParticipatoryProcesses.new(current_organization) | PublicParticipatoryProcesses.new
     end
 
-    def promoted_processes
-      @promoted_processes ||= participatory_processes.promoted
+    def promoted_participatory_processes
+      @promoted_processes ||= participatory_processes | PromotedParticipatoryProcesses.new
     end
   end
 end
