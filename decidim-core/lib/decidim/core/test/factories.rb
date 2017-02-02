@@ -100,6 +100,8 @@ FactoryGirl.define do
     locale                { organization.default_locale }
     tos_agreement         "1"
     avatar                { test_file("avatar.jpg", "image/jpeg") }
+    comments_notifications true
+    replies_notifications true
 
     trait :confirmed do
       confirmed_at { Time.current }

@@ -82,6 +82,15 @@ module Decidim
                 command.call
               end
             end
+
+            context "and the author has comment notifications disabled" do
+              let(:author) { create(:user, organization: organization, comments_notifications: false) }
+
+              it "doesn't send an email" do
+                expect(CommentNotificationMailer).not_to receive(:comment_created)
+                command.call
+              end
+            end
           end
 
           context "and the comment is a reply" do
@@ -100,7 +109,16 @@ module Decidim
               let (:commentable) { create(:comment, author: author, commentable: dummy_resource) }
 
               it "doesn't send an email" do
-                expect(CommentNotificationMailer).not_to receive(:comment_created)
+                expect(CommentNotificationMailer).not_to receive(:reply_created)
+                command.call
+              end
+            end
+
+            context "and the author has reply notifications disabled" do
+              let(:author) { create(:user, organization: organization, replies_notifications: false) }
+
+              it "doesn't send an email" do
+                expect(CommentNotificationMailer).not_to receive(:reply_created)
                 command.call
               end
             end
