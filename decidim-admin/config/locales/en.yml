@@ -66,6 +66,7 @@ en:
         edit: Edit
         manage: Manage
         new: New %{name}
+        permissions: Permissions
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
@@ -120,6 +121,7 @@ en:
               process_admins_title: Participatory process admins
       feature_permissions:
         edit:
+          everyone: Everyone
           submit: Save permissions
           title: Edit permissions
         update:

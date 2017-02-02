@@ -93,7 +93,7 @@ module Decidim
             it "returns invalid" do
               expect(response).to_not be_ok
               expect(response.code).to eq(:invalid)
-              expect(response.data).to include(fields: [:postal_code])
+              expect(response.data).to include(fields: {postal_code: "789"})
             end
           end
 
