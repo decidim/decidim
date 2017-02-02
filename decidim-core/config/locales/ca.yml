@@ -72,7 +72,6 @@ ca:
           email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
-          sign_up: Completi el seu perfil
           subtitle: Si us plau, ompli el següent formulari per tal de completar la seva inscripció
           username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
       registrations:
