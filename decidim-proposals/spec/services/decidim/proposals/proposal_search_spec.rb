@@ -112,7 +112,7 @@ module Decidim
 
         describe "when the filter includes related_to" do
           context "when filtering by related to meetings" do
-            let(:related_to) { "proposals_from_meeting" }
+            let(:related_to) { "Decidim::Meetings::Meeting".underscore }
             let(:meetings_feature) { create(:feature, manifest_name: "meetings", participatory_process: participatory_process) }
             let(:meeting) { create :meeting, feature: meetings_feature }
 
@@ -128,7 +128,7 @@ module Decidim
           end
 
           context "when filtering by related to results" do
-            let(:related_to) { "included_proposals" }
+            let(:related_to) { "Decidim::Results::Result".underscore }
             let(:results_feature) { create(:feature, manifest_name: "results", participatory_process: participatory_process) }
             let(:result) { create :result, feature: results_feature }
 

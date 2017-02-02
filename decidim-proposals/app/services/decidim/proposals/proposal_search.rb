@@ -67,13 +67,15 @@ module Decidim
       #
       # Returns only those proposals that are linked to the given class name.
       def search_related_to
-        ids = [:resource_links_from, :resource_links_to].map do |link|
-          query
-            .joins(link)
-            .where(decidim_resource_links: { name: related_to})
-            .pluck(:id)
-        end.flatten.uniq
-        Proposal.where(id: ids)
+        from = query
+               .joins(:resource_links_from)
+               .where(decidim_resource_links: { to_type: related_to.camelcase })
+
+        to = query
+             .joins(:resource_links_to)
+             .where(decidim_resource_links: { from_type: related_to.camelcase })
+
+        query.where(id: from).or(query.where(id: to))
       end
     end
   end
