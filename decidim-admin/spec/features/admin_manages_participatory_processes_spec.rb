@@ -2,8 +2,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require_relative "../shared/participatory_admin_shared_context"
-require_relative "../shared/manage_processes_examples"
 
 describe "Admin manage participatory processes", type: :feature do
   include_context "participatory process admin"

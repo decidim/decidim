@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 Decidim.configure do |config|
   config.application_name = "My Application Name"

@@ -32,7 +32,6 @@ module Decidim
         end
       end
 
-
       private
 
       attr_reader :form

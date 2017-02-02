@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require "spec_helper"
-require_relative "../../../shared/create_proposal_examples"
 
 module Decidim
   module Proposals

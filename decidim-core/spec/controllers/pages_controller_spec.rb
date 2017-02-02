@@ -6,9 +6,7 @@ module Decidim
     describe PagesController, type: :controller do
       let(:organization) { create :organization }
 
-      before do
-        @request.env["decidim.current_organization"] = organization
-      end
+      include_examples "with promoted participatory processes"
 
       context "when a template exists" do
         it "renders it" do

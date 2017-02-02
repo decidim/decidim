@@ -28,7 +28,7 @@ FactoryGirl.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     budget { Faker::Number.number(8) }
-    feature { create(:budget_feature) }    
+    feature { create(:budget_feature) }
   end
 
   factory :order, class: Decidim::Budgets::Order do
