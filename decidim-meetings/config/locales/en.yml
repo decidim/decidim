@@ -63,8 +63,13 @@ en:
           filter_for: Filter by
           unfold: Unfold
         index:
+          meta_title: Meetings - %{organization}
           title: Meetings
           view_meeting: View meeting
+        share:
+          close_window: Close window
+          share: Share
+          share_link: Share link
         show:
           attendees: Attendees count
           contributions: Contributions count
