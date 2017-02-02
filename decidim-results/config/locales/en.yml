@@ -53,10 +53,6 @@ en:
         index:
           title: Results
           meta_title: "%{feature_name} - %{organization}"
-        share:
-          close_window: Close window
-          share: Share
-          share_link: Share link
         show:
           stats:
             attendees: Attendees

@@ -105,10 +105,6 @@ en:
           recent: Recent
         proposal:
           view_proposal: View proposal
-        share:
-          close_window: Close window
-          share: Share
-          share_link: Share link
         show:
           proposal_rejected_reason: 'This proposal has been rejected because:'
         vote_button:

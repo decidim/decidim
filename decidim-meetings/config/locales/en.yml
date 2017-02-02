@@ -66,10 +66,6 @@ en:
           meta_title: "%{feature_name} - %{organization}"
           title: Meetings
           view_meeting: View meeting
-        share:
-          close_window: Close window
-          share: Share
-          share_link: Share link
         show:
           attendees: Attendees count
           contributions: Contributions count
