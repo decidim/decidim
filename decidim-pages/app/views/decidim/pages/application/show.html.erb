@@ -1,5 +1,5 @@
-<% content_for(:meta_title, translated_attribute(@page.title)) %>
-<% content_for(:meta_description, translated_attribute(@page.body)) %>
+<% content_for(:meta_title, translated_attribute(@page.title), flush: true) %>
+<% content_for(:meta_description, translated_attribute(@page.body), flush: true) %>
 
 <div class="row column">
   <div class="row">

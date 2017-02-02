@@ -1,8 +1,8 @@
-<% content_for :meta_description, strip_tags(translated_attribute(current_organization.description)), flush: true %>
-<% content_for :meta_title, current_organization.name, flush: true %>
-<% content_for :meta_url, request.original_url, flush: true %>
-<% content_for :twitter_handler, current_organization.twitter_handler, flush: true %>
-<% content_for :meta_image_url, current_organization.homepage_image.url, flush: true %>
+<% content_for :meta_description, strip_tags(translated_attribute(current_organization.description)) %>
+<% content_for :meta_title, current_organization.name %>
+<% content_for :meta_url, request.original_url %>
+<% content_for :twitter_handler, current_organization.twitter_handler %>
+<% content_for :meta_image_url, current_organization.homepage_image.url %>
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@<%= content_for(:twitter_handler) %>" />

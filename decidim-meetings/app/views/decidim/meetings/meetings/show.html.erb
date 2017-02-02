@@ -1,8 +1,8 @@
 <% provide(:title, translated_attribute(meeting.title)) %>
 
-<% content_for :meta_description, translated_attribute(meeting.description) %>
-<% content_for :meta_title, translated_attribute(meeting.title) %>
-<% content_for :meta_url, meeting_url(meeting.id) %>
+<% content_for :meta_description, translated_attribute(meeting.description), flush: true %>
+<% content_for :meta_title, translated_attribute(meeting.title), flush: true %>
+<% content_for :meta_url, meeting_url(meeting.id), flush: true %>
 
 <div class="row column view-header">
   <h2 class="heading2"><%= translated_attribute meeting.title %></h2>
