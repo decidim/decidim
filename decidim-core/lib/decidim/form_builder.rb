@@ -105,6 +105,55 @@ module Decidim
 
     private
 
+    def field(attribute, options, html_options = nil)
+      custom_label(attribute, options[:label], options[:label_options]) do
+        class_options = html_options || options
+
+        if error?(attribute)
+          class_options[:class] = class_options[:class].to_s
+          class_options[:class] += " is-invalid-input"
+        end
+
+        options.delete(:label)
+        options.delete(:label_options)
+        help_text = options.delete(:help_text)
+        prefix = options.delete(:prefix)
+        postfix = options.delete(:postfix)
+
+        enable_abide = options[:required] || options[:pattern] || options[:maxlength]
+        max_length = options.delete(:maxlength)
+        options[:pattern] = "^(.){0,#{max_length}}$" if max_length.to_i.positive?
+
+        content = yield(class_options)
+        content += abide_error_element(attribute) if enable_abide
+        content = content.html_safe
+
+        html = wrap_prefix_and_postfix(content, prefix, postfix)
+        html + error_and_help_text(attribute, options.merge(help_text: help_text))
+      end
+    end
+
+    def custom_label(attribute, text, options)
+      return block_given? ? yield.html_safe : "".html_safe if text == false
+
+      text = default_label_text(object, attribute) if text.nil? || text == true
+      text = safe_join([text.html_safe, yield]) if block_given?
+      label(attribute, text, options || {})
+    end
+
+    def abide_error_element(attribute)
+      defaults = []
+      defaults << :"decidim.forms.errors.#{object.class.model_name.i18n_key}.#{attribute}"
+      defaults << :"decidim.forms.errors.#{attribute}"
+      defaults << :"forms.errors.#{attribute}"
+      defaults << :"decidim.forms.errors.error"
+
+      options = { count: 1, default: defaults }
+
+      text = I18n.t(defaults.shift, options)
+      content_tag(:span, text, class: "form-error")
+    end
+
     def categories_for_select(scope)
       sorted_main_categories = scope.first_class.includes(:subcategories).sort_by do |category|
         category.name[I18n.locale.to_s]

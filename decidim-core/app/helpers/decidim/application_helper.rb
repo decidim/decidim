@@ -22,5 +22,11 @@ module Decidim
 
       Truncato.truncate(text, options)
     end
+
+    def decidim_form_for(record, options = {}, &block)
+      options[:data] ||= {}
+      options[:data].update(abide: true, "live-validate" => true, "validate-on-blur" => true)
+      form_for(record, options, &block)
+    end
   end
 end

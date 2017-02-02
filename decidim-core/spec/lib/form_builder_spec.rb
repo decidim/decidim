@@ -13,14 +13,15 @@ module Decidim
           ActiveModel::Name.new(self, nil, "dummy")
         end
 
+        extend ActiveModel::Translation
         include ActiveModel::Model
         include Virtus.model
         include TranslatableAttributes
 
         attribute :slug, String
+        attribute :category_id, Integer
         translatable_attribute :name, String
         translatable_attribute :short_description, String
-        attribute :category_id, Integer
       end.new
     end
 
@@ -171,6 +172,114 @@ module Decidim
         it "includes it as an option" do
           expect(subject.css("option")[0].text).to eq("Select something")
           expect(subject.css("option").count).to eq(4)
+        end
+      end
+    end
+
+    describe "abide integration" do
+      before do
+        @previous_backend = I18n.backend
+        I18n.backend = I18n::Backend::Simple.new
+      end
+
+      after do
+        I18n.backend = @previous_backend
+      end
+
+      context "when a field is required" do
+        let(:output) do
+          builder.text_field :name, required: true
+        end
+
+        let(:parsed) { Nokogiri::HTML(output) }
+
+        it "adds an abide error element" do
+          pp output
+          expect(parsed.css("span.form-error").first).to be
+        end
+
+        context "translations" do
+          subject { parsed.css("span.form-error").first.text }
+
+          context "with no translations for the field" do
+            it { is_expected.to eq("There's an error in this field.") }
+          end
+
+          context "with custom I18n for the class and attribute" do
+            before do
+              I18n.backend.store_translations(
+                :en,
+                decidim: {
+                  forms: {
+                    errors: {
+                      dummy: {
+                        name: "Name is required for Dummy"
+                      }
+                    }
+                  }
+                }
+              )
+            end
+
+            it { is_expected.to eq("Name is required for Dummy") }
+          end
+
+          context "with custom I18n for the attribute" do
+            before do
+              I18n.backend.store_translations(
+                :en,
+                decidim: {
+                  forms: {
+                    errors: {
+                      name: "Name is required"
+                    }
+                  }
+                }
+              )
+            end
+
+            it { is_expected.to eq("Name is required") }
+          end
+
+          context "with custom I18n for the attribute outside Decidim" do
+            before do
+              I18n.backend.store_translations(
+                :en,
+                forms: {
+                  errors: {
+                    name: "Name is required"
+                  }
+                }
+              )
+            end
+
+            it { is_expected.to eq("Name is required") }
+          end
+        end
+      end
+
+      context "when a field has a validation pattern" do
+        let(:output) do
+          builder.text_field :name, pattern: "foo"
+        end
+
+        let(:parsed) { Nokogiri::HTML(output) }
+
+        it "adds an abide error element" do
+          expect(parsed.css("span.form-error").first).to be
+        end
+      end
+
+      context "max-length abide helper" do
+        let(:output) do
+          builder.text_field :name, "abide-max-length" => 150
+        end
+
+        let(:parsed) { Nokogiri::HTML(output) }
+
+        it "adds a pattern" do
+          expect(parsed.css("input[pattern='^(.){0,150}$']").first).to be
+          expect(output).not_to include("abide-max-length")
         end
       end
     end
