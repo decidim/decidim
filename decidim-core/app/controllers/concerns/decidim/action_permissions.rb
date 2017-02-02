@@ -13,31 +13,25 @@ module Decidim
       end
     end
 
-    def authorize_action!(action_name, redirect_url: nil)
-      authorizer = action_authorizer(action_name)
+    def authorize_action!(action_name, redirect_url: request.referer)
+      result = action_authorizer(action_name).authorize
+      return true if result.ok?
 
-      authorizer.on(:ok) { return true }
-
-      authorizer.on(:missing) do |name|
-        redirect_to decidim.new_authorization_path(handler: name)
+      case result.status
+      when :missing
+        flash[:notice] = "Please authorize"
+        redirect_to decidim.new_authorization_path(handler: result.data[:handler], redirect_url: redirect_url)
+      when :invalid
+        flash[:alert] = "Invalid"
+        redirect_to redirect_url
+      when :incomplete
+        flash[:notice] = "Incomplete"
+        redirect_to decidim.edit_authorization_path(result.data[:handler], redirect_url: redirect_url)
       end
-
-      authorizer.on(:invalid)  |fields| do
-        raise "Unauthorized because #{fields.join}"
-      end
-
-      authorizer.on(:incomplete) do |fields|
-        raise "Incomplete because #{fields.join}"
-      end
-
-      authorizer.authorize
     end
 
-    def action_authorized?(action_name)
-      authorizer = action_authorizer(action_name)
-      authorizer.on(:ok) { return true }
-      authorizer.authorize
-      false
+    def action_authorization(action_name)
+      action_authorizer(action_name).authorize
     end
 
     def action_authorizer(action_name)

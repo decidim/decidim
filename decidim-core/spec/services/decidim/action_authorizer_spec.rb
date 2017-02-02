@@ -10,6 +10,8 @@ module Decidim
     let(:permission) { {} }
     let(:authorization) { double(metadata: metadata) }
     let(:metadata) { { postal_code: "1234", location: "Tomorrowland" } }
+    let(:response) { subject.authorize }
+
 
     let(:user) { create(:user) }
     subject { described_class.new(user, feature, action) }
@@ -67,7 +69,9 @@ module Decidim
           let(:authorization) { nil }
 
           it "broadcasts missing" do
-            expect{ subject.authorize }.to broadcast(:missing, "foo_handler")
+            expect(response).to_not be_ok
+            expect(response.status).to eq(:missing)
+            expect(response.data).to include(handler: "foo_handler")
           end
         end
 
@@ -76,7 +80,7 @@ module Decidim
             let(:options) { {} }
 
             it "broadcasts ok" do
-              expect { subject.authorize }.to broadcast(:ok)
+              expect(response).to be_ok
             end
           end
 
@@ -84,7 +88,9 @@ module Decidim
             let(:options) { { postal_code: "789" } }
 
             it "broadcasts invalid" do
-              expect { subject.authorize }.to broadcast(:invalid, "foo_handler", [:postal_code])
+              expect(response).to_not be_ok
+              expect(response.status).to eq(:invalid)
+              expect(response.data).to include(fields: [:postal_code])
             end
           end
 
@@ -92,7 +98,7 @@ module Decidim
             let(:options) { { postal_code: "1234", location: "Tomorrowland" } }
 
             it "broadcasts ok" do
-              expect { subject.authorize }.to broadcast(:ok)
+              expect(response).to be_ok
             end
           end
 
@@ -100,15 +106,17 @@ module Decidim
             let(:options) { { postal_code: "1234" } }
 
             it "broadcasts ok" do
-              expect { subject.authorize }.to broadcast(:ok)
+              expect(response).to be_ok
             end
           end
 
           context "when has options that contains more keys than the authorization" do
             let(:options) { { postal_code: "1234", age: 18 } }
 
-            it "broadcasts incomplete with the fields" do
-              expect { subject.authorize }.to broadcast(:incomplete, "foo_handler", [:age])
+            it "returns incomplete with the fields" do
+              expect(response).to_not be_ok
+              expect(response.status).to eq(:incomplete)
+              expect(response.data).to include(handler: "foo_handler", fields: [:age])
             end
           end
         end

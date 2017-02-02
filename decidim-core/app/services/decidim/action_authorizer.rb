@@ -27,22 +27,19 @@ module Decidim
     def authorize
       raise AuthorizationError, "Missing data" unless feature && action && user
 
-      return success unless authorization_handler_name
-      return failure(:missing, authorization_handler_name) unless authorization
-      return failure(:invalid, authorization_handler_name, unmatched_fields) if unmatched_fields.any?
-      return failure(:incomplete, authorization_handler_name, missing_fields) if missing_fields.any?
+      return status(:ok) unless authorization_handler_name
 
-      success
+      return status(:missing, handler: authorization_handler_name) unless authorization
+      return status(:invalid, handler: authorization_handler_name, fields: unmatched_fields) if unmatched_fields.any?
+      return status(:incomplete, handler: authorization_handler_name, fields: missing_fields) if missing_fields.any?
+
+      status(:ok)
     end
 
     private
 
-    def success
-      broadcast(:ok)
-    end
-
-    def failure(status, *arguments)
-      broadcast(status, *arguments)
+    def status(status_code, data = {})
+      AuthorizationStatus.new(status_code, data)
     end
 
     attr_reader :user, :feature, :action
@@ -75,7 +72,7 @@ module Decidim
     end
 
     def authorization_handler_name
-      permission.fetch("authorization_handler_name")
+      permission&.fetch("authorization_handler_name")
     end
 
     def permission
@@ -85,17 +82,17 @@ module Decidim
       @permission ||= feature.permissions&.fetch(action, nil)
     end
 
-    class AuthorizationResponse
+    class AuthorizationStatus
       attr_reader :status
       attr_reader :data
 
       def initialize(status, data)
-        @status = status.to_s
+        @status = status.to_sym
         @data = data.symbolize_keys
       end
 
       def ok?
-        @status == "ok"
+        @status == :ok
       end
     end
 
