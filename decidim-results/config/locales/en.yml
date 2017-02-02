@@ -52,7 +52,7 @@ en:
           search: Search
         index:
           title: Results
-          meta_title: Results - %{organization}
+          meta_title: "%{feature_name} - %{organization}"
         share:
           close_window: Close window
           share: Share

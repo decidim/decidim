@@ -63,7 +63,7 @@ en:
           filter_for: Filter by
           unfold: Unfold
         index:
-          meta_title: Meetings - %{organization}
+          meta_title: "%{feature_name} - %{organization}"
           title: Meetings
           view_meeting: View meeting
         share:
