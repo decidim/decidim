@@ -107,6 +107,13 @@ Comments.propTypes = {
   reorderComments: PropTypes.func.isRequired
 };
 
+Comments.defaultProps = {
+  loading: false,
+  comments: [],
+  session: null,
+  commentableId: null
+};
+
 /**
  * Wrap the Comments component with a GraphQL query and children
  * fragments.
@@ -164,6 +171,10 @@ CommentsApplication.propTypes = {
   options: PropTypes.shape({
     arguable: PropTypes.bool
   }).isRequired
+};
+
+CommentsApplication.defaultProps = {
+  commentableId: null
 };
 
 export default CommentsApplication;

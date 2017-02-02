@@ -129,7 +129,7 @@ PATH
     decidim-meetings (0.0.3)
       date_validator (~> 0.9)
       decidim-core (= 0.0.3)
-      geocoder (~> 1.4.1)
+      geocoder (~> 1.4.2)
       httparty (~> 0.14.0)
       jquery-tmpl-rails (~> 1.1.0)
       kaminari (~> 1.0.1)
