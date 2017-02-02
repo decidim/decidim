@@ -6,6 +6,8 @@ module Decidim
     include Decidim::LocaleSwitcher
     include NeedsAuthorization
     helper Decidim::MetaTagsHelper
+    helper Decidim::DecidimFormHelper
+
     protect_from_forgery with: :exception, prepend: true
     after_action :add_vary_header
 

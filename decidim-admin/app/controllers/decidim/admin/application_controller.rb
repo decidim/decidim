@@ -7,6 +7,7 @@ module Decidim
       include NeedsAuthorization
       include FormFactory
       include LocaleSwitcher
+      helper Decidim::DecidimFormHelper
 
       protect_from_forgery with: :exception, prepend: true
 

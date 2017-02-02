@@ -23,7 +23,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
 
       it "redirects the user to the authorization form after the first sign in" do
         fill_in "Document number", with: "123456789X"
-        fill_in "Birthday", with: "01/01/1970"
+        fill_in "Birthday", with: "1970-01-01"
         click_button "Send"
         expect(page).to have_content("You've been successfully authorized")
       end
@@ -71,7 +71,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
       click_link "Example authorization"
 
       fill_in "Document number", with: "123456789X"
-      fill_in "Birthday", with: "01/01/1970"
+      fill_in "Birthday", with: "1970-01-01"
       click_button "Send"
 
       expect(page).to have_content("You've been successfully authorized")
@@ -141,3 +141,4 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
     end
   end
 end
+

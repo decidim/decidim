@@ -10,6 +10,7 @@ module Decidim
       helper Decidim::TranslationsHelper
       helper Decidim::OmniauthHelper
       helper Decidim::MetaTagsHelper
+      helper Decidim::DecidimFormHelper
 
       helper_method :terms_and_conditions_page
 
