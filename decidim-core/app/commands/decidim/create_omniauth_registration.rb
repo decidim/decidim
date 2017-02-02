@@ -29,8 +29,8 @@ module Decidim
         end
 
         broadcast(:ok, @user)
-      rescue ActiveRecord::RecordInvalid
-        broadcast(:invalid)
+      rescue ActiveRecord::RecordInvalid => error
+        broadcast(:error, error.record)
       end
     end
 
