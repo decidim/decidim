@@ -109,7 +109,7 @@ Comments.propTypes = {
 
 Comments.defaultProps = {
   loading: false,
-  comments: [],
+  comments: null,
   session: null,
   commentableId: null
 };
