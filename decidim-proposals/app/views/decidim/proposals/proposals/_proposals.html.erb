@@ -1,4 +1,5 @@
+<%= render partial: "orders" %>
 <div class="row small-up-1 medium-up-2 card-grid">
   <%= render @proposals %>
 </div>
-<%= decidim_paginate @proposals, random_seed: @random_seed %>
+<%= decidim_paginate @proposals, random_seed: random_seed %>
