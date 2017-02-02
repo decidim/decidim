@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency "wisper-rspec"
   s.add_dependency "listen", "~> 3.1.0"
   s.add_dependency "launchy"
-  s.add_dependency "i18n-tasks", "0.9.10"
+  s.add_dependency "i18n-tasks", "0.9.11"
   s.add_dependency "faker", "~> 1.7.2"
   s.add_dependency "poltergeist", "~> 1.13.0"
   s.add_dependency "rails-controller-testing", "~> 1.0.1"
