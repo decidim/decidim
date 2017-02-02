@@ -39,7 +39,7 @@ module Decidim
     private
 
     def status(status_code, data = {})
-      AuthorizationStatus.new(status_code, data)
+      AuthorizationStatus.new(status_code, authorization_handler_name, data)
     end
 
     attr_reader :user, :feature, :action
@@ -54,8 +54,8 @@ module Decidim
     end
 
     def unmatched_fields
-      (permission_options.keys & authorization.metadata.to_h.keys).each_with_object([]) do |field, unmatched|
-        unmatched << field if authorization.metadata[field] != permission_options[field]
+      (permission_options.keys & authorization.metadata.to_h.keys).each_with_object({}) do |field, unmatched|
+        unmatched[field] = permission_options[field] if authorization.metadata[field] != permission_options[field]
         unmatched
       end
     end
@@ -83,11 +83,11 @@ module Decidim
     end
 
     class AuthorizationStatus
-      attr_reader :code
-      attr_reader :data
+      attr_reader :code, :handler_name, :data
 
-      def initialize(code, data)
+      def initialize(code, handler_name, data)
         @code = code.to_sym
+        @handler_name = handler_name
         @data = data.symbolize_keys
       end
 
@@ -101,17 +101,6 @@ module Decidim
 
       def reauthorize?
         @code == :missing || @code == :incomplete
-      end
-
-      def reason
-        case @status
-        when :missing
-          I18n.t("missing", scope: "decidim.action_authorization")
-        when :incomplete
-          I18n.t("incomplete", scope: "decidim.action_authorization")
-        when :invalid
-          I18n.t("invalid", scope: "decidim.action_authorization")
-        end
       end
     end
 

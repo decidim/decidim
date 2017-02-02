@@ -8,7 +8,7 @@
               <%= icon "lock-unlocked", class: "card--list__icon" %>
               <div>
                 <h5 class="card--list__heading">
-                  <%= t(authorization.name, scope: "decidim.authorization_handlers") %>
+                  <%= t("#{authorization.name}.name", scope: "decidim.authorization_handlers") %>
                 </h5>
                 <span class="text-small"><%= l(authorization.created_at, format: :long) %></span>
               </div>
@@ -32,7 +32,7 @@
               </a>
               <div>
                 <h5 class="card--list__heading">
-                  <%= link_to t(handler.handler_name, scope: "decidim.authorization_handlers"), new_authorization_path(handler: handler.handler_name) %>
+                  <%= link_to t("#{handler.handler_name}.name", scope: "decidim.authorization_handlers"), new_authorization_path(handler: handler.handler_name) %>
                 </h5>
               </div>
             </div>

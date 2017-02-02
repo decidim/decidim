@@ -6,7 +6,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      helper_method :authorize_action_path, :action_authorization
+      helper_method :reauthorize_action_path, :action_authorization
     end
 
     def authorize_action!(action_name, redirect_url: nil)
@@ -39,7 +39,6 @@ module Decidim
 
       decidim.new_authorization_path(
         handler: status.data[:handler],
-        reason: status.reason,
         redirect_url: redirect_url
       )
     end
