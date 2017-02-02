@@ -31,7 +31,9 @@ if !Rails.env.production? || ENV["SEED"]
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     roles: ["admin"],
-    tos_agreement: true
+    tos_agreement: true,
+    comments_notifications: true,
+    replies_notifications: true
   )
 
   Decidim::User.create!(
@@ -42,7 +44,9 @@ if !Rails.env.production? || ENV["SEED"]
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     organization: organization,
-    tos_agreement: true
+    tos_agreement: true,
+    comments_notifications: true,
+    replies_notifications: true
   )
 
   3.times do

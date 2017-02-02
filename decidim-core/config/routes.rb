@@ -43,6 +43,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
     resource :account, only: [:show, :update], controller: "account"
+    resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     resources :own_user_groups, only: [:index]
   end
 
