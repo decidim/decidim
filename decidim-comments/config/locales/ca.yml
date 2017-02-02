@@ -7,9 +7,9 @@ ca:
     comments:
       comment_notification_mailer:
         comment_created:
-          new_comment_by_html: Hi ha un comentari nou de <b>%{commenter}</b> en
+          new_comment_html: Hi ha un comentari nou de <b>%{commenter}</b> en
         reply_created:
-          new_reply_by_html: Hi ha una nova resposta al teu comentari de <b>%{commenter}</b> a <b>%{commentable_link}</b>
+          new_reply_html: Hi ha una nova resposta al teu comentari de <b>%{commenter}</b> a <b>%{commentable_link}</b>
       mailer:
         comment_notification:
           comment_created:

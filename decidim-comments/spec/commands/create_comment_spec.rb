@@ -84,7 +84,9 @@ module Decidim
             end
 
             context "and the author has comment notifications disabled" do
-              let(:author) { create(:user, organization: organization, comments_notifications: false) }
+              before do
+                commentable.author.update_attributes!(comments_notifications: false)
+              end
 
               it "doesn't send an email" do
                 expect(CommentNotificationMailer).not_to receive(:comment_created)
@@ -115,7 +117,9 @@ module Decidim
             end
 
             context "and the author has reply notifications disabled" do
-              let(:author) { create(:user, organization: organization, replies_notifications: false) }
+              before do
+                commentable.author.update_attribute(:replies_notifications, false)
+              end
 
               it "doesn't send an email" do
                 expect(CommentNotificationMailer).not_to receive(:reply_created)

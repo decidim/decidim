@@ -2,7 +2,7 @@
 
 <p>
   <%=
-    t(".new_comment_by_html", {
+    t(".new_comment_html", {
       commenter: @comment.author.name,
       commentable_link: link_to(@commentable.title, decidim_resource_url(@commentable))
     })
@@ -12,3 +12,7 @@
 <blockquote>
   <%= @comment.body %>
 </blockquote>
+
+<p>
+  <%= t("decidim.comments.comment_notification_mailer.manage_email_subscriptions_html", link: link_to(t("decidim.comments.comment_notification_mailer.notifications_settings_link"), decidim.notifications_settings_url(host: @organization.host))) %>
+</p>
