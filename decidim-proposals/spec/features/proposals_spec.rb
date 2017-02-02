@@ -286,5 +286,31 @@ describe "Proposals", type: :feature do
         end
       end
     end
+
+    context "when ordering" do
+      context "by 'most_support'" do
+        before do
+          proposals.each do |proposal|
+            create(:proposal_vote, proposal: proposal)
+          end
+        end
+
+        it "lists the proposals ordered by votes" do
+          most_voted_proposal = create(:proposal, feature: feature)
+          create_list(:proposal_vote, 3, proposal: most_voted_proposal)
+          less_voted_proposal = create(:proposal, feature: feature)
+
+          visit_feature
+
+          within ".order-by" do
+            page.find('.dropdown.menu').hover
+            click_link "Most voted"
+          end
+
+          expect(page).to have_selector('article.card--proposal:first', text: most_voted_proposal.title)
+          expect(page).to have_selector('article.card--proposal:last', text: less_voted_proposal.title)
+        end
+      end
+    end
   end
 end
