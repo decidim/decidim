@@ -31,11 +31,11 @@ describe "Comment notifications", type: :feature do
       expect(page).to have_content "This is a new comment"
     end
 
-    wait_for_last_email_sent_with_subject "a new comment"
+    wait_for_email subject: "a new comment"
 
     login_as commentable.author, scope: :user
 
-    visit last_email_link
+    visit last_email_first_link
 
     within "#comments" do
       expect(page).to have_content user.name

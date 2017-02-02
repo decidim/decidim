@@ -27,14 +27,19 @@ module MailerHelpers
     Nokogiri::HTML(last_email_body).css("table.content a").last["href"]
   end
 
-  def wait_for_last_email_sent_with_subject(subject, max_attempts = 3)
+  def last_email_first_link
+    Nokogiri::HTML(last_email_body).css("table.content a").first["href"]
+  end
+
+  def wait_for_email(options = {})
+    options[:max_attempts] ||= 3
     attempts = 0
     loop do
-      if attempts >= max_attempts
-        raise StandardError, "An email with subject containing '#{subject}' wasn't sent.'"
+      if attempts >= options[:max_attempts]
+        raise StandardError, "An email with subject containing '#{options[:subject]}' wasn't sent.'"
       end
 
-      return if last_email&.subject&.match? subject
+      return if last_email&.subject&.include? options[:subject]
 
       sleep 1
       attempts += 1
