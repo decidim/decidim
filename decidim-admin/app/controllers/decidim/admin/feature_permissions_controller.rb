@@ -7,7 +7,7 @@ module Decidim
     #
     class FeaturePermissionsController < ApplicationController
       include Concerns::ParticipatoryProcessAdmin
-      helper_method :authorizations
+      helper_method :authorizations, :feature
 
       def edit
         authorize! :update, feature
@@ -34,9 +34,12 @@ module Decidim
           feature.update_attributes!(
             permissions: permissions
           )
-        end
 
-        render action: :edit
+          flash[:notice] = t("feature_permissions.update.success", scope: "decidim.admin")
+          redirect_to participatory_process_features_path(participatory_process)
+        else
+          render action: :edit
+        end
       end
 
       private

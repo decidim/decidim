@@ -7,7 +7,7 @@ module Decidim
       attribute :permissions, Hash[String => PermissionForm]
 
       def valid?
-        super && permissions.values.map(&:valid?)
+        super && permissions.values.all?(&:valid?)
       end
     end
   end

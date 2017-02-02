@@ -1,7 +1,7 @@
 <section id="features">
   <div class="row">
     <div class="columns">
-      <h3><%= t(".title", scope: "decidim.admin") %></h3>
+      <h3><%= t(".title") %></h3>
     </div>
   </div>
 
@@ -9,17 +9,19 @@
     <%= form.fields_for :permissions, form.object do |form| %>
       <% form.object.permissions.each do |action, permission| %>
         <%= form.fields_for(action, permission) do |form| %>
-          <fieldset>
-            <legend><%= t(".permissions.#{action}") %></legend>
+          <fieldset class="card">
+            <div class="card-divider"><%= t("#{feature.manifest.name}.actions.#{action}", scope: "decidim.features") %></div>
+            <div class="card-section">
               <%= form.select :authorization_handler_name,
                 authorizations.map { |authorization|
-                  [t(authorization, scope: "decidim.authorization_handlers"), authorization]
+                  [t("#{authorization}.name", scope: "decidim.authorization_handlers"), authorization]
                 }, include_blank: t(".everyone") %>
               <%= form.text_field :options %>
+            </div>
           </fieldset>
         <% end %>
       <% end %>
     <% end %>
-    <%= form.submit %>
+    <%= form.submit t(".submit") %>
   <% end %>
 </section>

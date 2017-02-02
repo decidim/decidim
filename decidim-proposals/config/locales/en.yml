@@ -12,6 +12,9 @@ en:
     features:
       proposals:
         name: Proposals
+        actions:
+          vote: Vote
+          create: Create proposals
         settings:
           step:
             creation_enabled: Proposal creation enabled

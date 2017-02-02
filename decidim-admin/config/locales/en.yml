@@ -48,6 +48,9 @@ en:
         organization: Organization
         slug: URL slug
         title: Title
+    errors:
+      messages:
+        invalid_json: Invalid JSON
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -115,6 +118,12 @@ en:
           participatory_process_user_roles:
             index:
               process_admins_title: Participatory process admins
+      feature_permissions:
+        edit:
+          submit: Save permissions
+          title: Edit permissions
+        update:
+          success: Permissions updated successfully.
       features:
         create:
           error: There was an error creating this feature.

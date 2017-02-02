@@ -44,10 +44,10 @@ en:
         related_photos: Related photos
     authorization_handlers:
       decidim/dummy_authorization_handler:
-        name: Example authorization
         fields:
           document_number: Document number
           postal_code: Postal code
+        name: Example authorization
       errors:
         duplicate_authorization: A user is already authorized with the same data.
     authorizations:
@@ -122,15 +122,15 @@ en:
     shared:
       action_authorization_modal:
         incomplete:
-          title: "Please reauthorize"
-          explanation: "Even though you're currently authorized with \"%{authorization}\", we need you to reauthorize because we lack the following data:"
-          reauthorize: "Reauthorize"
           cancel: Cancel
+          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          reauthorize: Reauthorize
+          title: Please reauthorize
         unauthorized:
-          title: "Not authorized"
-          explanation: "Sorry, you can't perform this action as some of your authorization data doesn't match."
-          should_be: "%{field} should be %{value}."
+          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
           ok: Ok
+          should_be: "%{field} should be %{value}."
+          title: Not authorized
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up
