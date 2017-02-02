@@ -16,6 +16,8 @@
 
   <%= form.collection_radio_buttons :state, [["all", t('.all')], ["accepted", t('.accepted')], ["rejected", t('.rejected')]], :first, :last, legend_title: t('.state') %>
 
+  <%= form.collection_radio_buttons :related_to, [["", "None"], ["proposals_from_meeting", "Meetings"], ["included_proposals", "Results"]], :first, :last, legend_title: t('.related_to') %>
+
   <% if current_user && current_settings.votes_enabled? %>
     <%= form.collection_check_boxes :activity, [["voted", t('.voted')]], :first, :last, legend_title: t('.activity') %>
   <% end %>

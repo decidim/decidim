@@ -4,6 +4,7 @@ module Decidim
   module Proposals
     describe ProposalSearch do
       let(:feature) { create(:feature, manifest_name: "proposals") }
+      let(:participatory_process) { feature.participatory_process }
       let(:user) { create(:user, organization: feature.organization) }
       let!(:proposal) { create(:proposal, feature: feature)}
 
@@ -11,6 +12,7 @@ module Decidim
         let(:activity) { [] }
         let(:search_text) { nil }
         let(:origin) { nil }
+        let(:related_to) { nil }
         let(:state) { nil }
 
         subject do
@@ -20,6 +22,7 @@ module Decidim
             search_text: search_text,
             state: state,
             origin: origin,
+            related_to: related_to,
             current_user: user
           }).results
         end
@@ -103,6 +106,41 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(rejected_proposals)
+            end
+          end
+        end
+
+        describe "when the filter includes related_to" do
+          context "when filtering by related to meetings" do
+            let(:related_to) { "proposals_from_meeting" }
+            let(:meetings_feature) { create(:feature, manifest_name: "meetings", participatory_process: participatory_process) }
+            let(:meeting) { create :meeting, feature: meetings_feature }
+
+            it "returns only proposals related to meetings" do
+              related_proposal = create(:proposal, :accepted, feature: feature)
+              related_proposal_2 = create(:proposal, :accepted, feature: feature)
+              create_list(:proposal, 3, feature: feature)
+              meeting.link_resources([related_proposal], "proposals_from_meeting")
+              related_proposal_2.link_resources([meeting], "proposals_from_meeting")
+
+              expect(subject).to match_array([related_proposal, related_proposal_2])
+            end
+          end
+
+          context "when filtering by related to results" do
+            let(:related_to) { "included_proposals" }
+            let(:results_feature) { create(:feature, manifest_name: "results", participatory_process: participatory_process) }
+            let(:result) { create :result, feature: results_feature }
+
+
+            it "returns only proposals related to results" do
+              related_proposal = create(:proposal, :accepted, feature: feature)
+              related_proposal_2 = create(:proposal, :accepted, feature: feature)
+              create_list(:proposal, 3, feature: feature)
+              result.link_resources([related_proposal], "included_proposals")
+              related_proposal_2.link_resources([result], "included_proposals")
+
+              expect(subject).to match_array([related_proposal, related_proposal_2])
             end
           end
         end
