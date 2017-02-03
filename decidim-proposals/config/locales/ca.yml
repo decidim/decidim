@@ -14,8 +14,8 @@ ca:
         settings:
           step:
             creation_enabled: Habilitar de creació de propostes
-            votes_blocked: Vots bloquejats
-            votes_enabled: Vots habilitats
+            votes_blocked: Suports bloquejats
+            votes_enabled: Suports habilitats
     proposals:
       actions:
         answer: Respondre
@@ -75,6 +75,7 @@ ca:
           official: Oficial
           origin: Origen
           rejected: Rebutjades
+          related_to: Relacionat amb
           search: Cerca
           state: Estat
           voted: Votat
@@ -87,14 +88,19 @@ ca:
           new_proposal: Nova proposta
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>vot
-            other: <span class="card--list__data__number">%{count}</span>vots
+            one: <span class="card--list__data__number">1</span>suport
+            other: <span class="card--list__data__number">%{count}</span>suports
         new:
           back: Enrere
           select_a_category: Si us plau, seleccioni una categoria
           select_a_scope: Si us plau, seleccioni un àmbit
           send: Enviar
           title: Nova proposta
+        orders:
+          label: 'Ordenar propostes per:'
+          most_voted: Més votat
+          random: Aleatori
+          recent: Recent
         proposal:
           view_proposal: Veure proposta
         share:
@@ -105,19 +111,19 @@ ca:
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
         vote_button:
           already_voted: Ja has votat
-          no_votes_remaining: No hi ha vots restants
+          no_votes_remaining: No hi ha suports restants
           vote: Votar
-          votes_blocked: Votació desactivada
+          votes_blocked: Recollida de suports desactivada
         votes_count:
           count:
-            one: VOT
-            other: VOTS
+            one: SUPORT
+            other: SUPORTS
         votes_limit:
           vote_limit:
-            description: En lloc de votar tantes propostes com vulgui, només es pot votar fins %{limit} propostes.
+            description: En lloc de donar suport a tantes propostes com es vulgui, només es pot donar suport fins a un màxim de %{limit} propostes.
             left: Restant
-            title: Té %{limit} vots a distribuir
-            votes: Vots
+            title: Té %{limit} suports a distribuir
+            votes: Suports
     resource_links:
       included_proposals:
         results: 'La proposta apareix en aquests resultats:'
