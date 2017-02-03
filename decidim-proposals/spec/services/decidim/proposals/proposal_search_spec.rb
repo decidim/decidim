@@ -4,34 +4,27 @@ module Decidim
   module Proposals
     describe ProposalSearch do
       let(:feature) { create(:feature, manifest_name: "proposals") }
+      let(:participatory_process) { feature.participatory_process }
       let(:user) { create(:user, organization: feature.organization) }
       let!(:proposal) { create(:proposal, feature: feature)}
 
       describe "results" do
-        let(:random_seed) { 0.2 }
         let(:activity) { [] }
         let(:search_text) { nil }
         let(:origin) { nil }
+        let(:related_to) { nil }
         let(:state) { nil }
 
         subject do
           described_class.new({
             feature: feature,
-            random_seed: random_seed,
             activity: activity,
             search_text: search_text,
             state: state,
             origin: origin,
+            related_to: related_to,
             current_user: user
           }).results
-        end
-
-        context "when given a random seed" do
-          it "sets the seed at the database" do
-            allow(Proposal.connection).to receive(:execute).with(anything)
-            expect(Proposal.connection).to receive(:execute).with("SELECT setseed(0.2)").and_call_original
-            subject
-          end
         end
 
         it "only includes proposals from the given feature" do
@@ -39,12 +32,6 @@ module Decidim
 
           expect(subject).to include(proposal)
           expect(subject).not_to include(other_proposal)
-        end
-
-        it "randomizes the order of proposals" do
-          allow(Proposal.connection).to receive(:execute).with(anything)
-          expect_any_instance_of(Decidim::Proposals::Proposal::ActiveRecord_Relation).to receive(:reorder).with("RANDOM()").and_call_original
-          subject
         end
 
         describe "when the filter includes search_text" do
@@ -122,26 +109,40 @@ module Decidim
             end
           end
         end
-      end
 
-      describe "random_seed" do
-        subject do
-          described_class.new({
-            feature: feature,
-            random_seed: random_seed
-          }).random_seed
-        end
+        describe "when the filter includes related_to" do
+          context "when filtering by related to meetings" do
+            let(:related_to) { "Decidim::Meetings::Meeting".underscore }
+            let(:meetings_feature) { create(:feature, manifest_name: "meetings", participatory_process: participatory_process) }
+            let(:meeting) { create :meeting, feature: meetings_feature }
 
-        context "without a given random seed" do
-          let(:random_seed) { nil }
+            it "returns only proposals related to meetings" do
+              related_proposal = create(:proposal, :accepted, feature: feature)
+              related_proposal_2 = create(:proposal, :accepted, feature: feature)
+              create_list(:proposal, 3, feature: feature)
+              meeting.link_resources([related_proposal], "proposals_from_meeting")
+              related_proposal_2.link_resources([meeting], "proposals_from_meeting")
 
-          it { is_expected.to be_within(1).of(0.0) }
-        end
+              expect(subject).to match_array([related_proposal, related_proposal_2])
+            end
+          end
 
-        context "with an invalid random seed" do
-          let(:random_seed) { ["foo", 2, -10].sample }
+          context "when filtering by related to results" do
+            let(:related_to) { "Decidim::Results::Result".underscore }
+            let(:results_feature) { create(:feature, manifest_name: "results", participatory_process: participatory_process) }
+            let(:result) { create :result, feature: results_feature }
 
-          it { is_expected.to be_within(1).of(0.0) }
+
+            it "returns only proposals related to results" do
+              related_proposal = create(:proposal, :accepted, feature: feature)
+              related_proposal_2 = create(:proposal, :accepted, feature: feature)
+              create_list(:proposal, 3, feature: feature)
+              result.link_resources([related_proposal], "included_proposals")
+              related_proposal_2.link_resources([result], "included_proposals")
+
+              expect(subject).to match_array([related_proposal, related_proposal_2])
+            end
+          end
         end
       end
     end

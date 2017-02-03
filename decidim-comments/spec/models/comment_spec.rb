@@ -86,6 +86,14 @@ module Decidim
           expect(subject.down_voted_by?(user)).to be_falsy
         end
       end
+
+      describe "#root_commentable" do
+        let(:reply) { create(:comment, commentable: subject) }
+
+        it "returns the commentable object from the parent comment" do
+          expect(reply.root_commentable).to eq(subject.commentable)
+        end
+      end
     end
   end
 end

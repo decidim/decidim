@@ -6,20 +6,22 @@ module Decidim
     # another engine.
     #
     # resource - An object that is a valid resource exposed by some feature.
+    # options - An optional hash of options to pass to the Rails router
     #
     # Returns a String.
-    def decidim_resource_path(resource)
-      _decidim_resource_route(resource, "path")
+    def decidim_resource_path(resource, options = {})
+      _decidim_resource_route(resource, "path", options)
     end
 
     # Builds the url to a resource. Useful when linking to a resource from
     # another engine.
     #
     # resource - An object that is a valid resource exposed by some feature.
+    # options - An optional hash of options to pass to the Rails router
     #
     # Returns a String.
-    def decidim_resource_url(resource)
-      _decidim_resource_route(resource, "url")
+    def decidim_resource_url(resource, options = {})
+      _decidim_resource_route(resource, "url", options.merge(host: resource.organization.host))
     end
 
     # Renders a collection of linked resources for a resource.
@@ -45,10 +47,48 @@ module Decidim
       end)
     end
 
+    # Gets the classes linked to the given class for the `current_feature`, and formats
+    # them in a nice way so that they can be used in a form. Resulting format looks like
+    # this, considering the given class is related to `Decidim::Meetings::Meeting`:
+    #
+    #   [["decidim/meetings/meeting", "Meetings"]]
+    #
+    # This method is intended to be used as a check to render the filter or not. Use the
+    # `linked_classes_filter_values_for(klass)` method to get the form filter collection
+    # values.
+    #
+    # klass - The class that will have its linked resources formatted.
+    #
+    # Returns an Array of Arrays of Strings.
+    # Returns an empty Array if no links are found.
+    def linked_classes_for(klass)
+      return [] unless klass.respond_to?(:linked_classes_for)
+
+      klass.linked_classes_for(current_feature).map do |klass|
+        [klass.underscore, t(klass.demodulize.downcase, scope: "decidim.filters.linked_classes")]
+      end
+    end
+
+    # Uses the `linked_classes_for(klass)` helper method to find the linked classes,
+    # and adds a default value to it so that it can be used directly in a form.
+    #
+    # Example:
+    #
+    #   <% if linked_classes_for(klass).any? %>
+    #     <%= form.collection_check_boxes :related_to, linked_classes_filter_values_for(klass), :first, :last %>
+    #   <% end %>
+    #
+    # klass - The class that will have its linked resources formatted.
+    #
+    # Returns an Array of Arrays of Strings.
+    def linked_classes_filter_values_for(klass)
+      [["", t("all", scope: "decidim.filters.linked_classes")]] + linked_classes_for(klass)
+    end
+
     # Private: Build the route to a given resource.
     #
     # Returns a String.
-    def _decidim_resource_route(resource, route_type)
+    def _decidim_resource_route(resource, route_type, options)
       manifest = resource.class.resource_manifest
       engine = send(manifest.mounted_engine_name)
 
@@ -58,7 +98,7 @@ module Decidim
         participatory_process_id: resource.feature.participatory_process.id
       }
 
-      engine.send("#{manifest.route_name}_#{route_type}", url_params)
+      engine.send("#{manifest.route_name}_#{route_type}", url_params.merge(options))
     end
   end
 end

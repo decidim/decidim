@@ -73,7 +73,7 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
-          sign_up: Complete your profile
+          sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
@@ -96,9 +96,23 @@ en:
       shared:
         omniauth_buttons:
           or: Or
+    filters:
+      linked_classes:
+        all: All
+        meeting: Meetings
+        proposal: Proposals
+        result: Results
     menu:
       home: Home
       processes: Processes
+    notifications_settings:
+      show:
+        comments_notifications: I want to receive email notifications when someone comments in my publications.
+        replies_notifications: I want to receive email notifications when someone replies my comments.
+        update_notifications_settings: Save changes
+      update:
+        error: There's been an error updating your notifications settings.
+        success: Your notifications settings were updated successfully.
     own_user_groups:
       index:
         not_verified: Not verified
@@ -186,6 +200,7 @@ en:
       user_profile:
         account: Account
         authorizations: Authorizations
+        notifications_settings: Notifications settings
         title: User settings
         user_groups: Organizations
   locales:

@@ -29,8 +29,8 @@ module Decidim
         end
 
         broadcast(:ok, @user)
-      rescue ActiveRecord::RecordInvalid
-        broadcast(:invalid)
+      rescue ActiveRecord::RecordInvalid => error
+        broadcast(:error, error.record)
       end
     end
 
@@ -52,6 +52,8 @@ module Decidim
         @user.password = generated_password
         @user.password_confirmation = generated_password
         @user.skip_confirmation! if verified_email
+        @user.comments_notifications = true
+        @user.replies_notifications = true
       end
 
       @user.tos_agreement = "1"

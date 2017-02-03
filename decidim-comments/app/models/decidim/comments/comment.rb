@@ -51,6 +51,12 @@ module Decidim
         down_votes.any? { |vote| vote.author == user }
       end
 
+      # Public: Returns the commentable object of the parent comment
+      def root_commentable
+        return commentable if depth == 0
+        commentable.root_commentable
+      end
+
       private
 
       # Private: Check if commentable can have replies and if not adds

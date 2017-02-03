@@ -5,8 +5,8 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
-      belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: Decidim::UserGroup
+      belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
+      belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: "Decidim::UserGroup"
 
       validate :verified_user_group, :user_group_membership
       validate :author_belongs_to_organization

@@ -23,7 +23,9 @@ module Decidim
           organization: current_organization,
           invitation_instructions: "invite_admin",
           roles: %w(admin),
-          invited_by: current_user
+          invited_by: current_user,
+          comments_notifications: true,
+          replies_notifications: true
         }
 
         @form = form(InviteAdminForm).from_params(params.merge(default_params))

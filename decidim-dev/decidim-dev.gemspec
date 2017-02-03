@@ -33,4 +33,5 @@ Gem::Specification.new do |s|
   s.add_dependency "codecov", "~> 0.1.9"
   s.add_dependency "rubocop", "~> 0.47"
   s.add_dependency "db-query-matchers", "~> 0.7.0"
+  s.add_dependency "letter_opener_web", "~> 1.2.0"
 end

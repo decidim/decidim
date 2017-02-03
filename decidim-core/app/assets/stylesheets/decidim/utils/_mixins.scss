@@ -30,8 +30,12 @@
   background: rgba(#27353B, 0.6);
 }
 
-// Usefull Compass mixins
+/// Slightly lighten a color
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
 
-// +font-face
-// +ellipsis
-// +clearfix
+/// Slightly darken a color
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

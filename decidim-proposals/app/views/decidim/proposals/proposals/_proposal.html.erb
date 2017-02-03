@@ -31,7 +31,7 @@
           <div id="proposal-<%= proposal.id %>-votes-count" class="card__support__data">
             <%= render partial: "votes_count", locals: { proposal: proposal, from_proposals_list: true } %>
           </div>
-          <div id="proposal-<%= proposal.id %>-vote-button"> 
+          <div id="proposal-<%= proposal.id %>-vote-button">
             <%= render partial: "vote_button", locals: { proposal: proposal, from_proposals_list: true } %>
           </div>
         <% elsif !current_settings.votes_enabled? || current_settings.votes_enabled? && current_settings.votes_blocked? %>

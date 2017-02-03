@@ -77,5 +77,27 @@ module Decidim
         expect(manifest.model_class).to eq(resource.class)
       end
     end
+
+    describe "#linked_classes_for" do
+      let(:proposals_feature_1) { create :feature, manifest_name: "proposals" }
+      let(:proposals_feature_2) { create :feature, manifest_name: "proposals" }
+      let(:meetings_feature) { create :feature, manifest_name: "meetings", participatory_process: proposals_feature_1.participatory_process }
+      let(:results_feature) { create :feature, manifest_name: "results", participatory_process: proposals_feature_2.participatory_process }
+      let(:proposal_1) { create :proposal, feature: proposals_feature_1 }
+      let(:proposal_2) { create :proposal, feature: proposals_feature_2 }
+      let(:meeting) { create :meeting, feature: meetings_feature }
+      let(:result) { create :result, feature: results_feature }
+
+      subject { Decidim::Proposals::Proposal }
+
+      before do
+        proposal_1.link_resources([meeting], "proposals_from_meeting")
+        proposal_2.link_resources([result], "included_proposals")
+      end
+
+      it "finds the linked classes for a given feature" do
+        expect(subject.linked_classes_for(proposals_feature_1)).to eq ["Decidim::Meetings::Meeting"]
+      end
+    end
   end
 end

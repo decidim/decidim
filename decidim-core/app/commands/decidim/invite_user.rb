@@ -40,7 +40,9 @@ module Decidim
           name: form.name,
           email: form.email.downcase,
           organization: form.organization,
-          roles: form.roles
+          roles: form.roles,
+          comments_notifications: true,
+          replies_notifications: true
         },
         form.invited_by,
         invitation_instructions: form.invitation_instructions
