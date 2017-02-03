@@ -35,7 +35,7 @@
           <ul>
             <li class="<%= "is-active" if is_active_link?(decidim.participatory_process_path(current_participatory_process), :exclusive) %>">
               <%= active_link_to decidim.participatory_process_path(current_participatory_process), active: :exact, class: "process-nav__link", class_active: "is-active" do %>
-                <%= external_icon "decidim/core/process.svg" %>
+                <%= external_icon "decidim/process.svg" %>
                 <%= t ".process_menu_item" %>
               <% end %>
             </li>
