@@ -24,11 +24,6 @@ module Decidim
 
         I18n.t(value, scope: "decidim.proposals.answers")
       end
-
-      # Public: Returns a proposals url merging current params with order
-      def order_link(order)
-        link_to t(".#{order}"), url_for(params.to_unsafe_h.merge(order: order)), remote: true
-      end
     end
   end
 end
