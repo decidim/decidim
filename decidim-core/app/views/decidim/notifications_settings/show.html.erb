@@ -14,6 +14,13 @@
         <span class="switch-label"><%= t('.replies_notifications') %></span>
       </label>
     </div>
+    <div class="switch tiny switch-with-label newsletter_notifications">
+      <label>
+        <%= f.check_box :newsletter_notifications, label: false, class: "switch-input" %>
+        <span class="switch-paddle"></span>
+        <span class="switch-label"><%= t('.newsletter_notifications') %></span>
+      </label>
+    </div>
     <%= f.submit t(".update_notifications_settings"), disable_with: true %>
   <% end %>
 </div>

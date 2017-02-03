@@ -10,6 +10,7 @@ module Decidim
     attribute :email, String
     attribute :password, String
     attribute :password_confirmation, String
+    attribute :newsletter_notifications, Boolean
     attribute :tos_agreement, Boolean
 
     attribute :user_group_name, String
