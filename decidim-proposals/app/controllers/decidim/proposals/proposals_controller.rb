@@ -20,6 +20,7 @@ module Decidim
                      .results
                      .includes(:author)
                      .includes(votes: [:author])
+                     .includes(:category)
 
         @proposals = reorder(@proposals)
 
