@@ -1,5 +1,15 @@
 ---
 en:
+  activemodel:
+    attributes:
+      user:
+        email: Your email
+        name: Your name
+        password: New password
+        password_confirmation: Confirm your new password
+        user_group_document_number: Organization document number
+        user_group_name: Organization name
+        user_group_phone: Organization phone
   activerecord:
     attributes:
       decidim/user:
@@ -8,10 +18,9 @@ en:
         name: Username
         password: Password
         password_confirmation: Password confirmation
-        remember_me: Remember me
-        tos_agreement: Terms & conditions
-    models:
-      decidim/user: User
+        user_group_document_number: Organization document number
+        user_group_name: Organization name
+        user_group_phone: Organization phone
   booleans:
     'false': 'No'
     'true': 'Yes'
@@ -20,11 +29,19 @@ en:
       image_too_big: The image is too big
   decidim:
     account:
-      authorizations:
-        authorization_confirm_destroy: Are you sure you want to delete this authorization?
       show:
-        authorizations: Authorizations
-        title: My account
+        change_password: Change password
+        update_account: Update account
+      update:
+        error: There's been an error updating your account.
+        success: Your account was updated successfully.
+        success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
+    anonymous_user: Anonymous
+    application:
+      documents:
+        related_documents: Related documents
+      photos:
+        related_photos: Related photos
     authorization_handlers:
       decidim/dummy_authorization_handler: Example authorization
       errors:
@@ -36,11 +53,13 @@ en:
       current_participatory_processes: take a look at the current processes
       destroy:
         success: Authorization successfully destroyed
-      index:
+      first_login:
         actions:
           decidim/dummy_authorization_handler: Verify against the example authorization
         title: Verify your identity
         verify_with_these_options: 'These are the available options to verify your identity:'
+      index:
+        authorization_confirm_destroy: Are you sure you want to delete this authorization?
       new:
         authorize: Send
         authorize_with: Verify with %{authorizer}
@@ -49,11 +68,23 @@ en:
       actions:
         unauthorized: You are not authorized to perform this action
     devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Another account is using the same email address
+        new:
+          complete_profile: Complete profile
+          sign_up: Please complete your profile
+          subtitle: Please fill in the following form in order to complete the sign up
+          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       registrations:
         new:
           already_have_an_account?: Already have an account?
           sign_in: Log in
           sign_up: Sign up
+          sign_up_as:
+            legend: Sign up as
+            user: Individual
+            user_group: Organization/Collective
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
@@ -62,19 +93,51 @@ en:
         new:
           are_you_new?: New to the platform?
           register: Create an account
+      shared:
+        omniauth_buttons:
+          or: Or
+    filters:
+      linked_classes:
+        all: All
+        meeting: Meetings
+        proposal: Proposals
+        result: Results
     menu:
       home: Home
       processes: Processes
+    notifications_settings:
+      show:
+        comments_notifications: I want to receive email notifications when someone comments in my publications.
+        replies_notifications: I want to receive email notifications when someone replies my comments.
+        update_notifications_settings: Save changes
+      update:
+        error: There's been an error updating your notifications settings.
+        success: Your notifications settings were updated successfully.
+    own_user_groups:
+      index:
+        not_verified: Not verified
+        verified: Verified
+    participatory_process_steps:
+      index:
+        process_steps: Process steps
+        title: Participatory process steps
     participatory_processes:
-      documents:
-        related_documents: Related documents
-      photos:
-        related_photos: Related photos
+      index:
+        title: Participatory processes
+      show:
+        developer_group: Developer group
+        domain: Domain
+        end_date: End date
+        scope: Scope
     shared:
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up
   devise:
+    invitations:
+      edit:
+        header: Set your password
+        submit_button: Save
     mailer:
       invitation_instructions:
         accept: Accept invitation
@@ -92,7 +155,7 @@ en:
       password_change:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
-        subject: Password Changed
+        subject: Password changed
   errors:
     messages:
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
@@ -126,9 +189,20 @@ en:
           take_part: Take part
       process_header:
         process_menu_item: The process
+        unfold: Unfold
+      process_header_steps:
+        step: Step %{current} of %{total}
+        view_steps: View steps
       user_menu:
+        admin_dashboard: Admin dashboard
         profile: My account
         sign_out: Sign out
+      user_profile:
+        account: Account
+        authorizations: Authorizations
+        notifications_settings: Notifications settings
+        title: User settings
+        user_groups: Organizations
   locales:
     ca: Català
     en: English
@@ -142,19 +216,48 @@ en:
       title: There was a problem with our server
       try_later: Please try again later.
     home:
-      active_step: Active step
-      debates: Debates
-      debates_explanation: Let's meet, debate and share what we think it's important for our city.
-      highlighted_processes: Highlighted processes
-      how_to_participate: How do I take part in a process?
-      meetings: Meetings
-      meetings_explanation: Let's meet, debate and share what we think it's important for our city.
-      more_info: More info
-      proposals: Proposals
-      proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
-      register: Register
-      see_all_processes: See all processes
-      welcome: Welcome to %{organization}!
+      extended:
+        debates: Debates
+        debates_explanation: Let's meet, debate and share what we think it's important for our city.
+        how_to_participate: How do I take part in a process?
+        meetings: Meetings
+        meetings_explanation: Let's meet, debate and share what we think it's important for our city.
+        more_info: More info
+        proposals: Proposals
+        proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
+      hero:
+        register: Register
+        welcome: Welcome to %{organization}!
+      highlighted_processes:
+        active_step: Active step
+        highlighted_processes: Highlighted processes
+        see_all_processes: See all processes
+      statistics:
+        headline: Current state of %{organization}
+        processes: Processes
+        users: Users
+      sub_hero:
+        register: Register
+  social_share_button:
+    delicious: Delicious
+    douban: Douban
+    email: Email
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Share to %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Open your WeChat, click "Discover" button then click the "Scan QR Code" menu.
+    weibo: Sina Weibo
+    xing: Xing
   views:
     pagination:
       first: "&laquo; First"

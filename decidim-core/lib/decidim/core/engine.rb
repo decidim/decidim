@@ -10,7 +10,6 @@ require "devise-i18n"
 require "devise_invitable"
 require "jquery-rails"
 require "sassc-rails"
-require "turbolinks"
 require "foundation-rails"
 require "foundation_rails_helper"
 require "active_link_to"
@@ -24,6 +23,10 @@ require "sprockets/es6"
 require "cancancan"
 require "truncato"
 require "file_validators"
+require "omniauth"
+require "omniauth-facebook"
+require "omniauth-twitter"
+require "omniauth-google-oauth2"
 
 require "decidim/api"
 
@@ -38,7 +41,7 @@ module Decidim
 
       initializer "decidim.action_controller" do |_app|
         ActiveSupport.on_load :action_controller do
-          helper Decidim::LayoutHelper
+          helper Decidim::LayoutHelper if respond_to?(:helper)
         end
       end
 
@@ -70,7 +73,7 @@ module Decidim
 
       initializer "decidim_admin.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
-          config.abilities << Abilities::Everyone
+          config.abilities << "Decidim::Abilities::Everyone"
         end
       end
 

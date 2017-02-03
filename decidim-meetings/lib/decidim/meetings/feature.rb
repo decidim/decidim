@@ -11,6 +11,11 @@ Decidim.register_feature(:meetings) do |feature|
     raise StandardError, "Can't remove this feature" if Decidim::Meetings::Meeting.where(feature: instance).any?
   end
 
+  feature.register_resource do |resource|
+    resource.model_class_name = "Decidim::Meetings::Meeting"
+    resource.template = "decidim/meetings/meetings/linked_meetings"
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?
@@ -30,17 +35,26 @@ Decidim.register_feature(:meetings) do |feature|
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end,
-          short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
-          end,
           location: Decidim::Faker::Localized.sentence,
           location_hints: Decidim::Faker::Localized.sentence,
           start_time: 3.weeks.from_now,
           end_time: 3.weeks.from_now + 4.hours,
-          address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}"
+          address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
+          latitude: Faker::Address.latitude,
+          longitude: Faker::Address.longitude
         )
-
-        Decidim::Comments::Seed.comments_for(meeting)
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5),
+          file: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
+          attached_to: meeting
+        )
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5),
+          file: File.new(File.join(File.dirname(__FILE__), "seeds", "Exampledocument.pdf")),
+          attached_to: meeting
+        )
       end
     end
   end

@@ -80,6 +80,12 @@ module Decidim
         ]
       end
 
+      def add_ignore_uploads
+        unless options["skip_git"]
+          append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads"
+        end
+      end
+
       def remove_default_error_pages
         remove_file "public/404.html"
         remove_file "public/500.html"

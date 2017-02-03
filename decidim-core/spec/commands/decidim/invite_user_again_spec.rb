@@ -30,7 +30,7 @@ module Decidim
 
       it "does not send an email" do
         command.call
-        expect(ActionMailer::DeliveryJob).to_not have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::DeliveryJob).not_to have_been_enqueued.on_queue("mailers")
       end
 
       it "broadcasts invalid" do

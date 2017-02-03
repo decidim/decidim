@@ -19,13 +19,19 @@ module Decidim
 
     context "when a user with the given email already exists" do
       before do
-        create(:user, email: form.email, organization: organization)
+        @user = create(:user, email: form.email, organization: organization)
       end
 
       it "does not create another user" do
         expect do
           command.call
-        end.to_not change { User.count }
+        end.not_to change { User.count }
+      end
+
+      it "broadcasts ok and the user" do
+        expect do
+          command.call
+        end.to broadcast(:ok, @user)
       end
     end
 
@@ -42,6 +48,12 @@ module Decidim
         end.to change { User.count }.by(1)
 
         expect(invited_user.email).to eq(form.email)
+      end
+
+      it "broadcasts ok and the user" do
+        expect do
+          command.call
+        end.to broadcast(:ok)
       end
 
       it "sends an invitation email with the given instructions" do

@@ -7,23 +7,25 @@ module Decidim
     #
     class UsersController < Admin::ApplicationController
       def index
-        authorize! :index, User
+        authorize! :index, :admin_users
         @users = collection
       end
 
       def new
-        authorize! :new, User
+        authorize! :new, :admin_users
         @form = form(InviteAdminForm).instance
       end
 
       def create
-        authorize! :new, User
+        authorize! :new, :admin_users
 
         default_params = {
           organization: current_organization,
           invitation_instructions: "invite_admin",
           roles: %w(admin),
-          invited_by: current_user
+          invited_by: current_user,
+          comments_notifications: true,
+          replies_notifications: true
         }
 
         @form = form(InviteAdminForm).from_params(params.merge(default_params))
@@ -42,7 +44,7 @@ module Decidim
       end
 
       def resend_invitation
-        authorize! :invite, user
+        authorize! :invite, :admin_users
 
         InviteUserAgain.call(user, "invite_admin") do
           on(:ok) do
@@ -58,7 +60,7 @@ module Decidim
       end
 
       def destroy
-        authorize! :destroy, user
+        authorize! :destroy, :admin_users
 
         RemoveUserRole.call(user, "admin") do
           on(:ok) do

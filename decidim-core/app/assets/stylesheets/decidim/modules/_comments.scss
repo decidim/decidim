@@ -30,11 +30,8 @@ $comment-form-bg: $light-gray;
 }
 
 .show-more--comment-thread{
-  text-align: right;
-  margin-top: -$card-margin-bottom;
+  margin-top: -$card-margin-bottom / 2;
   margin-bottom: $card-margin-bottom;
-  padding-top: 3px;
-  font-size: 90%;
 }
 
 .comment{
@@ -85,16 +82,44 @@ $comment-form-bg: $light-gray;
   float: right;
 }
 .comment__votes--up{
-  color: $comment-vote-up-color;
-  &:hover{
+  color: $muted;
+  .icon{
+    color: $comment-vote-up-color;
+  }
+  &:hover,
+  &.is-vote-selected{
     color: darken($comment-vote-up-color,10);
+    .icon{
+      color: inherit;
+    }
+  }
+  &.is-vote-notselected{
+    color: $muted;
+    opacity: .3;
+    .icon{
+      color: inherit;
+    }
   }
 }
 .comment__votes--down{
-  color: $comment-vote-down-color;
+  color: $muted;
   padding-left: .3rem;
-  &:hover{
+  .icon{
+    color: $comment-vote-down-color;
+  }
+  &:hover,
+  &.is-vote-selected{
     color: darken($comment-vote-down-color,10);
+    .icon{
+      color: inherit;
+    }
+  }
+  &.is-vote-notselected{
+    color: $muted;
+    opacity: .3;
+    .icon{
+      color: inherit;
+    }
   }
 }
 

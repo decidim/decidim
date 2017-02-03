@@ -3,6 +3,7 @@
 <% content_for :meta_url, proposal_url(@proposal.id) %>
 <% content_for :twitter_handler, current_organization.twitter_handler %>
 
+<%= render partial: "votes_limit" %>
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
   <div class="author-data">
@@ -27,7 +28,7 @@
             <div id="proposal-<%= @proposal.id %>-votes-count">
               <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
             </div>
-            <div id="proposal-<%= @proposal.id %>-vote-button"> 
+            <div id="proposal-<%= @proposal.id %>-vote-button">
               <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
             </div>
         </div>
@@ -37,6 +38,7 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
+      <%= render partial: "proposal_badge", locals: { proposal: @proposal } %>
       <p><%= @proposal.body %></p>
       <% if @proposal.category || @proposal.scope %>
         <ul class="tags tags--proposal">
@@ -49,11 +51,22 @@
         </ul>
       <% end %>
     </div>
+    <% if @proposal.rejected? %>
+      <div class="section">
+        <div class="callout warning">
+          <h5><%= t(".proposal_rejected_reason") %></h5>
+          <p><%= translated_attribute @proposal.answer %></p>
+        </div>
+      </div>
+    <% end %>
+    <%= linked_resources_for @proposal, :results, "included_proposals" %>
+    <%= linked_resources_for @proposal, :projects, "included_proposals" %>
+    <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
   </div>
 </div>
 
 <%= content_for :expanded do %>
-  <% if @proposal.commentable? %>
+  <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
     <%= comments_for @proposal, arguable: true, votable: true %>
   <% end %>
 <% end %>

@@ -11,12 +11,14 @@ module Decidim
       class ParticipatoryProcessAdmin
         include CanCan::Ability
 
-        def initialize(user)
-          return if user.role?(:admin)
-          participatory_processes = ManageableParticipatoryProcessesForUser.for(user)
-          return unless participatory_processes.any?
+        def initialize(user, _context)
+          @user = user
 
-          can :read, :admin_dashboard
+          return unless user && !user.role?(:admin)
+
+          can :read, :admin_dashboard do
+            participatory_processes.any?
+          end
 
           can :manage, ParticipatoryProcess do |process|
             participatory_processes.include?(process)
@@ -25,12 +27,14 @@ module Decidim
           cannot :create, ParticipatoryProcess
           cannot :destroy, ParticipatoryProcess
 
+          cannot :manage, :admin_users
+
           can :manage, ParticipatoryProcessUserRole do |role|
             role.user != user
           end
 
-          can :manage, ParticipatoryProcessAttachment do |step|
-            participatory_processes.include?(step.participatory_process)
+          can :manage, Attachment do |attachment|
+            participatory_processes.include?(attachment.attached_to)
           end
 
           can :manage, ParticipatoryProcessStep do |step|
@@ -44,6 +48,10 @@ module Decidim
           can :manage, Category do |category|
             participatory_processes.include?(category.participatory_process)
           end
+        end
+
+        def participatory_processes
+          @participatory_processes ||= ManageableParticipatoryProcessesForUser.for(@user)
         end
       end
     end

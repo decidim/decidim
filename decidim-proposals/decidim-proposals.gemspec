@@ -16,8 +16,11 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim.version
   s.add_dependency "decidim-comments", Decidim.version
   s.add_dependency "rectify", "~> 0.8.0"
-  s.add_dependency "kaminari", "~> 1.0.0.rc1"
+  s.add_dependency "kaminari", "~> 1.0.1"
   s.add_dependency 'social-share-button', "~> 0.8.8"
 
   s.add_development_dependency "decidim-dev", Decidim.version
+  s.add_development_dependency "decidim-meetings", Decidim.version
+  s.add_development_dependency "decidim-results", Decidim.version
+  s.add_development_dependency "decidim-budgets", Decidim.version
 end

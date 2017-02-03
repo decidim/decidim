@@ -4,7 +4,7 @@ require "spec_helper"
 describe Decidim::Admin::Abilities::AdminUser do
   let(:user) { build(:user, :admin) }
 
-  subject { described_class.new(user) }
+  subject { described_class.new(user, {}) }
 
   context "when the user is not an admin" do
     let(:user) { build(:user) }
@@ -17,8 +17,9 @@ describe Decidim::Admin::Abilities::AdminUser do
 
   it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcess) }
   it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcessStep) }
-  it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcessAttachment) }
+  it { is_expected.to be_able_to(:manage, Decidim::Attachment) }
   it { is_expected.to be_able_to(:manage, Decidim::Scope) }
+  it { is_expected.to be_able_to(:manage, :admin_users) }
 
   it { is_expected.to be_able_to(:create, Decidim::StaticPage) }
   it { is_expected.to be_able_to(:update, Decidim::StaticPage) }
@@ -32,14 +33,17 @@ describe Decidim::Admin::Abilities::AdminUser do
   it { is_expected.to be_able_to(:read, Decidim::User) }
   it { is_expected.to be_able_to(:invite, Decidim::User) }
 
+  it { is_expected.to be_able_to(:index, Decidim::UserGroup) }  
+  it { is_expected.to be_able_to(:verify, Decidim::UserGroup) }  
+
   context "when a page is a default one" do
     let(:page) { build(:static_page, :default) }
     let(:form) { Decidim::Admin::StaticPageForm.new(slug: page.slug) }
 
-    it { is_expected.to_not be_able_to(:update_slug, page) }
-    it { is_expected.to_not be_able_to(:update_slug, form) }
-    it { is_expected.to_not be_able_to(:destroy, page) }
-    it { is_expected.to_not be_able_to(:destroy, form) }
+    it { is_expected.not_to be_able_to(:update_slug, page) }
+    it { is_expected.not_to be_able_to(:update_slug, form) }
+    it { is_expected.not_to be_able_to(:destroy, page) }
+    it { is_expected.not_to be_able_to(:destroy, form) }
   end
 
   context "when a page is not default one" do

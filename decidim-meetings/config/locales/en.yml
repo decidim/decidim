@@ -1,18 +1,35 @@
 ---
 en:
+  activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: Number of attendees
+        attending_organizations: List of organizations that attended
+        closing_report: Report
+        contributions_count: Number of contributions
+        proposal_ids: Proposals created in the meeting
   decidim:
     features:
       meetings:
         name: Meetings
     meetings:
       actions:
+        attachments: Attachments
+        close: Close
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
         edit: Edit
         new: New %{name}
         title: Actions
       admin:
+        meeting_closes:
+          edit:
+            close: Close
+            title: Close meeting
         meetings:
+          close:
+            invalid: There's been a problem closing this meeting
+            success: Meeting successfully closed
           create:
             invalid: There's been a problem creating this meeting
             success: Meeting successfully created
@@ -40,13 +57,29 @@ en:
           descendent: Descendent
           scopes: Scopes
           search: Search
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_for: Filter by
+          unfold: Unfold
         index:
           title: Meetings
+          view_meeting: View meeting
         show:
-          meeting_description: Meeting description
+          attendees: Attendees count
+          contributions: Contributions count
+          meeting_report: Meeting report
+          organizations: Attending organizations
       models:
         meeting:
           fields:
+            closed: Closed
             end_time: End date
+            map: Map
             start_time: Start date
             title: Title
+    resource_links:
+      meetings_through_proposals:
+        results: 'Related results:'
+      proposals_from_meeting:
+        proposals: Related proposals

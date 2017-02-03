@@ -6,15 +6,20 @@ module Decidim
     describe CreateComment, :db do
       describe "call" do
         let(:organization) { create(:organization) }
+        let(:participatory_process) { create(:participatory_process, organization: organization)}
+        let(:feature) { create(:feature, participatory_process: participatory_process)}
         let(:author) { create(:user, organization: organization) }
-        let(:commentable) { create :participatory_process, organization: organization }
+        let(:dummy_resource) { create :dummy_resource, feature: feature }
+        let(:commentable) { dummy_resource }
         let(:body) { ::Faker::Lorem.paragraph }
         let(:alignment) { 1 }
+        let(:user_group_id) { nil }
         let(:form_params) do
           {
             "comment" => {
               "body" => body,
-              "alignment" => alignment
+              "alignment" => alignment,
+              "user_group_id" => user_group_id
             }
           }
         end
@@ -37,7 +42,7 @@ module Decidim
           it "doesn't create a comment" do
             expect do
               command.call
-            end.to_not change { Comment.count }
+            end.not_to change { Comment.count }
           end
         end
 
@@ -51,11 +56,76 @@ module Decidim
               author: author,
               commentable: commentable,
               body: body,
-              alignment: alignment
+              alignment: alignment,
+              decidim_user_group_id: user_group_id
             }).and_call_original
             expect do
               command.call
             end.to change { Comment.count }.by(1)
+          end
+
+          context "and the comment is a root comment" do
+            it "sends an email to the author of the commentable" do
+              expect(CommentNotificationMailer)
+                .to receive(:comment_created)
+                .with(author, an_instance_of(Comment), commentable)
+                .and_call_original
+
+              command.call
+            end
+
+            context "and I am the author of the commentable" do
+              let(:dummy_resource) { create :dummy_resource, feature: feature, author: author }
+
+              it "doesn't send an email" do
+                expect(CommentNotificationMailer).not_to receive(:comment_created)
+                command.call
+              end
+            end
+
+            context "and the author has comment notifications disabled" do
+              before do
+                commentable.author.update_attributes!(comments_notifications: false)
+              end
+
+              it "doesn't send an email" do
+                expect(CommentNotificationMailer).not_to receive(:comment_created)
+                command.call
+              end
+            end
+          end
+
+          context "and the comment is a reply" do
+            let (:commentable) { create(:comment, commentable: dummy_resource) }
+
+            it "sends an email to the author of the parent comment" do
+              expect(CommentNotificationMailer)
+                .to receive(:reply_created)
+                .with(author, an_instance_of(Comment), commentable, commentable.root_commentable)
+                .and_call_original
+
+              command.call
+            end
+
+            context "and I am the author of the parent comment" do
+              let (:commentable) { create(:comment, author: author, commentable: dummy_resource) }
+
+              it "doesn't send an email" do
+                expect(CommentNotificationMailer).not_to receive(:reply_created)
+                command.call
+              end
+            end
+
+            context "and the author has reply notifications disabled" do
+              before do
+                commentable.author.update_attribute(:replies_notifications, false)
+              end
+
+              it "doesn't send an email" do
+                expect(CommentNotificationMailer).not_to receive(:reply_created)
+                command.call
+              end
+            end
           end
         end
       end

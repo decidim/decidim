@@ -1,0 +1,25 @@
+<% if current_order&.projects&.any? %>
+  <div class="card__content budget-summary__selected">
+    <button data-toggle="reveal-selected">
+      <strong><%= current_order.projects.size %> </strong><%= t('.selected_projects', count: current_order.projects.size) %>
+      <%= icon("caret-bottom", class:"icon--small", aria_label: t('.view'), role: "img") %>
+    </button>
+    <div id="reveal-selected" class="hide" data-toggler=".hide">
+      <ul class="budget-summary__selected-list">
+        <% current_order.projects.each do |project| %>
+          <li class="budget-summary__selected-item">
+            <%= link_to translated_attribute(project.title), project %>
+            <strong class="budget-summary__selected-number">
+              <%= budget_to_currency project.budget %>
+            </strong>
+            <% unless current_order_checked_out? %>
+              <%= button_to order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true }, form: { style: "display: inline" } do %>
+                <%= icon("trash", aria_label: t('.remove'), role: "img") %>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+.leaflet-container {
+  .map-info {
+    border: 1px solid $primary;
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 2px;
+    }
+    a.button {
+      color: #fff;
+    }
+  }
+  .leaflet-popup-tip{
+    border: 1px solid $primary;
+  }
+}

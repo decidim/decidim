@@ -14,6 +14,7 @@ import commentFragment          from './comment.fragment.graphql';
 import commentDataFragment      from './comment_data.fragment.graphql';
 import upVoteFragment           from './up_vote.fragment.graphql';
 import downVoteFragment         from './down_vote.fragment.graphql';
+import addCommentFormFragment   from './add_comment_form.fragment.graphql';
 
 /**
  * Renders a form to create new comments.
@@ -33,20 +34,23 @@ export class AddCommentForm extends Component {
   render() {
     const { submitButtonClassName, commentableType, commentableId } = this.props;
     const { disabled } = this.state;
-    
+
     return (
       <div className="add-comment">
         {this._renderHeading()}
         {this._renderOpinionButtons()}
         <form onSubmit={(evt) => this._addComment(evt)}>
-          <label className="show-for-sr" htmlFor={`add-comment-${commentableType}-${commentableId}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
-          {this._renderTextArea()}
-          <input 
-            type="submit"
-            className={submitButtonClassName}
-            value={I18n.t("components.add_comment_form.form.submit")}
-            disabled={disabled}
-          />
+          {this._renderCommentAs()}
+          <div className="field">
+            <label className="show-for-sr" htmlFor={`add-comment-${commentableType}-${commentableId}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
+            {this._renderTextArea()}
+            <input
+              type="submit"
+              className={submitButtonClassName}
+              value={I18n.t("components.add_comment_form.form.submit")}
+              disabled={disabled}
+            />
+          </div>
         </form>
       </div>
     );
@@ -94,7 +98,7 @@ export class AddCommentForm extends Component {
       <textarea {...textAreaProps} />
     );
   }
-       
+
   /**
    * Render opinion buttons or not based on the arguable prop
    * @private
@@ -103,7 +107,7 @@ export class AddCommentForm extends Component {
   _renderOpinionButtons() {
     const { arguable } = this.props;
     const { alignment } = this.state;
-    const buttonClassName = classnames('button', 'small', 'button--muted');
+    const buttonClassName = classnames('button', 'tiny', 'button--muted');
     const okButtonClassName = classnames(buttonClassName, 'opinion-toggle--ok', {
       'is-active': alignment === 1
     });
@@ -117,12 +121,11 @@ export class AddCommentForm extends Component {
     if (arguable) {
       return (
         <div className="opinion-toggle button-group">
-          <button 
+          <button
             className={okButtonClassName}
             onClick={() => this.setState({ alignment: 1 })}
           >
             <Icon name="icon-thumb-up" />
-            { I18n.t("components.add_comment_form.opinion.in_favor") }
           </button>
           <button
             className={neutralButtonClassName}
@@ -135,7 +138,6 @@ export class AddCommentForm extends Component {
             onClick={() => this.setState({ alignment: -1 })}
           >
             <Icon name="icon-thumb-down" />
-            { I18n.t("components.add_comment_form.opinion.against") }
           </button>
         </div>
       );
@@ -143,7 +145,40 @@ export class AddCommentForm extends Component {
 
     return null;
   }
- 
+
+  /**
+   * Render a select with an option for each user's verified group
+   * @private
+   * @returns {Void|DOMElement} - Returns nothing or a form field.
+   */
+  _renderCommentAs() {
+    const { session, commentableType, commentableId } = this.props;
+    const { user, verifiedUserGroups } = session;
+
+    if (verifiedUserGroups.length > 0) {
+      return (
+        <div className="field">
+          <label htmlFor={`add-comment-${commentableType}-${commentableId}-user-group-id`}>
+            { I18n.t('components.add_comment_form.form.user_group_id.label') }
+          </label>
+          <select
+            ref={(select) => {this.userGroupIdSelect = select}}
+            id={`add-comment-${commentableType}-${commentableId}-user-group-id`}
+          >
+            <option value="">{ user.name }</option>
+            {
+              verifiedUserGroups.map((userGroup) => (
+                <option key={userGroup.id} value={userGroup.id}>{userGroup.name}</option>
+              ))
+            }
+          </select>
+        </div>
+      );
+    }
+
+    return null;
+  }
+
   /**
    * Check comment's body and disable form if it's empty
    * @private
@@ -164,10 +199,15 @@ export class AddCommentForm extends Component {
   _addComment(evt) {
     const { alignment } = this.state;
     const { addComment, onCommentAdded } = this.props;
+    let addCommentParams = { body: this.bodyTextArea.value, alignment };
 
     evt.preventDefault();
 
-    addComment({ body: this.bodyTextArea.value, alignment });
+    if (this.userGroupIdSelect && this.userGroupIdSelect.value !== '') {
+      addCommentParams.userGroupId = this.userGroupIdSelect.value;
+    }
+
+    addComment(addCommentParams);
 
     this.bodyTextArea.value = '';
     this.setState({ alignment: 0 });
@@ -178,15 +218,17 @@ export class AddCommentForm extends Component {
   }
 }
 
-AddCommentForm.defaultProps = {
-  showTitle: true,
-  submitButtonClassName: 'button button--sc'
-};
-
 AddCommentForm.propTypes = {
   addComment: PropTypes.func.isRequired,
-  currentUser: PropTypes.shape({
-    name: PropTypes.string.isRequired
+  session: PropTypes.shape({
+    user: PropTypes.shape({
+      name: PropTypes.string.isRequired
+    }),
+    verifiedUserGroups: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired
+      })
+    ).isRequired
   }).isRequired,
   commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired,
@@ -195,6 +237,20 @@ AddCommentForm.propTypes = {
   onCommentAdded: PropTypes.func,
   arguable: PropTypes.bool,
   autoFocus: PropTypes.bool
+};
+
+AddCommentForm.defaultProps = {
+  onCommentAdded: function() {},
+  showTitle: true,
+  submitButtonClassName: 'button button--sc',
+  arguable: false,
+  autoFocus: false
+};
+
+AddCommentForm.fragments = {
+  user: gql`
+    ${addCommentFormFragment}
+  `
 };
 
 const AddCommentFormWithMutation = graphql(gql`
@@ -206,12 +262,13 @@ const AddCommentFormWithMutation = graphql(gql`
   ${downVoteFragment}
 `, {
   props: ({ ownProps, mutate }) => ({
-    addComment: ({ body, alignment }) => mutate({ 
-      variables: { 
+    addComment: ({ body, alignment, userGroupId }) => mutate({
+      variables: {
         commentableId: ownProps.commentableId,
         commentableType: ownProps.commentableType,
         body,
-        alignment
+        alignment,
+        userGroupId
       },
       optimisticResponse: {
         __typename: 'Mutation',
@@ -223,8 +280,8 @@ const AddCommentFormWithMutation = graphql(gql`
           alignment: alignment,
           author: {
             __typename: 'Author',
-            name: ownProps.currentUser.name,
-            avatarUrl: ownProps.currentUser.avatarUrl
+            name: ownProps.session.user.name,
+            avatarUrl: ownProps.session.user.avatarUrl
           },
           replies: [],
           hasReplies: false,

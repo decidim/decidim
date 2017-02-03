@@ -7,9 +7,11 @@ module Decidim
 
     process :set_content_type_and_size_in_model
     process :validate_dimensions
+
     version :thumbnail, if: :image? do
       process resize_to_fit: [nil, 237]
     end
+
     version :big, if: :image? do
       process resize_to_limit: [nil, 1000]
     end
@@ -39,7 +41,8 @@ module Decidim
     #
     # Returns a Boolean.
     def image?(new_file)
-      new_file.content_type.start_with? "image"
+      content_type = model.try(:content_type) || new_file.content_type
+      content_type.to_s.start_with? "image"
     end
 
     # Copies the content type and file size to the model where this is mounted.

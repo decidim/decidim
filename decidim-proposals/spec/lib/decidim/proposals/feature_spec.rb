@@ -24,7 +24,7 @@ describe "Proposals feature" do
           Decidim::Admin::DestroyFeature.call(feature)
         end.to broadcast(:invalid)
 
-        expect(feature).to_not be_destroyed
+        expect(feature).not_to be_destroyed
       end
     end
   end

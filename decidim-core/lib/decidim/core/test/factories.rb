@@ -36,6 +36,7 @@ FactoryGirl.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     welcome_text { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     homepage_image { test_file("city.jpeg", "image/jpeg") }
+    favicon { test_file("icon.png", "image/png") }
     default_locale I18n.default_locale
     available_locales Decidim.available_locales
   end
@@ -50,6 +51,10 @@ FactoryGirl.define do
     banner_image { test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
     organization
+    scope  { Decidim::Faker::Localized.word }
+    domain { Decidim::Faker::Localized.word }
+    developer_group { Faker::Company.name }
+    end_date 2.month.from_now.at_midnight
 
     trait :promoted do
       promoted true
@@ -92,9 +97,11 @@ FactoryGirl.define do
     password_confirmation "password1234"
     name                  { generate(:name) }
     organization
-    locale                "en"
+    locale                { organization.default_locale }
     tos_agreement         "1"
-    avatar                { test_file("avatar.svg", "image/svg+xml") }
+    avatar                { test_file("avatar.jpg", "image/jpeg") }
+    comments_notifications true
+    replies_notifications true
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -111,6 +118,28 @@ FactoryGirl.define do
     trait :official do
       roles ["official"]
     end
+  end
+
+  factory :user_group, class: Decidim::UserGroup do
+    name { Faker::Educator.course }
+    document_number { Faker::Number.number(8) + "X" }
+    phone { Faker::PhoneNumber.phone_number }
+    avatar { test_file("avatar.jpg", "image/jpeg") }
+
+    trait :verified do
+      verified_at { Time.current }
+    end
+  end
+
+  factory :user_group_membership, class: Decidim::UserGroupMembership do
+    user
+    user_group
+  end
+
+  factory :identity, class: Decidim::Identity do
+    provider "facebook"
+    sequence(:uid)
+    user
   end
 
   factory :authorization, class: Decidim::Authorization do
@@ -130,11 +159,11 @@ FactoryGirl.define do
     end
   end
 
-  factory :participatory_process_attachment, class: Decidim::ParticipatoryProcessAttachment do
+  factory :attachment, class: Decidim::Attachment do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { test_file("city.jpeg", "image/jpeg") }
-    participatory_process
+    attached_to { build(:participatory_process) }
 
     trait :with_image do
       file { test_file("city.jpeg", "image/jpeg") }
@@ -162,6 +191,18 @@ FactoryGirl.define do
   factory :scope, class: Decidim::Scope do
     name { generate(:name) }
     organization
+  end
+
+  factory :dummy_resource, class: Decidim::DummyResource do
+    title { generate(:name) }
+    feature { create(:feature, manifest_name: "dummy") }
+    author { create(:user, :confirmed, organization: feature.organization) }
+  end
+
+  factory :resource_link, class: Decidim::ResourceLink do
+    name { generate(:slug) }
+    to { build(:dummy_resource) }
+    from { build(:dummy_resource, feature: to.feature) }
   end
 end
 

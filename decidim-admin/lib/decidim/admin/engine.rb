@@ -7,7 +7,6 @@ require "devise-i18n"
 require "decidim/core"
 require "jquery-rails"
 require "sassc-rails"
-require "turbolinks"
 require "foundation-rails"
 require "foundation_rails_helper"
 require "rectify"
@@ -32,7 +31,8 @@ module Decidim
 
       initializer "decidim_admin.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
-          config.abilities += [Decidim::Admin::Abilities::AdminUser]
+          config.abilities += ["Decidim::Admin::Abilities::AdminUser"]
+          config.abilities += ["Decidim::Admin::Abilities::ParticipatoryProcessAdmin"]
         end
       end
     end

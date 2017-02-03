@@ -2,32 +2,39 @@
 en:
   activemodel:
     attributes:
+      attachment:
+        description: Description
+        file: File
+        title: Title
       category:
         description: Description
         name: Name
         parent: Parent
       feature:
         name: Name
+        weight: Weight
       organization:
         default_locale: Default locale
         description: Description
+        favicon: Icon
         homepage_image: Homepage image
         logo: Logo
         name: Name
+        show_statistics: Show statistics
         welcome_text: Welcome text
       participatory_process:
         banner_image: Banner image
         description: Description
+        developer_group: Developer group
+        domain: Domain
+        end_date: End date
         hashtag: Hashtag
         hero_image: Home image
         promoted: Promoted
+        scope: Scope
         short_description: Short description
         slug: URL slug
         subtitle: Subtitle
-        title: Title
-      participatory_process_attachment:
-        description: Description
-        file: File
         title: Title
       participatory_process_step:
         description: Description
@@ -65,6 +72,22 @@ en:
         resend_invitation: Resend invitation
         title: Actions
         unpublish: Unpublish
+        verify: Verify
+      attachments:
+        create:
+          error: There was an error creating a new attachment.
+          success: Attachment created successfully.
+        destroy:
+          success: Attachment destroyed successfully.
+        edit:
+          title: Edit attachment
+          update: Update attachment
+        new:
+          create: Create attachment
+          title: New attachment
+        update:
+          error: There was an error when updating this attachment.
+          success: Attachment updated successfully.
       categories:
         create:
           error: There was an error creating this category.
@@ -83,12 +106,12 @@ en:
           success: Category updated successfully.
       decidim:
         admin:
+          attachments:
+            index:
+              attachments_title: Attachments
           categories:
             index:
               categories_title: Categories
-          participatory_process_attachments:
-            index:
-              attachments_title: Attachments
           participatory_process_steps:
             index:
               steps_hint: You can drag the rows of the table in order to reorder the process steps.
@@ -136,8 +159,14 @@ en:
         scopes: Scopes
         settings: Settings
         static_pages: Pages
+        user_groups: User groups
         users: Admin users
       models:
+        attachment:
+          fields:
+            content_type: Type
+            title: Title
+          name: Attachment
         category:
           fields:
             name: Name
@@ -149,11 +178,6 @@ en:
             published: Published
             title: Title
           name: Participatory process
-        participatory_process_attachment:
-          fields:
-            content_type: Type
-            title: Title
-          name: Attachment
         participatory_process_step:
           fields:
             active: Active
@@ -183,6 +207,13 @@ en:
             last_sign_in_at: Last sign in date
             name: Name
           name: User
+        user_group:
+          fields:
+            created_at: Created at
+            document_number: Document number
+            name: Name
+            phone: Phone
+            users_count: Users count
       organization:
         edit:
           title: Edit organization
@@ -190,21 +221,6 @@ en:
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
-      participatory_process_attachments:
-        create:
-          error: There was an error creating a new attachment.
-          success: Attachment created successfully.
-        destroy:
-          success: Attachment destroyed successfully.
-        edit:
-          title: Edit attachment
-          update: Update attachment
-        new:
-          create: Create attachment
-          title: New attachment
-        update:
-          error: There was an error when updating this attachment.
-          success: Attachment updated successfully.
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
@@ -294,7 +310,11 @@ en:
         participatory_processes: Participatory processes
         scopes: Scopes
         static_pages: Pages
+        user_groups: User groups
         users: Users
+      user_groups:
+        verify:
+          success: The user group was verified successfully.
       users:
         create:
           error: There was an error when inviting this user.

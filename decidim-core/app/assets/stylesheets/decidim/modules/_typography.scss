@@ -72,6 +72,23 @@ hr{
   }
 }
 
+.mini-title{
+  color: $muted;
+  text-transform: uppercase;
+  font-size: .9rem;
+  letter-spacing: .01em;
+  font-weight: 600;
+  margin-bottom: 0;
+  &__strong{
+    color: $body-font-color;
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+  &__strong--highlight{
+    font-size: 1.4rem;
+  }
+}
+
 .page-title{
   margin-bottom: 3rem;
 }

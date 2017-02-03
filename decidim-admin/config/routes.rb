@@ -27,7 +27,7 @@ Decidim::Admin::Engine.routes.draw do
         end
       end
 
-      get "/" => proc { raise "Feature not found" }, as: :manage_feature
+      get "/", to: redirect("/404"), as: :manage_feature
     end
 
     resources :static_pages
@@ -35,6 +35,12 @@ Decidim::Admin::Engine.routes.draw do
     resources :users, except: [:edit, :update], controller: "users" do
       member do
         post :resend_invitation, to: "users#resend_invitation"
+      end
+    end
+
+    resources :user_groups, only: [:index] do
+      member do
+        put :verify
       end
     end
 

@@ -1,20 +1,37 @@
 ca:
+  activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: Nombre d'assistents
+        attending_organizations: Llista d'organitzacions que han participat
+        closing_report: Informe
+        contributions_count: Nombre de contribucions
+        proposal_ids: Propostes creades en una trobada
   decidim:
     features:
       meetings:
         name: Llistat de trobades
     meetings:
       actions:
+        attachments: Adjunts
+        close: Tancar
         confirm_destroy: Esteu segur de que voleu suprimir aquesta trobada?
         destroy: Esborra
         edit: Edita
         new: Nou/va %{name}
         title: Accions
       admin:
+        meeting_closes:
+          edit:
+            close: Tancar
+            title: Tancar trobada
         meetings:
+          close:
+            invalid: Hi ha hagut un problema en tancar aquesta trobada
+            success: Trobada tancada amb èxit
           create:
             invalid: Hi ha hagut un problema en crear aquesta trobada
-            success: Reunió creada amb èxit
+            success: Trobada creada amb èxit
           destroy:
             success: La trobada s'ha eliminat correctament
           edit:
@@ -27,7 +44,7 @@ ca:
             title: Nova trobada
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta trobada
-            success: Reunió actualitzada correctament
+            success: Trobada actualitzada correctament
         models:
           meeting:
             name: Trobada
@@ -38,13 +55,30 @@ ca:
           date: Data
           descendent: Descendent
           scopes: Àmbits
+          search: Cerca
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_for: Filtra per
+          unfold: Desplegar
         index:
           title: Llistat de trobades
+          view_meeting: Veure trobada
         show:
-          meeting_description: Descripció de reunions
+          attendees: Nombre d'assistents
+          contributions: Nombre d'aportacions
+          meeting_report: Informe de la trobada
+          organizations: Llista d'organitzacions que han atès
       models:
         meeting:
           fields:
+            closed: Tancada
             end_time: Data de finalització
+            map: Mapa
             start_time: Data d'inici
             title: Títol
+    resource_links:
+      meetings_through_proposals:
+        results: 'Resultats relacionats:'
+      proposals_from_meeting:
+        proposals: Propostes relacionades

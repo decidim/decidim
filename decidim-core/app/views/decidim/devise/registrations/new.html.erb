@@ -17,7 +17,12 @@
     <div class="columns large-6 medium-10 medium-centered">
       <div class="card">
         <div class="card__content">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+          <%= form_for(@form, as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+            <fieldset class="text-center">
+              <legend class="text-center heading5"><%= t(".sign_up_as.legend") %></legend>
+              <%= f.collection_radio_buttons :sign_up_as, [["user", t(".sign_up_as.user")], ["user_group", t(".sign_up_as.user_group") ]], :first, :last %>
+            </fieldset>
+
             <div class="user-person">
               <div class="field">
                 <%= f.text_field :name, help_text: t(".username_help") %>
@@ -33,8 +38,26 @@
             </div>
 
             <div class="field">
-              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              <%= f.password_field :password_confirmation %>
             </div>
+
+            <div class="user-group-fields">
+              <div class="field">
+                <%= f.text_field :user_group_name %>
+              </div>
+
+              <div class="field">
+                <%= f.text_field :user_group_document_number %>
+              </div>
+
+              <div class="field">
+                <%= f.text_field :user_group_phone %>
+              </div>
+            </div>
+
+            <p class="lopd-text">
+              <%= translated_attribute(terms_and_conditions_page.content) %>
+            </p>
 
             <fieldset>
               <div class="field">
@@ -51,5 +74,6 @@
       </div>
     </div>
   </div>
+  <%= render "decidim/devise/shared/omniauth_buttons" %>
 </div>
 </main>

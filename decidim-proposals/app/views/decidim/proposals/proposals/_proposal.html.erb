@@ -17,6 +17,7 @@
           </div>
         </div>
       </div>
+      <%= render partial: "proposal_badge", locals: { proposal: proposal } %>
       <p><%= truncate(proposal.body, length: 100) %></p>
       <% if proposal.category %>
         <ul class="tags tags--proposal">
@@ -30,12 +31,12 @@
           <div id="proposal-<%= proposal.id %>-votes-count" class="card__support__data">
             <%= render partial: "votes_count", locals: { proposal: proposal, from_proposals_list: true } %>
           </div>
-          <div id="proposal-<%= proposal.id %>-vote-button"> 
+          <div id="proposal-<%= proposal.id %>-vote-button">
             <%= render partial: "vote_button", locals: { proposal: proposal, from_proposals_list: true } %>
           </div>
-        <% else %>
+        <% elsif !current_settings.votes_enabled? || current_settings.votes_enabled? && current_settings.votes_blocked? %>
           <div class="card__support__data"></div>
-          <%= link_to t(".view_proposal"), proposal, class: "card__button button small secondary" %>  
+          <%= link_to t(".view_proposal"), proposal, class: "card__button button small secondary" %>
         <% end %>
       </div>
     </div>

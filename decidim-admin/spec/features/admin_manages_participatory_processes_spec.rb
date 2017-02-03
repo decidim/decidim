@@ -2,8 +2,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require_relative "../shared/participatory_admin_shared_context"
-require_relative "../shared/manage_processes_examples"
 
 describe "Admin manage participatory processes", type: :feature do
   include_context "participatory process admin"
@@ -88,7 +86,7 @@ describe "Admin manage participatory processes", type: :feature do
       end
 
       within "table" do
-        expect(page).to_not have_content(translated(participatory_process2.title))
+        expect(page).not_to have_content(translated(participatory_process2.title))
       end
     end
   end

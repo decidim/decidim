@@ -1,6 +1,6 @@
 # Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![License: AGPL v3](https://img.shields.io/github/license/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/LICENSE-AGPLv3.txt)
 
-[[Documentation](https://github.com/AjuntamentdeBarcelona/decidim/tree/master/doc)] - [[Demo](http://staging.decidim.codegram.com)]
+[[Documentation](https://github.com/AjuntamentdeBarcelona/decidim/tree/master/docs)] - [[Demo](http://staging.decidim.codegram.com)]
 
 ### Code quality
 [![Build Status](https://img.shields.io/travis/AjuntamentdeBarcelona/decidim/master.svg)](https://travis-ci.org/AjuntamentdeBarcelona/decidim)
@@ -28,6 +28,8 @@
 - [Upgrade an already existing "Decidim" installation](#upgrade-instructions)
 - [Use Docker to deploy "Decidim"](#docker-instructions)
 - [Check current components](#components)
+- [Further configuration](#further-configuration)
+- [Technical tradeoffs](#technical-tradeoffs)
 
 ---
 
@@ -87,10 +89,10 @@ And don't forget to run the upgrade script:
 
 ```
 $ rails decidim:upgrade
+
 ```
 
 If new migrations appear, remember to:
-
 ```
 $ rails db:migrate
 ```
@@ -100,7 +102,9 @@ $ rails db:migrate
 You can use Docker instead of installing the gems yourself. Run `docker-compose build` and then you can generate a new decidim application using `docker-compose run --rm decidim bundle exec bin/decidim <app-name>`.
 
 Also you can run it as a standalone container like this:
-`docker run --rm codegram/decidim bundle exec bin/decidim <app-name>`.
+`docker run --rm -v $(pwd):/tmp -it codegram/decidim bundle exec bin/decidim /tmp/<app-name>`
+
+Now you have a new Decidim app created at `<app-name>` 🎉
 
 ## How to contribute
 
@@ -165,5 +169,18 @@ After you create a development app (`bundle exec rake development_app`):
 | [Proposals](https://github.com/AjuntamentdeBarcelona/decidim/tree/master/decidim-proposals) | The Proposals module adds one of the main features of Decidim: allows users to contribute to a participatory process by creating proposals. |
 | [System](https://github.com/AjuntamentdeBarcelona/decidim/tree/master/decidim-system) | Multitenant Admin to manage multiple organizations in a single installation |
 
+## Further configuration
+
+- [Social providers integration](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/social_providers.md): Enable sign up from social networks.
+
+## Technical tradeoffs
+
+### Turbolinks
+
+Decidim doesn't support `turbolinks` so it isn't included on our generated apps and it's removed for existing Rails applications which install the Decidim engine.
+
+The main reason for this is we are injecting some scripts into the body for some individual pages and Turbolinks loads the scripts in parallel. For some libraries like [leaflet](http://leafletjs.com/) it's very inconvenient because its plugins extend an existing global object.
+
+The support of Turbolinks was dropped in [d8c7d9f](https://github.com/AjuntamentdeBarcelona/decidim/commit/d8c7d9f63e4d75307e8f7a0360bef977fab209b6). If you're interested in bringing turbolinks back, further discussion is welcome.
 
 TODO: Improve guide.

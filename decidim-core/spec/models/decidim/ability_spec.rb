@@ -4,20 +4,18 @@ require "spec_helper"
 module Decidim
   describe Ability do
     let(:user) { build(:user) }
-    subject { described_class.new(user) }
+    subject { described_class.new(user, {}) }
 
     context "when there are some abilities injected from configuration" do
-      let(:ability_class) do
-        Class.new do
-          include CanCan::Ability
+      class FakeAbility
+        include CanCan::Ability
 
-          def initialize(user)
-            can :read, Decidim::ParticipatoryProcess
-          end
+        def initialize(_user, _context)
+          can :read, Decidim::ParticipatoryProcess
         end
       end
 
-      let(:abilities) { [ability_class] }
+      let(:abilities) { ["Decidim::FakeAbility"] }
 
       before do
         allow(Decidim)
@@ -29,8 +27,6 @@ module Decidim
     end
 
     context "abilities" do
-      it { is_expected.to be_able_to(:read, :user_account) }
-
       context "own authorizations" do
         let(:authorization) { build(:authorization, user: user) }
 

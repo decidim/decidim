@@ -7,6 +7,8 @@ module Decidim
       include FormFactory
       include FilterResource
 
+      helper_method :order, :random_seed
+
       before_action :authenticate_user!, only: [:new, :create]
 
       def show
@@ -18,14 +20,22 @@ module Decidim
                      .results
                      .includes(:author)
                      .includes(votes: [:author])
-        @random_seed = search.random_seed
+                     .includes(:category)
+
+        @proposals = reorder(@proposals)
+
+        @proposals = @proposals.page(params[:page]).per(12)
       end
 
       def new
+        authorize! :create, Proposal
+
         @form = form(ProposalForm).from_params({})
       end
 
       def create
+        authorize! :create, Proposal
+
         @form = form(ProposalForm).from_params(params)
 
         CreateProposal.call(@form, current_user) do
@@ -43,15 +53,33 @@ module Decidim
 
       private
 
-      def search_klass
-        ProposalSearch
+      def order
+        @order = params[:order] || "random"
       end
 
-      def default_search_params
-        {
-          page: params[:page],
-          per_page: 12
-        }
+      # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
+      def random_seed
+        @random_seed = params[:random_seed].to_f || (rand * 2 - 1)
+      end
+
+      def reorder(proposals)
+        case order
+        when "random"
+          Proposal.transaction do
+            Proposal.connection.execute("SELECT setseed(#{Proposal.connection.quote(random_seed)})")
+            proposals.order("RANDOM()").load
+          end
+        when "most_voted"
+          proposals.order(proposal_votes_count: :desc)
+        when "recent"
+          proposals.order(created_at: :desc)
+        else
+          proposals
+        end
+      end
+
+      def search_klass
+        ProposalSearch
       end
 
       def default_filter_params
@@ -60,7 +88,8 @@ module Decidim
           origin: "all",
           activity: "",
           category_id: "",
-          random_seed: params[:random_seed]
+          state: "all",
+          related_to: ""
         }
       end
     end

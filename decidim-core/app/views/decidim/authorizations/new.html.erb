@@ -11,6 +11,8 @@
         <div class="card">
           <div class="card__content">
             <%= authorization_form_for(handler) do |form| %>
+              <%= form.error_for(:base) %>
+
               <% if lookup_context.exists?(handler.to_partial_path, [], true) %>
                 <%= render partial: handler.to_partial_path, locals: { handler: handler, form: form } %>
               <% else %>

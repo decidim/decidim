@@ -32,7 +32,7 @@ module Decidim
 
       describe "canHaveReplies" do
         let (:query) { "{ canHaveReplies }" }
-        
+
         it "returns the return value of can_have_replies? method" do
           expect(response).to include("canHaveReplies" => model.can_have_replies?)
         end
@@ -49,7 +49,7 @@ module Decidim
           replies.each do |reply|
             expect(response["replies"]).to include("id" => reply.id.to_s)
           end
-          expect(response["replies"]).to_not include("id" => random_comment.id.to_s)
+          expect(response["replies"]).not_to include("id" => random_comment.id.to_s)
         end
 
         it "return comment's replies ordered by date" do

@@ -1,0 +1,7 @@
+<ol class="timeline">
+  <% past_step = true %>
+  <% current_participatory_process.steps.each do |step| %>
+    <%= render step, step_status_class: step_class(step, past_step)  %>
+    <% past_step = false if step.active? %>
+  <% end %>
+</ol>

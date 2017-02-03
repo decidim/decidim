@@ -21,16 +21,23 @@ import commentsQuery            from './comments.query.graphql';
  */
 export class Comments extends Component {
   render() {
-    const { comments, reorderComments, orderBy } = this.props;
+    const { comments, reorderComments, orderBy, loading } = this.props;
+    let commentClasses = "comments";
+    let commentHeader = I18n.t("components.comments.title", { count: comments.length });
+
+    if (loading) {
+      commentClasses += " loading-comments"
+      commentHeader = I18n.t("components.comments.loading");
+    }
 
     return (
       <div className="columns large-9" id="comments">
-        <section className="comments">
+        <section className={commentClasses}>
           <div className="row collapse order-by">
             <h2 className="order-by__text section-heading">
-              { I18n.t("components.comments.title", { count: comments.length }) }
+              { commentHeader }
             </h2>
-            <CommentOrderSelector 
+            <CommentOrderSelector
               reorderComments={reorderComments}
               defaultOrderBy={orderBy}
             />
@@ -41,37 +48,37 @@ export class Comments extends Component {
       </div>
     );
   }
- 
+
   /**
    * Iterates the comment's collection and render a CommentThread for each one
    * @private
    * @returns {ReactComponent[]} - A collection of CommentThread components
    */
   _renderCommentThreads() {
-    const { comments, currentUser, options: { votable } } = this.props;
+    const { comments, session, options: { votable } } = this.props;
 
     return comments.map((comment) => (
-      <CommentThread 
-        key={comment.id} 
-        comment={filter(CommentThread.fragments.comment, comment)} 
-        currentUser={currentUser}
+      <CommentThread
+        key={comment.id}
+        comment={filter(CommentThread.fragments.comment, comment)}
+        session={session}
         votable={votable}
       />
     ))
   }
- 
+
   /**
    * If current user is present it renders the add comment form
    * @private
    * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
    */
   _renderAddCommentForm() {
-    const { currentUser, commentableId, commentableType, options: { arguable } } = this.props;
-    
-    if (currentUser) {
+    const { session, commentableId, commentableType, options: { arguable } } = this.props;
+
+    if (session) {
       return (
-        <AddCommentForm 
-          currentUser={currentUser}
+        <AddCommentForm
+          session={session}
           commentableId={commentableId}
           commentableType={commentableType}
           arguable={arguable}
@@ -84,11 +91,12 @@ export class Comments extends Component {
 }
 
 Comments.propTypes = {
+  loading: PropTypes.bool,
   comments: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired
   })),
-  currentUser: PropTypes.shape({
-    name: PropTypes.string.isRequired
+  session: PropTypes.shape({
+    user: PropTypes.any.isRequired
   }),
   commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired,
@@ -99,20 +107,32 @@ Comments.propTypes = {
   reorderComments: PropTypes.func.isRequired
 };
 
+Comments.defaultProps = {
+  loading: false,
+  comments: null,
+  session: null,
+  commentableId: null
+};
+
 /**
  * Wrap the Comments component with a GraphQL query and children
  * fragments.
  */
+
+window.Comments = Comments;
+
 const CommentsWithData = graphql(gql`
   ${commentsQuery}
+  ${AddCommentForm.fragments.user}
   ${CommentThread.fragments.comment}
 `, {
   options: {
     pollInterval: 15000
   },
-  props: ({ ownProps, data: { currentUser, comments, refetch }}) => ({
+  props: ({ ownProps, data: { loading, session, comments, refetch }}) => ({
+    loading: loading,
     comments: comments || [],
-    currentUser: currentUser || null,
+    session,
     commentableId: ownProps.commentableId,
     commentableType: ownProps.commentableType,
     orderBy: ownProps.orderBy,
@@ -132,7 +152,7 @@ const CommentsWithData = graphql(gql`
  */
 const CommentsApplication = ({ locale, commentableId, commentableType, options }) => (
   <Application locale={locale}>
-    <CommentsWithData 
+    <CommentsWithData
       commentableId={commentableId}
       commentableType={commentableType}
       options={options}
@@ -151,6 +171,10 @@ CommentsApplication.propTypes = {
   options: PropTypes.shape({
     arguable: PropTypes.bool
   }).isRequired
+};
+
+CommentsApplication.defaultProps = {
+  commentableId: null
 };
 
 export default CommentsApplication;

@@ -3,58 +3,55 @@ module Decidim
   module Proposals
     # The data store for a Proposal in the Decidim::Proposals component.
     class Proposal < Proposals::ApplicationRecord
-      belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
-      belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
-      belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
-      belongs_to :scope, foreign_key: "decidim_scope_id", class_name: Decidim::Scope
-      has_one :organization, through: :feature
+      include Decidim::Resourceable
+      include Decidim::Authorable
+      include Decidim::HasFeature
+      include Decidim::HasScope
+      include Decidim::HasCategory
+
+      feature_manifest_name "proposals"
+
       has_many :votes, foreign_key: "decidim_proposal_id", class_name: ProposalVote, dependent: :destroy
 
-      validates :title, :feature, :body, presence: true
-      validate :category_belongs_to_feature
-      validate :scope_belongs_to_organization
-      validate :author_belongs_to_organization
+      validates :title, :body, presence: true
+
+      scope :accepted, -> { where(state: "accepted") }
+      scope :rejected, -> { where(state: "rejected") }
 
       def author_name
-        author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
+        user_group&.name || author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
       end
 
       def author_avatar_url
         author&.avatar&.url || ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
       end
 
-      # Public: Canpeople comment on this proposal?
+      # Public: Check if the user has voted the proposal.
       #
-      # Until we have a way to store options fore features and its resources we
-      # assume all proposals can be commented.
-      #
-      # Returns Boolean
-      def commentable?
-        true
-      end
-
-      # Public: Check if the user has voted the proposal
-      #
-      # Returns Boolean
+      # Returns Boolean.
       def voted_by?(user)
         votes.any? { |vote| vote.author == user }
       end
 
-      private
-
-      def category_belongs_to_feature
-        return unless category
-        errors.add(:category, :invalid) unless feature.categories.where(id: category.id).exists?
+      # Public: Checks if the organization has given an answer for the proposal.
+      #
+      # Returns Boolean.
+      def answered?
+        answered_at.present?
       end
 
-      def scope_belongs_to_organization
-        return unless scope
-        errors.add(:scope, :invalid) unless feature.scopes.where(id: scope.id).exists?
+      # Public: Checks if the organization has accepted a proposal.
+      #
+      # Returns Boolean.
+      def accepted?
+        state == "accepted"
       end
 
-      def author_belongs_to_organization
-        return unless author
-        errors.add(:author, :invalid) unless Decidim::User.where(decidim_organization_id: feature.organization.id, id: author.id).exists?
+      # Public: Checks if the organization has rejected a proposal.
+      #
+      # Returns Boolean.
+      def rejected?
+        state == "rejected"
       end
     end
   end

@@ -4,30 +4,18 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe Proposal do
-      subject { create(:proposal) }
+      let(:proposal) { build(:proposal) }
+      subject { proposal }
+
+      include_examples "authorable"
+      include_examples "has feature"
+      include_examples "has scope"
+      include_examples "has category"
 
       it { is_expected.to be_valid }
 
       it "has a votes association returning proposal votes" do
         expect(subject.votes.count).to eq(0)
-      end
-      
-      context "when the category is from another feature" do
-        subject { build(:proposal, category: create(:category))}
-
-        it { is_expected.to be_invalid}
-      end
-
-      context "when the author is from another organization" do
-        subject { build(:proposal, author: create(:user))}
-
-        it { is_expected.to be_invalid}
-      end
-
-      context "when the scope is from another organization" do
-        subject { build(:proposal, scope: create(:scope))}
-
-        it { is_expected.to be_invalid}
       end
 
       describe "#voted_by?" do
@@ -41,6 +29,20 @@ module Decidim
           create(:proposal_vote, proposal: subject, author: user)
           expect(subject.voted_by?(user)).to be_truthy
         end
+      end
+
+      context "when it has been accepted" do
+        let(:proposal) { build(:proposal, :accepted) }
+
+        it { is_expected.to be_answered }
+        it { is_expected.to be_accepted }
+      end
+
+      context "when it has been rejected" do
+        let(:proposal) { build(:proposal, :rejected) }
+
+        it { is_expected.to be_answered }
+        it { is_expected.to be_rejected }
       end
     end
   end

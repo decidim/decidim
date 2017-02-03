@@ -68,12 +68,12 @@ class Comment extends Component {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   _renderReplyButton() {
-    const { comment: { canHaveReplies }, currentUser } = this.props;
+    const { comment: { canHaveReplies }, session } = this.props;
     const { showReplyForm } = this.state;
 
-    if (currentUser && canHaveReplies) {
+    if (session && canHaveReplies) {
       return (
-        <button 
+        <button
           className="comment__reply muted-link"
           aria-controls="comment1-reply"
           onClick={() => this.setState({ showReplyForm: !showReplyForm })}
@@ -92,10 +92,10 @@ class Comment extends Component {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   _renderAdditionalReplyButton() {
-    const { comment: { canHaveReplies, hasReplies }, currentUser, isRootComment } = this.props;
+    const { comment: { canHaveReplies, hasReplies }, session, isRootComment } = this.props;
     const { showReplyForm } = this.state;
-    
-    if (currentUser && canHaveReplies) {
+
+    if (session && canHaveReplies) {
       if (hasReplies && isRootComment) {
 
         return (
@@ -140,9 +140,9 @@ class Comment extends Component {
    * @returns {Void|DomElement} - A wrapper element with comment replies inside
    */
   _renderReplies() {
-    const { comment: { id, replies }, currentUser, votable, articleClassName } = this.props;
+    const { comment: { id, replies }, session, votable, articleClassName } = this.props;
     let replyArticleClassName = 'comment comment--nested';
-   
+
     if (articleClassName === 'comment comment--nested') {
       replyArticleClassName = `${replyArticleClassName} comment--nested--alt`;
     }
@@ -155,7 +155,7 @@ class Comment extends Component {
               <Comment
                 key={`comment_${id}_reply_${reply.id}`}
                 comment={reply}
-                currentUser={currentUser}
+                session={session}
                 votable={votable}
                 articleClassName={replyArticleClassName}
               />
@@ -164,7 +164,7 @@ class Comment extends Component {
         </div>
       );
     }
-    
+
     return null;
   }
 
@@ -174,7 +174,7 @@ class Comment extends Component {
    * @returns {Void|ReactElement} - Render the AddCommentForm component or not
    */
   _renderReplyForm() {
-    const { currentUser, comment } = this.props;
+    const { session, comment } = this.props;
     const { showReplyForm } = this.state;
 
     if (showReplyForm) {
@@ -182,7 +182,7 @@ class Comment extends Component {
         <AddCommentForm
           commentableId={comment.id}
           commentableType="Decidim::Comments::Comment"
-          currentUser={currentUser}
+          session={session}
           showTitle={false}
           submitButtonClassName="button small hollow"
           onCommentAdded={() => this.setState({ showReplyForm: false })}
@@ -207,7 +207,7 @@ class Comment extends Component {
     });
 
     let label = '';
-    
+
     if (alignment === 1) {
       label = I18n.t('components.comment.alignment.in_favor');
     } else {
@@ -241,22 +241,24 @@ Comment.fragments = {
   `
 };
 
-Comment.defaultProps = {
-  articleClassName: 'comment',
-  isRootComment: false
-};
-
 Comment.propTypes = {
   comment: PropTypes.oneOfType([
     propType(Comment.fragments.comment).isRequired,
     propType(Comment.fragments.commentData).isRequired
   ]).isRequired,
-  currentUser: PropTypes.shape({
-    name: PropTypes.string.isRequired
+  session: PropTypes.shape({
+    user: PropTypes.any.isRequired
   }),
   articleClassName: PropTypes.string.isRequired,
   isRootComment: PropTypes.bool,
   votable: PropTypes.bool
+};
+
+Comment.defaultProps = {
+  articleClassName: 'comment',
+  isRootComment: false,
+  session: null,
+  votable: false
 };
 
 export default Comment;

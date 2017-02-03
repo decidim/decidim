@@ -9,13 +9,17 @@ module Decidim
       begin
         engine = (ENV["ENGINE_NAME"].to_s.split("-").map(&:capitalize).join("::") + "::Engine").constantize
 
-        if engine.respond_to?(:routes)
-          routes do
-            engine.routes
-          end
-        end
+        load_routes engine if engine.respond_to?(:routes)
       rescue NameError => _exception
         puts "Failed to automatically inject routes for engine #{ENV["ENGINE_NAME"]}"
+      end
+    end
+
+    class_methods do
+      def load_routes(klass)
+        routes do
+          klass.routes
+        end
       end
     end
   end

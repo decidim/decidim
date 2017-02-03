@@ -92,9 +92,9 @@ module Decidim
         it "has an error" do
           subject.valid?
 
-          expect(subject.errors).to_not be_empty
-          expect(subject.errors[:end_date]).to_not be_empty
-          expect(subject.errors[:start_date]).to_not be_empty
+          expect(subject.errors).not_to be_empty
+          expect(subject.errors[:end_date]).not_to be_empty
+          expect(subject.errors[:start_date]).not_to be_empty
         end
       end
 

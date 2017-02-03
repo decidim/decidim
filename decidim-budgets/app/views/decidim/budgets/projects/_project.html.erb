@@ -1,0 +1,40 @@
+<div class="card--list__text">
+  <div>
+    <%= link_to project, class: "card__link" do %>
+      <h5 class="card__title budget-list__title">
+        <%= translated_attribute project.title %>
+      </h5>
+    <% end %>
+    <%= render partial: "decidim/budgets/projects/tags", locals: { project: project } %>
+  </div>
+</div>
+<% if current_user.present? %>
+  <% if current_order && current_order.projects.include?(project) %>
+    <div class="card--list__data budget-list__data budget-list__data--added">
+      <span class="card--list__data__number budget-list__number">
+        <%= budget_to_currency(project.budget) %>
+      </span>
+      <%= button_to order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget }, disabled: current_order_checked_out?, class: "button tiny budget--list__action success" do %>
+        <%= icon("check", class: "icon--small", aria_label: t('.remove'), role: "img") %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="card--list__data budget-list__data">
+      <span class="card--list__data__number budget-list__number">
+        <%= budget_to_currency(project.budget) %>
+      </span>
+      <%= button_to order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true }, disabled: current_order_checked_out?, class: "button tiny hollow budget--list__action" do %>
+        <%= icon("check", class: "icon--small", aria_label: t('.add'), role: "img") %>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="card--list__data budget-list__data">
+    <span class="card--list__data__number budget-list__number">
+      <%= budget_to_currency(project.budget) %>
+    </span>
+    <a href="#" class="button tiny hollow budget--list__action disabled" data-toggle="loginModal">
+      <%= icon("check", class: "icon--small", aria_label: t('.add'), role: "img") %>
+    </a>
+  </div>
+<% end %>

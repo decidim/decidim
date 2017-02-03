@@ -15,6 +15,7 @@ module Decidim
             ca: "La meva funcionalitat",
             es: "Mi funcionalidad"
           },
+          weight: 3,
           invalid?: !valid,
           valid?: valid,
           settings: {
@@ -39,6 +40,7 @@ module Decidim
           }.to broadcast(:ok)
 
           expect(feature["name"]["en"]).to eq("My feature")
+          expect(feature.weight).to eq(3)
           expect(feature.settings.dummy_global_attribute_1).to eq(true)
           expect(feature.settings.dummy_global_attribute_2).to eq(false)
 
@@ -71,7 +73,7 @@ module Decidim
           }.to broadcast(:invalid)
 
           feature.reload
-          expect(feature.name["en"]).to_not eq("My feature")
+          expect(feature.name["en"]).not_to eq("My feature")
         end
       end
     end

@@ -15,9 +15,9 @@ if !Rails.env.production? || ENV["SEED"]
     available_locales: Decidim.available_locales
   )
 
-  3.times do
+  3.times.each do |index|
     Decidim::Scope.create!(
-      name: Faker::Address.state,
+      name: Faker::Address.unique.state,
       organization: organization
     )
   end
@@ -31,7 +31,9 @@ if !Rails.env.production? || ENV["SEED"]
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     roles: ["admin"],
-    tos_agreement: true
+    tos_agreement: true,
+    comments_notifications: true,
+    replies_notifications: true
   )
 
   Decidim::User.create!(
@@ -42,13 +44,43 @@ if !Rails.env.production? || ENV["SEED"]
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     organization: organization,
-    tos_agreement: true
+    tos_agreement: true,
+    comments_notifications: true,
+    replies_notifications: true
   )
+
+  3.times do
+    Decidim::User.all.each do |user|
+      user_group = Decidim::UserGroup.create!(
+        name: Faker::Company.name,
+        document_number: Faker::Number.number(10),
+        phone: Faker::PhoneNumber.phone_number,
+        verified_at: Time.current
+      )
+
+      Decidim::UserGroupMembership.create!(
+        user: user,
+        user_group: user_group
+      )
+
+      user_group = Decidim::UserGroup.create!(
+        name: Faker::Company.name,
+        document_number: Faker::Number.number(10),
+        phone: Faker::PhoneNumber.phone_number
+      )
+
+      Decidim::UserGroupMembership.create!(
+        user: user,
+        user_group: user_group
+      )
+    end
+  end
+
 
   3.times do
     Decidim::ParticipatoryProcess.create!(
       title: Decidim::Faker::Localized.sentence(5),
-      slug: Faker::Internet.slug(nil, "-"),
+      slug: Faker::Internet.unique.slug(nil, "-"),
       subtitle: Decidim::Faker::Localized.sentence(2),
       hashtag: "##{Faker::Lorem.word}",
       short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -61,13 +93,17 @@ if !Rails.env.production? || ENV["SEED"]
       banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),
       promoted: true,
       published_at: 2.weeks.ago,
-      organization: organization
+      organization: organization,
+      scope: Decidim::Faker::Localized.word,
+      domain: Decidim::Faker::Localized.word,
+      developer_group: Faker::Company.name,
+      end_date: 2.month.from_now.at_midnight
     )
   end
 
   Decidim::ParticipatoryProcess.find_each do |process|
     Decidim::ParticipatoryProcessStep.create!(
-      title: Decidim::Faker::Localized.sentence(5),
+      title: Decidim::Faker::Localized.sentence(1, false, 2),
       short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.sentence(3)
       end,
@@ -82,17 +118,17 @@ if !Rails.env.production? || ENV["SEED"]
   end
 
   Decidim::ParticipatoryProcess.find_each do |process|
-    Decidim::ParticipatoryProcessAttachment.create!(
+    Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
       file: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
-      participatory_process: process
+      attached_to: process
     )
-    Decidim::ParticipatoryProcessAttachment.create!(
+    Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
       file: File.new(File.join(File.dirname(__FILE__), "seeds", "Exampledocument.pdf")),
-      participatory_process: process
+      attached_to: process
     )
     2.times do
       Decidim::Category.create!(

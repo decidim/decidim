@@ -19,9 +19,15 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
-
         process = create_participatory_process
-        broadcast(:ok, process)
+
+        if process.persisted?
+          broadcast(:ok, process)
+        else
+          form.errors.add(:hero_image, process.errors[:hero_image]) if process.errors.include? :hero_image
+          form.errors.add(:banner_image, process.errors[:banner_image]) if process.errors.include? :banner_image
+          broadcast(:invalid)
+        end
       end
 
       private
@@ -30,7 +36,7 @@ module Decidim
 
       def create_participatory_process
         transaction do
-          process = ParticipatoryProcess.create!(
+          process = ParticipatoryProcess.new(
             title: form.title,
             subtitle: form.subtitle,
             slug: form.slug,
@@ -42,6 +48,9 @@ module Decidim
             promoted: form.promoted,
             organization: form.current_organization
           )
+
+          return process unless process.valid?
+          process.save!
 
           process.steps.create!(
             title: TranslationsHelper.multi_translation(

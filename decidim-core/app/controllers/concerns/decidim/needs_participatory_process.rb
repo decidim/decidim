@@ -19,14 +19,13 @@ module Decidim
       #
       # Returns the current ParticipatoryProcess.
       def current_participatory_process
-        @current_participatory_process ||=
-          current_organization.participatory_processes.find_by(id: params[:participatory_process_id])
+        @current_participatory_process ||= current_organization.participatory_processes.find_by(id: params[:participatory_process_id] || params[:id])
       end
 
       private
 
       def verify_participatory_process
-        raise ActionController::RoutingError, "Not Found" unless current_participatory_process
+        raise ActionController::RoutingError, "Participatory process not found." unless current_participatory_process
       end
     end
   end

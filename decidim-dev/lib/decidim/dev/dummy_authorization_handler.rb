@@ -12,6 +12,10 @@ module Decidim
       super.merge(document_number: document_number)
     end
 
+    def unique_id
+      document_number
+    end
+
     private
 
     def valid_document_number

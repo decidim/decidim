@@ -9,9 +9,9 @@ module Decidim
       class Base
         include CanCan::Ability
 
-        def initialize(user)
-          merge ::Decidim::Ability.new(user)
-          merge ParticipatoryProcessAdmin.new(user)
+        def initialize(user, context)
+          merge ::Decidim::Ability.new(user, context)
+          merge ParticipatoryProcessAdmin.new(user, context)
         end
       end
     end

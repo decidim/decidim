@@ -2,29 +2,47 @@
 
 require "spec_helper"
 
-describe Decidim::Meetings::Meeting do
-  let(:meeting) { build :meeting }
-  subject { meeting }
+module Decidim
+  module Meetings
+    describe Meeting do
+      let(:address) { ::Faker::Lorem.sentence(3) }
+      let(:meeting) { build :meeting, address: address }
 
-  it { is_expected.to be_valid }
+      subject { meeting }
 
-  context "without a title" do
-    let(:meeting) { build :meeting, title: nil }
+      it { is_expected.to be_valid }
 
-    it { is_expected.not_to be_valid }
-  end
+      include_examples "has feature"
+      include_examples "has scope"
+      include_examples "has category"
 
-  context "when the scope is from another organization" do
-    let(:scope) { create :scope }
-    let(:meeting) { build :meeting, scope: scope }
+      context "without a title" do
+        let(:meeting) { build :meeting, title: nil }
 
-    it { is_expected.not_to be_valid }
-  end
+        it { is_expected.not_to be_valid }
+      end
 
-  context "when the category is from another organization" do
-    let(:category) { create :category }
-    let(:meeting) { build :meeting, category: category }
+      context "when geocoding is enabled" do
+        let(:address) { "Carrer del Pare Llaurador, 113" }
+        let(:latitude) { 40.1234 }
+        let(:longitude) { 2.1234 }
 
-    it { is_expected.not_to be_valid }
+        before do
+          Geocoder::Lookup::Test.add_stub(
+            address,
+            [{
+              "latitude" => latitude,
+              "longitude" => longitude
+            }]
+          )
+        end
+
+        it "geocodes address and find latitude and longitude" do
+          subject.geocode
+          expect(subject.latitude).to eq(latitude)
+          expect(subject.longitude).to eq(longitude)
+        end
+      end
+    end
   end
 end

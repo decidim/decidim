@@ -24,12 +24,11 @@ Gem::Specification.new do |s|
   s.add_dependency "sassc-rails", "~> 1.3.0"
   s.add_dependency "foundation-rails", "~> 6.3.0.0"
   s.add_dependency "jquery-rails", "~> 4.2.2"
-  s.add_dependency "turbolinks", *Decidim.rails_version
   s.add_dependency "carrierwave", "~> 1.0.0"
   s.add_dependency "foundation_rails_helper", "~> 3.0.0.rc"
   s.add_dependency "active_link_to", "~> 1.0.0"
   s.add_dependency "pg", "~> 0.19.0"
-  s.add_dependency "redis", "~> 3.3.0"
+  s.add_dependency "redis", "~> 3.3.3"
   s.add_dependency "roadie-rails", "~> 1.0"
   s.add_dependency "roadie", "~> 3.2.1"
   s.add_dependency "high_voltage", "~> 3.0.0"
@@ -39,8 +38,15 @@ Gem::Specification.new do |s|
   s.add_dependency "truncato", "~> 0.7.9"
   s.add_dependency "mini_magick", "~> 4.6.0"
   s.add_dependency "file_validators", "~> 2.1.0"
+  s.add_dependency "omniauth", "~> 1.3.1"
+  s.add_dependency "omniauth-facebook", "~> 4.0.0"
+  s.add_dependency "omniauth-twitter", "~> 1.3.0"
+  s.add_dependency "omniauth-google-oauth2", "~> 0.4.1"
 
   s.add_dependency "decidim-api", Decidim.version
 
   s.add_development_dependency "decidim-dev", Decidim.version
+  s.add_development_dependency "decidim-proposals", Decidim.version
+  s.add_development_dependency "decidim-meetings", Decidim.version
+  s.add_development_dependency "decidim-results", Decidim.version
 end

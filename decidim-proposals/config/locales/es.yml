@@ -1,16 +1,40 @@
 es:
+  activemodel:
+    attributes:
+      proposal:
+        body: Cuerpo
+        category_id: Categoría
+        scope_id: Ámbito
+        title: Título
+        user_group_id: Crear propuesta como
   decidim:
     features:
       proposals:
         name: Propuestas
+        settings:
+          step:
+            creation_enabled: Habilitar creación de propuestas
+            votes_blocked: Votación bloqueada
+            votes_enabled: Votos habilitados
     proposals:
       actions:
+        answer: Respuesta
         new: Nueva propuesta
+        title: Acciones
       admin:
         models:
           proposal:
             name: Propuesta
+        proposal_answers:
+          edit:
+            accepted: Aceptada
+            answer_proposal: Respuesta a la propuesta
+            rejected: Rechazada
+            title: Responder a la propuesta %{title}
         proposals:
+          answer:
+            invalid: Ha habido un problema al responder a esta propuesta
+            success: Propuesta respuesta con éxito
           create:
             invalid: Ha habido un problema al crear esta propuesta
             success: Propuesta creada correctamente
@@ -22,6 +46,10 @@ es:
           new:
             create: Crear propuesta
             title: Nueva propuesta
+      answers:
+        accepted: Aceptadas
+        not_answered: No contestada
+        rejected: Rechazada
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada correctamente.
@@ -31,6 +59,7 @@ es:
             category: Categoría
             official_proposal: Propuesta oficial
             scope: Ámbito
+            state: Estado
             title: Título
       proposals:
         count:
@@ -38,14 +67,28 @@ es:
             one: 1 propuesta
             other: "%{count} propuestas"
         filters:
+          accepted: Aceptadas
+          activity: Actividad
           all: Todas
           category: Categoría
           citizenship: Ciudadanía
           official: Oficial
           origin: Origen
+          rejected: Rechazadas
           search: Buscar
+          state: Estado
+          voted: Votado
+        filters_small_view:
+          close_modal: Cerrar ventana
+          filter: Filtrar
+          filter_for: Filtrar por
+          unfold: Desplegar
         index:
           new_proposal: Nueva propuesta
+        linked_proposals:
+          proposal_votes:
+            one: <span class="card--list__data__number">1</span>vote
+            other: <span class="card--list__data__number">%{count}</span>votos
         new:
           back: Atrás
           select_a_category: Por favor, seleccione una categoría
@@ -58,3 +101,25 @@ es:
           close_window: Cerrar ventana
           share: Compartir
           share_link: Compartir enlace
+        show:
+          proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
+        vote_button:
+          already_voted: Ya votado
+          no_votes_remaining: No hay votos restantes
+          vote: Votar
+          votes_blocked: Votación desactivada
+        votes_count:
+          count:
+            one: VOTAR
+            other: VOTOS
+        votes_limit:
+          vote_limit:
+            description: En lugar de votación tantas propuestas como desee, sólo se puede votar hasta %{limit} propuestas.
+            left: Restante
+            title: Tiene %{limit} votos a distribuir
+            votes: Votos
+    resource_links:
+      included_proposals:
+        results: 'Propuesta formulada en estos resultados:'
+      proposals_from_meeting:
+        meetings: Encuentros relacionados

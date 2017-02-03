@@ -5,6 +5,21 @@ en:
       messages:
         cannot_have_replies: can't have replies
   decidim:
+    comments:
+      comment_notification_mailer:
+        comment_created:
+          new_comment_html: There is a new comment from <b>%{commenter}</b> in <b>%{commentable_link}</b>
+        hello: Hello %{name},
+        manage_email_subscriptions_html: You can stop receiving these emails by changing your settings in %{link}.
+        notifications_settings_link: the notifications settings page
+        reply_created:
+          new_reply_html: There is a new reply of your comment from <b>%{commenter}</b> in <b>%{commentable_link}</b>
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: You have a new comment
+          reply_created:
+            subject: You have a new reply of your comment
     components:
       add_comment_form:
         form:
@@ -12,10 +27,10 @@ en:
             label: Comment
             placeholder: What do you think about this?
           submit: Send
+          user_group_id:
+            label: Comment as
         opinion:
-          against: I am against
-          in_favor: I am in favor
-          neutral: I am neutral
+          neutral: Neutral
         title: Leave your comment
       comment:
         alignment:
@@ -24,13 +39,15 @@ en:
         reply: Reply
       comment_order_selector:
         order:
-          most_voted: Most voted
+          best_rated: Best rated
+          most_discussed: Most discussed
           older: Older
           recent: Recent
         title: 'Order by:'
       comment_thread:
         title: Conversation with %{authorName}
       comments:
+        loading: Loading comments ...
         title: "%{count} comments"
       featured_comment:
         title: Featured comment

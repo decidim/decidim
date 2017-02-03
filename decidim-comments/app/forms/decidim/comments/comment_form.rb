@@ -6,6 +6,7 @@ module Decidim
     class CommentForm < Form
       attribute :body, String
       attribute :alignment, Integer
+      attribute :user_group_id, Integer
 
       mimic :comment
 

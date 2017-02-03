@@ -1,0 +1,27 @@
+<div class="card card--action card--list">
+  <% resources.each do |proposal| %>
+    <div class="card--list__item">
+      <div class="card--list__text">
+        <%= link_to decidim_resource_path(proposal) do %>
+          <%= icon "proposals", class: "card--list__icon", remove_icon_class: true %>
+        <% end %>
+        <div>
+          <%= link_to decidim_resource_path(proposal), class: "card__link" do %>
+            <h5 class="card--list__heading"><%= proposal.title %></h5>
+          <% end %>
+          <div class="author">
+            <span class="author__avatar">
+              <%= image_tag proposal.author_avatar_url %>
+            </span>
+            <span class="author__name">
+              <%= proposal.author_name %>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card--list__data">
+        <%==t(".proposal_votes", count: proposal.votes.size) %>
+      </div>
+    </div>
+  <% end %>
+</div>

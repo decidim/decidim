@@ -33,7 +33,7 @@ module Decidim
     end
 
     def max_image_height_or_width
-      8000
+      2000
     end
 
     private

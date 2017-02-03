@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Decidim::Meetings::MeetingSearch do
-  let(:current_feature) { create :feature }
+  let(:current_feature) { create :feature, manifest_name: "meetings" }
   let(:scope1) { create :scope, organization: current_feature.organization }
   let(:scope2) { create :scope, organization: current_feature.organization }
   let(:parent_category) { create :category, participatory_process: current_feature.participatory_process }
@@ -125,22 +125,6 @@ describe Decidim::Meetings::MeetingSearch do
           expect(subject.results).to eq []
         end
       end
-    end
-  end
-
-  context "pagination" do
-    let(:params) do
-      default_params.merge(
-        per_page: 2
-      )
-    end
-
-    it "filters the meetings per page" do
-      create(:meeting, feature: current_feature)
-      meetings = subject.results
-
-      expect(meetings.total_pages).to eq(2)
-      expect(meetings.total_count).to eq(3)
     end
   end
 end

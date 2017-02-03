@@ -64,13 +64,6 @@ RSpec.shared_examples "manage meetings" do
         ca: "Location hints"
       )
       fill_in_i18n_editor(
-        :meeting_short_description,
-        "#short_description-tabs",
-        en: "Short description",
-        es: "Descripción corta",
-        ca: "Descripció curta"
-      )
-      fill_in_i18n_editor(
         :meeting_description,
         "#description-tabs",
         en: "A longer description",
@@ -114,7 +107,64 @@ RSpec.shared_examples "manage meetings" do
       end
 
       within "table" do
-        expect(page).to_not have_content(translated(meeting2.title))
+        expect(page).not_to have_content(translated(meeting2.title))
+      end
+    end
+  end
+
+  context "closing a meeting" do
+    let(:proposal_feature) do
+      create(:feature, manifest_name: :proposals, participatory_process: meeting.feature.participatory_process)
+    end
+    let!(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+
+    it "closes a meeting with a report" do
+      within find("tr", text: translated(meeting.title)) do
+        click_link "Close"
+      end
+
+      within ".edit_close_meeting" do
+        fill_in_i18n(
+          :close_meeting_closing_report,
+          "#closing_report-tabs",
+          en: "The meeting was great!",
+          es: "El encuentro fue genial",
+          ca: "La trobada va ser genial"
+        )
+        fill_in :close_meeting_attendees_count, with: 12
+        fill_in :close_meeting_contributions_count, with: 44
+        fill_in :close_meeting_attending_organizations, with: "Neighbours Association, Group of People Complaining About Something and Other People"
+        select proposals.first.title, from: :close_meeting_proposal_ids
+        click_button "Close"
+      end
+
+      within ".flash" do
+        expect(page).to have_content("Meeting successfully closed")
+      end
+
+      within find("tr", text: translated(meeting.title)) do
+        within find("td:nth-child(4)") do
+          expect(page).to have_content("Yes")
+        end
+      end
+    end
+
+    context "when a meeting has alredy been closed" do
+      let!(:meeting) { create(:meeting, :closed, feature: current_feature) }
+
+      it "can update the information" do
+        within find("tr", text: translated(meeting.title)) do
+          click_link "Close"
+        end
+
+        within ".edit_close_meeting" do
+          fill_in :close_meeting_attendees_count, with: 22
+          click_button "Close"
+        end
+
+        within ".flash" do
+          expect(page).to have_content("Meeting successfully closed")
+        end
       end
     end
   end

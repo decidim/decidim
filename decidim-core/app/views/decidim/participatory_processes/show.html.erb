@@ -1,20 +1,49 @@
+<% content_for :meta_description, translated_attribute(current_participatory_process.short_description) %>
+<% content_for :meta_title, translated_attribute(current_participatory_process.title) %>
+<% content_for :meta_url, participatory_process_url(current_participatory_process) %>
+
 <div class="row column">
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
         <div class="lead">
-          <%== translated_attribute(participatory_process.short_description) %>
+          <%== translated_attribute(current_participatory_process.short_description) %>
         </div>
-        <%== translated_attribute(participatory_process.description) %>
+        <%== translated_attribute(current_participatory_process.description) %>
+      </div>
+    </div>
+    <div class="section columns medium-5 mediumlarge-4 large-3">
+      <div class="card extra definition-data">
+        <% if translated_attribute(current_participatory_process.scope).present? %>
+          <div class="definition-data__item scope">
+            <span class="definition-data__title"><%= t(".scope") =%></span>
+              <%== translated_attribute(current_participatory_process.scope) %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_process.end_date.present? %>
+          <div class="definition-data__item end-date">
+            <span class="definition-data__title"><%= t(".end_date")=%></span>
+              <%== l(current_participatory_process.end_date, format: :long) %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_process.developer_group.present? %>
+          <div class="definition-data__item developer-group">
+            <span class="definition-data__title"><%= t(".developer_group") =%></span>
+              <%== current_participatory_process.developer_group %>
+          </div>
+        <% end %>
+
+        <% if translated_attribute(current_participatory_process.domain).present? %>
+          <div class="definition-data__item domain">
+            <span class="definition-data__title"><%= t(".domain") =%></span>
+              <%== translated_attribute(current_participatory_process.domain) %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
+
+  <%= attachments_for current_participatory_process %>
 </div>
-<% if participatory_process.attachments.any? %>
-  <div class="row attachments">
-    <div class="columns large-8">
-      <%= render partial: "documents", locals: { documents: participatory_process.documents } %>
-      <%= render partial: "photos", locals: { photos: participatory_process.photos } %>
-    </div>
-  </div>
-<% end %>

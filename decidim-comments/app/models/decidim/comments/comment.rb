@@ -5,6 +5,8 @@ module Decidim
     # comment on them. The will be able to create conversations between users
     # to discuss or share their thoughts about the resource.
     class Comment < ApplicationRecord
+      include Decidim::Authorable
+
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
       # |--R       (depth 1)
@@ -13,16 +15,16 @@ module Decidim
       #       |--R (depth 3)
       MAX_DEPTH = 3
 
-      belongs_to :author, foreign_key: "decidim_author_id", class_name: Decidim::User
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       has_many :replies, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: Comment
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: CommentVote, dependent: :destroy
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: CommentVote, dependent: :destroy
+
       validates :author, :commentable, :body, presence: true
-      validate :commentable_can_have_replies
       validates :depth, numericality: { greater_than_or_equal_to: 0 }
       validates :alignment, inclusion: { in: [0, 1, -1] }
-      validate :same_organization
+
+      validate :commentable_can_have_replies
 
       before_save :compute_depth
 
@@ -49,6 +51,12 @@ module Decidim
         down_votes.any? { |vote| vote.author == user }
       end
 
+      # Public: Returns the commentable object of the parent comment
+      def root_commentable
+        return commentable if depth == 0
+        commentable.root_commentable
+      end
+
       private
 
       # Private: Check if commentable can have replies and if not adds
@@ -60,10 +68,6 @@ module Decidim
       # Private: Compute comment depth inside the current comment tree
       def compute_depth
         self.depth = commentable.depth + 1 if commentable.respond_to?(:depth)
-      end
-
-      def same_organization
-        errors.add(:commentable, :invalid) unless author.organization == organization
       end
     end
   end

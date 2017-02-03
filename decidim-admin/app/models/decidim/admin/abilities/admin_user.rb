@@ -7,9 +7,8 @@ module Decidim
       class AdminUser
         include CanCan::Ability
 
-        def initialize(user)
-          return unless user
-          return unless user.role?(:admin)
+        def initialize(user, _context)
+          return unless user && user.role?(:admin)
 
           can :manage, ParticipatoryProcess
           can :manage, ParticipatoryProcessStep
@@ -25,12 +24,15 @@ module Decidim
 
           can :manage, Feature
           can :read, :admin_dashboard
-          can :manage, ParticipatoryProcessAttachment
+          can :manage, :admin_users
+          can :manage, Attachment
           can :manage, Scope
           can [:create, :index, :new, :read, :invite], User
           can [:destroy], [User] do |user_to_destroy|
             user != user_to_destroy
           end
+
+          can [:index, :verify], UserGroup
         end
       end
     end

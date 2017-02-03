@@ -7,7 +7,7 @@ module Decidim
       describe UpdatePage, :db do
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-        let(:feature) { create(:feature, participatory_process: participatory_process) }
+        let(:feature) { create(:feature, manifest_name: "pages", participatory_process: participatory_process) }
         let(:page) { create(:page, feature: feature) }
         let(:form_params) do
           {

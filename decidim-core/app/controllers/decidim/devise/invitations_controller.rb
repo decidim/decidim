@@ -7,6 +7,8 @@ module Decidim
       include Decidim::LocaleSwitcher
       helper Decidim::TranslationsHelper
 
+      layout "layouts/decidim/application"
+
       # We don't users to create invitations, so we just redirect them to the
       # homepage.
       def authenticate_inviter!

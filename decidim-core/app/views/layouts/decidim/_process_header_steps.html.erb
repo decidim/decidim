@@ -13,7 +13,7 @@
             <% past_step = false if step.active? %>
           <% end %>
         </ol>
-        <span class="phase-current">Fase <%= participatory_process.active_step.position + 1 %> de <%= current_participatory_process.steps.count %></span>
+        <span class="phase-current"><%= t(".step", current: (participatory_process.active_step.position + 1), total: current_participatory_process.steps.count) %></span>
       </div>
       <div>
         <span class="phase-title"><%= translated_attribute participatory_process.active_step.title %></span>
@@ -21,6 +21,7 @@
           <%= participatory_process_step_dates participatory_process.active_step %>
         </span>
       </div>
+      <%= link_to t('.view_steps'), decidim.participatory_process_participatory_process_steps_path(current_participatory_process), class: "button tiny hollow" %>
     </div>
   </div>
 <% end %>

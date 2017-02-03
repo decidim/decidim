@@ -17,16 +17,15 @@ module Decidim
     # every time you change things in your ability classes.
     #
     # user - the User that needs its abilities checked.
-    def initialize(user)
+    # context - a Hash with some context related to the current request.
+    def initialize(user, context = {})
       Decidim.abilities.each do |ability|
-        merge ability.new(user)
+        merge ability.constantize.new(user, context)
       end
 
       can :manage, Authorization do |authorization|
         authorization.user == user
       end
-
-      can :read, :user_account if user
     end
   end
 end

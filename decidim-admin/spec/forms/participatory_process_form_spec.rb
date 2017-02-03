@@ -35,6 +35,7 @@ module Decidim
         }
       end
       let(:slug) { "slug" }
+      let(:attachement) { test_file("city.jpeg", "image/jpeg") }
       let(:attributes) do
         {
           "participatory_process" => {
@@ -50,15 +51,44 @@ module Decidim
             "short_description_en" => short_description[:en],
             "short_description_es" => short_description[:es],
             "short_description_ca" => short_description[:ca],
+            "hero_image" => attachement,
+            "banner_image" => attachement,
             "slug" => slug
           }
         }
+      end
+      before do
+        Decidim::AttachmentUploader.enable_processing = true
       end
 
       subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
+      end
+
+      context "when hero_image is too big" do
+        before do
+          allow(Decidim).to receive(:maximum_attachment_size).and_return(5.megabytes)
+          expect(subject.hero_image).to receive(:size).twice.and_return(6.megabytes)
+        end
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when banner_image is too big" do
+        before do
+          allow(Decidim).to receive(:maximum_attachment_size).and_return(5.megabytes)
+          expect(subject.banner_image).to receive(:size).twice.and_return(6.megabytes)
+        end
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when images are not the expected type" do
+        let(:attachement) { test_file("Exampledocument.pdf", "application/pdf") }
+
+        it { is_expected.not_to be_valid }
       end
 
       context "when some language in title is missing" do
@@ -116,8 +146,8 @@ module Decidim
           end
 
           it "is not valid" do
-            expect(subject).to_not be_valid
-            expect(subject.errors[:slug]).to_not be_empty
+            expect(subject).not_to be_valid
+            expect(subject.errors[:slug]).not_to be_empty
           end
         end
 

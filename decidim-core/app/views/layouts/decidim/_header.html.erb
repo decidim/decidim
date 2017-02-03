@@ -19,9 +19,9 @@
             creates a sticky footer-->
         <!-- Topbar -->
         <div class="title-bar">
-          <div class="row topbar">
+          <div class="row column topbar">
             <div class="logo-wrapper">
-              <%= render partial: "layouts/decidim/logo" %>
+              <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
             </div>
             <%= render partial: "layouts/decidim/language_chooser" %>
             <div class="hide-for-medium topbar__menu">
@@ -34,7 +34,7 @@
                 <ul class="dropdown menu" data-dropdown-menu>
                   <li class="is-dropdown-submenu-parent show-for-medium">
                     <%= link_to current_user.name, decidim.account_path %>
-                    <ul class="menu is-dropdown-subeenu js-append usermenu-off-canvas">
+                    <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
                       <%= render partial: "layouts/decidim/user_menu" %>
                     </ul>
                     <span data-set="nav-login-holder" class="show-for-medium">
@@ -58,7 +58,7 @@
         </div>
         <div class="show-for-medium" data-set="nav-holder">
           <nav class="navbar js-append">
-            <div class="row">
+            <div class="row column">
               <ul class="main-nav">
                 <li>
                   <%= active_link_to t("menu.home", scope: "decidim"), decidim.root_path, active: :exact, class: "main-nav__link", class_active: "main-nav__link--active" %>

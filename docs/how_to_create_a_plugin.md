@@ -89,7 +89,6 @@ s.add_development_dependency "decidim-dev", Decidim.version
 s.add_dependency "foundation-rails", "~> 6.2.4.0"
 s.add_dependency "sass-rails", "~> 5.0.0"
 s.add_dependency "jquery-rails", "~> 4.0"
-s.add_dependency "turbolinks", *Decidim.rails_version
 s.add_dependency "foundation_rails_helper", "~> 2.0.0"
 ```
 
@@ -148,7 +147,6 @@ require "active_support/all"
 require "decidim/core"
 require "jquery-rails"
 require "sass-rails"
-require "turbolinks"
 require "foundation-rails"
 require "foundation_rails_helper"
 

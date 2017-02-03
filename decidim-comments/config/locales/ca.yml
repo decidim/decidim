@@ -4,6 +4,18 @@ ca:
       messages:
         cannot_have_replies: no pot tenir respostes
   decidim:
+    comments:
+      comment_notification_mailer:
+        comment_created:
+          new_comment_html: Hi ha un comentari nou de <b>%{commenter}</b> en
+        reply_created:
+          new_reply_html: Hi ha una nova resposta al teu comentari de <b>%{commenter}</b> a <b>%{commentable_link}</b>
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: Tens un nou comentari
+          reply_created:
+            subject: Tens una nova resposta al teu comentari
     components:
       add_comment_form:
         form:
@@ -11,10 +23,10 @@ ca:
             label: Comentari
             placeholder: Què en penses d'això?
           submit: Envia
+          user_group_id:
+            label: Comentar com a
         opinion:
-          against: Hi estic en contra
-          in_favor: Hi estic a favor
-          neutral: Sóc neutral
+          neutral: Neutral
         title: Deixa el teu comentari
       comment:
         alignment:
@@ -23,13 +35,15 @@ ca:
         reply: Respondre
       comment_order_selector:
         order:
-          most_voted: Més votat
+          best_rated: Més ben valorats
+          most_discussed: Més discutit
           older: Més antic
           recent: Recent
         title: 'Ordenar per:'
       comment_thread:
         title: Conversa amb %{authorName}
       comments:
+        loading: Carregant els comentaris ...
         title: "%{count} comentaris"
       featured_comment:
         title: Comentari destacat

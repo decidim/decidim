@@ -40,6 +40,10 @@ module Decidim
         template "social_share_button.rb", "config/initializers/social_share_button.rb"
       end
 
+      def secrets
+        template "secrets.yml.erb", "config/secrets.yml", force: true
+      end
+
       def remove_layout
         remove_file "app/views/layouts/application.html.erb"
         remove_file "app/views/layouts/mailer.text.erb"
@@ -47,6 +51,7 @@ module Decidim
 
       def append_assets
         append_file "app/assets/javascripts/application.js", "//= require decidim"
+        gsub_file "app/assets/javascripts/application.js", /\/\/= require turbolinks\n/, ""
         inject_into_file "app/assets/stylesheets/application.css",
                          before: "*= require_tree ." do
           "*= require decidim\n "
@@ -85,8 +90,13 @@ module Decidim
         end
       end
 
-      def secrets
-        template "secrets.yml.erb", "config/secrets.yml", force: true
+      def letter_opener_web
+        inject_into_file "config/environments/development.rb",
+                         after: "config.action_mailer.raise_delivery_errors = false" do
+          %(
+
+  config.action_mailer.delivery_method = :letter_opener_web)
+        end
       end
 
       private

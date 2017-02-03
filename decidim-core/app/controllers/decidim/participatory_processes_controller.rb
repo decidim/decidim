@@ -5,35 +5,30 @@ module Decidim
   # A controller that holds the logic to show ParticipatoryProcesses in a
   # public layout.
   class ParticipatoryProcessesController < ApplicationController
-    helper_method :participatory_processes, :participatory_process, :promoted_processes
-    helper_method :current_participatory_process
+    include NeedsParticipatoryProcess
 
     layout "layouts/decidim/participatory_process", only: [:show]
+
+    skip_after_action :verify_participatory_process, only: [:index]
+
+    helper_method :participatory_processes, :promoted_participatory_processes
 
     def index
       authorize! :read, ParticipatoryProcess
     end
 
     def show
-      authorize! :read, participatory_process
+      authorize! :read, current_participatory_process
     end
 
     private
 
-    def current_participatory_process
-      participatory_process
-    end
-
-    def participatory_process
-      @participatory_process ||= ParticipatoryProcess.find(params[:id])
-    end
-
     def participatory_processes
-      @participatory_processes ||= current_organization.participatory_processes.includes(:active_step).published
+      @processes ||= OrganizationParticipatoryProcesses.new(current_organization) | PublicParticipatoryProcesses.new
     end
 
-    def promoted_processes
-      @promoted_processes ||= participatory_processes.promoted
+    def promoted_participatory_processes
+      @promoted_processes ||= participatory_processes | PromotedParticipatoryProcesses.new
     end
   end
 end

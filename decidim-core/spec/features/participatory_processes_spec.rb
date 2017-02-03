@@ -42,7 +42,7 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_content(translated(promoted_process.title, locale: :en))
         expect(page).to have_selector("article.card", count: 2)
 
-        expect(page).to_not have_content(translated(unpublished_process.title, locale: :en))
+        expect(page).not_to have_content(translated(unpublished_process.title, locale: :en))
       end
     end
 
@@ -83,33 +83,15 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
         expect(page).to have_content(translated(participatory_process.description, locale: :en))
         expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
+        expect(page).to have_content(translated(participatory_process.domain, locale: :en))
+        expect(page).to have_content(translated(participatory_process.scope, locale: :en))
+        expect(page).to have_content(participatory_process.developer_group)
+        expect(page).to have_content(I18n.l(participatory_process.end_date, format: :long))
         expect(page).to have_content(participatory_process.hashtag)
       end
     end
 
-    context "when it has attachments" do
-      let!(:document) do
-        Decidim::AttachmentUploader.enable_processing = true
-        create(:participatory_process_attachment, :with_pdf, participatory_process: participatory_process)
-      end
-      let!(:image) do
-        Decidim::AttachmentUploader.enable_processing = true
-        create(:participatory_process_attachment, participatory_process: participatory_process)
-      end
-
-      before do
-        visit current_path
-      end
-
-      it "shows them" do
-        within "div.wrapper .documents" do
-          expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
-        end
-
-        within "div.wrapper .images" do
-          expect(page).to have_css("img.thumbnail")
-        end
-      end
-    end
+    let(:attached_to) { participatory_process }
+    it_behaves_like "has attachments"
   end
 end

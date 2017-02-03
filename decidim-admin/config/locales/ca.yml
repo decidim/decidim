@@ -1,32 +1,39 @@
 ca:
   activemodel:
     attributes:
+      attachment:
+        description: Descripció
+        file: Arxiu
+        title: Títol
       category:
         description: Descripció
         name: Nom
         parent: Pare
       feature:
         name: Nom
+        weight: Pes
       organization:
         default_locale: Idioma per defecte
         description: Descripció
+        favicon: Icona
         homepage_image: Imatge de la portada
         logo: Logotip
         name: Nom
+        show_statistics: Mostra Estadístiques
         welcome_text: Text de benvinguda
       participatory_process:
         banner_image: Imatge de bandera
         description: Descripció
+        developer_group: Grup promotor
+        domain: Domini
+        end_date: Data de finalització
         hashtag: Etiqueta
         hero_image: Imatge de portada
         promoted: Promogut
+        scope: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
         subtitle: Subtítol
-        title: Títol
-      participatory_process_attachment:
-        description: Descripció
-        file: Arxiu
         title: Títol
       participatory_process_step:
         description: Descripció
@@ -64,6 +71,22 @@ ca:
         resend_invitation: Tornar a enviar invitació
         title: Accions
         unpublish: Despublicar
+        verify: Verificar
+      attachments:
+        create:
+          error: S'ha produït un error en crear un nou arxiu adjunt.
+          success: Adjunt creat correctament.
+        destroy:
+          success: L'adjunt s'ha eliminat correctament.
+        edit:
+          title: Edita arxiu adjunt
+          update: Actualitza adjunt
+        new:
+          create: Crea arxiu adjunt
+          title: Nou arxiu adjunt
+        update:
+          error: S'ha produït un error en actualitzar aquest arxiu adjunt.
+          success: Adjunt actualitzat correctament.
       categories:
         create:
           error: S'ha produït un error en crear aquesta categoria.
@@ -82,12 +105,12 @@ ca:
           success: Categoria actualitzada correctament.
       decidim:
         admin:
+          attachments:
+            index:
+              attachments_title: Adjunts
           categories:
             index:
               categories_title: Categories
-          participatory_process_attachments:
-            index:
-              attachments_title: Adjunts
           participatory_process_steps:
             index:
               steps_hint: Pots arrossegar les files de la taula per reordenar les fases del procés.
@@ -135,8 +158,14 @@ ca:
         scopes: Àmbits
         settings: Configuració
         static_pages: Pàgines
+        user_groups: Grups d'usuaris
         users: Administradors
       models:
+        attachment:
+          fields:
+            content_type: Tipus
+            title: Títol
+          name: Arxiu adjunt
         category:
           fields:
             name: Nom
@@ -148,11 +177,6 @@ ca:
             published: Publicat
             title: Títol
           name: Procés participatiu
-        participatory_process_attachment:
-          fields:
-            content_type: Tipus
-            title: Títol
-          name: Accessori
         participatory_process_step:
           fields:
             active: Activa
@@ -182,6 +206,13 @@ ca:
             last_sign_in_at: Darrera data d'identificació
             name: Nom
           name: Usuari
+        user_group:
+          fields:
+            created_at: Data de creació
+            document_number: Número de document
+            name: Nom
+            phone: Telèfon
+            users_count: Número d'usuaris
       organization:
         edit:
           title: Edita organització
@@ -189,21 +220,6 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: Organització actualitzada correctament.
-      participatory_process_attachments:
-        create:
-          error: S'ha produït un error en crear un nou arxiu adjunt.
-          success: Adjunt creat correctament.
-        destroy:
-          success: L'adjunt s'ha eliminat correctament.
-        edit:
-          title: Edita arxiu adjunt
-          update: Actualitza adjunt
-        new:
-          create: Crear arxiu adjunt
-          title: Nou arxiu adjunt
-        update:
-          error: S'ha produït un error en actualitzar aquest arxiu adjunt.
-          success: Adjunt actualitzat correctament.
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
@@ -219,7 +235,11 @@ ca:
         create:
           error: S'ha produït un error en crear una nova fase de procés participatiu.
           success: La fase de procés participatiu s'ha creat correctament.
+        default_title: Introducció
         destroy:
+          error:
+            active_step: No es pot eliminar la fase activa.
+            last_step: No es pot eliminar l'última fase d'un procés.
           success: La fase de procés participatiu s'ha eliminat correctament.
         edit:
           title: Editar fase de procés participatiu
@@ -289,7 +309,11 @@ ca:
         participatory_processes: Processos participatius
         scopes: Àmbits
         static_pages: Pàgines
+        user_groups: Grups d'usuaris
         users: Usuaris
+      user_groups:
+        verify:
+          success: El grup d'usuaris ha estat verificat exitosament.
       users:
         create:
           error: Hi ha hagut un error en convidar a aquest usuari.

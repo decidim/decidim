@@ -1,0 +1,37 @@
+<section id="attachments">
+  <h4><%= t(".attachments_title", scope: "decidim.admin") %></h4>
+
+  <% if can? :create, authorization_object %>
+    <div class="actions title">
+      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.attachment.name", scope: "decidim.admin")), url_for(action: :new), class: 'new' %>
+    </div>
+  <% end %>
+
+  <% if attached_to.attachments.any? %>
+    <table class="stack">
+      <thead>
+        <tr>
+          <th><%= t("models.attachment.fields.title", scope: "decidim.admin") %></th>
+          <th><%= t("models.attachment.fields.content_type", scope: "decidim.admin") %></th>
+          <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% attached_to.attachments.each do |attachment| %>
+          <tr data-id="<%= attachment.id %>">
+            <td>
+              <%= link_to translated_attribute(attachment.title), polymorphic_path([attached_to, attachment]) %><br />
+            </td>
+            <td>
+              <%= attachment.file_type %>
+            </td>
+            <td class="actions">
+              <%= link_to t("actions.edit", scope: "decidim.admin"), edit_polymorphic_path([attached_to, attachment]) if can? :update, authorization_object %>
+              <%= link_to t("actions.destroy", scope: "decidim.admin"), polymorphic_path([attached_to, attachment]), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, authorization_object %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</section>

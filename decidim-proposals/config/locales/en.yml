@@ -1,20 +1,41 @@
 ---
 en:
+  activemodel:
+    attributes:
+      proposal:
+        body: Body
+        category_id: Category
+        scope_id: Scope
+        title: Title
+        user_group_id: Create proposal as
   decidim:
     features:
       proposals:
         name: Proposals
         settings:
           step:
+            creation_enabled: Proposal creation enabled
+            votes_blocked: Votes blocked
             votes_enabled: Votes enabled
     proposals:
       actions:
+        answer: Answer
         new: New proposal
+        title: Actions
       admin:
         models:
           proposal:
             name: Proposal
+        proposal_answers:
+          edit:
+            accepted: Accepted
+            answer_proposal: Answer proposal
+            rejected: Rejected
+            title: Answer for proposal %{title}
         proposals:
+          answer:
+            invalid: There's been a problem answering this proposal
+            success: Proposal successfully answered
           create:
             invalid: There's been a problem creating this proposal
             success: Proposal successfully created
@@ -26,6 +47,10 @@ en:
           new:
             create: Create proposal
             title: New proposal
+      answers:
+        accepted: Accepted
+        not_answered: Not answered
+        rejected: Rejected
       create:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully.
@@ -35,6 +60,7 @@ en:
             category: Category
             official_proposal: Official proposal
             scope: Scope
+            state: State
             title: Title
       proposals:
         count:
@@ -42,32 +68,66 @@ en:
             one: 1 proposal
             other: "%{count} proposals"
         filters:
+          accepted: Accepted
           activity: Activity
           all: All
           category: Category
           citizenship: Citizenship
           official: Official
           origin: Origin
+          rejected: Rejected
+          related_to: Related to
           search: Search
+          state: State
           voted: Voted
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_for: Filter by
+          unfold: Unfold
         index:
           new_proposal: New proposal
+        linked_proposals:
+          proposal_votes:
+            one: <span class="card--list__data__number">1</span>vote
+            other: <span class="card--list__data__number">%{count}</span>votes
         new:
           back: Back
           select_a_category: Please select a category
           select_a_scope: Please select a scope
           send: Send
           title: New proposal
+        orders:
+          label: 'Order proposals by:'
+          most_voted: Most voted
+          random: Random
+          recent: Recent
         proposal:
           view_proposal: View proposal
         share:
           close_window: Close window
           share: Share
           share_link: Share link
+        show:
+          proposal_rejected_reason: 'This proposal has been rejected because:'
         vote_button:
           already_voted: Already voted
+          no_votes_remaining: No votes remaining
           vote: Vote
+          votes_blocked: Voting disabled
         votes_count:
           count:
             one: VOTE
             other: VOTES
+        votes_limit:
+          vote_limit:
+            description: Instead of voting as many proposals as you want you can only
+              vote up to %{limit} proposals.
+            left: Remaining
+            title: You have %{limit} votes to distribute
+            votes: Votes
+    resource_links:
+      included_proposals:
+        results: 'Proposal appearing in these results:'
+      proposals_from_meeting:
+        meetings: Related meetings

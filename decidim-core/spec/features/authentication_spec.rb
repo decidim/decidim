@@ -7,26 +7,190 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
   before do
     switch_to_host(organization.host)
+    create(:static_page, slug: "terms-and-conditions", organization: organization)
     visit decidim.root_path
   end
 
   describe "Sign Up" do
+    context "using email and password" do
+      it "creates a new User" do
+        find(".sign-up-link").click
+
+        within ".new_user" do
+          fill_in :user_email, with: "user@example.org"
+          fill_in :user_name, with: "Responsible Citizen"
+          fill_in :user_password, with: "123456"
+          fill_in :user_password_confirmation, with: "123456"
+          check :user_tos_agreement
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("confirmation link")
+      end
+    end
+
+    context "using facebook" do
+      let(:verified) { true }
+      let(:omniauth_hash) {
+        OmniAuth::AuthHash.new({
+          provider: 'facebook',
+          uid: '123545',
+          info: {
+            email: "user@from-facebook.com",
+            name: "Facebook User"
+          }
+        })
+      }
+
+      before :each do
+        OmniAuth.config.test_mode = true
+        OmniAuth.config.mock_auth[:facebook] = omniauth_hash
+      end
+
+      after :each do
+        OmniAuth.config.test_mode = false
+        OmniAuth.config.mock_auth[:facebook] = nil
+      end
+
+      context "when the user has confirmed the email in facebook" do
+        it "creates a new User without sending confirmation instructions" do
+          find(".sign-up-link").click
+
+          click_link "Sign in with Facebook"
+
+          expect(page).to have_content("Successfully")
+          expect_user_logged
+        end
+      end
+    end
+
+    context "using twitter" do
+      let(:email) { nil }
+      let(:omniauth_hash) {
+        OmniAuth::AuthHash.new({
+          provider: 'twitter',
+          uid: '123545',
+          info: {
+            name: "Twitter User",
+            email: email
+          }
+        })
+      }
+
+      before :each do
+        OmniAuth.config.test_mode = true
+        OmniAuth.config.mock_auth[:twitter] = omniauth_hash
+      end
+
+      after :each do
+        OmniAuth.config.test_mode = false
+        OmniAuth.config.mock_auth[:twitter] = nil
+      end
+
+      context "when the response doesn't include the email" do
+        it "redirects the user to a finish signup page" do
+          find(".sign-up-link").click
+
+          click_link "Sign in with Twitter"
+
+          expect(page).to have_content("Successfully")
+          expect(page).to have_content("Please complete your profile")
+
+          within ".new_user" do
+            fill_in :user_email, with: "user@from-twitter.com"
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_content("confirmation link")
+        end
+
+        context "and a user already exists with the given email" do
+          it "doesn't allow it" do
+            create(:user, :confirmed, email: "user@from-twitter.com", organization: organization)
+            find(".sign-up-link").click
+
+            click_link "Sign in with Twitter"
+
+            expect(page).to have_content("Successfully")
+            expect(page).to have_content("Please complete your profile")
+
+            within ".new_user" do
+              fill_in :user_email, with: "user@from-twitter.com"
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_content("Please complete your profile")
+            expect(page).to have_content("Another account is using the same email address")
+          end
+        end
+      end
+
+      context "when the response includes the email" do
+        let(:email) { "user@from-twitter.com" }
+
+        it "creates a new User" do
+          find(".sign-up-link").click
+
+          click_link "Sign in with Twitter"
+
+          expect_user_logged
+        end
+      end
+    end
+
+    context "using google" do
+      let(:omniauth_hash) {
+        OmniAuth::AuthHash.new({
+          provider: 'google_oauth2',
+          uid: '123545',
+          info: {
+            name: "Google User",
+            email: "user@from-google.com"
+          }
+        })
+      }
+
+      before :each do
+        OmniAuth.config.test_mode = true
+        OmniAuth.config.mock_auth[:google_oauth2] = omniauth_hash
+      end
+
+      after :each do
+        OmniAuth.config.test_mode = false
+        OmniAuth.config.mock_auth[:google_oauth2] = nil
+      end
+
+      it "creates a new User" do
+        find(".sign-up-link").click
+
+        click_link "Sign in with Google"
+
+        expect_user_logged
+      end
+    end
+  end
+
+  describe "Sign Up as a organization" do
     it "creates a new User" do
       find(".sign-up-link").click
 
       within ".new_user" do
+        choose "Organization/Collective"
+
         fill_in :user_email, with: "user@example.org"
         fill_in :user_name, with: "Responsible Citizen"
         fill_in :user_password, with: "123456"
         fill_in :user_password_confirmation, with: "123456"
+
+        fill_in :user_user_group_name, with: "My organization"
+        fill_in :user_user_group_document_number, with: "12345678Z"
+        fill_in :user_user_group_phone, with: "333-333-3333"
+
         check :user_tos_agreement
         find("*[type=submit]").click
       end
 
       expect(page).to have_content("confirmation link")
-      expect(emails.count).to eq(1)
-      expect(last_user.email).to eq("user@example.org")
-      expect(last_user.organization).to eq(organization)
     end
   end
 
@@ -120,7 +284,45 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         end
 
         expect(page).to have_content("Signed out successfully.")
-        expect(page).to_not have_content(user.name)
+        expect(page).not_to have_content(user.name)
+      end
+    end
+  end
+
+  context "When a user is already registered with a social provider" do
+    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:identity) { create(:identity, user: user, provider: "facebook", uid: "12345") }
+
+    let(:omniauth_hash) {
+        OmniAuth::AuthHash.new({
+          provider: identity.provider,
+          uid: identity.uid,
+          info: {
+            email: user.email,
+            name: "Facebook User",
+            verified: true
+          }
+        })
+      }
+
+    before :each do
+      OmniAuth.config.test_mode = true
+      OmniAuth.config.mock_auth[:facebook] = omniauth_hash
+    end
+
+    after :each do
+      OmniAuth.config.test_mode = false
+      OmniAuth.config.mock_auth[:facebook] = nil
+    end
+
+    describe "Sign in" do
+      it "authenticates an existing User" do
+        find(".sign-in-link").click
+
+        click_link "Sign in with Facebook"
+
+        expect(page).to have_content("Successfully")
+        expect(page).to have_content(user.name)
       end
     end
   end

@@ -5,7 +5,11 @@ module Decidim
     name "User"
     description "A user"
 
-    field :name, types.String, "The user's name"
+    interfaces [
+      Decidim::Api::AuthorInterface
+    ]
+
+    field :name, !types.String, "The user's name"
 
     field :avatarUrl, !types.String, "The user's avatar url" do
       resolve ->(obj, _args, _ctx) { obj.avatar.url }

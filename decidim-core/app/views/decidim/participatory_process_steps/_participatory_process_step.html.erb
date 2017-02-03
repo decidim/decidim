@@ -1,0 +1,16 @@
+<li class="<%= "timeline__item #{step_status_class}" %>">
+  <div class="timeline__phase">
+    <span class="timeline__phase__number"><%= participatory_process_step.position + 1 %></span>
+  </div>
+  <div class="timeline__info">
+    <div class="timeline__header">
+      <span class="timeline__date text-small">
+        <%= participatory_process_step_dates(participatory_process_step) %>
+      </span>
+      <h6 class="timeline__title heading6"><%= translated_attribute(participatory_process_step.title) %></h6>
+    </div>
+    <div class="timeline__content">
+      <%= translated_attribute(participatory_process_step.description).html_safe %>
+    </div>
+  </div>
+</li>

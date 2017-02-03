@@ -1,5 +1,6 @@
 <div class="field">
   <%= form.translated :text_field, :name, autofocus: true %>
+  <%= form.number_field :weight %>
 
   <% if form.object.settings? %>
     <fieldset class="global-settings">

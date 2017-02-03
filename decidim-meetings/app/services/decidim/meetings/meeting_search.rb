@@ -18,7 +18,6 @@ module Decidim
         query
           .where(localized_search_text_in(:title), text: "%#{search_text}%")
           .or(query.where(localized_search_text_in(:description), text: "%#{search_text}%"))
-          .or(query.where(localized_search_text_in(:short_description), text: "%#{search_text}%"))
       end
 
       # Handle the order_start_time filter

@@ -30,6 +30,12 @@
             </div>
           <% end %>
 
+          <% if current_user.user_groups.verified.any? %>
+            <div class="field">
+              <%= form.select :user_group_id, current_user.user_groups.verified.map{|g| [g.name, g.id]}, prompt: current_user.name %>
+            </div>
+          <% end %>
+
           <div class="actions">
             <%= form.submit t(".send"), class: "button expanded" %>
           </div>

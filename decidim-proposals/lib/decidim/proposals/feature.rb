@@ -13,8 +13,21 @@ Decidim.register_feature(:proposals) do |feature|
     end
   end
 
+  feature.settings(:global) do |settings|
+    settings.attribute :vote_limit, type: :integer, default: 0
+    settings.attribute :comments_always_enabled, type: :boolean, default: true
+  end
+
   feature.settings(:step) do |settings|
     settings.attribute :votes_enabled, type: :boolean
+    settings.attribute :votes_blocked, type: :boolean
+    settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :creation_enabled, type: :boolean
+  end
+
+  feature.register_resource do |resource|
+    resource.model_class_name = "Decidim::Proposals::Proposal"
+    resource.template = "decidim/proposals/proposals/linked_proposals"
   end
 
   feature.seeds do
@@ -25,8 +38,11 @@ Decidim.register_feature(:proposals) do |feature|
         name: Decidim::Features::Namer.new(process.organization.available_locales, :proposals).i18n_name,
         manifest_name: :proposals,
         participatory_process: process,
+        settings: {
+          vote_limit: 0
+        },
         step_settings: {
-          process.active_step.id => { votes_enabled: true }
+          process.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
         }
       )
 
@@ -38,6 +54,17 @@ Decidim.register_feature(:proposals) do |feature|
           author: Decidim::User.where(organization: feature.organization).all.sample
         )
 
+        if n > 15
+          proposal.state = "accepted"
+          proposal.answered_at = Time.current
+          proposal.save!
+        elsif n > 9
+          proposal.state = "rejected"
+          proposal.answered_at = Time.current
+          proposal.answer = Decidim::Faker::Localized.sentence(10)
+          proposal.save!
+        end
+
         rand(3).times do |m|
           email = "vote-author-#{process.id}-#{n}-#{m}@decidim.org"
           name = "#{Faker::Name.name} #{process.id} #{n} #{m}"
@@ -48,7 +75,9 @@ Decidim.register_feature(:proposals) do |feature|
                                          name: name,
                                          organization: feature.organization,
                                          tos_agreement: "1",
-                                         confirmed_at: Time.now)
+                                         confirmed_at: Time.current,
+                                         comments_notifications: true,
+                                         replies_notifications: true)
 
           Decidim::Proposals::ProposalVote.create!(proposal: proposal,
                                                    author: author)
