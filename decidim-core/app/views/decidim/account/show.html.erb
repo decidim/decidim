@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for(@account, url: account_path, method: :put, class: "user-form") do |f| %>
+  <%= decidim_form_for(@account, url: account_path, method: :put, class: "user-form") do |f| %>
     <div class="columns large-4">
       <%= image_tag current_user.avatar.big.url, width: "100%" %>
       <%= f.file_field :avatar, label: false %>

@@ -1,6 +1,6 @@
 <h3><%= t ".title" %></h3>
 
-<%= form_for(@form, url: url_for([@attachment.attached_to, @attachment])) do |f| %>
+<%= decidim_form_for(@form, url: url_for([@attachment.attached_to, @attachment])) do |f| %>
   <%= render partial: 'decidim/admin/attachments/form', object: f %>
 
   <div class="actions">

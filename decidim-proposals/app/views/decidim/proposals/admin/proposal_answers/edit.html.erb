@@ -1,6 +1,6 @@
 <h3><%= t ".title", title: proposal.title %></h3>
 
-<%= form_for(@form, url: proposal_proposal_answer_path(proposal, @form)) do |f| %>
+<%=  decidim_form_for(@form, url: proposal_proposal_answer_path(proposal, @form)) do |f| %>
   <div class="field">
     <%= f.collection_radio_buttons :state, [["accepted", t('.accepted')], ["rejected", t('.rejected')]], :first, :last, prompt: true %>
   </div>
