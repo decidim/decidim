@@ -66,7 +66,10 @@ module Decidim
         end
 
         def feature
-          context.fetch(:current_feature, nil)
+          feature = context.fetch(:current_feature, nil)
+          return nil unless feature && feature.manifest.name == "proposals"
+
+          feature
         end
       end
     end
