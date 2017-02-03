@@ -5,6 +5,7 @@ module Decidim
     include Decidim::NeedsOrganization
     include Decidim::LocaleSwitcher
     include NeedsAuthorization
+    helper Decidim::MetaTagsHelper
     protect_from_forgery with: :exception, prepend: true
 
     layout "layouts/decidim/application"

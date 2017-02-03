@@ -7,6 +7,7 @@ module Decidim
       include Decidim::LocaleSwitcher
       helper Decidim::TranslationsHelper
       helper Decidim::OmniauthHelper
+      helper Decidim::MetaTagsHelper
 
       layout "layouts/decidim/application"
 

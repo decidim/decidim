@@ -9,6 +9,8 @@ module Decidim
       include FormFactory
       helper Decidim::TranslationsHelper
       helper Decidim::OmniauthHelper
+      helper Decidim::MetaTagsHelper
+
       helper_method :terms_and_conditions_page
 
       layout "layouts/decidim/application"
