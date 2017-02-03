@@ -99,6 +99,11 @@ en:
           select_a_scope: Please select a scope
           send: Send
           title: New proposal
+        orders:
+          label: 'Order proposals by:'
+          most_voted: Most voted
+          random: Random
+          recent: Recent
         proposal:
           view_proposal: View proposal
         share:

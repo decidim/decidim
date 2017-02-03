@@ -77,7 +77,9 @@ Decidim.register_feature(:proposals) do |feature|
                                          name: name,
                                          organization: feature.organization,
                                          tos_agreement: "1",
-                                         confirmed_at: Time.now)
+                                         confirmed_at: Time.current,
+                                         comments_notifications: true,
+                                         replies_notifications: true)
 
           Decidim::Proposals::ProposalVote.create!(proposal: proposal,
                                                    author: author)

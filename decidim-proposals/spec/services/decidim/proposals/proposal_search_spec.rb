@@ -8,7 +8,6 @@ module Decidim
       let!(:proposal) { create(:proposal, feature: feature)}
 
       describe "results" do
-        let(:random_seed) { 0.2 }
         let(:activity) { [] }
         let(:search_text) { nil }
         let(:origin) { nil }
@@ -17,7 +16,6 @@ module Decidim
         subject do
           described_class.new({
             feature: feature,
-            random_seed: random_seed,
             activity: activity,
             search_text: search_text,
             state: state,
@@ -26,25 +24,11 @@ module Decidim
           }).results
         end
 
-        context "when given a random seed" do
-          it "sets the seed at the database" do
-            allow(Proposal.connection).to receive(:execute).with(anything)
-            expect(Proposal.connection).to receive(:execute).with("SELECT setseed(0.2)").and_call_original
-            subject
-          end
-        end
-
         it "only includes proposals from the given feature" do
           other_proposal = create(:proposal)
 
           expect(subject).to include(proposal)
           expect(subject).not_to include(other_proposal)
-        end
-
-        it "randomizes the order of proposals" do
-          allow(Proposal.connection).to receive(:execute).with(anything)
-          expect_any_instance_of(Decidim::Proposals::Proposal::ActiveRecord_Relation).to receive(:reorder).with("RANDOM()").and_call_original
-          subject
         end
 
         describe "when the filter includes search_text" do
@@ -121,27 +105,6 @@ module Decidim
               expect(subject).to match_array(rejected_proposals)
             end
           end
-        end
-      end
-
-      describe "random_seed" do
-        subject do
-          described_class.new({
-            feature: feature,
-            random_seed: random_seed
-          }).random_seed
-        end
-
-        context "without a given random seed" do
-          let(:random_seed) { nil }
-
-          it { is_expected.to be_within(1).of(0.0) }
-        end
-
-        context "with an invalid random seed" do
-          let(:random_seed) { ["foo", 2, -10].sample }
-
-          it { is_expected.to be_within(1).of(0.0) }
         end
       end
     end

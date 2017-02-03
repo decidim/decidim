@@ -83,5 +83,27 @@ describe "Account", type: :feature, perform_enqueued: true do
         end
       end
     end
+
+    context "when on the notifications settings page" do
+      before do
+        visit decidim.notifications_settings_path
+      end
+
+      it "updates the user's notifications" do
+        within ".switch.comments_notifications" do
+          page.find('.switch-paddle').click
+        end
+
+        within ".switch.replies_notifications" do
+          page.find('.switch-paddle').click
+        end
+
+        find("*[type=submit]").click
+
+        within_flash_messages do
+          expect(page).to have_content("successfully")
+        end
+      end
+    end
   end
 end

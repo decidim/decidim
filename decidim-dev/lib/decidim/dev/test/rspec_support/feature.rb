@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require "decidim/feature_validator"
+require "decidim/comments/comments_helper"
+
 module Decidim
   # Dummy engine to be able to test components.
   class DummyEngine < Rails::Engine
@@ -7,14 +10,31 @@ module Decidim
 
     routes do
       root to: proc { [200, {}, ["DUMMY ENGINE"]] }
-      resources :dummy_resource
+      resources :dummy_resources, controller: "decidim/dummy_resources"
     end
   end
 
   class DummyResource < ActiveRecord::Base
+    include HasFeature
     include Resourceable
-    belongs_to :feature, foreign_key: "decidim_feature_id", class_name: "Decidim::Feature"
-    has_one :organization, through: :feature
+    include Authorable
+
+    feature_manifest_name "dummy"
+  end
+
+  class DummyResourcesController < ActionController::Base
+    helper Decidim::Comments::CommentsHelper
+    skip_authorization_check
+
+    def show
+      @commentable = DummyResource.find(params[:id])
+      @options = params.slice(:arguable, :votable)
+      @options.each { |key, val| @options[key] = val === "true" }
+      render inline: %{
+        <%= javascript_include_tag 'application' %>
+        <%= comments_for(@commentable, @options) %>
+      }.html_safe
+    end
   end
 end
 
@@ -46,6 +66,7 @@ RSpec.configure do |config|
       ActiveRecord::Migration.create_table :decidim_dummy_resources do |t|
         t.string :title
         t.references :decidim_feature, index: true
+        t.references :decidim_author, index: true
 
         t.timestamps
       end

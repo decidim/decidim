@@ -90,6 +90,15 @@ module Decidim
         end
       end
 
+      def letter_opener_web
+        inject_into_file "config/environments/development.rb",
+                         after: "config.action_mailer.raise_delivery_errors = false" do
+          %(
+
+  config.action_mailer.delivery_method = :letter_opener_web)
+        end
+      end
+
       private
 
       def recreate_db

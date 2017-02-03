@@ -1,0 +1,19 @@
+<div class="row">
+  <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
+    <div class="switch tiny switch-with-label comments_notifications">
+      <label>
+        <%= f.check_box :comments_notifications, label: false, class: "switch-input" %>
+        <span class="switch-paddle"></span>
+        <span class="switch-label"><%= t('.comments_notifications') %></span>
+      </label>
+    </div>
+    <div class="switch tiny switch-with-label replies_notifications">
+      <label>
+        <%= f.check_box :replies_notifications, label: false, class: "switch-input" %>
+        <span class="switch-paddle"></span>
+        <span class="switch-label"><%= t('.replies_notifications') %></span>
+      </label>
+    </div>
+    <%= f.submit t(".update_notifications_settings"), disable_with: true %>
+  <% end %>
+</div>

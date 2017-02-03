@@ -10,7 +10,9 @@ if !Rails.env.production? || ENV["SEED"]
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     organization: staging_organization,
-    tos_agreement: true
+    tos_agreement: true,
+    comments_notifications: true,
+    replies_notifications: true
   )
 
   Decidim::Admin::ParticipatoryProcessUserRole.create!(

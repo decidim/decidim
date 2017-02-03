@@ -33,7 +33,7 @@ describe "Vote Proposal", type: :feature do
     context "when the user is not logged in" do
       it "should be given the option to sign in" do
         visit_feature
-        
+
         within ".card__support", match: :first do
           page.find('.card__button').click
         end

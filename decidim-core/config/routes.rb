@@ -43,6 +43,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
     resource :account, only: [:show, :update], controller: "account"
+    resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     resources :own_user_groups, only: [:index]
   end
 
@@ -50,6 +51,10 @@ Decidim::Core::Engine.routes.draw do
 
   match "/404", to: "pages#show", id: "404", via: :all
   match "/500", to: "pages#show", id: "500", via: :all
+
+  if Rails.env.development? && defined?(LetterOpenerWeb::Engine)
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 
   root to: "pages#show", id: "home"
 end
