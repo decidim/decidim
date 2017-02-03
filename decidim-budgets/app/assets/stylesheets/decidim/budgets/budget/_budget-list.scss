@@ -11,7 +11,7 @@
   }
 }
 .budget-list__data--added{
-  background-color: mix(white, $success, 80%);
+  background-color: tint($success, 80%);
 }
 
 .budget-list__number{
