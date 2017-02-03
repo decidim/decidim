@@ -9,12 +9,28 @@
     padding-top: .25rem;
     padding-bottom: .25rem;
   }
+}
 
-  &:disabled{
-    @extend .button;
-    @extend .button.disabled;
+// Overwrite Foundation hover styles in hollow disabled buttons
+.button.hollow:disabled:hover,
+.button.hollow.disabled:hover{
+  background-color: transparent;
+  border-color: inherit;
+  color: $primary;
+  &.secondary{
+    color: $secondary;
+  }
+  &.success{
+    color: $success;
+  }
+  &.alert{
+    color: $alert;
+  }
+  &.warning{
+    color: $warning;
   }
 }
+
 
 
 /*Extra buttons styles*/
