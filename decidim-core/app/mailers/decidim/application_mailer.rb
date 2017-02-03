@@ -3,9 +3,10 @@ module Decidim
   # Main application mailer configuration. Inherit from this to create new
   # mailers.
   class ApplicationMailer < ActionMailer::Base
+    include LocalisedMailer
     include Roadie::Rails::Automatic
 
     default from: Decidim.config.mailer_sender
-    layout "mailer"
+    layout "decidim/mailer"
   end
 end

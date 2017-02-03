@@ -37,7 +37,9 @@ module Decidim
                            password: form.password,
                            password_confirmation: form.password_confirmation,
                            organization: form.current_organization,
-                           tos_agreement: form.tos_agreement)
+                           tos_agreement: form.tos_agreement,
+                           comments_notifications: true,
+                           replies_notifications: true)
     end
 
     def create_user_group

@@ -9,13 +9,13 @@ module Decidim
     describe "decidim_resource_path" do
       subject { helper.decidim_resource_path(resource) }
 
-      it { is_expected.to eq("/participatory_processes/#{feature.participatory_process.id}/features/#{feature.id}/dummy_resource/#{resource.id}") }
+      it { is_expected.to eq("/participatory_processes/#{feature.participatory_process.id}/features/#{feature.id}/dummy_resources/#{resource.id}") }
     end
 
     describe "decidim_resource_path" do
       subject { helper.decidim_resource_url(resource) }
 
-      it { is_expected.to eq("http://test.host/participatory_processes/#{feature.participatory_process.id}/features/#{feature.id}/dummy_resource/#{resource.id}") }
+      it { is_expected.to eq("http://#{feature.organization.host}/participatory_processes/#{feature.participatory_process.id}/features/#{feature.id}/dummy_resources/#{resource.id}") }
     end
 
     describe "linked_resources_for" do

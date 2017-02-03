@@ -5,6 +5,21 @@ en:
       messages:
         cannot_have_replies: can't have replies
   decidim:
+    comments:
+      comment_notification_mailer:
+        comment_created:
+          new_comment_html: There is a new comment from <b>%{commenter}</b> in <b>%{commentable_link}</b>
+        hello: Hello %{name},
+        manage_email_subscriptions_html: You can stop receiving these emails by changing your settings in %{link}.
+        notifications_settings_link: the notifications settings page
+        reply_created:
+          new_reply_html: There is a new reply of your comment from <b>%{commenter}</b> in <b>%{commentable_link}</b>
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: You have a new comment
+          reply_created:
+            subject: You have a new reply of your comment
     components:
       add_comment_form:
         form:
