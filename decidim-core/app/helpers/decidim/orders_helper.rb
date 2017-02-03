@@ -3,6 +3,9 @@ module Decidim
   # Helper that provides methods to render order selector and links
   module OrdersHelper
     # Public: It renders the order selector for the provided orders
+    # (Note) This method requires the javascript 'decidim/orders' to be
+    # present in the page.
+    #
     # orders - An array of order criterias
     # options - An optional hash of options
     #         * i18n_scope - The scope of the i18n translations
