@@ -13,6 +13,7 @@ es:
           submit: Enviar
           user_group_id:
             label: Comentar como
+          form_error: "El texto es necesario y no puede ser más largo de %{length}"
         opinion:
           neutral: Neutral
         title: Deje su comentario

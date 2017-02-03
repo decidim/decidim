@@ -10,7 +10,7 @@ module Decidim
 
       mimic :comment
 
-      validates :body, presence: true
+      validates :body, presence: true, length: { maximum: 1000 }
       validates :alignment, inclusion: { in: [0, 1, -1] }, if: ->(form) { form.alignment.present? }
     end
   end

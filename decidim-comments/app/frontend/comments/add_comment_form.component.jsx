@@ -31,19 +31,34 @@ export class AddCommentForm extends Component {
     };
   }
 
+  componentDidMount() {
+    if ($(document).foundation) {
+      $(this.form).foundation();
+    }
+  }
+
   render() {
-    const { submitButtonClassName, commentableType, commentableId } = this.props;
+    const { submitButtonClassName, commentableType, commentableId, maxLength } = this.props;
     const { disabled } = this.state;
 
     return (
       <div className="add-comment">
         {this._renderHeading()}
         {this._renderOpinionButtons()}
-        <form onSubmit={(evt) => this._addComment(evt)}>
+        <form
+          onSubmit={(evt) => this._addComment(evt)}
+          data-abide
+          data-live-validate="true"
+          data-validate-on-blur="true"
+          ref={(form) => this.form = form}
+        >
           {this._renderCommentAs()}
           <div className="field">
             <label className="show-for-sr" htmlFor={`add-comment-${commentableType}-${commentableId}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
             {this._renderTextArea()}
+            <span className="form-error">
+              { I18n.t("components.add_comment_form.form.form_error", { length: maxLength }) }
+            </span>
             <input
               type="submit"
               className={submitButtonClassName}
@@ -81,12 +96,15 @@ export class AddCommentForm extends Component {
    * @returns {Void|DOMElement} - The heading or an empty element
    */
   _renderTextArea() {
-    const { commentableType, commentableId, autoFocus} = this.props;
+    const { commentableType, commentableId, autoFocus, maxLength } = this.props;
 
     let textAreaProps = {
       ref: (textarea) => {this.bodyTextArea = textarea},
       id: `add-comment-${commentableType}-${commentableId}`,
       rows: "4",
+      maxLength,
+      required: "required",
+      pattern: `^(.){0,${maxLength}}$`,
       placeholder: I18n.t("components.add_comment_form.form.body.placeholder"),
       onChange: (evt) => this._checkCommentBody(evt.target.value)
     };
@@ -236,7 +254,8 @@ AddCommentForm.propTypes = {
   submitButtonClassName: PropTypes.string.isRequired,
   onCommentAdded: PropTypes.func,
   arguable: PropTypes.bool,
-  autoFocus: PropTypes.bool
+  autoFocus: PropTypes.bool,
+  maxLength: PropTypes.number.isRequired
 };
 
 AddCommentForm.defaultProps = {
@@ -244,7 +263,8 @@ AddCommentForm.defaultProps = {
   showTitle: true,
   submitButtonClassName: 'button button--sc',
   arguable: false,
-  autoFocus: false
+  autoFocus: false,
+  maxLength: 1000
 };
 
 AddCommentForm.fragments = {

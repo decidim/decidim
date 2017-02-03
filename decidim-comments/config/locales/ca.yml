@@ -25,6 +25,7 @@ ca:
           submit: Envia
           user_group_id:
             label: Comentar com a
+          form_error: "El text és necessari i no pot ser més llarg de %{length}"
         opinion:
           neutral: Neutral
         title: Deixa el teu comentari
