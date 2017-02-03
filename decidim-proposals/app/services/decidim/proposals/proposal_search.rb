@@ -54,6 +54,29 @@ module Decidim
           query
         end
       end
+
+      # Filters Proposals by the name of the classes they are linked to. By default,
+      # returns all Proposals. When a `related_to` param is given, then it camelcases item
+      # to find the real class name and checks the links for the Proposals.
+      #
+      # The `related_to` param is expected to be in this form:
+      #
+      #   "decidim/meetings/meeting"
+      #
+      # This can be achieved by performing `klass.name.underscore`.
+      #
+      # Returns only those proposals that are linked to the given class name.
+      def search_related_to
+        from = query
+               .joins(:resource_links_from)
+               .where(decidim_resource_links: { to_type: related_to.camelcase })
+
+        to = query
+             .joins(:resource_links_to)
+             .where(decidim_resource_links: { from_type: related_to.camelcase })
+
+        query.where(id: from).or(query.where(id: to))
+      end
     end
   end
 end

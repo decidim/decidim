@@ -88,7 +88,8 @@ module Decidim
           origin: "all",
           activity: "",
           category_id: "",
-          state: "all"
+          state: "all",
+          related_to: ""
         }
       end
     end

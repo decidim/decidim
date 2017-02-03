@@ -33,5 +33,49 @@ module Decidim
         expect(content).to include("Related dummy")
       end
     end
+
+    describe "linked_classes_for" do
+      subject { helper.linked_classes_for(DummyResource) }
+
+      context "when it is not resourceable" do
+        before do
+          allow(DummyResource)
+            .to receive(:respond_to?)
+            .with(:linked_classes_for)
+            .and_return(false)
+        end
+
+        it { is_expected.to eq [] }
+      end
+
+      context "when it is resourceable" do
+        before do
+          allow(helper)
+            .to receive(:current_feature)
+            .and_return(feature)
+          allow(DummyResource)
+            .to receive(:linked_classes_for)
+            .and_return(["Decidim::Meetings::Meeting"])
+        end
+
+        it "formats the linked classes with underscore name and name" do
+          expect(subject).to eq [["decidim/meetings/meeting", "Meetings"]]
+        end
+      end
+    end
+
+    describe "linked_classes_filter_values_for" do
+      subject { helper.linked_classes_filter_values_for(DummyResource) }
+
+      before do
+        allow(helper)
+          .to receive(:linked_classes_for)
+          .and_return([["decidim/meetings/meeting", "Meetings"]])
+      end
+
+      it "formats the values for the form" do
+        expect(subject).to eq [["", "All"], ["decidim/meetings/meeting", "Meetings"]]
+      end
+    end
   end
 end

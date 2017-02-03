@@ -97,6 +97,7 @@ ignore_unused:
   - errors.messages.file_size_is_less_than_or_equal_to
   - errors.messages.nesting_too_deep
   - social_share_button.*
+  - decidim.filters.linked_classes.*
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'

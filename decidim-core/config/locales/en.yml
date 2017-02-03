@@ -96,6 +96,12 @@ en:
       shared:
         omniauth_buttons:
           or: Or
+    filters:
+      linked_classes:
+        all: All
+        meeting: Meetings
+        proposal: Proposals
+        result: Results
     menu:
       home: Home
       processes: Processes
