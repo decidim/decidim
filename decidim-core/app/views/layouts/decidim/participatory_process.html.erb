@@ -17,3 +17,9 @@
     </div>
   <% end %>
 <% end %>
+
+<% if try(:current_feature) %>
+  <%= current_feature.manifest.actions.each do |action| %>
+    <%= action_authorization_modal(action) %>
+  <% end %>
+<% end %>
