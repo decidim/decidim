@@ -23,7 +23,7 @@ module Decidim
             authorized?(:vote) && voting_enabled? && vote_limit_enabled?
           end
 
-          can :create, Proposal if authorized?(:create) && current_settings.creation_enabled
+          can :create, Proposal if authorized?(:create) && creation_enabled?
         end
 
         private
@@ -37,6 +37,11 @@ module Decidim
         def vote_limit_enabled?
           return unless feature_settings
           feature_settings.vote_limit.present? && feature_settings.vote_limit.positive?
+        end
+
+        def creation_enabled?
+          return unless current_settings
+          current_settings.creation_enabled?
         end
 
         def remaining_votes
