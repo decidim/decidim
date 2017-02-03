@@ -25,17 +25,17 @@ en:
       participatory_process:
         banner_image: Banner image
         description: Description
+        developer_group: Developer group
+        domain: Domain
+        end_date: End date
         hashtag: Hashtag
         hero_image: Home image
         promoted: Promoted
+        scope: Scope
         short_description: Short description
         slug: URL slug
         subtitle: Subtitle
         title: Title
-        domain: Domain
-        scope: Scope
-        developer_group: Developer group
-        end_date: End date
       participatory_process_step:
         description: Description
         end_date: End date
