@@ -17,7 +17,7 @@ module Decidim
         let(:user_group_name) { nil }
         let(:user_group_document_number) { nil }
         let(:user_group_phone) { nil }
-       
+
         let(:form_params) do
           {
             "user" => {
@@ -70,7 +70,9 @@ module Decidim
               password: form.password,
               password_confirmation: form.password_confirmation,
               tos_agreement: form.tos_agreement,
-              organization: organization
+              organization: organization,
+              comments_notifications: true,
+              replies_notifications: true
             }).and_call_original
             expect do
               command.call
