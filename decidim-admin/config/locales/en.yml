@@ -32,6 +32,10 @@ en:
         slug: URL slug
         subtitle: Subtitle
         title: Title
+        domain: Domain
+        scope: Scope
+        developer_group: Developer group
+        end_date: End date
       participatory_process_step:
         description: Description
         end_date: End date
