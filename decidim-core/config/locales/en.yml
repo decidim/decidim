@@ -117,15 +117,15 @@ en:
         scope: Scope
     shared:
       action_authorization_modal:
-        missing:
-          title: Authorization required
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
-          authorize: Authorize with "%{authorization}"
         incomplete:
           cancel: Cancel
           explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
           reauthorize: Reauthorize
           title: Please reauthorize
+        missing:
+          authorize: Authorize with "%{authorization}"
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
+          title: Authorization required
         unauthorized:
           explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
           ok: Ok

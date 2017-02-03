@@ -11,10 +11,10 @@ en:
   decidim:
     features:
       proposals:
-        name: Proposals
         actions:
-          vote: Vote
           create: Create proposals
+          vote: Vote
+        name: Proposals
         settings:
           step:
             creation_enabled: Proposal creation enabled
