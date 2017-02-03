@@ -10,7 +10,10 @@ module Decidim
     end
 
     def authorize_action!(action_name, redirect_url: nil)
-      status = action_authorizer(action_name).authorize
+      @action_authorizations ||= {}
+      @action_authorizations[action_name] = action_authorizer(action_name).authorize
+      status = @action_authorizations[action_name]
+
       return if status.ok?
       raise "Unauthorized" if status.code == :invalid
 
