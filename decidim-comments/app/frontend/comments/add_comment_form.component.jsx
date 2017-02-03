@@ -107,7 +107,7 @@ export class AddCommentForm extends Component {
   _renderOpinionButtons() {
     const { arguable } = this.props;
     const { alignment } = this.state;
-    const buttonClassName = classnames('button', 'small', 'button--muted');
+    const buttonClassName = classnames('button', 'tiny', 'button--muted');
     const okButtonClassName = classnames(buttonClassName, 'opinion-toggle--ok', {
       'is-active': alignment === 1
     });
@@ -126,7 +126,6 @@ export class AddCommentForm extends Component {
             onClick={() => this.setState({ alignment: 1 })}
           >
             <Icon name="icon-thumb-up" />
-            { I18n.t("components.add_comment_form.opinion.in_favor") }
           </button>
           <button
             className={neutralButtonClassName}
@@ -139,7 +138,6 @@ export class AddCommentForm extends Component {
             onClick={() => this.setState({ alignment: -1 })}
           >
             <Icon name="icon-thumb-down" />
-            { I18n.t("components.add_comment_form.opinion.against") }
           </button>
         </div>
       );
