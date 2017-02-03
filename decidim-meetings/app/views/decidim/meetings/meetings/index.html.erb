@@ -1,4 +1,4 @@
-<% content_for(:title, t(".title")) %>
+<% provide(:title, t(".title")) %>
 
 <% if Decidim.geocoder.present? %>
   <div class="row column">
