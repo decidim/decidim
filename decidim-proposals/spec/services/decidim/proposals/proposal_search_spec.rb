@@ -4,9 +4,11 @@ module Decidim
   module Proposals
     describe ProposalSearch do
       let(:feature) { create(:feature, manifest_name: "proposals") }
+      let(:scope1) { create :scope, organization: feature.organization }
+      let(:scope2) { create :scope, organization: feature.organization }
       let(:participatory_process) { feature.participatory_process }
       let(:user) { create(:user, organization: feature.organization) }
-      let!(:proposal) { create(:proposal, feature: feature)}
+      let!(:proposal) { create(:proposal, feature: feature, scope: scope1)}
 
       describe "results" do
         let(:activity) { [] }
@@ -14,6 +16,7 @@ module Decidim
         let(:origin) { nil }
         let(:related_to) { nil }
         let(:state) { nil }
+        let(:scope_id) { nil }
 
         subject do
           described_class.new({
@@ -23,6 +26,7 @@ module Decidim
             state: state,
             origin: origin,
             related_to: related_to,
+            scope_id: scope_id,
             current_user: user
           }).results
         end
@@ -106,6 +110,26 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(rejected_proposals)
+            end
+          end
+        end
+
+        context "scope_id" do
+          let!(:proposal2) { create(:proposal, feature: feature, scope: scope2)}
+
+          context "when a single id is being sent" do
+            let(:scope_id) { scope1.id }
+
+            it "filters meetings by scope" do
+              expect(subject).to eq [proposal]
+            end
+          end
+
+          context "when multiple ids are sent" do
+            let(:scope_id) { [scope2.id, scope1.id] }
+
+            it "filters meetings by scope" do
+              expect(subject).to match_array [proposal, proposal2]
             end
           end
         end

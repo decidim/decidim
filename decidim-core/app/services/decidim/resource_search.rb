@@ -5,7 +5,7 @@ module Decidim
   class ResourceSearch < Searchlight::Search
     # Initialize the Searchlight::Search base class with the options provided.
     #
-    # scope - The scope used to create the base query
+    # scope   - The scope used to create the base query
     # options - A hash of options to modify the search. These options will be
     #          converted to methods by SearchLight so they can be used on filter #
     #          methods. (Default {})
