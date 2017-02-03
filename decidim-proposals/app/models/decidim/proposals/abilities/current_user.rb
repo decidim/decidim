@@ -47,7 +47,7 @@ module Decidim
         def remaining_votes
           return 1 unless vote_limit_enabled?
 
-          proposals = Proposal.where(feature: context.fetch(:current_feature))
+          proposals = Proposal.where(feature: feature)
           votes_count = ProposalVote.where(author: user, proposal: proposals).size
           feature_settings.vote_limit - votes_count
         end
@@ -67,7 +67,7 @@ module Decidim
 
         def feature
           feature = context.fetch(:current_feature, nil)
-          return nil unless feature && feature.manifest.name == "proposals"
+          return nil unless feature && feature.manifest.name == :proposals
 
           feature
         end

@@ -94,14 +94,6 @@ module Decidim
       def ok?
         @code == :ok
       end
-
-      def invalid?
-        @code == :invalid
-      end
-
-      def reauthorize?
-        @code == :missing || @code == :incomplete
-      end
     end
 
     class AuthorizationError < StandardError; end

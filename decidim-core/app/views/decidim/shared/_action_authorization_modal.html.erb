@@ -5,7 +5,7 @@
             type="button">
       <span aria-hidden="true">&times;</span>
     </button>
-    <% if status.reauthorize? %>
+    <% if status.code == :incomplete %>
       <div class="reveal__header">
         <h3 class="reveal__title"><%= t('.incomplete.title') %></h3>
       </div>
@@ -17,13 +17,23 @@
       </ul>
       <div class="row">
         <div class="columns medium-8 medium-offset-2">
-          <%= button_to t('.incomplete.reauthorize'), reauthorize_action_path(:vote), class: "button expanded" %>
+          <%= link_to t('.incomplete.reauthorize'), authorize_action_path(:vote), class: "button expanded" %>
         </div>
       </div>
       <div class="text-center">
         <button class="link" data-close><%=t ".incomplete.cancel" %></button>
       </div>
-    <% elsif status.invalid? %>
+    <% elsif status.code == :missing %>
+      <div class="reveal__header">
+        <h3 class="reveal__title"><%= t('.missing.title') %></h3>
+      </div>
+      <p><%= t ".missing.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
+      <div class="row">
+        <div class="columns medium-8 medium-offset-2">
+          <%= link_to t('.missing.authorize', authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers")), authorize_action_path(:vote), class: "button expanded" %>
+        </div>
+      </div>
+    <% elsif status.code == :invalid %>
       <div class="reveal__header">
         <h3 class="reveal__title"><%= t('.unauthorized.title') %></h3>
       </div>
