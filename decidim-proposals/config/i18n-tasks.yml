@@ -6,3 +6,4 @@ ignore_unused:
 - "decidim.resource_links.*"
 - "activemodel.attributes.proposal.*"
 - "decidim.proposals.answers.*"
+- "decidim.proposals.proposals.orders.*"

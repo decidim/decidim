@@ -286,5 +286,57 @@ describe "Proposals", type: :feature do
         end
       end
     end
+
+    context "when ordering" do
+      context "by 'most_support'" do
+        let!(:feature) do
+          create(:proposal_feature,
+            :with_votes_enabled,
+            manifest: manifest,
+            participatory_process: participatory_process)
+        end
+
+        before do
+          proposals.each do |proposal|
+            create(:proposal_vote, proposal: proposal)
+          end
+        end
+
+        it "lists the proposals ordered by votes" do
+          most_voted_proposal = create(:proposal, feature: feature)
+          create_list(:proposal_vote, 3, proposal: most_voted_proposal)
+          less_voted_proposal = create(:proposal, feature: feature)
+
+          visit_feature
+
+          within ".order-by" do
+            page.find('.dropdown.menu .is-dropdown-submenu-parent').hover
+          end
+
+          click_link "Most voted"
+
+          expect(page.find('#proposals .card-grid .column:first-child', text: most_voted_proposal.title)).to be
+          expect(page.find('#proposals .card-grid .column:last-child', text: less_voted_proposal.title)).to be
+        end
+      end
+
+      context "by 'recent'" do
+        it "lists the proposals ordered by created at" do
+          older_proposal = create(:proposal, feature: feature, created_at: 1.month.ago)
+          recent_proposal = create(:proposal, feature: feature)
+
+          visit_feature
+
+          within ".order-by" do
+            page.find('.dropdown.menu .is-dropdown-submenu-parent').hover
+          end
+
+          click_link "Recent"
+
+          expect(page.find('#proposals .card-grid .column:first-child', text: recent_proposal.title)).to be
+          expect(page.find('#proposals .card-grid .column:last-child', text: older_proposal.title)).to be
+        end
+      end
+    end
   end
 end

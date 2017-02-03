@@ -7,6 +7,8 @@ module Decidim
       include FormFactory
       include FilterResource
 
+      helper_method :order, :random_seed
+
       before_action :authenticate_user!, only: [:new, :create]
 
       def show
@@ -18,10 +20,11 @@ module Decidim
                      .results
                      .includes(:author)
                      .includes(votes: [:author])
-                     .page(params[:page])
-                     .per(12)
+                     .includes(:category)
 
-        @random_seed = search.random_seed
+        @proposals = reorder(@proposals)
+
+        @proposals = @proposals.page(params[:page]).per(12)
       end
 
       def new
@@ -50,6 +53,31 @@ module Decidim
 
       private
 
+      def order
+        @order = params[:order] || "random"
+      end
+
+      # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
+      def random_seed
+        @random_seed = params[:random_seed].to_f || (rand * 2 - 1)
+      end
+
+      def reorder(proposals)
+        case order
+        when "random"
+          Proposal.transaction do
+            Proposal.connection.execute("SELECT setseed(#{Proposal.connection.quote(random_seed)})")
+            proposals.order("RANDOM()").load
+          end
+        when "most_voted"
+          proposals.order(proposal_votes_count: :desc)
+        when "recent"
+          proposals.order(created_at: :desc)
+        else
+          proposals
+        end
+      end
+
       def search_klass
         ProposalSearch
       end
@@ -60,8 +88,7 @@ module Decidim
           origin: "all",
           activity: "",
           category_id: "",
-          state: "all",
-          random_seed: params[:random_seed]
+          state: "all"
         }
       end
     end
