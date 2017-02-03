@@ -6,16 +6,14 @@ module Decidim
     #
     # tags - A Hash containing the meta tag name as keys and its content as
     # values.
-    # flush - A Boolean indicating if this tags will flush the previous ones,
-    # should there be any.
     #
     # Returns nothing.
-    def add_meta_tags(tags, flush=true)
-      content_for(:meta_title, tags[:title], flush: flush)
-      content_for(:meta_description, tags[:description], flush: flush)
-      content_for(:meta_url, tags[:url], flush: flush)
-      content_for(:twitter_handler, tags[:twitter_handler], flush: flush)
-      content_for(:meta_image_url, tags[:image_url], flush: flush)
+    def add_meta_tags(tags)
+      provide(:meta_title, tags[:title])
+      provide(:meta_description, tags[:description])
+      provide(:meta_url, tags[:url])
+      provide(:twitter_handler, tags[:twitter_handler])
+      provide(:meta_image_url, tags[:image_url])
     end
   end
 end

@@ -1,4 +1,4 @@
-<% content_for(:title, translated_attribute(result.title)) %>
+<% provide(:title, translated_attribute(result.title)) %>
 
 <% add_meta_tags({
   description: translated_attribute(result.description),
