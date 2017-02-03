@@ -1,5 +1,7 @@
 <% content_for(:title, t(".title")) %>
-<% content_for :meta_title, t(".meta_title", feature_name: translated_attribute(current_feature.name), organization: current_organization.name), flush: true %>
+<% add_meta_tags({
+  title: t(".meta_title", feature_name: translated_attribute(current_feature.name), organization: current_organization.name)
+}) %>
 
 <% if Decidim.geocoder.present? %>
   <div class="row column">

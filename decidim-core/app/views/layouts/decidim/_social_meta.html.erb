@@ -1,8 +1,10 @@
-<% content_for :meta_description, strip_tags(translated_attribute(current_organization.description)) %>
-<% content_for :meta_title, current_organization.name %>
-<% content_for :meta_url, request.original_url %>
-<% content_for :twitter_handler, current_organization.twitter_handler %>
-<% content_for :meta_image_url, current_organization.homepage_image.url %>
+<% add_meta_tags({
+  description: strip_tags(translated_attribute(current_organization.description)),
+  title: current_organization.name,
+  url: request.original_url,
+  twitter_handler: current_organization.twitter_handler,
+  image_url: current_organization.homepage_image.url
+}, false) %>
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@<%= content_for(:twitter_handler) %>" />

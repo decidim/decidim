@@ -1,7 +1,8 @@
-<% content_for :meta_description, @proposal.body, flush: true %>
-<% content_for :meta_title, @proposal.title, flush: true %>
-<% content_for :meta_url, proposal_url(@proposal.id), flush: true %>
-<% content_for :twitter_handler, current_organization.twitter_handler, flush: true %>
+<% add_meta_tags({
+  description: @proposal.body,
+  title: @proposal.title,
+  url: proposal_url(@proposal.id)
+}) %>
 
 <%= render partial: "votes_limit" %>
 <div class="row column view-header">
