@@ -24,9 +24,13 @@ ca:
       participatory_process:
         banner_image: Imatge de bandera
         description: Descripció
+        developer_group: Grup promotor
+        domain: Domini
+        end_date: Data de finalització
         hashtag: Etiqueta
         hero_image: Imatge de portada
         promoted: Promogut
+        scope: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
         subtitle: Subtítol
