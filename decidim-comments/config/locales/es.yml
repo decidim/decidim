@@ -14,9 +14,7 @@ es:
           user_group_id:
             label: Comentar como
         opinion:
-          against: Estoy en contra
-          in_favor: Estoy a favor
-          neutral: Soy neutral
+          neutral: Neutral
         title: Deje su comentario
       comment:
         alignment:

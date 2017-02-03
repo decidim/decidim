@@ -14,9 +14,7 @@ ca:
           user_group_id:
             label: Comentar com a
         opinion:
-          against: Hi estic en contra
-          in_favor: Hi estic a favor
-          neutral: Sóc neutral
+          neutral: Neutral
         title: Deixa el teu comentari
       comment:
         alignment:

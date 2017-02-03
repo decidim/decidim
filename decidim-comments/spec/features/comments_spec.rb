@@ -28,7 +28,7 @@ describe "Comments", type: :feature do
       end
     end
   end
-  
+
   it "user should be able to sort the comments" do
     comment = create(:comment, commentable: participatory_process, body: "Most Rated Comment")
     create(:comment_vote, comment: comment, author: user, weight: 1)
@@ -120,7 +120,7 @@ describe "Comments", type: :feature do
         visit decidim.dummy_path(participatory_process, arguable: true)
         expect(page).to have_selector(".add-comment form")
 
-        click_button "I am in favor"
+        page.find('.opinion-toggle--ok').click
 
         within ".add-comment form" do
           fill_in "add-comment-#{participatory_process.class.name}-#{participatory_process.id}", with: "I am in favor about this!"
