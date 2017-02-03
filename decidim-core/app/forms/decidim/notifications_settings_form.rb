@@ -8,8 +8,10 @@ module Decidim
 
     attribute :comments_notifications
     attribute :replies_notifications
+    attribute :newsletter_notifications
 
     validates :comments_notifications, presence: true
     validates :replies_notifications, presence: true
+    validates :newsletter_notifications, presence: true
   end
 end
