@@ -1,4 +1,6 @@
-<% provide(:title, t(".title")) %>
+<% add_meta_tags({
+  title: t(".meta_title", feature_name: translated_attribute(current_feature.name))
+}) %>
 
 <% if current_user.present? %>
   <div class="row column">

@@ -51,8 +51,7 @@ en:
           scopes: Scopes
           search: Search
         index:
-          meta_title: "%{feature_name} - %{organization}"
-          title: Results
+          meta_title: "%{feature_name}"
         show:
           stats:
             attendees: Attendees
