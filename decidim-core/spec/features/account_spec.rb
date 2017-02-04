@@ -98,6 +98,10 @@ describe "Account", type: :feature, perform_enqueued: true do
           page.find('.switch-paddle').click
         end
 
+        within ".switch.newsletter_notifications" do
+          page.find('.switch-paddle').click
+        end
+
         find("*[type=submit]").click
 
         within_flash_messages do

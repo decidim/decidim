@@ -79,6 +79,7 @@ en:
       registrations:
         new:
           already_have_an_account?: Already have an account?
+          newsletter_notifications: Receive information about relevant activity
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
@@ -108,6 +109,7 @@ en:
     notifications_settings:
       show:
         comments_notifications: I want to receive email notifications when someone comments in my publications.
+        newsletter_notifications: I want to receive information about relevant activity
         replies_notifications: I want to receive email notifications when someone replies my comments.
         update_notifications_settings: Save changes
       update:

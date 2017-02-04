@@ -8,7 +8,8 @@ module Decidim
     let(:data) do
       {
         comments_notifications: "1",
-        replies_notifications: "0"
+        replies_notifications: "0",
+        newsletter_notifications: "1"
       }
     end
 
@@ -16,6 +17,7 @@ module Decidim
       form = double(
         comments_notifications: data[:comments_notifications],
         replies_notifications: data[:replies_notifications],
+        newsletter_notifications: data[:newsletter_notifications],
         valid?: valid
       )
 
@@ -36,7 +38,9 @@ module Decidim
 
       it "updates the users's notifications settings" do
         expect { command.call }.to broadcast(:ok)
+        expect(user.reload.comments_notifications).to be_truthy
         expect(user.reload.replies_notifications).to be_falsy
+        expect(user.reload.newsletter_notifications).to be_truthy
       end
     end
   end
