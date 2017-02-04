@@ -4,7 +4,9 @@ module Decidim
   module LayoutHelper
     def decidim_page_title
       title = content_for(:meta_title)
-      title ? "#{title} - #{current_organization.name}" : current_organization.name
+      return title.html_safe if title
+
+      current_organization.name
     end
 
     # Public: Generates a set of meta tags that generate the different favicon
