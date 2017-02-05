@@ -72,11 +72,13 @@ ca:
           email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
+          sign_up: Si us plau completi el seu perfil
           subtitle: Si us plau, ompli el següent formulari per tal de completar la seva inscripció
           username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
       registrations:
         new:
           already_have_an_account?: Ja tens un compte?
+          newsletter_notifications: Rebre informació sobre activitat rellevant
           sign_in: Entra
           sign_up: Registra't
           sign_up_as:
@@ -94,9 +96,24 @@ ca:
       shared:
         omniauth_buttons:
           or: O
+    filters:
+      linked_classes:
+        all: Tots
+        meeting: Llistat de trobades
+        proposal: Propostes
+        result: Resultats
     menu:
       home: Inici
       processes: Processos
+    notifications_settings:
+      show:
+        comments_notifications: Vull rebre notificacions quan algú comenta a les meves publicacions.
+        newsletter_notifications: Vull rebre informació sobre activitat rellevant
+        replies_notifications: Vull rebre notificacions per correu electrònic quan algú respon als meus comentaris.
+        update_notifications_settings: Guardar canvis
+      update:
+        error: Hi ha hagut un error en actualitzar la configuració de les notificacions.
+        success: La configuració de les notificacions s'han actualitzat correctament.
     own_user_groups:
       index:
         not_verified: No verificada
@@ -110,7 +127,7 @@ ca:
         title: Processos participatius
       show:
         developer_group: Grup promotor
-        domain: Domini
+        domain: Àrees municipals
         end_date: Data de finalització
         scope: Àmbit
     shared:
@@ -121,6 +138,7 @@ ca:
     invitations:
       edit:
         header: Establir la contrasenya
+        submit_button: Desa
     mailer:
       invitation_instructions:
         accept: Acceptar invitació
@@ -181,8 +199,9 @@ ca:
         profile: El meu compte
         sign_out: Surt
       user_profile:
-        account: Compta
+        account: Compte
         authorizations: Autoritzacions
+        notifications_settings: Configuració de les notificacions
         title: Configuració d'usuari
         user_groups: Organitzacions
   locales:
@@ -220,6 +239,26 @@ ca:
         users: Usuaris
       sub_hero:
         register: Registre
+  social_share_button:
+    delicious: Delicious
+    douban: Douban
+    email: Correu electrònic
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: LinkedIn
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Compartir a %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Obri el WeChat, feu clic al botó "Discover" i després feu clic al menú "Escanejar codi QR".
+    weibo: Sina Weibo
+    xing: Xing
   views:
     pagination:
       first: "&laquo; Primera"

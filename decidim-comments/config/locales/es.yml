@@ -4,6 +4,21 @@ es:
       messages:
         cannot_have_replies: no pueden tener respuestas
   decidim:
+    comments:
+      comment_notification_mailer:
+        comment_created:
+          new_comment_html: Hay un nuevo comentario de <b>%{commenter}</b> en <b>%{commentable_link}</b>
+        hello: Hola %{name},
+        manage_email_subscriptions_html: Puedes dejar de recibir estos correos electrónicos cambiando la configuración en %{link}.
+        notifications_settings_link: la página de configuración de las notificaciones
+        reply_created:
+          new_reply_html: Hay una nueva respuesta de tu comentario de <b>%{commenter}</b> en <b>%{commentable_link}</b>
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: Tienes un nuevo comentario
+          reply_created:
+            subject: Uno de tus comentarios ha recibido respuesta
     components:
       add_comment_form:
         form:

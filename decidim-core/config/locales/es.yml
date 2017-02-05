@@ -72,11 +72,13 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
+          sign_up: Por favor, complete su perfil
           subtitle: Por favor, rellene el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
+          newsletter_notifications: Recibir información sobre la actividad relevante
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -94,9 +96,24 @@ es:
       shared:
         omniauth_buttons:
           or: O
+    filters:
+      linked_classes:
+        all: Todas
+        meeting: Lista de encuentros
+        proposal: Propuestas
+        result: Resultados
     menu:
       home: Inicio
       processes: Procesos
+    notifications_settings:
+      show:
+        comments_notifications: Quiero recibir notificaciones cuando alguien comenta en mis publicaciones.
+        newsletter_notifications: Quiero recibir información acerca de actividad relevante
+        replies_notifications: Quiero recibir notificaciones por correo electrónico cuando alguien responde a mis comentarios.
+        update_notifications_settings: Guardar cambios
+      update:
+        error: Ha habido un error al actualizar la configuración de las notificaciones.
+        success: La configuración de las notificaciones se han actualizado correctamente.
     own_user_groups:
       index:
         not_verified: No verificada
@@ -121,6 +138,7 @@ es:
     invitations:
       edit:
         header: Escribe tu contraseña
+        submit_button: Guardar
     mailer:
       invitation_instructions:
         accept: Aceptar invitación
@@ -183,6 +201,7 @@ es:
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones
+        notifications_settings: Configuracion de notificaciones
         title: Ajustes de usuario
         user_groups: Organizaciones
   locales:
@@ -220,6 +239,26 @@ es:
         users: Usuarios
       sub_hero:
         register: Registro
+  social_share_button:
+    delicious: Delicious
+    douban: Douban
+    email: Correo electrónico
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: LinkedIn
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Compartir a %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Abra su WeChat, haga clic en el botón "Discover" y luego haga clic en el menú "Escanear código QR".
+    weibo: Sina Weibo
+    xing: Xing
   views:
     pagination:
       first: "&laquo; Primera"
