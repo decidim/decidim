@@ -228,7 +228,7 @@ en:
         proposals: Proposals
         proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
       hero:
-        register: Register
+        participate: Participate
         welcome: Welcome to %{organization}!
       highlighted_processes:
         active_step: Active step

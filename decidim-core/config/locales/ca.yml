@@ -208,7 +208,7 @@ ca:
         proposals: Propostes
         proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
       hero:
-        register: Registre
+        participate: Participa
         welcome: Benvingut a %{organization}!
       highlighted_processes:
         active_step: Fase activa
