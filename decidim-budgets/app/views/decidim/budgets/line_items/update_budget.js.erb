@@ -19,3 +19,5 @@ if ($projectItem.length > 0) {
 if ($projectBudgetButton.length > 0) {
   $projectBudgetButton.html('<%= j(render partial: 'decidim/budgets/projects/project_budget_button', locals: { project: project }) %>');
 }
+
+window.DecidimBudgets.checkProgressPosition();
