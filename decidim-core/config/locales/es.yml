@@ -208,7 +208,7 @@ es:
         proposals: Propuestas
         proposals_explanation: Espacio abierto de propuestas de los ciudadanos sobre en qué tipo de ciudad queremos vivir.
       hero:
-        register: Registro
+        participate: Participa
         welcome: Bienvenido a %{organization}!
       highlighted_processes:
         active_step: Fase activa
