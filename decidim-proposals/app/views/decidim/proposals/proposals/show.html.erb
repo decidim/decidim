@@ -40,16 +40,7 @@
     <div class="section">
       <%= render partial: "proposal_badge", locals: { proposal: @proposal } %>
       <p><%= @proposal.body %></p>
-      <% if @proposal.category || @proposal.scope %>
-        <ul class="tags tags--proposal">
-          <% if @proposal.category %>
-            <li><a href=""><%= translated_attribute(@proposal.category.name) %></a></li>
-          <% end %>
-          <% if @proposal.scope %>
-            <li><a href=""><%= @proposal.scope.name %></a></li>
-          <% end %>
-        </ul>
-      <% end %>
+      <%= render partial: "tags", locals: { proposal: @proposal } %>
     </div>
     <% if @proposal.rejected? %>
       <div class="section">

@@ -77,6 +77,7 @@ en:
           origin: Origin
           rejected: Rejected
           related_to: Related to
+          scopes: Scopes
           search: Search
           state: State
           voted: Voted

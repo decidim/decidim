@@ -1,0 +1,10 @@
+<% if proposal.category.present? || proposal.scope.present? %>
+  <ul class="tags tags--proposal" >
+    <% if proposal.category.present? %>
+      <li><%= link_to translated_attribute(proposal.category.name), decidim_proposals.proposals_path(filter: { category_id: proposal.category.id }) %></li>
+    <% end %>
+    <% if proposal.scope.present? %>
+      <li><%= link_to proposal.scope.name, decidim_proposals.proposals_path(filter: { scope_id: [proposal.scope.id] }) %></li>
+    <% end %>
+  </ul>
+<% end %>

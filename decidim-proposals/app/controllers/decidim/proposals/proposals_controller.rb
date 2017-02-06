@@ -21,6 +21,7 @@ module Decidim
                      .includes(:author)
                      .includes(votes: [:author])
                      .includes(:category)
+                     .includes(:scope)
 
         @proposals = reorder(@proposals)
 
@@ -89,6 +90,7 @@ module Decidim
           activity: "",
           category_id: "",
           state: "all",
+          scope_id: "",
           related_to: ""
         }
       end
