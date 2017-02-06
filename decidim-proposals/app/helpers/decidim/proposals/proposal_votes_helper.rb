@@ -27,7 +27,7 @@ module Decidim
       #
       # Returns true if the vote limit is enabled
       def vote_limit_enabled?
-        current_user && feature_settings.vote_limit.present? && feature_settings.vote_limit.positive?
+        current_user && current_settings.votes_enabled? && feature_settings.vote_limit.present? && feature_settings.vote_limit.positive?
       end
 
       # Return the remaining votes for a user if the current feature has a vote limit
