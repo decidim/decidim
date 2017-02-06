@@ -193,6 +193,10 @@ FactoryGirl.define do
     trait :unpublished do
       published_at { nil }
     end
+
+    trait :published do
+      published_at { Time.current }
+    end
   end
 
   factory :scope, class: Decidim::Scope do

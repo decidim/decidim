@@ -75,6 +75,9 @@ describe "Participatory Processes", type: :feature do
   end
 
   describe "show" do
+    let!(:published_feature) { create(:feature, :published, participatory_process: participatory_process) }
+    let!(:unpublished_feature) { create(:feature, :unpublished, participatory_process: participatory_process) }
+
     before do
       visit decidim.participatory_process_path(participatory_process)
     end
@@ -98,5 +101,14 @@ describe "Participatory Processes", type: :feature do
 
     let(:attached_to) { participatory_process }
     it_behaves_like "has attachments"
+
+    context "when the process has some features" do
+      it "shows the features" do
+        within ".process-nav" do
+          expect(page).to have_content(translated(published_feature.name, locale: :en).upcase)
+          expect(page).to have_no_content(translated(unpublished_feature.name, locale: :en).upcase)
+        end
+      end
+    end
   end
 end
