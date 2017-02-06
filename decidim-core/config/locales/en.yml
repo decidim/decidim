@@ -215,8 +215,8 @@ en:
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Organizations
-  locales:
-    en: English
+  locale:
+    name: English
   pages:
     '404':
       back_home: Back home

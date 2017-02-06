@@ -214,8 +214,8 @@ es:
         notifications_settings: Configuracion de notificaciones
         title: Ajustes de usuario
         user_groups: Organizaciones
-  locales:
-    en: English
+  locale:
+    name: Castellano
   pages:
     '404':
       back_home: Volver al inicio

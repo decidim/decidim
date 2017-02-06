@@ -214,8 +214,8 @@ ca:
         notifications_settings: Configuració de les notificacions
         title: Configuració d'usuari
         user_groups: Organitzacions
-  locales:
-    en: English
+  locale:
+    name: Català
   pages:
     '404':
       back_home: Tornar a l'inici

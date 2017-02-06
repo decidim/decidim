@@ -1,7 +1,7 @@
 <div class="topbar__dropmenu language-choose">
   <ul class="dropdown menu" data-dropdown-menu>
     <li class="is-dropdown-submenu-parent">
-      <%= link_to t(current_locale, scope: "locales") %>
+      <%= link_to t("name", scope: "locales") %>
       <% if available_locales.length > 1 %>
         <ul class="menu is-dropdown-submenu">
           <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
