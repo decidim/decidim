@@ -19,13 +19,20 @@ module Decidim
         @proposals = search
                      .results
                      .includes(:author)
-                     .includes(votes: [:author])
                      .includes(:category)
                      .includes(:scope)
 
+        @proposals = @proposals.page(params[:page]).per(12)
         @proposals = reorder(@proposals)
 
-        @proposals = @proposals.page(params[:page]).per(12)
+        @voted_proposals = if current_user
+                             ProposalVote.where(
+                               author: current_user,
+                               proposal: @proposals
+                             ).pluck(:decidim_proposal_id)
+                           else
+                             []
+                           end
       end
 
       def new
@@ -60,7 +67,7 @@ module Decidim
 
       # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
       def random_seed
-        @random_seed = params[:random_seed].to_f || (rand * 2 - 1)
+        @random_seed ||= (params[:random_seed] ? params[:random_seed].to_f : (rand * 2 - 1))
       end
 
       def reorder(proposals)
