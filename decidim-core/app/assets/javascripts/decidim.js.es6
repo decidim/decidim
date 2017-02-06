@@ -1,6 +1,7 @@
 // = require decidim/foundation
 // = require modernizr
 // = require svg4everybody.min
+// = require decidim/history
 // = require decidim/append_elements
 // = require decidim/user_registrations
 
