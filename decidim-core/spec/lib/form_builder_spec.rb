@@ -13,14 +13,30 @@ module Decidim
           ActiveModel::Name.new(self, nil, "dummy")
         end
 
+        extend ActiveModel::Translation
         include ActiveModel::Model
         include Virtus.model
         include TranslatableAttributes
 
         attribute :slug, String
+        attribute :category_id, Integer
+        attribute :number, Integer
+        attribute :max_number, Integer
+        attribute :min_number, Integer
+        attribute :conditional_presence, String
+
         translatable_attribute :name, String
         translatable_attribute :short_description, String
-        attribute :category_id, Integer
+
+        validates :slug, presence: true
+        validates :number, length: { minimum: 10, maximum: 30 }
+        validates :max_number, length: { maximum: 50 }
+        validates :min_number, length: { minimum: 10 }
+        validates :conditional_presence, presence: true, if: :validate_presence
+
+        def validate_presence
+          false
+        end
       end.new
     end
 
@@ -29,13 +45,13 @@ module Decidim
     end
 
     let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
+    let(:parsed) { Nokogiri::HTML(output) }
 
     context "#editor" do
       context "using default toolbar" do
         let(:output) do
           builder.editor :slug
         end
-        let(:parsed) { Nokogiri::HTML(output) }
 
         it "renders a hidden field and a container for the editor" do
           expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']").first).to be
@@ -48,7 +64,6 @@ module Decidim
         let(:output) do
           builder.editor :slug, toolbar: :full
         end
-        let(:parsed) { Nokogiri::HTML(output) }
 
         it "renders a hidden field and a container for the editor" do
           expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']").first).to be
@@ -63,7 +78,6 @@ module Decidim
         let(:output) do
           builder.translated :text_area, :name
         end
-        let(:parsed) { Nokogiri::HTML(output) }
 
         it "renders a tabbed input for each field" do
           expect(parsed.css("label[for='resource_name']").first).to be
@@ -89,7 +103,6 @@ module Decidim
         let(:output) do
           builder.translated :editor, :short_description
         end
-        let(:parsed) { Nokogiri::HTML(output) }
 
         it "renders a tabbed input hidden for each field and a container for the editor" do
           expect(parsed.css("label[for='resource_short_description']").first).to be
@@ -171,6 +184,182 @@ module Decidim
         it "includes it as an option" do
           expect(subject.css("option")[0].text).to eq("Select something")
           expect(subject.css("option").count).to eq(4)
+        end
+      end
+    end
+
+    describe "validations" do
+      before do
+        @previous_backend = I18n.backend
+        I18n.backend = I18n::Backend::Simple.new
+      end
+
+      after do
+        I18n.backend = @previous_backend
+      end
+
+      context "when a field is required" do
+        let(:output) do
+          builder.text_field :name, required: true
+        end
+
+        it "adds an abide error element" do
+          expect(parsed.css("span.form-error").first).to be
+        end
+
+        context "translations" do
+          subject { parsed.css("span.form-error").first.text }
+
+          context "with no translations for the field" do
+            it { is_expected.to eq("There's an error in this field.") }
+          end
+
+          context "with custom I18n for the class and attribute" do
+            before do
+              I18n.backend.store_translations(
+                :en,
+                decidim: {
+                  forms: {
+                    errors: {
+                      dummy: {
+                        name: "Name is required for Dummy"
+                      }
+                    }
+                  }
+                }
+              )
+            end
+
+            it { is_expected.to eq("Name is required for Dummy") }
+          end
+
+          context "with custom I18n for the attribute" do
+            before do
+              I18n.backend.store_translations(
+                :en,
+                decidim: {
+                  forms: {
+                    errors: {
+                      name: "Name is required"
+                    }
+                  }
+                }
+              )
+            end
+
+            it { is_expected.to eq("Name is required") }
+          end
+
+          context "with custom I18n for the attribute outside Decidim" do
+            before do
+              I18n.backend.store_translations(
+                :en,
+                forms: {
+                  errors: {
+                    name: "Name is required"
+                  }
+                }
+              )
+            end
+
+            it { is_expected.to eq("Name is required") }
+          end
+        end
+      end
+
+      context "when a field has a validation pattern" do
+        let(:output) do
+          builder.text_field :name, pattern: "foo"
+        end
+
+        it "adds an abide error element" do
+          expect(parsed.css("span.form-error").first).to be
+        end
+      end
+
+      context "max length" do
+        let(:output) do
+          builder.text_field :name, maxlength: 150
+        end
+
+        it "adds a pattern" do
+          expect(parsed.css("input[pattern='^(.){0,150}$']").first).to be
+          expect(output).not_to include("maxlength")
+        end
+      end
+
+      context "min length" do
+        let(:output) do
+          builder.text_field :name, minlength: 150
+        end
+
+        it "adds a pattern" do
+          expect(parsed.css("input[pattern='^(.){150,}$']").first).to be
+          expect(output).not_to include("minlength")
+        end
+      end
+
+      context "when the form has validations" do
+        context "with presence validation" do
+          let(:output) do
+            builder.text_field :slug
+          end
+
+          it "injects presence validations" do
+            expect(parsed.css("input[required='required']").first).to be
+          end
+
+          it "injects a span to show an error" do
+            expect(parsed.css("span.form-error").first).to be
+          end
+
+          context "when the validation has a condition and it is false" do
+            let(:output) do
+              builder.text_field :conditional_presence
+            end
+
+            it "does not inject the presence validations" do
+              expect(parsed.css("input[required='required']").first).not_to be
+            end
+
+            it "does nto inject a span to show an error" do
+              expect(parsed.css("span.form-error").first).not_to be
+            end
+          end
+        end
+
+        context "with min and max length " do
+          let(:output) do
+            builder.text_field :number
+          end
+
+          it "injects the validations" do
+            expect(parsed.css("input[pattern='^(.){10,30}$']").first).to be
+          end
+
+          it "injects a span to show an error" do
+            expect(parsed.css("span.form-error").first).to be
+          end
+        end
+
+        context "with min length " do
+          let(:output) do
+            builder.text_field :min_number
+          end
+
+          it "injects the validations" do
+            expect(parsed.css("input[pattern='^(.){10,}$']").first).to be
+          end
+        end
+
+        context "with max length " do
+          let(:output) do
+            builder.text_field :max_number
+          end
+
+          it "injects the validations" do
+            expect(parsed.css("input[pattern='^(.){0,50}$']").first).to be
+          end
         end
       end
     end

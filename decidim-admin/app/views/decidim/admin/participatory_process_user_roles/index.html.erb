@@ -1,7 +1,7 @@
 <section id="process_admins">
   <h3><%= t(".process_admins_title", scope: "decidim.admin") %></h3>
 
-  <%= form_for :participatory_process_user_role, url: participatory_process_user_roles_path(participatory_process) do |f| %>
+  <%= decidim_form_for :participatory_process_user_role, url: participatory_process_user_roles_path(participatory_process) do |f| %>
     <table class="stack">
       <thead>
         <tr>

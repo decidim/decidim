@@ -9,6 +9,8 @@ import chaiEnzyme       from 'chai-enzyme';
 import loadTranslations from './support/load_translations';
 import requireAll       from './support/require_all';
 
+require('jquery');
+
 // 
 chai.use(sinonChai)
 chai.use(chaiAsPromised)

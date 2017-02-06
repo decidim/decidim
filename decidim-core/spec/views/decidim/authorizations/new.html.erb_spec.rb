@@ -8,6 +8,7 @@ module Decidim
 
     before do
       view.extend AuthorizationFormHelper
+      view.extend DecidimFormHelper
       allow(view).to receive(:handler).and_return(handler)
       allow(view).to receive(:authorizations_path).and_return("/authorizations")
       allow(view).to receive(:participatory_processes_path).and_return("/processes")

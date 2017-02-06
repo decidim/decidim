@@ -8,6 +8,7 @@ module Decidim
       helper Decidim::TranslationsHelper
       helper Decidim::OmniauthHelper
       helper Decidim::MetaTagsHelper
+      helper Decidim::DecidimFormHelper
 
       layout "layouts/decidim/application"
 

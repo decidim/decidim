@@ -5,6 +5,7 @@ module Decidim
       # Custom Sessions controller for Devise in order to use a custom layout
       # and views.
       class SessionsController < ::Devise::SessionsController
+        helper Decidim::DecidimFormHelper
         layout "decidim/system/login"
       end
     end

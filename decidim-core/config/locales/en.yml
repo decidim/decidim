@@ -103,6 +103,9 @@ en:
         meeting: Meetings
         proposal: Proposals
         result: Results
+    forms:
+      errors:
+        error: There's an error in this field.
     menu:
       home: Home
       processes: Processes

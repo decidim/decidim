@@ -98,6 +98,7 @@ ignore_unused:
   - errors.messages.nesting_too_deep
   - social_share_button.*
   - decidim.filters.linked_classes.*
+  - decidim.forms.errors.*
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
