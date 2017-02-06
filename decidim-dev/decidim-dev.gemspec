@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "listen", "~> 3.1.0"
   s.add_dependency "launchy"
   s.add_dependency "i18n-tasks", "0.9.8"
-  s.add_dependency "faker", "~> 1.7.2"
+  s.add_dependency "faker", "~> 1.7.3"
   s.add_dependency "poltergeist", "~> 1.13.0"
   s.add_dependency "rails-controller-testing", "~> 1.0.1"
   s.add_dependency "simplecov", "~> 0.13"
