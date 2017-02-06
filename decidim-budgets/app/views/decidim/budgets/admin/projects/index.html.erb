@@ -19,6 +19,7 @@
         </td>
         <td class="actions">
           <%= link_to t("actions.edit", scope: "decidim.budgets"), edit_project_path(project) if can? :update, current_feature %>
+          <%= link_to t("actions.attachments", scope: "decidim.budgets"), project_attachments_path(project) if can? :update, current_feature %>
           <%= link_to t("actions.destroy", scope: "decidim.budgets"), project_path(project), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } if can? :destroy, current_feature %>
         </td>
       </tr>

@@ -10,7 +10,10 @@ module Decidim
       paths["db/migrate"] = nil
 
       routes do
-        resources :projects
+        resources :projects do
+          resources :attachments
+        end
+
         root to: "projects#index"
       end
 

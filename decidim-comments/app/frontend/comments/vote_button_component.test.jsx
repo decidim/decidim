@@ -12,7 +12,7 @@ describe("<VoteButton />", () => {
 
   it("should render the number of votes passed as a prop", () => {
     const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} />);
-    expect(wrapper.find('button')).to.include.text(10);
+    expect(wrapper.find('button').text()).to.match(/10/);
   });
 
   it("should render a button with the given buttonClassName", () => {

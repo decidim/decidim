@@ -11,6 +11,8 @@ module Decidim
     protect_from_forgery with: :exception, prepend: true
     after_action :add_vary_header
 
+    helper Decidim::LanguageChooserHelper
+
     layout "layouts/decidim/application"
 
     def user_not_authorized_path
