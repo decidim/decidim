@@ -13,6 +13,10 @@ module Decidim
       helper Decidim::ParticipatoryProcessHelper
       helper Decidim::ResourceHelper
 
+      before_action do
+        head(403) unless current_feature.published?
+      end
+
       helper_method :current_feature,
                     :current_manifest
 

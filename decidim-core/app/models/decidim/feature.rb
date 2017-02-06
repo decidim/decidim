@@ -15,6 +15,21 @@ module Decidim
 
     after_initialize :default_values
 
+    def self.published
+      where.not(published_at: nil)
+    end
+
+    def self.unpublished
+      where(published_at: nil)
+    end
+
+    # Public: Finds out wether this feature is published.
+    #
+    # Returns true if published, false otherwise.
+    def published?
+      published_at.present?
+    end
+
     # Public: Finds the manifest this feature is associated to.
     #
     # Returns a FeatureManifest.

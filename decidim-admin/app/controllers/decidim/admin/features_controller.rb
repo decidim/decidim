@@ -88,6 +88,15 @@ module Decidim
         end
       end
 
+      def publish
+        @feature = query_scope.find(params[:id]).update_attribute(:published_at, Time.current)
+        redirect_to :back
+      end
+
+      def unpublish
+        @feature = query_scope.find(params[:id]).update_attribute(:published_at, nil)
+      end
+
       private
 
       def query_scope
