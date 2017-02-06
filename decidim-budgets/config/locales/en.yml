@@ -3,6 +3,7 @@ en:
   decidim:
     budgets:
       actions:
+        attachments: Attachments
         confirm_destroy: Are you sure you want to delete this project?
         destroy: Delete
         edit: Edit
