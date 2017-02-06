@@ -18,6 +18,8 @@
       <div class="card">
         <div class="card__content">
           <%= decidim_form_for(@form, as: resource_name, url: registration_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+            <%= invisible_captcha %>
+
             <fieldset class="text-center">
               <legend class="text-center heading5"><%= t(".sign_up_as.legend") %></legend>
               <%= f.collection_radio_buttons :sign_up_as, [["user", t(".sign_up_as.user")], ["user_group", t(".sign_up_as.user_group") ]], :first, :last %>

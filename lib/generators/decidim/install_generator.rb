@@ -38,6 +38,7 @@ module Decidim
         template "initializer.rb", "config/initializers/decidim.rb"
         template "carrierwave.rb", "config/initializers/carrierwave.rb"
         template "social_share_button.rb", "config/initializers/social_share_button.rb"
+        template "invisible_captcha.rb", "config/initializers/invisible_captcha.rb"
       end
 
       def secrets
