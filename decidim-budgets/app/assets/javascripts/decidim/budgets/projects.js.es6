@@ -1,3 +1,4 @@
+// = require ./progressFixed
 // = require_self
 
 $(() => {
