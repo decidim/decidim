@@ -6,6 +6,7 @@ module Decidim
     describe ProposalVotesHelper do
       let(:organization) { create(:organization) }
       let(:vote_limit) { 10 }
+      let(:votes_enabled) { true }
       let(:proposal_feature) { create(:proposal_feature, organization: organization) }
       let(:user) { create(:user, organization: organization) }
 
@@ -13,6 +14,7 @@ module Decidim
         allow(helper).to receive(:current_user).and_return(user)
         allow(helper).to receive(:current_feature).and_return(proposal_feature)
         allow(helper).to receive(:feature_settings).and_return(double(vote_limit: vote_limit))
+        allow(helper).to receive(:current_settings).and_return(double(votes_enabled?: votes_enabled))
       end
 
       describe "#vote_button_classes" do
@@ -41,6 +43,14 @@ module Decidim
 
           it "returns false" do
             expect(helper).to receive(:current_user).and_return(nil)
+            expect(helper.vote_limit_enabled?).to be_falsy
+          end
+        end
+
+        context "when the step_settings votes_enabled is false" do
+          let(:votes_enabled) { false }
+
+          it "returns false" do
             expect(helper.vote_limit_enabled?).to be_falsy
           end
         end
