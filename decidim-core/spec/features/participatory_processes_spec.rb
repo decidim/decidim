@@ -65,8 +65,10 @@ describe "Participatory Processes", type: :feature do
       it "links to the active step" do
         visit decidim.participatory_processes_path
 
-        within "#processes-grid .column:nth-child(1) .card__footer" do
-          expect(page).to have_content("Current step: Active step")
+        within find("#processes-grid .column", text: translated(participatory_process.title)) do
+          within ".card__footer" do
+            expect(page).to have_content("Current step: Active step")
+          end
         end
       end
     end
