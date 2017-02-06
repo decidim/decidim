@@ -37,6 +37,7 @@ Decidim.register_feature(:proposals) do |feature|
       feature = Decidim::Feature.create!(
         name: Decidim::Features::Namer.new(process.organization.available_locales, :proposals).i18n_name,
         manifest_name: :proposals,
+        published_at: Time.current,
         participatory_process: process,
         settings: {
           vote_limit: 0

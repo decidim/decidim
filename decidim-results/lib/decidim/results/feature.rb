@@ -31,6 +31,7 @@ Decidim.register_feature(:results) do |feature|
       feature = Decidim::Feature.create!(
         name: Decidim::Features::Namer.new(process.organization.available_locales, :results).i18n_name,
         manifest_name: :results,
+        published_at: Time.current,
         participatory_process: process
       )
 
