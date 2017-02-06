@@ -7,9 +7,12 @@ ca:
     comments:
       comment_notification_mailer:
         comment_created:
-          new_comment_html: Hi ha un comentari nou de <b>%{commenter}</b> en
+          new_comment_html: Hi ha un nou comentari d'<b>%{commenter}</b> a <b>%{commentable_link}</b>
+        hello: Hola %{name},
+        manage_email_subscriptions_html: Pots deixar de rebre aquests correus electrònics canviant la configuració a %{link}.
+        notifications_settings_link: la pàgina de configuració de les notificacions
         reply_created:
-          new_reply_html: Hi ha una nova resposta al teu comentari de <b>%{commenter}</b> a <b>%{commentable_link}</b>
+          new_reply_html: Hi ha una nova resposta de <b>%{commenter}</b> al teu comentari a <b>%{commentable_link}</b>
       mailer:
         comment_notification:
           comment_created:

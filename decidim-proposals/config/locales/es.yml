@@ -75,6 +75,7 @@ es:
           official: Oficial
           origin: Origen
           rejected: Rechazadas
+          related_to: Relacionado con
           search: Buscar
           state: Estado
           voted: Votado
@@ -95,6 +96,11 @@ es:
           select_a_scope: Por favor, seleccione un ámbito
           send: Enviar
           title: Nueva propuesta
+        orders:
+          label: 'Ordenar propuestas por:'
+          most_voted: Más votado
+          random: Aleatorio
+          recent: Reciente
         proposal:
           view_proposal: Ver propuesta
         share:

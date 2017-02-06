@@ -14,7 +14,7 @@ module Decidim
         let(:subject) { "Tens un nou comentari" }
         let(:default_subject) { "You have a new comment" }
 
-        let(:body) { "Hi ha un comentari nou de" }
+        let(:body) { "Hi ha un nou comentari d" }
         let(:default_body) { "There is a new comment" }
 
         include_examples "localised email"
@@ -26,7 +26,7 @@ module Decidim
         let(:subject) { "Tens una nova resposta al teu comentari" }
         let(:default_subject) { "You have a new reply of your comment" }
 
-        let(:body) { "Hi ha una nova resposta al teu comentari" }
+        let(:body) { "Hi ha una nova resposta de" }
         let(:default_body) { "There is a new reply of your comment" }
 
         include_examples "localised email"

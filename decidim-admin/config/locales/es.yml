@@ -24,9 +24,13 @@ es:
       participatory_process:
         banner_image: Imagen de bandera
         description: Descripción
+        developer_group: Grupo promotor
+        domain: Dominio
+        end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
         promoted: Destacado
+        scope: Ámbito
         short_description: Breve descripción
         slug: Texto corto de URL
         subtitle: Subtítulo

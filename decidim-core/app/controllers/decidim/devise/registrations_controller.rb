@@ -11,6 +11,7 @@ module Decidim
       helper Decidim::OmniauthHelper
       helper Decidim::MetaTagsHelper
       helper Decidim::DecidimFormHelper
+      helper Decidim::LanguageChooserHelper
 
       helper_method :terms_and_conditions_page
 
