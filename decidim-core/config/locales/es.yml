@@ -5,7 +5,7 @@ es:
         email: Tu correo electrónico
         name: Tu nombre
         password: Nueva contraseña
-        password_confirmation: Confirma tu nueva contraseña
+        password_confirmation: Confirme su nueva contraseña
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
@@ -32,9 +32,9 @@ es:
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
       update:
-        error: Se ha producido un error al actualizar tu cuenta.
-        success: Tu cuenta se ha actualizado correctamente.
-        success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
+        error: Se ha producido un error al actualizar su cuenta.
+        success: Su cuenta se ha actualizado correctamente.
+        success_with_email_confirmation: Su cuenta se ha actualizado correctamente. Usted recibirá un correo electrónico para confirmar su nueva dirección de correo electrónico.
     anonymous_user: Anónimo
     application:
       documents:
@@ -62,7 +62,7 @@ es:
       new:
         authorize: Enviar
         authorize_with: Verificarme con %{authorizer}
-      skip_verification: Puedes saltarte este paso por ahora y %{link}
+      skip_verification: Puede saltarte este paso por ahora y %{link}
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
@@ -72,8 +72,8 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
-          sign_up: Por favor, completa tu perfil
-          subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
+          sign_up: Por favor, complete su perfil
+          subtitle: Por favor, rellene el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
@@ -99,9 +99,12 @@ es:
     filters:
       linked_classes:
         all: Todas
-        meeting: Encuentros
+        meeting: Lista de encuentros
         proposal: Propuestas
         result: Resultados
+    forms:
+      errors:
+        error: Hay un error en este campo.
     menu:
       home: Inicio
       processes: Procesos
@@ -127,13 +130,20 @@ es:
         title: Procesos participativos
       show:
         developer_group: Grupo promotor
-        domain: Dominio
         end_date: Fecha de finalización
+        local_area: Áreas muncipales
+        participatory_scope: Ámbito participativo
+        participatory_structure: Estructura participativa
         scope: Ámbito
+        target: '¿A quién va dirigido?'
     shared:
       login_modal:
-        please_sign_in: Por favor, regístrate
-        sign_up: Regístrate
+        please_sign_in: Por favor, regístrese
+        sign_up: Regístrese
+      share_modal:
+        close_window: Cerrar ventana
+        share: Compartir
+        share_link: Compartir enlace
   devise:
     invitations:
       edit:
@@ -205,7 +215,7 @@ es:
         title: Ajustes de usuario
         user_groups: Organizaciones
   locales:
-    es: Castellano
+    en: English
   pages:
     '404':
       back_home: Volver al inicio
@@ -225,7 +235,7 @@ es:
         proposals: Propuestas
         proposals_explanation: Espacio abierto de propuestas de los ciudadanos sobre en qué tipo de ciudad queremos vivir.
       hero:
-        participate: Participa
+        participate: Participar
         welcome: Bienvenido a %{organization}!
       highlighted_processes:
         active_step: Fase activa

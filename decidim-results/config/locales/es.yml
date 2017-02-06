@@ -50,7 +50,7 @@ es:
           scopes: Ámbitos
           search: Buscar
         index:
-          title: Resultados
+          meta_title: "%{feature_name}"
         show:
           stats:
             attendees: Asistentes

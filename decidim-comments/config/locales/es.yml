@@ -12,7 +12,7 @@ es:
         manage_email_subscriptions_html: Puedes dejar de recibir estos correos electrónicos cambiando la configuración en %{link}.
         notifications_settings_link: la página de configuración de las notificaciones
         reply_created:
-          new_reply_html: Hay una nueva respuesta de <b>%{commenter}</b> a tu comentari en <b>%{commentable_link}</b>
+          new_reply_html: Hay una nueva respuesta de tu comentario de <b>%{commenter}</b> en <b>%{commentable_link}</b>
       mailer:
         comment_notification:
           comment_created:
@@ -25,10 +25,10 @@ es:
           body:
             label: Comentario
             placeholder: '¿Qué piensas sobre esto?'
+          form_error: El texto es necesario y no puede ser más de caracteres %{length}.
           submit: Enviar
           user_group_id:
             label: Comentar como
-          form_error: "El texto es necesario y no puede ser más largo de %{length}"
         opinion:
           neutral: Neutral
         title: Deje su comentario
