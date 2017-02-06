@@ -1,4 +1,4 @@
-/* eslint-disable no-prototype-builtins, no-restricted-syntax */
+/* eslint-disable no-prototype-builtins, no-restricted-syntax, no-param-reassign */
 // require self
 
 ((exports) => {

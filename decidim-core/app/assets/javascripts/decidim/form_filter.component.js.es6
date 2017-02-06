@@ -6,8 +6,6 @@
  * @augments Component
  */
 ((exports) => {
-  const { pushState, registerCallback, unregisterCallback } = exports.Decidim.History;
-
   class FormFilterComponent {
     mounted;
     $form;
@@ -29,7 +27,7 @@
       if (this.mounted) {
         this.mounted = false;
         this.$form.off('change', 'input, select', this._onFormChange);
-        unregisterCallback(`filters-${this.$form.attr('id')}`)
+        exports.Decidim.History.unregisterCallback(`filters-${this.$form.attr('id')}`)
       }
     }
 
@@ -42,7 +40,7 @@
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
         this.$form.on('change', 'input, select', this._onFormChange);
-        registerCallback(`filters-${this.$form.attr('id')}`, () => {
+        exports.Decidim.History.registerCallback(`filters-${this.$form.attr('id')}`, () => {
           this._onPopState();
         });
       }
@@ -143,7 +141,7 @@
       const currentOrder = this._parseLocationOrderValue();
 
       this.$form.find('input.order_filter').val(currentOrder);
-      
+
       if (filterParams) {
         const fieldIds = Object.keys(filterParams);
 
@@ -190,9 +188,10 @@
         newUrl = `${formAction}&${params}`;
       }
 
-      pushState(newUrl);
+      exports.Decidim.History.pushState(newUrl);
     }
   }
 
+  exports.Decidim = exports.Decidim || {};
   exports.Decidim.FormFilterComponent = FormFilterComponent;
 })(window);

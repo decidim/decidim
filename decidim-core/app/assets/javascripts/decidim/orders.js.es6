@@ -1,7 +1,7 @@
 // = require_self
 
 $(() => {
-  const { pushState, registerCallback } = Decidim.History;
+  const { pushState, registerCallback } = window.Decidim.History;
 
   $(document).on("click", ".order-by a", (event) => {
     const $target = $(event.target);
