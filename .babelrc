@@ -5,7 +5,7 @@
     "react",
     "stage-2"
   ],
-  "plugins": ["array-includes", "transform-decorators-legacy"],
+  "plugins": ["transform-decorators-legacy"],
   "env": {
     "test": {
       "plugins": [
