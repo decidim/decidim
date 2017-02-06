@@ -188,6 +188,15 @@ FactoryGirl.define do
     name { Decidim::Faker::Localized.sentence(3) }
     participatory_process
     manifest_name "dummy"
+    published_at { Time.now }
+
+    trait :unpublished do
+      published_at { nil }
+    end
+
+    trait :published do
+      published_at { Time.current }
+    end
   end
 
   factory :scope, class: Decidim::Scope do

@@ -20,6 +20,7 @@ module Decidim
 
       before_action do
         authorize! :read, current_participatory_process
+        authorize! :read, current_feature
       end
 
       def current_feature

@@ -3,7 +3,7 @@ require "decidim/faker/localized"
 require "decidim/dev"
 
 FactoryGirl.define do
-  factory :budget_feature, class: Decidim::Feature do
+  factory :budget_feature, parent: :feature do
     name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :budgets).i18n_name }
     manifest_name :budgets
     participatory_process

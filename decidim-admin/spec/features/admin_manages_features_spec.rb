@@ -154,4 +154,42 @@ describe "Admin manages features", type: :feature do
       expect(page).to have_no_content("My feature")
     end
   end
+
+  describe "publish and unpublish a feature" do
+    let!(:feature) do
+      create(:feature, participatory_process: participatory_process, published_at: published_at)
+    end
+
+    let(:published_at) { nil }
+
+    before do
+      visit decidim_admin.participatory_process_features_path(participatory_process)
+    end
+
+    context "when the feature is unpublished" do
+      it "publishes the feature" do
+        within ".feature-#{feature.id}" do
+          click_link "Publish"
+        end
+
+        within ".feature-#{feature.id}" do
+          expect(page).to have_content("Unpublish")
+        end
+      end
+    end
+
+    context "when the feature is published" do
+      let(:published_at) { Time.current }
+
+      it "unpublishes the feature" do
+        within ".feature-#{feature.id}" do
+          click_link "Unpublish"
+        end
+
+        within ".feature-#{feature.id}" do
+          expect(page).to have_content("Publish")
+        end
+      end
+    end
+  end
 end

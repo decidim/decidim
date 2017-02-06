@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 require "spec_helper"
 
@@ -49,7 +50,7 @@ describe "Orders", type: :feature do
           expect(page).to have_content project.title[I18n.locale]
         end
 
-        within ".budget-summary__progressbox" do
+        within "#order-progress .budget-summary__progressbox" do
           expect(page).to have_content "25%"
           expect(page).to have_selector("button.small:disabled")
         end
@@ -72,7 +73,7 @@ describe "Orders", type: :feature do
         expect(page).not_to have_content "1 project selected"
         expect(page).not_to have_selector ".budget-summary__selected"
 
-        within ".budget-summary__progressbox" do
+        within "#order-progress .budget-summary__progressbox" do
           expect(page).to have_content "0%"
         end
 
@@ -105,7 +106,7 @@ describe "Orders", type: :feature do
 
           expect(page).to have_selector '.budget-list__data--added', count: 2
 
-          within ".budget-summary__progressbox" do
+          within "#order-progress .budget-summary__progressbox" do
             page.find('.button.small').click
           end
 
@@ -117,7 +118,7 @@ describe "Orders", type: :feature do
 
           expect(page).to have_content("successfully")
 
-          within ".budget-summary__progressbox" do
+          within "#order-progress .budget-summary__progressbox" do
             expect(page).not_to have_selector("button.small")
           end
         end
@@ -136,7 +137,7 @@ describe "Orders", type: :feature do
 
         expect(page).to have_content("successfully")
 
-        within ".budget-summary__progressbox" do
+        within "#order-progress .budget-summary__progressbox" do
           expect(page).to have_selector("button.small:disabled")
         end
 
