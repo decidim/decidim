@@ -87,6 +87,7 @@ en:
           filter_for: Filter by
           unfold: Unfold
         index:
+          meta_title: "%{feature_name}"
           new_proposal: New proposal
         linked_proposals:
           proposal_votes:
@@ -105,10 +106,6 @@ en:
           recent: Recent
         proposal:
           view_proposal: View proposal
-        share:
-          close_window: Close window
-          share: Share
-          share_link: Share link
         show:
           proposal_rejected_reason: 'This proposal has been rejected because:'
         vote_button:

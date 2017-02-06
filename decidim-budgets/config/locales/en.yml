@@ -63,7 +63,7 @@ en:
           scopes: Scopes
           search: Search
         index:
-          title: Title
+          meta_title: "%{feature_name}"
         order_progress:
           vote: Vote
         order_selected_projects:
