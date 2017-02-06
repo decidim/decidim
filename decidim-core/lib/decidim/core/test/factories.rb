@@ -52,10 +52,12 @@ FactoryGirl.define do
     published_at { Time.current }
     organization
     scope  { Decidim::Faker::Localized.word }
-    domain { Decidim::Faker::Localized.word }
-    developer_group { Faker::Company.name }
+    developer_group { Decidim::Faker::Localized.sentence(1)  }
+    local_area { Decidim::Faker::Localized.sentence(2) }
+    target { Decidim::Faker::Localized.sentence(3) }
+    participatory_scope { Decidim::Faker::Localized.sentence(1) }
+    participatory_structure { Decidim::Faker::Localized.sentence(2) }
     end_date 2.month.from_now.at_midnight
-
     trait :promoted do
       promoted true
     end
