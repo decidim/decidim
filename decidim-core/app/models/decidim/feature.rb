@@ -15,10 +15,18 @@ module Decidim
 
     after_initialize :default_values
 
+    # Public: Filters the features that are published and, therefore, visible by
+    # the end user.
+    #
+    # Returns an ActiveRecord::Relation.
     def self.published
       where.not(published_at: nil)
     end
 
+    # Public: Filters the features that are unpublished and, therefore, not visible
+    # by the end user.
+    #
+    # Returns an ActiveRecord::Relation.
     def self.unpublished
       where(published_at: nil)
     end
