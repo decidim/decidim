@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-expressions */
 require('jquery');
+require('./history.js.es6');
 require('./form_filter.component.js.es6');
 
 const { Decidim: { FormFilterComponent } } = window;
@@ -31,9 +32,6 @@ describe('FormFilterComponent', () => {
       </form>
     `;
     $('body').append(form);
-    window.history = {
-      pushState: sinon.stub()
-    };
     subject = new FormFilterComponent($(document).find('form'));
   });
 
@@ -64,10 +62,6 @@ describe('FormFilterComponent', () => {
       expect(subject.mounted).to.be.truthy;
     });
 
-    it('mounts the component', () => {
-      expect(window.onpopstate).to.equal(subject._onPopState);
-    });
-
     it('binds the form change event', () => {
       expect(subject.$form.on).to.have.been.calledWith('change', 'input, select', subject._onFormChange);
     });
@@ -84,13 +78,6 @@ describe('FormFilterComponent', () => {
 
         expect(stub).to.have.been.calledOnce;
       })
-
-      it('sets the onpopostate callback', () => {
-        sinon.stub(subject.$form, 'serialize').returns('order_start_time=desc')
-        $(selector).find('input[name=order_start_time][value=desc]').trigger('change');
-
-        expect(window.history.pushState).to.have.been.calledWith(null, null, '/filters?order_start_time=desc');
-      });
     });
 
     describe('onpopstate event', () => {
@@ -138,10 +125,6 @@ describe('FormFilterComponent', () => {
 
     it('unbinds the form change event', () => {
       expect(subject.$form.off).to.have.been.calledWith('change', 'input, select', subject._onFormChange);
-    });
-
-    it('removes the onpopostate callback', () => {
-      expect(window.onpopstate).not.to.exist;
     });
   });
 

@@ -27,8 +27,7 @@
       if (this.mounted) {
         this.mounted = false;
         this.$form.off('change', 'input, select', this._onFormChange);
-
-        exports.onpopstate = null;
+        exports.Decidim.History.unregisterCallback(`filters-${this.$form.attr('id')}`)
       }
     }
 
@@ -41,8 +40,9 @@
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
         this.$form.on('change', 'input, select', this._onFormChange);
-
-        exports.onpopstate = this._onPopState;
+        exports.Decidim.History.registerCallback(`filters-${this.$form.attr('id')}`, () => {
+          this._onPopState();
+        });
       }
     }
 
@@ -94,6 +94,24 @@
       return null;
     }
 
+     /**
+     * Parse current location and get the current order.
+     * @private
+     * @returns {string} - The current order
+     */
+    _parseLocationOrderValue() {
+      const url = this._getLocation();
+      const match = url.match(/order=([^&]*)/);
+      const $orderMenu = $('.order-by .menu');
+      let order = $orderMenu.find('.menu a:first').data('order');
+
+      if (match) {
+        order = match[1];
+      }
+
+      return order;
+    }
+
     /**
      * Clears the form to start with a clean state.
      * @private
@@ -120,6 +138,9 @@
       this._clearForm();
 
       const filterParams = this._parseLocationFilterValues();
+      const currentOrder = this._parseLocationOrderValue();
+
+      this.$form.find('input.order_filter').val(currentOrder);
 
       if (filterParams) {
         const fieldIds = Object.keys(filterParams);
@@ -167,7 +188,7 @@
         newUrl = `${formAction}&${params}`;
       }
 
-      exports.history.pushState(null, null, newUrl);
+      exports.Decidim.History.pushState(newUrl);
     }
   }
 
