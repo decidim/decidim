@@ -55,7 +55,15 @@
               </div>
             </div>
 
+            <p class="lopd-text">
+              <%= translated_attribute(terms_and_conditions_page.content) %>
+            </p>
+
             <fieldset>
+              <div class="field">
+                <%= f.check_box :newsletter_notifications, label: t(".newsletter_notifications") %>
+              </div>
+
               <div class="field">
                 <%= f.check_box :tos_agreement, label: t(".tos_agreement", link: link_to(t(".terms"), page_path("terms-and-conditions"))) %>
               </div>

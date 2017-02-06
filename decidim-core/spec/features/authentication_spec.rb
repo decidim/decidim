@@ -7,6 +7,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
   before do
     switch_to_host(organization.host)
+    create(:static_page, slug: "terms-and-conditions", organization: organization)
     visit decidim.root_path
   end
 

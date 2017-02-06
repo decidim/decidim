@@ -30,9 +30,7 @@ en:
           user_group_id:
             label: Comment as
         opinion:
-          against: I am against
-          in_favor: I am in favor
-          neutral: I am neutral
+          neutral: Neutral
         title: Leave your comment
       comment:
         alignment:

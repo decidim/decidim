@@ -9,6 +9,7 @@ module Decidim
       include FormFactory
       helper Decidim::TranslationsHelper
       helper Decidim::OmniauthHelper
+      helper_method :terms_and_conditions_page
 
       layout "layouts/decidim/application"
       before_action :configure_permitted_parameters
@@ -41,6 +42,12 @@ module Decidim
             render :new
           end
         end
+      end
+
+      private
+
+      def terms_and_conditions_page
+        @terms_and_conditions_page ||= Decidim::StaticPage.find_by_slug('terms-and-conditions')
       end
 
       protected

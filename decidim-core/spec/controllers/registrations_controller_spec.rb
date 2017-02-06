@@ -19,7 +19,8 @@ module Decidim
             email: email,
             password: "password1234",
             password_confirmation: "password1234",            
-            tos_agreement: "1"
+            tos_agreement: "1",
+            newsletter_notifications: "1"
           }
         }
       end

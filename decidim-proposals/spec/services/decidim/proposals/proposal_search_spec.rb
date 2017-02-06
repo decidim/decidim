@@ -4,14 +4,19 @@ module Decidim
   module Proposals
     describe ProposalSearch do
       let(:feature) { create(:feature, manifest_name: "proposals") }
+      let(:scope1) { create :scope, organization: feature.organization }
+      let(:scope2) { create :scope, organization: feature.organization }
+      let(:participatory_process) { feature.participatory_process }
       let(:user) { create(:user, organization: feature.organization) }
-      let!(:proposal) { create(:proposal, feature: feature)}
+      let!(:proposal) { create(:proposal, feature: feature, scope: scope1)}
 
       describe "results" do
         let(:activity) { [] }
         let(:search_text) { nil }
         let(:origin) { nil }
+        let(:related_to) { nil }
         let(:state) { nil }
+        let(:scope_id) { nil }
 
         subject do
           described_class.new({
@@ -20,6 +25,8 @@ module Decidim
             search_text: search_text,
             state: state,
             origin: origin,
+            related_to: related_to,
+            scope_id: scope_id,
             current_user: user
           }).results
         end
@@ -103,6 +110,61 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(rejected_proposals)
+            end
+          end
+        end
+
+        context "scope_id" do
+          let!(:proposal2) { create(:proposal, feature: feature, scope: scope2)}
+
+          context "when a single id is being sent" do
+            let(:scope_id) { scope1.id }
+
+            it "filters meetings by scope" do
+              expect(subject).to eq [proposal]
+            end
+          end
+
+          context "when multiple ids are sent" do
+            let(:scope_id) { [scope2.id, scope1.id] }
+
+            it "filters meetings by scope" do
+              expect(subject).to match_array [proposal, proposal2]
+            end
+          end
+        end
+
+        describe "when the filter includes related_to" do
+          context "when filtering by related to meetings" do
+            let(:related_to) { "Decidim::Meetings::Meeting".underscore }
+            let(:meetings_feature) { create(:feature, manifest_name: "meetings", participatory_process: participatory_process) }
+            let(:meeting) { create :meeting, feature: meetings_feature }
+
+            it "returns only proposals related to meetings" do
+              related_proposal = create(:proposal, :accepted, feature: feature)
+              related_proposal_2 = create(:proposal, :accepted, feature: feature)
+              create_list(:proposal, 3, feature: feature)
+              meeting.link_resources([related_proposal], "proposals_from_meeting")
+              related_proposal_2.link_resources([meeting], "proposals_from_meeting")
+
+              expect(subject).to match_array([related_proposal, related_proposal_2])
+            end
+          end
+
+          context "when filtering by related to results" do
+            let(:related_to) { "Decidim::Results::Result".underscore }
+            let(:results_feature) { create(:feature, manifest_name: "results", participatory_process: participatory_process) }
+            let(:result) { create :result, feature: results_feature }
+
+
+            it "returns only proposals related to results" do
+              related_proposal = create(:proposal, :accepted, feature: feature)
+              related_proposal_2 = create(:proposal, :accepted, feature: feature)
+              create_list(:proposal, 3, feature: feature)
+              result.link_resources([related_proposal], "included_proposals")
+              related_proposal_2.link_resources([result], "included_proposals")
+
+              expect(subject).to match_array([related_proposal, related_proposal_2])
             end
           end
         end

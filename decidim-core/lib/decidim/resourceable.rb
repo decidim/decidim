@@ -74,6 +74,33 @@ module Decidim
     end
 
     class_methods do
+      # Finds the name of the classes that have been linked to this model for the given
+      # `feature`.
+      #
+      # feature - a Decidim::Feature instance where the links will be scoped to.
+      #
+      # Returns an Array of Strings.
+      def linked_classes_for(feature)
+        scope = where(feature: feature)
+
+        from = scope
+               .joins(:resource_links_from)
+               .where(decidim_resource_links: { from_type: self.name })
+
+        to = scope
+             .joins(:resource_links_to)
+             .where(decidim_resource_links: { to_type: self.name })
+
+        ResourceLink
+          .where(from: from)
+          .or(ResourceLink.where(to: to))
+          .pluck(:from_type, :to_type)
+          .flatten
+          .uniq
+          .reject { |k| k == self.name }
+      end
+
+
       # Finds the resource manifest for the model.
       #
       # Returns a Decidim::ResourceManifest

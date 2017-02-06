@@ -1,7 +1,7 @@
-<% content_for :meta_description, @proposal.body %>
-<% content_for :meta_title, @proposal.title %>
-<% content_for :meta_url, proposal_url(@proposal.id) %>
-<% content_for :twitter_handler, current_organization.twitter_handler %>
+<% provide :meta_description, @proposal.body %>
+<% provide :meta_title, @proposal.title %>
+<% provide :meta_url, proposal_url(@proposal.id) %>
+<% provide :twitter_handler, current_organization.twitter_handler %>
 
 <%= render partial: "votes_limit" %>
 <div class="row column view-header">
@@ -40,16 +40,7 @@
     <div class="section">
       <%= render partial: "proposal_badge", locals: { proposal: @proposal } %>
       <p><%= @proposal.body %></p>
-      <% if @proposal.category || @proposal.scope %>
-        <ul class="tags tags--proposal">
-          <% if @proposal.category %>
-            <li><a href=""><%= translated_attribute(@proposal.category.name) %></a></li>
-          <% end %>
-          <% if @proposal.scope %>
-            <li><a href=""><%= @proposal.scope.name %></a></li>
-          <% end %>
-        </ul>
-      <% end %>
+      <%= render partial: "tags", locals: { proposal: @proposal } %>
     </div>
     <% if @proposal.rejected? %>
       <div class="section">

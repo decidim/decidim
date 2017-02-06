@@ -10,6 +10,7 @@ module Decidim
     attribute :email, String
     attribute :password, String
     attribute :password_confirmation, String
+    attribute :newsletter_notifications, Boolean
     attribute :tos_agreement, Boolean
 
     attribute :user_group_name, String
@@ -19,7 +20,7 @@ module Decidim
     validates :sign_up_as, inclusion: { in: %w(user user_group) }
     validates :name, presence: true
     validates :email, presence: true
-    validates :password, presence: true, confirmation: true
+    validates :password, presence: true, confirmation: true, length: { in: Decidim::User.password_length }
     validates :tos_agreement, allow_nil: false, acceptance: true
 
     validates :user_group_name, presence: true, if: :is_user_group?

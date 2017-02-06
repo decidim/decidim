@@ -127,7 +127,7 @@ describe "Comments", type: :feature do
       it "user can comment in favor" do
         expect(page).to have_selector(".add-comment form")
 
-        click_button "I am in favor"
+        page.find('.opinion-toggle--ok').click
 
         within ".add-comment form" do
           fill_in "add-comment-#{commentable.class.name}-#{commentable.id}", with: "I am in favor about this!"

@@ -47,10 +47,14 @@ Decidim.register_feature(:proposals) do |feature|
           process.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
         }
       )
+      categories = feature.participatory_process.categories
+      scopes = feature.organization.scopes
 
       20.times do |n|
         proposal = Decidim::Proposals::Proposal.create!(
           feature: feature,
+          category: categories.sample,
+          scope: scopes.sample,
           title: Faker::Lorem.sentence(2),
           body: Faker::Lorem.paragraphs(2).join("\n"),
           author: Decidim::User.where(organization: feature.organization).all.sample
