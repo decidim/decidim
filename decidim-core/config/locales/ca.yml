@@ -99,9 +99,12 @@ ca:
     filters:
       linked_classes:
         all: Tots
-        meeting: Trobades
+        meeting: Llistat de trobades
         proposal: Propostes
         result: Resultats
+    forms:
+      errors:
+        error: Hi ha un error en aquest camp.
     menu:
       home: Inici
       processes: Processos
@@ -127,13 +130,20 @@ ca:
         title: Processos participatius
       show:
         developer_group: Grup promotor
-        domain: Àrees municipals
         end_date: Data de finalització
+        local_area: Àrees municipals
+        participatory_scope: Àmbit participatiu
+        participatory_structure: Estructura participativa
         scope: Àmbit
+        target: A qui va dirigit?
     shared:
       login_modal:
         please_sign_in: Si us plau, inicia sessió
         sign_up: Donar-se d'alta
+      share_modal:
+        close_window: Tanca la finestra
+        share: Compartir
+        share_link: Comparteix l'enllaç
   devise:
     invitations:
       edit:
@@ -204,8 +214,8 @@ ca:
         notifications_settings: Configuració de les notificacions
         title: Configuració d'usuari
         user_groups: Organitzacions
-  locales:
-    ca: Català
+  locale:
+    name: Català
   pages:
     '404':
       back_home: Tornar a l'inici
@@ -225,7 +235,7 @@ ca:
         proposals: Propostes
         proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
       hero:
-        participate: Participa
+        participate: Participar
         welcome: Benvingut a %{organization}!
       highlighted_processes:
         active_step: Fase activa

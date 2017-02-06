@@ -23,7 +23,7 @@ module Decidim
       describe "reply_created" do
         let(:mail) { described_class.reply_created(user, reply, comment, commentable) }
 
-        let(:subject) { "Tens una nova resposta al teu comentari" }
+        let(:subject) { "Tens una nova resposta del teu comentari" }
         let(:default_subject) { "You have a new reply of your comment" }
 
         let(:body) { "Hi ha una nova resposta de" }
