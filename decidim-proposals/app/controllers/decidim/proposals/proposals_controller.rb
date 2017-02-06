@@ -25,7 +25,7 @@ module Decidim
 
         @proposals = reorder(@proposals)
 
-        @proposals = @proposals.page(params[:page]).per(12)
+        @proposals = @proposals.page(params[:page]).per(12).load
       end
 
       def new
@@ -68,7 +68,7 @@ module Decidim
         when "random"
           Proposal.transaction do
             Proposal.connection.execute("SELECT setseed(#{Proposal.connection.quote(random_seed)})")
-            proposals.order("RANDOM()").load
+            proposals.order("RANDOM()")
           end
         when "most_voted"
           proposals.order(proposal_votes_count: :desc)
