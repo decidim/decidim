@@ -9,6 +9,7 @@ module Decidim
       helper Decidim::MetaTagsHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::LanguageChooserHelper
+      helper Decidim::CookiesHelper
 
       layout "layouts/decidim/application"
 

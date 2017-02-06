@@ -7,11 +7,13 @@ module Decidim
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
       include FormFactory
+      include NeedsTermsAndConditionsPage
       helper Decidim::TranslationsHelper
       helper Decidim::OmniauthHelper
       helper Decidim::MetaTagsHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::LanguageChooserHelper
+      helper Decidim::CookiesHelper
 
       helper_method :terms_and_conditions_page
 

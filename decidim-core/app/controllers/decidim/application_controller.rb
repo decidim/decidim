@@ -5,6 +5,7 @@ module Decidim
     include Decidim::NeedsOrganization
     include Decidim::LocaleSwitcher
     include NeedsAuthorization
+    include NeedsTermsAndConditionsPage
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
     helper Decidim::LanguageChooserHelper
@@ -23,16 +24,6 @@ module Decidim
     # displays the JS response instead of the HTML one.
     def add_vary_header
       response.headers["Vary"] = "Accept"
-    end
-
-    private
-
-    def terms_and_conditions_page
-      @terms_and_conditions_page ||= Decidim::StaticPage.find_by_slug('terms-and-conditions')
-    end
-
-    def cookies_accepted?
-      cookies['decidim-cc'].present?
     end
   end
 end
