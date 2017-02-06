@@ -89,12 +89,23 @@ module Decidim
       end
 
       def publish
-        @feature = query_scope.find(params[:id]).update_attribute(:published_at, Time.current)
+        @feature = query_scope.find(params[:id])
+        authorize! :update, @feature
+
+        @feature.update_attribute(:published_at, Time.current)
+
+        flash[:notice] = I18n.t("features.publish.success", scope: "decidim.admin")
         redirect_to :back
       end
 
       def unpublish
-        @feature = query_scope.find(params[:id]).update_attribute(:published_at, nil)
+        @feature = query_scope.find(params[:id])
+        authorize! :update, @feature
+
+        @feature.update_attribute(:published_at, nil)
+
+        flash[:notice] = I18n.t("features.unpublish.success", scope: "decidim.admin")
+        redirect_to :back
       end
 
       private

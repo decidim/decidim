@@ -16,6 +16,14 @@
       <% end %>
     <% end %>
 
+    <% if can?(:update, feature) %>
+      <% if feature.published? %>
+        <%= link_to t("actions.unpublish", scope: "decidim.admin"), url_for(action: :unpublish, id: feature, controller: "features"), class: "small button", method: :put %>
+      <% else %>
+        <%= link_to t("actions.publish", scope: "decidim.admin"), url_for(action: :publish, id: feature, controller: "features"), class: "small button", method: :put %>
+      <% end %>
+    <% end %>
+
     <%= link_to t("actions.configure", scope: "decidim.admin"), url_for(action: :edit, id: feature, controller: "features"), class: "small button" if can? :update, feature %>
 
     <%= link_to t("actions.destroy", scope: "decidim.admin"), url_for(action: :destroy, id: feature, controller: "features"), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, feature %>

@@ -11,6 +11,8 @@ module Decidim
         can :read, :public_pages
         can :manage, :locales
 
+        can :read, Feature, &:published?
+
         can :manage, User do |other|
           other == user
         end
