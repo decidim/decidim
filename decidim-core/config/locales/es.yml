@@ -205,8 +205,6 @@ es:
         title: Ajustes de usuario
         user_groups: Organizaciones
   locales:
-    ca: Català
-    en: English
     es: Castellano
   pages:
     '404':

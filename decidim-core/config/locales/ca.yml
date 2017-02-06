@@ -206,8 +206,6 @@ ca:
         user_groups: Organitzacions
   locales:
     ca: Català
-    en: English
-    es: Castellano
   pages:
     '404':
       back_home: Tornar a l'inici

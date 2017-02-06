@@ -216,9 +216,7 @@ en:
         title: User settings
         user_groups: Organizations
   locales:
-    ca: Català
     en: English
-    es: Castellano
   pages:
     '404':
       back_home: Back home
