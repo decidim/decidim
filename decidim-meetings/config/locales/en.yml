@@ -63,7 +63,7 @@ en:
           filter_for: Filter by
           unfold: Unfold
         index:
-          meta_title: %{feature_name}
+          meta_title: "%{feature_name}"
           view_meeting: View meeting
         show:
           attendees: Attendees count
