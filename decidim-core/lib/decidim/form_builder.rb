@@ -103,6 +103,15 @@ module Decidim
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options)
     end
 
+    # Public: Override so checkboxes are rendered before the label.
+    def check_box(attribute, options = {}, checked_value = '1', unchecked_value = '0')
+      custom_label(attribute, options[:label], options[:label_options], true) do
+        options[:label] = false
+        options[:label_options] = false
+        super(attribute, options, checked_value, unchecked_value)
+      end + error_and_help_text(attribute, options)
+    end
+
     private
 
     # Private: Override from FoundationRailsHelper in order to render
@@ -210,11 +219,17 @@ module Decidim
     # options   - An optional Hash to build the label.
     #
     # Returns a String.
-    def custom_label(attribute, text, options)
+    def custom_label(attribute, text, options, field_before_label = false)
       return block_given? ? yield.html_safe : "".html_safe if text == false
 
       text = default_label_text(object, attribute) if text.nil? || text == true
-      text = safe_join([text.html_safe, yield]) if block_given?
+
+      text = if field_before_label && block_given?
+               safe_join([yield, text.html_safe])
+             elsif block_given?
+               safe_join([text.html_safe, yield])
+             end
+
       label(attribute, text, options || {})
     end
 
