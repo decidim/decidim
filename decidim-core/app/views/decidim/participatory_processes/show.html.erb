@@ -28,17 +28,38 @@
           </div>
         <% end %>
 
-        <% if current_participatory_process.developer_group.present? %>
+        <% if translated_attribute(current_participatory_process.developer_group).present? %>
           <div class="definition-data__item developer-group">
             <span class="definition-data__title"><%= t(".developer_group") =%></span>
-              <%== current_participatory_process.developer_group %>
+              <%== translated_attribute(current_participatory_process.developer_group) %>
           </div>
         <% end %>
 
-        <% if translated_attribute(current_participatory_process.domain).present? %>
-          <div class="definition-data__item domain">
-            <span class="definition-data__title"><%= t(".domain") =%></span>
-              <%== translated_attribute(current_participatory_process.domain) %>
+        <% if translated_attribute(current_participatory_process.local_area).present? %>
+          <div class="definition-data__item local_area">
+            <span class="definition-data__title"><%= t(".local_area") =%></span>
+              <%== translated_attribute(current_participatory_process.local_area) %>
+          </div>
+        <% end %>
+
+         <% if translated_attribute(current_participatory_process.target).present? %>
+          <div class="definition-data__item target">
+            <span class="definition-data__title"><%= t(".target") =%></span>
+              <%== translated_attribute(current_participatory_process.target) %>
+          </div>
+        <% end %>
+
+         <% if translated_attribute(current_participatory_process.participatory_scope).present? %>
+          <div class="definition-data__item participatory_scope">
+            <span class="definition-data__title"><%= t(".participatory_scope") =%></span>
+              <%== translated_attribute(current_participatory_process.participatory_scope) %>
+          </div>
+        <% end %>
+
+        <% if translated_attribute(current_participatory_process.participatory_structure).present? %>
+          <div class="definition-data__item participatory_structure">
+            <span class="definition-data__title"><%= t(".participatory_structure") =%></span>
+              <%== translated_attribute(current_participatory_process.participatory_structure) %>
           </div>
         <% end %>
       </div>
