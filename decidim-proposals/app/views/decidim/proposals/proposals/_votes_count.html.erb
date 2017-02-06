@@ -1,6 +1,6 @@
 <span class="<%= votes_count_classes(from_proposals_list)[:number] %>">
-  <%= proposal.votes.size %>
+  <%= proposal.proposal_votes_count %>
 </span>
 <span class="<%= votes_count_classes(from_proposals_list)[:label]  %>">
-  <%= t('.count', count: proposal.votes.size) %>
+  <%= t('.count', count: proposal.proposal_votes_count) %>
 </span>
