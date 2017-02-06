@@ -177,7 +177,7 @@ en:
   layouts:
     decidim:
       cookie_warning:
-        description_html: This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies. Find out more about it %{link}.
+        description_html: This site uses cookies. By continuing to browse the site, you agreeing to our use of cookies. Find out more about it %{link}.
         link_label: here
         ok: I agree
       footer:
