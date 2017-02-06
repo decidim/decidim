@@ -1,6 +1,6 @@
 <% unless cookies_accepted? %>
   <div class="cookie-warning">
-    <%= t('.description_html', link: link_to(t('.link_label'), decidim.page_path(terms_and_conditions_page), target: "_blank")) %>
+    <%= t('.description_html', link: link_to(t('.link_label'), decidim.page_path('terms-and-conditions'), target: "_blank")) %>
     <div class="cookie-warning__action">
       <%= button_to t('.ok'), decidim.accept_cookies_path, method: :get, remote: true, class: "button tiny cookie-bar__button" %>
     </div>

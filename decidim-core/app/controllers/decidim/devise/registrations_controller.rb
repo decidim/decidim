@@ -7,7 +7,6 @@ module Decidim
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
       include FormFactory
-      include NeedsTermsAndConditionsPage
       helper Decidim::TranslationsHelper
       helper Decidim::OmniauthHelper
       helper Decidim::MetaTagsHelper
@@ -19,6 +18,7 @@ module Decidim
 
       layout "layouts/decidim/application"
       before_action :configure_permitted_parameters
+      helper_method :terms_and_conditions_page
 
       def new
         @form = form(RegistrationForm).from_params(
@@ -60,6 +60,12 @@ module Decidim
       def build_resource(hash = nil)
         super(hash)
         resource.organization = current_organization
+      end
+
+      private
+
+      def terms_and_conditions_page
+        @terms_and_conditions_page ||= Decidim::StaticPage.find_by_slug('terms-and-conditions')
       end
     end
   end

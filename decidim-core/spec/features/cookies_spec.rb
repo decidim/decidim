@@ -4,7 +4,6 @@ require "spec_helper"
 describe "Cookies", type: :feature do
   let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
-  let!(:static_page) { create(:static_page, slug: 'terms-and-conditions') }
 
   before do
     switch_to_host(organization.host)
