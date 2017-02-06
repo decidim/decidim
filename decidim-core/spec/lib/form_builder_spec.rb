@@ -188,6 +188,16 @@ module Decidim
       end
     end
 
+    describe "checkbox" do
+      let(:output) do
+        builder.check_box :name
+      end
+
+      it "renders the checkbox before the label text" do
+        expect(output).to eq('<label for="resource_name"><input name="resource[name]" type="hidden" value="0" /><input type="checkbox" value="1" name="resource[name]" id="resource_name" />Name</label>')
+      end
+    end
+
     describe "validations" do
       before do
         @previous_backend = I18n.backend
