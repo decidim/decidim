@@ -49,6 +49,7 @@ Decidim::Core::Engine.routes.draw do
   end
 
   get "/pages/*id" => "pages#show", as: :page, format: false
+  get "/cookies/accept", to: "cookie_policy#accept", as: :accept_cookies
 
   match "/404", to: "pages#show", id: "404", via: :all
   match "/500", to: "pages#show", id: "500", via: :all

@@ -176,6 +176,10 @@ en:
       nesting_too_deep: can't be inside of a subcategory
   layouts:
     decidim:
+      cookie_warning:
+        description_html: This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies. Find out more about it %{link}.
+        link_label: here
+        ok: I agree
       footer:
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">open-source software</a>.
       header:
