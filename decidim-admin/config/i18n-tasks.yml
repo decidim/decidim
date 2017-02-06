@@ -92,6 +92,7 @@ ignore_unused:
 - activerecord.attributes.*
 - activemodel.attributes.*
 - decidim.admin.participatory_process_steps.default_title
+- decidim.admin.models.*.name
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'

@@ -90,7 +90,7 @@ search:
 ## Consider these keys used:
 ignore_unused:
   - decidim.system.default_pages.placeholders.*
-  - decidim.system.models.page.name
+  - decidim.system.models.*.name
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
