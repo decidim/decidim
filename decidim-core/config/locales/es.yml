@@ -5,7 +5,7 @@ es:
         email: Tu correo electrónico
         name: Tu nombre
         password: Nueva contraseña
-        password_confirmation: Confirme su nueva contraseña
+        password_confirmation: Confirma tu nueva contraseña
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
@@ -32,9 +32,9 @@ es:
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
       update:
-        error: Se ha producido un error al actualizar su cuenta.
-        success: Su cuenta se ha actualizado correctamente.
-        success_with_email_confirmation: Su cuenta se ha actualizado correctamente. Usted recibirá un correo electrónico para confirmar su nueva dirección de correo electrónico.
+        error: Se ha producido un error al actualizar tu cuenta.
+        success: Tu cuenta se ha actualizado correctamente.
+        success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
     anonymous_user: Anónimo
     application:
       documents:
@@ -62,7 +62,7 @@ es:
       new:
         authorize: Enviar
         authorize_with: Verificarme con %{authorizer}
-      skip_verification: Puede saltarte este paso por ahora y %{link}
+      skip_verification: Puedes saltarte este paso por ahora y %{link}
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
@@ -72,8 +72,8 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
-          sign_up: Por favor, complete su perfil
-          subtitle: Por favor, rellene el siguiente formulario con el fin de completar la inscripción
+          sign_up: Por favor, completa tu perfil
+          subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
@@ -99,7 +99,7 @@ es:
     filters:
       linked_classes:
         all: Todas
-        meeting: Lista de encuentros
+        meeting: Encuentros
         proposal: Propuestas
         result: Resultados
     menu:
@@ -132,8 +132,8 @@ es:
         scope: Ámbito
     shared:
       login_modal:
-        please_sign_in: Por favor, regístrese
-        sign_up: Regístrese
+        please_sign_in: Por favor, regístrate
+        sign_up: Regístrate
   devise:
     invitations:
       edit:

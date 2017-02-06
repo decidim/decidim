@@ -16,7 +16,7 @@ ca:
       mailer:
         comment_notification:
           comment_created:
-            subject: Té un nou comentari
+            subject: Tens un nou comentari
           reply_created:
             subject: Tens una nova resposta del teu comentari
     components:

@@ -5,7 +5,7 @@ ca:
         email: El teu email
         name: El teu nom
         password: Nova contrasenya
-        password_confirmation: Confirmeu la vostra nova contrasenya
+        password_confirmation: Confirma la teva nova contrasenya
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
@@ -34,7 +34,7 @@ ca:
       update:
         error: S'ha produït un error en actualitzar el seu compte.
         success: El seu compte s'ha actualitzat correctament.
-        success_with_email_confirmation: El seu compte s'ha actualitzat correctament. Rebrà un correu electrònic per confirmar la seva nova adreça de correu electrònic.
+        success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
     anonymous_user: Anònim
     application:
       documents:
@@ -55,10 +55,10 @@ ca:
       first_login:
         actions:
           decidim/dummy_authorization_handler: Verificar contra l'exemple d'autorització
-        title: Verificar la seva identitat
+        title: Verificar la teva identitat
         verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la seva identitat:'
       index:
-        authorization_confirm_destroy: Esteu segur que voleu suprimir aquesta autorització?
+        authorization_confirm_destroy: Estàs segur que vols suprimir aquesta autorització?
       new:
         authorize: Enviar
         authorize_with: Verificar-me amb %{authorizer}
@@ -72,8 +72,8 @@ ca:
           email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
-          sign_up: Si us plau completi el seu perfil
-          subtitle: Si us plau, ompli el següent formulari per tal de completar la seva inscripció
+          sign_up: Si us plau completa el teu perfil
+          subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
           username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
       registrations:
         new:
@@ -82,7 +82,7 @@ ca:
           sign_in: Entra
           sign_up: Registra't
           sign_up_as:
-            legend: Inscriure's com
+            legend: Inscriure's com a
             user: Individu
             user_group: Organització/Col·lectiu
           subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
@@ -99,7 +99,7 @@ ca:
     filters:
       linked_classes:
         all: Tots
-        meeting: Llistat de trobades
+        meeting: Trobades
         proposal: Propostes
         result: Resultats
     menu:
@@ -132,7 +132,7 @@ ca:
         scope: Àmbit
     shared:
       login_modal:
-        please_sign_in: Si us plau, inicii sessió
+        please_sign_in: Si us plau, inicia sessió
         sign_up: Donar-se d'alta
   devise:
     invitations:
