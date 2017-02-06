@@ -56,7 +56,7 @@
             </div>
 
             <p class="lopd-text">
-              <%= translated_attribute(terms_and_conditions_page.content) %>
+              <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
             </p>
 
             <fieldset>
