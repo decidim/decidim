@@ -52,7 +52,7 @@ FactoryGirl.define do
     published_at { Time.current }
     organization
     scope  { Decidim::Faker::Localized.word }
-    developer_group { Decidim::Faker::Localized.sentence(1)  }
+    developer_group { Decidim::Faker::Localized.sentence(1) }
     local_area { Decidim::Faker::Localized.sentence(2) }
     target { Decidim::Faker::Localized.sentence(3) }
     participatory_scope { Decidim::Faker::Localized.sentence(1) }
