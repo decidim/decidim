@@ -42,7 +42,11 @@ ca:
       photos:
         related_photos: Fotos relacionades
     authorization_handlers:
-      decidim/dummy_authorization_handler: Autorització d'exemple
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Número de document
+          postal_code: Codi Postal
+        name: exemple d'autorització
       errors:
         duplicate_authorization: Un usuari ja està autoritzat amb les mateixes dades.
     authorizations:
@@ -50,15 +54,11 @@ ca:
         error: S'ha produït un error en crear l'autorització.
         success: Has estat autoritzat/da correctament.
       current_participatory_processes: fer una ullada als processos actuals
-      destroy:
-        success: L'autorització s'ha destruït correctament
       first_login:
         actions:
           decidim/dummy_authorization_handler: Verificar contra l'exemple d'autorització
         title: Verificar la teva identitat
         verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la seva identitat:'
-      index:
-        authorization_confirm_destroy: Estàs segur que vols suprimir aquesta autorització?
       new:
         authorize: Enviar
         authorize_with: Verificar-me amb %{authorizer}
@@ -137,6 +137,21 @@ ca:
         scope: Àmbit
         target: A qui va dirigit?
     shared:
+      action_authorization_modal:
+        incomplete:
+          cancel: Cancel·lar
+          explanation: 'Tot i que actualment està autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
+          reauthorize: Reautoritzar-se
+          title: Si us plau, reautoritza't
+        missing:
+          authorize: Autoritzar amb "%{authorization}"
+          explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
+          title: Es requereix autorització
+        unauthorized:
+          explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
+          invalid: "%{field} no és vàlid."
+          ok: D'acord
+          title: Acció no autoritzada
       login_modal:
         please_sign_in: Si us plau, inicia sessió
         sign_up: Donar-se d'alta
