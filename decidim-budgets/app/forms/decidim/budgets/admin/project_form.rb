@@ -16,7 +16,6 @@ module Decidim
         attribute :proposal_ids, Array[Integer]
 
         validates :title, translatable_presence: true
-        validates :short_description, translatable_presence: true
         validates :description, translatable_presence: true
         validates :budget, presence: true, numericality: { greater_than: 0 }
 
