@@ -76,6 +76,7 @@ ca:
           origin: Origen
           rejected: Rebutjades
           related_to: Relacionat amb
+          scopes: Àmbits
           search: Cerca
           state: Estat
           voted: Votat
@@ -85,6 +86,7 @@ ca:
           filter_for: Filtrar per
           unfold: Desplegar
         index:
+          meta_title: "%{feature_name}"
           new_proposal: Nova proposta
         linked_proposals:
           proposal_votes:
@@ -100,6 +102,7 @@ ca:
           label: 'Ordenar propostes per:'
           most_voted: Més votat
           random: Aleatori
+          recent: Recent
         proposal:
           view_proposal: Veure proposta
         show:
