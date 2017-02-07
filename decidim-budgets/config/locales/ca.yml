@@ -90,7 +90,6 @@ ca:
           added: Afegit
         show:
           budget: Pressupost
-          project_description: Descripció del projecte
           view_all_projects: Veure tots els projectes
     features:
       budgets:
