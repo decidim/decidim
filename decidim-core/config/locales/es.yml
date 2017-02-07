@@ -42,7 +42,11 @@ es:
       photos:
         related_photos: Fotos relacionadas
     authorization_handlers:
-      decidim/dummy_authorization_handler: Autorización de ejemplo
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Número de documento
+          postal_code: Código postal
+        name: ejemplo de autorización
       errors:
         duplicate_authorization: Un usuario ya está autorizado con los mismos datos.
     authorizations:
@@ -50,15 +54,11 @@ es:
         error: Se ha producido un error al crear la autorización.
         success: Has sido autorizado/a correctamente.
       current_participatory_processes: echar un vistazo a los procesos actuales
-      destroy:
-        success: Autorización destruida con éxito
       first_login:
         actions:
           decidim/dummy_authorization_handler: Verificar ejemplo autorización en contra de la
         title: Verifica tu identidad
         verify_with_these_options: 'Estas son las opciones disponibles para verificar su identidad:'
-      index:
-        authorization_confirm_destroy: '¿Está seguro de que quiere eliminar esta autorización?'
       new:
         authorize: Enviar
         authorize_with: Verificarme con %{authorizer}
@@ -137,6 +137,21 @@ es:
         scope: Ámbito
         target: '¿A quién va dirigido?'
     shared:
+      action_authorization_modal:
+        incomplete:
+          cancel: Cancelar
+          explanation: 'A pesar de que actualmente está autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque carecemos de los datos siguientes:'
+          reauthorize: Reautorizarse
+          title: Por favor, re-autorízate
+        missing:
+          authorize: Autorizar con "%{authorization}"
+          explanation: Para llevar a cabo esta acción, tiene que disponer de la autorización "%{authorization}".
+          title: Autorización requerida
+        unauthorized:
+          explanation: No puedes realizar esta acción ya que algunos de los datos de autorización no son los requeridos.
+          invalid: "%{field} no es válido."
+          ok: De acuerdo
+          title: No autorizado
       login_modal:
         please_sign_in: Por favor, regístrate
         sign_up: Regístrate

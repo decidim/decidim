@@ -51,6 +51,9 @@ es:
         organization: Organización
         slug: Texto corto de URL
         title: Título
+    errors:
+      messages:
+        invalid_json: JSON no válido
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -66,6 +69,7 @@ es:
         edit: Editar
         manage: Gestionar
         new: Nuevo %{name}
+        permissions: Permisos
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
@@ -118,6 +122,13 @@ es:
           participatory_process_user_roles:
             index:
               process_admins_title: Administradores del proceso participativo
+      feature_permissions:
+        edit:
+          everyone: Todo el mundo
+          submit: Guardar permisos
+          title: Editar permisos
+        update:
+          success: Permisos actualizados correctamente.
       features:
         create:
           error: Se ha producido un error al añadir esta funcionalidad.

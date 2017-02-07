@@ -10,6 +10,9 @@ es:
   decidim:
     features:
       proposals:
+        actions:
+          create: Crear propuestas
+          vote: Votar
         name: Propuestas
         settings:
           step:
