@@ -22,7 +22,7 @@ module Decidim
       #
       # Returns an ActiveRecord::Relation.
       def query
-        return user.organization.participatory_processes if user.role?(:admin)
+        return user.organization.participatory_processes if user.can?(:read, ParticipatoryProcess)
 
         ParticipatoryProcess.where(id: process_ids)
       end

@@ -15,6 +15,7 @@ module Decidim
           @user = user
 
           return unless user && !user.role?(:admin)
+          return if user.role?(:moderator)
 
           can :read, :admin_dashboard do
             participatory_processes.any?
