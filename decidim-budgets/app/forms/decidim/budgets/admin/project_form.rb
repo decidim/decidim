@@ -8,7 +8,6 @@ module Decidim
         include TranslationsHelper
 
         translatable_attribute :title, String
-        translatable_attribute :short_description, String
         translatable_attribute :description, String
         attribute :budget, Integer
         attribute :decidim_scope_id, Integer
