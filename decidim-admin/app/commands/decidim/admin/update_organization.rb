@@ -24,7 +24,7 @@ module Decidim
 
         update_organization
 
-         if @organization.valid?
+        if @organization.valid?
           broadcast(:ok, @organization)
         else
           form.errors.add(:official_img_header, @organization.errors[:official_img_header]) if @organization.errors.include? :official_img_header
@@ -39,7 +39,7 @@ module Decidim
 
       def update_organization
         @organization.assign_attributes(attributes)
-        @organization.save! if @organization.valid?      
+        @organization.save! if @organization.valid?
       end
 
       def attributes
@@ -52,8 +52,8 @@ module Decidim
           logo: form.logo || organization.logo,
           favicon: form.favicon || organization.favicon,
           default_locale: form.default_locale,
-          official_img_header: form.official_img_header,
-          official_img_footer: form.official_img_footer,
+          official_img_header: form.official_img_header || organization.official_img_header,
+          official_img_footer: form.official_img_footer || organization.official_img_footer,
           official_url: form.official_url,
           show_statistics: form.show_statistics
         }
