@@ -19,7 +19,7 @@
             creates a sticky footer-->
         <!-- Topbar -->
         <div class="title-bar">
-          <% if current_organization.official_img_header %>
+          <% if current_organization.official_img_header? %>
             <%= link_to  current_organization.official_url, class: "logo-cityhall" do %>
               <%= image_tag current_organization.official_img_header.url.to_s , alt: current_organization.name %>
             <% end %>

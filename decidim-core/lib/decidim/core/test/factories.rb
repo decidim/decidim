@@ -39,6 +39,9 @@ FactoryGirl.define do
     favicon { test_file("icon.png", "image/png") }
     default_locale I18n.default_locale
     available_locales Decidim.available_locales
+    official_img_header { test_file("avatar.jpg", "image/jpeg") }
+    official_img_footer { test_file("avatar.jpg", "image/jpeg") }
+    official_url  { Faker::Internet.url }
   end
 
   factory :participatory_process, class: Decidim::ParticipatoryProcess do

@@ -40,6 +40,12 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
+          it "adds errors to the form" do
+            expect(errors).to receive(:add).with(:official_img_header, "Image too big")
+            expect(errors).to receive(:add).with(:official_img_footer, "Image too big")
+            subject.call
+          end
+
           it "doesn't update the organization" do
             command.call
             organization.reload
