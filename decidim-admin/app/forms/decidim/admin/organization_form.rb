@@ -11,6 +11,10 @@ module Decidim
 
       attribute :name, String
       attribute :twitter_handler, String
+      attribute :facebook_handler, String
+      attribute :instagram_handler, String
+      attribute :youtube_handler, String
+      attribute :github_handler, String
       attribute :default_locale, String
       attribute :homepage_image
       attribute :logo

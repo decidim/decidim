@@ -32,6 +32,10 @@ FactoryGirl.define do
   factory :organization, class: Decidim::Organization do
     name { Faker::Company.unique.name }
     twitter_handler { Faker::Hipster.word }
+    facebook_handler { Faker::Hipster.word }
+    instagram_handler { Faker::Hipster.word }
+    youtube_handler { Faker::Hipster.word }
+    github_handler { Faker::Hipster.word }
     sequence(:host) { |n| "#{n}.lvh.me" }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     welcome_text { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
