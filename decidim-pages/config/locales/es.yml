@@ -4,8 +4,6 @@ es:
       pages:
         name: Página
         settings:
-          global:
-            comments_always_enabled: Comentarios siempre habilitados
           step:
             comments_enabled: Comentarios habilitados
     pages:
