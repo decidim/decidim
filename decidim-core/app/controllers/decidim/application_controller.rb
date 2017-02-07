@@ -7,11 +7,10 @@ module Decidim
     include NeedsAuthorization
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
+    helper Decidim::LanguageChooserHelper
 
     protect_from_forgery with: :exception, prepend: true
     after_action :add_vary_header
-
-    helper Decidim::LanguageChooserHelper
 
     layout "layouts/decidim/application"
 
