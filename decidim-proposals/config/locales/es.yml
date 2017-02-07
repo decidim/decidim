@@ -76,7 +76,6 @@ es:
           origin: Origen
           rejected: Rechazadas
           related_to: Relacionado con
-          scopes: Ámbitos
           search: Buscar
           state: Estado
           voted: Votado
@@ -86,7 +85,6 @@ es:
           filter_for: Filtrar por
           unfold: Desplegar
         index:
-          meta_title: "%{feature_name}"
           new_proposal: Nueva propuesta
         linked_proposals:
           proposal_votes:
@@ -102,7 +100,6 @@ es:
           label: 'Ordenar propuestas por:'
           most_voted: Más votado
           random: Aleatorio
-          recent: Reciente
         proposal:
           view_proposal: Ver propuesta
         show:
