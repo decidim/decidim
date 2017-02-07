@@ -90,7 +90,6 @@ es:
           added: Añadido
         show:
           budget: Presupuesto
-          project_description: Descripción del proyecto
           view_all_projects: Ver todos los proyectos
     features:
       budgets:
