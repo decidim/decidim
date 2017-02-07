@@ -48,6 +48,26 @@ module Decidim
           end
         end
 
+        describe "when the organization is not valid" do
+          before do
+            expect(form).to receive(:invalid?).and_return(false)
+            expect(organization).to receive(:valid?).at_least(:once).and_return(false)
+            organization.errors.add(:official_img_header, "Image too big")
+            organization.errors.add(:official_img_footer, "Image too big")
+          end
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+
+          it "adds errors to the form" do
+            command.call
+
+            expect(form.errors[:official_img_header]).not_to be_empty
+            expect(form.errors[:official_img_footer]).not_to be_empty
+          end
+        end
+
         describe "when the form is valid" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)

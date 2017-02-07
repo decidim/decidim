@@ -21,6 +21,7 @@ en:
         user_group_document_number: Organization document number
         user_group_name: Organization name
         user_group_phone: Organization phone
+        remember_me: Remember me
   booleans:
     'false': 'No'
     'true': 'Yes'
@@ -43,7 +44,11 @@ en:
       photos:
         related_photos: Related photos
     authorization_handlers:
-      decidim/dummy_authorization_handler: Example authorization
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Document number
+          postal_code: Postal code
+        name: Example authorization
       errors:
         duplicate_authorization: A user is already authorized with the same data.
     authorizations:
@@ -51,15 +56,11 @@ en:
         error: There was an error creating the authorization.
         success: You've been successfully authorized.
       current_participatory_processes: take a look at the current processes
-      destroy:
-        success: Authorization successfully destroyed
       first_login:
         actions:
           decidim/dummy_authorization_handler: Verify against the example authorization
         title: Verify your identity
         verify_with_these_options: 'These are the available options to verify your identity:'
-      index:
-        authorization_confirm_destroy: Are you sure you want to delete this authorization?
       new:
         authorize: Send
         authorize_with: Verify with %{authorizer}
@@ -138,6 +139,21 @@ en:
         scope: Scope
         target: Target
     shared:
+      action_authorization_modal:
+        incomplete:
+          cancel: Cancel
+          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          reauthorize: Reauthorize
+          title: Please reauthorize
+        missing:
+          authorize: Authorize with "%{authorization}"
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
+          title: Authorization required
+        unauthorized:
+          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          invalid: "%{field} isn't valid."
+          ok: Ok
+          title: Not authorized
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up

@@ -7,6 +7,8 @@ module Decidim
       include NeedsCurrentOrder
 
       def checkout
+        authorize_action! "vote"
+
         Checkout.call(current_order, current_feature) do
           on(:ok) do
             flash[:notice] = I18n.t("orders.checkout.success", scope: "decidim")

@@ -8,8 +8,8 @@
     <h2 id="proposals-count" class="title-action__title section-heading">
       <%= render partial: "count" %>
     </h2>
-    <% if can? :create, Decidim::Proposals::Proposal %>
-      <%= link_to new_proposal_path, class: "title-action__action button small hollow" do %>
+    <% if current_settings.creation_enabled %>
+      <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small hollow" do %>
         <%= t(".new_proposal") %>
         <%= icon "plus" %>
       <% end %>
@@ -35,4 +35,3 @@
 
 <%= javascript_include_tag("decidim/filters") %>
 <%= javascript_include_tag "decidim/orders" %>
-<%= render partial: "decidim/shared/login_modal" %>

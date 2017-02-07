@@ -1,0 +1,39 @@
+<div class="medium-4 large-3 column main__footer__social">
+  <ul class="footer-social">
+    <% if current_organization.twitter_handler.present? %>
+      <li>
+        <a class="footer-social__icon" target="_blank" title="Twitter" href="https://twitter.com/<%= current_organization.twitter_handler %>">
+          <%= icon 'twitter', role: 'img', aria_label: 'Twitter' %>
+        </a>
+      </li>
+    <% end %>
+    <% if current_organization.facebook_handler.present? %>
+      <li>
+        <a class="footer-social__icon" target="_blank" title="Facebook" href="https://www.facebook.com/<%= current_organization.facebook_handler %>">
+          <%= icon 'facebook', role: 'img', aria_label: 'Facebook' %>
+        </a>
+      </li>
+    <% end %>
+    <% if current_organization.instagram_handler.present? %>
+      <li>
+        <a class="footer-social__icon" target="_blank" title="Instagram" href="https://www.instagram.com/<%= current_organization.instagram_handler %>">
+          <%= icon 'instagram', role: 'img', aria_label: 'Instagram' %>
+        </a>
+      </li>
+    <% end %>
+    <% if current_organization.youtube_handler.present? %>
+      <li>
+        <a class="footer-social__icon" target="_blank" title="YouTube" href="https://www.youtube.com/<%= current_organization.youtube_handler %>">
+          <%= icon 'youtube', role: 'img', aria_label: 'YouTube' %>
+        </a>
+      </li>
+    <% end %>
+    <% if current_organization.github_handler.present? %>
+      <li>
+        <a class="footer-social__icon" target="_blank" title="GitHub" href="https://www.github.com/<%= current_organization.github_handler %>">
+          <%= icon 'github', role: 'img', aria_label: 'GitHub' %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>

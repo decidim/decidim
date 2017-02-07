@@ -27,19 +27,24 @@ module Decidim
     attr_reader :handler
 
     def create_authorization
-      Authorization.create!(
+      authorization = Authorization.find_or_initialize_by(
         user: handler.user,
-        unique_id: handler.unique_id,
-        name: handler.handler_name,
-        metadata: handler.metadata
+        name: handler.handler_name
       )
+
+      authorization.attributes = {
+        unique_id: handler.unique_id,
+        metadata: handler.metadata
+      }
+
+      authorization.save!
     end
 
     def unique?
       return true if handler.unique_id.nil?
 
       duplicates = Authorization.where(
-        user: User.where(organization: handler.user.organization.id),
+        user: User.where.not(id: handler.user.id).where(organization: handler.user.organization.id),
         name: handler.handler_name,
         unique_id: handler.unique_id
       )

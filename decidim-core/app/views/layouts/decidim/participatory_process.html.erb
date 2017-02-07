@@ -14,4 +14,10 @@
   <% end %>
 <% end %>
 
+<% if try(:current_feature) %>
+  <%= current_feature.manifest.actions.each do |action| %>
+    <%= action_authorization_modal(action) %>
+  <% end %>
+<% end %>
+
 <% provide :meta_image_url, current_participatory_process.banner_image.url %>

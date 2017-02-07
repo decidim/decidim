@@ -9,6 +9,8 @@ module Decidim
       helper_method :project
 
       def create
+        authorize_action! "vote"
+
         AddLineItem.call(current_order, project, current_user) do
           on(:ok) do |order|
             self.current_order = order

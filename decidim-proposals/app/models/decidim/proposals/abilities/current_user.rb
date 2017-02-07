@@ -16,27 +16,38 @@ module Decidim
           @context = context
 
           can :vote, Proposal do |_proposal|
-            voting_enabled? && remaining_votes.positive?
+            authorized?(:vote) && voting_enabled? && remaining_votes.positive?
           end
 
           can :unvote, Proposal do |_proposal|
-            voting_enabled? && vote_limit_enabled?
+            authorized?(:vote) && voting_enabled? && vote_limit_enabled?
           end
 
-          can :create, Proposal if current_settings.try(:creation_enabled?)
+          can :create, Proposal if authorized?(:create) && creation_enabled?
         end
 
         private
+
+        def authorized?(action)
+          return unless feature
+
+          ActionAuthorizer.new(user, feature, action).authorize.ok?
+        end
 
         def vote_limit_enabled?
           return unless feature_settings
           feature_settings.vote_limit.present? && feature_settings.vote_limit.positive?
         end
 
+        def creation_enabled?
+          return unless current_settings
+          current_settings.creation_enabled?
+        end
+
         def remaining_votes
           return 1 unless vote_limit_enabled?
 
-          proposals = Proposal.where(feature: context.fetch(:current_feature))
+          proposals = Proposal.where(feature: feature)
           votes_count = ProposalVote.where(author: user, proposal: proposals).size
           feature_settings.vote_limit - votes_count
         end
@@ -52,6 +63,13 @@ module Decidim
 
         def feature_settings
           context.fetch(:feature_settings, nil)
+        end
+
+        def feature
+          feature = context.fetch(:current_feature, nil)
+          return nil unless feature && feature.manifest.name == :proposals
+
+          feature
         end
       end
     end

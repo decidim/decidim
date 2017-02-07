@@ -7,6 +7,22 @@
 </div>
 
 <div class="field">
+  <%= form.text_field :facebook_handler %>
+</div>
+
+<div class="field">
+  <%= form.text_field :instagram_handler %>
+</div>
+
+<div class="field">
+  <%= form.text_field :youtube_handler %>
+</div>
+
+<div class="field">
+  <%= form.text_field :github_handler %>
+</div>
+
+<div class="field">
   <%= form.translated :editor, :description %>
 </div>
 
@@ -28,6 +44,24 @@
 
 <div class="field">
   <%= form.file_field :favicon %>
+</div>
+
+<div class="field">
+  <%= form.text_field :official_url %>
+</div>
+
+<div class="field">
+  <%= form.file_field :official_img_header %>
+  <% if current_organization.official_img_header? %>
+      <%= image_tag current_organization.official_img_header.url.to_s %>
+  <% end %>
+</div>
+
+<div class="field">
+  <%= form.file_field :official_img_footer %>
+  <% if current_organization.official_img_footer? %>
+      <%= image_tag current_organization.official_img_footer.url.to_s %>
+  <% end %>
 </div>
 
 <div class="field">

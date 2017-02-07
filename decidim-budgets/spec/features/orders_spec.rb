@@ -57,6 +57,23 @@ describe "Orders", type: :feature do
       end
     end
 
+    context "and isn't authorized" do
+      before do
+        feature.update_attribute(:permissions, vote: {
+                                   authorization_handler_name: "decidim/dummy_authorization_handler"
+                                 })
+        visit_feature
+      end
+
+      it "shows a modal dialog" do
+        within "#project-#{project.id}-item" do
+          page.find('.budget--list__action').click
+        end
+
+        expect(page).to have_content("Authorization required")
+      end
+    end
+
     context "and has pending order" do
       let!(:order) { create(:order, user: user, feature: feature) }
       let!(:line_item) { create(:line_item, order: order, project: project) }

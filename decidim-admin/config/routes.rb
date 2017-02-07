@@ -15,7 +15,9 @@ Decidim::Admin::Engine.routes.draw do
       end
       resources :user_roles, controller: "participatory_process_user_roles", only: [:destroy, :create, :index]
       resources :attachments, controller: "participatory_process_attachments"
+
       resources :features do
+        resource :permissions, controller: "feature_permissions"
         member do
           put :publish
           put :unpublish

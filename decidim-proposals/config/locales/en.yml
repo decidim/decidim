@@ -11,6 +11,9 @@ en:
   decidim:
     features:
       proposals:
+        actions:
+          create: Create proposals
+          vote: Vote
         name: Proposals
         settings:
           step:

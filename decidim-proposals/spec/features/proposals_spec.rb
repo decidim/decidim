@@ -77,6 +77,18 @@ describe "Proposals", type: :feature do
             expect(page).to have_content(user_group.name)
           end
         end
+
+        context "when the user isn't authorized" do
+          before do
+            feature.update_attribute(:permissions, create: { authorization_handler_name: "decidim/dummy_authorization_handler" })
+            visit_feature
+          end
+
+          it "should show a modal dialog" do
+            click_link "New proposal"
+            expect(page).to have_content("Authorization required")
+          end
+        end
       end
 
       context "when creation is not enabled" do

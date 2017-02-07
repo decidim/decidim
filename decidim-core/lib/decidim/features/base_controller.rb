@@ -9,9 +9,12 @@ module Decidim
       layout "layouts/decidim/participatory_process"
       include NeedsParticipatoryProcess
       include FeatureSettings
+      include ActionAuthorization
+
       helper Decidim::TranslationsHelper
       helper Decidim::ParticipatoryProcessHelper
       helper Decidim::ResourceHelper
+      helper Decidim::ActionAuthorizationHelper
 
       helper_method :current_feature,
                     :current_manifest

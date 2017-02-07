@@ -89,9 +89,10 @@ search:
 
 ## Consider these keys used:
 ignore_unused:
-- activerecord.attributes.*
-- activemodel.attributes.*
-- decidim.admin.participatory_process_steps.default_title
+ - activerecord.attributes.*
+ - activemodel.attributes.*
+ - decidim.admin.participatory_process_steps.default_title
+ - activemodel.errors.messages.*
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'
