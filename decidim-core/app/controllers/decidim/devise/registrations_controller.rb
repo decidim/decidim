@@ -12,11 +12,13 @@ module Decidim
       helper Decidim::MetaTagsHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::LanguageChooserHelper
+      helper Decidim::CookiesHelper
 
       helper_method :terms_and_conditions_page
 
       layout "layouts/decidim/application"
       before_action :configure_permitted_parameters
+      helper_method :terms_and_conditions_page
 
       def new
         @form = form(RegistrationForm).from_params(
@@ -48,12 +50,6 @@ module Decidim
         end
       end
 
-      private
-
-      def terms_and_conditions_page
-        @terms_and_conditions_page ||= Decidim::StaticPage.find_by_slug('terms-and-conditions')
-      end
-
       protected
 
       def configure_permitted_parameters
@@ -64,6 +60,12 @@ module Decidim
       def build_resource(hash = nil)
         super(hash)
         resource.organization = current_organization
+      end
+
+      private
+
+      def terms_and_conditions_page
+        @terms_and_conditions_page ||= Decidim::StaticPage.find_by_slug('terms-and-conditions')
       end
     end
   end

@@ -8,7 +8,6 @@ module Decidim
         include TranslationsHelper
 
         translatable_attribute :title, String
-        translatable_attribute :short_description, String
         translatable_attribute :description, String
         attribute :budget, Integer
         attribute :decidim_scope_id, Integer
@@ -16,7 +15,6 @@ module Decidim
         attribute :proposal_ids, Array[Integer]
 
         validates :title, translatable_presence: true
-        validates :short_description, translatable_presence: true
         validates :description, translatable_presence: true
         validates :budget, presence: true, numericality: { greater_than: 0 }
 
