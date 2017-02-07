@@ -49,8 +49,6 @@ ca:
           category: Categoria
           scopes: Àmbits
           search: Cerca
-        index:
-          meta_title: "%{feature_name}"
         show:
           stats:
             attendees: Assistents
