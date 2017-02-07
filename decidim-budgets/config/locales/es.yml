@@ -2,7 +2,6 @@ es:
   decidim:
     budgets:
       actions:
-        attachments: Archivos adjuntos
         confirm_destroy: '¿Estás seguro de que deseas eliminar este proyecto?'
         destroy: Borrar
         edit: Editar
@@ -35,14 +34,12 @@ es:
             title: Título
       projects:
         budget_confirm:
-          are_you_sure: '¿Estás de acuerdo? Una vez que hayas confirmado tu voto, no puedes cambiarlo.'
           cancel: Cancelar
           confirm: Confirmar
           description: Estos son los proyectos que has elegido para formar parte del presupuesto.
           title: Confirmar voto
         budget_excess:
           close: Cerrar
-          description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puede eliminar un proyecto que ya hayas seleccionado o votar con tus preferencias.
           ok: De acuerdo
           title: Presupuesto excedido
         budget_summary:
@@ -50,9 +47,7 @@ es:
           assigned: 'Asignado:'
           cancel_order: eliminar tu voto y empezar de nuevo
           checked_out:
-            description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
             title: Voto enviado correctamente
-          description: "¿Qué proyectos crees que deberíamos asignar el presupuesto? Asigna por lo menos %{minimum_budget} a los proyectos que desees y vota para definir el presupuesto."
           title: Tú decides el presupuesto
         count:
           projects_count:
