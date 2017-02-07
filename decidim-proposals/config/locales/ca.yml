@@ -10,6 +10,8 @@ ca:
   decidim:
     features:
       proposals:
+        actions:
+          create: Crear propostes
         name: Propostes
         settings:
           step:
