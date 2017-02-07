@@ -1,0 +1,5 @@
+eu:
+  decidim:
+    comments:
+      comment_notification_mailer:
+        hello: Kaixo %{name},
