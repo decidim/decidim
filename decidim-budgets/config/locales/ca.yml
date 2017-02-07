@@ -45,12 +45,14 @@ ca:
             title: Títol
       projects:
         budget_confirm:
+          are_you_sure: Hi estàs d'acord? Un cop hagis confirmat el teu vot, no podràs canviar-lo.
           cancel: Cancel·lar
           confirm: Confirmar
           description: Aquests són els projectes que has seleccionat per formar part del pressupost.
           title: Confirmar vot
         budget_excess:
           close: Tancar
+          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votart amb les seves preferències.
           ok: D'acord
           title: Pressupost superat
         budget_summary:
@@ -58,7 +60,9 @@ ca:
           assigned: 'Assignat:'
           cancel_order: eliminar el teu vot i començar de nou
           checked_out:
+            description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
             title: Vot pels pressupostos completat
+          description: En quins projectes creus que hem de destinar el pressupost? Has d'assignar com a mínim %{minimum_budget} als projectes que desitges i votar amb les teves preferències per definir el pressupost.
           title: Tu decideixes el pressupost
         count:
           projects_count:
