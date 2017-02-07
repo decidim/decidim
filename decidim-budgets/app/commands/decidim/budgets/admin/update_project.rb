@@ -37,7 +37,6 @@ module Decidim
             scope: form.scope,
             category: form.category,
             title: form.title,
-            short_description: form.short_description,
             description: form.description,
             budget: form.budget
           )

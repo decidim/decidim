@@ -47,9 +47,6 @@ Decidim.register_feature(:budgets) do |feature|
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end,
-          short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
-          end,
           budget: Faker::Number.number(8)
         )
         Decidim::Attachment.create!(

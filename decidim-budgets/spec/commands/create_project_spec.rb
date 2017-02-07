@@ -21,7 +21,6 @@ describe Decidim::Budgets::Admin::CreateProject do
       :invalid? => invalid,
       title: {en: "title"},
       description: {en: "description"},
-      short_description: {en: "short_description"},
       budget: 10_000_000,
       proposal_ids: proposals.map(&:id),
       scope: scope,
