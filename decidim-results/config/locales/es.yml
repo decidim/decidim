@@ -49,6 +49,8 @@ es:
           category: Categoría
           scopes: Ámbitos
           search: Buscar
+        index:
+          meta_title: "%{feature_name}"
         show:
           stats:
             attendees: Asistentes
