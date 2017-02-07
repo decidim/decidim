@@ -50,13 +50,6 @@ RSpec.shared_examples "manage projects" do
         ca: "El meu projecte"
       )
       fill_in_i18n_editor(
-        :project_short_description,
-        "#short_description-tabs",
-        en: "Short description",
-        es: "Descripción corta",
-        ca: "Descripció curta"
-      )
-      fill_in_i18n_editor(
         :project_description,
         "#description-tabs",
         en: "A longer description",
