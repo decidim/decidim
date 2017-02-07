@@ -41,7 +41,7 @@ end
 Decidim.register_feature(:dummy) do |feature|
   feature.engine = Decidim::DummyEngine
 
-  feature.actions = %w{do_foo make_bar}
+  feature.actions = %w{foo bar}
 
   feature.settings(:global) do |settings|
     settings.attribute :dummy_global_attribute_1, type: :boolean

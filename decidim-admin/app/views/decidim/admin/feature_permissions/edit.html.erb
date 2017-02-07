@@ -9,7 +9,7 @@
     <%= form.fields_for :permissions, form.object do |form| %>
       <% form.object.permissions.each do |action, permission| %>
         <%= form.fields_for(action, permission) do |form| %>
-          <fieldset class="card">
+          <fieldset class="card <%=action %>-permission">
             <div class="card-divider"><%= t("#{feature.manifest.name}.actions.#{action}", scope: "decidim.features") %></div>
             <div class="card-section">
               <%= form.select :authorization_handler_name,

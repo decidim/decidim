@@ -27,7 +27,6 @@ module Decidim
             }
 
             serialized["options"] = JSON.parse(value.options) if value.options
-
             result.update(key => serialized)
           end
 
