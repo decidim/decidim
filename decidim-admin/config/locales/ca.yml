@@ -51,6 +51,9 @@ ca:
         organization: Organització
         slug: Nom curt d'URL
         title: Títol
+    errors:
+      messages:
+        invalid_json: JSON no vàlid
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -66,6 +69,7 @@ ca:
         edit: Editar
         manage: Gestionar
         new: Nou %{name}
+        permissions: Perrmisos
         preview: Previsualitzar
         publish: Publicar
         resend_invitation: Tornar a enviar invitació
@@ -118,6 +122,13 @@ ca:
           participatory_process_user_roles:
             index:
               process_admins_title: Administradors del procés participatiu
+      feature_permissions:
+        edit:
+          everyone: Tothom
+          submit: Desar permisos
+          title: Permisos d'edició
+        update:
+          success: Permisos actualitzats correctament.
       features:
         create:
           error: S'ha produït un error en afegir aquesta funcionalitat.
