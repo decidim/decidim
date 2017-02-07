@@ -6,7 +6,7 @@ module Decidim
     process resize_to_limit: [40, 40]
 
     def max_image_height_or_width
-      200
+      300
     end
   end
 end
