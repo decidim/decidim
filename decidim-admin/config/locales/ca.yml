@@ -69,7 +69,7 @@ ca:
         edit: Editar
         manage: Gestionar
         new: Nou %{name}
-        permissions: Perrmisos
+        permissions: Permisos
         preview: Previsualitzar
         publish: Publicar
         resend_invitation: Tornar a enviar invitació
