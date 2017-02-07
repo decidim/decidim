@@ -1,0 +1,5 @@
+eu:
+  activemodel:
+    attributes:
+      user:
+        email: Zure emaila
