@@ -46,6 +46,10 @@ module Decidim
         {
           name: form.name,
           twitter_handler: form.twitter_handler,
+          facebook_handler: form.facebook_handler,
+          instagram_handler: form.instagram_handler,
+          youtube_handler: form.youtube_handler,
+          github_handler: form.github_handler,
           description: form.description,
           welcome_text: form.welcome_text,
           homepage_image: form.homepage_image || organization.homepage_image,

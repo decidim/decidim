@@ -6,7 +6,11 @@ module Decidim
   module Admin
     describe OrganizationForm do
       let(:name) { "My super organization" }
-      let(:twitter_handler) { "My awesome handler" }
+      let(:twitter_handler) { "My twitter awesome handler" }
+      let(:facebook_handler) { "My facebook awesome handler" }
+      let(:instagram_handler) { "My instagram awesome handler" }
+      let(:youtube_handler) { "My youtube awesome handler" }
+      let(:github_handler) { "My github awesome handler" }
       let(:welcome_text) do
         {
           en: "Welcome",
@@ -35,7 +39,12 @@ module Decidim
             "description_es" => description[:es],
             "description_ca" => description[:ca],
             "homepage_image" => Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg"), "image/jpeg"),
-            "show_statics" => false
+            "show_statics" => false,
+            "twitter_handler" => twitter_handler,
+            "facebook_handler" => facebook_handler,
+            "instagram_handler" => instagram_handler,
+            "youtube_handler" => youtube_handler,
+            "github_handler" => github_handler
           }
         }
       end
