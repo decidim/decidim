@@ -17,10 +17,10 @@ es:
         name: Nombre de usuario
         password: Contraseña
         password_confirmation: Confirmación de contraseña
+        remember_me: Recuérdame
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
-        remember_me: Recuérdame
   booleans:
     'false': 'No'
     'true': 'Sí'
