@@ -141,7 +141,7 @@ ca:
           add: Afegir funcionalitat
           title: 'Afegir funcionalitat: %{name}'
         publish:
-          success: La característica s'ha enviat correctament.
+          success: La funcionalitat s'ha publicat correctament.
         title: Funcionalitats
         unpublish:
           success: La funcionalitat ha estat despublicada exitosament.
