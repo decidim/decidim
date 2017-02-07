@@ -1,3 +1,5 @@
 eu:
-  locale:
-    name: Euskera
+  activemodel:
+    attributes:
+      user:
+        email: Zure emaila

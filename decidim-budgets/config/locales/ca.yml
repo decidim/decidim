@@ -1,4 +1,14 @@
 ca:
+  activemodel:
+    attributes:
+      project:
+        budget: Pressupost
+        decidim_category_id: Categoria
+        decidim_scope_id: Àmbit
+        description: Descripció
+        proposal_ids: Propostes relacionades
+        short_description: Descripció breu
+        title: Títol
   decidim:
     budgets:
       actions:
@@ -35,7 +45,7 @@ ca:
             title: Títol
       projects:
         budget_confirm:
-          are_you_sure: Estàs d'acord? Un cop hagis confirmat el teu vot, no podràs canviar-lo.
+          are_you_sure: Hi estàs d'acord? Un cop hagis confirmat el teu vot, no podràs canviar-lo.
           cancel: Cancel·lar
           confirm: Confirmar
           description: Aquests són els projectes que has seleccionat per formar part del pressupost.
@@ -50,9 +60,9 @@ ca:
           assigned: 'Assignat:'
           cancel_order: eliminar el teu vot i començar de nou
           checked_out:
-            description: Ja has votat pel pressupost. Si ha canviat d'idea, pots %{cancel_link}.
+            description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
             title: Vot pels pressupostos completat
-          description: "En quins projectes creus que hem de destinar el pressupost? Has d'assignar com a mínim %{minimum_budget} als projectes que desitges i votar amb les teves preferències per definir el pressupost."
+          description: En quins projectes creus que hem de destinar el pressupost? Has d'assignar com a mínim %{minimum_budget} als projectes que desitges i votar amb les teves preferències per definir el pressupost.
           title: Tu decideixes el pressupost
         count:
           projects_count:
@@ -80,7 +90,6 @@ ca:
           added: Afegit
         show:
           budget: Pressupost
-          project_description: Descripció del projecte
           view_all_projects: Veure tots els projectes
     features:
       budgets:

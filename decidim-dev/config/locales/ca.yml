@@ -2,4 +2,4 @@ ca:
   decidim:
     resource_links:
       test_link:
-        dummy: Fictici relacionat
+        dummy: Element fictici relacionat

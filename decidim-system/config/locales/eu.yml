@@ -1,1 +1,7 @@
 eu:
+  decidim:
+    system:
+      models:
+        admin:
+          fields:
+            email: Emaila

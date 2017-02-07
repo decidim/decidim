@@ -1,1 +1,5 @@
 eu:
+  decidim:
+    features:
+      results:
+        name: Emaitzak

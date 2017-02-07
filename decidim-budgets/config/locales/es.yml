@@ -1,4 +1,14 @@
 es:
+  activemodel:
+    attributes:
+      project:
+        budget: Presupuesto
+        decidim_category_id: Categoría
+        decidim_scope_id: Ámbito
+        description: Descripción
+        proposal_ids: Propuestas relacionadas
+        short_description: Breve descripción
+        title: Título
   decidim:
     budgets:
       actions:
@@ -52,7 +62,7 @@ es:
           checked_out:
             description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
             title: Voto enviado correctamente
-          description: "¿Qué proyectos crees que deberíamos asignar el presupuesto? Asigna por lo menos %{minimum_budget} a los proyectos que desees y vota para definir el presupuesto."
+          description: '¿Qué proyectos crees que deberíamos asignar el presupuesto? Asigna por lo menos %{minimum_budget} a los proyectos que desees y vota para definir el presupuesto.'
           title: Tú decides el presupuesto
         count:
           projects_count:
@@ -80,7 +90,6 @@ es:
           added: Añadido
         show:
           budget: Presupuesto
-          project_description: Descripción del proyecto
           view_all_projects: Ver todos los proyectos
     features:
       budgets:

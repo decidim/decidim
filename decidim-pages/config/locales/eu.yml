@@ -1,1 +1,7 @@
 eu:
+  decidim:
+    pages:
+      admin:
+        models:
+          components:
+            title: Izenburua

@@ -1,1 +1,5 @@
 eu:
+  activemodel:
+    attributes:
+      proposal:
+        category_id: Kategoria

@@ -10,7 +10,7 @@ ca:
   decidim:
     features:
       meetings:
-        name: Llistat de trobades
+        name: Trobades
     meetings:
       actions:
         attachments: Adjunts
@@ -38,7 +38,7 @@ ca:
             title: Edita trobada
             update: Actualitzar trobada
           index:
-            title: Llistat de trobades
+            title: Trobades
           new:
             create: Crear trobada
             title: Nova trobada
