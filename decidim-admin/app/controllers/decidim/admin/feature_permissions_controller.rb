@@ -20,24 +20,15 @@ module Decidim
         authorize! :update, feature
         @permissions_form = PermissionsForm.from_params(params)
 
-        if @permissions_form.valid?
-          permissions = @permissions_form.permissions.inject({}) do |result, (key, value)|
-            serialized = {
-              "authorization_handler_name" => value.authorization_handler_name
-            }
-
-            serialized["options"] = JSON.parse(value.options) if value.options
-            result.update(key => serialized)
+        UpdateFeaturePermissions.call(@permissions_form, feature) do
+          on(:ok) do
+            flash[:notice] = t("feature_permissions.update.success", scope: "decidim.admin")
+            redirect_to participatory_process_features_path(participatory_process)
           end
 
-          feature.update_attributes!(
-            permissions: permissions
-          )
-
-          flash[:notice] = t("feature_permissions.update.success", scope: "decidim.admin")
-          redirect_to participatory_process_features_path(participatory_process)
-        else
-          render action: :edit
+          on(:invalid) do
+            render action: :edit
+          end
         end
       end
 

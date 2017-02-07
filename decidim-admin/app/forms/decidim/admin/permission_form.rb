@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
+    # This form handles permissions for a particular action in the admin panel.
     class PermissionForm < Form
       attribute :authorization_handler_name, String
       attribute :options, String
