@@ -68,6 +68,6 @@ module Decidim
       ActionAuthorizer.new(current_user, current_feature, action_name)
     end
 
-    class Unauthorized < Error; end
+    class Unauthorized < StandardError; end
   end
 end
