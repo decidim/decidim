@@ -13,6 +13,8 @@ module Decidim
     validates :name, :host, uniqueness: true
 
     mount_uploader :homepage_image, Decidim::HomepageImageUploader
+    mount_uploader :official_img_header, Decidim::OfficialImageUploader
+    mount_uploader :official_img_footer, Decidim::OfficialImageUploader
     mount_uploader :logo, Decidim::OrganizationLogoUploader
     mount_uploader :favicon, Decidim::OrganizationFaviconUploader
 
