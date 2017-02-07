@@ -124,7 +124,7 @@ ca:
           success: Funcionalitat creada correctament.
         destroy:
           error: S'ha produït un error destruir aquesta funcionalitat.
-          success: Característica eliminada correctament.
+          success: Funcionalitat eliminada correctament.
         edit:
           title: Editar funcionalitat
           update: Actualitza
@@ -140,7 +140,11 @@ ca:
         new:
           add: Afegir funcionalitat
           title: 'Afegir funcionalitat: %{name}'
+        publish:
+          success: La característica s'ha enviat correctament.
         title: Funcionalitats
+        unpublish:
+          success: La funcionalitat ha estat despublicada exitosament.
         update:
           error: S'ha produït un error en actualitzar aquesta funcionalitat.
           success: La funcionalitat s'ha actualitzat correctament.
