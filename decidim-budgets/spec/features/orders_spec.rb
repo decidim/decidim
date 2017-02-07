@@ -147,4 +147,24 @@ describe "Orders", type: :feature do
       end
     end
   end
+
+  describe "show" do
+    let!(:project) { create(:project, feature: feature, budget: 25_000_000) }
+
+    before do
+      visit decidim_budgets.project_path(
+        id: project.id,
+        participatory_process_id: participatory_process,
+        feature_id: feature
+      )
+    end
+
+    let(:attached_to) { project }
+    it_behaves_like "has attachments"
+
+    it "shows the feature" do
+      expect(page).to have_i18n_content(project.title)
+      expect(page).to have_i18n_content(project.description)
+    end
+  end
 end
