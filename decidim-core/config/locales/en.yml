@@ -21,6 +21,7 @@ en:
         user_group_document_number: Organization document number
         user_group_name: Organization name
         user_group_phone: Organization phone
+        remember_me: Remember me
   booleans:
     'false': 'No'
     'true': 'Yes'
