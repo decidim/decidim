@@ -141,10 +141,10 @@ es:
           add: Añadir funcionalidad
           title: 'Añadir funcionalidad: %{name}'
         publish:
-          success: La característica se ha publicado correctamente.
+          success: La funcionalidad se ha publicado correctamente.
         title: Funcionalidades
         unpublish:
-          success: La característica se ha despublicado correctamente.
+          success: La funcionalidad se ha despublicado correctamente.
         update:
           error: Se ha producido un error al actualizar esta funcionalidad.
           success: La funcionalidad se ha actualizado correctamente.
