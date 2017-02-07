@@ -99,7 +99,7 @@ es:
     filters:
       linked_classes:
         all: Todas
-        meeting: Lista de encuentros
+        meeting: Encuentros
         proposal: Propuestas
         result: Resultados
     forms:
