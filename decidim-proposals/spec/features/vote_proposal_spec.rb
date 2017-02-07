@@ -102,6 +102,21 @@ describe "Vote Proposal", type: :feature do
           end
         end
 
+        context "when the proposal is not voted yet but the user isn't authorized" do
+          before do
+            feature.update_attribute(:permissions, vote: { authorization_handler_name: "decidim/dummy_authorization_handler" })
+            visit_feature
+          end
+
+          it "should show a modal dialog" do
+            within "#proposal-#{proposal.id}-vote-button" do
+              page.find('.card__button').click
+            end
+
+            expect(page).to have_content("Authorization required")
+          end
+        end
+
         context "when the proposal is already voted" do
           before do
             create(:proposal_vote, proposal: proposal, author: user)

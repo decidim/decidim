@@ -8,14 +8,14 @@
               <%= icon "lock-unlocked", class: "card--list__icon" %>
               <div>
                 <h5 class="card--list__heading">
-                  <%= t(authorization.name, scope: "decidim.authorization_handlers") %>
+                  <%= t("#{authorization.name}.name", scope: "decidim.authorization_handlers") %>
                 </h5>
                 <span class="text-small"><%= l(authorization.created_at, format: :long) %></span>
               </div>
             </div>
             <div class="card--list__data">
-              <%= link_to authorization, method: :delete, class: "card--list__data__icon", data: { confirm: t(".authorization_confirm_destroy") } do %>
-                <%= icon "circle-x" %>
+              <%= link_to new_authorization_path(handler: authorization.name), class: "card--list__data__icon" do %>
+                <%= icon "reload" %>
               <% end %>
             </div>
           </div>
@@ -32,7 +32,7 @@
               </a>
               <div>
                 <h5 class="card--list__heading">
-                  <%= link_to t(handler.handler_name, scope: "decidim.authorization_handlers"), new_authorization_path(handler: handler.handler_name) %>
+                  <%= link_to t("#{handler.handler_name}.name", scope: "decidim.authorization_handlers"), new_authorization_path(handler: handler.handler_name) %>
                 </h5>
               </div>
             </div>

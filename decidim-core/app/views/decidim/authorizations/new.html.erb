@@ -2,7 +2,7 @@
   <div class="row collapse">
     <div class="row collapse">
       <div class="columns large-8 large-centered text-center page-title">
-        <h1><%= t(".authorize_with", authorizer: t(handler.handler_name, scope: "decidim.authorization_handlers")) %></h1>
+        <h1><%= t(".authorize_with", authorizer: t("#{handler.handler_name}.name", scope: "decidim.authorization_handlers")) %></h1>
       </div>
     </div>
 
@@ -10,7 +10,7 @@
       <div class="columns large-6 medium-centered">
         <div class="card">
           <div class="card__content">
-            <%= authorization_form_for(handler) do |form| %>
+            <%= authorization_form_for(handler, url: authorizations_path(redirect_url: params[:redirect_url])) do |form| %>
               <%= form.error_for(:base) %>
 
               <% if lookup_context.exists?(handler.to_partial_path, [], true) %>

@@ -11,6 +11,7 @@ module Decidim
       check_authorization
 
       rescue_from CanCan::AccessDenied, with: :user_not_authorized
+      rescue_from ActionAuthorization::Unauthorized, with: :user_not_authorized
 
       private
 

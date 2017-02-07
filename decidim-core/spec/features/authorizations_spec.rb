@@ -113,26 +113,6 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
           expect(page).to have_content(I18n.localize(authorization.created_at, format: :long))
         end
       end
-
-      it "allows the user to delete an authorization" do
-        within_user_menu do
-          click_link "My account"
-        end
-
-        click_link "Authorizations"
-
-        within ".authorizations-list" do
-          click_icon "circle-x"
-        end
-
-        expect(page).to have_content("Authorization successfully destroyed")
-
-        click_link "Authorizations"
-
-        within ".authorizations-list" do
-          expect(page).to have_link("Example authorization")
-        end
-      end
     end
 
     context "when no authorizations are configured" do

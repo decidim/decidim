@@ -3,6 +3,7 @@ module Decidim
   # An example implementation of an AuthorizationHandler to be used in tests.
   class DummyAuthorizationHandler < AuthorizationHandler
     attribute :document_number, String
+    attribute :postal_code, String
     attribute :birthday, Date
 
     validates :document_number, presence: true
