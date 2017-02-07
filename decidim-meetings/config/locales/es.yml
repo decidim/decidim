@@ -62,6 +62,7 @@ es:
           filter_for: Filtrar por
           unfold: Desplegar
         index:
+          meta_title: "%{feature_name}"
           view_meeting: Ver encuentro
         show:
           attendees: Número de asistentes
