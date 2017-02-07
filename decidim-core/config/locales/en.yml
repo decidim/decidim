@@ -150,8 +150,8 @@ en:
           title: Authorization required
         unauthorized:
           explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
-          ok: Ok
           invalid: "%{field} isn't valid."
+          ok: Ok
           title: Not authorized
       login_modal:
         please_sign_in: Please sign in
