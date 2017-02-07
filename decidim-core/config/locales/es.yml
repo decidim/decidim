@@ -175,6 +175,10 @@ es:
       nesting_too_deep: no puede estar dentro de una subcategoría
   layouts:
     decidim:
+      cookie_warning:
+        description_html: Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia de navegación, y ofrecer contenidos y servicios de interés. Al continuar la navegación entendemos que se acepta nuestra política de cookies. Para más información consulta %{link}.
+        link_label: aquí
+        ok: Estoy de acuerdo
       footer:
         made_with_open_source: 'Esta web está hecha con <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software libre</a>.'
       header:
