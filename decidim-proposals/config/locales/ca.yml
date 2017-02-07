@@ -12,6 +12,7 @@ ca:
       proposals:
         actions:
           create: Crear propostes
+          vote: Votar
         name: Propostes
         settings:
           step:
