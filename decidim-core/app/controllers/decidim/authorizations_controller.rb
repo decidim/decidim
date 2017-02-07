@@ -14,7 +14,6 @@ module Decidim
     layout "layouts/decidim/user_profile", only: [:index]
 
     def new
-      flash.now[:notice] = params[:reason] if params[:reason]
     end
 
     def index
