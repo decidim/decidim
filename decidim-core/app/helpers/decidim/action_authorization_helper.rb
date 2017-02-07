@@ -11,7 +11,7 @@ module Decidim
     # Returns a String with the modal.
     def action_authorization_modal(action)
       render partial: "decidim/shared/action_authorization_modal",
-             locals: { action: action }
+             locals: { action: action.to_s }
     end
 
     # Public: Emulates a `link_to` but conditionally renders a popup modal
@@ -24,22 +24,27 @@ module Decidim
     # Returns a String with the link.
     def action_authorized_link_to(action, *arguments, &block)
       if block_given?
-        body = capture(block)
+        body = block
         url = arguments[0]
-        html_options = arguments[1] || {}
+        html_options = arguments[1]
       else
         body = arguments[0]
         url = arguments[1]
-        html_options = arguments[2] || {}
+        html_options = arguments[2]
       end
 
       unless action_authorization(action).ok?
+        html_options ||= {}
         html_options["onclick"] = "event.preventDefault();"
         html_options["data-toggle"] = "#{action.to_s.underscore}AuthorizationModal"
         url = ""
       end
 
-      link_to(body, url, html_options, &block)
+      if block_given?
+        link_to(url, html_options, &body)
+      else
+        link_to(body, url, html_options)
+      end
     end
 
     # Public: Emulates a `button_to` but conditionally renders a popup modal
@@ -52,7 +57,7 @@ module Decidim
     # Returns a String with the button.
     def action_authorized_button_to(action, *arguments, &block)
       if block_given?
-        body = capture(block)
+        body = block
         url = arguments[0]
         html_options = arguments[1] || {}
       else
@@ -67,7 +72,11 @@ module Decidim
         url = ""
       end
 
-      button_to(body, url, html_options, &block)
+      if block_given?
+        button_to(url, html_options, &body)
+      else
+        button_to(body, url, html_options)
+      end
     end
   end
 end

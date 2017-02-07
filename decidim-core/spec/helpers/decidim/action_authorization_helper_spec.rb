@@ -6,6 +6,7 @@ module Decidim
     let!(:feature) { create(:feature) }
     let!(:user) { create(:user) }
     let!(:action) { "foo" }
+
     let(:status) do
       double(
         handler_name: handler_name,
@@ -21,6 +22,7 @@ module Decidim
     let(:data) { { fields: ["foo", "bar"] } }
 
     before do
+      allow(helper).to receive(:current_user).and_return(user)
       allow(helper).to receive(:action_authorization).with(action).and_return(status)
     end
 
@@ -83,6 +85,15 @@ module Decidim
           rendered = helper.action_authorized_link_to("foo", "Link", "fake_path")
           expect(rendered).to_not include("data-toggle")
           expect(rendered).to include("<a")
+          expect(rendered).to include("Link")
+        end
+
+        it "renders with a block" do
+          rendered = helper.action_authorized_link_to("foo", "fake_path") { "Link" }
+
+          expect(rendered).to_not include("data-toggle")
+          expect(rendered).to include("<a")
+          expect(rendered).to include("Link")
         end
       end
 
@@ -109,6 +120,16 @@ module Decidim
           expect(rendered).to_not include("data-toggle")
           expect(rendered).to include("<input")
           expect(rendered).to include("type=\"submit\"")
+          expect(rendered).to include("Link")
+        end
+
+        it "renders with a block" do
+          rendered = helper.action_authorized_button_to("foo", "fake_path") { "Link" }
+
+          expect(rendered).to_not include("data-toggle")
+          expect(rendered).to include("<button")
+          expect(rendered).to include("type=\"submit\"")
+          expect(rendered).to include("Link")
         end
       end
 
