@@ -151,7 +151,7 @@ en:
         unauthorized:
           explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
           ok: Ok
-          should_be: "%{field} should be %{value}."
+          invalid: "%{field} isn't valid."
           title: Not authorized
       login_modal:
         please_sign_in: Please sign in

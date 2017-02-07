@@ -41,7 +41,7 @@
         <p><%= t ".unauthorized.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
         <ul>
           <% status.data[:fields].each do |field, value| %>
-            <li><strong><%= t(".unauthorized.should_be", field: t("#{status.handler_name}.fields.#{field}", scope: "decidim.authorization_handlers"), value: value) %></strong></li>
+            <li><strong><%= t(".unauthorized.invalid", field: t("#{status.handler_name}.fields.#{field}", scope: "decidim.authorization_handlers")) %></strong></li>
           <% end %>
         </ul>
         <div class="row">
