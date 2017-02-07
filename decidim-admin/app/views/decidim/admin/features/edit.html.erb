@@ -1,6 +1,6 @@
 <h3><%= t ".title", name: t("#{@feature.manifest.name}.name", scope: "decidim.features") %></h3>
 
-<%= form_for([participatory_process, @form], url: participatory_process_feature_path(participatory_process, @feature), method: "put") do |form| %>
+<%= decidim_form_for([participatory_process, @form], url: participatory_process_feature_path(participatory_process, @feature), method: "put") do |form| %>
   <%= render partial: 'form', object: form, locals: { feature: @feature } %>
 
   <div class="actions">

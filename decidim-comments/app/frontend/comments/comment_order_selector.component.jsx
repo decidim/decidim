@@ -44,7 +44,7 @@ class CommentOrderSelector extends Component {
                 <a href="" onClick={(event) => this._updateOrder(event, "older")} >
                   { I18n.t("components.comment_order_selector.order.older") }
                 </a>
-              </li>   
+              </li>
               <li>
                 <a href="" onClick={(event) => this._updateOrder(event, "most_discussed")} >
                   { I18n.t("components.comment_order_selector.order.most_discussed") }
@@ -57,7 +57,7 @@ class CommentOrderSelector extends Component {
     );
   }
 
-  _updateOrder(event, orderBy) {  
+  _updateOrder(event, orderBy) {
     event.preventDefault();
     this.setState({ orderBy });
     this.props.reorderComments(orderBy);

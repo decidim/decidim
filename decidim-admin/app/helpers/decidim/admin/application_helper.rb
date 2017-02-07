@@ -8,6 +8,7 @@ module Decidim
       include Decidim::TranslationsHelper
       include Decidim::HumanizeBooleansHelper
       include Decidim::AriaSelectedLinkToHelper
+      include Decidim::MetaTagsHelper
 
       def title
         current_organization.name

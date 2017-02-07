@@ -2,6 +2,7 @@ ca:
   decidim:
     budgets:
       actions:
+        attachments: Adjunts
         confirm_destroy: Estàs segur que vols eliminar aquest projecte?
         destroy: Esborrar
         edit: Editar
@@ -62,7 +63,7 @@ ca:
           scopes: Àmbits
           search: Cerca
         index:
-          title: Títol
+          meta_title: "%{feature_name}"
         order_progress:
           vote: Votar
         order_selected_projects:

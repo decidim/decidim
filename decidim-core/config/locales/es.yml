@@ -5,7 +5,7 @@ es:
         email: Tu correo electrónico
         name: Tu nombre
         password: Nueva contraseña
-        password_confirmation: Confirme su nueva contraseña
+        password_confirmation: Confirma tu nueva contraseña
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
@@ -32,9 +32,9 @@ es:
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
       update:
-        error: Se ha producido un error al actualizar su cuenta.
-        success: Su cuenta se ha actualizado correctamente.
-        success_with_email_confirmation: Su cuenta se ha actualizado correctamente. Usted recibirá un correo electrónico para confirmar su nueva dirección de correo electrónico.
+        error: Se ha producido un error al actualizar tu cuenta.
+        success: Tu cuenta se ha actualizado correctamente.
+        success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
     anonymous_user: Anónimo
     application:
       documents:
@@ -62,7 +62,7 @@ es:
       new:
         authorize: Enviar
         authorize_with: Verificarme con %{authorizer}
-      skip_verification: Puede saltarte este paso por ahora y %{link}
+      skip_verification: Puedes saltarte este paso por ahora y %{link}
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
@@ -72,11 +72,13 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
-          subtitle: Por favor, rellene el siguiente formulario con el fin de completar la inscripción
+          sign_up: Por favor, completa tu perfil
+          subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
+          newsletter_notifications: Recibir información sobre la actividad relevante
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -94,9 +96,27 @@ es:
       shared:
         omniauth_buttons:
           or: O
+    filters:
+      linked_classes:
+        all: Todas
+        meeting: Lista de encuentros
+        proposal: Propuestas
+        result: Resultados
+    forms:
+      errors:
+        error: Hay un error en este campo.
     menu:
       home: Inicio
       processes: Procesos
+    notifications_settings:
+      show:
+        comments_notifications: Quiero recibir notificaciones cuando alguien comenta en mis publicaciones.
+        newsletter_notifications: Quiero recibir información acerca de actividad relevante
+        replies_notifications: Quiero recibir notificaciones por correo electrónico cuando alguien responde a mis comentarios.
+        update_notifications_settings: Guardar cambios
+      update:
+        error: Ha habido un error al actualizar la configuración de las notificaciones.
+        success: La configuración de las notificaciones se han actualizado correctamente.
     own_user_groups:
       index:
         not_verified: No verificada
@@ -110,17 +130,25 @@ es:
         title: Procesos participativos
       show:
         developer_group: Grupo promotor
-        domain: Dominio
         end_date: Fecha de finalización
+        local_area: Áreas muncipales
+        participatory_scope: Ámbito participativo
+        participatory_structure: Estructura participativa
         scope: Ámbito
+        target: '¿A quién va dirigido?'
     shared:
       login_modal:
-        please_sign_in: Por favor, regístrese
-        sign_up: Regístrese
+        please_sign_in: Por favor, regístrate
+        sign_up: Regístrate
+      share_modal:
+        close_window: Cerrar ventana
+        share: Compartir
+        share_link: Compartir enlace
   devise:
     invitations:
       edit:
         header: Escribe tu contraseña
+        submit_button: Guardar
     mailer:
       invitation_instructions:
         accept: Aceptar invitación
@@ -183,12 +211,11 @@ es:
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones
+        notifications_settings: Configuracion de notificaciones
         title: Ajustes de usuario
         user_groups: Organizaciones
-  locales:
-    ca: Català
-    en: English
-    es: Castellano
+  locale:
+    name: Castellano
   pages:
     '404':
       back_home: Volver al inicio
@@ -208,7 +235,7 @@ es:
         proposals: Propuestas
         proposals_explanation: Espacio abierto de propuestas de los ciudadanos sobre en qué tipo de ciudad queremos vivir.
       hero:
-        register: Registro
+        participate: Participar
         welcome: Bienvenido a %{organization}!
       highlighted_processes:
         active_step: Fase activa
@@ -220,6 +247,26 @@ es:
         users: Usuarios
       sub_hero:
         register: Registro
+  social_share_button:
+    delicious: Delicious
+    douban: Douban
+    email: Correo electrónico
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: LinkedIn
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Compartir a %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Abra su WeChat, haga clic en el botón "Discover" y luego haga clic en el menú "Escanear código QR".
+    weibo: Sina Weibo
+    xing: Xing
   views:
     pagination:
       first: "&laquo; Primera"

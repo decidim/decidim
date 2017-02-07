@@ -3,7 +3,7 @@
     <%= t('.vote') %>
   </button>
 <% else %>
-  <% if proposal.voted_by? current_user %>
+  <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
     <% if vote_limit_enabled? %>
       <%= action_authorized_button_to :vote, t('.already_voted'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), method: :delete, remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)} success" %>
     <% else %>

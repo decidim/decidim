@@ -9,6 +9,7 @@ module Decidim
     before_action :valid_handler, only: [:new, :create]
 
     include Decidim::UserProfile
+    helper Decidim::DecidimFormHelper
 
     layout "layouts/decidim/user_profile", only: [:index]
 

@@ -18,6 +18,10 @@ Decidim::Admin::Engine.routes.draw do
 
       resources :features do
         resource :permissions, controller: "feature_permissions"
+        member do
+          put :publish
+          put :unpublish
+        end
       end
     end
 

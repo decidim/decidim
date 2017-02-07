@@ -13,7 +13,7 @@
     <div class="columns large-6 medium-10 medium-centered">
       <div class="card">
         <div class="card__content">
-          <%= form_for(@form, as: resource_name, url: omniauth_registrations_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
+          <%= decidim_form_for(@form, as: resource_name, url: omniauth_registrations_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
             <div class="user-person">
               <div class="field">
                 <%= f.text_field :name, help_text: t(".username_help"), label: t(".username_help") %>

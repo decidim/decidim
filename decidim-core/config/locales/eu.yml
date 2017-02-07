@@ -1,5 +1,3 @@
 eu:
-  locales:
-    ca: Català
-    en: English
-    es: Castellano
+  locale:
+    name: Euskera

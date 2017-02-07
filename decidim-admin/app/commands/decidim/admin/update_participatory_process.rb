@@ -52,9 +52,12 @@ module Decidim
           promoted: form.promoted,
           description: form.description,
           short_description: form.short_description,
-          domain: form.domain,
           scope: form.scope,
           developer_group: form.developer_group,
+          local_area: form.local_area,
+          target: form.target,
+          participatory_scope: form.participatory_scope,
+          participatory_structure: form.participatory_structure,
           end_date: form.end_date
         }.compact
       end

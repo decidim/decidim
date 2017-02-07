@@ -65,14 +65,19 @@ describe "Participatory Processes", type: :feature do
       it "links to the active step" do
         visit decidim.participatory_processes_path
 
-        within "#processes-grid .column:nth-child(2) .card__footer" do
-          expect(page).to have_content("Current step: Active step")
+        within find("#processes-grid .column", text: translated(participatory_process.title)) do
+          within ".card__footer" do
+            expect(page).to have_content("Current step: Active step")
+          end
         end
       end
     end
   end
 
   describe "show" do
+    let!(:published_feature) { create(:feature, :published, participatory_process: participatory_process) }
+    let!(:unpublished_feature) { create(:feature, :unpublished, participatory_process: participatory_process) }
+
     before do
       visit decidim.participatory_process_path(participatory_process)
     end
@@ -83,9 +88,12 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
         expect(page).to have_content(translated(participatory_process.description, locale: :en))
         expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
-        expect(page).to have_content(translated(participatory_process.domain, locale: :en))
         expect(page).to have_content(translated(participatory_process.scope, locale: :en))
-        expect(page).to have_content(participatory_process.developer_group)
+        expect(page).to have_content(translated(participatory_process.developer_group, locale: :en))
+        expect(page).to have_content(translated(participatory_process.local_area, locale: :en))
+        expect(page).to have_content(translated(participatory_process.target, locale: :en))
+        expect(page).to have_content(translated(participatory_process.participatory_scope, locale: :en))
+        expect(page).to have_content(translated(participatory_process.participatory_structure, locale: :en))
         expect(page).to have_content(I18n.l(participatory_process.end_date, format: :long))
         expect(page).to have_content(participatory_process.hashtag)
       end
@@ -93,5 +101,14 @@ describe "Participatory Processes", type: :feature do
 
     let(:attached_to) { participatory_process }
     it_behaves_like "has attachments"
+
+    context "when the process has some features" do
+      it "shows the features" do
+        within ".process-nav" do
+          expect(page).to have_content(translated(published_feature.name, locale: :en).upcase)
+          expect(page).to have_no_content(translated(unpublished_feature.name, locale: :en).upcase)
+        end
+      end
+    end
   end
 end

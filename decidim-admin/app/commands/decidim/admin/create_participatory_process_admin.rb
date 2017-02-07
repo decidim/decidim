@@ -26,6 +26,9 @@ module Decidim
 
         create_participatory_process_admin
         broadcast(:ok)
+      rescue ActiveRecord::RecordInvalid
+        form.errors.add(:email, :taken)
+        broadcast(:invalid)
       end
 
       private

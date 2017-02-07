@@ -1,4 +1,7 @@
-<% provide(:meta_title, translated_attribute(@page.title)) %>
+<% add_meta_tags({
+  title: translated_attribute(@page.title),
+  description: translated_attribute(@page.body),
+}) %>
 
 <div class="row column">
   <div class="row">

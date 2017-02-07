@@ -35,8 +35,7 @@ describe "Organizations", type: :feature do
           fill_in "Name", with: "Bad"
           click_button "Create organization & invite admin"
 
-          expect(page).to have_css("div.flash.alert")
-          expect(page).not_to have_content("Organization created successfully")
+          expect(page).to have_content("There's an error in this field")
         end
       end
     end

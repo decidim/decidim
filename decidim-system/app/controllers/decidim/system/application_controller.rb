@@ -7,6 +7,7 @@ module Decidim
       protect_from_forgery with: :exception, prepend: true
 
       helper Decidim::TranslationsHelper
+      helper Decidim::DecidimFormHelper
     end
   end
 end

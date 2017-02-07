@@ -75,6 +75,8 @@ es:
           official: Oficial
           origin: Origen
           rejected: Rechazadas
+          related_to: Relacionado con
+          scopes: Ámbitos
           search: Buscar
           state: Estado
           voted: Votado
@@ -84,6 +86,7 @@ es:
           filter_for: Filtrar por
           unfold: Desplegar
         index:
+          meta_title: "%{feature_name}"
           new_proposal: Nueva propuesta
         linked_proposals:
           proposal_votes:
@@ -95,12 +98,13 @@ es:
           select_a_scope: Por favor, seleccione un ámbito
           send: Enviar
           title: Nueva propuesta
+        orders:
+          label: 'Ordenar propuestas por:'
+          most_voted: Más votado
+          random: Aleatorio
+          recent: Reciente
         proposal:
           view_proposal: Ver propuesta
-        share:
-          close_window: Cerrar ventana
-          share: Compartir
-          share_link: Compartir enlace
         show:
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
         vote_button:

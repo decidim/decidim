@@ -22,6 +22,7 @@ Decidim.register_feature(:meetings) do |feature|
 
       feature = Decidim::Feature.create!(
         name: Decidim::Features::Namer.new(process.organization.available_locales, :meetings).i18n_name,
+        published_at: Time.current,
         manifest_name: :meetings,
         participatory_process: process
       )

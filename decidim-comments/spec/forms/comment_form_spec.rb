@@ -35,6 +35,12 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
+      context "when body is too long" do
+        let(:body) { "c" * 1001 }
+
+        it { is_expected.not_to be_valid }
+      end
+
       context "when alignment is not present" do
         let(:alignment) { nil }
 

@@ -103,6 +103,9 @@ en:
         meeting: Meetings
         proposal: Proposals
         result: Results
+    forms:
+      errors:
+        error: There's an error in this field.
     menu:
       home: Home
       processes: Processes
@@ -128,9 +131,12 @@ en:
         title: Participatory processes
       show:
         developer_group: Developer group
-        domain: Domain
         end_date: End date
+        local_area: Local area
+        participatory_scope: Participatory scope
+        participatory_structure: Participatory structure
         scope: Scope
+        target: Target
     shared:
       action_authorization_modal:
         incomplete:
@@ -150,6 +156,10 @@ en:
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up
+      share_modal:
+        close_window: Close window
+        share: Share
+        share_link: Share link
   devise:
     invitations:
       edit:
@@ -220,10 +230,8 @@ en:
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Organizations
-  locales:
-    ca: Català
-    en: English
-    es: Castellano
+  locale:
+    name: English
   pages:
     '404':
       back_home: Back home
@@ -243,7 +251,7 @@ en:
         proposals: Proposals
         proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
       hero:
-        register: Register
+        participate: Participate
         welcome: Welcome to %{organization}!
       highlighted_processes:
         active_step: Active step

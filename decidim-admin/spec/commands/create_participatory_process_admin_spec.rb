@@ -30,6 +30,25 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
     end
   end
 
+  context "when a user and a role already exist" do
+    before do
+      create(
+        :participatory_process_user_role,
+        user: user,
+        role: :admin,
+        participatory_process: my_process
+      )
+    end
+
+    it "is not valid" do
+      form_errors = double
+      expect(form_errors).to receive(:add).with(:email, :taken)
+      expect(form).to receive(:errors).and_return(form_errors)
+
+      expect { subject.call }.to broadcast(:invalid)
+    end
+  end
+
   context "when everything is ok" do
     it "creates the user role" do
       subject.call

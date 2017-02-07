@@ -51,6 +51,12 @@ describe("<AddCommentForm />", () => {
     expect(wrapper).to.have.prop('submitButtonClassName').equal('button button--sc');
   });
 
+  it("should have a default prop maxLength of 1000", () => {
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+    expect(wrapper).to.have.prop('maxLength').equal(1000);
+  });
+
+
   it("should use prop submitButtonClassName as a className prop for submit button", () => {
     const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} submitButtonClassName="button small hollow" />);
     expect(wrapper.find('input[type="submit"]')).to.have.className('button');

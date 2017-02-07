@@ -34,6 +34,7 @@ Decidim.register_feature(:budgets) do |feature|
       feature = Decidim::Feature.create!(
         name: Decidim::Features::Namer.new(process.organization.available_locales, :budgets).i18n_name,
         manifest_name: :budgets,
+        published_at: Time.current,
         participatory_process: process
       )
 
@@ -51,7 +52,18 @@ Decidim.register_feature(:budgets) do |feature|
           end,
           budget: Faker::Number.number(8)
         )
-
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5),
+          file: File.new(Decidim::Dev.asset("city.jpeg")),
+          attached_to: project
+        )
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(2),
+          description: Decidim::Faker::Localized.sentence(5),
+          file: File.new(Decidim::Dev.asset("Exampledocument.pdf")),
+          attached_to: project
+        )
         Decidim::Comments::Seed.comments_for(project)
       end
     end

@@ -30,7 +30,7 @@ module Decidim
         tabs_panels = content_tag(:ul, class: "tabs", id: "#{name}-tabs", data: { tabs: true }) do
           locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
             string + content_tag(:li, class: tab_element_class_for("title", index)) do
-              title = I18n.t(locale, scope: "locales")
+              title = I18n.with_locale(locale){ I18n.t("name", scope: "locale") }
               element_class = ""
               element_class += "alert" if error?(name_with_locale(name, locale))
               content_tag(:a, title, href: "##{name}-panel-#{index}", class: element_class)
@@ -103,7 +103,155 @@ module Decidim
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options)
     end
 
+    # Public: Override so checkboxes are rendered before the label.
+    def check_box(attribute, options = {}, checked_value = '1', unchecked_value = '0')
+      custom_label(attribute, options[:label], options[:label_options], true) do
+        options[:label] = false
+        options[:label_options] = false
+        super(attribute, options, checked_value, unchecked_value)
+      end + error_and_help_text(attribute, options)
+    end
+
     private
+
+    # Private: Override from FoundationRailsHelper in order to render
+    # inputs inside the label and to automatically inject validations
+    # from the object.
+    #
+    # attribute    - The String name of the attribute to buidl the field.
+    # options      - A Hash with options to build the field.
+    # html_options - An optional Hash with options to pass to the html element.
+    #
+    # Returns a String
+    def field(attribute, options, html_options = nil, &block)
+      label = options.delete(:label)
+      label_options = options.delete(:label_options)
+      custom_label(attribute, label, label_options) do
+        field_with_validations(attribute, options, html_options, &block)
+      end
+    end
+
+    # Private: Builds a form field and detects validations from
+    # the form object.
+    #
+    # attribute    - The String name of the attribute to build the field.
+    # options      - A Hash with options to build the field.
+    # html_options - An optional Hash with options to pass to the html element.
+    #
+    # Returns a String.
+    def field_with_validations(attribute, options, html_options)
+      class_options = html_options || options
+
+      if error?(attribute)
+        class_options[:class] = class_options[:class].to_s
+        class_options[:class] += " is-invalid-input"
+      end
+
+      help_text = options.delete(:help_text)
+      prefix = options.delete(:prefix)
+      postfix = options.delete(:postfix)
+
+      class_options = extract_validations(attribute, options).merge(class_options)
+
+      content = yield(class_options)
+      content += abide_error_element(attribute) if class_options[:pattern] || class_options[:required]
+      content = content.html_safe
+
+      html = wrap_prefix_and_postfix(content, prefix, postfix)
+      html + error_and_help_text(attribute, options.merge(help_text: help_text))
+    end
+
+    # Private: Builds a Hash of options to be injected at the HTML output as
+    # HTML5 validations.
+    #
+    # attribute - The String name of the attribute to extract the validations.
+    # options - A Hash of options to extract validations.
+    #
+    # Returns a Hash.
+    def extract_validations(attribute, options)
+      min_length = options.delete(:minlength) || length_for_attribute(attribute, :minimum) || 0
+      max_length = options.delete(:maxlength) || length_for_attribute(attribute, :maximum)
+
+      validation_options = {}
+      validation_options[:pattern] = "^(.){#{min_length},#{max_length}}$" if min_length.to_i.positive? || max_length.to_i.positive?
+      validation_options[:required] = options[:required] || attribute_required?(attribute)
+      validation_options
+    end
+
+    # Private: Tries to find if an attribute is required in the form object.
+    #
+    # Returns Boolean.
+    def attribute_required?(attribute)
+      validator = find_validator(attribute, ActiveModel::Validations::PresenceValidator)
+
+      validator && validator.options.blank?
+    end
+
+    # Private: Tries to find a length validator in the form object.
+    #
+    # attribute - The attribute to look for the validations.
+    # type      - A Symbol for the type of length to fetch. Currently only :minimum & :maximum are supported.
+    #
+    # Returns an Integer or Nil.
+    def length_for_attribute(attribute, type)
+      length_validator = find_validator(attribute, ActiveModel::Validations::LengthValidator)
+      return unless length_validator
+
+      length_validator.options[type]
+    end
+
+    # Private: Finds a validator.
+    #
+    # attribute - The attribute to validate.
+    # klass     - The Class of the validator to find.
+    #
+    # Returns a klass object.
+    def find_validator(attribute, klass)
+      return unless object.respond_to?(:_validators)
+      object._validators[attribute].find { |validator| validator.class == klass }
+    end
+
+    # Private: Override method from FoundationRailsHelper to render the text of the
+    # label before the input, instead of after.
+    #
+    # attribute - The String name of the attribute we're build the label.
+    # text      - The String text to use as label.
+    # options   - An optional Hash to build the label.
+    #
+    # Returns a String.
+    def custom_label(attribute, text, options, field_before_label = false)
+      return block_given? ? yield.html_safe : "".html_safe if text == false
+
+      text = default_label_text(object, attribute) if text.nil? || text == true
+
+      text = if field_before_label && block_given?
+               safe_join([yield, text.html_safe])
+             elsif block_given?
+               safe_join([text.html_safe, yield])
+             end
+
+      label(attribute, text, options || {})
+    end
+
+    # Private: Builds a span to be shown when there's a validation error in a field.
+    # It looks for the text that will be the content in a similar way `human_attribute_name`
+    # does it.
+    #
+    # attribute - The name of the attribute of the field.
+    #
+    # Returns a String.
+    def abide_error_element(attribute)
+      defaults = []
+      defaults << :"decidim.forms.errors.#{object.class.model_name.i18n_key}.#{attribute}"
+      defaults << :"decidim.forms.errors.#{attribute}"
+      defaults << :"forms.errors.#{attribute}"
+      defaults << :"decidim.forms.errors.error"
+
+      options = { count: 1, default: defaults }
+
+      text = I18n.t(defaults.shift, options)
+      content_tag(:span, text, class: "form-error")
+    end
 
     def categories_for_select(scope)
       sorted_main_categories = scope.first_class.includes(:subcategories).sort_by do |category|

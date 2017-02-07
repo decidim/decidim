@@ -10,7 +10,7 @@
     <div class="columns medium-7 large-5 medium-centered">
       <div class="card">
         <div class="card__content">
-          <%= form_for resource, as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
+          <%= decidim_form_for resource, as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
             <%= f.hidden_field :invitation_token %>
 
             <% if f.object.class.require_password_on_accepting %>

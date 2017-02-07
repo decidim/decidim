@@ -2,6 +2,7 @@ es:
   decidim:
     budgets:
       actions:
+        attachments: Archivos adjuntos
         confirm_destroy: '¿Estás seguro de que deseas eliminar este proyecto?'
         destroy: Borrar
         edit: Editar
@@ -62,7 +63,7 @@ es:
           scopes: Ámbitos
           search: Buscar
         index:
-          title: Título
+          meta_title: "%{feature_name}"
         order_progress:
           vote: Votar
         order_selected_projects:

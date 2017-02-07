@@ -1,8 +1,19 @@
 ---
 en:
+  activemodel:
+    attributes:
+      project:
+        budget: Budget
+        decidim_category_id: Category
+        decidim_scope_id: Scope
+        description: Description
+        proposal_ids: Related proposals
+        short_description: Short description
+        title: Title
   decidim:
     budgets:
       actions:
+        attachments: Attachments
         confirm_destroy: Are you sure you want to delete this project?
         destroy: Delete
         edit: Edit
@@ -52,7 +63,7 @@ en:
           checked_out:
             description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
             title: Budget vote completed
-          description: "What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget."
+          description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
           title: You decide the budget
         count:
           projects_count:
@@ -63,7 +74,7 @@ en:
           scopes: Scopes
           search: Search
         index:
-          title: Title
+          meta_title: "%{feature_name}"
         order_progress:
           vote: Vote
         order_selected_projects:

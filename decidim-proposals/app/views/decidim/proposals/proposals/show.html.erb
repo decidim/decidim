@@ -1,7 +1,8 @@
-<% provide :meta_description, @proposal.body %>
-<% provide :meta_title, @proposal.title %>
-<% provide :meta_url, proposal_url(@proposal.id) %>
-<% provide :twitter_handler, current_organization.twitter_handler %>
+<% add_meta_tags({
+  description: @proposal.body,
+  title: @proposal.title,
+  url: proposal_url(@proposal.id)
+}) %>
 
 <%= render partial: "votes_limit" %>
 <div class="row column view-header">
@@ -34,7 +35,7 @@
         </div>
       </div>
     <% end %>
-    <%= render partial: "share", locals: { proposal: @proposal } %>
+    <%= render partial: "decidim/shared/share_modal" %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
