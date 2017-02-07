@@ -27,12 +27,8 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <%== translated_attribute project.short_description %>
-      <%= render partial: "tags", locals: { project: project } %>
-    </div>
-    <div class="section">
-      <h3 class="section-heading"><%= t(".project_description") %></h3>
       <%== translated_attribute project.description %>
+      <%= render partial: "tags", locals: { project: project } %>
     </div>
     <%= linked_resources_for project, :proposals, "included_proposals" %>
   </div>

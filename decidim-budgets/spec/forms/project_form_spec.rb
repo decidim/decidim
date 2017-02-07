@@ -18,9 +18,6 @@ describe Decidim::Budgets::Admin::ProjectForm do
   let(:description) do
     Decidim::Faker::Localized.sentence(3)
   end
-  let(:short_description) do
-    Decidim::Faker::Localized.sentence(3)
-  end
   let(:budget) { Faker::Number.number(8) }
   let(:scope) { create :scope, organization: organization }
   let(:scope_id) { scope.id }
@@ -32,7 +29,6 @@ describe Decidim::Budgets::Admin::ProjectForm do
       decidim_category_id: category_id,
       title_en: title[:en],
       description_en: description[:en],
-      short_description_en: short_description[:en],
       budget: budget
     }
   end
@@ -49,12 +45,6 @@ describe Decidim::Budgets::Admin::ProjectForm do
 
   describe "when description is missing" do
     let(:description) { { en: nil } }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when short_description is missing" do
-    let(:short_description) { { en: nil } }
 
     it { is_expected.not_to be_valid }
   end

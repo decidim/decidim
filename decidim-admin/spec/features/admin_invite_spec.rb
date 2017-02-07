@@ -28,9 +28,11 @@ describe "Admin invite", type: :feature do
     it "asks for a password and redirects to the organization dashboard" do
       visit last_email_link
 
-      fill_in :user_password, with: "123456"
-      fill_in :user_password_confirmation, with: "123456"
-      find("*[type=submit]").click
+      within "form.new_user" do
+        fill_in :user_password, with: "123456"
+        fill_in :user_password_confirmation, with: "123456"
+        find("*[type=submit]").click
+      end
 
       expect(page).to have_content("Dashboard")
     end

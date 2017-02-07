@@ -16,9 +16,12 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
         Decidim.authorization_handlers = [Decidim::DummyAuthorizationHandler]
         visit decidim.root_path
         find(".sign-in-link").click
-        fill_in :user_email, with: user.email
-        fill_in :user_password, with: "password1234"
-        find("*[type=submit]").click
+
+        within "form.new_user" do
+          fill_in :user_email, with: user.email
+          fill_in :user_password, with: "password1234"
+          find("*[type=submit]").click
+        end
       end
 
       it "redirects the user to the authorization form after the first sign in" do
@@ -43,9 +46,12 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
 
         visit decidim.root_path
         find(".sign-in-link").click
-        fill_in :user_email, with: user.email
-        fill_in :user_password, with: "password1234"
-        find("*[type=submit]").click
+
+        within "form.new_user" do
+          fill_in :user_email, with: user.email
+          fill_in :user_password, with: "password1234"
+          find("*[type=submit]").click
+        end
       end
 
       it "allows the user to choose which one to authorize against to" do

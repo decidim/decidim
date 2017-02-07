@@ -102,7 +102,9 @@ describe "Account", type: :feature, perform_enqueued: true do
           page.find('.switch-paddle').click
         end
 
-        find("*[type=submit]").click
+        within "form.edit_user" do
+          find("*[type=submit]").click
+        end
 
         within_flash_messages do
           expect(page).to have_content("successfully")

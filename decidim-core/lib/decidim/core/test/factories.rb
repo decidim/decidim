@@ -30,7 +30,7 @@ FactoryGirl.define do
   end
 
   factory :organization, class: Decidim::Organization do
-    name { Faker::Company.name }
+    name { Faker::Company.unique.name }
     twitter_handler { Faker::Hipster.word }
     sequence(:host) { |n| "#{n}.lvh.me" }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }

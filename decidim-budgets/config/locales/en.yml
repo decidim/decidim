@@ -91,7 +91,6 @@ en:
           added: Added
         show:
           budget: Budget
-          project_description: Project description
           view_all_projects: View all projects
     features:
       budgets:
