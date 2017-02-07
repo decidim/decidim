@@ -62,6 +62,7 @@ ca:
           filter_for: Filtra per
           unfold: Desplegar
         index:
+          meta_title: "%{feature_name}"
           view_meeting: Veure trobada
         show:
           attendees: Nombre d'assistents
