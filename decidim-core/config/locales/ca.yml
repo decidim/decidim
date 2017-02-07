@@ -259,7 +259,7 @@ ca:
       highlighted_processes:
         active_step: Fase activa
         highlighted_processes: Processos destacats
-        see_all_processes: Mostra tots els processos
+        see_all_processes: Veure tots els processos
       statistics:
         headline: Estat actual de %{organization}
         processes: Processos
