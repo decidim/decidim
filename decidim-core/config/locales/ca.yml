@@ -140,7 +140,7 @@ ca:
       action_authorization_modal:
         incomplete:
           cancel: Cancel·lar
-          explanation: 'Tot i que actualment està autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
+          explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
           reauthorize: Reautoritzar-se
           title: Si us plau, reautoritza't
         missing:
