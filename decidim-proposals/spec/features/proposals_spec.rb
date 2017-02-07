@@ -29,6 +29,34 @@ describe "Proposals", type: :feature do
                  participatory_process: participatory_process)
         end
 
+        context "when scoped_proposals setting is enabled" do
+          before do
+            feature.update_attributes(settings: { scoped_proposals_enabled: true})
+          end
+
+          it "cannot be related to a scope" do
+            click_link "New proposal"
+
+            within "form.new_proposal" do
+              expect(page).to have_content(/Scope/i)
+            end
+          end
+        end
+
+        context "when scoped_proposals setting is not enabled" do
+          before do
+            feature.update_attributes(settings: { scoped_proposals_enabled: false})
+          end
+
+          it "cannot be related to a scope" do
+            click_link "New proposal"
+
+            within "form.new_proposal" do
+              expect(page).not_to have_content("Scope")
+            end
+          end
+        end
+
         it "creates a new proposal" do
           click_link "New proposal"
 
@@ -96,6 +124,34 @@ describe "Proposals", type: :feature do
       expect(page).to have_content(proposal.title)
       expect(page).to have_content(proposal.body)
       expect(page).to have_content(proposal.author.name)
+    end
+
+    context "when scoped_proposals setting is enabled" do
+      let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
+
+      before do
+        feature.update_attributes(settings: { scoped_proposals_enabled: true})
+      end
+
+      it "can be filtered by scope" do
+        visit_feature
+        click_link proposal.title
+        expect(page).to have_content(scope.name)
+      end
+    end
+
+    context "when scoped_proposals setting is not enabled" do
+      let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
+
+      before do
+        feature.update_attributes(settings: { scoped_proposals_enabled: false})
+      end
+
+      it "cannot be filtered by scope" do
+        visit_feature
+        click_link proposal.title
+        expect(page).not_to have_content(scope.name)
+      end
     end
 
     context "when it is an official proposal" do
@@ -220,11 +276,41 @@ describe "Proposals", type: :feature do
 
         find(".pagination-next a").click
 
+        within ".pagination .current" do
+          expect(page).to have_content("2")
+        end
+
         expect(page).to have_css(".card--proposal", count: 8)
       end
     end
 
     context "when filtering" do
+      context "when scoped_proposals setting is enabled" do
+        before do
+          feature.update_attributes(settings: { scoped_proposals_enabled: true})
+        end
+
+        it "cannot be filtered by scope" do
+          within "form.new_filter" do
+            visit_feature
+            expect(page).to have_content(/Scopes/i)
+          end
+        end
+      end
+
+      context "when scoped_proposals setting is not enabled" do
+        before do
+          feature.update_attributes(settings: { scoped_proposals_enabled: false})
+        end
+
+        it "cannot be filtered by scope" do
+          within "form.new_filter" do
+            visit_feature
+            expect(page).not_to have_content("Scopes")
+          end
+        end
+      end
+
       context "by origin 'official'" do
         it "lists the filtered proposals" do
           create(:proposal, :official, feature: feature, scope: scope)
