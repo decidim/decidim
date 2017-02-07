@@ -1,0 +1,5 @@
+eu:
+  activemodel:
+    attributes:
+      attachment:
+        description: Deskribapena
