@@ -189,7 +189,12 @@ es:
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
       invalid_manifest: Manifiesto inválido
       invalid_participatory_process: Proceso participativo inválido
+      long_words: Contiene palabras que son demasiado largas
+      must_start_with_caps: Debe comenzar con mayúsculas
       nesting_too_deep: no puede estar dentro de una subcategoría
+      too_many_marks: Está utilizando demasiados símbolos de interrogación o exclamación
+      too_much_caps: Está usando demasiadas mayúsculas
+      too_short: Es demasiado corto
   layouts:
     decidim:
       cookie_warning:
