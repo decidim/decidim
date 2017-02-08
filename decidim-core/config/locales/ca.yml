@@ -17,6 +17,7 @@ ca:
         name: Nom d'usuari
         password: Contrasenya
         password_confirmation: Confirmació de la contrasenya
+        remember_me: Recorda'm
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
