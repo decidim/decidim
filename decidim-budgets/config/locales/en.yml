@@ -8,7 +8,6 @@ en:
         decidim_scope_id: Scope
         description: Description
         proposal_ids: Related proposals
-        short_description: Short description
         title: Title
   decidim:
     budgets:
