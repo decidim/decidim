@@ -7,7 +7,6 @@ es:
         decidim_scope_id: Ámbito
         description: Descripción
         proposal_ids: Propuestas relacionadas
-        short_description: Breve descripción
         title: Título
   decidim:
     budgets:
