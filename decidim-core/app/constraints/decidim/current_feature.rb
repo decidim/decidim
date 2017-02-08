@@ -17,11 +17,21 @@ module Decidim
     #
     # Returns nothing.
     def matches?(request)
+      env = request.env
+      params = request.params
+
+      organization = env["decidim.current_organization"]
+
+      @participatory_process = request.env["decidim.current_participatory_process"] ||
+                               organization.participatory_processes.find_by_id(params["participatory_process_id"])
+
+      env["decidim.current_participatory_process"] ||= @participatory_process
+
       feature = detect_current_feature(request)
+
       return false unless feature
 
-      request.env["decidim.current_participatory_process"] ||= feature.participatory_process
-      request.env["decidim.current_feature"] ||= feature
+      env["decidim.current_feature"] ||= feature
       true
     end
 
@@ -29,20 +39,11 @@ module Decidim
 
     def detect_current_feature(request)
       params = request.params
-      env = request.env
+      return nil unless params["feature_id"]
 
-      return nil unless params[:feature_id]
-
-      organization = env["decidim.current_organization"]
-
-      Feature.includes(:participatory_process).where(
-        id: params[:feature_id],
-        manifest_name: @manifest.name,
-        decidim_participatory_processes: {
-          id: params[:participatory_process_id],
-          decidim_organization_id: organization.id
-        }
-      ).first
+      @participatory_process.features.to_a.find do |feature|
+        params["feature_id"].to_s == feature.id.to_s && feature.manifest_name == @manifest.name.to_s
+      end
     end
   end
 end
