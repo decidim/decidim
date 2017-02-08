@@ -7,9 +7,5 @@ module Decidim
     def reset_password_instructions
       DecidimDeviseMailer.reset_password_instructions(User.first, "faketoken", {})
     end
-
-    def unlock_instructions
-      DecidimDeviseMailer.unlock_instructions(User.first, "faketoken", {})
-    end
   end
 end
