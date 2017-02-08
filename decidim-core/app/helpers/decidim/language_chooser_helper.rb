@@ -12,7 +12,7 @@ module Decidim
     #
     # Returns a String.
     def locale_name(locale)
-      I18n.with_locale(locale){ I18n.t("name", scope: "locale")}
+      I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
     end
   end
 end
