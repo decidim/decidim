@@ -109,6 +109,7 @@ es:
         proposal:
           view_proposal: Ver propuesta
         show:
+          proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
         vote_button:
           already_voted: Ya votado
