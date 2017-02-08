@@ -57,7 +57,7 @@ describe EtiquetteValidator do
   end
 
   context "when the title is too short" do
-    let(:title) { "everything sucks" }
+    let(:title) { "Oh my god" }
     it { is_expected.to be_invalid }
   end
 end

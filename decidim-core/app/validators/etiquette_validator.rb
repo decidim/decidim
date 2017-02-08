@@ -10,6 +10,7 @@ class EtiquetteValidator < ActiveModel::EachValidator
     validate_marks(record, attribute, value)
     validate_long_words(record, attribute, value)
     validate_caps_first(record, attribute, value)
+    validate_length(record, attribute, value)
   end
 
   private
