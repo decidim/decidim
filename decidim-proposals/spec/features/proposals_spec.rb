@@ -181,6 +181,7 @@ describe "Proposals", type: :feature do
         click_link proposal.title
 
         expect(page).to have_content("Accepted")
+        expect(page).to have_i18n_content(proposal.answer)
       end
     end
 
