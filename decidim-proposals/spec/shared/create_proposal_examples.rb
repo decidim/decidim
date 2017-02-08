@@ -16,8 +16,8 @@ RSpec.shared_examples "create a proposal" do |with_author|
   describe "call" do
     let(:form_params) do
       {
-        title: "Proposal title",
-        body: "Proposal body"
+        title: "A reasonable proposal title",
+        body: "A reasonable proposal body"
       }
     end
 
