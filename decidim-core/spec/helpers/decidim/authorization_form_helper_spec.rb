@@ -19,7 +19,7 @@ module Decidim
           url: "/authorizations"
         }
 
-        expect(helper).to receive(:decidim_form_for).with(record, options)
+        expect(helper).to receive(:form_for).with(record, options)
 
         helper.authorization_form_for(record) {|f| }
       end
@@ -34,7 +34,7 @@ module Decidim
           }
         }
 
-        expect(helper).to receive(:decidim_form_for).with(record, options)
+        expect(helper).to receive(:form_for).with(record, options)
 
         helper.authorization_form_for(record, html: { class: "custom_form" }) {|f| }
       end
