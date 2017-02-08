@@ -196,6 +196,18 @@ describe "Proposals", type: :feature do
         expect(page).to have_i18n_content(proposal.answer)
       end
     end
+
+    context "when a proposal has been accepted" do
+      let!(:proposal) { create(:proposal, :accepted, feature: feature) }
+
+      it "shows the acceptance reason" do
+        visit_feature
+        click_link proposal.title
+
+        expect(page).to have_content("Accepted")
+        expect(page).to have_i18n_content(proposal.answer)
+      end
+    end
   end
 
   context "when a proposal has been linked in a project" do
