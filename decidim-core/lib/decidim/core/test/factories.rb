@@ -45,7 +45,7 @@ FactoryGirl.define do
     available_locales Decidim.available_locales
     official_img_header { test_file("avatar.jpg", "image/jpeg") }
     official_img_footer { test_file("avatar.jpg", "image/jpeg") }
-    official_url  { Faker::Internet.url }
+    official_url { Faker::Internet.url }
   end
 
   factory :participatory_process, class: Decidim::ParticipatoryProcess do
@@ -58,7 +58,7 @@ FactoryGirl.define do
     banner_image { test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
     organization
-    scope  { Decidim::Faker::Localized.word }
+    scope { Decidim::Faker::Localized.word }
     developer_group { Decidim::Faker::Localized.sentence(1) }
     local_area { Decidim::Faker::Localized.sentence(2) }
     target { Decidim::Faker::Localized.sentence(3) }

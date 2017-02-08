@@ -85,11 +85,11 @@ module Decidim
 
         from = scope
                .joins(:resource_links_from)
-               .where(decidim_resource_links: { from_type: self.name })
+               .where(decidim_resource_links: { from_type: name })
 
         to = scope
              .joins(:resource_links_to)
-             .where(decidim_resource_links: { to_type: self.name })
+             .where(decidim_resource_links: { to_type: name })
 
         ResourceLink
           .where(from: from)
@@ -97,9 +97,8 @@ module Decidim
           .pluck(:from_type, :to_type)
           .flatten
           .uniq
-          .reject { |k| k == self.name }
+          .reject { |k| k == name }
       end
-
 
       # Finds the resource manifest for the model.
       #

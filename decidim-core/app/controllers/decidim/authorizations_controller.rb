@@ -13,19 +13,20 @@ module Decidim
 
     layout "layouts/decidim/user_profile", only: [:index]
 
-    def new
-    end
+    def new; end
 
     def index
       @authorizations = current_user.authorizations
     end
 
     def first_login
-      redirect_to(
-        action: :new,
-        handler: handlers.first.handler_name,
-        redirect_url: account_path
-      ) if handlers.length == 1
+      if handlers.length == 1
+        redirect_to(
+          action: :new,
+          handler: handlers.first.handler_name,
+          redirect_url: account_path
+        )
+      end
     end
 
     def create

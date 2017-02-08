@@ -14,13 +14,13 @@ module Decidim
       def sanitize
         self.authorization_handler_name = nil if authorization_handler_name.blank?
         self.options = nil if authorization_handler_name.blank?
-        self.options = nil if self.options.blank?
+        self.options = nil if options.blank?
       end
 
       def options_is_valid_json
         return unless options
 
-        result = JSON.parse(self.options)
+        result = JSON.parse(options)
         errors.add(:options, :invalid_json) unless result.is_a?(Hash)
         result
       rescue JSON::ParserError

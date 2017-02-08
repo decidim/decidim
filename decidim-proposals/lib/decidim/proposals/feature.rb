@@ -13,7 +13,7 @@ Decidim.register_feature(:proposals) do |feature|
     end
   end
 
-  feature.actions = %w{vote create}
+  feature.actions = %w(vote create)
 
   feature.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0

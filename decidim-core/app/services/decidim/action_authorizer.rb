@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   # This class is used to authorize a user against an action in the context of a
   # feature.

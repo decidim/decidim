@@ -33,7 +33,7 @@ module Decidim
         end
 
         def name
-          I18n.with_locale(@locale){ I18n.t("name", scope: "locale") }
+          I18n.with_locale(@locale) { I18n.t("name", scope: "locale") }
         end
       end
 
