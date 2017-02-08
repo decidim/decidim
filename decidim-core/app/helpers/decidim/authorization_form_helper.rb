@@ -19,7 +19,7 @@ module Decidim
       }
 
       options = default_options.merge(options)
-      decidim_form_for(record, options, &block)
+      form_for(record, options, &block)
     end
   end
 end
