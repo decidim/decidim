@@ -11,8 +11,8 @@ module Decidim
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
         attribute :address, String
-        attribute :start_time, DateTime
-        attribute :end_time, DateTime
+        attribute :start_time, Decidim::Attributes::TimeWithZone
+        attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
 
