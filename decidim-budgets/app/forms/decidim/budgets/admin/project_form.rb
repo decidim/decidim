@@ -9,6 +9,7 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :description, String
+
         attribute :budget, Integer
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer

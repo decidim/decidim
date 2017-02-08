@@ -11,9 +11,9 @@ module Decidim
       attribute :scope_id, Integer
       attribute :user_group_id, Integer
 
-      validates :title, :body, presence: true
+      validates :title, :body, presence: true, etiquette: true
       validates :title, length: { maximum: 150 }
-      validates :body, length: { maximum: 500 }
+      validates :body, length: { maximum: 500 }, etiquette: true
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
 
