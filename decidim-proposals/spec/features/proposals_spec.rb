@@ -285,6 +285,32 @@ describe "Proposals", type: :feature do
     end
 
     context "when filtering" do
+      context "when official_proposals setting is enabled" do
+        before do
+          feature.update_attributes(settings: { official_proposals_enabled: true})
+        end
+
+        it "cannot be filtered by origin" do
+          within "form.new_filter" do
+            visit_feature
+            expect(page).to have_content(/Origin/i)
+          end
+        end
+      end
+
+      context "when official_proposals setting is not enabled" do
+        before do
+          feature.update_attributes(settings: { official_proposals_enabled: false})
+        end
+
+        it "cannot be filtered by origin" do
+          within "form.new_filter" do
+            visit_feature
+            expect(page).not_to have_content("Origin")
+          end
+        end
+      end
+
       context "when scoped_proposals setting is enabled" do
         before do
           feature.update_attributes(settings: { scoped_proposals_enabled: true})

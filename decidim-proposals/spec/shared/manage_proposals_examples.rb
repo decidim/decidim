@@ -41,29 +41,46 @@ RSpec.shared_examples "manage proposals" do
       end
     end
 
-    it "creates a new proposal" do
-      find(".actions .new").click
-
-      within ".new_proposal" do
-        fill_in :proposal_title, with: "Make decidim great again"
-        fill_in :proposal_body, with: "Decidim is great but it can be better"
-        select category.name["en"], from: :proposal_category_id
-        select scope.name, from: :proposal_scope_id
-
-        find("*[type=submit]").click
+    context "when official_proposals setting is enabled" do
+      before do
+        current_feature.update_attributes(settings: { official_proposals_enabled: true})
       end
 
-      within ".flash" do
-        expect(page).to have_content("successfully")
+      it "creates a new proposal" do
+        find(".actions .new").click
+
+        within ".new_proposal" do
+          fill_in :proposal_title, with: "Make decidim great again"
+          fill_in :proposal_body, with: "Decidim is great but it can be better"
+          select category.name["en"], from: :proposal_category_id
+          select scope.name, from: :proposal_scope_id
+
+          find("*[type=submit]").click
+        end
+
+        within ".flash" do
+          expect(page).to have_content("successfully")
+        end
+
+        within "table" do
+          proposal = Decidim::Proposals::Proposal.last
+
+          expect(page).to have_content("Make decidim great again")
+          expect(proposal.body).to eq("Decidim is great but it can be better")
+          expect(proposal.category).to eq(category)
+          expect(proposal.scope).to eq(scope)
+        end
+      end
+    end
+
+    context "when official_proposals setting is disabled" do
+      before do
+        current_feature.update_attributes(settings: { official_proposals_enabled: false})
       end
 
-      within "table" do
-        proposal = Decidim::Proposals::Proposal.last
-
-        expect(page).to have_content("Make decidim great again")
-        expect(proposal.body).to eq("Decidim is great but it can be better")
-        expect(proposal.category).to eq(category)
-        expect(proposal.scope).to eq(scope)
+      it "cannot create a new proposal" do
+        visit_feature
+        expect(page).not_to have_selector(".actions .new")
       end
     end
   end

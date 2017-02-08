@@ -1,8 +1,10 @@
 <h2><%= t(".title") %></h2>
 
-<div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'new' if can? :manage, current_feature %>
-</div>
+<% if feature_settings.official_proposals_enabled %>
+  <div class="actions title">
+    <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'new' if can? :manage, current_feature %>
+  </div>
+<% end %>
 
 <table class="stack">
   <thead>

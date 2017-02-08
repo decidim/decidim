@@ -26,6 +26,8 @@ module Decidim
 
       def ability_context
         {
+          current_settings: try(:current_settings),
+          feature_settings: try(:feature_settings),
           current_organization: try(:current_organization),
           current_feature: try(:current_feature)
         }
