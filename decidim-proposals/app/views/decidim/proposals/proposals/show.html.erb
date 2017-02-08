@@ -43,7 +43,7 @@
       <p><%= @proposal.body %></p>
       <%= render partial: "tags", locals: { proposal: @proposal } %>
     </div>
-    <% if @proposal.rejected? %>
+    <% if @proposal.answered? && translated_attribute(@proposal.answer).present? %>
       <div class="section">
         <div class="callout warning">
           <h5><%= t(".proposal_rejected_reason") %></h5>
