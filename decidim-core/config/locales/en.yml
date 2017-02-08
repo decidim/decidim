@@ -189,11 +189,11 @@ en:
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
       invalid_manifest: Invalid manifest
       invalid_participatory_process: Invalid participatory process
-      nesting_too_deep: can't be inside of a subcategory
-      too_much_caps: Is using too much caps
-      too_many_marks: Is using too many marks
       long_words: Contains words that are too long
       must_start_with_caps: Must start with caps
+      nesting_too_deep: can't be inside of a subcategory
+      too_many_marks: Is using too many marks
+      too_much_caps: Is using too much caps
       too_short: Is too short
   layouts:
     decidim:

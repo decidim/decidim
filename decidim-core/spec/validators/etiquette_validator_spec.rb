@@ -23,7 +23,7 @@ describe EtiquetteValidator do
   context "when the title is reasonable" do
     [
       %(I am a very reasonable title, ain't I? I have the right length, the right style, the right words. Yup.),
-      %(Validate titles", they said. "It's gonna be fun!", they said.),
+      %("Validate titles", they said. "It's gonna be fun!", they said.),
       %(I contain special characters because I'm à la mode.)
     ].each do |a_title|
       describe "like \"#{a_title}\"" do
