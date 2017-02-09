@@ -9,7 +9,13 @@ describe Decidim::Budgets::CancelOrder do
     )
   end
   let(:project) { create(:project, feature: feature, budget: 90_000_000) }
-  let(:order) { create(:order, user: user, feature: feature, checked_out_at: Time.zone.now) }
+  let(:order) do
+    order = create(:order, user: user, feature: feature)
+    order.projects << project
+    order.checked_out_at = Time.zone.now
+    order.save!
+    order
+  end
 
   subject { described_class.new(order) }
 

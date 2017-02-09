@@ -143,7 +143,13 @@ describe "Orders", type: :feature do
     end
 
     context "and has a finished order" do
-      let!(:order) { create(:order, user: user, feature: feature, checked_out_at: Time.current) }
+      let!(:order) do
+        order = create(:order, user: user, feature: feature)
+        order.projects << projects
+        order.checked_out_at = Time.current
+        order.save!
+        order
+      end
 
       it "can cancel the order" do
         visit_feature

@@ -2,10 +2,19 @@ require "spec_helper"
 
 describe Decidim::Budgets::RemoveLineItem do
   let(:user) { create(:user) }
-  let(:feature) { create(:budget_feature, organization: user.organization) }
-  let(:project) { create(:project, feature: feature) }
-  let(:order) { create(:order, user: user, feature: feature) }
-  let(:line_item) { create(:line_item, order: order, project: project) }
+  let(:feature) do
+    create(:budget_feature,
+           organization: user.organization,
+           settings: { "total_budget" => 100_000, "vote_threshold_percent": 50})
+  end
+  let(:project) { create(:project, feature: feature, budget: 100) }
+
+  let(:order) do
+    order = create(:order, user: user, feature: feature)
+    order.projects << project
+    order.save!
+    order
+  end
 
   subject { described_class.new(order, project) }
 
@@ -22,7 +31,9 @@ describe Decidim::Budgets::RemoveLineItem do
   end
 
   context "when the order is checked out" do
-    let!(:order) { create(:order,user: user, feature: feature, checked_out_at: Time.zone.now) }
+    before do
+      order.update_attribute :checked_out_at, Time.current
+    end
 
     it "broadcasts invalid" do
       expect { subject.call }.to broadcast(:invalid)

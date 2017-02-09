@@ -16,9 +16,17 @@ module Decidim
       validates :user, presence: true, uniqueness: { scope: :feature }
       validate :user_belongs_to_organization
 
+      validates :total_budget, numericality: {
+                  greater_than_or_equal_to: :minimum_budget,
+                }, if: :checked_out?
+
+      validates :total_budget, numericality: {
+                  less_than_or_equal_to: :maximum_budget
+                }
+
       # Public: Returns the sum of project budgets
       def total_budget
-        @total_budget ||= projects.sum(&:budget)
+        projects.to_a.sum(&:budget)
       end
 
       # Public: Returns true if the order has been checked out
@@ -38,7 +46,14 @@ module Decidim
 
       # Public: Returns the required minimum budget to checkout
       def minimum_budget
+        return 0 unless feature
         feature.settings.total_budget.to_f * (feature.settings.vote_threshold_percent.to_f / 100)
+      end
+
+      # Public: Returns the required maximum budget to checkout
+      def maximum_budget
+        return 0 unless feature
+        feature.settings.total_budget.to_f
       end
 
       private
