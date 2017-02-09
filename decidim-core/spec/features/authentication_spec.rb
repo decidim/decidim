@@ -29,6 +29,24 @@ describe "Authentication", type: :feature, perform_enqueued: true do
       end
     end
 
+    context "being a robot" do
+      it "denies the sign up" do
+        find(".sign-up-link").click
+
+        within "form#new_user" do
+          page.execute_script("$($('form#new_user > div > input')[0]).val('Ima robot :D')")
+          fill_in :user_email, with: "user@example.org"
+          fill_in :user_name, with: "Responsible Citizen"
+          fill_in :user_password, with: "123456"
+          fill_in :user_password_confirmation, with: "123456"
+          check :user_tos_agreement
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_no_content("confirmation link")
+      end
+    end
+
     context "using facebook" do
       let(:verified) { true }
       let(:omniauth_hash) {
