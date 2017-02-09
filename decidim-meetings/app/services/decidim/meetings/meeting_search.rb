@@ -20,9 +20,13 @@ module Decidim
           .or(query.where(localized_search_text_in(:description), text: "%#{search_text}%"))
       end
 
-      # Handle the order_start_time filter
-      def search_order_start_time
-        query.order(start_time: order_start_time)
+      # Handle the date filter
+      def search_date
+        if options[:date] == "upcoming"
+          query.where("start_time >= ? ", Time.current).order("start_time ASC")
+        elsif options[:date] == "past"
+          query.where("start_time <= ? ", Time.current).order("start_time DESC")
+        end
       end
 
       # Handle the scope_id filter
