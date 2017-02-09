@@ -75,12 +75,8 @@ RSpec.shared_examples "manage processes examples" do
       expect(page).to have_content("successfully")
     end
 
-    within "table" do
+    within ".tabs-content" do
       expect(page).to have_content("My new title")
-      click_link("My new title")
-    end
-
-    within "dl" do
       expect(page).not_to have_css("img[src*='#{image2_filename}']")
       expect(page).to have_css("img[src*='#{image3_filename}']")
     end
