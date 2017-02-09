@@ -67,7 +67,7 @@ module TranslationHelpers
   def fill_in_i18n_fields(field, tab_selector, localized_values)
     localized_values.each do |locale, value|
       within tab_selector do
-        click_link I18n.with_locale(locale){ I18n.t("name", scope: "locale") }
+        click_link I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
       end
       yield "#{field}_#{locale}", value
     end

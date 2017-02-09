@@ -7,11 +7,9 @@ module Decidim
     skip_authorization_check
 
     def accept
-      response.set_cookie 'decidim-cc', {
-        value: 'true',
-        path: '/',
-        expires: 1.year.from_now.utc
-      }
+      response.set_cookie "decidim-cc", value: "true",
+                                        path: "/",
+                                        expires: 1.year.from_now.utc
     end
   end
 end

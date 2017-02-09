@@ -110,6 +110,7 @@ en:
         proposal:
           view_proposal: View proposal
         show:
+          proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_rejected_reason: 'This proposal has been rejected because:'
         vote_button:
           already_voted: Already voted

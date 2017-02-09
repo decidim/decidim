@@ -31,7 +31,7 @@ module Decidim
       end
 
       def current_manifest
-        current_feature.manifest
+        @current_manifest ||= current_feature.manifest
       end
 
       def current_participatory_process

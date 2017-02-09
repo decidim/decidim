@@ -30,7 +30,7 @@ module Decidim
         tabs_panels = content_tag(:ul, class: "tabs", id: "#{name}-tabs", data: { tabs: true }) do
           locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
             string + content_tag(:li, class: tab_element_class_for("title", index)) do
-              title = I18n.with_locale(locale){ I18n.t("name", scope: "locale") }
+              title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
               element_class = ""
               element_class += "alert" if error?(name_with_locale(name, locale))
               content_tag(:a, title, href: "##{name}-panel-#{index}", class: element_class)
@@ -104,7 +104,7 @@ module Decidim
     end
 
     # Public: Override so checkboxes are rendered before the label.
-    def check_box(attribute, options = {}, checked_value = '1', unchecked_value = '0')
+    def check_box(attribute, options = {}, checked_value = "1", unchecked_value = "0")
       custom_label(attribute, options[:label], options[:label_options], true) do
         options[:label] = false
         options[:label_options] = false

@@ -26,7 +26,7 @@ module Decidim
       end
 
       def meeting
-        @meeting ||= meetings.find(params[:id])
+        @meeting ||= Meeting.where(feature: current_feature).find(params[:id])
       end
 
       def search_klass
@@ -35,7 +35,7 @@ module Decidim
 
       def default_filter_params
         {
-          order_start_time: "asc",
+          date: "upcoming",
           search_text: "",
           scope_id: "",
           category_id: ""

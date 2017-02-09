@@ -53,29 +53,32 @@ describe Decidim::Meetings::MeetingSearch do
       end
     end
 
-    context "order_start_time" do
-      let(:params) { default_params.merge(order_start_time: order) }
+    context "date" do
+      let(:params) { default_params.merge(date: date) }
+      let!(:past_meeting) do
+        create(:meeting, feature: current_feature, start_time: 1.day.ago)
+      end
 
-      context "is :asc" do
-        let(:order) { :asc }
+      context "is upcoming" do
+        let(:date) { "upcoming" }
 
-        it "sorts the meetings by start_time asc" do
-          expect(subject.results).to eq [meeting1, meeting2]
+        it "only returns that are scheduled in the future" do
+          expect(subject.results).to match_array [meeting1, meeting2]
         end
       end
 
-      context "is :desc" do
-        let(:order) { :desc }
+      context "is past" do
+        let(:date) { "past" }
 
-        it "sorts the meetings by start_time desc" do
-          expect(subject.results).to eq [meeting2, meeting1]
+        it "only returns meetings that were scheduled in the past" do
+          expect(subject.results).to match_array [past_meeting]
         end
       end
     end
 
     context "search_text" do
       let(:params) { default_params.merge(search_text: "TestCheck") }
-      
+
       it "show only the meeting containing the search_text" do
         expect(subject.results).to include(meeting1)
         expect(subject.results.length).to eq(1)
@@ -95,7 +98,7 @@ describe Decidim::Meetings::MeetingSearch do
         let(:params) { default_params.merge(scope_id: [scope2.id, scope1.id]) }
 
         it "filters meetings by scope" do
-          expect(subject.results).to match_array [meeting1,meeting2]
+          expect(subject.results).to match_array [meeting1, meeting2]
         end
       end
     end

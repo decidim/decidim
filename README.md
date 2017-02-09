@@ -1,22 +1,22 @@
-# Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![License: AGPL v3](https://img.shields.io/github/license/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/LICENSE-AGPLv3.txt)
+# Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![GitHub contributors](https://img.shields.io/github/contributors/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/graphs/contributors) [![License: AGPL v3](https://img.shields.io/github/license/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/LICENSE-AGPLv3.txt)
+
 
 [[Documentation](https://github.com/AjuntamentdeBarcelona/decidim/tree/master/docs)] - [[Demo](http://staging.decidim.codegram.com)]
 
 ### Code quality
 [![Build Status](https://img.shields.io/travis/AjuntamentdeBarcelona/decidim/master.svg)](https://travis-ci.org/AjuntamentdeBarcelona/decidim)
 [![Code Climate](https://img.shields.io/codeclimate/github/AjuntamentdeBarcelona/decidim.svg)](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim/trends)
-[![Issue Count](https://img.shields.io/codeclimate/issues/github/AjuntamentdeBarcelona/decidim.svg)](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim/issues)
 [![codecov](https://img.shields.io/codecov/c/github/AjuntamentdeBarcelona/decidim.svg)](https://codecov.io/gh/AjuntamentdeBarcelona/decidim)
 [![Dependency Status](https://img.shields.io/gemnasium/AjuntamentdeBarcelona/decidim.svg)](https://gemnasium.com/github.com/AjuntamentdeBarcelona/decidim)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim/invite)
 [![Inline docs](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim.svg?branch=master)](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim)
 
-### Project management
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/pulls)
-[![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/pulls?utf8=%E2%9C%93&q=is%3Apr%20is%3Aclosed)
-[![GitHub issues](https://img.shields.io/github/issues/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aclosed)
-[![GitHub contributors](https://img.shields.io/github/contributors/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/graphs/contributors)
+### Project management [[See on Waffle.io]](https://waffle.io/AjuntamentdeBarcelona/decidim)
+[![Stories in Discussion](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/discussion.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Adiscussion)
+[![Stories in Ready](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/ready.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Aready)
+[![Bugs](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/bug.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+[![In Progress](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/in-progress.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Ain-progress)
+[![In Review](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/in-review.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Ain-review)
 
 ---
 

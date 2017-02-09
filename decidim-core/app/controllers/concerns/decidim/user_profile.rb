@@ -18,6 +18,7 @@ module Decidim
       helper_method :available_authorization_handlers,
                     :user_groups
 
+      before_action :current_user
       authorize_resource :current_user
     end
 
