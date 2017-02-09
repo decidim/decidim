@@ -5,19 +5,18 @@
 ### Code quality
 [![Build Status](https://img.shields.io/travis/AjuntamentdeBarcelona/decidim/master.svg)](https://travis-ci.org/AjuntamentdeBarcelona/decidim)
 [![Code Climate](https://img.shields.io/codeclimate/github/AjuntamentdeBarcelona/decidim.svg)](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim/trends)
-[![Issue Count](https://img.shields.io/codeclimate/issues/github/AjuntamentdeBarcelona/decidim.svg)](https://codeclimate.com/github/AjuntamentdeBarcelona/decidim/issues)
 [![codecov](https://img.shields.io/codecov/c/github/AjuntamentdeBarcelona/decidim.svg)](https://codecov.io/gh/AjuntamentdeBarcelona/decidim)
 [![Dependency Status](https://img.shields.io/gemnasium/AjuntamentdeBarcelona/decidim.svg)](https://gemnasium.com/github.com/AjuntamentdeBarcelona/decidim)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim/invite)
 [![Inline docs](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim.svg?branch=master)](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim)
 
-### Project management
+### Project management [![GitHub contributors](https://img.shields.io/github/contributors/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/graphs/contributors)
+
 [![Stories in Discussion](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/discussion.svg)](http://waffle.io/AjuntamentdeBarcelona/decidim)
 [![Stories in Ready](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/ready.svg)](http://waffle.io/AjuntamentdeBarcelona/decidim)
 [![Bugs](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/bug.svg)](http://waffle.io/AjuntamentdeBarcelona/decidim)
 [![In Progress](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/in-progress.svg)](http://waffle.io/AjuntamentdeBarcelona/decidim)
 [![In Review](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/in-review.svg)](http://waffle.io/AjuntamentdeBarcelona/decidim)
-[![GitHub contributors](https://img.shields.io/github/contributors/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/graphs/contributors)
 
 ---
 
