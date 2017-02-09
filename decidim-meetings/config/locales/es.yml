@@ -52,8 +52,10 @@ es:
         filters:
           category: Categoría
           date: Fecha
+          past: Pasadas
           scopes: Ámbitos
           search: Buscar
+          upcoming: Próximas
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
