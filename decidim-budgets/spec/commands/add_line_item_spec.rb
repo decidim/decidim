@@ -2,8 +2,9 @@ require "spec_helper"
 
 describe Decidim::Budgets::AddLineItem do
   let(:user) { create(:user) }
-  let(:feature) { create(:budget_feature, organization: user.organization) }
-  let(:project) { create(:project, feature: feature) }
+  let(:feature) { create(:budget_feature, organization: user.organization, settings: settings) }
+  let(:project) { create(:project, feature: feature, budget: 60_000) }
+  let(:settings) { { "total_budget" => 100_000, vote_threshold_percent: 50 }}
   let(:order) { nil }
 
   subject { described_class.new(order, project, user) }
@@ -39,7 +40,19 @@ describe Decidim::Budgets::AddLineItem do
   end
 
   context "when the order is checked out" do
-    let!(:order) { create(:order,user: user, feature: feature, checked_out_at: Time.zone.now) }
+    let(:projects) do
+      build_list(:project, 2, budget: 30_000, feature: feature)
+    end
+
+    let!(:order) do
+      order = create(:order,
+                    user: user,
+                    feature: feature)
+      order.projects << projects
+      order.checked_out_at = Time.current
+      order.save!
+      order
+    end
 
     it "broadcasts invalid" do
       expect { subject.call }.to broadcast(:invalid)

@@ -35,8 +35,10 @@ module Decidim
       end
 
       def add_line_item
-        order.projects << @project
-        order.save!
+        order.with_lock do
+          order.projects << @project
+          order.save!
+        end
       end
     end
   end

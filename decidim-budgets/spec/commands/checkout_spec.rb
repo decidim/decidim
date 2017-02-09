@@ -8,9 +8,16 @@ describe Decidim::Budgets::Checkout do
       organization: user.organization
     )
   end
+
   let(:project) { create(:project, feature: feature, budget: 90_000_000) }
-  let(:order) { create(:order, user: user, feature: feature) }
-  let!(:line_item) { create(:line_item, order: order, project: project)}
+
+  let(:order) do
+    order = create(:order, user: user, feature: feature)
+    order.projects << project
+    order.save!
+    order
+  end
+
   let(:current_order) { order }
 
   subject { described_class.new(current_order, feature) }

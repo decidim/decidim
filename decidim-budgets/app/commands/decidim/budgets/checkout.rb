@@ -19,15 +19,19 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless @order&.can_checkout?
-        checkout!
+        return broadcast(:invalid, @order) unless checkout!
         broadcast(:ok, @order)
       end
 
       private
 
       def checkout!
-        @order.update_attributes!(checked_out_at: Time.current)
+        return unless @order
+
+        @order.with_lock do
+          @order.checked_out_at = Time.current
+          @order.save
+        end
       end
     end
   end
