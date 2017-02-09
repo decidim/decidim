@@ -70,13 +70,15 @@ describe "Explore meetings", type: :feature do
   context "show" do
     let(:meetings_count) { 1 }
     let(:meeting) { meetings.first }
+    let(:date) { 10.days.from_now }
 
     before do
       meeting.update_attributes(
-        start_time: DateTime.new(Time.current.year + 1, 12, 13, 14, 15),
-        end_time: DateTime.new(Time.current.year + 1, 12, 13, 16, 17)
+        start_time: date.beginning_of_day,
+        end_time: date.end_of_day
       )
-      click_link translated(meeting.title)
+
+      visit decidim_meetings.meeting_path(participatory_process_id: participatory_process.id, feature_id: feature.id, id: meeting.id)
     end
 
     it "shows all meeting info" do
@@ -87,9 +89,8 @@ describe "Explore meetings", type: :feature do
       expect(page).to have_content(meeting.address)
 
       within ".section.view-side" do
-        expect(page).to have_content(13)
-        expect(page).to have_content(/December/i)
-        expect(page).to have_content("14:15 - 16:17")
+        expect(page).to have_content(date.day)
+        expect(page).to have_content("00:00 - 23:59")
       end
     end
 
