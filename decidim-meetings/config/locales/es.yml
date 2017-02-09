@@ -50,10 +50,8 @@ es:
             name: Encuentro
       meetings:
         filters:
-          ascendent: Ascendente
           category: Categoría
           date: Fecha
-          descendent: Descendiente
           scopes: Ámbitos
           search: Buscar
         filters_small_view:
