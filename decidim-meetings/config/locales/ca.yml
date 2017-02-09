@@ -50,12 +50,12 @@ ca:
             name: Trobada
       meetings:
         filters:
-          ascendent: Ascendent
           category: Categoria
           date: Data
-          descendent: Descendent
+          past: Passades
           scopes: Àmbits
           search: Cerca
+          upcoming: Pròximes
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra

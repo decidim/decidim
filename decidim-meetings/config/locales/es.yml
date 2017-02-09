@@ -50,12 +50,12 @@ es:
             name: Encuentro
       meetings:
         filters:
-          ascendent: Ascendente
           category: Categoría
           date: Fecha
-          descendent: Descendiente
+          past: Pasadas
           scopes: Ámbitos
           search: Buscar
+          upcoming: Próximas
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
