@@ -1,41 +1,83 @@
 require "spec_helper"
 
 describe "Explore meetings", type: :feature do
-  let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "meetings" }
+  include_context "feature"
+  let(:manifest_name) { "meetings" }
+
   let(:meetings_count) { 5 }
   let!(:meetings) do
-    create_list(
-      :meeting,
-      meetings_count,
-      feature: current_feature,
-      start_time: DateTime.new(2016, 12, 13, 14, 15),
-      end_time: DateTime.new(2016, 12, 13, 16, 17)
-    )
+    create_list(:meeting, meetings_count, feature: feature)
   end
 
   before do
-    switch_to_host(organization.host)
-    visit path
+    visit_feature
   end
 
   context "index" do
-    let(:path) { decidim_meetings.meetings_path(participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
-
     it "shows all meetings for the given process" do
       expect(page).to have_selector("article.card", count: meetings_count)
 
       meetings.each do |meeting|
-        expect(page).to have_content(translated meeting.title)
+        expect(page).to have_content(translated(meeting.title))
+      end
+    end
+
+    context "filtering" do
+      it "allows searching by text" do
+        within ".filters" do
+          fill_in :filter_search_text, with: translated(meetings.first.title)
+        end
+
+        expect(page).to have_css(".card--meeting", count: 1)
+        expect(page).to have_content(translated(meetings.first.title))
+      end
+
+      it "allows filtering by date" do
+        past_meeting = create(:meeting, feature: feature, start_time: 1.day.ago)
+        visit_feature
+
+        within ".filters" do
+          choose "Past"
+        end
+
+        expect(page).to have_css(".card--meeting", count: 1)
+        expect(page).to have_content(translated(past_meeting.title))
+
+        within ".filters" do
+          choose "Upcoming"
+        end
+
+        expect(page).to have_css(".card--meeting", count: 5)
+      end
+
+      it "allows fitlering by scope" do
+        scope = create(:scope, organization: organization)
+        meeting = meetings.first
+        meeting.scope = scope
+        meeting.save
+
+        visit_feature
+
+        within ".filters" do
+          check scope.name
+        end
+
+        expect(page).to have_css(".card--meeting", count: 1)
       end
     end
   end
 
   context "show" do
-    let(:path) { decidim_meetings.meeting_path(id: meeting.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id) }
     let(:meetings_count) { 1 }
     let(:meeting) { meetings.first }
+
+    before do
+      meeting.update_attributes(
+        start_time: DateTime.new(Time.current.year + 1, 12, 13, 14, 15),
+        end_time: DateTime.new(Time.current.year + 1, 12, 13, 16, 17)
+      )
+      click_link translated(meeting.title)
+    end
 
     it "shows all meeting info" do
       expect(page).to have_i18n_content(meeting.title)
@@ -60,7 +102,7 @@ describe "Explore meetings", type: :feature do
     context "with a category" do
       let(:meeting) do
         meeting = meetings.first
-        meeting.category = create :category, participatory_process: participatory_process
+        meeting.category = create(:category, participatory_process: participatory_process)
         meeting.save
         meeting
       end
@@ -83,7 +125,7 @@ describe "Explore meetings", type: :feature do
     context "with a scope" do
       let(:meeting) do
         meeting = meetings.first
-        meeting.scope = create :scope, organization: organization
+        meeting.scope = create(:scope, organization: organization)
         meeting.save
         meeting
       end
@@ -111,7 +153,8 @@ describe "Explore meetings", type: :feature do
 
       before do
         meeting.link_resources(proposals, "proposals_from_meeting")
-        visit current_path
+        visit_feature
+        click_link translated(meeting.title)
       end
 
       it "shows related proposals" do
@@ -131,7 +174,8 @@ describe "Explore meetings", type: :feature do
 
       before do
         meeting.link_resources(results, "meetings_through_proposals")
-        visit current_path
+        visit_feature
+        click_link translated(meeting.title)
       end
 
       it "shows related results" do
@@ -145,7 +189,13 @@ describe "Explore meetings", type: :feature do
     it_behaves_like "has attachments"
 
     context "when the meeting is closed" do
-      let(:meeting) { create(:meeting, :closed, feature: current_feature) }
+      let!(:meeting) { create(:meeting, :closed, feature: feature) }
+
+      before do
+        meeting
+        visit_feature
+        click_link translated(meeting.title)
+      end
 
       it "shows the closing report" do
         expect(page).to have_i18n_content(meeting.closing_report)

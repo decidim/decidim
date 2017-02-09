@@ -51,12 +51,12 @@ en:
             name: Meeting
       meetings:
         filters:
-          ascendent: Ascendent
           category: Category
           date: Date
-          descendent: Descendent
+          past: Past
           scopes: Scopes
           search: Search
+          upcoming: Upcoming
         filters_small_view:
           close_modal: Close modal
           filter: Filter
