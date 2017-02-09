@@ -58,12 +58,8 @@ describe "Admin manage participatory processes", type: :feature do
       expect(page).to have_content("successfully")
     end
 
-    within "table" do
+    within ".tabs-content" do
       expect(page).to have_content("My participatory process")
-      click_link("My participatory process")
-    end
-
-    within "dl" do
       expect(page).to have_css("img[src*='#{image1_filename}']")
       expect(page).to have_css("img[src*='#{image2_filename}']")
     end
