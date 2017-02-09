@@ -11,7 +11,6 @@
 [![Inline docs](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim.svg?branch=master)](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim)
 
 ### Project management [![GitHub contributors](https://img.shields.io/github/contributors/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/graphs/contributors)
-
 [![Stories in Discussion](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/discussion.svg)](http://waffle.io/AjuntamentdeBarcelona/decidim)
 [![Stories in Ready](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/ready.svg)](http://waffle.io/AjuntamentdeBarcelona/decidim)
 [![Bugs](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/bug.svg)](http://waffle.io/AjuntamentdeBarcelona/decidim)
