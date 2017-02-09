@@ -12,10 +12,11 @@
 [![Inline docs](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim.svg?branch=master)](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim)
 
 ### Project management
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/pulls)
-[![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/pulls?utf8=%E2%9C%93&q=is%3Apr%20is%3Aclosed)
-[![GitHub issues](https://img.shields.io/github/issues/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aclosed)
+![Stories in Discussion](https://badge.waffle.io/AjuntamentdeBarcelona/decidim.svg?label=discussion&title=Discussions)](http://waffle.io/AjuntamentdeBarcelona/decidim)
+![Stories in Ready](https://badge.waffle.io/AjuntamentdeBarcelona/decidim.svg?label=ready&title=Ready)](http://waffle.io/AjuntamentdeBarcelona/decidim)
+![Bugs](https://badge.waffle.io/AjuntamentdeBarcelona/decidim.svg?label=bug&title=Bugs)](http://waffle.io/AjuntamentdeBarcelona/decidim)
+![In Progress](https://badge.waffle.io/AjuntamentdeBarcelona/decidim.svg?label=in-progress&title=In%20progress)](http://waffle.io/AjuntamentdeBarcelona/decidim)
+![In Review](https://badge.waffle.io/AjuntamentdeBarcelona/decidim.svg?label=in-review&title=In%20progress)](http://waffle.io/AjuntamentdeBarcelona/decidim)
 [![GitHub contributors](https://img.shields.io/github/contributors/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/graphs/contributors)
 
 ---
