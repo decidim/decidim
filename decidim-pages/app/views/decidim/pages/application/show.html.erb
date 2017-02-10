@@ -13,8 +13,6 @@
   </div>
 </div>
 
-<% if current_settings.comments_enabled %>
-  <%= content_for :expanded do %>
-    <%= comments_for @page, arguable: true, votable: true %>
-  <% end %>
+<%= content_for :expanded do %>
+  <%= comments_for @page %>
 <% end %>

@@ -74,6 +74,13 @@ module Decidim
       end
     end
 
+    def active_step_settings
+      active_step = participatory_process.active_step
+      return nil unless active_step
+
+      step_settings.fetch(active_step.id.to_s)
+    end
+
     private
 
     def serialize_settings(schema, value)

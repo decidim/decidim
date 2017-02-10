@@ -35,9 +35,7 @@
 </div>
 
 <%= content_for :expanded do %>
-  <% if current_settings.comments_enabled %>
-    <%= comments_for project, votable: true %>
-  <% end %>
+  <%= comments_for project %>
 <% end %>
 
 <%= attachments_for project %>
