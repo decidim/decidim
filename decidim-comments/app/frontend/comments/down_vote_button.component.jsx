@@ -84,7 +84,10 @@ const DownVoteButtonWithMutation = graphql(gql`
 
           return {
             ...prev,
-            comments: prev.comments.map(commentReducer)
+            commentable: {
+              ...prev.commentable,
+              comments: prev.commentable.comments.map(commentReducer)
+            }
           }
         }
       }

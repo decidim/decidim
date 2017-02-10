@@ -18,11 +18,15 @@ module Decidim
         end
 
         def comments_have_alignment?
-          false
+          true
         end
 
         def comments_have_votes?
-          false
+          true
+        end
+
+        def commentable_type
+          self.class.name
         end
       end
     end

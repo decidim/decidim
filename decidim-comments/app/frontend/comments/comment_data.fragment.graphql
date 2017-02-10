@@ -1,5 +1,6 @@
 fragment CommentData on Comment {
   id
+  type
   body
   createdAt
   author {

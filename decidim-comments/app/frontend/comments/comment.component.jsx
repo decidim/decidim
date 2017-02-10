@@ -179,9 +179,8 @@ class Comment extends Component {
     if (showReplyForm) {
       return (
         <AddCommentForm
-          commentableId={comment.id}
-          commentableType="Decidim::Comments::Comment"
           session={session}
+          commentable={comment}
           showTitle={false}
           submitButtonClassName="button small hollow"
           onCommentAdded={() => this.setState({ showReplyForm: false })}

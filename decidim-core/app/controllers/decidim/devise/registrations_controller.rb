@@ -52,6 +52,12 @@ module Decidim
         end
       end
 
+      private
+
+      def terms_and_conditions_page
+        @terms_and_conditions_page ||= Decidim::StaticPage.find_by_slug("terms-and-conditions")
+      end
+
       protected
 
       def configure_permitted_parameters

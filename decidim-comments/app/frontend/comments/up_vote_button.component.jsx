@@ -46,7 +46,7 @@ UpVoteButton.propTypes = {
 
 const UpVoteButtonWithMutation = graphql(gql`
   ${upVoteMutation}
-  ${commentFragment}  
+  ${commentFragment}
   ${commentDataFragment}
   ${upVoteFragment}
   ${downVoteFragment}
@@ -84,7 +84,10 @@ const UpVoteButtonWithMutation = graphql(gql`
 
           return {
             ...prev,
-            comments: prev.comments.map(commentReducer)
+            commentable: {
+              ...prev.commentable,
+              comments: prev.commentable.comments.map(commentReducer)
+            }
           }
         }
       }

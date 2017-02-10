@@ -10,7 +10,7 @@ module Decidim
       #
       # Returns a div which contain a RectComponent to be rendered by `react_ujs`
       def comments_for(resource)
-        commentable_type = resource.class.name
+        commentable_type = resource.commentable_type
         commentable_id = resource.id.to_s
         node_id = "comments-for-#{commentable_type.demodulize}-#{commentable_id}"
 

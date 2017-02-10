@@ -77,8 +77,7 @@ describe("<Comment />", () => {
     expect(wrapper.find(AddCommentForm)).not.to.be.present();
     wrapper.find('button.comment__reply').simulate('click');
     expect(wrapper.find(AddCommentForm)).to.have.prop('session').deep.equal(session);
-    expect(wrapper.find(AddCommentForm)).to.have.prop('commentableId').equal(comment.id);
-    expect(wrapper.find(AddCommentForm)).to.have.prop('commentableType').equal("Decidim::Comments::Comment");
+    expect(wrapper.find(AddCommentForm)).to.have.prop('commentable').deep.equal(comment);
     expect(wrapper.find(AddCommentForm)).to.have.prop('showTitle').equal(false);
     expect(wrapper.find(AddCommentForm)).to.have.prop('submitButtonClassName').equal('button small hollow');
   });

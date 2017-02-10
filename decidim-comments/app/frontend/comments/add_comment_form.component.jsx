@@ -323,14 +323,14 @@ const AddCommentFormWithMutation = graphql(gql`
       },
       updateQueries: {
         GetComments: (prev, { mutationResult: { data } }) => {
-          const { commentableId, commentableType } = ownProps;
+          const { id, type } = ownProps.commentable;
           const newComment = data.commentable.addComment;
           let comments = [];
 
           const commentReducer = (comment) => {
             const replies = comment.comments || [];
 
-            if (comment.id === commentableId) {
+            if (comment.id === id) {
               return {
                 ...comment,
                 hasComments: true,
@@ -346,18 +346,21 @@ const AddCommentFormWithMutation = graphql(gql`
             };
           };
 
-          if (commentableType === "Decidim::Comments::Comment") {
-            comments = prev.comments.map(commentReducer);
+          if (type === "Decidim::Comments::Comment") {
+            comments = prev.commentable.comments.map(commentReducer);
           } else {
             comments = [
-              ...prev.comments,
+              ...prev.commentable.comments,
               newComment
             ];
           }
 
           return {
             ...prev,
-            comments
+            commentable: {
+              ...prev.commentable,
+              comments
+            }
           };
         }
       }

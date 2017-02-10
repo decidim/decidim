@@ -6,6 +6,12 @@ module Decidim
       name "CommentableInterface"
       description "A commentable interface"
 
+      field :id, !types.ID, "The commentable's ID"
+
+      field :type, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`" do
+        property :commentable_type
+      end
+
       field :canHaveComments, !types.Boolean, "Wether the object can have comments or not" do
         property :commentable?
       end

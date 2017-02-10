@@ -73,12 +73,14 @@ export class Comments extends Component {
    * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
    */
   _renderAddCommentForm() {
-    const { session, commentable: { canHaveComments, commentsHaveAlignment } } = this.props;
+    const { session, commentable } = this.props;
+    const { canHaveComments, commentsHaveAlignment } = commentable;
 
     if (session && canHaveComments) {
       return (
         <AddCommentForm
           session={session}
+          commentable={commentable}
           arguable={commentsHaveAlignment}
         />
       );
