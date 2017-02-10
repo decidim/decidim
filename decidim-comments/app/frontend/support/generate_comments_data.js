@@ -1,6 +1,6 @@
 import { random, name, date, image } from 'faker/locale/en';
 
-/** 
+/**
  * Generate random comment data to emulate a database real content
  * @param {number} num - The number of comments to generate random data
  * @returns {Object[]} - An array of objects representing comments data
@@ -19,7 +19,7 @@ const generateCommentsData = (num = 1) => {
       },
       hasReplies: false,
       replies: [],
-      canHaveReplies: true,
+      canHaveComments: true,
       alignment: 0,
       upVotes: random.number(),
       upVoted: false,

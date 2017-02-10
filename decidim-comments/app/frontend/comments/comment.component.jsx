@@ -68,10 +68,10 @@ class Comment extends Component {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   _renderReplyButton() {
-    const { comment: { canHaveReplies }, session } = this.props;
+    const { comment: { canHaveComments }, session } = this.props;
     const { showReplyForm } = this.state;
 
-    if (session && canHaveReplies) {
+    if (session && canHaveComments) {
       return (
         <button
           className="comment__reply muted-link"
@@ -92,10 +92,10 @@ class Comment extends Component {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   _renderAdditionalReplyButton() {
-    const { comment: { canHaveReplies, hasReplies }, session, isRootComment } = this.props;
+    const { comment: { canHaveComments, hasReplies }, session, isRootComment } = this.props;
     const { showReplyForm } = this.state;
 
-    if (session && canHaveReplies) {
+    if (session && canHaveComments) {
       if (hasReplies && isRootComment) {
 
         return (
@@ -135,23 +135,23 @@ class Comment extends Component {
   }
 
   /**
-   * Render comment replies alternating the css class
+   * Render comment's comments alternating the css class
    * @private
-   * @returns {Void|DomElement} - A wrapper element with comment replies inside
+   * @returns {Void|DomElement} - A wrapper element with comment's comments inside
    */
   _renderReplies() {
-    const { comment: { id, replies }, session, votable, articleClassName } = this.props;
+    const { comment: { id, hasComments, comments }, session, votable, articleClassName } = this.props;
     let replyArticleClassName = 'comment comment--nested';
 
     if (articleClassName === 'comment comment--nested') {
       replyArticleClassName = `${replyArticleClassName} comment--nested--alt`;
     }
 
-    if (replies) {
+    if (hasComments) {
       return (
         <div>
           {
-            replies.map((reply) => (
+            comments.map((reply) => (
               <Comment
                 key={`comment_${id}_reply_${reply.id}`}
                 comment={reply}

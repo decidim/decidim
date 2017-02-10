@@ -67,9 +67,7 @@
 </div>
 
 <%= content_for :expanded do %>
-  <% if current_settings.comments_enabled %>
-    <%= comments_for @proposal, arguable: true, votable: true %>
-  <% end %>
+  <%= comments_for @proposal %>
 <% end %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>

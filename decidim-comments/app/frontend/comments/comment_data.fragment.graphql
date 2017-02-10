@@ -3,11 +3,11 @@ fragment CommentData on Comment {
   body
   createdAt
   author {
-    name,
+    name
     avatarUrl
   }
   hasReplies
-  canHaveReplies
+  canHaveComments
   alignment
   ...UpVote
   ...DownVote

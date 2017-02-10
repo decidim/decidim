@@ -21,7 +21,7 @@ import commentsQuery            from './comments.query.graphql';
  */
 export class Comments extends Component {
   render() {
-    const { comments, reorderComments, orderBy, loading } = this.props;
+    const { commentable: { comments }, reorderComments, orderBy, loading } = this.props;
     let commentClasses = "comments";
     let commentHeader = I18n.t("components.comments.title", { count: comments.length });
 
@@ -55,14 +55,14 @@ export class Comments extends Component {
    * @returns {ReactComponent[]} - A collection of CommentThread components
    */
   _renderCommentThreads() {
-    const { comments, session, options: { votable } } = this.props;
+    const { session, commentable: { comments, commentsHaveVotes } } = this.props;
 
     return comments.map((comment) => (
       <CommentThread
         key={comment.id}
         comment={filter(CommentThread.fragments.comment, comment)}
         session={session}
-        votable={votable}
+        votable={commentsHaveVotes}
       />
     ))
   }
@@ -73,15 +73,13 @@ export class Comments extends Component {
    * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
    */
   _renderAddCommentForm() {
-    const { session, commentableId, commentableType, options: { arguable } } = this.props;
+    const { session, commentable: { canHaveComments, commentsHaveAlignment } } = this.props;
 
-    if (session) {
+    if (session && canHaveComments) {
       return (
         <AddCommentForm
           session={session}
-          commentableId={commentableId}
-          commentableType={commentableType}
-          arguable={arguable}
+          arguable={commentsHaveAlignment}
         />
       );
     }
@@ -92,26 +90,27 @@ export class Comments extends Component {
 
 Comments.propTypes = {
   loading: PropTypes.bool,
-  comments: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired
-  })),
   session: PropTypes.shape({
     user: PropTypes.any.isRequired
   }),
-  commentableId: PropTypes.string.isRequired,
-  commentableType: PropTypes.string.isRequired,
-  options: PropTypes.shape({
-    arguable: PropTypes.bool
-  }).isRequired,
+  commentable: PropTypes.shape({
+    canHaveComments: PropTypes.bool,
+    commentsHaveAlignment: PropTypes.bool,
+    commentsHaveVotes: PropTypes.bool,
+    comments: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired
+    }))
+  }),
   orderBy: PropTypes.string.isRequired,
   reorderComments: PropTypes.func.isRequired
 };
 
 Comments.defaultProps = {
   loading: false,
-  comments: null,
   session: null,
-  commentableId: null
+  commentable: {
+    comments: []
+  }
 };
 
 /**
@@ -129,14 +128,11 @@ const CommentsWithData = graphql(gql`
   options: {
     pollInterval: 15000
   },
-  props: ({ ownProps, data: { loading, session, comments, refetch }}) => ({
-    loading: loading,
-    comments: comments || [],
+  props: ({ ownProps, data: { loading, session, commentable, refetch }}) => ({
+    loading,
     session,
-    commentableId: ownProps.commentableId,
-    commentableType: ownProps.commentableType,
+    commentable,
     orderBy: ownProps.orderBy,
-    options: ownProps.options,
     reorderComments: (orderBy) => {
       return refetch({
         orderBy
@@ -150,12 +146,11 @@ const CommentsWithData = graphql(gql`
  * connect it with Apollo client and store.
  * @returns {ReactComponent} - A component wrapped within an Application component
  */
-const CommentsApplication = ({ locale, commentableId, commentableType, options }) => (
+const CommentsApplication = ({ locale, commentableId, commentableType }) => (
   <Application locale={locale}>
     <CommentsWithData
       commentableId={commentableId}
       commentableType={commentableType}
-      options={options}
       orderBy="older"
     />
   </Application>
@@ -166,15 +161,8 @@ CommentsApplication.propTypes = {
   commentableId: React.PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
-  ]),
-  commentableType: PropTypes.string.isRequired,
-  options: PropTypes.shape({
-    arguable: PropTypes.bool
-  }).isRequired
-};
-
-CommentsApplication.defaultProps = {
-  commentableId: null
+  ]).isRequired,
+  commentableType: PropTypes.string.isRequired
 };
 
 export default CommentsApplication;

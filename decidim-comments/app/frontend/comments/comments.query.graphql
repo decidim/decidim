@@ -6,8 +6,13 @@ query GetComments($commentableId: String!, $commentableType: String!, $orderBy: 
     }
     ...AddCommentForm
   }
-  comments(commentableId: $commentableId, commentableType: $commentableType, orderBy: $orderBy) {
-    id
-    ...CommentThread
+  commentable(id: $commentableId, type: $commentableType) {
+    canHaveComments
+    commentsHaveAlignment
+    commentsHaveVotes
+    comments(orderBy: $orderBy) {
+      id
+      ...CommentThread
+    }
   }
 }

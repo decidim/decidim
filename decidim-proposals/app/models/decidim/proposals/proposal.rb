@@ -8,6 +8,7 @@ module Decidim
       include Decidim::HasFeature
       include Decidim::HasScope
       include Decidim::HasCategory
+      include Decidim::Comments::Commentable
 
       feature_manifest_name "proposals"
 

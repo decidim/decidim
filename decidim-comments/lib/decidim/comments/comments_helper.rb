@@ -7,18 +7,15 @@ module Decidim
       # from react-rails gem
       #
       # resource - A commentable resource
-      # options - A hash of options (default: {})
-      #           :arguable - A boolean value to indicate if tihs option is available
       #
       # Returns a div which contain a RectComponent to be rendered by `react_ujs`
-      def comments_for(resource, options = {})
+      def comments_for(resource)
         commentable_type = resource.class.name
         commentable_id = resource.id.to_s
         node_id = "comments-for-#{commentable_type.demodulize}-#{commentable_id}"
 
         react_comments_component(node_id, commentableType: commentable_type,
                                           commentableId: commentable_id,
-                                          options: options.slice(:arguable, :votable),
                                           locale: I18n.locale)
       end
 
@@ -35,7 +32,6 @@ module Decidim
               {
                 commentableType: "#{props[:commentableType]}",
                 commentableId: "#{props[:commentableId]}",
-                options: JSON.parse("#{j(props[:options].to_json)}"),
                 locale: "#{props[:locale]}"
               }
             );

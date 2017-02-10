@@ -6,6 +6,10 @@ module Decidim
       name "Comment"
       description "A comment"
 
+      interfaces [
+        Decidim::Comments::CommentableInterface
+      ]
+
       field :id, !types.ID, "The Comment's unique ID"
 
       field :body, !types.String, "The comment message"
@@ -32,10 +36,6 @@ module Decidim
         resolve lambda { |obj, _args, _ctx|
           obj.replies.size.positive?
         }
-      end
-
-      field :canHaveReplies, !types.Boolean, "Define if a comment can or not have replies" do
-        property :can_have_replies?
       end
 
       field :alignment, types.Int, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'"

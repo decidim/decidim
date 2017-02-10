@@ -303,9 +303,9 @@ const AddCommentFormWithMutation = graphql(gql`
             name: ownProps.session.user.name,
             avatarUrl: ownProps.session.user.avatarUrl
           },
-          replies: [],
-          hasReplies: false,
-          canHaveReplies: false,
+          comments: [],
+          hasComments: false,
+          canHaveComments: false,
           upVotes: 0,
           upVoted: false,
           downVotes: 0,
@@ -319,13 +319,13 @@ const AddCommentFormWithMutation = graphql(gql`
           let comments = [];
 
           const commentReducer = (comment) => {
-            const replies = comment.replies || [];
+            const replies = comment.comments || [];
 
             if (comment.id === commentableId) {
               return {
                 ...comment,
-                hasReplies: true,
-                replies: [
+                hasComments: true,
+                comments: [
                   ...replies,
                   newComment
                 ]
@@ -333,7 +333,7 @@ const AddCommentFormWithMutation = graphql(gql`
             }
             return {
               ...comment,
-              replies: replies.map(commentReducer)
+              comments: replies.map(commentReducer)
             };
           };
 

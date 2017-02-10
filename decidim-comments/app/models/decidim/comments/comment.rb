@@ -6,6 +6,7 @@ module Decidim
     # to discuss or share their thoughts about the resource.
     class Comment < ApplicationRecord
       include Decidim::Authorable
+      include Decidim::Comments::Commentable
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -24,16 +25,14 @@ module Decidim
       validates :depth, numericality: { greater_than_or_equal_to: 0 }
       validates :alignment, inclusion: { in: [0, 1, -1] }
 
-      validate :commentable_can_have_replies
+      validate :commentable_can_have_comments
 
       before_save :compute_depth
 
       delegate :organization, to: :commentable
 
-      # Public: Define if a comment can have replies or not
-      #
-      # Returns a bool value to indicate if comment can have replies
-      def can_have_replies?
+      # Public: Override Commentable concern method `can_have_comments?`
+      def can_have_comments?
         depth < MAX_DEPTH
       end
 
@@ -59,10 +58,10 @@ module Decidim
 
       private
 
-      # Private: Check if commentable can have replies and if not adds
+      # Private: Check if commentable can have comments and if not adds
       # a validation error to the model
       def commentable_can_have_replies
-        errors.add(:commentable, :cannot_have_replies) if commentable.respond_to?(:can_have_replies?) && !commentable.can_have_replies?
+        errors.add(:commentable, :cannot_have_comments) unless commentable.can_have_comments?
       end
 
       # Private: Compute comment depth inside the current comment tree

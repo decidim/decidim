@@ -120,6 +120,7 @@ describe "Comments", type: :feature do
     end
 
     context "when arguable option is enabled" do
+      pending
       before do
         visit_commentable_path arguable: true
       end
@@ -141,6 +142,7 @@ describe "Comments", type: :feature do
     end
 
     context "when votable option is enabled" do
+      pending
       before do
         visit_commentable_path votable: true
       end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/feature_validator"
-require "decidim/comments/comments_helper"
+require "decidim/comments"
 
 module Decidim
   # Dummy engine to be able to test components.
@@ -18,6 +18,7 @@ module Decidim
     include HasFeature
     include Resourceable
     include Authorable
+    include Decidim::Comments::Commentable
 
     feature_manifest_name "dummy"
   end
@@ -28,11 +29,9 @@ module Decidim
 
     def show
       @commentable = DummyResource.find(params[:id])
-      @options = params.slice(:arguable, :votable)
-      @options.each { |key, val| @options[key] = val === "true" }
       render inline: %{
         <%= javascript_include_tag 'application' %>
-        <%= comments_for(@commentable, @options) %>
+        <%= comments_for(@commentable) %>
       }.html_safe
     end
   end

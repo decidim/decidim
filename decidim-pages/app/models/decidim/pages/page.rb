@@ -4,6 +4,8 @@ module Decidim
     # The data store for a Page in the Decidim::Pages component. It stores a
     # title, description and any other useful information to render a custom page.
     class Page < Pages::ApplicationRecord
+      include Decidim::Comments::Commentable
+
       belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
       has_one :organization, through: :feature
 
