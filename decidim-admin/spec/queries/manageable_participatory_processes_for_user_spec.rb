@@ -15,6 +15,14 @@ describe Decidim::Admin::ManageableParticipatoryProcessesForUser do
     end
   end
 
+  context "when the user is a collaborator" do
+    let(:user) { create :user, :collaborator }
+
+    it "returns only the organization processes" do
+      expect(subject.query).to eq [organization_process]
+    end
+  end
+
   context "when the user is not an admin" do
     let(:user) { create :user }
     let!(:organization_process2) { create :participatory_process, organization: user.organization }

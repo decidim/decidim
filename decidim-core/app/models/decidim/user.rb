@@ -14,7 +14,7 @@ module Decidim
     has_many :user_groups, through: :memberships, class_name: Decidim::UserGroup, foreign_key: :decidim_user_group_id
     has_many :memberships, class_name: Decidim::UserGroupMembership, foreign_key: :decidim_user_id
 
-    ROLES = %w(admin moderator official).freeze
+    ROLES = %w(admin moderator collaborator official).freeze
 
     validates :organization, :name, presence: true
     validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true

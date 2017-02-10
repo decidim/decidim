@@ -16,8 +16,12 @@ module Decidim
 
         delegate :active_step, to: :current_participatory_process, prefix: false
 
-        before_action do
+        before_action except: [:index, :show] do
           authorize! :manage, current_feature
+        end
+
+        before_action on: [:index, :show] do
+          authorize! :read, current_feature
         end
 
         def current_feature
