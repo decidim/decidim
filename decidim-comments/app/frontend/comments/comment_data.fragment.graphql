@@ -6,7 +6,7 @@ fragment CommentData on Comment {
     name
     avatarUrl
   }
-  hasReplies
+  hasComments
   canHaveComments
   alignment
   ...UpVote

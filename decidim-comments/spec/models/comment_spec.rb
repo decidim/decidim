@@ -4,7 +4,7 @@ require "spec_helper"
 module Decidim
   module Comments
     describe Comment do
-      let!(:commentable) { create(:participatory_process) }
+      let!(:commentable) { create(:dummy_resource) }
       let!(:comment) { create(:comment, commentable: commentable) }
       let!(:replies) { 3.times.map { create(:comment, commentable: comment) } }
       let!(:up_vote) { create(:comment_vote, :up_vote, comment: comment) }
@@ -22,10 +22,6 @@ module Decidim
         expect(subject.commentable).to eq(commentable)
       end
 
-      it "has a replies association" do
-        expect(subject.replies).to match_array(replies)
-      end
-
       it "has a up_votes association returning comment votes with weight 1" do
         expect(subject.up_votes.count).to eq(1)
       end
@@ -34,27 +30,27 @@ module Decidim
         expect(subject.down_votes.count).to eq(1)
       end
 
-      it "is not valid if its parent is a comment and cannot have replies" do
-        expect(subject).to receive(:can_have_replies?).and_return false
+      it "is not valid if its parent is a comment and cannot have comments" do
+        expect(subject).to receive(:commentable?).and_return false
         expect(replies[0]).not_to be_valid
       end
 
       it "should compute its depth before saving the model" do
         expect(subject.depth).to eq(0)
-        comment.replies.each do |reply|
+        comment.comments.each do |reply|
           expect(reply.depth).to eq(1)
         end
       end
 
-      describe "#can_have_replies?" do
+      describe "#commentable?" do
         it "should return true if the comment's depth is below MAX_DEPTH" do
           subject.depth = Comment::MAX_DEPTH - 1
-          expect(subject.can_have_replies?).to be_truthy
+          expect(subject).to be_commentable
         end
 
         it "should return false if the comment's depth is equal or greater than MAX_DEPTH" do
           subject.depth = Comment::MAX_DEPTH
-          expect(subject.can_have_replies?).to be_falsy
+          expect(subject).not_to be_commentable
         end
       end
 

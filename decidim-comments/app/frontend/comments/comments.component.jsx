@@ -122,7 +122,8 @@ window.Comments = Comments;
 
 const CommentsWithData = graphql(gql`
   ${commentsQuery}
-  ${AddCommentForm.fragments.user}
+  ${AddCommentForm.fragments.session}
+  ${AddCommentForm.fragments.commentable}
   ${CommentThread.fragments.comment}
 `, {
   options: {
@@ -158,10 +159,7 @@ const CommentsApplication = ({ locale, commentableId, commentableType }) => (
 
 CommentsApplication.propTypes = {
   locale: PropTypes.string.isRequired,
-  commentableId: React.PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]).isRequired,
+  commentableId: PropTypes.string.isRequired,
   commentableType: PropTypes.string.isRequired
 };
 

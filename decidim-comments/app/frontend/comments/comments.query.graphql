@@ -4,7 +4,7 @@ query GetComments($commentableId: String!, $commentableType: String!, $orderBy: 
       name
       avatarUrl
     }
-    ...AddCommentForm
+    ...AddCommentFormSession
   }
   commentable(id: $commentableId, type: $commentableType) {
     canHaveComments
@@ -14,5 +14,6 @@ query GetComments($commentableId: String!, $commentableType: String!, $orderBy: 
       id
       ...CommentThread
     }
+    ...AddCommentFormCommentable
   }
 }

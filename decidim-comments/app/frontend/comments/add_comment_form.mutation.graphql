@@ -1,5 +1,7 @@
 mutation addComment($commentableId: String!, $commentableType: String!, $body: String!, $alignment: Int, $userGroupId: ID)  {
-  addComment(commentableId: $commentableId, commentableType: $commentableType, body: $body, alignment: $alignment, userGroupId: $userGroupId) {
-    ...CommentThread
+  commentable(id: $commentableId, type: $commentableType) {
+    addComment(body: $body, alignment: $alignment, userGroupId: $userGroupId) {
+      ...CommentThread
+    }
   }
 }

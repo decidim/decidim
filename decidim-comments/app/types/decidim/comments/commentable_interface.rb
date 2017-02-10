@@ -2,12 +2,12 @@
 module Decidim
   module Comments
     # This interface represents a commentable object.
-    AuthorInterface = GraphQL::InterfaceType.define do
-      name "Commentable"
-      description "A commentable object"
+    CommentableInterface = GraphQL::InterfaceType.define do
+      name "CommentableInterface"
+      description "A commentable interface"
 
       field :canHaveComments, !types.Boolean, "Wether the object can have comments or not" do
-        property :is_commentable?
+        property :commentable?
       end
 
       field :commentsHaveAlignment, !types.Boolean, "Wether the object comments have alignment or not" do
@@ -24,7 +24,13 @@ module Decidim
         argument :orderBy, types.String, "Order the comments"
 
         resolve lambda { |obj, args, _ctx|
-          CommentsWithReplies.for(obj, order_by: args[:orderBy])
+          SortedComments.for(obj, order_by: args[:orderBy])
+        }
+      end
+
+      field :hasComments, !types.Boolean, "Check if the commentable has comments" do
+        resolve lambda { |obj, _args, _ctx|
+          obj.comments.size.positive?
         }
       end
     end

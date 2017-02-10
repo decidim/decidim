@@ -17,43 +17,43 @@ module Decidim
         end
       end
 
-      describe "hasReplies" do
-        let (:query) { "{ hasReplies }" }
+      describe "hasComments" do
+        let (:query) { "{ hasComments }" }
 
-        it "returns false if the comment has not replies" do
-          expect(response).to include("hasReplies" => false)
+        it "returns false if the comment has not comments" do
+          expect(response).to include("hasComments" => false)
         end
 
-        it "returns true if the comment has replies" do
+        it "returns true if the comment has comments" do
           FactoryGirl.create(:comment, commentable: model)
-          expect(response).to include("hasReplies" => true)
+          expect(response).to include("hasComments" => true)
         end
       end
 
-      describe "canHaveReplies" do
-        let (:query) { "{ canHaveReplies }" }
+      describe "canHaveComments" do
+        let (:query) { "{ canHaveComments }" }
 
-        it "returns the return value of can_have_replies? method" do
-          expect(response).to include("canHaveReplies" => model.can_have_replies?)
+        it "returns the return value of commentable? method" do
+          expect(response).to include("canHaveComments" => model.commentable?)
         end
       end
 
-      describe "replies" do
+      describe "comments" do
         let!(:random_comment) { FactoryGirl.create(:comment) }
         let!(:replies) { 3.times.map { |n| FactoryGirl.create(:comment, commentable: model, created_at: Time.now - n.days) } }
 
 
-        let(:query) { "{ replies { id } }" }
+        let(:query) { "{ comments { id } }" }
 
-        it "return comment's replies comments data" do
+        it "return comment's comments comments data" do
           replies.each do |reply|
-            expect(response["replies"]).to include("id" => reply.id.to_s)
+            expect(response["comments"]).to include("id" => reply.id.to_s)
           end
-          expect(response["replies"]).not_to include("id" => random_comment.id.to_s)
+          expect(response["comments"]).not_to include("id" => random_comment.id.to_s)
         end
 
-        it "return comment's replies ordered by date" do
-          response_ids = response["replies"].map{|reply| reply["id"].to_i }
+        it "return comment's comments ordered by date" do
+          response_ids = response["comments"].map{|reply| reply["id"].to_i }
           replies_ids = replies.sort_by(&:created_at).map(&:id)
           expect(response_ids).to eq(replies_ids)
         end

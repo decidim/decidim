@@ -26,18 +26,6 @@ module Decidim
         }
       end
 
-      field :replies, !types[CommentType], "The comment's replies" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.replies.sort_by(&:created_at)
-        }
-      end
-
-      field :hasReplies, !types.Boolean, "Check if the comment has replies" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.replies.size.positive?
-        }
-      end
-
       field :alignment, types.Int, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'"
 
       field :upVotes, !types.Int, "The number of comment's upVotes" do

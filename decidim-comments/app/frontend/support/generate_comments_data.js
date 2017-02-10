@@ -17,8 +17,8 @@ const generateCommentsData = (num = 1) => {
         name: name.findName(),
         avatarUrl: image.imageUrl()
       },
-      hasReplies: false,
-      replies: [],
+      hasComments: false,
+      comments: [],
       canHaveComments: true,
       alignment: 0,
       upVotes: random.number(),

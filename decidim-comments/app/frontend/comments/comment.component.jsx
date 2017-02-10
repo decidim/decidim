@@ -92,12 +92,11 @@ class Comment extends Component {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   _renderAdditionalReplyButton() {
-    const { comment: { canHaveComments, hasReplies }, session, isRootComment } = this.props;
+    const { comment: { canHaveComments, hasComments }, session, isRootComment } = this.props;
     const { showReplyForm } = this.state;
 
     if (session && canHaveComments) {
-      if (hasReplies && isRootComment) {
-
+      if (hasComments && isRootComment) {
         return (
           <div className="comment__additionalreply">
             <button

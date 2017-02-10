@@ -2,7 +2,7 @@ ca:
   activerecord:
     errors:
       messages:
-        cannot_have_replies: no pot tenir respostes
+        cannot_have_comments: no pot tenir comentaris
   decidim:
     comments:
       comment_notification_mailer:

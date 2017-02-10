@@ -17,7 +17,6 @@ module Decidim
       MAX_DEPTH = 3
 
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
-      has_many :replies, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: Comment
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: CommentVote, dependent: :destroy
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: CommentVote, dependent: :destroy
 
@@ -31,8 +30,8 @@ module Decidim
 
       delegate :organization, to: :commentable
 
-      # Public: Override Commentable concern method `can_have_comments?`
-      def can_have_comments?
+      # Public: Override Commentable concern method `commentable?`
+      def commentable?
         depth < MAX_DEPTH
       end
 
@@ -60,8 +59,8 @@ module Decidim
 
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model
-      def commentable_can_have_replies
-        errors.add(:commentable, :cannot_have_comments) unless commentable.can_have_comments?
+      def commentable_can_have_comments
+        errors.add(:commentable, :cannot_have_comments) unless commentable.commentable?
       end
 
       # Private: Compute comment depth inside the current comment tree

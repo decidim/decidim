@@ -13,8 +13,8 @@ module Decidim
       describe "canHaveComments" do
         let(:query) { "{ canHaveComments }" }
 
-        it "returns the 'is_commentable?' method value" do
-          expect(response).to include("canHaveComments" => model.is_commentable?)
+        it "returns the 'commentable?' method value" do
+          expect(response).to include("canHaveComments" => model.commentable?)
         end
       end
 

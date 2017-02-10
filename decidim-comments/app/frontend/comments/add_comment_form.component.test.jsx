@@ -8,8 +8,10 @@ import generateUserGroupData from '../support/generate_user_group_data';
 
 describe("<AddCommentForm />", () => {
   let session = null;
-  const commentableId = "1";
-  const commentableType = "Decidim::ParticipatoryProcess";
+  const commentable = {
+    id: "1",
+    type: "Decidim::DummyResource"
+  };
   const addCommentStub = () => {
     return null;
   }
@@ -22,50 +24,50 @@ describe("<AddCommentForm />", () => {
   });
 
   it("should render a div with class add-comment", () => {
-    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
     expect(wrapper.find('div.add-comment')).to.present();
   });
 
   it("should have a reference to body textarea", () => {
-    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
     expect(wrapper.instance().bodyTextArea).to.be.ok;
   });
 
   it("should initialize with a state property disabled as true", () => {
-    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
     expect(wrapper).to.have.state('disabled', true);
   });
 
   it("should have a default prop showTitle as true", () => {
-    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
     expect(wrapper).to.have.prop('showTitle').equal(true);
   });
 
   it("should not render the title if prop showTitle is false", () => {
-    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} showTitle={false} />);
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} showTitle={false} />);
     expect(wrapper.find('h5.section-heading')).not.to.be.present();
   });
 
   it("should have a default prop submitButtonClassName as 'button button--sc'", () => {
-    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
     expect(wrapper).to.have.prop('submitButtonClassName').equal('button button--sc');
   });
 
   it("should have a default prop maxLength of 1000", () => {
-    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
     expect(wrapper).to.have.prop('maxLength').equal(1000);
   });
 
 
   it("should use prop submitButtonClassName as a className prop for submit button", () => {
-    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} submitButtonClassName="button small hollow" />);
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} submitButtonClassName="button small hollow" />);
     expect(wrapper.find('input[type="submit"]')).to.have.className('button');
     expect(wrapper.find('input[type="submit"]')).to.have.className('small');
     expect(wrapper.find('input[type="submit"]')).to.have.className('hollow');
   });
 
   it("should enable the submit button if textarea is not blank", () => {
-    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
     wrapper.find('textarea').simulate('change', {
       target: {
         value: 'This is a comment'
@@ -75,7 +77,7 @@ describe("<AddCommentForm />", () => {
   });
 
   it("should disable the submit button if textarea is blank", () => {
-    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
     wrapper.find('textarea').simulate('change', {
       target: {
         value: 'This will be deleted'
@@ -90,7 +92,7 @@ describe("<AddCommentForm />", () => {
   });
 
   it("should not render a div with class 'opinion-toggle'", () => {
-    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
     expect(wrapper.find('.opinion-toggle')).not.to.be.present();
   });
 
@@ -103,7 +105,7 @@ describe("<AddCommentForm />", () => {
     beforeEach(() => {
       addComment = sinon.spy();
       onCommentAdded = sinon.spy();
-      wrapper = mount(<AddCommentForm addComment={addComment} session={session} commentableId={commentableId} commentableType={commentableType} onCommentAdded={onCommentAdded} />);
+      wrapper = mount(<AddCommentForm addComment={addComment} session={session} commentable={commentable} onCommentAdded={onCommentAdded} />);
       message = 'This will be submitted';
       wrapper.instance().bodyTextArea.value = message;
     });
@@ -131,25 +133,25 @@ describe("<AddCommentForm />", () => {
   });
 
   it("should initialize state with a property alignment and value 0", () => {
-    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} arguable />);
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} arguable />);
     expect(wrapper).to.have.state('alignment').equal(0);
   });
 
   describe("when receiving an optional prop arguable with value true", () => {
     it("should render a div with class 'opinion-toggle'", () => {
-      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} arguable />);
+      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} arguable />);
       expect(wrapper.find('.opinion-toggle')).to.be.present();
     });
 
     it("should set state alignment to 1 if user clicks ok button and change its class", () => {
-      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} arguable />);
+      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} arguable />);
       wrapper.find('.opinion-toggle--ok').simulate('click');
       expect(wrapper.find('.opinion-toggle--ok')).to.have.className('is-active');
       expect(wrapper).to.have.state('alignment').equal(1);
     });
 
     it("should set state alignment to -11 if user clicks ko button and change its class", () => {
-      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} arguable />);
+      const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} arguable />);
       wrapper.find('.opinion-toggle--ko').simulate('click');
       expect(wrapper.find('.opinion-toggle--ko')).to.have.className('is-active');
       expect(wrapper).to.have.state('alignment').equal(-1);
@@ -162,7 +164,7 @@ describe("<AddCommentForm />", () => {
 
       beforeEach(() => {
         addComment = sinon.spy();
-        wrapper = mount(<AddCommentForm addComment={addComment} session={session} commentableId={commentableId} commentableType={commentableType} arguable />);
+        wrapper = mount(<AddCommentForm addComment={addComment} session={session} commentable={commentable} arguable />);
         message = 'This will be submitted';
         wrapper.instance().bodyTextArea.value = message;
       });
@@ -190,12 +192,12 @@ describe("<AddCommentForm />", () => {
     });
 
     it("should have a reference to user_group_id select", () => {
-      const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+      const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
       expect(wrapper.instance().userGroupIdSelect).to.be.ok;
     });
 
     it("should render a select with option tags for each verified user group", () => {
-      const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentableId={commentableId} commentableType={commentableType} />);
+      const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
       expect(wrapper.find('select')).to.have.exactly(3).descendants('option');
     });
 
@@ -207,7 +209,7 @@ describe("<AddCommentForm />", () => {
 
       beforeEach(() => {
         addComment = sinon.spy();
-        wrapper = mount(<AddCommentForm addComment={addComment} session={session} commentableId={commentableId} commentableType={commentableType} />);
+        wrapper = mount(<AddCommentForm addComment={addComment} session={session} commentable={commentable} />);
         message = 'This will be submitted';
         userGroupId = session.verifiedUserGroups[1].id;
         wrapper.instance().bodyTextArea.value = message;

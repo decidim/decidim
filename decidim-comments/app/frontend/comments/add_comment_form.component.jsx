@@ -1,20 +1,21 @@
 /* eslint-disable no-return-assign, react/no-unused-prop-types, max-lines */
-import { Component, PropTypes } from 'react';
-import { graphql }              from 'react-apollo';
-import gql                      from 'graphql-tag';
-import { I18n }                 from 'react-i18nify';
-import uuid                     from 'uuid';
-import classnames               from 'classnames';
+import { Component, PropTypes }          from 'react';
+import { graphql }                       from 'react-apollo';
+import gql                               from 'graphql-tag';
+import { I18n }                          from 'react-i18nify';
+import uuid                              from 'uuid';
+import classnames                        from 'classnames';
 
-import Icon                     from '../application/icon.component';
+import Icon                              from '../application/icon.component';
 
-import addCommentMutation       from './add_comment_form.mutation.graphql';
-import commentThreadFragment    from './comment_thread.fragment.graphql'
-import commentFragment          from './comment.fragment.graphql';
-import commentDataFragment      from './comment_data.fragment.graphql';
-import upVoteFragment           from './up_vote.fragment.graphql';
-import downVoteFragment         from './down_vote.fragment.graphql';
-import addCommentFormFragment   from './add_comment_form.fragment.graphql';
+import addCommentMutation                from './add_comment_form.mutation.graphql';
+import commentThreadFragment             from './comment_thread.fragment.graphql'
+import commentFragment                   from './comment.fragment.graphql';
+import commentDataFragment               from './comment_data.fragment.graphql';
+import upVoteFragment                    from './up_vote.fragment.graphql';
+import downVoteFragment                  from './down_vote.fragment.graphql';
+import addCommentFormSessionFragment     from './add_comment_form_session.fragment.graphql';
+import addCommentFormCommentableFragment from './add_comment_form_commentable.fragment.graphql';
 
 /**
  * Renders a form to create new comments.
@@ -38,7 +39,7 @@ export class AddCommentForm extends Component {
   }
 
   render() {
-    const { submitButtonClassName, commentableType, commentableId, maxLength } = this.props;
+    const { submitButtonClassName, commentable: { id, type }, maxLength } = this.props;
     const { disabled } = this.state;
 
     return (
@@ -54,7 +55,7 @@ export class AddCommentForm extends Component {
         >
           {this._renderCommentAs()}
           <div className="field">
-            <label className="show-for-sr" htmlFor={`add-comment-${commentableType}-${commentableId}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
+            <label className="show-for-sr" htmlFor={`add-comment-${type}-${id}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
             {this._renderTextArea()}
             <span className="form-error">
               { I18n.t("components.add_comment_form.form.form_error", { length: maxLength }) }
@@ -96,11 +97,11 @@ export class AddCommentForm extends Component {
    * @returns {Void|DOMElement} - The heading or an empty element
    */
   _renderTextArea() {
-    const { commentableType, commentableId, autoFocus, maxLength } = this.props;
+    const { commentable: { id, type }, autoFocus, maxLength } = this.props;
 
     let textAreaProps = {
       ref: (textarea) => {this.bodyTextArea = textarea},
-      id: `add-comment-${commentableType}-${commentableId}`,
+      id: `add-comment-${type}-${id}`,
       rows: "4",
       maxLength,
       required: "required",
@@ -170,18 +171,18 @@ export class AddCommentForm extends Component {
    * @returns {Void|DOMElement} - Returns nothing or a form field.
    */
   _renderCommentAs() {
-    const { session, commentableType, commentableId } = this.props;
+    const { session, commentable: { id, type } } = this.props;
     const { user, verifiedUserGroups } = session;
 
     if (verifiedUserGroups.length > 0) {
       return (
         <div className="field">
-          <label htmlFor={`add-comment-${commentableType}-${commentableId}-user-group-id`}>
+          <label htmlFor={`add-comment-${type}-${id}-user-group-id`}>
             { I18n.t('components.add_comment_form.form.user_group_id.label') }
           </label>
           <select
             ref={(select) => {this.userGroupIdSelect = select}}
-            id={`add-comment-${commentableType}-${commentableId}-user-group-id`}
+            id={`add-comment-${type}-${id}-user-group-id`}
           >
             <option value="">{ user.name }</option>
             {
@@ -248,8 +249,10 @@ AddCommentForm.propTypes = {
       })
     ).isRequired
   }).isRequired,
-  commentableId: PropTypes.string.isRequired,
-  commentableType: PropTypes.string.isRequired,
+  commentable: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
+  }),
   showTitle: PropTypes.bool.isRequired,
   submitButtonClassName: PropTypes.string.isRequired,
   onCommentAdded: PropTypes.func,
@@ -268,8 +271,11 @@ AddCommentForm.defaultProps = {
 };
 
 AddCommentForm.fragments = {
-  user: gql`
-    ${addCommentFormFragment}
+  session: gql`
+    ${addCommentFormSessionFragment}
+  `,
+  commentable: gql`
+    ${addCommentFormCommentableFragment}
   `
 };
 
@@ -284,38 +290,41 @@ const AddCommentFormWithMutation = graphql(gql`
   props: ({ ownProps, mutate }) => ({
     addComment: ({ body, alignment, userGroupId }) => mutate({
       variables: {
-        commentableId: ownProps.commentableId,
-        commentableType: ownProps.commentableType,
+        commentableId: ownProps.commentable.id,
+        commentableType: ownProps.commentable.type,
         body,
         alignment,
         userGroupId
       },
       optimisticResponse: {
         __typename: 'Mutation',
-        addComment: {
-          __typename: 'Comment',
-          id: uuid(),
-          createdAt: new Date().toISOString(),
-          body,
-          alignment: alignment,
-          author: {
-            __typename: 'Author',
-            name: ownProps.session.user.name,
-            avatarUrl: ownProps.session.user.avatarUrl
-          },
-          comments: [],
-          hasComments: false,
-          canHaveComments: false,
-          upVotes: 0,
-          upVoted: false,
-          downVotes: 0,
-          downVoted: false
+        commentable: {
+          __typename: 'Commentable',
+          addComment: {
+            __typename: 'Comment',
+            id: uuid(),
+            createdAt: new Date().toISOString(),
+            body,
+            alignment: alignment,
+            author: {
+              __typename: 'Author',
+              name: ownProps.session.user.name,
+              avatarUrl: ownProps.session.user.avatarUrl
+            },
+            comments: [],
+            hasComments: false,
+            canHaveComments: false,
+            upVotes: 0,
+            upVoted: false,
+            downVotes: 0,
+            downVoted: false
+          }
         }
       },
       updateQueries: {
         GetComments: (prev, { mutationResult: { data } }) => {
           const { commentableId, commentableType } = ownProps;
-          const newComment = data.addComment;
+          const newComment = data.commentable.addComment;
           let comments = [];
 
           const commentReducer = (comment) => {

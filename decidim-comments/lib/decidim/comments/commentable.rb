@@ -11,8 +11,10 @@ module Decidim
       included do
         include Decidim::Authorable
 
-        def is_commentable?
-          false # TODO: true
+        has_many :comments, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: "Decidim::Comments::Comment"
+
+        def commentable?
+          true
         end
 
         def comments_have_alignment?

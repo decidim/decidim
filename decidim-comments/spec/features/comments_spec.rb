@@ -61,7 +61,7 @@ describe "Comments", type: :feature do
       visit_commentable_path
     end
 
-    it "user should not see the form to add comments" do
+    it "user sees the form to add comments" do
       expect(page).to have_selector(".add-comment form")
     end
 

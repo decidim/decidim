@@ -2,7 +2,7 @@
 FactoryGirl.define do
   factory :comment, class: "Decidim::Comments::Comment" do
     author { build(:user, organization: commentable.organization) }
-    commentable { build(:participatory_process) }
+    commentable { build(:dummy_resource) }
     body { Faker::Lorem.paragraph }
   end
 

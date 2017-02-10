@@ -3,7 +3,7 @@ en:
   activerecord:
     errors:
       messages:
-        cannot_have_replies: can't have replies
+        cannot_have_comments: can't have comments
   decidim:
     comments:
       comment_notification_mailer:
