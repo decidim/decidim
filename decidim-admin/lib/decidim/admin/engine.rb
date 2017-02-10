@@ -33,6 +33,7 @@ module Decidim
         Decidim.configure do |config|
           config.abilities += ["Decidim::Admin::Abilities::AdminUser"]
           config.abilities += ["Decidim::Admin::Abilities::ParticipatoryProcessAdmin"]
+          config.abilities += ["Decidim::Admin::Abilities::CollaboratorUser"]
         end
       end
     end
