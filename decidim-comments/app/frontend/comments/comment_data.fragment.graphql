@@ -8,7 +8,7 @@ fragment CommentData on Comment {
     avatarUrl
   }
   hasComments
-  canHaveComments
+  acceptsNewComments
   alignment
   ...UpVote
   ...DownVote

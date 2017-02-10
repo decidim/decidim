@@ -74,9 +74,9 @@ export class Comments extends Component {
    */
   _renderAddCommentForm() {
     const { session, commentable } = this.props;
-    const { canHaveComments, commentsHaveAlignment } = commentable;
+    const { acceptsNewComments, commentsHaveAlignment } = commentable;
 
-    if (session && canHaveComments) {
+    if (session && acceptsNewComments) {
       return (
         <AddCommentForm
           session={session}
@@ -96,7 +96,7 @@ Comments.propTypes = {
     user: PropTypes.any.isRequired
   }),
   commentable: PropTypes.shape({
-    canHaveComments: PropTypes.bool,
+    acceptsNewComments: PropTypes.bool,
     commentsHaveAlignment: PropTypes.bool,
     commentsHaveVotes: PropTypes.bool,
     comments: PropTypes.arrayOf(PropTypes.shape({

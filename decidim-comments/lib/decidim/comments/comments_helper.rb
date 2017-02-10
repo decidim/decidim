@@ -10,7 +10,7 @@ module Decidim
       #
       # Returns a div which contain a RectComponent to be rendered by `react_ujs`
       def comments_for(resource)
-        if resource.accepts_comments?
+        if resource.commentable?
           content_for :expanded do
             commentable_type = resource.commentable_type
             commentable_id = resource.id.to_s

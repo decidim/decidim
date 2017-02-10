@@ -30,11 +30,11 @@ module Decidim
         end
       end
 
-      describe "canHaveComments" do
-        let (:query) { "{ canHaveComments }" }
+      describe "acceptsNewComments" do
+        let (:query) { "{ acceptsNewComments }" }
 
-        it "returns the return value of commentable? method" do
-          expect(response).to include("canHaveComments" => model.commentable?)
+        it "returns the return value of accepts_new_comments? method" do
+          expect(response).to include("acceptsNewComments" => model.accepts_new_comments?)
         end
       end
 

@@ -75,7 +75,7 @@ describe('<Comments />', () => {
           user: userData
         },
         commentable: {
-          canHaveComments: true,
+          acceptsNewComments: true,
           commentsHaveAlignment: true,
           commentsHaveVotes: true,
           comments: commentsData
@@ -141,9 +141,9 @@ describe('<Comments />', () => {
     expect(wrapper.find(AddCommentForm)).to.have.prop('arguable').equal(true);
   });
 
-  describe("when the commentable can't have comments", () => {
+  describe("when the commentable cannot accept new comments", () => {
     beforeEach(() => {
-      commentable.canHaveComments = false;
+      commentable.acceptsNewComments = false;
     });
 
     it("doesn't render an AddCommentForm component", () => {

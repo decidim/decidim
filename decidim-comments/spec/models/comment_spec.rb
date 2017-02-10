@@ -30,8 +30,8 @@ module Decidim
         expect(subject.down_votes.count).to eq(1)
       end
 
-      it "is not valid if its parent is a comment and cannot have comments" do
-        expect(subject).to receive(:commentable?).and_return false
+      it "is not valid if its parent is a comment and cannot accept new comments" do
+        expect(subject).to receive(:accepts_new_comments?).and_return false
         expect(replies[0]).not_to be_valid
       end
 
@@ -42,15 +42,15 @@ module Decidim
         end
       end
 
-      describe "#commentable?" do
+      describe "#accepts_new_comments?" do
         it "should return true if the comment's depth is below MAX_DEPTH" do
           subject.depth = Comment::MAX_DEPTH - 1
-          expect(subject).to be_commentable
+          expect(subject.accepts_new_comments?).to be_truthy
         end
 
         it "should return false if the comment's depth is equal or greater than MAX_DEPTH" do
           subject.depth = Comment::MAX_DEPTH
-          expect(subject).not_to be_commentable
+          expect(subject.accepts_new_comments?).to be_falsy
         end
       end
 

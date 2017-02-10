@@ -19,7 +19,7 @@ const generateCommentsData = (num = 1) => {
       },
       hasComments: false,
       comments: [],
-      canHaveComments: true,
+      acceptsNewComments: true,
       alignment: 0,
       upVotes: random.number(),
       upVoted: false,

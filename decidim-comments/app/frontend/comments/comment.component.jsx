@@ -68,10 +68,10 @@ class Comment extends Component {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   _renderReplyButton() {
-    const { comment: { canHaveComments }, session } = this.props;
+    const { comment: { acceptsNewComments }, session } = this.props;
     const { showReplyForm } = this.state;
 
-    if (session && canHaveComments) {
+    if (session && acceptsNewComments) {
       return (
         <button
           className="comment__reply muted-link"
@@ -92,10 +92,10 @@ class Comment extends Component {
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
   _renderAdditionalReplyButton() {
-    const { comment: { canHaveComments, hasComments }, session, isRootComment } = this.props;
+    const { comment: { acceptsNewComments, hasComments }, session, isRootComment } = this.props;
     const { showReplyForm } = this.state;
 
-    if (session && canHaveComments) {
+    if (session && acceptsNewComments) {
       if (hasComments && isRootComment) {
         return (
           <div className="comment__additionalreply">

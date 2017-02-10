@@ -10,11 +10,11 @@ module Decidim
       let(:model) { create(:dummy_resource) }
       let!(:comments) { create_list(:comment, 3, commentable: model) }
 
-      describe "canHaveComments" do
-        let(:query) { "{ canHaveComments }" }
+      describe "acceptsNewComments" do
+        let(:query) { "{ acceptsNewComments }" }
 
-        it "returns the 'commentable?' method value" do
-          expect(response).to include("canHaveComments" => model.commentable?)
+        it "returns the 'accepts_new_comments?' method value" do
+          expect(response).to include("acceptsNewComments" => model.accepts_new_comments?)
         end
       end
 

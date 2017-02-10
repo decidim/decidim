@@ -313,7 +313,7 @@ const AddCommentFormWithMutation = graphql(gql`
             },
             comments: [],
             hasComments: false,
-            canHaveComments: false,
+            acceptsNewComments: false,
             upVotes: 0,
             upVoted: false,
             downVotes: 0,

@@ -7,7 +7,7 @@ query GetComments($commentableId: String!, $commentableType: String!, $orderBy: 
     ...AddCommentFormSession
   }
   commentable(id: $commentableId, type: $commentableType) {
-    canHaveComments
+    acceptsNewComments
     commentsHaveAlignment
     commentsHaveVotes
     comments(orderBy: $orderBy) {

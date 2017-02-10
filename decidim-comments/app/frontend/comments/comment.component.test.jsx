@@ -127,9 +127,9 @@ describe("<Comment />", () => {
     expect(wrapper).to.have.prop("isRootComment").equal(false);
   });
 
-  describe("when the comment cannot have comments", () => {
+  describe("when the comment cannot accept new comments", () => {
     beforeEach(() => {
-      comment.canHaveComments = false;
+      comment.acceptsNewComments = false;
     });
 
     it("should not render the reply button", () => {

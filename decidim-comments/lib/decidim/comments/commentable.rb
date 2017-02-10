@@ -13,11 +13,11 @@ module Decidim
 
         has_many :comments, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: "Decidim::Comments::Comment"
 
-        def accepts_comments?
+        def commentable?
           true
         end
 
-        def commentable?
+        def accepts_new_comments?
           true
         end
 
