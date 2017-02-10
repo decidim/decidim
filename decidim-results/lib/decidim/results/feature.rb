@@ -16,8 +16,12 @@ Decidim.register_feature(:results) do |feature|
     resource.template = "decidim/results/results/linked_results"
   end
 
-  feature.settings(:step) do |settings|
+  feature.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
+  end
+
+  feature.settings(:step) do |settings|
+    settings.attribute :comments_blocked, type: :boolean, default: false
   end
 
   feature.seeds do

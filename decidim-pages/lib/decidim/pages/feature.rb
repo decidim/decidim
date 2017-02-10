@@ -19,8 +19,12 @@ Decidim.register_feature(:pages) do |feature|
     end
   end
 
+  feature.settings(:global) do |settings|
+    settings.attribute :comments_enabled, type: :boolean, default: true
+  end
+
   feature.settings(:step) do |settings|
-    settings.attribute :comments_enabled, type: :boolean
+    settings.attribute :comments_blocked, type: :boolean, default: false
   end
 
   feature.seeds do

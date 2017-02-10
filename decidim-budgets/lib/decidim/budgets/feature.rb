@@ -22,10 +22,11 @@ Decidim.register_feature(:budgets) do |feature|
   feature.settings(:global) do |settings|
     settings.attribute :total_budget, type: :integer, default: 100_000_000
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
+    settings.attribute :comments_enabled, type: :boolean, default: true
   end
 
   feature.settings(:step) do |settings|
-    settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :comments_blocked, type: :boolean, default: false
   end
 
   feature.seeds do

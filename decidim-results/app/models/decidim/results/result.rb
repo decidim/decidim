@@ -13,8 +13,13 @@ module Decidim
       feature_manifest_name "results"
 
       # Public: Overrides the `commentable?` Commentable concern method.
+      def accepts_comments?
+        feature.settings.comments_enabled?
+      end
+
+      # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
-        feature.active_step_settings.comments_enabled?
+         accepts_comments? && !feature.active_step_settings.comments_blocked
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
