@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/AjuntamentdeBarcelona/decidim.png?label=ready&title=Ready)](https://waffle.io/AjuntamentdeBarcelona/decidim)
 [![Stories in Ready](https://badge.waffle.io/codegram/decidim.png?label=ready&title=Ready)](https://waffle.io/codegram/decidim)
 # Decidim
 
