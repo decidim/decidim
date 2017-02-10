@@ -42,13 +42,13 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::User.create!(
     name: Faker::Name.name,
-    email: "moderator@decidim.org",
+    email: "collaborator@decidim.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
     organization: organization,
     confirmed_at: Time.current,
     locale: I18n.default_locale,
-    roles: ["moderator"],
+    roles: ["collaborator"],
     tos_agreement: true,
     comments_notifications: true,
     replies_notifications: true
