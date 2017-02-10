@@ -45,11 +45,13 @@ Decidim.register_feature(:dummy) do |feature|
   feature.settings(:global) do |settings|
     settings.attribute :dummy_global_attribute_1, type: :boolean
     settings.attribute :dummy_global_attribute_2, type: :boolean
+    settings.attribute :comments_enabled, type: :boolean, default: true
   end
 
   feature.settings(:step) do |settings|
     settings.attribute :dummy_step_attribute_1, type: :boolean
     settings.attribute :dummy_step_attribute_2, type: :boolean
+    settings.attribute :comments_blocked, type: :boolean, default: false
   end
 
   feature.register_resource do |resource|
