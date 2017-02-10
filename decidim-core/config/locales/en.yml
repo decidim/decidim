@@ -261,8 +261,9 @@ en:
         proposals: Proposals
         proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
       footer_sub_hero:
-        footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa. Entra, participa i decideix.
-        footer_sub_hero_headline: Benvingut/da a la plataforma de participació %{organization}.
+        footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br />
+                              Join, participate and decide.
+        footer_sub_hero_headline: Welcome to %{organization} participatory platform.
         register: Register
       hero:
         participate: Participate
