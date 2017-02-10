@@ -16,12 +16,6 @@ module Decidim
 
           return unless user && !user.role?(:admin)
 
-          if user.role?(:collaborator)
-            can :manage, :admin_dashboard
-            can :preview, ParticipatoryProcess
-            return
-          end
-
           can :read, :admin_dashboard do
             participatory_processes.any?
           end
