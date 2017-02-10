@@ -21,7 +21,6 @@ es:
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
-        remember_me: Recuérdame
   booleans:
     'false': 'No'
     'true': 'Sí'
@@ -195,6 +194,9 @@ es:
       too_many_marks: Está utilizando demasiados símbolos de interrogación o exclamación
       too_much_caps: Está usando demasiadas mayúsculas
       too_short: Es demasiado corto
+  invisible_captcha:
+    sentence_for_humans: Si eres humano, ignora este campo
+    timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelva a enviar.
   layouts:
     decidim:
       cookie_warning:
@@ -260,6 +262,10 @@ es:
         more_info: Más información
         proposals: Propuestas
         proposals_explanation: Espacio abierto de propuestas de los ciudadanos sobre en qué tipo de ciudad queremos vivir.
+      footer_sub_hero:
+        footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
+        footer_sub_hero_headline: Bienvenido a la plataforma participativa %{organization}.
+        register: Regístrate
       hero:
         participate: Participar
         welcome: Bienvenido a %{organization}!

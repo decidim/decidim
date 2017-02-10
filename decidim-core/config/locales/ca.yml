@@ -21,7 +21,6 @@ ca:
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
-        remember_me: Recorda'm
   booleans:
     'false': 'No'
     'true': 'Sí'
@@ -195,6 +194,9 @@ ca:
       too_many_marks: Està utilitzant massa símbols d'exclamació o interrogació
       too_much_caps: Està utilitzant massa majúscules
       too_short: És massa curt
+  invisible_captcha:
+    sentence_for_humans: Si ets un humà, pots ignorar aquest camp
+    timestamp_error_message: Ho sentim, has estat massa ràpid! Torna a enviar-ho.
   layouts:
     decidim:
       cookie_warning:
@@ -260,6 +262,10 @@ ca:
         more_info: Més informació
         proposals: Propostes
         proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
+      footer_sub_hero:
+        footer_sub_hero_body: Construim una societat més oberta, transparent i col·laborativa. < br / > Uneix-te, participa i decideix.
+        footer_sub_hero_headline: Benvingut a la plataforma participativa %{organization}.
+        register: Registra't
       hero:
         participate: Participa
         welcome: Benvingut a %{organization}!
