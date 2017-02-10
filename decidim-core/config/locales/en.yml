@@ -263,6 +263,11 @@ en:
         more_info: More info
         proposals: Proposals
         proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
+      footer_sub_hero:
+        footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br />
+                              Join, participate and decide.
+        footer_sub_hero_headline: Welcome to %{organization} participatory platform.
+        register: Register
       hero:
         participate: Participate
         welcome: Welcome to %{organization}!
