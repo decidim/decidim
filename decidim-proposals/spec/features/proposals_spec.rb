@@ -290,10 +290,35 @@ describe "Proposals", type: :feature do
           feature.update_attributes(settings: { official_proposals_enabled: true})
         end
 
-        it "cannot be filtered by origin" do
+        it "can be filtered by origin" do
           within "form.new_filter" do
             visit_feature
             expect(page).to have_content(/Origin/i)
+          end
+        end
+
+        context "by origin 'official'" do
+          it "lists the filtered proposals" do
+            create(:proposal, :official, feature: feature, scope: scope)
+            visit_feature
+
+            within ".filters" do
+              choose "Official"
+            end
+
+            expect(page).to have_css(".card--proposal", count: 1)
+            expect(page).to have_content("1 PROPOSAL")
+          end
+        end
+
+        context "by origin 'citizenship'" do
+          it "lists the filtered proposals" do
+            within ".filters" do
+              choose "Citizenship"
+            end
+
+            expect(page).to have_css(".card--proposal", count: proposals.size)
+            expect(page).to have_content("#{proposals.size} PROPOSALS")
           end
         end
       end
@@ -306,7 +331,7 @@ describe "Proposals", type: :feature do
         it "cannot be filtered by origin" do
           within "form.new_filter" do
             visit_feature
-            expect(page).not_to have_content("Origin")
+            expect(page).not_to have_content(/Origin/i)
           end
         end
       end
@@ -332,68 +357,100 @@ describe "Proposals", type: :feature do
         it "cannot be filtered by scope" do
           within "form.new_filter" do
             visit_feature
-            expect(page).not_to have_content("Scopes")
+            expect(page).not_to have_content(/Scopes/i)
           end
         end
       end
 
-      context "by origin 'official'" do
-        it "lists the filtered proposals" do
-          create(:proposal, :official, feature: feature, scope: scope)
-          visit_feature
+      context "when proposal_answering feature setting is enabled" do
+        before do
+          feature.update_attributes(settings: { proposal_answering_enabled: true})
+        end
 
-          within ".filters" do
-            choose "Official"
+        context "when proposal_answering step setting is enabled" do
+          before do
+            feature.update_attributes(
+              step_settings: {
+                feature.participatory_process.active_step.id => {
+                  proposal_answering_enabled: true
+                }
+              }
+            )
           end
 
-          expect(page).to have_css(".card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
+          it "can be filtered by state" do
+            within "form.new_filter" do
+              visit_feature
+              expect(page).to have_content(/State/i)
+            end
+          end
+
+          context "by accepted" do
+            it "lists the filtered proposals" do
+              create(:proposal, :accepted, feature: feature, scope: scope)
+              visit_feature
+
+              within ".filters" do
+                choose "Accepted"
+              end
+
+              expect(page).to have_css(".card--proposal", count: 1)
+              expect(page).to have_content("1 PROPOSAL")
+
+              within ".card--proposal" do
+                expect(page).to have_content("Accepted")
+              end
+            end
+          end
+
+          context "by rejected" do
+            it "lists the filtered proposals" do
+              create(:proposal, :rejected, feature: feature, scope: scope)
+              visit_feature
+
+              within ".filters" do
+                choose "Rejected"
+              end
+
+              expect(page).to have_css(".card--proposal", count: 1)
+              expect(page).to have_content("1 PROPOSAL")
+
+              within ".card--proposal" do
+                expect(page).to have_content("Rejected")
+              end
+            end
+          end
+        end
+
+        context "when proposal_answering step setting is disabled" do
+          before do
+            feature.update_attributes(
+              step_settings: {
+                feature.participatory_process.active_step.id => {
+                  proposal_answering_enabled: false
+                }
+              }
+            )
+          end
+
+          it "cannot be filtered by state" do
+            within "form.new_filter" do
+              visit_feature
+              expect(page).not_to have_content(/State/i)
+            end
+          end
         end
       end
 
-      context "by origin 'citizenship'" do
-        it "lists the filtered proposals" do
-          within ".filters" do
-            choose "Citizenship"
-          end
-
-          expect(page).to have_css(".card--proposal", count: proposals.size)
-          expect(page).to have_content("#{proposals.size} PROPOSALS")
+      context "when proposal_answering feature setting is not enabled" do
+        before do
+          feature.update_attributes(settings: { proposal_answering_enabled: false})
         end
-      end
 
-      context "by accepted" do
-        it "lists the filtered proposals" do
-          create(:proposal, :accepted, feature: feature, scope: scope)
-          visit_feature
-
-          within ".filters" do
-            choose "Accepted"
-          end
-
-          expect(page).to have_css(".card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
-
-          within ".card--proposal" do
-            expect(page).to have_content("Accepted")
-          end
-        end
-      end
-
-      context "by rejected" do
-        it "lists the filtered proposals" do
-          create(:proposal, :rejected, feature: feature, scope: scope)
-          visit_feature
-
-          within ".filters" do
-            choose "Rejected"
-          end
-
-          expect(page).to have_css(".card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
-
-          within ".card--proposal" do
-            expect(page).to have_content("Rejected")
+        it "cannot be filtered by state" do
+          within "form.new_filter" do
+            visit_feature
+            expect(page).not_to have_content(/State/i)
           end
         end
       end

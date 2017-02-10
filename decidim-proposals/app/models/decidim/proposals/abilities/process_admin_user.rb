@@ -39,7 +39,7 @@ module Decidim
         def can_create_proposal?
           current_settings.try(:creation_enabled?) &&
             feature_settings.try(:official_proposals_enabled) &&
-            paricipatory_processes.include?(current_feature)
+            participatory_processes.include?(current_feature.try(:participatory_process))
         end
 
         def participatory_processes
