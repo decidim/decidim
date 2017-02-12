@@ -12,5 +12,3 @@ gemspec path: "decidim-api"
 gemspec path: "decidim-pages"
 gemspec path: "decidim-comments"
 gemspec path: "decidim-meetings"
-
-gem "i18n-tasks", git: "https://github.com/glebm/i18n-tasks.git"
