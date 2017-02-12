@@ -195,6 +195,9 @@ en:
       too_many_marks: Is using too many marks
       too_much_caps: Is using too much caps
       too_short: Is too short
+  invisible_captcha:
+    sentence_for_humans: If you are human, ignore this field
+    timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
       cookie_warning:
@@ -260,6 +263,11 @@ en:
         more_info: More info
         proposals: Proposals
         proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
+      footer_sub_hero:
+        footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br />
+                              Join, participate and decide.
+        footer_sub_hero_headline: Welcome to %{organization} participatory platform.
+        register: Register
       hero:
         participate: Participate
         welcome: Welcome to %{organization}!

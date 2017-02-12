@@ -99,6 +99,7 @@ ignore_unused:
   - decidim.filters.linked_classes.*
   - decidim.forms.errors.*
   - decidim.authorizations.first_login.actions.*
+  - invisible_captcha.*
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
