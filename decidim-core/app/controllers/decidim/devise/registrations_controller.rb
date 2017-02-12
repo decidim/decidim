@@ -20,6 +20,8 @@ module Decidim
       before_action :configure_permitted_parameters
       helper_method :terms_and_conditions_page
 
+      invisible_captcha
+
       def new
         @form = form(RegistrationForm).from_params(
           user: {

@@ -127,6 +127,10 @@ FactoryGirl.define do
     trait :official do
       roles ["official"]
     end
+
+    trait :collaborator do
+      roles ["collaborator"]
+    end
   end
 
   factory :user_group, class: Decidim::UserGroup do
