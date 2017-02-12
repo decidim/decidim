@@ -10,7 +10,7 @@ morphdom($orderSelectedProjects[0], '<%= j(render partial: 'decidim/budgets/proj
 morphdom($orderProgress[0], '<%= j(render partial: 'decidim/budgets/projects/order_progress') %>');
 morphdom($budgetConfirm[0], '<%= j(render partial: 'decidim/budgets/projects/budget_confirm') %>')
 
-Foundation.reInit('reveal');
+$("#order-progress").foundation();
 
 if ($projectItem.length > 0) {
   morphdom($projectItem[0], '<%= j(render partial: 'decidim/budgets/projects/project', locals: { project: project }) %>');
