@@ -1,3 +1,18 @@
+GIT
+  remote: https://github.com/glebm/i18n-tasks.git
+  revision: c7bab27e7399b73ba5cc46abbeebe6744d0949fa
+  specs:
+    i18n-tasks (0.9.11)
+      activesupport (>= 4.0.2)
+      ast (>= 2.1.0)
+      easy_translate (>= 0.5.0)
+      erubis
+      highline (>= 1.7.3)
+      i18n
+      parser (>= 2.2.3.0)
+      term-ansicolor (>= 1.3.2)
+      terminal-table (>= 1.5.1)
+
 PATH
   remote: .
   specs:
@@ -113,7 +128,7 @@ PATH
       decidim (= 0.0.4)
       factory_girl_rails
       faker (~> 1.7.3)
-      i18n-tasks (= 0.9.8)
+      i18n-tasks
       launchy
       letter_opener_web (~> 1.3.0)
       listen (~> 3.1.0)
@@ -315,16 +330,6 @@ GEM
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.8.0)
-    i18n-tasks (0.9.8)
-      activesupport (>= 4.0.2)
-      ast (>= 2.1.0)
-      easy_translate (>= 0.5.0)
-      erubis
-      highline (>= 1.7.3)
-      i18n
-      parser (>= 2.2.3.0)
-      term-ansicolor (>= 1.3.2)
-      terminal-table (>= 1.5.1)
     ice_nine (0.11.2)
     jquery-rails (4.2.2)
       rails-dom-testing (>= 1, < 3)
@@ -579,6 +584,7 @@ DEPENDENCIES
   decidim-proposals (= 0.0.4)
   decidim-results (= 0.0.4)
   decidim-system!
+  i18n-tasks!
   rake (~> 12.0.0)
   rspec (~> 3.0)
   webmock (~> 2.3.2)

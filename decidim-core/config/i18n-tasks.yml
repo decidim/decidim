@@ -98,6 +98,7 @@ ignore_unused:
   - social_share_button.*
   - decidim.filters.linked_classes.*
   - decidim.forms.errors.*
+  - decidim.authorizations.first_login.actions.*
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
