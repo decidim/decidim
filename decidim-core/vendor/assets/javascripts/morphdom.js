@@ -1,4 +1,8 @@
-'use strict';
+(function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+    typeof define === 'function' && define.amd ? define(factory) :
+    (global.morphdom = factory());
+}(this, (function () { 'use strict';
 
 var range; // Create a range object for efficently rendering strings to elements.
 var NS_XHTML = 'http://www.w3.org/1999/xhtml';
@@ -670,4 +674,6 @@ function morphdomFactory(morphAttrs) {
 
 var morphdom = morphdomFactory(morphAttrs);
 
-module.exports = morphdom;
+return morphdom;
+
+})));

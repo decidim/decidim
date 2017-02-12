@@ -1,25 +1,27 @@
-<% if !current_user %>
-  <button class="card__button button <%= vote_button_classes(from_proposals_list) %>" data-toggle="loginModal">
-    <%= t('.vote') %>
-  </button>
-<% else %>
-  <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
-    <% if vote_limit_enabled? %>
-      <%= action_authorized_button_to :vote, t('.already_voted'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), method: :delete, remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)} success" %>
-    <% else %>
-      <button class="card__button button <%= vote_button_classes(from_proposals_list) %> success">
-        <%= t('.already_voted') %>
-      </button>
-    <% end %>
+<div id="proposal-<%= proposal.id %>-vote-button">
+  <% if !current_user %>
+    <button class="card__button button <%= vote_button_classes(from_proposals_list) %>" data-toggle="loginModal">
+      <%= t('.vote') %>
+    </button>
   <% else %>
-    <% if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0 %>
-      <%= action_authorized_button_to :vote, t('.no_votes_remaining'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)}", disabled: true %>
-    <% elsif current_settings.votes_blocked? %>
-      <button class="card__button button <%= vote_button_classes(from_proposals_list) %> disabled">
-        <%= t('.votes_blocked') %>
-      </button>
+    <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
+      <% if vote_limit_enabled? %>
+        <%= action_authorized_button_to :vote, t('.already_voted'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), method: :delete, remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)} success" %>
+      <% else %>
+        <button class="card__button button <%= vote_button_classes(from_proposals_list) %> success">
+          <%= t('.already_voted') %>
+        </button>
+      <% end %>
     <% else %>
-      <%= action_authorized_button_to "vote", t('.vote'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)}" %>
+      <% if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0 %>
+        <%= action_authorized_button_to :vote, t('.no_votes_remaining'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)}", disabled: true %>
+      <% elsif current_settings.votes_blocked? %>
+        <button class="card__button button <%= vote_button_classes(from_proposals_list) %> disabled">
+          <%= t('.votes_blocked') %>
+        </button>
+      <% else %>
+        <%= action_authorized_button_to "vote", t('.vote'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)}" %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>
