@@ -3,7 +3,7 @@ require "spec_helper"
 
 describe "Comments", type: :feature do
   let!(:organization) { create(:organization) }
-  let!(:feature) { create(:feature, organization: organization) }
+  let!(:feature) { create(:feature, manifest_name: :dummy, organization: organization) }
   let!(:user) { create(:user, :confirmed, organization: organization) }
   let!(:commentable) { create(:dummy_resource, feature: feature) }
   let!(:comments) {
