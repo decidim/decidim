@@ -15,7 +15,7 @@ RSpec.shared_examples "manage proposals" do
   context "creation" do
     context "when official_proposals setting is enabled" do
       before do
-        current_feature.update_attributes(settings: { official_proposals_enabled: true})
+        current_feature.update_attributes(settings: { official_proposals_enabled: true } )
       end
 
       context "when creation is enabled" do
@@ -31,7 +31,7 @@ RSpec.shared_examples "manage proposals" do
 
         context "when scoped_proposals setting is enabled" do
           before do
-            current_feature.update_attributes(settings: { scoped_proposals_enabled: true})
+            current_feature.update_attributes(settings: { scoped_proposals_enabled: true } )
           end
 
           it "can be filtered by scope" do
@@ -45,7 +45,7 @@ RSpec.shared_examples "manage proposals" do
 
         context "when scoped_proposals setting is not enabled" do
           before do
-            current_feature.update_attributes(settings: { scoped_proposals_enabled: false})
+            current_feature.update_attributes(settings: { scoped_proposals_enabled: false } )
           end
 
           it "cannot be filtered by scope" do
@@ -87,7 +87,7 @@ RSpec.shared_examples "manage proposals" do
 
     context "when official_proposals setting is disabled" do
       before do
-        current_feature.update_attributes(settings: { official_proposals_enabled: false})
+        current_feature.update_attributes(settings: { official_proposals_enabled: false } )
       end
 
       it "cannot create a new proposal" do
@@ -99,7 +99,7 @@ RSpec.shared_examples "manage proposals" do
 
   context "when the proposal_answering feature setting is enabled" do
     before do
-      current_feature.update_attributes(settings: { proposal_answering_enabled: true})
+      current_feature.update_attributes(settings: { proposal_answering_enabled: true } )
     end
 
     context "when the proposal_answering step setting is enabled" do
@@ -186,7 +186,7 @@ RSpec.shared_examples "manage proposals" do
 
   context "when the proposal_answering feature setting is disabled" do
     before do
-      current_feature.update_attributes(settings: { proposal_answering_enabled: false })
+      current_feature.update_attributes(settings: { proposal_answering_enabled: false } )
     end
 
     it "cannot answer a proposal" do

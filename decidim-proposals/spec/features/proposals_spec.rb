@@ -130,7 +130,7 @@ describe "Proposals", type: :feature do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
 
       before do
-        feature.update_attributes(settings: { scoped_proposals_enabled: true})
+        feature.update_attributes(settings: { scoped_proposals_enabled: true } )
       end
 
       it "can be filtered by scope" do
@@ -144,7 +144,7 @@ describe "Proposals", type: :feature do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
 
       before do
-        feature.update_attributes(settings: { scoped_proposals_enabled: false})
+        feature.update_attributes(settings: { scoped_proposals_enabled: false } )
       end
 
       it "cannot be filtered by scope" do
@@ -325,7 +325,7 @@ describe "Proposals", type: :feature do
 
       context "when official_proposals setting is not enabled" do
         before do
-          feature.update_attributes(settings: { official_proposals_enabled: false})
+          feature.update_attributes(settings: { official_proposals_enabled: false } )
         end
 
         it "cannot be filtered by origin" do
@@ -338,7 +338,7 @@ describe "Proposals", type: :feature do
 
       context "when scoped_proposals setting is enabled" do
         before do
-          feature.update_attributes(settings: { scoped_proposals_enabled: true})
+          feature.update_attributes(settings: { scoped_proposals_enabled: true } )
         end
 
         it "cannot be filtered by scope" do
@@ -351,7 +351,7 @@ describe "Proposals", type: :feature do
 
       context "when scoped_proposals setting is not enabled" do
         before do
-          feature.update_attributes(settings: { scoped_proposals_enabled: false})
+          feature.update_attributes(settings: { scoped_proposals_enabled: false } )
         end
 
         it "cannot be filtered by scope" do
@@ -364,7 +364,7 @@ describe "Proposals", type: :feature do
 
       context "when proposal_answering feature setting is enabled" do
         before do
-          feature.update_attributes(settings: { proposal_answering_enabled: true})
+          feature.update_attributes(settings: { proposal_answering_enabled: true } )
         end
 
         context "when proposal_answering step setting is enabled" do
@@ -444,7 +444,7 @@ describe "Proposals", type: :feature do
 
       context "when proposal_answering feature setting is not enabled" do
         before do
-          feature.update_attributes(settings: { proposal_answering_enabled: false})
+          feature.update_attributes(settings: { proposal_answering_enabled: false } )
         end
 
         it "cannot be filtered by state" do
