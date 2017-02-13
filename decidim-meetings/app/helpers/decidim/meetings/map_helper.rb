@@ -34,6 +34,7 @@ module Decidim
                                                                description: translated_attribute(meeting.description),
                                                                startTimeDay: l(meeting.start_time, format: "%d"),
                                                                startTimeMonth: l(meeting.start_time, format: "%B"),
+                                                               startTimeYear: l(meeting.start_time, format: "%Y"),
                                                                startTime: "#{meeting.start_time.strftime("%H:%M")} - #{meeting.end_time.strftime("%H:%M")}",
                                                                icon: icon("meetings", width: 40, height: 70, remove_icon_class: true),
                                                                location: translated_attribute(meeting.location),
