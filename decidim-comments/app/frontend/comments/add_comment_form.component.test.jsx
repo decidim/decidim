@@ -232,5 +232,16 @@ describe("<AddCommentForm />", () => {
         });
       });
     });
-  })
+  });
+
+  describe("when session is null", () => {
+    beforeEach(() => {
+      session = null;
+    });
+
+    it("display a message to sign in or sign up", () => {
+      const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
+      expect(wrapper.find('span')).to.include.text("sign up");
+    });
+  });
 });

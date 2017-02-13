@@ -21,6 +21,7 @@ es:
             subject: Uno de tus comentarios ha recibido respuesta
     components:
       add_comment_form:
+        account_message: "<a href=\"%{sign_in_url}\">Entra con tu cuenta</a> o <a href=\"%{sign_up_url}\">regístratet</a> para dejar tu comentario."
         form:
           body:
             label: Comentario
@@ -47,6 +48,7 @@ es:
       comment_thread:
         title: Conversación con %{authorName}
       comments:
+        blocked_comments_warning: Los comentarios estan desactivados en la fase actual pero puedes leer los comentarios de las fases anteriores.
         loading: Cargando los comentarios ...
         title: "%{count} comentarios"
       featured_comment:

@@ -150,16 +150,10 @@ describe('<Comments />', () => {
       const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(AddCommentForm)).not.to.be.present();
     });
-  });
 
-  describe("when the session is not present", () => {
-    beforeEach(() => {
-      session = null;
-    });
-
-    it("doesn't render an AddCommentForm component", () => {
+    it("renders a callout message to inform the user that comments are blocked", () => {
       const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
-      expect(wrapper.find(AddCommentForm)).not.to.be.present();
+      expect(wrapper.find('.callout.warning')).to.include.text("disabled");
     });
   });
 

@@ -22,6 +22,8 @@ en:
             subject: You have a new reply of your comment
     components:
       add_comment_form:
+        account_message: "<a href=\"%{sign_in_url}\">Sign in with your account</a> or <a href=\"%{sign_up_url}\">sign up</a> to leave your comment.
+"
         form:
           body:
             label: Comment
@@ -48,6 +50,7 @@ en:
       comment_thread:
         title: Conversation with %{authorName}
       comments:
+        blocked_comments_warning: Comments are disabled in the current step, but you can read the comments from previous steps.
         loading: Loading comments ...
         title: "%{count} comments"
       featured_comment:

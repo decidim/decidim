@@ -42,11 +42,31 @@ export class Comments extends Component {
               defaultOrderBy={orderBy}
             />
           </div>
+          {this._renderBlockedCommentsWarning()}
           {this._renderCommentThreads()}
           {this._renderAddCommentForm()}
         </section>
       </div>
     );
+  }
+
+  /**
+   * Renders a warning message if the commentable doesn't accept new comments.
+   * @private
+   * @returns {Void|DOMElement} - A warning message or nothing.
+   */
+  _renderBlockedCommentsWarning() {
+    const { commentable: { acceptsNewComments } } = this.props;
+
+    if (!acceptsNewComments) {
+      return (
+        <div className="callout warning">
+          <p>{ I18n.t("components.comments.blocked_comments_warning") }</p>
+        </div>
+      );
+    }
+
+    return null;
   }
 
   /**
@@ -76,7 +96,7 @@ export class Comments extends Component {
     const { session, commentable } = this.props;
     const { acceptsNewComments, commentsHaveAlignment } = commentable;
 
-    if (session && acceptsNewComments) {
+    if (acceptsNewComments) {
       return (
         <AddCommentForm
           session={session}

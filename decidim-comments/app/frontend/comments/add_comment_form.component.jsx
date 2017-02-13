@@ -2,7 +2,7 @@
 import { Component, PropTypes }          from 'react';
 import { graphql }                       from 'react-apollo';
 import gql                               from 'graphql-tag';
-import { I18n }                          from 'react-i18nify';
+import { I18n, Translate }               from 'react-i18nify';
 import uuid                              from 'uuid';
 import classnames                        from 'classnames';
 
@@ -39,13 +39,70 @@ export class AddCommentForm extends Component {
   }
 
   render() {
-    const { submitButtonClassName, commentable: { id, type }, maxLength } = this.props;
-    const { disabled } = this.state;
-
     return (
       <div className="add-comment">
         {this._renderHeading()}
+        {this._renderAccountMessage()}
         {this._renderOpinionButtons()}
+        {this._renderForm()}
+      </div>
+    );
+  }
+
+  /**
+   * Render the form heading based on showTitle prop
+   * @private
+   * @returns {Void|DOMElement} - The heading or an empty element
+   */
+  _renderHeading() {
+    const { showTitle } = this.props;
+
+    if (showTitle) {
+      return (
+        <h5 className="section-heading">
+          { I18n.t("components.add_comment_form.title") }
+        </h5>
+      );
+    }
+
+    return null;
+  }
+
+  /**
+   * Render a message telling the user to sign in or sign up to leave a comment.
+   * @private
+   * @returns {Void|DOMElement} - The message or an empty element.
+   */
+  _renderAccountMessage() {
+    const { session } = this.props;
+
+    if (!session) {
+      return (
+        <p>
+          <Translate
+            value="components.add_comment_form.account_message"
+            sign_in_url="/users/sign_in"
+            sign_up_url="/users/sign_up"
+            dangerousHTML
+          />
+        </p>
+      );
+    }
+
+    return null;
+  }
+
+  /**
+   * Render the add comment form if session is present.
+   * @private
+   * @returns {Void|DOMElement} - The add comment form on an empty element.
+   */
+  _renderForm() {
+    const { session, submitButtonClassName, commentable: { id, type }, maxLength } = this.props;
+    const { disabled } = this.state;
+
+    if (session) {
+      return (
         <form
           onSubmit={(evt) => this._addComment(evt)}
           data-abide
@@ -68,23 +125,6 @@ export class AddCommentForm extends Component {
             />
           </div>
         </form>
-      </div>
-    );
-  }
-
-  /**
-   * Render the form heading based on showTitle prop
-   * @private
-   * @returns {Void|DOMElement} - The heading or an empty element
-   */
-  _renderHeading() {
-    const { showTitle } = this.props;
-
-    if (showTitle) {
-      return (
-        <h5 className="section-heading">
-          { I18n.t("components.add_comment_form.title") }
-        </h5>
       );
     }
 
@@ -124,7 +164,7 @@ export class AddCommentForm extends Component {
    * @returns {Void|DOMElement} - Returns nothing or a wrapper with buttons
    */
   _renderOpinionButtons() {
-    const { arguable } = this.props;
+    const { session, arguable } = this.props;
     const { alignment } = this.state;
     const buttonClassName = classnames('button', 'tiny', 'button--muted');
     const okButtonClassName = classnames(buttonClassName, 'opinion-toggle--ok', {
@@ -137,7 +177,7 @@ export class AddCommentForm extends Component {
       'is-active': alignment === 0
     });
 
-    if (arguable) {
+    if (session && arguable) {
       return (
         <div className="opinion-toggle button-group">
           <button
@@ -248,7 +288,7 @@ AddCommentForm.propTypes = {
         name: PropTypes.string.isRequired
       })
     ).isRequired
-  }).isRequired,
+  }),
   commentable: PropTypes.shape({
     id: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired
