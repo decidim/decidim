@@ -11,7 +11,7 @@ module Decidim
 
     authorize_resource :public_pages, class: false
     delegate :page, to: :page_finder
-    helper_method :page, :promoted_participatory_processes, :participatory_processes, :users
+    helper_method :page, :highlighted_participatory_processes, :promoted_participatory_processes, :participatory_processes, :users
 
     def page_finder
       @page_finder ||= Decidim::PageFinder.new(params[:id], current_organization)
@@ -26,8 +26,8 @@ module Decidim
       @processes ||= OrganizationParticipatoryProcesses.new(current_organization) | PublicParticipatoryProcesses.new
     end
 
-    def promoted_participatory_processes
-      @promoted_processes ||= OrganizationParticipatoryProcesses.new(current_organization) | PublicParticipatoryProcesses.new | PromotedParticipatoryProcesses.new
+    def highlighted_participatory_processes
+      @promoted_processes ||= OrganizationParticipatoryProcesses.new(current_organization) | PublicParticipatoryProcesses.new | HighlightedParticipatoryProcesses.new
     end
   end
 end
