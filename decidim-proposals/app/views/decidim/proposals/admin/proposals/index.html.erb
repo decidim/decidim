@@ -40,7 +40,7 @@
           <%= humanize_proposal_state proposal.state %>
         </td>
         <td class="actions">
-          <%= link_to t("actions.answer", scope: "decidim.proposals"), edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id) if can? :update, current_feature %>
+          <%= link_to t("actions.answer", scope: "decidim.proposals"), edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id) if can? :update, proposal %>
         </td>
       </tr>
     <% end %>
