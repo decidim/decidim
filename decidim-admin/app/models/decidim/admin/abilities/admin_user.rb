@@ -15,9 +15,11 @@ module Decidim
           can :manage, Category
           can :manage, ParticipatoryProcessUserRole
           can [:create, :update, :index, :new, :read], StaticPage
+
           can [:update_slug, :destroy], [StaticPage, StaticPageForm] do |page|
             !StaticPage.default?(page.slug)
           end
+
           can [:read, :update], Decidim::Organization do |organization|
             organization == user.organization
           end
@@ -27,7 +29,9 @@ module Decidim
           can :manage, :admin_users
           can :manage, Attachment
           can :manage, Scope
+          can :manage, Newsletter
           can [:create, :index, :new, :read, :invite], User
+
           can [:destroy], [User] do |user_to_destroy|
             user != user_to_destroy
           end

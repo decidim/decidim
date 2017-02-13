@@ -1,0 +1,35 @@
+<% provide :title do %>
+  <h2><%= t ".title" %></h2>
+<% end %>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.newsletter.name", scope: "decidim.admin")), ['new', 'newsletter'], class: 'new' %>
+</div>
+
+
+<table class="stack user-groups">
+  <thead>
+    <tr>
+      <th><%= t("models.newsletter.fields.subject", scope: "decidim.admin") %></th>
+      <th><%= t("models.newsletter.fields.created_at", scope: "decidim.admin") %></th>
+      <th><%= t("models.newsletter.fields.sent_at", scope: "decidim.admin") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @newsletters.each do |newsletter| %>
+      <tr data-newsletter-id="<%= newsletter.id %>">
+        <td><%= translated_attribute newsletter.subject %></td>
+        <td><%= h newsletter.created_at %></td>
+        <td><%= h newsletter.sent_at %></td>
+        <td class="actions">
+          <%= link_to t("actions.preview", scope: "decidim.admin"), decidim_admin.newsletter_path(newsletter) %>
+
+          <% if can?(:update, newsletter) %>
+            <%= link_to t("actions.edit", scope: "decidim.admin"), decidim_admin.edit_newsletter_path(newsletter) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

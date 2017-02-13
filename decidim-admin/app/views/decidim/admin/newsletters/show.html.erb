@@ -1,0 +1,11 @@
+<h3><%= t ".preview" %></h3>
+
+<div class="email-preview">
+  <div class="email-preview-inner">
+    <%== @email_body %>
+  </div>
+</div>
+
+<div class="actions">
+  <%= button_to t(".send"), deliver_newsletter_path(@newsletter), method: :post, class: "button" %>
+</div>
