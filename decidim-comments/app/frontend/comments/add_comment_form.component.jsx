@@ -1,4 +1,4 @@
-/* eslint-disable no-return-assign, react/no-unused-prop-types */
+/* eslint-disable no-return-assign, react/no-unused-prop-types, max-lines */
 import { Component, PropTypes } from 'react';
 import { graphql }              from 'react-apollo';
 import gql                      from 'graphql-tag';

@@ -13,9 +13,9 @@ const sortSteps = () => {
     sortable('#steps tbody', {
       placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0]
     })[0].addEventListener('sortupdate', (event) => {
-      const order = $(event.target).children()
-        .map((index, child) => $(child).data('id'))
-        .toArray();
+      const order = $(event.target).children().
+        map((index, child) => $(child).data('id')).
+        toArray();
 
       $.ajax({
         method: 'POST',
