@@ -22,7 +22,7 @@ en:
             subject: You have a new reply of your comment
     components:
       add_comment_form:
-        account_message: "<a href=\"%{sign_in_url}\">Sign in with your account</a> or <a href=\"%{sign_up_url}\">sign up</a> to leave your comment.
+        account_message: "<a href=\"%{sign_in_url}\">Sign in with your account</a> or <a href=\"%{sign_up_url}\">sign up</a> to add your comment.
 "
         form:
           body:
@@ -34,7 +34,7 @@ en:
             label: Comment as
         opinion:
           neutral: Neutral
-        title: Leave your comment
+        title: Add your comment
       comment:
         alignment:
           against: Against

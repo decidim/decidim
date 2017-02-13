@@ -18,7 +18,7 @@ module Decidim
           "{ addComment(body: \"#{body}\", alignment: #{alignment}) { body } }"
         }
 
-        it "should call CreateComment command" do
+        it "calls CreateComment command" do
           params = { "comment" => { "body" => body, "alignment" => alignment, "user_group_id" => nil } }
           expect(Decidim::Comments::CommentForm).to receive(:from_params).with(params).and_call_original
           expect(Decidim::Comments::CreateComment).to receive(:call).with(

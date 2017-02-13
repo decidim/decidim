@@ -21,7 +21,7 @@ es:
             subject: Uno de tus comentarios ha recibido respuesta
     components:
       add_comment_form:
-        account_message: "<a href=\"%{sign_in_url}\">Entra con tu cuenta</a> o <a href=\"%{sign_up_url}\">regístratet</a> para dejar tu comentario."
+        account_message: "<a href=\"%{sign_in_url}\">Entra con tu cuenta</a> o <a href=\"%{sign_up_url}\">regístrate</a> para dejar tu comentario."
         form:
           body:
             label: Comentario
