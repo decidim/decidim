@@ -1,4 +1,5 @@
 {
+  "maxReviewers": 2,
   "findPotentialReviewers": true,
   "userBlacklist": ["decidim-bot"],
   "actions": ["labeled"],
