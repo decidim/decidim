@@ -28,7 +28,8 @@ module Decidim
       def ability_context
         {
           current_organization: try(:current_organization),
-          current_feature: try(:current_feature)
+          current_feature: try(:current_feature),
+          current_participatory_process: try(:current_participatory_process)
         }
       end
 
