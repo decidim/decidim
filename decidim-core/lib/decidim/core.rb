@@ -61,6 +61,13 @@ module Decidim
     []
   end
 
+  # Exposes a configuration option: an Array of `cancancan`'s Ability classes
+  # that will be automatically included to the `Decidim::Admin::Abilities::Base`
+  # class.
+  config_accessor :admin_abilities do
+    []
+  end
+
   # Exposes a configuration option: an Array of classes that can be used as
   # AuthorizaionHandlers so users can be verified against different systems.
   config_accessor :authorization_handlers do

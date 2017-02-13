@@ -8,10 +8,12 @@ module Decidim
         helper_method :proposals
 
         def new
+          authorize! :create, Proposal
           @form = form(Admin::ProposalForm).from_params({})
         end
 
         def create
+          authorize! :create, Proposal
           @form = form(Admin::ProposalForm).from_params(params)
 
           Admin::CreateProposal.call(@form) do

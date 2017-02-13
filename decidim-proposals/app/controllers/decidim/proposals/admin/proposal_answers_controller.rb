@@ -7,10 +7,12 @@ module Decidim
         helper_method :proposal
 
         def edit
+          authorize! :update, proposal
           @form = form(Admin::ProposalAnswerForm).from_model(proposal)
         end
 
         def update
+          authorize! :update, proposal
           @form = form(Admin::ProposalAnswerForm).from_params(params)
 
           Admin::AnswerProposal.call(@form, proposal) do
