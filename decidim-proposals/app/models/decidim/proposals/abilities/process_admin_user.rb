@@ -20,6 +20,7 @@ module Decidim
           end
 
           cannot :create, Proposal unless can_create_proposal?
+          cannot :update, Proposal unless can_update_proposal?
         end
 
         private
@@ -40,6 +41,11 @@ module Decidim
           current_settings.try(:creation_enabled?) &&
             feature_settings.try(:official_proposals_enabled) &&
             participatory_processes.include?(current_feature.try(:participatory_process))
+        end
+
+        def can_update_proposal?
+          current_settings.try(:proposal_answering_enabled) &&
+            feature_settings.try(:proposal_answering_enabled)
         end
 
         def participatory_processes

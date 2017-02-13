@@ -40,4 +40,24 @@ describe Decidim::Proposals::Abilities::ProcessAdminUser do
 
     it { is_expected.not_to be_able_to(:create, Decidim::Proposals::Proposal) }
   end
+
+  context "when proposal_answering is disabled in step level" do
+    let(:context) do
+      {
+        current_settings: double(proposal_answering_enabled: false)
+      }
+    end
+
+    it { is_expected.not_to be_able_to(:update, Decidim::Proposals::Proposal) }
+  end
+
+  context "when proposal_answering is disabled in feature level" do
+    let(:context) do
+      {
+        feature_settings: double(proposal_answering_enabled: false)
+      }
+    end
+
+    it { is_expected.not_to be_able_to(:update, Decidim::Proposals::Proposal) }
+  end
 end
