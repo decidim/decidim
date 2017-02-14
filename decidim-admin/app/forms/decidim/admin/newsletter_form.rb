@@ -1,5 +1,7 @@
+# frozen_string_literal: true
 module Decidim
   module Admin
+    # The form that validates the data to construct a valid Newsletter.
     class NewsletterForm < Decidim::Form
       include TranslatableAttributes
 

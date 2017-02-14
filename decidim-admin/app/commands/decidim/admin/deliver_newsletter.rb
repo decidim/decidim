@@ -1,6 +1,11 @@
+# frozen_string_literal: true
 module Decidim
   module Admin
+    # Delivers the newsletter to its recipients.
     class DeliverNewsletter < Rectify::Command
+      # Initializes the command.
+      #
+      # newsletter - The newsletter to deliver.
       def initialize(newsletter)
         @newsletter = newsletter
       end
