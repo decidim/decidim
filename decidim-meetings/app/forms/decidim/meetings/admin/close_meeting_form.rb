@@ -15,7 +15,7 @@ module Decidim
         attribute :closed_at, DateTime, default: ->(_form, _attribute) { Time.current }
 
         validates :closing_report, translatable_presence: true
-        validates :attendees_count, :contributions_count, presence: true, numericality: { greater_than_or_equal_to: 0 }
+        validates :attendees_count, presence: true, numericality: { greater_than_or_equal_to: 0 }
         validates :attending_organizations, presence: true
 
         # Private: Gets the proposals from the meeting and injects them to the form.
