@@ -5,7 +5,7 @@ module Decidim
     belongs_to :organization
 
     validates :title, :body, translatable_presence: true
-    validates :author_belongs_to_organization
+    validate :author_belongs_to_organization
 
     # Returns true if this newsletter was already sent.
     #
