@@ -1,0 +1,17 @@
+<h3><%= t ".preview" %></h3>
+
+<dl>
+  <dt><%= t ".subject" %></dt>
+  <dd><%= @email_subject %></dd>
+</dl>
+
+<div class="email-preview">
+  <div class="email-preview-inner">
+    <%== @email_body %>
+  </div>
+</div>
+
+<div class="actions">
+  <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', @newsletter] %>
+  <%= link_to t(".deliver"), deliver_newsletter_path(@newsletter), method: :post, class: "button" %>
+</div>

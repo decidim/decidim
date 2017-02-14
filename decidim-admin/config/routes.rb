@@ -45,6 +45,12 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
+    resources :newsletters do
+      member do
+        post :deliver
+      end
+    end
+
     resources :user_groups, only: [:index] do
       member do
         put :verify

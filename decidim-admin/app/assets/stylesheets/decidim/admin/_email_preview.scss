@@ -1,0 +1,14 @@
+@import "reset";
+
+.email-preview{
+  padding: 40px 0;
+  background-color: $light-gray;
+  margin-bottom: 40px;
+  .email-preview-inner{
+    max-width: 800px;
+    margin: 0 auto;
+    table.container{
+      @include reset;
+    }
+  }
+}

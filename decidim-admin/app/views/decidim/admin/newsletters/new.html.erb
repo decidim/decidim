@@ -1,0 +1,11 @@
+<% provide :title do %>
+  <h2><%= t ".title" %></h2>
+<% end %>
+
+<%= decidim_form_for(@form) do |f| %>
+  <%= render partial: 'form', object: f %>
+
+  <div class="actions">
+    <%= f.submit t(".save") %>
+  </div>
+<% end %>
