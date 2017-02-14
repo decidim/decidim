@@ -1,13 +1,14 @@
 fragment CommentData on Comment {
   id
+  type
   body
   createdAt
   author {
-    name,
+    name
     avatarUrl
   }
-  hasReplies
-  canHaveReplies
+  hasComments
+  acceptsNewComments
   alignment
   ...UpVote
   ...DownVote

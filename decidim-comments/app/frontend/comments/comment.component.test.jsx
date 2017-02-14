@@ -27,7 +27,7 @@ describe("<Comment />", () => {
 
   beforeEach(() => {
     let commentsData = generateCommentsData(1);
-    commentsData[0].replies = generateCommentsData(3);
+    commentsData[0].comments = generateCommentsData(3);
 
     const fragment = gql`
       ${commentFragment}
@@ -77,50 +77,40 @@ describe("<Comment />", () => {
     expect(wrapper.find(AddCommentForm)).not.to.be.present();
     wrapper.find('button.comment__reply').simulate('click');
     expect(wrapper.find(AddCommentForm)).to.have.prop('session').deep.equal(session);
-    expect(wrapper.find(AddCommentForm)).to.have.prop('commentableId').equal(comment.id);
-    expect(wrapper.find(AddCommentForm)).to.have.prop('commentableType').equal("Decidim::Comments::Comment");
+    expect(wrapper.find(AddCommentForm)).to.have.prop('commentable').deep.equal(comment);
     expect(wrapper.find(AddCommentForm)).to.have.prop('showTitle').equal(false);
     expect(wrapper.find(AddCommentForm)).to.have.prop('submitButtonClassName').equal('button small hollow');
   });
 
-  it("should not render the reply button if the comment cannot have replies", () => {
-    comment.canHaveReplies = false;
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
-    expect(wrapper.find('button.comment__reply')).not.to.be.present();
-  });
-
-  it("should not render the additional reply button if the parent comment has no replies and isRootcomment", () => {
-    comment.canHaveReplies = true;
-    comment.hasReplies = false;
+  it("should not render the additional reply button if the parent comment has no comments and isRootcomment", () => {
+    comment.hasComments = false;
     const wrapper = shallow(<Comment comment={comment} session={session} isRootComment />);
     expect(wrapper.find('div.comment__additionalreply')).not.to.be.present();
   });
 
- it("should not render the additional reply button if the parent comment has replies and not isRootcomment", () => {
-    comment.canHaveReplies = true;
-    comment.hasReplies = true;
+ it("should not render the additional reply button if the parent comment has comments and not isRootcomment", () => {
+    comment.hasComments = true;
     const wrapper = shallow(<Comment comment={comment} session={session} />);
     expect(wrapper.find('div.comment__additionalreply')).not.to.be.present();
   });
 
-  it("should render the additional reply button if the parent comment has replies and isRootcomment", () => {
-    comment.canHaveReplies = true;
-    comment.hasReplies = true;
+  it("should render the additional reply button if the parent comment has comments and isRootcomment", () => {
+    comment.hasComments = true;
     const wrapper = shallow(<Comment comment={comment} session={session} isRootComment />);
     expect(wrapper.find('div.comment__additionalreply')).to.be.present();
   });
 
-  it("should render comment replies a separate Comment components", () => {
+  it("should render comment's comments as a separate Comment components", () => {
     const wrapper = shallow(<Comment comment={comment} session={session} votable />);
     wrapper.find(Comment).forEach((node, idx) => {
-      expect(node).to.have.prop("comment").deep.equal(comment.replies[idx]);
+      expect(node).to.have.prop("comment").deep.equal(comment.comments[idx]);
       expect(node).to.have.prop("session").deep.equal(session);
       expect(node).to.have.prop("articleClassName").equal("comment comment--nested")
       expect(node).to.have.prop("votable").equal(true);
     });
   });
 
-  it("should render comment replies with articleClassName as 'comment comment--nested comment--nested--alt' when articleClassName is 'comment comment--nested'", () => {
+  it("should render comment's comments with articleClassName as 'comment comment--nested comment--nested--alt' when articleClassName is 'comment comment--nested'", () => {
     const wrapper = shallow(<Comment comment={comment} session={session} articleClassName="comment comment--nested" />);
     wrapper.find(Comment).forEach((node) => {
       expect(node).to.have.prop("articleClassName").equal("comment comment--nested comment--nested--alt")
@@ -136,6 +126,17 @@ describe("<Comment />", () => {
     const wrapper = mount(<Comment comment={comment} session={session} />);
     expect(wrapper).to.have.prop("isRootComment").equal(false);
   });
+
+  describe("when the comment cannot accept new comments", () => {
+    beforeEach(() => {
+      comment.acceptsNewComments = false;
+    });
+
+    it("should not render the reply button", () => {
+      const wrapper = shallow(<Comment comment={comment} session={session} />);
+      expect(wrapper.find('button.comment__reply')).not.to.be.present();
+    });
+  })
 
   describe("when user is not logged in", () => {
     beforeEach(() => {

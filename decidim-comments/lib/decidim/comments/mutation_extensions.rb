@@ -11,28 +11,20 @@ module Decidim
       # Returns nothing.
       def self.extend!(type)
         type.define do
-          field :addComment, Decidim::Comments::CommentType do
-            description "Add a new comment to a commentable"
-            argument :commentableId, !types.String, "The commentable's ID"
-            argument :commentableType, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
-            argument :body, !types.String, "The comments's body"
-            argument :alignment, types.Int, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'", default_value: 0
-            argument :userGroupId, types.ID, "The comment's user group id. Replaces the author."
+          field :commentable, Decidim::Comments::CommentableMutationType do
+            description "A commentable"
 
-            resolve lambda { |_obj, args, ctx|
-              params = { "comment" => { "body" => args[:body], "alignment" => args[:alignment], "user_group_id" => args[:userGroupId] } }
-              form = Decidim::Comments::CommentForm.from_params(params)
-              commentable = args[:commentableType].constantize.find(args[:commentableId])
-              Decidim::Comments::CreateComment.call(form, ctx[:current_user], commentable) do
-                on(:ok) do |comment|
-                  return comment
-                end
-              end
+            argument :id, !types.String, "The commentable's ID"
+            argument :type, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
+
+            resolve lambda { |_obj, args, _ctx|
+              args[:type].constantize.find(args[:id])
             }
           end
 
           field :comment, Decidim::Comments::CommentMutationType do
             description "A comment"
+
             argument :id, !types.ID, "The comment's id"
 
             resolve lambda { |_obj, args, _ctx|

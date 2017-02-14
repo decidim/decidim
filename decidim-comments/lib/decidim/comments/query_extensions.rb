@@ -11,17 +11,14 @@ module Decidim
       # Returns nothing.
       def self.extend!(type)
         type.define do
-          field :comments do
-            description "Lists all commentable's comments."
-            type !types[CommentType]
+          field :commentable do
+            type !CommentableType
 
-            argument :commentableId, !types.String, "The commentable's ID"
-            argument :commentableType, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
-            argument :orderBy, types.String, "Order the comments"
+            argument :id, !types.String, "The commentable's ID"
+            argument :type, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
 
             resolve lambda { |_obj, args, _ctx|
-              commentable = args[:commentableType].constantize.find(args[:commentableId])
-              CommentsWithReplies.for(commentable, order_by: args[:orderBy])
+              args[:type].constantize.find(args[:id])
             }
           end
         end

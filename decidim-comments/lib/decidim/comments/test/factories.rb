@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 FactoryGirl.define do
-  factory :comment, class: Decidim::Comments::Comment do
+  factory :comment, class: "Decidim::Comments::Comment" do
     author { build(:user, organization: commentable.organization) }
-    commentable { build(:participatory_process) }
+    commentable { build(:dummy_resource) }
     body { Faker::Lorem.paragraph }
   end
 
-  factory :comment_vote, class: Decidim::Comments::CommentVote do
+  factory :comment_vote, class: "Decidim::Comments::CommentVote" do
     comment { build(:comment) }
     author { build(:user, organization: comment.organization) }
     weight { [-1, 1].sample }

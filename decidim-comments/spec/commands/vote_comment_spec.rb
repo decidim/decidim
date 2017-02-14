@@ -7,8 +7,10 @@ module Decidim
       describe "call" do
         let(:organization) { create :organization }
         let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:feature) { create(:feature, participatory_process: participatory_process) }
+        let(:commentable) { create(:dummy_resource, feature: feature) }
         let(:author) { create(:user, organization: organization) }
-        let(:comment) { create(:comment, commentable: participatory_process) }
+        let(:comment) { create(:comment, commentable: commentable) }
         let(:command) { described_class.new(comment, author) }
 
         describe "when the vote is not created" do
