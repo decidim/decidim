@@ -6,7 +6,7 @@ module Decidim
     description "A user group"
 
     interfaces [
-      Decidim::Api::AuthorInterface
+      Decidim::AuthorInterface
     ]
 
     field :id, !types.ID, "The user group's id"
