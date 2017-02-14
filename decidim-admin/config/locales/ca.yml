@@ -161,6 +161,7 @@ ca:
           success: La funcionalitat s'ha actualitzat correctament.
       menu:
         dashboard: Tauler de control
+        newsletters: Butlletins
         participatory_processes: Processos participatius
         participatory_processes_submenu:
           attachments: Adjunts
@@ -185,6 +186,13 @@ ca:
           fields:
             name: Nom
           name: Categoria
+        newsletter:
+          fields:
+            created_at: Data de creació
+            progress: Progrés
+            sent_at: Enviat el
+            subject: Assumpte
+          name: Butlletí
         participatory_process:
           fields:
             created_at: Data de creació
@@ -228,6 +236,34 @@ ca:
             name: Nom
             phone: Telèfon
             users_count: Número d'usuaris
+      newsletters:
+        create:
+          error: S'ha produït un error en crear aquest butlletí.
+          success: Butlletí creat amb èxit. Si us plau, revisa'l abans d'enviar.
+        deliver:
+          error: Hi ha hagut un error d'enviament d'aquest butlletí.
+          success: Butlletí enviat amb èxit.
+        destroy:
+          error_already_sent: 'No es pot destruir butlletí de notícies: Ja s''ha enviat.'
+          success: Butlletí destruït amb èxit.
+        edit:
+          save_and_preview: Desar i vista prèvia
+          title: Títol
+        form:
+          interpolations_hint: 'Consell: Podeu utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
+        index:
+          confirm_delete: Esteu segur que voleu suprimir aquest butlletí?
+          title: Butlletins
+        new:
+          save: Desar
+          title: Nou butlletí
+        show:
+          deliver: Enviar butlletí
+          preview: Previsualitzar
+          subject: Assumpte
+        update:
+          error: S'ha produït un error en actualitzar aquest butlletí.
+          success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       organization:
         edit:
           title: Edita organització
