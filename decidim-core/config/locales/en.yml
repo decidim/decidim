@@ -109,6 +109,7 @@ en:
         error: There's an error in this field.
     menu:
       home: Home
+      more_information: More information
       processes: Processes
     notifications_settings:
       show:
@@ -123,6 +124,9 @@ en:
       index:
         not_verified: Not verified
         verified: Verified
+    pages:
+      index:
+        title: More information
     participatory_process_steps:
       index:
         process_steps: Process steps
@@ -264,8 +268,7 @@ en:
         proposals: Proposals
         proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
       footer_sub_hero:
-        footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br />
-                              Join, participate and decide.
+        footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
         footer_sub_hero_headline: Welcome to %{organization} participatory platform.
         register: Register
       hero:

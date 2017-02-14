@@ -13,6 +13,12 @@ module Decidim
     delegate :page, to: :page_finder
     helper_method :page, :promoted_participatory_processes, :participatory_processes, :users
 
+    def index
+      @pages = current_organization.static_pages.all.to_a.sort do |a, b|
+        a.title[I18n.locale.to_s] <=> b.title[I18n.locale.to_s]
+      end
+    end
+
     def page_finder
       @page_finder ||= Decidim::PageFinder.new(params[:id], current_organization)
     end
