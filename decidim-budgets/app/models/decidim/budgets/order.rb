@@ -17,12 +17,12 @@ module Decidim
       validate :user_belongs_to_organization
 
       validates :total_budget, numericality: {
-                  greater_than_or_equal_to: :minimum_budget,
-                }, if: :checked_out?
+        greater_than_or_equal_to: :minimum_budget
+      }, if: :checked_out?
 
       validates :total_budget, numericality: {
-                  less_than_or_equal_to: :maximum_budget
-                }
+        less_than_or_equal_to: :maximum_budget
+      }
 
       # Public: Returns the sum of project budgets
       def total_budget
