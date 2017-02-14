@@ -23,13 +23,13 @@ L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
 const popupTemplateId = 'meeting-popup';
 $.template('meeting-popup', $(`#${popupTemplateId}`).html());
 
-const addMarkers = (meetingsData, map) => {
+const addMarkers = (meetingsData, markerClusters, map) => {
   const bounds = new L.LatLngBounds(meetingsData.map((meeting) => [meeting.latitude, meeting.longitude]));
 
   meetingsData.forEach((meeting) => {
     let marker = L.marker([meeting.latitude, meeting.longitude], {
       icon: new L.DivIcon.SVGIcon.DecidimIcon()
-    }).addTo(map);
+    });
     let node = document.createElement('div');
 
     $.tmpl('meeting-popup', meeting).appendTo(node);
@@ -40,12 +40,16 @@ const addMarkers = (meetingsData, map) => {
       keepInView: true,
       className: 'map-info'
     }).openPopup();
+
+    markerClusters.addLayer(marker);
   });
 
+  map.addLayer(markerClusters);
   map.fitBounds(bounds, { padding: [100, 100] });
 };
 
 const loadMap = (mapId, meetingsData) => {
+  let markerClusters = L.markerClusterGroup();
   const { hereAppId, hereAppCode } = window.DecidimMeetings.mapConfiguration;
 
   if (window.DecidimMeetings.currentMap) {
@@ -61,7 +65,7 @@ const loadMap = (mapId, meetingsData) => {
   }).addTo(map);
 
   if (meetingsData.length > 0) {
-    addMarkers(meetingsData, map);
+    addMarkers(meetingsData, markerClusters, map);
   } else {
     map.fitWorld();
   }
