@@ -12,77 +12,188 @@ RSpec.shared_examples "manage proposals" do
     end
   end
 
-  it "creates a new proposal" do
-    find(".actions .new").click
+  context "creation" do
+    context "when official_proposals setting is enabled" do
+      before do
+        current_feature.update_attributes(settings: { official_proposals_enabled: true } )
+      end
 
-    within ".new_proposal" do
-      fill_in :proposal_title, with: "Make decidim great again"
-      fill_in :proposal_body, with: "Decidim is great but it can be better"
-      select category.name["en"], from: :proposal_category_id
-      select scope.name, from: :proposal_scope_id
+      context "when creation is enabled" do
+        before do
+          current_feature.update_attributes(
+            step_settings: {
+              current_feature.participatory_process.active_step.id => {
+                creation_enabled: true
+              }
+            }
+          )
+        end
 
-      find("*[type=submit]").click
+        context "when scoped_proposals setting is enabled" do
+          before do
+            current_feature.update_attributes(settings: { scoped_proposals_enabled: true } )
+          end
+
+          it "can be filtered by scope" do
+            find(".actions .new").click
+
+            within "form" do
+              expect(page).to have_content(/Scope/i)
+            end
+          end
+        end
+
+        context "when scoped_proposals setting is not enabled" do
+          before do
+            current_feature.update_attributes(settings: { scoped_proposals_enabled: false } )
+          end
+
+          it "cannot be filtered by scope" do
+            find(".actions .new").click
+
+            within "form" do
+              expect(page).not_to have_content(/Scope/i)
+            end
+          end
+        end
+
+        it "creates a new proposal" do
+          find(".actions .new").click
+
+          within ".new_proposal" do
+            fill_in :proposal_title, with: "Make decidim great again"
+            fill_in :proposal_body, with: "Decidim is great but it can be better"
+            select category.name["en"], from: :proposal_category_id
+            select scope.name, from: :proposal_scope_id
+
+            find("*[type=submit]").click
+          end
+
+          within ".flash" do
+            expect(page).to have_content("successfully")
+          end
+
+          within "table" do
+            proposal = Decidim::Proposals::Proposal.last
+
+            expect(page).to have_content("Make decidim great again")
+            expect(proposal.body).to eq("Decidim is great but it can be better")
+            expect(proposal.category).to eq(category)
+            expect(proposal.scope).to eq(scope)
+          end
+        end
+      end
     end
 
-    within ".flash" do
-      expect(page).to have_content("successfully")
-    end
+    context "when official_proposals setting is disabled" do
+      before do
+        current_feature.update_attributes(settings: { official_proposals_enabled: false } )
+      end
 
-    within "table" do
-      proposal = Decidim::Proposals::Proposal.last
-
-      expect(page).to have_content("Make decidim great again")
-      expect(proposal.body).to eq("Decidim is great but it can be better")
-      expect(proposal.category).to eq(category)
-      expect(proposal.scope).to eq(scope)
-    end
-  end
-
-  it "can reject a proposal" do
-    within find("tr", text: proposal.title) do
-      click_link "Answer"
-    end
-
-    within ".edit_proposal_answer" do
-      fill_in_i18n(
-        :proposal_answer_answer,
-        "#answer-tabs",
-        en: "The proposal doesn't make any sense",
-        es: "La propuesta no tiene sentido",
-        ca: "La proposta no te sentit"
-      )
-      choose "Rejected"
-      click_button "Answer proposal"
-    end
-
-    within ".flash" do
-      expect(page).to have_content("Proposal successfully answered")
-    end
-
-    within find("tr", text: proposal.title) do
-      within find("td:nth-child(4)") do
-        expect(page).to have_content("Rejected")
+      it "cannot create a new proposal" do
+        visit_feature
+        expect(page).not_to have_selector(".actions .new")
       end
     end
   end
 
-  it "can accept a proposal" do
-    within find("tr", text: proposal.title) do
-      click_link "Answer"
+  context "when the proposal_answering feature setting is enabled" do
+    before do
+      current_feature.update_attributes(settings: { proposal_answering_enabled: true } )
     end
 
-    within ".edit_proposal_answer" do
-      choose "Accepted"
-      click_button "Answer proposal"
+    context "when the proposal_answering step setting is enabled" do
+      before do
+        current_feature.update_attributes(
+          step_settings: {
+            current_feature.participatory_process.active_step.id => {
+              proposal_answering_enabled: true
+            }
+          }
+        )
+      end
+
+      it "can reject a proposal" do
+        within find("tr", text: proposal.title) do
+          click_link "Answer"
+        end
+
+        within ".edit_proposal_answer" do
+          fill_in_i18n(
+            :proposal_answer_answer,
+            "#answer-tabs",
+            en: "The proposal doesn't make any sense",
+            es: "La propuesta no tiene sentido",
+            ca: "La proposta no te sentit"
+          )
+          choose "Rejected"
+          click_button "Answer proposal"
+        end
+
+        within ".flash" do
+          expect(page).to have_content("Proposal successfully answered")
+        end
+
+        within find("tr", text: proposal.title) do
+          within find("td:nth-child(4)") do
+            expect(page).to have_content("Rejected")
+          end
+        end
+      end
+
+      it "can accept a proposal" do
+        within find("tr", text: proposal.title) do
+          click_link "Answer"
+        end
+
+        within ".edit_proposal_answer" do
+          choose "Accepted"
+          click_button "Answer proposal"
+        end
+
+        within ".flash" do
+          expect(page).to have_content("Proposal successfully answered")
+        end
+
+        within find("tr", text: proposal.title) do
+          within find("td:nth-child(4)") do
+            expect(page).to have_content("Accepted")
+          end
+        end
+      end
     end
 
-    within ".flash" do
-      expect(page).to have_content("Proposal successfully answered")
+    context "when the proposal_answering step setting is disabled" do
+      before do
+        current_feature.update_attributes(
+          step_settings: {
+            current_feature.participatory_process.active_step.id => {
+              proposal_answering_enabled: false
+            }
+          }
+        )
+      end
+
+      it "cannot answer a proposal" do
+        visit current_path
+
+        within find("tr", text: proposal.title) do
+          expect(page).to have_no_css("a", text: "Answer")
+        end
+      end
+    end
+  end
+
+  context "when the proposal_answering feature setting is disabled" do
+    before do
+      current_feature.update_attributes(settings: { proposal_answering_enabled: false } )
     end
 
-    within find("tr", text: proposal.title) do
-      within find("td:nth-child(4)") do
-        expect(page).to have_content("Accepted")
+    it "cannot answer a proposal" do
+      visit current_path
+
+      within find("tr", text: proposal.title) do
+        expect(page).to have_no_css("a", text: "Answer")
       end
     end
   end

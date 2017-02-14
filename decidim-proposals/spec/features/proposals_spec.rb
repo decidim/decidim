@@ -29,6 +29,34 @@ describe "Proposals", type: :feature do
                  participatory_process: participatory_process)
         end
 
+        context "when scoped_proposals setting is enabled" do
+          before do
+            feature.update_attributes(settings: { scoped_proposals_enabled: true})
+          end
+
+          it "cannot be related to a scope" do
+            click_link "New proposal"
+
+            within "form.new_proposal" do
+              expect(page).to have_content(/Scope/i)
+            end
+          end
+        end
+
+        context "when scoped_proposals setting is not enabled" do
+          before do
+            feature.update_attributes(settings: { scoped_proposals_enabled: false})
+          end
+
+          it "cannot be related to a scope" do
+            click_link "New proposal"
+
+            within "form.new_proposal" do
+              expect(page).not_to have_content("Scope")
+            end
+          end
+        end
+
         it "creates a new proposal" do
           click_link "New proposal"
 
@@ -108,6 +136,34 @@ describe "Proposals", type: :feature do
       expect(page).to have_content(proposal.title)
       expect(page).to have_content(proposal.body)
       expect(page).to have_content(proposal.author.name)
+    end
+
+    context "when scoped_proposals setting is enabled" do
+      let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
+
+      before do
+        feature.update_attributes(settings: { scoped_proposals_enabled: true } )
+      end
+
+      it "can be filtered by scope" do
+        visit_feature
+        click_link proposal.title
+        expect(page).to have_content(scope.name)
+      end
+    end
+
+    context "when scoped_proposals setting is not enabled" do
+      let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
+
+      before do
+        feature.update_attributes(settings: { scoped_proposals_enabled: false } )
+      end
+
+      it "cannot be filtered by scope" do
+        visit_feature
+        click_link proposal.title
+        expect(page).not_to have_content(scope.name)
+      end
     end
 
     context "when it is an official proposal" do
@@ -245,68 +301,181 @@ describe "Proposals", type: :feature do
 
         find(".pagination-next a").click
 
+        within ".pagination .current" do
+          expect(page).to have_content("2")
+        end
+
         expect(page).to have_css(".card--proposal", count: 8)
       end
     end
 
     context "when filtering" do
-      context "by origin 'official'" do
-        it "lists the filtered proposals" do
-          create(:proposal, :official, feature: feature, scope: scope)
-          visit_feature
-
-          within ".filters" do
-            choose "Official"
-          end
-
-          expect(page).to have_css(".card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
+      context "when official_proposals setting is enabled" do
+        before do
+          feature.update_attributes(settings: { official_proposals_enabled: true})
         end
-      end
 
-      context "by origin 'citizenship'" do
-        it "lists the filtered proposals" do
-          within ".filters" do
-            choose "Citizenship"
+        it "can be filtered by origin" do
+          within "form.new_filter" do
+            visit_feature
+            expect(page).to have_content(/Origin/i)
           end
-
-          expect(page).to have_css(".card--proposal", count: proposals.size)
-          expect(page).to have_content("#{proposals.size} PROPOSALS")
         end
-      end
 
-      context "by accepted" do
-        it "lists the filtered proposals" do
-          create(:proposal, :accepted, feature: feature, scope: scope)
-          visit_feature
+        context "by origin 'official'" do
+          it "lists the filtered proposals" do
+            create(:proposal, :official, feature: feature, scope: scope)
+            visit_feature
 
-          within ".filters" do
-            choose "Accepted"
+            within ".filters" do
+              choose "Official"
+            end
+
+            expect(page).to have_css(".card--proposal", count: 1)
+            expect(page).to have_content("1 PROPOSAL")
           end
+        end
 
-          expect(page).to have_css(".card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
+        context "by origin 'citizenship'" do
+          it "lists the filtered proposals" do
+            within ".filters" do
+              choose "Citizenship"
+            end
 
-          within ".card--proposal" do
-            expect(page).to have_content("Accepted")
+            expect(page).to have_css(".card--proposal", count: proposals.size)
+            expect(page).to have_content("#{proposals.size} PROPOSALS")
           end
         end
       end
 
-      context "by rejected" do
-        it "lists the filtered proposals" do
-          create(:proposal, :rejected, feature: feature, scope: scope)
-          visit_feature
+      context "when official_proposals setting is not enabled" do
+        before do
+          feature.update_attributes(settings: { official_proposals_enabled: false } )
+        end
 
-          within ".filters" do
-            choose "Rejected"
+        it "cannot be filtered by origin" do
+          within "form.new_filter" do
+            visit_feature
+            expect(page).not_to have_content(/Origin/i)
+          end
+        end
+      end
+
+      context "when scoped_proposals setting is enabled" do
+        before do
+          feature.update_attributes(settings: { scoped_proposals_enabled: true } )
+        end
+
+        it "cannot be filtered by scope" do
+          within "form.new_filter" do
+            visit_feature
+            expect(page).to have_content(/Scopes/i)
+          end
+        end
+      end
+
+      context "when scoped_proposals setting is not enabled" do
+        before do
+          feature.update_attributes(settings: { scoped_proposals_enabled: false } )
+        end
+
+        it "cannot be filtered by scope" do
+          within "form.new_filter" do
+            visit_feature
+            expect(page).not_to have_content(/Scopes/i)
+          end
+        end
+      end
+
+      context "when proposal_answering feature setting is enabled" do
+        before do
+          feature.update_attributes(settings: { proposal_answering_enabled: true } )
+        end
+
+        context "when proposal_answering step setting is enabled" do
+          before do
+            feature.update_attributes(
+              step_settings: {
+                feature.participatory_process.active_step.id => {
+                  proposal_answering_enabled: true
+                }
+              }
+            )
           end
 
-          expect(page).to have_css(".card--proposal", count: 1)
-          expect(page).to have_content("1 PROPOSAL")
+          it "can be filtered by state" do
+            within "form.new_filter" do
+              visit_feature
+              expect(page).to have_content(/State/i)
+            end
+          end
 
-          within ".card--proposal" do
-            expect(page).to have_content("Rejected")
+          context "by accepted" do
+            it "lists the filtered proposals" do
+              create(:proposal, :accepted, feature: feature, scope: scope)
+              visit_feature
+
+              within ".filters" do
+                choose "Accepted"
+              end
+
+              expect(page).to have_css(".card--proposal", count: 1)
+              expect(page).to have_content("1 PROPOSAL")
+
+              within ".card--proposal" do
+                expect(page).to have_content("Accepted")
+              end
+            end
+          end
+
+          context "by rejected" do
+            it "lists the filtered proposals" do
+              create(:proposal, :rejected, feature: feature, scope: scope)
+              visit_feature
+
+              within ".filters" do
+                choose "Rejected"
+              end
+
+              expect(page).to have_css(".card--proposal", count: 1)
+              expect(page).to have_content("1 PROPOSAL")
+
+              within ".card--proposal" do
+                expect(page).to have_content("Rejected")
+              end
+            end
+          end
+        end
+
+        context "when proposal_answering step setting is disabled" do
+          before do
+            feature.update_attributes(
+              step_settings: {
+                feature.participatory_process.active_step.id => {
+                  proposal_answering_enabled: false
+                }
+              }
+            )
+          end
+
+          it "cannot be filtered by state" do
+            within "form.new_filter" do
+              visit_feature
+              expect(page).not_to have_content(/State/i)
+            end
+          end
+        end
+      end
+
+      context "when proposal_answering feature setting is not enabled" do
+        before do
+          feature.update_attributes(settings: { proposal_answering_enabled: false } )
+        end
+
+        it "cannot be filtered by state" do
+          within "form.new_filter" do
+            visit_feature
+            expect(page).not_to have_content(/State/i)
           end
         end
       end

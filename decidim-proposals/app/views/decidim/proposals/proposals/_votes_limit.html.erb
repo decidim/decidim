@@ -10,9 +10,7 @@
           <div class="card card--nomargin text-center">
             <div class="card__content">
               <span class="definition-data__title"><%= t('.vote_limit.left', limit: feature_settings.vote_limit) %></span>
-              <span id="remaining-votes-count" class="extra__suport-number">
-                <%= render partial: "remaining_votes_count" %>
-              </span>
+              <%= render partial: "remaining_votes_count" %>
               <span class="extra__suport-text"><%= t('.vote_limit.votes') %></span>
             </div>
           </div>

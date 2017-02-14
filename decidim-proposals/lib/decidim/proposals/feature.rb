@@ -18,6 +18,9 @@ Decidim.register_feature(:proposals) do |feature|
   feature.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
     settings.attribute :comments_always_enabled, type: :boolean, default: true
+    settings.attribute :proposal_answering_enabled, type: :boolean, default: true
+    settings.attribute :official_proposals_enabled, type: :boolean, default: true
+    settings.attribute :scoped_proposals_enabled, type: :boolean, default: true
   end
 
   feature.settings(:step) do |settings|
@@ -25,6 +28,7 @@ Decidim.register_feature(:proposals) do |feature|
     settings.attribute :votes_blocked, type: :boolean
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :creation_enabled, type: :boolean
+    settings.attribute :proposal_answering_enabled, type: :boolean, default: true
   end
 
   feature.register_resource do |resource|

@@ -13,10 +13,10 @@ module Decidim
       property :participatory_process
     end
 
-    field :title, Api::TranslatedFieldType, "The title of this step"
+    field :title, TranslatedFieldType, "The title of this step"
 
     field :shortDescription do
-      type Api::TranslatedFieldType
+      type TranslatedFieldType
       description "A short description of the step."
       property :short_description
     end

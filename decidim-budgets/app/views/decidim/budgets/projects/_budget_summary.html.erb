@@ -20,27 +20,18 @@
       </span>
     </div>
 
-    <div id="order-progress">
-      <%= render partial: 'order_progress' %>
-    </div>
+    <%= render partial: 'order_progress' %>
 
     <div>
       <span class="mini-title">
         <%= t('.assigned') %>
-        <strong id="order-total-budget" class="mini-title__strong">
-          <%= render partial: 'order_total_budget' %>
-        </strong>
+        <%= render partial: 'order_total_budget' %>
       </span>
     </div>
   </div>
 
-  <div id="order-selected-projects">
-    <%= render partial: 'order_selected_projects' %>
-  </div>
+  <%= render partial: 'order_selected_projects' %>
 </div>
 
 <%= render partial: "budget_excess" %>
-
-<div class="reveal" data-reveal id="budget-confirm">
-  <%= render partial: "budget_confirm" %>
-</div>
+<%= render partial: "budget_confirm" %>
