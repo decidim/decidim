@@ -12,6 +12,9 @@ ca:
       feature:
         name: Nom
         weight: Pes
+      newsletter:
+        body: Cos
+        subject: Assumpte
       organization:
         default_locale: Idioma per defecte
         description: Descripció
@@ -248,7 +251,7 @@ ca:
           success: Butlletí destruït amb èxit.
         edit:
           save_and_preview: Desar i vista prèvia
-          title: Títol
+          title: Editar butlletí
         form:
           interpolations_hint: 'Consell: Podeu utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
         index:
@@ -258,6 +261,7 @@ ca:
           save: Desar
           title: Nou butlletí
         show:
+          confirm_deliver: Estàs segur de que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
           preview: Previsualitzar
           subject: Assumpte
