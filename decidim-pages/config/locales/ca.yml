@@ -4,8 +4,6 @@ ca:
       pages:
         name: Pàgina
         settings:
-          global:
-            comments_always_enabled: Comentaris sempre habilitats
           step:
             comments_enabled: Comentaris habilitats
     pages:

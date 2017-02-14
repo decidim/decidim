@@ -3,7 +3,7 @@ en:
   activerecord:
     errors:
       messages:
-        cannot_have_replies: can't have replies
+        cannot_have_comments: can't have comments
   decidim:
     comments:
       comment_notification_mailer:
@@ -22,6 +22,8 @@ en:
             subject: You have a new reply of your comment
     components:
       add_comment_form:
+        account_message: "<a href=\"%{sign_in_url}\">Sign in with your account</a> or <a href=\"%{sign_up_url}\">sign up</a> to add your comment.
+"
         form:
           body:
             label: Comment
@@ -32,7 +34,7 @@ en:
             label: Comment as
         opinion:
           neutral: Neutral
-        title: Leave your comment
+        title: Add your comment
       comment:
         alignment:
           against: Against
@@ -48,6 +50,7 @@ en:
       comment_thread:
         title: Conversation with %{authorName}
       comments:
+        blocked_comments_warning: Comments are disabled in the current step, but you can read the comments from previous steps.
         loading: Loading comments ...
         title: "%{count} comments"
       featured_comment:

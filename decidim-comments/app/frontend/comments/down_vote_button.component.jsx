@@ -71,20 +71,23 @@ const DownVoteButtonWithMutation = graphql(gql`
       updateQueries: {
         GetComments: (prev, { mutationResult: { data } }) => {
           const commentReducer = (comment) => {
-            const replies = comment.replies || [];
+            const replies = comment.comments || [];
 
             if (comment.id === ownProps.comment.id) {
               return data.comment.downVote;
             }
             return {
               ...comment,
-              replies: replies.map(commentReducer)
+              comments: replies.map(commentReducer)
             };
           };
 
           return {
             ...prev,
-            comments: prev.comments.map(commentReducer)
+            commentable: {
+              ...prev.commentable,
+              comments: prev.commentable.comments.map(commentReducer)
+            }
           }
         }
       }

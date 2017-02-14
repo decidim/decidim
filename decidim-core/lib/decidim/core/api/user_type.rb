@@ -6,7 +6,7 @@ module Decidim
     description "A user"
 
     interfaces [
-      Decidim::Api::AuthorInterface
+      Decidim::AuthorInterface
     ]
 
     field :name, !types.String, "The user's name"

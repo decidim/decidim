@@ -6,8 +6,10 @@ module Decidim
     describe CommentVote do
       let!(:organization) { create(:organization) }
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
+      let!(:feature) { create(:feature, participatory_process: participatory_process) }
+      let!(:commentable) { create(:dummy_resource, feature: feature) }
       let!(:author) { create(:user, organization: organization) }
-      let!(:comment) { create(:comment, commentable: participatory_process, author: author)}
+      let!(:comment) { create(:comment, commentable: commentable, author: author)}
       let!(:comment_vote) { create(:comment_vote, comment: comment, author: author) }
 
       it "is valid" do

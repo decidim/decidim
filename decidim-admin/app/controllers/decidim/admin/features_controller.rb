@@ -95,7 +95,7 @@ module Decidim
         @feature.update_attribute(:published_at, Time.current)
 
         flash[:notice] = I18n.t("features.publish.success", scope: "decidim.admin")
-        redirect_to :back
+        redirect_to action: :index
       end
 
       def unpublish
@@ -105,7 +105,7 @@ module Decidim
         @feature.update_attribute(:published_at, nil)
 
         flash[:notice] = I18n.t("features.unpublish.success", scope: "decidim.admin")
-        redirect_to :back
+        redirect_to action: :index
       end
 
       private

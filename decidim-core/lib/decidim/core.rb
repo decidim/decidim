@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 require "decidim/core/engine"
 require "decidim/core/version"
+require "decidim/core/api"
 
 # Decidim configuration.
 module Decidim
@@ -58,6 +59,13 @@ module Decidim
   # Exposes a configuration option: an Array of `cancancan`'s Ability classes
   # that will be automatically included to the base `Decidim::Ability` class.
   config_accessor :abilities do
+    []
+  end
+
+  # Exposes a configuration option: an Array of `cancancan`'s Ability classes
+  # that will be automatically included to the `Decidim::Admin::Abilities::Base`
+  # class.
+  config_accessor :admin_abilities do
     []
   end
 

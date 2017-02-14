@@ -1,15 +1,19 @@
 <h2><%= t(".title") %></h2>
 
-<div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'new' if can? :manage, current_feature %>
-</div>
+<% if feature_settings.official_proposals_enabled %>
+  <div class="actions title">
+    <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'new' if can? :manage, current_feature %>
+  </div>
+<% end %>
 
 <table class="stack">
   <thead>
     <tr>
       <th><%= t("models.proposal.fields.title", scope: "decidim.proposals") %></th>
       <th><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></th>
-      <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
+      <% if feature_settings.scoped_proposals_enabled %>
+        <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
+      <% end %>
       <th><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></th>
       <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
     </tr>
@@ -25,16 +29,18 @@
             <%= translated_attribute proposal.category.name %>
           <% end %>
         </td>
-        <td>
-          <% if proposal.scope %>
-            <%= translated_attribute proposal.scope.name %>
-          <% end %>
-        </td>
+        <% if feature_settings.scoped_proposals_enabled %>
+          <td>
+            <% if proposal.scope %>
+              <%= translated_attribute proposal.scope.name %>
+            <% end %>
+          </td>
+        <% end %>
         <td>
           <%= humanize_proposal_state proposal.state %>
         </td>
         <td class="actions">
-          <%= link_to t("actions.answer", scope: "decidim.proposals"), edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id) if can? :update, current_feature %>
+          <%= link_to t("actions.answer", scope: "decidim.proposals"), edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id) if can? :update, proposal %>
         </td>
       </tr>
     <% end %>

@@ -1,12 +1,12 @@
 fragment Comment on Comment {
   ...CommentData
-  replies {
+  comments {
     ...CommentData
-    replies {
+    comments {
       ...CommentData
-      replies {
+      comments {
         ...CommentData
-      } 
+      }
     }
   }
 }

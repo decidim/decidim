@@ -7,6 +7,23 @@ module Decidim
   class FormBuilder < FoundationRailsHelper::FormBuilder
     include ActionView::Context
 
+    # Public: generates a check boxes input from a collection and adds help
+    # text and errors.
+    #
+    # attribute - the name of the field
+    # collection - the collection from which we will render the check boxes
+    # value_attribute - a Symbol or a Proc defining how to find the value
+    #   attribute
+    # text_attribute - a Symbol or a Proc defining how to find the text
+    #   attribute
+    # options - a Hash with options
+    # html_options - a Hash with options
+    #
+    # Renders a collection of check boxes.
+    def collection_check_boxes(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
+      super + error_and_help_text(attribute, options)
+    end
+
     # Public: Generates an form field for each locale.
     #
     # type - The form field's type, like `text_area` or `text_input`
@@ -106,9 +123,9 @@ module Decidim
     # Public: Override so checkboxes are rendered before the label.
     def check_box(attribute, options = {}, checked_value = "1", unchecked_value = "0")
       custom_label(attribute, options[:label], options[:label_options], true) do
-        options[:label] = false
-        options[:label_options] = false
-        super(attribute, options, checked_value, unchecked_value)
+        options.delete(:label)
+        options.delete(:label_options)
+        @template.check_box(@object_name, attribute, objectify_options(options), checked_value, unchecked_value)
       end + error_and_help_text(attribute, options)
     end
 

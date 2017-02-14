@@ -1,8 +1,8 @@
 require "spec_helper"
 
 describe Decidim::Results::ResultStatsCalculator do
-  let(:current_feature) { create :feature, manifest_name: :results }
-  let(:participatory_process) { current_feature.participatory_process }
+  let(:participatory_process) { create(:participatory_process, :with_steps) }
+  let(:current_feature) { create :feature, manifest_name: :results, participatory_process: participatory_process }
   let(:scope) { create :scope, organization: current_feature.organization }
   let(:parent_category) { create :category, participatory_process: current_feature.participatory_process }
   let!(:result) do

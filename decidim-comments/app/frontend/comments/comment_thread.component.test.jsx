@@ -41,16 +41,16 @@ describe('<CommentThread />', () => {
     comment = filter(fragment, commentsData[0]);
   });
 
-  describe("when comment doesn't have replies", () => {
+  describe("when comment doesn't have comments", () => {
     it("should not render a title with author name", () => {
       const wrapper = shallow(<CommentThread comment={comment} session={session} />);
       expect(wrapper.find('h6.comment-thread__title')).not.to.present();
     });
   });
 
-  describe("when comment does have replies", () => {
+  describe("when comment does has comments", () => {
     beforeEach(() => {
-      comment.hasReplies = true;
+      comment.hasComments = true;
     });
 
     it("should render a h6 comment-thread__title with author name", () => {

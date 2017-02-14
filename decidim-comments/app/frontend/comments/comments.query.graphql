@@ -4,10 +4,16 @@ query GetComments($commentableId: String!, $commentableType: String!, $orderBy: 
       name
       avatarUrl
     }
-    ...AddCommentForm
+    ...AddCommentFormSession
   }
-  comments(commentableId: $commentableId, commentableType: $commentableType, orderBy: $orderBy) {
-    id
-    ...CommentThread
+  commentable(id: $commentableId, type: $commentableType) {
+    acceptsNewComments
+    commentsHaveAlignment
+    commentsHaveVotes
+    comments(orderBy: $orderBy) {
+      id
+      ...CommentThread
+    }
+    ...AddCommentFormCommentable
   }
 }

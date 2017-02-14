@@ -6,6 +6,10 @@ module Decidim
       name "Comment"
       description "A comment"
 
+      interfaces [
+        Decidim::Comments::CommentableInterface
+      ]
+
       field :id, !types.ID, "The Comment's unique ID"
 
       field :body, !types.String, "The comment message"
@@ -16,26 +20,10 @@ module Decidim
         }
       end
 
-      field :author, !Decidim::Api::AuthorInterface, "The comment's author" do
+      field :author, !Decidim::AuthorInterface, "The comment's author" do
         resolve lambda { |obj, _args, _ctx|
           obj.user_group || obj.author
         }
-      end
-
-      field :replies, !types[CommentType], "The comment's replies" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.replies.sort_by(&:created_at)
-        }
-      end
-
-      field :hasReplies, !types.Boolean, "Check if the comment has replies" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.replies.size.positive?
-        }
-      end
-
-      field :canHaveReplies, !types.Boolean, "Define if a comment can or not have replies" do
-        property :can_have_replies?
       end
 
       field :alignment, types.Int, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'"

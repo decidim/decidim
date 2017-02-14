@@ -34,37 +34,4 @@ describe "Show a page", type: :feature do
       expect(page).to have_content("Content")
     end
   end
-
-  describe "page show with comments" do
-    let!(:comments) { create_list(:comment, 3, commentable: page_feature) }
-
-    context "when the page is commentable" do
-      before do
-        feature.settings = { comments_always_enabled: true }
-        feature.save
-        visit_feature
-      end
-
-      it "renders the comments of the page" do
-        expect(page).to have_selector('.comment', count: comments.length)
-
-        comments.each do |comment|
-          expect(page).to have_content comment.body
-        end
-      end
-    end
-
-    context "when the page is not commentable" do
-      before do
-        feature.settings = { comments_always_enabled: false }
-        feature.save
-        visit_feature
-      end
-
-      it "doesn't render the comments of the page" do
-        visit_feature
-        expect(page).not_to have_selector('.comment', count: comments.length)
-      end
-    end
-  end
 end

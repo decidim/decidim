@@ -9,8 +9,24 @@ module Decidim
       include Decidim::HasScope
       include Decidim::HasCategory
       include Decidim::HasAttachments
+      include Decidim::Comments::Commentable
 
       feature_manifest_name "budgets"
+
+      # Public: Overrides the `commentable?` Commentable concern method.
+      def commentable?
+        feature.settings.comments_enabled?
+      end
+
+      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
+      def accepts_new_comments?
+         commentable? && !feature.active_step_settings.comments_blocked
+      end
+
+      # Public: Overrides the `comments_have_votes?` Commentable concern method.
+      def comments_have_votes?
+        true
+      end
     end
   end
 end

@@ -9,7 +9,7 @@ The Comments component is exposed as a Rails helper:
 ```ruby
 <%= comments_for @commentable %>
 ```
- 
+
 In order to use the helper in your templates you need to include the comments helpers in your application helper:
 
 ```ruby
