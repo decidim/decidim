@@ -48,7 +48,8 @@ Decidim::Core::Engine.routes.draw do
     resources :own_user_groups, only: [:index]
   end
 
-  get "/pages/*id" => "pages#show", as: :page, format: false
+  resources :pages, only: [:index, :show], format: false
+
   get "/cookies/accept", to: "cookie_policy#accept", as: :accept_cookies
 
   match "/404", to: "pages#show", id: "404", via: :all
