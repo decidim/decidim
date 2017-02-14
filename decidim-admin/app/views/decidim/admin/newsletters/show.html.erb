@@ -13,5 +13,5 @@
 
 <div class="actions">
   <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', @newsletter] %>
-  <%= link_to t(".send"), deliver_newsletter_path(@newsletter), method: :post, class: "button" %>
+  <%= link_to t(".deliver"), deliver_newsletter_path(@newsletter), method: :post, class: "button" %>
 </div>

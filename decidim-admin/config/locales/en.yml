@@ -259,8 +259,8 @@ en:
           save: Save
           title: New newsletter
         show:
+          deliver: Deliver newsletter
           preview: Preview
-          send: Send newsletter
           subject: Subject
         update:
           error: There's been an error updating this newsletter.

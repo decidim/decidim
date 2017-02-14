@@ -99,7 +99,7 @@ describe "Admin manages newsletters", type: :feature do
       visit decidim_admin.newsletter_path(newsletter)
 
       within ".actions" do
-        find("*[type=submit]").click
+        find("*", text: "Deliver").click
       end
 
       expect(page).to have_content("Newsletters")
