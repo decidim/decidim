@@ -3,6 +3,8 @@ module Decidim
   module Admin
     # The form that validates the data to construct a valid Newsletter.
     class NewsletterForm < Decidim::Form
+      mimic :newsletter
+
       include TranslatableAttributes
 
       translatable_attribute :subject, String
