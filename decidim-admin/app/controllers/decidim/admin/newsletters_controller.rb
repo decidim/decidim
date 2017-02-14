@@ -16,7 +16,7 @@ module Decidim
       end
 
       def show
-        @newsletter = base_query.find(params[:id])
+        @newsletter = collection.find(params[:id])
         email = NewsletterMailer.newsletter(current_user, @newsletter)
         @email_subject = email.subject
         @email_body = Nokogiri::HTML(email.body.decoded).css("table.container").to_s
@@ -42,13 +42,13 @@ module Decidim
       end
 
       def edit
-        @newsletter = base_query.find(params[:id])
+        @newsletter = collection.find(params[:id])
         authorize! :update, @newsletter
         @form = form(NewsletterForm).from_model(@newsletter)
       end
 
       def update
-        @newsletter = base_query.find(params[:id])
+        @newsletter = collection.find(params[:id])
         authorize! :update, Newsletter
         @form = form(NewsletterForm).from_params(params)
 
@@ -67,7 +67,7 @@ module Decidim
       end
 
       def destroy
-        @newsletter = base_query.find(params[:id])
+        @newsletter = collection.find(params[:id])
         authorize! :destroy, @newsletter
 
         if @newsletter.sent?
@@ -81,7 +81,7 @@ module Decidim
       end
 
       def deliver
-        @newsletter = base_query.find(params[:id])
+        @newsletter = collection.find(params[:id])
         authorize! :update, @newsletter
 
         DeliverNewsletter.call(@newsletter) do
@@ -100,10 +100,6 @@ module Decidim
       private
 
       def collection
-        Newsletter.all
-      end
-
-      def base_query
         Newsletter.where(organization: current_organization)
       end
     end

@@ -228,11 +228,11 @@ FactoryGirl.define do
   end
 
   factory :newsletter, class: Decidim::Newsletter do
-    author { build(:user, :confirmed) }
+    author { build(:user, :confirmed, organization: organization) }
     organization
 
-    subject{ Decidim::Faker::Localized.sentence(3) }
-    body{ Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    subject { Decidim::Faker::Localized.sentence(3) }
+    body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
   end
 end
 
