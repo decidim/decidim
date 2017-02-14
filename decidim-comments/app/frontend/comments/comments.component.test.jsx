@@ -28,7 +28,7 @@ describe('<Comments />', () => {
     }
   `;
 
-  const addCommentFragmentSession = gql`
+  const addCommentFormSessionFragment = gql`
     fragment AddCommentFormSession on Session {
       verifiedUserGroups {
         id
@@ -36,7 +36,7 @@ describe('<Comments />', () => {
     }
   `;
 
-  const addCommentFragmentCommentable = gql`
+  const addCommentFormCommentableFragment = gql`
     fragment AddCommentFormCommentable on Commentable {
       id
     }
@@ -52,8 +52,8 @@ describe('<Comments />', () => {
 
   stubComponent(AddCommentForm, {
     fragments: {
-      session: addCommentFragmentSession,
-      commentable: addCommentFragmentCommentable
+      session: addCommentFormSessionFragment,
+      commentable: addCommentFormCommentableFragment
     }
   });
 
@@ -64,8 +64,8 @@ describe('<Comments />', () => {
     const query = gql`
       ${commentsQuery}
       ${commentThreadFragment}
-      ${addCommentFragmentSession}
-      ${addCommentFragmentCommentable}
+      ${addCommentFormSessionFragment}
+      ${addCommentFormCommentableFragment}
     `;
 
     const result = resolveGraphQLQuery(query, {

@@ -12,7 +12,7 @@ module Decidim
         property :commentable_type
       end
 
-      field :acceptsNewComments, !types.Boolean, "Wether the object can have comments or not" do
+      field :acceptsNewComments, !types.Boolean, "Wether the object can have new comments or not" do
         property :accepts_new_comments?
       end
 
