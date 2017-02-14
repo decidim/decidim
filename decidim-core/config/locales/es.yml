@@ -108,6 +108,7 @@ es:
         error: Hay un error en este campo.
     menu:
       home: Inicio
+      more_information: Más información
       processes: Procesos
     notifications_settings:
       show:
@@ -122,6 +123,9 @@ es:
       index:
         not_verified: No verificada
         verified: Verificada
+    pages:
+      index:
+        title: Más información
     participatory_process_steps:
       index:
         process_steps: Las fases de proceso

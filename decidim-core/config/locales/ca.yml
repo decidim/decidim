@@ -108,6 +108,7 @@ ca:
         error: Hi ha un error en aquest camp.
     menu:
       home: Inici
+      more_information: Més informació
       processes: Processos
     notifications_settings:
       show:
@@ -122,6 +123,9 @@ ca:
       index:
         not_verified: No verificada
         verified: Verificada
+    pages:
+      index:
+        title: Més informació
     participatory_process_steps:
       index:
         process_steps: Fases del procés

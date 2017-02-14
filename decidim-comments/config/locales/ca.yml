@@ -21,7 +21,7 @@ ca:
             subject: Tens una nova resposta del teu comentari
     components:
       add_comment_form:
-        account_message: "<a href=\"%{sign_in_url}\">Entra amb el teu compte</a> o <a href=\"%{sign_up_url}\">registra't</a> per a deixar un comentari."
+        account_message: "<a href=\"%{sign_in_url}\">Entra amb el teu compte</a> o <a href=\"%{sign_up_url}\">registra't</a> per a deixar un comentari.\n"
         form:
           body:
             label: Comentari
