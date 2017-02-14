@@ -13,6 +13,7 @@
       <th><%= t("models.newsletter.fields.subject", scope: "decidim.admin") %></th>
       <th><%= t("models.newsletter.fields.created_at", scope: "decidim.admin") %></th>
       <th><%= t("models.newsletter.fields.sent_at", scope: "decidim.admin") %></th>
+      <th><%= t("models.newsletter.fields.progress", scope: "decidim.admin") %></th>
       <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
     </tr>
   </thead>
@@ -22,11 +23,20 @@
         <td><%= translated_attribute newsletter.subject %></td>
         <td><%= h newsletter.created_at %></td>
         <td><%= h newsletter.sent_at %></td>
+        <td>
+          <% if newsletter.sent? %>
+            <%= "#{newsletter.total_deliveries} / #{newsletter.total_recipients}" %>
+          <% end %>
+        </td>
         <td class="actions">
           <%= link_to t("actions.preview", scope: "decidim.admin"), decidim_admin.newsletter_path(newsletter) %>
 
           <% if can?(:update, newsletter) %>
             <%= link_to t("actions.edit", scope: "decidim.admin"), decidim_admin.edit_newsletter_path(newsletter) %>
+          <% end %>
+
+          <% if can?(:destroy, newsletter) %>
+            <%= link_to t("actions.destroy", scope: "decidim.admin"), decidim_admin.newsletter_path(newsletter), method: :delete, data: { confirm: t(".confirm_delete") } %>
           <% end %>
         </td>
       </tr>

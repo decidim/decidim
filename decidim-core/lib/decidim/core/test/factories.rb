@@ -226,6 +226,14 @@ FactoryGirl.define do
     to { build(:dummy_resource) }
     from { build(:dummy_resource, feature: to.feature) }
   end
+
+  factory :newsletter, class: Decidim::Newsletter do
+    author { build(:user, :confirmed) }
+    organization
+
+    subject{ Decidim::Faker::Localized.sentence(3) }
+    body{ Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+  end
 end
 
 def test_file(filename, content_type)

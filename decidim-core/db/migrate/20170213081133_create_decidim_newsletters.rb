@@ -5,8 +5,9 @@ class CreateDecidimNewsletters < ActiveRecord::Migration[5.0]
       t.jsonb :body
       t.references :organization
       t.references :author, foreign_key: { to_table: :decidim_users }
-      t.datetime :delivered_at
-      t.string :send_to
+      t.integer :total_recipients
+      t.integer :total_deliveries
+      t.datetime :sent_at
 
       t.timestamps
     end

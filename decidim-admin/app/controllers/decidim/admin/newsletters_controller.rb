@@ -7,7 +7,7 @@ module Decidim
     class NewslettersController < ApplicationController
       def index
         authorize! :index, Newsletter
-        @newsletters = collection
+        @newsletters = collection.order(Newsletter.arel_table[:created_at].desc)
       end
 
       def new
@@ -23,19 +23,18 @@ module Decidim
       end
 
       def create
-        newsletter = Newsletter.new(organization: current_organization)
-        authorize! :create, newsletter
-
+        authorize! :create, Newsletter
         @form = form(NewsletterForm).from_params(params)
 
         CreateNewsletter.call(@form, current_user) do
-          on(:ok) do
-            flash[:notice] = "BLAH"
+          on(:ok) do |newsletter|
+            flash.now[:notice] = I18n.t("newsletters.create.success", scope: "decidim.admin")
             redirect_to action: :show, id: newsletter.id
           end
 
-          on(:invalid) do
-            flash.now[:error] = "BLAH"
+          on(:invalid) do |newsletter|
+            @newsletter = newsletter
+            flash.now[:error] = I18n.t("newsletters.create.error", scope: "decidim.admin")
             render action: :new
           end
         end
@@ -47,17 +46,52 @@ module Decidim
         @form = form(NewsletterForm).from_model(@newsletter)
       end
 
+      def update
+        @newsletter = base_query.find(params[:id])
+        authorize! :update, Newsletter
+        @form = form(NewsletterForm).from_params(params)
+
+        UpdateNewsletter.call(@newsletter, @form, current_user) do
+          on(:ok) do |newsletter|
+            flash.now[:notice] = I18n.t("newsletters.update.success", scope: "decidim.admin")
+            redirect_to action: :show, id: newsletter.id
+          end
+
+          on(:invalid) do |newsletter|
+            @newsletter = newsletter
+            flash.now[:error] = I18n.t("newsletters.update.error", scope: "decidim.admin")
+            render action: :edit
+          end
+        end
+      end
+
+      def destroy
+        @newsletter = base_query.find(params[:id])
+        authorize! :destroy, @newsletter
+
+        if @newsletter.sent?
+          flash.now[:error] = I18n.t("newsletters.destroy.error_already_sent", scope: "decidim.admin")
+          redirect_to :back
+        else
+          @newsletter.destroy!
+          flash[:notice] = I18n.t("newsletters.destroy.success", scope: "decidim.admin")
+          redirect_to action: :index
+        end
+      end
+
       def deliver
         @newsletter = base_query.find(params[:id])
         authorize! :update, @newsletter
 
         DeliverNewsletter.call(@newsletter) do
-          on(:success) do
-
+          on(:ok) do
+            flash[:notice] = I18n.t("newsletters.deliver.success", scope: "decidim.admin")
+            redirect_to action: :index
           end
 
           on(:invalid) do
-
+            flash[:error] = I18n.t("newsletters.deliver.error", scope: "decidim.admin")
+            redirect_to action: :show
           end
         end
       end

@@ -6,13 +6,21 @@ module Decidim
       end
 
       def call
-        return broadcast(:invalid) if @newsletter.delivered?
-
-        @newsletter.update_attributes!(
-          delivered_at: Time.current
-        )
+        @newsletter.with_lock do
+          return broadcast(:invalid) if @newsletter.sent?
+          send_newsletter!
+        end
 
         broadcast(:ok, @newsletter)
+      end
+
+      private
+
+      def send_newsletter!
+        @newsletter.update_attributes!(
+          sent_at: Time.current
+        )
+        NewsletterJob.perform_later(@newsletter)
       end
     end
   end

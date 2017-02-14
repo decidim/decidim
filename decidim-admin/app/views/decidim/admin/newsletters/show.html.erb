@@ -1,5 +1,10 @@
 <h3><%= t ".preview" %></h3>
 
+<dl>
+  <dt><%= t ".subject" %></dt>
+  <dd><%= translated_attribute @newsletter.subject %></dd>
+</dl>
+
 <div class="email-preview">
   <div class="email-preview-inner">
     <%== @email_body %>
