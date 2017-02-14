@@ -5,8 +5,10 @@ en:
       pages:
         name: Page
         settings:
-          step:
+          global:
             comments_enabled: Comments enabled
+          step:
+            comments_blocked: Comments blocked
     pages:
       admin:
         models:
