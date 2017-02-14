@@ -202,7 +202,7 @@ ca:
       cookie_warning:
         description_html: "Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès.\nEn continuar la navegació entenem que s’accepta la nostra política de cookies. Per a més informació consulta %{link}."
         link_label: aquí
-        ok: Estic dacord
+        ok: Hi estic d'acord
       footer:
         made_with_open_source: 'Aquesta web està feta amb <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software lliure</a>.'
       header:
@@ -263,7 +263,7 @@ ca:
         proposals: Propostes
         proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
       footer_sub_hero:
-        footer_sub_hero_body: Construim una societat més oberta, transparent i col·laborativa. < br / > Uneix-te, participa i decideix.
+        footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
         footer_sub_hero_headline: Benvingut a la plataforma participativa %{organization}.
         register: Registra't
       hero:
