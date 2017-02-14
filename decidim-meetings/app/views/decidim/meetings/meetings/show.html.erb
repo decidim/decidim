@@ -30,7 +30,7 @@
           </div>
           <div class="definition-data__item definition-data__item--double">
             <span class="definition-data__title"><%= t(".contributions") %></span>
-            <% if meeting.contributions_count && meeting.contributions_count > 0 %>
+            <% if meeting.contributions_count && meeting.contributions_count.positive? %>
               <span class="definition-data__number"><%= meeting.contributions_count %></span>
             <% end %>
           </div>
