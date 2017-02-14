@@ -12,6 +12,9 @@ es:
       feature:
         name: Nombre
         weight: Peso
+      newsletter:
+        body: Cuerpo
+        subject: Asunto
       organization:
         default_locale: Configuración regional predeterminada
         description: Descripción
@@ -248,7 +251,7 @@ es:
           success: Boletín destruido con éxito.
         edit:
           save_and_preview: Guardar y vista previa
-          title: Título
+          title: Editar boletín
         form:
           interpolations_hint: 'Sugerencia: Puede utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
@@ -258,6 +261,7 @@ es:
           save: Guardar
           title: Nuevo boletín
         show:
+          confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
           preview: Previsualizar
           subject: Asunto
