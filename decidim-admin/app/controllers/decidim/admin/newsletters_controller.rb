@@ -18,6 +18,7 @@ module Decidim
       def show
         @newsletter = base_query.find(params[:id])
         email = NewsletterMailer.newsletter(current_user, @newsletter)
+        @email_subject = email.subject
         @email_body = Nokogiri::HTML(email.body.decoded).css("table.container").to_s
         authorize! :read, @newsletter
       end

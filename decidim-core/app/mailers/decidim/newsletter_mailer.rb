@@ -8,8 +8,17 @@ module Decidim
       @newsletter = newsletter
 
       with_user(user) do
-        roadie_mail(to: user.email, subject: @newsletter.subject[I18n.locale.to_s])
+        @subject = parse_interpolations(@newsletter.subject[I18n.locale.to_s], user)
+        @body = parse_interpolations(@newsletter.body[I18n.locale.to_s], user)
+
+        roadie_mail(to: "#{user.name} <#{user.email}>", subject: @subject)
       end
+    end
+
+    private
+
+    def parse_interpolations(content, user)
+      content.gsub("%{name}", user.name)
     end
   end
 end

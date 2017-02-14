@@ -2,7 +2,7 @@
 
 <dl>
   <dt><%= t ".subject" %></dt>
-  <dd><%= translated_attribute @newsletter.subject %></dd>
+  <dd><%= @email_subject %></dd>
 </dl>
 
 <div class="email-preview">
@@ -12,5 +12,6 @@
 </div>
 
 <div class="actions">
-  <%= button_to t(".send"), deliver_newsletter_path(@newsletter), method: :post, class: "button" %>
+  <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', @newsletter] %>
+  <%= link_to t(".send"), deliver_newsletter_path(@newsletter), method: :post, class: "button" %>
 </div>

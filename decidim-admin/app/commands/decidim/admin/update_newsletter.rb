@@ -10,6 +10,7 @@ module Decidim
 
       def call
         return broadcast(:invalid) unless @form.valid?
+        return broadcast(:invalid) if @newsletter.sent?
         return broadcast(:invalid) unless @organization == @newsletter.organization
 
         @newsletter.update_attributes!(
