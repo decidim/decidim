@@ -276,7 +276,7 @@ en:
         welcome: Welcome to %{organization}!
       highlighted_processes:
         active_step: Active step
-        highlighted_processes: Highlighted processes
+        processes_ending_soon: Processes ending soon
         see_all_processes: See all processes
       statistics:
         headline: Current state of %{organization}

@@ -23,6 +23,7 @@ describe "Homepage", type: :feature do
 
     context "when there are static pages" do
       let!(:static_pages) { create_list(:static_page, 3, organization: organization) }
+
       before do
         visit current_path
       end
@@ -51,13 +52,51 @@ describe "Homepage", type: :feature do
       end
     end
 
-    describe "statistics" do
+    describe "includes participatory porcesses ending soon" do
+      context "when exists more than 8 participatory processes" do
+        let!(:participatory_process){
+          create_list(
+            :participatory_process,
+            10,
+            :published,
+            organization: organization,
+            description: { en: "Description", ca: "Descripció", es: "Descripción" },
+            short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
+          )
+        }
+
+        it "should show a maximum of 8" do
+          visit current_path
+          expect(page).to have_selector("article.card", count: 8)
+        end
+      end
+
+      context "when lists the participatory processes" do
+        let!(:participatory_process_1) { create(:participatory_process, :with_steps, promoted: true, organization: organization) }
+        let!(:participatory_process_2) { create(:participatory_process, :with_steps, promoted: false, organization: organization) }
+        let!(:participatory_process_3) { create(:participatory_process, :with_steps, promoted: true, organization: organization) }
+
+        it "should show promoted first and ordered by active step end_date" do
+          processes = [participatory_process_3, participatory_process_1, participatory_process_2]
+          participatory_process_1.active_step.update_attribute(:end_date, 5.days.from_now)
+          participatory_process_2.active_step.update_attribute(:end_date, 3.days.from_now)
+          participatory_process_3.active_step.update_attribute(:end_date, 2.days.from_now)
+
+          visit current_path
+          all("article.card .card__title").each_with_index do |node, index|
+            expect(node.text).to eq(processes[index].title[I18n.locale.to_s])
+          end
+        end
+      end
+    end
+
+    describe "includes statistics" do
       let!(:users) { create_list(:user, 4, :confirmed, organization: organization) }
       let!(:participatory_process){
           create_list(
             :participatory_process,
             2,
-            :published,
+            :published, 
             organization: organization,
             description: { en: "Description", ca: "Descripció", es: "Descripción" },
             short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
