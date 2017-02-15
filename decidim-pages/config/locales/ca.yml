@@ -4,7 +4,7 @@ ca:
       pages:
         name: Pàgina
         settings:
-          step:
+          global:
             comments_enabled: Comentaris habilitats
     pages:
       admin:
