@@ -15,8 +15,16 @@ es:
           vote: Votar
         name: Propuestas
         settings:
+          global:
+            comments_enabled: Comentarios habilitados
+            official_proposals_enabled: Propuestas oficiales habilitadas
+            proposal_answering_enabled: Respuesta oficial a propuestas habilitadas
+            scoped_proposals_enabled: Propuestas con ámbito
+            vote_limit: Límite de votos
           step:
+            comments_blocked: Comentarios bloqueados
             creation_enabled: Habilitar creación de propuestas
+            proposal_answering_enabled: Respuesta a propuestas activadas
             votes_blocked: Votación bloqueada
             votes_enabled: Votos habilitados
     proposals:
