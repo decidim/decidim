@@ -1,4 +1,0 @@
-base_locale: en
-locales: [en]
-ignore_unused:
-- "decidim.resource_links.test_link.*"
