@@ -4,7 +4,7 @@ module Decidim
   module LayoutHelper
     def decidim_page_title
       title = content_for(:meta_title)
-      return title.html_safe if title
+      return "#{title} - #{current_organization.name}".html_safe if title
 
       current_organization.name
     end

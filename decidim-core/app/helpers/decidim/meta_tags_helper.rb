@@ -9,11 +9,10 @@ module Decidim
     #
     # Returns nothing.
     def add_meta_tags(tags)
-      provide(:meta_title, tags[:title])
-      provide(:meta_description, tags[:description])
-      provide(:meta_url, tags[:url])
-      provide(:twitter_handler, tags[:twitter_handler])
-      provide(:meta_image_url, tags[:image_url])
+      provide(:meta_description, tags[:description]) unless content_for :meta_description
+      provide(:meta_url, tags[:url]) unless content_for :meta_url
+      provide(:twitter_handler, tags[:twitter_handler]) unless content_for :twitter_handler
+      provide(:meta_image_url, tags[:image_url]) unless content_for :meta_image_url
     end
   end
 end

@@ -1,4 +1,6 @@
-<% provide(:title, translated_attribute(project.title)) %>
+<% provide :meta_title, "#{translated_attribute(project.title)} - #{translated_attribute(current_feature.name)}" %>
+<% provide :meta_description, strip_tags(translated_attribute(project.description)) %>
+<% provide :meta_url, project_url(project.id) %>
 
 <div class="row column view-header">
   <% if current_user.present? %>
