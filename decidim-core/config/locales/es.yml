@@ -275,7 +275,6 @@ es:
         welcome: Bienvenido a %{organization}!
       highlighted_processes:
         active_step: Fase activa
-        highlighted_processes: Procesos destacados
         see_all_processes: Ver todos los procesos
       statistics:
         headline: Estado actual de %{organization}
