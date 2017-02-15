@@ -93,6 +93,13 @@ es:
     features:
       budgets:
         name: Presupuestos
+        settings:
+          global:
+            comments_enabled: "Comentarios habilitados"
+            total_budget: "Presupuesto total"
+            vote_threshold_percent: "Porcentaje mínimo del presupuesto"
+          step:
+            comments_blocked: "Comentarios bloqueados"
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto

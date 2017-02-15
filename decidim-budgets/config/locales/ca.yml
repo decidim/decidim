@@ -93,6 +93,13 @@ ca:
     features:
       budgets:
         name: Pressupostos
+        settings:
+          global:
+            comments_enabled: "Comentaris habilitats"
+            total_budget: "Pressupost total"
+            vote_threshold_percent: "Percentatge del pressupost mínim per fer el vot"
+          step:
+            comments_blocked: "Comentaris bloquejats"
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot

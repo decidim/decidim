@@ -6,6 +6,8 @@ es:
         settings:
           global:
             comments_enabled: Comentarios habilitados
+          step:
+            comments_blocked: Comentarios bloqueados
     pages:
       admin:
         models:

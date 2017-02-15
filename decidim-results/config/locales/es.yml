@@ -3,6 +3,11 @@ es:
     features:
       results:
         name: Resultados
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+          step:
+            comments_blocked: Comentarios bloqueados
     resource_links:
       included_proposals:
         proposals: Propuestas incluidas en este resultado
