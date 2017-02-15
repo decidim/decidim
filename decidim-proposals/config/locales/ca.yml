@@ -15,8 +15,16 @@ ca:
           vote: Votar
         name: Propostes
         settings:
+          global:
+            comments_enabled: Comentaris habilitats
+            official_proposals_enabled: Propostes oficials habilitades
+            proposal_answering_enabled: Resposta oficial a propostes activades
+            scoped_proposals_enabled: Propostes amb àmbits
+            vote_limit: Límit de vot
           step:
+            comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar de creació de propostes
+            proposal_answering_enabled: Resposta oficial a propostes activades
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
     proposals:
