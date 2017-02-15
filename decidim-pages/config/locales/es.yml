@@ -4,7 +4,7 @@ es:
       pages:
         name: Página
         settings:
-          step:
+          global:
             comments_enabled: Comentarios habilitados
     pages:
       admin:
