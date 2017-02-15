@@ -6,6 +6,8 @@ describe Decidim::Budgets::Project do
   let(:project) { build :project }
   subject { project }
 
+  include_examples "has reference"
+
   it { is_expected.to be_valid }
 
   context "without a feature" do

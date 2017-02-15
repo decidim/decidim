@@ -11,6 +11,7 @@ module Decidim
       include_examples "has feature"
       include_examples "has scope"
       include_examples "has category"
+      include_examples "has reference"
 
       it { is_expected.to be_valid }
 

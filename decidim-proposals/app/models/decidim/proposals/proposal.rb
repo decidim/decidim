@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::HasFeature
       include Decidim::HasScope
+      include Decidim::HasReference
       include Decidim::HasCategory
       include Decidim::Comments::Commentable
 
