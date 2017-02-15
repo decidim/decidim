@@ -8,12 +8,17 @@ module Decidim
 
       def perform(newsletter)
         newsletter.with_lock do
-          newsletter.update_attribute(:total_recipients, recipients.count)
-          newsletter.update_attribute(:total_deliveries, 0)
+          raise "Newsletter already sent" if newsletter.sent?
 
-          recipients.find_each do |user|
-            NewsletterDeliveryJob.perform_later(user, newsletter)
-          end
+          newsletter.update_attributes!(
+            sent_at: Time.current,
+            total_recipients: recipients.count,
+            total_deliveries: 0
+          )
+        end
+
+        recipients.find_each do |user|
+          NewsletterDeliveryJob.perform_later(user, newsletter)
         end
       end
 
