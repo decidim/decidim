@@ -17,10 +17,18 @@ module Decidim
 
       def show
         @newsletter = collection.find(params[:id])
-        email = NewsletterMailer.newsletter(current_user, @newsletter)
-        @email_subject = email.subject
-        @email_body = Nokogiri::HTML(email.body.decoded).css("table.container").to_s
+        @email = NewsletterMailer.newsletter(current_user, @newsletter)
         authorize! :read, @newsletter
+      end
+
+      def preview
+        @newsletter = collection.find(params[:id])
+        authorize! :read, @newsletter
+
+        email = NewsletterMailer.newsletter(current_user, @newsletter)
+        Premailer::Rails::Hook.perform(email)
+
+        render text: email.html_part.body.decoded
       end
 
       def create

@@ -2,14 +2,11 @@
 
 <dl>
   <dt><%= t ".subject" %></dt>
-  <dd><%= @email_subject %></dd>
+  <dd><%= @email.subject %></dd>
 </dl>
 
-<div class="email-preview">
-  <div class="email-preview-inner">
-    <%== @email_body %>
-  </div>
-</div>
+<iframe src="<%= preview_newsletter_path(@newsletter) %>" frameborder="0" width="100%" height="500">
+</iframe>
 
 <div class="actions">
   <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', @newsletter] %>

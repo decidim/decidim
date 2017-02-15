@@ -30,8 +30,6 @@ Gem::Specification.new do |s|
   s.add_dependency "active_link_to", "~> 1.0.0"
   s.add_dependency "pg", "~> 0.19.0"
   s.add_dependency "redis", "~> 3.3.3"
-  s.add_dependency "roadie-rails", "~> 1.0"
-  s.add_dependency "roadie", "~> 3.2.1"
   s.add_dependency "high_voltage", "~> 3.0.0"
   s.add_dependency "date_validator", "~> 0.9.0"
   s.add_dependency "sprockets-es6", "~> 0.9.2"
@@ -44,6 +42,8 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-twitter", "~> 1.4.0"
   s.add_dependency "omniauth-google-oauth2", "~> 0.4.1"
   s.add_dependency "wisper", "~> 1.6.1"
+  s.add_dependency "premailer-rails", "~> 1.9.5"
+  s.add_dependency "nokogiri", "~> 1.7.0.1"
 
   s.add_dependency "decidim-api", Decidim.version
 

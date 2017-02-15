@@ -4,7 +4,6 @@ module Decidim
   # each role and use a localised version.
   class DecidimDeviseMailer < Devise::Mailer
     include LocalisedMailer
-    include Roadie::Rails::Automatic
 
     layout "decidim/mailer"
 
