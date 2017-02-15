@@ -1,4 +1,4 @@
-<% provide(:title, translated_attribute(project.title)) %>
+<% add_meta_tags(title: translated_attribute(project.title)) %>
 
 <div class="row column view-header">
   <% if current_user.present? %>

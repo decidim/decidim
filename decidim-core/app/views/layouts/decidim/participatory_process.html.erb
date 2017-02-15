@@ -1,3 +1,6 @@
+<% add_decidim_page_title(translated_attribute(current_feature.name)) if try(:current_feature) %>
+<% add_decidim_page_title(translated_attribute(current_participatory_process.title)) %>
+
 <%= render "layouts/decidim/application" do %>
   <div class="wrapper">
     <%= render partial: "layouts/decidim/process_header" %>

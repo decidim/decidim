@@ -1,7 +1,16 @@
+<% add_meta_tags({
+  description: strip_tags(translated_attribute(current_organization.description)),
+  title: current_organization.name,
+  url: request.original_url,
+  twitter_handler: current_organization.twitter_handler,
+  image_url: current_organization.homepage_image.url
+}) %>
+
 <!DOCTYPE html>
 <html class="no-js">
   <head>
     <title><%= decidim_page_title %></title>
+
     <%= csrf_meta_tags %>
 
     <%= render partial: 'layouts/decidim/meta' %>

@@ -9,11 +9,21 @@ module Decidim
     #
     # Returns nothing.
     def add_meta_tags(tags)
-      provide(:meta_title, tags[:title])
+      add_decidim_page_title(tags[:title])
+
       provide(:meta_description, tags[:description])
       provide(:meta_url, tags[:url])
       provide(:twitter_handler, tags[:twitter_handler])
       provide(:meta_image_url, tags[:image_url])
+    end
+
+    def add_decidim_page_title(title)
+      @title ||= []
+      @title << title
+    end
+
+    def decidim_page_title
+      (@title || []).join(" - ")
     end
   end
 end
