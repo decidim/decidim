@@ -1,4 +1,6 @@
-<% provide :meta_title, t(".meta_title", feature_name: translated_attribute(current_feature.name)) %>
+<% add_meta_tags({
+  title: t(".meta_title", feature_name: translated_attribute(current_feature.name))
+}) %>
 
 <%= render partial: "votes_limit" %>
 <div class="row columns">
