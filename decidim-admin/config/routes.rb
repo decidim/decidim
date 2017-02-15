@@ -47,6 +47,7 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :newsletters do
       member do
+        get :preview
         post :deliver
       end
     end
