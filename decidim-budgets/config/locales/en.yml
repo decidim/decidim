@@ -94,6 +94,13 @@ en:
     features:
       budgets:
         name: Budgets
+        settings:
+          global:
+            comments_enabled: "Comments enabled"
+            total_budget: "Total budget"
+            vote_threshold_percent: "Vote threshold percent"
+          step:
+            comments_blocked: "Comments blocked"
     orders:
       checkout:
         error: An error ocurred while processing your vote

@@ -86,6 +86,10 @@ module Decidim
       initializer "decidim.query_extensions" do
         QueryExtensions.extend!(Decidim::Api::QueryType)
       end
+
+      initializer "decidim.i18n_exceptions" do
+        ActionView::Base.raise_on_missing_translations = true unless Rails.env.production?
+      end
     end
   end
 end

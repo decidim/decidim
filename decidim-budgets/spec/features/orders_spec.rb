@@ -123,7 +123,7 @@ describe "Orders", type: :feature do
 
           expect(page).to have_selector '.budget-list__data--added', count: 2
 
-          within "#order-progress .budget-summary__progressbox" do
+          within "#order-progress .budget-summary__progressbox:not(.budget-summary__progressbox--fixed)" do
             page.find('.button.small').click
           end
 
