@@ -21,6 +21,7 @@ module Decidim
   autoload :HasFeature, "decidim/has_feature"
   autoload :HasScope, "decidim/has_scope"
   autoload :HasCategory, "decidim/has_category"
+  autoload :HasCategory, "decidim/has_reference"
   autoload :Attributes, "decidim/attributes"
 
   include ActiveSupport::Configurable
