@@ -31,6 +31,19 @@ module Decidim
         end
       end
 
+      describe "#reported_by?" do
+        let(:user) { create(:user, organization: subject.organization) }
+
+        it "returns false if the proposal has not been reported by the given user" do
+          expect(subject.reported_by?(user)).to be_falsey
+        end
+
+        it "returns true if the proposal has been reported by the given user" do
+          create(:proposal_report, proposal: subject, user: user)
+          expect(subject.reported_by?(user)).to be_truthy
+        end
+      end
+
       context "when it has been accepted" do
         let(:proposal) { build(:proposal, :accepted) }
 

@@ -1,0 +1,58 @@
+# frozen_string_literal: true
+require "spec_helper"
+
+module Decidim
+  module Proposals
+    describe ReportProposal do
+      describe "call" do
+        let(:organization) { create(:organization) }
+        let(:feature) { create(:proposal_feature, organization: organization) }
+        let(:proposal) { create(:proposal, feature: feature) }
+        let(:user) { create(:user, :confirmed, organization: organization) }
+        let(:form) { ProposalReportForm.from_params(form_params) }
+        let(:form_params) do
+          {
+            type: "spam"
+          }
+        end
+
+        let(:command) { described_class.new(form, proposal, user) }
+
+        describe "when the form is not valid" do
+          before do
+            expect(form).to receive(:invalid?).and_return(true)
+          end
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+
+          it "doesn't create the proposal report" do
+            expect {
+              command.call
+            }.to_not change { ProposalReport.count }
+          end
+        end
+
+        describe "when the form is valid" do
+          before do
+            expect(form).to receive(:invalid?).and_return(false)
+          end
+
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+
+          it "creates a proposal report" do
+            command.call
+            last_report = ProposalReport.last
+
+            expect(last_report.proposal).to eq(proposal)
+            expect(last_report.user).to eq(user)
+            expect(proposal.reload.report_count).to eq(1)
+          end
+        end
+      end
+    end
+  end
+end

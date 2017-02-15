@@ -13,6 +13,7 @@ module Decidim
 
       def show
         @proposal = Proposal.where(feature: current_feature).find(params[:id])
+        @proposal_report_form = form(ProposalReportForm).from_params({ type: "spam" })
       end
 
       def index

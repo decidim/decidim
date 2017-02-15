@@ -13,6 +13,7 @@ module Decidim
       routes do
         resources :proposals, only: [:create, :new, :index, :show] do
           resource :proposal_vote, only: [:create, :destroy]
+          resource :proposal_report, only: [:create]
         end
         root to: "proposals#index"
       end

@@ -73,6 +73,10 @@ en:
             scope: Scope
             state: State
             title: Title
+      proposal_reports:
+        create:
+          error: An error ocurred while reporting the proposal. Please, try it again.
+          success: The proposal has been reported successfully and it will be reviewed by an admin.
       proposals:
         count:
           proposals_count:
@@ -119,6 +123,7 @@ en:
         show:
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_rejected_reason: 'This proposal has been rejected because:'
+          report: Report
         vote_button:
           already_voted: Already voted
           no_votes_remaining: No votes remaining

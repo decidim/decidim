@@ -13,6 +13,7 @@ module Decidim
       feature_manifest_name "proposals"
 
       has_many :votes, foreign_key: "decidim_proposal_id", class_name: ProposalVote, dependent: :destroy, counter_cache: "proposal_votes_count"
+      has_many :reports, foreign_key: "decidim_proposal_id", class_name: ProposalReport, dependent: :destroy
 
       validates :title, :body, presence: true
 
@@ -32,6 +33,13 @@ module Decidim
       # Returns Boolean.
       def voted_by?(user)
         votes.where(author: user).any?
+      end
+
+      # Public: Check if the user has reported the proposal.
+      #
+      # Returns Boolean.
+      def reported_by?(user)
+        reports.where(user: user).any?
       end
 
       # Public: Checks if the organization has given an answer for the proposal.

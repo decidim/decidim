@@ -80,4 +80,10 @@ FactoryGirl.define do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
   end
+
+  factory :proposal_report, class: Decidim::Proposals::ProposalReport do
+    proposal { build(:proposal) }
+    user { build(:user, organization: proposal.organization) }
+    type "spam"
+  end
 end
