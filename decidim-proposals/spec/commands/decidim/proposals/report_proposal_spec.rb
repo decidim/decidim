@@ -8,6 +8,7 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:feature) { create(:proposal_feature, organization: organization) }
         let(:proposal) { create(:proposal, feature: feature) }
+        let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
         let(:user) { create(:user, :confirmed, organization: organization) }
         let(:form) { ProposalReportForm.from_params(form_params) }
         let(:form_params) do
@@ -31,6 +32,15 @@ module Decidim
             expect {
               command.call
             }.to_not change { ProposalReport.count }
+          end
+
+          it "sends an email to the admin" do
+            allow(ProposalReportedMailer).to receive(:report)
+            command.call
+            last_report = ProposalReport.last
+            expect(ProposalReportedMailer)
+              .to have_received(:report)
+              .with(admin, last_report)
           end
         end
 

@@ -64,6 +64,11 @@ ca:
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: Proposta creada correctament.
+      proposal_reported_mailer:
+        report:
+          hello: Hola %{name},
+          report_html: La proposta %{proposal_link} ha estat reportada per %{reporter_name}
+          subject: Una proposta ha estat reportada
       models:
         proposal:
           fields:

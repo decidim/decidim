@@ -24,6 +24,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         create_proposal_report
+        send_notification_to_admins
         broadcast(:ok, proposal_report)
       end
 
@@ -39,6 +40,12 @@ module Decidim
             type: form.type
           )
           @proposal.update_attributes!(report_count: @proposal.report_count + 1)
+        end
+      end
+
+      def send_notification_to_admins
+        @proposal.feature.participatory_process.admins.each do |admin|
+          ProposalReportedMailer.report(admin, @proposal_report).deliver_later
         end
       end
     end

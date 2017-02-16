@@ -22,5 +22,9 @@ module Decidim
 
       it { is_expected.to be_valid }
     end
+
+    describe "#admins" do
+      
+    end
   end
 end
