@@ -16,7 +16,8 @@ if !Rails.env.production? || ENV["SEED"]
     end,
     homepage_image: File.new(File.join(File.dirname(__FILE__), "seeds", "homepage_image.jpg")),
     default_locale: I18n.default_locale,
-    available_locales: Decidim.available_locales
+    available_locales: Decidim.available_locales,
+    custom_reference: Faker::Name.suffix
   )
 
   3.times.each do |index|
