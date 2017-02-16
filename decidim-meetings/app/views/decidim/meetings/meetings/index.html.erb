@@ -1,5 +1,3 @@
-<% provide :meta_title, t(".meta_title", feature_name: translated_attribute(current_feature.name)) %>
-
 <% if Decidim.geocoder.present? %>
   <div class="row column">
     <div class="google-map" id="meetings-map" data-meetings="<%= meetings_data_for_map(geocoded_meetings).to_json %>" data-here-app-id="<%= Decidim.geocoder[:here_app_id] %>" data-here-app-code="<%= Decidim.geocoder[:here_app_code] %>">

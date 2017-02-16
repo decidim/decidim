@@ -1,5 +1,3 @@
-<% provide :meta_title, t(".meta_title", feature_name: translated_attribute(current_feature.name)) %>
-
 <% if current_user.present? %>
   <div class="row column">
     <%= render partial: "budget_summary", locals: { include_heading: true } %>

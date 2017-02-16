@@ -1,5 +1,7 @@
-<% provide :meta_title, "#{translated_attribute(@page.title)} - #{translated_attribute(current_feature.name)}" %>
-<% provide :meta_description, strip_tags(translated_attribute(@page.body)) %>
+<% add_decidim_meta_tags({
+  title: translated_attribute(@page.title),
+  description: translated_attribute(@page.body),
+}) %>
 
 <div class="row column">
   <div class="row">

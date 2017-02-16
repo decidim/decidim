@@ -1,6 +1,8 @@
-<% provide :meta_title, "#{translated_attribute(result.title)} - #{translated_attribute(current_feature.name)}" %>
-<% provide :meta_description, strip_tags(translated_attribute(result.description)) %>
-<% provide :meta_url, result_url(result.id) %>
+<% add_decidim_meta_tags({
+  description: translated_attribute(result.description),
+  title: translated_attribute(result.title),
+  url: result_url(result.id)
+}) %>
 
 <div class="row column view-header">
   <h2 class="heading2"><%= translated_attribute result.title %></h2>

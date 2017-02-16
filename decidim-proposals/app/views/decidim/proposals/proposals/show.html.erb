@@ -1,6 +1,8 @@
-<% provide :meta_title, "#{@proposal.title} - #{translated_attribute(current_feature.name)}" %>
-<% provide :meta_description, strip_tags(@proposal.body) %>
-<% provide :meta_url, proposal_url(@proposal.id) %>
+<% add_decidim_meta_tags({
+  description: @proposal.body,
+  title: @proposal.title,
+  url: proposal_url(@proposal.id)
+}) %>
 
 <%= render partial: "votes_limit" %>
 <div class="row column view-header">

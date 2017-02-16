@@ -98,7 +98,6 @@ en:
           filter_for: Filter by
           unfold: Unfold
         index:
-          meta_title: "%{feature_name}"
           new_proposal: New proposal
         linked_proposals:
           proposal_votes:

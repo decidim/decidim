@@ -1,6 +1,10 @@
-<% provide :meta_title, "#{translated_attribute(meeting.title)} - #{translated_attribute(current_feature.name)}" %>
-<% provide :meta_description, strip_tags(translated_attribute(meeting.description)) %>
-<% provide :meta_url, meeting_url(meeting.id) %>
+<% provide(:title, translated_attribute(meeting.title)) %>
+
+<% add_decidim_meta_tags({
+  title: translated_attribute(meeting.title),
+  description: translated_attribute(meeting.description),
+  url: meeting_url(meeting.id)
+}) %>
 
 <div class="row column view-header">
   <h2 class="heading2"><%= translated_attribute meeting.title %></h2>

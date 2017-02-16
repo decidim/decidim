@@ -55,8 +55,6 @@ en:
           category: Category
           scopes: Scopes
           search: Search
-        index:
-          meta_title: "%{feature_name}"
         show:
           stats:
             attendees: Attendees

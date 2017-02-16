@@ -1,6 +1,7 @@
-<% provide :meta_title, "#{translated_attribute(project.title)} - #{translated_attribute(current_feature.name)}" %>
-<% provide :meta_description, strip_tags(translated_attribute(project.description)) %>
-<% provide :meta_url, project_url(project.id) %>
+<% add_decidim_meta_tags(
+  title: translated_attribute(project.title),
+  description: translated_attribute(project.description)
+) %>
 
 <div class="row column view-header">
   <% if current_user.present? %>
