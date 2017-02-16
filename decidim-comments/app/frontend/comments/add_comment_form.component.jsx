@@ -33,12 +33,6 @@ export class AddCommentForm extends Component {
     };
   }
 
-  componentDidMount() {
-    if ($(document).foundation) {
-      $(this.form).foundation();
-    }
-  }
-
   render() {
     return (
       <div className="add-comment">
