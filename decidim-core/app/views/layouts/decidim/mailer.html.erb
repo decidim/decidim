@@ -42,7 +42,7 @@
                             <th>
                               <% if @organization.official_img_header? %>
                                 <%= link_to @organization.official_url do %>
-                                  <%= image_tag @organization.official_img_header.url.to_s , alt: @organization.name, style: "max-height: 50px", class: "float-right" %>
+                                  <%= image_tag @organization.official_img_header.url.to_s , alt: "", style: "max-height: 50px", class: "float-right" %>
                                 <% end %>
                               <% end %>
                             </th>

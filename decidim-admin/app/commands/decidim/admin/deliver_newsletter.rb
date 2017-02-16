@@ -22,9 +22,6 @@ module Decidim
       private
 
       def send_newsletter!
-        @newsletter.update_attributes!(
-          sent_at: Time.current
-        )
         NewsletterJob.perform_later(@newsletter)
       end
     end
