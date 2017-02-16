@@ -24,14 +24,21 @@
       </div>
       <% if meeting.closed? %>
         <div class="card card--secondary extra definition-data">
-          <div class="definition-data__item definition-data__item--double">
-            <span class="definition-data__title"><%= t(".attendees") %></span>
-            <span class="definition-data__number"><%= meeting.attendees_count %></span>
-          </div>
-          <div class="definition-data__item definition-data__item--double">
-            <span class="definition-data__title"><%= t(".contributions") %></span>
-            <span class="definition-data__number"><%= meeting.contributions_count %></span>
-          </div>
+          <% if meeting.contributions_count && meeting.contributions_count.positive? %>
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title"><%= t(".attendees") %></span>
+              <span class="definition-data__number"><%= meeting.attendees_count %></span>
+            </div>
+            <div class="definition-data__item definition-data__item--double">
+              <span class="definition-data__title"><%= t(".contributions") %></span>
+              <span class="definition-data__number"><%= meeting.contributions_count %></span>
+            </div>
+          <% else %>
+            <div class="definition-data__item">
+              <span class="definition-data__title"><%= t(".attendees") %></span>
+              <span class="definition-data__number"><%= meeting.attendees_count %></span>
+            </div>
+          <% end %>
           <div class="definition-data__item">
             <span class="definition-data__title"><%= t(".organizations") %></span>
             <span class="definition-data__text"><%= meeting.attending_organizations %></span>
