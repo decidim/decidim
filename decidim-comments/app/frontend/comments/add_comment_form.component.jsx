@@ -28,6 +28,7 @@ export class AddCommentForm extends Component {
 
     this.state = {
       disabled: true,
+      error: false,
       alignment: 0
     };
   }
@@ -98,25 +99,17 @@ export class AddCommentForm extends Component {
    * @returns {Void|DOMElement} - The add comment form on an empty element.
    */
   _renderForm() {
-    const { session, submitButtonClassName, commentable: { id, type }, maxLength } = this.props;
+    const { session, submitButtonClassName, commentable: { id, type } } = this.props;
     const { disabled } = this.state;
 
     if (session) {
       return (
-        <form
-          onSubmit={(evt) => this._addComment(evt)}
-          data-abide
-          data-live-validate="true"
-          data-validate-on-blur="true"
-          ref={(form) => this.form = form}
-        >
+        <form onSubmit={(evt) => this._addComment(evt)}>
           {this._renderCommentAs()}
           <div className="field">
             <label className="show-for-sr" htmlFor={`add-comment-${type}-${id}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
             {this._renderTextArea()}
-            <span className="form-error">
-              { I18n.t("components.add_comment_form.form.form_error", { length: maxLength }) }
-            </span>
+            {this._renderTextAreaError()}
             <input
               type="submit"
               className={submitButtonClassName}
@@ -138,10 +131,13 @@ export class AddCommentForm extends Component {
    */
   _renderTextArea() {
     const { commentable: { id, type }, autoFocus, maxLength } = this.props;
+    const { error } = this.state;
+    const className = classnames({ 'is-invalid-input': error });
 
     let textAreaProps = {
       ref: (textarea) => {this.bodyTextArea = textarea},
       id: `add-comment-${type}-${id}`,
+      className,
       rows: "4",
       maxLength,
       required: "required",
@@ -156,6 +152,26 @@ export class AddCommentForm extends Component {
     return (
       <textarea {...textAreaProps} />
     );
+  }
+
+  /**
+   * Render the text area form error if state has an error
+   * @private
+   * @returns {Void|DOMElement} - The error or an empty element
+   */
+  _renderTextAreaError() {
+    const { maxLength } = this.props;
+    const { error } = this.state;
+
+    if (error) {
+      return (
+        <span className="form-error is-visible">
+          { I18n.t("components.add_comment_form.form.form_error", { length: maxLength }) }
+        </span>
+      );
+    }
+
+    return null;
   }
 
   /**
@@ -245,7 +261,8 @@ export class AddCommentForm extends Component {
    * @returns {Void} - Returns nothing
    */
   _checkCommentBody(body) {
-    this.setState({ disabled: body === '' });
+    const { maxLength } = this.props;
+    this.setState({ disabled: body === '', error: body === '' || body.length > maxLength });
   }
 
   /**
@@ -337,17 +354,17 @@ const AddCommentFormWithMutation = graphql(gql`
         userGroupId
       },
       optimisticResponse: {
-        __typename: 'Mutation',
         commentable: {
-          __typename: 'Commentable',
+          __typename: 'CommentableMutation',
           addComment: {
             __typename: 'Comment',
             id: uuid(),
+            type: "Decidim::Comments::Comment",
             createdAt: new Date().toISOString(),
             body,
             alignment: alignment,
             author: {
-              __typename: 'Author',
+              __typename: 'User',
               name: ownProps.session.user.name,
               avatarUrl: ownProps.session.user.avatarUrl
             },
