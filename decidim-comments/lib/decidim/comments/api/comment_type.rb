@@ -51,6 +51,12 @@ module Decidim
           obj.down_voted_by?(ctx[:current_user])
         }
       end
+
+      field :hasComments, !types.Boolean, "Check if the commentable has comments" do
+        resolve lambda { |obj, _args, _ctx|
+          obj.accepts_new_comments? && obj.comments.size.positive?
+        }
+      end
     end
   end
 end

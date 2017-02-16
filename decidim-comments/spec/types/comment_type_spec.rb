@@ -28,6 +28,12 @@ module Decidim
           FactoryGirl.create(:comment, commentable: model)
           expect(response).to include("hasComments" => true)
         end
+
+        it "returns false if the comment depth is equal to MAX_DEPTH" do
+          FactoryGirl.create(:comment, commentable: model)
+          model.update_attribute(:depth, Comment::MAX_DEPTH)
+          expect(response).to include("hasComments" => false)
+        end
       end
 
       describe "acceptsNewComments" do
