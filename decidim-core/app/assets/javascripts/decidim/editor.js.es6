@@ -11,7 +11,7 @@ $(() => {
     let quillToolbar = [
       ['bold', 'italic', 'underline'],
       [{ list: 'ordered' }, { list: 'bullet' }],
-      ['link', 'clean']
+      ['link', 'video', 'clean']
     ];
 
     if (toolbar === 'full') {
