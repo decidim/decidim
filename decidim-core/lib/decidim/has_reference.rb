@@ -8,13 +8,13 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      before_save :set_reference
+      after_create :set_reference
 
       private
 
       def set_reference
-        ref = current_organization.reference
-        class_identifier = result.class.name.demodulize[0..3].upcase
+        ref = organization.custom_reference
+        class_identifier = self.class.name.demodulize[0..3].upcase
         year_month = created_at.strftime("%Y-%m")
 
         reference = [ref, class_identifier, year_month, id].join("-")
