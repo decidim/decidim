@@ -299,8 +299,8 @@ en:
         participate: Participate
         welcome: Welcome to %{organization}!
       highlighted_processes:
-        active_step: Active step
         active_processes: Active processes
+        active_step: Active step
         see_all_processes: See all processes
       statistics:
         headline: Current state of %{organization}
