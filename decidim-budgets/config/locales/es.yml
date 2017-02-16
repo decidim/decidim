@@ -71,8 +71,6 @@ es:
           category: Categoría
           scopes: Ámbitos
           search: Buscar
-        index:
-          meta_title: "%{feature_name}"
         order_progress:
           vote: Votar
         order_selected_projects:
@@ -95,11 +93,11 @@ es:
         name: Presupuestos
         settings:
           global:
-            comments_enabled: "Comentarios habilitados"
-            total_budget: "Presupuesto total"
-            vote_threshold_percent: "Porcentaje mínimo del presupuesto"
+            comments_enabled: Comentarios habilitados
+            total_budget: Presupuesto total
+            vote_threshold_percent: Porcentaje mínimo del presupuesto
           step:
-            comments_blocked: "Comentarios bloqueados"
+            comments_blocked: Comentarios bloqueados
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto
