@@ -65,6 +65,9 @@ describe "Explore meetings", type: :feature do
         expect(page).to have_css(".card--meeting", count: 1)
       end
     end
+
+    context "shows past meetins if isn't any upcoming one.'"
+    
   end
 
   context "show" do

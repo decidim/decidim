@@ -64,6 +64,10 @@ en:
           unfold: Unfold
         index:
           view_meeting: View meeting
+        meetings:
+          no_meetings_warning: At the moment, this process doesn't have any meeting scheduled.
+          upcoming_meetings_warning: Currently, there are no scheduled meetings, but
+            here you can find all the past meetings listed.
         show:
           attendees: Attendees count
           contributions: Contributions count

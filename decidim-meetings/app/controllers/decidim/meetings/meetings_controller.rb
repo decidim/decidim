@@ -6,9 +6,33 @@ module Decidim
     class MeetingsController < Decidim::Meetings::ApplicationController
       include FilterResource
 
-      helper_method :meetings, :geocoded_meetings, :meeting
+      helper_method :meeting
 
-      def index; end
+      def index
+        results = search.results
+
+        if !params[:filter] && results.length == 0
+          params[:filter] = {
+            date: "past",
+            meetings_warning: true
+          }
+          results = search_klass.new(search_params).results
+          if results.length == 0
+            params[:filter] = {
+              date: "past",
+              meetings_warning: true,
+              meetings_alert: true
+            }
+            results = search_klass.new(search_params).results
+          end
+        end
+
+        params[:filter] ||= {}
+        @meetings_alert = params[:filter]["meetings_alert"]
+        @meetings_warning = params[:filter]["meetings_warning"]
+        @meetings = results.page(params[:page]).per(12)
+        @geocoded_meetings = results.select(&:geocoded?)
+      end
 
       def static_map
         @meeting = Meeting.where(feature: current_feature).find(params[:id])
@@ -16,14 +40,6 @@ module Decidim
       end
 
       private
-
-      def meetings
-        @meetings ||= search.results.page(params[:page]).per(12)
-      end
-
-      def geocoded_meetings
-        @geocoded_meetings ||= search.results.select(&:geocoded?)
-      end
 
       def meeting
         @meeting ||= Meeting.where(feature: current_feature).find(params[:id])

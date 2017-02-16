@@ -4,5 +4,5 @@ $meetings.html('<%= j(render partial: "meetings") %>');
 
 window.DecidimMeetings.currentMap = window.DecidimMeetings.loadMap(
   'meetings-map',
-  JSON.parse('<%= escape_javascript meetings_data_for_map(geocoded_meetings).to_json.html_safe %>')
+  JSON.parse('<%= escape_javascript meetings_data_for_map(@geocoded_meetings).to_json.html_safe %>')
 );
