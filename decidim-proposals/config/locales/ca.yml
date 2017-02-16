@@ -97,7 +97,6 @@ ca:
           filter_for: Filtrar per
           unfold: Desplegar
         index:
-          meta_title: "%{feature_name}"
           new_proposal: Nova proposta
         linked_proposals:
           proposal_votes:
