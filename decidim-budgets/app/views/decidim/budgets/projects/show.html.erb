@@ -1,4 +1,7 @@
-<% add_meta_tags(title: translated_attribute(project.title)) %>
+<% add_decidim_meta_tags(
+  title: translated_attribute(project.title),
+  description: translated_attribute(project.description)
+) %>
 
 <div class="row column view-header">
   <% if current_user.present? %>

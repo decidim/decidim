@@ -1,6 +1,6 @@
 <% provide(:title, translated_attribute(meeting.title)) %>
 
-<% add_meta_tags({
+<% add_decidim_meta_tags({
   title: translated_attribute(meeting.title),
   description: translated_attribute(meeting.description),
   url: meeting_url(meeting.id)

@@ -1,4 +1,7 @@
-<% add_decidim_page_title(translated_attribute(page.title)) %>
+<% add_decidim_meta_tags(
+  title: translated_attribute(page.title),
+  description: translated_attribute(page.content)
+) %>
 
 <main class="wrapper">
   <div class="row column">
