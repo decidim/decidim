@@ -36,7 +36,7 @@
             </div>
             <% if current_user %>
               <div class="topbar__dropmenu topbar__user__logged">
-                <ul class="dropdown menu" data-dropdown-menu>
+                <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
                   <li class="is-dropdown-submenu-parent show-for-medium">
                     <%= link_to current_user.name, decidim.account_path %>
                     <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">

@@ -88,7 +88,6 @@ table.body {
   width: 100%; }
 
 table.container {
-  background: #fefefe;
   width: 580px;
   margin: 0 auto;
   Margin: 0 auto;
@@ -1358,13 +1357,23 @@ body.outlook p {
 
 /* 2 - Custom styles ---------*/
 
-.decidim-bar{
+table.body th.decidim-bar, table.body td.decidim-bar{
+  padding: 10px 0;
   background-color: #1a181d;
 }
 
+table.body{
+  background-color: #f3f3f3;
+  margin: 20px 0;
+}
 
 .decidim-logo{
   margin-top: 16px;
+}
+
+.decidim-logo a{
+  display: inline-block;
+  height: 30px;
 }
 
 .cityhall-bar{
@@ -1374,4 +1383,13 @@ body.outlook p {
 .cityhall-logo{
   width: 150px;
   margin-top: 16px;
+}
+
+.footnote {
+  padding-top: 10px;
+  color: #666;
+}
+
+table.container.main {
+  background: #fefefe;
 }

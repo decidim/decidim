@@ -1,6 +1,4 @@
-<% add_meta_tags({
-  title: t(".meta_title", feature_name: translated_attribute(current_feature.name))
-}) %>
+<% provide :meta_title, t(".meta_title", feature_name: translated_attribute(current_feature.name)) %>
 
 <% if Decidim.geocoder.present? %>
   <div class="row column">

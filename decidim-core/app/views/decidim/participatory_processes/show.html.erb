@@ -1,4 +1,4 @@
-<% provide :meta_description, translated_attribute(current_participatory_process.short_description) %>
+<% provide :meta_description, strip_tags(translated_attribute(current_participatory_process.short_description)) %>
 <% provide :meta_title, translated_attribute(current_participatory_process.title) %>
 <% provide :meta_url, participatory_process_url(current_participatory_process) %>
 

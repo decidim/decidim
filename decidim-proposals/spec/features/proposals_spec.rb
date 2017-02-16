@@ -10,15 +10,10 @@ describe "Proposals", type: :feature do
   let!(:scope) { create :scope, organization: organization }
   let!(:user) { create :user, :confirmed, organization: organization }
 
-  before do
-    visit_feature
-  end
-
   context "creating a new proposal" do
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
-        visit_feature
       end
 
       context "with creation enabled" do
@@ -35,6 +30,8 @@ describe "Proposals", type: :feature do
           end
 
           it "cannot be related to a scope" do
+            visit_feature
+
             click_link "New proposal"
 
             within "form.new_proposal" do
@@ -49,6 +46,8 @@ describe "Proposals", type: :feature do
           end
 
           it "cannot be related to a scope" do
+            visit_feature
+
             click_link "New proposal"
 
             within "form.new_proposal" do
@@ -58,6 +57,8 @@ describe "Proposals", type: :feature do
         end
 
         it "creates a new proposal" do
+          visit_feature
+
           click_link "New proposal"
 
           within ".new_proposal" do
@@ -85,6 +86,8 @@ describe "Proposals", type: :feature do
           end
 
           it "creates a new proposal as a user group" do
+            visit_feature
+
             click_link "New proposal"
 
             within ".new_proposal" do
@@ -109,10 +112,10 @@ describe "Proposals", type: :feature do
         context "when the user isn't authorized" do
           before do
             feature.update_attribute(:permissions, create: { authorization_handler_name: "decidim/dummy_authorization_handler" })
-            visit_feature
           end
 
           it "should show a modal dialog" do
+            visit_feature
             click_link "New proposal"
             expect(page).to have_content("Authorization required")
           end
@@ -121,6 +124,7 @@ describe "Proposals", type: :feature do
 
       context "when creation is not enabled" do
         it "does not show the creation button" do
+          visit_feature
           expect(page).to have_no_link("New proposal")
         end
       end
@@ -130,6 +134,8 @@ describe "Proposals", type: :feature do
   context "viewing a single proposal" do
     it "allows viewing a single proposal" do
       proposal = proposals.first
+
+      visit_feature
 
       click_link proposal.title
 
@@ -287,16 +293,18 @@ describe "Proposals", type: :feature do
 
   context "listing proposals in a participatory process" do
     it "lists all the proposals" do
+      visit_feature
       expect(page).to have_css(".card--proposal", count: 3)
     end
 
     context "when there are a lot of proposals" do
       before do
         create_list(:proposal, 17, feature: feature)
-        visit_feature
       end
 
       it "paginates them" do
+        visit_feature
+
         expect(page).to have_css(".card--proposal", count: 12)
 
         find(".pagination-next a").click
@@ -316,8 +324,9 @@ describe "Proposals", type: :feature do
         end
 
         it "can be filtered by origin" do
+          visit_feature
+
           within "form.new_filter" do
-            visit_feature
             expect(page).to have_content(/Origin/i)
           end
         end
@@ -338,6 +347,8 @@ describe "Proposals", type: :feature do
 
         context "by origin 'citizenship'" do
           it "lists the filtered proposals" do
+            visit_feature
+
             within ".filters" do
               choose "Citizenship"
             end
@@ -354,8 +365,9 @@ describe "Proposals", type: :feature do
         end
 
         it "cannot be filtered by origin" do
+          visit_feature
+
           within "form.new_filter" do
-            visit_feature
             expect(page).not_to have_content(/Origin/i)
           end
         end
@@ -367,8 +379,9 @@ describe "Proposals", type: :feature do
         end
 
         it "cannot be filtered by scope" do
+          visit_feature
+
           within "form.new_filter" do
-            visit_feature
             expect(page).to have_content(/Scopes/i)
           end
         end
@@ -380,8 +393,9 @@ describe "Proposals", type: :feature do
         end
 
         it "cannot be filtered by scope" do
+          visit_feature
+
           within "form.new_filter" do
-            visit_feature
             expect(page).not_to have_content(/Scopes/i)
           end
         end
@@ -404,8 +418,9 @@ describe "Proposals", type: :feature do
           end
 
           it "can be filtered by state" do
+            visit_feature
+
             within "form.new_filter" do
-              visit_feature
               expect(page).to have_content(/State/i)
             end
           end
@@ -459,8 +474,9 @@ describe "Proposals", type: :feature do
           end
 
           it "cannot be filtered by state" do
+            visit_feature
+
             within "form.new_filter" do
-              visit_feature
               expect(page).not_to have_content(/State/i)
             end
           end
@@ -473,8 +489,9 @@ describe "Proposals", type: :feature do
         end
 
         it "cannot be filtered by state" do
+          visit_feature
+
           within "form.new_filter" do
-            visit_feature
             expect(page).not_to have_content(/State/i)
           end
         end
