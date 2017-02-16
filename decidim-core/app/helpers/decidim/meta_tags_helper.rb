@@ -33,6 +33,7 @@ module Decidim
     # Returns an Array of Strings.
     def add_decidim_page_title(title)
       @decidim_page_title ||= []
+      return @decidim_page_title unless title.present?
       @decidim_page_title << title
     end
 
