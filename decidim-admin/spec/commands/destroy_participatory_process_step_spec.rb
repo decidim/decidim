@@ -26,6 +26,8 @@ describe Decidim::Admin::DestroyParticipatoryProcessStep, class: true do
     end
 
     context "when destroying an inactive step" do
+      let(:reorderer) { double(call: true) }
+
       it "broadcasts ok" do
         expect { subject.call(inactive_step) }.to broadcast(:ok)
       end
@@ -33,6 +35,16 @@ describe Decidim::Admin::DestroyParticipatoryProcessStep, class: true do
       it "destroys the step" do
         subject.call(inactive_step)
         expect(inactive_step).not_to be_persisted
+      end
+
+      it "reorders the remaining steps" do
+        allow(Decidim::Admin::ReorderParticipatoryProcessSteps)
+          .to receive(:new)
+          .with([active_step], [active_step.id])
+          .and_return(reorderer)
+        expect(reorderer).to receive(:call)
+
+        subject.call(inactive_step)
       end
     end
   end
