@@ -15,7 +15,6 @@ module Decidim
       helper Decidim::ParticipatoryProcessHelper
       helper Decidim::ResourceHelper
       helper Decidim::ActionAuthorizationHelper
-      helper Decidim::MetaTagsHelper
 
       helper_method :current_feature,
                     :current_manifest

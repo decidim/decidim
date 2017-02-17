@@ -8,6 +8,7 @@ module Decidim
 
       helper Decidim::TranslationsHelper
       helper Decidim::DecidimFormHelper
+      helper Decidim::ReplaceButtonsHelper
     end
   end
 end
