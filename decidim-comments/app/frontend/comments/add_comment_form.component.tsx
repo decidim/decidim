@@ -1,29 +1,69 @@
 /* eslint-disable no-return-assign, react/no-unused-prop-types, max-lines */
-import { Component, PropTypes }          from 'react';
+import * as React                        from 'react';
 import { graphql }                       from 'react-apollo';
 import gql                               from 'graphql-tag';
 import { I18n, Translate }               from 'react-i18nify';
 import uuid                              from 'uuid';
-import classnames                        from 'classnames';
+import * as classnames                   from 'classnames';
 
 import Icon                              from '../application/icon.component';
 
-import addCommentMutation                from './add_comment_form.mutation.graphql';
-import commentThreadFragment             from './comment_thread.fragment.graphql'
-import commentFragment                   from './comment.fragment.graphql';
-import commentDataFragment               from './comment_data.fragment.graphql';
-import upVoteFragment                    from './up_vote.fragment.graphql';
-import downVoteFragment                  from './down_vote.fragment.graphql';
-import addCommentFormSessionFragment     from './add_comment_form_session.fragment.graphql';
-import addCommentFormCommentableFragment from './add_comment_form_commentable.fragment.graphql';
+const addCommentMutation                = require('./add_comment_form.mutation.graphql');
+const commentThreadFragment             = require('./comment_thread.fragment.graphql');
+const commentFragment                   = require('./comment.fragment.graphql');
+const commentDataFragment               = require('./comment_data.fragment.graphql');
+const upVoteFragment                    = require('./up_vote.fragment.graphql');
+const downVoteFragment                  = require('./down_vote.fragment.graphql');
+const addCommentFormSessionFragment     = require('./add_comment_form_session.fragment.graphql');
+const addCommentFormCommentableFragment = require('./add_comment_form_commentable.fragment.graphql');
+
+import {
+  AddCommentFormSessionFragment,
+  AddCommentFormCommentableFragment,
+  GetCommentsQuery,
+  AddCommentMutation,
+  CommentFragment
+} from '../support/schema';
+
+interface AddCommentFormProps {
+  session: AddCommentFormSessionFragment & {
+    user: any;
+  };
+  commentable: AddCommentFormCommentableFragment;
+  showTitle?: boolean;
+  submitButtonClassName?: string;
+  autoFocus?: boolean;
+  maxLength?: number;
+  arguable?: boolean;
+  addComment?: (data: { body: string, alignment: number, userGroupId: number }) => void;
+  onCommentAdded?: () => void;
+}
+
+interface AddCommentFormState {
+  disabled: boolean;
+  error: boolean;
+  alignment: number;
+}
 
 /**
  * Renders a form to create new comments.
  * @class
  * @augments Component
  */
-export class AddCommentForm extends Component {
-  constructor(props) {
+export class AddCommentForm extends React.Component<AddCommentFormProps, AddCommentFormState> {
+  static defaultProps = {
+    onCommentAdded: function() {},
+    showTitle: true,
+    submitButtonClassName: 'button button--sc',
+    arguable: false,
+    autoFocus: false,
+    maxLength: 1000
+  };
+
+  bodyTextArea: HTMLTextAreaElement;
+  userGroupIdSelect: HTMLSelectElement;
+
+  constructor(props: AddCommentFormProps) {
     super(props);
 
     this.state = {
@@ -127,8 +167,8 @@ export class AddCommentForm extends Component {
     const { error } = this.state;
     const className = classnames({ 'is-invalid-input': error });
 
-    let textAreaProps = {
-      ref: (textarea) => {this.bodyTextArea = textarea},
+    let textAreaProps: any = {
+      ref: (textarea: HTMLTextAreaElement) => {this.bodyTextArea = textarea},
       id: `add-comment-${type}-${id}`,
       className,
       rows: "4",
@@ -136,8 +176,9 @@ export class AddCommentForm extends Component {
       required: "required",
       pattern: `^(.){0,${maxLength}}$`,
       placeholder: I18n.t("components.add_comment_form.form.body.placeholder"),
-      onChange: (evt) => this._checkCommentBody(evt.target.value)
+      onChange: (evt: React.ChangeEvent<HTMLTextAreaElement>) => this._checkCommentBody(evt.target.value)
     };
+
     if (autoFocus) {
       textAreaProps.autoFocus = 'autoFocus';
     }
@@ -230,7 +271,7 @@ export class AddCommentForm extends Component {
             { I18n.t('components.add_comment_form.form.user_group_id.label') }
           </label>
           <select
-            ref={(select) => {this.userGroupIdSelect = select}}
+            ref={(select: HTMLSelectElement) => {this.userGroupIdSelect = select}}
             id={`add-comment-${type}-${id}-user-group-id`}
           >
             <option value="">{ user.name }</option>
@@ -253,7 +294,7 @@ export class AddCommentForm extends Component {
    * @param {string} body - The comment's body
    * @returns {Void} - Returns nothing
    */
-  _checkCommentBody(body) {
+  _checkCommentBody(body: string) {
     const { maxLength } = this.props;
     this.setState({ disabled: body === '', error: body === '' || body.length > maxLength });
   }
@@ -265,10 +306,10 @@ export class AddCommentForm extends Component {
    * @param {DOMEvent} evt - The form's submission event
    * @returns {Void} - Returns nothing
    */
-  _addComment(evt) {
+  _addComment(evt: React.FormEvent<HTMLFormElement>) {
     const { alignment } = this.state;
     const { addComment, onCommentAdded } = this.props;
-    let addCommentParams = { body: this.bodyTextArea.value, alignment };
+    let addCommentParams: any = { body: this.bodyTextArea.value, alignment };
 
     evt.preventDefault();
 
@@ -287,48 +328,6 @@ export class AddCommentForm extends Component {
   }
 }
 
-AddCommentForm.propTypes = {
-  addComment: PropTypes.func.isRequired,
-  session: PropTypes.shape({
-    user: PropTypes.shape({
-      name: PropTypes.string.isRequired
-    }),
-    verifiedUserGroups: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired
-      })
-    ).isRequired
-  }),
-  commentable: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired
-  }),
-  showTitle: PropTypes.bool.isRequired,
-  submitButtonClassName: PropTypes.string.isRequired,
-  onCommentAdded: PropTypes.func,
-  arguable: PropTypes.bool,
-  autoFocus: PropTypes.bool,
-  maxLength: PropTypes.number.isRequired
-};
-
-AddCommentForm.defaultProps = {
-  onCommentAdded: function() {},
-  showTitle: true,
-  submitButtonClassName: 'button button--sc',
-  arguable: false,
-  autoFocus: false,
-  maxLength: 1000
-};
-
-AddCommentForm.fragments = {
-  session: gql`
-    ${addCommentFormSessionFragment}
-  `,
-  commentable: gql`
-    ${addCommentFormCommentableFragment}
-  `
-};
-
 const AddCommentFormWithMutation = graphql(gql`
   ${addCommentMutation}
   ${commentThreadFragment}
@@ -338,7 +337,7 @@ const AddCommentFormWithMutation = graphql(gql`
   ${downVoteFragment}
 `, {
   props: ({ ownProps, mutate }) => ({
-    addComment: ({ body, alignment, userGroupId }) => mutate({
+    addComment: ({ body, alignment, userGroupId }: { body: string, alignment: number, userGroupId: string }) => mutate({
       variables: {
         commentableId: ownProps.commentable.id,
         commentableType: ownProps.commentable.type,
@@ -374,12 +373,12 @@ const AddCommentFormWithMutation = graphql(gql`
         }
       },
       updateQueries: {
-        GetComments: (prev, { mutationResult: { data } }) => {
+        GetComments: (prev: GetCommentsQuery, { mutationResult: { data } }: { mutationResult: { data: AddCommentMutation }}) => {
           const { id, type } = ownProps.commentable;
           const newComment = data.commentable.addComment;
           let comments = [];
 
-          const commentReducer = (comment) => {
+          const commentReducer = (comment: CommentFragment): CommentFragment => {
             const replies = comment.comments || [];
 
             if (comment.id === id) {

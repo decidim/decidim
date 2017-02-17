@@ -3,7 +3,7 @@
  * @param {Object} requireContext - A webpack require context
  * @returns {Object[]} - An array of webpack modules
  */
-const requireAll = (requireContext) => {
+const requireAll = (requireContext: any) => {
   return requireContext.keys().map(requireContext);
 };
 

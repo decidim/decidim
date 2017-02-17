@@ -12,14 +12,14 @@ module.exports = env => {
 
   const config = webpackValidator({
     entry: {
-      comments: './decidim-comments/app/frontend/entry.js'
+      comments: './decidim-comments/app/frontend/entry.ts'
     },
     output: {
       path: __dirname,
       filename: 'decidim-[name]/app/assets/javascripts/decidim/[name]/bundle.js'
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.graphql', '.yml']
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.graphql', '.yml']
     },
     devtool: ifProd('source-map', 'eval'),
     module: {
@@ -31,6 +31,10 @@ module.exports = env => {
           test: /\.jsx?$/,
           exclude: /node_modules/,
           loaders: ['babel-loader', 'eslint-loader']
+        },
+        {
+          test: /\.tsx?$/,
+          loaders: ['awesome-typescript-loader']
         },
         {
           test: /\.js.es6$/,

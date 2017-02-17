@@ -1,26 +1,48 @@
-/* eslint-disable max-lines, camelcase */
-import { Component, PropTypes } from 'react';
-import { propType }             from 'graphql-anywhere';
-import gql                      from 'graphql-tag';
-import moment                   from 'moment';
-import { I18n }                 from 'react-i18nify';
-import classnames               from 'classnames';
+import * as React          from 'react';
+import { propType }        from 'graphql-anywhere';
+import gql                 from 'graphql-tag';
+import * as moment         from 'moment';
+import { I18n }            from 'react-i18nify';
+import * as classnames     from 'classnames';
 
-import AddCommentForm           from './add_comment_form.component';
-import UpVoteButton             from './up_vote_button.component';
-import DownVoteButton           from './down_vote_button.component';
-import Icon                     from '../application/icon.component';
+import AddCommentForm      from './add_comment_form.component';
+import UpVoteButton        from './up_vote_button.component';
+import DownVoteButton      from './down_vote_button.component';
 
-import commentFragment          from './comment.fragment.graphql';
-import commentDataFragment      from './comment_data.fragment.graphql';
+import {
+  CommentFragment,
+  CommentDataFragment,
+  AddCommentFormSessionFragment
+} from '../support/schema';
+
+interface CommentProps {
+  comment: CommentFragment;
+  session?: AddCommentFormSessionFragment & {
+    user: any;
+  };
+  articleClassName?: string;
+  isRootComment?: boolean;
+  votable?: boolean;
+}
+
+interface CommentState {
+  showReplyForm: boolean;
+}
 
 /**
  * A single comment component with the author info and the comment's body
  * @class
  * @augments Component
  */
-class Comment extends Component {
-  constructor(props) {
+class Comment extends React.Component<CommentProps, CommentState> {
+  static defaultProps: any = {
+    articleClassName: 'comment',
+    isRootComment: false,
+    session: null,
+    votable: false
+  };
+
+  constructor(props: CommentProps) {
     super(props);
 
     this.state = {
@@ -35,7 +57,7 @@ class Comment extends Component {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     const { session, comment: { id, author, body, createdAt }, articleClassName } = this.props;
     const formattedCreatedAt = ` ${moment(createdAt).format("LLL")}`;
     let modalName = 'loginModal';
@@ -170,7 +192,7 @@ class Comment extends Component {
       return (
         <div>
           {
-            comments.map((reply) => (
+            comments.map((reply: CommentFragment) => (
               <Comment
                 key={`comment_${id}_reply_${reply.id}`}
                 comment={reply}
@@ -314,39 +336,5 @@ class Comment extends Component {
     return $('meta[name="csrf-token"]').attr('content');
   }
 }
-
-Comment.fragments = {
-  comment: gql`
-    ${commentFragment}
-    ${commentDataFragment}
-    ${UpVoteButton.fragments.comment}
-    ${DownVoteButton.fragments.comment}
-  `,
-  commentData: gql`
-    ${commentDataFragment}
-    ${UpVoteButton.fragments.comment}
-    ${DownVoteButton.fragments.comment}
-  `
-};
-
-Comment.propTypes = {
-  comment: PropTypes.oneOfType([
-    propType(Comment.fragments.comment).isRequired,
-    propType(Comment.fragments.commentData).isRequired
-  ]).isRequired,
-  session: PropTypes.shape({
-    user: PropTypes.any.isRequired
-  }),
-  articleClassName: PropTypes.string.isRequired,
-  isRootComment: PropTypes.bool,
-  votable: PropTypes.bool
-};
-
-Comment.defaultProps = {
-  articleClassName: 'comment',
-  isRootComment: false,
-  session: null,
-  votable: false
-};
 
 export default Comment;

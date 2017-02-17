@@ -1,16 +1,19 @@
 import { random, name, date, image } from 'faker/locale/en';
 
+import { CommentFragment }           from '../support/schema';
+
 /**
  * Generate random comment data to emulate a database real content
  * @param {number} num - The number of comments to generate random data
  * @returns {Object[]} - An array of objects representing comments data
  */
 const generateCommentsData = (num = 1) => {
-  let commentsData = [];
+  let commentsData: CommentFragment[] = [];
 
   for (let idx = 0; idx < num; idx += 1) {
     commentsData.push({
       id: random.uuid(),
+      type: "Decidim::Comments::Comment",
       body: random.words(),
       createdAt: date.past().toISOString(),
       author: {

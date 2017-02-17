@@ -1,18 +1,32 @@
-import { PropTypes }       from 'react';
-import { propType }        from 'graphql-anywhere';
-import { graphql }         from 'react-apollo';
-import gql                 from 'graphql-tag';
+import * as React           from 'react';
+import { propType }         from 'graphql-anywhere';
+import { graphql }          from 'react-apollo';
+import gql                  from 'graphql-tag';
 
-import VoteButton          from './vote_button.component';
+import VoteButton           from './vote_button.component';
 
-import upVoteMutation      from './up_vote.mutation.graphql';
+const upVoteMutation       = require('./up_vote.mutation.graphql');
+const commentFragment      = require('./comment.fragment.graphql');
+const commentDataFragment  = require('./comment_data.fragment.graphql');
+const upVoteFragment       = require('./up_vote.fragment.graphql');
+const downVoteFragment     = require('./down_vote.fragment.graphql');
 
-import commentFragment     from './comment.fragment.graphql';
-import commentDataFragment from './comment_data.fragment.graphql';
-import upVoteFragment      from './up_vote.fragment.graphql';
-import downVoteFragment    from './down_vote.fragment.graphql';
+import {
+  CommentFragment,
+  GetCommentsQuery,
+  UpVoteMutation,
+  UpVoteFragment
+} from '../support/schema';
 
-export const UpVoteButton = ({ comment: { upVotes, upVoted, downVoted }, upVote }) => {
+interface UpVoteButtonProps {
+  comment: UpVoteFragment,
+  upVote?: () => void;
+}
+
+export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
+  comment: { upVotes, upVoted, downVoted },
+  upVote
+}) => {
   let selectedClass = '';
 
   if (upVoted) {
@@ -32,17 +46,6 @@ export const UpVoteButton = ({ comment: { upVotes, upVoted, downVoted }, upVote 
     />
   );
 }
-
-UpVoteButton.fragments = {
-  comment: gql`
-    ${upVoteFragment}
-  `
-};
-
-UpVoteButton.propTypes = {
-  comment: propType(UpVoteButton.fragments.comment).isRequired,
-  upVote: PropTypes.func.isRequired
-};
 
 const UpVoteButtonWithMutation = graphql(gql`
   ${upVoteMutation}
@@ -69,8 +72,8 @@ const UpVoteButtonWithMutation = graphql(gql`
         }
       },
       updateQueries: {
-        GetComments: (prev, { mutationResult: { data } }) => {
-          const commentReducer = (comment) => {
+        GetComments: (prev: GetCommentsQuery, { mutationResult: { data } }: { mutationResult: { data: UpVoteMutation}}) => {
+          const commentReducer = (comment: CommentFragment): CommentFragment => {
             const replies = comment.comments || [];
 
             if (comment.id === ownProps.comment.id) {

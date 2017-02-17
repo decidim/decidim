@@ -1,11 +1,22 @@
-import { Component, PropTypes } from 'react';
-import { filter, propType }     from 'graphql-anywhere';
-import gql                      from 'graphql-tag';
-import { I18n }                 from 'react-i18nify';
+import * as React            from 'react';
+import { filter, propType }  from 'graphql-anywhere';
+import gql                   from 'graphql-tag';
+import { I18n }              from 'react-i18nify';
 
-import Comment                  from './comment.component';
+import Comment               from './comment.component';
 
-import commentThreadFragment    from './comment_thread.fragment.graphql'
+import {
+  CommentThreadFragment,
+  AddCommentFormSessionFragment
+} from '../support/schema';
+
+interface CommentThreadProps {
+  comment: CommentThreadFragment;
+  session?: AddCommentFormSessionFragment & {
+    user: any;
+  };
+  votable: boolean;
+}
 
 /**
  * Define a collection of comments. It represents a conversation with multiple users.
@@ -13,7 +24,12 @@ import commentThreadFragment    from './comment_thread.fragment.graphql'
  * @augments Component
  * @todo It doesn't handle multiple comments yet
  */
-class CommentThread extends Component {
+class CommentThread extends React.Component<CommentThreadProps, undefined> {
+  static defaultProps: any = {
+    session: null,
+    votable: false
+  };
+
   render() {
     const { comment, session, votable } = this.props;
 
@@ -22,7 +38,7 @@ class CommentThread extends Component {
         {this._renderTitle()}
         <div className="comment-thread">
           <Comment
-            comment={filter(Comment.fragments.comment, comment)}
+            comment={comment}
             session={session}
             votable={votable}
             isRootComment
@@ -51,25 +67,5 @@ class CommentThread extends Component {
     return null;
   }
 }
-
-CommentThread.fragments = {
-  comment: gql`
-    ${commentThreadFragment}
-    ${Comment.fragments.comment}
-  `
-};
-
-CommentThread.propTypes = {
-  session: PropTypes.shape({
-    user: PropTypes.any.isRequired
-  }),
-  comment: propType(CommentThread.fragments.comment).isRequired,
-  votable: PropTypes.bool
-};
-
-CommentThread.defaultProps = {
-  session: null,
-  votable: false
-};
 
 export default CommentThread;

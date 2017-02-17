@@ -1,4 +1,4 @@
-const assetUrl = (name) => {
+const assetUrl = (name: string): string => {
   const url = window.DecidimComments.assets[name];
 
   if (!url) {

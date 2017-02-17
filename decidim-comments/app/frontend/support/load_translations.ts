@@ -11,7 +11,7 @@ const loadTranslations = () => {
   const translationsContext = require.context('../../../config/locales/', true, /\.yml$/);
   const translationFiles = requireAll(translationsContext);
 
-  const translations = translationsContext.keys().reduce((acc, key, index) => {
+  const translations = translationsContext.keys().reduce((acc: any, key: string, index: number) => {
     const locale = key.match(/\.\/(.*)\.yml/)[1];
     acc[locale] = translationFiles[index][locale].decidim;
     return acc;

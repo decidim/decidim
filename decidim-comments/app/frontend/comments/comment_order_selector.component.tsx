@@ -1,5 +1,14 @@
-import { Component, PropTypes } from 'react';
-import { I18n }      from 'react-i18nify';
+import * as React from 'react';
+import { I18n }   from 'react-i18nify';
+
+interface CommentOrderSelectorProps {
+  defaultOrderBy: string;
+  reorderComments: (orderBy: string) => void;
+}
+
+interface CommentOrderSelectorState {
+  orderBy: string;
+}
 
 /**
  * A simple static component with the comment's order selector markup
@@ -7,13 +16,19 @@ import { I18n }      from 'react-i18nify';
  * @augments Component
  * @todo Needs a proper implementation
  */
-class CommentOrderSelector extends Component {
+class CommentOrderSelector extends React.Component<CommentOrderSelectorProps, CommentOrderSelectorState> {
+  dropdown: HTMLUListElement;
 
-  constructor(props) {
+  constructor(props: CommentOrderSelectorProps) {
     super(props);
+
     this.state = {
       orderBy: this.props.defaultOrderBy
     }
+  }
+
+  componentDidMount() {
+    $(this.dropdown).foundation();
   }
 
   render() {
@@ -25,7 +40,8 @@ class CommentOrderSelector extends Component {
         <ul
           className="dropdown menu"
           data-dropdown-menu
-          data-close-on-click-inside="false">
+          data-close-on-click-inside="false"
+          ref={(dropdown) => this.dropdown = dropdown}>
           <li>
             <a>{ I18n.t(`components.comment_order_selector.order.${orderBy}`) }</a>
             <ul className="menu">
@@ -56,17 +72,11 @@ class CommentOrderSelector extends Component {
     );
   }
 
-  _updateOrder(event, orderBy) {
+  _updateOrder(event: React.MouseEvent<HTMLAnchorElement>, orderBy: string) {
     event.preventDefault();
     this.setState({ orderBy });
     this.props.reorderComments(orderBy);
   }
-
 }
-
-CommentOrderSelector.propTypes = {
-  reorderComments: PropTypes.func.isRequired,
-  defaultOrderBy: PropTypes.string.isRequired
-};
 
 export default CommentOrderSelector;

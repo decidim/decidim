@@ -1,18 +1,31 @@
-import { PropTypes }       from 'react';
-import { propType }        from 'graphql-anywhere';
+import * as React          from 'react';
 import { graphql }         from 'react-apollo';
 import gql                 from 'graphql-tag';
 
 import VoteButton          from './vote_button.component';
 
-import downVoteMutation    from './down_vote.mutation.graphql';
+const downVoteMutation    = require('./down_vote.mutation.graphql');
+const commentFragment     = require('./comment.fragment.graphql');
+const commentDataFragment = require('./comment_data.fragment.graphql');
+const upVoteFragment      = require('./up_vote.fragment.graphql');
+const downVoteFragment    = require('./down_vote.fragment.graphql');
 
-import commentFragment     from './comment.fragment.graphql';
-import commentDataFragment from './comment_data.fragment.graphql';
-import upVoteFragment      from './up_vote.fragment.graphql';
-import downVoteFragment    from './down_vote.fragment.graphql';
+import {
+  GetCommentsQuery,
+  DownVoteFragment,
+  DownVoteMutation,
+  CommentFragment
+} from '../support/schema';
 
-export const DownVoteButton = ({ comment: { downVotes, upVoted, downVoted }, downVote }) => {
+interface DownVoteButtonProps {
+  comment: DownVoteFragment,
+  downVote?: () => void;
+}
+
+export const DownVoteButton: React.SFC<DownVoteButtonProps> = ({
+  comment: { downVotes, upVoted, downVoted },
+  downVote
+}) => {
   let selectedClass = '';
 
   if (downVoted) {
@@ -31,17 +44,6 @@ export const DownVoteButton = ({ comment: { downVotes, upVoted, downVoted }, dow
       selectedClass={selectedClass}
     />
   );
-};
-
-DownVoteButton.fragments = {
-  comment: gql`
-    ${downVoteFragment}
-  `
-};
-
-DownVoteButton.propTypes = {
-  comment: propType(DownVoteButton.fragments.comment).isRequired,
-  downVote: PropTypes.func.isRequired
 };
 
 const DownVoteButtonWithMutation = graphql(gql`
@@ -69,8 +71,8 @@ const DownVoteButtonWithMutation = graphql(gql`
         }
       },
       updateQueries: {
-        GetComments: (prev, { mutationResult: { data } }) => {
-          const commentReducer = (comment) => {
+        GetComments: (prev: GetCommentsQuery, { mutationResult: { data } }: { mutationResult: { data: DownVoteMutation }}) => {
+          const commentReducer = (comment: CommentFragment): CommentFragment => {
             const replies = comment.comments || [];
 
             if (comment.id === ownProps.comment.id) {

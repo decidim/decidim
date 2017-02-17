@@ -1,16 +1,34 @@
-import { Component, PropTypes } from 'react';
-import { graphql }              from 'react-apollo';
-import gql                      from 'graphql-tag';
-import { filter }               from 'graphql-anywhere';
-import { I18n }                 from 'react-i18nify';
+import * as React           from 'react';
+import { graphql }          from 'react-apollo';
+import gql                  from 'graphql-tag';
+import { filter }           from 'graphql-anywhere';
+import { I18n }             from 'react-i18nify';
 
-import Application              from '../application/application.component';
+import Application          from '../application/application.component';
 
-import CommentThread            from './comment_thread.component';
-import AddCommentForm           from './add_comment_form.component';
-import CommentOrderSelector     from './comment_order_selector.component';
+import CommentThread        from './comment_thread.component';
+import AddCommentForm       from './add_comment_form.component';
+import CommentOrderSelector from './comment_order_selector.component';
 
-import commentsQuery            from './comments.query.graphql';
+const commentsQuery                     = require('./comments.query.graphql');
+const addCommentFormSessionFragment     = require('./add_comment_form_session.fragment.graphql');
+const addCommentFormCommentableFragment = require('./add_comment_form_commentable.fragment.graphql');
+const commentThreadFragment             = require('./comment_thread.fragment.graphql');
+const commentFragment                   = require('./comment.fragment.graphql');
+const commentDataFragment               = require('./comment_data.fragment.graphql');
+const upVoteFragment                    = require('./up_vote.fragment.graphql');
+const downVoteFragment                  = require('./down_vote.fragment.graphql');
+
+import {
+  GetCommentsQuery,
+  GetCommentsQueryVariables
+} from '../support/schema';
+
+interface CommentsProps extends GetCommentsQuery {
+  loading: boolean;
+  orderBy: string;
+  reorderComments: (orderBy: string) => void;
+};
 
 /**
  * The core class of the Decidim Comments engine.
@@ -19,7 +37,15 @@ import commentsQuery            from './comments.query.graphql';
  * @class
  * @augments Component
  */
-export class Comments extends Component {
+export class Comments extends React.Component<CommentsProps, undefined> {
+  static defaultProps: any = {
+    loading: false,
+    session: null,
+    commentable: {
+      comments: []
+    }
+  };
+
   render() {
     const { commentable: { comments }, reorderComments, orderBy, loading } = this.props;
     let commentClasses = "comments";
@@ -80,7 +106,7 @@ export class Comments extends Component {
     return comments.map((comment) => (
       <CommentThread
         key={comment.id}
-        comment={filter(CommentThread.fragments.comment, comment)}
+        comment={comment}
         session={session}
         votable={commentsHaveVotes}
       />
@@ -110,31 +136,6 @@ export class Comments extends Component {
   }
 }
 
-Comments.propTypes = {
-  loading: PropTypes.bool,
-  session: PropTypes.shape({
-    user: PropTypes.any.isRequired
-  }),
-  commentable: PropTypes.shape({
-    acceptsNewComments: PropTypes.bool,
-    commentsHaveAlignment: PropTypes.bool,
-    commentsHaveVotes: PropTypes.bool,
-    comments: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.string.isRequired
-    }))
-  }),
-  orderBy: PropTypes.string.isRequired,
-  reorderComments: PropTypes.func.isRequired
-};
-
-Comments.defaultProps = {
-  loading: false,
-  session: null,
-  commentable: {
-    comments: []
-  }
-};
-
 /**
  * Wrap the Comments component with a GraphQL query and children
  * fragments.
@@ -142,11 +143,15 @@ Comments.defaultProps = {
 
 window.Comments = Comments;
 
-const CommentsWithData = graphql(gql`
+const CommentsWithData: any = graphql(gql`
   ${commentsQuery}
-  ${AddCommentForm.fragments.session}
-  ${AddCommentForm.fragments.commentable}
-  ${CommentThread.fragments.comment}
+  ${addCommentFormSessionFragment}
+  ${addCommentFormCommentableFragment}
+  ${commentThreadFragment}
+  ${commentFragment}
+  ${commentDataFragment}
+  ${upVoteFragment}
+  ${downVoteFragment}
 `, {
   options: {
     pollInterval: 15000
@@ -156,7 +161,7 @@ const CommentsWithData = graphql(gql`
     session,
     commentable,
     orderBy: ownProps.orderBy,
-    reorderComments: (orderBy) => {
+    reorderComments: (orderBy: string) => {
       return refetch({
         orderBy
       });
@@ -164,12 +169,16 @@ const CommentsWithData = graphql(gql`
   })
 })(Comments);
 
+export interface CommentsApplicationProps extends GetCommentsQueryVariables {
+  locale: string;
+}
+
 /**
  * Wrap the CommentsWithData component within an Application component to
  * connect it with Apollo client and store.
  * @returns {ReactComponent} - A component wrapped within an Application component
  */
-const CommentsApplication = ({ locale, commentableId, commentableType }) => (
+const CommentsApplication: React.SFC<CommentsApplicationProps> = ({ locale, commentableId, commentableType }) => (
   <Application locale={locale}>
     <CommentsWithData
       commentableId={commentableId}
@@ -178,11 +187,5 @@ const CommentsApplication = ({ locale, commentableId, commentableType }) => (
     />
   </Application>
 );
-
-CommentsApplication.propTypes = {
-  locale: PropTypes.string.isRequired,
-  commentableId: PropTypes.string.isRequired,
-  commentableType: PropTypes.string.isRequired
-};
 
 export default CommentsApplication;
