@@ -34,9 +34,7 @@ module Decidim
       if block_given?
         super(url, html_options, &body)
       else
-        super(body, url, html_options) do
-          body
-        end
+        super(url, html_options) { body }
       end
     end
   end
