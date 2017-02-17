@@ -104,10 +104,10 @@ describe "Explore meetings", type: :feature do
         start_time: date.beginning_of_day,
         end_time: date.end_of_day
       )
+      visit decidim_meetings.meeting_path(participatory_process_id: participatory_process.id, feature_id: feature.id, id: meeting.id)
     end
 
     it "shows all meeting info" do
-      visit decidim_meetings.meeting_path(participatory_process_id: participatory_process.id, feature_id: feature.id, id: meeting.id)
       expect(page).to have_i18n_content(meeting.title)
       expect(page).to have_i18n_content(meeting.description)
       expect(page).to have_i18n_content(meeting.location)
@@ -122,8 +122,7 @@ describe "Explore meetings", type: :feature do
 
     context "without category or scope" do
       it "does not show any tag" do
-        visit decidim_meetings.meeting_path(participatory_process_id: participatory_process.id, feature_id: feature.id, id: meeting.id)
-        expect(page).not_to have_selector("ul.tags.tags--meeting")
+          expect(page).not_to have_selector("ul.tags.tags--meeting")
       end
     end
 
@@ -136,16 +135,14 @@ describe "Explore meetings", type: :feature do
       end
 
       it "shows tags for category" do
-        visit decidim_meetings.meeting_path(participatory_process_id: participatory_process.id, feature_id: feature.id, id: meeting.id)
-        expect(page).to have_selector("ul.tags.tags--meeting")
+          expect(page).to have_selector("ul.tags.tags--meeting")
         within "ul.tags.tags--meeting" do
           expect(page).to have_content(translated(meeting.category.name))
         end
       end
 
       it "links to the filter for this category" do
-        visit decidim_meetings.meeting_path(participatory_process_id: participatory_process.id, feature_id: feature.id, id: meeting.id)
-        within "ul.tags.tags--meeting" do
+          within "ul.tags.tags--meeting" do
           click_link translated(meeting.category.name)
         end
         expect(page).to have_select("filter_category_id", selected: translated(meeting.category.name))
@@ -161,7 +158,6 @@ describe "Explore meetings", type: :feature do
       end
 
       it "shows tags for scope" do
-        visit decidim_meetings.meeting_path(participatory_process_id: participatory_process.id, feature_id: feature.id, id: meeting.id)
         expect(page).to have_selector("ul.tags.tags--meeting")
         within "ul.tags.tags--meeting" do
           expect(page).to have_content(meeting.scope.name)
@@ -169,7 +165,6 @@ describe "Explore meetings", type: :feature do
       end
 
       it "links to the filter for this scope" do
-        visit decidim_meetings.meeting_path(participatory_process_id: participatory_process.id, feature_id: feature.id, id: meeting.id)
         within "ul.tags.tags--meeting" do
           click_link meeting.scope.name
         end
