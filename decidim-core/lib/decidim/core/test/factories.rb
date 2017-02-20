@@ -139,8 +139,21 @@ FactoryGirl.define do
     phone { Faker::PhoneNumber.phone_number }
     avatar { test_file("avatar.jpg", "image/jpeg") }
 
+    transient do
+      users []
+    end
+
     trait :verified do
       verified_at { Time.current }
+    end
+
+    after(:create) do |user_group, evaluator|
+      users = evaluator.users
+      next if users.empty?
+
+      users.each do |user|
+        create(:user_group_membership, user: user, user_group: user_group)
+      end
     end
   end
 
