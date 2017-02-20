@@ -104,6 +104,7 @@ describe "Explore meetings", type: :feature do
         start_time: date.beginning_of_day,
         end_time: date.end_of_day
       )
+
       visit decidim_meetings.meeting_path(participatory_process_id: participatory_process.id, feature_id: feature.id, id: meeting.id)
     end
 
