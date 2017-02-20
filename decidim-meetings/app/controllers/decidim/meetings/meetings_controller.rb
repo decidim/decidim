@@ -14,22 +14,22 @@ module Decidim
         if !params[:filter] && results.length == 0
           params[:filter] = {
             date: "past",
-            meetings_warning: true
+            no_upcoming_meetings: true
           }
           results = search_klass.new(search_params).results
           if results.length == 0
             params[:filter] = {
               date: "past",
-              meetings_warning: true,
-              meetings_alert: true
+              no_upcoming_meetings: true,
+              no_meetings_scheduled: true
             }
             results = search_klass.new(search_params).results
           end
         end
 
         params[:filter] ||= {}
-        @meetings_alert = params[:filter]["meetings_alert"]
-        @meetings_warning = params[:filter]["meetings_warning"]
+        @no_meetings_scheduled = params[:filter]["no_meetings_scheduled"]
+        @no_upcoming_meetings = params[:filter]["no_upcoming_meetings"]
         @meetings = results.page(params[:page]).per(12)
         @geocoded_meetings = results.select(&:geocoded?)
       end

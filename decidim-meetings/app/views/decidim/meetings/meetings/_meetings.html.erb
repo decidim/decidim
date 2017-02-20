@@ -1,5 +1,5 @@
-  <% if @meetings_warning %>
-    <% if @meetings_alert %>
+  <% if @no_upcoming_meetings %>
+    <% if @no_meetings_scheduled %>
       <div class="callout warning">
         <%= t ".no_meetings_warning" %>
       </div>
