@@ -24,10 +24,6 @@ module Decidim
       it "has an associated feature" do
         expect(page.feature).to be_a(Decidim::Feature)
       end
-
-      it "has an I18n title" do
-        expect(page.title).to be_a(Hash)
-      end
     end
   end
 end

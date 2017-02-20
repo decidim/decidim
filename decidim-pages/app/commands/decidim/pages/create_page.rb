@@ -9,10 +9,7 @@ module Decidim
       end
 
       def call
-        @page = Page.new(
-          title: @feature.name,
-          feature: @feature
-        )
+        @page = Page.new(feature: @feature)
 
         @page.save ? broadcast(:ok) : broadcast(:invalid)
       end

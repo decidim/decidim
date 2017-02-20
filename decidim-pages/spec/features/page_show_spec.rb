@@ -6,14 +6,6 @@ describe "Show a page", type: :feature do
   include_context "feature"
   let(:manifest_name) { "pages" }
 
-  let(:title) do
-    {
-      "en" => "Hello world",
-      "ca" => "Hola món",
-      "es" => "Hola mundo"
-    }
-  end
-
   let(:body) do
     {
       "en" => "<p>Content</p>",
@@ -22,7 +14,7 @@ describe "Show a page", type: :feature do
     }
   end
 
-  let!(:page_feature) { create(:page, feature: feature, title: title, body: body) }
+  let!(:page_feature) { create(:page, feature: feature, body: body) }
 
   describe "page show" do
     before do
@@ -30,7 +22,6 @@ describe "Show a page", type: :feature do
     end
 
     it "renders the content of the page" do
-      expect(page).to have_title("Hello world")
       expect(page).to have_content("Content")
     end
   end

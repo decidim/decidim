@@ -31,10 +31,9 @@ module Decidim
 
           it "creates a new page with the same name as the feature" do
             expect(Page).to receive(:new).with({
-              title: feature.name,
               feature: feature
             }).and_call_original
-            
+
             expect do
               command.call
             end.to change { Page.count }.by(1)

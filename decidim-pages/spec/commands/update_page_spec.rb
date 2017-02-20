@@ -11,7 +11,6 @@ module Decidim
         let(:page) { create(:page, feature: feature) }
         let(:form_params) do
           {
-            "title" => page.title,
             "body" => page.body,
             "page" => {
               "commentable" => false
