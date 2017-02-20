@@ -1,17 +1,11 @@
-  <% if @no_upcoming_meetings %>
-    <% if @no_meetings_scheduled %>
-      <div class="callout warning">
-        <%= t ".no_meetings_warning" %>
-      </div>
-    <% else %>
-      <div class="callout warning">
-        <%= t ".upcoming_meetings_warning" %>
-      </div>
-    <% end %>
+  <% if meetings.length == 0 %>
+    <div class="callout warning">
+      <%= t ".upcoming_meetings_warning" %>
+    </div>
   <% end %>
 
 <div class="row small-up-1 medium-up-2 card-grid">
-  <% @meetings.each do |meeting| %>
+  <% meetings.each do |meeting| %>
     <div class="column">
       <article class="card card--meeting">
         <div class="card__content">
@@ -32,4 +26,4 @@
     </div>
   <% end %>
 </div>
-<%= decidim_paginate @meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
+<%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>

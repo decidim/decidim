@@ -6,32 +6,20 @@ module Decidim
     class MeetingsController < Decidim::Meetings::ApplicationController
       include FilterResource
 
-      helper_method :meeting
+      helper_method :meetings, :geocoded_meetings, :meeting
 
       def index
-        results = search.results
-
-        if !params[:filter] && results.length == 0
-          params[:filter] = {
-            date: "past",
-            no_upcoming_meetings: true
-          }
-          results = search_klass.new(search_params).results
-          if results.length == 0
-            params[:filter] = {
-              date: "past",
-              no_upcoming_meetings: true,
-              no_meetings_scheduled: true
-            }
-            results = search_klass.new(search_params).results
-          end
+        if search.results.length == 0 && params.dig("filter", "date") != "past" # Maybe this could be extracted to a method
+          @search = search_klass.new(search_params.merge(filter: { date: "past" }))
         end
+      end
 
-        params[:filter] ||= {}
-        @no_meetings_scheduled = params[:filter]["no_meetings_scheduled"]
-        @no_upcoming_meetings = params[:filter]["no_upcoming_meetings"]
-        @meetings = results.page(params[:page]).per(12)
-        @geocoded_meetings = results.select(&:geocoded?)
+      def meetings
+        @meetings ||= search.results.page(params[:page]).per(12)
+      end
+
+      def geocoded_meetings
+        @geocoded_meetings ||= search.results.select(&:geocoded?)
       end
 
       def static_map

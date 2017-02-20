@@ -12,13 +12,7 @@
     </div>
   </div>
 
-  <% unless @no_upcoming_meetings %>
-    <%= form.collection_radio_buttons :date, [["upcoming", t(".upcoming")], ["past", t(".past")]], :first, :last, legend_title: t(".date") %>
-  <% else %>
-    <%= form.hidden_field :date, value: "past" %>
-    <%= form.hidden_field :no_upcoming_meetings, value: @no_upcoming_meetings %>
-    <%= form.hidden_field :no_meetings_scheduled, value: @no_meetings_scheduled %>
-  <% end %>
+  <%= form.collection_radio_buttons :date, [["upcoming", t(".upcoming")], ["past", t(".past")]], :first, :last, legend_title: t(".date") %>
 
   <% if current_organization.scopes.any? %>
     <%= form.collection_check_boxes :scope_id, current_organization.scopes, lambda {|scope| scope.id.to_s}, :name, legend_title: t(".scopes") %>
