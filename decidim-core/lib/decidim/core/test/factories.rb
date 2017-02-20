@@ -31,7 +31,7 @@ FactoryGirl.define do
 
   factory :organization, class: Decidim::Organization do
     name { Faker::Company.unique.name }
-    custom_reference { Faker::Name.suffix }
+    reference_prefix { Faker::Name.suffix }
     twitter_handler { Faker::Hipster.word }
     facebook_handler { Faker::Hipster.word }
     instagram_handler { Faker::Hipster.word }

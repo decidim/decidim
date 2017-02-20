@@ -24,7 +24,7 @@ module Decidim
       #
       # Returns nothing.
       def set_reference
-        ref = organization.custom_reference
+        ref = organization.reference_prefix
         class_identifier = self.class.name.demodulize[0..3].upcase
         year_month = created_at.strftime("%Y-%m")
 

@@ -10,7 +10,7 @@ module Decidim
       mimic :organization
 
       attribute :name, String
-      attribute :custom_reference, String
+      attribute :reference_prefix, String
       attribute :twitter_handler, String
       attribute :facebook_handler, String
       attribute :instagram_handler, String
