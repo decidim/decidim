@@ -11,6 +11,7 @@ module Decidim
     has_many :users, foreign_key: "decidim_organization_id", class_name: Decidim::User
 
     validates :name, :host, uniqueness: true
+    validates :custom_reference, presence: true
 
     mount_uploader :homepage_image, Decidim::HomepageImageUploader
     mount_uploader :official_img_header, Decidim::OfficialImageHeaderUploader

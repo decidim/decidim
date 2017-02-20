@@ -6,6 +6,7 @@ module Decidim
   module Admin
     describe OrganizationForm do
       let(:name) { "My super organization" }
+      let(:custom_reference) { "MSO" }
       let(:twitter_handler) { "My twitter awesome handler" }
       let(:facebook_handler) { "My facebook awesome handler" }
       let(:instagram_handler) { "My instagram awesome handler" }
@@ -30,6 +31,7 @@ module Decidim
         {
           "organization" => {
             "name" => name,
+            "custom_reference" => custom_reference,
             "default_locale" => :en,
             "available_locales" => %w{en ca es},
             "welcome_text_en" => welcome_text[:en],
