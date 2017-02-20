@@ -8,14 +8,6 @@ module Decidim
       describe PageForm do
         let(:current_organization) { create(:organization) }
 
-        let(:title) do
-          {
-            "en" => "Hello world",
-            "ca" => "Hola món",
-            "es" => "Hola mundo"
-          }
-        end
-
         let(:body) do
           {
             "en" => "<p>Content</p>",
@@ -29,7 +21,6 @@ module Decidim
         let(:attributes) do
           {
             "page" => {
-              "title" => title,
               "body" => body,
               "commentable" => commentable
             }
@@ -44,18 +35,6 @@ module Decidim
 
         context "when everything is OK" do
           it { is_expected.to be_valid }
-        end
-
-        context "when any title translation is blank" do
-          let(:title) do
-            {
-              "en" => "Hello world",
-              "ca" => "Hola món",
-              "es" => ""
-            }
-          end
-
-          it { is_expected.not_to be_valid }
         end
       end
     end

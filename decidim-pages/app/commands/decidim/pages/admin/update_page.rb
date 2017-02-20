@@ -27,10 +27,7 @@ module Decidim
         private
 
         def update_page
-          @page.update_attributes!(
-            title: @form.title,
-            body: @form.body
-          )
+          @page.update_attributes!(body: @form.body)
         end
       end
     end

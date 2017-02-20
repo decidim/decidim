@@ -9,7 +9,7 @@ module Decidim
       belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
       has_one :organization, through: :feature
 
-      validates :title, :feature, presence: true
+      validates :feature, presence: true
       validate :feature_manifest_matches
 
       # Public: Overrides the `commentable?` Commentable concern method.

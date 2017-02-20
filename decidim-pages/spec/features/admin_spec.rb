@@ -9,16 +9,8 @@ describe "Edit a page", type: :feature do
 
   describe "admin page" do
     before do
-      create(:page, feature: feature, title: title, body: body)
+      create(:page, feature: feature, body: body)
       visit_feature_admin
-    end
-
-    let(:title) do
-      {
-        "en" => "Hello world",
-        "ca" => "Hola món",
-        "es" => "Hola mundo"
-      }
     end
 
     let(:body) do
@@ -30,12 +22,6 @@ describe "Edit a page", type: :feature do
     end
 
     it "updates the page" do
-      new_title = {
-        en: "New title",
-        ca: "Nou títol",
-        es: "Nuevo título"
-      }
-
       new_body = {
         en: "<p>New body</p>",
         ca: "<p>Nou cos</p>",
@@ -43,7 +29,6 @@ describe "Edit a page", type: :feature do
       }
 
       within "form.edit_page" do
-        fill_in_i18n(:page_title, "#title-tabs", new_title)
         fill_in_i18n_editor(:page_body, "#body-tabs", new_body)
         find("*[type=submit]").click
       end
@@ -54,7 +39,6 @@ describe "Edit a page", type: :feature do
 
       visit_feature
 
-      expect(page).to have_title("New title")
       expect(page).to have_content("New body")
     end
   end

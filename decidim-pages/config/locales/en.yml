@@ -14,7 +14,6 @@ en:
         models:
           components:
             body: Body
-            title: Title
         pages:
           edit:
             save: Save page

@@ -40,7 +40,6 @@ Decidim.register_feature(:pages) do |feature|
 
       page = Decidim::Pages::Page.create!(
         feature: feature,
-        title: Decidim::Faker::Localized.sentence(2),
         body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end
