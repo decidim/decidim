@@ -183,7 +183,7 @@ export class AddCommentForm extends Component {
     const koButtonClassName = classnames(buttonClassName, 'opinion-toggle--ko', {
       'is-active': alignment === -1
     });
-    const neutralButtonClassName = classnames(buttonClassName, 'opinion-toggle--neutral', {
+    const neutralButtonClassName = classnames(buttonClassName, 'opinion-toggle--meh', {
       'is-active': alignment === 0
     });
 
@@ -194,7 +194,7 @@ export class AddCommentForm extends Component {
             className={okButtonClassName}
             onClick={() => this.setState({ alignment: 1 })}
           >
-            <Icon name="icon-thumb-up" />
+            <Icon iconExtraClassName="" name="icon-thumb-up" />
           </button>
           <button
             className={neutralButtonClassName}
@@ -206,7 +206,7 @@ export class AddCommentForm extends Component {
             className={koButtonClassName}
             onClick={() => this.setState({ alignment: -1 })}
           >
-            <Icon name="icon-thumb-down" />
+            <Icon iconExtraClassName="" name="icon-thumb-down" />
           </button>
         </div>
       );
