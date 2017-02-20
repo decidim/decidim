@@ -8,6 +8,7 @@ module Decidim
       include FormFactory
       include LocaleSwitcher
       helper Decidim::DecidimFormHelper
+      helper Decidim::ReplaceButtonsHelper
 
       helper Decidim::LanguageChooserHelper
 

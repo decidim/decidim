@@ -61,9 +61,9 @@ describe("<AddCommentForm />", () => {
 
   it("should use prop submitButtonClassName as a className prop for submit button", () => {
     const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} submitButtonClassName="button small hollow" />);
-    expect(wrapper.find('input[type="submit"]')).to.have.className('button');
-    expect(wrapper.find('input[type="submit"]')).to.have.className('small');
-    expect(wrapper.find('input[type="submit"]')).to.have.className('hollow');
+    expect(wrapper.find('button[type="submit"]')).to.have.className('button');
+    expect(wrapper.find('button[type="submit"]')).to.have.className('small');
+    expect(wrapper.find('button[type="submit"]')).to.have.className('hollow');
   });
 
   it("should enable the submit button if textarea is not blank", () => {
@@ -73,7 +73,7 @@ describe("<AddCommentForm />", () => {
         value: 'This is a comment'
       }
     });
-    expect(wrapper.find('input[type="submit"]')).not.to.be.disabled();
+    expect(wrapper.find('button[type="submit"]')).not.to.be.disabled();
   });
 
   it("should disable the submit button if textarea is blank", () => {
@@ -88,7 +88,7 @@ describe("<AddCommentForm />", () => {
         value: ''
       }
     });
-    expect(wrapper.find('input[type="submit"]')).to.be.disabled();
+    expect(wrapper.find('button[type="submit"]')).to.be.disabled();
   });
 
   it("should not render a div with class 'opinion-toggle'", () => {

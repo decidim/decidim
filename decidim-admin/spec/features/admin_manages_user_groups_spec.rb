@@ -5,7 +5,7 @@ require "spec_helper"
 
 describe "Admin manage user groups", type: :feature do
   include_context "participatory process admin"
-  let!(:user_groups) { create_list(:user_group_membership, 10, user: create(:user, organization: organization)) }
+  let!(:user_groups) { create_list(:user_group, 10, users: [create(:user, organization: organization)]) }
 
   before do
     switch_to_host(organization.host)
@@ -13,10 +13,17 @@ describe "Admin manage user groups", type: :feature do
     visit decidim_admin.user_groups_path
   end
 
-  it "verify a user group" do
-    click_button "Verify", match: :first
+  let(:user_group) { user_groups.first }
 
-    expect(page).not_to have_selector(".actions button", match: :first)
+  it "verifies a user group" do
+    within "tr[data-user-group-id=\"#{user_group.id}\"]" do
+      click_button "Verify", match: :first
+    end
+
     expect(page).to have_content("verified successfully")
+
+    within "tr[data-user-group-id=\"#{user_group.id}\"]" do
+      expect(page).to have_no_selector(".actions button", match: :first)
+    end
   end
 end

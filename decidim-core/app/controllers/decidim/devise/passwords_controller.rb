@@ -5,11 +5,13 @@ module Decidim
     class PasswordsController < ::Devise::PasswordsController
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
+
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::LanguageChooserHelper
       helper Decidim::CookiesHelper
+      helper Decidim::ReplaceButtonsHelper
 
       layout "layouts/decidim/application"
     end

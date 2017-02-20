@@ -5,9 +5,11 @@ module Decidim
     include Decidim::NeedsOrganization
     include Decidim::LocaleSwitcher
     include NeedsAuthorization
+
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
     helper Decidim::LanguageChooserHelper
+    helper Decidim::ReplaceButtonsHelper
 
     protect_from_forgery with: :exception, prepend: true
     after_action :add_vary_header
