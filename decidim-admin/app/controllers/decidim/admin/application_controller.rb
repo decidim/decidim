@@ -7,7 +7,6 @@ module Decidim
       include NeedsAuthorization
       include FormFactory
       include LocaleSwitcher
-      helper Decidim::ReplaceButtonsHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
 
