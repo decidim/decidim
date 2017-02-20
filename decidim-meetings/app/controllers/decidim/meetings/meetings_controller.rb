@@ -10,7 +10,13 @@ module Decidim
 
       def index
         if search.results.length == 0 && params.dig("filter", "date") != "past" # Maybe this could be extracted to a method
-          @search = search_klass.new(search_params.merge(filter: { date: "past" }))
+          @past_meetings = search_klass.new(search_params.merge(date: "past" ))
+          if @past_meetings.results.length > 0
+            params[:filter] ||= {}
+            params[:filter][:date] = "past"
+            @forced_past_meetings = true
+            @search = @past_meetings
+          end
         end
       end
 
