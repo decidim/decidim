@@ -3,6 +3,11 @@ ca:
     features:
       results:
         name: Resultats
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+          step:
+            comments_blocked: Comentaris bloquejats
     resource_links:
       included_proposals:
         proposals: Propostes incloses en aquest resultat
@@ -49,8 +54,6 @@ ca:
           category: Categoria
           scopes: Àmbits
           search: Cerca
-        index:
-          meta_title: "%{feature_name}"
         show:
           stats:
             attendees: Assistents

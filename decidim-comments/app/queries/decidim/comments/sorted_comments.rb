@@ -2,7 +2,7 @@
 module Decidim
   module Comments
     # A class used to find comments for a commentable resource
-    class CommentsWithReplies < Rectify::Query
+    class SortedComments < Rectify::Query
       attr_reader :commentable
 
       # Syntactic sugar to initialize the class and return the queried objects.
@@ -32,11 +32,6 @@ module Decidim
         scope = Comment
                 .where(commentable: commentable)
                 .includes(:author, :up_votes, :down_votes)
-                .includes(
-                  replies: [:author, :up_votes, :down_votes,
-                            replies: [:author, :up_votes, :down_votes,
-                                      replies: [:author, :up_votes, :down_votes]]]
-                )
 
         scope = case @options[:order_by]
                 when "older"
@@ -77,8 +72,8 @@ module Decidim
       end
 
       def count_replies(comment)
-        if comment.replies.size.positive?
-          comment.replies.size + comment.replies.map { |reply| count_replies(reply) }.sum
+        if comment.comments.size.positive?
+          comment.comments.size + comment.comments.sum { |reply| count_replies(reply) }
         else
           0
         end

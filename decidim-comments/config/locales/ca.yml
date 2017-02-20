@@ -2,7 +2,7 @@ ca:
   activerecord:
     errors:
       messages:
-        cannot_have_replies: no pot tenir respostes
+        cannot_have_comments: no pot tenir comentaris
   decidim:
     comments:
       comment_notification_mailer:
@@ -21,6 +21,7 @@ ca:
             subject: Tens una nova resposta del teu comentari
     components:
       add_comment_form:
+        account_message: "<a href=\"%{sign_in_url}\">Entra amb el teu compte</a> o <a href=\"%{sign_up_url}\">registra't</a> per a deixar un comentari.\n"
         form:
           body:
             label: Comentari
@@ -47,6 +48,7 @@ ca:
       comment_thread:
         title: Conversa amb %{authorName}
       comments:
+        blocked_comments_warning: Els comentaris estan desactivats a la fase actual però pots llegir els comentaris de les fases anteriors.
         loading: Carregant els comentaris ...
         title: "%{count} comentaris"
       featured_comment:

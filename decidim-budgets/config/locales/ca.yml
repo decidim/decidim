@@ -71,8 +71,6 @@ ca:
           category: Categoria
           scopes: Àmbits
           search: Cerca
-        index:
-          meta_title: "%{feature_name}"
         order_progress:
           vote: Votar
         order_selected_projects:
@@ -93,6 +91,13 @@ ca:
     features:
       budgets:
         name: Pressupostos
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+            total_budget: Pressupost total
+            vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
+          step:
+            comments_blocked: Comentaris bloquejats
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot

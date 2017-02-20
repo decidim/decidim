@@ -1,0 +1,34 @@
+<% add_decidim_page_title(t(".title")) %>
+
+<main class="wrapper">
+  <div class="row column">
+    <h1 class="heading1 page-title"><%= t ".title" %></h1>
+  </div>
+  <div class="row">
+    <div class="columns large-8">
+      <div class="card card--list">
+        <% @pages.each do |page| %>
+          <div class="card--list__item">
+            <div class="card--list__text">
+              <div>
+                <%= link_to page_path(page), class: "card__link" do %>
+                  <h6 class="card--list__heading heading6">
+                    <%= translated_attribute page.title %>
+                  </h6>
+                  <span class="text-small">
+                    <%= truncate strip_tags(translated_attribute(page.content)), length: 100 %>
+                  </span>
+                <% end %>
+              </div>
+            </div>
+            <div class="card--list__data">
+              <%= link_to page_path(page), class: "card--list__data__icon" do %>
+                <%= icon "chevron-right" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

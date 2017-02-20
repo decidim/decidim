@@ -50,6 +50,11 @@ ca:
         name: exemple d'autorització
       errors:
         duplicate_authorization: Un usuari ja està autoritzat amb les mateixes dades.
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Autorització foo
     authorizations:
       create:
         error: S'ha produït un error en crear l'autorització.
@@ -59,7 +64,7 @@ ca:
         actions:
           decidim/dummy_authorization_handler: Verificar contra l'exemple d'autorització
         title: Verificar la teva identitat
-        verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la seva identitat:'
+        verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
       new:
         authorize: Enviar
         authorize_with: Verificar-me amb %{authorizer}
@@ -97,10 +102,26 @@ ca:
       shared:
         omniauth_buttons:
           or: O
+    features:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Funcionalitat de prova
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+            dummy_global_attribute_1: Atribut de prova 1
+            dummy_global_attribute_2: Atribut de prova 2
+          step:
+            comments_blocked: Comentaris bloquejats
+            dummy_step_attribute_1: Atribut de fase de prova 1
+            dummy_step_attribute_2: Atribut de fase de prova 2
     filters:
       linked_classes:
         all: Tots
         meeting: Trobades
+        project: Projectes
         proposal: propostes
         result: Resultats
     forms:
@@ -108,7 +129,11 @@ ca:
         error: Hi ha un error en aquest camp.
     menu:
       home: Inici
+      more_information: Més informació
       processes: Processos
+    newsletter_mailer:
+      newsletter:
+        note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
     notifications_settings:
       show:
         comments_notifications: Vull rebre notificacions quan algú comenta a les meves publicacions.
@@ -122,6 +147,9 @@ ca:
       index:
         not_verified: No verificada
         verified: Verificada
+    pages:
+      index:
+        title: Més informació
     participatory_process_steps:
       index:
         process_steps: Fases del procés
@@ -271,7 +299,6 @@ ca:
         welcome: Benvingut a %{organization}!
       highlighted_processes:
         active_step: Fase activa
-        highlighted_processes: Processos destacats
         see_all_processes: Veure tots els processos
       statistics:
         headline: Estat actual de %{organization}

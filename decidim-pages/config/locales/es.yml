@@ -5,9 +5,9 @@ es:
         name: Página
         settings:
           global:
-            comments_always_enabled: Comentarios siempre habilitados
-          step:
             comments_enabled: Comentarios habilitados
+          step:
+            comments_blocked: Comentarios bloqueados
     pages:
       admin:
         models:

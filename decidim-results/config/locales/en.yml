@@ -4,6 +4,11 @@ en:
     features:
       results:
         name: Results
+        settings:
+          global:
+            comments_enabled: Comments enabled
+          step:
+            comments_blocked: Comments blocked
     resource_links:
       included_proposals:
         proposals: Proposals included in this result
@@ -50,8 +55,6 @@ en:
           category: Category
           scopes: Scopes
           search: Search
-        index:
-          meta_title: "%{feature_name}"
         show:
           stats:
             attendees: Attendees

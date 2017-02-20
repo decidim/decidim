@@ -51,6 +51,11 @@ en:
         name: Example authorization
       errors:
         duplicate_authorization: A user is already authorized with the same data.
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Foo authorization
     authorizations:
       create:
         error: There was an error creating the authorization.
@@ -98,10 +103,26 @@ en:
       shared:
         omniauth_buttons:
           or: Or
+    features:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Dummy Feature
+        settings:
+          global:
+            comments_enabled: Comments enabled
+            dummy_global_attribute_1: Dummy Attribute 1
+            dummy_global_attribute_2: Dummy Attribute 2
+          step:
+            comments_blocked: Comments blocked
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     filters:
       linked_classes:
         all: All
         meeting: Meetings
+        project: Projects
         proposal: Proposals
         result: Results
     forms:
@@ -109,7 +130,11 @@ en:
         error: There's an error in this field.
     menu:
       home: Home
+      more_information: More information
       processes: Processes
+    newsletter_mailer:
+      newsletter:
+        note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
     notifications_settings:
       show:
         comments_notifications: I want to receive email notifications when someone comments in my publications.
@@ -123,6 +148,9 @@ en:
       index:
         not_verified: Not verified
         verified: Verified
+    pages:
+      index:
+        title: More information
     participatory_process_steps:
       index:
         process_steps: Process steps
@@ -264,16 +292,15 @@ en:
         proposals: Proposals
         proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
       footer_sub_hero:
-        footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br />
-                              Join, participate and decide.
+        footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
         footer_sub_hero_headline: Welcome to %{organization} participatory platform.
         register: Register
       hero:
         participate: Participate
         welcome: Welcome to %{organization}!
       highlighted_processes:
+        active_processes: Active processes
         active_step: Active step
-        highlighted_processes: Highlighted processes
         see_all_processes: See all processes
       statistics:
         headline: Current state of %{organization}

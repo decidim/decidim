@@ -3,7 +3,7 @@ require "spec_helper"
 
 describe "Comments", type: :feature do
   let!(:organization) { create(:organization) }
-  let!(:feature) { create(:feature, organization: organization) }
+  let!(:feature) { create(:feature, manifest_name: :dummy, organization: organization) }
   let!(:user) { create(:user, :confirmed, organization: organization) }
   let!(:commentable) { create(:dummy_resource, feature: feature) }
   let!(:comments) {
@@ -11,17 +11,22 @@ describe "Comments", type: :feature do
       create(:comment, commentable: commentable)
     end
   }
+  let(:authenticated) { false }
 
-  def visit_commentable_path(options = {})
-    visit decidim_dummy.dummy_resource_path(commentable, feature_id: commentable.feature, participatory_process_id: commentable.feature.participatory_process, arguable: options[:arguable], votable: options[:votable])
+  def visit_commentable_path
+    if authenticated
+      login_as user, scope: :user
+    end
+    visit decidim_dummy.dummy_resource_path(commentable, feature_id: commentable.feature, participatory_process_id: commentable.feature.participatory_process)
   end
 
   before do
     switch_to_host(organization.host)
-    visit_commentable_path
   end
 
   it "user should see a list of comments" do
+    visit_commentable_path
+
     expect(page).to have_selector("#comments")
     expect(page).to have_selector("article.comment", count: comments.length)
 
@@ -51,25 +56,27 @@ describe "Comments", type: :feature do
 
   context "when not authenticated" do
     it "user should not see the form to add comments" do
+      visit_commentable_path
       expect(page).not_to have_selector(".add-comment form")
     end
   end
 
   context "when authenticated" do
-    before do
-      login_as user, scope: :user
-      visit_commentable_path
-    end
+    let(:authenticated) { true }
 
-    it "user should not see the form to add comments" do
+    it "user sees the form to add comments" do
+      visit_commentable_path
+
       expect(page).to have_selector(".add-comment form")
     end
 
     it "user can add a new comment" do
+      visit_commentable_path
+
       expect(page).to have_selector(".add-comment form")
 
       within ".add-comment form" do
-        fill_in "add-comment-#{commentable.class.name}-#{commentable.id}", with: "This is a new comment"
+        fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "This is a new comment"
         click_button "Send"
       end
 
@@ -84,14 +91,15 @@ describe "Comments", type: :feature do
 
       before do
         create(:user_group_membership, user: user, user_group: user_group)
-        visit_commentable_path
       end
 
       it "user can add a new comment as a user group" do
+        visit_commentable_path
+
         expect(page).to have_selector(".add-comment form")
 
         within ".add-comment form" do
-          fill_in "add-comment-#{commentable.class.name}-#{commentable.id}", with: "This is a new comment"
+          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "This is a new comment"
           select user_group.name, from: "Comment as"
           click_button "Send"
         end
@@ -121,16 +129,18 @@ describe "Comments", type: :feature do
 
     context "when arguable option is enabled" do
       before do
-        visit_commentable_path arguable: true
+        expect_any_instance_of(Decidim::DummyResource).to receive(:comments_have_alignment?).and_return(true)
       end
 
       it "user can comment in favor" do
+        visit_commentable_path
+
         expect(page).to have_selector(".add-comment form")
 
         page.find('.opinion-toggle--ok').click
 
         within ".add-comment form" do
-          fill_in "add-comment-#{commentable.class.name}-#{commentable.id}", with: "I am in favor about this!"
+          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "I am in favor about this!"
           click_button "Send"
         end
 
@@ -142,10 +152,12 @@ describe "Comments", type: :feature do
 
     context "when votable option is enabled" do
       before do
-        visit_commentable_path votable: true
+        expect_any_instance_of(Decidim::DummyResource).to receive(:comments_have_votes?).and_return(true)
       end
 
       it "user can upvote a comment" do
+        visit_commentable_path
+
         within "#comment_#{comments[0].id}" do
           expect(page).to have_selector('.comment__votes--up', text: /0/)
           page.find('.comment__votes--up').click
@@ -154,6 +166,8 @@ describe "Comments", type: :feature do
       end
 
       it "user can downvote a comment" do
+        visit_commentable_path
+
         within "#comment_#{comments[0].id}" do
           expect(page).to have_selector('.comment__votes--down', text: /0/)
           page.find('.comment__votes--down').click

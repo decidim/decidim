@@ -3,22 +3,28 @@ module Decidim
   module Comments
     # A helper to expose the comments component for a commentable
     module CommentsHelper
-      # Creates a Comments component which is rendered using `react_ujs`
-      # from react-rails gem
+      # Render commentable comments inside the `expanded` template content.
       #
       # resource - A commentable resource
-      # options - A hash of options (default: {})
-      #           :arguable - A boolean value to indicate if tihs option is available
+      def comments_for(resource)
+        return unless resource.commentable?
+        content_for :expanded do
+          inline_comments_for(resource)
+        end
+      end
+
+      # Creates a Comments component which is rendered using `ReactDOM`
       #
-      # Returns a div which contain a RectComponent to be rendered by `react_ujs`
-      def comments_for(resource, options = {})
-        commentable_type = resource.class.name
+      # resource - A commentable resource
+      #
+      # Returns a div which contain a RectComponent
+      def inline_comments_for(resource)
+        return unless resource.commentable?
+        commentable_type = resource.commentable_type
         commentable_id = resource.id.to_s
         node_id = "comments-for-#{commentable_type.demodulize}-#{commentable_id}"
-
         react_comments_component(node_id, commentableType: commentable_type,
                                           commentableId: commentable_id,
-                                          options: options.slice(:arguable, :votable),
                                           locale: I18n.locale)
       end
 
@@ -35,7 +41,6 @@ module Decidim
               {
                 commentableType: "#{props[:commentableType]}",
                 commentableId: "#{props[:commentableId]}",
-                options: JSON.parse("#{j(props[:options].to_json)}"),
                 locale: "#{props[:locale]}"
               }
             );

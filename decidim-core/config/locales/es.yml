@@ -50,6 +50,11 @@ es:
         name: ejemplo de autorización
       errors:
         duplicate_authorization: Un usuario ya está autorizado con los mismos datos.
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Autorización foo
     authorizations:
       create:
         error: Se ha producido un error al crear la autorización.
@@ -97,10 +102,26 @@ es:
       shared:
         omniauth_buttons:
           or: O
+    features:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Funcionalidad de prueba
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+            dummy_global_attribute_1: Atributo de prueba 1
+            dummy_global_attribute_2: Atributo de prueba 2
+          step:
+            comments_blocked: Comentarios bloqueados
+            dummy_step_attribute_1: Atributo de fase de prueba 1
+            dummy_step_attribute_2: Atributo de fase de prueba 2
     filters:
       linked_classes:
         all: Todas
         meeting: Encuentros
+        project: Proyectos
         proposal: Propuestas
         result: Resultados
     forms:
@@ -108,7 +129,11 @@ es:
         error: Hay un error en este campo.
     menu:
       home: Inicio
+      more_information: Más información
       processes: Procesos
+    newsletter_mailer:
+      newsletter:
+        note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
     notifications_settings:
       show:
         comments_notifications: Quiero recibir notificaciones cuando alguien comenta en mis publicaciones.
@@ -122,6 +147,9 @@ es:
       index:
         not_verified: No verificada
         verified: Verificada
+    pages:
+      index:
+        title: Más información
     participatory_process_steps:
       index:
         process_steps: Las fases de proceso
@@ -271,7 +299,6 @@ es:
         welcome: Bienvenido a %{organization}!
       highlighted_processes:
         active_step: Fase activa
-        highlighted_processes: Procesos destacados
         see_all_processes: Ver todos los procesos
       statistics:
         headline: Estado actual de %{organization}

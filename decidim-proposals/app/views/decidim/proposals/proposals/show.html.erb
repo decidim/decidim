@@ -1,4 +1,4 @@
-<% add_meta_tags({
+<% add_decidim_meta_tags({
   description: @proposal.body,
   title: @proposal.title,
   url: proposal_url(@proposal.id)
@@ -66,11 +66,7 @@
   </div>
 </div>
 
-<%= content_for :expanded do %>
-  <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
-    <%= comments_for @proposal, arguable: true, votable: true %>
-  <% end %>
-<% end %>
+<%= comments_for @proposal %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>

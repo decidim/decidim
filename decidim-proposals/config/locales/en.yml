@@ -16,8 +16,16 @@ en:
           vote: Vote
         name: Proposals
         settings:
+          global:
+            comments_enabled: Comments enabled
+            official_proposals_enabled: Official proposals enabled
+            proposal_answering_enabled: Proposal answering enabled
+            scoped_proposals_enabled: Scoped proposals enabled
+            vote_limit: Vote limit
           step:
+            comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
+            proposal_answering_enabled: Proposal answering enabled
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
     proposals:
@@ -90,7 +98,6 @@ en:
           filter_for: Filter by
           unfold: Unfold
         index:
-          meta_title: "%{feature_name}"
           new_proposal: New proposal
         linked_proposals:
           proposal_votes:

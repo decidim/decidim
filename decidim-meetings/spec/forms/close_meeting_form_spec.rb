@@ -53,7 +53,7 @@ module Decidim
         describe "when contributions_count is missing" do
           let(:contributions_count) { nil }
 
-          it { is_expected.not_to be_valid }
+          it { is_expected.to be_valid }
         end
 
         describe "when contributions_count is invalid" do

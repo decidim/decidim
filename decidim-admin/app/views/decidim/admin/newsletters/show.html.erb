@@ -1,0 +1,14 @@
+<h3><%= t ".preview" %></h3>
+
+<dl>
+  <dt><%= t ".subject" %></dt>
+  <dd><%= @email.subject %></dd>
+</dl>
+
+<iframe src="<%= preview_newsletter_path(@newsletter) %>" class="email-preview">
+</iframe>
+
+<div class="actions">
+  <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', @newsletter] %>
+  <%= link_to t(".deliver"), deliver_newsletter_path(@newsletter), method: :post, class: "button", data: { confirm: t(".confirm_deliver") } %>
+</div>

@@ -1,6 +1,4 @@
-<% provide(:title, translated_attribute(result.title)) %>
-
-<% add_meta_tags({
+<% add_decidim_meta_tags({
   description: translated_attribute(result.description),
   title: translated_attribute(result.title),
   url: result_url(result.id)
@@ -52,11 +50,7 @@
   </div>
 </div>
 
-<%= content_for :expanded do %>
-  <% if feature_settings.comments_always_enabled || current_settings.comments_enabled %>
-    <%= comments_for result, arguable: true, votable: true %>
-  <% end %>
-<% end %>
+<%= comments_for result %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>

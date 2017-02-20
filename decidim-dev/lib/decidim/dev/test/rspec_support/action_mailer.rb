@@ -2,9 +2,7 @@
 require "nokogiri"
 
 RSpec.configure do |config|
-  config.before(:each) do
-    ActionMailer::Base.deliveries.clear
-  end
+  config.before(:each) { clear_emails }
 end
 
 # A set of helpers meant to make your life easier when testing
@@ -15,12 +13,20 @@ module MailerHelpers
     ActionMailer::Base.deliveries
   end
 
+  def clear_emails
+    ActionMailer::Base.deliveries.clear
+  end
+
   def last_email
     emails.last
   end
 
   def last_email_body
-    (last_email.try(:html_part).try(:body) || last_email.body).encoded
+    email_body(last_email)
+  end
+
+  def email_body(email)
+    (email.try(:html_part).try(:body) || email.body).encoded
   end
 
   def last_email_link

@@ -14,7 +14,6 @@ require "foundation-rails"
 require "foundation_rails_helper"
 require "active_link_to"
 require "rectify"
-require "roadie-rails"
 require "carrierwave"
 require "high_voltage"
 require "rails-i18n"
@@ -28,6 +27,8 @@ require "omniauth-facebook"
 require "omniauth-twitter"
 require "omniauth-google-oauth2"
 require "invisible_captcha"
+require "premailer/rails"
+require "nokogiri"
 
 require "decidim/api"
 
@@ -85,6 +86,10 @@ module Decidim
 
       initializer "decidim.query_extensions" do
         QueryExtensions.extend!(Decidim::Api::QueryType)
+      end
+
+      initializer "decidim.i18n_exceptions" do
+        ActionView::Base.raise_on_missing_translations = true unless Rails.env.production?
       end
     end
   end

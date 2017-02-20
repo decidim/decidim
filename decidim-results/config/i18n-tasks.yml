@@ -2,4 +2,5 @@ base_locale: en
 locales: [en]
 ignore_unused:
 - "decidim.features.results.name"
+- "decidim.features.results.settings.*"
 - "decidim.resource_links.*"

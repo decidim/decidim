@@ -2,6 +2,6 @@ fragment CommentThread on Comment {
   author {
     name
   }
-  hasReplies,
+  hasComments
   ...Comment
 }

@@ -22,7 +22,16 @@ module Decidim
         return broadcast(:invalid, :active_step) if @step.active?
 
         @step.destroy!
+        reorder_steps
         broadcast(:ok)
+      end
+
+      private
+
+      def reorder_steps
+        ReorderParticipatoryProcessSteps
+          .new(@participatory_process.steps, @participatory_process.steps.map(&:id))
+          .call
       end
     end
   end

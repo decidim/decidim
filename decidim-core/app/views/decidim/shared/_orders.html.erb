@@ -1,7 +1,7 @@
 <div class="row collapse order-by">
   <div class="order-by__dropdown">
     <span class="order-by__text"><%= t("#{i18n_scope}.label") %></span>
-    <ul class="dropdown menu" data-dropdown-menu>
+    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
       <li>
         <%= order_link order, i18n_scope: i18n_scope %>
         <ul class="menu">

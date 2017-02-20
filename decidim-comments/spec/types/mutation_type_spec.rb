@@ -7,31 +7,14 @@ module Decidim
     describe MutationType do
       include_context "graphql type"
 
-      describe "addComment" do
-        let!(:feature) { create(:feature, organization: current_organization)}
-        let!(:dummy_resource) { create(:dummy_resource, feature: feature) }
-
+     describe "commentable" do
+        let!(:commentable) { create(:dummy_resource) }
         let(:query) {
-          "{ addComment(commentableId: \"#{dummy_resource.id}\", commentableType: \"Decidim::DummyResource\", body: \"This is a new comment\") { id, body } }"
+          "{ commentable(id: \"#{commentable.id}\", type: \"#{commentable.commentable_type}\") { id } }"
         }
 
-        it "should create a new comment for the given commentable" do
-          expect(response["addComment"]).to include("body" => "This is a new comment")
-          comment = Decidim::Comments::Comment.last
-          expect(comment.commentable).to eq(dummy_resource)
-          expect(response["addComment"]).to include("id" => comment.id.to_s)
-        end
-
-        context "if the query contains an argument alignment" do
-          let(:query) {
-            "{ addComment(commentableId: \"#{dummy_resource.id}\", commentableType: \"Decidim::DummyResource\", body: \"This is positive comment\", alignment: 1) { alignment } }"
-          }
-
-          it "should create a comment with that alignment" do
-            expect(response["addComment"]).to include("alignment" => 1)
-            comment = Decidim::Comments::Comment.last
-            expect(comment.alignment).to eq(1)
-          end
+        it "should fetch the commentable given its id and commentable_type" do
+          expect(response["commentable"]).to include("id" => commentable.id.to_s)
         end
       end
 

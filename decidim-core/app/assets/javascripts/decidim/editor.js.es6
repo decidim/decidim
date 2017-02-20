@@ -3,7 +3,7 @@
 
 $(() => {
   const $container = $('.editor-container');
-  const quillFormats = ['bold', 'italic', 'link', 'underline', 'header', 'list'];
+  const quillFormats = ['bold', 'italic', 'link', 'underline', 'header', 'list', 'video'];
 
   $container.each((idx, container) => {
     const toolbar = $(container).data('toolbar');
@@ -11,7 +11,7 @@ $(() => {
     let quillToolbar = [
       ['bold', 'italic', 'underline'],
       [{ list: 'ordered' }, { list: 'bullet' }],
-      ['link', 'clean']
+      ['link', 'video', 'clean']
     ];
 
     if (toolbar === 'full') {

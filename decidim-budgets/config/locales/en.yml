@@ -45,14 +45,17 @@ en:
             title: Title
       projects:
         budget_confirm:
-          are_you_sure: Do you agree? Once you have confirmed your vote, you can not change it.
+          are_you_sure: Do you agree? Once you have confirmed your vote, you can not
+            change it.
           cancel: Cancel
           confirm: Confirm
           description: These are the projects you have chosen to be part of the budget.
           title: Confirm vote
         budget_excess:
           close: Close
-          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description: This project exceeds the maximum budget and can not be added.
+            If you want, you can delete a project you have already selected to add,
+            or make your vote with your preferences.
           ok: OK
           title: Maximum budget exceeded
         budget_summary:
@@ -60,9 +63,12 @@ en:
           assigned: 'Assigned:'
           cancel_order: delete your vote and start over
           checked_out:
-            description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
+            description: You've already voted for the budget. If you've changed your
+              mind, you can %{cancel_link}.
             title: Budget vote completed
-          description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          description: What projects do you think we should allocate budget for? Assign
+            at least %{minimum_budget} to the projects you want and vote with your
+            preferences to define the budget.
           title: You decide the budget
         count:
           projects_count:
@@ -72,8 +78,6 @@ en:
           category: Category
           scopes: Scopes
           search: Search
-        index:
-          meta_title: "%{feature_name}"
         order_progress:
           vote: Vote
         order_selected_projects:
@@ -94,6 +98,13 @@ en:
     features:
       budgets:
         name: Budgets
+        settings:
+          global:
+            comments_enabled: Comments enabled
+            total_budget: Total budget
+            vote_threshold_percent: Vote threshold percent
+          step:
+            comments_blocked: Comments blocked
     orders:
       checkout:
         error: An error ocurred while processing your vote

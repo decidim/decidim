@@ -6,9 +6,9 @@ en:
         name: Page
         settings:
           global:
-            comments_always_enabled: Comments always enabled
-          step:
             comments_enabled: Comments enabled
+          step:
+            comments_blocked: Comments blocked
     pages:
       admin:
         models:

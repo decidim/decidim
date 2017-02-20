@@ -1,0 +1,11 @@
+<ul class="main-nav">
+  <li>
+    <%= active_link_to t("menu.home", scope: "decidim"), decidim.root_path, active: :exact, class: "main-nav__link", class_active: "main-nav__link--active" %>
+  </li>
+  <li>
+    <%= active_link_to t("menu.processes", scope: "decidim"), decidim.participatory_processes_path, active: :inclusive, class: "main-nav__link", class_active: "main-nav__link--active" %>
+  </li>
+  <li>
+    <%= active_link_to t("menu.more_information", scope: "decidim"), decidim.pages_path, active: :inclusive, class: "main-nav__link", class_active: "main-nav__link--active" %>
+  </li>
+</ul>

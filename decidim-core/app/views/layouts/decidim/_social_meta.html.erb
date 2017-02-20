@@ -1,19 +1,11 @@
-<% add_meta_tags({
-  description: strip_tags(translated_attribute(current_organization.description)),
-  title: current_organization.name,
-  url: request.original_url,
-  twitter_handler: current_organization.twitter_handler,
-  image_url: current_organization.homepage_image.url
-}) %>
-
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@<%= content_for(:twitter_handler) %>" />
-<meta name="twitter:title" content="<%= content_for(:meta_title) %>" />
-<meta name="twitter:description" content="<%= content_for(:meta_description) %>" />
-<meta name="twitter:image" content="<%= content_for(:meta_image_url) %>" />
+<meta name="twitter:site" content="@<%= decidim_meta_twitter_handler %>" />
+<meta name="twitter:title" content="<%= decidim_page_title %>" />
+<meta name="twitter:description" content="<%= decidim_meta_description %>" />
+<meta name="twitter:image" content="<%= decidim_meta_image_url %>" />
 
-<meta property="og:url" content="<%= content_for(:meta_url) %>" />
+<meta property="og:url" content="<%= decidim_meta_url %>" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="<%= content_for(:meta_title) %>" />
-<meta property="og:description" content="<%= content_for(:meta_description) %>" />
-<meta property="og:image" content="<%= content_for(:meta_image_url) %>" />
+<meta property="og:title" content="<%= decidim_page_title %>" />
+<meta property="og:description" content="<%= decidim_meta_description %>" />
+<meta property="og:image" content="<%= decidim_meta_image_url %>" />

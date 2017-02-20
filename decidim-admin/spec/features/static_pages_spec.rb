@@ -11,6 +11,22 @@ describe "Content pages", type: :feature do
     switch_to_host(organization.host)
   end
 
+  describe "Showing pages" do
+    let!(:decidim_pages) { create_list(:static_page, 5, organization: organization) }
+
+    before do
+      visit decidim.pages_path
+    end
+
+    it "shows the list of all the pages" do
+      decidim_pages.each do |decidim_page|
+        expect(page).to have_css(
+                          "a[href=\"#{decidim.page_path(decidim_page)}\"]",
+                          text: decidim_page.title[I18n.locale.to_s].upcase)
+      end
+    end
+  end
+
   describe "Managing pages" do
     before do
       login_as admin, scope: :user
