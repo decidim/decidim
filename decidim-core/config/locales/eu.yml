@@ -3,3 +3,9 @@ eu:
     attributes:
       user:
         email: Zure emaila
+        name: Zure izena
+  decidim:
+    shared:
+      action_authorization_modal:
+        incomplete:
+          cancel: Utzi
