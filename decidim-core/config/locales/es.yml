@@ -298,6 +298,7 @@ es:
         participate: Participar
         welcome: Bienvenido a %{organization}!
       highlighted_processes:
+        active_processes: Procesos activos
         active_step: Fase activa
         see_all_processes: Ver todos los procesos
       statistics:
