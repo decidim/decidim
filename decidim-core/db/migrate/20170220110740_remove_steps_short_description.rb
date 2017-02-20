@@ -1,12 +1,14 @@
 class RemoveStepsShortDescription < ActiveRecord::Migration[5.0]
   def change
-    Decidim::ParticipatoryProcessStep.find_each do |step|
-      step.update_attributes!(
-        description: new_description_for(step)
-      )
-    end
+    Decidim::ParticipatoryProcessStep.transaction do
+      Decidim::ParticipatoryProcessStep.find_each do |step|
+        step.update_attributes!(
+          description: new_description_for(step)
+        )
+      end
 
-    remove_column :decidim_participatory_process_steps, :short_description
+      remove_column :decidim_participatory_process_steps, :short_description
+    end
   end
 
   def new_description_for(step)
