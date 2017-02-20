@@ -13,7 +13,6 @@ es:
         models:
           components:
             body: Cuerpo
-            title: Título
         pages:
           edit:
             save: Guardar página

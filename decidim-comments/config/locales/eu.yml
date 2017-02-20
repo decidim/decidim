@@ -3,3 +3,8 @@ eu:
     comments:
       comment_notification_mailer:
         hello: Kaixo %{name},
+    components:
+      add_comment_form:
+        form:
+          body:
+            label: Iruzkina

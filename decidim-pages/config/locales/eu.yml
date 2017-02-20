@@ -2,6 +2,6 @@ eu:
   decidim:
     pages:
       admin:
-        models:
-          components:
-            title: Izenburua
+        pages:
+          edit:
+            title: Editatu orria

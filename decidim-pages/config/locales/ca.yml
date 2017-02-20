@@ -13,7 +13,6 @@ ca:
         models:
           components:
             body: Cos
-            title: Títol
         pages:
           edit:
             save: Desa la pàgina
