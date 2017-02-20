@@ -2,7 +2,7 @@
 
 [![Demo](https://img.shields.io/badge/demo-staging-orange.svg?style=flat)](http://staging.decidim.codegram.com) 
 [[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/AjuntamentdeBarcelona/decidim/master)](http://www.rubydoc.info/github/AjuntamentdeBarcelona/decidim/master) 
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)]()
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/AjuntamentdeBarcelona/decidim)
 
 
 ### Code quality
