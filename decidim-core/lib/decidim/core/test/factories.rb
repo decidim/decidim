@@ -88,7 +88,6 @@ FactoryGirl.define do
 
   factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do
     title { Decidim::Faker::Localized.sentence(3) }
-    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     start_date 1.month.ago.at_midnight
     end_date 2.month.from_now.at_midnight

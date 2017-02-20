@@ -14,11 +14,5 @@ module Decidim
     end
 
     field :title, TranslatedFieldType, "The title of this step"
-
-    field :shortDescription do
-      type TranslatedFieldType
-      description "A short description of the step."
-      property :short_description
-    end
   end
 end

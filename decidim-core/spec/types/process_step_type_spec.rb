@@ -37,13 +37,5 @@ module Decidim
         expect(response["title"]["locales"]).to include(*process.title.keys)
       end
     end
-
-    describe "shortDescription" do
-      let(:query) { "{ shortDescription { locales } }" }
-
-      it "returns its short description" do
-        expect(response["shortDescription"]["locales"]).to include(*process.short_description.keys)
-      end
-    end
   end
 end

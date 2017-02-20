@@ -19,13 +19,6 @@ module Decidim
           ca: "Descripció"
         }
       end
-      let(:short_description) do
-        {
-          en: "Short description",
-          es: "Descripción corta",
-          ca: "Descripció curta"
-        }
-      end
       let(:start_date) {}
       let(:end_date) {}
       let(:attributes) do
@@ -37,9 +30,6 @@ module Decidim
             "description_en" => description[:en],
             "description_es" => description[:es],
             "description_ca" => description[:ca],
-            "short_description_en" => short_description[:en],
-            "short_description_es" => short_description[:es],
-            "short_description_ca" => short_description[:ca],
             "start_date" => start_date,
             "end_date" => end_date,
           }
