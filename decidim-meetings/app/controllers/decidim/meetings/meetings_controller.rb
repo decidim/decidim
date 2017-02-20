@@ -9,7 +9,7 @@ module Decidim
       helper_method :meetings, :geocoded_meetings, :meeting
 
       def index
-        if search.results.length == 0 && params.dig("filter", "date") != "past" # Maybe this could be extracted to a method
+        if search.results.length == 0 && params.dig("filter", "date") != "past" 
           @past_meetings = search_klass.new(search_params.merge(date: "past" ))
           if @past_meetings.results.length > 0
             params[:filter] ||= {}
@@ -18,14 +18,6 @@ module Decidim
             @search = @past_meetings
           end
         end
-      end
-
-      def meetings
-        @meetings ||= search.results.page(params[:page]).per(12)
-      end
-
-      def geocoded_meetings
-        @geocoded_meetings ||= search.results.select(&:geocoded?)
       end
 
       def static_map
@@ -37,6 +29,14 @@ module Decidim
 
       def meeting
         @meeting ||= Meeting.where(feature: current_feature).find(params[:id])
+      end
+
+      def meetings
+        @meetings ||= search.results.page(params[:page]).per(12)
+      end
+
+      def geocoded_meetings
+        @geocoded_meetings ||= search.results.select(&:geocoded?)
       end
 
       def search_klass

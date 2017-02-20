@@ -83,7 +83,7 @@ describe "Explore meetings", type: :feature do
     end
 
     context "No meetings scheduled" do
-      let!(:meetings){[]}
+      let!(:meetings){ [] }
 
       it "shows the correct warning" do
         visit_feature
@@ -122,7 +122,7 @@ describe "Explore meetings", type: :feature do
 
     context "without category or scope" do
       it "does not show any tag" do
-          expect(page).not_to have_selector("ul.tags.tags--meeting")
+        expect(page).not_to have_selector("ul.tags.tags--meeting")
       end
     end
 
@@ -135,14 +135,14 @@ describe "Explore meetings", type: :feature do
       end
 
       it "shows tags for category" do
-          expect(page).to have_selector("ul.tags.tags--meeting")
+        expect(page).to have_selector("ul.tags.tags--meeting")
         within "ul.tags.tags--meeting" do
           expect(page).to have_content(translated(meeting.category.name))
         end
       end
 
       it "links to the filter for this category" do
-          within "ul.tags.tags--meeting" do
+        within "ul.tags.tags--meeting" do
           click_link translated(meeting.category.name)
         end
         expect(page).to have_select("filter_category_id", selected: translated(meeting.category.name))
