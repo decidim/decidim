@@ -299,7 +299,6 @@ ca:
         welcome: Benvingut a %{organization}!
       highlighted_processes:
         active_step: Fase activa
-        processes_ending_soon: Processos que acaben aviat
         see_all_processes: Veure tots els processos
       statistics:
         headline: Estat actual de %{organization}

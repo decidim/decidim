@@ -299,7 +299,6 @@ es:
         welcome: Bienvenido a %{organization}!
       highlighted_processes:
         active_step: Fase activa
-        processes_ending_soon: Procesos que terminan pronto
         see_all_processes: Ver todos los procesos
       statistics:
         headline: Estado actual de %{organization}
