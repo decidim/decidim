@@ -9,7 +9,6 @@ module Decidim
 
       translatable_attribute :title, String
       translatable_attribute :description, String
-      translatable_attribute :short_description, String
 
       mimic :participatory_process_step
 

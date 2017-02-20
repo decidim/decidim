@@ -26,9 +26,6 @@ RSpec.shared_examples "manage process steps examples" do
       expect(page).to have_content(stripped translated(process_step.title, locale: :en))
       expect(page).to have_content(stripped translated(process_step.title, locale: :es))
       expect(page).to have_content(stripped translated(process_step.title, locale: :ca))
-      expect(page).to have_content(stripped translated(process_step.short_description, locale: :en))
-      expect(page).to have_content(stripped translated(process_step.short_description, locale: :es))
-      expect(page).to have_content(stripped translated(process_step.short_description, locale: :ca))
       expect(page).to have_content(stripped translated(process_step.description, locale: :en))
       expect(page).to have_content(stripped translated(process_step.description, locale: :es))
       expect(page).to have_content(stripped translated(process_step.description, locale: :ca))
@@ -45,13 +42,6 @@ RSpec.shared_examples "manage process steps examples" do
         en: "My participatory process step",
         es: "Mi fase de proceso participativo",
         ca: "La meva fase de procés participatiu"
-      )
-      fill_in_i18n_editor(
-        :participatory_process_step_short_description,
-        "#short_description-tabs",
-        en: "Short description",
-        es: "Descripción corta",
-        ca: "Descripció curta"
       )
       fill_in_i18n_editor(
         :participatory_process_step_description,
