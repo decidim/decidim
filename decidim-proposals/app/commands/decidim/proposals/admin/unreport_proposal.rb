@@ -27,7 +27,7 @@ module Decidim
         private
 
         def unreport_proposal
-          @proposal.update_attributes!(report_count: 0)
+          @proposal.update_attributes!(report_count: 0, hidden_at: nil)
         end
       end
     end

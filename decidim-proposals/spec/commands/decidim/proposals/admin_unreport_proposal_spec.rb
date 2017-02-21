@@ -17,6 +17,15 @@ module Decidim
             command.call
             expect(proposal.reload.report_count).to eq(0)
           end
+
+          context "when the proposal is hidden" do
+            let(:proposal) { create(:proposal, :reported, :hidden) }
+
+            it "unhides the proposal" do
+              command.call
+              expect(proposal.reload).not_to be_hidden
+            end
+          end
         end
 
         context "when the proposal is not reported" do
