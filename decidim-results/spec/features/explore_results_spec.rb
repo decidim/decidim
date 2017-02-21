@@ -1,4 +1,5 @@
 require "spec_helper"
+require "decidim/core/test/shared_examples/display_reference"
 
 describe "Explore results", type: :feature do
   include_context "feature"
@@ -34,6 +35,8 @@ describe "Explore results", type: :feature do
     let(:path) { decidim_results.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: feature.id) }
     let(:results_count) { 1 }
     let(:result) { results.first }
+
+    it_behaves_like "display reference"
 
     it "shows all result info" do
       expect(page).to have_i18n_content(result.title)

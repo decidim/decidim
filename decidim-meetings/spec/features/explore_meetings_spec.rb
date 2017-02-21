@@ -1,4 +1,5 @@
 require "spec_helper"
+require "decidim/core/test/shared_examples/display_reference"
 
 describe "Explore meetings", type: :feature do
   include_context "feature"
@@ -188,6 +189,7 @@ describe "Explore meetings", type: :feature do
 
     let(:attached_to) { meeting }
     it_behaves_like "has attachments"
+    it_behaves_like "display reference"
 
     context "when the meeting is closed" do
       let!(:meeting) { create(:meeting, :closed, feature: feature) }
