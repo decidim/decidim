@@ -30,6 +30,10 @@ module Decidim
       def first_login_and_not_authorized?(user)
         user.is_a?(User) && user.sign_in_count == 1 && Decidim.authorization_handlers.any?
       end
+
+      def after_sign_out_path_for(user)
+        request.referer || super
+      end
     end
   end
 end
