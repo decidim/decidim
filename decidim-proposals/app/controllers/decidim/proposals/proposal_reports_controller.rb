@@ -15,7 +15,7 @@ module Decidim
         ReportProposal.call(@form, proposal, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("proposal_reports.create.success", scope: "decidim.proposals")
-            redirect_to proposal_path(proposal)
+            redirect_to proposals_path
           end
 
           on(:invalid) do

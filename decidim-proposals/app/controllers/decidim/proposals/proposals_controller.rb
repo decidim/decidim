@@ -11,14 +11,10 @@ module Decidim
 
       before_action :authenticate_user!, only: [:new, :create]
 
-      def show
-        @proposal = Proposal.where(feature: current_feature).find(params[:id])
-        @proposal_report_form = form(ProposalReportForm).from_params({ type: "spam" })
-      end
-
       def index
         @proposals = search
                      .results
+                     .not_hidden
                      .includes(:author)
                      .includes(:category)
                      .includes(:scope)
@@ -34,6 +30,14 @@ module Decidim
                            else
                              []
                            end
+      end
+
+      def show
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal_report_form = form(ProposalReportForm).from_params({ type: "spam" })
+      rescue ActiveRecord::RecordNotFound
+        flash[:alert] = I18n.t("proposals.not_found", scope: "decidim")
+        redirect_to proposals_path
       end
 
       def new

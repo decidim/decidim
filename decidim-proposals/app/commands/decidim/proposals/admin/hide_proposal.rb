@@ -18,13 +18,17 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) if @proposal.hidden?
+          return broadcast(:invalid) unless proposal_hideable?
 
           hide_proposal
           broadcast(:ok, @proposal)
         end
 
         private
+
+        def proposal_hideable?
+          !@proposal.hidden? && @proposal.reported?
+        end
 
         def hide_proposal
           @proposal.update_attributes!(hidden_at: Time.current)

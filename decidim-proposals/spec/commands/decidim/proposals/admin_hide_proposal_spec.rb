@@ -5,7 +5,7 @@ module Decidim
   module Proposals
     module Admin
       describe HideProposal do
-        let(:proposal) { create(:proposal) }
+        let(:proposal) { create(:proposal, :reported) }
         let(:command) { described_class.new(proposal) }
 
         context "when everything is ok" do
@@ -21,6 +21,14 @@ module Decidim
 
         context "when the proposal is already hidden" do
           let(:proposal) { create(:proposal, :hidden) }
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+        end
+
+        context "when the proposal is not reported" do
+          let(:proposal) { create(:proposal) }
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)

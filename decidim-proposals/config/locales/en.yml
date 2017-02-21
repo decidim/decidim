@@ -32,6 +32,7 @@ en:
       actions:
         all_proposals: All proposals
         answer: Answer
+        hidden_proposals: Hidden proposals
         hide: Hide
         new: New proposal
         reported_proposals: Reported proposals
@@ -84,6 +85,7 @@ en:
             scope: Scope
             state: State
             title: Title
+      not_found: The proposal doesn't exists.
       proposal_reported_mailer:
         hide:
           hello: Hello %{name},

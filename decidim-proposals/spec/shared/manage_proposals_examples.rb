@@ -213,7 +213,7 @@ RSpec.shared_examples "manage proposals" do
       end
     end
 
-    it "user can unreport a proposal" do
+    it "user can un-report a proposal" do
       visit current_path
 
       click_link "Reported proposals"
@@ -241,6 +241,20 @@ RSpec.shared_examples "manage proposals" do
       end
 
       expect(page).to have_no_content(reported_proposals.first.title)
+    end
+  end
+
+  context "listing hidden proposals" do
+    let!(:hidden_proposals) { create_list(:proposal, 3, :hidden, feature: current_feature) }
+
+    it "user can review them" do
+      visit current_path
+
+      click_link "Hidden proposals"
+
+      hidden_proposals.each do |proposal|
+        expect(page).to have_selector("tr", text: proposal.title)
+      end
     end
   end
 end

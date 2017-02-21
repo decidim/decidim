@@ -7,6 +7,8 @@
     <%= link_to t("actions.all_proposals", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), proposals_path if can? :manage, current_feature %>
     |
     <%= link_to t("actions.reported_proposals", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), proposals_path(reported: true) if can? :manage, current_feature %>
+    |
+    <%= link_to t("actions.hidden_proposals", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), proposals_path(hidden: true) if can? :manage, current_feature %>
   </div>
 <% end %>
 
@@ -18,7 +20,7 @@
       <% if feature_settings.scoped_proposals_enabled %>
         <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
       <% end %>
-      <% if params[:reported] %>
+      <% if params[:reported] || params[:hidden] %>
         <th><%= t("models.proposal.fields.reports", scope: "decidim.proposals") %></th>
       <% else %>
         <th><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></th>
@@ -45,7 +47,7 @@
           </td>
         <% end %>
         <td>
-          <% if params[:reported] %>
+          <% if params[:reported] || params[:hidden] %>
             <% proposal.reports.each do |report| %>
               <span><%= report.user.name %> - <%= report.type %></span>
               <br />
@@ -56,13 +58,13 @@
         </td>
         <td class="actions">
           <%= link_to t("actions.answer", scope: "decidim.proposals"), edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id) if can? :update, proposal %>
-          <% if params[:reported] %>
+          <% if params[:reported] || params[:hidden] %>
             <% if can? :unreport, proposal %>
               | <%= link_to t("actions.unreport", scope: "decidim.proposals"), unreport_proposal_path(proposal), method: :put %>
             <% end %>
-          <% end %>
-          <% if can? :hide, proposal %>
-            | <%= link_to t("actions.hide", scope: "decidim.proposals"), hide_proposal_path(proposal), method: :put %>
+            <% if !proposal.hidden? && can?(:hide, proposal) %>
+              | <%= link_to t("actions.hide", scope: "decidim.proposals"), hide_proposal_path(proposal), method: :put %>
+            <% end %>
           <% end %>
         </td>
       </tr>
