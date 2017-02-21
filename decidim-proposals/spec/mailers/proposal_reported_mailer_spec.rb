@@ -21,6 +21,18 @@ module Decidim
 
         include_examples "localised email"
       end
+
+      describe "#hide" do
+        let(:mail) { described_class.hide(user, proposal_report) }
+
+        let(:subject) { "Una proposta ha estat amagada automàticament" }
+        let(:default_subject) { "A proposal has been hidden automatically" }
+
+        let(:body) { "ha estat amagada" }
+        let(:default_body) { "has been hidden" }
+
+        include_examples "localised email"
+      end
     end
   end
 end

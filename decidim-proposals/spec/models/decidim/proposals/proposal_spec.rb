@@ -44,6 +44,17 @@ module Decidim
         end
       end
 
+      context "#hidden?" do
+        it "returns false if the proposal hidden_at attribute is nil" do
+          expect(subject).not_to be_hidden
+        end
+
+        it "returns true if the proposal is not voted by the given user" do
+          subject.hidden_at = Time.current
+          expect(subject).to be_hidden
+        end
+      end
+
       context "when it has been accepted" do
         let(:proposal) { build(:proposal, :accepted) }
 

@@ -63,6 +63,13 @@ module Decidim
         state == "rejected"
       end
 
+      # Public: Checks if the proposal is hidden or not
+      #
+      # Returns Boolean.
+      def hidden?
+        hidden_at.present?
+      end
+
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
         feature.settings.comments_enabled?

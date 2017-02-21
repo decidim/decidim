@@ -16,4 +16,7 @@ Decidim.configure do |config|
 
   # Currency unit
   # config.currency_unit = "€"
+
+  # The number of reports which an object can receive before hiding it
+  # config.max_reports_before_hiding = 3
 end

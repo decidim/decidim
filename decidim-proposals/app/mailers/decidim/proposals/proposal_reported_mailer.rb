@@ -14,6 +14,16 @@ module Decidim
           mail(to: user.email, subject: subject)
         end
       end
+
+      def hide(user, proposal_report)
+        with_user(user) do
+          @proposal_report = proposal_report
+          @organization = user.organization
+          @user = user
+          subject = I18n.t("hide.subject", scope: "decidim.proposals.proposal_reported_mailer")
+          mail(to: user.email, subject: subject)
+        end
+      end
     end
   end
 end
