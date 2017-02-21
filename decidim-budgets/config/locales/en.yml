@@ -113,5 +113,5 @@ en:
         error: An error ocurred while canceling your vote
         success: Your vote has been canceled successfully
   index:
-    orders_count: Orders count
+    confirmed_orders_count: Orders count
   total_budget: Total budget

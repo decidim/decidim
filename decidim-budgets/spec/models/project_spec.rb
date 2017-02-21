@@ -37,7 +37,7 @@ describe Decidim::Budgets::Project do
 
     it "return number of finished orders for this project" do
       order.reload.update_attributes!(checked_out_at: Time.current)
-      expect(project.orders_count).to eq(1)
+      expect(project.confirmed_orders_count).to eq(1)
     end
   end
 end

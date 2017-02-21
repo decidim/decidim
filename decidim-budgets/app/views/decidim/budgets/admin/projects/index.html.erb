@@ -8,7 +8,7 @@
   <thead>
     <tr>
       <th><%= t("models.project.fields.title", scope: "decidim.budgets") %></th>
-      <th class="center"><%= t("index.orders_count") %></th>
+      <th class="center"><%= t("index.confirmed_orders_count") %></th>
       <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
     </tr>
   </thead>
@@ -19,7 +19,7 @@
           <%= link_to translated_attribute(project.title), decidim_budgets.project_path(id: project, feature_id: current_feature, participatory_process_id: current_participatory_process), target: :blank %><br />
         </td>
         <td class='center'>
-         <%= project.orders_count %>
+         <%= project.confirmed_orders_count %>
         </td>
         <td class="actions">
           <%= link_to t("actions.edit", scope: "decidim.budgets"), edit_project_path(project) if can? :update, current_feature %>
