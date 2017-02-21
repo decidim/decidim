@@ -32,6 +32,7 @@ en:
       actions:
         all_proposals: All proposals
         answer: Answer
+        hide: Hide
         new: New proposal
         reported_proposals: Reported proposals
         title: Actions
@@ -56,6 +57,9 @@ en:
           form:
             select_a_category: Select a category
             select_a_scope: Select a scope
+          hide:
+            invalid: There's been a problem hiding this proposal
+            success: Proposal successfully hidden
           index:
             title: Proposals
           new:

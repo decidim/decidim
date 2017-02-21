@@ -12,6 +12,7 @@ module Decidim
           resources :proposal_answers, only: [:edit, :update]
           member do
             put :unreport
+            put :hide
           end
         end
         root to: "proposals#index"

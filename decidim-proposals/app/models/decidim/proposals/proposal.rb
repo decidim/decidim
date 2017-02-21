@@ -17,9 +17,11 @@ module Decidim
 
       validates :title, :body, presence: true
 
-      scope :accepted, -> { where(state: "accepted") }
-      scope :rejected, -> { where(state: "rejected") }
-      scope :reported, -> { where("report_count > 0") }
+      scope :accepted,   -> { where(state: "accepted") }
+      scope :rejected,   -> { where(state: "rejected") }
+      scope :reported,   -> { where("report_count > 0") }
+      scope :not_hidden, -> { where(hidden_at: nil) }
+      scope :hidden,     -> { where.not(hidden_at: nil) }
 
       def author_name
         user_group&.name || author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")

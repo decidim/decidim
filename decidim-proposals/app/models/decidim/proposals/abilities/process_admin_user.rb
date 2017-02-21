@@ -19,6 +19,7 @@ module Decidim
             participatory_processes.include?(proposal.feature.participatory_process)
           end
           can :unreport, Proposal
+          can :hide, Proposal
           cannot :create, Proposal unless can_create_proposal?
           cannot :update, Proposal unless can_update_proposal?
         end

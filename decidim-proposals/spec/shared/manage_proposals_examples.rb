@@ -226,5 +226,21 @@ RSpec.shared_examples "manage proposals" do
         expect(page).to have_content("Proposal successfully unreported")
       end
     end
+
+    it "user can hide a proposal" do
+      visit current_path
+
+      click_link "Reported proposals"
+
+      within find("tr", text: reported_proposals.first.title) do
+        click_link "Hide"
+      end
+
+      within ".flash" do
+        expect(page).to have_content("Proposal successfully hidden")
+      end
+
+      expect(page).to have_no_content(reported_proposals.first.title)
+    end
   end
 end

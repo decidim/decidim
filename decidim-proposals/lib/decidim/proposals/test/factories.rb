@@ -81,6 +81,10 @@ FactoryGirl.define do
         create(:proposal_report, proposal: proposal)
       end
     end
+
+    trait :hidden do
+      hidden_at Time.current
+    end
   end
 
   factory :proposal_vote, class: Decidim::Proposals::ProposalVote do
