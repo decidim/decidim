@@ -23,7 +23,11 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_proposal_report!
+        transaction do
+          create_proposal_report!
+          update_report_count!
+        end
+
         send_report_notification_to_admins
 
         if hideable_proposal?
@@ -39,18 +43,19 @@ module Decidim
       attr_reader :form, :proposal_report
 
       def create_proposal_report!
-        transaction do
-          @proposal_report = ProposalReport.create!(
-            proposal: @proposal,
-            user: @current_user,
-            type: form.type
-          )
-          @proposal.update_attributes!(report_count: @proposal.report_count + 1)
-        end
+        @proposal_report = ProposalReport.create!(
+          proposal: @proposal,
+          user: @current_user,
+          reason: form.reason
+        )
+      end
+
+      def update_report_count!
+        @proposal.update_attributes!(report_count: @proposal.report_count + 1)
       end
 
       def participatory_process_admins
-        @proposal.feature.participatory_process.admins
+        @participatory_process_admins ||= Decidim::Admin::ProcessAdmins.for(@proposal.feature.participatory_process)
       end
 
       def send_report_notification_to_admins
@@ -64,7 +69,7 @@ module Decidim
       end
 
       def hide_proposal!
-        @proposal.update_attributes!(hidden_at: Time.current)
+        Decidim::Proposals::Admin::HideProposal.new(@proposal).call
       end
 
       def send_hide_notification_to_admins

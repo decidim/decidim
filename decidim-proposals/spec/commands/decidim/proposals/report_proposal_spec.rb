@@ -13,7 +13,7 @@ module Decidim
         let(:form) { ProposalReportForm.from_params(form_params) }
         let(:form_params) do
           {
-            type: "spam"
+            reason: "spam"
           }
         end
 

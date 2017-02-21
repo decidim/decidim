@@ -19,7 +19,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("proposal_reports.create.error", scope: "decidim.proposals")
+            flash[:alert] = I18n.t("proposal_reports.create.error", scope: "decidim.proposals")
             redirect_to proposal_path(proposal)
           end
         end

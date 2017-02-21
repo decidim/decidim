@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   # This model holds all the data needed to send a newsletter.
   class Newsletter < ApplicationRecord

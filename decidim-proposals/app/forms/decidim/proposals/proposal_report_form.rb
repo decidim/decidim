@@ -5,9 +5,9 @@ module Decidim
     class ProposalReportForm < Decidim::Form
       mimic :proposal_report
 
-      attribute :type, String
+      attribute :reason, String
 
-      validates :type, inclusion: { in: ProposalReport::TYPES }
+      validates :reason, inclusion: { in: ProposalReport::REASONS }
     end
   end
 end

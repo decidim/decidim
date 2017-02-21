@@ -43,7 +43,7 @@ describe "Report Proposal", type: :feature do
 
         expect(page).to have_css('#flagModal', visible: true)
 
-        choose "proposal_report_type_offensive"
+        choose "proposal_report_reason_offensive"
 
         within "#flagModal" do
           click_button "Report"
@@ -55,7 +55,7 @@ describe "Report Proposal", type: :feature do
 
     context "and the user has reported the proposal previously" do
       before do
-        create(:proposal_report, proposal: proposal, user: user, type: "spam")
+        create(:proposal_report, proposal: proposal, user: user, reason: "spam")
       end
 
       it "cannot report it twice" do
@@ -68,7 +68,7 @@ describe "Report Proposal", type: :feature do
 
         expect(page).to have_css('#flagModal', visible: true)
 
-        expect(page).to have_content "already reported"        
+        expect(page).to have_content "already reported"
       end
     end
   end

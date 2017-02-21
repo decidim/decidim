@@ -4,10 +4,10 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe ProposalReportForm do
-      let(:type) { "spam" }
+      let(:reason) { "spam" }
       let(:params) do
         {
-          type: type
+          reason: reason
         }
       end
 
@@ -21,8 +21,8 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
-      context "when type is not in the list" do
-        let(:type) { "foo" }
+      context "when reason is not in the list" do
+        let(:reason) { "foo" }
         it { is_expected.to be_invalid }
       end
     end

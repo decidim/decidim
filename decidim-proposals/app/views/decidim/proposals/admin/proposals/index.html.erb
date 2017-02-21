@@ -49,7 +49,7 @@
         <td>
           <% if params[:reported] || params[:hidden] %>
             <% proposal.reports.each do |report| %>
-              <span><%= report.user.name %> - <%= report.type %></span>
+              <span><%= report.user.name %> - <%= report.reason %></span>
               <br />
             <% end %>
           <% else %>
@@ -60,10 +60,10 @@
           <%= link_to t("actions.answer", scope: "decidim.proposals"), edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id) if can? :update, proposal %>
           <% if params[:reported] || params[:hidden] %>
             <% if can? :unreport, proposal %>
-              | <%= link_to t("actions.unreport", scope: "decidim.proposals"), unreport_proposal_path(proposal), method: :put %>
+              | <%= link_to t("actions.unreport", scope: "decidim.proposals"), unreport_proposal_path(proposal), method: :put, class: "button" %>
             <% end %>
             <% if !proposal.hidden? && can?(:hide, proposal) %>
-              | <%= link_to t("actions.hide", scope: "decidim.proposals"), hide_proposal_path(proposal), method: :put %>
+              | <%= link_to t("actions.hide", scope: "decidim.proposals"), hide_proposal_path(proposal), method: :put, class: "button" %>
             <% end %>
           <% end %>
         </td>

@@ -34,10 +34,7 @@ module Decidim
 
       def show
         @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
-        @proposal_report_form = form(ProposalReportForm).from_params({ type: "spam" })
-      rescue ActiveRecord::RecordNotFound
-        flash[:alert] = I18n.t("proposals.not_found", scope: "decidim")
-        redirect_to proposals_path
+        @proposal_report_form = form(ProposalReportForm).from_params(reason: "spam")
       end
 
       def new

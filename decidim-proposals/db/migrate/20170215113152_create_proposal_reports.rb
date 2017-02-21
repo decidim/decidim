@@ -3,7 +3,7 @@ class CreateProposalReports < ActiveRecord::Migration[5.0]
     create_table :decidim_proposals_proposal_reports do |t|
       t.references :decidim_proposal, null: false, index: { name: "decidim_proposals_proposal_result_proposal" }
       t.references :decidim_user, null: false, index: { name: "decidim_proposals_proposal_result_user" }
-      t.string :type, null: false
+      t.string :reason, null: false
 
       t.timestamps
     end

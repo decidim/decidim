@@ -87,7 +87,7 @@ module Decidim
 
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
-         commentable? && !feature.active_step_settings.comments_blocked
+        commentable? && !feature.active_step_settings.comments_blocked
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.

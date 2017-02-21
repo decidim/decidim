@@ -67,8 +67,8 @@ es:
       proposal_reported_mailer:
         report:
           hello: Hola %{name},
-          report_html: La propuesta %{proposal_link} ha sido reportada por %{reporter_name}
-          subject: Una proposta ha sido reportada
+          report_html: La propuesta %{proposal_link} ha sido denunciada por %{reporter_name}
+          subject: Una propuesta ha sido denunciada
       models:
         proposal:
           fields:

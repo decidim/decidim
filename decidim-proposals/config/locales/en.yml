@@ -85,7 +85,6 @@ en:
             scope: Scope
             state: State
             title: Title
-      not_found: The proposal doesn't exists.
       proposal_reported_mailer:
         hide:
           hello: Hello %{name},

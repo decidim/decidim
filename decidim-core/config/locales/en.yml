@@ -184,6 +184,7 @@ en:
           title: Not authorized
       flag_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
+        close: Close
         description: Is this content inappropriate?
         does_not_belong: This proposal contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
         offensive: This proposal contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.

@@ -95,6 +95,6 @@ FactoryGirl.define do
   factory :proposal_report, class: Decidim::Proposals::ProposalReport do
     proposal { build(:proposal) }
     user { build(:user, organization: proposal.organization) }
-    type "spam"
+    reason "spam"
   end
 end

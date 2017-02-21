@@ -74,10 +74,5 @@ module Decidim
     def documents
       @documents ||= attachments.select(&:document?)
     end
-
-    # Returns participatory process admins and organization admins.
-    def admins
-      organization.admins + Decidim::Admin::ParticipatoryProcessUserRole.where(participatory_process: self, role: :admin).collect(&:user)
-    end
   end
 end

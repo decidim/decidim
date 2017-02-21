@@ -22,22 +22,5 @@ module Decidim
 
       it { is_expected.to be_valid }
     end
-
-    describe "#admins" do
-      let!(:admin) { create(:user, :admin, :confirmed, organization: participatory_process.organization) }
-      let!(:participatory_process_admin) do
-        user = create(:user, :confirmed, organization: participatory_process.organization)
-        Decidim::Admin::ParticipatoryProcessUserRole.create!(
-          role: :admin,
-          user: user,
-          participatory_process: participatory_process
-        )
-        user
-      end
-
-      it "returns the organization admins and participatory process admins" do
-        expect(participatory_process.admins).to match_array([admin, participatory_process_admin])
-      end
-    end
   end
 end

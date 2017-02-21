@@ -209,7 +209,7 @@ RSpec.shared_examples "manage proposals" do
       reported_proposals.each do |proposal|
         expect(page).to have_selector("tr", text: proposal.title)
         expect(page).to have_selector("tr", text: proposal.reports.first.user.name)
-        expect(page).to have_selector("tr", text: proposal.reports.first.type)
+        expect(page).to have_selector("tr", text: proposal.reports.first.reason)
       end
     end
 
