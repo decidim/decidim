@@ -35,7 +35,7 @@
         </div>
       </div>
     <% end %>
-    <%= render partial: "decidim/shared/reference", locals: { subject: @proposal } %>
+    <%= feature_reference(@proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">

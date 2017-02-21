@@ -27,8 +27,7 @@
         </div>
       </div>
     </div>
-    <%= render partial: "decidim/shared/reference", locals: { subject: project } %>
-    <div class="reference"><%= project.reference %></div>
+    <%= feature_reference(project) %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
