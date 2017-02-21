@@ -7,7 +7,7 @@ module Decidim
       include FormFactory
       include FilterResource
 
-      helper_method :order, :random_seed
+      helper_method :order, :random_seed, :order_fields
 
       before_action :authenticate_user!, only: [:new, :create]
 
@@ -63,6 +63,14 @@ module Decidim
 
       def order
         @order = params[:order] || "random"
+      end
+
+      def order_fields
+        @order_fields ||= begin
+          order_fields = [:random, :recent]
+          order_fields << :most_voted if current_settings.votes_enabled?
+          order_fields
+        end
       end
 
       # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
