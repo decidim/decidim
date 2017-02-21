@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe Decidim::Admin::CreateParticipatoryProcess do
   let(:organization) { create :organization }
+  let(:scope) { create :scope, organization: organization }
   let(:errors) { double.as_null_object }
   let(:form) do
     double(
@@ -16,6 +17,7 @@ describe Decidim::Admin::CreateParticipatoryProcess do
       description: {en: "description"},
       short_description: {en: "short_description"},
       current_organization: organization,
+      scopes: [scope],
       errors: errors
     )
   end

@@ -37,4 +37,13 @@
 
   <dt><%= display_label(participatory_process, :promoted) %></dt>
   <dd><%= humanize_boolean participatory_process.promoted? %></dd>
+
+  <dt><%= display_label(participatory_process, :scope) %></dt>
+  <% if participatory_process.scopes.any? %>
+    <% participatory_process.scopes.each do |scope| %>
+      <dd><%= scope.name %></dd>
+    <% end %>
+  <% else %>
+    <dd><%= t("decidim.participatory_processes.scopes.global") %></dd>
+  <% end %>
 </dl>

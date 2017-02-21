@@ -62,3 +62,6 @@
   <%= form.translated :text_field, :participatory_structure %>
 </div>
 
+<div class="field">
+  <%= form.collection_select :scope_ids, @form.available_scopes, :id, :name %>
+</div>

@@ -22,5 +22,15 @@ module Decidim
 
       it { is_expected.to be_valid }
     end
+
+    context "scopes" do
+      let(:organization) { create :organization }
+      let!(:scope) { create :scope, organization: organization }
+      let(:participatory_process) { build(:participatory_process, organization: organization, scope_ids: [scope.id]) }
+
+      it "finds the related scopes" do
+        expect(subject.scopes).to eq [scope]
+      end
+    end
   end
 end

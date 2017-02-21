@@ -32,7 +32,7 @@ module Decidim
 
     has_many :features, foreign_key: "decidim_participatory_process_id"
 
-    attr_readonly :active_step
+
 
     validates :slug, presence: true
     validates :slug, uniqueness: { scope: :organization }
@@ -73,6 +73,10 @@ module Decidim
     # Returns an Array<Attachment>
     def documents
       @documents ||= attachments.select(&:document?)
+    end
+
+    def scopes
+      @scopes ||= Scope.where(id: scope_ids, organization: organization)
     end
   end
 end

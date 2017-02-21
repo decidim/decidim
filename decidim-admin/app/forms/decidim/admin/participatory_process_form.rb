@@ -24,16 +24,26 @@ module Decidim
       attribute :slug, String
       attribute :hashtag, String
       attribute :promoted, Boolean
+      attribute :scope_ids, Array
       attribute :hero_image
       attribute :banner_image
 
       validates :slug, presence: true
       validates :title, :subtitle, :description, :short_description, translatable_presence: true
+      validates :scope_ids, :scopes, length: { maximum: 1, minimum: 0 }
 
       validate :slug, :slug_uniqueness
 
       validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
       validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+
+      def scopes
+        @scopes ||= current_organization.scopes.where(id: scope_ids)
+      end
+
+      def available_scopes
+        @available_scopes ||= [Struct.new(:id, :name).new("", I18n.t("decidim.participatory_processes.scopes.global"))] + current_organization.scopes
+      end
 
       private
 
