@@ -12,6 +12,7 @@ module Decidim
     helper Decidim::DecidimFormHelper
 
     layout "layouts/decidim/user_profile", only: [:index]
+    skip_before_filter :store_current_location
 
     def new; end
 
@@ -33,7 +34,7 @@ module Decidim
       AuthorizeUser.call(handler) do
         on(:ok) do
           flash[:notice] = t("authorizations.create.success", scope: "decidim")
-          redirect_to params[:redirect_url] || authorizations_path
+          redirect_to params[:redirect_url] || stored_location_for(current_user) || authorizations_path
         end
 
         on(:invalid) do

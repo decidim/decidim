@@ -15,11 +15,8 @@ module Decidim
       layout "layouts/decidim/application"
 
       def after_sign_in_path_for(user)
-        if !pending_redirect?(user) && first_login_and_not_authorized?(user)
-          first_login_authorizations_path
-        else
-          super
-        end
+        return first_login_authorizations_path if first_login_and_not_authorized?(user)
+        super
       end
 
       # Calling the `stored_location_for` method removes the key, so in order
