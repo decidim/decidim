@@ -104,12 +104,11 @@ export class AddCommentForm extends Component {
             <label className="show-for-sr" htmlFor={`add-comment-${type}-${id}`}>{ I18n.t("components.add_comment_form.form.body.label") }</label>
             {this._renderTextArea()}
             {this._renderTextAreaError()}
-            <button
-              type="submit"
-              className={submitButtonClassName}
-              value={I18n.t("components.add_comment_form.form.submit")}
-              disabled={disabled}
-            />
+            <button type="submit"
+                    className={submitButtonClassName}
+                    disabled={disabled}>
+              {I18n.t("components.add_comment_form.form.submit")}
+            </button>
           </div>
         </form>
       );
