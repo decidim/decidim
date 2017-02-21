@@ -16,7 +16,14 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
 
         delegate :categories, to: :current_feature, prefix: false
-        delegate :scopes, to: :current_organization, prefix: false
+
+        def organization_scopes
+          current_organization.scopes
+        end
+
+        def process_scopes
+          current_feature.participatory_process.scopes
+        end
 
         alias feature current_feature
 
@@ -31,7 +38,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= scopes.where(id: scope_id).first
+          @scope ||= process_scopes.first || organization_scopes.where(id: scope_id).first
         end
       end
     end

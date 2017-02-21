@@ -24,9 +24,9 @@
             </div>
           <% end %>
 
-          <% if @form.scopes&.any? && feature_settings.scoped_proposals_enabled %>
+          <% if @form.process_scopes&.empty? %>
             <div class="field">
-              <%= form.select :scope_id, @form.scopes.map{|s| [s.name, s.id]}, prompt: t(".select_a_scope") %>
+              <%= form.select :scope_id, @form.organization_scopes.map{|s| [s.name, s.id]}, prompt: t(".select_a_scope") %>
             </div>
           <% end %>
 

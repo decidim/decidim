@@ -24,7 +24,6 @@ en:
             comments_enabled: Comments enabled
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
-            scoped_proposals_enabled: Scoped proposals enabled
             vote_limit: Vote limit
           step:
             comments_blocked: Comments blocked
