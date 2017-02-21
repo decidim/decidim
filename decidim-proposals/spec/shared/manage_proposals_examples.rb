@@ -197,4 +197,34 @@ RSpec.shared_examples "manage proposals" do
       end
     end
   end
+
+  context "listing reported proposals" do
+    let!(:reported_proposals) { create_list(:proposal, 3, :reported, feature: current_feature) }
+
+    it "user can review them" do
+      visit current_path
+
+      click_link "Reported proposals"
+
+      reported_proposals.each do |proposal|
+        expect(page).to have_selector("tr", text: proposal.title)
+        expect(page).to have_selector("tr", text: proposal.reports.first.user.name)
+        expect(page).to have_selector("tr", text: proposal.reports.first.type)
+      end
+    end
+
+    it "user can unreport a proposal" do
+      visit current_path
+
+      click_link "Reported proposals"
+
+      within find("tr", text: reported_proposals.first.title) do
+        click_link "Unreport"
+      end
+
+      within ".flash" do
+        expect(page).to have_content("Proposal successfully unreported")
+      end
+    end
+  end
 end

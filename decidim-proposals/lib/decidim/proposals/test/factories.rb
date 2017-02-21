@@ -74,6 +74,13 @@ FactoryGirl.define do
       answer { Decidim::Faker::Localized.sentence }
       answered_at { Time.current }
     end
+
+    trait :reported do
+      report_count 1
+      after(:create) do |proposal|
+        create(:proposal_report, proposal: proposal)
+      end
+    end
   end
 
   factory :proposal_vote, class: Decidim::Proposals::ProposalVote do

@@ -3,6 +3,10 @@
 <% if feature_settings.official_proposals_enabled %>
   <div class="actions title">
     <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'new' if can? :manage, current_feature %>
+    |
+    <%= link_to t("actions.all_proposals", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), proposals_path if can? :manage, current_feature %>
+    |
+    <%= link_to t("actions.reported_proposals", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), proposals_path(reported: true) if can? :manage, current_feature %>
   </div>
 <% end %>
 
@@ -14,7 +18,11 @@
       <% if feature_settings.scoped_proposals_enabled %>
         <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
       <% end %>
-      <th><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></th>
+      <% if params[:reported] %>
+        <th><%= t("models.proposal.fields.reports", scope: "decidim.proposals") %></th>
+      <% else %>
+        <th><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></th>
+      <% end %>
       <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
     </tr>
   </thead>
@@ -37,10 +45,20 @@
           </td>
         <% end %>
         <td>
-          <%= humanize_proposal_state proposal.state %>
+          <% if params[:reported] %>
+            <% proposal.reports.each do |report| %>
+              <span><%= report.user.name %> - <%= report.type %></span>
+              <br />
+            <% end %>
+          <% else %>
+            <%= humanize_proposal_state proposal.state %>
+          <% end %>
         </td>
         <td class="actions">
           <%= link_to t("actions.answer", scope: "decidim.proposals"), edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id) if can? :update, proposal %>
+          <% if params[:reported] && proposal.reported? && can?(:unreport, proposal) %>
+            | <%= link_to t("actions.unreport", scope: "decidim.proposals"), unreport_proposal_path(proposal), method: :put %>
+          <% end %>
         </td>
       </tr>
     <% end %>

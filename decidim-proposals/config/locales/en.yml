@@ -30,9 +30,12 @@ en:
             votes_enabled: Votes enabled
     proposals:
       actions:
+        all_proposals: All proposals
         answer: Answer
         new: New proposal
+        reported_proposals: Reported proposals
         title: Actions
+        unreport: Unreport
       admin:
         models:
           proposal:
@@ -58,6 +61,9 @@ en:
           new:
             create: Create proposal
             title: New proposal
+          unreport:
+            invalid: There's been a problem unreporting this proposal
+            success: Proposal successfully unreported
       answers:
         accepted: Accepted
         not_answered: Not answered
@@ -70,6 +76,7 @@ en:
           fields:
             category: Category
             official_proposal: Official proposal
+            reports: Reports
             scope: Scope
             state: State
             title: Title

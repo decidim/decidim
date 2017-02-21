@@ -19,6 +19,7 @@ module Decidim
 
       scope :accepted, -> { where(state: "accepted") }
       scope :rejected, -> { where(state: "rejected") }
+      scope :reported, -> { where("report_count > 0") }
 
       def author_name
         user_group&.name || author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
@@ -63,11 +64,18 @@ module Decidim
         state == "rejected"
       end
 
-      # Public: Checks if the proposal is hidden or not
+      # Public: Checks if the proposal is hidden or not.
       #
       # Returns Boolean.
       def hidden?
         hidden_at.present?
+      end
+
+      # Public: Checks if the proposal has been reported or not.
+      #
+      # Returns Boolean.
+      def reported?
+        report_count > 0
       end
 
       # Public: Overrides the `commentable?` Commentable concern method.

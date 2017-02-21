@@ -10,6 +10,9 @@ module Decidim
       routes do
         resources :proposals, only: [:index, :new, :create] do
           resources :proposal_answers, only: [:edit, :update]
+          member do
+            put :unreport
+          end
         end
         root to: "proposals#index"
       end

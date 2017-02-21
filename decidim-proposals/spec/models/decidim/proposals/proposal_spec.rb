@@ -55,6 +55,17 @@ module Decidim
         end
       end
 
+      context "#reported?" do
+        it "returns false if the proposal report count is equal to 0" do
+          expect(subject).not_to be_reported
+        end
+
+        it "returns true if the proposal report count is greater than 0" do
+          subject.report_count = 1
+          expect(subject).to be_reported
+        end
+      end
+
       context "when it has been accepted" do
         let(:proposal) { build(:proposal, :accepted) }
 

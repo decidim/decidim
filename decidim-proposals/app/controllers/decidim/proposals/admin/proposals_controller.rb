@@ -29,10 +29,31 @@ module Decidim
           end
         end
 
+        def unreport
+          @proposal = Proposal.find(params[:id])
+          authorize! :unreport, @proposal
+
+          Admin::UnreportProposal.call(@proposal) do
+            on(:ok) do
+              flash[:notice] = I18n.t("proposals.unreport.success", scope: "decidim.proposals.admin")
+              redirect_to proposals_path(reported: true)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("proposals.unreport.invalid", scope: "decidim.proposals.admin")
+              redirect_to proposals_path(reported: true)
+            end
+          end
+        end
+
         private
 
         def proposals
-          @proposals ||= Proposal.where(feature: current_feature)
+          @proposals ||= begin
+            proposals = Proposal.where(feature: current_feature)
+            proposals = proposals.reported if params[:reported]
+            proposals
+          end
         end
       end
     end

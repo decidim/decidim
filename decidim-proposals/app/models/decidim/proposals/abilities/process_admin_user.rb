@@ -18,7 +18,7 @@ module Decidim
           can :manage, Proposal do |proposal|
             participatory_processes.include?(proposal.feature.participatory_process)
           end
-
+          can :unreport, Proposal
           cannot :create, Proposal unless can_create_proposal?
           cannot :update, Proposal unless can_update_proposal?
         end
