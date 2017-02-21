@@ -12,7 +12,9 @@
     </div>
   </div>
 
-  <%= form.collection_radio_buttons :date, [["upcoming", t(".upcoming")], ["past", t(".past")]], :first, :last, legend_title: t(".date") %>
+  <% unless @forced_past_meetings %>
+    <%= form.collection_radio_buttons :date, [["upcoming", t(".upcoming")], ["past", t(".past")]], :first, :last, legend_title: t(".date") %>
+  <% end %>
 
   <% if current_organization.scopes.any? %>
     <%= form.collection_check_boxes :scope_id, current_organization.scopes, lambda {|scope| scope.id.to_s}, :name, legend_title: t(".scopes") %>

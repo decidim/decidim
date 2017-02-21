@@ -9,12 +9,9 @@ describe "Explore meetings", type: :feature do
     create_list(:meeting, meetings_count, feature: feature)
   end
 
-  before do
-    visit_feature
-  end
-
   context "index" do
     it "shows all meetings for the given process" do
+      visit_feature
       expect(page).to have_selector("article.card", count: meetings_count)
 
       meetings.each do |meeting|
@@ -24,6 +21,7 @@ describe "Explore meetings", type: :feature do
 
     context "filtering" do
       it "allows searching by text" do
+        visit_feature
         within ".filters" do
           fill_in :filter_search_text, with: translated(meetings.first.title)
         end
@@ -63,6 +61,35 @@ describe "Explore meetings", type: :feature do
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
+      end
+    end
+
+    context "No upcoming meetings scheduled" do
+      let!(:meetings) do
+        create_list(:meeting, 2, feature: feature, start_time: Time.current - 4.days, end_time: Time.current - 2.days)
+      end
+
+      it "only shows the past meetings" do
+        visit_feature
+        expect(page).to have_css(".card--meeting", count: 2)
+      end
+
+      it "shows the correct warning" do
+        visit_feature
+        within ".callout" do
+          expect(page).to have_content("no scheduled meetings")
+        end
+      end
+    end
+
+    context "No meetings scheduled" do
+      let!(:meetings){ [] }
+
+      it "shows the correct warning" do
+        visit_feature
+        within ".callout" do
+          expect(page).to have_content("any meeting scheduled")
+        end
       end
     end
   end
@@ -154,11 +181,11 @@ describe "Explore meetings", type: :feature do
 
       before do
         meeting.link_resources(proposals, "proposals_from_meeting")
-        visit_feature
-        click_link translated(meeting.title)
       end
 
       it "shows related proposals" do
+        visit_feature
+        click_link translated(meeting.title)
         proposals.each do |proposal|
           expect(page).to have_content(proposal.title)
           expect(page).to have_content(proposal.author_name)
@@ -175,11 +202,11 @@ describe "Explore meetings", type: :feature do
 
       before do
         meeting.link_resources(results, "meetings_through_proposals")
-        visit_feature
-        click_link translated(meeting.title)
       end
 
       it "shows related results" do
+        visit_feature
+        click_link translated(meeting.title)
         results.each do |result|
           expect(page).to have_i18n_content(result.title)
         end
@@ -192,13 +219,9 @@ describe "Explore meetings", type: :feature do
     context "when the meeting is closed" do
       let!(:meeting) { create(:meeting, :closed, feature: feature) }
 
-      before do
-        meeting
+      it "shows the closing report" do
         visit_feature
         click_link translated(meeting.title)
-      end
-
-      it "shows the closing report" do
         expect(page).to have_i18n_content(meeting.closing_report)
 
         within ".definition-data" do

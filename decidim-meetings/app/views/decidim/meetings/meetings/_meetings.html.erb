@@ -1,3 +1,13 @@
+<% if @forced_past_meetings %>
+  <div class="callout warning">
+    <%= t ".upcoming_meetings_warning" %>
+  </div>
+<% elsif meetings.length == 0 %>
+  <div class="callout warning">
+    <%= t ".no_meetings_warning" %>
+  </div>
+<% end %>
+
 <div class="row small-up-1 medium-up-2 card-grid">
   <% meetings.each do |meeting| %>
     <div class="column">
