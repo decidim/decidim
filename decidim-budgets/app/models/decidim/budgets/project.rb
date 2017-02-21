@@ -32,7 +32,7 @@ module Decidim
 
       # Public: Returns the number of times an specific project have been checked out.
       def confirmed_orders_count
-        orders.where.not(checked_out_at: nil).count
+        orders.finished.count
       end
     end
   end

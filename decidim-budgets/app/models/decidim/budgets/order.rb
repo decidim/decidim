@@ -24,6 +24,8 @@ module Decidim
         less_than_or_equal_to: :maximum_budget
       }
 
+      scope :finished, -> { where.not(checked_out_at: nil) }
+
       # Public: Returns the sum of project budgets
       def total_budget
         projects.to_a.sum(&:budget)
