@@ -2,6 +2,9 @@ table{
   td.actions, th.actions{
     text-align: right;
   }
+  td.center, th.center{
+    text-align: center;
+  }
 }
 
 tbody.sortable tr {
