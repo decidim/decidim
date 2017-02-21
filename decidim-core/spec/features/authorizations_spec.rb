@@ -33,7 +33,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
 
       it "allows the user to skip it" do
         find(".skip a").click
-        expect(page).to have_content("processes")
+        expect(page).to have_content("Welcome")
       end
     end
 

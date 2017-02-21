@@ -15,7 +15,8 @@ module Decidim
       layout "layouts/decidim/application"
 
       def after_sign_in_path_for(user)
-        return first_login_authorizations_path if first_login_and_not_authorized?(user)
+        return first_login_authorizations_path if first_login_and_not_authorized?(user) &&
+                                                  !user.roles.include?("admin")
         super
       end
 

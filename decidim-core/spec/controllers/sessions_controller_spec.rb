@@ -16,7 +16,7 @@ module Decidim
             let(:user) { build(:user, :admin, sign_in_count: 1) }
 
             before do
-              controller.session[:"user_return_to"] = account_path
+              controller.store_location_for(user, account_path)
             end
 
             it { is_expected.to eq account_path }
