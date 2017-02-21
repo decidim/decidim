@@ -5,13 +5,14 @@ module Decidim
   # This controller allows users to create and destroy their authorizations. It
   # shouldn't be necessary to expand it to add new authorization schemes.
   class AuthorizationsController < ApplicationController
-    helper_method :handler, :handlers
+    helper_method :handler, :handlers, :stored_location
     before_action :valid_handler, only: [:new, :create]
 
     include Decidim::UserProfile
     helper Decidim::DecidimFormHelper
 
     layout "layouts/decidim/user_profile", only: [:index]
+    skip_before_filter :store_current_location
 
     def new; end
 
@@ -33,7 +34,7 @@ module Decidim
       AuthorizeUser.call(handler) do
         on(:ok) do
           flash[:notice] = t("authorizations.create.success", scope: "decidim")
-          redirect_to params[:redirect_url] || authorizations_path
+          redirect_to params[:redirect_url] || stored_location_for(current_user) || authorizations_path
         end
 
         on(:invalid) do
@@ -52,6 +53,12 @@ module Decidim
     end
 
     protected
+
+    def stored_location
+      location = stored_location_for(current_user)
+      store_location_for(current_user, location)
+      location || participatory_processes_path
+    end
 
     def handler_params
       (params[:authorization_handler] || {}).merge(user: current_user)

@@ -11,7 +11,7 @@ module Decidim
       view.extend DecidimFormHelper
       allow(view).to receive(:handler).and_return(handler)
       allow(view).to receive(:authorizations_path).and_return("/authorizations")
-      allow(view).to receive(:participatory_processes_path).and_return("/processes")
+      allow(view).to receive(:stored_location).and_return("/processes")
     end
 
     context "when there's a partial to render the form" do
