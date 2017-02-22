@@ -24,12 +24,12 @@ describe "Proposals", type: :feature do
                  participatory_process: participatory_process)
         end
 
-        context "when scoped_proposals setting is enabled" do
+        context "when process is not related to any scope" do
           before do
-            feature.update_attributes(settings: { scoped_proposals_enabled: true})
+            participatory_process.update_attributes(scope_ids: [])
           end
 
-          it "cannot be related to a scope" do
+          it "can be related to a scope" do
             visit_feature
 
             click_link "New proposal"
@@ -40,9 +40,9 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "when scoped_proposals setting is not enabled" do
+        context "when process is related to any scope" do
           before do
-            feature.update_attributes(settings: { scoped_proposals_enabled: false})
+            participatory_process.update_attributes(scope_ids: [scope.id])
           end
 
           it "cannot be related to a scope" do
@@ -144,11 +144,11 @@ describe "Proposals", type: :feature do
       expect(page).to have_content(proposal.author.name)
     end
 
-    context "when scoped_proposals setting is enabled" do
+    context "when process is not related to any scope" do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
 
       before do
-        feature.update_attributes(settings: { scoped_proposals_enabled: true } )
+        participatory_process.update_attributes(scope_ids: [])
       end
 
       it "can be filtered by scope" do
@@ -158,14 +158,14 @@ describe "Proposals", type: :feature do
       end
     end
 
-    context "when scoped_proposals setting is not enabled" do
+    context "when process is related to a scope" do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
 
       before do
-        feature.update_attributes(settings: { scoped_proposals_enabled: false } )
+        participatory_process.update_attributes(scope_ids: [scope.id])
       end
 
-      it "cannot be filtered by scope" do
+      it "does not show the scope name" do
         visit_feature
         click_link proposal.title
         expect(page).not_to have_content(scope.name)
@@ -387,9 +387,9 @@ describe "Proposals", type: :feature do
         end
       end
 
-      context "when scoped_proposals setting is not enabled" do
+      context "when process is related to a scope" do
         before do
-          feature.update_attributes(settings: { scoped_proposals_enabled: false } )
+          participatory_process.update_attributes(scope_ids: [scope.id])
         end
 
         it "cannot be filtered by scope" do

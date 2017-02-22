@@ -29,12 +29,12 @@ RSpec.shared_examples "manage proposals" do
           )
         end
 
-        context "when scoped_proposals setting is enabled" do
+        context "when process is not related to any scope" do
           before do
-            current_feature.update_attributes(settings: { scoped_proposals_enabled: true } )
+            participatory_process.update_attributes(scope_ids: [])
           end
 
-          it "can be filtered by scope" do
+          it "can be related to a scope" do
             find(".actions .new").click
 
             within "form" do
@@ -43,12 +43,12 @@ RSpec.shared_examples "manage proposals" do
           end
         end
 
-        context "when scoped_proposals setting is not enabled" do
+        context "when process is related to a scope" do
           before do
-            current_feature.update_attributes(settings: { scoped_proposals_enabled: false } )
+            participatory_process.update_attributes(scope_ids: [scope.id])
           end
 
-          it "cannot be filtered by scope" do
+          it "cannot be related to a scope" do
             find(".actions .new").click
 
             within "form" do
