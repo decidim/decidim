@@ -13,7 +13,7 @@ ca:
         result_proposals: Propostes incloses en aquest resultat
         result_projects: Projectes inclosos en aquest resultat
       meetings_through_proposals:
-        result_meetings: Trobades relacionades
+        result_meetings: 'Trobades relacionades:'
     results:
       actions:
         confirm_destroy: Esteu segur que voleu suprimir aquest resultat?
