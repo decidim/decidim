@@ -9,6 +9,7 @@ module Decidim
       include LocaleSwitcher
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
+      helper Decidim::OrganizationScopesHelper
 
       helper Decidim::LanguageChooserHelper
 

@@ -26,7 +26,7 @@
 
           <% if @form.process_scopes&.empty? %>
             <div class="field">
-              <%= form.collection_select :scope_id, @form.available_scopes, :id, :name %>
+              <%= form.collection_select :scope_id, organization_scopes, :id, :name %>
             </div>
           <% end %>
 

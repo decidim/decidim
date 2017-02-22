@@ -41,10 +41,6 @@ module Decidim
         @scopes ||= current_organization.scopes.where(id: scope_ids)
       end
 
-      def available_scopes
-        @available_scopes ||= [Struct.new(:id, :name).new("", I18n.t("decidim.participatory_processes.scopes.global"))] + current_organization.scopes
-      end
-
       private
 
       def slug_uniqueness
