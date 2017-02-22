@@ -12,7 +12,7 @@ en:
     resource_links:
       included_proposals:
         result_proposals: Proposals included in this result
-        result_projects: Projects included in this result
+        result_proposals: Projects included in this result
       meetings_through_proposals:
         result_meetings: Related meetings
     results:
