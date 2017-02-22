@@ -162,6 +162,32 @@ describe "Explore results", type: :feature do
         visit_feature
       end
 
+      context "when the process has a linked scope" do
+        before do
+          participatory_process.update_attributes(scope_ids: [scope.id])
+          visit current_path
+        end
+
+        it "enables filtering by scope" do
+          within ".filters" do
+            expect(page).not_to have_content(/Scopes/i)
+          end
+        end
+      end
+
+      context "when the process has no linked scope" do
+        before do
+          participatory_process.update_attributes(scope_ids: [])
+          visit current_path
+        end
+
+        it "enables filtering by scope" do
+          within ".filters" do
+            expect(page).to have_content(/Scopes/i)
+          end
+        end
+      end
+
       context "by origin 'official'" do
         it "lists the filtered results" do
           within ".filters" do
