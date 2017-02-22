@@ -27,6 +27,10 @@ module Decidim
         current_feature.participatory_process.scopes
       end
 
+      def available_scopes
+        @available_scopes ||= [Struct.new(:id, :name).new("", I18n.t("decidim.participatory_processes.scopes.global"))] + current_organization.scopes
+      end
+
       alias feature current_feature
 
       # Finds the Category from the category_id.

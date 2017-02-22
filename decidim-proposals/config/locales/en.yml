@@ -60,7 +60,6 @@ en:
             success: Proposal successfully created
           form:
             select_a_category: Select a category
-            select_a_scope: Select a scope
           hide:
             invalid: There's been a problem hiding this proposal
             success: Proposal successfully hidden
@@ -135,7 +134,6 @@ en:
         new:
           back: Back
           select_a_category: Please select a category
-          select_a_scope: Please select a scope
           send: Send
           title: New proposal
         orders:

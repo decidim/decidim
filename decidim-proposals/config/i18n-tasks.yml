@@ -8,3 +8,5 @@ ignore_unused:
 - "decidim.proposals.answers.*"
 - "decidim.features.proposals.actions.*"
 - "decidim.proposals.proposals.orders.*"
+ignore_missing:
+  - decidim.participatory_processes.scopes.global

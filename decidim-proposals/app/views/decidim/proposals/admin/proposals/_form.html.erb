@@ -14,6 +14,6 @@
 
 <% if @form.process_scopes&.empty? %>
   <div class="field">
-    <%= form.select :scope_id, @form.organization_scopes.map{|s| [s.name, s.id]}, prompt: t(".select_a_scope") %>
+    <%= form.collection_select :scope_id, @form.available_scopes, :id, :name %>
   </div>
 <% end %>
