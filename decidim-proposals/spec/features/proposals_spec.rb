@@ -309,9 +309,7 @@ describe "Proposals", type: :feature do
 
         find(".pagination-next a").click
 
-        within ".pagination .current" do
-          expect(page).to have_content("2")
-        end
+        expect(page).to have_selector(".pagination .current", text: "2")
 
         expect(page).to have_css(".card--proposal", count: 8)
       end
