@@ -137,6 +137,7 @@ en:
             votes: Votes
     resource_links:
       included_proposals:
+        results: 'Proposal included in these projects:'
         results: 'Proposal appearing in these results:'
       proposals_from_meeting:
         meetings: Related meetings
