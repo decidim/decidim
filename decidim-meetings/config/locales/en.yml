@@ -83,6 +83,8 @@ en:
             title: Title
     resource_links:
       meetings_through_proposals:
-        results: 'Related results:'
+        meeting_results: 'Related results:'
+        result_meetings: 'Related meetings:'
       proposals_from_meeting:
-        proposals: Related proposals
+        meeting_proposals: 'Related proposals:'
+        proposal_meetings: 'Related meetings:'

@@ -105,6 +105,9 @@ es:
       destroy:
         error: Ha habido un error al cancelar tu voto
         success: Tu voto ha sido cancelado correctamente
+    resource_links:
+      included_proposals:
+        project_proposals: 'Propuestas incluidas en este proyecto:'
   index:
     confirmed_orders_count: Nombre de votos
   total_budget: Presupuesto total

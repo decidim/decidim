@@ -135,6 +135,7 @@ ca:
             votes: Suports
     resource_links:
       included_proposals:
-        results: 'La proposta apareix en aquests resultats:'
+        proposal_results: 'La proposta apareix en aquests resultats:'
+        proposal_projects: 'La proposta apareix en aquests projectes:'
       proposals_from_meeting:
-        meetings: Trobades relacionades
+        proposal_meetings: Trobades relacionades

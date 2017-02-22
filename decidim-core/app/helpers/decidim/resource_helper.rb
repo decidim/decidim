@@ -41,7 +41,8 @@ module Decidim
       safe_join(linked_resources.map do |klass, resources|
         resource_manifest = klass.constantize.resource_manifest
         content_tag(:div, class: "section") do
-          content_tag(:h3, I18n.t(resource_manifest.name, scope: "decidim.resource_links.#{link_name}"), class: "section-heading") +
+          i18n_name = "#{resource.class.name.demodulize.underscore}_#{resource_manifest.name}"
+          content_tag(:h3, I18n.t(i18n_name, scope: "decidim.resource_links.#{link_name}"), class: "section-heading") +
             render(partial: resource_manifest.template, locals: { resources: resources })
         end
       end)

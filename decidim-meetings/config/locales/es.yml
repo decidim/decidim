@@ -81,6 +81,8 @@ es:
             title: Título
     resource_links:
       meetings_through_proposals:
-        results: 'Resultados relacionados:'
+        meeting_results: 'Resultados relacionados:'
+        result_meetings: 'Encuentros relacionados:'
       proposals_from_meeting:
-        proposals: Propuestas relacionadas
+        meeting_proposals: 'Propuestas relacionadas:'
+        proposal_meetings: 'Encuentros relacionados:'

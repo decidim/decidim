@@ -137,7 +137,12 @@ en:
             votes: Votes
     resource_links:
       included_proposals:
+<<<<<<< HEAD
         projects: 'Proposal appearing in these projects:'
         results: 'Proposal appearing in these results:'
+=======
+        proposal_results: 'Proposal appearing in these results:'
+        proposal_projects: 'Proposal appearing in these projects:'
+>>>>>>> Update all respective locales
       proposals_from_meeting:
-        meetings: Related meetings
+        proposal_meetings: Related meetings
