@@ -24,30 +24,6 @@ module Decidim
         }
       end
 
-      describe "GET index" do
-        context "with votes enabled" do
-          let(:feature) do
-            create(:proposal_feature, :with_votes_enabled)
-          end
-
-          it "shows most_voted option to sort" do
-            get :index
-            expect(controller.send(:order_fields)).to include(:most_voted)
-          end
-        end
-
-        context "with votes disabled" do
-          let(:feature) do
-            create(:proposal_feature)
-          end
-
-          it "doesn't show most_voted option to sort" do
-            get :index
-            expect(controller.send(:order_fields)).not_to include(:most_voted)
-          end
-        end
-      end
-
       describe "POST create" do
         context "when creation is not enabled" do
           let(:feature) { create(:proposal_feature) }
