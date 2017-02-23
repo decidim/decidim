@@ -6,6 +6,7 @@ module Decidim
       mimic :proposal_report
 
       attribute :reason, String
+      attribute :details, String
 
       validates :reason, inclusion: { in: ProposalReport::REASONS }
     end

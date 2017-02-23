@@ -13,6 +13,7 @@
       <%= f.collection_radio_buttons :reason, [[:spam, t('.spam')], [:offensive, t('.offensive')], [:does_not_belong, t('.does_not_belong', organization_name: current_organization.name)]], :first, :last do |builder| %>
         <%= builder.label { builder.radio_button + builder.text } %>
       <% end %>
+      <%= f.text_area :details, rows: 4 %>
       <%= f.submit t(".report") %>
     <% end %>
   <% end %>

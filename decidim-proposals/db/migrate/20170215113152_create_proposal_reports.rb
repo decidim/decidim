@@ -4,6 +4,7 @@ class CreateProposalReports < ActiveRecord::Migration[5.0]
       t.references :decidim_proposal, null: false, index: { name: "decidim_proposals_proposal_result_proposal" }
       t.references :decidim_user, null: false, index: { name: "decidim_proposals_proposal_result_user" }
       t.string :reason, null: false
+      t.text :details
 
       t.timestamps
     end

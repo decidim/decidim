@@ -3,7 +3,6 @@
 <p>
   <%=
     t(".report_html", {
-      reporter_name: @proposal_report.user.name,
       proposal_link: link_to(@proposal_report.proposal.title, decidim_resource_url(@proposal_report.proposal))
     })
   %>

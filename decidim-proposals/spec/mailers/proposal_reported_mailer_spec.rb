@@ -13,10 +13,10 @@ module Decidim
       describe "#report" do
         let(:mail) { described_class.report(user, proposal_report) }
 
-        let(:subject) { "Una proposta ha estat reportada" }
+        let(:subject) { "Una proposta ha estat denunciada" }
         let(:default_subject) { "A proposal has been reported" }
 
-        let(:body) { "ha estat reportada" }
+        let(:body) { "ha estat denunciada" }
         let(:default_body) { "has been reported" }
 
         include_examples "localised email"

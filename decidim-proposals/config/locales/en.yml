@@ -8,6 +8,8 @@ en:
         scope_id: Scope
         title: Title
         user_group_id: Create proposal as
+      proposal_report:
+        details: Additional comments
   decidim:
     features:
       proposals:
@@ -92,7 +94,7 @@ en:
           subject: A proposal has been hidden automatically
         report:
           hello: Hello %{name},
-          report_html: The proposal %{proposal_link} has been reported by %{reporter_name}
+          report_html: The proposal %{proposal_link} has been reported.
           subject: A proposal has been reported
       proposal_reports:
         create:

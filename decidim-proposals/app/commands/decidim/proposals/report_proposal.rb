@@ -46,7 +46,8 @@ module Decidim
         @proposal_report = ProposalReport.create!(
           proposal: @proposal,
           user: @current_user,
-          reason: form.reason
+          reason: form.reason,
+          details: form.details
         )
       end
 
