@@ -18,7 +18,7 @@ module Decidim
         @process = process
       end
 
-      # Finds the UserRoles of the users that can manage the given process.
+      # Finds organization admins and the users with role admin for the given process.
       #
       # Returns an ActiveRecord::Relation.
       def query
