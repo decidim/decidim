@@ -6,9 +6,11 @@
   <%= form.translated :editor, :description %>
 </div>
 
-<div class="field" >
-  <%= form.collection_select :decidim_scope_id, current_organization.scopes, :id, :name, include_blank: true %>
-</div>
+<% if @form.process_scopes&.empty? %>
+  <div class="field" >
+    <%= form.collection_select :decidim_scope_id, organization_scopes, :id, :name, include_blank: true %>
+  </div>
+<% end %>
 
 <div class="field" >
   <%= form.categories_select :decidim_category_id, current_participatory_process.categories, include_blank: true, disable_parents: false %>

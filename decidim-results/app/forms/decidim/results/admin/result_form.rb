@@ -27,8 +27,16 @@ module Decidim
           @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, context.current_feature)&.order(title: :asc)&.pluck(:title, :id)
         end
 
+        def organization_scopes
+          current_organization.scopes
+        end
+
+        def process_scopes
+          current_feature.participatory_process.scopes
+        end
+
         def scope
-          @scope ||= context.current_feature.scopes.where(id: decidim_scope_id).first
+          @scope ||= process_scopes.first || organization_scopes.where(id: decidim_scope_id).first
         end
 
         def category
