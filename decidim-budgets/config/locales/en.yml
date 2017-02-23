@@ -112,9 +112,6 @@ en:
       destroy:
         error: An error ocurred while canceling your vote
         success: Your vote has been canceled successfully
-    resource_links:
-      included_proposals:
-        project_proposals: 'Proposals included in this project'
   index:
     confirmed_orders_count: Orders count
   total_budget: Total budget
