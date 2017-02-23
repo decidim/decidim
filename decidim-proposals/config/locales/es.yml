@@ -64,6 +64,11 @@ es:
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada correctamente.
+      proposal_reported_mailer:
+        report:
+          hello: Hola %{name},
+          report_html: La propuesta %{proposal_link} ha sido denunciada.
+          subject: Una propuesta ha sido denunciada
       models:
         proposal:
           fields:

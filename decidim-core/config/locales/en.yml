@@ -182,6 +182,15 @@ en:
           invalid: "%{field} isn't valid."
           ok: Ok
           title: Not authorized
+      flag_modal:
+        already_reported: This content is already reported and it will be reviewed by an admin.
+        close: Close
+        description: Is this content inappropriate?
+        does_not_belong: This proposal contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        offensive: This proposal contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        report: Report
+        spam: This proposal contains clickbait, advertising, scams or script bots.
+        title: Report a problem
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up

@@ -13,11 +13,15 @@ module Decidim
       feature_manifest_name "proposals"
 
       has_many :votes, foreign_key: "decidim_proposal_id", class_name: ProposalVote, dependent: :destroy, counter_cache: "proposal_votes_count"
+      has_many :reports, foreign_key: "decidim_proposal_id", class_name: ProposalReport, dependent: :destroy
 
       validates :title, :body, presence: true
 
-      scope :accepted, -> { where(state: "accepted") }
-      scope :rejected, -> { where(state: "rejected") }
+      scope :accepted,   -> { where(state: "accepted") }
+      scope :rejected,   -> { where(state: "rejected") }
+      scope :reported,   -> { where("report_count > 0") }
+      scope :not_hidden, -> { where(hidden_at: nil) }
+      scope :hidden,     -> { where.not(hidden_at: nil) }
 
       def author_name
         user_group&.name || author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
@@ -32,6 +36,13 @@ module Decidim
       # Returns Boolean.
       def voted_by?(user)
         votes.where(author: user).any?
+      end
+
+      # Public: Check if the user has reported the proposal.
+      #
+      # Returns Boolean.
+      def reported_by?(user)
+        reports.where(user: user).any?
       end
 
       # Public: Checks if the organization has given an answer for the proposal.
@@ -55,6 +66,20 @@ module Decidim
         state == "rejected"
       end
 
+      # Public: Checks if the proposal is hidden or not.
+      #
+      # Returns Boolean.
+      def hidden?
+        hidden_at.present?
+      end
+
+      # Public: Checks if the proposal has been reported or not.
+      #
+      # Returns Boolean.
+      def reported?
+        report_count > 0
+      end
+
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
         feature.settings.comments_enabled?
@@ -62,7 +87,7 @@ module Decidim
 
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
-         commentable? && !feature.active_step_settings.comments_blocked
+        commentable? && !feature.active_step_settings.comments_blocked
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.

@@ -24,6 +24,8 @@ module Decidim
           end
 
           can :create, Proposal if authorized?(:create) && creation_enabled?
+
+          can :report, Proposal if authorized?(:report)
         end
 
         private

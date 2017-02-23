@@ -64,6 +64,15 @@ ca:
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: Proposta creada correctament.
+      proposal_reported_mailer:
+        hide:
+          hello: Hola %{name},
+          report_html: La proposta %{proposal_link} ha estat amagada automàticament.
+          subject: Una proposta ha estat amagada automàticament
+        report:
+          hello: Hola %{name},
+          report_html: La proposta %{proposal_link} ha estat denunciada.
+          subject: Una proposta ha estat denunciada
       models:
         proposal:
           fields:

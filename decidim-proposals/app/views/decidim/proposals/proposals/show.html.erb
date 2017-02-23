@@ -19,6 +19,11 @@
         </span>
       </div>
     </div>
+    <div class="author-data__extra">
+      <button type="button" data-open="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" title="<%= t('.report') %>" aria-controls="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" aria-haspopup="true" tabindex="0">
+        <%= icon "flag", aria_label: t('.report'), class: 'icon--small' %>
+      </button>
+    </div>
   </div>
 </div>
 <div class="row">
@@ -70,3 +75,5 @@
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>
+
+<%= render partial: "decidim/shared/flag_modal", locals: { resource: @proposal, form: @proposal_report_form, url: proposal_proposal_report_path(@proposal) } %>
