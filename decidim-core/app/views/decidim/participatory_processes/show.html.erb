@@ -14,10 +14,10 @@
     </div>
     <div class="section columns medium-5 mediumlarge-4 large-3">
       <div class="card extra definition-data">
-        <% if translated_attribute(current_participatory_process.scope).present? %>
+        <% if translated_attribute(current_participatory_process.meta_scope).present? %>
           <div class="definition-data__item scope">
             <span class="definition-data__title"><%= t(".scope") =%></span>
-              <%== translated_attribute(current_participatory_process.scope) %>
+              <%== translated_attribute(current_participatory_process.meta_scope) %>
           </div>
         <% end %>
 

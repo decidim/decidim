@@ -58,7 +58,7 @@ FactoryGirl.define do
     banner_image { test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
     organization
-    scope { Decidim::Faker::Localized.word }
+    meta_scope { Decidim::Faker::Localized.word }
     developer_group { Decidim::Faker::Localized.sentence(1) }
     local_area { Decidim::Faker::Localized.sentence(2) }
     target { Decidim::Faker::Localized.sentence(3) }

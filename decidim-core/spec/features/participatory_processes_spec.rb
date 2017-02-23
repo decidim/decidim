@@ -88,7 +88,7 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
         expect(page).to have_content(translated(participatory_process.description, locale: :en))
         expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
-        expect(page).to have_content(translated(participatory_process.scope, locale: :en))
+        expect(page).to have_content(translated(participatory_process.meta_scope, locale: :en))
         expect(page).to have_content(translated(participatory_process.developer_group, locale: :en))
         expect(page).to have_content(translated(participatory_process.local_area, locale: :en))
         expect(page).to have_content(translated(participatory_process.target, locale: :en))

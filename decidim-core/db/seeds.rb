@@ -112,7 +112,7 @@ if !Rails.env.production? || ENV["SEED"]
       promoted: true,
       published_at: 2.weeks.ago,
       organization: organization,
-      scope: Decidim::Faker::Localized.word,
+      meta_scope: Decidim::Faker::Localized.word,
       developer_group: Decidim::Faker::Localized.sentence(1),
       local_area: Decidim::Faker::Localized.sentence(2),
       target: Decidim::Faker::Localized.sentence(3),

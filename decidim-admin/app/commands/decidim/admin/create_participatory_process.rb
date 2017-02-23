@@ -46,7 +46,8 @@ module Decidim
             hero_image: form.hero_image,
             banner_image: form.banner_image,
             promoted: form.promoted,
-            scope_ids: form.scopes.map(&:id),
+            meta_scope: form.meta_scope,
+            scope: form.scope,
             organization: form.current_organization
           )
 
