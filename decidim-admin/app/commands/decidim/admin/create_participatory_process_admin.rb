@@ -24,7 +24,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
         return broadcast(:invalid) unless user
 
-        create_participatory_process_admin
+        create_role
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid
         form.errors.add(:email, :taken)
@@ -35,19 +35,39 @@ module Decidim
 
       attr_reader :form, :participatory_process
 
-      def create_participatory_process_admin
-        ParticipatoryProcessUserRole.create!(
-          role: :admin,
-          user: user,
-          participatory_process: @participatory_process
-        )
+      def create_role
+        if form.roles.include?("collaborator")
+          user.roles << "collaborator" unless user.roles.include?("collaborator")
+          user.save
+        elsif form.roles.include?("process_admin")
+          ParticipatoryProcessUserRole.create!(
+            role: :admin,
+            user: user,
+            participatory_process: @participatory_process
+          )
+        end
       end
 
       def user
-        User.where(
+        @user ||= User.where(
           email: form.email,
           organization: participatory_process.organization
-        ).first
+        ).first || InviteUser.call(user_form) do
+          on(:ok) do |user|
+            return user
+          end
+        end
+      end
+
+      def user_form
+        OpenStruct.new({
+          name: form.name,
+          email: form.email.downcase,
+          organization: current_organization,
+          roles: form.roles,
+          invited_by: current_user,
+          invitation_instructions: "invite_admin"
+        })
       end
     end
   end
