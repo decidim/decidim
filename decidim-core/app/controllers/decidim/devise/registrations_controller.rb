@@ -71,12 +71,6 @@ module Decidim
         super(hash)
         resource.organization = current_organization
       end
-
-      private
-
-      def terms_and_conditions_page
-        @terms_and_conditions_page ||= Decidim::StaticPage.find_by_slug("terms-and-conditions")
-      end
     end
   end
 end
