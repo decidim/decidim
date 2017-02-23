@@ -1,16 +1,17 @@
 <h2><%= t(".title") %></h2>
 
-<% if feature_settings.official_proposals_enabled %>
-  <div class="actions title">
+<div class="actions title">
+  <%= link_to t("actions.all_proposals", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), proposals_path if can? :manage, current_feature %>
+  |
+  <%= link_to t("actions.reported_proposals", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), proposals_path(reported: true) if can? :manage, current_feature %>
+  |
+  <%= link_to t("actions.hidden_proposals", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), proposals_path(hidden: true) if can? :manage, current_feature %>
+
+  <% if feature_settings.official_proposals_enabled %>
+    |
     <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'new' if can? :manage, current_feature %>
-    |
-    <%= link_to t("actions.all_proposals", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), proposals_path if can? :manage, current_feature %>
-    |
-    <%= link_to t("actions.reported_proposals", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), proposals_path(reported: true) if can? :manage, current_feature %>
-    |
-    <%= link_to t("actions.hidden_proposals", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), proposals_path(hidden: true) if can? :manage, current_feature %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <table class="stack">
   <thead>
