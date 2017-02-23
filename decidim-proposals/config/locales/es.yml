@@ -7,6 +7,8 @@ es:
         scope_id: Ámbito
         title: Título
         user_group_id: Crear propuesta como
+      proposal_report:
+        details: Comentarios adicionales
   decidim:
     features:
       proposals:
@@ -29,7 +31,9 @@ es:
             votes_enabled: Votos habilitados
     proposals:
       actions:
+        all_proposals: Todas las propuestas
         answer: Respuesta
+        hidden_proposals: Propuestas ocultas
         new: Nueva propuesta
         title: Acciones
       admin:
@@ -72,6 +76,9 @@ es:
             scope: Ámbito
             state: Estado
             title: Título
+      proposal_reported_mailer:
+        hide:
+          hello: Hola %{name},
       proposals:
         count:
           proposals_count:
