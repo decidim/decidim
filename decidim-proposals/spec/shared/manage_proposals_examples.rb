@@ -31,7 +31,7 @@ RSpec.shared_examples "manage proposals" do
 
         context "when process is not related to any scope" do
           before do
-            participatory_process.update_attributes(scope_ids: [])
+            participatory_process.update_attributes(scope: nil)
           end
 
           it "can be related to a scope" do
@@ -71,7 +71,7 @@ RSpec.shared_examples "manage proposals" do
 
         context "when process is related to a scope" do
           before do
-            participatory_process.update_attributes(scope_ids: [scope.id])
+            participatory_process.update_attributes(scope: scope)
           end
 
           it "cannot be related to a scope" do

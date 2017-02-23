@@ -21,8 +21,8 @@ module Decidim
           current_organization.scopes
         end
 
-        def process_scopes
-          current_feature.participatory_process.scopes
+        def process_scope
+          current_feature.participatory_process.scope
         end
 
         alias feature current_feature
@@ -38,7 +38,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= process_scopes.first || organization_scopes.where(id: scope_id).first
+          @scope ||= process_scope || organization_scopes.where(id: scope_id).first
         end
       end
     end

@@ -26,7 +26,7 @@ describe "Proposals", type: :feature do
 
         context "when process is not related to any scope" do
           before do
-            participatory_process.update_attributes(scope_ids: [])
+            participatory_process.update_attributes(scope: nil)
           end
 
           it "can be related to a scope" do
@@ -42,7 +42,7 @@ describe "Proposals", type: :feature do
 
         context "when process is related to any scope" do
           before do
-            participatory_process.update_attributes(scope_ids: [scope.id])
+            participatory_process.update_attributes(scope: scope)
           end
 
           it "cannot be related to a scope" do
@@ -148,7 +148,7 @@ describe "Proposals", type: :feature do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
 
       before do
-        participatory_process.update_attributes(scope_ids: [])
+        participatory_process.update_attributes(scope: nil)
       end
 
       it "can be filtered by scope" do
@@ -162,7 +162,7 @@ describe "Proposals", type: :feature do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
 
       before do
-        participatory_process.update_attributes(scope_ids: [scope.id])
+        participatory_process.update_attributes(scope: scope)
       end
 
       it "does not show the scope name" do
@@ -387,7 +387,7 @@ describe "Proposals", type: :feature do
 
       context "when process is related to a scope" do
         before do
-          participatory_process.update_attributes(scope_ids: [scope.id])
+          participatory_process.update_attributes(scope: scope)
         end
 
         it "cannot be filtered by scope" do

@@ -12,6 +12,9 @@ module Decidim
                foreign_key: "decidim_organization_id",
                class_name: Decidim::Organization,
                inverse_of: :participatory_processes
+    belongs_to :scope,
+               foreign_key: "decidim_scope_id",
+               class_name: Decidim::Scope
     has_many :steps,
              -> { order(position: :asc) },
              foreign_key: "decidim_participatory_process_id",
@@ -73,10 +76,6 @@ module Decidim
     # Returns an Array<Attachment>
     def documents
       @documents ||= attachments.select(&:document?)
-    end
-
-    def scopes
-      @scopes ||= Scope.where(id: scope_ids, organization: organization)
     end
   end
 end

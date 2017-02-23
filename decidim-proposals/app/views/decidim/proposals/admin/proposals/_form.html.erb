@@ -12,7 +12,7 @@
   </div>
 <% end %>
 
-<% if @form.process_scopes&.empty? %>
+<% if !@form.process_scope %>
   <div class="field">
     <%= form.collection_select :scope_id, organization_scopes, :id, :name %>
   </div>

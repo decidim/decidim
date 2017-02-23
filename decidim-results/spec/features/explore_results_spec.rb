@@ -164,7 +164,7 @@ describe "Explore results", type: :feature do
 
       context "when the process has a linked scope" do
         before do
-          participatory_process.update_attributes(scope_ids: [scope.id])
+          participatory_process.update_attributes(scope: scope)
           visit current_path
         end
 
@@ -177,7 +177,7 @@ describe "Explore results", type: :feature do
 
       context "when the process has no linked scope" do
         before do
-          participatory_process.update_attributes(scope_ids: [])
+          participatory_process.update_attributes(scope: nil)
           visit current_path
         end
 
