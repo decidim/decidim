@@ -90,7 +90,7 @@ ca:
         hide:
           hello: Hola %{name},
           report_html: La proposta %{proposal_link} ha estat amagada automàticament.
-          subject: Una proposta s'ha ocultat de manera automàtica
+          subject: Una proposta ha estat amagada automàticament
         report:
           hello: Hola %{name},
           report_html: La proposta %{proposal_link} ha estat denunciada.
