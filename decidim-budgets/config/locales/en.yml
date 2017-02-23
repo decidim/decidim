@@ -32,6 +32,8 @@ en:
             title: Edit project
             update: Update project
           index:
+            finished_orders: Finished orders
+            pending_orders: Pending orders
             title: Projects
           new:
             create: Create project
