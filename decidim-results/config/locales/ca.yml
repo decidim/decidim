@@ -9,6 +9,8 @@ ca:
           step:
             comments_blocked: Comentaris bloquejats
     resource_links:
+      included_proposals:
+        result_proposals: Projectes inclosos en aquest resultat
       meetings_through_proposals:
         result_meetings: Trobades relacionades
     results:
