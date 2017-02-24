@@ -163,6 +163,7 @@ es:
             votes: Votos
     resource_links:
       included_proposals:
+        proposal_projects: 'Propuesta formulada en estos proyectos:'
         proposal_results: 'Propuesta formulada en estos resultados:'
       proposals_from_meeting:
         proposal_meetings: Encuentros relacionados
