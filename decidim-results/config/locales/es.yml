@@ -9,9 +9,6 @@ es:
           step:
             comments_blocked: Comentarios bloqueados
     resource_links:
-      included_proposals:
-        result_proposals: Propuestas incluidas en este resultado
-        result_projects: Proyectos incluidas en este resultado
       meetings_through_proposals:
         result_meetings: Encuentros relacionados
     results:
