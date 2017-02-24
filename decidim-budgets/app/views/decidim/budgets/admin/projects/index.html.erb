@@ -1,5 +1,10 @@
 <h2><%= t(".title") %></h2>
 
+<dl>
+  <dt><%= t ".finished_orders" %>: </dt><dd><%= finished_orders.count %></dd>
+  <dt><%= t ".pending_orders" %>: </dt><dd><%= pending_orders.count %></dd>
+</dl>
+
 <div class="actions title">
   <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_project_path, class: 'new' if can? :manage, current_feature %>
 </div>

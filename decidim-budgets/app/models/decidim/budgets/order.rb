@@ -25,6 +25,7 @@ module Decidim
       }
 
       scope :finished, -> { where.not(checked_out_at: nil) }
+      scope :pending, -> { where(checked_out_at: nil) }
 
       # Public: Returns the sum of project budgets
       def total_budget

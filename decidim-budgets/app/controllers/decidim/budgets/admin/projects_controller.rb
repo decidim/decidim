@@ -4,7 +4,7 @@ module Decidim
     module Admin
       # This controller allows an admin to manage projects from a Participatory Process
       class ProjectsController < Admin::ApplicationController
-        helper_method :projects
+        helper_method :projects, :finished_orders, :pending_orders
 
         def new
           @form = form(ProjectForm).instance
@@ -58,6 +58,18 @@ module Decidim
 
         def projects
           @projects ||= Project.where(feature: current_feature)
+        end
+
+        def orders
+          @orders ||= Order.where(feature: current_feature)
+        end
+
+        def pending_orders
+          orders.pending
+        end
+
+        def finished_orders
+          orders.finished
         end
 
         def project
