@@ -38,6 +38,28 @@ RSpec.shared_examples "manage projects" do
     end
   end
 
+  context "seeing finished and pending orders" do
+    let!(:project) { create(:project, budget: 70_000_000, feature: current_feature) }
+
+    let!(:finished_orders) do
+      orders = create_list(:order, 10, feature: current_feature)
+      orders.each do |order|
+        order.update_attribute(:line_items, [create(:line_item, project: project, order: order)])
+        order.update_attribute(:checked_out_at, Date.today)
+      end
+    end
+
+    let!(:pending_orders) do
+      create_list(:order, 5, feature: current_feature, checked_out_at: nil)
+    end
+
+    it "shows the order count" do
+      visit current_path
+      expect(page).to have_content("Finished orders: 10")
+      expect(page).to have_content("Pending orders: 5")
+    end
+  end
+
   it "creates a new project" do
     find(".actions .new").click
 

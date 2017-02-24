@@ -91,6 +91,9 @@ module Decidim
     10.megabytes
   end
 
+  # The number of reports which an object can receive before hiding it
+  config_accessor :max_reports_before_hiding { 3 }
+
   # Public: Registers a feature, usually held in an external library or in a
   # separate folder in the main repository. Exposes a DSL defined by
   # `Decidim::FeatureManifest`.

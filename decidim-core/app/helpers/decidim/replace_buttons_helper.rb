@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   module ReplaceButtonsHelper
     # Overrides the submit tags to always be buttons instead of inputs.

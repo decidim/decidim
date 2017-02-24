@@ -8,6 +8,8 @@ en:
         scope_id: Scope
         title: Title
         user_group_id: Create proposal as
+      proposal_report:
+        details: Additional comments
   decidim:
     features:
       proposals:
@@ -30,9 +32,14 @@ en:
             votes_enabled: Votes enabled
     proposals:
       actions:
+        all_proposals: All proposals
         answer: Answer
+        hidden_proposals: Hidden proposals
+        hide: Hide
         new: New proposal
+        reported_proposals: Reported proposals
         title: Actions
+        unreport: Unreport
       admin:
         models:
           proposal:
@@ -53,11 +60,17 @@ en:
           form:
             select_a_category: Select a category
             select_a_scope: Select a scope
+          hide:
+            invalid: There's been a problem hiding this proposal
+            success: Proposal successfully hidden
           index:
             title: Proposals
           new:
             create: Create proposal
             title: New proposal
+          unreport:
+            invalid: There's been a problem unreporting this proposal
+            success: Proposal successfully unreported
       answers:
         accepted: Accepted
         not_answered: Not answered
@@ -70,9 +83,24 @@ en:
           fields:
             category: Category
             official_proposal: Official proposal
+            reports: Reports
             scope: Scope
             state: State
             title: Title
+      proposal_reported_mailer:
+        hide:
+          hello: Hello %{name},
+          report_html: The proposal %{proposal_link} has been hidden automatically.
+          subject: A proposal has been hidden automatically
+        report:
+          hello: Hello %{name},
+          report_html: The proposal %{proposal_link} has been reported.
+          subject: A proposal has been reported
+      proposal_reports:
+        create:
+          error: An error ocurred while reporting the proposal. Please, try it again.
+          success: The proposal has been reported successfully and it will be reviewed
+            by an admin.
       proposals:
         count:
           proposals_count:
@@ -119,6 +147,7 @@ en:
         show:
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_rejected_reason: 'This proposal has been rejected because:'
+          report: Report
         vote_button:
           already_voted: Already voted
           no_votes_remaining: No votes remaining

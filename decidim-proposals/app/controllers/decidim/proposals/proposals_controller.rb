@@ -11,13 +11,10 @@ module Decidim
 
       before_action :authenticate_user!, only: [:new, :create]
 
-      def show
-        @proposal = Proposal.where(feature: current_feature).find(params[:id])
-      end
-
       def index
         @proposals = search
                      .results
+                     .not_hidden
                      .includes(:author)
                      .includes(:category)
                      .includes(:scope)
@@ -33,6 +30,11 @@ module Decidim
                            else
                              []
                            end
+      end
+
+      def show
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal_report_form = form(ProposalReportForm).from_params(reason: "spam")
       end
 
       def new
