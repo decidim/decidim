@@ -1,7 +1,6 @@
 import * as React            from 'react';
 import { filter, propType }  from 'graphql-anywhere';
 import gql                   from 'graphql-tag';
-import { I18n }              from 'react-i18nify';
 
 import Comment               from './comment.component';
 
@@ -9,6 +8,8 @@ import {
   CommentThreadFragment,
   AddCommentFormSessionFragment
 } from '../support/schema';
+
+const { I18n } = require('react-i18nify');
 
 interface CommentThreadProps {
   comment: CommentThreadFragment;

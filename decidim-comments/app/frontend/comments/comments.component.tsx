@@ -2,7 +2,6 @@ import * as React           from 'react';
 import { graphql }          from 'react-apollo';
 import gql                  from 'graphql-tag';
 import { filter }           from 'graphql-anywhere';
-import { I18n }             from 'react-i18nify';
 
 import Application          from '../application/application.component';
 
@@ -23,6 +22,8 @@ import {
   GetCommentsQuery,
   GetCommentsQueryVariables
 } from '../support/schema';
+
+const { I18n } = require('react-i18nify');
 
 interface CommentsProps extends GetCommentsQuery {
   loading: boolean;

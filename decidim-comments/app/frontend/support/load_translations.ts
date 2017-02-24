@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
-import { I18n }   from 'react-i18nify';
 import requireAll from './require_all';
+
+const { I18n } = require('react-i18nify');
 
 /**
  * Load components translations from yaml files and import them into
@@ -8,7 +9,7 @@ import requireAll from './require_all';
  * @returns {Void} - Nothing
  */
 const loadTranslations = () => {
-  const translationsContext = require.context('../../../config/locales/', true, /\.yml$/);
+  const translationsContext = (<any>require).context('../../../config/locales/', true, /\.yml$/);
   const translationFiles = requireAll(translationsContext);
 
   const translations = translationsContext.keys().reduce((acc: any, key: string, index: number) => {

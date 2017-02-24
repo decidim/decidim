@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { I18n }   from 'react-i18nify';
+
+const { I18n } = require('react-i18nify');
 
 interface CommentOrderSelectorProps {
   defaultOrderBy: string;

@@ -1,9 +1,10 @@
 import * as React         from 'react';
 import { ApolloProvider } from 'react-apollo';
-import { I18n }           from 'react-i18nify';
 import * as moment        from 'moment';
 
 import apolloClient       from './apollo_client';
+
+const { I18n } = require('react-i18nify');
 
 interface ApplicationProps {
   locale: string;

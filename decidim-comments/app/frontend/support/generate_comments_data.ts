@@ -1,4 +1,4 @@
-import { random, name, date, image } from 'faker/locale/en';
+import { random, lorem, name, date, image } from 'faker/locale/en';
 
 import { CommentFragment }           from '../support/schema';
 
@@ -14,7 +14,7 @@ const generateCommentsData = (num = 1) => {
     commentsData.push({
       id: random.uuid(),
       type: "Decidim::Comments::Comment",
-      body: random.words(),
+      body: lorem.words(),
       createdAt: date.past().toISOString(),
       author: {
         name: name.findName(),

@@ -2,11 +2,12 @@
 import * as React                        from 'react';
 import { graphql }                       from 'react-apollo';
 import gql                               from 'graphql-tag';
-import { I18n, Translate }               from 'react-i18nify';
-import uuid                              from 'uuid';
+import * as uuid                         from 'uuid';
 import * as classnames                   from 'classnames';
 
 import Icon                              from '../application/icon.component';
+
+const { I18n, Translate } = require('react-i18nify');
 
 const addCommentMutation                = require('./add_comment_form.mutation.graphql');
 const commentThreadFragment             = require('./comment_thread.fragment.graphql');

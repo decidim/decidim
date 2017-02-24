@@ -2,7 +2,6 @@ import * as React          from 'react';
 import { propType }        from 'graphql-anywhere';
 import gql                 from 'graphql-tag';
 import * as moment         from 'moment';
-import { I18n }            from 'react-i18nify';
 import * as classnames     from 'classnames';
 
 import AddCommentForm      from './add_comment_form.component';
@@ -14,6 +13,8 @@ import {
   CommentDataFragment,
   AddCommentFormSessionFragment
 } from '../support/schema';
+
+const { I18n } = require('react-i18nify');
 
 interface CommentProps {
   comment: CommentFragment;
