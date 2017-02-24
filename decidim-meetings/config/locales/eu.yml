@@ -1,8 +1,0 @@
-eu:
-  decidim:
-    features:
-      meetings:
-        name: Topaketak
-    meetings:
-      actions:
-        close: Itxi

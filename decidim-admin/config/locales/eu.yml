@@ -1,6 +1,0 @@
-eu:
-  activemodel:
-    attributes:
-      attachment:
-        description: Deskribapena
-        title: Izenburua

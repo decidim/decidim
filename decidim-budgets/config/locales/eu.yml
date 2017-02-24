@@ -1,6 +1,0 @@
-eu:
-  activemodel:
-    attributes:
-      project:
-        budget: Aurrekontua
-        decidim_category_id: Kategoria
