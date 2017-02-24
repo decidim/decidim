@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Comments::CommentsHelper
       include PaginateHelper
       include ProposalVotesHelper
+      include ProposalOrderHelper
 
       # Public: The state of a proposal in a way a human can understand.
       #
