@@ -9,7 +9,8 @@
   "env": {
     "test": {
       "plugins": [
-        ["__coverage__", {"ignore": "*.+(test|stub).*"}]
+        ["__coverage__", {"ignore": "*.+(test|stub).*"}],
+        "transform-es2015-modules-commonjs"
       ]
     }
   }

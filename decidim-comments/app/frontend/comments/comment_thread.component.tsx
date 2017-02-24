@@ -16,7 +16,7 @@ interface CommentThreadProps {
   session?: AddCommentFormSessionFragment & {
     user: any;
   };
-  votable: boolean;
+  votable?: boolean;
 }
 
 /**

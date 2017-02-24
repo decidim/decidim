@@ -23,9 +23,6 @@ module.exports = env => {
     },
     devtool: ifProd('source-map', 'eval'),
     module: {
-      noParse: [
-        /\/sinon\.js/
-      ],
       loaders: [
         {
           test: /\.jsx?$/,
