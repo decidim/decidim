@@ -65,7 +65,7 @@ ca:
           view_meeting: Veure trobada
         meetings:
           no_meetings_warning: No hi ha trobades que coincideixin amb el criteri de cerca o no hi ha cap trobada programada.
-          upcoming_meetings_warning: Actualment, no hi ha trobades programades, però pots veure les anteriors trobades.
+          upcoming_meetings_warning: Actualment no hi ha trobades programades, però pots veure les anteriors trobades.
         show:
           attendees: Nombre d'assistents
           contributions: Nombre d'aportacions
