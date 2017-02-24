@@ -77,15 +77,6 @@ ca:
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: Proposta creada correctament.
-      proposal_reported_mailer:
-        hide:
-          hello: Hola %{name},
-          report_html: La proposta %{proposal_link} ha estat amagada automàticament.
-          subject: Una proposta ha estat amagada automàticament
-        report:
-          hello: Hola %{name},
-          report_html: La proposta %{proposal_link} ha estat denunciada.
-          subject: Una proposta ha estat denunciada
       models:
         proposal:
           fields:
@@ -173,6 +164,5 @@ ca:
     resource_links:
       included_proposals:
         proposal_results: 'La proposta apareix en aquests resultats:'
-        proposal_projects: 'La proposta apareix en aquests projectes:'
       proposals_from_meeting:
-        proposal_meetings: 'Trobades relacionades:'
+        proposal_meetings: Trobades relacionades
