@@ -31,6 +31,8 @@ ca:
             title: Editar projecte
             update: Actualitzar projecte
           index:
+            finished_orders: Vots finalitzats
+            pending_orders: Vots en procés
             title: Projectes
           new:
             create: Crear projecte
@@ -105,9 +107,6 @@ ca:
       destroy:
         error: S'ha produït un error en cancel·lar el seu vot
         success: El seu vot ha estat cancel·lat correctament
-    resource_links:
-      included_proposals:
-        project_proposals: 'Propostes incloses en aquest projecte:'
   index:
     confirmed_orders_count: Nombre de vots
   total_budget: Pressupost total
