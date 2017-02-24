@@ -82,3 +82,7 @@ es:
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultados relacionados:'
+        result_meetings: 'Encuentros relacionados:'
+      proposals_from_meeting:
+        meeting_proposals: 'Propuestas relacionadas:'
+        proposal_meetings: 'Encuentros relacionados:'
