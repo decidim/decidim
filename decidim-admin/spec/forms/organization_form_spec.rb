@@ -31,7 +31,7 @@ module Decidim
         {
           "organization" => {
             "name" => name,
-            "reference_prefix" => custom_reference,
+            "reference_prefix" => reference_prefix,
             "default_locale" => :en,
             "available_locales" => %w{en ca es},
             "welcome_text_en" => welcome_text[:en],
