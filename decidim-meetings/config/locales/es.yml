@@ -65,7 +65,7 @@ es:
           view_meeting: Ver encuentro
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con el criterio de búsqueda o no hay ningún encuentro programado.
-          upcoming_meetings_warning: Actualmente, no hay encuentros programados, pero puedes ver los encuentros anteriores.
+          upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los encuentros anteriores.
         show:
           attendees: Número de asistentes
           contributions: Número de contribuciones
@@ -82,7 +82,3 @@ es:
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultados relacionados:'
-        result_meetings: 'Encuentros relacionados:'
-      proposals_from_meeting:
-        meeting_proposals: 'Propuestas relacionadas:'
-        proposal_meetings: 'Encuentros relacionados:'
