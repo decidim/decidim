@@ -16,6 +16,7 @@ module Decidim
             {
               name: "Gotham City",
               host: "decide.gotham.gov",
+              reference_prefix: "JKR",
               organization_admin_name: "Fiorello Henry La Guardia",
               organization_admin_email: "f.laguardia@gotham.gov",
               available_locales: ["en"],
