@@ -10,9 +10,10 @@ es:
             comments_blocked: Comentarios bloqueados
     resource_links:
       included_proposals:
-        proposals: Propuestas incluidas en este resultado
+        result_proposals: Propuestas incluidas en este resultado
+        result_projects: Proyectos incluidas en este resultado
       meetings_through_proposals:
-        meetings: Encuentros relacionados
+        result_meetings: Encuentros relacionados
     results:
       actions:
         confirm_destroy: '¿Está seguro de que quiere eliminar este resultado?'

@@ -81,6 +81,8 @@ ca:
             title: Títol
     resource_links:
       meetings_through_proposals:
-        results: 'Resultats relacionats:'
+        meeting_results: 'Resultats relacionats:'
+        result_meetings: 'Trobades relacionades:'
       proposals_from_meeting:
-        proposals: Propostes relacionades
+        meeting_proposals: 'Propostes relacionades:'
+        proposal_meetings: 'Trobades relacionades:'
