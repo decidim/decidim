@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require "spec_helper"
-require "decidim/core/test/shared_examples/display_reference"
 
 describe "Proposals", type: :feature do
   include_context "feature"
@@ -133,7 +132,6 @@ describe "Proposals", type: :feature do
   end
 
   context "viewing a single proposal" do
-    it_behaves_like "display_reference"
     it "allows viewing a single proposal" do
       proposal = proposals.first
 
@@ -144,6 +142,7 @@ describe "Proposals", type: :feature do
       expect(page).to have_content(proposal.title)
       expect(page).to have_content(proposal.body)
       expect(page).to have_content(proposal.author.name)
+      expect(page).to have_content(proposal.reference)
     end
 
     context "when scoped_proposals setting is enabled" do

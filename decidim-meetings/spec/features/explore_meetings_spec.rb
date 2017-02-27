@@ -1,5 +1,4 @@
 require "spec_helper"
-require "decidim/core/test/shared_examples/display_reference"
 
 describe "Explore meetings", type: :feature do
   include_context "feature"
@@ -88,6 +87,7 @@ describe "Explore meetings", type: :feature do
       expect(page).to have_i18n_content(meeting.location)
       expect(page).to have_i18n_content(meeting.location_hints)
       expect(page).to have_content(meeting.address)
+      expect(page).to have_content(meeting.reference)
 
       within ".section.view-side" do
         expect(page).to have_content(date.day)
@@ -189,7 +189,6 @@ describe "Explore meetings", type: :feature do
 
     let(:attached_to) { meeting }
     it_behaves_like "has attachments"
-    it_behaves_like "display reference"
 
     context "when the meeting is closed" do
       let!(:meeting) { create(:meeting, :closed, feature: feature) }

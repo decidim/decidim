@@ -8,7 +8,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      before_validation :store_reference, on: :create
+      after_save :store_reference, on: :create
 
       # Public: Calculates a unique reference for the model in
       # the following format:

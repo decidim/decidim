@@ -6,11 +6,4 @@ shared_examples_for "has reference" do
 
     it { is_expected.not_to be_valid }
   end
-
-  context "after create" do
-
-    it "sets the reference" do
-      expect(subject.reference).not_to be_nil
-    end
-  end
 end

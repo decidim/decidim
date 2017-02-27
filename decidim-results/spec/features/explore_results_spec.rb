@@ -1,5 +1,4 @@
 require "spec_helper"
-require "decidim/core/test/shared_examples/display_reference"
 
 describe "Explore results", type: :feature do
   include_context "feature"
@@ -36,11 +35,10 @@ describe "Explore results", type: :feature do
     let(:results_count) { 1 }
     let(:result) { results.first }
 
-    it_behaves_like "display reference"
-
     it "shows all result info" do
       expect(page).to have_i18n_content(result.title)
       expect(page).to have_i18n_content(result.description)
+      expect(page).to have_content(result.reference)
 
       within ".section.view-side" do
         expect(page).to have_content(/Proposals/i)
