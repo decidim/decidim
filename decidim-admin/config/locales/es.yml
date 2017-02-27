@@ -25,18 +25,22 @@ es:
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
       participatory_process:
-        banner_image: Imagen de bandera
+        banner_image: Imagen de banner
         description: Descripción
         developer_group: Grupo promotor
         domain: Dominio
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
+        local_area: Áreas municipales
+        participatory_scope: Ámbito parcitipativo
+        participatory_structure: Estructura participativa
         promoted: Destacado
         scope: Ámbito
         short_description: Breve descripción
         slug: Texto corto de URL
         subtitle: Subtítulo
+        target: ¿A quién va dirigido?
         title: Título
       participatory_process_step:
         description: Descripción
@@ -61,7 +65,7 @@ es:
     attributes:
       decidim/participatory_process:
         promoted: Destacado
-        banner_image: Imagen de bandera
+        banner_image: Imagen de banner
         description: Descripción
         developer_group: Grupo promotor
         domain: Dominio

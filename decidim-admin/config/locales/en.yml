@@ -33,11 +33,15 @@ en:
         end_date: End date
         hashtag: Hashtag
         hero_image: Home image
+        local_area: Local area
+        participatory_scope: Participatory scope
+        participatory_structure: Participatory structure
         promoted: Promoted
         scope: Scope
         short_description: Short description
         slug: URL slug
         subtitle: Subtitle
+        target: Target
         title: Title
       participatory_process_step:
         description: Description

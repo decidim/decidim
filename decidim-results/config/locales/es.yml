@@ -6,7 +6,7 @@ es:
         decidim_scope_id: Ámbito
         description: Descripción
         proposal_ids: Propuestas incluides
-        title: Títutlo
+        title: Título
   decidim:
     features:
       results:

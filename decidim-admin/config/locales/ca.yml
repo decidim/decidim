@@ -25,18 +25,22 @@ ca:
         show_statistics: Mostra Estadístiques
         welcome_text: Text de benvinguda
       participatory_process:
-        banner_image: Imatge de bandera
+        banner_image: Imatge de bàner
         description: Descripció
         developer_group: Grup promotor
         domain: Àrees municipals
         end_date: Data de finalització
         hashtag: Etiqueta
         hero_image: Imatge de portada
+        local_area: Àrees Municipals
+        participatory_scope: Àmbit participatiu
+        participatory_structure: Estructura participativa
         promoted: Promogut
         scope: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
         subtitle: Subtítol
+        target: A qui va dirigit?
         title: Títol
       participatory_process_step:
         description: Descripció
@@ -61,7 +65,7 @@ ca:
     attributes:
       decidim/participatory_process:
         promoted: Destacat
-        banner_image: Imatge de bandera
+        banner_image: Imatge de bàner
         description: Descripció
         developer_group: Grup promotor
         domain: Àrees municipals
