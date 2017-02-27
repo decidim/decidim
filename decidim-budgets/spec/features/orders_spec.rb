@@ -32,11 +32,12 @@ describe "Orders", type: :feature do
   context "when the user is logged in" do
     before do
       login_as user, scope: :user
-      visit_feature
     end
 
     context "and has not a pending order" do
       it "adds a project to the current order" do
+        visit_feature
+
         within "#project-#{project.id}-item" do
           page.find('.budget--list__action').click
         end
@@ -62,10 +63,11 @@ describe "Orders", type: :feature do
         feature.update_attribute(:permissions, vote: {
                                    authorization_handler_name: "decidim/dummy_authorization_handler"
                                  })
-        visit_feature
       end
 
       it "shows a modal dialog" do
+        visit_feature
+
         within "#project-#{project.id}-item" do
           page.find('.budget--list__action').click
         end
@@ -80,6 +82,7 @@ describe "Orders", type: :feature do
 
       it "removes a project from the current order" do
         visit_feature
+
         expect(page).to have_content "ASSIGNED: €25,000,000"
 
         within "#project-#{project.id}-item" do
@@ -145,7 +148,7 @@ describe "Orders", type: :feature do
     context "and has a finished order" do
       let!(:order) do
         order = create(:order, user: user, feature: feature)
-        order.projects << projects
+        order.projects = projects
         order.checked_out_at = Time.current
         order.save!
         order
@@ -166,6 +169,47 @@ describe "Orders", type: :feature do
 
         within ".budget-summary" do
           expect(page).not_to have_selector('.cancel-order')
+        end
+      end
+    end
+
+    context "and votes are disabled" do
+      let!(:feature) do
+        create(:budget_feature,
+              :with_votes_disabled,
+              manifest: manifest,
+              participatory_process: participatory_process)
+      end
+
+      it "cannot create new orders" do
+        visit_feature
+
+        expect(page).to have_selector('button.budget--list__action[disabled]', count: 3)
+        expect(page).to have_no_selector('.budget-summary')
+      end
+    end
+
+    context "and show votes are enabled" do
+      let!(:feature) do
+        create(:budget_feature,
+              :with_show_votes_enabled,
+              manifest: manifest,
+              participatory_process: participatory_process)
+      end
+
+      let!(:order) do
+        order = create(:order, user: user, feature: feature)
+        order.projects = projects
+        order.checked_out_at = Time.current
+        order.save!
+        order
+      end
+
+      it "displays the number of votes for a project" do
+        visit_feature
+
+        within "#project-#{project.id}-item" do
+          expect(page).to have_content("1 SUPPORT")
         end
       end
     end

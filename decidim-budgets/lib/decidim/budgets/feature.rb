@@ -27,6 +27,8 @@ Decidim.register_feature(:budgets) do |feature|
 
   feature.settings(:step) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
+    settings.attribute :votes_enabled, type: :boolean, default: true
+    settings.attribute :show_votes, type: :boolean, default: false
   end
 
   feature.seeds do

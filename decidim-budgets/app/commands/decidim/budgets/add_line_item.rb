@@ -22,7 +22,7 @@ module Decidim
       # Returns nothing.
       def call
         transaction do
-          return broadcast(:invalid) if order.checked_out?
+          return broadcast(:invalid) if votes_disabled? || order.checked_out?
           add_line_item
           broadcast(:ok, order)
         end
@@ -39,6 +39,14 @@ module Decidim
           order.projects << @project
           order.save!
         end
+      end
+
+      def feature
+        @project.feature
+      end
+
+      def votes_disabled?
+        !feature.active_step_settings.votes_enabled?
       end
     end
   end

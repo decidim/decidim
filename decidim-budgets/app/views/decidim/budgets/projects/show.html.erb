@@ -4,7 +4,7 @@
 ) %>
 
 <div class="row column view-header">
-  <% if current_user.present? %>
+  <% if current_user.present? && current_settings.votes_enabled? %>
     <%= render partial: "budget_summary", locals: { include_heading: false } %>
   <% end %>
   <%= link_to projects_path, class: "muted-link" do %>
@@ -22,6 +22,11 @@
           <span class="definition-data__title"><%= t('.budget') %></span>
           <span class="definition-data__number"><%= budget_to_currency project.budget %></span>
         </div>
+        <% if current_settings.show_votes? %>
+          <div class="card__support__data">
+            <span><%= t('decidim.budgets.projects.project.count', count: project.confirmed_orders_count) %></span>
+          </div>
+        <% end %>
         <div id="project-<%= project.id %>-budget-button">
           <%= render partial: 'project_budget_button', locals: { project: project } %>
         </div>

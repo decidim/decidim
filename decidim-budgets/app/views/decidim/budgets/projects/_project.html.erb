@@ -15,8 +15,13 @@
         <span class="card--list__data__number budget-list__number">
           <%= budget_to_currency(project.budget) %>
         </span>
-        <%= action_authorized_button_to "vote", order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget }, disabled: current_order_checked_out?, class: "button tiny budget--list__action success" do %>
+        <%= action_authorized_button_to "vote", order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true, budget: project.budget }, disabled: !current_settings.votes_enabled? || current_order_checked_out?, class: "button tiny budget--list__action success" do %>
           <%= icon("check", class: "icon--small", aria_label: t('.remove'), role: "img") %>
+        <% end %>
+        <% if current_settings.show_votes? %>
+          <div class="card__support" style="width: 7em">
+            <span><%= t('.count', count: project.confirmed_orders_count) %></span>
+          </div>
         <% end %>
       </div>
     <% else %>
@@ -24,8 +29,13 @@
         <span class="card--list__data__number budget-list__number">
           <%= budget_to_currency(project.budget) %>
         </span>
-        <%= action_authorized_button_to "vote", order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true }, disabled: current_order_checked_out?, class: "button tiny hollow budget--list__action" do %>
+        <%= action_authorized_button_to "vote", order_line_item_path(project_id: project), method: :post, remote: true, data: { disable: true, budget: project.budget, add: true }, disabled: !current_settings.votes_enabled? || current_order_checked_out?, class: "button tiny hollow budget--list__action" do %>
           <%= icon("check", class: "icon--small", aria_label: t('.add'), role: "img") %>
+        <% end %>
+        <% if current_settings.show_votes? %>
+          <div class="card__support" style="width: 7em">
+            <span><%= t('.count', count: project.confirmed_orders_count) %></span>
+          </div>
         <% end %>
       </div>
     <% end %>
@@ -37,6 +47,11 @@
       <a href="#" class="button tiny hollow budget--list__action disabled" data-toggle="loginModal">
         <%= icon("check", class: "icon--small", aria_label: t('.add'), role: "img") %>
       </a>
+      <% if current_settings.show_votes? %>
+        <div class="card__support" style="width: 7em">
+          <span><%= t('.count', count: project.confirmed_orders_count) %></span>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
