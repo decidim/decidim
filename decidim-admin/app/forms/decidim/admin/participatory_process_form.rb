@@ -30,7 +30,7 @@ module Decidim
 
       validates :slug, presence: true
       validates :title, :subtitle, :description, :short_description, translatable_presence: true
-      validates :scope_id, presence: true, if: :scope_id
+      validates :scope, presence: true, if: Proc.new { |object| object.scope_id.present? }
 
       validate :slug, :slug_uniqueness
 
