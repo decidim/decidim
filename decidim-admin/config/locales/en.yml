@@ -62,6 +62,19 @@ en:
     attributes:
       decidim/participatory_process:
         promoted: Highlighted
+        banner_image: Banner image
+        description: Description
+        developer_group: Developer group
+        domain: Domain
+        end_date: End date
+        hashtag: Hashtag
+        hero_image: Home image
+        promoted: Promoted
+        scope: Scope
+        short_description: Short description
+        slug: URL slug
+        subtitle: Subtitle
+        title: Title
   decidim:
     admin:
       actions:
