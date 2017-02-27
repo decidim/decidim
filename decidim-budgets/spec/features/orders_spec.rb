@@ -169,6 +169,20 @@ describe "Orders", type: :feature do
         end
       end
     end
+
+    context "and votes are disabled" do
+      let!(:feature) do
+        create(:budget_feature,
+              :with_votes_disabled,
+              manifest: manifest,
+              participatory_process: participatory_process)
+      end
+
+      it "cannot create new orders" do
+        expect(page).to have_selector('button.budget--list__action[disabled]', count: 3)
+        expect(page).to have_no_selector('.budget-summary')
+      end
+    end
   end
 
   describe "show" do

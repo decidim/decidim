@@ -21,6 +21,16 @@ FactoryGirl.define do
         }
       end
     end
+
+    trait :with_votes_disabled do
+      step_settings do
+        {
+          participatory_process.active_step.id => {
+            votes_enabled: false
+          }
+        }
+      end
+    end
   end
 
   factory :project, class: Decidim::Budgets::Project do

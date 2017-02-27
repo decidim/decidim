@@ -4,7 +4,7 @@
 ) %>
 
 <div class="row column view-header">
-  <% if current_user.present? %>
+  <% if current_user.present? && current_settings.votes_enabled? %>
     <%= render partial: "budget_summary", locals: { include_heading: false } %>
   <% end %>
   <%= link_to projects_path, class: "muted-link" do %>
