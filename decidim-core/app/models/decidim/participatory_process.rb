@@ -35,7 +35,7 @@ module Decidim
 
     has_many :features, foreign_key: "decidim_participatory_process_id"
 
-
+    attr_readonly :active_step
 
     validates :slug, presence: true
     validates :slug, uniqueness: { scope: :organization }
