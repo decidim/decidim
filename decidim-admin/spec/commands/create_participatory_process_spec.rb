@@ -11,13 +11,14 @@ describe Decidim::Admin::CreateParticipatoryProcess do
       subtitle: {en: "subtitle"},
       slug: "slug",
       hashtag: "hashtag",
+      meta_scope: "meta scope",
       hero_image: nil,
       banner_image: nil,
       promoted: nil,
       description: {en: "description"},
       short_description: {en: "short_description"},
       current_organization: organization,
-      scopes: [scope],
+      scope: scope,
       errors: errors
     )
   end
