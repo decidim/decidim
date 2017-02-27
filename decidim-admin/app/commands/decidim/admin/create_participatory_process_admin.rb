@@ -36,16 +36,14 @@ module Decidim
       attr_reader :form, :participatory_process
 
       def create_role
-        if form.roles.include?("collaborator")
-          user.roles << "collaborator" unless user.roles.include?("collaborator")
-          user.save
-        elsif form.roles.include?("process_admin")
-          ParticipatoryProcessUserRole.create!(
-            role: :admin,
-            user: user,
-            participatory_process: @participatory_process
-          )
-        end
+        role = :admin if form.roles.include?("process_admin")
+        role = :collaborator if form.roles.include?("collaborator")
+
+        ParticipatoryProcessUserRole.create!(
+          role: role,
+          user: user,
+          participatory_process: @participatory_process
+        )
       end
 
       def user
