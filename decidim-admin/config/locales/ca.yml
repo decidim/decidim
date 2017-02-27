@@ -24,7 +24,7 @@ ca:
         name: Nom
         show_statistics: Mostra Estadístiques
         welcome_text: Text de benvinguda
-        official_url: URL oficial de l'organiztació
+        official_url: URL oficial de l'organització
         official_img_header: Logotip oficial capçalera
         official_img_footer: Logotip oficial peu de pàgina
       participatory_process:
@@ -298,7 +298,7 @@ ca:
       organization:
         edit:
           title: Edita organització
-          update: Actualitza organitació
+          update: Actualitza organització
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: Organització actualitzada correctament.
