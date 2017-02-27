@@ -10,13 +10,13 @@ ca:
       meeting:
         title: Títol
         description: Descripció
-        adress: Direcció
+        adress: Adreça
         location: Lloc
         location_hints: Instruccions per arribar-hi
         start_time: Data d'inici
         end_time: Data de finalització
-        decidim_scope_id: Ámbit de la trobada
-        decidim_category_id: Categoria de la trobada
+        decidim_scope_id: Àmbit
+        decidim_category_id: Categoria
   decidim:
     features:
       meetings:

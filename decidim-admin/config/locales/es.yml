@@ -20,11 +20,11 @@ es:
         description: Descripción
         favicon: Icono
         homepage_image: Imagen de portada
-        logo: Logotipoo
+        logo: Logotipo
         name: Nombre
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
-        official_url: URL oficial de l'organiztació
+        official_url: URL oficial de la organización
         official_img_header: Logotipo oficial cabecera
         official_img_footer: Logotipo offcial pie de página
         participatory_process:

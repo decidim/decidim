@@ -16,8 +16,8 @@ en:
         location_hints: Location hints
         start_time: Start Time
         end_time: End Time
-        decidim_scope_id: Meeting scope
-        decidim_category_id: Meeting category
+        decidim_scope_id: Scope
+        decidim_category_id: Category
   decidim:
     features:
       meetings:

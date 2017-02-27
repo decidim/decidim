@@ -15,8 +15,8 @@ es:
         location_hints: Instrucciones para llegar
         start_time: Fecha de inicio
         end_time: Fecha de finalización
-        decidim_scope_id: Ámbito del encuentro
-        decidim_category_id: Categoría del encuentro
+        decidim_scope_id: Ámbito
+        decidim_category_id: Categoría
   decidim:
     features:
       meetings:
