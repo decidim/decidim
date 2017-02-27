@@ -10,6 +10,8 @@ en:
         user_group_id: Create proposal as
       proposal_report:
         details: Additional comments
+      proposal_answer:
+        answer: Answer
   decidim:
     features:
       proposals:

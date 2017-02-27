@@ -25,6 +25,9 @@ en:
         name: Name
         show_statistics: Show statistics
         welcome_text: Welcome text
+        official_url: Official organization url
+        official_img_header: Official logo header
+        official_img_footer: Official logo footer
       participatory_process:
         banner_image: Banner image
         description: Description
@@ -72,12 +75,20 @@ en:
         end_date: End date
         hashtag: Hashtag
         hero_image: Home image
+        local_area: Local area
+        participatory_scope: Participatory scope
+        participatory_structure: Participatory structure
         promoted: Promoted
         scope: Scope
         short_description: Short description
         slug: URL slug
         subtitle: Subtitle
+        target: Target
         title: Title
+      decidim/static_page:
+        title: Title
+        slug: URL slug
+        content: Content
   decidim:
     admin:
       actions:

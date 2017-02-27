@@ -24,6 +24,9 @@ ca:
         name: Nom
         show_statistics: Mostra Estadístiques
         welcome_text: Text de benvinguda
+        official_url: URL oficial de l'organiztació
+        official_img_header: Logotip oficial capçalera
+        official_img_footer: Logotip oficial peu de pàgina
       participatory_process:
         banner_image: Imatge de bàner
         description: Descripció
@@ -64,7 +67,6 @@ ca:
   activerecord:
     attributes:
       decidim/participatory_process:
-        promoted: Destacat
         banner_image: Imatge de bàner
         description: Descripció
         developer_group: Grup promotor
@@ -72,12 +74,20 @@ ca:
         end_date: Data de finalització
         hashtag: Etiqueta
         hero_image: Imatge de portada
+        local_area: Àrees Municipals
+        participatory_scope: Àmbit participatiu
+        participatory_structure: Estructura participativa
         promoted: Promogut
         scope: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
         subtitle: Subtítol
+        target: A qui va dirigit?
         title: Títol
+      decidim/static_page:
+        title: Títol
+        slug: Nom curt d'URL
+        content: Contingut
   decidim:
     admin:
       actions:

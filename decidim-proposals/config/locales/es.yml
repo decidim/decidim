@@ -9,6 +9,8 @@ es:
         user_group_id: Crear propuesta como
       proposal_report:
         details: Comentarios adicionales
+      proposal_answer:
+        answer: Respuesta
   decidim:
     features:
       proposals:

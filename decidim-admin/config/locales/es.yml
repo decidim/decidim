@@ -20,11 +20,14 @@ es:
         description: Descripción
         favicon: Icono
         homepage_image: Imagen de portada
-        logo: Logotipo
+        logo: Logotipoo
         name: Nombre
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
-      participatory_process:
+        official_url: URL oficial de l'organiztació
+        official_img_header: Logotipo oficial cabecera
+        official_img_footer: Logotipo offcial pie de página
+        participatory_process:
         banner_image: Imagen de banner
         description: Descripción
         developer_group: Grupo promotor
@@ -64,7 +67,6 @@ es:
   activerecord:
     attributes:
       decidim/participatory_process:
-        promoted: Destacado
         banner_image: Imagen de banner
         description: Descripción
         developer_group: Grupo promotor
@@ -72,11 +74,19 @@ es:
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
+        local_area: Áreas municipales
+        participatory_scope: Ámbito parcitipativo
+        participatory_structure: Estructura participativa
         promoted: Destacado
         scope: Ámbito
         short_description: Breve descripción
         slug: Texto corto de URL
         subtitle: Subtítulo
+        target: ¿A quién va dirigido?
+        title: Título
+      decidim/static_page:
+        content: Contenido
+        slug: URL oficial
         title: Título
   decidim:
     admin:

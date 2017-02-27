@@ -8,6 +8,16 @@ en:
         closing_report: Report
         contributions_count: Number of contributions
         proposal_ids: Proposals created in the meeting
+      meeting:
+        title: Title
+        description: Description
+        adress: Adress
+        location: Location
+        location_hints: Location hints
+        start_time: Start Time
+        end_time: End Time
+        decidim_scope_id: Meeting scope
+        decidim_category_id: Meeting category
   decidim:
     features:
       meetings:
