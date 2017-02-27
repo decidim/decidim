@@ -61,7 +61,6 @@ en:
   activerecord:
     attributes:
       decidim/participatory_process:
-        promoted: Highlighted
         banner_image: Banner image
         description: Description
         developer_group: Developer group

@@ -1,4 +1,12 @@
 ca:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Categoria
+        decidim_scope_id: Àmbit
+        description: Descripció
+        proposal_ids: Propostes incloses
+        title: Títol
   decidim:
     features:
       results:
