@@ -90,6 +90,9 @@ en:
           view: View
         project:
           add: Add
+          count:
+            one: 1 support
+            other: "%{count} supports"
           remove: Remove
         project_budget_button:
           add: Add
@@ -99,6 +102,8 @@ en:
           view_all_projects: View all projects
     features:
       budgets:
+        actions:
+          vote: Vote
         name: Budgets
         settings:
           global:

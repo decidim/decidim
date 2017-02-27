@@ -3,4 +3,5 @@ locales: [en]
 ignore_unused:
 - "decidim.features.budgets.name"
 - "decidim.features.budgets.settings.*"
+- "decidim.features.budgets.actions.*"
 - "activemodel.attributes.project.*"
