@@ -5,7 +5,7 @@ es:
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         description: Descripción
-        proposal_ids: Propuestas incluides
+        proposal_ids: Propuestas incluidas
         title: Título
   decidim:
     features:
