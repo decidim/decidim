@@ -22,6 +22,8 @@
 
 ---
 
+Decidim is a participatory democracy framework written on Ruby on Rails originally developed for the Barcelona City government online and offline participation website. Installing this libraries you'll get a generator and gems to help you develop web applications like the ones found on [example applications](#example-applications).
+
 ## What do you need to do?
 
 - [Contribute to the project](#how-to-contribute)
@@ -177,6 +179,10 @@ After you create a development app (`bundle exec rake development_app`):
 
 ## Technical tradeoffs
 
+### Architecture
+
+This is not your tipical Ruby on Rails Vanilla App. We've tried that using [Consul](http://decide.es) but we've found some problems on reutilization, adaptation, modularization and configuration. You can read more about that on "[Propuesta de Cambios de Arquitectura de Consul](https://www.gitbook.com/book/alabs/propuesta-de-cambios-en-la-arquitectura-de-consul/details)".
+
 ### Turbolinks
 
 Decidim doesn't support `turbolinks` so it isn't included on our generated apps and it's removed for existing Rails applications which install the Decidim engine.
@@ -185,4 +191,13 @@ The main reason for this is we are injecting some scripts into the body for some
 
 The support of Turbolinks was dropped in [d8c7d9f](https://github.com/AjuntamentdeBarcelona/decidim/commit/d8c7d9f63e4d75307e8f7a0360bef977fab209b6). If you're interested in bringing turbolinks back, further discussion is welcome.
 
-TODO: Improve guide.
+## Following our license
+
+If you plan to release your application you'll need to publish it using the same license: GPL Affero 3. We recommend doing that on Github before publishing, you can read more on "[Being Open Source From Day One is Especially Important for Government Projects](http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs)". If you have any trouble doing that you can contact us on [Gitter](https://gitter.im/AjuntamentdeBarcelona/decidim).
+
+
+## Example applications
+
+* [Demo](http://staging.decidim.codegram.com)
+* [Decidim Barcelona](https://decidim.barcelona)
+* [L'H ON dels barris](https://www.lhon-participa.cat)
