@@ -9,8 +9,9 @@ module Decidim
       # form - A form object with the params.
       # participatory_process - The ParticipatoryProcess that will hold the
       #   user role
-      def initialize(form, participatory_process)
+      def initialize(form, current_user, participatory_process)
         @form = form
+        @current_user= current_user
         @participatory_process = participatory_process
       end
 
@@ -33,7 +34,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :participatory_process
+      attr_reader :form, :participatory_process, :current_user
 
       def create_role
         role = :admin if form.roles.include?("process_admin")
@@ -61,7 +62,7 @@ module Decidim
         OpenStruct.new({
           name: form.name,
           email: form.email.downcase,
-          organization: current_organization,
+          organization: participatory_process.organization,
           roles: form.roles,
           invited_by: current_user,
           invitation_instructions: "invite_admin"

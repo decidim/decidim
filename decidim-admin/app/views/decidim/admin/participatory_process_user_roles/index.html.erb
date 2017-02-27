@@ -32,6 +32,6 @@
       <%= form.label :roles %>
       <%= select :participatory_process_user_role, :roles, ["collaborator", "process_admin"], include_blank: false %>
     </div>
-    <%= form.submit %>
+    <%= form.submit t("actions.create", scope: "decidim.admin") %>
   <% end %>
 </section>
