@@ -1,5 +1,13 @@
 ---
 en:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Category
+        decidim_scope_id: Scope
+        description: Description
+        proposal_ids: Included proposals
+        title: Title
   decidim:
     features:
       results:
@@ -11,7 +19,6 @@ en:
             comments_blocked: Comments blocked
     resource_links:
       included_proposals:
-        result_proposals: Proposals included in this result
         result_proposals: Projects included in this result
       meetings_through_proposals:
         result_meetings: Related meetings

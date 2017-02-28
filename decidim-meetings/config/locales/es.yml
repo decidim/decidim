@@ -7,6 +7,16 @@ es:
         closing_report: Informe
         contributions_count: Número de contribuciones
         proposal_ids: Propuestas creadas en el encuentro
+      meeting:
+        title: Título
+        description: Descripción
+        adress: Dirección
+        location: Lugar
+        location_hints: Instrucciones para llegar
+        start_time: Fecha de inicio
+        end_time: Fecha de finalización
+        decidim_scope_id: Ámbito
+        decidim_category_id: Categoría
   decidim:
     features:
       meetings:

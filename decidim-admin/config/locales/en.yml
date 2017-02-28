@@ -23,6 +23,9 @@ en:
         homepage_image: Homepage image
         logo: Logo
         name: Name
+        official_img_footer: Official logo footer
+        official_img_header: Official logo header
+        official_url: Official organization url
         show_statistics: Show statistics
         welcome_text: Welcome text
       participatory_process:
@@ -33,11 +36,15 @@ en:
         end_date: End date
         hashtag: Hashtag
         hero_image: Home image
+        local_area: Local area
+        participatory_scope: Participatory scope
+        participatory_structure: Participatory structure
         promoted: Promoted
         scope: Scope
         short_description: Short description
         slug: URL slug
         subtitle: Subtitle
+        target: Target
         title: Title
       participatory_process_step:
         description: Description
@@ -61,7 +68,27 @@ en:
   activerecord:
     attributes:
       decidim/participatory_process:
-        promoted: Highlighted
+        banner_image: Banner image
+        description: Description
+        developer_group: Developer group
+        domain: Domain
+        end_date: End date
+        hashtag: Hashtag
+        hero_image: Home image
+        local_area: Local area
+        participatory_scope: Participatory scope
+        participatory_structure: Participatory structure
+        promoted: Promoted
+        scope: Scope
+        short_description: Short description
+        slug: URL slug
+        subtitle: Subtitle
+        target: Target
+        title: Title
+      decidim/static_page:
+        content: Content
+        slug: URL slug
+        title: Title
   decidim:
     admin:
       actions:

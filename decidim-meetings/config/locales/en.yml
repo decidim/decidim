@@ -8,6 +8,16 @@ en:
         closing_report: Report
         contributions_count: Number of contributions
         proposal_ids: Proposals created in the meeting
+      meeting:
+        adress: Adress
+        decidim_category_id: Category
+        decidim_scope_id: Scope
+        description: Description
+        end_time: End Time
+        location: Location
+        location_hints: Location hints
+        start_time: Start Time
+        title: Title
   decidim:
     features:
       meetings:
@@ -65,7 +75,8 @@ en:
         index:
           view_meeting: View meeting
         meetings:
-          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
+          no_meetings_warning: No meetings match your search criteria or there isn't
+            any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but
             here you can find all the past meetings listed.
         show:

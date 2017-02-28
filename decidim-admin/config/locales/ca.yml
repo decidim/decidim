@@ -24,19 +24,26 @@ ca:
         name: Nom
         show_statistics: Mostra Estadístiques
         welcome_text: Text de benvinguda
+        official_url: URL oficial de l'organització
+        official_img_header: Logotip oficial capçalera
+        official_img_footer: Logotip oficial peu de pàgina
       participatory_process:
-        banner_image: Imatge de bandera
+        banner_image: Imatge de bàner
         description: Descripció
         developer_group: Grup promotor
         domain: Àrees municipals
         end_date: Data de finalització
         hashtag: Etiqueta
         hero_image: Imatge de portada
+        local_area: Àrees Municipals
+        participatory_scope: Àmbit participatiu
+        participatory_structure: Estructura participativa
         promoted: Promogut
         scope: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
         subtitle: Subtítol
+        target: A qui va dirigit?
         title: Títol
       participatory_process_step:
         description: Descripció
@@ -60,7 +67,27 @@ ca:
   activerecord:
     attributes:
       decidim/participatory_process:
-        promoted: Destacat
+        banner_image: Imatge de bàner
+        description: Descripció
+        developer_group: Grup promotor
+        domain: Àrees municipals
+        end_date: Data de finalització
+        hashtag: Etiqueta
+        hero_image: Imatge de portada
+        local_area: Àrees Municipals
+        participatory_scope: Àmbit participatiu
+        participatory_structure: Estructura participativa
+        promoted: Promogut
+        scope: Àmbit
+        short_description: Descripció breu
+        slug: Nom curt d'URL
+        subtitle: Subtítol
+        target: A qui va dirigit?
+        title: Títol
+      decidim/static_page:
+        title: Títol
+        slug: Nom curt d'URL
+        content: Contingut
   decidim:
     admin:
       actions:
@@ -271,7 +298,7 @@ ca:
       organization:
         edit:
           title: Edita organització
-          update: Actualitza organitació
+          update: Actualitza organització
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: Organització actualitzada correctament.

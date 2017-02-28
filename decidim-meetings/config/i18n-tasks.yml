@@ -2,5 +2,5 @@ base_locale: en
 locales: [en]
 ignore_unused:
 - "decidim.features.meetings.name"
-- "activemodel.attributes.close_meeting.*"
+- "activemodel.attributes.*"
 - "decidim.resource_links.*"

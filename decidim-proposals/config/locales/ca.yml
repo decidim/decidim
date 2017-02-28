@@ -9,6 +9,8 @@ ca:
         user_group_id: Crear proposta
       proposal_report:
         details: Comentaris addicionals
+      proposal_answer:
+        answer: Resposta
   decidim:
     features:
       proposals:

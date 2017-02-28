@@ -8,6 +8,8 @@ en:
         scope_id: Scope
         title: Title
         user_group_id: Create proposal as
+      proposal_answer:
+        answer: Answer
       proposal_report:
         details: Additional comments
   decidim:
