@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Decidim
-  # This helper include some methods for rendering resources static maps.
+  # This helper include some methods for rendering resources static and dynamic maps.
   module MapHelper
     # Renders a link to openstreetmaps with the resource latitude and longitude.
     # The link's content is a static map image.
@@ -18,6 +18,21 @@ module Decidim
 
         link_to map_url, target: "_blank" do
           image_tag decidim.static_map_path(sgid: geolocalizable.to_sgid.to_s)
+        end
+      end
+    end
+
+    def dynamic_map_for(resource, &block)
+      if Decidim.geocoder.present?
+        map_html_options = {
+          class: "google-map",
+          id: "map",
+          "data-here-app-id" => Decidim.geocoder[:here_app_id],
+          "data-here-app-code" => Decidim.geocoder[:here_app_code]
+        }
+        content = capture { block.call }
+        content_tag :div, class: "row column" do
+          content_tag(:div, "", map_html_options) + content
         end
       end
     end

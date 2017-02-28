@@ -1,45 +1,39 @@
-<% if Decidim.geocoder.present? %>
-  <div class="row column">
-    <div class="google-map" id="meetings-map" data-meetings="<%= meetings_data_for_map(geocoded_meetings).to_json %>" data-here-app-id="<%= Decidim.geocoder[:here_app_id] %>" data-here-app-code="<%= Decidim.geocoder[:here_app_code] %>">
-    </div>
-
-    <template id="meeting-popup">
-      <div class="map-info__content">
-        <h3>${title}</h3>
-        <div id="bodyContent">
-          <p>{{html description}}</p>
-          <div class="map__date-adress">
-            <div class="card__datetime">
-              <div class="card__datetime__date">
-                ${startTimeDay} <span class="card__datetime__month">${startTimeMonth} ${startTimeYear}</span>
-              </div>
-              <div class="card__datetime__time">${starTime}</div>
+<%= dynamic_map_for geocoded_meetings do %>
+  <template id="meeting-popup">
+    <div class="map-info__content">
+      <h3>${title}</h3>
+      <div id="bodyContent">
+        <p>{{html description}}</p>
+        <div class="map__date-adress">
+          <div class="card__datetime">
+            <div class="card__datetime__date">
+              ${startTimeDay} <span class="card__datetime__month">${startTimeMonth} ${startTimeYear}</span>
             </div>
-            <div class="address card__extra">
-              <div class="address__icon">{{html icon}}</div>
-              <div class="address__details">
-                <strong>{{html location}}</strong><br />
-                <span>${address}</span><br />
-                <span>{{html locationHints}}</span>
-              </div>
-            </div>
+            <div class="card__datetime__time">${starTime}</div>
           </div>
-          <div class="map-info__button">
-            <a href="${link}" class="button button--sc">
-              <%= t('.view_meeting') %>
-            </a>
+          <div class="address card__extra">
+            <div class="address__icon">{{html icon}}</div>
+            <div class="address__details">
+              <strong>{{html location}}</strong><br />
+              <span>${address}</span><br />
+              <span>{{html locationHints}}</span>
+            </div>
           </div>
         </div>
+        <div class="map-info__button">
+          <a href="${link}" class="button button--sc">
+            <%= t('.view_meeting') %>
+          </a>
+        </div>
       </div>
-    </template>
-    <%= stylesheet_link_tag "decidim/meetings/map" %>
-    <%= javascript_include_tag "decidim/meetings/map" %>
-  </div>
+    </div>
+  </template>
+  <%= stylesheet_link_tag "decidim/map" %>
+  <%= javascript_include_tag "decidim/map" %>
 <% end %>
 
 <div class="row">
   <div class="columns mediumlarge-4 large-3">
-  
     <%= render partial: "filters_small_view" %>
     <div class="card card--secondary show-for-mediumlarge" >
       <%= render partial: "filters" %>
