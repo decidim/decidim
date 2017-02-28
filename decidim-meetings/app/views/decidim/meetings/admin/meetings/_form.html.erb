@@ -28,7 +28,7 @@
 
 <% if !@form.process_scope %>
   <div class="field" >
-    <%= form.collection_select :decidim_scope_id, organization_scopes, :id, :name, include_blank: true %>
+    <%= form.collection_select :decidim_scope_id, organization_scopes, :id, :name %>
   </div>
 <% end %>
 

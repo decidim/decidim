@@ -26,12 +26,16 @@ module Decidim
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
         end
 
+        def process_scope
+          current_feature.participatory_process.scope
+        end
+
         def proposals
           @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, context.current_feature)&.order(title: :asc)&.pluck(:title, :id)
         end
 
         def scope
-          @scope ||= context.current_feature.scopes.where(id: decidim_scope_id).first
+          @scope ||= process_scope || current_organization.scopes.where(id: decidim_scope_id).first
         end
 
         def category
