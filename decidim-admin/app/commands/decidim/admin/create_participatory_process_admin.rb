@@ -37,11 +37,8 @@ module Decidim
       attr_reader :form, :participatory_process, :current_user
 
       def create_role
-        role = :admin if form.roles.include?("process_admin")
-        role = :collaborator if form.roles.include?("collaborator")
-
         ParticipatoryProcessUserRole.create!(
-          role: role,
+          role: form.role.to_sym,
           user: user,
           participatory_process: @participatory_process
         )
@@ -63,7 +60,7 @@ module Decidim
           name: form.name,
           email: form.email.downcase,
           organization: participatory_process.organization,
-          roles: form.roles,
+          roles: [form.role.to_sym],
           invited_by: current_user,
           invitation_instructions: "invite_admin"
         })

@@ -3,15 +3,15 @@ require "spec_helper"
 describe Decidim::Admin::CreateParticipatoryProcessAdmin do
   let(:my_process) { create :participatory_process }
   let!(:email) { "my_email@example.org" }
-  let!(:roles) { ["process_admin"] }
-  let!(:name)  { "Weird Guy" }
+  let!(:role) { "admin" }
+  let!(:name) { "Weird Guy" }
   let!(:user) { create :user, email: "my_email@example.org", organization: my_process.organization }
   let!(:current_user) { create :user, email: "some_email@example.org", organization: my_process.organization }
   let(:form) do
     double(
       :invalid? => invalid,
       email: email,
-      roles: roles,
+      role: role,
       name: name
     )
   end

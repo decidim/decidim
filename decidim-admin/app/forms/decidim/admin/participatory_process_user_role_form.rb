@@ -9,17 +9,11 @@ module Decidim
 
       attribute :name, String
       attribute :email, String
-      attribute :roles, Array[String]
+      attribute :role, String
 
-      validates :email, :roles, presence: true
-      validates :roles, length: { minimum: 1, maximum: 1 }
-      validates :name, presence: true, if: :is_process_admin?
-
-      private
-
-      def is_process_admin?
-        roles.include?("process_admin")
-      end
+      validates :email, :role, presence: true
+      validates :name, presence: true
+      validates :role, inclusion: { in: %w(admin collaborator) }
     end
   end
 end

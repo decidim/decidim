@@ -19,6 +19,8 @@ RSpec.shared_examples "manage process admins examples" do
 
     within "#process_admins form" do
       fill_in :participatory_process_user_role_email, with: other_user.email
+      fill_in :participatory_process_user_role_name, with: "John Doe"
+      select "admin", from: :participatory_process_user_role_role
 
       find("*[type=submit]").click
     end
