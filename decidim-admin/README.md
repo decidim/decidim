@@ -1,6 +1,6 @@
 # Decidim::Admin
 
-This library adds and administration dashboard so users can manage their
+This library adds an administration dashboard so users can manage their
 organization, participatory processes and all other entities.
 
 ## Usage
