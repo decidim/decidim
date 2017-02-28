@@ -8,7 +8,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      before_save :store_reference, on: :create
+      before_save :store_reference
 
       validates :reference, presence: true
 
@@ -43,7 +43,7 @@ module Decidim
       #
       # Returns nothing.
       def store_reference
-        self[:reference] = calculate_reference
+        self[:reference] ||= calculate_reference
       end
     end
   end
