@@ -2,7 +2,7 @@ class AddOrganizationCustomReference < ActiveRecord::Migration[5.0]
   def change
     add_column :decidim_organizations, :reference_prefix, :string
 
-    Decidim::Organization.each do |organization|
+    Decidim::Organization.find_each do |organization|
       organization.update_attribute(:reference_prefix, organization.name[0])
     end
 
