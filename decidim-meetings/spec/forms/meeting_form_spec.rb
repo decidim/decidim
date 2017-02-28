@@ -27,7 +27,9 @@ describe Decidim::Meetings::Admin::MeetingForm do
   let(:location_hints) do
     Decidim::Faker::Localized.sentence(3)
   end
-  let(:address) { Faker::Lorem.sentence(3) }
+  let(:address) { "Carrer Pare Llaurador 113, baixos, 08225 Terrassa" }
+  let(:latitude) { 40.1234 }
+  let(:longitude) { 2.1234 }
   let(:start_time) { 2.days.from_now }
   let(:end_time) { 2.days.from_now + 4.hours }
   let(:scope) { create :scope, organization: organization }
@@ -47,6 +49,12 @@ describe Decidim::Meetings::Admin::MeetingForm do
       start_time: start_time,
       end_time: end_time
     }
+  end
+
+  before do
+    Geocoder::Lookup::Test.add_stub(address, [
+      { 'latitude' => latitude, 'longitude' => longitude }
+    ])
   end
 
   subject { described_class.from_params(attributes).with_context(context) }
@@ -123,5 +131,11 @@ describe Decidim::Meetings::Admin::MeetingForm do
     let(:category_id) { category.id + 10 }
 
     it { is_expected.not_to be_valid }
+  end
+
+  it "validates address and store its coordinates" do
+    expect(subject).to be_valid
+    expect(subject.latitude).to eq(latitude)
+    expect(subject.longitude).to eq(longitude)
   end
 end

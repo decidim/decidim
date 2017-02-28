@@ -70,7 +70,6 @@ RSpec.shared_examples "a proposal form" do
     let(:address) { "Carrer Pare Llaurador 113, baixos, 08225 Terrassa" }
 
     before do
-      Geocoder.configure(lookup: :test)
       Geocoder::Lookup::Test.add_stub(address, [
         { 'latitude' => latitude, 'longitude' => longitude }
       ])

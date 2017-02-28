@@ -15,7 +15,6 @@ describe "Proposals", type: :feature do
   let(:longitude) { 2.1234 }
 
   before do
-    Geocoder.configure(lookup: :test)
     Geocoder::Lookup::Test.add_stub(address, [
       { 'latitude' => latitude, 'longitude' => longitude }
     ])

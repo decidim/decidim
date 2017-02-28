@@ -26,10 +26,6 @@ describe GeocodingValidator do
 
   let(:subject) { validatable.new(address: address) }
 
-  before do
-    Geocoder.configure(lookup: :test)
-  end
-
   context "when the address is valid" do
     before do
       Geocoder::Lookup::Test.add_stub(address, [

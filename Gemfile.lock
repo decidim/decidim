@@ -125,6 +125,7 @@ PATH
       rspec-repeat (~> 1.0.2)
       rubocop (~> 0.47)
       simplecov (~> 0.13)
+      webmock (~> 2.3.2)
       wisper-rspec
 
 PATH
@@ -235,7 +236,7 @@ GEM
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     cliver (0.3.2)
-    codecov (0.1.9)
+    codecov (0.1.10)
       json
       simplecov
       url
@@ -587,7 +588,6 @@ DEPENDENCIES
   decidim-system!
   rake (~> 12.0.0)
   rspec (~> 3.0)
-  webmock (~> 2.3.2)
 
 RUBY VERSION
    ruby 2.4.0p0

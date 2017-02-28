@@ -34,7 +34,10 @@ module Decidim
             body: form.body,
             category: form.category,
             scope: form.scope,
-            feature: form.feature
+            feature: form.feature,
+            address: form.address,
+            latitude: form.latitude,
+            longitude: form.longitude
           )
         end
       end

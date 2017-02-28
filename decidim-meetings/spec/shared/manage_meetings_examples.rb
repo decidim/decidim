@@ -1,6 +1,16 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 RSpec.shared_examples "manage meetings" do
+  let(:address) { "Carrer Pare Llaurador 113, baixos, 08225 Terrassa" }
+  let(:latitude) { 40.1234 }
+  let(:longitude) { 2.1234 }
+
+  before do
+    Geocoder::Lookup::Test.add_stub(address, [
+      { 'latitude' => latitude, 'longitude' => longitude }
+    ])
+  end
+
   it "updates a meeting" do
     within find("tr", text: translated(meeting.title)) do
       click_link "Edit"
@@ -14,6 +24,7 @@ RSpec.shared_examples "manage meetings" do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
+      fill_in :meeting_address, with: address
 
       find("*[type=submit]").click
     end
@@ -71,7 +82,7 @@ RSpec.shared_examples "manage meetings" do
         ca: "Descripció més llarga"
       )
 
-      fill_in :meeting_address, with: "Address"
+      fill_in :meeting_address, with: address
       fill_in :meeting_start_time, with: 1.day.from_now
       fill_in :meeting_end_time, with: 1.day.from_now + 2.hours
 

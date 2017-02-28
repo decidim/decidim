@@ -11,6 +11,8 @@ module Decidim
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
         attribute :address, String
+        attribute :latitude, Float
+        attribute :longitude, Float
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :decidim_scope_id, Integer
@@ -20,6 +22,7 @@ module Decidim
         validates :description, translatable_presence: true
         validates :location, translatable_presence: true
         validates :address, presence: true
+        validates :address, geocoding: true, if: ->(form) { form.address.present? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
 
