@@ -11,7 +11,7 @@ module Decidim
       #   user role
       def initialize(form, current_user, participatory_process)
         @form = form
-        @current_user= current_user
+        @current_user = current_user
         @participatory_process = participatory_process
       end
 
@@ -62,8 +62,13 @@ module Decidim
           organization: participatory_process.organization,
           roles: [form.role.to_sym],
           invited_by: current_user,
-          invitation_instructions: "invite_admin"
+          invitation_instructions: invitation_instructions
         })
+      end
+
+      def invitation_instructions
+        return "invite_admin" if form.role == "admin"
+        "invite_collaborator"
       end
     end
   end
