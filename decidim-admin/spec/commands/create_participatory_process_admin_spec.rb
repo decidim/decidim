@@ -30,7 +30,7 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
   context "when there is no user with the given email" do
     let(:email) { "does_not_exist@example.com" }
 
-    it "is creates a new user with said email" do
+    it "creates a new user with said email" do
       subject.call
       expect(Decidim::User.last.email).to eq(email)
     end
