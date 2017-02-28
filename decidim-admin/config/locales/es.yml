@@ -57,10 +57,6 @@ es:
     errors:
       messages:
         invalid_json: JSON no válido
-  activerecord:
-    attributes:
-      decidim/participatory_process:
-        promoted: Destacado
   decidim:
     admin:
       actions:
