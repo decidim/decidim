@@ -9,18 +9,16 @@ module Decidim
       # meeting - A Decidim::Meetings::Meeting object
       # options - An optional hash of options (default: { zoom: 17 })
       #           * zoom: A number to represent the zoom value of the map
-      def static_map_link(meeting, options = {})
-        if meeting.geocoded?
+      def static_map_link(geolocalizable, options = {})
+        if geolocalizable.geocoded?
           zoom = options[:zoom] || 17
-          latitude = meeting.latitude
-          longitude = meeting.longitude
+          latitude = geolocalizable.latitude
+          longitude = geolocalizable.longitude
 
           map_url = "https://www.openstreetmap.org/?mlat=#{latitude}&mlon=#{longitude}#map=#{zoom}/#{latitude}/#{longitude}"
 
           link_to map_url, target: "_blank" do
-            image_tag decidim_meetings.static_map_meeting_path(feature_id: meeting.feature,
-                                                               participatory_process_id: meeting.feature.participatory_process,
-                                                               id: meeting)
+            image_tag decidim.static_map_path(sgid: geolocalizable.to_sgid.to_s)
           end
         end
       end

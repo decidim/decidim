@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
-RSpec.shared_examples "create a proposal" do |with_author| 
+RSpec.shared_examples "create a proposal" do |with_author|
   let(:feature) { create(:proposal_feature) }
   let(:organization) { feature.organization }
   let(:form) do
@@ -13,11 +13,16 @@ RSpec.shared_examples "create a proposal" do |with_author|
   end
   let(:author) { create(:user, organization: organization) } if with_author
 
+  let(:address) { nil }
+  let(:latitude) { 40.1234 }
+  let(:longitude) { 2.1234 }
+
   describe "call" do
     let(:form_params) do
       {
         title: "A reasonable proposal title",
-        body: "A reasonable proposal body"
+        body: "A reasonable proposal body",
+        address: address
       }
     end
 
@@ -62,6 +67,25 @@ RSpec.shared_examples "create a proposal" do |with_author|
           proposal = Decidim::Proposals::Proposal.last
 
           expect(proposal.author).to eq(author)
+        end
+      end
+
+      context "when the address is present" do
+        let(:address) { "Carrer Pare Llaurador 113, baixos, 08225 Terrassa" }
+
+        before do
+          Geocoder.configure(lookup: :test)
+          Geocoder::Lookup::Test.add_stub(address, [
+            { 'latitude' => latitude, 'longitude' => longitude }
+          ])
+        end
+
+        it "sets the latitude and longitude" do
+          command.call
+          proposal = Decidim::Proposals::Proposal.last
+
+          expect(proposal.latitude).to eq(latitude)
+          expect(proposal.longitude).to eq(longitude)
         end
       end
     end

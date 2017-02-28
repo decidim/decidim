@@ -1,6 +1,17 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 RSpec.shared_examples "manage proposals" do
+  let(:address) { "Carrer Pare Llaurador 113, baixos, 08225 Terrassa" }
+  let(:latitude) { 40.1234 }
+  let(:longitude) { 2.1234 }
+
+  before do
+    Geocoder.configure(lookup: :test)
+    Geocoder::Lookup::Test.add_stub(address, [
+      { 'latitude' => latitude, 'longitude' => longitude }
+    ])
+  end
+
   context "previewing proposals" do
     it "allows the user to preview the proposal" do
       new_window = window_opened_by { click_link proposal.title }
@@ -88,8 +99,8 @@ RSpec.shared_examples "manage proposals" do
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
               fill_in :proposal_body, with: "Decidim is great but it can be better"
+              fill_in :proposal_address, with: address
               select category.name["en"], from: :proposal_category_id
-
               find("*[type=submit]").click
             end
 

@@ -18,6 +18,8 @@ module Decidim
 
       validates :title, :body, presence: true
 
+      geocoded_by :address
+
       scope :accepted,   -> { where(state: "accepted") }
       scope :rejected,   -> { where(state: "rejected") }
       scope :reported,   -> { where("report_count > 0") }

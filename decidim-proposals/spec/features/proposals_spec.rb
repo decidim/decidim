@@ -10,6 +10,17 @@ describe "Proposals", type: :feature do
   let!(:scope) { create :scope, organization: organization }
   let!(:user) { create :user, :confirmed, organization: organization }
 
+  let(:address) { "Carrer Pare Llaurador 113, baixos, 08225 Terrassa" }
+  let(:latitude) { 40.1234 }
+  let(:longitude) { 2.1234 }
+
+  before do
+    Geocoder.configure(lookup: :test)
+    Geocoder::Lookup::Test.add_stub(address, [
+      { 'latitude' => latitude, 'longitude' => longitude }
+    ])
+  end
+
   context "creating a new proposal" do
     context "when the user is logged in" do
       before do
@@ -64,6 +75,7 @@ describe "Proposals", type: :feature do
           within ".new_proposal" do
             fill_in :proposal_title, with: "Oriol for president"
             fill_in :proposal_body, with: "He will solve everything"
+            fill_in :proposal_address, with: address
             select category.name["en"], from: :proposal_category_id
             select scope.name, from: :proposal_scope_id
 
@@ -73,6 +85,7 @@ describe "Proposals", type: :feature do
           expect(page).to have_content("successfully")
           expect(page).to have_content("Oriol for president")
           expect(page).to have_content("He will solve everything")
+          expect(page).to have_content(address)
           expect(page).to have_content(category.name["en"])
           expect(page).to have_content(scope.name)
           expect(page).to have_content(user.name)
@@ -93,6 +106,7 @@ describe "Proposals", type: :feature do
             within ".new_proposal" do
               fill_in :proposal_title, with: "Oriol for president"
               fill_in :proposal_body, with: "He will solve everything"
+              fill_in :proposal_address, with: address
               select category.name["en"], from: :proposal_category_id
               select scope.name, from: :proposal_scope_id
               select user_group.name, from: :proposal_user_group_id
@@ -103,6 +117,7 @@ describe "Proposals", type: :feature do
             expect(page).to have_content("successfully")
             expect(page).to have_content("Oriol for president")
             expect(page).to have_content("He will solve everything")
+            expect(page).to have_content(address)
             expect(page).to have_content(category.name["en"])
             expect(page).to have_content(scope.name)
             expect(page).to have_content(user_group.name)

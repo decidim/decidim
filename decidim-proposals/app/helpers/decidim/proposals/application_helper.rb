@@ -8,6 +8,7 @@ module Decidim
       include PaginateHelper
       include ProposalVotesHelper
       include ProposalOrderHelper
+      include Decidim::Meetings::MapHelper # TODO
 
       # Public: The state of a proposal in a way a human can understand.
       #

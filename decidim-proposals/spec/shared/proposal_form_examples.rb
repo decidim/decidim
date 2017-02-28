@@ -4,6 +4,9 @@ RSpec.shared_examples "a proposal form" do
   let(:feature) { create(:feature)}
   let(:title) { "Oriol for president!" }
   let(:body) { "Everything would be better" }
+  let(:address) { nil }
+  let(:latitude) { 40.1234 }
+  let(:longitude) { 2.1234 }
   let(:author) { create(:user, organization: feature.organization) }
   let(:category) { create(:category, participatory_process: feature.participatory_process) }
   let(:scope) { create(:scope, organization: feature.organization) }
@@ -13,6 +16,7 @@ RSpec.shared_examples "a proposal form" do
     {
       title: title,
       body: body,
+      address: address,
       author: author,
       category_id: category_id,
       scope_id: scope_id,
@@ -60,6 +64,23 @@ RSpec.shared_examples "a proposal form" do
   context "with invalid scope_id" do
     let(:scope_id) { 987 }
     it { is_expected.to be_invalid}
+  end
+
+  context "when address is present" do
+    let(:address) { "Carrer Pare Llaurador 113, baixos, 08225 Terrassa" }
+
+    before do
+      Geocoder.configure(lookup: :test)
+      Geocoder::Lookup::Test.add_stub(address, [
+        { 'latitude' => latitude, 'longitude' => longitude }
+      ])
+    end
+
+    it "validates address and store its coordinates" do
+      expect(subject).to be_valid
+      expect(subject.latitude).to eq(latitude)
+      expect(subject.longitude).to eq(longitude)
+    end
   end
 
   describe "category" do
