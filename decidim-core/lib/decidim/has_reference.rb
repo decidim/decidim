@@ -8,7 +8,15 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      after_save :store_reference, on: :create
+      before_save :store_reference, on: :create
+
+      validates :reference, presence: true
+
+      def reference
+        self[:reference] || calculate_reference
+      end
+
+      private
 
       # Public: Calculates a unique reference for the model in
       # the following format:
@@ -21,7 +29,9 @@ module Decidim
       # 6589: ID of the resource
       #
       # Returns a String.
-      def reference
+      def calculate_reference
+        return unless feature
+
         ref = feature.participatory_process.organization.reference_prefix
         class_identifier = self.class.name.demodulize[0..3].upcase
         year_month = (created_at || Time.current).strftime("%Y-%m")
@@ -29,13 +39,11 @@ module Decidim
         [ref, class_identifier, year_month, id].join("-")
       end
 
-      private
-
       # Internal: Sets the unique reference to the model.
       #
       # Returns nothing.
       def store_reference
-        self[:reference] = reference
+        self[:reference] = calculate_reference
       end
     end
   end
