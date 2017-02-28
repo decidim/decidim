@@ -21,7 +21,6 @@ es:
             comments_enabled: Comentarios habilitados
             official_proposals_enabled: Propuestas oficiales habilitadas
             proposal_answering_enabled: Respuesta oficial a propuestas habilitadas
-            scoped_proposals_enabled: Propuestas con ámbito
             vote_limit: Límite de votos
           step:
             comments_blocked: Comentarios bloqueados
@@ -58,7 +57,6 @@ es:
             success: Propuesta creada correctamente
           form:
             select_a_category: Seleccione una categoría
-            select_a_scope: Seleccione un ámbito
           hide:
             invalid: Ha habido un error al esconder esta propuesta
             success: Propuesta escondida correctamente
@@ -132,7 +130,6 @@ es:
         new:
           back: Atrás
           select_a_category: Por favor, seleccione una categoría
-          select_a_scope: Por favor, seleccione un ámbito
           send: Enviar
           title: Nueva propuesta
         orders:
