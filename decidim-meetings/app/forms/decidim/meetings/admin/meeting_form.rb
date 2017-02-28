@@ -27,9 +27,13 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
+        def process_scope
+          current_feature.participatory_process.scope
+        end
+
         def scope
           return unless current_feature
-          @scope ||= current_feature.scopes.where(id: decidim_scope_id).first
+          @scope ||= process_scope || current_feature.scopes.where(id: decidim_scope_id).first
         end
 
         def category
