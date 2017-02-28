@@ -9,6 +9,7 @@ module Decidim
       include Decidim::HasScope
       include Decidim::HasCategory
       include Decidim::HasAttachments
+      include Decidim::HasReference
       include Decidim::Comments::Commentable
 
       feature_manifest_name "budgets"

@@ -142,6 +142,7 @@ describe "Proposals", type: :feature do
       expect(page).to have_content(proposal.title)
       expect(page).to have_content(proposal.body)
       expect(page).to have_content(proposal.author.name)
+      expect(page).to have_content(proposal.reference)
     end
 
     context "when scoped_proposals setting is enabled" do

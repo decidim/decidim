@@ -15,6 +15,7 @@ module Decidim
       include_examples "has feature"
       include_examples "has scope"
       include_examples "has category"
+      include_examples "has reference"
 
       context "without a title" do
         let(:meeting) { build :meeting, title: nil }

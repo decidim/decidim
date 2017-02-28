@@ -194,6 +194,8 @@ en:
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up
+      reference:
+        reference: "Reference: %{reference}"
       share_modal:
         close_window: Close window
         share: Share

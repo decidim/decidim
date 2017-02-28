@@ -8,6 +8,7 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::HasAttachments
       include Decidim::HasFeature
+      include Decidim::HasReference
       include Decidim::HasScope
       include Decidim::HasCategory
 
