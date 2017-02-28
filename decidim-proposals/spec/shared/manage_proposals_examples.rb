@@ -29,57 +29,82 @@ RSpec.shared_examples "manage proposals" do
           )
         end
 
-        context "when scoped_proposals setting is enabled" do
+        context "when process is not related to any scope" do
           before do
-            current_feature.update_attributes(settings: { scoped_proposals_enabled: true } )
+            participatory_process.update_attributes(scope: nil)
           end
 
-          it "can be filtered by scope" do
+          it "can be related to a scope" do
             find(".actions .new").click
 
             within "form" do
               expect(page).to have_content(/Scope/i)
             end
           end
+
+          it "creates a new proposal" do
+            find(".actions .new").click
+
+            within ".new_proposal" do
+              fill_in :proposal_title, with: "Make decidim great again"
+              fill_in :proposal_body, with: "Decidim is great but it can be better"
+              select category.name["en"], from: :proposal_category_id
+              select scope.name, from: :proposal_scope_id
+
+              find("*[type=submit]").click
+            end
+
+            within ".flash" do
+              expect(page).to have_content("successfully")
+            end
+
+            within "table" do
+              proposal = Decidim::Proposals::Proposal.last
+
+              expect(page).to have_content("Make decidim great again")
+              expect(proposal.body).to eq("Decidim is great but it can be better")
+              expect(proposal.category).to eq(category)
+              expect(proposal.scope).to eq(scope)
+            end
+          end
         end
 
-        context "when scoped_proposals setting is not enabled" do
+        context "when process is related to a scope" do
           before do
-            current_feature.update_attributes(settings: { scoped_proposals_enabled: false } )
+            participatory_process.update_attributes(scope: scope)
           end
 
-          it "cannot be filtered by scope" do
+          it "cannot be related to a scope" do
             find(".actions .new").click
 
             within "form" do
               expect(page).not_to have_content(/Scope/i)
             end
           end
-        end
 
-        it "creates a new proposal" do
-          find(".actions .new").click
+          it "creates a new proposal related to the process scope" do
+            find(".actions .new").click
 
-          within ".new_proposal" do
-            fill_in :proposal_title, with: "Make decidim great again"
-            fill_in :proposal_body, with: "Decidim is great but it can be better"
-            select category.name["en"], from: :proposal_category_id
-            select scope.name, from: :proposal_scope_id
+            within ".new_proposal" do
+              fill_in :proposal_title, with: "Make decidim great again"
+              fill_in :proposal_body, with: "Decidim is great but it can be better"
+              select category.name["en"], from: :proposal_category_id
 
-            find("*[type=submit]").click
-          end
+              find("*[type=submit]").click
+            end
 
-          within ".flash" do
-            expect(page).to have_content("successfully")
-          end
+            within ".flash" do
+              expect(page).to have_content("successfully")
+            end
 
-          within "table" do
-            proposal = Decidim::Proposals::Proposal.last
+            within "table" do
+              proposal = Decidim::Proposals::Proposal.last
 
-            expect(page).to have_content("Make decidim great again")
-            expect(proposal.body).to eq("Decidim is great but it can be better")
-            expect(proposal.category).to eq(category)
-            expect(proposal.scope).to eq(scope)
+              expect(page).to have_content("Make decidim great again")
+              expect(proposal.body).to eq("Decidim is great but it can be better")
+              expect(proposal.category).to eq(category)
+              expect(proposal.scope).to eq(scope)
+            end
           end
         end
       end

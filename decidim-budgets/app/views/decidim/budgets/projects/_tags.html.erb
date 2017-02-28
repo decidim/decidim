@@ -3,7 +3,7 @@
     <% if project.category.present? %>
       <li><%= link_to translated_attribute(project.category.name), decidim_budgets.projects_path(filter: { category_id: project.category.id }) %></li>
     <% end %>
-    <% if project.scope.present? %>
+    <% if project.scope.present? && !current_participatory_process.scope %>
       <li><%= link_to project.scope.name, decidim_budgets.projects_path(filter: { scope_id: [project.scope.id] }) %></li>
     <% end %>
   </ul>

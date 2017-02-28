@@ -3,7 +3,7 @@
     <% if result.category.present? %>
       <li><%= link_to translated_attribute(result.category.name), decidim_results.results_path(filter: { category_id: result.category.id }) %></li>
     <% end %>
-    <% if result.scope.present? %>
+    <% if !current_participatory_process.scope && result.scope.present? %>
       <li><%= link_to result.scope.name, decidim_results.results_path(filter: { scope_id: [result.scope.id] }) %></li>
     <% end %>
   </ul>

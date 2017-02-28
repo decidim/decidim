@@ -37,6 +37,7 @@ en:
         hashtag: Hashtag
         hero_image: Home image
         local_area: Local area
+        meta_scope: Scope metadata
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
@@ -76,6 +77,7 @@ en:
         hashtag: Hashtag
         hero_image: Home image
         local_area: Local area
+        meta_scope: Scope metadata
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted

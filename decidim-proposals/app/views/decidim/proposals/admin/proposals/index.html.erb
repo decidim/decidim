@@ -18,9 +18,7 @@
     <tr>
       <th><%= t("models.proposal.fields.title", scope: "decidim.proposals") %></th>
       <th><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></th>
-      <% if feature_settings.scoped_proposals_enabled %>
-        <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
-      <% end %>
+      <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
       <% if params[:reported] || params[:hidden] %>
         <th><%= t("models.proposal.fields.reports", scope: "decidim.proposals") %></th>
       <% else %>
@@ -40,13 +38,11 @@
             <%= translated_attribute proposal.category.name %>
           <% end %>
         </td>
-        <% if feature_settings.scoped_proposals_enabled %>
-          <td>
-            <% if proposal.scope %>
-              <%= translated_attribute proposal.scope.name %>
-            <% end %>
-          </td>
-        <% end %>
+        <td>
+          <% if proposal.scope %>
+            <%= translated_attribute proposal.scope.name %>
+          <% end %>
+        </td>
         <td>
           <% if params[:reported] || params[:hidden] %>
             <ul>
