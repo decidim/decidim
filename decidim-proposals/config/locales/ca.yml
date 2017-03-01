@@ -7,6 +7,8 @@ ca:
         scope_id: Àmbit
         title: Títol
         user_group_id: Crear proposta
+      proposal_answer:
+        answer: Resposta
       proposal_report:
         details: Comentaris addicionals
   decidim:
