@@ -22,6 +22,9 @@ ca:
         homepage_image: Imatge de la portada
         logo: Logotip
         name: Nom
+        official_img_footer: Logotip oficial del peu de pàgina
+        official_img_header: Logotip oficial de la capçalera
+        official_url: URL oficial de l'organització
         show_statistics: Mostra Estadístiques
         welcome_text: Text de benvinguda
       participatory_process:
@@ -32,11 +35,16 @@ ca:
         end_date: Data de finalització
         hashtag: Etiqueta
         hero_image: Imatge de portada
+        local_area: Àrea municipal
+        meta_scope: 'Metadades: àmbit'
+        participatory_scope: Àmbit participatiu
+        participatory_structure: Estructura participativa
         promoted: Promogut
         scope: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
         subtitle: Subtítol
+        target: A qui va dirigit?
         title: Títol
       participatory_process_step:
         description: Descripció
@@ -57,6 +65,31 @@ ca:
     errors:
       messages:
         invalid_json: JSON no vàlid
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Imatge de bàner
+        description: Descripció
+        developer_group: Grup promotor
+        domain: Àrees municipals
+        end_date: Data de finalització
+        hashtag: Hashtag
+        hero_image: Imatge de portada
+        local_area: Àrea municipal
+        meta_scope: 'Metadades: àmbit'
+        participatory_scope: Àmbit participatiu
+        participatory_structure: Estructura participativa
+        promoted: Promogut
+        scope: Àmbit
+        short_description: Descripció breu
+        slug: Nom curt d'URL
+        subtitle: Subtítol
+        target: A qui va dirigit?
+        title: Títol
+      decidim/static_page:
+        content: Contingut
+        slug: Nom curt d'URL
+        title: Títol
   decidim:
     admin:
       actions:
