@@ -52,7 +52,8 @@ Decidim.register_feature(:proposals) do |feature|
         }
       )
       categories = feature.participatory_process.categories
-      scopes = feature.organization.scopes
+      # So that we have some with global scope
+      scopes = feature.organization.scopes + [nil]
 
       20.times do |n|
         proposal = Decidim::Proposals::Proposal.create!(

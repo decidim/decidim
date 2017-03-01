@@ -19,11 +19,6 @@ module Decidim
           .or(query.where(localized_search_text_in(:description), text: "%#{search_text}%"))
       end
 
-      # Handle the scope_id filter
-      def search_scope_id
-        query.where(decidim_scope_id: scope_id)
-      end
-
       # Returns the random projects for the current page.
       def results
         @projects ||= Project.transaction do
