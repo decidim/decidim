@@ -40,7 +40,7 @@ module Decidim
     # `Decidim::OrganizationScopesHelper`, to render the collection needed for the
     # `collection_check_boxes` form method.
     def search_scope_id
-      clean_scope_ids = scope_id.map{ |id| id == "global" ? nil : id }
+      clean_scope_ids = [scope_id].flatten.map{ |id| id == "global" ? nil : id }
       query.where(decidim_scope_id: clean_scope_ids)
     end
 
