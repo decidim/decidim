@@ -7,6 +7,8 @@ module Decidim
       let(:page) { create(:page) }
       subject { page }
 
+      include_examples "has feature"
+
       it { is_expected.to be_valid }
 
       context "without a feature" do
