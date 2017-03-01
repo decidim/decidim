@@ -7,6 +7,16 @@ ca:
         closing_report: Informe
         contributions_count: Nombre de contribucions
         proposal_ids: Propostes creades en una trobada
+      meeting:
+        adress: Adreça
+        decidim_category_id: Categoria
+        decidim_scope_id: Àmbit
+        description: Descripció
+        end_time: Hora de finalització
+        location: Ubicació
+        location_hints: Detalls d'ubicació
+        start_time: Hora d'inici
+        title: Editar trobada
   decidim:
     features:
       meetings:
