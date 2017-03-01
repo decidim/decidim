@@ -47,7 +47,9 @@
     <div class="section">
       <%= render partial: "proposal_badge", locals: { proposal: @proposal } %>
       <p><%= @proposal.body %></p>
-      <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+      <% if feature_settings.geocoding_enabled? %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+      <% end %>
       <%= render partial: "tags", locals: { proposal: @proposal } %>
     </div>
     <% if @proposal.answered? && translated_attribute(@proposal.answer).present? %>

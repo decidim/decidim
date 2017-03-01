@@ -18,9 +18,11 @@
             <%= form.text_area :body, rows: 10 %>
           </div>
 
-          <div class="field">
-            <%= form.text_field :address %>
-          </div>
+          <% if feature_settings.geocoding_enabled? %>
+            <div class="field">
+              <%= form.text_field :address %>
+            </div>
+          <% end %>
 
           <% if @form.categories&.any? %>
             <div class="field">

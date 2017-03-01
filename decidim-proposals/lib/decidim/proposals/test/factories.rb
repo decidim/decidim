@@ -50,6 +50,14 @@ FactoryGirl.define do
         }
       end
     end
+
+    trait :with_geocoding_enabled do
+      settings do
+        {
+          geocoding_enabled: true
+        }
+      end
+    end
   end
 
   factory :proposal, class: Decidim::Proposals::Proposal do

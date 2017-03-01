@@ -70,21 +70,25 @@ RSpec.shared_examples "create a proposal" do |with_author|
         end
       end
 
-      context "when the address is present" do
-        let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+      context "when geocoding is enabled" do
+        let(:feature) { create(:proposal_feature, :with_geocoding_enabled) }
 
-        before do
-          Geocoder::Lookup::Test.add_stub(address, [
-            { 'latitude' => latitude, 'longitude' => longitude }
-          ])
-        end
+        context "when the address is present" do
+          let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
 
-        it "sets the latitude and longitude" do
-          command.call
-          proposal = Decidim::Proposals::Proposal.last
+          before do
+            Geocoder::Lookup::Test.add_stub(address, [
+              { 'latitude' => latitude, 'longitude' => longitude }
+            ])
+          end
 
-          expect(proposal.latitude).to eq(latitude)
-          expect(proposal.longitude).to eq(longitude)
+          it "sets the latitude and longitude" do
+            command.call
+            proposal = Decidim::Proposals::Proposal.last
+
+            expect(proposal.latitude).to eq(latitude)
+            expect(proposal.longitude).to eq(longitude)
+          end
         end
       end
     end

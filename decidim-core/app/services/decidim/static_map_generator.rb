@@ -17,7 +17,7 @@ module Decidim
       return if Decidim.geocoder.nil?
 
       Rails.cache.fetch(@resource.cache_key) do
-        request = HTTParty.get(uri)
+        request = HTTParty.get(uri, headers: { "Referer" => organization.host })
         request.body
       end
     end
@@ -40,6 +40,10 @@ module Decidim
       end
 
       uri
+    end
+
+    def organization
+      @organization ||= @resource.feature.organization
     end
   end
 end

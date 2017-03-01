@@ -18,7 +18,7 @@ module Decidim
 
       validates :title, :body, presence: true
 
-      geocoded_by :address
+      geocoded_by :address, http_headers: lambda { |proposal| { "Referer" => proposal.feature.organization.host } }
 
       scope :accepted,   -> { where(state: "accepted") }
       scope :rejected,   -> { where(state: "rejected") }

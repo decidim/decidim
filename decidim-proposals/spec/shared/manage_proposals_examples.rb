@@ -98,7 +98,6 @@ RSpec.shared_examples "manage proposals" do
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
               fill_in :proposal_body, with: "Decidim is great but it can be better"
-              fill_in :proposal_address, with: address
               select category.name["en"], from: :proposal_category_id
               find("*[type=submit]").click
             end
@@ -114,6 +113,40 @@ RSpec.shared_examples "manage proposals" do
               expect(proposal.body).to eq("Decidim is great but it can be better")
               expect(proposal.category).to eq(category)
               expect(proposal.scope).to eq(scope)
+            end
+          end
+
+          context "when geocoding is enabled" do
+            let!(:current_feature) do
+              create(:proposal_feature,
+                    :with_geocoding_enabled,
+                    manifest: manifest,
+                    participatory_process: participatory_process)
+            end
+
+            it "creates a new proposal related to the process scope" do
+              find(".actions .new").click
+
+              within ".new_proposal" do
+                fill_in :proposal_title, with: "Make decidim great again"
+                fill_in :proposal_body, with: "Decidim is great but it can be better"
+                fill_in :proposal_address, with: address
+                select category.name["en"], from: :proposal_category_id
+                find("*[type=submit]").click
+              end
+
+              within ".flash" do
+                expect(page).to have_content("successfully")
+              end
+
+              within "table" do
+                proposal = Decidim::Proposals::Proposal.last
+
+                expect(page).to have_content("Make decidim great again")
+                expect(proposal.body).to eq("Decidim is great but it can be better")
+                expect(proposal.category).to eq(category)
+                expect(proposal.scope).to eq(scope)
+              end
             end
           end
         end

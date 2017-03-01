@@ -2,7 +2,7 @@ require "spec_helper"
 
 module Decidim
   describe StaticMapGenerator do
-    let(:meeting) { create(:meeting) }
+    let(:dummy_resource) { create(:dummy_resource) }
     let(:options) do
       {
         zoom: 10,
@@ -11,15 +11,10 @@ module Decidim
       }
     end
     let(:body) { "1234" }
-    subject { described_class.new(meeting, options) }
+    subject { described_class.new(dummy_resource, options) }
 
     before do
-      Decidim.geocoder = {
-        here_app_id: '1234',
-        here_app_code: '5678'
-      }
-
-      stub_request(:get, Regexp.new(StaticMapGenerator::BASE_HOST)).to_return(body: body)
+      stub_request(:get, Regexp.new(Decidim.geocoder.fetch(:static_map_url))).to_return(body: body)
     end
 
     describe "#data" do

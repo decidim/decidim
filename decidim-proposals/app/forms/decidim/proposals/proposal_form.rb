@@ -17,7 +17,7 @@ module Decidim
       validates :title, :body, presence: true, etiquette: true
       validates :title, length: { maximum: 150 }
       validates :body, length: { maximum: 500 }, etiquette: true
-      validates :address, geocoding: true, if: ->(form) { form.address.present? }
+      validates :address, geocoding: true, if: -> { current_feature.settings.geocoding_enabled? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
 
