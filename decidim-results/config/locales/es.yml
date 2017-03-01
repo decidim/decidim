@@ -1,4 +1,9 @@
 es:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Categoría
+        decidim_scope_id: Ámbito
   decidim:
     features:
       results:
