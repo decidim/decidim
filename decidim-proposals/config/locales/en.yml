@@ -127,6 +127,7 @@ en:
           unfold: Unfold
         index:
           new_proposal: New proposal
+          view_proposal: View proposal
         linked_proposals:
           proposal_votes:
             one: <span class="card--list__data__number">1</span>vote

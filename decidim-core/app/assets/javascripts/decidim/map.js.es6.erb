@@ -5,8 +5,6 @@
 // = require jquery-tmpl
 // = require_self
 
-/* globals L */
-
 L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
   options: {
     fillColor: '#ef604d',
@@ -20,19 +18,19 @@ L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
   }
 });
 
-const popupTemplateId = 'meeting-popup';
-$.template('meeting-popup', $(`#${popupTemplateId}`).html());
+const popupTemplateId = 'marker-popup';
+$.template(popupTemplateId, $(`#${popupTemplateId}`).html());
 
-const addMarkers = (meetingsData, markerClusters, map) => {
-  const bounds = new L.LatLngBounds(meetingsData.map((meeting) => [meeting.latitude, meeting.longitude]));
+const addMarkers = (markersData, markerClusters, map) => {
+  const bounds = new L.LatLngBounds(markersData.map((markerData) => [markerData.latitude, markerData.longitude]));
 
-  meetingsData.forEach((meeting) => {
-    let marker = L.marker([meeting.latitude, meeting.longitude], {
+  markersData.forEach((markerData) => {
+    let marker = L.marker([markerData.latitude, markerData.longitude], {
       icon: new L.DivIcon.SVGIcon.DecidimIcon()
     });
     let node = document.createElement('div');
 
-    $.tmpl('meeting-popup', meeting).appendTo(node);
+    $.tmpl(popupTemplateId, markerData).appendTo(node);
 
     marker.bindPopup(node, {
       maxwidth: 640,
@@ -48,24 +46,24 @@ const addMarkers = (meetingsData, markerClusters, map) => {
   map.fitBounds(bounds, { padding: [100, 100] });
 };
 
-const loadMap = (mapId, meetingsData) => {
+const loadMap = (mapId, markersData) => {
   let markerClusters = L.markerClusterGroup();
-  const { hereAppId, hereAppCode } = window.DecidimMeetings.mapConfiguration;
+  const { hereAppId, hereAppCode } = window.Decidim.mapConfiguration;
 
-  if (window.DecidimMeetings.currentMap) {
-    window.DecidimMeetings.currentMap.remove();
-    window.DecidimMeetings.currentMap = null;
+  if (window.Decidim.currentMap) {
+    window.Decidim.currentMap.remove();
+    window.Decidim.currentMap = null;
   }
 
   const map = L.map(mapId);
 
   L.tileLayer.here({
     appId: hereAppId,
-    appCode: hereAppCode,
+    appCode: hereAppCode
   }).addTo(map);
 
-  if (meetingsData.length > 0) {
-    addMarkers(meetingsData, markerClusters, map);
+  if (markersData.length > 0) {
+    addMarkers(markersData, markerClusters, map);
   } else {
     map.fitWorld();
   }
@@ -75,23 +73,23 @@ const loadMap = (mapId, meetingsData) => {
   return map;
 };
 
-window.DecidimMeetings = {
-  loadMap,
-  currentMap: null,
-  mapConfiguration: {}
-};
+window.Decidim = window.Decidim || {};
+
+window.Decidim.loadMap = loadMap;
+window.Decidim.currentMap =  null;
+window.Decidim.mapConfiguration = {};
 
 $(() => {
-  const mapId = 'meetings-map';
+  const mapId = 'map';
   const $map = $(`#${mapId}`);
 
-  const meetingsData = $map.data('meetings');
+  const markersData = $map.data('markers-data');
   const hereAppId = $map.data('here-app-id');
   const hereAppCode = $map.data('here-app-code');
 
-  window.DecidimMeetings.mapConfiguration = { hereAppId, hereAppCode };
+  window.Decidim.mapConfiguration = { hereAppId, hereAppCode };
 
   if ($map.length > 0) {
-    window.DecidimMeetings.currentMap = loadMap(mapId, meetingsData);
+    window.Decidim.currentMap = loadMap(mapId, markersData);
   }
 });

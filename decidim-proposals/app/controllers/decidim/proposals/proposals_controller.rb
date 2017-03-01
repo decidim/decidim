@@ -7,7 +7,7 @@ module Decidim
       include FormFactory
       include FilterResource
 
-      helper_method :order, :random_seed
+      helper_method :order, :random_seed, :geocoded_proposals
 
       before_action :authenticate_user!, only: [:new, :create]
 
@@ -86,6 +86,10 @@ module Decidim
         else
           proposals
         end
+      end
+
+      def geocoded_proposals
+        @geocoded_proposals ||= search.results.not_hidden.select(&:geocoded?)
       end
 
       def search_klass

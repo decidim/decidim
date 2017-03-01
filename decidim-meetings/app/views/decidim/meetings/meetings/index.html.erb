@@ -1,5 +1,5 @@
-<%= dynamic_map_for geocoded_meetings do %>
-  <template id="meeting-popup">
+<%= dynamic_map_for meetings_data_for_map(geocoded_meetings) do %>
+  <template id="marker-popup">
     <div class="map-info__content">
       <h3>${title}</h3>
       <div id="bodyContent">
