@@ -8,6 +8,7 @@ module Decidim
       isolate_namespace Decidim::Pages
 
       routes do
+        resources :pages, only: [:show], controller: :application
         root to: "application#show"
       end
     end
