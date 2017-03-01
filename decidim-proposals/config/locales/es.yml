@@ -7,6 +7,8 @@ es:
         scope_id: Ámbito
         title: Título
         user_group_id: Crear propuesta como
+      proposal_answer:
+        answer: Respuesta
       proposal_report:
         details: Comentarios adicionales
   decidim:
