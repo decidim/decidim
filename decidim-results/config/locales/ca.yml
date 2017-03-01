@@ -6,7 +6,7 @@ ca:
         decidim_scope_id: Àmbit
         description: Descripció
         proposal_ids: Propostes incloses
-        title: Edita resultat
+        title: Títol
   decidim:
     features:
       results:
