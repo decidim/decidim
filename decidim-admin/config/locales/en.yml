@@ -195,6 +195,7 @@ en:
       menu:
         dashboard: Dashboard
         newsletters: Newsletters
+        participatory_process_groups: Participatory process groups
         participatory_processes: Participatory processes
         participatory_processes_submenu:
           attachments: Attachments
@@ -233,6 +234,10 @@ en:
             published: Published
             title: Title
           name: Participatory process
+        participatory_process_group:
+          fields:
+            title: Title
+          name: Name
         participatory_process_step:
           fields:
             active: Active
@@ -305,6 +310,10 @@ en:
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
+      participatory_process_groups:
+        new:
+          create: Create
+          title: Title
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
@@ -391,6 +400,7 @@ en:
           success: Page updated successfully
       titles:
         dashboard: Dashboard
+        participatory_process_groups: Participatory process groups
         participatory_processes: Participatory processes
         scopes: Scopes
         static_pages: Pages

@@ -1,0 +1,15 @@
+<div class="field">
+  <%= form.translated :text_field, :title, autofocus: true %>
+</div>
+
+<div class="field">
+  <%= form.translated :editor, :description, toolbar: :full, lines: 25 %>
+</div>
+
+<div class="field">
+  <%= form.association :participatory_processes %>
+</div>
+
+<div class="field">
+  <%= form.file_field :hero_image %>
+</div>

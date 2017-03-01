@@ -15,6 +15,10 @@ module Decidim
     belongs_to :scope,
                foreign_key: "decidim_scope_id",
                class_name: Decidim::Scope
+    belongs_to :participatory_process_group,
+               foreign_key: "decidim_organization_id",
+               class_name: Decidim::Organization,
+               inverse_of: :participatory_processes
     has_many :steps,
              -> { order(position: :asc) },
              foreign_key: "decidim_participatory_process_id",
