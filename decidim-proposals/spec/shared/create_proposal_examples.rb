@@ -71,7 +71,7 @@ RSpec.shared_examples "create a proposal" do |with_author|
       end
 
       context "when the address is present" do
-        let(:address) { "Carrer Pare Llaurador 113, baixos, 08225 Terrassa" }
+        let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
 
         before do
           Geocoder::Lookup::Test.add_stub(address, [

@@ -20,7 +20,7 @@ describe GeocodingValidator do
     end
   end
 
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08225 Terrassa" }
+  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
 

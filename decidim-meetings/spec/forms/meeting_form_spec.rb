@@ -27,7 +27,7 @@ describe Decidim::Meetings::Admin::MeetingForm do
   let(:location_hints) do
     Decidim::Faker::Localized.sentence(3)
   end
-  let(:address) { "Carrer Pare Llaurador 113, baixos, 08225 Terrassa" }
+  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:start_time) { 2.days.from_now }

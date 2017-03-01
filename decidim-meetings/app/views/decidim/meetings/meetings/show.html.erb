@@ -51,7 +51,7 @@
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <p><%== translated_attribute meeting.description %></p>
-      <%= render partial: "decidim/shared/static_map", locals: { iconName: "meetings", geolocalizable: meeting } %>
+      <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <%= render partial: "tags", locals: { meeting: meeting } %>
     </div>
     <% if meeting.closed? %>

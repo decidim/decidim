@@ -4,9 +4,6 @@ require "httparty"
 module Decidim
   # This class generates a url to create a static map image for a geocoded resource
   class StaticMapGenerator
-    BASE_HOST = "image.maps.cit.api.here.com"
-    BASE_PATH = "/mia/1.6/mapview"
-
     def initialize(resource, options = {})
       @resource = resource
       @options = options
@@ -34,11 +31,11 @@ module Decidim
         w: @options[:width],
         h: @options[:height],
         f: "1",
-        app_id: Decidim.geocoder&.fetch(:here_app_id),
-        app_code: Decidim.geocoder&.fetch(:here_app_code)
+        app_id: Decidim.geocoder.fetch(:here_app_id),
+        app_code: Decidim.geocoder.fetch(:here_app_code)
       }
 
-      uri = URI.parse("https://#{BASE_HOST}#{BASE_PATH}").tap do |uri|
+      uri = URI.parse(Decidim.geocoder.fetch(:static_map_url)).tap do |uri|
         uri.query = URI.encode_www_form params
       end
 

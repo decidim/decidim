@@ -66,8 +66,8 @@ RSpec.shared_examples "a proposal form" do
     it { is_expected.to be_invalid}
   end
 
-  context "when address is present" do
-    let(:address) { "Carrer Pare Llaurador 113, baixos, 08225 Terrassa" }
+  context "when the address is present" do
+    let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
 
     before do
       Geocoder::Lookup::Test.add_stub(address, [
@@ -75,7 +75,7 @@ RSpec.shared_examples "a proposal form" do
       ])
     end
 
-    it "validates address and store its coordinates" do
+    it "validates the address and store its coordinates" do
       expect(subject).to be_valid
       expect(subject.latitude).to eq(latitude)
       expect(subject.longitude).to eq(longitude)
