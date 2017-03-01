@@ -22,6 +22,9 @@ es:
         homepage_image: Imagen de portada
         logo: Logotipo
         name: Nombre
+        official_img_footer: Logotipo oficial de pie de página
+        official_img_header: Logotipo oficial de cabecera
+        official_url: URL oficial de organización
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
       participatory_process:
@@ -32,11 +35,16 @@ es:
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
+        local_area: Áreas muncipales
+        meta_scope: 'Metadatos: ámbito'
+        participatory_scope: Ámbito participativo
+        participatory_structure: Estructura participativa
         promoted: Destacado
         scope: Ámbito
         short_description: Breve descripción
         slug: Texto corto de URL
         subtitle: Subtítulo
+        target: '¿A quién va dirigido?'
         title: Título
       participatory_process_step:
         description: Descripción
@@ -57,6 +65,31 @@ es:
     errors:
       messages:
         invalid_json: JSON no válido
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Imagen de banner
+        description: Descripción
+        developer_group: Grupo promotor
+        domain: Dominio
+        end_date: Fecha de finalización
+        hashtag: Hashtag
+        hero_image: Imagen de portada
+        local_area: Áreas municipales
+        meta_scope: 'Metadatos: ámbito'
+        participatory_scope: Ámbito participativo
+        participatory_structure: Estructura participativa
+        promoted: Destacado
+        scope: Ámbito
+        short_description: Descripción breve
+        slug: Texto corto de URL
+        subtitle: Subtítulo
+        target: '¿A quién va dirigido?'
+        title: Título
+      decidim/static_page:
+        content: Contenido
+        slug: Texto corto de URL
+        title: Título
   decidim:
     admin:
       actions:
