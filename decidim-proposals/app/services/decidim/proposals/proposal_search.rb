@@ -44,11 +44,6 @@ module Decidim
         end
       end
 
-      # Handle the scope_id filter
-      def search_scope_id
-        query.where(decidim_scope_id: scope_id)
-      end
-
       # Handle the state filter
       def search_state
         if state == "accepted"

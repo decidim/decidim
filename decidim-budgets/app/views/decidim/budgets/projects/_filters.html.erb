@@ -13,7 +13,7 @@
   </div>
 
   <% if current_organization.scopes.any? && !current_participatory_process.scope %>
-    <%= form.collection_check_boxes :scope_id, current_organization.scopes, lambda {|scope| scope.id.to_s}, :name, legend_title: t('.scopes') %>
+    <%= form.collection_check_boxes :scope_id, search_organization_scopes, lambda {|scope| scope.id.to_s}, :name, legend_title: t('.scopes') %>
   <% end %>
 
   <% if current_feature.categories.any? %>

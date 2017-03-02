@@ -132,6 +132,15 @@ module Decidim
               expect(subject).to match_array [proposal, proposal2]
             end
           end
+
+          context "when `global` is being sent" do
+            let!(:resource_without_scope) { create(:proposal, feature: feature, scope: nil)}
+            let(:scope_id) { ["global"] }
+
+            it "returns resources without a scope" do
+              expect(subject).to eq [resource_without_scope]
+            end
+          end
         end
 
         describe "when the filter includes related_to" do

@@ -40,7 +40,9 @@
         </td>
         <td>
           <% if proposal.scope %>
-            <%= translated_attribute proposal.scope.name %>
+            <%= proposal.scope.name %>
+          <% else %>
+            <%= t("decidim.participatory_processes.scopes.global") %>
           <% end %>
         </td>
         <td>

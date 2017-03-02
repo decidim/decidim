@@ -101,6 +101,15 @@ describe Decidim::Meetings::MeetingSearch do
           expect(subject.results).to match_array [meeting1, meeting2]
         end
       end
+
+      context "when `global` is being sent" do
+        let!(:resource_without_scope) { create(:meeting, feature: current_feature, scope: nil)}
+        let(:params) { default_params.merge(scope_id: ["global"]) }
+
+        it "returns resources without a scope" do
+          expect(subject.results).to eq [resource_without_scope]
+        end
+      end
     end
 
     context "category_id" do

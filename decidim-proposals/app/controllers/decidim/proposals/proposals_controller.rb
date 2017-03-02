@@ -99,7 +99,7 @@ module Decidim
           activity: "",
           category_id: "",
           state: "all",
-          scope_id: "",
+          scope_id: nil,
           related_to: ""
         }
       end
