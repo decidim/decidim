@@ -8,7 +8,6 @@ import { I18n }      from 'react-i18nify';
  * @todo Needs a proper implementation
  */
 class CommentOrderSelector extends Component {
-  unorderedList;
 
   constructor(props) {
     super(props);
