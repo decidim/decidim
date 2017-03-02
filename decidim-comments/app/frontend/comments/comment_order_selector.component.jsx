@@ -8,6 +8,7 @@ import { I18n }      from 'react-i18nify';
  * @todo Needs a proper implementation
  */
 class CommentOrderSelector extends Component {
+  unorderedList;
 
   constructor(props) {
     super(props);
@@ -16,17 +17,16 @@ class CommentOrderSelector extends Component {
     }
   }
 
-  componentDidMount() {
-    $(document).foundation();
-  }
-
   render() {
     const { orderBy } =  this.state;
 
     return (
       <div className="order-by__dropdown order-by__dropdown--right">
         <span className="order-by__text">{ I18n.t("components.comment_order_selector.title") }</span>
-        <ul className="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
+        <ul
+          className="dropdown menu"
+          data-dropdown-menu
+          data-close-on-click-inside="false">
           <li>
             <a>{ I18n.t(`components.comment_order_selector.order.${orderBy}`) }</a>
             <ul className="menu">

@@ -41,11 +41,11 @@ RSpec.shared_examples "comments" do
 
     visit_commentable_path
 
-    page.find("div.order-by__dropdown.order-by__dropdown--right").hover
-
-    within "div.order-by__dropdown.order-by__dropdown--right" do
-      click_link "Best rated"
+    within ".order-by" do
+      page.find('.dropdown.menu .is-dropdown-submenu-parent').hover
     end
+
+    click_link "Best rated"
 
     within "#comments" do
       expect(page.find('.comment', match: :first)).to have_content "Most Rated Comment"
