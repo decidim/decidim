@@ -43,6 +43,10 @@ module Decidim
           return unless current_feature
           @category ||= current_feature.categories.where(id: decidim_category_id).first
         end
+
+        def feature
+          current_feature
+        end
       end
     end
   end

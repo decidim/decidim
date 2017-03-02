@@ -7,6 +7,7 @@ describe GeocodingValidator do
     Class.new do
       def self.model_name
         ActiveModel::Name.new(self, nil, "Validatable")
+
       end
 
       include Virtus.model
@@ -17,6 +18,10 @@ describe GeocodingValidator do
       attribute :longitude
 
       validates :address, geocoding: true
+
+      def feature
+        FactoryGirl.create(:feature)
+      end
     end
   end
 
