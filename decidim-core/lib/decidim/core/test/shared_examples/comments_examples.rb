@@ -68,19 +68,40 @@ RSpec.shared_examples "comments" do
       expect(page).to have_selector(".add-comment form")
     end
 
-    it "user can add a new comment" do
-      visit_commentable_path
+    context "when user adds a new comment" do
+      before do
+        visit_commentable_path
 
-      expect(page).to have_selector(".add-comment form")
+        expect(page).to have_selector(".add-comment form")
 
-      within ".add-comment form" do
-        fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "This is a new comment"
-        click_button "Send"
+        within ".add-comment form" do
+          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "This is a new comment"
+          click_button "Send"
+        end
       end
 
-      within "#comments" do
-        expect(page).to have_content user.name
-        expect(page).to have_content "This is a new comment"
+      it "user visualize the comment" do
+        within "#comments" do
+          expect(page).to have_content user.name
+          expect(page).to have_content "This is a new comment"
+        end
+      end
+
+      it "commentable's author receives notificatione" do
+        if commentable.respond_to? :author
+          wait_for_email subject: "new comment"
+          login_as commentable.author, scope: :user
+          visit last_email_first_link
+
+          within "#comments" do
+            expect(page).to have_content user.name
+            expect(page).to have_content "This is a new comment"
+          end
+        else
+          expect {
+            wait_for_email subject: "new comment"
+          }.to raise_error StandardError
+        end
       end
     end
 
@@ -109,19 +130,36 @@ RSpec.shared_examples "comments" do
       end
     end
 
-    it "user can reply a comment" do
-      comment = create(:comment, commentable: commentable)
+    context "when a user replies a coment" do
+      let!(:comment_author) { create(:user, :confirmed, organization: organization) }
+      let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
 
-      visit_commentable_path
+      before do
+        visit_commentable_path
 
-      expect(page).to have_selector(".comment__reply")
+        expect(page).to have_selector(".comment__reply")
 
-      within "#comments #comment_#{comment.id}" do
-        click_button "Reply"
-        find("textarea").set("This is a reply")
-        click_button "Send"
+        within "#comments #comment_#{comment.id}" do
+          click_button "Reply"
+          find("textarea").set("This is a reply")
+          click_button "Send"
+        end
+      end
 
-        expect(page).to have_content "This is a reply"
+      it "user visualize the reply" do
+        within "#comments #comment_#{comment.id}" do
+          expect(page).to have_content "This is a reply"
+        end
+      end
+
+      it "comment's author receives notification" do
+        wait_for_email subject: "new reply"
+        login_as comment.author, scope: :user
+        visit last_email_first_link
+
+        within "#comments #comment_#{comment.id}" do
+          expect(page).to have_content "This is a reply"
+        end
       end
     end
 
