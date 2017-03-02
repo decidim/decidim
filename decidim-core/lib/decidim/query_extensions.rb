@@ -27,6 +27,10 @@ module Decidim
             ctx[:current_user]
           }
         end
+
+        field :decidim, DecidimType, "Decidim's framework properties." do
+          resolve ->(_obj, _args, ctx) { Decidim }
+        end
       end
     end
   end

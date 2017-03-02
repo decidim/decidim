@@ -8,6 +8,8 @@ en:
         scope_id: Scope
         title: Title
         user_group_id: Create proposal as
+      proposal_answer:
+        answer: Answer
       proposal_report:
         details: Additional comments
   decidim:
@@ -20,9 +22,9 @@ en:
         settings:
           global:
             comments_enabled: Comments enabled
+            geocoding_enabled: Geocoding enabled
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
-            scoped_proposals_enabled: Scoped proposals enabled
             vote_limit: Vote limit
           step:
             comments_blocked: Comments blocked
@@ -59,7 +61,6 @@ en:
             success: Proposal successfully created
           form:
             select_a_category: Select a category
-            select_a_scope: Select a scope
           hide:
             invalid: There's been a problem hiding this proposal
             success: Proposal successfully hidden
@@ -127,6 +128,7 @@ en:
           unfold: Unfold
         index:
           new_proposal: New proposal
+          view_proposal: View proposal
         linked_proposals:
           proposal_votes:
             one: <span class="card--list__data__number">1</span>vote
@@ -134,7 +136,6 @@ en:
         new:
           back: Back
           select_a_category: Please select a category
-          select_a_scope: Please select a scope
           send: Send
           title: New proposal
         orders:

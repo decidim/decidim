@@ -16,7 +16,8 @@ if !Rails.env.production? || ENV["SEED"]
     end,
     homepage_image: File.new(File.join(File.dirname(__FILE__), "seeds", "homepage_image.jpg")),
     default_locale: I18n.default_locale,
-    available_locales: Decidim.available_locales
+    available_locales: Decidim.available_locales,
+    reference_prefix: Faker::Name.suffix
   )
 
   3.times.each do |index|
@@ -28,7 +29,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::User.create!(
     name: Faker::Name.name,
-    email: "admin@decidim.org",
+    email: "admin@example.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
     organization: organization,
@@ -42,7 +43,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::User.create!(
     name: Faker::Name.name,
-    email: "collaborator@decidim.org",
+    email: "collaborator@example.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
     organization: organization,
@@ -56,7 +57,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::User.create!(
     name: Faker::Name.name,
-    email: "user@decidim.org",
+    email: "user@example.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
     confirmed_at: Time.current,
@@ -112,7 +113,7 @@ if !Rails.env.production? || ENV["SEED"]
       promoted: true,
       published_at: 2.weeks.ago,
       organization: organization,
-      scope: Decidim::Faker::Localized.word,
+      meta_scope: Decidim::Faker::Localized.word,
       developer_group: Decidim::Faker::Localized.sentence(1),
       local_area: Decidim::Faker::Localized.sentence(2),
       target: Decidim::Faker::Localized.sentence(3),

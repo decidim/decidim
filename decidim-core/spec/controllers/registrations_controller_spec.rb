@@ -4,13 +4,13 @@ require "spec_helper"
 module Decidim
   describe Decidim::Devise::RegistrationsController, type: :controller do
     let(:organization) { create(:organization) }
-    
+
     before do
       @request.env["decidim.current_organization"] = organization
     end
-    
+
     describe "POST create" do
-      let(:email) { "test@decidim.org" }
+      let(:email) { "test@example.org" }
       let(:params) do
         {
           user: {
@@ -18,13 +18,13 @@ module Decidim
             name: "User",
             email: email,
             password: "password1234",
-            password_confirmation: "password1234",            
+            password_confirmation: "password1234",
             tos_agreement: "1",
             newsletter_notifications: "1"
           }
         }
       end
-      
+
       context "when the user created is active for authentication" do
         before do
           expect_any_instance_of(Decidim::User)
@@ -44,10 +44,10 @@ module Decidim
         let(:email) { nil }
 
         it "should render the new template" do
-          post :create, params: params        
+          post :create, params: params
           expect(controller).to render_template "new"
         end
       end
-    end 
+    end
   end
 end

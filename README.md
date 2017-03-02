@@ -1,7 +1,7 @@
 # Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![GitHub contributors](https://img.shields.io/github/contributors/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/graphs/contributors) [![License: AGPL v3](https://img.shields.io/github/license/AjuntamentdeBarcelona/decidim.svg)](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/LICENSE-AGPLv3.txt)
 
-[![Demo](https://img.shields.io/badge/demo-staging-orange.svg?style=flat)](http://staging.decidim.codegram.com) 
-[[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/AjuntamentdeBarcelona/decidim/master)](http://www.rubydoc.info/github/AjuntamentdeBarcelona/decidim/master) 
+[![Demo](https://img.shields.io/badge/demo-staging-orange.svg?style=flat)](http://staging.decidim.codegram.com)
+[[![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/AjuntamentdeBarcelona/decidim/master)](http://www.rubydoc.info/github/AjuntamentdeBarcelona/decidim/master)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/AjuntamentdeBarcelona/decidim)
 
 
@@ -62,7 +62,7 @@ $ rails db:setup
 
 This will also create some default data so you can start testing the app:
 
-* A `Decidim::System::Admin` with email `system@decidim.org` and password
+* A `Decidim::System::Admin` with email `system@example.org` and password
  `decidim123456`, to log in at `/system`.
 * A `Decidim::Organization` named `Decidim Staging`. You probably want to
   change its name and hostname to match your needs.

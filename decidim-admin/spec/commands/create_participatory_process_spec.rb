@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe Decidim::Admin::CreateParticipatoryProcess do
   let(:organization) { create :organization }
+  let(:scope) { create :scope, organization: organization }
   let(:errors) { double.as_null_object }
   let(:form) do
     double(
@@ -10,12 +11,14 @@ describe Decidim::Admin::CreateParticipatoryProcess do
       subtitle: {en: "subtitle"},
       slug: "slug",
       hashtag: "hashtag",
+      meta_scope: "meta scope",
       hero_image: nil,
       banner_image: nil,
       promoted: nil,
       description: {en: "description"},
       short_description: {en: "short_description"},
       current_organization: organization,
+      scope: scope,
       errors: errors
     )
   end

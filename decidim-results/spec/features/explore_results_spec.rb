@@ -38,6 +38,7 @@ describe "Explore results", type: :feature do
     it "shows all result info" do
       expect(page).to have_i18n_content(result.title)
       expect(page).to have_i18n_content(result.description)
+      expect(page).to have_content(result.reference)
 
       within ".section.view-side" do
         expect(page).to have_content(/Proposals/i)
@@ -160,6 +161,32 @@ describe "Explore results", type: :feature do
       before do
         create(:result, feature: feature, scope: scope)
         visit_feature
+      end
+
+      context "when the process has a linked scope" do
+        before do
+          participatory_process.update_attributes(scope: scope)
+          visit current_path
+        end
+
+        it "enables filtering by scope" do
+          within ".filters" do
+            expect(page).not_to have_content(/Scopes/i)
+          end
+        end
+      end
+
+      context "when the process has no linked scope" do
+        before do
+          participatory_process.update_attributes(scope: nil)
+          visit current_path
+        end
+
+        it "enables filtering by scope" do
+          within ".filters" do
+            expect(page).to have_content(/Scopes/i)
+          end
+        end
       end
 
       context "by origin 'official'" do

@@ -29,7 +29,8 @@
         "GraphQLDocs": false,
         "Quill": false,
         "SVGInjector": false,
-        "require": false
+        "require": false,
+        "L": false
     },
     "rules": {
         "accessor-pairs": "error",

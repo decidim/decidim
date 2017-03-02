@@ -6,7 +6,7 @@
     :slug,
     :short_description,
     :description,
-    :scope,
+    :meta_scope,
     :developer_group,
     :local_area,
     :target,
@@ -37,4 +37,11 @@
 
   <dt><%= display_label(participatory_process, :promoted) %></dt>
   <dd><%= humanize_boolean participatory_process.promoted? %></dd>
+
+  <dt><%= display_label(participatory_process, :scope) %></dt>
+  <% if participatory_process.scope %>
+    <dd><%= participatory_process.scope.name %></dd>
+  <% else %>
+    <dd><%= t("decidim.participatory_processes.scopes.global") %></dd>
+  <% end %>
 </dl>

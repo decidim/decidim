@@ -9,7 +9,7 @@ module Decidim
       helper_method :meetings, :geocoded_meetings, :meeting
 
       def index
-        if search.results.length == 0 && params.dig("filter", "date") != "past" 
+        if search.results.length == 0 && params.dig("filter", "date") != "past"
           @past_meetings = search_klass.new(search_params.merge(date: "past" ))
           if @past_meetings.results.length > 0
             params[:filter] ||= {}
@@ -18,11 +18,6 @@ module Decidim
             @search = @past_meetings
           end
         end
-      end
-
-      def static_map
-        @meeting = Meeting.where(feature: current_feature).find(params[:id])
-        send_data StaticMapGenerator.new(@meeting).data, type: "image/jpeg", disposition: "inline"
       end
 
       private

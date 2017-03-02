@@ -40,12 +40,16 @@
         </div>
       </div>
     <% end %>
+    <%= feature_reference(@proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
       <%= render partial: "proposal_badge", locals: { proposal: @proposal } %>
       <p><%= @proposal.body %></p>
+      <% if feature_settings.geocoding_enabled? %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+      <% end %>
       <%= render partial: "tags", locals: { proposal: @proposal } %>
     </div>
     <% if @proposal.answered? && translated_attribute(@proposal.answer).present? %>

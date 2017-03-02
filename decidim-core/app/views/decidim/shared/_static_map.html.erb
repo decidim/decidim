@@ -1,0 +1,17 @@
+<% if geolocalizable.address.present? %>
+  <div class="card card--secondary">
+    <div class="card__content address">
+      <div class="address__info">
+        <div class="address__icon">
+          <%= icon icon_name, width: 40, height: 70 %>
+        </div>
+        <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: geolocalizable } %>
+      </div>
+      <% if Decidim.geocoder.present? %>
+        <div class="address__map">
+          <%= static_map_link(geolocalizable) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

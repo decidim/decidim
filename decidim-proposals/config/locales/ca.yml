@@ -11,6 +11,8 @@ ca:
         answer: Resposta
       proposal_report:
         details: Comentaris addicionals
+      proposal_answer:
+        answer: Resposta
   decidim:
     features:
       proposals:

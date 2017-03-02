@@ -4,7 +4,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   process_admin = Decidim::User.create!(
     name: "Process Admin",
-    email: "process_admin@decidim.org",
+    email: "process_admin@example.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
     confirmed_at: Time.current,

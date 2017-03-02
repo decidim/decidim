@@ -8,7 +8,7 @@ FactoryGirl.define do
   end
 
   sequence(:email) do |n|
-    "user#{n}@decidim.org"
+    "user#{n}@example.org"
   end
 
   sequence(:slug) do |n|
@@ -31,6 +31,7 @@ FactoryGirl.define do
 
   factory :organization, class: Decidim::Organization do
     name { Faker::Company.unique.name }
+    reference_prefix { Faker::Name.suffix }
     twitter_handler { Faker::Hipster.word }
     facebook_handler { Faker::Hipster.word }
     instagram_handler { Faker::Hipster.word }
@@ -58,7 +59,7 @@ FactoryGirl.define do
     banner_image { test_file("city2.jpeg", "image/jpeg") }
     published_at { Time.current }
     organization
-    scope { Decidim::Faker::Localized.word }
+    meta_scope { Decidim::Faker::Localized.word }
     developer_group { Decidim::Faker::Localized.sentence(1) }
     local_area { Decidim::Faker::Localized.sentence(2) }
     target { Decidim::Faker::Localized.sentence(3) }
@@ -75,6 +76,13 @@ FactoryGirl.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :with_scope do
+      after(:create) do |participatory_process, _evaluator|
+        create(:scope,
+               organization: participatory_process.organization)
+      end
     end
 
     trait :with_steps do

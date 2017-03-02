@@ -8,15 +8,26 @@ module Decidim
 
         attribute :title, String
         attribute :body, String
+        attribute :address, String
+        attribute :latitude, Float
+        attribute :longitude, Float
         attribute :category_id, Integer
         attribute :scope_id, Integer
 
         validates :title, :body, presence: true
+        validates :address, geocoding: true, if: -> { current_feature.settings.geocoding_enabled? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
 
         delegate :categories, to: :current_feature, prefix: false
-        delegate :scopes, to: :current_organization, prefix: false
+
+        def organization_scopes
+          current_organization.scopes
+        end
+
+        def process_scope
+          current_feature.participatory_process.scope
+        end
 
         alias feature current_feature
 
@@ -31,7 +42,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= scopes.where(id: scope_id).first
+          @scope ||= process_scope || organization_scopes.where(id: scope_id).first
         end
       end
     end

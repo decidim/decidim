@@ -20,17 +20,14 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          change_meeting
-          return broadcast(:invalid) if Decidim.geocoder.present? && @meeting.address_changed? && !geocode_meeting
-          update_meeting
-
-          broadcast(:ok)
+          update_meeting!
+          broadcast(:ok, @meeting)
         end
 
         private
 
-        def change_meeting
-          @meeting.assign_attributes(
+        def update_meeting!
+          @meeting.update_attributes!(
             scope: @form.scope,
             category: @form.category,
             title: @form.title,
@@ -38,6 +35,8 @@ module Decidim
             end_time: @form.end_time,
             start_time: @form.start_time,
             address: @form.address,
+            latitude: @form.latitude,
+            longitude: @form.longitude,
             location: @form.location,
             location_hints: @form.location_hints
           )

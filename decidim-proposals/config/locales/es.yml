@@ -11,6 +11,8 @@ es:
         answer: Respuesta
       proposal_report:
         details: Comentarios adicionales
+      proposal_answer:
+        answer: Respuesta
   decidim:
     features:
       proposals:

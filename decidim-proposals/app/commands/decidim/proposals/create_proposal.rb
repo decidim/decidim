@@ -37,7 +37,10 @@ module Decidim
           scope: form.scope,
           author: @current_user,
           decidim_user_group_id: form.user_group_id,
-          feature: form.feature
+          feature: form.feature,
+          address: form.address,
+          latitude: form.latitude,
+          longitude: form.longitude
         )
       end
     end

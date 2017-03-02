@@ -39,7 +39,7 @@
 </div>
 
 <div class="field">
-  <%= form.translated :text_field, :scope %>
+  <%= form.translated :text_field, :meta_scope %>
 </div>
 
 <div class="field">
@@ -62,3 +62,6 @@
   <%= form.translated :text_field, :participatory_structure %>
 </div>
 
+<div class="field">
+  <%= form.collection_select :scope_id, organization_scopes, :id, :name %>
+</div>

@@ -1,0 +1,9 @@
+<div class="address__details">
+  <% if geolocalizable.respond_to? :location %>
+    <strong><%== translated_attribute geolocalizable.location %></strong><br />
+  <% end %>
+  <span><%= geolocalizable.address %></span><br />
+  <% if geolocalizable.respond_to? :location_hints %>
+    <span><%== translated_attribute geolocalizable.location_hints %></span>
+  <% end %>
+</div>

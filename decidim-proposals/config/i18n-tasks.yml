@@ -4,8 +4,9 @@ ignore_unused:
 - "decidim.features.proposals.name"
 - "decidim.features.proposals.settings.*"
 - "decidim.resource_links.*"
-- "activemodel.attributes.proposal.*"
-- "activemodel.attributes.proposal_report.*"
+- "activemodel.attributes.*"
 - "decidim.proposals.answers.*"
 - "decidim.features.proposals.actions.*"
 - "decidim.proposals.proposals.orders.*"
+ignore_missing:
+  - decidim.participatory_processes.scopes.global

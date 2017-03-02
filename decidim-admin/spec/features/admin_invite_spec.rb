@@ -9,6 +9,7 @@ describe "Admin invite", type: :feature do
   let(:params) do
     {
       name: "Gotham City",
+      reference_prefix: "JKR",
       host: "decide.lvh.me",
       organization_admin_name: "Fiorello Henry La Guardia",
       organization_admin_email: "f.laguardia@gotham.gov",

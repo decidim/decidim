@@ -14,7 +14,7 @@ module Decidim
     let(:organization) { create(:organization) }
     let(:sign_up_as) { "user" }
     let(:name) { "User" }
-    let(:email) { "user@decidim.org" }
+    let(:email) { "user@example.org" }
     let(:password) { "password1234" }
     let(:password_confirmation) { password }
     let(:tos_agreement) { "1" }
@@ -48,7 +48,7 @@ module Decidim
     end
 
     context "when the sign_up_as is different from 'user' and 'user_group'" do
-      let(:sign_up_as) { "community" }      
+      let(:sign_up_as) { "community" }
       it { is_expected.to be_invalid }
     end
 
@@ -58,27 +58,27 @@ module Decidim
     end
 
     context "when the email is not present" do
-      let(:email) { nil }      
+      let(:email) { nil }
       it { is_expected.to be_invalid }
     end
-    
+
     context "when the email already exists" do
       let!(:user) { create(:user, organization: organization, email: email) }
       it { is_expected.to be_invalid }
     end
 
     context "when the password is not present" do
-      let(:password) { nil }      
+      let(:password) { nil }
       it { is_expected.to be_invalid }
     end
 
     context "when the password confirmation is different from password" do
-      let(:password_confirmation) { "invalid" }      
+      let(:password_confirmation) { "invalid" }
       it { is_expected.to be_invalid }
     end
 
     context "when the tos_agreement is not accepted" do
-      let(:tos_agreement) { "0" }      
+      let(:tos_agreement) { "0" }
       it { is_expected.to be_invalid }
     end
 
@@ -99,12 +99,12 @@ module Decidim
       end
 
       context "when user_group_document_number is not present" do
-        let(:user_group_document_number) { nil }        
+        let(:user_group_document_number) { nil }
         it { is_expected.to be_invalid }
       end
 
       context "when user_group_phone is not present" do
-        let(:user_group_phone) { nil }        
+        let(:user_group_phone) { nil }
         it { is_expected.to be_invalid }
       end
     end

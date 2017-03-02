@@ -29,11 +29,6 @@ module Decidim
         end
       end
 
-      # Handle the scope_id filter
-      def search_scope_id
-        query.where(decidim_scope_id: scope_id)
-      end
-
       private
 
       # Internal: builds the needed query to search for a text in the organization's

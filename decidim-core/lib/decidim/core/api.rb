@@ -8,4 +8,5 @@ module Decidim
   autoload :SessionType, "decidim/core/api/session_type"
   autoload :UserGroupType, "decidim/core/api/user_group_type"
   autoload :UserType, "decidim/core/api/user_type"
+  autoload :DecidimType, "decidim/core/api/decidim_type"
 end

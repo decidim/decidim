@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::HasFeature
       include Decidim::HasScope
+      include Decidim::HasReference
       include Decidim::HasCategory
       include Decidim::Comments::Commentable
 
@@ -16,6 +17,8 @@ module Decidim
       has_many :reports, foreign_key: "decidim_proposal_id", class_name: ProposalReport, dependent: :destroy
 
       validates :title, :body, presence: true
+
+      geocoded_by :address, http_headers: lambda { |proposal| { "Referer" => proposal.feature.organization.host } }
 
       scope :accepted,   -> { where(state: "accepted") }
       scope :rejected,   -> { where(state: "rejected") }

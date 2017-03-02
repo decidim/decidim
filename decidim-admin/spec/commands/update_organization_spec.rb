@@ -11,6 +11,7 @@ module Decidim
           {
             organization: {
               name: "My super organization",
+              reference_prefix: "MSO",
               default_locale: "en",
               welcome_text_en: "Welcome",
               welcome_text_es: "Hola",

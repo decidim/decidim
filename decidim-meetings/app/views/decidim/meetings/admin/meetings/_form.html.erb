@@ -26,9 +26,11 @@
   <%= form.datetime_field :end_time %>
 </div>
 
-<div class="field" >
-  <%= form.collection_select :decidim_scope_id, current_organization.scopes, :id, :name, include_blank: true %>
-</div>
+<% if !@form.process_scope %>
+  <div class="field" >
+    <%= form.collection_select :decidim_scope_id, organization_scopes, :id, :name %>
+  </div>
+<% end %>
 
 <div class="field" >
   <%= form.categories_select :decidim_category_id, current_participatory_process.categories, prompt: "", disable_parents: false %>

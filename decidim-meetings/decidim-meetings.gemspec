@@ -18,13 +18,11 @@ Gem::Specification.new do |s|
   s.add_dependency "date_validator", "~> 0.9"
   s.add_dependency "searchlight", "~> 4.1.0"
   s.add_dependency "kaminari", "~> 1.0.1"
-  s.add_dependency "geocoder", "~> 1.4.2"
   s.add_dependency "httparty", "~> 0.14.0"
   s.add_dependency "jquery-tmpl-rails", "~> 1.1.0"
 
   s.add_development_dependency "decidim-dev", Decidim.version
   s.add_development_dependency "decidim-proposals", Decidim.version
   s.add_development_dependency "decidim-admin", Decidim.version
-  s.add_development_dependency "webmock", "~> 2.3.2"
   s.add_development_dependency "decidim-results", Decidim.version
 end

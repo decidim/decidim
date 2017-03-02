@@ -6,14 +6,20 @@
   <%= form.text_area :body, rows: 10 %>
 </div>
 
+<% if feature_settings.geocoding_enabled? %>
+  <div class="field">
+    <%= form.text_field :address %>
+  </div>
+<% end %>
+
 <% if @form.categories&.any? %>
   <div class="field">
     <%= form.categories_select :category_id, @form.categories, prompt: t(".select_a_category") %>
   </div>
 <% end %>
 
-<% if @form.scopes&.any? && feature_settings.scoped_proposals_enabled %>
+<% if !@form.process_scope %>
   <div class="field">
-    <%= form.select :scope_id, @form.scopes.map{|s| [s.name, s.id]}, prompt: t(".select_a_scope") %>
+    <%= form.collection_select :scope_id, organization_scopes, :id, :name %>
   </div>
 <% end %>

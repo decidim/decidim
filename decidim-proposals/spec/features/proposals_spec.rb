@@ -3,12 +3,27 @@ require "spec_helper"
 
 describe "Proposals", type: :feature do
   include_context "feature"
+  let!(:feature) do
+    create(:proposal_feature,
+      manifest: manifest,
+      participatory_process: participatory_process)
+  end
   let(:manifest_name) { "proposals" }
 
   let!(:proposals) { create_list(:proposal, 3, feature: feature) }
   let!(:category) { create :category, participatory_process: participatory_process }
   let!(:scope) { create :scope, organization: organization }
   let!(:user) { create :user, :confirmed, organization: organization }
+
+  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+  let(:latitude) { 40.1234 }
+  let(:longitude) { 2.1234 }
+
+  before do
+    Geocoder::Lookup::Test.add_stub(address, [
+      { 'latitude' => latitude, 'longitude' => longitude }
+    ])
+  end
 
   context "creating a new proposal" do
     context "when the user is logged in" do
@@ -24,12 +39,12 @@ describe "Proposals", type: :feature do
                  participatory_process: participatory_process)
         end
 
-        context "when scoped_proposals setting is enabled" do
+        context "when process is not related to any scope" do
           before do
-            feature.update_attributes(settings: { scoped_proposals_enabled: true})
+            participatory_process.update_attributes(scope: nil)
           end
 
-          it "cannot be related to a scope" do
+          it "can be related to a scope" do
             visit_feature
 
             click_link "New proposal"
@@ -40,9 +55,9 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "when scoped_proposals setting is not enabled" do
+        context "when process is related to any scope" do
           before do
-            feature.update_attributes(settings: { scoped_proposals_enabled: false})
+            participatory_process.update_attributes(scope: scope)
           end
 
           it "cannot be related to a scope" do
@@ -78,6 +93,40 @@ describe "Proposals", type: :feature do
           expect(page).to have_content(user.name)
         end
 
+        context "when geocoding is enabled" do
+          let!(:feature) do
+            create(:proposal_feature,
+                  :with_creation_enabled,
+                  :with_geocoding_enabled,
+                  manifest: manifest,
+                  participatory_process: participatory_process)
+          end
+
+          it "creates a new proposal" do
+            visit_feature
+
+            click_link "New proposal"
+
+            within ".new_proposal" do
+              fill_in :proposal_title, with: "Oriol for president"
+              fill_in :proposal_body, with: "He will solve everything"
+              fill_in :proposal_address, with: address
+              select category.name["en"], from: :proposal_category_id
+              select scope.name, from: :proposal_scope_id
+
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_content("successfully")
+            expect(page).to have_content("Oriol for president")
+            expect(page).to have_content("He will solve everything")
+            expect(page).to have_content(address)
+            expect(page).to have_content(category.name["en"])
+            expect(page).to have_content(scope.name)
+            expect(page).to have_content(user.name)
+          end
+        end
+
         context "when the user has verified organizations" do
           let(:user_group) { create(:user_group, :verified) }
 
@@ -106,6 +155,41 @@ describe "Proposals", type: :feature do
             expect(page).to have_content(category.name["en"])
             expect(page).to have_content(scope.name)
             expect(page).to have_content(user_group.name)
+          end
+
+          context "when geocoding is enabled" do
+            let!(:feature) do
+              create(:proposal_feature,
+                    :with_creation_enabled,          
+                    :with_geocoding_enabled,
+                    manifest: manifest,
+                    participatory_process: participatory_process)
+            end
+
+            it "creates a new proposal as a user group" do
+              visit_feature
+
+              click_link "New proposal"
+
+              within ".new_proposal" do
+                fill_in :proposal_title, with: "Oriol for president"
+                fill_in :proposal_body, with: "He will solve everything"
+                fill_in :proposal_address, with: address
+                select category.name["en"], from: :proposal_category_id
+                select scope.name, from: :proposal_scope_id
+                select user_group.name, from: :proposal_user_group_id
+
+                find("*[type=submit]").click
+              end
+
+              expect(page).to have_content("successfully")
+              expect(page).to have_content("Oriol for president")
+              expect(page).to have_content("He will solve everything")
+              expect(page).to have_content(address)
+              expect(page).to have_content(category.name["en"])
+              expect(page).to have_content(scope.name)
+              expect(page).to have_content(user_group.name)
+            end
           end
         end
 
@@ -142,13 +226,14 @@ describe "Proposals", type: :feature do
       expect(page).to have_content(proposal.title)
       expect(page).to have_content(proposal.body)
       expect(page).to have_content(proposal.author.name)
+      expect(page).to have_content(proposal.reference)
     end
 
-    context "when scoped_proposals setting is enabled" do
+    context "when process is not related to any scope" do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
 
       before do
-        feature.update_attributes(settings: { scoped_proposals_enabled: true } )
+        participatory_process.update_attributes(scope: nil)
       end
 
       it "can be filtered by scope" do
@@ -158,14 +243,14 @@ describe "Proposals", type: :feature do
       end
     end
 
-    context "when scoped_proposals setting is not enabled" do
+    context "when process is related to a scope" do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
 
       before do
-        feature.update_attributes(settings: { scoped_proposals_enabled: false } )
+        participatory_process.update_attributes(scope: scope)
       end
 
-      it "cannot be filtered by scope" do
+      it "does not show the scope name" do
         visit_feature
         click_link proposal.title
         expect(page).not_to have_content(scope.name)
@@ -309,9 +394,7 @@ describe "Proposals", type: :feature do
 
         find(".pagination-next a").click
 
-        within ".pagination .current" do
-          expect(page).to have_content("2")
-        end
+        expect(page).to have_selector(".pagination .current", text: "2")
 
         expect(page).to have_css(".card--proposal", count: 8)
       end
@@ -387,9 +470,9 @@ describe "Proposals", type: :feature do
         end
       end
 
-      context "when scoped_proposals setting is not enabled" do
+      context "when process is related to a scope" do
         before do
-          feature.update_attributes(settings: { scoped_proposals_enabled: false } )
+          participatory_process.update_attributes(scope: scope)
         end
 
         it "cannot be filtered by scope" do
