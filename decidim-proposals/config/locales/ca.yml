@@ -11,8 +11,6 @@ ca:
         answer: Resposta
       proposal_report:
         details: Comentaris addicionals
-      proposal_answer:
-        answer: Resposta
   decidim:
     features:
       proposals:
@@ -23,6 +21,7 @@ ca:
         settings:
           global:
             comments_enabled: Comentaris habilitats
+            geocoding_enabled: Geocodificació habilitada
             official_proposals_enabled: Propostes oficials habilitades
             proposal_answering_enabled: Resposta oficial a propostes activades
             vote_limit: Límit de vot
@@ -127,6 +126,7 @@ ca:
           unfold: Desplegar
         index:
           new_proposal: Nova proposta
+          view_proposal: Veure proposta
         linked_proposals:
           proposal_votes:
             one: <span class="card--list__data__number">1</span>suport
