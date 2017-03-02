@@ -23,7 +23,7 @@ describe "Organization admins", type: :feature do
 
       within ".new_user" do
         fill_in :user_name, with: "New admin"
-        fill_in :user_email, with: "newadmin@decidim.org"
+        fill_in :user_email, with: "newadmin@example.org"
 
         find("*[type=submit]").click
       end

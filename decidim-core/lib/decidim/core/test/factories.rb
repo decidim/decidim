@@ -8,7 +8,7 @@ FactoryGirl.define do
   end
 
   sequence(:email) do |n|
-    "user#{n}@decidim.org"
+    "user#{n}@example.org"
   end
 
   sequence(:slug) do |n|

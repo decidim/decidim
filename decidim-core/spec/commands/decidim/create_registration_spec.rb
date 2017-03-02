@@ -9,7 +9,7 @@ module Decidim
 
         let(:sign_up_as) { "user" }
         let(:name) { "Username" }
-        let(:email) { "user@decidim.org" }
+        let(:email) { "user@example.org" }
         let(:password) { "password1234" }
         let(:password_confirmation) { password }
         let(:tos_agreement) { "1" }
