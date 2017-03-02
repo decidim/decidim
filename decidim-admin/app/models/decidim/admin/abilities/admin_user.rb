@@ -11,6 +11,7 @@ module Decidim
           return unless user && user.role?(:admin)
 
           can :manage, ParticipatoryProcess
+          can :manage, ParticipatoryProcessGroup
           can :manage, ParticipatoryProcessStep
           can :manage, Category
           can :manage, ParticipatoryProcessUserRole

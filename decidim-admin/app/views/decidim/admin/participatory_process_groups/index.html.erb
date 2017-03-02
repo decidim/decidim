@@ -21,7 +21,7 @@
         </td>
         <td class="actions">
           <% if can? :preview, group %>
-            <%= link_to t("actions.preview", scope: "decidim.admin"), decidim.participatory_process_group_path(group) %>
+            <%= link_to t("actions.preview", scope: "decidim.admin"), participatory_process_group_path(group) %>
           <% end %>
           <% if can? :update, group %>
             <%= link_to t("actions.configure", scope: "decidim.admin"), group, class: "small button secondary" %>

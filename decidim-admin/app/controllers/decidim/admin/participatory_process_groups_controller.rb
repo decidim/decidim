@@ -16,6 +16,11 @@ module Decidim
         authorize! :read, participatory_process_group
       end
 
+      def new
+        authorize! :new, Decidim::ParticipatoryProcessGroup
+        @form = form(ParticipatoryProcessGroupForm).instance
+      end
+
       private
 
       def participatory_process_group
