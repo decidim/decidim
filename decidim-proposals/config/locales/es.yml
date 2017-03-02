@@ -11,8 +11,6 @@ es:
         answer: Respuesta
       proposal_report:
         details: Comentarios adicionales
-      proposal_answer:
-        answer: Respuesta
   decidim:
     features:
       proposals:
@@ -23,6 +21,7 @@ es:
         settings:
           global:
             comments_enabled: Comentarios habilitados
+            geocoding_enabled: Geocodificación habilitada
             official_proposals_enabled: Propuestas oficiales habilitadas
             proposal_answering_enabled: Respuesta oficial a propuestas habilitadas
             vote_limit: Límite de votos
@@ -127,6 +126,7 @@ es:
           unfold: Desplegar
         index:
           new_proposal: Nueva propuesta
+          view_proposal: Ver propuesta
         linked_proposals:
           proposal_votes:
             one: <span class="card--list__data__number">1</span>vote
