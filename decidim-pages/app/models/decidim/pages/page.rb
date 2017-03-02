@@ -4,13 +4,16 @@ module Decidim
     # The data store for a Page in the Decidim::Pages component. It stores a
     # title, description and any other useful information to render a custom page.
     class Page < Pages::ApplicationRecord
+      include Decidim::Resourceable
+      include Decidim::HasFeature
       include Decidim::Comments::Commentable
 
-      belongs_to :feature, foreign_key: "decidim_feature_id", class_name: Decidim::Feature
-      has_one :organization, through: :feature
+      feature_manifest_name "pages"
 
-      validates :feature, presence: true
-      validate :feature_manifest_matches
+      # Public: Pages doesn't have title so we assign the feature one to it.
+      def title
+        feature.name
+      end
 
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
@@ -30,13 +33,6 @@ module Decidim
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
       def comments_have_votes?
         true
-      end
-
-      private
-
-      def feature_manifest_matches
-        return unless feature
-        errors.add(:feature, :invalid) unless feature.manifest_name == "pages"
       end
     end
   end

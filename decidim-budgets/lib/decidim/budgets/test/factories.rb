@@ -6,7 +6,7 @@ FactoryGirl.define do
   factory :budget_feature, parent: :feature do
     name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :budgets).i18n_name }
     manifest_name :budgets
-    participatory_process
+    participatory_process { create(:participatory_process, :with_steps) }
 
     trait :with_total_budget_and_vote_threshold_percent do
       transient do

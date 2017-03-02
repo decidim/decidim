@@ -4,7 +4,7 @@
   <%=
     t(".new_comment_html", {
       commenter: @comment.author.name,
-      commentable_link: link_to(@commentable.title, decidim_resource_url(@commentable))
+      commentable_link: link_to(commentable_title, decidim_resource_url(@commentable))
     })
   %>
 </p>
