@@ -64,6 +64,17 @@ module Decidim
             end.to change { Comment.count }.by(1)
           end
 
+          context "and the commentable doesn't have an author" do
+            before do
+              commentable.author = nil
+            end
+
+            it "doesn't send an email" do
+              expect(CommentNotificationMailer).not_to receive(:comment_created)
+              command.call
+            end
+          end
+
           context "and the comment is a root comment" do
             it "sends an email to the author of the commentable" do
               expect(CommentNotificationMailer)

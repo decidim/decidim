@@ -9,6 +9,7 @@ module Decidim
       include Decidim::HasScope
       include Decidim::HasCategory
       include Decidim::HasReference
+      include Decidim::Authorable
       include Decidim::Comments::Commentable
 
       feature_manifest_name "results"
