@@ -10,7 +10,6 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::HasAttachments
       include Decidim::HasReference
-      include Decidim::Authorable
       include Decidim::Comments::Commentable
 
       feature_manifest_name "budgets"
