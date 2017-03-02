@@ -19,7 +19,7 @@ module Decidim
 
     let(:attributes) do
       {
-        email: "NewAdmin@Decidim.org",
+        email: "NewAdmin@example.org",
         name: "New Admin",
         invitation_instructions: "invite_admin",
         roles: %w(admin),
@@ -33,12 +33,12 @@ module Decidim
     end
 
     it "downcases the email" do
-      expect(subject.email).to eq("newadmin@decidim.org")
+      expect(subject.email).to eq("newadmin@example.org")
     end
 
     context "when an admin exists for the given email" do
       before do
-        create(:user, :admin, email: "newadmin@decidim.org", organization: current_organization)
+        create(:user, :admin, email: "newadmin@example.org", organization: current_organization)
       end
 
       it { is_expected.to be_invalid }

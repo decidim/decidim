@@ -29,7 +29,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::User.create!(
     name: Faker::Name.name,
-    email: "admin@decidim.org",
+    email: "admin@example.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
     organization: organization,
@@ -43,7 +43,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::User.create!(
     name: Faker::Name.name,
-    email: "collaborator@decidim.org",
+    email: "collaborator@example.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
     organization: organization,
@@ -57,7 +57,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::User.create!(
     name: Faker::Name.name,
-    email: "user@decidim.org",
+    email: "user@example.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
     confirmed_at: Time.current,

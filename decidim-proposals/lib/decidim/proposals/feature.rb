@@ -78,7 +78,7 @@ Decidim.register_feature(:proposals) do |feature|
         end
 
         rand(3).times do |m|
-          email = "vote-author-#{process.id}-#{n}-#{m}@decidim.org"
+          email = "vote-author-#{process.id}-#{n}-#{m}@example.org"
           name = "#{Faker::Name.name} #{process.id} #{n} #{m}"
 
           author = Decidim::User.create!(email: email,
