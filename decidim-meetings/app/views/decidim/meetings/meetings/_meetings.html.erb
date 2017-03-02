@@ -23,7 +23,7 @@
             <div class="address__icon">
               <%= icon "meetings", remove_icon_class: true, width: 40, height: 70 %>
             </div>
-            <%= render partial: "address_details", locals: { meeting: meeting } %>
+            <%= render partial: "decidim/shared/address_details", locals: { icon_name: "meetings", geolocalizable: meeting } %>
           </div>
         </div>
       </article>

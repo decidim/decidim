@@ -7,6 +7,9 @@ describe Decidim::Meetings::Admin::CreateMeeting do
   let(:scope) { create :scope, organization: organization }
   let(:category) { create :category, participatory_process: participatory_process }
   let(:address) { "address" }
+  let(:invalid) { false }
+  let(:latitude) { 40.1234 }
+  let(:longitude) { 2.1234 }
   let(:form) do
     double(
       :invalid? => invalid,
@@ -17,23 +20,12 @@ describe Decidim::Meetings::Admin::CreateMeeting do
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
       address: address,
+      latitude: latitude,
+      longitude: longitude,
       scope: scope,
       category: category,
       current_feature: current_feature
     )
-  end
-  let(:invalid) { false }
-  let(:latitude) { 40.1234 }
-  let(:longitude) { 2.1234 }
-
-  before do
-    Decidim.geocoder = {
-      here_app_id: "1234",
-      here_app_code: "5678"
-    }
-    Geocoder::Lookup::Test.add_stub(address, [
-      { 'latitude' => latitude, 'longitude' => longitude }
-    ])
   end
 
   subject { described_class.new(form) }
@@ -68,7 +60,7 @@ describe Decidim::Meetings::Admin::CreateMeeting do
       expect(meeting.feature).to eq current_feature
     end
 
-    it "geocodes the meeting" do
+    it "sets the longitude and latitude" do
       subject.call
       last_meeting = Decidim::Meetings::Meeting.last
       expect(last_meeting.latitude).to eq(latitude)

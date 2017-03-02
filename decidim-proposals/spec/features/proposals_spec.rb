@@ -3,12 +3,27 @@ require "spec_helper"
 
 describe "Proposals", type: :feature do
   include_context "feature"
+  let!(:feature) do
+    create(:proposal_feature,
+      manifest: manifest,
+      participatory_process: participatory_process)
+  end
   let(:manifest_name) { "proposals" }
 
   let!(:proposals) { create_list(:proposal, 3, feature: feature) }
   let!(:category) { create :category, participatory_process: participatory_process }
   let!(:scope) { create :scope, organization: organization }
   let!(:user) { create :user, :confirmed, organization: organization }
+
+  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+  let(:latitude) { 40.1234 }
+  let(:longitude) { 2.1234 }
+
+  before do
+    Geocoder::Lookup::Test.add_stub(address, [
+      { 'latitude' => latitude, 'longitude' => longitude }
+    ])
+  end
 
   context "creating a new proposal" do
     context "when the user is logged in" do
@@ -78,6 +93,40 @@ describe "Proposals", type: :feature do
           expect(page).to have_content(user.name)
         end
 
+        context "when geocoding is enabled" do
+          let!(:feature) do
+            create(:proposal_feature,
+                  :with_creation_enabled,
+                  :with_geocoding_enabled,
+                  manifest: manifest,
+                  participatory_process: participatory_process)
+          end
+
+          it "creates a new proposal" do
+            visit_feature
+
+            click_link "New proposal"
+
+            within ".new_proposal" do
+              fill_in :proposal_title, with: "Oriol for president"
+              fill_in :proposal_body, with: "He will solve everything"
+              fill_in :proposal_address, with: address
+              select category.name["en"], from: :proposal_category_id
+              select scope.name, from: :proposal_scope_id
+
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_content("successfully")
+            expect(page).to have_content("Oriol for president")
+            expect(page).to have_content("He will solve everything")
+            expect(page).to have_content(address)
+            expect(page).to have_content(category.name["en"])
+            expect(page).to have_content(scope.name)
+            expect(page).to have_content(user.name)
+          end
+        end
+
         context "when the user has verified organizations" do
           let(:user_group) { create(:user_group, :verified) }
 
@@ -106,6 +155,41 @@ describe "Proposals", type: :feature do
             expect(page).to have_content(category.name["en"])
             expect(page).to have_content(scope.name)
             expect(page).to have_content(user_group.name)
+          end
+
+          context "when geocoding is enabled" do
+            let!(:feature) do
+              create(:proposal_feature,
+                    :with_creation_enabled,          
+                    :with_geocoding_enabled,
+                    manifest: manifest,
+                    participatory_process: participatory_process)
+            end
+
+            it "creates a new proposal as a user group" do
+              visit_feature
+
+              click_link "New proposal"
+
+              within ".new_proposal" do
+                fill_in :proposal_title, with: "Oriol for president"
+                fill_in :proposal_body, with: "He will solve everything"
+                fill_in :proposal_address, with: address
+                select category.name["en"], from: :proposal_category_id
+                select scope.name, from: :proposal_scope_id
+                select user_group.name, from: :proposal_user_group_id
+
+                find("*[type=submit]").click
+              end
+
+              expect(page).to have_content("successfully")
+              expect(page).to have_content("Oriol for president")
+              expect(page).to have_content("He will solve everything")
+              expect(page).to have_content(address)
+              expect(page).to have_content(category.name["en"])
+              expect(page).to have_content(scope.name)
+              expect(page).to have_content(user_group.name)
+            end
           end
         end
 

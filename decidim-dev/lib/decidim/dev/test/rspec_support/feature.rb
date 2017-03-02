@@ -66,6 +66,10 @@ RSpec.configure do |config|
     unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources")
       ActiveRecord::Migration.create_table :decidim_dummy_resources do |t|
         t.string :title
+        t.text :address
+        t.float :latitude
+        t.float :longitude
+
         t.references :decidim_feature, index: true
         t.references :decidim_author, index: true
 

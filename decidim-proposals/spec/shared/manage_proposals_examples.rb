@@ -1,6 +1,16 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 RSpec.shared_examples "manage proposals" do
+  let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+  let(:latitude) { 40.1234 }
+  let(:longitude) { 2.1234 }
+
+  before do
+    Geocoder::Lookup::Test.add_stub(address, [
+      { 'latitude' => latitude, 'longitude' => longitude }
+    ])
+  end
+
   context "previewing proposals" do
     it "allows the user to preview the proposal" do
       new_window = window_opened_by { click_link proposal.title }
@@ -15,7 +25,8 @@ RSpec.shared_examples "manage proposals" do
   context "creation" do
     context "when official_proposals setting is enabled" do
       before do
-        current_feature.update_attributes(settings: { official_proposals_enabled: true } )
+        current_feature.settings[:official_proposals_enabled] = true
+        current_feature.save
       end
 
       context "when creation is enabled" do
@@ -89,7 +100,6 @@ RSpec.shared_examples "manage proposals" do
               fill_in :proposal_title, with: "Make decidim great again"
               fill_in :proposal_body, with: "Decidim is great but it can be better"
               select category.name["en"], from: :proposal_category_id
-
               find("*[type=submit]").click
             end
 
@@ -104,6 +114,40 @@ RSpec.shared_examples "manage proposals" do
               expect(proposal.body).to eq("Decidim is great but it can be better")
               expect(proposal.category).to eq(category)
               expect(proposal.scope).to eq(scope)
+            end
+          end
+
+          context "when geocoding is enabled" do
+            let!(:current_feature) do
+              create(:proposal_feature,
+                    :with_geocoding_enabled,
+                    manifest: manifest,
+                    participatory_process: participatory_process)
+            end
+
+            it "creates a new proposal related to the process scope" do
+              find(".actions .new").click
+
+              within ".new_proposal" do
+                fill_in :proposal_title, with: "Make decidim great again"
+                fill_in :proposal_body, with: "Decidim is great but it can be better"
+                fill_in :proposal_address, with: address
+                select category.name["en"], from: :proposal_category_id
+                find("*[type=submit]").click
+              end
+
+              within ".flash" do
+                expect(page).to have_content("successfully")
+              end
+
+              within "table" do
+                proposal = Decidim::Proposals::Proposal.last
+
+                expect(page).to have_content("Make decidim great again")
+                expect(proposal.body).to eq("Decidim is great but it can be better")
+                expect(proposal.category).to eq(category)
+                expect(proposal.scope).to eq(scope)
+              end
             end
           end
         end
