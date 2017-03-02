@@ -9,7 +9,7 @@ module Decidim
     # If you need to show scopes in a search form backed by a `Searchlight::Search`
     # class, see the `search_organization_scopes` helper method.
     #
-    # organization - a Decidim::Organiåtion. Uses the helper `current_organization`
+    # organization - a Decidim::Organization. Uses the `current_organization` helper
     #   by default.
     #
     # Returns an Array.
@@ -30,7 +30,7 @@ module Decidim
     # case in the search class. This is far from ideal, but I don't know a better
     # way to do this.
     #
-    # organization - a Decidim::Organiåtion. Uses the helper `current_organization`
+    # organization - a Decidim::Organization. Uses the `current_organization` helper
     #   by default.
     #
     # Returns an Array.
