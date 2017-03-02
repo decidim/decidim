@@ -17,7 +17,7 @@
     <% collection.each do |group| %>
       <tr>
         <td>
-          <%= link_to translated_attribute(group.title), group %><br />
+          <%= link_to translated_attribute(group.name), group %><br />
         </td>
         <td class="actions">
           <% if can? :preview, group %>

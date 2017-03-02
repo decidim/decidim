@@ -6,10 +6,21 @@ module Decidim
     # Controller that allows managing all the Admins.
     #
     class ParticipatoryProcessGroupsController < ApplicationController
-      helper_method :collection
-      helper Decidim::OrganizationScopesHelper
+      helper_method :collection, :participatory_process_group
+
+      def index
+        authorize! :read, ParticipatoryProcessGroup
+      end
+
+      def show
+        authorize! :read, participatory_process_group
+      end
 
       private
+
+      def participatory_process_group
+        @participatory_process_group ||= Decidim::ParticipatoryProcessGroup.find(params[:id])
+      end
 
       def collection
         @collection ||= current_user.organization.participatory_process_groups
