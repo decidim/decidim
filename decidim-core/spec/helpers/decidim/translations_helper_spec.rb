@@ -11,6 +11,15 @@ module Decidim
 
         expect(helper.translated_attribute(attribute)).to eq("你好")
       end
+
+      context "when therte is no translation for the given locale" do
+        it "returns an empty string" do
+          attribute = { "ca" => "Hola" }
+          I18n.locale = :'zh-CN'
+
+          expect(helper.translated_attribute(attribute)).to eq("")
+        end
+      end
     end
 
     describe "#multi_translation" do
