@@ -10,7 +10,7 @@ module Decidim
     #
     # Returns a String with the translation.
     def translated_attribute(attribute)
-      attribute.try(:[], I18n.locale.to_s)
+      attribute.try(:[], I18n.locale.to_s) || ""
     end
 
     # Public: Creates a translation for each available language in the list
