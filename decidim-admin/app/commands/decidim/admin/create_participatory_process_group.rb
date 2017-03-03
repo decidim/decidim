@@ -19,7 +19,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
-        group = create_participatory_group
+        group = create_participatory_process_group
 
         if group.persisted?
           broadcast(:ok, group)
@@ -37,7 +37,7 @@ module Decidim
       def create_participatory_process_group
         transaction do
           group = ParticipatoryProcessGroup.create(
-            name: form.title,
+            name: form.name,
             description: form.description,
             hero_image: form.hero_image,
             organization: form.current_organization

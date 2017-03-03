@@ -9,7 +9,7 @@
 <table class="stack">
   <thead>
     <tr>
-      <th><%= t("models.participatory_process_group.fields.title", scope: "decidim.admin") %></th>
+      <th><%= t("models.participatory_process_group.fields.name", scope: "decidim.admin") %></th>
       <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
     </tr>
   </thead>
@@ -23,8 +23,13 @@
           <% if can? :preview, group %>
             <%= link_to t("actions.preview", scope: "decidim.admin"), participatory_process_group_path(group) %>
           <% end %>
+
           <% if can? :update, group %>
-            <%= link_to t("actions.configure", scope: "decidim.admin"), group, class: "small button secondary" %>
+            <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', group], class: "small button secondary" %>
+          <% end %>
+
+          <% if can? :destroy, group %>
+            <%= link_to t("actions.destroy", scope: "decidim.admin"), group, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
           <% end %>
         </td>
       </tr>

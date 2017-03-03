@@ -41,10 +41,67 @@ describe "Admin manage participatory process groups", type: :feature do
       expect(page).to have_content("successfully")
     end
 
-    within ".tabs-content" do
-      expect(page).to have_content("My participatory process")
-      expect(page).to have_css("img[src*='#{image1_filename}']")
-      expect(page).to have_css("img[src*='#{image2_filename}']")
+    expect(page).to have_content("My group")
+    expect(page).to have_css("img[src*='#{image1_filename}']")
+  end
+
+  context "with exsiting groups" do
+    let!(:participatory_processes) { create_list(:participatory_process, 3, organization: organization) }
+    let!(:participatory_process_group) { create(:participatory_process_group, organization: organization) }
+
+    before do
+      visit current_path
+    end
+
+    it "can edit them" do
+      within find("tr", text: participatory_process_group.name["en"]) do
+        click_link "Edit"
+      end
+
+      within ".edit_participatory_process_group" do
+        fill_in_i18n(
+          :participatory_process_group_name,
+          "#name-tabs",
+          en: "My old group",
+          es: "Mi grupo antiguo",
+          ca: "El meu grup antic"
+        )
+        fill_in_i18n_editor(
+          :participatory_process_group_description,
+          "#description-tabs",
+          en: "New description",
+          es: "Nueva descripción",
+          ca: "Nova descripció"
+        )
+        select @participatory_processes.last.title["en"], from: :participatory_process_group_participatory_process_ids
+        attach_file :participatory_process_group_hero_image, image2_path
+
+        find("*[type=submit]").click
+      end
+
+      within ".flash" do
+        expect(page).to have_content("successfully")
+      end
+
+      within "table" do
+        expect(page).to have_content("My old group")
+        expect(page).to have_content("New description")
+        expect(page).to have_css("img[src*='#{image1_filename}']")
+      end
+    end
+
+    it "can destroy them" do
+      within find("tr", text: participatory_process_group.name["en"]) do
+        click_link "Destroy"
+      end
+
+      within ".flash" do
+        expect(page).to have_content("successfully")
+      end
+
+      within "table" do
+        expect(page).not_to have_content(participatory_process_group.name)
+      end
     end
   end
 end

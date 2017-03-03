@@ -1,4 +1,12 @@
+<dl>
   <%= display_for participatory_process_group,
     :name,
     :description
   %>
+  <dt><%= display_label(participatory_process_group, :hero_image) %></dt>
+  <dd>
+    <% if participatory_process_group.hero_image? %>
+      <%= image_tag participatory_process_group.hero_image.url.to_s %>
+    <% end %>
+  </dd>
+</dl>

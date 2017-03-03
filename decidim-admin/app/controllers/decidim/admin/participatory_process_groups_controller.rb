@@ -23,12 +23,12 @@ module Decidim
 
       def create
         authorize! :new, Decidim::ParticipatoryProcessGroup
-        @form = form(ParticipatoryProcessGroupForm).instance
+        @form = form(ParticipatoryProcessGroupForm).from_params(params)
 
         CreateParticipatoryProcessGroup.call(@form) do
           on(:ok) do |participatory_process_group|
             flash[:notice] = I18n.t("participatory_processes_group.create.success", scope: "decidim.admin")
-            redirect_to participatory_process_path(participatory_process)
+            redirect_to participatory_process_group_path(participatory_process_group)
           end
 
           on(:invalid) do

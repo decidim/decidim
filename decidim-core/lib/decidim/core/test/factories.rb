@@ -94,6 +94,13 @@ FactoryGirl.define do
     end
   end
 
+  factory :participatory_process_group, class: Decidim::ParticipatoryProcessGroup do
+    name { Decidim::Faker::Localized.sentence(3) }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    hero_image { test_file("city.jpeg", "image/jpeg") }
+    organization
+  end
+
   factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }

@@ -236,7 +236,7 @@ en:
           name: Participatory process
         participatory_process_group:
           fields:
-            title: Title
+            name: Name
           name: Name
         participatory_process_step:
           fields:
@@ -313,7 +313,7 @@ en:
       participatory_process_groups:
         new:
           create: Create
-          title: Title
+          name: Name
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
@@ -368,8 +368,8 @@ en:
           success: Participatory process updated successfully.
       participatory_processes_group:
         create:
-          error: Error
-          success: Success
+          error: There was an error creating a new participatory process group.
+          success: Participatory process group created successfully.
       scopes:
         create:
           error: There was an error creating a new scope.
