@@ -366,6 +366,10 @@ en:
         update:
           error: There was an error when updating this participatory process.
           success: Participatory process updated successfully.
+      participatory_processes_group:
+        create:
+          error: Error
+          success: Success
       scopes:
         create:
           error: There was an error creating a new scope.
