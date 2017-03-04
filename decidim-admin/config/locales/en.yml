@@ -311,9 +311,16 @@ en:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
       participatory_process_groups:
+        destroy:
+          success: Participatory process group destroyed successfully.
+        edit:
+          update: Update
         new:
           create: Create
           name: Name
+        update:
+          error: There was en error updating this participatory process group.
+          success: Participatory process group updated successfully.
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.

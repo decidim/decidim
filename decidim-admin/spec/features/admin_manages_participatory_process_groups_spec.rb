@@ -83,11 +83,9 @@ describe "Admin manage participatory process groups", type: :feature do
         expect(page).to have_content("successfully")
       end
 
-      within "table" do
-        expect(page).to have_content("My old group")
-        expect(page).to have_content("New description")
-        expect(page).to have_css("img[src*='#{image1_filename}']")
-      end
+      expect(page).to have_content("My old group")
+      expect(page).to have_content("New description")
+      expect(page).to have_css("img[src*='#{image2_filename}']")
     end
 
     it "can destroy them" do

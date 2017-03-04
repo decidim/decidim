@@ -38,6 +38,40 @@ module Decidim
         end
       end
 
+      def edit
+        @participatory_process_group = collection.find(params[:id])
+        authorize! :update, @participatory_process_group
+        @form = form(ParticipatoryProcessGroupForm).from_model(@participatory_process_group)
+      end
+
+      def update
+        @participatory_process_group = collection.find(params[:id])
+        authorize! :update, @participatory_process_group
+        @form = form(ParticipatoryProcessGroupForm).from_params(params)
+
+        UpdateParticipatoryProcessGroup.call(@participatory_process_group, @form) do
+          on(:ok) do |participatory_process_group|
+            flash[:notice] = I18n.t("participatory_process_groups.update.success", scope: "decidim.admin")
+            redirect_to participatory_process_group_path(participatory_process_group)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("participatory_process_groups.update.error", scope: "decidim.admin")
+            render :edit
+          end
+        end
+      end
+
+      def destroy
+        @participatory_process_group = collection.find(params[:id])
+        authorize! :destroy, @participatory_process_group
+        @participatory_process_group.destroy!
+
+        flash[:notice] = I18n.t("participatory_process_groups.destroy.success", scope: "decidim.admin")
+
+        redirect_to participatory_process_groups_path
+      end
+
       private
 
       def participatory_process_group
