@@ -22,6 +22,9 @@ es:
         homepage_image: Imagen de portada
         logo: Logotipo
         name: Nombre
+        official_img_footer: Logotipo oficial de pie de página
+        official_img_header: Logotipo oficial de cabecera
+        official_url: URL oficial de organización
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
         official_url: URL oficial de la organización
@@ -35,7 +38,8 @@ es:
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
-        local_area: Áreas municipales
+        local_area: Áreas muncipales
+        meta_scope: 'Metadatos: ámbito'
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
@@ -43,7 +47,7 @@ es:
         short_description: Breve descripción
         slug: Texto corto de URL
         subtitle: Subtítulo
-        target: ¿A quién va dirigido?
+        target: '¿A quién va dirigido?'
         title: Título
       participatory_process_step:
         description: Descripción
@@ -75,18 +79,23 @@ es:
         hashtag: Hashtag
         hero_image: Imagen de portada
         local_area: Áreas municipales
+        meta_scope: 'Metadatos: ámbito'
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
         scope: Ámbito
+        short_description: Descripción breve
+        slug: Texto corto de URL
+        subtitle: Subtítulo
+        target: '¿A quién va dirigido?'
+        title: Título
+      decidim/static_page:
+        content: Contenido
+        slug: Texto corto de URL
         short_description: Breve descripción
         slug: Texto corto de URL
         subtitle: Subtítulo
         target: ¿A quién va dirigido?
-        title: Título
-      decidim/static_page:
-        content: Contenido
-        slug: URL oficial
         title: Título
   decidim:
     admin:

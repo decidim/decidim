@@ -22,6 +22,9 @@ ca:
         homepage_image: Imatge de la portada
         logo: Logotip
         name: Nom
+        official_img_footer: Logotip oficial del peu de pàgina
+        official_img_header: Logotip oficial de la capçalera
+        official_url: URL oficial de l'organització
         show_statistics: Mostra Estadístiques
         welcome_text: Text de benvinguda
         official_url: URL oficial de l'organització
@@ -35,7 +38,8 @@ ca:
         end_date: Data de finalització
         hashtag: Etiqueta
         hero_image: Imatge de portada
-        local_area: Àrees Municipals
+        local_area: Àrea municipal
+        meta_scope: 'Metadades: àmbit'
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         promoted: Promogut
@@ -72,9 +76,10 @@ ca:
         developer_group: Grup promotor
         domain: Àrees municipals
         end_date: Data de finalització
-        hashtag: Etiqueta
+        hashtag: Hashtag
         hero_image: Imatge de portada
-        local_area: Àrees Municipals
+        local_area: Àrea municipal
+        meta_scope: 'Metadades: àmbit'
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         promoted: Promogut
@@ -85,9 +90,9 @@ ca:
         target: A qui va dirigit?
         title: Títol
       decidim/static_page:
-        title: Títol
-        slug: Nom curt d'URL
         content: Contingut
+        slug: Nom curt d'URL
+        title: Títol
   decidim:
     admin:
       actions:

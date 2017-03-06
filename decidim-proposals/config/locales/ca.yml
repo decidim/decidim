@@ -7,10 +7,10 @@ ca:
         scope_id: Àmbit
         title: Títol
         user_group_id: Crear proposta
-      proposal_report:
-        details: Comentaris addicionals
       proposal_answer:
         answer: Resposta
+      proposal_report:
+        details: Comentaris addicionals
   decidim:
     features:
       proposals:
@@ -21,9 +21,9 @@ ca:
         settings:
           global:
             comments_enabled: Comentaris habilitats
+            geocoding_enabled: Geocodificació habilitada
             official_proposals_enabled: Propostes oficials habilitades
             proposal_answering_enabled: Resposta oficial a propostes activades
-            scoped_proposals_enabled: Propostes amb àmbits
             vote_limit: Límit de vot
           step:
             comments_blocked: Comentaris bloquejats
@@ -60,7 +60,6 @@ ca:
             success: Proposta creada correctament
           form:
             select_a_category: Selecciona una categoria
-            select_a_scope: Seleccioneu un àmbit
           hide:
             invalid: Hi ha hagut un error amagant aquesta proposta
             success: Proposta amagada correctament
@@ -127,6 +126,7 @@ ca:
           unfold: Desplegar
         index:
           new_proposal: Nova proposta
+          view_proposal: Veure proposta
         linked_proposals:
           proposal_votes:
             one: <span class="card--list__data__number">1</span>suport
@@ -134,7 +134,6 @@ ca:
         new:
           back: Enrere
           select_a_category: Si us plau, seleccioni una categoria
-          select_a_scope: Si us plau, seleccioni un àmbit
           send: Enviar
           title: Nova proposta
         orders:

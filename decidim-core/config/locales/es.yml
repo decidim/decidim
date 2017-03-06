@@ -157,6 +157,8 @@ es:
     participatory_processes:
       index:
         title: Procesos participativos
+      scopes:
+        global: Ámbito global
       show:
         developer_group: Grupo promotor
         end_date: Fecha de finalización
@@ -193,6 +195,8 @@ es:
       login_modal:
         please_sign_in: Por favor, regístrate
         sign_up: Regístrate
+      reference:
+        reference: 'Referencia: %{reference}'
       share_modal:
         close_window: Cerrar ventana
         share: Compartir

@@ -83,6 +83,9 @@ ca:
           view: Veure
         project:
           add: Afegir
+          count:
+            one: 1 suport
+            other: "%{count} suports"
           remove: Esborrar
         project_budget_button:
           add: Afegir
@@ -92,6 +95,8 @@ ca:
           view_all_projects: Veure tots els projectes
     features:
       budgets:
+        actions:
+          vote: Votar
         name: Pressupostos
         settings:
           global:
@@ -100,6 +105,7 @@ ca:
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:
             comments_blocked: Comentaris bloquejats
+            votes_enabled: Suports habilitats
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot

@@ -8,15 +8,15 @@ es:
         contributions_count: Número de contribuciones
         proposal_ids: Propuestas creadas en el encuentro
       meeting:
-        title: Título
-        description: Descripción
         adress: Dirección
-        location: Lugar
-        location_hints: Instrucciones para llegar
-        start_time: Fecha de inicio
-        end_time: Fecha de finalización
-        decidim_scope_id: Ámbito
         decidim_category_id: Categoría
+        decidim_scope_id: Ámbito
+        description: Descripción
+        end_time: Hora de finalización
+        location: Ubicación
+        location_hints: Pistas de ubicación
+        start_time: Hora de inicio
+        title: Título
   decidim:
     features:
       meetings:

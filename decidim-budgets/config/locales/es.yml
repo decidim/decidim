@@ -83,6 +83,9 @@ es:
           view: Ver
         project:
           add: Añadir
+          count:
+            one: 1 apoyo
+            other: "%{count} apoyos"
           remove: Eliminar
         project_budget_button:
           add: Añadir
@@ -92,6 +95,8 @@ es:
           view_all_projects: Ver todos los proyectos
     features:
       budgets:
+        actions:
+          vote: Votar
         name: Presupuestos
         settings:
           global:
@@ -100,6 +105,7 @@ es:
             vote_threshold_percent: Porcentaje mínimo del presupuesto
           step:
             comments_blocked: Comentarios bloqueados
+            votes_enabled: Votos habilitados
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto

@@ -7,10 +7,10 @@ es:
         scope_id: Ámbito
         title: Título
         user_group_id: Crear propuesta como
-      proposal_report:
-        details: Comentarios adicionales
       proposal_answer:
         answer: Respuesta
+      proposal_report:
+        details: Comentarios adicionales
   decidim:
     features:
       proposals:
@@ -21,9 +21,9 @@ es:
         settings:
           global:
             comments_enabled: Comentarios habilitados
+            geocoding_enabled: Geocodificación habilitada
             official_proposals_enabled: Propuestas oficiales habilitadas
             proposal_answering_enabled: Respuesta oficial a propuestas habilitadas
-            scoped_proposals_enabled: Propuestas con ámbito
             vote_limit: Límite de votos
           step:
             comments_blocked: Comentarios bloqueados
@@ -60,7 +60,6 @@ es:
             success: Propuesta creada correctamente
           form:
             select_a_category: Seleccione una categoría
-            select_a_scope: Seleccione un ámbito
           hide:
             invalid: Ha habido un error al esconder esta propuesta
             success: Propuesta escondida correctamente
@@ -127,6 +126,7 @@ es:
           unfold: Desplegar
         index:
           new_proposal: Nueva propuesta
+          view_proposal: Ver propuesta
         linked_proposals:
           proposal_votes:
             one: <span class="card--list__data__number">1</span>vote
@@ -134,7 +134,6 @@ es:
         new:
           back: Atrás
           select_a_category: Por favor, seleccione una categoría
-          select_a_scope: Por favor, seleccione un ámbito
           send: Enviar
           title: Nueva propuesta
         orders:
