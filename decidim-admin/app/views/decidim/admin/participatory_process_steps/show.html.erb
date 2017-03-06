@@ -12,7 +12,7 @@
     :description
     %>
   <dt><%= display_label(@participatory_process_step, :start_date) %></dt>
-  <dd><%= l @participatory_process_step.start_date, format: :short %></dd>
+  <dd><%= l @participatory_process_step.start_date, format: :short if @participatory_process_step.start_date.present? %></dd>
   <dt><%= display_label(@participatory_process_step, :end_date) %></dt>
-  <dd><%= l @participatory_process_step.end_date, format: :short %></dd>
+  <dd><%= l @participatory_process_step.end_date, format: :short if @participatory_process_step.end_date.present? %></dd>
 </dl>
