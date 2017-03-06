@@ -14,15 +14,41 @@ module Decidim
     #
     # env - A Hash.
     def call(env)
-      env["decidim.current_organization"] = detect_current_organization(env)
-      @app.call(env)
+      organization = detect_current_organization(env)
+      if organization
+        env["decidim.current_organization"] = organization
+        @app.call(env)
+      else
+        organization = find_secondary_host_org(env)
+        env["decidim.current_organization"] = organization
+        location = new_location_for(env, organization.host)
+
+        [301, { "Location" => location, 'Content-Type' => 'text/html', 'Content-Length' => '0'}, []]
+      end
     end
 
     private
 
     def detect_current_organization(env)
-      host = Rack::Request.new(env).host.downcase
+      host = host_for(env)
       Decidim::Organization.where(host: host).first
+    end
+
+    def find_secondary_host_org(env)
+      host = host_for(env)
+      organization = Decidim::Organization.all.find{ |o| o.secondary_hosts.include?(host) }
+      return unless organization
+
+      organization
+    end
+
+    def host_for(env)
+      @host ||= Rack::Request.new(env).host.downcase
+    end
+
+    def new_location_for(env, host)
+      request = Rack::Request.new(env)
+      request.url.gsub(request.host, host)
     end
   end
 end
