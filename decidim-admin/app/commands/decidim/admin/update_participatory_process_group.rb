@@ -44,8 +44,13 @@ module Decidim
         {
           name: form.name,
           hero_image: form.hero_image,
-          description: form.description
+          description: form.description,
+          participatory_processes: participatory_processes
         }
+      end
+
+      def participatory_processes
+        Decidim::ParticipatoryProcess.where(id: form.participatory_process_ids)
       end
     end
   end

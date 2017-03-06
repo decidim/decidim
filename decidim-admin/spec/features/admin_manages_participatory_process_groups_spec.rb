@@ -42,6 +42,7 @@ describe "Admin manage participatory process groups", type: :feature do
     end
 
     expect(page).to have_content("My group")
+      expect(page).to have_content(@participatory_processes.first.title["en"])
     expect(page).to have_css("img[src*='#{image1_filename}']")
   end
 
@@ -85,6 +86,7 @@ describe "Admin manage participatory process groups", type: :feature do
 
       expect(page).to have_content("My old group")
       expect(page).to have_content("New description")
+      expect(page).to have_content(@participatory_processes.last.title["en"])
       expect(page).to have_css("img[src*='#{image2_filename}']")
     end
 

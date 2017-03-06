@@ -3,6 +3,17 @@
     :name,
     :description
   %>
+ 
+  <dt><%= display_label(participatory_process_group, :participatory_processes) %></dt>
+  <% if participatory_process_group.participatory_processes.any? %>
+    <dd>
+      <ul>
+        <% participatory_process_group.participatory_processes.each do |participatory_process| %>
+          <li><%= translated_attribute participatory_process.title %></li>
+        <% end %>
+      </ul>
+    </dd>
+  <% end %>
   <dt><%= display_label(participatory_process_group, :hero_image) %></dt>
   <dd>
     <% if participatory_process_group.hero_image? %>
