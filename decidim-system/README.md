@@ -5,7 +5,7 @@ and its organizations when working in a multi-tenant environment.
 
 ## Usage
 
-`decidim-system` is already included in the `decidim` gem, but you can also included in its own:
+`decidim-system` is already included in the `decidim` gem, but you can also include it separately:
 
 Add this line to your application's Gemfile:
 
@@ -28,7 +28,7 @@ When using Decidim as multi-tenant, you should keep these in mind:
 * Each organization must have a different hostname.
 * Users aren't shared between each organization (the same email can be registered in different organizations and it will be considered as different users).
 * All configuration related to Decidim (`Decidim.config`) is shared between the organizations.
-* You can't customize the primary color per organization (at least Decidim doesn't offer you a way to do it).
+* Stylesheets aren't customizable per-tenant so UI styles (colors and other variables) are shared.
 
 ## Glossary
 
