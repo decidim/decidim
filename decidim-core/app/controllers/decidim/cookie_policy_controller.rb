@@ -10,6 +10,11 @@ module Decidim
       response.set_cookie "decidim-cc", value: "true",
                                         path: "/",
                                         expires: 1.year.from_now.utc
+
+      respond_to do |format|
+        format.js
+        format.html { redirect_back fallback_location: root_path }
+      end
     end
   end
 end
