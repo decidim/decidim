@@ -15,7 +15,7 @@ module Decidim
     # right page. If we're on a devise page, we don't want to store that as the
     # place to return to (for example, we don't want to return to the sign in page
     # after signing in), which is what the :unless prevents
-    before_filter :store_current_location, unless: :devise_controller?
+    before_action :store_current_location, unless: :devise_controller?
 
     protect_from_forgery with: :exception, prepend: true
     after_action :add_vary_header
