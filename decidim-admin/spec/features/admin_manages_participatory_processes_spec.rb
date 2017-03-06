@@ -6,6 +6,7 @@ require "spec_helper"
 describe "Admin manage participatory processes", type: :feature do
   include_context "participatory process admin"
   it_behaves_like "manage processes examples"
+  let (:participatory_processes_groups) { create_list(:participatory_process_group, 3, organization: organization) }
 
   before do
     switch_to_host(organization.host)
@@ -45,6 +46,8 @@ describe "Admin manage participatory processes", type: :feature do
         es: "Descripción más larga",
         ca: "Descripció més llarga"
       )
+
+      select participatory_process_groups.first.title["en"], from: :participatory_process_group_id
 
       fill_in :participatory_process_slug, with: "slug"
       fill_in :participatory_process_hashtag, with: "#hashtag"
