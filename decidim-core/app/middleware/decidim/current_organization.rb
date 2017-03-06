@@ -20,7 +20,8 @@ module Decidim
         @app.call(env)
       else
         organization = find_secondary_host_org(env)
-        env["decidim.current_organization"] = organization
+        return @app.call(env) unless organization
+
         location = new_location_for(env, organization.host)
 
         [301, { "Location" => location, 'Content-Type' => 'text/html', 'Content-Length' => '0'}, []]
