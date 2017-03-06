@@ -160,6 +160,8 @@ en:
         title: Participatory processes
       scopes:
         global: Global scope
+      participatory_process_groups:
+        none: None
       show:
         developer_group: Developer group
         end_date: End date
