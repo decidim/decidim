@@ -44,4 +44,11 @@
   <% else %>
     <dd><%= t("decidim.participatory_processes.scopes.global") %></dd>
   <% end %>
+
+  <dt><%= display_label(participatory_process, :participatory_process_group) %></dt>
+  <% if participatory_process.participatory_process_group %>
+    <dd><%= translated_attribute participatory_process.participatory_process_group.name %></dd>
+  <% else %>
+    <dd><%= t("decidim.participatory_processes.participatory_process_groups.none") %></dd>
+  <% end %>
 </dl>

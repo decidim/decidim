@@ -27,6 +27,7 @@ module Decidim
       attribute :scope_id, Integer
       attribute :hero_image
       attribute :banner_image
+      attribute :participatory_process_group_id, Integer
 
       validates :slug, presence: true
       validates :title, :subtitle, :description, :short_description, translatable_presence: true

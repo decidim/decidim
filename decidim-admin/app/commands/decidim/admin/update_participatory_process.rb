@@ -60,8 +60,12 @@ module Decidim
           participatory_structure: form.participatory_structure,
           meta_scope: form.meta_scope,
           end_date: form.end_date,
-          participatory_process_group: form.participatory_process_group
+          participatory_process_group: participatory_process_group
         }
+      end
+
+      def participatory_process_group
+        Decidim::ParticipatoryProcessGroup.find(form.participatory_process_group_id)
       end
     end
   end

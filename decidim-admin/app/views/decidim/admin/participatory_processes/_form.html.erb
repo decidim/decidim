@@ -67,5 +67,7 @@
 </div>
 
 <div class="field">
-  <%= form.collection_select :participatory_process_group_id, organization_participatory_process_groups, :id, :name %>
+  <% if process_groups_for_select %>
+    <%= form.select :participatory_process_group_id, process_groups_for_select %>
+  <% end %>
 </div>

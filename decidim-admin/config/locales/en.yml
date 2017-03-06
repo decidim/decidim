@@ -433,3 +433,6 @@ en:
         resend_invitation:
           error: There was an error when trying to send the invitation email.
           success: Invitation email sent successfully.
+    participatory_processes:
+      participatory_process_groups:
+        none: None

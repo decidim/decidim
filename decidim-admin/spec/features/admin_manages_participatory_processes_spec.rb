@@ -6,11 +6,11 @@ require "spec_helper"
 describe "Admin manage participatory processes", type: :feature do
   include_context "participatory process admin"
   it_behaves_like "manage processes examples"
-  let (:participatory_processes_groups) { create_list(:participatory_process_group, 3, organization: organization) }
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
+    @participatory_process_groups = create_list(:participatory_process_group, 3, organization: organization)
     visit decidim_admin.participatory_processes_path
   end
 
@@ -47,7 +47,8 @@ describe "Admin manage participatory processes", type: :feature do
         ca: "Descripció més llarga"
       )
 
-      select participatory_process_groups.first.title["en"], from: :participatory_process_group_id
+      @group_name = @participatory_process_groups.first.name["en"]
+      select @group_name, from: :participatory_process_participatory_process_group_id
 
       fill_in :participatory_process_slug, with: "slug"
       fill_in :participatory_process_hashtag, with: "#hashtag"
@@ -63,6 +64,7 @@ describe "Admin manage participatory processes", type: :feature do
 
     within ".tabs-content" do
       expect(page).to have_content("My participatory process")
+      expect(page).to have_content(@group_name)
       expect(page).to have_css("img[src*='#{image1_filename}']")
       expect(page).to have_css("img[src*='#{image2_filename}']")
     end

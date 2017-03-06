@@ -49,7 +49,7 @@ module Decidim
             meta_scope: form.meta_scope,
             scope: form.scope,
             organization: form.current_organization,
-            participatory_process_group: form.participatory_process_group
+            participatory_process_group: participatory_process_group
           )
 
           return process unless process.valid?
@@ -65,6 +65,10 @@ module Decidim
 
           process
         end
+      end
+
+      def participatory_process_group
+        Decidim::ParticipatoryProcessGroup.find(form.participatory_process_group_id)
       end
     end
   end
