@@ -13,7 +13,7 @@ module Decidim
 
       validates :email, :role, presence: true
       validates :name, presence: true
-      validates :role, inclusion: { in: ParticipatoryProcessUserRoles::ROLES }
+      validates :role, inclusion: { in: ParticipatoryProcessUserRole::ROLES }
     end
   end
 end
