@@ -43,12 +43,14 @@ module Decidim
     end
 
     def host_for(env)
-      @host ||= Rack::Request.new(env).host.downcase
+      Rack::Request.new(env).host.downcase
     end
 
     def new_location_for(env, host)
       request = Rack::Request.new(env)
-      request.url.gsub(request.host, host)
+      url = URI(request.url)
+      url.host = host
+      url.to_s
     end
   end
 end
