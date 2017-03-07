@@ -218,6 +218,8 @@ ca:
         someone_invited_you: Algú t'ha convidat a %{application}, pots acceptar la invitació amb l'enllaç a continuació.
       invite_admin:
         subject: Has estat convidat a gestionar %{organization}
+      invite_collaborator:
+        subject: Has estat convidat a col·laborar a %{organization}
       organization_admin_invitation_instructions:
         subject: Has estat convidat a gestionar %{organization}
       password_change:
