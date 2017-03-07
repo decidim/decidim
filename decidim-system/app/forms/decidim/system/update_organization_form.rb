@@ -12,8 +12,19 @@ module Decidim
 
       attribute :name, String
       attribute :host, String
+      attribute :secondary_hosts, String
 
+      validates :name, presence: true
+      validates :host, presence: true
       validate :validate_organization_uniqueness
+
+      def map_model(model)
+        self.secondary_hosts = model.secondary_hosts.join("\n")
+      end
+
+      def clean_secondary_hosts
+        secondary_hosts.split("\n").map(&:chomp).select(&:present?)
+      end
 
       private
 
