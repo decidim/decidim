@@ -27,11 +27,8 @@ ca:
         official_url: URL oficial de l'organització
         show_statistics: Mostra Estadístiques
         welcome_text: Text de benvinguda
-        official_url: URL oficial de l'organització
-        official_img_header: Logotip oficial capçalera
-        official_img_footer: Logotip oficial peu de pàgina
       participatory_process:
-        banner_image: Imatge de bàner
+        banner_image: Imatge de bandera
         description: Descripció
         developer_group: Grup promotor
         domain: Àrees municipals
@@ -303,7 +300,7 @@ ca:
       organization:
         edit:
           title: Edita organització
-          update: Actualitza organització
+          update: Actualitza organitació
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: Organització actualitzada correctament.
