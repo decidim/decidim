@@ -22,11 +22,5 @@ module Decidim
     def homepage_big_url
       homepage_image.big.url
     end
-
-    def secondary_hosts
-      [
-        "blah.lvh.me"
-      ]
-    end
   end
 end

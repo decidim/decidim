@@ -37,10 +37,7 @@ module Decidim
 
     def find_secondary_host_org(env)
       host = host_for(env)
-      organization = Decidim::Organization.all.find{ |o| o.secondary_hosts.include?(host) }
-      return unless organization
-
-      organization
+      Decidim::Organization.where("? = ANY(secondary_hosts)", host).first
     end
 
     def host_for(env)
