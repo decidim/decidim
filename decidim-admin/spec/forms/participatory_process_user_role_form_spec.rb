@@ -5,10 +5,14 @@ module Decidim
   module Admin
     describe ParticipatoryProcessUserRoleForm do
       let(:email) { "my_email@example.org" }
+      let(:name) { "John Wayne" }
+      let(:role) { "admin" }
       let(:attributes) do
         {
           "participatory_process_user_role" => {
             "email" => email,
+            "name" => name,
+            "role" => role
           }
         }
       end
