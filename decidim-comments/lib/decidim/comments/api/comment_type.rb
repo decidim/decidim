@@ -12,6 +12,12 @@ module Decidim
 
       field :id, !types.ID, "The Comment's unique ID"
 
+      field :sgid, !types.String, "The Comment's signed global id" do
+        resolve lambda { |obj, _args, _ctx|
+          obj.to_sgid.to_s
+        }
+      end
+
       field :body, !types.String, "The comment message"
 
       field :createdAt, !types.String, "The creation date of the comment" do
@@ -55,6 +61,12 @@ module Decidim
       field :hasComments, !types.Boolean, "Check if the commentable has comments" do
         resolve lambda { |obj, _args, _ctx|
           obj.accepts_new_comments? && obj.comments.size.positive?
+        }
+      end
+
+      field :alreadyReported, !types.Boolean, "Check if the current user has reported the comment" do
+        resolve lambda { |obj, _args, ctx|
+          obj.reported_by?(ctx[:current_user])
         }
       end
     end

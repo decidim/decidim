@@ -22,8 +22,7 @@ en:
             subject: You have a new reply of your comment
     components:
       add_comment_form:
-        account_message: "<a href=\"%{sign_in_url}\">Sign in with your account</a> or <a href=\"%{sign_up_url}\">sign up</a> to add your comment.
-"
+        account_message: '<a href="%{sign_in_url}">Sign in with your account</a> or <a href="%{sign_up_url}">sign up</a> to add your comment. '
         form:
           body:
             label: Comment
@@ -40,6 +39,17 @@ en:
           against: Against
           in_favor: In favor
         reply: Reply
+        report:
+          action: Report
+          already_reported: already reported
+          close: Close
+          description: Description
+          details: Details
+          reasons:
+            does_not_belong: Does not belong
+            offensive: Offensive
+            spam: Spam
+          title: Report title
       comment_order_selector:
         order:
           best_rated: Best rated

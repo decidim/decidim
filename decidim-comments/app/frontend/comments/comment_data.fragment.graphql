@@ -1,5 +1,6 @@
 fragment CommentData on Comment {
   id
+  sgid
   type
   body
   createdAt
@@ -10,6 +11,7 @@ fragment CommentData on Comment {
   hasComments
   acceptsNewComments
   alignment
+  alreadyReported
   ...UpVote
   ...DownVote
 }

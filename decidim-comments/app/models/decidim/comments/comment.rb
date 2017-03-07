@@ -5,6 +5,7 @@ module Decidim
     # comment on them. The will be able to create conversations between users
     # to discuss or share their thoughts about the resource.
     class Comment < ApplicationRecord
+      include Reportable
       include Decidim::Authorable
       include Decidim::Comments::Commentable
 
@@ -28,7 +29,7 @@ module Decidim
 
       before_save :compute_depth
 
-      delegate :organization, to: :commentable
+      delegate :organization, :feature, to: :commentable
 
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?
@@ -53,6 +54,11 @@ module Decidim
       def root_commentable
         return commentable if depth == 0
         commentable.root_commentable
+      end
+
+      # Public: Overrides the `reported_content` Reportable concern method.
+      def reported_content
+        "<p>#{body}</p>"
       end
 
       private
