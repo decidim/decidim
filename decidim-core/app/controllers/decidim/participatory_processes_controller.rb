@@ -11,10 +11,11 @@ module Decidim
 
     skip_after_action :verify_participatory_process, only: [:index]
 
-    helper_method :participatory_processes, :promoted_participatory_processes
+    helper_method :collection, :promoted_participatory_processes
 
     def index
       authorize! :read, ParticipatoryProcess
+      authorize! :read, ParticipatoryProcessGroup
     end
 
     def show
@@ -23,12 +24,12 @@ module Decidim
 
     private
 
-    def participatory_processes
-      @processes ||= OrganizationParticipatoryProcesses.new(current_organization) | PublicParticipatoryProcesses.new
+    def collection
+      @collection ||= PublicProcesses.new(current_organization).collection
     end
 
     def promoted_participatory_processes
-      @promoted_processes ||= participatory_processes | PromotedParticipatoryProcesses.new
+      @promoted_processes ||= ParticipatoryProcess.where(organization: current_organization).promoted
     end
   end
 end

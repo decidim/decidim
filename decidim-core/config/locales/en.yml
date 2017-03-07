@@ -158,10 +158,10 @@ en:
     participatory_processes:
       index:
         title: Participatory processes
-      scopes:
-        global: Global scope
       participatory_process_groups:
         none: None
+      scopes:
+        global: Global scope
       show:
         developer_group: Developer group
         end_date: End date
@@ -199,7 +199,7 @@ en:
         please_sign_in: Please sign in
         sign_up: Sign up
       reference:
-        reference: "Reference: %{reference}"
+        reference: 'Reference: %{reference}'
       share_modal:
         close_window: Close window
         share: Share
