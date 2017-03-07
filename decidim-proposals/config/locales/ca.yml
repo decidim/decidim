@@ -16,7 +16,7 @@ ca:
       proposals:
         actions:
           create: Crear propostes
-          vote: Votar
+          vote: Donar suport
         name: Propostes
         settings:
           global:
@@ -150,7 +150,7 @@ ca:
         vote_button:
           already_voted: Ja has votat
           no_votes_remaining: No hi ha suports restants
-          vote: Votar
+          vote: Donar suport
           votes_blocked: Recollida de suports desactivada
         votes_count:
           count:
