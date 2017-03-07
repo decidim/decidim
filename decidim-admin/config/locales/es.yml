@@ -27,11 +27,8 @@ es:
         official_url: URL oficial de organización
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
-        official_url: URL oficial de la organización
-        official_img_header: Logotipo oficial cabecera
-        official_img_footer: Logotipo offcial pie de página
-        participatory_process:
-        banner_image: Imagen de banner
+      participatory_process:
+        banner_image: Imagen de bandera
         description: Descripción
         developer_group: Grupo promotor
         domain: Dominio
@@ -92,10 +89,6 @@ es:
       decidim/static_page:
         content: Contenido
         slug: Texto corto de URL
-        short_description: Breve descripción
-        slug: Texto corto de URL
-        subtitle: Subtítulo
-        target: ¿A quién va dirigido?
         title: Título
   decidim:
     admin:
