@@ -2,8 +2,8 @@
 
 <div class="actions">
   <hr />
-  <%= link_to t("decidim.admin.actions.edit"), ['edit', @participatory_process_step] if can? :update, @participatory_process_step %>
-  <%= link_to t("decidim.admin.actions.destroy"), @participatory_process_step, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } if can? :destroy, @participatory_process_step %>
+  <%= link_to t("decidim.admin.actions.edit"), edit_participatory_process_step_path(participatory_process, @participatory_process_step) if can? :update, @participatory_process_step %>
+  <%= link_to t("decidim.admin.actions.destroy"), participatory_process_step_path(participatory_process, @participatory_process_step), method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } if can? :destroy, @participatory_process_step %>
 </div>
 
 <dl>
@@ -12,7 +12,7 @@
     :description
     %>
   <dt><%= display_label(@participatory_process_step, :start_date) %></dt>
-  <dd><%= l @participatory_process_step.start_date, format: :short %></dd>
+  <dd><%= l @participatory_process_step.start_date, format: :short if @participatory_process_step.start_date.present? %></dd>
   <dt><%= display_label(@participatory_process_step, :end_date) %></dt>
-  <dd><%= l @participatory_process_step.end_date, format: :short %></dd>
+  <dd><%= l @participatory_process_step.end_date, format: :short if @participatory_process_step.end_date.present? %></dd>
 </dl>

@@ -89,6 +89,10 @@ es:
       decidim/static_page:
         content: Contenido
         slug: Texto corto de URL
+        short_description: Breve descripción
+        slug: Texto corto de URL
+        subtitle: Subtítulo
+        target: ¿A quién va dirigido?
         title: Título
   decidim:
     admin:

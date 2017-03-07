@@ -219,6 +219,8 @@ en:
         someone_invited_you: Someone has invited you to %{application}, you can accept it through the link below.
       invite_admin:
         subject: You've been invited to manage %{organization}
+      invite_collaborator:
+        subject: You've been invited to collaborate on %{organization}
       organization_admin_invitation_instructions:
         subject: You've been invited to manage %{organization}
       password_change:

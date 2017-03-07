@@ -1,34 +1,37 @@
 <section id="process_admins">
   <h3><%= t(".process_admins_title", scope: "decidim.admin") %></h3>
-
-  <%= decidim_form_for :participatory_process_user_role, url: participatory_process_user_roles_path(participatory_process) do |f| %>
-    <table class="stack">
-      <thead>
-        <tr>
-          <th><%= t("models.participatory_process_user_role.fields.email", scope: "decidim.admin") %></th>
-          <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% process_admin_roles.each do |role| %>
-          <tr>
-            <td>
-              <%= role.user.email %><br />
-            </td>
-            <td class="actions">
-              <%= link_to t("actions.destroy", scope: "decidim.admin"), participatory_process_user_role_path(participatory_process, role), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, role %>
-            </td>
-          </tr>
-        <% end %>
+  <table class="stack">
+    <thead>
+      <tr>
+        <th><%= t("models.participatory_process_user_role.fields.email", scope: "decidim.admin") %></th>
+        <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% process_admin_roles.each do |role| %>
         <tr>
           <td>
-            <%= f.email_field :email, label: false %>
+            <%= role.user.email %><br />
           </td>
           <td class="actions">
-            <%= f.submit t("actions.create", scope: "decidim.admin") %>
+            <%= link_to t("actions.destroy", scope: "decidim.admin"), participatory_process_user_role_path(participatory_process, role), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, role %>
           </td>
         </tr>
-      </tbody>
-    </table>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= decidim_form_for :participatory_process_user_role, url: participatory_process_user_roles_path(participatory_process) do |form| %>
+    <div class="field">
+      <%= form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= form.email_field :email %>
+    </div>
+    <div class="field">
+      <%= form.label :roles %>
+      <%= select :participatory_process_user_role, :role, Decidim::Admin::ParticipatoryProcessUserRole::ROLES, include_blank: false %>
+    </div>
+    <%= form.submit t("actions.create", scope: "decidim.admin") %>
   <% end %>
 </section>
