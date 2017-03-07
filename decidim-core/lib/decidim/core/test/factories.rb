@@ -257,6 +257,17 @@ FactoryGirl.define do
     title { generate(:name) }
     feature { create(:feature, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: feature.organization) }
+
+    trait :reported do
+      report_count 1
+      after(:create) do |reportable|
+        create(:report, reportable: reportable)
+      end
+    end
+
+    trait :hidden do
+      hidden_at Time.current
+    end
   end
 
   factory :resource_link, class: Decidim::ResourceLink do
@@ -271,6 +282,12 @@ FactoryGirl.define do
 
     subject { Decidim::Faker::Localized.sentence(3) }
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+  end
+
+  factory :report, class: Decidim::Report do
+    reportable { build(:dummy_resource) }
+    user { build(:user, organization: reportable.organization) }
+    reason "spam"
   end
 end
 

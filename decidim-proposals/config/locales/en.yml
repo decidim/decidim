@@ -88,20 +88,6 @@ en:
             scope: Scope
             state: State
             title: Title
-      proposal_reported_mailer:
-        hide:
-          hello: Hello %{name},
-          report_html: The proposal %{proposal_link} has been hidden automatically.
-          subject: A proposal has been hidden automatically
-        report:
-          hello: Hello %{name},
-          report_html: The proposal %{proposal_link} has been reported.
-          subject: A proposal has been reported
-      proposal_reports:
-        create:
-          error: An error ocurred while reporting the proposal. Please, try it again.
-          success: The proposal has been reported successfully and it will be reviewed
-            by an admin.
       proposals:
         count:
           proposals_count:

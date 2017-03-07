@@ -17,6 +17,7 @@ module Decidim
   class DummyResource < ActiveRecord::Base
     include HasFeature
     include Resourceable
+    include Reportable
     include Authorable
     include Decidim::Comments::Commentable
 
@@ -69,6 +70,8 @@ RSpec.configure do |config|
         t.text :address
         t.float :latitude
         t.float :longitude
+        t.integer :report_count, null: false, default: 0
+        t.datetime :hidden_at
 
         t.references :decidim_feature, index: true
         t.references :decidim_author, index: true

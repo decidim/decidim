@@ -34,7 +34,7 @@ module Decidim
 
       def show
         @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
-        @proposal_report_form = form(ProposalReportForm).from_params(reason: "spam")
+        @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
       def new

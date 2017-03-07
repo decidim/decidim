@@ -5,7 +5,7 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <% if resource.reported_by? current_user %>
+  <% if reportable.reported_by? current_user %>
     <p><%= t('.already_reported') %></p>
   <% else %>
     <p><%= t('.description') %></p>

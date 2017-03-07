@@ -1,9 +1,0 @@
-<p><%= t(".hello", name: @user.name) %></p>
-
-<p>
-  <%=
-    t(".report_html", {
-      proposal_link: link_to(@proposal_report.proposal.title, decidim_resource_url(@proposal_report.proposal))
-    })
-  %>
-</p>

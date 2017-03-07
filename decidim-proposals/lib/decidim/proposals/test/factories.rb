@@ -86,7 +86,7 @@ FactoryGirl.define do
     trait :reported do
       report_count 1
       after(:create) do |proposal|
-        create(:proposal_report, proposal: proposal)
+        create(:report, proposal: proposal)
       end
     end
 
@@ -98,11 +98,5 @@ FactoryGirl.define do
   factory :proposal_vote, class: Decidim::Proposals::ProposalVote do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
-  end
-
-  factory :proposal_report, class: Decidim::Proposals::ProposalReport do
-    proposal { build(:proposal) }
-    user { build(:user, organization: proposal.organization) }
-    reason "spam"
   end
 end

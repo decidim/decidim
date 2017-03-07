@@ -61,5 +61,7 @@ Decidim::Core::Engine.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
+  resource :report, only: [:create]
+
   root to: "pages#show", id: "home"
 end

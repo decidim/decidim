@@ -80,4 +80,10 @@
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>
 
-<%= render partial: "decidim/shared/flag_modal", locals: { resource: @proposal, form: @proposal_report_form, url: proposal_proposal_report_path(@proposal) } %>
+<%=
+  render partial: "decidim/shared/flag_modal", locals: {
+    reportable: @proposal,
+    form: @report_form,
+    url: decidim.report_path(sgid: @proposal.to_sgid.to_s)
+  }
+%>
