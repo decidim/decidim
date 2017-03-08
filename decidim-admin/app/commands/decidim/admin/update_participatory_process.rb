@@ -60,13 +60,8 @@ module Decidim
           participatory_structure: form.participatory_structure,
           meta_scope: form.meta_scope,
           end_date: form.end_date,
-          participatory_process_group: participatory_process_group
+          participatory_process_group: form.participatory_process_group
         }
-      end
-
-      def participatory_process_group
-        return unless form.participatory_process_group_id == 0
-        Decidim::ParticipatoryProcessGroup.where(id: form.participatory_process_group_id).first
       end
     end
   end
