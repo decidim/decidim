@@ -7,7 +7,9 @@ module Decidim
 
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
+
       include NeedsAuthorization
+      skip_authorization_check
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper

@@ -6,8 +6,10 @@ module Decidim
     class RegistrationsController < ::Devise::RegistrationsController
       include Decidim::NeedsOrganization
       include Decidim::LocaleSwitcher
-      include NeedsAuthorization
       include FormFactory
+
+      include NeedsAuthorization
+      skip_authorization_check
 
       helper Decidim::TranslationsHelper
       helper Decidim::OmniauthHelper
