@@ -43,8 +43,6 @@ module Decidim
             participatory_processes: participatory_processes,
             organization: form.current_organization
           )
-
-          group
         end
       end
 
