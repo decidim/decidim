@@ -7,6 +7,7 @@ require "jquery-rails"
 require "sassc-rails"
 require "foundation-rails"
 require "foundation_rails_helper"
+require "autoprefixer-rails"
 
 require "decidim/comments/query_extensions"
 require "decidim/comments/mutation_extensions"
