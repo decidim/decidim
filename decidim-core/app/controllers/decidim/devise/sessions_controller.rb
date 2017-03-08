@@ -3,21 +3,8 @@ module Decidim
   module Devise
     # Custom Devise SessionsController to avoid namespace problems.
     class SessionsController < ::Devise::SessionsController
-      include Decidim::NeedsOrganization
-      include Decidim::LocaleSwitcher
-
-      include NeedsAuthorization
-      skip_authorization_check
-
-      helper Decidim::TranslationsHelper
+      include Decidim::DeviseControllers
       helper Decidim::OmniauthHelper
-      helper Decidim::MetaTagsHelper
-      helper Decidim::DecidimFormHelper
-      helper Decidim::LanguageChooserHelper
-      helper Decidim::CookiesHelper
-      helper Decidim::ReplaceButtonsHelper
-
-      layout "layouts/decidim/application"
 
       def after_sign_in_path_for(user)
         return first_login_authorizations_path if first_login_and_not_authorized?(user) &&
