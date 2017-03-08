@@ -30,7 +30,7 @@ module Decidim
     # positioning.
     def set_position
       return if position.present?
-      return self.position = 0 if participatory_process.steps.empty?
+      return self.position = 0 if participatory_process.steps.select(&:persisted?).empty?
 
       self.position = participatory_process.steps.pluck(:position).last + 1
     end
