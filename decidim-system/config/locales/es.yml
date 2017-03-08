@@ -54,9 +54,12 @@ es:
         create:
           error: Se ha producido un error al crear una nueva organización.
           success: Organización creada correctamente.
+        edit:
+          secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
         index:
           title: Organizaciones
         new:
+          secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
           title: Nueva organización
         update:
           error: Se ha producido un error al actualizar esta organización.

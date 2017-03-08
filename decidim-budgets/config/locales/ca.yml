@@ -53,7 +53,7 @@ ca:
           title: Confirmar vot
         budget_excess:
           close: Tancar
-          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votart amb les seves preferències.
+          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport amb les seves preferències.
           ok: D'acord
           title: Pressupost superat
         budget_summary:
@@ -63,7 +63,7 @@ ca:
           checked_out:
             description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
             title: Vot pels pressupostos completat
-          description: En quins projectes creus que hem de destinar el pressupost? Has d'assignar com a mínim %{minimum_budget} als projectes que desitges i votar amb les teves preferències per definir el pressupost.
+          description: En quins projectes creus que hem de destinar el pressupost? Has d'assignar com a mínim %{minimum_budget} als projectes que desitges i donar suport amb les teves preferències per definir el pressupost.
           title: Tu decideixes el pressupost
         count:
           projects_count:
@@ -74,7 +74,7 @@ ca:
           scopes: Àmbits
           search: Cerca
         order_progress:
-          vote: Votar
+          vote: Donar suport
         order_selected_projects:
           remove: Esborrar
           selected_projects:
@@ -96,7 +96,7 @@ ca:
     features:
       budgets:
         actions:
-          vote: Votar
+          vote: Donar suport
         name: Pressupostos
         settings:
           global:

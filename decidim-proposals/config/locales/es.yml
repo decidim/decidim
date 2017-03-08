@@ -16,7 +16,7 @@ es:
       proposals:
         actions:
           create: Crear propuestas
-          vote: Votar
+          vote: Dar apoyo
         name: Propuestas
         settings:
           global:
@@ -150,15 +150,15 @@ es:
         vote_button:
           already_voted: Ya votado
           no_votes_remaining: No hay votos restantes
-          vote: Votar
+          vote: Dar apoyo
           votes_blocked: Votación desactivada
         votes_count:
           count:
-            one: VOTAR
-            other: VOTOS
+            one: APOYO
+            other: APOYOS
         votes_limit:
           vote_limit:
-            description: En lugar de votación tantas propuestas como desee, sólo se puede votar hasta %{limit} propuestas.
+            description: En lugar de dar apoyo tantas propuestas como se desee, sólo se puede dar apoyo hasta %{limit} propuestas.
             left: Restante
             title: Tiene %{limit} votos a distribuir
             votes: Votos

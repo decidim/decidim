@@ -218,6 +218,8 @@ es:
         someone_invited_you: Alguien te ha invitado a %{application}, puedes aceptar la invitación con el enlace a continuación.
       invite_admin:
         subject: Has sido invitado para gestionar %{organization}
+      invite_collaborator:
+        subject: Has sido invitado a colaborar en %{organization}
       organization_admin_invitation_instructions:
         subject: Has sido invitado para gestionar %{organization}
       password_change:
