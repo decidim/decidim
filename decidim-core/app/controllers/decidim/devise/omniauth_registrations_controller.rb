@@ -4,18 +4,7 @@ module Decidim
     # This controller customizes the behaviour of Devise::Omniauthable.
     class OmniauthRegistrationsController < ::Devise::OmniauthCallbacksController
       include FormFactory
-
-      include Decidim::NeedsOrganization
-      include Decidim::LocaleSwitcher
-
-      helper Decidim::TranslationsHelper
-      helper Decidim::MetaTagsHelper
-      helper Decidim::DecidimFormHelper
-      helper Decidim::LanguageChooserHelper
-      helper Decidim::CookiesHelper
-      helper Decidim::ReplaceButtonsHelper
-
-      layout "layouts/decidim/application"
+      include Decidim::DeviseControllers
 
       def new
         @form = form(OmniauthRegistrationForm).from_params(params[:user])

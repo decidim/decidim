@@ -4,21 +4,12 @@ module Decidim
     # This controller customizes the behaviour of Devise's
     # RegistrationsController so we can specify a custom layout.
     class RegistrationsController < ::Devise::RegistrationsController
-      include Decidim::NeedsOrganization
-      include Decidim::LocaleSwitcher
       include FormFactory
+      include Decidim::DeviseControllers
 
-      helper Decidim::TranslationsHelper
       helper Decidim::OmniauthHelper
-      helper Decidim::MetaTagsHelper
-      helper Decidim::DecidimFormHelper
-      helper Decidim::LanguageChooserHelper
-      helper Decidim::CookiesHelper
-      helper Decidim::ReplaceButtonsHelper
-
       helper_method :terms_and_conditions_page
 
-      layout "layouts/decidim/application"
       before_action :configure_permitted_parameters
       helper_method :terms_and_conditions_page
 
