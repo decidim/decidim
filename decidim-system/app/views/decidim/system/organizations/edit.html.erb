@@ -7,6 +7,11 @@
     <%= f.text_field :host %>
   </div>
 
+  <div class="field">
+    <%= f.text_area :secondary_hosts %>
+    <p class="help-text"><%= t(".secondary_hosts_hint") %></p>
+  </div>
+
   <div class="actions">
     <%= f.submit t("decidim.system.actions.save") %>
   </div>

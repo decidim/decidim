@@ -55,9 +55,12 @@ en:
         create:
           error: There was an error when creating a new organization.
           success: Organization created successfully.
+        edit:
+          secondary_hosts_hint: Enter each one of them in a new line
         index:
           title: Organizations
         new:
+          secondary_hosts_hint: Enter each one of them in a new line
           title: New organization
         update:
           error: There was an error when updating this organization.

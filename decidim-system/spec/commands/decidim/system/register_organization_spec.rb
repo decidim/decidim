@@ -16,6 +16,7 @@ module Decidim
             {
               name: "Gotham City",
               host: "decide.gotham.gov",
+              secondary_hosts: "foo.gotham.gov\r\n\r\nbar.gotham.gov",
               reference_prefix: "JKR",
               organization_admin_name: "Fiorello Henry La Guardia",
               organization_admin_email: "f.laguardia@gotham.gov",
@@ -34,6 +35,7 @@ module Decidim
 
             expect(organization.name).to eq("Gotham City")
             expect(organization.host).to eq("decide.gotham.gov")
+            expect(organization.secondary_hosts).to match_array(["foo.gotham.gov", "bar.gotham.gov"])
           end
 
           it "invites a user as organization admin" do

@@ -20,6 +20,7 @@ describe "Organizations", type: :feature do
       it "creates a new organization" do
         fill_in "Name", with: "Citizen Corp"
         fill_in "Host", with: "www.citizen.corp"
+        fill_in "Secondary hosts", with: "foo.citizen.corp\n\rbar.citizen.corp"
         fill_in "Reference prefix", with: "CCORP"
         fill_in "Organization admin name", with: "City Mayor"
         fill_in "Organization admin email", with: "mayor@citizen.corp"
@@ -54,6 +55,7 @@ describe "Organizations", type: :feature do
       it "edits the data" do
         fill_in "Name", with: "Citizens Rule!"
         fill_in "Host", with: "www.foo.org"
+        fill_in "Secondary hosts", with: "foobar.citizen.corp\n\rbar.citizen.corp"
         click_button "Save"
 
         expect(page).to have_css("div.flash.success")

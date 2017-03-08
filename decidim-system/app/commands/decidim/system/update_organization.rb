@@ -42,6 +42,7 @@ module Decidim
       def save_organization
         organization.name = form.name
         organization.host = form.host
+        organization.secondary_hosts = form.clean_secondary_hosts
 
         organization.save!
       end
