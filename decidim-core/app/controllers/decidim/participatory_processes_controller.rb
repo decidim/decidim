@@ -11,7 +11,7 @@ module Decidim
 
     skip_after_action :verify_participatory_process, only: [:index]
 
-    helper_method :collection, :promoted_participatory_processes
+    helper_method :collection, :promoted_participatory_processes, :participatory_processes
 
     def index
       authorize! :read, ParticipatoryProcess
@@ -25,7 +25,15 @@ module Decidim
     private
 
     def collection
-      @collection ||= PublicProcesses.new(current_organization).collection
+      @collection ||= public_processes.collection
+    end
+
+    def participatory_processes
+      @participatory_processes ||= public_processes.participatory_processes
+    end
+
+    def public_processes
+      @public_processes ||= PublicProcesses.new(current_organization)
     end
 
     def promoted_participatory_processes

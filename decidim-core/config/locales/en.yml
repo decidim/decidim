@@ -151,6 +151,10 @@ en:
     pages:
       index:
         title: More information
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Processes for %{group}
+        title: Title
     participatory_process_steps:
       index:
         process_steps: Process steps
@@ -256,6 +260,9 @@ en:
         navigation: Navigation
         sign_in: Sign In
         sign_up: Sign Up
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Browse
       participatory_processes:
         index:
           promoted_processes: Highlighted processes

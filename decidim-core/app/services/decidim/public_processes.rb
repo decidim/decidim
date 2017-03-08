@@ -11,13 +11,13 @@ module Decidim
       (participatory_processes + participatory_process_groups).flatten
     end
 
+    def participatory_processes
+      @participatory_processes ||= Decidim::ParticipatoryProcess.where(organization: organization).published
+    end
+
     private
 
     attr_reader :organization
-
-    def participatory_processes
-      Decidim::ParticipatoryProcess.where(organization: organization).published
-    end
 
     def participatory_process_groups
       Decidim::ParticipatoryProcessGroup.where(organization: organization)
