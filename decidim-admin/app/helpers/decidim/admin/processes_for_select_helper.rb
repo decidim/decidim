@@ -5,7 +5,6 @@ module Decidim
     # in order to use them in select forms.
     #
     module ProcessesForSelectHelper
-
       # Public: A formatted collection of ParticipatoryProcesses to be used
       # in forms.
       #
