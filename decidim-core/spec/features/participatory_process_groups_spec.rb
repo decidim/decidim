@@ -40,4 +40,33 @@ describe "Participatory Process Groups", type: :feature do
       expect(current_path).to eq decidim.participatory_process_group_path(participatory_process_group)
     end
   end
+
+  describe "show" do
+    let!(:participatory_process_group) { create(:participatory_process_group, organization: organization) }
+    let!(:group_processes) { create_list(:participatory_process, 2, :published, organization: organization, participatory_process_group: participatory_process_group) }
+    let!(:unpublished_group_processes) { create_list(:participatory_process, 2, :unpublished, organization: organization, participatory_process_group: participatory_process_group) }
+
+    before do
+      visit decidim.participatory_process_group_path(participatory_process_group)
+    end
+
+    it "lists all the processes" do
+      within "#processes-grid" do
+        within "#processes-grid h2" do
+          expect(page).to have_content("2")
+        end
+
+        expect(page).to have_content(translated(group_processes.first.title, locale: :en))
+        expect(page).to have_selector("article.card", count: 2)
+
+        expect(page).not_to have_content(translated(unpublished_group_processes.first.title, locale: :en))
+      end
+    end
+
+    it "links to the individial process page" do
+      click_link(translated(group_processes.first.title, locale: :en))
+
+      expect(current_path).to eq decidim.participatory_process_path(group_processes.first)
+    end
+  end
 end

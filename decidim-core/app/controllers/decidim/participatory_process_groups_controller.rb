@@ -12,7 +12,7 @@ module Decidim
     private
 
     def participatory_processes
-      @participatory_processes ||= group.participatory_processes
+      @participatory_processes ||= group.participatory_processes.published
     end
 
     def group

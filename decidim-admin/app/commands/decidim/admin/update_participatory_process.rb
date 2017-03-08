@@ -66,7 +66,7 @@ module Decidim
 
       def participatory_process_group
         return unless form.participatory_process_group_id == 0
-        Decidim::ParticipatoryProcessGroup.find(form.participatory_process_group_id)
+        Decidim::ParticipatoryProcessGroup.where(id: form.participatory_process_group_id).first
       end
     end
   end

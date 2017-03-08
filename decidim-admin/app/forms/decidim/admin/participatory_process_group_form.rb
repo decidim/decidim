@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 module Decidim
   module Admin
+    # A form object used to create participatory process groups from the admin
+    # dashboard.
+    #
     class ParticipatoryProcessGroupForm < Form
       include TranslatableAttributes
 
