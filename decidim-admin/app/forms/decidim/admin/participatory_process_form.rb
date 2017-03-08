@@ -43,7 +43,6 @@ module Decidim
       end
 
       def participatory_process_group
-        return if participatory_process_group_id == 0
         Decidim::ParticipatoryProcessGroup.where(id: participatory_process_group_id).first
       end
 
