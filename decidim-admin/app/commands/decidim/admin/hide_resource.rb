@@ -30,7 +30,7 @@ module Decidim
       end
 
       def hide!
-        @reportable.update_attributes!(hidden_at: Time.current)
+        @reportable.moderation.update_attributes!(hidden_at: Time.current)
       end
     end
   end

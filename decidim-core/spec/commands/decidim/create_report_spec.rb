@@ -44,12 +44,18 @@ module Decidim
         end
 
         it "creates a report" do
+          byebug
           command.call
           last_report = Report.last
-
-          expect(last_report.reportable).to eq(reportable)
+          byebug
           expect(last_report.user).to eq(user)
-          expect(reportable.reload.report_count).to eq(1)
+        end
+
+        it "creates a moderation" do
+          command.call
+          last_moderation = Moderation.last
+
+          expect(last_moderation.reportable).to eq(reportable)
         end
 
         it "sends an email to the admin" do
@@ -67,6 +73,15 @@ module Decidim
             (Decidim.max_reports_before_hiding - 1).times do
               described_class.new(form, reportable, create(:user, organization: organization)).call
             end
+          end
+
+          it "doesn't create an additional moderation" do
+            expect {
+              command.call
+            }.to_not change { Moderation.count }
+
+            last_moderation = Moderation.last
+            expect(last_moderation.report_count).to eq(3)
           end
 
           it "marks the reportable as hidden" do

@@ -4,20 +4,20 @@ module Decidim
   class Report < ApplicationRecord
     REASONS = %w(spam offensive does_not_belong).freeze
 
-    belongs_to :reportable, foreign_key: "decidim_reportable_id", foreign_type: "decidim_reportable_type", polymorphic: true
+    belongs_to :moderation, foreign_key: "decidim_moderation_id", class_name: Decidim::Moderation
     belongs_to :user, foreign_key: "decidim_user_id", class_name: Decidim::User
 
-    validates :reportable, :user, :reason, presence: true
-    validates :user, uniqueness: { scope: [:decidim_reportable_id, :decidim_reportable_type] }
+    validates :moderation, :user, :reason, presence: true
+    validates :user, uniqueness: { scope: :decidim_moderation_id }
     validates :reason, inclusion: { in: REASONS }
-    validate :user_and_reportable_same_organization
+    validate :user_and_moderation_same_organization
 
     private
 
-    # Private: check if the reportable and the user have the same organization
-    def user_and_reportable_same_organization
-      return if !reportable || !user
-      errors.add(:reportable, :invalid) unless user.organization == reportable.organization
+    # Private: check if the moderation and the user have the same organization
+    def user_and_moderation_same_organization
+      return if !moderation || !user
+      errors.add(:moderation, :invalid) unless user.organization == moderation.organization
     end
   end
 end

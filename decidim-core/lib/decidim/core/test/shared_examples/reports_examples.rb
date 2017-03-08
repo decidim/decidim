@@ -42,7 +42,8 @@ RSpec.shared_examples "reports" do
 
     context "and the user has reported the resource previously" do
       before do
-        create(:report, reportable: reportable, user: user, reason: "spam")
+        moderation = create(:moderation, reportable: reportable, participatory_process: participatory_process)
+        create(:report, moderation: moderation, user: user, reason: "spam")
       end
 
       it "cannot report it twice" do

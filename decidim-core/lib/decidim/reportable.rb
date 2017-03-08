@@ -7,12 +7,12 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_many :reports, as: :reportable, foreign_key: "decidim_reportable_id", foreign_type: "decidim_reportable_type", class_name: "Decidim::Report"
+      has_one :moderation, as: :reportable, foreign_key: "decidim_reportable_id", foreign_type: "decidim_reportable_type", class_name: "Decidim::Moderation"
+      has_many :reports, through: :moderation
 
-      scope :reported,   -> { where("report_count > 0") }
-
-      scope :not_hidden, -> { where(hidden_at: nil) }
-      scope :hidden,     -> { where.not(hidden_at: nil) }
+      scope :reported, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:report_count].gt 0) }
+      scope :hidden, -> { left_outer_joins(:moderation).where.not(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
+      scope :not_hidden, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
 
       # Public: Check if the user has reported the proposal.
       #
@@ -25,14 +25,14 @@ module Decidim
       #
       # Returns Boolean.
       def hidden?
-        hidden_at.present?
+        moderation&.hidden_at.present?
       end
 
       # Public: Checks if the proposal has been reported or not.
       #
       # Returns Boolean.
       def reported?
-        report_count > 0
+        moderation&.report_count > 0
       end
 
       # Public: The reported content

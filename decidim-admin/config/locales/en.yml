@@ -203,6 +203,7 @@ en:
           features: Features
           info: Info
           process_admins: Process admins
+          reports: Reports
           settings: Settings
           steps: Steps
         scopes: Scopes

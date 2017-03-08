@@ -23,6 +23,7 @@ module Decidim
       return broadcast(:invalid) if form.invalid?
 
       transaction do
+        find_or_create_moderation!
         create_report!
         update_report_count!
       end
@@ -41,9 +42,13 @@ module Decidim
 
     attr_reader :form, :report
 
+    def find_or_create_moderation!
+      @moderation = Moderation.find_or_create_by!(reportable: @reportable, participatory_process: participatory_process)
+    end
+
     def create_report!
       @report = Report.create!(
-        reportable: @reportable,
+        moderation: @moderation,
         user: @current_user,
         reason: form.reason,
         details: form.details
@@ -51,11 +56,11 @@ module Decidim
     end
 
     def update_report_count!
-      @reportable.update_attributes!(report_count: @reportable.report_count + 1)
+      @moderation.update_attributes!(report_count: @moderation.report_count + 1)
     end
 
     def participatory_process_admins
-      @participatory_process_admins ||= Decidim::Admin::ProcessAdmins.for(@reportable.feature.participatory_process)
+      @participatory_process_admins ||= Decidim::Admin::ProcessAdmins.for(participatory_process)
     end
 
     def send_report_notification_to_admins
@@ -65,7 +70,7 @@ module Decidim
     end
 
     def hideable?
-      !@reportable.hidden? && @reportable.report_count >= Decidim.max_reports_before_hiding
+      !@reportable.hidden? && @moderation.report_count >= Decidim.max_reports_before_hiding
     end
 
     def hide!
@@ -76,6 +81,10 @@ module Decidim
       participatory_process_admins.each do |admin|
         ReportedMailer.hide(admin, @report).deliver_later
       end
+    end
+
+    def participatory_process
+      @participatory_process ||= @reportable.feature.participatory_process
     end
   end
 end

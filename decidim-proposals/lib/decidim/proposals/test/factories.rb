@@ -84,9 +84,13 @@ FactoryGirl.define do
     end
 
     trait :reported do
-      report_count 1
-      after(:create) do |proposal|
-        create(:report, proposal: proposal)
+      after(:create) do |reportable|
+        moderation = create(:moderation, {
+          reportable: reportable,
+          participatory_process: reportable.feature.participatory_process,
+          report_count: 1
+        })
+        create(:report, moderation: moderation)
       end
     end
 

@@ -17,6 +17,7 @@ describe Decidim::Admin::Abilities::AdminUser do
 
   it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcess) }
   it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcessStep) }
+  it { is_expected.to be_able_to(:manage, Decidim::Report) }  
   it { is_expected.to be_able_to(:manage, Decidim::Attachment) }
   it { is_expected.to be_able_to(:manage, Decidim::Scope) }
   it { is_expected.to be_able_to(:manage, :admin_users) }
@@ -33,8 +34,8 @@ describe Decidim::Admin::Abilities::AdminUser do
   it { is_expected.to be_able_to(:read, Decidim::User) }
   it { is_expected.to be_able_to(:invite, Decidim::User) }
 
-  it { is_expected.to be_able_to(:index, Decidim::UserGroup) }  
-  it { is_expected.to be_able_to(:verify, Decidim::UserGroup) }  
+  it { is_expected.to be_able_to(:index, Decidim::UserGroup) }
+  it { is_expected.to be_able_to(:verify, Decidim::UserGroup) }
 
   context "when a page is a default one" do
     let(:page) { build(:static_page, :default) }

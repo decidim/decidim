@@ -5,8 +5,12 @@ require "spec_helper"
 describe "Admin manages proposals", type: :feature do
   include_context "admin"
   it_behaves_like "manage proposals"
+  it_behaves_like "manage reports"
   include_context "feature"
   let(:manifest_name) { "proposals" }
+
+  let!(:reported_resources) { create_list(:proposal, 3, :reported, feature: current_feature) }
+  let!(:hidden_resources) { create_list(:proposal, 3, :hidden, feature: current_feature) }
 
   before do
     switch_to_host(organization.host)

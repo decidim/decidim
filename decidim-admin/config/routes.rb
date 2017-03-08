@@ -24,6 +24,8 @@ Decidim::Admin::Engine.routes.draw do
           put :unpublish
         end
       end
+
+      resources :reports
     end
 
     scope "/participatory_processes/:participatory_process_id/features/:feature_id/manage" do
