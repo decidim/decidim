@@ -54,9 +54,12 @@ ca:
         create:
           error: S'ha produït un error en crear una nova organització.
           success: L'organització s'ha creat correctament.
+        edit:
+          secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
         index:
           title: Organitzacions
         new:
+          secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
           title: Nova organització
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
