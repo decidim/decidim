@@ -3,7 +3,8 @@ require "spec_helper"
 
 shared_examples_for "reportable" do
   let(:user) { create(:user, organization: subject.organization) }
-  let(:moderation) { create(:moderation, reportable: subject, participatory_process: subject.feature.participatory_process, report_count: 1) }
+  let(:participatory_process) { subject.feature.participatory_process }
+  let(:moderation) { create(:moderation, reportable: subject, participatory_process: participatory_process, report_count: 1) }
   let!(:report) { create(:report, moderation: moderation, user: user) }
 
   describe "#reported_by?" do
@@ -24,14 +25,14 @@ shared_examples_for "reportable" do
     end
 
     context "when the resource has been hidden" do
-      let(:moderation) { create(:moderation, reportable: subject, participatory_process: subject.feature.participatory_process, report_count: 1, hidden_at: Time.current) }
+      let(:moderation) { create(:moderation, reportable: subject, participatory_process: participatory_process, report_count: 1, hidden_at: Time.current) }
       it { expect(subject).to be_hidden }
     end
   end
 
   context "#reported?" do
     context "when the report count is equal to 0" do
-      let(:moderation) { create(:moderation, reportable: subject, participatory_process: subject.feature.participatory_process, report_count: 0) }
+      let(:moderation) { create(:moderation, reportable: subject, participatory_process: participatory_process, report_count: 0) }
       let!(:report) { nil }
       it { expect(subject).not_to be_reported }
     end

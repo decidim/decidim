@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+require "decidim/core/test/factories"
+require "decidim/admin/test/factories"
+
 FactoryGirl.define do
   factory :comment, class: "Decidim::Comments::Comment" do
     author { build(:user, organization: commentable.organization) }

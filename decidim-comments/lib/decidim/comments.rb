@@ -1,5 +1,7 @@
 # frozen_string_literal: true
+require "decidim/comments/admin"
 require "decidim/comments/engine"
+require "decidim/comments/admin_engine"
 
 module Decidim
   # This module contains all the logic related to the comments feature.

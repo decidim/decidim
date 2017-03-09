@@ -13,6 +13,7 @@ module Decidim
       subject { comment }
 
       include_examples "authorable"
+      include_examples "reportable"
 
       it "is valid" do
         expect(subject).to be_valid
