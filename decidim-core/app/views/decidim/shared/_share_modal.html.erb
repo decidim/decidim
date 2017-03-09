@@ -12,11 +12,11 @@
     </button>
   </div>
   <div class="button-group text-center">
-  <%= social_share_button_tag(content_for(:meta_title),
-        url: content_for(:meta_url),
-        image: content_for(:meta_image_url),
-        desc: content_for(:meta_description),
-        via: content_for(:twitter_handler)) %>
+  <%= social_share_button_tag(decidim_page_title,
+        url: decidim_meta_url,
+        image: decidim_meta_image_url,
+        desc: decidim_meta_description,
+        via: decidim_meta_twitter_handler) %>
     <a class="button secondary" data-open="urlShare">
       <%= icon "link-intact" %>
     </a>
