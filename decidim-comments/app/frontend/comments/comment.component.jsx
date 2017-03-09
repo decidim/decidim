@@ -1,4 +1,4 @@
-/* eslint-disable max-lines */
+/* eslint-disable max-lines, camelcase */
 import { Component, PropTypes } from 'react';
 import { propType }             from 'graphql-anywhere';
 import gql                      from 'graphql-tag';
@@ -283,7 +283,7 @@ class Comment extends Component {
                   </label>
                   <label htmlFor={`report_comment_${id}_reason_does_not_belong`}>
                     <input type="radio" value="does_not_belong" name="report[reason]" id={`report_comment_${id}_reason_does_not_belong`} />
-                    { I18n.t("components.comment.report.reasons.does_not_belong") }
+                    { I18n.t("components.comment.report.reasons.does_not_belong", { organization_name: session.user.organizationName }) }
                   </label>
                   <label htmlFor={`report_comment_${id}_details`}>
                     { I18n.t("components.comment.report.details") }

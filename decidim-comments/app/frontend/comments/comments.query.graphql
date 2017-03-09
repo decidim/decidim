@@ -3,6 +3,7 @@ query GetComments($commentableId: String!, $commentableType: String!, $orderBy: 
     user {
       name
       avatarUrl
+      organizationName
     }
     ...AddCommentFormSession
   }

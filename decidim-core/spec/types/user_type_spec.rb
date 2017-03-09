@@ -23,5 +23,13 @@ module Decidim
         expect(response).to include("avatarUrl" => model.avatar.url)
       end
     end
+
+    describe "organizationName" do
+      let (:query) { "{ organizationName }" }
+
+      it "returns the user's organization name" do
+        expect(response).to include("organizationName" => model.organization.name)
+      end
+    end
   end
 end
