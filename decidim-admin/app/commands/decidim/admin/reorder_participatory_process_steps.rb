@@ -36,6 +36,7 @@ module Decidim
 
         ParticipatoryProcessStep.transaction do
           collection.update_all(position: nil)
+          collection.reload
           collection.update(data.keys, data.values)
         end
       end

@@ -29,8 +29,10 @@ module Decidim
       private
 
       def reorder_steps
+        steps = @participatory_process.steps.reload
+
         ReorderParticipatoryProcessSteps
-          .new(@participatory_process.steps, @participatory_process.steps.map(&:id))
+          .new(steps, steps.map(&:id))
           .call
       end
     end
