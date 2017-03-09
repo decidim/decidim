@@ -63,7 +63,7 @@ module Decidim
     end
 
     def step_settings
-      participatory_process.steps.each_with_object({}) do |step, result|
+      participatory_process.steps.reload.each_with_object({}) do |step, result|
         result[step.id.to_s] = settings_schema(:step).new(self[:settings].dig("steps", step.id.to_s))
       end
     end
