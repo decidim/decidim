@@ -82,21 +82,6 @@ FactoryGirl.define do
       answer { Decidim::Faker::Localized.sentence }
       answered_at { Time.current }
     end
-
-    trait :reported do
-      after(:create) do |reportable|
-        moderation = create(:moderation, {
-          reportable: reportable,
-          participatory_process: reportable.feature.participatory_process,
-          report_count: 1
-        })
-        create(:report, moderation: moderation)
-      end
-    end
-
-    trait :hidden do
-      hidden_at Time.current
-    end
   end
 
   factory :proposal_vote, class: Decidim::Proposals::ProposalVote do

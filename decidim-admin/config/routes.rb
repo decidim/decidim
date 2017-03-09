@@ -25,7 +25,12 @@ Decidim::Admin::Engine.routes.draw do
         end
       end
 
-      resources :reports
+      resources :moderations do
+        member do
+          put :unreport
+          put :hide
+        end
+      end
     end
 
     scope "/participatory_processes/:participatory_process_id/features/:feature_id/manage" do

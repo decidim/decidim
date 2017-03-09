@@ -26,7 +26,7 @@ module Decidim
       private
 
       def unreport!
-        @reportable.update_attributes!(report_count: 0, hidden_at: nil)
+        @reportable.moderation.update_attributes!(report_count: 0, hidden_at: nil)
       end
     end
   end

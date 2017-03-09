@@ -33,8 +33,8 @@ module Decidim
             role.user != user
           end
 
-          can :manage, Report do |report|
-            participatory_processes.include?(report.feature.participatory_process)
+          can :manage, Moderation do |moderation|
+            participatory_processes.include?(moderation.participatory_process)
           end
 
           can :manage, Attachment do |attachment|

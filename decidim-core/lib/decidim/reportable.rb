@@ -25,14 +25,14 @@ module Decidim
       #
       # Returns Boolean.
       def hidden?
-        moderation&.hidden_at.present?
+        moderation&.hidden_at&.present?
       end
 
       # Public: Checks if the proposal has been reported or not.
       #
       # Returns Boolean.
       def reported?
-        moderation&.report_count > 0
+        moderation&.report_count&.positive?
       end
 
       # Public: The reported content

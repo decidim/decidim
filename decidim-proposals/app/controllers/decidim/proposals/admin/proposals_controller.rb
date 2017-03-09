@@ -29,46 +29,10 @@ module Decidim
           end
         end
 
-        def unreport
-          authorize! :unreport, proposal
-
-          Admin::UnreportProposal.call(proposal) do
-            on(:ok) do
-              flash[:notice] = I18n.t("proposals.unreport.success", scope: "decidim.proposals.admin")
-              redirect_to proposals_path(reported: true)
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("proposals.unreport.invalid", scope: "decidim.proposals.admin")
-              redirect_to proposals_path(reported: true)
-            end
-          end
-        end
-
-        def hide
-          authorize! :hide, proposal
-
-          Admin::HideProposal.call(proposal) do
-            on(:ok) do
-              flash[:notice] = I18n.t("proposals.hide.success", scope: "decidim.proposals.admin")
-              redirect_to proposals_path(reported: true)
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("proposals.hide.invalid", scope: "decidim.proposals.admin")
-              redirect_to proposals_path(reported: true)
-            end
-          end
-        end
-
         private
 
         def proposals
-          @proposals ||= begin
-            proposals = Proposal.where(feature: current_feature)
-            proposals = proposals.reported if params[:reported]
-            proposals = params[:hidden] ? proposals.hidden : proposals.not_hidden
-          end
+          @proposals ||= Proposal.where(feature: current_feature)
         end
 
         def proposal

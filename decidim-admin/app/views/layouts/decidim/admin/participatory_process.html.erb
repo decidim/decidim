@@ -21,9 +21,9 @@
             <%= aria_selected_link_to t("features", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_features_path(participatory_process) %>
           </li>
         <% end %>
-        <% if can? :read, Decidim::Report %>
+        <% if can? :read, Decidim::Moderation %>
           <li class="tabs-title">
-            <%= aria_selected_link_to t("reports", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_reports_path(participatory_process) %>
+            <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_moderations_path(participatory_process) %>
           </li>
         <% end %>
         <% if can? :read, Decidim::Category %>
