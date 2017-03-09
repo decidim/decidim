@@ -1,5 +1,5 @@
 <p><%= t(".hello", name: @user.name) %></p>
 
 <p>
-  <%= t(".report_html", { content: @report.reportable.reported_content }) %>
+  <%= t(".report_html", { content: reported_content.html_safe }) %>
 </p>

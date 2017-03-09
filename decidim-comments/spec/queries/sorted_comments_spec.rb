@@ -31,6 +31,17 @@ describe Decidim::Comments::SortedComments do
     expect(subject.query).to eq [previous_comment, comment, future_comment]
   end
 
+  context "when the comment is hidden" do
+    before do
+      moderation = create(:moderation, reportable: comment, participatory_process: comment.feature.participatory_process, report_count: 1, hidden_at: Time.current)
+      create(:report, moderation: moderation)
+    end
+
+    it "is not included in the query" do
+      expect(subject.query).to be_empty
+    end
+  end
+
   context "When order_by is not default" do
     context "When order by recent" do
       let!(:order_by) {"recent"}

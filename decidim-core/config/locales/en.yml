@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      report:
+        details: Additional comments
       user:
         email: Your email
         name: Your name
@@ -10,8 +12,6 @@ en:
         user_group_document_number: Organization document number
         user_group_name: Organization name
         user_group_phone: Organization phone
-      report:
-        details: Additional comments
   activerecord:
     attributes:
       decidim/user:
@@ -179,11 +179,11 @@ en:
     reported_mailer:
       hide:
         hello: Hello %{name},
-        report_html: <p>The following content:<p>%{content}<p>has been hidden automatically.</p>
+        report_html: "<p>The following content:<p>%{content}<p>has been hidden automatically.</p>"
         subject: A resource has been hidden automatically
       report:
         hello: Hello %{name},
-        report_html: <p>The following content:<p>%{content}<p>has been reported.</p>
+        report_html: "<p>The following content:<p>%{content}<p>has been reported.</p>"
         subject: A resource has been reported
     reports:
       create:
@@ -209,10 +209,10 @@ en:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
         description: Is this content inappropriate?
-        does_not_belong: This proposal contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
-        offensive: This proposal contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         report: Report
-        spam: This proposal contains clickbait, advertising, scams or script bots.
+        spam: Contains clickbait, advertising, scams or script bots.
         title: Report a problem
       login_modal:
         please_sign_in: Please sign in

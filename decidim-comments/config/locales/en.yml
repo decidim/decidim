@@ -46,9 +46,9 @@ en:
           description: Is this content inappropriate?
           details: Additional comments
           reasons:
-            does_not_belong: This proposal contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
-            offensive: This proposal contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
-            spam: This proposal contains clickbait, advertising, scams or script bots.
+            does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+            offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+            spam: Contains clickbait, advertising, scams or script bots.
           title: Report a problem
       comment_order_selector:
         order:

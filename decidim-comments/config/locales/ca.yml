@@ -45,9 +45,9 @@ ca:
           description: Aquest contingut no és apropiat?
           details: Comentaris addicionals
           reasons:
-            does_not_belong: Aquesta proposta conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
-            offensive: Aquesta proposta conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
-            spam: Aquesta proposta conté "clickbait", publicitat o estafes.
+            does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
+            offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
+            spam: Conté "clickbait", publicitat o estafes.
           title: Denuncia un problema
       comment_order_selector:
         order:

@@ -7,7 +7,8 @@ module Decidim
     let(:user) { create(:user, :admin, organization: organization) }
     let(:feature) { create(:feature, organization: organization) }
     let(:reportable) { create(:dummy_resource, feature: feature) }
-    let(:report) { create(:report, reportable: reportable) }
+    let(:moderation) { create(:moderation, reportable: reportable, participatory_process: feature.participatory_process, report_count: 1) }
+    let!(:report) { create(:report, moderation: moderation) }
 
     describe "#report" do
       let(:mail) { described_class.report(user, report) }

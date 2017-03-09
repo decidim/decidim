@@ -195,10 +195,10 @@ es:
         already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
         close: Cerrar
         description: Es inapropiado este contenido?
-        does_not_belong: Esta propuesta contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
-        offensive: Esta propuesta contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
+        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
+        offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
         report: Denunciar
-        spam: Esta propuesta contiene clickbait, publicidad o estafas.
+        spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
       login_modal:
         please_sign_in: Por favor, regístrate

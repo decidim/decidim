@@ -4,6 +4,8 @@ module Decidim
   class ReportedMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
 
+    helper_method :reported_content
+
     def report(user, report)
       with_user(user) do
         @report = report
@@ -22,6 +24,12 @@ module Decidim
         subject = I18n.t("hide.subject", scope: "decidim.reported_mailer")
         mail(to: user.email, subject: subject)
       end
+    end
+
+    private
+
+    def reported_content
+      @reported_content ||= @report.moderation.reportable.reported_content
     end
   end
 end

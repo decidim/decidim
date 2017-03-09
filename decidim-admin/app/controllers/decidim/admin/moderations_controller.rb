@@ -57,7 +57,7 @@ module Decidim
       end
 
       def reportable
-        @reportable ||= moderations.find(params[:id]).reportable
+        @reportable ||= Decidim::Moderation.where(participatory_process: participatory_process).find(params[:id]).reportable
       end
     end
   end
