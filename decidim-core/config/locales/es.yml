@@ -9,6 +9,8 @@ es:
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
+      report:
+        details: Comentarios adicionales
   activerecord:
     attributes:
       decidim/user:

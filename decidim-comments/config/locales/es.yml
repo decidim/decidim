@@ -38,6 +38,17 @@ es:
           against: En contra
           in_favor: A favor
         reply: Respuesta
+        report:
+          action: Denunciar
+          already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
+          close: Cerrar
+          description: Es inapropiado este contenido?
+          details: Comentarios adicionales
+          reasons:
+            does_not_belong: Esta propuesta contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
+            offensive: Esta propuesta contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
+            spam: Esta propuesta contiene clickbait, publicidad o estafas.
+          title: Denunciar un problema
       comment_order_selector:
         order:
           best_rated: Mejor valoración
