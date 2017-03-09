@@ -24,12 +24,16 @@ module Decidim
     #
     # Returns an ActiveRecord::Relation.
     def participatory_processes
-      @participatory_processes ||= Decidim::ParticipatoryProcess.where(organization: organization).published
+      @participatory_processes ||= ordered_processes.published
     end
 
     private
 
     attr_reader :organization
+
+    def ordered_processes
+      @sorted_processes ||= Decidim::ParticipatoryProcess.where(organization: organization).order("promoted DESC").includes(:active_step).order("decidim_participatory_process_steps.end_date ASC")
+    end
 
     def participatory_process_groups
       Decidim::ParticipatoryProcessGroup.where(organization: organization)

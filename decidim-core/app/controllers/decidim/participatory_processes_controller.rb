@@ -32,12 +32,12 @@ module Decidim
       @participatory_processes ||= public_processes.participatory_processes
     end
 
-    def public_processes
-      @public_processes ||= PublicProcesses.new(current_organization)
+    def promoted_participatory_processes
+      @promoted_processes ||= participatory_processes.promoted
     end
 
-    def promoted_participatory_processes
-      @promoted_processes ||= ParticipatoryProcess.where(organization: current_organization).promoted
+    def public_processes
+      @public_processes ||= PublicProcesses.new(current_organization)
     end
   end
 end
