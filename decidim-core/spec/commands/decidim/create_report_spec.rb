@@ -44,10 +44,8 @@ module Decidim
         end
 
         it "creates a report" do
-          byebug
           command.call
           last_report = Report.last
-          byebug
           expect(last_report.user).to eq(user)
         end
 

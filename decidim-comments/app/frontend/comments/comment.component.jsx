@@ -29,8 +29,10 @@ class Comment extends Component {
   }
 
   componentDidMount() {
-    const { comment: { id } } = this.props;
-    $(`#flagModalComment${id}`).foundation();
+    if ($(document).foundation) {
+      const { comment: { id } } = this.props;
+      $(`#flagModalComment${id}`).foundation();
+    }
   }
 
   render() {
