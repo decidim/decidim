@@ -48,7 +48,8 @@ module Decidim
             promoted: form.promoted,
             meta_scope: form.meta_scope,
             scope: form.scope,
-            organization: form.current_organization
+            organization: form.current_organization,
+            participatory_process_group: form.participatory_process_group
           )
 
           return process unless process.valid?

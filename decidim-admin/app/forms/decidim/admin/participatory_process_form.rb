@@ -27,10 +27,11 @@ module Decidim
       attribute :scope_id, Integer
       attribute :hero_image
       attribute :banner_image
+      attribute :participatory_process_group_id, Integer
 
       validates :slug, presence: true
       validates :title, :subtitle, :description, :short_description, translatable_presence: true
-      validates :scope, presence: true, if: Proc.new { |object| object.scope_id.present? }
+      validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
 
       validate :slug, :slug_uniqueness
 
@@ -39,6 +40,10 @@ module Decidim
 
       def scope
         @scope ||= current_organization.scopes.where(id: scope_id).first
+      end
+
+      def participatory_process_group
+        Decidim::ParticipatoryProcessGroup.where(id: participatory_process_group_id).first
       end
 
       private

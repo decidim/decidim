@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # Controller that allows managing user groups at the admin panel.
+    # Controller that allows managing newsletters.
     #
     class NewslettersController < ApplicationController
       def index
