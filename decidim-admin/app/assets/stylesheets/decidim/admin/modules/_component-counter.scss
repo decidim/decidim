@@ -1,0 +1,17 @@
+.component-counter{
+  background-color: $medium-gray;
+  color: $white;
+  padding: .1em .5em;
+  min-width: 2em;
+  text-align: center;
+  border-radius: 10px;
+  line-height: 1;
+  font-size: .7rem;
+  float: right;
+  margin-top: .4em;
+}
+
+.component-counter--off{
+  background-color: $light-gray;
+  color: $body-font-color;
+}
