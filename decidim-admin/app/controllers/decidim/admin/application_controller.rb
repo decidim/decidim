@@ -10,6 +10,7 @@ module Decidim
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::OrganizationScopesHelper
+      helper Decidim::TranslationsHelper
 
       helper Decidim::LanguageChooserHelper
 

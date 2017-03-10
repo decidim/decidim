@@ -11,6 +11,8 @@ module Decidim
 
     skip_after_action :verify_participatory_process, only: [:index]
 
+    helper Decidim::AttachmentsHelper
+    helper Decidim::ParticipatoryProcessHelper
     helper_method :collection, :promoted_participatory_processes, :participatory_processes
 
     def index

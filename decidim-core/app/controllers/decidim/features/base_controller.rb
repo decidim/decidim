@@ -11,11 +11,15 @@ module Decidim
       include FeatureSettings
       include ActionAuthorization
 
+      helper Decidim::FiltersHelper
+      helper Decidim::OrdersHelper
+      helper Decidim::FeatureReferenceHelper
       helper Decidim::TranslationsHelper
       helper Decidim::ParticipatoryProcessHelper
       helper Decidim::ResourceHelper
       helper Decidim::OrganizationScopesHelper
       helper Decidim::ActionAuthorizationHelper
+      helper Decidim::AttachmentsHelper
 
       helper_method :current_feature,
                     :current_manifest
