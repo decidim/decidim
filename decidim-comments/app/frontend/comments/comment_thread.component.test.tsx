@@ -34,7 +34,7 @@ describe('<CommentThread />', () => {
     session = {
       user: generateCUserData()
     };
-    comment = filter(fragment, commentsData[0]);
+    comment = commentsData[0];
   });
 
   describe("when comment doesn't have comments", () => {
@@ -61,9 +61,9 @@ describe('<CommentThread />', () => {
       expect(wrapper.find(Comment).first().props()).toHaveProperty("session", session);
     });
 
-    it("and pass filter comment data as a prop to it", () => {
+    it("and pass comment data as a prop to it", () => {
       const wrapper = shallow(<CommentThread comment={comment} session={session} />);
-      expect(wrapper.find(Comment).first().props()).toHaveProperty("comment", filter(commentFragment, comment));
+      expect(wrapper.find(Comment).first().props()).toHaveProperty("comment", comment);
     });
 
     it("and pass the votable as a prop to it", () => {
