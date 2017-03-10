@@ -1,0 +1,44 @@
+/* Foundation button overrides*/
+
+.button{
+  &.small{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+  &.tiny{
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+  }
+}
+
+.button.muted{
+  background-color: $medium-gray;
+  &:hover{
+    background-color: darken($medium-gray, 10);
+  }
+}
+
+.button--title{
+  margin-bottom: 0;
+  @include breakpoint(mediumlarge){
+    float: right;
+  }
+}
+
+
+.button--double{
+  .button:not(:last-child){
+    margin-right: 1rem;
+  }
+  @include breakpoint(mediumlarge){
+    display: flex;
+    align-items: center;
+    .button{
+      margin-bottom: 0;
+    }
+  }
+}
+
+.button--simple{
+  margin-bottom: 0;
+}
