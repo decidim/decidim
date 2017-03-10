@@ -2,7 +2,7 @@
 if !Rails.env.production? || ENV["SEED"]
   require "decidim/faker/localized"
 
-  organization = Decidim::Organization.create!(
+  organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
     twitter_handler: Faker::Hipster.word,
     facebook_handler: Faker::Hipster.word,
