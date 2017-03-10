@@ -1,0 +1,78 @@
+//Override Foundation defaults
+.table-scroll table{
+  width: 100%;
+}
+
+//Table list
+.table-list{
+  border-collapse: collapse;
+  th{
+    text-transform: uppercase;
+  }
+
+  th,
+  td{
+    border-bottom: 1px solid rgba(black, .05);
+  }
+
+  th:not(:first-child),
+  td:not(:first-child){
+    text-align: center;
+  }
+  th:first-child,
+  td:first-child{
+    padding-left: 0;
+  }
+
+  th:last-child,
+  td:last-child{
+    padding-right: 0;
+    text-align: right;
+  }
+
+  &.table-list--lastcenter{
+    th:last-child,
+    td:last-child{
+      text-align: center;
+    }
+  }
+
+  a:not(.button){
+    color: $body-font-color;
+    &:hover{
+      color: $primary-color;
+    }
+  }
+  td > .button{
+    margin-bottom: 0;
+  }
+
+  .switch.tiny{
+    margin: 0 auto;
+    width: 48px;
+  }
+
+}
+
+.table-list__actions{
+  text-align: center;
+  white-space: nowrap;
+  &:last-child{
+    text-align: right;
+  }
+  .action-icon,
+  a.action-icon{
+    color: $muted;
+  }
+  .action-icon.action-icon--remove{
+    color: $alert-color;
+  }
+}
+
+.table-list__state{
+  text-align: center;
+}
+
+.icon-state.has-tip{
+  border-bottom: 0;
+}

@@ -1,0 +1,27 @@
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 400;
+	src:
+    font-url('decidim/Source_Sans_Pro_400.woff2') format('woff2'),
+    font-url('decidim/Source_Sans_Pro_400.woff') format('woff'),
+		font-url('decidim/Source_Sans_Pro_400.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 600;
+	src:
+    font-url('decidim/Source_Sans_Pro_600.woff2') format('woff2'),
+		font-url('decidim/Source_Sans_Pro_600.woff') format('woff'),
+		font-url('decidim/Source_Sans_Pro_600.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 900;
+	src:
+    font-url('decidim/Source_Sans_Pro_900.woff2') format('woff2'),
+		font-url('decidim/Source_Sans_Pro_900.woff') format('woff'),
+		font-url('decidim/Source_Sans_Pro_900.ttf') format('truetype');
+}
