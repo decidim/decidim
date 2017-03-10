@@ -6,6 +6,7 @@ import { AddCommentForm } from './add_comment_form.component';
 
 import generateUserData from '../support/generate_user_data';
 import generateUserGroupData from '../support/generate_user_group_data';
+import { loadLocaleTranslations } from '../support/load_translations';
 
 describe("<AddCommentForm />", () => {
   let session: any = null;
@@ -18,6 +19,7 @@ describe("<AddCommentForm />", () => {
   }
 
   beforeEach(() => {
+    loadLocaleTranslations("en");
     session = {
       user: generateUserData(),
       verifiedUserGroups: []
@@ -245,10 +247,9 @@ describe("<AddCommentForm />", () => {
       session = null;
     });
 
-    // TODO
-    // it("display a message to sign in or sign up", () => {
-    //   const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
-    //   expect(wrapper.find('span').text()).toContain("sign up");
-    // });
+    it("display a message to sign in or sign up", () => {
+      const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
+      expect(wrapper.find('span').text()).toContain("sign up");
+    });
   });
 });

@@ -3,11 +3,12 @@ import assetUrl   from '../support/asset_url';
 
 interface IconProps {
   name: string;
+  userAgent: string;
   iconExtraClassName?: string;
 }
 
-const Icon: React.SFC<IconProps> = ({ name, iconExtraClassName }) => {
-  if (navigator.userAgent.match(/PhantomJS/)) {
+export const Icon: React.SFC<IconProps> = ({ name, userAgent, iconExtraClassName }) => {
+  if (userAgent.match(/PhantomJS/) || userAgent.match(/Node/)) {
     return <span className={`icon ${iconExtraClassName} ${name}`}>{name}</span>;
   }
 
@@ -22,4 +23,13 @@ Icon.defaultProps = {
   iconExtraClassName: 'icon--before'
 };
 
-export default Icon;
+interface IconWithoutUserAgentProps {
+  name: string;
+  iconExtraClassName?: string;
+}
+
+const IconWithoutUserAgent: React.SFC<IconWithoutUserAgentProps> = ({ name, iconExtraClassName }) => (
+  <Icon name={name} userAgent={navigator.userAgent} iconExtraClassName={iconExtraClassName} />
+);
+
+export default IconWithoutUserAgent;

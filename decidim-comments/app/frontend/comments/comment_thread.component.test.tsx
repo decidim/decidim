@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
-import { filter } from 'graphql-anywhere';
 import gql from 'graphql-tag';
 
 import CommentThread from './comment_thread.component';
@@ -9,6 +8,7 @@ import { CommentThreadFragment } from '../support/schema';
 
 import generateCommentsData from '../support/generate_comments_data';
 import generateCUserData from '../support/generate_user_data';
+import { loadLocaleTranslations } from '../support/load_translations';
 
 const commentThreadFragment = require('./comment_thread.fragment.graphql');
 
@@ -23,6 +23,7 @@ describe('<CommentThread />', () => {
   `;
 
   beforeEach(() => {
+    loadLocaleTranslations("en");
     const commentsData = generateCommentsData(1);
 
     const fragment = gql`
@@ -48,11 +49,10 @@ describe('<CommentThread />', () => {
       comment.hasComments = true;
     });
 
-    // TODO
-    // it("should render a h6 comment-thread__title with author name", () => {
-    //   const wrapper = shallow(<CommentThread comment={comment} session={session} />);
-    //   expect(wrapper.find('h6.comment-thread__title').text()).toContain(`Conversation with ${comment.author.name}`);
-    // });
+    it("should render a h6 comment-thread__title with author name", () => {
+      const wrapper = shallow(<CommentThread comment={comment} session={session} />);
+      expect(wrapper.find('h6.comment-thread__title').text()).toContain(`Conversation with ${comment.author.name}`);
+    });
   });
 
   describe("should render a Comment", () => {
@@ -61,11 +61,10 @@ describe('<CommentThread />', () => {
       expect(wrapper.find(Comment).first().props()).toHaveProperty("session", session);
     });
 
-    // TODO
-    // it("and pass filter comment data as a prop to it", () => {
-    //   const wrapper = shallow(<CommentThread comment={comment} session={session} />);
-    //   expect(wrapper.find(Comment).first().props()).toHaveProperty("comment", filter(commentFragment, comment));
-    // });
+    it("and pass filter comment data as a prop to it", () => {
+      const wrapper = shallow(<CommentThread comment={comment} session={session} />);
+      expect(wrapper.find(Comment).first().props()).toHaveProperty("comment", filter(commentFragment, comment));
+    });
 
     it("and pass the votable as a prop to it", () => {
       const wrapper = shallow(<CommentThread comment={comment} session={session} votable />);
