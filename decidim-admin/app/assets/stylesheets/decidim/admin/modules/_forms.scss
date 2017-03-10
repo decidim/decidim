@@ -1,0 +1,80 @@
+$input-margin: 1.5rem;
+
+button,
+input,
+textarea{
+  font-family: inherit;
+}
+
+.form{
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  input[type="tel"],
+  input[type="password"],
+  select{
+    height: 3rem;
+  }
+  input,
+  select,
+  textarea,
+  .check-radio,
+  .input-field{
+    margin-bottom: $input-margin;
+  }
+  .check-radio-group{
+    margin-bottom: 1rem;
+    .check-radio{
+      margin-bottom: .5rem;
+    }
+  }
+
+  label{
+    font-weight: 600;
+  }
+}
+
+.legend{
+  @include smallcaps;
+  margin-bottom: 1rem;
+}
+
+.form-group{
+  background-color: $lighter-gray;
+  padding: 1.5rem 1rem .5rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.form-submit .button{
+  margin-bottom: 0;
+}
+
+.form-general-submit{
+  margin-top: 3rem;
+  justify-content: center;
+}
+
+.check-radio{
+  label{
+    font-weight: normal;
+    display: inline-flex;
+    align-items: center;
+  }
+  input{
+    margin-bottom: 0;
+  }
+}
+
+.form-error{
+  margin-top: -$input-margin;
+  margin-bottom: $input-margin;
+}
+
+.custom-error{
+  @extend .form-error;
+}
+
+.is-custom-error-visible{
+  display: block;
+}
