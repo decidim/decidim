@@ -22,6 +22,10 @@ module Decidim
     include Decidim::Comments::Commentable
 
     feature_manifest_name "dummy"
+
+    def reported_content
+      title
+    end
   end
 
   class DummyResourcesController < ActionController::Base
