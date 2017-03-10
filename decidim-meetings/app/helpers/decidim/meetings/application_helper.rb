@@ -5,7 +5,6 @@ module Decidim
     #
     module ApplicationHelper
       include PaginateHelper
-      include Decidim::Meetings::MapHelper
     end
   end
 end

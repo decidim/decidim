@@ -5,7 +5,7 @@ module Decidim
       # Custom helpers, scoped to the meetings admin engine.
       #
       module ApplicationHelper
-        include Decidim::Meetings::MapHelper
+        helper Decidim::MapHelper
       end
     end
   end
