@@ -1,0 +1,32 @@
+.callout.callout--full{
+  border: 0;
+  margin-bottom: 0;
+  background-color: $primary-color;
+  font-weight: 600;
+  color: $white;
+  &.warning{
+    background-color: $warning-color;
+  }
+  &.success{
+    background-color: $success-color;
+  }
+  &.alert{
+    background-color: $alert-color;
+  }
+
+  p:last-of-type{
+    margin-bottom: 0;
+  }
+
+  .close-button{
+    color: white;
+  }
+}
+
+
+.has-process-title .callout-wrapper{
+  @include breakpoint(large){
+    padding-top: $process-title-height;
+    margin-bottom: -$process-title-height;
+  }
+}

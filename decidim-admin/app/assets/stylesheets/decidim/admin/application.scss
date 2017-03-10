@@ -1,19 +1,2 @@
-@import "foundation_and_overrides";
-@import "layout";
-@import "login";
-@import "sidebar";
-@import "tables";
-@import "actions";
-@import "forms";
-@import "icons";
-@import "email_preview";
-
-@import "decidim/editor";
-@import "decidim/utils/fontface";
-
-@import "foundation";
-@include foundation-everything;
-
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-}
+@import "decidim";
+@import "extra/*";
