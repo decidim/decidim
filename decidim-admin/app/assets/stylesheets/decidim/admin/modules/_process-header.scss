@@ -1,0 +1,11 @@
+.process-header__title{
+  text-transform: uppercase;
+  font-size: .8rem;
+  margin-bottom: 1rem;
+  color: $muted;
+}
+
+.process-title-summary{
+  @extend .card-title;
+  margin-bottom: 2rem;
+}

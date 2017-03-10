@@ -1,0 +1,32 @@
+.title-bar{
+  padding: 0;
+  border-bottom: 1px solid rgba(white, .5);
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.menu-trigger{
+  display: inline-block;
+  padding: .5rem;
+  width: 2.5rem;
+  text-align: center;
+  color: $white;
+  @include breakpoint(large){
+    display: none;
+  }
+}
+
+.logo{
+  max-width: 80px;
+  padding: 1rem;
+  display: block;
+  background-color: $brand;
+  @include breakpoint(large){
+    max-width: 120px;
+  }
+  img{
+    display: block;
+  }
+}
