@@ -258,7 +258,11 @@ class Comment extends Component {
         <div className="reveal flag-modal" id={`flagModalComment${id}`} data-reveal>
           <div className="reveal__header">
             <h3 className="reveal__title">{ I18n.t("components.comment.report.title") }</h3>
-            <button className="close-button" data-close aria-label={ I18n.t("components.comment.report.close") } type="button">
+            <button
+              className="close-button"
+              aria-label={ I18n.t("components.comment.report.close") }
+              type="button"
+              onClick={() => $(`#flagModalComment${id}`).foundation('close')}>
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
