@@ -9,6 +9,8 @@ module Decidim
     layout "layouts/decidim/participatory_process", only: [:index]
     include NeedsParticipatoryProcess
 
+    helper Decidim::ParticipatoryProcessHelper
+
     def index
       authorize! :read, ParticipatoryProcess
     end
