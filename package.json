@@ -50,7 +50,6 @@
     "jest": "^19.0.2",
     "jest-transform-graphql": "^1.0.0",
     "json-loader": "~0.5.4",
-    "karma-webpack": "~2.0.2",
     "progress-bar-webpack-plugin": "~1.9.0",
     "raw-loader": "~0.5.1",
     "react-addons-test-utils": "~15.4.0",
@@ -99,6 +98,6 @@
       "\\.yml$": "yaml-jest",
       ".*": "babel-jest"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$"
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$"
   }
 }

@@ -1,4 +1,6 @@
-/* eslint-disable no-div-regex, no-useless-escape, no-param-reassign */
+/* eslint-disable no-div-regex, no-useless-escape, no-param-reassign, id-length */
+
+const $ = require('jquery');
 
 /**
  * A plain Javascript component that handles the form filter.
