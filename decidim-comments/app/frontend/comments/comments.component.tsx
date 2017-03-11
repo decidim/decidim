@@ -26,7 +26,7 @@ import {
 const { I18n } = require('react-i18nify');
 
 interface CommentsProps extends GetCommentsQuery {
-  loading: boolean;
+  loading?: boolean;
   orderBy: string;
   reorderComments: (orderBy: string) => void;
 };

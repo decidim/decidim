@@ -1,43 +1,40 @@
-/* eslint-disable no-unused-expressions */
+import * as React from 'react';
 import { shallow } from 'enzyme';
 
 import VoteButton  from './vote_button.component';
 import Icon        from '../application/icon.component';
 
-import stubComponent from '../support/stub_component';
-
 describe("<VoteButton />", () => {
-  const voteAction = sinon.spy();
-  stubComponent(Icon);
+  const voteAction: jasmine.Spy = jasmine.createSpy('voteAction');
 
   it("should render the number of votes passed as a prop", () => {
     const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} />);
-    expect(wrapper.find('button').text()).to.match(/10/);
+    expect(wrapper.find('button').text()).toMatch(/10/);
   });
 
   it("should render a button with the given buttonClassName", () => {
     const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} />);
-    expect(wrapper.find('button.vote-button')).to.be.present();
+    expect(wrapper.find('button.vote-button').exists()).toBeTruthy();
   });
 
   it("should render a Icon component with the correct name prop", () => {
     const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} />);
-    expect(wrapper.find(Icon)).to.have.prop("name").equal('vote-icon');
+    expect(wrapper.find(Icon).prop("name")).toEqual('vote-icon');
   });
 
   it("should call the voteAction prop on click", () => {
     const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} />);
     wrapper.find('button').simulate('click');
-    expect(voteAction).to.have.been.called;
+    expect(voteAction).toHaveBeenCalled();
   });
 
   it("should disable the button based on the disabled prop", () => {
     const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} disabled />);
-    expect(wrapper.find('button')).to.be.disabled();
+    expect(wrapper.find('button').props()).toHaveProperty('disabled');
   })
 
   it("should render a button with the given selectedClass", () => {
     const wrapper = shallow(<VoteButton votes={10} buttonClassName="vote-button" iconName="vote-icon" voteAction={voteAction} disabled selectedClass="is-vote-selected" />);
-    expect(wrapper.find('.is-vote-selected')).to.be.present();
+    expect(wrapper.find('.is-vote-selected').exists()).toBeTruthy();
   })
 });
