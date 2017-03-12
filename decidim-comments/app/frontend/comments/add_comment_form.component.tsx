@@ -36,7 +36,7 @@ interface AddCommentFormProps {
   autoFocus?: boolean;
   maxLength?: number;
   arguable?: boolean;
-  addComment?: (data: { body: string, alignment: number, userGroupId: number }) => void;
+  addComment?: (data: { body: string, alignment: number, userGroupId?: string }) => void;
   onCommentAdded?: () => void;
 }
 
@@ -306,7 +306,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    */
   private _checkCommentBody(body: string) {
     const { maxLength } = this.props;
-    this.setState({ disabled: body === "", error: body === "" || body.length > maxLength });
+    this.setState({ disabled: body === "", error: body === "" || (maxLength !== undefined && body.length > maxLength) });
   }
 
   /**
@@ -319,7 +319,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
   private addComment = (evt: React.FormEvent<HTMLFormElement>) => {
     const { alignment } = this.state;
     const { addComment, onCommentAdded } = this.props;
-    let addCommentParams: any = { body: this.bodyTextArea.value, alignment };
+    let addCommentParams: { body: string, alignment: number, userGroupId?: string } = { body: this.bodyTextArea.value, alignment };
 
     evt.preventDefault();
 
@@ -327,7 +327,9 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       addCommentParams.userGroupId = this.userGroupIdSelect.value;
     }
 
-    addComment(addCommentParams);
+    if (addComment) {
+      addComment(addCommentParams);
+    }
 
     this.bodyTextArea.value = "";
     this.setState({ alignment: 0 });
@@ -385,13 +387,13 @@ const AddCommentFormWithMutation = graphql(gql`
       updateQueries: {
         GetComments: (prev: GetCommentsQuery, { mutationResult: { data } }: { mutationResult: { data: AddCommentMutation }}) => {
           const { id, type } = ownProps.commentable;
-          const newComment = data.commentable.addComment;
+          const newComment = data.commentable && data.commentable.addComment;
           let comments = [];
 
           const commentReducer = (comment: CommentFragment): CommentFragment => {
             const replies = comment.comments || [];
 
-            if (comment.id === id) {
+            if (newComment && comment.id === id) {
               return {
                 ...comment,
                 hasComments: true,

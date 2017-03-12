@@ -13,8 +13,13 @@ const loadTranslations = () => {
   const translationFiles = requireAll(translationsContext);
 
   const translations = translationsContext.keys().reduce((acc: any, key: string, index: number) => {
-    const locale = key.match(/\.\/(.*)\.yml/)[1];
-    acc[locale] = translationFiles[index][locale].decidim;
+    const match = key.match(/\.\/(.*)\.yml/);
+
+    if (match) {
+      let locale = match[1];
+      acc[locale] = translationFiles[index][locale].decidim;
+    }
+
     return acc;
   }, {});
 

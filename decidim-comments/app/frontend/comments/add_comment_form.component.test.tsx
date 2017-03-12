@@ -104,9 +104,9 @@ describe("<AddCommentForm />", () => {
   });
 
   describe("submitting the form", () => {
-    let addComment: jasmine.Spy = null;
-    let onCommentAdded: jasmine.Spy = null;
-    let wrapper: ReactWrapper<any, {}> = null;
+    let addComment: jasmine.Spy;
+    let onCommentAdded: jasmine.Spy ;
+    let wrapper: ReactWrapper<any, {}>;
     let message: any = null;
 
     beforeEach(() => {

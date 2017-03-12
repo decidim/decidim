@@ -123,7 +123,7 @@ export class Comments extends React.Component<CommentsProps, undefined> {
     const { session, commentable } = this.props;
     const { acceptsNewComments, commentsHaveAlignment } = commentable;
 
-    if (acceptsNewComments) {
+    if (session && acceptsNewComments) {
       return (
         <AddCommentForm
           session={session}

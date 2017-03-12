@@ -5,7 +5,7 @@ interface VoteButtonProps {
   buttonClassName: string;
   iconName: string;
   votes: number;
-  voteAction: () => void;
+  voteAction?: () => void;
   disabled?: boolean;
   selectedClass?: string;
 }

@@ -75,7 +75,7 @@ const DownVoteButtonWithMutation = graphql(gql`
           const commentReducer = (comment: CommentFragment): CommentFragment => {
             const replies = comment.comments || [];
 
-            if (comment.id === ownProps.comment.id) {
+            if (comment.id === ownProps.comment.id && data.comment) {
               return data.comment.downVote;
             }
             return {

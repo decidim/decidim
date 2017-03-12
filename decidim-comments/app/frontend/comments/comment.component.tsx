@@ -20,9 +20,9 @@ const { I18n } = require("react-i18nify");
 
 interface CommentProps {
   comment: CommentFragment;
-  session?: AddCommentFormSessionFragment & {
+  session: AddCommentFormSessionFragment & {
     user: any;
-  };
+  } | null;
   articleClassName?: string;
   isRootComment?: boolean;
   votable?: boolean;
@@ -226,7 +226,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     const { session, comment } = this.props;
     const { showReplyForm } = this.state;
 
-    if (showReplyForm) {
+    if (session && showReplyForm) {
       return (
         <AddCommentForm
           session={session}

@@ -13,9 +13,9 @@ const { I18n } = require("react-i18nify");
 
 interface CommentThreadProps {
   comment: CommentThreadFragment;
-  session?: AddCommentFormSessionFragment & {
+  session: AddCommentFormSessionFragment & {
     user: any;
-  };
+  } | null;
   votable?: boolean;
 }
 
