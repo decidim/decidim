@@ -14,16 +14,16 @@
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-0.0.32.tgz#449abcd9a826807811ef101e58df9f83cfc61713"
 
-"@types/core-js@^0.9.35":
-  version "0.9.37"
-  resolved "https://registry.yarnpkg.com/@types/core-js/-/core-js-0.9.37.tgz#461f4a29f2d34c62c45a0623aeb72c2db696b03c"
-
 "@types/enzyme@^2.7.5":
   version "2.7.5"
   resolved "https://registry.yarnpkg.com/@types/enzyme/-/enzyme-2.7.5.tgz#a7c52a444cfa7711b16096681d134f4718df8a86"
   dependencies:
     "@types/cheerio" "*"
     "@types/react" "*"
+
+"@types/es6-promise@^0.0.32":
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/@types/es6-promise/-/es6-promise-0.0.32.tgz#3bcf44fb1e429f3df76188c8c6d874463ba371fd"
 
 "@types/faker@^3.1.32":
   version "3.1.32"
@@ -51,7 +51,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^15.0.10":
+"@types/react@*", "@types/react@^15.0.12":
   version "15.0.16"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.16.tgz#78e39511a9cfcabf7f74ecd55180522f4290a0c1"
 
@@ -5408,11 +5408,7 @@ typescript-babel-jest@^1.0.1:
     babel-jest "19.0.0"
     typescript "2.2.1"
 
-typescript@2.1.x:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.1.6.tgz#40c7e6e9e5da7961b7718b55505f9cac9487a607"
-
-typescript@2.2.1:
+typescript@2.2.1, typescript@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.2.1.tgz#4862b662b988a4c8ff691cc7969622d24db76ae9"
 
