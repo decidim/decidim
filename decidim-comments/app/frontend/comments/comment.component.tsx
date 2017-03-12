@@ -1,20 +1,22 @@
-import * as React          from 'react';
-import { propType }        from 'graphql-anywhere';
-import gql                 from 'graphql-tag';
-import * as moment         from 'moment';
-import * as classnames     from 'classnames';
+import * as classnames     from "classnames";
+import { propType }        from "graphql-anywhere";
+import gql                 from "graphql-tag";
+import * as moment         from "moment";
+import * as React          from "react";
 
-import AddCommentForm      from './add_comment_form.component';
-import UpVoteButton        from './up_vote_button.component';
-import DownVoteButton      from './down_vote_button.component';
+import Icon from '../application/icon.component';
+
+import AddCommentForm      from "./add_comment_form.component";
+import DownVoteButton      from "./down_vote_button.component";
+import UpVoteButton        from "./up_vote_button.component";
 
 import {
-  CommentFragment,
+  AddCommentFormSessionFragment,
   CommentDataFragment,
-  AddCommentFormSessionFragment
-} from '../support/schema';
+  CommentFragment,
+} from "../support/schema";
 
-const { I18n } = require('react-i18nify');
+const { I18n } = require("react-i18nify");
 
 interface CommentProps {
   comment: CommentFragment;
@@ -36,18 +38,18 @@ interface CommentState {
  * @augments Component
  */
 class Comment extends React.Component<CommentProps, CommentState> {
-  static defaultProps: any = {
-    articleClassName: 'comment',
+  private static defaultProps: any = {
+    articleClassName: "comment",
     isRootComment: false,
     session: null,
-    votable: false
+    votable: false,
   };
 
   constructor(props: CommentProps) {
     super(props);
 
     this.state = {
-      showReplyForm: false
+      showReplyForm: false,
     };
   }
 
@@ -58,7 +60,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     }
   }
 
-  render(): JSX.Element {
+  public render(): JSX.Element {
     const { session, comment: { id, author, body, createdAt }, articleClassName } = this.props;
     const formattedCreatedAt = ` ${moment(createdAt).format("LLL")}`;
     let modalName = 'loginModal';
@@ -90,8 +92,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
         </div>
         <div className="comment__content">
           <p>
-            { this._renderAlignmentBadge() }
-            { body }
+            {this._renderAlignmentBadge()}
+            {body}
           </p>
         </div>
         <div className="comment__footer">
@@ -105,12 +107,17 @@ class Comment extends React.Component<CommentProps, CommentState> {
     );
   }
 
+  private toggleReplyForm = () => {
+    const { showReplyForm } = this.state;
+    this.setState({ showReplyForm: !showReplyForm });
+  }
+
   /**
    * Render reply button if user can reply the comment
    * @private
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
-  _renderReplyButton() {
+  private _renderReplyButton() {
     const { comment: { acceptsNewComments }, session } = this.props;
     const { showReplyForm } = this.state;
 
@@ -119,9 +126,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
         <button
           className="comment__reply muted-link"
           aria-controls="comment1-reply"
-          onClick={() => this.setState({ showReplyForm: !showReplyForm })}
+          onClick={this.toggleReplyForm}
         >
-          { I18n.t("components.comment.reply") }
+          {I18n.t("components.comment.reply")}
         </button>
       );
     }
@@ -129,12 +136,12 @@ class Comment extends React.Component<CommentProps, CommentState> {
     return <span>&nbsp;</span>;
   }
 
-   /**
+  /**
    * Render additional reply button if user can reply the comment at the bottom of a conversation
    * @private
    * @returns {Void|DOMElement} - Render the reply button or not if user can reply
    */
-  _renderAdditionalReplyButton() {
+  private _renderAdditionalReplyButton() {
     const { comment: { acceptsNewComments, hasComments }, session, isRootComment } = this.props;
     const { showReplyForm } = this.state;
 
@@ -145,9 +152,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
             <button
               className="comment__reply muted-link"
               aria-controls="comment1-reply"
-              onClick={() => this.setState({ showReplyForm: !showReplyForm })}
+              onClick={this.toggleReplyForm}
             >
-              { I18n.t("components.comment.reply") }
+              {I18n.t("components.comment.reply")}
             </button>
           </div>
         );
@@ -161,7 +168,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @private
    * @returns {Void|DOMElement} - Render the upVote and downVote buttons or not
    */
-  _renderVoteButtons() {
+  private _renderVoteButtons() {
     const { comment, votable } = this.props;
 
     if (votable) {
@@ -181,11 +188,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @private
    * @returns {Void|DomElement} - A wrapper element with comment's comments inside
    */
-  _renderReplies() {
+  private _renderReplies() {
     const { comment: { id, hasComments, comments }, session, votable, articleClassName } = this.props;
-    let replyArticleClassName = 'comment comment--nested';
+    let replyArticleClassName = "comment comment--nested";
 
-    if (articleClassName === 'comment comment--nested') {
+    if (articleClassName === "comment comment--nested") {
       replyArticleClassName = `${replyArticleClassName} comment--nested--alt`;
     }
 
@@ -215,7 +222,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @private
    * @returns {Void|ReactElement} - Render the AddCommentForm component or not
    */
-  _renderReplyForm() {
+  private _renderReplyForm() {
     const { session, comment } = this.props;
     const { showReplyForm } = this.state;
 
@@ -226,8 +233,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
           commentable={comment}
           showTitle={false}
           submitButtonClassName="button small hollow"
-          onCommentAdded={() => this.setState({ showReplyForm: false })}
-          autoFocus
+          onCommentAdded={this.toggleReplyForm}
+          autoFocus={true}
         />
       );
     }
@@ -240,25 +247,25 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @private
    * @returns {Void|DOMElement} - The alignment's badge or not
    */
-  _renderAlignmentBadge() {
+  private _renderAlignmentBadge() {
     const { comment: { alignment } } = this.props;
-    const spanClassName = classnames('label', {
+    const spanClassName = classnames("label", {
       success: alignment === 1,
-      alert: alignment === -1
+      alert: alignment === -1,
     });
 
-    let label = '';
+    let label = "";
 
     if (alignment === 1) {
-      label = I18n.t('components.comment.alignment.in_favor');
+      label = I18n.t("components.comment.alignment.in_favor");
     } else {
-      label = I18n.t('components.comment.alignment.against');
+      label = I18n.t("components.comment.alignment.against");
     }
 
     if (alignment === 1 || alignment === -1) {
       return (
         <span>
-          <span className={spanClassName}>{ label }</span>
+          <span className={spanClassName}>{label}</span>
           &nbsp;
         </span>
       );
@@ -314,7 +321,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
                   </label>
                   <label htmlFor={`report_comment_${id}_details`}>
                     { I18n.t("components.comment.report.details") }
-                    <textarea rows="4" name="report[details]" id={`report_comment_${id}_details`} />
+                    <textarea rows={4} name="report[details]" id={`report_comment_${id}_details`} />
                   </label>
                   <button type="submit" name="commit" className="button">{ I18n.t("components.comment.report.action") }</button>
                 </form>

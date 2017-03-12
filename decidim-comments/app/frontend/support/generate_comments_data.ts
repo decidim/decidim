@@ -1,6 +1,6 @@
-import { random, lorem, name, date, image } from 'faker/locale/en';
+import { date, image, lorem, name, random } from "faker/locale/en";
 
-import { CommentFragment }           from '../support/schema';
+import { CommentFragment }           from "../support/schema";
 
 /**
  * Generate random comment data to emulate a database real content
@@ -18,7 +18,7 @@ const generateCommentsData = (num = 1) => {
       createdAt: date.past().toISOString(),
       author: {
         name: name.findName(),
-        avatarUrl: image.imageUrl()
+        avatarUrl: image.imageUrl(),
       },
       hasComments: false,
       comments: [],
@@ -27,8 +27,8 @@ const generateCommentsData = (num = 1) => {
       upVotes: random.number(),
       upVoted: false,
       downVotes: random.number(),
-      downVoted: false
-    })
+      downVoted: false,
+    });
   }
 
   return commentsData;

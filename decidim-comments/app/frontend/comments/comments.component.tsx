@@ -1,29 +1,29 @@
-import * as React           from 'react';
-import { graphql }          from 'react-apollo';
-import gql                  from 'graphql-tag';
-import { filter }           from 'graphql-anywhere';
+import { filter }           from "graphql-anywhere";
+import gql                  from "graphql-tag";
+import * as React           from "react";
+import { graphql }          from "react-apollo";
 
-import Application          from '../application/application.component';
+import Application          from "../application/application.component";
 
-import CommentThread        from './comment_thread.component';
-import AddCommentForm       from './add_comment_form.component';
-import CommentOrderSelector from './comment_order_selector.component';
+import AddCommentForm       from "./add_comment_form.component";
+import CommentOrderSelector from "./comment_order_selector.component";
+import CommentThread        from "./comment_thread.component";
 
-const commentsQuery                     = require('./comments.query.graphql');
-const addCommentFormSessionFragment     = require('./add_comment_form_session.fragment.graphql');
-const addCommentFormCommentableFragment = require('./add_comment_form_commentable.fragment.graphql');
-const commentThreadFragment             = require('./comment_thread.fragment.graphql');
-const commentFragment                   = require('./comment.fragment.graphql');
-const commentDataFragment               = require('./comment_data.fragment.graphql');
-const upVoteFragment                    = require('./up_vote.fragment.graphql');
-const downVoteFragment                  = require('./down_vote.fragment.graphql');
+const commentsQuery                     = require("./comments.query.graphql");
+const addCommentFormSessionFragment     = require("./add_comment_form_session.fragment.graphql");
+const addCommentFormCommentableFragment = require("./add_comment_form_commentable.fragment.graphql");
+const commentThreadFragment             = require("./comment_thread.fragment.graphql");
+const commentFragment                   = require("./comment.fragment.graphql");
+const commentDataFragment               = require("./comment_data.fragment.graphql");
+const upVoteFragment                    = require("./up_vote.fragment.graphql");
+const downVoteFragment                  = require("./down_vote.fragment.graphql");
 
 import {
   GetCommentsQuery,
-  GetCommentsQueryVariables
-} from '../support/schema';
+  GetCommentsQueryVariables,
+} from "../support/schema";
 
-const { I18n } = require('react-i18nify');
+const { I18n } = require("react-i18nify");
 
 interface CommentsProps extends GetCommentsQuery {
   loading?: boolean;
@@ -39,21 +39,21 @@ interface CommentsProps extends GetCommentsQuery {
  * @augments Component
  */
 export class Comments extends React.Component<CommentsProps, undefined> {
-  static defaultProps: any = {
+  public static defaultProps: any = {
     loading: false,
     session: null,
     commentable: {
-      comments: []
-    }
+      comments: [],
+    },
   };
 
-  render() {
+  public render() {
     const { commentable: { comments }, reorderComments, orderBy, loading } = this.props;
     let commentClasses = "comments";
     let commentHeader = I18n.t("components.comments.title", { count: comments.length });
 
     if (loading) {
-      commentClasses += " loading-comments"
+      commentClasses += " loading-comments";
       commentHeader = I18n.t("components.comments.loading");
     }
 
@@ -62,7 +62,7 @@ export class Comments extends React.Component<CommentsProps, undefined> {
         <section className={commentClasses}>
           <div className="row collapse order-by">
             <h2 className="order-by__text section-heading">
-              { commentHeader }
+              {commentHeader}
             </h2>
             <CommentOrderSelector
               reorderComments={reorderComments}
@@ -82,13 +82,13 @@ export class Comments extends React.Component<CommentsProps, undefined> {
    * @private
    * @returns {Void|DOMElement} - A warning message or nothing.
    */
-  _renderBlockedCommentsWarning() {
+  private _renderBlockedCommentsWarning() {
     const { commentable: { acceptsNewComments } } = this.props;
 
     if (!acceptsNewComments) {
       return (
         <div className="callout warning">
-          <p>{ I18n.t("components.comments.blocked_comments_warning") }</p>
+          <p>{I18n.t("components.comments.blocked_comments_warning")}</p>
         </div>
       );
     }
@@ -101,7 +101,7 @@ export class Comments extends React.Component<CommentsProps, undefined> {
    * @private
    * @returns {ReactComponent[]} - A collection of CommentThread components
    */
-  _renderCommentThreads() {
+  private _renderCommentThreads() {
     const { session, commentable: { comments, commentsHaveVotes } } = this.props;
 
     return comments.map((comment) => (
@@ -111,7 +111,7 @@ export class Comments extends React.Component<CommentsProps, undefined> {
         session={session}
         votable={commentsHaveVotes}
       />
-    ))
+    ));
   }
 
   /**
@@ -119,7 +119,7 @@ export class Comments extends React.Component<CommentsProps, undefined> {
    * @private
    * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
    */
-  _renderAddCommentForm() {
+  private _renderAddCommentForm() {
     const { session, commentable } = this.props;
     const { acceptsNewComments, commentsHaveAlignment } = commentable;
 
@@ -155,7 +155,7 @@ const CommentsWithData: any = graphql(gql`
   ${downVoteFragment}
 `, {
   options: {
-    pollInterval: 15000
+    pollInterval: 15000,
   },
   props: ({ ownProps, data: { loading, session, commentable, refetch }}) => ({
     loading,
@@ -164,10 +164,10 @@ const CommentsWithData: any = graphql(gql`
     orderBy: ownProps.orderBy,
     reorderComments: (orderBy: string) => {
       return refetch({
-        orderBy
+        orderBy,
       });
-    }
-  })
+    },
+  }),
 })(Comments);
 
 export interface CommentsApplicationProps extends GetCommentsQueryVariables {

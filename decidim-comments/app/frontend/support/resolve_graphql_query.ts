@@ -1,4 +1,4 @@
-import graphql, { filter } from 'graphql-anywhere';
+import graphql, { filter } from "graphql-anywhere";
 
 /**
  * A simple resolver which returns object properties to easily
@@ -25,13 +25,13 @@ const resolveGraphQLQuery = (document: any, options: any = {}) => {
     document,
     rootValue,
     context,
-    variables
+    variables,
   );
 
   if (filterResult) {
     return filter(document, result);
   }
   return result;
-}
+};
 
 export default resolveGraphQLQuery;

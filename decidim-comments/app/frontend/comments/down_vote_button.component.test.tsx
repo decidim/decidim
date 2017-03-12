@@ -1,20 +1,20 @@
-import * as React from 'react';
-import { shallow }          from 'enzyme';
-import gql                  from 'graphql-tag';
+import { shallow }          from "enzyme";
+import gql                  from "graphql-tag";
+import * as React from "react";
 
-import { DownVoteButton }   from './down_vote_button.component';
+import { DownVoteButton }   from "./down_vote_button.component";
 
-import VoteButton           from './vote_button.component';
+import VoteButton           from "./vote_button.component";
 
-import generateCommentsData from '../support/generate_comments_data';
+import generateCommentsData from "../support/generate_comments_data";
 
-const downVoteFragment = require('./down_vote.fragment.graphql');
+const downVoteFragment = require("./down_vote.fragment.graphql");
 
-import { DownVoteFragment } from '../support/schema';
+import { DownVoteFragment } from "../support/schema";
 
 describe("<DownVoteButton />", () => {
   let comment: DownVoteFragment;
-  const downVote = () => {};
+  const downVote = jasmine.createSpy("downVote");
 
   beforeEach(() => {
     let commentsData = generateCommentsData(1);

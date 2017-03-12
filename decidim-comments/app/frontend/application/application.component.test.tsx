@@ -1,35 +1,35 @@
-import { shallow } from 'enzyme';
+import { shallow } from "enzyme";
 
-import * as React from 'react';
-import * as moment from 'moment';
+import * as moment from "moment";
+import * as React from "react";
 
-import Application from './application.component';
+import Application from "./application.component";
 
-const { I18n } = require('react-i18nify');
+const { I18n } = require("react-i18nify");
 
-describe('<Application />', () => {
+describe("<Application />", () => {
   afterEach(() => {
-    I18n.setLocale('en');
+    I18n.setLocale("en");
   });
 
   it("should set I18n locale to locale prop", () => {
-    spyOn(I18n, 'setLocale');
+    spyOn(I18n, "setLocale");
     const locale = "ca";
     shallow(
       <Application locale={locale}>
         <div>My application</div>
-      </Application>
+      </Application>,
     );
     expect(I18n.setLocale).toHaveBeenCalledWith(locale);
   });
 
   it("should set moment locale to locale prop", () => {
-    spyOn(moment, 'locale');
+    spyOn(moment, "locale");
     const locale = "ca";
     shallow(
       <Application locale={locale}>
         <div>My application</div>
-      </Application>
+      </Application>,
     );
     expect(moment.locale).toHaveBeenCalledWith(locale);
   });

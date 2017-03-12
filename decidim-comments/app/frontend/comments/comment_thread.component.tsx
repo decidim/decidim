@@ -1,15 +1,15 @@
-import * as React            from 'react';
-import { filter, propType }  from 'graphql-anywhere';
-import gql                   from 'graphql-tag';
+import { filter, propType }  from "graphql-anywhere";
+import gql                   from "graphql-tag";
+import * as React            from "react";
 
-import Comment               from './comment.component';
+import Comment               from "./comment.component";
 
 import {
+  AddCommentFormSessionFragment,
   CommentThreadFragment,
-  AddCommentFormSessionFragment
-} from '../support/schema';
+} from "../support/schema";
 
-const { I18n } = require('react-i18nify');
+const { I18n } = require("react-i18nify");
 
 interface CommentThreadProps {
   comment: CommentThreadFragment;
@@ -26,12 +26,12 @@ interface CommentThreadProps {
  * @todo It doesn't handle multiple comments yet
  */
 class CommentThread extends React.Component<CommentThreadProps, undefined> {
-  static defaultProps: any = {
+  private static defaultProps: any = {
     session: null,
-    votable: false
+    votable: false,
   };
 
-  render() {
+  public render() {
     const { comment, session, votable } = this.props;
 
     return (
@@ -42,7 +42,7 @@ class CommentThread extends React.Component<CommentThreadProps, undefined> {
             comment={comment}
             session={session}
             votable={votable}
-            isRootComment
+            isRootComment={true}
           />
         </div>
       </div>
@@ -54,13 +54,13 @@ class CommentThread extends React.Component<CommentThreadProps, undefined> {
    * @private
    * @returns {Void|DOMElement} - The conversation's title
    */
-  _renderTitle() {
+  private _renderTitle() {
     const { comment: { author, hasComments } } = this.props;
 
     if (hasComments) {
       return (
         <h6 className="comment-thread__title">
-          { I18n.t("components.comment_thread.title", { authorName: author.name }) }
+          {I18n.t("components.comment_thread.title", { authorName: author.name })}
         </h6>
       );
     }

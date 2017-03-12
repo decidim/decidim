@@ -1,10 +1,10 @@
-import * as React         from 'react';
-import { ApolloProvider } from 'react-apollo';
-import * as moment        from 'moment';
+import * as moment        from "moment";
+import * as React         from "react";
+import { ApolloProvider } from "react-apollo";
 
-import apolloClient       from './apollo_client';
+import apolloClient       from "./apollo_client";
 
-const { I18n } = require('react-i18nify');
+const { I18n } = require("react-i18nify");
 
 interface ApplicationProps {
   locale: string;
@@ -25,7 +25,7 @@ export default class Application extends React.Component<ApplicationProps, undef
     super(props);
   }
 
-  render() {
+  public render() {
     const { children } = this.props;
 
     return (

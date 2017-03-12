@@ -1,18 +1,18 @@
-import { shallow } from 'enzyme';
-import * as React from 'react';
-import gql from 'graphql-tag';
+import { shallow } from "enzyme";
+import gql from "graphql-tag";
+import * as React from "react";
 
-import CommentThread from './comment_thread.component';
-import Comment from './comment.component';
-import { CommentThreadFragment } from '../support/schema';
+import { CommentThreadFragment } from "../support/schema";
+import Comment from "./comment.component";
+import CommentThread from "./comment_thread.component";
 
-import generateCommentsData from '../support/generate_comments_data';
-import generateCUserData from '../support/generate_user_data';
-import { loadLocaleTranslations } from '../support/load_translations';
+import generateCommentsData from "../support/generate_comments_data";
+import generateCUserData from "../support/generate_user_data";
+import { loadLocaleTranslations } from "../support/load_translations";
 
-const commentThreadFragment = require('./comment_thread.fragment.graphql');
+const commentThreadFragment = require("./comment_thread.fragment.graphql");
 
-describe('<CommentThread />', () => {
+describe("<CommentThread />", () => {
   let comment: CommentThreadFragment;
   let session: any = null;
 
@@ -32,7 +32,7 @@ describe('<CommentThread />', () => {
     `;
 
     session = {
-      user: generateCUserData()
+      user: generateCUserData(),
     };
     comment = commentsData[0];
   });
@@ -40,7 +40,7 @@ describe('<CommentThread />', () => {
   describe("when comment doesn't have comments", () => {
     it("should not render a title with author name", () => {
       const wrapper = shallow(<CommentThread comment={comment} session={session} />);
-      expect(wrapper.find('h6.comment-thread__title').exists()).toBeFalsy();
+      expect(wrapper.find("h6.comment-thread__title").exists()).toBeFalsy();
     });
   });
 
@@ -51,7 +51,7 @@ describe('<CommentThread />', () => {
 
     it("should render a h6 comment-thread__title with author name", () => {
       const wrapper = shallow(<CommentThread comment={comment} session={session} />);
-      expect(wrapper.find('h6.comment-thread__title').text()).toContain(`Conversation with ${comment.author.name}`);
+      expect(wrapper.find("h6.comment-thread__title").text()).toContain(`Conversation with ${comment.author.name}`);
     });
   });
 
@@ -67,12 +67,12 @@ describe('<CommentThread />', () => {
     });
 
     it("and pass the votable as a prop to it", () => {
-      const wrapper = shallow(<CommentThread comment={comment} session={session} votable />);
+      const wrapper = shallow(<CommentThread comment={comment} session={session} votable={true} />);
       expect(wrapper.find(Comment).first().props()).toHaveProperty("votable", true);
     });
 
     it("and pass the isRootComment equal true", () => {
-      const wrapper = shallow(<CommentThread comment={comment} session={session} votable />);
+      const wrapper = shallow(<CommentThread comment={comment} session={session} votable={true} />);
       expect(wrapper.find(Comment).first().props()).toHaveProperty("isRootComment", true);
     });
   });

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import assetUrl   from '../support/asset_url';
+import * as React from "react";
+import assetUrl   from "../support/asset_url";
 
 interface IconProps {
   name: string;
@@ -14,13 +14,13 @@ export const Icon: React.SFC<IconProps> = ({ name, userAgent, iconExtraClassName
 
   return (
     <svg className={`icon ${iconExtraClassName} ${name}`}>
-      <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref={`${assetUrl('icons.svg')}#${name}`} />
+      <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref={`${assetUrl("icons.svg")}#${name}`} />
     </svg>
   );
 };
 
 Icon.defaultProps = {
-  iconExtraClassName: 'icon--before'
+  iconExtraClassName: "icon--before",
 };
 
 interface IconWithoutUserAgentProps {

@@ -1,20 +1,20 @@
-import * as React from 'react';
-import { shallow }          from 'enzyme';
-import gql                  from 'graphql-tag';
+import { shallow }          from "enzyme";
+import gql                  from "graphql-tag";
+import * as React from "react";
 
-import { UpVoteButton }     from './up_vote_button.component';
+import { UpVoteButton }     from "./up_vote_button.component";
 
-import VoteButton           from './vote_button.component';
+import VoteButton           from "./vote_button.component";
 
-import generateCommentsData from '../support/generate_comments_data';
+import generateCommentsData from "../support/generate_comments_data";
 
-import { UpVoteFragment } from '../support/schema';
+import { UpVoteFragment } from "../support/schema";
 
-const upVoteFragment = require('./up_vote.fragment.graphql');
+const upVoteFragment = require("./up_vote.fragment.graphql");
 
 describe("<UpVoteButton />", () => {
   let comment: UpVoteFragment;
-  const upVote = () => {};
+  const upVote = jasmine.createSpy("upVote");
 
   beforeEach(() => {
     let commentsData = generateCommentsData(1);

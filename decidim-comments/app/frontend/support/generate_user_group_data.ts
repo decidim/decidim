@@ -1,4 +1,4 @@
-import { random, company } from 'faker/locale/en';
+import { company, random } from "faker/locale/en";
 
 /**
  * Generate random user group data to emulate a database real content
@@ -7,7 +7,7 @@ import { random, company } from 'faker/locale/en';
 const generateUserGrouprData = () => {
   return {
     id: random.uuid(),
-    name: company.companyName()
+    name: company.companyName(),
   };
 };
 

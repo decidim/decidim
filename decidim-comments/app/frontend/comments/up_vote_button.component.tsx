@@ -1,38 +1,38 @@
-import * as React           from 'react';
-import { propType }         from 'graphql-anywhere';
-import { graphql }          from 'react-apollo';
-import gql                  from 'graphql-tag';
+import { propType }         from "graphql-anywhere";
+import gql                  from "graphql-tag";
+import * as React           from "react";
+import { graphql }          from "react-apollo";
 
-import VoteButton           from './vote_button.component';
+import VoteButton           from "./vote_button.component";
 
-const upVoteMutation       = require('./up_vote.mutation.graphql');
-const commentFragment      = require('./comment.fragment.graphql');
-const commentDataFragment  = require('./comment_data.fragment.graphql');
-const upVoteFragment       = require('./up_vote.fragment.graphql');
-const downVoteFragment     = require('./down_vote.fragment.graphql');
+const upVoteMutation       = require("./up_vote.mutation.graphql");
+const commentFragment      = require("./comment.fragment.graphql");
+const commentDataFragment  = require("./comment_data.fragment.graphql");
+const upVoteFragment       = require("./up_vote.fragment.graphql");
+const downVoteFragment     = require("./down_vote.fragment.graphql");
 
 import {
   CommentFragment,
   GetCommentsQuery,
+  UpVoteFragment,
   UpVoteMutation,
-  UpVoteFragment
-} from '../support/schema';
+} from "../support/schema";
 
 interface UpVoteButtonProps {
-  comment: UpVoteFragment,
+  comment: UpVoteFragment;
   upVote?: () => void;
 }
 
 export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
   comment: { upVotes, upVoted, downVoted },
-  upVote
+  upVote,
 }) => {
-  let selectedClass = '';
+  let selectedClass = "";
 
   if (upVoted) {
-    selectedClass = 'is-vote-selected';
+    selectedClass = "is-vote-selected";
   } else if (downVoted) {
-     selectedClass = 'is-vote-notselected';
+     selectedClass = "is-vote-notselected";
   }
 
   return (
@@ -45,7 +45,7 @@ export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
       selectedClass={selectedClass}
     />
   );
-}
+};
 
 const UpVoteButtonWithMutation = graphql(gql`
   ${upVoteMutation}
@@ -57,19 +57,19 @@ const UpVoteButtonWithMutation = graphql(gql`
   props: ({ ownProps, mutate }) => ({
     upVote: () => mutate({
       variables: {
-        id: ownProps.comment.id
+        id: ownProps.comment.id,
       },
       optimisticResponse: {
-        __typename: 'Mutation',
+        __typename: "Mutation",
         comment: {
-          __typename: 'CommentMutation',
+          __typename: "CommentMutation",
           upVote: {
-            __typename: 'Comment',
+            __typename: "Comment",
             ...ownProps.comment,
             upVotes: ownProps.comment.upVotes + 1,
-            upVoted: true
-          }
-        }
+            upVoted: true,
+          },
+        },
       },
       updateQueries: {
         GetComments: (prev: GetCommentsQuery, { mutationResult: { data } }: { mutationResult: { data: UpVoteMutation}}) => {
@@ -81,7 +81,7 @@ const UpVoteButtonWithMutation = graphql(gql`
             }
             return {
               ...comment,
-              comments: replies.map(commentReducer)
+              comments: replies.map(commentReducer),
             };
           };
 
@@ -89,13 +89,13 @@ const UpVoteButtonWithMutation = graphql(gql`
             ...prev,
             commentable: {
               ...prev.commentable,
-              comments: prev.commentable.comments.map(commentReducer)
-            }
-          }
-        }
-      }
-    })
-  })
+              comments: prev.commentable.comments.map(commentReducer),
+            },
+          };
+        },
+      },
+    }),
+  }),
 })(UpVoteButton);
 
 export default UpVoteButtonWithMutation;

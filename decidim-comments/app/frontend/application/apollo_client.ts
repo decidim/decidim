@@ -1,16 +1,16 @@
-import ApolloClient, { createNetworkInterface } from 'apollo-client';
+import ApolloClient, { createNetworkInterface } from "apollo-client";
 
 // Create a custom network interface for Apollo since our
 // API endpoint is not the default.
 const networkInterface = createNetworkInterface({
-  uri: '/api',
+  uri: "/api",
   opts: {
-    credentials: 'same-origin'
-  }
+    credentials: "same-origin",
+  },
 });
 
 const client = new ApolloClient({
-  networkInterface
+  networkInterface,
 });
 
 export default client;

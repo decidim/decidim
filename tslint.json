@@ -1,0 +1,10 @@
+{
+    "extends": ["tslint:recommended", "tslint-react"],
+    "rules": {
+        "no-var-requires": false,
+        "object-literal-sort-keys": false,
+        "interface-name": [true, "never-prefix"],
+        "max-line-length": [false],
+        "jsx-no-multiline-js": false
+    }
+}

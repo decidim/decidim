@@ -1,28 +1,28 @@
-import * as React from 'react';
-import { shallow }          from 'enzyme';
-import gql                  from 'graphql-tag';
+import { shallow }          from "enzyme";
+import gql                  from "graphql-tag";
+import * as React from "react";
 
-import { Comments }         from './comments.component';
-import CommentThread        from './comment_thread.component';
-import AddCommentForm       from './add_comment_form.component';
-import CommentOrderSelector from './comment_order_selector.component';
+import AddCommentForm       from "./add_comment_form.component";
+import CommentOrderSelector from "./comment_order_selector.component";
+import CommentThread        from "./comment_thread.component";
+import { Comments }         from "./comments.component";
 
-import generateCommentsData from '../support/generate_comments_data';
-import generateUserData     from '../support/generate_user_data';
-import resolveGraphQLQuery  from '../support/resolve_graphql_query';
+import generateCommentsData from "../support/generate_comments_data";
+import generateUserData     from "../support/generate_user_data";
+import resolveGraphQLQuery  from "../support/resolve_graphql_query";
 
-import { loadLocaleTranslations } from '../support/load_translations';
-import { GetCommentsQuery } from '../support/schema';
+import { loadLocaleTranslations } from "../support/load_translations";
+import { GetCommentsQuery } from "../support/schema";
 
-const commentsQuery = require('./comments.query.graphql');
+const commentsQuery = require("./comments.query.graphql");
 
-describe('<Comments />', () => {
+describe("<Comments />", () => {
   let commentable: any = {};
   let session: any = null;
   const commentableId = "1";
   const commentableType = "Decidim::DummyResource";
   const orderBy = "older";
-  const reorderComments = () => {};
+  const reorderComments = jasmine.createSpy("reorderComments");
 
   const commentThreadFragment = gql`
     fragment CommentThread on Comment {
@@ -45,7 +45,7 @@ describe('<Comments />', () => {
   `;
 
   beforeEach(() => {
-    loadLocaleTranslations('en');
+    loadLocaleTranslations("en");
     const userData = generateUserData();
     const commentsData = generateCommentsData(15);
 
@@ -60,20 +60,20 @@ describe('<Comments />', () => {
       filterResult: false,
       rootValue: {
         session: {
-          user: userData
+          user: userData,
         },
         commentable: {
           acceptsNewComments: true,
           commentsHaveAlignment: true,
           commentsHaveVotes: true,
-          comments: commentsData
-        }
+          comments: commentsData,
+        },
       },
       variables: {
         orderBy,
         commentableId,
-        commentableType
-      }
+        commentableType,
+      },
     });
 
     session = result.session;
@@ -81,14 +81,14 @@ describe('<Comments />', () => {
   });
 
   it("renders loading-comments class and the respective loading text", () => {
-    const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} loading />);
-    expect(wrapper.find('.loading-comments').exists()).toBeTruthy();
-    expect(wrapper.find('h2').text()).toEqual("Loading comments ...");
+    const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} loading={true} />);
+    expect(wrapper.find(".loading-comments").exists()).toBeTruthy();
+    expect(wrapper.find("h2").text()).toEqual("Loading comments ...");
   });
 
   it("renders a div of id comments", () => {
     const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
-    expect(wrapper.find('#comments').exists()).toBeTruthy();
+    expect(wrapper.find("#comments").exists()).toBeTruthy();
   });
 
   describe("renders a CommentThread component for each comment", () => {
@@ -96,7 +96,7 @@ describe('<Comments />', () => {
       const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(CommentThread).length).toEqual(commentable.comments.length);
       wrapper.find(CommentThread).forEach((node, idx) => {
-        expect(node.prop('comment')).toEqual(commentable.comments[idx]);
+        expect(node.prop("comment")).toEqual(commentable.comments[idx]);
       });
     });
 
@@ -120,13 +120,13 @@ describe('<Comments />', () => {
   it("renders comments count", () => {
     const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
     const rex = new RegExp(`${commentable.comments.length} comments`);
-    expect(wrapper.find('h2.section-heading').text()).toMatch(rex);
+    expect(wrapper.find("h2.section-heading").text()).toMatch(rex);
   });
 
   it("renders a AddCommentForm component and pass the commentable 'commentsHaveAlignment' as a prop", () => {
     const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
     expect(wrapper.find(AddCommentForm).length).toEqual(1);
-    expect(wrapper.find(AddCommentForm).prop('arguable')).toBeTruthy();
+    expect(wrapper.find(AddCommentForm).prop("arguable")).toBeTruthy();
   });
 
   describe("when the commentable cannot accept new comments", () => {
@@ -141,19 +141,19 @@ describe('<Comments />', () => {
 
     it("renders a callout message to inform the user that comments are blocked", () => {
       const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
-      expect(wrapper.find('.callout.warning').text()).toContain("disabled");
+      expect(wrapper.find(".callout.warning").text()).toContain("disabled");
     });
   });
 
   describe("renders a CommentOrderSelector component", () => {
     it("and pass the reorderComments as a prop to it", () => {
       const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
-      expect(wrapper.find(CommentOrderSelector).prop('reorderComments')).toEqual(reorderComments);
+      expect(wrapper.find(CommentOrderSelector).prop("reorderComments")).toEqual(reorderComments);
     });
 
     it("and pass the orderBy as a prop to it", () => {
       const wrapper = shallow(<Comments commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
-      expect(wrapper.find(CommentOrderSelector).prop('defaultOrderBy')).toEqual('older');
+      expect(wrapper.find(CommentOrderSelector).prop("defaultOrderBy")).toEqual("older");
     });
   });
 });

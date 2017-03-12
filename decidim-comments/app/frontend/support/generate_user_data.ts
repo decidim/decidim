@@ -1,4 +1,4 @@
-import { name } from 'faker/locale/en';
+import { name } from "faker/locale/en";
 
 /**
  * Generate random user data to emulate a database real content
@@ -6,7 +6,7 @@ import { name } from 'faker/locale/en';
  */
 const generateUserData = () => {
   return {
-    name: name.findName()
+    name: name.findName(),
   };
 };
 

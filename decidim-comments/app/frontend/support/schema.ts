@@ -26,6 +26,7 @@ export interface GetCommentsQuery {
     user: {
       name: string,
       avatarUrl: string,
+      organizationName: string,
     } | null,
   } | null;
   commentable: AddCommentFormCommentableFragment & {
@@ -72,6 +73,7 @@ export interface AddCommentFormSessionFragment {
 
 export interface CommentDataFragment extends UpVoteFragment, DownVoteFragment {
   id: string;
+  sgid: string;
   type: string;
   body: string;
   createdAt: string;
@@ -82,12 +84,12 @@ export interface CommentDataFragment extends UpVoteFragment, DownVoteFragment {
   hasComments: boolean;
   acceptsNewComments: boolean;
   alignment: number | null;
+  alreadyReported: boolean;
 }
 
 export interface CommentThreadFragment extends CommentFragment, CommentDataFragment, UpVoteFragment, DownVoteFragment {
   author: {
     name: string,
-    avatarUrl: string,    
   };
   hasComments: boolean;
 }

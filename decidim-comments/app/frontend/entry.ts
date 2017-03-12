@@ -1,17 +1,17 @@
-import * as React from 'react';
-import * as ReactDOM    from 'react-dom';
+import * as React from "react";
+import * as ReactDOM    from "react-dom";
 
-import loadTranslations from './support/load_translations';
-import Comments, { CommentsApplicationProps } from './comments/comments.component';
+import Comments, { CommentsApplicationProps } from "./comments/comments.component";
+import loadTranslations from "./support/load_translations";
 
 window.DecidimComments = window.DecidimComments || {};
 
 window.DecidimComments.renderCommentsComponent = (nodeId: string, props: CommentsApplicationProps) => {
-  var node = $(`#${nodeId}`)[0];
+  let node = $(`#${nodeId}`)[0];
 
   ReactDOM.render(
     React.createElement(Comments, props),
-    node
+    node,
   );
 };
 

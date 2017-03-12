@@ -1,5 +1,5 @@
-import * as React from 'react';
-import Icon       from '../application/icon.component';
+import * as React from "react";
+import Icon       from "../application/icon.component";
 
 interface VoteButtonProps {
   buttonClassName: string;
@@ -16,20 +16,21 @@ const VoteButton: React.SFC<VoteButtonProps> = ({
   votes,
   voteAction,
   disabled,
-  selectedClass
+  selectedClass,
 }) => (
   <button
     className={`${buttonClassName} ${selectedClass}`}
-    onClick={() => voteAction()}
-    disabled={disabled}>
+    onClick={voteAction}
+    disabled={disabled}
+  >
     <Icon name={iconName} iconExtraClassName="icon--small" />
-    { ` ${votes}` }
+    {` ${votes}`}
   </button>
 );
 
 VoteButton.defaultProps = {
   selectedClass: "selected",
-  disabled: false
+  disabled: false,
 };
 
 export default VoteButton;
