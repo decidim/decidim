@@ -10,4 +10,50 @@ eu:
         result_meetings: Honekin lotutako topaketak
     results:
       actions:
+        confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
+        destroy: Garbitu
+        edit: Editatu
+        new: '%{name} berria'
         title: Ekintzak
+      admin:
+        models:
+          result:
+            name: Emaitza
+        results:
+          create:
+            invalid: Arazo bat izan da emaitza hau sortzean.
+            success: Emaitza zuzen sortu da
+          destroy:
+            success: Emaitza zuzen ezabatu da.
+          edit:
+            title: Editatu emaitza
+            update: Eguneratu emaitza
+          index:
+            title: Emaitzak
+          new:
+            create: Sortu emaitza
+            title: Emaitza berria
+          update:
+            invalid: Arazo bat izan da emaitza hau eguneratzean.
+            success: Emaitza zuzen eguneratu da.
+      models:
+        result:
+          fields:
+            title: Izenburua
+      results:
+        count:
+          results_count:
+            one: Emaitza bat
+            other: "%{count} emaitza"
+        filters:
+          category: Kategoria
+          scopes: Esparruak
+          search: Bilatu
+        show:
+          stats:
+            attendees: Bertaratuak
+            comments: Iruzkinak
+            contributions: Ekarpenak
+            meetings: Topaketa-zerrenda
+            proposals: Proposamenak
+            votes: Euskarria
