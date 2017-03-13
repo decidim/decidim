@@ -1,0 +1,11 @@
+eu:
+  activemodel:
+    attributes:
+      proposal:
+        category_id: Kategoria
+        title: Izenburua
+  decidim:
+    features:
+      proposals:
+        actions:
+          create: Sortu proposamenak
