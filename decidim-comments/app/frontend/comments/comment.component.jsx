@@ -58,7 +58,7 @@ class Comment extends Component {
               </div>
             </div>
             <div className="author-data__extra">
-              <button type="button" title="Reportar un problema" data-open={modalName}>
+              <button type="button" title={ I18n.t("components.comment.report.title") } data-open={modalName}>
                 <Icon name="icon-flag" iconExtraClassName="icon--small"></Icon>
               </button>
               {this._renderFlagModal()}

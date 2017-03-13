@@ -6,7 +6,7 @@ module Decidim
     belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: Decidim::ParticipatoryProcess
     has_many :reports, foreign_key: "decidim_moderation_id", class_name: "Decidim::Report"
 
-    validates :reportable, presence: true
+    validates :reportable, :participatory_process, presence: true
 
     delegate :feature, :organization, to: :reportable
   end

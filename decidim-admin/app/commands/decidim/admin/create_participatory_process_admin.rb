@@ -56,14 +56,12 @@ module Decidim
       end
 
       def user_form
-        OpenStruct.new({
-          name: form.name,
-          email: form.email.downcase,
-          organization: participatory_process.organization,
-          roles: [form.role.to_sym],
-          invited_by: current_user,
-          invitation_instructions: invitation_instructions
-        })
+        OpenStruct.new(name: form.name,
+                       email: form.email.downcase,
+                       organization: participatory_process.organization,
+                       roles: [form.role.to_sym],
+                       invited_by: current_user,
+                       invitation_instructions: invitation_instructions)
       end
 
       def invitation_instructions

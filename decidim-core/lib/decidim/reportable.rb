@@ -39,6 +39,7 @@ module Decidim
       #
       # Returns html content
       def reported_content
+        raise NotImplementedError
       end
     end
   end
