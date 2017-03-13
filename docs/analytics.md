@@ -2,7 +2,7 @@
 
 Decidim, for a matter of privacy, doesn't come bundled (or associated with) any analytics service, leaving that part to the developer.
 
-Adding analytics is quite easy. We've set up a partial in place for that. Just create a view in your app under `app/views/layouts/decidim/_header_extra.html.erb` with your content.
+Adding analytics is quite easy. We've set up a partial in place for that. Just create a view in your app under `app/views/layouts/decidim/_head_extra.html.erb` with your content.
 
 Here's an example for Piwik:
 
