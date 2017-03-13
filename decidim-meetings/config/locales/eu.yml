@@ -1,11 +1,79 @@
 eu:
+  activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: Bertaratuen kopurua
+        attending_organizations: 'Parte hartu duten erakundeen zerrenda:'
+        closing_report: Txostena
+        contributions_count: Ekarpen-kopurua
+        proposal_ids: Topaketan sortutako proposamenak
   decidim:
     features:
       meetings:
-        name: Topaketak
+        name: Topaketa-zerrenda
     meetings:
       actions:
+        attachments: Fitxategi erantsiak
         close: Itxi
+        confirm_destroy: Ziur zaude topaketa hau ezabatu nahi duzula?
+        destroy: Garbitu
+        edit: Editatu
+        new: '%{name} berria'
+        title: Ekintzak
+      admin:
+        meeting_closes:
+          edit:
+            close: Itxi
+            title: Itxi topaketa
+        meetings:
+          close:
+            invalid: Arazo bat izan da topaketa hau ixtean.
+            success: Topaketa ongi itxi da
+          create:
+            invalid: Arazo bat izan da topaketa hau sortzean.
+            success: Topaketa ongi sortu da
+          destroy:
+            success: Topaketa zuzen ezabatu da.
+          edit:
+            title: Editatu topaketa
+            update: Eguneratu topaketa
+          index:
+            title: Topaketa-zerrenda
+          new:
+            create: Sortu topaketa
+            title: Topaketa berria
+          update:
+            invalid: Arazo bat izan da topaketa hau eguneratzean.
+            success: Topaketa zuzen eguneratu da.
+        models:
+          meeting:
+            name: Topaketa
+      meetings:
+        filters:
+          category: Kategoria
+          date: Jaioteguna
+          scopes: Esparruak
+          search: Bilatu
+        filters_small_view:
+          close_modal: Itxi leihoa
+          filter: Iragazi
+          filter_for: 'Iragazi honen arabera:'
+          unfold: Zabaldu
+        index:
+          view_meeting: Ikusi topaketa
+        show:
+          attendees: Bertaratuen kopurua
+          contributions: Ekarpen-kopurua
+          meeting_report: Topaketaren txostena
+          organizations: Bertaratutako erakundeak
+      models:
+        meeting:
+          fields:
+            closed: Itxita
+            end_time: Bukaera-data
+            map: Mapa
+            start_time: Hasiera-data
+            title: Izenburua
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Honekin lotutako emaitzak:'
