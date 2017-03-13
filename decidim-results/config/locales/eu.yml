@@ -1,0 +1,13 @@
+eu:
+  decidim:
+    features:
+      results:
+        name: Emaitzak
+    resource_links:
+      included_proposals:
+        result_proposals: Emaitza honetan jasotako proposamenak
+      meetings_through_proposals:
+        result_meetings: Honekin lotutako topaketak
+    results:
+      actions:
+        title: Ekintzak
