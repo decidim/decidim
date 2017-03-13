@@ -1,0 +1,11 @@
+eu:
+  decidim:
+    features:
+      meetings:
+        name: Topaketak
+    meetings:
+      actions:
+        close: Itxi
+    resource_links:
+      meetings_through_proposals:
+        meeting_results: 'Honekin lotutako emaitzak:'
