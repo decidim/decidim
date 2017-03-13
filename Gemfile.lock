@@ -54,7 +54,7 @@ PATH
   specs:
     decidim-api (0.0.5)
       graphiql-rails (~> 1.4.1)
-      graphql (~> 1.5.0)
+      graphql (~> 1.5.1)
       rack-cors (~> 0.4.0)
       rails (~> 5.0.2)
       sprockets-es6 (~> 0.9.2)
@@ -311,7 +311,7 @@ GEM
       activesupport (>= 4.1.0)
     graphiql-rails (1.4.1)
       rails
-    graphql (1.5.0)
+    graphql (1.5.1)
     hashdiff (0.3.2)
     hashie (3.5.5)
     high_voltage (3.0.0)
