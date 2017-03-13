@@ -72,6 +72,7 @@ PATH
   specs:
     decidim-core (0.0.5)
       active_link_to (~> 1.0.0)
+      autoprefixer-rails (~> 6.7, >= 6.7.4)
       cancancan (~> 1.16.0)
       carrierwave (~> 1.0.0)
       date_validator (~> 0.9.0)
@@ -209,6 +210,8 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     ast (2.3.0)
+    autoprefixer-rails (6.7.6)
+      execjs
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -594,4 +597,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.13.7
+   1.14.3

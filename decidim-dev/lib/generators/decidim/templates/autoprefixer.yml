@@ -1,0 +1,8 @@
+# Loading the autoprefixer for WebKit browsers during tests will cause some
+# tests to fail since parts of the UI are rendered differently. This is due to
+# WebKit version used in PhantomJS that does not render some of the modern CSS
+# features the same way as expected by the Foundation framework. For example,
+# some elements are overlapping other elements which causes the elements to be
+# inaccessible during the specific tests.
+browsers:
+  - "Firefox > 2"

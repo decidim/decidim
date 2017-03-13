@@ -9,6 +9,7 @@ require "jquery-rails"
 require "sassc-rails"
 require "foundation-rails"
 require "foundation_rails_helper"
+require "autoprefixer-rails"
 require "rectify"
 
 require_dependency File.join(File.dirname(__FILE__), "..", "..", "..", "app/models/decidim/admin/abilities/admin_user")
