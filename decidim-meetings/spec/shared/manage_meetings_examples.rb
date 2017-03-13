@@ -124,10 +124,8 @@ RSpec.shared_examples "manage meetings" do
   end
 
   context "when geocoding is disabled" do
-    let!(:current_feature) do
-      create(:meeting_feature,
-            :with_geocoding_disabled,
-            participatory_process: participatory_process)
+    before do
+      allow(Decidim).to receive(:geocoder).and_return(nil)
     end
 
     it "updates a meeting" do
@@ -143,6 +141,7 @@ RSpec.shared_examples "manage meetings" do
           es: "Mi nuevo título",
           ca: "El meu nou títol"
         )
+        fill_in :meeting_address, with: address
 
         find("*[type=submit]").click
       end
@@ -189,6 +188,7 @@ RSpec.shared_examples "manage meetings" do
           ca: "Descripció més llarga"
         )
 
+        fill_in :meeting_address, with: address
         fill_in :meeting_start_time, with: 1.day.from_now
         fill_in :meeting_end_time, with: 1.day.from_now + 2.hours
 

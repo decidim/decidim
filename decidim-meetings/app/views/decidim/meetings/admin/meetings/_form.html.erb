@@ -6,11 +6,9 @@
   <%= form.translated :editor, :description %>
 </div>
 
-<% if feature_settings.geocoding_enabled? %>
-  <div class="field" >
-    <%= form.text_field :address %>
-  </div>
-<% end %>
+<div class="field" >
+  <%= form.text_field :address %>
+</div>
 
 <div class="field" >
   <%= form.translated :text_area, :location %>

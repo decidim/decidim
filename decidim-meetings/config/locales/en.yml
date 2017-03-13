@@ -22,9 +22,6 @@ en:
     features:
       meetings:
         name: Meetings
-        settings:
-          global:
-            geocoding_enabled: Geocoding enabled
     meetings:
       actions:
         attachments: Attachments
