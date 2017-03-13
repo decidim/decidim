@@ -50,6 +50,10 @@ module Decidim
         template "database.yml.erb", "config/database.yml", force: true
       end
 
+      def decidim_controller
+        template "decidim_controller.rb.erb", "app/controllers/decidim_controller.rb", force: true
+      end
+
       def docker
         template "Dockerfile.erb", "Dockerfile"
         template "docker-compose.yml.erb", "docker-compose.yml"
