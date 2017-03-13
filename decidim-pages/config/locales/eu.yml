@@ -1,0 +1,12 @@
+eu:
+  decidim:
+    features:
+      pages:
+        settings:
+          global:
+            comments_enabled: Iruzkin gaituak
+    pages:
+      admin:
+        pages:
+          edit:
+            title: Editatu orria
