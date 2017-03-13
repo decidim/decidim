@@ -65,3 +65,9 @@
 <div class="field">
   <%= form.collection_select :scope_id, organization_scopes, :id, :name %>
 </div>
+
+<div class="field">
+  <% if process_groups_for_select %>
+    <%= form.select :participatory_process_group_id, process_groups_for_select, prompt: I18n.t("decidim.participatory_processes.participatory_process_groups.none") %>
+  <% end %>
+</div>

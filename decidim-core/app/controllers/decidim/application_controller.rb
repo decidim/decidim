@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Decidim
   # The main application controller that inherits from Rails.
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ApplicationController
     include Decidim::NeedsOrganization
     include Decidim::LocaleSwitcher
     include NeedsAuthorization
@@ -10,6 +10,9 @@ module Decidim
     helper Decidim::DecidimFormHelper
     helper Decidim::LanguageChooserHelper
     helper Decidim::ReplaceButtonsHelper
+    helper Decidim::TranslationsHelper
+    helper Decidim::CookiesHelper
+    helper Decidim::AriaSelectedLinkToHelper
 
     # Saves the location before loading each page so we can return to the
     # right page. If we're on a devise page, we don't want to store that as the

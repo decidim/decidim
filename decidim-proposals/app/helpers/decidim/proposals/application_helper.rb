@@ -8,6 +8,7 @@ module Decidim
       include PaginateHelper
       include ProposalVotesHelper
       include ProposalOrderHelper
+      include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
 
       # Public: The state of a proposal in a way a human can understand.

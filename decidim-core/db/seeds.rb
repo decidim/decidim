@@ -2,7 +2,7 @@
 if !Rails.env.production? || ENV["SEED"]
   require "decidim/faker/localized"
 
-  organization = Decidim::Organization.create!(
+  organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
     twitter_handler: Faker::Hipster.word,
     facebook_handler: Faker::Hipster.word,
@@ -95,6 +95,17 @@ if !Rails.env.production? || ENV["SEED"]
     end
   end
 
+  process_groups = []
+  3.times do
+    process_groups << Decidim::ParticipatoryProcessGroup.create!(
+      name: Decidim::Faker::Localized.sentence(3),
+      description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        Decidim::Faker::Localized.paragraph(3)
+      end,
+      hero_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
+      organization: organization
+    )
+  end
 
   3.times do
     Decidim::ParticipatoryProcess.create!(
@@ -119,7 +130,8 @@ if !Rails.env.production? || ENV["SEED"]
       target: Decidim::Faker::Localized.sentence(3),
       participatory_scope: Decidim::Faker::Localized.sentence(1),
       participatory_structure: Decidim::Faker::Localized.sentence(2),
-      end_date: 2.month.from_now.at_midnight
+      end_date: 2.month.from_now.at_midnight,
+      participatory_process_group: process_groups.sample
     )
   end
 

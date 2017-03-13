@@ -3,7 +3,7 @@ require_dependency "decidim/admin/application_controller"
 
 module Decidim
   module Admin
-    # Controller that allows managing all the Admins.
+    # Controller that allows managing participatory process step ordering.
     #
     class ParticipatoryProcessStepOrderingController < ApplicationController
       include Concerns::ParticipatoryProcessAdmin

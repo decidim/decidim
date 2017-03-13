@@ -90,8 +90,17 @@ FactoryGirl.define do
         create(:participatory_process_step,
                active: true,
                participatory_process: participatory_process)
+        participatory_process.reload
+        participatory_process.steps.reload
       end
     end
+  end
+
+  factory :participatory_process_group, class: Decidim::ParticipatoryProcessGroup do
+    name { Decidim::Faker::Localized.sentence(3) }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    hero_image { test_file("city.jpeg", "image/jpeg") }
+    organization
   end
 
   factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do
@@ -101,6 +110,11 @@ FactoryGirl.define do
     end_date 2.month.from_now.at_midnight
     position nil
     participatory_process
+
+    after(:create) do |step, _evaluator|
+      step.participatory_process.reload
+      step.participatory_process.steps.reload
+    end
 
     trait :active do
       active true
@@ -220,6 +234,10 @@ FactoryGirl.define do
     participatory_process
     manifest_name "dummy"
     published_at { Time.now }
+
+    after(:create) do |feature, _evaluator|
+      feature.participatory_process.steps.reload
+    end
 
     trait :unpublished do
       published_at { nil }

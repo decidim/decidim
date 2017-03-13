@@ -1,0 +1,13 @@
+<div class="actions">
+  <% if can? :destroy, participatory_process_group %>
+    <%= link_to t("decidim.admin.actions.destroy"), participatory_process_group, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+  <% end %>
+</div>
+
+<%= decidim_form_for(@form) do |f| %>
+  <%= render partial: 'form', object: f %>
+
+  <div class="actions">
+    <%= f.submit t(".update") %>
+  </div>
+<% end %>

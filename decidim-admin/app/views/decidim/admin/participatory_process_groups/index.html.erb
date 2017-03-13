@@ -1,0 +1,38 @@
+<% provide :title do %>
+  <h2><%= t "decidim.admin.titles.participatory_process_groups" %></h2>
+<% end %>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_group.name", scope: "decidim.admin")), ['new', 'participatory_process_group'], class: 'new' if can? :create, Decidim::ParticipatoryProcessGroup %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th><%= t("models.participatory_process_group.fields.name", scope: "decidim.admin") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% collection.each do |group| %>
+      <tr>
+        <td>
+          <%= link_to translated_attribute(group.name), group %><br />
+        </td>
+        <td class="actions">
+          <% if can? :preview, group %>
+            <%= link_to t("actions.preview", scope: "decidim.admin"), decidim.participatory_process_group_path(group) %>
+          <% end %>
+
+          <% if can? :update, group %>
+            <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', group], class: "small button secondary" %>
+          <% end %>
+
+          <% if can? :destroy, group %>
+            <%= link_to t("actions.destroy", scope: "decidim.admin"), group, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

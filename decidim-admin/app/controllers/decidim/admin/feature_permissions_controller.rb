@@ -3,7 +3,7 @@ require_dependency "decidim/admin/application_controller"
 
 module Decidim
   module Admin
-    # Controller that allows managing all the Admins.
+    # Controller that allows managing feature permissions.
     #
     class FeaturePermissionsController < ApplicationController
       include Concerns::ParticipatoryProcessAdmin
