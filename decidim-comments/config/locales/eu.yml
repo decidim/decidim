@@ -1,0 +1,42 @@
+eu:
+  decidim:
+    comments:
+      comment_notification_mailer:
+        hello: Kaixo, %{name},
+        notifications_settings_link: jakinarazpenen konfigurazio-orria
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: Iruzkin berri bat duzu
+          reply_created:
+            subject: Zure iruzkinetako bati erantzuna eman diote
+    components:
+      add_comment_form:
+        form:
+          body:
+            label: Iruzkina
+            placeholder: Zer deritzozu honi?
+          form_error: Testua behar da, eta ezin du izan %{length} karaktere baino gehiago.
+          submit: Bidali
+          user_group_id:
+            label: 'Iruzkindu honela:'
+        opinion:
+          neutral: Neutrala
+        title: Jarri hemen zure iruzkina
+      comment:
+        alignment:
+          against: Aurka
+          in_favor: Alde
+        reply: Erantzuna
+      comment_order_selector:
+        order:
+          best_rated: Balorazio hoberena
+          most_discussed: Eztabaidatuenak
+          older: Zaharrena
+          recent: Berri-berria
+        title: 'Ordenatu honen arabera:'
+      comments:
+        loading: Iruzkinak kargatzen...
+        title: "%{count} iruzkin"
+      featured_comment:
+        title: Iruzkin nabarmendua
