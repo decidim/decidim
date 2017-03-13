@@ -60,6 +60,7 @@
 
   .session-box {
     padding: $global-padding 0;
+    border-bottom: 1px solid black;
 
     @include grid-row;
 
@@ -69,5 +70,33 @@
       overflow: hidden;
     }
     .sign-out{ @include grid-column(4); }
+
+  }
+}
+
+.dropdown > li > a{
+  padding-left: 0;
+}
+.dropdown{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.is-dropdown-submenu{
+  z-index: 2;
+  text-align: left;
+  background: lighten($black, 5) !important;
+  border: none !important;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3) !important;;
+  min-width: 250px !important;
+  a{
+    color: $light-gray;
+    padding: .5rem;
+  }
+  a:hover{
+    color: lighten($light-gray, 20);
+  }
+  li:hover{
+    background: lighten($black, 10);
   }
 }

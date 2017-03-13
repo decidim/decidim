@@ -11,6 +11,9 @@
 @import "decidim/editor";
 @import "decidim/utils/fontface";
 
+@import "foundation";
+@include foundation-everything;
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
