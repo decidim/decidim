@@ -40,7 +40,6 @@ module Decidim
       end
 
       def save_organization
-        byebug
         organization.name = form.name
         organization.host = form.host
         organization.secondary_hosts = form.clean_secondary_hosts
