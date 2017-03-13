@@ -1,0 +1,99 @@
+eu:
+  activemodel:
+    attributes:
+      project:
+        budget: Aurrekontua
+        decidim_category_id: Kategoria
+        decidim_scope_id: Esparrua
+        description: Deskribapena
+        proposal_ids: Honekin lotutako proposamenak
+        title: Izenburua
+  decidim:
+    budgets:
+      actions:
+        attachments: Fitxategi erantsiak
+        confirm_destroy: Ziur zaude proiektu hau ezabatu nahi duzula?
+        destroy: Garbitu
+        edit: Editatu
+        new: '%{name} berria'
+        title: Ekintzak
+      admin:
+        models:
+          project:
+            name: Proiektua
+        projects:
+          create:
+            invalid: Arazo bat izan da proiektu hau sortzean
+            success: Proiektua ongi sortu da
+          destroy:
+            success: Proiektu ongi ezabatu da
+          edit:
+            title: Editatu proiektua
+            update: Eguneratu proiektua
+          index:
+            title: Proiektuak
+          new:
+            create: Sortu proiektua
+            title: Emaitza berria
+          update:
+            invalid: Arazo bat izan da proiektu hau eguneratzean
+            success: Proiektua zuzen eguneratu da
+      models:
+        project:
+          fields:
+            title: Izenburua
+      projects:
+        budget_confirm:
+          are_you_sure: Ados zaude? Behin zure botoa baieztatuta, ezin izanen duzu aldatu.'
+          cancel: Utzi
+          confirm: Baieztatu
+          description: Proiektu hauek hautatu dituzu aurrekontuan sartzeko
+          title: Baieztatu botoa
+        budget_excess:
+          close: Itxi
+          description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
+          ok: Ados
+          title: Aurrekontua gainditu da.
+        budget_summary:
+          are_you_sure: Ziur zaude zure botoa ezeztatu nahi duzula?
+          assigned: 'Esleituta:'
+          checked_out:
+            title: Botoa zuzen bidali da
+          description: Zure aburuz, proiektuetako zeinei esleitu behar diegu aurrekontua? Gutxienez, %{minimum_budget} esleitu nahi dituzun proiektuei, eta bozkatu aurrekontua zehazteko.
+          title: Zure esku dago aurrekontua erabakitzea
+        count:
+          projects_count:
+            one: Proiektu bat
+            other: "%{count} proiektu"
+        filters:
+          category: Kategoria
+          scopes: Esparruak
+          search: Bilatu
+        order_progress:
+          vote: Bozkatu
+        order_selected_projects:
+          remove: Kendu
+          selected_projects:
+            one: hautatutako proiektua
+            other: hautatutako proiektuak
+          view: Ikusi
+        project:
+          add: Gehitu
+          remove: Kendu
+        project_budget_button:
+          add: Gehitu
+          added: Erantsita
+        show:
+          budget: Aurrekontua
+          view_all_projects: Ikusi proiektu guztiak
+    features:
+      budgets:
+        name: Aurrekontuak
+    orders:
+      checkout:
+        error: Errorea gertatu da zure botoa prozesatzean
+        success: Zure botoa ongi bideratu da
+      destroy:
+        error: Errorea gertatu da zure botoa ezeztatzean
+        success: Zure botua zuzen ezeztatu da
+  total_budget: Guztizko aurrekontua
