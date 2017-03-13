@@ -195,8 +195,8 @@ en:
       menu:
         dashboard: Dashboard
         newsletters: Newsletters
-        participatory_process_groups: Participatory process groups
-        participatory_processes: Participatory processes
+        participatory_process_groups: Process groups
+        participatory_processes: Processes
         participatory_processes_submenu:
           attachments: Attachments
           categories: Categories
