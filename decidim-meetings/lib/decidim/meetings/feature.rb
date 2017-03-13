@@ -16,6 +16,10 @@ Decidim.register_feature(:meetings) do |feature|
     resource.template = "decidim/meetings/meetings/linked_meetings"
   end
 
+  feature.settings(:global) do |settings|
+    settings.attribute :geocoding_enabled, type: :boolean, default: true
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?

@@ -21,8 +21,7 @@ module Decidim
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
         validates :location, translatable_presence: true
-        validates :address, presence: true
-        validates :address, geocoding: true, if: ->(form) { form.address.present? }
+        validates :address, geocoding: true, if: -> { current_feature.settings.geocoding_enabled? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
 
