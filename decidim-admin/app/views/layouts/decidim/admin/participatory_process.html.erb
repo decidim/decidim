@@ -1,59 +1,61 @@
-<% provide :title do %>
-  <h2><%= link_to translated_attribute(participatory_process.title), decidim_admin.participatory_process_path(participatory_process) %></h2>
-  <h3 class="subheader"><%= translated_attribute(participatory_process.subtitle) %></h3>
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav secondary-nav--subnav">
+    <ul>
+      <li <% if is_active_link?(decidim_admin.participatory_process_path(participatory_process), :exact) %> class="is-active" <% end %>>
+        <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_path(participatory_process), aria_link_type: :exclusive %>
+      </li>
+      <% if can? :read, Decidim::ParticipatoryProcessStep %>
+        <li <% if is_active_link?(decidim_admin.participatory_process_steps_path(participatory_process)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_steps_path(participatory_process) %>
+        </li>
+      <% end %>
+      <% if can? :read, Decidim::Feature %>
+        <li <% if is_active_link?(decidim_admin.participatory_process_features_path(participatory_process)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("features", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_features_path(participatory_process) %>
+          <% if is_active_link?(decidim_admin.participatory_process_features_path(participatory_process)) %>
+            <ul>
+              <% participatory_process.features.each do |feature| %>
+                <% if feature.manifest.admin_engine %>
+                  <li <% if is_active_link?(decidim_admin.manage_feature_path(participatory_process, feature)) %> class="is-active" <% end %>>
+                    <%= link_to decidim_admin.manage_feature_path(participatory_process, feature) do %>
+                      <%= translated_attribute feature.name %>
+                    <% end %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          <% end %>
+        </li>
+      <% end %>
+      <% if can? :read, Decidim::Category %>
+        <li <% if is_active_link?(decidim_admin.participatory_process_categories_path(participatory_process)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_categories_path(participatory_process) %>
+        </li>
+      <% end %>
+      <% if can? :read, Decidim::Admin::ParticipatoryProcessUserRole %>
+        <li <% if is_active_link?(decidim_admin.participatory_process_user_roles_path(participatory_process)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_user_roles_path(participatory_process) %>
+        </li>
+      <% end %>
+      <% if can? :read, Decidim::Attachment %>
+        <li <% if is_active_link?(decidim_admin.participatory_process_attachments_path(participatory_process.id)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_attachments_path(participatory_process.id) %>
+        </li>
+      <% end %>
+      <% if can? :update, participatory_process %>
+        <li <% if is_active_link?(decidim_admin.edit_participatory_process_path(participatory_process)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("settings", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.edit_participatory_process_path(participatory_process) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>
-  <hr />
-  <div class="row">
-    <div class="medium-3 columns">
-      <ul class="tabs vertical" id="example-vert-tabs">
-        <li class="tabs-title is-active">
-          <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_path(participatory_process), aria_link_type: :exclusive %>
-        </li>
-        <% if can? :read, Decidim::ParticipatoryProcessStep %>
-          <li class="tabs-title">
-            <%= aria_selected_link_to t("steps", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_steps_path(participatory_process) %>
-          </li>
-        <% end %>
-        <% if can? :read, Decidim::Feature %>
-          <li class="tabs-title">
-            <%= aria_selected_link_to t("features", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_features_path(participatory_process) %>
-          </li>
-        <% end %>
-        <% if can? :read, Decidim::Moderation %>
-          <li class="tabs-title">
-            <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_moderations_path(participatory_process) %>
-          </li>
-        <% end %>
-        <% if can? :read, Decidim::Category %>
-          <li class="tabs-title">
-            <%= aria_selected_link_to t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_categories_path(participatory_process) %>
-          </li>
-        <% end %>
-        <% if can? :read, Decidim::Admin::ParticipatoryProcessUserRole %>
-          <li class="tabs-title">
-            <%= aria_selected_link_to t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_user_roles_path(participatory_process) %>
-          </li>
-        <% end %>
-        <% if can? :read, Decidim::Attachment %>
-          <li class="tabs-title">
-            <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_attachments_path(participatory_process.id) %>
-          </li>
-        <% end %>
-        <% if can? :update, participatory_process %>
-          <li class="tabs-title">
-            <%= aria_selected_link_to t("settings", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.edit_participatory_process_path(participatory_process) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="medium-9 columns">
-      <div class="tabs-content vertical">
-        <div class="tabs-panel" aria-hidden="false">
-          <%= yield %>
-        </div>
-      </div>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= translated_attribute(participatory_process.title) %>
     </div>
   </div>
+  <%= yield %>
 <% end %>
