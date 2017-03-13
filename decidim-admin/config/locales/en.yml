@@ -367,6 +367,9 @@ en:
           success: Participatory process destroyed successfully.
         edit:
           update: Update participatory process
+        index:
+          not_published: Not published
+          published: Published
         new:
           create: Create participatory process
           title: New participatory process
