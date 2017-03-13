@@ -1,5 +1,5 @@
 /*!
- * Quill Editor v1.1.5
+ * Quill Editor v1.2.2
  * https://quilljs.com/
  * Copyright (c) 2014, Jason Chen
  * Copyright (c) 2013, salesforce.com
@@ -14,6 +14,9 @@
 }
 .ql-container.ql-disabled .ql-tooltip {
   visibility: hidden;
+}
+.ql-container.ql-disabled .ql-editor ul[data-checked] > li::before {
+  pointer-events: none;
 }
 .ql-clipboard {
   left: -100000px;
@@ -64,7 +67,23 @@
   list-style-type: none;
 }
 .ql-editor ul > li::before {
-  content: '\25CF';
+  content: '\2022';
+}
+.ql-editor ul[data-checked=true],
+.ql-editor ul[data-checked=false] {
+  pointer-events: none;
+}
+.ql-editor ul[data-checked=true] > li::before,
+.ql-editor ul[data-checked=false] > li::before {
+  color: #777;
+  cursor: pointer;
+  pointer-events: all;
+}
+.ql-editor ul[data-checked=true] > li::before {
+  content: '\2611';
+}
+.ql-editor ul[data-checked=false] > li::before {
+  content: '\2610';
 }
 .ql-editor li::before {
   display: inline-block;
@@ -382,6 +401,10 @@
   float: left;
   height: 100%;
 }
+.ql-bubble.ql-toolbar button:active:hover,
+.ql-bubble .ql-toolbar button:active:hover {
+  outline: none;
+}
 .ql-bubble.ql-toolbar input.ql-image[type=file],
 .ql-bubble .ql-toolbar input.ql-image[type=file] {
   display: none;
@@ -467,10 +490,14 @@
 }
 .ql-bubble .ql-tooltip {
   position: absolute;
+  transform: translateY(10px);
 }
 .ql-bubble .ql-tooltip a {
   cursor: pointer;
   text-decoration: none;
+}
+.ql-bubble .ql-tooltip.ql-flip {
+  transform: translateY(-10px);
 }
 .ql-bubble .ql-formats {
   display: inline-block;
@@ -797,10 +824,8 @@
   background-color: #444;
   border-radius: 25px;
   color: #fff;
-  margin-top: 10px;
 }
 .ql-bubble .ql-tooltip-arrow {
-  border-bottom: 6px solid #444;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   content: " ";
@@ -808,7 +833,14 @@
   left: 50%;
   margin-left: -6px;
   position: absolute;
+}
+.ql-bubble .ql-tooltip:not(.ql-flip) .ql-tooltip-arrow {
+  border-bottom: 6px solid #444;
   top: -6px;
+}
+.ql-bubble .ql-tooltip.ql-flip .ql-tooltip-arrow {
+  border-top: 6px solid #444;
+  bottom: -6px;
 }
 .ql-bubble .ql-tooltip.ql-editing .ql-tooltip-editor {
   display: block;
@@ -840,4 +872,43 @@
   content: "\D7";
   font-size: 16px;
   font-weight: bold;
+}
+.ql-container.ql-bubble:not(.ql-disabled) a {
+  position: relative;
+  white-space: nowrap;
+}
+.ql-container.ql-bubble:not(.ql-disabled) a::before {
+  background-color: #444;
+  border-radius: 15px;
+  top: -5px;
+  font-size: 12px;
+  color: #fff;
+  content: attr(href);
+  font-weight: normal;
+  overflow: hidden;
+  padding: 5px 15px;
+  text-decoration: none;
+  z-index: 1;
+}
+.ql-container.ql-bubble:not(.ql-disabled) a::after {
+  border-top: 6px solid #444;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  top: 0;
+  content: " ";
+  height: 0;
+  width: 0;
+}
+.ql-container.ql-bubble:not(.ql-disabled) a::before,
+.ql-container.ql-bubble:not(.ql-disabled) a::after {
+  left: 0;
+  margin-left: 50%;
+  position: absolute;
+  transform: translate(-50%, -100%);
+  transition: visibility 0s ease 200ms;
+  visibility: hidden;
+}
+.ql-container.ql-bubble:not(.ql-disabled) a:hover::before,
+.ql-container.ql-bubble:not(.ql-disabled) a:hover::after {
+  visibility: visible;
 }

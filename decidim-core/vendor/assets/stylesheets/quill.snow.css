@@ -1,5 +1,5 @@
 /*!
- * Quill Editor v1.1.5
+ * Quill Editor v1.2.2
  * https://quilljs.com/
  * Copyright (c) 2014, Jason Chen
  * Copyright (c) 2013, salesforce.com
@@ -14,6 +14,9 @@
 }
 .ql-container.ql-disabled .ql-tooltip {
   visibility: hidden;
+}
+.ql-container.ql-disabled .ql-editor ul[data-checked] > li::before {
+  pointer-events: none;
 }
 .ql-clipboard {
   left: -100000px;
@@ -64,7 +67,23 @@
   list-style-type: none;
 }
 .ql-editor ul > li::before {
-  content: '\25CF';
+  content: '\2022';
+}
+.ql-editor ul[data-checked=true],
+.ql-editor ul[data-checked=false] {
+  pointer-events: none;
+}
+.ql-editor ul[data-checked=true] > li::before,
+.ql-editor ul[data-checked=false] > li::before {
+  color: #777;
+  cursor: pointer;
+  pointer-events: all;
+}
+.ql-editor ul[data-checked=true] > li::before {
+  content: '\2611';
+}
+.ql-editor ul[data-checked=false] > li::before {
+  content: '\2610';
 }
 .ql-editor li::before {
   display: inline-block;
@@ -382,6 +401,10 @@
   float: left;
   height: 100%;
 }
+.ql-snow.ql-toolbar button:active:hover,
+.ql-snow .ql-toolbar button:active:hover {
+  outline: none;
+}
 .ql-snow.ql-toolbar input.ql-image[type=file],
 .ql-snow .ql-toolbar input.ql-image[type=file] {
   display: none;
@@ -467,10 +490,14 @@
 }
 .ql-snow .ql-tooltip {
   position: absolute;
+  transform: translateY(10px);
 }
 .ql-snow .ql-tooltip a {
   cursor: pointer;
   text-decoration: none;
+}
+.ql-snow .ql-tooltip.ql-flip {
+  transform: translateY(-10px);
 }
 .ql-snow .ql-formats {
   display: inline-block;
@@ -814,7 +841,6 @@
   border: 1px solid #ccc;
   box-shadow: 0px 0px 5px #ddd;
   color: #444;
-  margin-top: 10px;
   padding: 5px 12px;
   white-space: nowrap;
 }
