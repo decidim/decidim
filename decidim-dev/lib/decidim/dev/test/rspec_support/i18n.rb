@@ -5,6 +5,9 @@ RSpec.configure do |config|
   end
 
   config.around(:each) do |example|
+    I18n.available_locales = %{en ca es}
+    Decidim.available_locales = %{en ca es}
+
     previous_locale = I18n.locale
     example.run
     I18n.locale = previous_locale

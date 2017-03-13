@@ -55,7 +55,7 @@ module Decidim
 
   # Exposes a configuration option: The email String to use as sender in all
   # the mails.
-  config_accessor :mailer_sender
+a config_accessor :mailer_sender
 
   # Exposes a configuration option: an Array of `cancancan`'s Ability classes
   # that will be automatically included to the base `Decidim::Ability` class.
