@@ -14,11 +14,7 @@
     <%= render partial: 'layouts/decidim/admin/template_top' %>
     <div class="layout-nav">
       <%= render partial: 'layouts/decidim/admin/main_nav' %>
-      <% if content_for? :secondary_nav %>
-        <div class="secondary-nav">
-          <%= yield :secondary_nav %>
-        </div>
-      <% end %>
+      <%= yield :secondary_nav if content_for? :secondary_nav %>
     </div>
     <div class="layout-content">
       <%= render partial: 'layouts/decidim/admin/callouts_full' %>
