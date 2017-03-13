@@ -1,0 +1,20 @@
+eu:
+  decidim:
+    features:
+      pages:
+        name: Orrialdea
+        settings:
+          global:
+            comments_enabled: Iruzkin gaituak
+    pages:
+      admin:
+        models:
+          components:
+            body: Testu-gorputza
+        pages:
+          edit:
+            save: Gorde orria
+            title: Editatu orria
+          update:
+            invalid: Erroreak gertatu dira orria gordetzean.
+            success: Orria zuzen gorde da.

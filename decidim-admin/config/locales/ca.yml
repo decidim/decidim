@@ -12,9 +12,6 @@ ca:
       feature:
         name: Nom
         weight: Pes
-      newsletter:
-        body: Cos
-        subject: Assumpte
       organization:
         default_locale: Idioma per defecte
         description: Descripció
@@ -22,9 +19,6 @@ ca:
         homepage_image: Imatge de la portada
         logo: Logotip
         name: Nom
-        official_img_footer: Logotip oficial del peu de pàgina
-        official_img_header: Logotip oficial de la capçalera
-        official_url: URL oficial de l'organització
         show_statistics: Mostra Estadístiques
         welcome_text: Text de benvinguda
       participatory_process:
@@ -35,16 +29,11 @@ ca:
         end_date: Data de finalització
         hashtag: Etiqueta
         hero_image: Imatge de portada
-        local_area: Àrea municipal
-        meta_scope: 'Metadades: àmbit'
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
         promoted: Promogut
         scope: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
         subtitle: Subtítol
-        target: A qui va dirigit?
         title: Títol
       participatory_process_step:
         description: Descripció
@@ -68,28 +57,7 @@ ca:
   activerecord:
     attributes:
       decidim/participatory_process:
-        banner_image: Imatge de bàner
-        description: Descripció
-        developer_group: Grup promotor
-        domain: Àrees municipals
-        end_date: Data de finalització
-        hashtag: Hashtag
-        hero_image: Imatge de portada
-        local_area: Àrea municipal
-        meta_scope: 'Metadades: àmbit'
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
         promoted: Promogut
-        scope: Àmbit
-        short_description: Descripció breu
-        slug: Nom curt d'URL
-        subtitle: Subtítol
-        target: A qui va dirigit?
-        title: Títol
-      decidim/static_page:
-        content: Contingut
-        slug: Nom curt d'URL
-        title: Títol
   decidim:
     admin:
       actions:
@@ -193,7 +161,6 @@ ca:
           success: La funcionalitat s'ha actualitzat correctament.
       menu:
         dashboard: Tauler de control
-        newsletters: Butlletins
         participatory_processes: Processos participatius
         participatory_processes_submenu:
           attachments: Adjunts
@@ -218,13 +185,6 @@ ca:
           fields:
             name: Nom
           name: Categoria
-        newsletter:
-          fields:
-            created_at: Data de creació
-            progress: Progrés
-            sent_at: Enviat el
-            subject: Assumpte
-          name: Butlletí
         participatory_process:
           fields:
             created_at: Data de creació
@@ -268,35 +228,6 @@ ca:
             name: Nom
             phone: Telèfon
             users_count: Número d'usuaris
-      newsletters:
-        create:
-          error: S'ha produït un error en crear aquest butlletí.
-          success: Butlletí creat amb èxit. Si us plau, revisa'l abans d'enviar.
-        deliver:
-          error: Hi ha hagut un error d'enviament d'aquest butlletí.
-          success: Butlletí enviat amb èxit.
-        destroy:
-          error_already_sent: 'No es pot destruir butlletí de notícies: Ja s''ha enviat.'
-          success: Butlletí destruït amb èxit.
-        edit:
-          save_and_preview: Desar i vista prèvia
-          title: Editar butlletí
-        form:
-          interpolations_hint: 'Consell: Podeu utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
-        index:
-          confirm_delete: Esteu segur que voleu suprimir aquest butlletí?
-          title: Butlletins
-        new:
-          save: Desar
-          title: Nou butlletí
-        show:
-          confirm_deliver: Estàs segur de que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
-          deliver: Enviar butlletí
-          preview: Previsualitzar
-          subject: Assumpte
-        update:
-          error: S'ha produït un error en actualitzar aquest butlletí.
-          success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       organization:
         edit:
           title: Edita organització

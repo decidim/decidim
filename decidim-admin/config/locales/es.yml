@@ -12,9 +12,6 @@ es:
       feature:
         name: Nombre
         weight: Peso
-      newsletter:
-        body: Cuerpo
-        subject: Asunto
       organization:
         default_locale: Configuración regional predeterminada
         description: Descripción
@@ -22,9 +19,6 @@ es:
         homepage_image: Imagen de portada
         logo: Logotipo
         name: Nombre
-        official_img_footer: Logotipo oficial de pie de página
-        official_img_header: Logotipo oficial de cabecera
-        official_url: URL oficial de organización
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
       participatory_process:
@@ -35,16 +29,11 @@ es:
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
-        local_area: Áreas muncipales
-        meta_scope: 'Metadatos: ámbito'
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
         promoted: Destacado
         scope: Ámbito
         short_description: Breve descripción
         slug: Texto corto de URL
         subtitle: Subtítulo
-        target: '¿A quién va dirigido?'
         title: Título
       participatory_process_step:
         description: Descripción
@@ -68,28 +57,7 @@ es:
   activerecord:
     attributes:
       decidim/participatory_process:
-        banner_image: Imagen de banner
-        description: Descripción
-        developer_group: Grupo promotor
-        domain: Dominio
-        end_date: Fecha de finalización
-        hashtag: Hashtag
-        hero_image: Imagen de portada
-        local_area: Áreas municipales
-        meta_scope: 'Metadatos: ámbito'
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
         promoted: Destacado
-        scope: Ámbito
-        short_description: Descripción breve
-        slug: Texto corto de URL
-        subtitle: Subtítulo
-        target: '¿A quién va dirigido?'
-        title: Título
-      decidim/static_page:
-        content: Contenido
-        slug: Texto corto de URL
-        title: Título
   decidim:
     admin:
       actions:
@@ -193,7 +161,6 @@ es:
           success: La funcionalidad se ha actualizado correctamente.
       menu:
         dashboard: Panel de control
-        newsletters: Boletines
         participatory_processes: Procesos participativos
         participatory_processes_submenu:
           attachments: Archivos adjuntos
@@ -218,13 +185,6 @@ es:
           fields:
             name: Nombre
           name: Categoría
-        newsletter:
-          fields:
-            created_at: Fecha de creación
-            progress: Progreso
-            sent_at: Enviado el
-            subject: Asunto
-          name: Boletín
         participatory_process:
           fields:
             created_at: Fecha de creación
@@ -268,35 +228,6 @@ es:
             name: Nombre
             phone: Teléfono
             users_count: Número de usuarios
-      newsletters:
-        create:
-          error: Se ha producido un error al crear este boletín.
-          success: Boletín creado con éxito. Por favor, revíselo antes de enviarlo.
-        deliver:
-          error: Ha habido un error de entrega de este boletín.
-          success: Boletín enviado con éxito.
-        destroy:
-          error_already_sent: 'No se puede destruir el boletín de noticias: Ya se ha enviado.'
-          success: Boletín destruido con éxito.
-        edit:
-          save_and_preview: Guardar y vista previa
-          title: Editar boletín
-        form:
-          interpolations_hint: 'Sugerencia: Puede utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
-        index:
-          confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
-          title: Boletines
-        new:
-          save: Guardar
-          title: Nuevo boletín
-        show:
-          confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
-          deliver: Enviar boletín
-          preview: Previsualizar
-          subject: Asunto
-        update:
-          error: Se ha producido un error al actualizar este boletín.
-          success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
       organization:
         edit:
           title: Editar organización

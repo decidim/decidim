@@ -150,6 +150,10 @@ es:
     pages:
       index:
         title: Más información
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Procesos para %{group}
+        title: Grupo de procesos participativos
     participatory_process_steps:
       index:
         process_steps: Las fases de proceso
@@ -157,6 +161,8 @@ es:
     participatory_processes:
       index:
         title: Procesos participativos
+      participatory_process_groups:
+        none: Ninguno
       scopes:
         global: Ámbito global
       show:
@@ -253,6 +259,9 @@ es:
         navigation: Navegación
         sign_in: Entra
         sign_up: Regístrate
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Explorar
       participatory_processes:
         index:
           promoted_processes: Procesos destacados

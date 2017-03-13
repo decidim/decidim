@@ -1,0 +1,344 @@
+eu:
+  activemodel:
+    attributes:
+      attachment:
+        description: Descripción
+        file: Fitxategia
+        title: Izenburua
+      category:
+        description: Deskribapena
+        name: Izena
+        parent: Nagusia
+      feature:
+        name: Izena
+        weight: Pisua
+      organization:
+        default_locale: Eskualdeko ezarpen lehenetsiak
+        description: Deskribapena
+        favicon: Ikonoa
+        homepage_image: Orri nagusiko irudia
+        logo: Logotipo
+        name: Izena
+        show_statistics: Erakutsi estatistikak
+        welcome_text: Ongietorri-testua
+      participatory_process:
+        banner_image: Iragarki-bandako irudia
+        description: Deskribapena
+        developer_group: Talde sustatzailea
+        domain: Domeinua
+        end_date: Bukaera-data
+        hashtag: Traola
+        hero_image: Orri nagusiko irudia
+        promoted: Nabarmendua
+        scope: Esparrua
+        short_description: Deskribapen laburra
+        slug: URL testu laburra
+        subtitle: Azpititulua
+        title: Izenburua
+      participatory_process_step:
+        description: Deskribapena
+        end_date: Bukaera-data
+        short_description: Deskribapen laburra
+        start_date: Hasiera-data
+        title: Izenburua
+      participatory_process_user_role:
+        email: Posta elektronikoa
+      scope:
+        name: Izena
+        organization: Erakundea
+      static_page:
+        content: Contenido
+        organization: Erakundea
+        slug: URL testu laburra
+        title: Izenburua
+    errors:
+      messages:
+        invalid_json: JSON baliogabea
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        promoted: Nabarmendua
+  decidim:
+    admin:
+      actions:
+        activate: Aktibatu
+        configure: Konfiguratu
+        confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
+        create: Sortu
+        destroy: Kendu
+        edit: Editatu
+        manage: Kudeatu
+        new: '%{name} berria'
+        permissions: Baimenak
+        preview: Aurreikusi
+        publish: Argitaratu
+        resend_invitation: Birbidali gonbita
+        title: Ekintzak
+        unpublish: Desargitaratu
+        verify: Egiaztatu
+      attachments:
+        create:
+          error: Errorea gertatu da fitxategi erantsi bat sortzean.
+          success: Fitxategi erantsia zuzen sortu da.
+        destroy:
+          success: Fitxategi erantsia zuzen ezabatu da.
+        edit:
+          title: Editatu fitxategi erantsia
+          update: Eguneratu fitxategi erantsia
+        new:
+          create: Sortu fitxategi erantsia
+          title: Fitxategi erantsi berria
+        update:
+          error: Errorea gertatu da fitxategi erantsi bat eguneratzean.
+          success: Fitxategi erantsia zuzen eguneratu da.
+      categories:
+        create:
+          error: Errorea gertatu da kategoria hau sortzean.
+          success: Kategoria zuzen sortu da.
+        destroy:
+          error: Errorea gertatu da kategoria hau ezabatzean. Mesedez, lehenik eta behin ezabatu azpikategoriak oro, ziurtatu beste ezein entitaterik ez dagoela kategoria honetan, eta saiatu berriro.
+          success: Kategoria zuzen ezabatu da.
+        edit:
+          title: Editatu kategoria
+          update: Eguneratu kategoria
+        new:
+          create: Sortu kategoria
+          title: Kategoria berria
+        update:
+          error: Errorea gertatu da kategoria hau eguneratzean.
+          success: Kategoria zuzen eguneratu da.
+      decidim:
+        admin:
+          attachments:
+            index:
+              attachments_title: Fitxategi erantsiak
+          categories:
+            index:
+              categories_title: Kategoriak
+          participatory_process_steps:
+            index:
+              steps_hint: Taularen errenkadak arrastatu dezakezu prozesuaren faseak berrantolatzeko.
+              steps_title: Faseak
+          participatory_process_user_roles:
+            index:
+              process_admins_title: Prozesu partizipatiboaren administratzaileak
+      feature_permissions:
+        edit:
+          everyone: Edonor
+          submit: Gorde baimenak
+          title: Editatu baimenak
+        update:
+          success: Baimenak zuzen eguneratu dira.
+      features:
+        create:
+          error: Errorea gertatu da funtzionalitate hau gehitzean.
+          success: Funtzionalitatea zuzen gehitu da.
+        destroy:
+          error: Errorea gertatu da funtzionalitate hau ezabatzean.
+          success: Funtzionalitatea zuzen ezabatu da.
+        edit:
+          title: Editatu funtzionalitatea
+          update: Eguneratu
+        form:
+          global_settings: Ezarpen orokorrak
+          step_settings: Fase-konfigurazioa
+        index:
+          add: Erantsi funtzionalitatea
+          headers:
+            actions: Ekintzak
+            name: Funtzionalitatearen izena
+            type: Funtzionalitate-mota
+        new:
+          add: Erantsi funtzionalitatea
+          title: 'Gehitu funtzionalitatea: %{name}'
+        publish:
+          success: Funtzionalitatea zuzen argitaratu da
+        title: Funtzionalitateak
+        unpublish:
+          success: Funtzionalitatea zuzen desargitaratu da.
+        update:
+          error: Errorea gertatu da funtzionalitate hau eguneratzean.
+          success: Funtzionalitatea zuzen eguneratu da.
+      menu:
+        dashboard: Kontrol-panela
+        participatory_processes: Prozesu partizipatiboak
+        participatory_processes_submenu:
+          attachments: Fitxategi erantsiak
+          categories: Kategoriak
+          features: Funtzionalitateak
+          info: Informazioa
+          process_admins: Prozesuaren administratzaileak
+          settings: Konfigurazioa
+          steps: Prozesuaren faseak
+        scopes: Esparruak
+        settings: Konfigurazioa
+        static_pages: Erlaitzak
+        user_groups: Erabiltzaile-taldeak
+        users: Administratzaileak
+      models:
+        attachment:
+          fields:
+            content_type: Mota
+            title: Izenburua
+          name: Fitxategi erantsia
+        category:
+          fields:
+            name: Izena
+          name: Kategoria
+        participatory_process:
+          fields:
+            created_at: Sortze-data
+            promoted: Nabarmendua
+            published: Argitaratua
+            title: Izenburua
+          name: Prozesu partizipatiboa
+        participatory_process_step:
+          fields:
+            active: Aktiboa
+            end_date: Bukaera-data
+            start_date: Hasiera-data
+            title: Izenburua
+          name: Prozesu partizipatiboaren fasea
+        participatory_process_user_role:
+          fields:
+            email: Posta elektronikoa
+        scope:
+          fields:
+            created_at: Sortze-data
+            name: Izena
+          name: Esparrua
+        static_page:
+          fields:
+            created_at: Sortze-data
+            title: Izenburua
+          name: Orrialdea
+        user:
+          fields:
+            created_at: Sortze-data
+            email: Posta elektronikoa
+            invitation_accepted_at: Gonbitaren onarpen-data
+            invitation_sent_at: Gonbitaren bidalketa-data
+            last_sign_in_at: Identifikazioaren azken-data
+            name: Izena
+          name: Erabiltzailea
+        user_group:
+          fields:
+            created_at: Sortze-data
+            document_number: Agiri-zenbakia
+            name: Izena
+            phone: Telefonoa
+            users_count: Erabiltzaile kopurua
+      organization:
+        edit:
+          title: Editatu erakundea
+          update: Eguneratu erakundea
+        update:
+          error: Errorea gertatu da erakunde hau eguneratzean.
+          success: Erakundea zuzen eguneratu da.
+      participatory_process_publications:
+        create:
+          error: Errorea gertatu da prozesu partizipatibo hau argitaratzean.
+          success: Prozesu partizipatiboa zuzen argitaratu da.
+        destroy:
+          error: Errorea gertatu da prozesu partizipatibo hau desargitaratzean.
+          success: Prozesu partizipatiboa zuzen desargitaratu da.
+      participatory_process_step_activations:
+        create:
+          error: Errorea gertatu da prozesu partizipatiboaren fase hau aktibatzean.
+          success: Prozesu partizipatiboaren fasea zuzen aktibatu da.
+      participatory_process_steps:
+        create:
+          error: Errorea gertatu da prozesu partizipatiboaren fase berri bat sortzean.
+          success: Prozesu partizipatiboaren fasea zuzen sortu da.
+        default_title: 1- Sarrera
+        destroy:
+          error:
+            active_step: Ezin da ezabatu fase aktiboa.
+            last_step: Ezin da ezabatu prozesuaren azken fasea.
+          success: Prozesu partizipatiboaren fasea zuzen ezabatu da.
+        edit:
+          title: Editatu prozesu partizipatiboaren fasea
+          update: Eguneratu prozesu partizipatiboaren fasea
+        new:
+          create: Sortu prozesu partizipatiboaren fasea
+          title: Prozesu partizipatiboaren fase berria
+        ordering:
+          error: Errorea gertatu da prozesu partizipatiboaren faseak berrantolatzean.
+        update:
+          error: Errorea gertatu da prozesu partizipatiboaren fase hau eguneratzean.
+          success: Prozesu partizipatiboaren fasea zuzen eguneratu da.
+      participatory_process_user_roles:
+        create:
+          error: Errorea gertatu da prozesu partizipatibo honetarako administratzaile bat sortzean.
+          success: Prozesu partizipatibo honetarako administratzailea zuzen sortu da.
+        destroy:
+          success: Prozesu partizipatibo honetarako administratzailea zuzen sortu da.
+      participatory_processes:
+        create:
+          error: Errorea gertatu da prozesu partizipatibo berri bat sortzean.
+          success: Prozesu partizipatiboa zuzen sortu da. Orain, jarrai ezazu faseak konfiguratzen.
+        destroy:
+          success: Prozesu partizipatiboa zuzen ezabatu da.
+        edit:
+          update: Eguneratu prozesu partizipatiboa
+        new:
+          create: Sortu prozesu partizipatiboa
+          title: Prozesu partizipatibo berria
+        update:
+          error: Errorea gertatu da prozesu partizipatibo hau eguneratzean.
+          success: Prozesu partizipatiboa zuzen eguneratu da.
+      scopes:
+        create:
+          error: Errorea gertatu da esparru berri bat sortzean.
+          success: Esparrua zuzen sortu da.
+        destroy:
+          success: Esparrua ongi ezabatu da
+        edit:
+          title: Editatu helmena
+          update: Eguneratu esparrua
+        new:
+          create: Sortu esparrua
+          title: Esparru berria
+        update:
+          error: Errorea gertatu da esparru hau eguneratzean.
+          success: Esparrua zuzen eguneratu da
+      static_pages:
+        actions:
+          view: Ikusi orri publikoa
+        create:
+          error: Errorea gertatu da orri berri bat sortzean.
+          success: Orria zuzen eguneratu da. Orain, jarrai ezazu faseak konfiguratzen.
+        destroy:
+          success: Orria zuzen ezabatu da.
+        edit:
+          title: Editatu orria
+          update: Eguneratu orria
+        new:
+          create: Sortu orria
+          title: Orri berria
+        update:
+          error: Errorea gertatu da orri hau eguneratzean.
+          success: Orria zuzen eguneratu da.
+      titles:
+        dashboard: Kontrol-panela
+        participatory_processes: Prozesu partizipatiboak
+        scopes: Esparruak
+        static_pages: Erlaitzak
+        user_groups: Erabiltzaile-taldeak
+        users: Erabiltzaileak
+      user_groups:
+        verify:
+          success: Erabiltzaile-taldea ongi egiaztatu da.
+      users:
+        create:
+          error: Errorea gertatu da erabiltzaile honi gonbit egitean.
+          success: Ongi egin zaio gonbit erabiltzaileari.
+        destroy:
+          error: Errorea gertatu da erabiltzaile hau ezabatzen saiatzean.
+          success: Erabiltzailea ez da jada administratzailea.
+        new:
+          create: Gonbit egin
+          title: Gonbit egin erabiltzaile bati administratzaile gisa
+        resend_invitation:
+          error: Errorea gertatu da gonbit-mezua bidaltzen saiatzean.
+          success: Gonbita ongi bidali da.

@@ -1,0 +1,239 @@
+eu:
+  activemodel:
+    attributes:
+      user:
+        email: Zure helbide elektronikoa
+        name: Zure izena
+        password: Pasahitz berria
+        password_confirmation: Baieztatu zure pasahitz berria
+        user_group_document_number: Egiaztagiri-zenbakia
+        user_group_name: Erakundearen izena
+        user_group_phone: Erakundearen telefonoa
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Egungo pasahitza
+        email: Posta elektronikoa
+        name: Erabiltzaile-izena
+        password: Pasahitza
+        password_confirmation: Baieztatu pasahitza
+        remember_me: Gogoratu
+        user_group_document_number: Egiaztagiri-zenbakia
+        user_group_name: Erakundearen izena
+        user_group_phone: Erakundearen telefonoa
+  booleans:
+    'false': 'Ez'
+    'true': 'Bai'
+  carrierwave:
+    errors:
+      image_too_big: Irudia pisuegia da
+  decidim:
+    account:
+      show:
+        change_password: Aldatu pasahitza
+        update_account: Eguneratu kontua
+      update:
+        error: Errorea gertatu da zure kontua eguneratzean.
+        success: Zure kontua zuzen eguneratu da.
+        success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
+    anonymous_user: Anonimoa
+    application:
+      documents:
+        related_documents: Honekin lotutako agiriak
+      photos:
+        related_photos: Honekin lotutako argazkiak
+    authorization_handlers:
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Agiri-zenbakia
+          postal_code: Posta-kodea
+        name: baimen-adibidea
+      errors:
+        duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
+    authorizations:
+      create:
+        error: Errorea gertatu da baimena sortzean.
+        success: Baimendua izan zara zuzen.
+      current_participatory_processes: behako bat eman egungo prozesuei
+      first_login:
+        actions:
+          decidim/dummy_authorization_handler: Egiaztatu baimen-adibidea ........ren kontra
+        title: Egiaztatu zure nortasuna
+        verify_with_these_options: 'Hona zure nortasuna egiaztatzeko dituzun aukerak:'
+      new:
+        authorize: Bidali
+      skip_verification: Oraingoz, urrats hau egin gabe utzi dezakezu eta %{link}
+    core:
+      actions:
+        unauthorized: Ez duzu baimenik ekintza honi heltzeko.
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Beste kontu batek erabiltzen du helbide elektroniko bera.
+        new:
+          complete_profile: Osatu profila
+          sign_up: Mesedez, osatu zure profila
+          subtitle: Mesedez, bete inprimaki hau izen-ematea osatzeko
+          username_help: Izen publikoa, zure mezuetan agertzekoa Anonimatua bermatze aldera, edozein izen izan daiteke.
+      registrations:
+        new:
+          already_have_an_account?: Baduzu kontu bat?
+          newsletter_notifications: Informazio eskuratzeko garrantzizko jarduerari buruz
+          sign_in: Sartu
+          sign_up: Erregistratu
+          sign_up_as:
+            legend: Izena eman honako hau gisa
+            user: Banakoa
+            user_group: Erakundea / Kolektiboa
+          subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
+          terms: erabilera-baldintzak
+          username_help: Izen publikoa, zuk argitaratutakoetan agertzekoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
+      sessions:
+        new:
+          are_you_new?: Berria zara plataforman?
+          register: Sortu zure kontua
+      shared:
+        omniauth_buttons:
+          or: Edo
+    filters:
+      linked_classes:
+        all: Guztiak
+        meeting: Topaketak
+        proposal: Proposamenak
+        result: Emaitzak
+    forms:
+      errors:
+        error: Errorea bat dago eremu honetan.
+    menu:
+      home: Hasiera
+      processes: Prozesuak
+    notifications_settings:
+      show:
+        comments_notifications: Jakinarazpenak jaso nahi ditut nik argitaratutakoei iruzkinak egiten dizkietenean.
+        newsletter_notifications: Informazioa jaso nahi dut garrantzizko jarduerari buruz
+        replies_notifications: Jakinarazpenak jaso nahi ditut posta elektronikoaren bidez nire iruzkinei erantzuten dietenean.
+        update_notifications_settings: Gorde aldaketak
+      update:
+        error: Errore bat gertatu da jakinarazpenen konfigurazioa eguneratzean.
+        success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
+    own_user_groups:
+      index:
+        not_verified: Egiaztatu gabe
+        verified: Egiaztatuta
+    participatory_process_steps:
+      index:
+        process_steps: Prozesuaren faseak
+        title: Prozesu partizipatiboaren faseak
+    participatory_processes:
+      index:
+        title: Prozesu partizipatiboak
+      show:
+        developer_group: Talde sustatzailea
+        end_date: Bukaera-data
+        local_area: Udal-alorrak
+        participatory_scope: Esparru partizipatiboa
+        participatory_structure: Egitura partizipatiboa
+        scope: Esparrua
+        target: Nori zuzentzen zaio?
+    shared:
+      action_authorization_modal:
+        incomplete:
+          cancel: Utzi
+          explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
+          reauthorize: Berriz eskuratu baimena
+          title: Mesedez, eskura ezazu berriz baimena
+        missing:
+          title: Baimena behar da
+        unauthorized:
+          explanation: Ezin diozu heldu ekintza honi, baimen-datuetako batzuk ez direlako behar direnak.
+          invalid: "%{field} ez da baliozkoa."
+          ok: Ados
+          title: Ez dago baimenduta
+      login_modal:
+        please_sign_in: Mesedez, erregistratu
+        sign_up: Erregistratu
+      share_modal:
+        close_window: Itxi leihoa
+        share: Partekatu
+        share_link: Partekatu esteka
+  devise:
+    invitations:
+      edit:
+        header: Idatzi zure pasahitza
+        submit_button: Gorde
+    mailer:
+      invitation_instructions:
+        accept: Onartu gonbita
+        hello: Kaixo, %{email},
+        ignore: |-
+          Onartu nahi ez baduzu gonbit hau, ez egin kasu mezu honi.<br />
+          Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
+        invited_you_as_admin: "%{invited_by} izeneko batek gonbit egin dizu %{application} aplikazioaren administratzaile izateko; onartzeko, egin klik esteka honetan:"
+      password_change:
+        greeting: Kaixo %{recipient}!
+        message: Zuregana jotzen dugu jakinarazteko zure pasahitza zuzen aldatu dela.
+        subject: Pasahitza aldatu da
+  errors:
+    messages:
+      file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
+      invalid_manifest: Manifestua ez da baliozkoa
+      invalid_participatory_process: Prozesu partizipatiboa ez da baliozkoa
+      nesting_too_deep: ezin da egon azpikategoria batean
+  layouts:
+    decidim:
+      cookie_warning:
+        link_label: aquí
+        ok: Ados nago
+      footer:
+        made_with_open_source: 'Webgune hau egiteko, <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software librea</a> erabili da.'
+      header:
+        close_menu: Itxi menua
+        navigation: Nabigazioa
+        sign_in: Sartu
+        sign_up: Erregistratu
+      participatory_processes:
+        index:
+          promoted_processes: Prozesu nabarmenduak
+        no_processes_yet:
+          no_processes_yet: Oraindik ez dago prozesu partizipatiborik!
+        order_by_processes:
+          processes:
+            one: "Prozesu %{count}"
+            other: "%{count} prozesu"
+        participatory_process:
+          active_step: 'Oraingo fasea:'
+          take_part: Parte hartu
+        promoted_process:
+          active_step: 'Oraingo fasea:'
+          more_info: Argibide gehiago
+          take_part: Parte hartu
+      process_header:
+        process_menu_item: Prozesua
+        unfold: Zabaldu
+      process_header_steps:
+        step: '%{total} fasetatik %{current}.a'
+        view_steps: Ikusi faseak
+      user_menu:
+        admin_dashboard: Administrazioko aginte-mahaia
+        profile: Nire kontua
+        sign_out: Irten
+      user_profile:
+        account: Kontua
+        authorizations: Baimenak
+        notifications_settings: Jakinarazpen-konfigurazioa
+        title: Erabiltzaile-ezarpenak
+        user_groups: Erakundeak
+  locale:
+    name: Euskera
+  pages:
+    '404':
+      back_home: Hasierara itzuli
+      content_doesnt_exist: Helbide okerra da edo ezabatu da.
+      title: Bilatzen duzun orria ez dago!
+    '500':
+      title: Arazo bat izan da gure zerbitzariarekin
+      try_later: Mesedez, berriz saiatu geroago.
+    home:
+      extended:
+        debates: Eztabaidak
+        debates_explanation: Gure ustez hirirako inportanteak diren gauzak ezagutu, eztabaidatu eta partekatuko ditugu.

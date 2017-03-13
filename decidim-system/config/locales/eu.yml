@@ -1,0 +1,10 @@
+eu:
+  decidim:
+    system:
+      admins:
+        create:
+          success: Admin sortu da
+      models:
+        admin:
+          fields:
+            email: Emaila
