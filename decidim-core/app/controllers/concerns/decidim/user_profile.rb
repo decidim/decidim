@@ -26,7 +26,7 @@ module Decidim
     # Public: Available authorization handlers in order to conditionally
     # show the menu element.
     def available_authorization_handlers
-      Decidim.authorization_handlers
+      current_organization.available_authorizations
     end
   end
 end

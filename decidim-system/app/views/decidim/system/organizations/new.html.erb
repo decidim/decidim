@@ -29,28 +29,32 @@
   </div>
 
   <%= f.fields_for :locales do |fields| %>
-  <div class="field">
-    <%= f.label :organization_locales, '', class: @form.respond_to?(:errors) && @form.errors[:default_locale].present? ? "is-invalid-label" : "" %>
-    <table>
-      <thead>
-        <tr>
-          <td>Locale</td>
-          <td>Enabled <%= f.error_for(:available_locales) %></td>
-          <td>Default? <%= f.error_for(:default_locale) %></td>
-        </tr>
-      </thead>
-      <tbody>
-        <% localized_locales.each do |locale| %>
+    <div class="field">
+      <%= f.label :organization_locales, '', class: @form.respond_to?(:errors) && @form.errors[:default_locale].present? ? "is-invalid-label" : "" %>
+      <table>
+        <thead>
           <tr>
-            <td><%= locale.name %></td>
-            <td><%= check_box_tag "organization[available_locales][#{locale.id}]", locale.id, @form.available_locales.include?(locale.id) %></td>
-            <td><%= radio_button_tag "organization[default_locale]", locale.id, @form.default_locale == locale.id %></td>
+            <td>Locale</td>
+            <td>Enabled <%= f.error_for(:available_locales) %></td>
+            <td>Default? <%= f.error_for(:default_locale) %></td>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          <% localized_locales.each do |locale| %>
+            <tr>
+              <td><%= locale.name %></td>
+              <td><%= check_box_tag "organization[available_locales][#{locale.id}]", locale.id, @form.available_locales.include?(locale.id) %></td>
+              <td><%= radio_button_tag "organization[default_locale]", locale.id, @form.default_locale == locale.id %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   <% end %>
+
+  <div class="field">
+    <%= f.collection_select :available_authorizations, Decidim.authorization_handlers, :name, :name, {}, multiple: true %>
+  </div>
 
   <div class="actions">
     <%= f.submit t("decidim.system.models.organization.actions.save_and_invite") %>

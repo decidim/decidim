@@ -45,6 +45,7 @@ module Decidim
           secondary_hosts: form.clean_secondary_hosts,
           reference_prefix: form.reference_prefix,
           available_locales: form.available_locales,
+          available_authorizations: form.clean_available_authorizations,
           default_locale: form.default_locale
         )
       end
