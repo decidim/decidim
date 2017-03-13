@@ -1,0 +1,10 @@
+<div class="callout-wrapper">
+  <% flash.each do |key, value| %>
+    <div class="callout <%= FoundationRailsHelper::FlashHelper::DEFAULT_KEY_MATCHING[key.to_sym] %> callout--full" data-closable>
+      <%= value %>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+</div>
