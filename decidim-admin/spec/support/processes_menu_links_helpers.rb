@@ -5,7 +5,7 @@ module ProcessesMenuLinksHelpers
   #
   # text - a String with the name of the link that will be clicked
   def click_processes_menu_link(text)
-    within ".row .tabs.vertical" do
+    within ".secondary-nav--subnav" do
       click_link text
     end
   end

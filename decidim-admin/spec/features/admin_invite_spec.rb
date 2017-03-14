@@ -35,7 +35,11 @@ describe "Admin invite", type: :feature do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("Dashboard")
+      within ".callout-wrapper" do
+        page.find('.close-button').click
+      end
+
+      expect(page).to have_content("DASHBOARD")
     end
   end
 end

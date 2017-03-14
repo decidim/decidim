@@ -7,7 +7,7 @@ RSpec.shared_examples "manage processes examples" do
 
       it "allows the user to preview the unpublished process" do
         within find("tr", text: translated(participatory_process.title)) do
-          click_link "Preview"
+          page.find('a.action-icon.preview').click
         end
 
         expect(page).to have_css(".process-header")
@@ -20,7 +20,7 @@ RSpec.shared_examples "manage processes examples" do
 
       it "allows the user to preview the unpublished process" do
         within find("tr", text: translated(participatory_process.title)) do
-          click_link "Preview"
+          page.find('a.action-icon.preview').click
         end
 
         expect(current_path).to eq decidim.participatory_process_path(participatory_process)
@@ -75,7 +75,7 @@ RSpec.shared_examples "manage processes examples" do
       expect(page).to have_content("successfully")
     end
 
-    within ".tabs-content" do
+    within ".container" do
       expect(page).to have_content("My new title")
       expect(page).not_to have_css("img[src*='#{image2_filename}']")
       expect(page).to have_css("img[src*='#{image3_filename}']")
