@@ -29,7 +29,7 @@ RSpec.shared_examples "manage meetings" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -92,7 +92,7 @@ RSpec.shared_examples "manage meetings" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -113,7 +113,7 @@ RSpec.shared_examples "manage meetings" do
         click_link "Delete"
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 
@@ -234,7 +234,7 @@ RSpec.shared_examples "manage meetings" do
         click_button "Close"
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("Meeting successfully closed")
       end
 
@@ -258,7 +258,7 @@ RSpec.shared_examples "manage meetings" do
           click_button "Close"
         end
 
-        within ".flash" do
+        within ".callout-wrapper" do
           expect(page).to have_content("Meeting successfully closed")
         end
       end

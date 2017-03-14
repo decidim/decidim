@@ -65,7 +65,7 @@ RSpec.shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            within ".flash" do
+            within ".callout-wrapper" do
               expect(page).to have_content("successfully")
             end
 
@@ -103,7 +103,7 @@ RSpec.shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            within ".flash" do
+            within ".callout-wrapper" do
               expect(page).to have_content("successfully")
             end
 
@@ -136,7 +136,7 @@ RSpec.shared_examples "manage proposals" do
                 find("*[type=submit]").click
               end
 
-              within ".flash" do
+              within ".callout-wrapper" do
                 expect(page).to have_content("successfully")
               end
 
@@ -199,7 +199,7 @@ RSpec.shared_examples "manage proposals" do
           click_button "Answer proposal"
         end
 
-        within ".flash" do
+        within ".callout-wrapper" do
           expect(page).to have_content("Proposal successfully answered")
         end
 
@@ -220,7 +220,7 @@ RSpec.shared_examples "manage proposals" do
           click_button "Answer proposal"
         end
 
-        within ".flash" do
+        within ".callout-wrapper" do
           expect(page).to have_content("Proposal successfully answered")
         end
 
@@ -290,7 +290,7 @@ RSpec.shared_examples "manage proposals" do
         click_link "Unreport"
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("Proposal successfully unreported")
       end
     end
@@ -304,7 +304,7 @@ RSpec.shared_examples "manage proposals" do
         click_link "Hide"
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("Proposal successfully hidden")
       end
 

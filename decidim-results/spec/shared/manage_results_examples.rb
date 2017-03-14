@@ -18,7 +18,7 @@ RSpec.shared_examples "manage results" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -63,7 +63,7 @@ RSpec.shared_examples "manage results" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -84,7 +84,7 @@ RSpec.shared_examples "manage results" do
         click_link "Delete"
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 

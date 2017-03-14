@@ -58,7 +58,7 @@ describe "Admin manage participatory processes", type: :feature do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -82,7 +82,7 @@ describe "Admin manage participatory processes", type: :feature do
       click_processes_menu_link "Settings"
       click_link "Destroy"
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 
