@@ -1,12 +1,13 @@
 $margin-s: 1rem;
+$margin-sm: 2rem;
 $margin-m: 3rem;
 $margin-l: 5rem;
 
 //Sections
 .section{
-  margin-bottom: $margin-m;
+  margin-bottom: $margin-sm;
   @include breakpoint(large){
-    margin-bottom: $margin-l;
+    margin-bottom: $margin-m;
   }
 }
 
