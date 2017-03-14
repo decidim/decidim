@@ -123,6 +123,91 @@ RSpec.shared_examples "manage meetings" do
     end
   end
 
+  context "when geocoding is disabled" do
+    before do
+      allow(Decidim).to receive(:geocoder).and_return(nil)
+    end
+
+    it "updates a meeting" do
+      within find("tr", text: translated(meeting.title)) do
+        click_link "Edit"
+      end
+
+      within ".edit_meeting" do
+        fill_in_i18n(
+          :meeting_title,
+          "#title-tabs",
+          en: "My new title",
+          es: "Mi nuevo título",
+          ca: "El meu nou títol"
+        )
+        fill_in :meeting_address, with: address
+
+        find("*[type=submit]").click
+      end
+
+      within ".flash" do
+        expect(page).to have_content("successfully")
+      end
+
+      within "table" do
+        expect(page).to have_content("My new title")
+      end
+    end
+
+    it "creates a new meeting" do
+      find(".actions .new").click
+
+      within ".new_meeting" do
+        fill_in_i18n(
+          :meeting_title,
+          "#title-tabs",
+          en: "My meeting",
+          es: "Mi meeting",
+          ca: "El meu meeting"
+        )
+        fill_in_i18n(
+          :meeting_location,
+          "#location-tabs",
+          en: "Location",
+          es: "Location",
+          ca: "Location"
+        )
+        fill_in_i18n(
+          :meeting_location_hints,
+          "#location_hints-tabs",
+          en: "Location hints",
+          es: "Location hints",
+          ca: "Location hints"
+        )
+        fill_in_i18n_editor(
+          :meeting_description,
+          "#description-tabs",
+          en: "A longer description",
+          es: "Descripción más larga",
+          ca: "Descripció més llarga"
+        )
+
+        fill_in :meeting_address, with: address
+        fill_in :meeting_start_time, with: 1.day.from_now
+        fill_in :meeting_end_time, with: 1.day.from_now + 2.hours
+
+        select scope.name, from: :meeting_decidim_scope_id
+        select translated(category.name), from: :meeting_decidim_category_id
+
+        find("*[type=submit]").click
+      end
+
+      within ".flash" do
+        expect(page).to have_content("successfully")
+      end
+
+      within "table" do
+        expect(page).to have_content("My meeting")
+      end
+    end
+  end
+
   context "closing a meeting" do
     let(:proposal_feature) do
       create(:feature, manifest_name: :proposals, participatory_process: meeting.feature.participatory_process)
