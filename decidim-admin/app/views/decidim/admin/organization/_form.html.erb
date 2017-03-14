@@ -1,6 +1,38 @@
-<div class="field">
-  <%= form.text_field :name %>
+<div class="row">
+  <div class="columns xlarge-6">
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="columns xlarge-6">
+    <%= form.text_field :twitter_handler %>
+  </div>
 </div>
+
+<div class="row column">
+  <%= form.translated :editor, :description %>
+  <div class="label--tabs">
+    <label for="organization_description">
+      Description
+    </label>
+    <ul class="tabs tabs--lang" data-tabs id="example-tabs">
+      <li class="tabs-title is-active"><a href="#desc-1" aria-selected="true">CA</a></li>
+      <li class="tabs-title"><a href="#desc-2">ES</a></li>
+      <li class="tabs-title"><a href="#desc-3">EN</a></li>
+    </ul>
+  </div>
+  <div class="tabs-content" data-tabs-content="example-tabs">
+    <div class="tabs-panel is-active" id="desc-1">
+      <textarea disabled rows="6">CA hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</textarea>
+    </div>
+    <div class="tabs-panel" id="desc-2">
+      <textarea disabled rows="6">ES hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.</textarea>
+    </div>
+    <div class="tabs-panel" id="desc-3">
+      <textarea disabled rows="6">EN hendrerit asdr arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</textarea>
+    </div>
+  </div>
+</div>
+
 
 <div class="field">
   <%= form.text_field :reference_prefix %>
@@ -24,10 +56,6 @@
 
 <div class="field">
   <%= form.text_field :github_handler %>
-</div>
-
-<div class="field">
-  <%= form.translated :editor, :description %>
 </div>
 
 <div class="field">
@@ -71,3 +99,56 @@
 <div class="field">
   <%= form.check_box :show_statistics %>
 </div>
+
+<form class="form">
+  <div class="row column">
+    <div class="label--tabs">
+      <label for="organization_welcome">
+        Welcome text
+      </label>
+      <ul class="tabs tabs--lang" data-tabs id="example-tabs-2">
+        <li class="tabs-title is-active"><a href="#wel-1" aria-selected="true">CA</a></li>
+        <li class="tabs-title"><a href="#wel-2">ES</a></li>
+        <li class="tabs-title"><a href="#wel-3">EN</a></li>
+      </ul>
+    </div>
+    <div class="tabs-content" data-tabs-content="example-tabs-2">
+      <div class="tabs-panel is-active" id="wel-1">
+        <textarea disabled rows="6">CA hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</textarea>
+      </div>
+      <div class="tabs-panel" id="wel-2">
+        <textarea disabled rows="6">ES hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.</textarea>
+      </div>
+      <div class="tabs-panel" id="wel-3">
+        <textarea disabled rows="6">EN hendrerit asdr arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="row column">
+    <label for="organization_default_locale">Default locale</label>
+    <select disabled name="organization[default_locale]" id="organization_default_locale">
+      <option selected="selected" value="en">English</option>
+      <option value="ca">Català</option>
+      <option value="es">Castellano</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <div class="columns xlarge-4">
+      <label for="organization_homepage_image">Homepage image</label><input disabled type="file" name="organization[homepage_image]" id="organization_homepage_image">
+    </div>
+
+    <div class="columns xlarge-4">
+      <label for="organization_logo">Logo</label><input disabled type="file" name="organization[logo]" id="organization_logo">
+    </div>
+
+    <div class="columns xlarge-4">
+      <label for="organization_favicon">Icon</label><input disabled type="file" name="organization[favicon]" id="organization_favicon">
+    </div>
+  </div>
+
+  <div class="row column">
+    <label for="organization_show_statistics"><input type="checkbox" disabled value="1" checked="checked" name="organization[show_statistics]" id="organization_show_statistics">Show statistics</label>
+  </div>
+</form>

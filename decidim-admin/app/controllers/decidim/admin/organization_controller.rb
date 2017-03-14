@@ -6,6 +6,8 @@ module Decidim
     # Controller that allows managing the user organization.
     #
     class OrganizationController < ApplicationController
+      layout "decidim/admin/settings"
+
       def edit
         authorize! :update, current_organization
         @form = form(OrganizationForm).from_model(current_organization)
