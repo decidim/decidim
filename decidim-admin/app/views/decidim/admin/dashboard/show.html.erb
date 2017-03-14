@@ -1,3 +1,7 @@
-<% provide :title do %>
-  <h2><%= t("decidim.admin.titles.dashboard") %></h2>
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav">
+    <div class="secondary-nav__title">
+      <%= t("decidim.admin.titles.dashboard") %>
+    </div>
+  </div>
 <% end %>
