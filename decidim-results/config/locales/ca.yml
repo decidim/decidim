@@ -62,6 +62,11 @@ ca:
           category: Categoria
           scopes: Àmbits
           search: Cerca
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Desplega
         show:
           stats:
             attendees: Assistents
