@@ -10,22 +10,15 @@
 <html class="no-js">
   <head>
     <title><%= decidim_page_title %></title>
-
-    <%= csrf_meta_tags %>
-
-    <%= render partial: 'layouts/decidim/meta' %>
-    <%= render partial: 'layouts/decidim/social_meta' %>
-
-    <%= favicon %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= render partial: 'layouts/decidim/head' %>
   </head>
 
   <body>
     <%= render partial: 'layouts/decidim/cookie_warning' %>
-    <%= render partial: 'layouts/decidim/header' %>
-    <%= yield %>
-    <%= render partial: 'layouts/decidim/footer' %>
+
+    <%= render 'layouts/decidim/wrapper' do %>
+      <%= yield %>
+    <% end %>
 
     <%= render partial: "decidim/shared/login_modal" %>
   </body>

@@ -1,3 +1,10 @@
+<%= csrf_meta_tags %>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<% available_locales.each do |locale| %>
+  <link rel="alternate" href="<%= url_for(request.parameters.merge(locale: locale)) %>" hreflang="<%= locale %>" />
+<% end %>
+
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@<%= decidim_meta_twitter_handler %>" />
 <meta name="twitter:title" content="<%= decidim_page_title %>" />
@@ -9,3 +16,9 @@
 <meta property="og:title" content="<%= decidim_page_title %>" />
 <meta property="og:description" content="<%= decidim_meta_description %>" />
 <meta property="og:image" content="<%= decidim_meta_image_url %>" />
+
+<%= favicon %>
+<%= stylesheet_link_tag    'application', media: 'all' %>
+<%= javascript_include_tag 'application' %>
+
+<%= render partial: 'layouts/decidim/head_extra' %>

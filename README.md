@@ -176,6 +176,7 @@ After you create a development app (`bundle exec rake development_app`):
 ## Further configuration
 
 - [Social providers integration](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/social_providers.md): Enable sign up from social networks.
+- [Analytics](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/analytics.md): How to enable analytics
 
 ## Technical tradeoffs
 
