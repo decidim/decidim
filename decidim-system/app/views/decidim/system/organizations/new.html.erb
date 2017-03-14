@@ -53,7 +53,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.collection_select :available_authorizations, Decidim.authorization_handlers, :name, :name, {}, multiple: true %>
+    <%= f.label :available_authorizations %>
+    <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_handlers, :name, :name %>
   </div>
 
   <div class="actions">

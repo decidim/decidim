@@ -28,7 +28,8 @@ module Decidim
 
               context "when there are authorization handlers" do
                 before do
-                  Decidim.authorization_handlers = [Decidim::DummyAuthorizationHandler]
+                  user.organization.available_authorizations = ["Decidim::DummyAuthorizationHandler"]
+                  user.organization.save
                 end
 
                 it { is_expected.to eq("/authorizations/first_login") }
