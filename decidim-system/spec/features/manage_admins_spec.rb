@@ -22,7 +22,7 @@ describe "Manage admins", type: :feature do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
+    within ".flash" do
       expect(page).to have_content("successfully")
     end
 
@@ -42,7 +42,7 @@ describe "Manage admins", type: :feature do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
+    within ".flash" do
       expect(page).to have_content("successfully")
     end
 
@@ -56,7 +56,7 @@ describe "Manage admins", type: :feature do
       click_link "Destroy"
     end
 
-    within ".callout-wrapper" do
+    within ".flash" do
       expect(page).to have_content("successfully")
     end
 
