@@ -224,7 +224,7 @@ eu:
         title: Erabiltzaile-ezarpenak
         user_groups: Erakundeak
   locale:
-    name: Euskera
+    name: Gaztelaniaz
   pages:
     '404':
       back_home: Hasierara itzuli
