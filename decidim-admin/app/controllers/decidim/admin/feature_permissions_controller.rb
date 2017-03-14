@@ -48,7 +48,7 @@ module Decidim
       end
 
       def authorizations
-        Decidim.authorization_handlers.map(&:handler_name)
+        current_organization.available_authorizations.map(&:constantize).map(&:handler_name)
       end
 
       def feature
