@@ -73,6 +73,11 @@ es:
           category: Categoría
           scopes: Ámbitos
           search: Buscar
+        filters_small_view:
+          close_modal: Cerrar ventana
+          filter: Filtrar
+          filter_by: Filtrar por
+          unfold: Desplegar
         order_progress:
           vote: Dar apoyo
         order_selected_projects:
