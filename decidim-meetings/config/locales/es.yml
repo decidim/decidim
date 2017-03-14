@@ -69,6 +69,7 @@ es:
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
+          filter_by: Filtrar por
           unfold: Desplegar
         index:
           view_meeting: Ver encuentro
