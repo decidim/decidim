@@ -43,6 +43,7 @@ module Decidim
         organization.name = form.name
         organization.host = form.host
         organization.secondary_hosts = form.clean_secondary_hosts
+        organization.available_authorizations = form.clean_available_authorizations
 
         organization.save!
       end

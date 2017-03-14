@@ -12,6 +12,11 @@
     <p class="help-text"><%= t(".secondary_hosts_hint") %></p>
   </div>
 
+  <div class="field">
+    <%= f.label :available_authorizations %>
+    <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_handlers, :name, :name %>
+  </div>
+
   <div class="actions">
     <%= f.submit t("decidim.system.actions.save") %>
   </div>

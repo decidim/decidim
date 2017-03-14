@@ -2,7 +2,8 @@
 require "spec_helper"
 
 describe "Authorizations", type: :feature, perform_enqueued: true do
-  let(:organization) { user.organization }
+  let(:organization) { create :organization, available_authorizations: authorizations }
+  let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
 
   before do
     switch_to_host(organization.host)
@@ -38,12 +39,9 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
     end
 
     context "when multiple authorizations have been configured" do
-      before do
-        Decidim.authorization_handlers = [
-          Decidim::DummyAuthorizationHandler,
-          Decidim::DummyAuthorizationHandler
-        ]
+      let(:authorizations) { ["Decidim::DummyAuthorizationHandler", "Decidim::DummyAuthorizationHandler"] }
 
+      before do
         visit decidim.root_path
         find(".sign-in-link").click
 
