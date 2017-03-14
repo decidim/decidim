@@ -124,7 +124,7 @@ en:
         filters_small_view:
           close_modal: Close modal
           filter: Filter
-          filter_for: Filter by
+          filter_by: Filter by
           unfold: Unfold
         index:
           new_proposal: New proposal

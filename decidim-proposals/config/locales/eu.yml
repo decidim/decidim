@@ -84,7 +84,7 @@ eu:
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
-          filter_for: 'Iragazi honen arabera:'
+          filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
         index:
           new_proposal: Proposamen berria
