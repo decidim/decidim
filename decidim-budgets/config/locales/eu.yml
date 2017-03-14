@@ -69,6 +69,8 @@ eu:
           category: Kategoria
           scopes: Esparruak
           search: Bilatu
+        filters_small_view:
+          filter_by: 'Iragazi honen arabera:'
         order_progress:
           vote: Bozkatu
         order_selected_projects:
