@@ -63,6 +63,11 @@ en:
           category: Category
           scopes: Scopes
           search: Search
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         show:
           stats:
             attendees: Attendees
