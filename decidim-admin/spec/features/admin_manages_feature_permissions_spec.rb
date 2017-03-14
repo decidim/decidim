@@ -2,7 +2,7 @@
 require "spec_helper"
 
 describe "manage a feature's permissions", type: :feature do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, available_authorizations: ["Decidim::DummyAuthorizationHandler"]) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
   let!(:participatory_process) do
