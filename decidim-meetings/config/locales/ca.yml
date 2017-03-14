@@ -69,7 +69,6 @@ ca:
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
-          filter_by: Filtra per
           unfold: Desplegar
         index:
           view_meeting: Veure trobada
