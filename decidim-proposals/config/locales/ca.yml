@@ -122,6 +122,7 @@ ca:
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
+          filter_by: Filtrar per
           unfold: Desplegar
         index:
           new_proposal: Nova proposta
