@@ -1,11 +1,15 @@
-<% provide :title do %>
-  <h2><%= t ".title" %></h2>
-<% end %>
-
-<%= decidim_form_for(@form, url: organization_path) do |f| %>
-  <%= render partial: 'form', object: f %>
-
-  <div class="actions">
-    <%= f.submit t(".update") %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t ".title" %> <a href="#" class="button tiny button--title"><%= t("actions.edit", scope: "decidim.admin") %></a></h2>
   </div>
-<% end %>
+
+  <div class="card-section">
+    <%= decidim_form_for(@form, url: organization_path) do |f| %>
+      <%= render partial: 'form', object: f %>
+
+      <div class="actions">
+        <%= f.submit t(".update") %>
+      </div>
+    <% end %>
+  </div>
+</div>

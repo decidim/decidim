@@ -439,3 +439,8 @@ en:
     participatory_processes:
       participatory_process_groups:
         none: None
+  layouts:
+    decidim:
+      admin:
+        settings:
+          title: Settings
