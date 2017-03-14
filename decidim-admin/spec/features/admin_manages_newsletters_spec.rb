@@ -121,7 +121,7 @@ describe "Admin manages newsletters", type: :feature do
         find("*", text: "Deliver").click
       end
 
-      expect(page).to have_content("Newsletters")
+      expect(page).to have_content("NEWSLETTERS")
       expect(page).to have_content("successfully")
 
       within ".newsletters tbody" do
