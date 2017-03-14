@@ -54,7 +54,7 @@
                   <% end %>
                 <% end %>
                 <% if can? :preview, process %>
-                  <%= link_to decidim.participatory_process_path(process), class: "action-icon", data: { tooltip: true, disable_hover: false }, aria_haspopup: true, title: t("actions.preview", scope: "decidim.admin") do %>
+                  <%= link_to decidim.participatory_process_path(process), class: "action-icon preview", data: { tooltip: true, disable_hover: false }, aria_haspopup: true, title: t("actions.preview", scope: "decidim.admin") do %>
                     <%= icon "eye" %>
                   <% end %>
                 <% end %>
