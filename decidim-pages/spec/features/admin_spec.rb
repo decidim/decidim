@@ -33,7 +33,7 @@ describe "Edit a page", type: :feature do
         find("*[type=submit]").click
       end
 
-      within_flash_messages do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 
