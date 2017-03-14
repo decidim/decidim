@@ -57,6 +57,7 @@ eu:
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
+          filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
         index:
           view_meeting: Ikusi topaketa
