@@ -1,38 +1,43 @@
-<% provide :title do %>
-  <h2><%= t "decidim.admin.titles.scopes" %></h2>
-<% end %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t "decidim.admin.titles.scopes" %> <%= link_to t("actions.add", scope: "decidim.admin"), ['new', 'scope'], class: 'button tiny button--title' %></h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+        <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.scope.fields.name", scope: "decidim.admin") %></th>
+            <th><%= t("models.scope.fields.created_at", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @scopes.each do |scope| %>
+            <tr>
+              <td>
+                <%= scope.name %><br />
+              </td>
+              <td>
+                <%= l scope.created_at, format: :short %>
+              </td>
+              <td class="table-list__actions">
+                <% if can? :update, scope %>
+                  <%= link_to ['edit', scope], class: "action-icon", data: { tooltip: true,  disable_hover: false }, title: t("actions.edit", scope: "decidim.admin") do %>
+                    <%= icon "pencil" %>
+                  <% end %>
+                <% end %>
 
-<div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.scope.name", scope: "decidim.admin")), ['new', 'scope'], class: 'new' %>
+                <% if can? :destroy, scope %>
+                  <%= link_to scope, method: :delete, class: "action-icon action-icon--remove", data: { confirm: t("actions.confirm_destroy", tooltip: true, aria_haspopup: true, disable_hover: false ), title: t("actions.destroy", scope: "decidim.admin") } do %>
+                    <%= icon "circle-x" %>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-
-<table class="stack">
-  <thead>
-    <tr>
-      <th><%= t("models.scope.fields.name", scope: "decidim.admin") %></th>
-      <th><%= t("models.scope.fields.created_at", scope: "decidim.admin") %></th>
-      <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @scopes.each do |scope| %>
-      <tr>
-        <td>
-          <%= scope.name %><br />
-        </td>
-        <td>
-          <%= l scope.created_at, format: :short %>
-        </td>
-        <td class="actions">
-          <% if can? :update, scope %>
-            <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', scope] %>
-          <% end %>
-
-          <% if can? :destroy, scope %>
-            <%= link_to t("actions.destroy", scope: "decidim.admin"), scope, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
