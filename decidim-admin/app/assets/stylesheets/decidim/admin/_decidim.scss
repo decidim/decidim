@@ -4,5 +4,6 @@
 
 @import "foundation";
 @include foundation-everything();
+@import "decidim/editor";
 
 @import "modules/modules";
