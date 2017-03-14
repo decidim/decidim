@@ -9,9 +9,9 @@ module Decidim
     included do
       def append_info_to_payload(payload)
         super
-        payload[:user_id] = current_user.id
-        payload[:organization_id] = current_organization.id
-        payload[:app] = current_organization.name
+        payload[:user_id] = try(:current_user).try(:id)
+        payload[:organization_id] = try(:current_organization).try(:id)
+        payload[:app] = try(:current_organization).try(:name)
         payload[:remote_ip] = request.remote_ip
         payload[:referer] = request.referer.to_s
         payload[:request_id] = request.uuid
