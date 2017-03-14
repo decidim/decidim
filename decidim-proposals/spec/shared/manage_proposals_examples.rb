@@ -65,7 +65,7 @@ RSpec.shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            within ".flash" do
+            within ".callout-wrapper" do
               expect(page).to have_content("successfully")
             end
 
@@ -103,7 +103,7 @@ RSpec.shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            within ".flash" do
+            within ".callout-wrapper" do
               expect(page).to have_content("successfully")
             end
 
@@ -136,7 +136,7 @@ RSpec.shared_examples "manage proposals" do
                 find("*[type=submit]").click
               end
 
-              within ".flash" do
+              within ".callout-wrapper" do
                 expect(page).to have_content("successfully")
               end
 
@@ -199,7 +199,7 @@ RSpec.shared_examples "manage proposals" do
           click_button "Answer proposal"
         end
 
-        within ".flash" do
+        within ".callout-wrapper" do
           expect(page).to have_content("Proposal successfully answered")
         end
 
@@ -220,7 +220,7 @@ RSpec.shared_examples "manage proposals" do
           click_button "Answer proposal"
         end
 
-        within ".flash" do
+        within ".callout-wrapper" do
           expect(page).to have_content("Proposal successfully answered")
         end
 
@@ -263,6 +263,65 @@ RSpec.shared_examples "manage proposals" do
 
       within find("tr", text: proposal.title) do
         expect(page).to have_no_css("a", text: "Answer")
+      end
+    end
+  end
+
+  context "listing reported proposals" do
+    let!(:reported_proposals) { create_list(:proposal, 3, :reported, feature: current_feature) }
+
+    it "user can review them" do
+      visit current_path
+
+      click_link "Reported proposals"
+
+      reported_proposals.each do |proposal|
+        expect(page).to have_selector("tr", text: proposal.title)
+        expect(page).to have_selector("tr", text: proposal.reports.first.reason)
+      end
+    end
+
+    it "user can un-report a proposal" do
+      visit current_path
+
+      click_link "Reported proposals"
+
+      within find("tr", text: reported_proposals.first.title) do
+        click_link "Unreport"
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("Proposal successfully unreported")
+      end
+    end
+
+    it "user can hide a proposal" do
+      visit current_path
+
+      click_link "Reported proposals"
+
+      within find("tr", text: reported_proposals.first.title) do
+        click_link "Hide"
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("Proposal successfully hidden")
+      end
+
+      expect(page).to have_no_content(reported_proposals.first.title)
+    end
+  end
+
+  context "listing hidden proposals" do
+    let!(:hidden_proposals) { create_list(:proposal, 3, :hidden, feature: current_feature) }
+
+    it "user can review them" do
+      visit current_path
+
+      click_link "Hidden proposals"
+
+      hidden_proposals.each do |proposal|
+        expect(page).to have_selector("tr", text: proposal.title)
       end
     end
   end

@@ -71,7 +71,7 @@ RSpec.shared_examples "manage processes examples" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
