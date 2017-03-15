@@ -8,7 +8,7 @@ module Decidim
     class ParticipatoryProcessesController < ApplicationController
       helper_method :participatory_process
       helper Decidim::OrganizationScopesHelper
-      layout "decidim/admin/participatory_process", only: [:show, :edit, :update]
+      layout "decidim/admin/participatory_process"
 
       def index
         authorize! :index, Decidim::ParticipatoryProcess
@@ -64,6 +64,7 @@ module Decidim
       def show
         @participatory_process = collection.find(params[:id])
         authorize! :read, @participatory_process
+        render layout: "decidim/admin/participatory_process_show"
       end
 
       def destroy
