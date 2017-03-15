@@ -1,0 +1,19 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav">
+    <div class="secondary-nav__title">
+      <%= t ".title" %>
+    </div>
+    <ul>
+      <li <% if is_active_link?(decidim_admin.edit_organization_path) %> class="is-active" <% end %>>
+        <%= link_to t("menu.settings", scope: "decidim.admin"), decidim_admin.edit_organization_path %>
+      </li>
+      <li <% if is_active_link?(decidim_admin.scopes_path) %> class="is-active" <% end %>>
+        <%= link_to t("menu.scopes", scope: "decidim.admin"), decidim_admin.scopes_path %>
+      </li>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
+<% end %>

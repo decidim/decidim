@@ -1,5 +1,7 @@
 ---
 en:
+  actions:
+    confirm_destroy: Confirm destroy
   activemodel:
     attributes:
       attachment:
@@ -95,6 +97,7 @@ en:
     admin:
       actions:
         activate: Activate
+        add: Add
         configure: Configure
         confirm_destroy: Are you sure you want to delete this?
         create: Create
@@ -253,7 +256,6 @@ en:
           fields:
             created_at: Created at
             name: Name
-          name: Scope
         static_page:
           fields:
             created_at: Created at
@@ -311,6 +313,13 @@ en:
         edit:
           title: Edit organization
           update: Update organization
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Social
+          twitter: Twitter
+          youtube: YouTube
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
@@ -466,3 +475,8 @@ en:
     participatory_processes:
       participatory_process_groups:
         none: None
+  layouts:
+    decidim:
+      admin:
+        settings:
+          title: Settings
