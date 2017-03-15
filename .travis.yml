@@ -10,6 +10,7 @@ language: ruby
 branches:
   only:
     - master
+    - revamp_admin
 
 env:
   global:
