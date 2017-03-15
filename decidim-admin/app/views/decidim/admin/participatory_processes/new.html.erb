@@ -1,11 +1,23 @@
-<% provide :title do %>
-  <h2><%= t ".title" %></h2>
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav">
+    <div class="secondary-nav__title">
+      <%= t "decidim.admin.titles.participatory_processes" %>
+    </div>
+    <div class="secondary-nav__actions">
+      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process.name", scope: "decidim.admin")), ['new', 'participatory_process'], class: 'button expanded small' if can? :create, Decidim::ParticipatoryProcess %>
+    </div>
+  </div>
 <% end %>
 
-<%= decidim_form_for(@form) do |f| %>
+<h2 class="process-title-summary">
+  <%= t ".title" %>
+</h2>
+
+<%= decidim_form_for(@form, html: { class: "form" }) do |f| %>
   <%= render partial: 'form', object: f %>
 
-  <div class="actions">
+  <div class="button--double form-general-submit">
     <%= f.submit t(".create") %>
   </div>
 <% end %>
+ 

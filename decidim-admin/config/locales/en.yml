@@ -206,7 +206,6 @@ en:
           categories: Categories
           features: Features
           info: Info
-          moderations: Moderations
           process_admins: Process admins
           settings: Settings
           steps: Steps
@@ -382,12 +381,14 @@ en:
           success: Participatory process destroyed successfully.
         edit:
           update: Update participatory process
+        form:
+          title: General Information
         index:
           not_published: Not published
           published: Published
         new:
-          create: Create participatory process
-          title: New participatory process
+          create: Create particiatory process
+          title: New particiatory process
         update:
           error: There was an error when updating this participatory process.
           success: Participatory process updated successfully.
