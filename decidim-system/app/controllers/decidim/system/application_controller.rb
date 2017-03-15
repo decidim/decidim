@@ -4,6 +4,7 @@ module Decidim
     # The main application controller that inherits from Rails.
     class ApplicationController < ActionController::Base
       include FormFactory
+      include PayloadInfo
       protect_from_forgery with: :exception, prepend: true
 
       helper Decidim::TranslationsHelper

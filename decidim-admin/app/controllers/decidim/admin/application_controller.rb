@@ -7,6 +7,7 @@ module Decidim
       include NeedsAuthorization
       include FormFactory
       include LocaleSwitcher
+      include PayloadInfo
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::OrganizationScopesHelper

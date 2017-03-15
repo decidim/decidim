@@ -5,6 +5,7 @@ module Decidim
     include Decidim::NeedsOrganization
     include Decidim::LocaleSwitcher
     include NeedsAuthorization
+    include PayloadInfo
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
