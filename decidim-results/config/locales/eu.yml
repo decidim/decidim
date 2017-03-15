@@ -49,6 +49,8 @@ eu:
           category: Kategoria
           scopes: Esparruak
           search: Bilatu
+        filters_small_view:
+          filter_by: 'Iragazi honen arabera:'
         show:
           stats:
             attendees: Bertaratuak
