@@ -31,14 +31,9 @@ ca:
             votes_enabled: Suports habilitats
     proposals:
       actions:
-        all_proposals: totes les propostes
         answer: Respondre
-        hidden_proposals: Propostes amagades
-        hide: Amagar
         new: Nova proposta
-        reported_proposals: Propostes denunciades
         title: Accions
-        unreport: Desfer denúncia
       admin:
         models:
           proposal:
@@ -58,17 +53,11 @@ ca:
             success: Proposta creada correctament
           form:
             select_a_category: Selecciona una categoria
-          hide:
-            invalid: Hi ha hagut un error amagant aquesta proposta
-            success: Proposta amagada correctament
           index:
             title: Propostes
           new:
             create: Crear proposta
             title: Nova proposta
-          unreport:
-            invalid: Hi ha hagut un problema desfent la denúncia d'aquesta proposta
-            success: S'ha desfet la denúncia correctament
       answers:
         accepted: Acceptada
         not_answered: No resposta
@@ -81,23 +70,9 @@ ca:
           fields:
             category: Categoria
             official_proposal: Proposta oficial
-            reports: Denúncies
             scope: Àmbit
             state: Estat
             title: Títol
-      proposal_reported_mailer:
-        hide:
-          hello: Hola %{name},
-          report_html: La proposta %{proposal_link} ha estat amagada automàticament.
-          subject: Una proposta ha estat amagada automàticament
-        report:
-          hello: Hola %{name},
-          report_html: La proposta %{proposal_link} ha estat denunciada.
-          subject: Una proposta ha estat denunciada
-      proposal_reports:
-        create:
-          error: S'ha produït un error denunciant la proposta. Torna-ho a intentar.
-          success: La proposta ha estat denunciada correctament i serà revisada per un administrador.
       proposals:
         count:
           proposals_count:
