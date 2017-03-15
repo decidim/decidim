@@ -33,6 +33,10 @@ module Decidim
             role.user != user
           end
 
+          can :manage, Moderation do |moderation|
+            participatory_processes.include?(moderation.participatory_process)
+          end
+
           can :manage, Attachment do |attachment|
             participatory_processes.include?(attachment.attached_to)
           end

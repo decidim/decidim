@@ -1,11 +1,11 @@
-<div class="reveal" id="flagModal" data-reveal>
+<div class="reveal flag-modal" id="flagModal" data-reveal>
   <div class="reveal__header">
     <h3 class="reveal__title"><%= t('.title') %></h3>
     <button class="close-button" data-close aria-label="<%= t('.close') %>" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <% if resource.reported_by? current_user %>
+  <% if reportable.reported_by? current_user %>
     <p><%= t('.already_reported') %></p>
   <% else %>
     <p><%= t('.description') %></p>

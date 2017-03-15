@@ -17,10 +17,15 @@ module Decidim
   class DummyResource < ActiveRecord::Base
     include HasFeature
     include Resourceable
+    include Reportable
     include Authorable
     include Decidim::Comments::Commentable
 
     feature_manifest_name "dummy"
+
+    def reported_content
+      title
+    end
   end
 
   class DummyResourcesController < ActionController::Base
@@ -30,6 +35,8 @@ module Decidim
     def show
       @commentable = DummyResource.find(params[:id])
       render inline: %{
+        <%= display_flash_messages %>
+        <div class="reveal" id="loginModal" data-reveal></div>
         <%= javascript_include_tag 'application' %>
         <%= inline_comments_for(@commentable) %>
       }

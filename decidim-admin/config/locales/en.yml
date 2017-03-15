@@ -202,6 +202,7 @@ en:
           categories: Categories
           features: Features
           info: Info
+          moderations: Moderations
           process_admins: Process admins
           settings: Settings
           steps: Steps
@@ -274,6 +275,9 @@ en:
             name: Name
             phone: Phone
             users_count: Users count
+      moderations:
+        index:
+          title: Title
       newsletters:
         create:
           error: There's been an error creating this newsletter.
@@ -433,6 +437,29 @@ en:
         resend_invitation:
           error: There was an error when trying to send the invitation email.
           success: Invitation email sent successfully.
+    moderations:
+      actions:
+        hidden: Hidden
+        hide: Hide
+        not_hidden: Not hidden
+        title: Moderations
+        unreport: Unreport
+      admin:
+        reportable:
+          hide:
+            invalid: There's been a problem hiding the resource.
+            success: Resource successfully hidden.
+          unreport:
+            invalid: There's been a problem unreporting the resource.
+            success: Resource successfully unreported.
+      models:
+        moderation:
+          fields:
+            hidden_at: Hidden at
+            report_count: Report count
+            reportable: Reportable
+            reported_content: Reported content
+            reports: Reports
     participatory_processes:
       participatory_process_groups:
         none: None

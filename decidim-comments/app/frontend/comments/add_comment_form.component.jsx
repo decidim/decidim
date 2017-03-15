@@ -352,6 +352,7 @@ const AddCommentFormWithMutation = graphql(gql`
           addComment: {
             __typename: 'Comment',
             id: uuid(),
+            sgid: uuid(),
             type: "Decidim::Comments::Comment",
             createdAt: new Date().toISOString(),
             body,
@@ -367,7 +368,8 @@ const AddCommentFormWithMutation = graphql(gql`
             upVotes: 0,
             upVoted: false,
             downVotes: 0,
-            downVoted: false
+            downVoted: false,
+            alreadyReported: false
           }
         }
       },

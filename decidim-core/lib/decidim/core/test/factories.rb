@@ -272,6 +272,17 @@ FactoryGirl.define do
     subject { Decidim::Faker::Localized.sentence(3) }
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
   end
+
+  factory :moderation, class: Decidim::Moderation do
+    reportable { build(:dummy_resource) }
+    participatory_process { reportable.feature.participatory_process }
+  end
+
+  factory :report, class: Decidim::Report do
+    moderation
+    user { build(:user, organization: moderation.reportable.organization) }
+    reason "spam"
+  end
 end
 
 def test_file(filename, content_type)

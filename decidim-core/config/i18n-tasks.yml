@@ -93,6 +93,7 @@ ignore_unused:
   - activerecord.attributes.decidim/user.*
   - activerecord.models.decidim/user
   - activemodel.attributes.user.*
+  - activemodel.attributes.report.*
   - booleans.*
   - errors.messages.*
   - social_share_button.*

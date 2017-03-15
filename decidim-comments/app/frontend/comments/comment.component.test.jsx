@@ -147,6 +147,11 @@ describe("<Comment />", () => {
       const wrapper = shallow(<Comment comment={comment} session={session} />);
       expect(wrapper.find('button.comment__reply')).not.to.be.present();
     });
+
+    it("should not render the flag modal", () => {
+      const wrapper = shallow(<Comment comment={comment} session={session} />);
+      expect(wrapper.find('.flag-modal')).not.to.be.present();
+    });
   });
 
   it("should render a 'in favor' badge if comment's alignment is 1", () => {
@@ -159,6 +164,19 @@ describe("<Comment />", () => {
     comment.alignment = -1;
     const wrapper = shallow(<Comment comment={comment} session={session} />);
     expect(wrapper.find('span.alert.label')).to.have.text('Against');
+  });
+
+  it("should render the flag modal", () => {
+    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    expect(wrapper.find('.flag-modal')).to.be.present();
+  });
+
+  describe("when user has already reported the comment", () => {
+    it("should not render the flag form", () => {
+      comment.alreadyReported = true;
+      const wrapper = shallow(<Comment comment={comment} session= {session} />);
+      expect(wrapper.find('.flag-modal form')).not.to.be.present();
+    });
   });
 
   describe("when the comment is votable", () => {

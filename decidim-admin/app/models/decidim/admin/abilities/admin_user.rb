@@ -28,6 +28,7 @@ module Decidim
           can :manage, Feature
           can :read, :admin_dashboard
           can :manage, :admin_users
+          can :manage, Moderation
           can :manage, Attachment
           can :manage, Scope
           can :manage, Newsletter

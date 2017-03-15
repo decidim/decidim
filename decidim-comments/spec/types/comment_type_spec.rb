@@ -8,6 +8,16 @@ module Decidim
       include_context "graphql type"
 
       let(:model) { FactoryGirl.create(:comment) }
+      let(:sgid) { double("sgid", to_s: "1234") }
+
+      describe "sgid" do
+        let(:query) { "{ sgid }" }
+
+        it "returns its signed global id" do
+          expect(model).to receive(:to_sgid).at_least(:once).and_return(sgid)
+          expect(response).to include("sgid" => model.to_sgid.to_s)
+        end
+      end
 
       describe "createdAt" do
         let(:query) { "{ createdAt }" }
@@ -104,6 +114,15 @@ module Decidim
         it "returns the down_voted_by? method evaluation with the current user" do
           expect(model).to receive(:down_voted_by?).with(current_user).and_return(true)
           expect(response).to include("downVoted" => true)
+        end
+      end
+
+      describe "alreadyReported" do
+        let(:query) { "{ alreadyReported }" }
+
+        it "returns the reported_by? method evaluation with the current user" do
+          expect(model).to receive(:reported_by?).with(current_user).and_return(true)
+          expect(response).to include("alreadyReported" => true)
         end
       end
     end
