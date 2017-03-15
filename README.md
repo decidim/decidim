@@ -15,7 +15,7 @@
 
 ### Project management [[See on Waffle.io]](https://waffle.io/AjuntamentdeBarcelona/decidim)
 [![Stories in Discussion](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/discussion.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Adiscussion)
-[![Stories in Ready](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/ready.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Aready)
+[![Stories in Planned](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/planned.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Aplanned)
 [![Bugs](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/bug.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 [![In Progress](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/in-progress.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Ain-progress)
 [![In Review](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/in-review.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Ain-review)
