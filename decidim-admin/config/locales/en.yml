@@ -153,7 +153,6 @@ en:
               categories_title: Categories
           participatory_process_steps:
             index:
-              steps_hint: You can drag the rows of the table in order to reorder the process steps.
               steps_title: Steps
           participatory_process_user_roles:
             index:
@@ -244,7 +243,6 @@ en:
           name: Process group
         participatory_process_step:
           fields:
-            active: Active
             end_date: End date
             start_date: Start date
             title: Title

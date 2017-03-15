@@ -17,14 +17,16 @@
               <th><%= t("models.participatory_process_step.fields.title", scope: "decidim.admin") %></th>
               <th><%= t("models.participatory_process_step.fields.start_date", scope: "decidim.admin") %></th>
               <th><%= t("models.participatory_process_step.fields.end_date", scope: "decidim.admin") %></th>
-              <th><%= t("models.participatory_process_step.fields.active", scope: "decidim.admin") %></th>
-              <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
+              <th class="actions"></th>
             </tr>
           </thead>
           <tbody class="sortable" data-sort-url="<%= ordering_participatory_process_steps_path(participatory_process) %>">
             <% participatory_process.steps.each do |step| %>
               <tr data-id="<%= step.id %>">
                 <td>
+                  <% if step.active? %>
+                    <span class="icon-active"></span>
+                  <% end %>
                   <%= link_to translated_attribute(step.title), participatory_process_step_path(participatory_process, step) %><br />
                 </td>
                 <td>
@@ -37,22 +39,21 @@
                     <%= l step.end_date.to_date, format: :long %>
                   <%  end%>
                 </td>
-                <td>
-                  <%= humanize_boolean step.active? %>
-                </td>
                 <td class="table-list__actions">
+                  <% if can?(:activate, step) && !step.active? %>
+                    <%= link_to  participatory_process_step_activate_path(participatory_process, step), method: :post, class: "action-icon action-icon--activate", data: { tooltip: true,  disable_hover: false }, title: t("actions.activate", scope: "decidim.admin") do %>
+                      <%= icon "circle-check" %>
+                    <% end %>
+                  <% end %>
+
                   <% if can? :update, step %>
                     <%= link_to edit_participatory_process_step_path(participatory_process, step), class: "action-icon edit", data: { tooltip: true,  disable_hover: false }, title: t("actions.edit", scope: "decidim.admin") do %>
                       <%= icon "pencil" %>
                     <% end %>
                   <% end %>
 
-                  <% if can?(:activate, step) && !step.active? %>
-                    <%= link_to t("actions.activate", scope: "decidim.admin"), participatory_process_step_activate_path(participatory_process, step), method: :post, class: "small button secondary" %>
-                  <% end %>
-
                   <% if can? :destroy, step %>
-                    <%= link_to participatory_process_step_path(participatory_process, step), method: :delete, class: "action-icon action-icon--remove", data: { confirm: t("actions.confirm_destroy", tooltip: true, aria_haspopup: true, disable_hover: false ), title: t("actions.destroy", scope: "decidim.admin") } do%>
+                    <%= link_to participatory_process_step_path(participatory_process, step), method: :delete, class: "action-icon action-icon--remove", data: { confirm: t("actions.confirm_destroy", tooltip: true, disable_hover: false ), :'aria_haspopup' =>  true, title: t("actions.destroy", scope: "decidim.admin") } do%>
                       <%= icon "circle-x" %>
                     <% end %>
                   <% end %>
