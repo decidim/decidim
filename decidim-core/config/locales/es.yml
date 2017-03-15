@@ -9,8 +9,6 @@ es:
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
-      report:
-        details: Comentarios adicionales
   activerecord:
     attributes:
       decidim/user:
@@ -195,10 +193,7 @@ es:
         already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
         close: Cerrar
         description: Es inapropiado este contenido?
-        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
-        offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
         report: Denunciar
-        spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
       login_modal:
         please_sign_in: Por favor, regístrate
