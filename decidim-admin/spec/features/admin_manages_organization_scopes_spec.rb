@@ -15,11 +15,12 @@ describe "Organization scopes", type: :feature do
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
+      click_link "Settings"
       click_link "Scopes"
     end
 
     it "can create new scopes" do
-      find(".actions .new").click
+      click_link "Add"
 
       within ".new_scope" do
         fill_in :scope_name, with: "My nice district"
@@ -45,7 +46,7 @@ describe "Organization scopes", type: :feature do
 
       it "can edit them" do
         within find("tr", text: scope.name) do
-          click_link "Edit"
+          page.find('a.action-icon.edit').click
         end
 
         within ".edit_scope" do
@@ -64,7 +65,7 @@ describe "Organization scopes", type: :feature do
 
       it "can destroy them" do
         within find("tr", text: scope.name) do
-          click_link "Destroy"
+          page.find('a.action-icon.action-icon--remove').click
         end
 
         within ".callout-wrapper" do
