@@ -9,8 +9,6 @@ ca:
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
-      report:
-        details: Comentaris addicionals
   activerecord:
     attributes:
       decidim/user:
@@ -175,15 +173,6 @@ ca:
         participatory_structure: Estructura participativa
         scope: Àmbit
         target: A qui va dirigit?
-    reported_mailer:
-      hide:
-        hello: Hola %{name},
-        report_html: <p>El següent contingut:</p>%{content}<p>ha estat amagat automàticament.</p>
-        subject: Un recurs ha estat amagat automàticament
-      report:
-        hello: Hola %{name},
-        report_html: <p>El següent contingut:</p>%{content}<p>ha estat denunciat.</p>
-        subject: Un recurs ha estat denunciat
     shared:
       action_authorization_modal:
         incomplete:
@@ -204,10 +193,7 @@ ca:
         already_reported: Aquest contingut ja ha estat denunciat i serà revisat per un administrador.
         close: Tancar
         description: Aquest contingut no és apropiat?
-        does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
-        offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
         report: Denuncia
-        spam: Conté "clickbait", publicitat o estafes.
         title: Denuncia un problema
       login_modal:
         please_sign_in: Si us plau, inicia sessió
