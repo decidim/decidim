@@ -23,7 +23,7 @@
               </td>
               <td class="table-list__actions">
                 <% if can? :update, scope %>
-                  <%= link_to ['edit', scope], class: "action-icon", data: { tooltip: true,  disable_hover: false }, title: t("actions.edit", scope: "decidim.admin") do %>
+                  <%= link_to ['edit', scope], class: "action-icon edit", data: { tooltip: true,  disable_hover: false }, title: t("actions.edit", scope: "decidim.admin") do %>
                     <%= icon "pencil" %>
                   <% end %>
                 <% end %>
