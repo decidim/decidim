@@ -142,6 +142,20 @@ module Decidim
     end
   end
 
+  # Public: Returns a base controller class from which to inherit from. If the
+  # user application defines a `DecidimController`, it will be used. This gives
+  # the opportunity to add filters, headers, and any other kind of customization
+  # at the controller level.
+  #
+  # Returns a Class.
+  def self.base_controller
+    @base_controller ||= begin
+                           ::DecidimController
+                         rescue NameError
+                           ActionController::Base
+                         end
+  end
+
   # Private: Stores all the resource manifest across all feature manifest.
   #
   # Returns an Array[ResourceManifest]
