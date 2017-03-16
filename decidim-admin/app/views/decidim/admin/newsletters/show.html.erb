@@ -1,14 +1,22 @@
-<h3><%= t ".preview" %></h3>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t ".preview" %></h2>
+  </div>
+  <div class="card-section">
+    <dl>
+      <dt><%= t ".subject" %></dt>
+      <dd><%= @email.subject %></dd>
+    </dl>
 
-<dl>
-  <dt><%= t ".subject" %></dt>
-  <dd><%= @email.subject %></dd>
-</dl>
-
-<iframe src="<%= preview_newsletter_path(@newsletter) %>" class="email-preview">
-</iframe>
-
-<div class="actions">
-  <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', @newsletter] %>
-  <%= link_to t(".deliver"), deliver_newsletter_path(@newsletter), method: :post, class: "button", data: { confirm: t(".confirm_deliver") } %>
+    <iframe src="<%= preview_newsletter_path(@newsletter) %>" class="email-preview">
+    </iframe>
+  </div>
+</div>
+<div class="button--double form-general-submit">
+  <% if can?(:update, @newsletter) && !@newsletter.sent? %>
+    <%= link_to t("actions.edit", scope: "decidim.admin"), ['edit', @newsletter], class: "button" %>
+  <% end %>
+  <% unless @newsletter.sent? %>
+    <%= link_to t(".deliver"), deliver_newsletter_path(@newsletter), method: :post, class: "button alert", data: { confirm: t(".confirm_deliver") } %>
+  <% end %>
 </div>
