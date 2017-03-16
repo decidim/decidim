@@ -184,6 +184,10 @@ ca:
         hello: Hola %{name},
         report_html: "<p>El següent contingut:</p>%{content}<p>ha estat denunciat.</p>"
         subject: Un contingut ha estat denunciat
+    reports:
+      create:
+        error: S'ha produït un error en denunciar. Torna-ho a intentar.
+        success: La denúncia s'ha creat amb èxit i serà revisada per un administrador.
     shared:
       action_authorization_modal:
         incomplete:
@@ -204,7 +208,10 @@ ca:
         already_reported: Aquest contingut ja ha estat denunciat i serà revisat per un administrador.
         close: Tancar
         description: Aquest contingut no és apropiat?
+        does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
+        offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
         report: Denuncia
+        spam: Conté "clickbait", publicitat o estafes.
         title: Denuncia un problema
       login_modal:
         please_sign_in: Si us plau, inicia sessió
