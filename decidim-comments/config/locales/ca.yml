@@ -21,6 +21,7 @@ ca:
             subject: Tens una nova resposta del teu comentari
     components:
       add_comment_form:
+        account_message: "<a href=\"%{sign_in_url}\">Entra amb el teu compte</a> o <a href=\"%{sign_up_url}\">registra't</a> per a deixar un comentari.\n"
         form:
           body:
             label: Comentari
@@ -37,6 +38,17 @@ ca:
           against: En contra
           in_favor: A favor
         reply: Respondre
+        report:
+          action: Denuncia
+          already_reported: Aquest contingut ja ha estat denunciat i serà revisat per un administrador.
+          close: Tancar
+          description: Aquest contingut no és apropiat?
+          details: Comentaris addicionals
+          reasons:
+            does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
+            offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
+            spam: Conté "clickbait", publicitat o estafes.
+          title: Denuncia un problema
       comment_order_selector:
         order:
           best_rated: Més ben valorats
