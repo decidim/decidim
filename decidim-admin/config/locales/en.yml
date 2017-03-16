@@ -444,6 +444,9 @@ en:
         destroy:
           error: There was an error when trying to delete this user.
           success: User is no longer an administrator.
+        form:
+          email: Email
+          name: Name
         new:
           create: Invite
           title: Invite user as administrator
