@@ -1,14 +1,3 @@
-<% content_for :secondary_nav do %>
-  <div class="secondary-nav">
-    <div class="secondary-nav__title">
-      <%= t "decidim.admin.titles.participatory_processes" %>
-    </div>
-    <div class="secondary-nav__actions">
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process.name", scope: "decidim.admin")), ['new', 'participatory_process'], class: 'button expanded small' if can? :create, Decidim::ParticipatoryProcess %>
-    </div>
-  </div>
-<% end %>
-
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
@@ -35,7 +24,7 @@
                     <%= icon "star" %>
                   </span>
                 <% end %>
-                <%= link_to translated_attribute(process.title), process %><br />
+                <%= link_to translated_attribute(process.title), edit_participatory_process_path(process) %><br />
               </td>
               <td>
                 <%= l process.created_at, format: :short %>
@@ -49,7 +38,7 @@
               </td>
               <td class="table-list__actions">
                 <% if can? :update, process %>
-                  <%= link_to process, class: "action-icon", data: { tooltip: true, disable_hover: false }, aria_haspopup: true, title: t("actions.configure", scope: "decidim.admin") do %>
+                  <%= link_to edit_participatory_process_path(process), class: "action-icon", data: { tooltip: true, disable_hover: false }, aria_haspopup: true, title: t("actions.configure", scope: "decidim.admin") do %>
                     <%= icon "pencil" %>
                   <% end %>
                 <% end %>

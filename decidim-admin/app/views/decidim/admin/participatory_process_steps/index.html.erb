@@ -27,7 +27,7 @@
                   <% if step.active? %>
                     <span class="icon-active"></span>
                   <% end %>
-                  <%= link_to translated_attribute(step.title), participatory_process_step_path(participatory_process, step) %><br />
+                  <%= link_to translated_attribute(step.title), edit_participatory_process_step_path(participatory_process, step) %><br />
                 </td>
                 <td>
                   <% if step.start_date %>

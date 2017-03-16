@@ -357,6 +357,8 @@ en:
         edit:
           title: Edit participatory process step
           update: Update participatory process step
+        form:
+          title: Title
         new:
           create: Create participatory process step
           title: New participatory process step
@@ -378,6 +380,7 @@ en:
         destroy:
           success: Participatory process destroyed successfully.
         edit:
+          title: Title
           update: Update participatory process
         form:
           title: General Information
