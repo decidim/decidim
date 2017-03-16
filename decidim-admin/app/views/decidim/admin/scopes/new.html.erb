@@ -1,15 +1,14 @@
-<div class="card">
-  <div class="card-divider">
-    <h2 class="card-title"><%= t ".title" %></h2>
-  </div>
 
-  <div class="card-section">
-    <%= decidim_form_for(@form) do |f| %>
+<%= decidim_form_for(@form) do |f| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t ".title" %></h2>
+    </div>
+    <div class="card-section">
       <%= render partial: 'form', object: f %>
-
-      <div class="button--double form-general-submit">
-        <%= f.submit t(".create") %>
-      </div>
-    <% end %>
+    </div>
   </div>
-</div>
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".create") %>
+  </div>
+<% end %>
