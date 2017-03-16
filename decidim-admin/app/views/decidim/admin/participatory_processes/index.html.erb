@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" id="processes">
   <div class="card-divider">
     <h2 class="card-title">
       <%= t "decidim.admin.titles.participatory_processes" %><%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process.name", scope: "decidim.admin")), ['new', 'participatory_process'], class: 'button tiny button--title' if can? :create, Decidim::ParticipatoryProcess %>
@@ -38,16 +38,16 @@
               </td>
               <td class="table-list__actions">
                 <% if can? :update, process %>
-                  <%= link_to edit_participatory_process_path(process), class: "action-icon", data: { tooltip: true, disable_hover: false }, aria_haspopup: true, title: t("actions.configure", scope: "decidim.admin") do %>
+                  <%= link_to edit_participatory_process_path(process), class: "action-icon action-icon--new", data: { tooltip: true, disable_hover: false }, aria_haspopup: true, title: t("actions.configure", scope: "decidim.admin") do %>
                     <%= icon "pencil" %>
                   <% end %>
                 <% end %>
                 <% if can? :preview, process %>
-                  <%= link_to decidim.participatory_process_path(process), class: "action-icon preview", data: { tooltip: true, disable_hover: false }, aria_haspopup: true, title: t("actions.preview", scope: "decidim.admin") do %>
+                  <%= link_to decidim.participatory_process_path(process), class: "action-icon action-icon--preview", data: { tooltip: true, disable_hover: false }, aria_haspopup: true, title: t("actions.preview", scope: "decidim.admin") do %>
                     <%= icon "eye" %>
                   <% end %>
                 <% end %>
-            </tr>
+              </tr>
           <% end %>
         </tbody>
       </table>

@@ -1,4 +1,4 @@
-<%= decidim_form_for(@form) do |f| %>
+<%= decidim_form_for(@form, html: { class: "form edit_participatory_process" }) do |f| %>
   <%= render partial: 'form', object: f %>
   <div class="button--double form-general-submit">
     <%= f.submit t(".update"), class: "button"  %>

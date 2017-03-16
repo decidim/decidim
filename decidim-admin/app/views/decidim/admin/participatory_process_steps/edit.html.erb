@@ -2,7 +2,7 @@
   <%= t ".title" %>
 </h2>
 
-<%= decidim_form_for(@form, url: participatory_process_step_path(@participatory_process_step.participatory_process, @participatory_process_step), html: { class: "form" }) do |f| %>
+<%= decidim_form_for(@form, url: participatory_process_step_path(@participatory_process_step.participatory_process, @participatory_process_step), html: { class: "form edit_participatory_process_step" }) do |f| %>
   <%= render partial: 'form', object: f %>
 
   <div class="button--double form-general-submit">

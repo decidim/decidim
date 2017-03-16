@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" id="steps">
   <div class="card-divider">
     <h2 class="card-title">
       <%= t(".steps_title", scope: "decidim.admin") %>
@@ -47,7 +47,7 @@
                   <% end %>
 
                   <% if can? :update, step %>
-                    <%= link_to edit_participatory_process_step_path(participatory_process, step), class: "action-icon edit", data: { tooltip: true,  disable_hover: false }, title: t("actions.edit", scope: "decidim.admin") do %>
+                    <%= link_to edit_participatory_process_step_path(participatory_process, step), class: "action-icon action-icon--edit", data: { tooltip: true,  disable_hover: false }, title: t("actions.edit", scope: "decidim.admin") do %>
                       <%= icon "pencil" %>
                     <% end %>
                   <% end %>
