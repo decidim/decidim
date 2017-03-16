@@ -237,7 +237,6 @@ es:
         participatory_process_group:
           fields:
             name: Nombre
-          name: Nombre
         participatory_process_step:
           fields:
             active: Activa
