@@ -14,7 +14,7 @@ describe "Admin manage participatory process groups", type: :feature do
   end
 
   it "creates a new participatory process group" do
-    find(".actions .new").click
+    find(".card-title .new").click
 
     within ".new_participatory_process_group" do
       fill_in_i18n(
@@ -56,7 +56,7 @@ describe "Admin manage participatory process groups", type: :feature do
 
     it "can edit them" do
       within find("tr", text: participatory_process_group.name["en"]) do
-        click_link "Edit"
+        page.find('.action-icon.edit').click
       end
 
       within ".edit_participatory_process_group" do
@@ -92,7 +92,7 @@ describe "Admin manage participatory process groups", type: :feature do
 
     it "can destroy them" do
       within find("tr", text: participatory_process_group.name["en"]) do
-        click_link "Destroy"
+        page.find('.action-icon.action-icon--remove').click        
       end
 
       within ".callout-wrapper" do
