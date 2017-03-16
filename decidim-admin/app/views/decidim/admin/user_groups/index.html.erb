@@ -1,32 +1,38 @@
-<% provide :title do %>
-  <h2><%= t "decidim.admin.titles.user_groups" %></h2>
-<% end %>
-
-<table class="stack user-groups">
-  <thead>
-    <tr>
-      <th><%= t("models.user_group.fields.name", scope: "decidim.admin") %></th>
-      <th><%= t("models.user_group.fields.document_number", scope: "decidim.admin") %></th>
-      <th><%= t("models.user_group.fields.phone", scope: "decidim.admin") %></th>
-      <th><%= t("models.user_group.fields.users_count", scope: "decidim.admin") %></th>
-      <th><%= t("models.user_group.fields.created_at", scope: "decidim.admin") %></th>
-      <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @user_groups.each do |user_group| %>
-      <tr data-user-group-id="<%= user_group.id %>">
-        <td><%= user_group.name %></td>
-        <td><%= user_group.document_number %></td>
-        <td><%= user_group.phone %></td>
-        <td><%= user_group.users.size %></td>
-        <td><%= l user_group.created_at, format: :short %></td>
-        <td class="actions">
-          <% if can?(:verify, user_group) && !user_group.verified? %>
-            <%= button_to t("actions.verify", scope: "decidim.admin"), decidim_admin.verify_user_group_path(user_group), method: :put %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t "decidim.admin.titles.user_groups" %></h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.user_group.fields.name", scope: "decidim.admin") %></th>
+            <th><%= t("models.user_group.fields.document_number", scope: "decidim.admin") %></th>
+            <th><%= t("models.user_group.fields.phone", scope: "decidim.admin") %></th>
+            <th><%= t("models.user_group.fields.users_count", scope: "decidim.admin") %></th>
+            <th><%= t("models.user_group.fields.created_at", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user_groups.each do |user_group| %>
+            <tr data-user-group-id="<%= user_group.id %>">
+              <td><%= user_group.name %></td>
+              <td><%= user_group.document_number %></td>
+              <td><%= user_group.phone %></td>
+              <td><%= user_group.users.size %></td>
+              <td><%= l user_group.created_at, format: :short %></td>
+              <td class="text-right">
+                <% if can?(:verify, user_group) && !user_group.verified? %>
+                  <%= button_to t("actions.verify", scope: "decidim.admin"), decidim_admin.verify_user_group_path(user_group), method: :put, class: "button tiny" %>
+                <% end %>
+              </td>
+            </tr>
           <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </tbody>
+      </table>
+      <%= paginate @user_groups, theme: "decidim" %>
+    </div>
+  </div>
+</div>

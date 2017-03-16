@@ -6,10 +6,10 @@ module Decidim
     #
     class UserGroupsController < ApplicationController
       layout "decidim/admin/users"
-      
+
       def index
         authorize! :index, UserGroup
-        @user_groups = collection
+        @user_groups = collection.page(params[:page]).per(15)
       end
 
       def verify
