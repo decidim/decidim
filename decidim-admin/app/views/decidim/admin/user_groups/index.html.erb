@@ -25,7 +25,7 @@
               <td><%= l user_group.created_at, format: :short %></td>
               <td class="text-right">
                 <% if can?(:verify, user_group) && !user_group.verified? %>
-                  <%= button_to t("actions.verify", scope: "decidim.admin"), decidim_admin.verify_user_group_path(user_group), method: :put, class: "button tiny" %>
+                  <%= link_to t("actions.verify", scope: "decidim.admin"), decidim_admin.verify_user_group_path(user_group), method: :put, class: "button tiny" %>
                 <% end %>
               </td>
             </tr>
