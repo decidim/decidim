@@ -1,47 +1,54 @@
-<div id="newsletters">
-  <% provide :title do %>
-    <h2><%= t ".title" %></h2>
-  <% end %>
-
-  <div class="actions title">
-    <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.newsletter.name", scope: "decidim.admin").downcase), ['new', 'newsletter'], class: 'new' %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t ".title" %>
+      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.newsletter.name", scope: "decidim.admin").downcase), ['new', 'newsletter'], class: 'button tiny button--title new' %>
+    </h2>
   </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.newsletter.fields.subject", scope: "decidim.admin") %></th>
+            <th><%= t("models.newsletter.fields.created_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.newsletter.fields.sent_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.newsletter.fields.progress", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @newsletters.each do |newsletter| %>
+            <tr data-newsletter-id="<%= newsletter.id %>">
+              <td><%= translated_attribute newsletter.subject %></td>
+              <td><%= l newsletter.created_at, format: :long if newsletter.created_at %></td>
+              <td><%= l newsletter.sent_at, format: :long if newsletter.sent_at %></td>
+              <td>
+                <% if newsletter.sent? %>
+                  <%= "#{newsletter.total_deliveries} / #{newsletter.total_recipients}" %>
+                <% end %>
+              </td>
+              <td class="table-list__actions">
+                <% if can?(:update, newsletter) && !newsletter.sent? %>
+                  <%= link_to decidim_admin.edit_newsletter_path(newsletter), data: { tooltip: true, disable_hover: false }, :'aria-haspopup' => true, title: t("actions.edit", scope: "decidim.admin"), class: "action-icon edit" do %>
+                    <%= icon "pencil" %>
+                  <% end %>
+                <% end %>
 
+                <%= link_to decidim_admin.newsletter_path(newsletter), data: { tooltip: true, disable_hover: false }, :'aria-haspopup' => true, title: t("actions.preview", scope: "decidim.admin"), class: "action-icon preview" do %>
+                  <%= icon "eye" %>
+                <% end %>
 
-  <table class="stack newsletters">
-    <thead>
-      <tr>
-        <th><%= t("models.newsletter.fields.subject", scope: "decidim.admin") %></th>
-        <th><%= t("models.newsletter.fields.created_at", scope: "decidim.admin") %></th>
-        <th><%= t("models.newsletter.fields.sent_at", scope: "decidim.admin") %></th>
-        <th><%= t("models.newsletter.fields.progress", scope: "decidim.admin") %></th>
-        <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @newsletters.each do |newsletter| %>
-        <tr data-newsletter-id="<%= newsletter.id %>">
-          <td><%= translated_attribute newsletter.subject %></td>
-          <td><%= l newsletter.created_at, format: :long if newsletter.created_at %></td>
-          <td><%= l newsletter.sent_at, format: :long if newsletter.sent_at %></td>
-          <td>
-            <% if newsletter.sent? %>
-              <%= "#{newsletter.total_deliveries} / #{newsletter.total_recipients}" %>
-            <% end %>
-          </td>
-          <td class="actions">
-            <%= link_to t("actions.preview", scope: "decidim.admin"), decidim_admin.newsletter_path(newsletter) %>
-
-            <% if can?(:update, newsletter) && !newsletter.sent? %>
-              <%= link_to t("actions.edit", scope: "decidim.admin"), decidim_admin.edit_newsletter_path(newsletter) %>
-            <% end %>
-
-            <% if can?(:destroy, newsletter) && !newsletter.sent? %>
-              <%= link_to t("actions.destroy", scope: "decidim.admin"), decidim_admin.newsletter_path(newsletter), method: :delete, class: "button", data: { confirm: t(".confirm_delete") } %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+                <% if can?(:destroy, newsletter) && !newsletter.sent? %>
+                  <%= link_to decidim_admin.newsletter_path(newsletter), method: :delete, class: "button", data: { confirm: t(".confirm_delete"), tooltip: true, disable_hover: false }, :'aria-haspopup' => true, title: t("actions.destroy", scope: "decidim.admin"), class: "action-icon action-icon--remove" do %>
+                    <%= icon "circle-x" %>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
