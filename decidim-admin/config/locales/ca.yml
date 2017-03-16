@@ -201,6 +201,7 @@ ca:
           categories: Categories
           features: Funcionalitats
           info: Informació
+          moderations: Moderacions
           process_admins: Administradors del procés
           settings: Configuració
           steps: Fases del procés
@@ -273,6 +274,9 @@ ca:
             name: Nom
             phone: Telèfon
             users_count: Número d'usuaris
+      moderations:
+        index:
+          title: Grup de processos participatius
       newsletters:
         create:
           error: S'ha produït un error en crear aquest butlletí.
@@ -432,6 +436,29 @@ ca:
         resend_invitation:
           error: S'ha produït un error en intentar enviar el missatge d'invitació.
           success: Invitació enviada correctament.
+    moderations:
+      actions:
+        hidden: Ocults
+        hide: Amagar
+        not_hidden: No ocult
+        title: Moderacions
+        unreport: Desfer denúncia
+      admin:
+        reportable:
+          hide:
+            invalid: Hi ha hagut un error en ocultar el contingut.
+            success: Contingut amagat amb èxit.
+          unreport:
+            invalid: Hi ha hagut un problema cancel·lant la denúncia.
+            success: Denúncia cancel·lada correctament.
+      models:
+        moderation:
+          fields:
+            hidden_at: Data d'ocultació
+            report_count: Número de denúncies
+            reportable: Tipus
+            reported_content: Contingut
+            reports: Denúncies
     participatory_processes:
       participatory_process_groups:
         none: Cap
