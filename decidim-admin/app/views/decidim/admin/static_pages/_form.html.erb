@@ -1,13 +1,13 @@
-<div class="field">
+<div class="row column">
   <%= form.translated :text_field, :title, autofocus: true %>
 </div>
 
 <% if can? :update_slug, form.object %>
-  <div class="field">
+  <div class="row column">
     <%= form.text_field :slug %>
   </div>
 <% end %>
 
-<div class="field">
+<div class="row column">
   <%= form.translated :editor, :content, toolbar: :full, lines: 25 %>
 </div>

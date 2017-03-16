@@ -35,7 +35,9 @@ describe "Content pages", type: :feature do
     end
 
     it "can create new pages" do
-      find(".actions .new").click
+      within ".secondary-nav" do
+        find(".new").click
+      end
 
       within ".new_static_page" do
         fill_in :static_page_slug, with: "welcome"
@@ -77,7 +79,7 @@ describe "Content pages", type: :feature do
 
       it "can edit them" do
         within find("tr", text: translated(decidim_page.title)) do
-          click_link "Edit"
+          page.find('.action-icon.edit').click
         end
 
         within ".edit_static_page" do
@@ -110,7 +112,7 @@ describe "Content pages", type: :feature do
 
       it "can destroy them" do
         within find("tr", text: translated(decidim_page.title)) do
-          click_link "Destroy"
+          page.find('.action-icon.action-icon--remove').click
         end
 
         within ".callout-wrapper" do
@@ -124,7 +126,7 @@ describe "Content pages", type: :feature do
 
       it "can visit them" do
         within find("tr", text: translated(decidim_page.title)) do
-          click_link "View public page"
+          page.find('.action-icon.preview').click
         end
 
         expect(page).to have_content(translated(decidim_page.title))

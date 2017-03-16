@@ -6,6 +6,8 @@ module Decidim
     # Controller that allows managing all pages at the admin panel.
     #
     class StaticPagesController < ApplicationController
+      layout "decidim/admin/pages"
+
       def index
         authorize! :index, StaticPage
         @pages = collection
