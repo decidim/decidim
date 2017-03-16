@@ -242,7 +242,7 @@ en:
         participatory_process_group:
           fields:
             name: Name
-          name: Participatory process group
+          name: Process group
         participatory_process_step:
           fields:
             active: Active
@@ -328,10 +328,11 @@ en:
         destroy:
           success: Participatory process group destroyed successfully.
         edit:
+          title: Edit process group
           update: Update
         new:
           create: Create
-          name: Name
+          title: New process group
         update:
           error: There was en error updating this participatory process group.
           success: Participatory process group updated successfully.
