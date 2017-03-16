@@ -1,7 +1,5 @@
 /* eslint-disable no-div-regex, no-useless-escape, no-param-reassign, id-length */
 
-const $ = require('jquery');
-
 /**
  * A plain Javascript component that handles the form filter.
  * @class
@@ -9,9 +7,6 @@ const $ = require('jquery');
  */
 ((exports) => {
   class FormFilterComponent {
-    mounted;
-    $form;
-
     constructor($form) {
       this.$form = $form;
       this.mounted = false;
@@ -104,7 +99,7 @@ const $ = require('jquery');
     _parseLocationOrderValue() {
       const url = this._getLocation();
       const match = url.match(/order=([^&]*)/);
-      const $orderMenu = $('.order-by .menu');
+      const $orderMenu = this.$form.find('.order-by .menu');
       let order = $orderMenu.find('.menu a:first').data('order');
 
       if (match) {

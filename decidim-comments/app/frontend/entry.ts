@@ -7,7 +7,7 @@ import loadTranslations from "./support/load_translations";
 window.DecidimComments = window.DecidimComments || {};
 
 window.DecidimComments.renderCommentsComponent = (nodeId: string, props: CommentsApplicationProps) => {
-  let node = $(`#${nodeId}`)[0];
+  let node = window.$(`#${nodeId}`)[0];
 
   ReactDOM.render(
     React.createElement(Comments, props),

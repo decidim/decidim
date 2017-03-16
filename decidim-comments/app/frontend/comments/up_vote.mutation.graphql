@@ -1,7 +1,0 @@
-mutation UpVote($id: ID!) {
-  comment(id: $id) {
-    upVote {
-      ...Comment
-    }
-  }
-}

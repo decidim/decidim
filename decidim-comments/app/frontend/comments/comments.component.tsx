@@ -8,14 +8,15 @@ import AddCommentForm       from "./add_comment_form.component";
 import CommentOrderSelector from "./comment_order_selector.component";
 import CommentThread        from "./comment_thread.component";
 
-const commentsQuery                     = require("./comments.query.graphql");
-const addCommentFormSessionFragment     = require("./add_comment_form_session.fragment.graphql");
-const addCommentFormCommentableFragment = require("./add_comment_form_commentable.fragment.graphql");
-const commentThreadFragment             = require("./comment_thread.fragment.graphql");
-const commentFragment                   = require("./comment.fragment.graphql");
-const commentDataFragment               = require("./comment_data.fragment.graphql");
-const upVoteFragment                    = require("./up_vote.fragment.graphql");
-const downVoteFragment                  = require("./down_vote.fragment.graphql");
+import {
+  addCommentFormCommentableFragment,
+  addCommentFormSessionFragment,
+  commentDataFragment,
+  commentFragment,
+  commentThreadFragment,
+  downVoteFragment,
+  upVoteFragment,
+} from "../support/fragments";
 
 import {
   GetCommentsQuery,
@@ -142,6 +143,29 @@ export class Comments extends React.Component<CommentsProps, undefined> {
  */
 
 window.Comments = Comments;
+
+export const commentsQuery = `
+  query GetComments($commentableId: String!, $commentableType: String!, $orderBy: String) {
+    session {
+      user {
+        name
+        avatarUrl
+        organizationName
+      }
+      ...AddCommentFormSession
+    }
+    commentable(id: $commentableId, type: $commentableType) {
+      acceptsNewComments
+      commentsHaveAlignment
+      commentsHaveVotes
+      comments(orderBy: $orderBy) {
+        id
+        ...CommentThread
+      }
+      ...AddCommentFormCommentable
+    }
+  }
+`;
 
 const CommentsWithData: any = graphql(gql`
   ${commentsQuery}

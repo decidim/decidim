@@ -19,7 +19,7 @@ module.exports = env => {
       filename: 'decidim-[name]/app/assets/javascripts/decidim/[name]/bundle.js'
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.graphql', '.yml']
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.yml']
     },
     devtool: ifProd('source-map', 'eval'),
     module: {
@@ -40,10 +40,6 @@ module.exports = env => {
         {
           test: /\.(yml|yaml)$/,
           loaders: ['json-loader', 'yaml-loader']
-        },
-        {
-          test: /\.(graphql|gql)$/,
-          loaders: ['raw-loader']
         },
         {
           test: /\.json$/,

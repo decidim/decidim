@@ -1,6 +1,0 @@
-fragment UpVote on Comment {
-  id
-  upVotes
-  upVoted
-  downVoted
-}

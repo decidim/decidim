@@ -1,7 +1,0 @@
-fragment CommentThread on Comment {
-  author {
-    name
-  }
-  hasComments
-  ...Comment
-}

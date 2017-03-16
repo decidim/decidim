@@ -51,9 +51,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
   }
 
   public componentDidMount() {
-    if ($(document).foundation) {
+    if (window.$(document).foundation) {
       const { comment: { id } } = this.props;
-      $(`#flagModalComment${id}`).foundation();
+      window.$(`#flagModalComment${id}`).foundation();
     }
   }
 
@@ -279,7 +279,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     const authenticityToken = this._getAuthenticityToken();
 
     const closeModal = () => {
-      $(`#flagModalComment${id}`).foundation("close");
+      window.$(`#flagModalComment${id}`).foundation("close");
     };
 
     if (session && session.user) {
@@ -343,7 +343,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @return {string} - The current authenticity token.
    */
   private _getAuthenticityToken() {
-    return $('meta[name="csrf-token"]').attr("content");
+    return window.$('meta[name="csrf-token"]').attr("content");
   }
 }
 

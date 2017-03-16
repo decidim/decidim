@@ -5,15 +5,13 @@ import * as React from "react";
 import AddCommentForm       from "./add_comment_form.component";
 import CommentOrderSelector from "./comment_order_selector.component";
 import CommentThread        from "./comment_thread.component";
-import { Comments }         from "./comments.component";
+import { Comments, commentsQuery } from "./comments.component";
 
 import generateCommentsData from "../support/generate_comments_data";
 import generateUserData     from "../support/generate_user_data";
 import resolveGraphQLQuery  from "../support/resolve_graphql_query";
 
 import { loadLocaleTranslations } from "../support/load_translations";
-
-const commentsQuery = require("./comments.query.graphql");
 
 describe("<Comments />", () => {
   let commentable: any = {};

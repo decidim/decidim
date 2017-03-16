@@ -51,10 +51,8 @@
     "expose-loader": "~0.7.1",
     "faker": "~3.1.0",
     "jest": "^19.0.2",
-    "jest-transform-graphql": "^1.0.0",
     "json-loader": "~0.5.4",
     "progress-bar-webpack-plugin": "~1.9.0",
-    "raw-loader": "~0.5.1",
     "react-addons-test-utils": "~15.4.0",
     "source-map-loader": "^0.1.6",
     "ts-jest": "^19.0.0",
@@ -75,7 +73,7 @@
     "classnames": "~2.2.5",
     "graphql-anywhere": "~2.2.0",
     "graphql-tag": "^1.3.1",
-    "jquery": "~3.1.1",
+    "jquery": "^3.2.0",
     "moment": "~2.17.1",
     "react": "~15.4.2",
     "react-addons-update": "~15.4.2",
@@ -89,14 +87,11 @@
       "ts",
       "tsx",
       "js",
-      "graphql",
       "yml"
     ],
     "transform": {
       "^.+\\.(ts|tsx)$": "typescript-babel-jest",
-      "\\.(gql|graphql)$": "jest-transform-graphql",
-      "\\.yml$": "yaml-jest",
-      ".*": "babel-jest"
+      "\\.yml$": "yaml-jest"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$"
   }

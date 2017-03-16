@@ -1,4 +1,5 @@
 import { mount, shallow }   from "enzyme";
+import * as $ from "jquery";
 import * as React from "react";
 
 import { CommentFragment } from "../support/schema";
@@ -25,6 +26,8 @@ describe("<Comment />", () => {
     session = {
       user: generateUserData(),
     };
+
+    window.$ = $;
   });
 
   it("should render an article with class comment", () => {

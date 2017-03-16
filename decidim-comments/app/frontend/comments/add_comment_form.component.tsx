@@ -9,12 +9,13 @@ import Icon                              from "../application/icon.component";
 
 const { I18n, Translate } = require("react-i18nify");
 
-const addCommentMutation                = require("./add_comment_form.mutation.graphql");
-const commentThreadFragment             = require("./comment_thread.fragment.graphql");
-const commentFragment                   = require("./comment.fragment.graphql");
-const commentDataFragment               = require("./comment_data.fragment.graphql");
-const upVoteFragment                    = require("./up_vote.fragment.graphql");
-const downVoteFragment                  = require("./down_vote.fragment.graphql");
+import {
+  commentDataFragment,
+  commentFragment,
+  commentThreadFragment,
+  downVoteFragment,
+  upVoteFragment,
+} from "../support/fragments";
 
 import {
   AddCommentFormCommentableFragment,
@@ -337,6 +338,16 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     }
   }
 }
+
+const addCommentMutation = `
+  mutation addComment($commentableId: String!, $commentableType: String!, $body: String!, $alignment: Int, $userGroupId: ID)  {
+    commentable(id: $commentableId, type: $commentableType) {
+      addComment(body: $body, alignment: $alignment, userGroupId: $userGroupId) {
+        ...CommentThread
+      }
+    }
+  }
+`;
 
 const AddCommentFormWithMutation = graphql(gql`
   ${addCommentMutation}

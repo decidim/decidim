@@ -31,7 +31,7 @@ class CommentOrderSelector extends React.Component<CommentOrderSelectorProps, Co
   public setDropdown = (dropdown: HTMLUListElement) => this.dropdown = dropdown;
 
   public componentDidMount() {
-    $(this.dropdown).foundation();
+    window.$(this.dropdown).foundation();
   }
 
   public render() {
