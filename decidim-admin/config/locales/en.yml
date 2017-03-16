@@ -238,7 +238,7 @@ en:
         participatory_process_group:
           fields:
             name: Name
-          name: Name
+          name: Participatory process group
         participatory_process_step:
           fields:
             active: Active
