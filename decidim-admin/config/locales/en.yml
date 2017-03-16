@@ -482,6 +482,8 @@ en:
   layouts:
     decidim:
       admin:
+        newsletters:
+          title: Newsletters
         settings:
           title: Settings
         users:
