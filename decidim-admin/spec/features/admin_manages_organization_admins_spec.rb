@@ -15,11 +15,14 @@ describe "Organization admins", type: :feature do
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
-      click_link "Admin users"
+      click_link "Users"
+      click_link "Admins"
     end
 
     it "can invite new users" do
-      find(".actions .new").click
+      within ".card-title" do
+        find(".button--title").click
+      end
 
       within ".new_user" do
         fill_in :user_name, with: "New admin"
@@ -51,7 +54,7 @@ describe "Organization admins", type: :feature do
 
       it "can resend the invitation" do
         within "tr[data-user-id=\"#{user.id}\"]" do
-          click_link "Resend invitation"
+          page.find('.action-icon.resend-invitation').click
         end
 
         expect(page).to have_content("Invitation email sent successfully")
@@ -61,7 +64,7 @@ describe "Organization admins", type: :feature do
         expect(page).to have_content(other_admin.name)
 
         within "tr[data-user-id=\"#{other_admin.id}\"]" do
-          click_link "Destroy"
+          page.find('.action-icon.action-icon--remove').click
         end
 
         expect(page).not_to have_content(other_admin.name)

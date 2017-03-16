@@ -1,54 +1,63 @@
-<% provide :title do %>
-  <h2><%= t "decidim.admin.titles.users" %></h2>
-<% end %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.users" %>
+      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.user.name", scope: "decidim.admin")), ['new', 'user'], class: 'button tiny button--title' %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.user.fields.name", scope: "decidim.admin") %></th>
+            <th><%= t("models.user.fields.email", scope: "decidim.admin") %></th>
+            <th><%= t("models.user.fields.invitation_sent_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.user.fields.invitation_accepted_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.user.fields.last_sign_in_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.user.fields.created_at", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr data-user-id="<%= user.id %>">
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td>
+                <% if user.invitation_sent_at %>
+                  <%= l user.invitation_sent_at, format: :short %>
+                <% end %>
+              </td>
+              <td>
+                <% if user.invitation_accepted_at %>
+                  <%= l user.invitation_accepted_at, format: :short %>
+                <% end %>
+              </td>
+              <td>
+                <% if user.last_sign_in_at %>
+                  <%= l user.last_sign_in_at, format: :short %>
+                <% end %>
+              </td>
+              <td><%= l user.created_at, format: :short %></td>
+              <td class="table-list__actions">
+                <% if can?(:invite, user) && user.invited_to_sign_up? %>
+                  <%= link_to ['resend_invitation', user], method: :post, data: { tooltip: true, disable_hover: false }, :'aria-haspopup' => true, title: t("actions.resend_invitation", scope: "decidim.admin"), class: "action-icon resend-invitation" do %>
+                    <%= icon "reload" %>
+                  <% end %>
+                <% end %>
 
-<div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.user.name", scope: "decidim.admin")), ['new', 'user'], class: 'new' %>
+                <% if can? :destroy, user %>
+                  <%= link_to user, method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin"), tooltip: true, disable_hover: false }, :'aria-haspopup' => true, title: t("actions.destroy", scope: "decidim.admin"), class: "action-icon action-icon--remove" do %>
+                    <%= icon "circle-x" %>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @users, theme: "decidim" %>
+    </div>
+  </div>
 </div>
-
-<table class="stack">
-  <thead>
-    <tr>
-      <th><%= t("models.user.fields.name", scope: "decidim.admin") %></th>
-      <th><%= t("models.user.fields.email", scope: "decidim.admin") %></th>
-      <th><%= t("models.user.fields.invitation_sent_at", scope: "decidim.admin") %></th>
-      <th><%= t("models.user.fields.invitation_accepted_at", scope: "decidim.admin") %></th>
-      <th><%= t("models.user.fields.last_sign_in_at", scope: "decidim.admin") %></th>
-      <th><%= t("models.user.fields.created_at", scope: "decidim.admin") %></th>
-      <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr data-user-id="<%= user.id %>">
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td>
-          <% if user.invitation_sent_at %>
-            <%= l user.invitation_sent_at, format: :short %>
-          <% end %>
-        </td>
-        <td>
-          <% if user.invitation_accepted_at %>
-            <%= l user.invitation_accepted_at, format: :short %>
-          <% end %>
-        </td>
-        <td>
-          <% if user.last_sign_in_at %>
-            <%= l user.last_sign_in_at, format: :short %>
-          <% end %>
-        </td>
-        <td><%= l user.created_at, format: :short %></td>
-        <td class="actions">
-          <% if can?(:invite, user) && user.invited_to_sign_up? %>
-            <%= link_to t("actions.resend_invitation", scope: "decidim.admin"), ['resend_invitation', user], method: :post %>
-          <% end %>
-
-          <% if can? :destroy, user %>
-            <%= link_to t("actions.destroy", scope: "decidim.admin"), user, method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
