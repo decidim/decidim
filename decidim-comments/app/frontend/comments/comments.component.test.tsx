@@ -12,7 +12,6 @@ import generateUserData     from "../support/generate_user_data";
 import resolveGraphQLQuery  from "../support/resolve_graphql_query";
 
 import { loadLocaleTranslations } from "../support/load_translations";
-import { GetCommentsQuery } from "../support/schema";
 
 const commentsQuery = require("./comments.query.graphql");
 

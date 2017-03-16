@@ -90,6 +90,7 @@ export interface CommentDataFragment extends UpVoteFragment, DownVoteFragment {
 export interface CommentThreadFragment extends CommentFragment, CommentDataFragment, UpVoteFragment, DownVoteFragment {
   author: {
     name: string,
+    avatarUrl: string
   };
   hasComments: boolean;
 }

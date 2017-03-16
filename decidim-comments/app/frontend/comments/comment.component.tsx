@@ -1,10 +1,8 @@
 import * as classnames     from "classnames";
-import { propType }        from "graphql-anywhere";
-import gql                 from "graphql-tag";
 import * as moment         from "moment";
 import * as React          from "react";
 
-import Icon from '../application/icon.component';
+import Icon from "../application/icon.component";
 
 import AddCommentForm      from "./add_comment_form.component";
 import DownVoteButton      from "./down_vote_button.component";
@@ -12,7 +10,6 @@ import UpVoteButton        from "./up_vote_button.component";
 
 import {
   AddCommentFormSessionFragment,
-  CommentDataFragment,
   CommentFragment,
 } from "../support/schema";
 
@@ -38,7 +35,7 @@ interface CommentState {
  * @augments Component
  */
 class Comment extends React.Component<CommentProps, CommentState> {
-  private static defaultProps: any = {
+  public static defaultProps: any = {
     articleClassName: "comment",
     isRootComment: false,
     session: null,
@@ -53,7 +50,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     };
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     if ($(document).foundation) {
       const { comment: { id } } = this.props;
       $(`#flagModalComment${id}`).foundation();
@@ -63,7 +60,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
   public render(): JSX.Element {
     const { session, comment: { id, author, body, createdAt }, articleClassName } = this.props;
     const formattedCreatedAt = ` ${moment(createdAt).format("LLL")}`;
-    let modalName = 'loginModal';
+    let modalName = "loginModal";
 
     if (session && session.user) {
       modalName = `flagModalComment${id}`;
@@ -83,8 +80,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
               </div>
             </div>
             <div className="author-data__extra">
-              <button type="button" title={ I18n.t("components.comment.report.title") } data-open={modalName}>
-                <Icon name="icon-flag" iconExtraClassName="icon--small"></Icon>
+              <button type="button" title={I18n.t("components.comment.report.title")} data-open={modalName}>
+                <Icon name="icon-flag" iconExtraClassName="icon--small" />
               </button>
               {this._renderFlagModal()}
             </div>
@@ -119,7 +116,6 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderReplyButton() {
     const { comment: { acceptsNewComments }, session } = this.props;
-    const { showReplyForm } = this.state;
 
     if (session && acceptsNewComments) {
       return (
@@ -143,7 +139,6 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderAdditionalReplyButton() {
     const { comment: { acceptsNewComments, hasComments }, session, isRootComment } = this.props;
-    const { showReplyForm } = this.state;
 
     if (session && acceptsNewComments) {
       if (hasComments && isRootComment) {
@@ -279,20 +274,25 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @private
    * @return {Void|DOMElement} - The comment's report modal or not.
    */
-  _renderFlagModal() {
+  private _renderFlagModal() {
     const { session, comment: { id, sgid, alreadyReported } } = this.props;
     const authenticityToken = this._getAuthenticityToken();
 
+    const closeModal = () => {
+      $(`#flagModalComment${id}`).foundation("close");
+    };
+
     if (session && session.user) {
       return (
-        <div className="reveal flag-modal" id={`flagModalComment${id}`} data-reveal>
+        <div className="reveal flag-modal" id={`flagModalComment${id}`} data-reveal={true}>
           <div className="reveal__header">
-            <h3 className="reveal__title">{ I18n.t("components.comment.report.title") }</h3>
+            <h3 className="reveal__title">{I18n.t("components.comment.report.title")}</h3>
             <button
               className="close-button"
-              aria-label={ I18n.t("components.comment.report.close") }
+              aria-label={I18n.t("components.comment.report.close")}
               type="button"
-              onClick={() => $(`#flagModalComment${id}`).foundation('close')}>
+              onClick={closeModal}
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -300,31 +300,33 @@ class Comment extends React.Component<CommentProps, CommentState> {
             (() => {
               if (alreadyReported) {
                 return (
-                  <p key={`already-reported-comment-${id}`}>{ I18n.t("components.comment.report.already_reported") }</p>
+                  <p key={`already-reported-comment-${id}`}>{I18n.t("components.comment.report.already_reported")}</p>
                 );
               }
               return [
-                <p key={`report-description-comment-${id}`}>{ I18n.t("components.comment.report.description") }</p>,
-                <form key={`report-form-comment-${id}`} method="post" action={`/report?sgid=${sgid}`}>
-                  <input type="hidden" name="authenticity_token" value={authenticityToken} />
-                  <label htmlFor={`report_comment_${id}_reason_spam`}>
-                    <input type="radio" value="spam" name="report[reason]" id={`report_comment_${id}_reason_spam`} defaultChecked />
-                    { I18n.t("components.comment.report.reasons.spam") }
-                  </label>
-                  <label htmlFor={`report_comment_${id}_reason_offensive`}>
-                    <input type="radio" value="offensive" name="report[reason]" id={`report_comment_${id}_reason_offensive`} />
-                    { I18n.t("components.comment.report.reasons.offensive") }
-                  </label>
-                  <label htmlFor={`report_comment_${id}_reason_does_not_belong`}>
-                    <input type="radio" value="does_not_belong" name="report[reason]" id={`report_comment_${id}_reason_does_not_belong`} />
-                    { I18n.t("components.comment.report.reasons.does_not_belong", { organization_name: session.user.organizationName }) }
-                  </label>
-                  <label htmlFor={`report_comment_${id}_details`}>
-                    { I18n.t("components.comment.report.details") }
-                    <textarea rows={4} name="report[details]" id={`report_comment_${id}_details`} />
-                  </label>
-                  <button type="submit" name="commit" className="button">{ I18n.t("components.comment.report.action") }</button>
-                </form>
+                <p key={`report-description-comment-${id}`}>{I18n.t("components.comment.report.description")}</p>,
+                (
+                  <form key={`report-form-comment-${id}`} method="post" action={`/report?sgid=${sgid}`}>
+                    <input type="hidden" name="authenticity_token" value={authenticityToken} />
+                    <label htmlFor={`report_comment_${id}_reason_spam`}>
+                      <input type="radio" value="spam" name="report[reason]" id={`report_comment_${id}_reason_spam`} defaultChecked={true} />
+                      {I18n.t("components.comment.report.reasons.spam")}
+                    </label>
+                    <label htmlFor={`report_comment_${id}_reason_offensive`}>
+                      <input type="radio" value="offensive" name="report[reason]" id={`report_comment_${id}_reason_offensive`} />
+                      {I18n.t("components.comment.report.reasons.offensive")}
+                    </label>
+                    <label htmlFor={`report_comment_${id}_reason_does_not_belong`}>
+                      <input type="radio" value="does_not_belong" name="report[reason]" id={`report_comment_${id}_reason_does_not_belong`} />
+                      {I18n.t("components.comment.report.reasons.does_not_belong", { organization_name: session.user.organizationName })}
+                    </label>
+                    <label htmlFor={`report_comment_${id}_details`}>
+                      {I18n.t("components.comment.report.details")}
+                      <textarea rows={4} name="report[details]" id={`report_comment_${id}_details`} />
+                    </label>
+                    <button type="submit" name="commit" className="button">{I18n.t("components.comment.report.action")}</button>
+                  </form>
+                ),
               ];
             })()
           }
@@ -339,9 +341,9 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * Get Rails authenticity token so we can send requests through the report forms.
    * @private
    * @return {string} - The current authenticity token.
-  */
-  _getAuthenticityToken() {
-    return $('meta[name="csrf-token"]').attr('content');
+   */
+  private _getAuthenticityToken() {
+    return $('meta[name="csrf-token"]').attr("content");
   }
 }
 

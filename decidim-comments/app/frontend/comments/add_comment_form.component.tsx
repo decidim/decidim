@@ -15,8 +15,6 @@ const commentFragment                   = require("./comment.fragment.graphql");
 const commentDataFragment               = require("./comment_data.fragment.graphql");
 const upVoteFragment                    = require("./up_vote.fragment.graphql");
 const downVoteFragment                  = require("./down_vote.fragment.graphql");
-const addCommentFormSessionFragment     = require("./add_comment_form_session.fragment.graphql");
-const addCommentFormCommentableFragment = require("./add_comment_form_commentable.fragment.graphql");
 
 import {
   AddCommentFormCommentableFragment,
@@ -380,9 +378,9 @@ const AddCommentFormWithMutation = graphql(gql`
             upVoted: false,
             downVotes: 0,
             downVoted: false,
-            alreadyReported: false
-          }
-        }
+            alreadyReported: false,
+          },
+        },
       },
       updateQueries: {
         GetComments: (prev: GetCommentsQuery, { mutationResult: { data } }: { mutationResult: { data: AddCommentMutation }}) => {

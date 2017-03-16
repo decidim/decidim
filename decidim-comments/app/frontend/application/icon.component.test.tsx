@@ -1,5 +1,4 @@
 import { mount, shallow } from "enzyme";
-
 import * as React from "react";
 
 import { Icon } from "./icon.component";

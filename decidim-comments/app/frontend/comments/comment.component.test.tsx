@@ -1,7 +1,5 @@
-/* eslint-disable no-unused-expressions */
 import { mount, shallow }   from "enzyme";
-import gql                  from "graphql-tag";
-import * as React           from "react";
+import * as React from "react";
 
 import { CommentFragment } from "../support/schema";
 import AddCommentForm       from "./add_comment_form.component";
@@ -11,11 +9,6 @@ import UpVoteButton         from "./up_vote_button.component";
 
 import generateCommentsData from "../support/generate_comments_data";
 import generateUserData     from "../support/generate_user_data";
-
-const commentFragment = require("./comment.fragment.graphql");
-const commentDataFragment = require("./comment_data.fragment.graphql");
-const upVoteFragment = require("./up_vote.fragment.graphql");
-const downVoteFragment = require("./down_vote.fragment.graphql");
 
 import { loadLocaleTranslations } from "../support/load_translations";
 
@@ -27,13 +20,6 @@ describe("<Comment />", () => {
     loadLocaleTranslations("en");
     let commentsData = generateCommentsData(1);
     commentsData[0].comments = generateCommentsData(3);
-
-    const fragment = gql`
-      ${commentFragment}
-      ${commentDataFragment}
-      ${upVoteFragment}
-      ${downVoteFragment}
-    `;
 
     comment = commentsData[0];
     session = {
@@ -149,7 +135,7 @@ describe("<Comment />", () => {
 
     it("should not render the flag modal", () => {
       const wrapper = shallow(<Comment comment={comment} session={session} />);
-      expect(wrapper.find('.flag-modal')).not.to.be.present();
+      expect(wrapper.find(".flag-modal").exists()).toBeFalsy();
     });
   });
 
@@ -167,14 +153,14 @@ describe("<Comment />", () => {
 
   it("should render the flag modal", () => {
     const wrapper = shallow(<Comment comment={comment} session={session} />);
-    expect(wrapper.find('.flag-modal')).to.be.present();
+    expect(wrapper.find(".flag-modal").exists()).toBeTruthy();
   });
 
   describe("when user has already reported the comment", () => {
     it("should not render the flag form", () => {
       comment.alreadyReported = true;
       const wrapper = shallow(<Comment comment={comment} session= {session} />);
-      expect(wrapper.find('.flag-modal form')).not.to.be.present();
+      expect(wrapper.find(".flag-modal form").exists()).toBeFalsy();
     });
   });
 

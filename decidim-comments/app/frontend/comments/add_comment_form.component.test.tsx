@@ -1,5 +1,4 @@
 import { mount, ReactWrapper, shallow } from "enzyme";
-
 import * as React from "react";
 
 import { AddCommentForm } from "./add_comment_form.component";

@@ -26,6 +26,7 @@
     "@types/es6-promise": "^0.0.32",
     "@types/faker": "^3.1.32",
     "@types/jest": "^18.1.1",
+    "@types/jquery": "^2.0.41",
     "@types/react": "^15.0.12",
     "@types/react-dom": "^0.14.23",
     "@types/uuid": "^2.0.29",

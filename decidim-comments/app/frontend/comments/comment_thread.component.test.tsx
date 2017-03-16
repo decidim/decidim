@@ -1,8 +1,7 @@
 import { shallow } from "enzyme";
-import gql from "graphql-tag";
 import * as React from "react";
 
-import { CommentThreadFragment } from "../support/schema";
+import { CommentFragment } from "../support/schema";
 import Comment from "./comment.component";
 import CommentThread from "./comment_thread.component";
 
@@ -10,26 +9,13 @@ import generateCommentsData from "../support/generate_comments_data";
 import generateCUserData from "../support/generate_user_data";
 import { loadLocaleTranslations } from "../support/load_translations";
 
-const commentThreadFragment = require("./comment_thread.fragment.graphql");
-
 describe("<CommentThread />", () => {
-  let comment: CommentThreadFragment;
+  let comment: CommentFragment;
   let session: any = null;
-
-  const commentFragment = gql`
-    fragment Comment on Comment {
-      body
-    }
-  `;
 
   beforeEach(() => {
     loadLocaleTranslations("en");
     const commentsData = generateCommentsData(1);
-
-    const fragment = gql`
-      ${commentThreadFragment}
-      ${commentFragment}
-    `;
 
     session = {
       user: generateCUserData(),

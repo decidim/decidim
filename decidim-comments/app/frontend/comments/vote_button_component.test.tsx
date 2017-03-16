@@ -1,6 +1,5 @@
 import { shallow } from "enzyme";
 import * as React from "react";
-
 import Icon        from "../application/icon.component";
 import VoteButton  from "./vote_button.component";
 

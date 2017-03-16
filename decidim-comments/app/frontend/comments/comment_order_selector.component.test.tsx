@@ -1,5 +1,6 @@
 import { shallow } from "enzyme";
 import * as React from "react";
+
 import CommentOrderSelector from "./comment_order_selector.component";
 
 describe("<CommentOrderSelector />", () => {

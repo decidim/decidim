@@ -1,18 +1,16 @@
-import { filter, propType }  from "graphql-anywhere";
-import gql                   from "graphql-tag";
 import * as React            from "react";
 
 import Comment               from "./comment.component";
 
 import {
   AddCommentFormSessionFragment,
-  CommentThreadFragment,
+  CommentFragment,
 } from "../support/schema";
 
 const { I18n } = require("react-i18nify");
 
 interface CommentThreadProps {
-  comment: CommentThreadFragment;
+  comment: CommentFragment;
   session: AddCommentFormSessionFragment & {
     user: any;
   } | null;
@@ -26,7 +24,7 @@ interface CommentThreadProps {
  * @todo It doesn't handle multiple comments yet
  */
 class CommentThread extends React.Component<CommentThreadProps, undefined> {
-  private static defaultProps: any = {
+  public static defaultProps: any = {
     session: null,
     votable: false,
   };

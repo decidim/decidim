@@ -1,4 +1,3 @@
-import { filter }           from "graphql-anywhere";
 import gql                  from "graphql-tag";
 import * as React           from "react";
 import { graphql }          from "react-apollo";

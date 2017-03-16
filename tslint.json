@@ -1,6 +1,8 @@
 {
     "extends": ["tslint:recommended", "tslint-react"],
     "rules": {
+        "no-unused-variable": [true, "react"],
+        "no-unused-expression": true,
         "no-var-requires": false,
         "object-literal-sort-keys": false,
         "interface-name": [true, "never-prefix"],
