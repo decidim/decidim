@@ -1,6 +1,8 @@
 es:
   activemodel:
     attributes:
+      report:
+        details: Comentarios adicionales
       user:
         email: Tu correo electrónico
         name: Tu nombre
@@ -173,6 +175,19 @@ es:
         participatory_structure: Estructura participativa
         scope: Ámbito
         target: '¿A quién va dirigido?'
+    reported_mailer:
+      hide:
+        hello: Hola %{name},
+        report_html: "<p>El siguiente contenido: <p>%{content} <p>ha sido ocultado automáticamente.</p>"
+        subject: Un contenido se ha ocultado de forma automática
+      report:
+        hello: Hola %{name},
+        report_html: "<p>El siguiente contenido: <p>%{content} <p>ha sido denunciado.</p>"
+        subject: Un contenido ha sido denunciado
+    reports:
+      create:
+        error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
+        success: La denuncia se ha creado correctament y será revisada por un administrador.
     shared:
       action_authorization_modal:
         incomplete:
@@ -193,7 +208,10 @@ es:
         already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
         close: Cerrar
         description: Es inapropiado este contenido?
+        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
+        offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
         report: Denunciar
+        spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
       login_modal:
         please_sign_in: Por favor, regístrate
