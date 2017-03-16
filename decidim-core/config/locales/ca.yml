@@ -1,6 +1,8 @@
 ca:
   activemodel:
     attributes:
+      report:
+        details: Comentaris addicionals
       user:
         email: El teu email
         name: El teu nom
@@ -173,6 +175,15 @@ ca:
         participatory_structure: Estructura participativa
         scope: Àmbit
         target: A qui va dirigit?
+    reported_mailer:
+      hide:
+        hello: Hola %{name},
+        report_html: "<p>El següent contingut:</p>%{content}<p>ha estat amagat automàticament.</p>"
+        subject: Un contingut ha estat amagat automàticament
+      report:
+        hello: Hola %{name},
+        report_html: "<p>El següent contingut:</p>%{content}<p>ha estat denunciat.</p>"
+        subject: Un contingut ha estat denunciat
     shared:
       action_authorization_modal:
         incomplete:
