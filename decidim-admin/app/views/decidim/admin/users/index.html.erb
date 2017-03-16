@@ -42,7 +42,7 @@
               <td><%= l user.created_at, format: :short %></td>
               <td class="table-list__actions">
                 <% if can?(:invite, user) && user.invited_to_sign_up? %>
-                  <%= link_to ['resend_invitation', user], method: :post, data: { tooltip: true, disable_hover: false }, :'aria-haspopup' => true, title: t("actions.resend_invitation", scope: "decidim.admin"), class: "action-icon" do %>
+                  <%= link_to ['resend_invitation', user], method: :post, data: { tooltip: true, disable_hover: false }, :'aria-haspopup' => true, title: t("actions.resend_invitation", scope: "decidim.admin"), class: "action-icon resend-invitation" do %>
                     <%= icon "reload" %>
                   <% end %>
                 <% end %>

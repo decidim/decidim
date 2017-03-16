@@ -17,7 +17,7 @@ describe "Admin manage user groups", type: :feature do
 
   it "verifies a user group" do
     within "tr[data-user-group-id=\"#{user_group.id}\"]" do
-      click_button "Verify", match: :first
+      click_link "Verify", match: :first
     end
 
     expect(page).to have_content("verified successfully")
