@@ -196,6 +196,7 @@ en:
           error: There has been an error updating this feature.
           success: The feature was updated successfully.
       menu:
+        admins: Admins
         dashboard: Dashboard
         newsletters: Newsletters
         participatory_process_groups: Process groups
@@ -213,7 +214,7 @@ en:
         settings: Settings
         static_pages: Pages
         user_groups: User groups
-        users: Admin users
+        users: Users
       models:
         attachment:
           fields:
@@ -480,3 +481,5 @@ en:
       admin:
         settings:
           title: Settings
+        users:
+          title: Users
