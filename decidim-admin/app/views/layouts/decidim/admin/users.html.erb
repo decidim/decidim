@@ -1,0 +1,21 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav">
+    <div class="secondary-nav__title">
+      <%= t ".title" %>
+    </div>
+    <ul>
+      <li <% if is_active_link?(decidim_admin.users_path) %> class="is-active" <% end %>>
+        <%= link_to t("menu.admins", scope: "decidim.admin"), decidim_admin.users_path %>
+      </li>
+      <% if can? :index, Decidim::UserGroup %>
+        <li <% if is_active_link?(decidim_admin.user_groups_path) %> class="is-active" <% end %>>
+          <%= link_to t("menu.user_groups", scope: "decidim.admin"), decidim_admin.user_groups_path %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
+<% end %>
