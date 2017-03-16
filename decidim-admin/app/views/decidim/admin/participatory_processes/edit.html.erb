@@ -1,19 +1,19 @@
-  <%= decidim_form_for(@form) do |f| %>
-    <%= render partial: 'form', object: f %>
-    <div class="button--double form-general-submit">
-      <%= f.submit t(".update"), class: "button"  %>
+<%= decidim_form_for(@form) do |f| %>
+  <%= render partial: 'form', object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".update"), class: "button"  %>
 
-      <% if can? :publish, participatory_process %>
-        <% if participatory_process.published? %>
-          <%= link_to t("actions.unpublish", scope: "decidim.admin"), participatory_process_publish_path(participatory_process), method: :delete, class: "button muted" %>
-        <% else %>
-          <%= link_to t("actions.publish", scope: "decidim.admin"), participatory_process_publish_path(participatory_process), method: :post, class: "button hollow" %>
-        <% end %>
+    <% if can? :publish, participatory_process %>
+      <% if participatory_process.published? %>
+        <%= link_to t("actions.unpublish", scope: "decidim.admin"), participatory_process_publish_path(participatory_process), method: :delete, class: "button muted" %>
+      <% else %>
+        <%= link_to t("actions.publish", scope: "decidim.admin"), participatory_process_publish_path(participatory_process), method: :post, class: "button hollow" %>
       <% end %>
+    <% end %>
 
-      <% if can? :destroy, participatory_process %>
-        <%= link_to t("decidim.admin.actions.destroy"), participatory_process, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
-      <% end %>
-  <% end %>
-</div>
+    <% if can? :destroy, participatory_process %>
+      <%= link_to t("decidim.admin.actions.destroy"), participatory_process, method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } %>
+    <% end %>
+  </div>
+<% end %>
 
