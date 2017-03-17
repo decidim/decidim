@@ -2,4 +2,4 @@ fi:
   decidim:
     admin:
       menu:
-        dashboard: Yleiskatsaus
+        dashboard: Hallintapaneeli
