@@ -2,32 +2,44 @@
   <td>
     <%= link_to decidim.feature_path(participatory_process, feature), target: "_blank" do %>
       <%= translated_attribute feature.name %>
-      <%= icon "external-link" %>
     <% end %>
   </td>
   <td>
     <%= t "decidim.features.#{feature.manifest.name}.name" %>
   </td>
-  <td class="actions">
-
+  <td class="table-list__actions">
     <% if feature.manifest.admin_engine %>
-      <%= link_to manage_feature_path(participatory_process, feature), class: "button small" do %>
-        <%= t "actions.manage", scope: "decidim.admin" %>
+      <%= link_to manage_feature_path(participatory_process, feature), data: { tooltip: true, disable_hover: false }, title: t("actions.manage", scope: "decidim.admin"), class: "action-icon" do %>
+        <%= icon "pencil" %>
       <% end %>
     <% end %>
 
     <% if can?(:update, feature) %>
       <% if feature.published? %>
-        <%= link_to t("actions.unpublish", scope: "decidim.admin"), url_for(action: :unpublish, id: feature, controller: "features"), class: "small button", method: :put %>
+        <%= link_to url_for(action: :unpublish, id: feature, controller: "features"), data: { tooltip: true, disable_hover: false }, title: t("actions.unpublish", scope: "decidim.admin"), class: "action-icon", method: :put do %>
+          <%= icon "cloud-download" %>
+        <% end %>
       <% else %>
-        <%= link_to t("actions.publish", scope: "decidim.admin"), url_for(action: :publish, id: feature, controller: "features"), class: "small button", method: :put %>
+        <%= link_to url_for(action: :publish, id: feature, controller: "features"), data: { tooltip: true, disable_hover: false }, title: t("actions.publish", scope: "decidim.admin"), class: "action-icon", method: :put do %>
+          <%= icon "cloud-upload" %>
+        <% end %>
       <% end %>
     <% end %>
 
-    <%= link_to t("actions.configure", scope: "decidim.admin"), url_for(action: :edit, id: feature, controller: "features"), class: "small button" if can? :update, feature %>
+    <% if can? :update, feature %>
+      <%= link_to url_for(action: :edit, id: feature, controller: "features"), data: { tooltip: true, disable_hover: false }, title: t("actions.configure", scope: "decidim.admin"), class: "action-icon" do %>
+        <%= icon "cog" %>
+      <% end %>
+    <% end %>
 
-    <%= link_to t("actions.permissions", scope: "decidim.admin"), edit_participatory_process_feature_permissions_path(feature_id: feature), class: "small button" if can? :update, feature %>
+    <% if can? :update, feature %>
+      <%= link_to edit_participatory_process_feature_permissions_path(feature_id: feature), data: { tooltip: true, disable_hover: false }, title: t("actions.permissions", scope: "decidim.admin"), class: "action-icon" do %>
+        <%= icon "key" %>
+      <% end %>
+    <% end %>
 
-    <%= link_to t("actions.destroy", scope: "decidim.admin"), url_for(action: :destroy, id: feature, controller: "features"), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, feature %>
+    <%= link_to url_for(action: :destroy, id: feature, controller: "features"), method: :delete, data: { confirm: t("actions.confirm_destroy"), tooltip: true, disable_hover: false }, aria_haspopup: true, title: t("actions.destroy", scope: "decidim.admin"), class: "action-icon action-icon--remove" do %>
+      <%= icon "circle-x" %>
+    <% end %>
   </td>
 </tr>
