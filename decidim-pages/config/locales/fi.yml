@@ -1,0 +1,22 @@
+fi:
+  decidim:
+    features:
+      pages:
+        name: Sivu
+        settings:
+          global:
+            comments_enabled: Kommentointi sallittu
+          step:
+            comments_blocked: Kommentointi estetty
+    pages:
+      admin:
+        models:
+          components:
+            body: Runko
+        pages:
+          edit:
+            save: Tallenna sivu
+            title: Muokkaa sivua
+          update:
+            invalid: Sivun tallennuksessa oli virheitä.
+            success: Sivu tallennettu onnistuneesti.
