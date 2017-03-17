@@ -38,6 +38,15 @@ fi:
           against: Vastaan
           in_favor: Puolesta
         reply: Vastaa
+        report:
+          action: Raportoi
+          already_reported: Tämä sisältö on jo raportoitu ja ylläpitäjä tutkii sen.
+          close: Sulje
+          description: Onko tämä sisältö epäasiallista?
+          details: Lisätiedot
+          reasons:
+            does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
+            offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
       comment_order_selector:
         order:
           best_rated: Parhaiksi arvioidut
