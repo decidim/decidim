@@ -239,6 +239,8 @@ fi:
         someone_invited_you: Joku kutsui sinut liittymään %{application}, voit hyväksyä kutsun alla olevan linkin avulla.
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
+      invite_collaborator:
+        subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
       organization_admin_invitation_instructions:
         subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
       password_change:
