@@ -13,7 +13,7 @@ module Decidim
     describe "#report" do
       let(:mail) { described_class.report(user, report) }
 
-      let(:subject) { "Un recurs ha estat denunciat" }
+      let(:subject) { "Un contingut ha estat denunciat" }
       let(:default_subject) { "A resource has been reported" }
 
       let(:body) { "ha estat denunciat" }
@@ -25,7 +25,7 @@ module Decidim
     describe "#hide" do
       let(:mail) { described_class.hide(user, report) }
 
-      let(:subject) { "Un recurs ha estat amagat automàticament" }
+      let(:subject) { "Un contingut ha estat amagat automàticament" }
       let(:default_subject) { "A resource has been hidden automatically" }
 
       let(:body) { "ha estat amagat" }
