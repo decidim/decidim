@@ -1,0 +1,123 @@
+fi:
+  activemodel:
+    attributes:
+      project:
+        budget: Budjetti
+        decidim_category_id: Kategoria
+        decidim_scope_id: Konteksti
+        description: Kuvaus
+        proposal_ids: Liittyvät esitykset
+        title: Otsikko
+  decidim:
+    budgets:
+      actions:
+        attachments: Liitteet
+        confirm_destroy: Haluatko varmasti poistaa tämän projektin?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi %{name}
+        title: Toiminnot
+      admin:
+        models:
+          project:
+            name: Projekti
+        projects:
+          create:
+            invalid: Tämän projektin lisäyksessä tapahtui virhe
+            success: Projekti lisätty onnistuneesti
+          destroy:
+            success: Projekti tuhottu onnistuneesti
+          edit:
+            title: Muokkaa projektia
+            update: Päivitä projektia
+          index:
+            finished_orders: Valmiit tilaukset
+            pending_orders: Odottavat tilaukset
+            title: Projektit
+          new:
+            create: Luo projekti
+            title: Uusi tulos
+          update:
+            invalid: Tämän projektin päivityksessä tapahtui virhe
+            success: Projekti päivitetty onnistuneesti
+      models:
+        project:
+          fields:
+            title: Otsikko
+      projects:
+        budget_confirm:
+          are_you_sure: Oletko samaa mieltä? Kun olet vahvistanut äänesi, et voi enää muuttaa sitä.
+          cancel: Peruuta
+          confirm: Vahvista
+          description: Olet valinnut nämä projektit osaksi budjettia.
+          title: Vahvista ääni
+        budget_excess:
+          close: Sulje
+          description: Tämä projekti ylittää maksimibudjetin, minkä takia sitä ei voida lisätä. Jos haluat, voit poistaa projektin, jonka olet jo valinnut lisättäväksi tai äänestää omien mieltymyksesi mukaisesti.
+          ok: OK
+          title: Maksimibudjetti ylitetty
+        budget_summary:
+          are_you_sure: Haluatko varmasti peruuttaa äänesi?
+          assigned: 'Varattu:'
+          cancel_order: poistaa äänesi ja aloittaa alusta
+          checked_out:
+            description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit %{cancel_link}.
+            title: Budjetin äänestys suoritettu
+          description: Mitä projekteja varten sinun mielestäsi budjettia tulisi varata? Varaa vähintään %{minimum_budget} projekteille, jotka haluat toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
+          title: Voit päättää budjetin
+        count:
+          projects_count:
+            one: 1 projekti
+            other: "%{count} projektia"
+        filters:
+          category: Kategoria
+          scopes: Konteksti
+          search: Haku
+        filters_small_view:
+          close_modal: Sulje ikkuna
+          filter: Suodata
+          filter_by: Suodata
+          unfold: Avaa
+        order_progress:
+          vote: Äänestä
+        order_selected_projects:
+          remove: Poista
+          selected_projects:
+            one: projekti valittu
+            other: projektia valittu
+          view: Näytä
+        project:
+          add: Lisää
+          count:
+            one: 1 kannatus
+            other: "%{count} kannatusta"
+          remove: Poista
+        project_budget_button:
+          add: Lisää
+          added: Lisätty
+        show:
+          budget: Budjetti
+          view_all_projects: Näytä kaikki projektit
+    features:
+      budgets:
+        actions:
+          vote: Äänestä
+        name: Budjetit
+        settings:
+          global:
+            comments_enabled: Kommentointi sallittu
+            total_budget: Koko budjetti
+            vote_threshold_percent: Äänestyskynnyksen prosentti
+          step:
+            comments_blocked: Kommentointi kielletty
+            votes_enabled: Äänestys sallittu
+    orders:
+      checkout:
+        error: Äänesi käsittelyssä tapahtui virhe
+        success: Äänesi on hyväksytty onnistuneesti
+      destroy:
+        error: Äänesi peruutuksen yhteydessä tapahtui virhe
+        success: Äänesi on peruttu onnistuneesti
+  index:
+    confirmed_orders_count: Tilauksien määrä
+  total_budget: Koko budjetti

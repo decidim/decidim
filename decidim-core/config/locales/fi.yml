@@ -1,0 +1,373 @@
+fi:
+  activemodel:
+    attributes:
+      report:
+        details: Lisätiedot
+      user:
+        email: Sähköpostiosoitteesi
+        name: Nimesi
+        password: Salasanasi
+        password_confirmation: Vahvista salasanasi
+        user_group_document_number: Organisaation asiakirjanumero
+        user_group_name: Organisaation nimi
+        user_group_phone: Organisaation puhelinnumero
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Nykyinen salasana
+        email: Sähköposti
+        name: Käyttäjänimi
+        password: Salasana
+        password_confirmation: Salasanan vahvistus
+        remember_me: Muista minut
+        user_group_document_number: Organisaation asiakirjanumero
+        user_group_name: Organisaation nimi
+        user_group_phone: Organisaation puhelinnumero
+  booleans:
+    'false': 'Ei'
+    'true': 'Kyllä'
+  carrierwave:
+    errors:
+      image_too_big: Kuva on liian suuri
+  decidim:
+    account:
+      show:
+        change_password: Vaihda salasana
+        update_account: Päivitä tili
+      update:
+        error: Tilisi päivityksessä tapahtui virhe.
+        success: Tilisi on onnistuneesti päivitetty.
+        success_with_email_confirmation: Tilisi päivitettiin onnistuneesti. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
+    anonymous_user: Anonyymi
+    application:
+      documents:
+        related_documents: Liittyvät dokumentit
+      photos:
+        related_photos: Liittyvät kuvat
+    authorization_handlers:
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Dokumenttinumero
+          postal_code: Postinumero
+        name: Esimerkkitunnistautuminen
+      errors:
+        duplicate_authorization: Käyttäjätili on jo varmennettu samoilla tiedoilla.
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Foo-tunnistautuminen
+    authorizations:
+      create:
+        error: Varmennuksen luomisessa tapahtui virhe.
+        success: Sinut on onnistuneesti varmennettu.
+      current_participatory_processes: tutustu tämänhetkisiin prosesseihin
+      first_login:
+        actions:
+          decidim/dummy_authorization_handler: Vahvista esimerkkivarmennuksen avulla
+        title: Vahvista identiteettisi
+        verify_with_these_options: 'Voit vahvistaa identiteettisi seuraavien vaihtoehtojen avulla:'
+      new:
+        authorize: Lähetä
+        authorize_with: Vahvista palvelun "%{authorizer}" avulla
+      skip_verification: Voit ohittaa tämän toistaiseksi ja %{link}
+    core:
+      actions:
+        unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
+        new:
+          complete_profile: Viimeistele profiilisi
+          sign_up: Viimeistele profiilsi
+          subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
+          username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
+      registrations:
+        new:
+          already_have_an_account?: Onko sinulla jo käyttäjätili?
+          newsletter_notifications: Vastaanota tietoa viimeaikaisesta aktiviteetista
+          sign_in: Kirjaudu sisään
+          sign_up: Rekisteröidy
+          sign_up_as:
+            legend: Rekisteröidy
+            user: Yksityishenkilönä
+            user_group: Organisaationa/yhteisönä
+          subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja tukeaksesi ehdotuksia.
+          terms: käyttöehdot
+          tos_agreement: Rekisteröitymällä palveluun hyväksyt %{link}.
+          username_help: Julkinen nimi, joka näytetään viestiesi yhteydessä. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
+      sessions:
+        new:
+          are_you_new?: Alustan uusi käyttäjä?
+          register: Luo käyttäjätili
+      shared:
+        omniauth_buttons:
+          or: Tai
+    features:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Esimerkkiominaisuus
+        settings:
+          global:
+            comments_enabled: Kommentointi sallittu
+            dummy_global_attribute_1: Esimerkkitietue 1
+            dummy_global_attribute_2: Esimerkkitietue 2
+          step:
+            comments_blocked: Kommentointi estetty
+            dummy_step_attribute_1: Esimerkkivaihetietue 1
+            dummy_step_attribute_2: Esimerkkivaihetietue 2
+    filters:
+      linked_classes:
+        all: Kaikki
+        meeting: Tapaamiset
+        project: Projektit
+        proposal: Ehdotukset
+        result: Tulokset
+    forms:
+      errors:
+        error: Tässä kentässä on virhe.
+    menu:
+      home: Etusivu
+      more_information: Lisätietoja
+      processes: Prosessit
+    newsletter_mailer:
+      newsletter:
+        note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
+    notifications_settings:
+      show:
+        comments_notifications: Haluan vastaanottaa sähköposti-ilmoituksia, kun joku kommentoi julkaisuani.
+        newsletter_notifications: Haluan vastaanottaa tietoa relevantista aktiviteetista
+        replies_notifications: Hakuan vastaanottaa sähköposti-ilmoituksia, kun joku vastaa kommentteihini.
+        update_notifications_settings: Tallenna muutokset
+      update:
+        error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
+        success: Ilmoitusasetuksesi päivitettiin onnistuneesti.
+    own_user_groups:
+      index:
+        not_verified: Ei varmennettu
+        verified: Varmennettu
+    pages:
+      index:
+        title: Lisätietoa
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Prosessit ryhmälle %{group}
+        title: Otsikko
+    participatory_process_steps:
+      index:
+        process_steps: Prosessin vaiheet
+        title: Osallistumisprosessin vaiheet
+    participatory_processes:
+      index:
+        title: Osallistumisprosessit
+      participatory_process_groups:
+        none: Ei ryhmää
+      scopes:
+        global: Yleinen konteksti
+      show:
+        developer_group: Kehittäjäryhmä
+        end_date: Lopetusaika
+        local_area: Paikallinen alue
+        participatory_scope: Osallistumiskonteksti
+        participatory_structure: Osallistumisrakenne
+        scope: Konteksti
+        target: Kohde
+    reported_mailer:
+      hide:
+        hello: Hei %{name},
+        report_html: "<p>Seuraava sisältö:<p>%{content}<p>on lisätty automaattisesti.</p>"
+        subject: Resurssi on piilotettu automaattisesti
+      report:
+        hello: Hei %{name},
+        report_html: "<p>Seuraava sisältö:<p>%{content}<p>on raportoitu.</p>"
+        subject: Resurssi on raportoitu
+    reports:
+      create:
+        error: Raportin luonnissa tapahtui virhe. Yritä uudestaan.
+        success: Raportti on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+    shared:
+      action_authorization_modal:
+        incomplete:
+          cancel: Peruuta
+          explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
+          reauthorize: Varmenna uudestaan
+          title: Varmenna uudestaan
+        missing:
+          authorize: Varmenna varmennustavalla "%{authorization}"
+          explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
+          title: Varmennus vaaditaan
+        unauthorized:
+          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
+          invalid: "%{field} on virheellinen."
+          ok: Ok
+          title: Ei varmennettu
+      flag_modal:
+        already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
+        close: Sulje
+        description: Onko tämä sisältö epäasiallista?
+        does_not_belong: Tämä ehdotus sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
+        offensive: Tämä ehdotus sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
+        report: Tee ilmoitus
+        spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
+        title: Raportoi ongelma
+      login_modal:
+        please_sign_in: Kirjaudu sisään
+        sign_up: Rekisteröidy
+      reference:
+        reference: 'Viite: %{reference}'
+      share_modal:
+        close_window: Sulje ikkuna
+        share: Jaa
+        share_link: Jaa linkki
+  devise:
+    invitations:
+      edit:
+        header: Aseta salasanasi
+        submit_button: Tallenna
+    mailer:
+      invitation_instructions:
+        accept: Hyväksy kutsu
+        accept_until: Tämä kutsu erääntyy %{due_date}.
+        hello: Hei %{email},
+        ignore: |-
+          Jos et halua hyväksyä kutsua, jätä tämä viesti huomiotta.<br />
+          Sinulle ei luoda tiliä, mikäli et seuraa linkkiä ja aseta salasanaasi.
+        invited_you_as_admin: "%{invited_by} on kutsunut sinut %{application} ylläpitäjän roolissa. Voit hyväksyä kutsun alla olevan linkin avulla."
+        someone_invited_you: Joku kutsui sinut liittymään %{application}, voit hyväksyä kutsun alla olevan linkin avulla.
+      invite_admin:
+        subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
+      organization_admin_invitation_instructions:
+        subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
+      password_change:
+        greeting: Hei %{recipient}!
+        message: Tämä on ilmoitus siitä, että salasanasi on nyt vaihdettu.
+        subject: Salasana vaihdettu
+  errors:
+    messages:
+      file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
+      invalid_manifest: Virheellinen manifesti
+      invalid_participatory_process: Virheellinen osallistumisprosessi
+      long_words: Sisältää sanoja, jotka ovat liian pitkiä
+      must_start_with_caps: Tulee alkaa isolla alkukirjaimella
+      nesting_too_deep: ei voi olla alikategorian sisällä
+      too_many_marks: Sisältää liian monta merkkiä
+      too_much_caps: Sisältää liian paljon isoja kirjaimia
+      too_short: On liian lyhyt
+  invisible_captcha:
+    sentence_for_humans: Jos olet ihminen, jätä tämä kenttä huomiotta
+    timestamp_error_message: Pahoittelut, olit liian nopea! Lähetä lomake uudestaan.
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: Tämä sivusto käyttää evästeitä. Jatkamalla tämän sivuston käyttöä hyväksyt selaimeesi asettamamme evästeet. Lue lisää %{link}.
+        link_label: täältä
+        ok: Hyväksyn
+      footer:
+        made_with_open_source: 'Sivusto rakennettu <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">avoimen lähdekoodin ohjelmistolla</a>.'
+      header:
+        close_menu: Sulje valikko
+        navigation: Navigaatio
+        sign_in: Kirjaudu sisään
+        sign_up: Rekisteröidy
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Selaa
+      participatory_processes:
+        index:
+          promoted_processes: Korostetut prosessit
+        no_processes_yet:
+          no_processes_yet: Ei vielä osallistumisprosesseja!
+        order_by_processes:
+          processes:
+            one: "%{count} prosessi"
+            other: "%{count} prosessia"
+        participatory_process:
+          active_step: 'Aktiivinen vaihe:'
+          take_part: Osallistu
+        promoted_process:
+          active_step: 'Aktiivinen vaihe:'
+          more_info: Lisätietoja
+          take_part: Osallistu
+      process_header:
+        process_menu_item: Prosessi
+        unfold: Avaa
+      process_header_steps:
+        step: Vaihe %{current} / %{total}
+        view_steps: Näytä vaiheet
+      user_menu:
+        admin_dashboard: Hallintapaneeli
+        profile: Oma käyttäjätili
+        sign_out: Kirjaudu ulos
+      user_profile:
+        account: Käyttäjätili
+        authorizations: Varmennukset
+        notifications_settings: Ilmoitusten asetukset
+        title: Käyttäjätilin asetukset
+        user_groups: Organisaatiot
+  locale:
+    name: Suomi
+  pages:
+    '404':
+      back_home: Takaisin kotisivulle
+      content_doesnt_exist: Tämä osoite on virheellinen tai sivun osoite on muuttunut.
+      title: Etsimääsi sivua ei löydy
+    '500':
+      title: Palvelimellamme tapahtui virhe
+      try_later: Yritä myöhemmin uudestaan.
+    home:
+      extended:
+        debates: Väittelyt
+        debates_explanation: Tavataan, väitellään ja jaetaan se, minkä uskomme olevan tärkeää kaupunkimme kannalta.
+        how_to_participate: Kuinka osallistun prosessiin?
+        meetings: Tapaamiset
+        meetings_explanation: Tavataan, väitellään ja jaetaan se, minkä uskomme olevan tärkeää kaupunkimme kannalta.
+        more_info: Lisätietoja
+        proposals: Ehdotukset
+        proposals_explanation: Avoin tila asukkaiden ehdotuksille siitä, millaisessa kaupungissa haluaisimme asua.
+      footer_sub_hero:
+        footer_sub_hero_body: Rakennetaan avoimempi, läpinäkyvämpi ja yhteisöllisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
+        footer_sub_hero_headline: Tervetuloa %{organization} -organisaation yhteisölliseen osallistumispalveluun.
+        register: Rekisteröidy
+      hero:
+        participate: Osallistu
+        welcome: Tervetuloa organisaatioon %{organization}!
+      highlighted_processes:
+        active_processes: Aktiiviset prosessit
+        active_step: Aktiivinen vaihe
+        see_all_processes: Näytä kaikki prosessit
+      statistics:
+        headline: Tämänhetkinen tila organisaatiolle %{organization}
+        processes: Prosessit
+        users: Käyttäjät
+      sub_hero:
+        register: Rekisteröidy
+  social_share_button:
+    delicious: Delicious
+    douban: Douban
+    email: Sähköposti
+    facebook: Facebook
+    google_bookmark: Google-kirjanmerkki
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: LinkedIn
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Jaa palvelussa %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Avaa WeChat, klikkaa "Discover" -nappia ja tämän jälkeen klikkaa "Scan QR Code" -valikkoa.
+    weibo: Sina Weibo
+    xing: Xing
+  views:
+    pagination:
+      first: "&laquo; Ensimmäinen"
+      last: Viimeinen &raquo;
+      next: Seuraava &rsaquo;
+      previous: "&lsaquo; Edellinen"
+      truncate: "&hellip;"

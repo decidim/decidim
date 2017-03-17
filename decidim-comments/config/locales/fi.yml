@@ -1,0 +1,55 @@
+fi:
+  activerecord:
+    errors:
+      messages:
+        cannot_have_comments: ei voi poistaa kommentteja
+  decidim:
+    comments:
+      comment_notification_mailer:
+        comment_created:
+          new_comment_html: Uusi kommentti henkilöltä <b>%{commenter}</b> osoitteessa <b>%{commentable_link}</b>
+        hello: Hei %{name},
+        manage_email_subscriptions_html: 'Voit lopettaa näiden viestien vastaanottamisen vaihtamalla asetuksiasi osoitteessa: %{link}.'
+        notifications_settings_link: ilmoitusten asetussivu
+        reply_created:
+          new_reply_html: Henkilö <b>%{commenter}</b> on vastannut kommenttiisi osoitteessa <b>%{commentable_link}</b>
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: Sinulla on uusi kommentti
+          reply_created:
+            subject: Kommenttiisi on vastattu
+    components:
+      add_comment_form:
+        account_message: "<a href=\"%{sign_in_url}\">Kirjaudu sisään käyttäjätililläsi</a> tai <a href=\"%{sign_up_url}\">luo käyttäjätili</a> kommentoidaksesi.\n"
+        form:
+          body:
+            label: Kommentti
+            placeholder: Mitä mieltä olet tästä?
+          form_error: Teksti vaaditaan ja se ei voi olla pidempi kuin %{length} merkkiä.
+          submit: Lähetä
+          user_group_id:
+            label: Kommentoi käyttäjänä
+        opinion:
+          neutral: Neutraali
+        title: Lisää kommenttisi
+      comment:
+        alignment:
+          against: Vastaan
+          in_favor: Puolesta
+        reply: Vastaa
+      comment_order_selector:
+        order:
+          best_rated: Parhaiksi arvioidut
+          most_discussed: Eniten keskustelua herättäneet
+          older: Vanhemmat
+          recent: Uusimmat
+        title: 'Järjestä tulokset:'
+      comment_thread:
+        title: Keskustelu henkilön %{authorName} kanssa
+      comments:
+        blocked_comments_warning: Kommentointi on estetty tämänhetkisessä vaiheessa, mutta voit lukea kommentteja aikaisemmista vaiheista.
+        loading: Ladataan kommentteja ...
+        title: "%{count} kommenttia"
+      featured_comment:
+        title: Esille nostettu kommentti

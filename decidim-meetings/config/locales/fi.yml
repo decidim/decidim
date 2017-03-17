@@ -1,0 +1,98 @@
+fi:
+  activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: Osallistujien määrä
+        attending_organizations: Osallistuvien organisaatioiden lista
+        closing_report: Raportti
+        contributions_count: Kontribuutioiden määrä
+        proposal_ids: Ehdotusta luotu tapaamisessa
+      meeting:
+        adress: Adressi
+        decidim_category_id: Kategoria
+        decidim_scope_id: Konteksti
+        description: Kuvaus
+        end_time: Lopetusaika
+        location: Paikka
+        location_hints: Paikan tarkemmat tiedot
+        start_time: Aloitusaika
+        title: Otsikko
+  decidim:
+    features:
+      meetings:
+        name: Tapaamiset
+    meetings:
+      actions:
+        attachments: Liitteet
+        close: Sulje
+        confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi %{name}
+        title: Toiminnot
+      admin:
+        meeting_closes:
+          edit:
+            close: Lopeta
+            title: Lopeta tapaaminen
+        meetings:
+          close:
+            invalid: Tapaamisen lopettamisessa tapahtui virhe
+            success: Tapaaminen onnistuneesti lopetettu
+          create:
+            invalid: Tapaamisen luonnissa tapahtui virhe
+            success: Tapaaminen onnistuneesti luotu
+          destroy:
+            success: Tapaaminen onnistuneesti poistettu
+          edit:
+            title: Muokkaa tapaamista
+            update: Päivitä tapaaminen
+          index:
+            title: Tapaamiset
+          new:
+            create: Luo tapaaminen
+            title: Uusi tapaaminen
+          update:
+            invalid: Tapaamisen luonnissa tapahtui virhe
+            success: Tapaaminen luotu onnistuneesti
+        models:
+          meeting:
+            name: Tapaaminen
+      meetings:
+        filters:
+          category: Kategoria
+          date: Päivämäärä
+          past: Menneet
+          scopes: Kontekstit
+          search: Etsi
+          upcoming: Tulevat
+        filters_small_view:
+          close_modal: Sulje ikkuna
+          filter: Suodata
+          filter_by: Suodata
+          unfold: Avaa
+        index:
+          view_meeting: Näytä tapaaminen
+        meetings:
+          no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole määritelty
+          upcoming_meetings_warning: Tällä hetkellä tapaamisia ei ole määritelty, mutta täältä löydät kaikki aikaisemmat tapaamiset.
+        show:
+          attendees: Osallistujamäärä
+          contributions: Kontribuutioiden määrä
+          meeting_report: Tapaamisraportti
+          organizations: Osallistuneet organisaatiot
+      models:
+        meeting:
+          fields:
+            closed: Suljettu
+            end_time: Lopetusaika
+            map: Kartta
+            start_time: Aloitusaika
+            title: Otsikko
+    resource_links:
+      meetings_through_proposals:
+        meeting_results: 'Liittyvät tulokset:'
+        result_meetings: 'Liittyvät tapaamiset:'
+      proposals_from_meeting:
+        meeting_proposals: 'Liittyvät ehdotukset:'
+        proposal_meetings: 'Liittyvät tapaamiset:'

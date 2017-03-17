@@ -1,0 +1,68 @@
+fi:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Haluatko varmasti poistaa tämän?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi %{name}
+        save: Tallenna
+        title: Toiminnot
+      admins:
+        create:
+          error: Uuden hallinnoijan luonnissa tapahtui virhe.
+          success: Hallinnoija luotu onnistuneesti
+        destroy:
+          success: Hallinnoija poistettu onnistuneesti
+        edit:
+          title: Muokkaa hallinnoijaa
+          update: Päivitä hallinnoija
+        index:
+          title: Hallinnoijat
+        new:
+          create: Luo hallinnoija
+          title: Uusi hallinnoija
+        update:
+          error: Hallinnoijan päivityksessä tapahtui virhe.
+          success: Hallinnoija päivitetty onnistuneesti
+      default_pages:
+        placeholders:
+          content: Lisää sisältöä tälle sivulle hallintapaneelista.
+          title: Oletusotsikko sivulle %{page}
+      menu:
+        admins: Hallinnoijat
+        dashboard: Hallintapaneeli
+        organizations: Organisaatiot
+      models:
+        admin:
+          fields:
+            created_at: Luotu
+            email: Sähköposti
+          name: Hallinnoija
+          validations:
+            email_uniqueness: toinen hallinnointikäyttäjä on jo olemassa samalla sähköpostilla
+        organization:
+          actions:
+            save_and_invite: Luo organisaatioita ja kutsu hallinnointikäyttäjiä
+          fields:
+            created_at: Luotu
+            name: Nimi
+          name: Organisaatio
+        page:
+          name: Sivu
+      organizations:
+        create:
+          error: Uuden organisaation luonnissa tapahtui virhe.
+          success: Organisaatio luotu onnistuneesti.
+        edit:
+          secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
+        index:
+          title: Organisaatiot
+        new:
+          secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
+          title: Uusi organisaatio
+        update:
+          error: Organisaation päivityksessä tapahtui virhe.
+          success: Organisaatio päivitetty onnistuneesti.
+      titles:
+        dashboard: Hallintapaneeli

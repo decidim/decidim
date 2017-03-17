@@ -1,6 +1,8 @@
 ca:
   activemodel:
     attributes:
+      report:
+        details: Comentaris addicionals
       user:
         email: El teu email
         name: El teu nom
@@ -9,8 +11,6 @@ ca:
         user_group_document_number: Número de document acreditatiu
         user_group_name: Nom de l'organització
         user_group_phone: Telèfon de l'organització
-      report:
-        details: Comentaris addicionals
   activerecord:
     attributes:
       decidim/user:
@@ -178,12 +178,16 @@ ca:
     reported_mailer:
       hide:
         hello: Hola %{name},
-        report_html: <p>El següent contingut:</p>%{content}<p>ha estat amagat automàticament.</p>
-        subject: Un recurs ha estat amagat automàticament
+        report_html: "<p>El següent contingut:</p>%{content}<p>ha estat amagat automàticament.</p>"
+        subject: Un contingut ha estat amagat automàticament
       report:
         hello: Hola %{name},
-        report_html: <p>El següent contingut:</p>%{content}<p>ha estat denunciat.</p>
-        subject: Un recurs ha estat denunciat
+        report_html: "<p>El següent contingut:</p>%{content}<p>ha estat denunciat.</p>"
+        subject: Un contingut ha estat denunciat
+    reports:
+      create:
+        error: S'ha produït un error en denunciar. Torna-ho a intentar.
+        success: La denúncia s'ha creat amb èxit i serà revisada per un administrador.
     shared:
       action_authorization_modal:
         incomplete:

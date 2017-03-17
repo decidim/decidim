@@ -1,6 +1,8 @@
 es:
   activemodel:
     attributes:
+      report:
+        details: Comentarios adicionales
       user:
         email: Tu correo electrónico
         name: Tu nombre
@@ -9,8 +11,6 @@ es:
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
-      report:
-        details: Comentarios adicionales
   activerecord:
     attributes:
       decidim/user:
@@ -175,6 +175,19 @@ es:
         participatory_structure: Estructura participativa
         scope: Ámbito
         target: '¿A quién va dirigido?'
+    reported_mailer:
+      hide:
+        hello: Hola %{name},
+        report_html: "<p>El siguiente contenido: <p>%{content} <p>ha sido ocultado automáticamente.</p>"
+        subject: Un contenido se ha ocultado de forma automática
+      report:
+        hello: Hola %{name},
+        report_html: "<p>El siguiente contenido: <p>%{content} <p>ha sido denunciado.</p>"
+        subject: Un contenido ha sido denunciado
+    reports:
+      create:
+        error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
+        success: La denuncia se ha creado correctament y será revisada por un administrador.
     shared:
       action_authorization_modal:
         incomplete:

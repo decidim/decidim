@@ -201,6 +201,7 @@ es:
           categories: Categorías
           features: Funcionalidades
           info: Información
+          moderations: Denuncias
           process_admins: Administradores del proceso
           settings: Configuración
           steps: Fases del proceso
@@ -236,7 +237,6 @@ es:
         participatory_process_group:
           fields:
             name: Nombre
-          name: Nombre
         participatory_process_step:
           fields:
             active: Activa
@@ -273,6 +273,9 @@ es:
             name: Nombre
             phone: Teléfono
             users_count: Número de usuarios
+      moderations:
+        index:
+          title: Grupo de procesos participativos
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
@@ -432,6 +435,29 @@ es:
         resend_invitation:
           error: Se produjo un error al intentar enviar el mensaje de invitación.
           success: Invitación enviada con éxito.
+    moderations:
+      actions:
+        hidden: Ocultas
+        hide: Esconder
+        not_hidden: No ocultas
+        title: Denuncias
+        unreport: Cancelar denuncia
+      admin:
+        reportable:
+          hide:
+            invalid: Ha habido un error al ocultar el contenido.
+            success: Contenido ocultado con éxito.
+          unreport:
+            invalid: Ha habido un problema cancelando la denuncia.
+            success: Denuncia cancelada correctamente.
+      models:
+        moderation:
+          fields:
+            hidden_at: Fecha de ocultación
+            report_count: Número de denuncias
+            reportable: Tipo
+            reported_content: Contenido
+            reports: Denuncias
     participatory_processes:
       participatory_process_groups:
         none: Ninguno
