@@ -1,0 +1,77 @@
+fi:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Kategoria
+        decidim_scope_id: Konteksti
+        description: Kuvaus
+        proposal_ids: Sisällytetyt ehdotukset
+        title: Otsikko
+  decidim:
+    features:
+      results:
+        name: Tulokset
+        settings:
+          global:
+            comments_enabled: Kommentointi sallittu
+          step:
+            comments_blocked: Kommentointi estetty
+    resource_links:
+      included_proposals:
+        result_proposals: Projektit, jotka sisältyvät tähän tulokseen
+      meetings_through_proposals:
+        result_meetings: Liittyvät tapaamiset
+    results:
+      actions:
+        confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi %{name}
+        title: Toiminnot
+      admin:
+        models:
+          result:
+            name: Tulos
+        results:
+          create:
+            invalid: Tuloksen luonnissa tapahtui virhe
+            success: Tulos luotu onnistuneesti
+          destroy:
+            success: Tulos poistettu onnistuneesti
+          edit:
+            title: Muokkaa tulosta
+            update: Päivitä tulos
+          index:
+            title: Tulokset
+          new:
+            create: Luo tulos
+            title: Uusi tulos
+          update:
+            invalid: Tuloksen päivityksessä tapahtui virhe
+            success: Tulos päivitetty onnistuneesti
+      models:
+        result:
+          fields:
+            title: Otsikko
+      results:
+        count:
+          results_count:
+            one: 1 tulos
+            other: "%{count} tulosta"
+        filters:
+          category: Kategoria
+          scopes: Konteksti
+          search: Haku
+        filters_small_view:
+          close_modal: Sulje ikkuna
+          filter: Suodata
+          filter_by: Suodata
+          unfold: Avaa
+        show:
+          stats:
+            attendees: Osallistujat
+            comments: Kommentit
+            contributions: Kontribuutiot
+            meetings: Tapaamiset
+            proposals: Ehdotukset
+            votes: Kannatukset
