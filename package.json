@@ -86,12 +86,13 @@
     "moduleFileExtensions": [
       "ts",
       "tsx",
-      "js",
-      "yml"
+      "js"
     ],
     "transform": {
       "^.+\\.(ts|tsx)$": "typescript-babel-jest",
-      "\\.yml$": "yaml-jest"
+      "\\.yml$": "yaml-jest",
+      "\\.(gql|graphql)$": "<rootDir>/decidim-comments/app/frontend/support/graphql_transformer.js",
+      ".*": "babel-jest"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$"
   }

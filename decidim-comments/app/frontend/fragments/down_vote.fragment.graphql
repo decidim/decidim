@@ -1,0 +1,6 @@
+fragment DownVote on Comment {
+  id
+  downVotes
+  downVoted
+  upVoted
+}

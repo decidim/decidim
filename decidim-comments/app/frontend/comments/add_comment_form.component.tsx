@@ -1,6 +1,5 @@
 /* eslint-disable no-return-assign, react/no-unused-prop-types, max-lines */
 import * as classnames                   from "classnames";
-import gql                               from "graphql-tag";
 import * as React                        from "react";
 import { graphql }                       from "react-apollo";
 import * as uuid                         from "uuid";
@@ -8,14 +7,6 @@ import * as uuid                         from "uuid";
 import Icon                              from "../application/icon.component";
 
 const { I18n, Translate } = require("react-i18nify");
-
-import {
-  commentDataFragment,
-  commentFragment,
-  commentThreadFragment,
-  downVoteFragment,
-  upVoteFragment,
-} from "../support/fragments";
 
 import {
   AddCommentFormCommentableFragment,
@@ -339,24 +330,9 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
   }
 }
 
-const addCommentMutation = `
-  mutation addComment($commentableId: String!, $commentableType: String!, $body: String!, $alignment: Int, $userGroupId: ID)  {
-    commentable(id: $commentableId, type: $commentableType) {
-      addComment(body: $body, alignment: $alignment, userGroupId: $userGroupId) {
-        ...CommentThread
-      }
-    }
-  }
-`;
+const addCommentMutation = require("../mutations/add_comment.mutation.graphql");
 
-const AddCommentFormWithMutation = graphql(gql`
-  ${addCommentMutation}
-  ${commentThreadFragment}
-  ${commentFragment}
-  ${commentDataFragment}
-  ${upVoteFragment}
-  ${downVoteFragment}
-`, {
+const AddCommentFormWithMutation = graphql(addCommentMutation, {
   props: ({ ownProps, mutate }) => ({
     addComment: ({ body, alignment, userGroupId }: { body: string, alignment: number, userGroupId: string }) => mutate({
       variables: {

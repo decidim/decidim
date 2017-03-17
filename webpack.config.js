@@ -42,6 +42,11 @@ module.exports = env => {
           loaders: ['json-loader', 'yaml-loader']
         },
         {
+          test: /\.(graphql|gql)$/,
+          exclude: /node_modules/,
+          loader: 'graphql-tag/loader'
+        },
+        {
           test: /\.json$/,
           loaders: ['json-loader']
         },

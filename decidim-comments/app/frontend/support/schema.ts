@@ -15,6 +15,26 @@ export interface AddCommentMutation {
   } | null;
 }
 
+export interface DownVoteMutationVariables {
+  id: string;
+}
+
+export interface DownVoteMutation {
+  comment: {
+    downVote: CommentFragment & CommentDataFragment & UpVoteFragment & DownVoteFragment,
+  } | null;
+}
+
+export interface UpVoteMutationVariables {
+  id: string;
+}
+
+export interface UpVoteMutation {
+  comment: {
+    upVote: CommentFragment & CommentDataFragment & UpVoteFragment & DownVoteFragment,
+  } | null;
+}
+
 export interface GetCommentsQueryVariables {
   commentableId: string;
   commentableType: string;
@@ -37,26 +57,6 @@ export interface GetCommentsQuery {
       id: string,
     } >,
   };
-}
-
-export interface DownVoteMutationVariables {
-  id: string;
-}
-
-export interface DownVoteMutation {
-  comment: {
-    downVote: CommentFragment & CommentDataFragment & UpVoteFragment & DownVoteFragment,
-  } | null;
-}
-
-export interface UpVoteMutationVariables {
-  id: string;
-}
-
-export interface UpVoteMutation {
-  comment: {
-    upVote: CommentFragment & CommentDataFragment & UpVoteFragment & DownVoteFragment,
-  } | null;
 }
 
 export interface AddCommentFormCommentableFragment {

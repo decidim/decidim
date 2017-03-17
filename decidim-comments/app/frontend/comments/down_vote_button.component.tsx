@@ -1,15 +1,7 @@
-import gql                 from "graphql-tag";
 import * as React          from "react";
 import { graphql }         from "react-apollo";
 
 import VoteButton          from "./vote_button.component";
-
-import {
-  commentDataFragment,
-  commentFragment,
-  downVoteFragment,
-  upVoteFragment,
-} from "../support/fragments";
 
 import {
   CommentFragment,
@@ -47,23 +39,9 @@ export const DownVoteButton: React.SFC<DownVoteButtonProps> = ({
   );
 };
 
-const downVoteMutation = `
-  mutation DownVote($id: ID!) {
-    comment(id: $id) {
-      downVote {
-        ...Comment
-      }
-    }
-  }
-`;
+const downVoteMutation = require("../mutations/down_vote.mutation.graphql");
 
-const DownVoteButtonWithMutation = graphql(gql`
-  ${downVoteMutation}
-  ${commentFragment}
-  ${commentDataFragment}
-  ${upVoteFragment}
-  ${downVoteFragment}
-`, {
+const DownVoteButtonWithMutation = graphql(downVoteMutation, {
   props: ({ ownProps, mutate }) => ({
     downVote: () => mutate({
       variables: {

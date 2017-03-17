@@ -1,5 +1,4 @@
 import { shallow }          from "enzyme";
-import gql                  from "graphql-tag";
 import * as React from "react";
 
 import AddCommentForm       from "./add_comment_form.component";
@@ -21,39 +20,12 @@ describe("<Comments />", () => {
   const orderBy = "older";
   const reorderComments = jasmine.createSpy("reorderComments");
 
-  const commentThreadFragment = gql`
-    fragment CommentThread on Comment {
-      author
-    }
-  `;
-
-  const addCommentFormSessionFragment = gql`
-    fragment AddCommentFormSession on Session {
-      verifiedUserGroups {
-        id
-      }
-    }
-  `;
-
-  const addCommentFormCommentableFragment = gql`
-    fragment AddCommentFormCommentable on Commentable {
-      id
-    }
-  `;
-
   beforeEach(() => {
     loadLocaleTranslations("en");
     const userData = generateUserData();
     const commentsData = generateCommentsData(15);
 
-    const query = gql`
-      ${commentsQuery}
-      ${commentThreadFragment}
-      ${addCommentFormSessionFragment}
-      ${addCommentFormCommentableFragment}
-    `;
-
-    const result = resolveGraphQLQuery(query, {
+    const result = resolveGraphQLQuery(commentsQuery, {
       filterResult: false,
       rootValue: {
         session: {

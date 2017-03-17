@@ -1,4 +1,3 @@
-import gql                  from "graphql-tag";
 import * as React           from "react";
 import { graphql }          from "react-apollo";
 
@@ -7,16 +6,6 @@ import Application          from "../application/application.component";
 import AddCommentForm       from "./add_comment_form.component";
 import CommentOrderSelector from "./comment_order_selector.component";
 import CommentThread        from "./comment_thread.component";
-
-import {
-  addCommentFormCommentableFragment,
-  addCommentFormSessionFragment,
-  commentDataFragment,
-  commentFragment,
-  commentThreadFragment,
-  downVoteFragment,
-  upVoteFragment,
-} from "../support/fragments";
 
 import {
   GetCommentsQuery,
@@ -144,39 +133,9 @@ export class Comments extends React.Component<CommentsProps, undefined> {
 
 window.Comments = Comments;
 
-export const commentsQuery = `
-  query GetComments($commentableId: String!, $commentableType: String!, $orderBy: String) {
-    session {
-      user {
-        name
-        avatarUrl
-        organizationName
-      }
-      ...AddCommentFormSession
-    }
-    commentable(id: $commentableId, type: $commentableType) {
-      acceptsNewComments
-      commentsHaveAlignment
-      commentsHaveVotes
-      comments(orderBy: $orderBy) {
-        id
-        ...CommentThread
-      }
-      ...AddCommentFormCommentable
-    }
-  }
-`;
+export const commentsQuery = require("../queries/comments.query.graphql");
 
-const CommentsWithData: any = graphql(gql`
-  ${commentsQuery}
-  ${addCommentFormSessionFragment}
-  ${addCommentFormCommentableFragment}
-  ${commentThreadFragment}
-  ${commentFragment}
-  ${commentDataFragment}
-  ${upVoteFragment}
-  ${downVoteFragment}
-`, {
+const CommentsWithData: any = graphql(commentsQuery, {
   options: {
     pollInterval: 15000,
   },

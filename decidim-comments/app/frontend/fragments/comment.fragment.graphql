@@ -1,0 +1,14 @@
+#import "../fragments/comment_data.fragment.graphql"
+
+fragment Comment on Comment {
+  ...CommentData
+  comments {
+    ...CommentData
+    comments {
+      ...CommentData
+      comments {
+        ...CommentData
+      }
+    }
+  }
+}
