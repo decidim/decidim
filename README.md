@@ -12,6 +12,8 @@
 [![Dependency Status](https://img.shields.io/gemnasium/AjuntamentdeBarcelona/decidim.svg)](https://gemnasium.com/github.com/AjuntamentdeBarcelona/decidim)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim/invite)
 [![Inline docs](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim.svg?branch=master)](http://inch-ci.org/github/AjuntamentdeBarcelona/decidim)
+[![Accessibility issues](https://rocketvalidator.com/badges/a11y_issues.svg?url=https://decidim.barcelona)](https://rocketvalidator.com/badges/link?url=https://decidim.barcelona&report=a11y)
+[![HTML issues](https://rocketvalidator.com/badges/html_issues.svg?url=https://decidim.barcelona)](https://rocketvalidator.com/badges/link?url=https://decidim.barcelona&report=html)
 
 ### Project management [[See on Waffle.io]](https://waffle.io/AjuntamentdeBarcelona/decidim)
 [![Stories in Discussion](https://img.shields.io/waffle/label/AjuntamentdeBarcelona/decidim/discussion.svg)](https://github.com/AjuntamentdeBarcelona/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Adiscussion)
