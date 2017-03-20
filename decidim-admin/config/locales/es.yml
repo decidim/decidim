@@ -237,6 +237,7 @@ es:
         participatory_process_group:
           fields:
             name: Nombre
+          name: Grupo de procesos participativos
         participatory_process_step:
           fields:
             active: Activa
