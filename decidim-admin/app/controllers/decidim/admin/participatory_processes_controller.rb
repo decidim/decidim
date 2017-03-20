@@ -8,7 +8,6 @@ module Decidim
     class ParticipatoryProcessesController < ApplicationController
       helper_method :participatory_process
       helper Decidim::OrganizationScopesHelper
-      layout "decidim/admin/participatory_process", only: [:show, :edit, :update]
 
       def index
         authorize! :index, Decidim::ParticipatoryProcess
@@ -41,6 +40,7 @@ module Decidim
         @participatory_process = collection.find(params[:id])
         authorize! :update, @participatory_process
         @form = form(ParticipatoryProcessForm).from_model(@participatory_process)
+        render layout: "decidim/admin/participatory_process"
       end
 
       def update

@@ -13,27 +13,12 @@ RSpec.shared_examples "manage process steps examples" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim_admin.participatory_process_path(participatory_process)
+    visit decidim_admin.edit_participatory_process_path(participatory_process)
     click_link "Steps"
   end
 
-  it "displays all fields from a single participatory process" do
-    within "#steps table" do
-      click_link translated(process_step.title)
-    end
-
-    within "dl" do
-      expect(page).to have_content(stripped translated(process_step.title, locale: :en))
-      expect(page).to have_content(stripped translated(process_step.title, locale: :es))
-      expect(page).to have_content(stripped translated(process_step.title, locale: :ca))
-      expect(page).to have_content(stripped translated(process_step.description, locale: :en))
-      expect(page).to have_content(stripped translated(process_step.description, locale: :es))
-      expect(page).to have_content(stripped translated(process_step.description, locale: :ca))
-    end
-  end
-
   it "creates a new participatory_process" do
-    find("#steps .actions .new").click
+    find(".card-title a.button").click
 
     within ".new_participatory_process_step" do
       fill_in_i18n(
@@ -69,7 +54,7 @@ RSpec.shared_examples "manage process steps examples" do
   it "updates a participatory_process_step" do
     within "#steps" do
       within find("tr", text: translated(process_step.title)) do
-        click_link "Edit"
+        page.find('.action-icon--edit').click
       end
     end
 
@@ -104,7 +89,7 @@ RSpec.shared_examples "manage process steps examples" do
 
     it "deletes a participatory_process_step" do
       within find("tr", text: translated(process_step2.title)) do
-        click_link "Destroy"
+        page.find('.action-icon--remove').click
       end
 
       within ".callout-wrapper" do
@@ -120,7 +105,7 @@ RSpec.shared_examples "manage process steps examples" do
   context "activating a step" do
     it "activates a step" do
       within find("tr", text: translated(process_step.title)) do
-        click_link "Activate"
+        page.find('.action-icon--activate').click
       end
 
       within find("tr", text: translated(process_step.title)) do

@@ -1,11 +1,12 @@
-<% provide :title do %>
-  <h2><%= t ".title" %></h2>
-<% end %>
+<h2 class="process-title-summary">
+  <%= t ".title" %>
+</h2>
 
-<%= decidim_form_for(@form) do |f| %>
+<%= decidim_form_for(@form, html: { class: "form new_participatory_process" }) do |f| %>
   <%= render partial: 'form', object: f %>
 
-  <div class="actions">
+  <div class="button--double form-general-submit">
     <%= f.submit t(".create") %>
   </div>
 <% end %>
+ 
