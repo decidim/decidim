@@ -19,7 +19,7 @@ describe "manage a feature's permissions", type: :feature do
     visit decidim_admin.participatory_process_features_path(participatory_process)
 
     within ".feature-#{feature.id}" do
-      click_link "Permissions"
+      page.find(".action-icon--permissions").click
     end
   end
 

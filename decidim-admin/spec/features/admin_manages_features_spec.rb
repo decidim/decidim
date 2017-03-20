@@ -54,7 +54,7 @@ describe "Admin manages features", type: :feature do
       expect(page).to have_content("My feature")
 
       within find("tr", text: "My feature") do
-        click_link "Configure"
+        page.find(".action-icon--configure").click
       end
 
       within ".global-settings" do
@@ -86,7 +86,7 @@ describe "Admin manages features", type: :feature do
 
     it "updates the feature" do
       within ".feature-#{feature.id}" do
-        click_link "Configure"
+        page.find(".action-icon--configure").click
       end
 
       within ".edit_feature" do
@@ -116,7 +116,7 @@ describe "Admin manages features", type: :feature do
       expect(page).to have_content("My updated feature")
 
       within find("tr", text: "My updated feature") do
-        click_link "Configure"
+        page.find(".action-icon--configure").click
       end
 
       within ".global-settings" do
@@ -148,7 +148,7 @@ describe "Admin manages features", type: :feature do
 
     it "removes the feature" do
       within ".feature-#{feature.id}" do
-        click_link "Destroy"
+        page.find(".action-icon--remove").click
       end
 
       expect(page).to have_no_content("My feature")
@@ -169,11 +169,11 @@ describe "Admin manages features", type: :feature do
     context "when the feature is unpublished" do
       it "publishes the feature" do
         within ".feature-#{feature.id}" do
-          click_link "Publish"
+          page.find(".action-icon--publish").click
         end
 
         within ".feature-#{feature.id}" do
-          expect(page).to have_content("Unpublish")
+          expect(page).to have_css(".action-icon--unpublish")
         end
       end
     end
@@ -183,11 +183,11 @@ describe "Admin manages features", type: :feature do
 
       it "unpublishes the feature" do
         within ".feature-#{feature.id}" do
-          click_link "Unpublish"
+          page.find(".action-icon--unpublish").click
         end
 
         within ".feature-#{feature.id}" do
-          expect(page).to have_content("Publish")
+          expect(page).to have_css(".action-icon--publish")
         end
       end
     end
