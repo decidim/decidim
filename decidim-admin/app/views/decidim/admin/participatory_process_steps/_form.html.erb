@@ -1,15 +1,23 @@
-<div class="field">
-  <%= form.translated :text_field, :title, autofocus: true %>
-</div>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t ".title" %></h2>
+  </div>
 
-<div class="field">
-  <%= form.translated :editor, :description, toolbar: :full, lines: 25 %>
-</div>
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :title, autofocus: true %>
+    </div>
 
-<div class="field">
-  <%= form.date_field :start_date %>
-</div>
+    <div class="row column">
+      <%= form.translated :editor, :description, toolbar: :full, lines: 25 %>
+    </div>
 
-<div class="field">
-  <%= form.date_field :end_date %>
+    <div class="row column">
+      <%= form.date_field :start_date %>
+    </div>
+
+    <div class="row column">
+      <%= form.date_field :end_date %>
+    </div>
+  </div>
 </div>

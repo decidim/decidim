@@ -4,7 +4,7 @@ RSpec.shared_examples "manage process categories examples" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim_admin.participatory_process_path(participatory_process)
+    visit decidim_admin.edit_participatory_process_path(participatory_process)
     click_link "Categories"
   end
 

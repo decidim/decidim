@@ -81,7 +81,6 @@ describe "Admin manage participatory processes", type: :feature do
 
     it "deletes a participatory_process" do
       click_link translated(participatory_process2.title)
-      click_processes_menu_link "Settings"
       click_link "Destroy"
 
       within ".callout-wrapper" do
