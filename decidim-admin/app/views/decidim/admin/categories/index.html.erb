@@ -1,44 +1,67 @@
-<section id="categories">
-  <h4><%= t(".categories_title", scope: "decidim.admin") %></h4>
+<div class="card" id="categories">
+  <div class="card-divider">
+    <h2 class='card-title'>
+      <%= t(".categories_title", scope: "decidim.admin") %>
+      <% if can? :create, Decidim::Category %>
+        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.category.name", scope: "decidim.admin")), new_participatory_process_category_path(participatory_process), class: 'button tiny button--title' %>
+      <% end %>
+    </h2>
+  </div>
 
-  <% if can? :create, Decidim::Category %>
-    <div class="actions title">
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.category.name", scope: "decidim.admin")), new_participatory_process_category_path(participatory_process), class: 'new' %>
-    </div>
-  <% end %>
-
-  <% if participatory_process.categories.any? %>
-    <table class="stack">
-      <thead>
-        <tr>
-          <th><%= t("models.category.fields.name", scope: "decidim.admin") %></th>
-          <th class="actions"><%= t("actions.title", scope: "decidim.admin") %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% participatory_process.categories.first_class.each do |category| %>
-          <tr>
-            <td>
-              <%= link_to translated_attribute(category.name), participatory_process_category_path(participatory_process, category) %><br />
-            </td>
-            <td class="actions">
-              <%= link_to t("actions.edit", scope: "decidim.admin"), edit_participatory_process_category_path(participatory_process, category) if can? :update, category %>
-              <%= link_to t("actions.destroy", scope: "decidim.admin"), participatory_process_category_path(participatory_process, category), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, category %>
-            </td>
-          </tr>
-          <% category.subcategories.each do |subcategory| %>
-            <tr class="subcategory">
-              <td>
-                <%= link_to translated_attribute(subcategory.name), participatory_process_category_path(participatory_process, subcategory) %><br />
-              </td>
-              <td class="actions">
-                <%= link_to t("actions.edit", scope: "decidim.admin"), edit_participatory_process_category_path(participatory_process, subcategory) if can? :update, subcategory %>
-                <%= link_to t("actions.destroy", scope: "decidim.admin"), participatory_process_category_path(participatory_process, subcategory), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } if can? :destroy, subcategory %>
-              </td>
+  <div class="card-section">
+     <% if participatory_process.categories.any? %>
+      <div class="table-scroll">
+        <table class="table-list">
+          <thead>
+            <tr>
+              <th><%= t("models.category.fields.name", scope: "decidim.admin") %></th>
+              <th class="actions"></th>
             </tr>
-          <% end %>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
-</section>
+          </thead>
+          <tbody>
+            <% participatory_process.categories.first_class.each do |category| %>
+              <tr>
+                <td>
+                  <%= link_to translated_attribute(category.name), edit_participatory_process_category_path(participatory_process, category) %><br />
+                </td>
+                <td class="table-list__actions">
+                  <% if can? :update, category %>
+                    <%= link_to edit_participatory_process_category_path(participatory_process, category), class: "action-icon action-icon--edit", data: { tooltip: true,  disable_hover: false }, title: t("actions.edit", scope: "decidim.admin") do %>
+                      <%= icon "pencil" %>
+                    <% end %>
+                  <% end %>
+
+                  <% if can? :destroy, category %>
+                    <%= link_to participatory_process_category_path(participatory_process, category), method: :delete, class: "action-icon action-icon--remove", data: { confirm: t("actions.confirm_destroy", tooltip: true, disable_hover: false ), :'aria_haspopup' =>  true, title: t("actions.destroy", scope: "decidim.admin") } do%>
+                      <%= icon "circle-x" %>
+                    <% end %>
+                  <% end %>
+                  </td>
+              </tr>
+              <% category.subcategories.each do |subcategory| %>
+                <tr class="extra__table-list__subcategory">
+                  <td>
+                    <%= link_to translated_attribute(subcategory.name), edit_participatory_process_category_path(participatory_process, subcategory) %><br />
+                  </td>
+                  <td class="table-list__actions">
+                  <% if can? :update, subcategory %>
+                    <%= link_to edit_participatory_process_category_path(participatory_process, subcategory), class: "action-icon action-icon--edit", data: { tooltip: true,  disable_hover: false }, title: t("actions.edit", scope: "decidim.admin") do %>
+                      <%= icon "pencil" %>
+                    <% end %>
+                  <% end %>
+
+                  <% if can? :destroy, subcategory %>
+                    <%= link_to participatory_process_category_path(participatory_process, subcategory), method: :delete, class: "action-icon action-icon--remove", data: { confirm: t("actions.confirm_destroy", tooltip: true, disable_hover: false ), :'aria_haspopup' =>  true, title: t("actions.destroy", scope: "decidim.admin") } do%>
+                      <%= icon "circle-x" %>
+                    <% end %>
+                  <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>
