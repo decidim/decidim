@@ -125,6 +125,10 @@ fi:
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
           votes_blocked: Äänestys estetty
+        votes_count:
+          count:
+            one: ÄÄNI
+            other: ÄÄNTÄ
         votes_limit:
           vote_limit:
             description: Voit maksimissaan äänestää %{limit} ehdotusta sen sijaan, että voisit äänestää kuinka montaa haluat.
