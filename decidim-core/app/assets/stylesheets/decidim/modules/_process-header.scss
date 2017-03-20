@@ -1,5 +1,8 @@
 .process-header{
-  margin-bottom: 3rem;
+  margin-bottom: $margin-sm;
+  @include breakpoint(medium){
+    margin-bottom: $margin-m;
+  }
   .heading2{
     font-weight: bold;
   }
@@ -34,7 +37,10 @@
 }
 
 .process-header__info{
-  padding: 2rem 1.5rem 2rem 1rem;
+  padding: 1rem 1.5rem 1rem 1rem;
+  @include breakpoint(medium){
+    padding: 2rem 1.5rem 2rem 1rem;
+  }
   @include breakpoint(mediumlarge){
     padding-left: 2rem;
   }
@@ -56,6 +62,13 @@
       color: $primary;
       border-color: $primary;
     }
+  }
+}
+
+.process-header__phase--simple{
+  padding: .5rem 1rem;
+  @include breakpoint (medium){
+    padding: 2rem 1rem;
   }
 }
 

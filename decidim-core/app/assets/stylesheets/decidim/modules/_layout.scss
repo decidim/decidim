@@ -1,9 +1,7 @@
 .wrapper{
-  padding: 3rem 1rem;
+  padding: 1.2rem 1rem;
   @include breakpoint(medium){
-    padding-top: 5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 5rem 1.5rem 3rem;
   }
   @include breakpoint(large){
     padding-left: 4rem;

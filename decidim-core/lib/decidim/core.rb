@@ -96,6 +96,12 @@ module Decidim
   # The number of reports which an object can receive before hiding it
   config_accessor :max_reports_before_hiding { 3 }
 
+  # A base path for the uploads. If set, make sure it ends in a slash.
+  # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
+  # want to use the same uploads place for both staging and production
+  # environments, but in different folders.
+  config_accessor :base_uploads_path { nil }
+
   # Public: Registers a feature, usually held in an external library or in a
   # separate folder in the main repository. Exposes a DSL defined by
   # `Decidim::FeatureManifest`.
