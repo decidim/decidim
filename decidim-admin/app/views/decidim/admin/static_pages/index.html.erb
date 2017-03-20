@@ -33,7 +33,7 @@
                 <% end %>
 
                 <% if can? :destroy, page %>
-                  <%= link_to page, method: :delete, class: "small alert button", data: { tooltip: true, disable_hover: false, confirm: t("actions.confirm_destroy", scope: "decidim.admin") }, title: t("actions.destroy", scope: "decidim.admin"), class: "action-icon action-icon--remove" do %>
+                  <%= link_to page, method: :delete, data: { tooltip: true, disable_hover: false, confirm: t("actions.confirm_destroy", scope: "decidim.admin") }, title: t("actions.destroy", scope: "decidim.admin"), class: "action-icon action-icon--remove" do %>
                     <%= icon "circle-x" %>
                   <% end %>
                 <% end %>

@@ -153,7 +153,6 @@ en:
               categories_title: Categories
           participatory_process_steps:
             index:
-              steps_hint: You can drag the rows of the table in order to reorder the process steps.
               steps_title: Steps
           participatory_process_user_roles:
             index:
@@ -208,7 +207,6 @@ en:
           info: Info
           moderations: Moderations
           process_admins: Process admins
-          settings: Settings
           steps: Steps
         scopes: Scopes
         settings: Settings
@@ -245,7 +243,6 @@ en:
           name: Process group
         participatory_process_step:
           fields:
-            active: Active
             end_date: End date
             start_date: Start date
             title: Title
@@ -360,6 +357,8 @@ en:
         edit:
           title: Edit participatory process step
           update: Update participatory process step
+        form:
+          title: Title
         new:
           create: Create participatory process step
           title: New participatory process step
@@ -382,12 +381,14 @@ en:
           success: Participatory process destroyed successfully.
         edit:
           update: Update participatory process
+        form:
+          title: General Information
         index:
           not_published: Not published
           published: Published
         new:
-          create: Create participatory process
-          title: New participatory process
+          create: Create particiatory process
+          title: New particiatory process
         update:
           error: There was an error when updating this participatory process.
           success: Participatory process updated successfully.

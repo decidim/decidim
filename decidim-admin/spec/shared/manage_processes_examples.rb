@@ -7,7 +7,7 @@ RSpec.shared_examples "manage processes examples" do
 
       it "allows the user to preview the unpublished process" do
         within find("tr", text: translated(participatory_process.title)) do
-          page.find('a.action-icon.preview').click
+          page.find('a.action-icon--preview').click
         end
 
         expect(page).to have_css(".process-header")
@@ -20,7 +20,7 @@ RSpec.shared_examples "manage processes examples" do
 
       it "allows the user to preview the unpublished process" do
         within find("tr", text: translated(participatory_process.title)) do
-          page.find('a.action-icon.preview').click
+          page.find('a.action-icon--preview').click
         end
 
         expect(current_path).to eq decidim.participatory_process_path(participatory_process)
@@ -29,34 +29,8 @@ RSpec.shared_examples "manage processes examples" do
     end
   end
 
-  it "displays all fields from a single participatory process" do
-    within "table" do
-      click_link participatory_process.title["en"]
-    end
-
-    within "dl" do
-      expect(page).to have_content(stripped translated(participatory_process.title, locale: :en))
-      expect(page).to have_content(stripped translated(participatory_process.title, locale: :es))
-      expect(page).to have_content(stripped translated(participatory_process.title, locale: :ca))
-      expect(page).to have_content(stripped translated(participatory_process.subtitle, locale: :en))
-      expect(page).to have_content(stripped translated(participatory_process.subtitle, locale: :es))
-      expect(page).to have_content(stripped translated(participatory_process.subtitle, locale: :ca))
-      expect(page).to have_content(stripped translated(participatory_process.short_description, locale: :en))
-      expect(page).to have_content(stripped translated(participatory_process.short_description, locale: :es))
-      expect(page).to have_content(stripped translated(participatory_process.short_description, locale: :ca))
-      expect(page).to have_content(stripped translated(participatory_process.description, locale: :en))
-      expect(page).to have_content(stripped translated(participatory_process.description, locale: :es))
-      expect(page).to have_content(stripped translated(participatory_process.description, locale: :ca))
-      expect(page).to have_content(participatory_process.hashtag)
-      expect(page).to have_content(participatory_process.slug)
-      expect(page).to have_xpath("//img[@src=\"#{participatory_process.hero_image.url}\"]")
-      expect(page).to have_xpath("//img[@src=\"#{participatory_process.banner_image.url}\"]")
-    end
-  end
-
   it "updates an participatory_process" do
     click_link translated(participatory_process.title)
-    click_processes_menu_link "Settings"
 
     within ".edit_participatory_process" do
       fill_in_i18n(
@@ -87,7 +61,6 @@ RSpec.shared_examples "manage processes examples" do
 
     before do
       click_link translated(participatory_process.title)
-      click_processes_menu_link "Settings"
     end
 
     it "publishes the process" do
@@ -106,7 +79,6 @@ RSpec.shared_examples "manage processes examples" do
 
     before do
       click_link translated(participatory_process.title)
-      click_processes_menu_link "Settings"
     end
 
     it "unpublishes the process" do
