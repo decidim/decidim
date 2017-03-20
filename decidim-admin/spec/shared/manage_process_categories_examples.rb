@@ -8,21 +8,6 @@ RSpec.shared_examples "manage process categories examples" do
     click_link "Categories"
   end
 
-  it "displays all fields from a single category" do
-    within "#categories table" do
-      click_link translated(category.name)
-    end
-
-    within "dl" do
-      expect(page).to have_i18n_content(category.name, locale: :en)
-      expect(page).to have_i18n_content(category.name, locale: :es)
-      expect(page).to have_i18n_content(category.name, locale: :ca)
-      expect(page).to have_i18n_content(category.description, locale: :en)
-      expect(page).to have_i18n_content(category.description, locale: :es)
-      expect(page).to have_i18n_content(category.description, locale: :ca)
-    end
-  end
-
   it "creates a new category" do
     find("#categories .actions .new").click
 
