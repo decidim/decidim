@@ -7,7 +7,7 @@ require_relative "install_generator"
 
 module Decidim
   module Generators
-    # Modifies an existing decidim app so it can be used as a demo of Dcidim.
+    # Modifies an existing decidim app so it can be used as a demo of Decidim.
     class DemoGenerator < Rails::Generators::Base
       def source_paths
         [
