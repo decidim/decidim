@@ -1,53 +1,79 @@
-<h2><%= t(".title") %></h2>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.new", scope: "decidim.meetings", name: t("models.meeting.name", scope: "decidim.meetings.admin")), new_meeting_path, class: 'button tiny button--title' if can? :manage, current_feature %>
+    </h2>
+  </div>
 
-<div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.meetings", name: t("models.meeting.name", scope: "decidim.meetings.admin")), new_meeting_path, class: 'new' if can? :manage, current_feature %>
-</div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.meeting.fields.title", scope: "decidim.meetings") %></th>
+            <th><%= t("models.meeting.fields.start_time", scope: "decidim.meetings") %></th>
+            <th><%= t("models.meeting.fields.end_time", scope: "decidim.meetings") %></th>
+            <th><%= t("models.meeting.fields.closed", scope: "decidim.meetings") %></th>
+            <% if Decidim.geocoder.present? %>
+              <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
+            <% end %>
+            <th class="actions"><%= t("actions.title", scope: "decidim.meetings") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% meetings.each do |meeting| %>
+            <tr data-id="<%= meeting.id %>">
+              <td>
+                <%= link_to translated_attribute(meeting.title), decidim_meetings.meeting_path(id: meeting, feature_id: current_feature, participatory_process_id: current_participatory_process), target: :blank %><br />
+              </td>
+              <td>
+                <% if meeting.start_time %>
+                  <%= l meeting.start_time, format: :long %>
+                <%  end%>
+              </td>
+              <td>
+                <% if meeting.end_time %>
+                  <%= l meeting.end_time, format: :long %>
+                <%  end%>
+              </td>
+              <td>
+                <%= humanize_boolean meeting.closed? %>
+              </td>
+              <% if Decidim.geocoder.present? %>
+                <td>
+                  <%= static_map_link(meeting) %>
+                </td>
+              <% end %>
+              <td class="table-list__actions">
+                <% if can? :update, current_feature %>
+                  <%= link_to edit_meeting_path(meeting), data: { tooltip: true, disable_hover: false }, title: t("actions.edit", scope: "decidim.meetings"), class: "action-icon" do %>
+                    <%= icon "pencil" %>
+                  <% end %>
+                <% end %>
 
-<table class="stack">
-  <thead>
-    <tr>
-      <th><%= t("models.meeting.fields.title", scope: "decidim.meetings") %></th>
-      <th><%= t("models.meeting.fields.start_time", scope: "decidim.meetings") %></th>
-      <th><%= t("models.meeting.fields.end_time", scope: "decidim.meetings") %></th>
-      <th><%= t("models.meeting.fields.closed", scope: "decidim.meetings") %></th>
-      <% if Decidim.geocoder.present? %>
-        <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
-      <% end %>
-      <th class="actions"><%= t("actions.title", scope: "decidim.meetings") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% meetings.each do |meeting| %>
-      <tr data-id="<%= meeting.id %>">
-        <td>
-          <%= link_to translated_attribute(meeting.title), decidim_meetings.meeting_path(id: meeting, feature_id: current_feature, participatory_process_id: current_participatory_process), target: :blank %><br />
-        </td>
-        <td>
-          <% if meeting.start_time %>
-            <%= l meeting.start_time, format: :long %>
-          <%  end%>
-        </td>
-        <td>
-          <% if meeting.end_time %>
-            <%= l meeting.end_time, format: :long %>
-          <%  end%>
-        </td>
-        <td>
-          <%= humanize_boolean meeting.closed? %>
-        </td>
-        <% if Decidim.geocoder.present? %>
-          <td>
-            <%= static_map_link(meeting) %>
-          </td>
-        <% end %>
-        <td class="actions">
-          <%= link_to t("actions.edit", scope: "decidim.meetings"), edit_meeting_path(meeting) if can? :update, current_feature %>
-          <%= link_to t("actions.close", scope: "decidim.meetings"), edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id) if can? :update, current_feature %>
-          <%= link_to t("actions.attachments", scope: "decidim.meetings"), meeting_attachments_path(meeting) if can? :update, current_feature %>
-          <%= link_to t("actions.destroy", scope: "decidim.meetings"), meeting_path(meeting), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") } if can? :destroy, current_feature %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                <% if can? :update, current_feature %>
+                  <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), data: { tooltip: true, disable_hover: false }, title: t("actions.close", scope: "decidim.meetings"), class: "action-icon" do %>
+                    <%= icon "lock-locked" %>
+                  <% end %>
+                <% end %>
+
+                <% if can? :update, current_feature %>
+                  <%= link_to meeting_attachments_path(meeting), data: { tooltip: true, disable_hover: false }, title: t("actions.attachments", scope: "decidim.meetings"), class: "action-icon" do %>
+                    <%= icon "paperclip" %>
+                  <% end %>
+                <% end %>
+
+                <% if can? :destroy, current_feature %>
+                  <%= link_to meeting_path(meeting), method: :delete, class: "action-icon action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings"), tooltip: true, disable_hover: false }, aria_haspopup: true, title: t("actions.destroy", scope: "decidim.meetings") do %>
+                    <%= icon "circle-x" %>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div>
