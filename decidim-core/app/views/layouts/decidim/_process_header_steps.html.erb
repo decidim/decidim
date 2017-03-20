@@ -1,7 +1,7 @@
 <% if participatory_process.steps.any? %>
   <div class="columns mediumlarge-3">
-    <div class="process-header__phase">
-      <div class="process-header__progress">
+    <div class="process-header__phase process-header__phase--simple">
+      <div class="process-header__progress show-for-medium">
         <ol>
           <% past_step = true %>
           <% participatory_process.steps.each_with_index do |step, index| %>
@@ -21,7 +21,7 @@
           <%= participatory_process_step_dates participatory_process.active_step %>
         </span>
       </div>
-      <%= link_to t('.view_steps'), decidim.participatory_process_participatory_process_steps_path(current_participatory_process), class: "button tiny hollow" %>
+      <%= link_to t('.view_steps'), decidim.participatory_process_participatory_process_steps_path(current_participatory_process), class: "button tiny hollow show-for-medium" %>
     </div>
   </div>
 <% end %>
