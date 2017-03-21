@@ -1,5 +1,464 @@
 fi:
+  activemodel:
+    attributes:
+      attachment:
+        description: Kuvaus
+        file: Tiedosto
+        title: Otsikko
+      category:
+        description: Kuvaus
+        name: Nimi
+        parent: Isäntä
+      feature:
+        name: Nimi
+        weight: Painoarvo
+      newsletter:
+        body: Runko
+        subject: Otsikko
+      organization:
+        default_locale: Oletuskieli
+        description: Kuvaus
+        favicon: Ikoni
+        homepage_image: Kotisivun kuva
+        logo: Logo
+        name: Nimi
+        official_img_footer: Virallinen alapalkin logo
+        official_img_header: Virallinen yläpalkin logo
+        official_url: Virallinen organisaation URL-osoite
+        show_statistics: Näytä tilastot
+        welcome_text: Tervetuloa-teksti
+      participatory_process:
+        banner_image: Bannerikuva
+        description: Kuvaus
+        developer_group: Kehitysryhmä
+        domain: Toimintaympäristö
+        end_date: Lopetusaika
+        hashtag: Hashtag
+        hero_image: Kotisivun kuva
+        local_area: Paikallisalue
+        meta_scope: Kontekstin metadata
+        participatory_scope: Osallistumiskonteksti
+        participatory_structure: Osallistumisen rakenne
+        promoted: Korostettu
+        scope: Konteksti
+        short_description: Lyhyt kuvaus
+        slug: URL-tunniste
+        subtitle: Alaotsikko
+        target: Kohde
+        title: Otsikko
+      participatory_process_step:
+        description: Kuvaus
+        end_date: Lopetusaika
+        short_description: Lyhyt kuvaus
+        start_date: Aloitusaika
+        title: Otsikko
+      participatory_process_user_role:
+        email: Sähköposti
+      scope:
+        name: Nimi
+        organization: Organisaatio
+      static_page:
+        content: Sisältö
+        organization: Organisaatio
+        slug: URL-tunniste
+        title: Otsikko
+    errors:
+      messages:
+        invalid_json: Virheellinen JSON
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Bannerikuva
+        description: Kuvaus
+        developer_group: Kehitysryhmä
+        domain: Toimintaympäristö
+        end_date: Lopetusaika
+        hashtag: Hashtag
+        hero_image: Etusivun kuva
+        local_area: Paikallisalue
+        meta_scope: Kontekstin metadata
+        participatory_scope: Osallistumisprosessi
+        participatory_structure: Osallistumisprosessin rakenne
+        promoted: Korostettu
+        scope: Konteksti
+        short_description: Lyhyt kuvaus
+        slug: URL-tunniste
+        subtitle: Alaotsikko
+        target: Kohde
+        title: Otsikko
+      decidim/static_page:
+        content: Sisältö
+        slug: URL-tunniste
+        title: Otsikko
   decidim:
     admin:
+      actions:
+        activate: Aktivoi
+        configure: Asetukset
+        confirm_destroy: Haluatko varmasti poistaa tämän?
+        create: Luo
+        destroy: Tuhoa
+        edit: Muokkaa
+        manage: Hallitse
+        new: Uusi %{name}
+        permissions: Oikeudet
+        preview: Esikatsele
+        publish: Julkaise
+        resend_invitation: Lähetä kutsu uudelleen
+        title: Toiminnot
+        unpublish: Lopeta julkaisu
+        verify: Vahvista
+      attachments:
+        create:
+          error: Uuden liitteen luonnissa tapahtui virhe.
+          success: Liite luotu onnistuneesti.
+        destroy:
+          success: Liite tuhottu onnistuneesti.
+        edit:
+          title: Muokkaa liitettä
+          update: Päivitä liite
+        new:
+          create: Luo liite
+          title: Uusi liite
+        update:
+          error: Tämän liitteen päivityksessä tapahtui virhe.
+          success: Liite luotu onnistuneesti.
+      categories:
+        create:
+          error: Tämän kategorian luonnissa tapahtui virhe.
+          success: Kategoria luotu onnistuneesti.
+        destroy:
+          error: Tämän kategorian poistamisessa tapahtui virhe. Poista ensin kaikki sen alakategoriat ja varmista, että mikään muu kooknaisuus ei liity tähän kategoriaan ja kokeile uudestaan.
+          success: Kategoria poistettu onnistuneesti.
+        edit:
+          title: Muokkaa kategoriaa
+          update: Päivitä kategoria
+        new:
+          create: Luo kategoria
+          title: Uusi kategoria
+        update:
+          error: Tämän kategorian luonnissa tapahtui virhe.
+          success: Kategoria päivitetty onnistuneesti.
+      decidim:
+        admin:
+          attachments:
+            index:
+              attachments_title: Liitteet
+          categories:
+            index:
+              categories_title: Kategoriat
+          participatory_process_steps:
+            index:
+              steps_hint: Voit vetää taulukon rivejä järjestääksesi prosessin vaiheet uuteen järjestykseen.
+              steps_title: Vaihe
+          participatory_process_user_roles:
+            index:
+              process_admins_title: Osallistumisprosessin hallinnoijat
+      feature_permissions:
+        edit:
+          everyone: Kaikki
+          submit: Tallenna oikeudet
+          title: Muokkaa oikeuksia
+        update:
+          success: Oikeudet päivitetty onnistuneesti.
+      features:
+        create:
+          error: Tämän ominaisuuden luonnissa tapahtui virhe.
+          success: Ominaisuus luotu onnistuneesti.
+        destroy:
+          error: Tämän ominaisuuden tuhoamisessa tapahtui virhe.
+          success: Ominaisuus poistettu onnistuneesti.
+        edit:
+          title: Muokkaa ominaisuutta
+          update: Päivitä
+        form:
+          global_settings: Globaalit asetukset
+          step_settings: Vaiheen asetukset
+        index:
+          add: Lisää ominaisuus
+          headers:
+            actions: Toiminnot
+            name: Ominaisuuden nimi
+            type: Ominaisuuden tyyppi
+        new:
+          add: Lisää ominaisuus
+          title: 'Lisää ominaisuus: %{name}'
+        publish:
+          success: Tämä ominaisuus on onnistuneesti julkaistu.
+        title: Ominaisuudet
+        unpublish:
+          success: Tämän ominaisuuden julkaisu on onnistuneesti peruttu.
+        update:
+          error: Tämän ominaisuuden päivityksessä tapahtui virhe.
+          success: Ominaisuus päivitetty onnistuneesti.
       menu:
-        dashboard: Yleiskatsaus
+        dashboard: Hallintapaneeli
+        newsletters: Uutiskirjeet
+        participatory_process_groups: Osallistumisprosessien ryhmät
+        participatory_processes: Osallistumisprosessit
+        participatory_processes_submenu:
+          attachments: Liitteet
+          categories: Kategoriat
+          features: Ominaisuudet
+          info: Tiedot
+          moderations: Moderointi
+          process_admins: Prosessin hallinnoijat
+          settings: Asetukset
+          steps: Vaiheet
+        scopes: Kontekstit
+        settings: Asetukset
+        static_pages: Sivut
+        user_groups: Käyttäjäryhmät
+        users: Hallinnointikäyttäjät
+      models:
+        attachment:
+          fields:
+            content_type: Tyyppi
+            title: Otsikko
+          name: Liite
+        category:
+          fields:
+            name: Nimi
+          name: Kategoria
+        newsletter:
+          fields:
+            created_at: Luonnin ajankohta
+            progress: Edistyminen
+            sent_at: Lähetyksen ajankohta
+            subject: Otsikko
+          name: Uutiskirje
+        participatory_process:
+          fields:
+            created_at: Luonnin ajankohta
+            promoted: Korostettu
+            published: Julkaistu
+            title: Otsikko
+          name: Osallistumisprosessi
+        participatory_process_group:
+          fields:
+            name: Nimi
+          name: Osallistumisprosessin ryhmä
+        participatory_process_step:
+          fields:
+            active: Aktivoi
+            end_date: Lopetusaika
+            start_date: Aloitusaika
+            title: Otsikko
+          name: Osallistumisprosessin vaihe
+        participatory_process_user_role:
+          fields:
+            email: Sähköposti
+        scope:
+          fields:
+            created_at: Luonnin ajankohta
+            name: Nimi
+          name: Konteksti
+        static_page:
+          fields:
+            created_at: Luonnin ajankohta
+            title: Otsikko
+          name: Sivu
+        user:
+          fields:
+            created_at: Luontipäivämäärä
+            email: Sähköposti
+            invitation_accepted_at: Kutsun hyväksymispäivämäärä
+            invitation_sent_at: Kutsun lähetyspäivämäärä
+            last_sign_in_at: Viimeisen kirjautumisen päivämäärä
+            name: Nimi
+          name: Käyttäjä
+        user_group:
+          fields:
+            created_at: Luonnin ajankohta
+            document_number: Dokumentin numero
+            name: Nimi
+            phone: Puhelinnumero
+            users_count: Käyttäjämäärä
+      moderations:
+        index:
+          title: Otsikko
+      newsletters:
+        create:
+          error: Tämän uutiskirjeen luonnissa tapahtui virhe.
+          success: Uutiskirje luotu onnistuneesti. Tarkasta se ennen lähetystä.
+        deliver:
+          error: Tämän uutiskirjeen toimituksessa tapahtui virhe.
+          success: Uutiskirje toimitettu onnistuneesti.
+        destroy:
+          error_already_sent: 'Uutiskirjettä ei voi tuhota: se on jo lähetetty.'
+          success: Uutiskirje tuhottu onnistuneesti.
+        edit:
+          save_and_preview: Tallenna ja esikatsele
+          title: Muokkaa uutiskirjettä
+        form:
+          interpolations_hint: 'Vihje: Voit käyttää "%{name}" -merkkijonoa missä tahansa viestin rungossa, mikä korvataan vastaanottajan nimellä.'
+        index:
+          confirm_delete: Haluatko varmasti poistaa tämän uutiskirjeen?
+          title: Uutiskirjeet
+        new:
+          save: Tallenna
+          title: Uusi uutiskirje
+        show:
+          confirm_deliver: Haluatko varmasti toimittaa tämän uutiskirjeen? Tätä toimintoa ei voi peruuttaa.
+          deliver: Toimita uutiskirje
+          preview: Esikatsele
+          subject: Otsikko
+        update:
+          error: Tämän uutiskirjeen päivityksessä tapahtui virhe.
+          success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
+      organization:
+        edit:
+          title: Muokkaa organisaatiota
+          update: Päivitä organisaatio
+        update:
+          error: Tämän organisaation päivityksessä tapahtui virhe.
+          success: Organisaatio päivitetty onnistuneesti.
+      participatory_process_groups:
+        destroy:
+          success: Osallistumisprosessien ryhmä poistettu onnistuneesti.
+        edit:
+          update: Päivitä
+        new:
+          create: Luo
+          name: Nimi
+        update:
+          error: Tämän osallistumisprosessien ryhmän päivityksessä tapahtui virhe.
+          success: Osallistumisprosessien ryhmä päivitetty onnistuneesti.
+      participatory_process_publications:
+        create:
+          error: Tämän osallistumisprosessin julkaisussa tapahtui virhe.
+          success: Osallistumisprosessi julkaistu onnistuneesti.
+        destroy:
+          error: Tämän osallistumisprosessin julkaisun perumisessa tapahtui virhe.
+          success: Osallistumisprosessin julkaisu lopetettu onnistuneesti.
+      participatory_process_step_activations:
+        create:
+          error: Tämän osallistumisprosessin vaiheen aktivoinnissa tapahtui virhe.
+          success: Osallistumisprosessin vaihe aktivoitu onnistuneesti.
+      participatory_process_steps:
+        create:
+          error: Uuden osallistumisprosessin vaiheen luonnissa tapahtui virhe.
+          success: Osallistumisprosessin vaihe luotu onnistuneesti.
+        default_title: Johdanto
+        destroy:
+          error:
+            active_step: Aktiivista vaihetta ei voi poistaa.
+            last_step: Prosessin viimeistä vaihetta ei voi poistaa.
+          success: Osallistumisprosessin vaihe tuhottu onnistuneesti.
+        edit:
+          title: Muokkaa osallistumisprosessin vaihetta
+          update: Päivitä osallistumisprosessin vaihe
+        new:
+          create: Luo osallistumisprosessin vaihe
+          title: Uusi osallistumisprosessin vaihe
+        ordering:
+          error: Tämän osallistumisprosessin vaiheiden järjestämisessä tapahtui virhe.
+        update:
+          error: Tämän osallistumisprosessin vaiheen päivityksessä tapahtui virhe.
+          success: Osallistumisprosessin vaihe päivitetty onnistuneesti.
+      participatory_process_user_roles:
+        create:
+          error: Tämän osallistumisprosessin hallinnointikäyttäjän lisäyksessä tapahtui virhe.
+          success: Hallinnointikäyttäjä lisätty onnistuneesti tälle osallistumisprosessille.
+        destroy:
+          success: Tämän osallistumisprosessin hallinnointikäyttäjä tuhottu onnistuneesti.
+      participatory_processes:
+        create:
+          error: Uuden osallistumisprosessin luonnissa tapahtui virhe.
+          success: Osallistumisprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
+        destroy:
+          success: Osallistumisprosessi tuhottu onnistuneesti.
+        edit:
+          update: Päivitä osallistumisprosessia
+        new:
+          create: Luo osallistumisprosessi
+          title: Uusi osallistumisprosessi
+        update:
+          error: Tämän osallistumisprosessin päivityksessä tapahtui virhe.
+          success: Osallistumisprosessi päivitetty onnistuneesti.
+      participatory_processes_group:
+        create:
+          error: Uuden osallistumisprosessien ryhmän luonnissa tapahtui virhe.
+          success: Osallistumisprosessien ryhmä luotu onnistuneesti.
+      scopes:
+        create:
+          error: Uuden kontekstin luonnissa tapahtui virhe.
+          success: Konteksti luotu onnistuneesti.
+        destroy:
+          success: Konteksti tuhottu onnistuneesti
+        edit:
+          title: Muokkaa kontekstia
+          update: Päivitä konteksti
+        new:
+          create: Luo konteksti
+          title: Uusi konteksti
+        update:
+          error: Tämän kontekstin päivityksessä tapahtui virhe.
+          success: Konteksti päivitetty onnistuneesti
+      static_pages:
+        actions:
+          view: Näytä julkinen sivu
+        create:
+          error: Uuden sivun luonnissa tapahtui virhe.
+          success: Sivu luotu onnistuneesti.
+        destroy:
+          success: Sivu tuhottu onnistuneesti
+        edit:
+          title: Muokkaa sivua
+          update: Päivitä sivu
+        new:
+          create: Luo sivu
+          title: Uusi sivu
+        update:
+          error: Tämän sivun päivityksessä tapahtui virhe.
+          success: Sivu päivitetty onnistuneesti
+      titles:
+        dashboard: Hallintapaneeli
+        participatory_process_groups: Osallistumisprosessien ryhmät
+        participatory_processes: Osallistumisprosessit
+        scopes: Kontekstit
+        static_pages: Sivut
+        user_groups: Käyttäjäryhmät
+        users: Käyttäjät
+      user_groups:
+        verify:
+          success: Käyttäjäryhmä vahvistettu onnistuneesti.
+      users:
+        create:
+          error: Tämän käyttäjän kutsumisessa tapahtui virhe.
+          success: Käyttäjä kutsuttu onnistuneesti.
+        destroy:
+          error: Tämän käyttäjän poistamisessa tapahtui virhe.
+          success: Käyttäjä ei ole enää hallinnoija.
+        new:
+          create: Kutsu
+          title: Kutsu käyttäjä hallinnoijaksi
+        resend_invitation:
+          error: Kutsuviestin lähettämisessä tapahtui virhe.
+          success: Kutsuviesti lähetetty onnistuneesti.
+    moderations:
+      actions:
+        hidden: Piilotettu
+        hide: Piilota
+        not_hidden: Näkyvillä
+        title: Moderoinnit
+        unreport: Poista raportointi
+      admin:
+        reportable:
+          hide:
+            invalid: Resurssin piilotuksessa tapahtui virhe.
+            success: Resurssi piilotettu onnistuneesti.
+          unreport:
+            invalid: Resurssin raportoinnin poistamisessa tapahtui virhe.
+            success: Resurssin raportointi onnistuneesti poistettu.
+      models:
+        moderation:
+          fields:
+            hidden_at: Piilotuksen ajankohta
+            report_count: Raportointimäärä
+            reportable: Raportoitava
+            reported_content: Raportoitava sisältö
+            reports: Raportit
+    participatory_processes:
+      participatory_process_groups:
+        none: Ei ryhmää
