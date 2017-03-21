@@ -3,7 +3,7 @@
     <h2 class='card-title'>
       <%= t(".categories_title", scope: "decidim.admin") %>
       <% if can? :create, Decidim::Category %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.category.name", scope: "decidim.admin")), new_participatory_process_category_path(participatory_process), class: 'button tiny button--title' %>
+        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.category.name", scope: "decidim.admin")), new_participatory_process_category_path(participatory_process), class: 'button tiny button--title new' %>
       <% end %>
     </h2>
   </div>
