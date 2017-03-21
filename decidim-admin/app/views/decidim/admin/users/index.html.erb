@@ -42,11 +42,11 @@
               <td><%= l user.created_at, format: :short %></td>
               <td class="table-list__actions">
                 <% if can?(:invite, user) && user.invited_to_sign_up? %>
-                  <%= icon_link_to "reload", ['resend_invitation', user], t("actions.resend_invitation", scope: "decidim.admin"), "resend-invitation" %>
+                  <%= icon_link_to "reload", ['resend_invitation', user], t("actions.resend_invitation", scope: "decidim.admin"), "resend-invitation", :put %>
                 <% end %>
 
                 <% if can? :destroy, user %>
-                  <%= icon_link_to "circle-x", user, t("actions.destroy", scope: "decidim.admin"), "action-icon--remove", { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                  <%= icon_link_to "circle-x", user, t("actions.destroy", scope: "decidim.admin"), "action-icon--remove", { confirm: t("actions.confirm_destroy", scope: "decidim.admin") }, :delete %>
                 <% end %>
               </td>
             </tr>

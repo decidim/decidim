@@ -38,11 +38,11 @@
               </td>
               <td class="table-list__actions">
                 <% if can? :update, process %>
-                  <%= icon_link_to "pencil", edit_participatory_process_path(process), t("actions.configure", scope: "decidim.admin"), "action-icon--new" %>
+                  <%= icon_link_to "pencil", edit_participatory_process_path(process), t("actions.configure", scope: "decidim.admin"), "action-icon--new", :put %>
                 <% end %>
 
                 <% if can? :preview, process %>
-                  <%= icon_link_to "eye", decidim.participatory_process_path(process), t("actions.preview", scope: "decidim.admin"), "action-icon--preview" %>
+                  <%= icon_link_to "eye", decidim.participatory_process_path(process), t("actions.preview", scope: "decidim.admin"), "action-icon--preview", :get %>
                 <% end %>
               </td>
             </tr>

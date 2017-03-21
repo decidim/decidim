@@ -41,15 +41,15 @@
                 </td>
                 <td class="table-list__actions">
                   <% if can?(:activate, step) && !step.active? %>
-                    <%= icon_link_to "circle-check", participatory_process_step_activate_path(participatory_process, step), t("actions.activate", scope: "decidim.admin"), "action-icon--activate" %>
+                    <%= icon_link_to "circle-check", participatory_process_step_activate_path(participatory_process, step), t("actions.activate", scope: "decidim.admin"), "action-icon--activate", :put %>
                   <% end %>
 
                   <% if can? :update, step %>
-                    <%= icon_link_to "pencil", edit_participatory_process_step_path(participatory_process, step), t("actions.edit", scope: "decidim.admin"), "action-icon--edit" %>
+                    <%= icon_link_to "pencil", edit_participatory_process_step_path(participatory_process, step), t("actions.edit", scope: "decidim.admin"), "action-icon--edit", :put %>
                   <% end %>
 
                   <% if can? :destroy, step %>
-                    <%= icon_link_to "circle-x", participatory_process_step_path(participatory_process, step), t("actions.destroy", scope: "decidim.admin"), "action-icon--remove", { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                    <%= icon_link_to "circle-x", participatory_process_step_path(participatory_process, step), t("actions.destroy", scope: "decidim.admin"), "action-icon--remove", { confirm: t("actions.confirm_destroy", scope: "decidim.admin") }, :delete %>
                   <% end %>
                 </td>
               </tr>
