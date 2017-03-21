@@ -27,8 +27,7 @@
                 <% end %>
 
                 <% if can? :destroy, scope %>
-                  <%= icon_link_to "circle-x", scope, t("actions.destroy", scope: "decidim.admin"), "action-icon--remove" %>
-                  <%# data: { confirm: t("actions.confirm_destroy", tooltip: true, aria_haspopup: true, disable_hover: false ), %>
+                  <%= icon_link_to "circle-x", scope, t("actions.destroy", scope: "decidim.admin"), "action-icon--remove", { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                 <% end %>
               </td>
             </tr>

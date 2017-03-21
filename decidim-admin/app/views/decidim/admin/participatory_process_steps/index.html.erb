@@ -49,7 +49,7 @@
                   <% end %>
 
                   <% if can? :destroy, step %>
-                    <%= icon_link_to "circle-x", participatory_process_step_path(participatory_process, step), t("actions.destroy", scope: "decidim.admin"), "action-icon--remove" %>
+                    <%= icon_link_to "circle-x", participatory_process_step_path(participatory_process, step), t("actions.destroy", scope: "decidim.admin"), "action-icon--remove", { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                   <% end %>
                 </td>
               </tr>

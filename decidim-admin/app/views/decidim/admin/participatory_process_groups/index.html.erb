@@ -28,8 +28,7 @@
                 <%= icon_link_to "eye", decidim.participatory_process_group_path(group), t("actions.preview", scope: "decidim.admin"), "action-icon--preview" %>
 
                 <% if can? :destroy, group %>
-                  <%= icon_link_to "circle-x", group, t("actions.destroy", scope: "decidim.admin"), "action-icon--remove" %>
-                    <%# confirm: t("actions.confirm_destroy", scope: "decidim.admin"), %>
+                  <%= icon_link_to "circle-x", group, t("actions.destroy", scope: "decidim.admin"), "action-icon--remove", { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                 <% end %>
               </td>
             </tr>

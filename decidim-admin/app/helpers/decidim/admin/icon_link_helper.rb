@@ -2,10 +2,10 @@
 module Decidim
   module Admin
     module IconLinkHelper
-      def icon_link_to(icon_name, link, title, klass)
+      def icon_link_to(icon_name, link, title, klass, data={})
         link_to(link,
                 class: "action-icon " + klass,
-                data: { tooltip: true, disable_hover: false },
+                data: { tooltip: true, disable_hover: false }.merge(data),
                 tooltip: true,
                 disable_hover: false,
                 title: title) do

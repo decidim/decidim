@@ -29,8 +29,7 @@
                 <%= icon_link_to "eye", decidim.page_path(page), t("actions.view", scope: "decidim.admin.static_pages"), "action-icon--preview" %>
 
                 <% if can? :destroy, page %>
-                  <%= icon_link_to "circle-x", page, t("actions.destroy", scope: "decidim.admin"), "action-icon--remove" %>
-                  <%# confirm: t("actions.confirm_destroy", scope: "decidim.admin") %>
+                  <%= icon_link_to "circle-x", page, t("actions.destroy", scope: "decidim.admin"), "action-icon--remove", { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                 <% end %>
               </td>
             </tr>
