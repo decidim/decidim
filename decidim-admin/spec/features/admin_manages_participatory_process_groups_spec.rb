@@ -56,11 +56,7 @@ describe "Admin manage participatory process groups", type: :feature do
 
     it "can edit them" do
       within find("tr", text: participatory_process_group.name["en"]) do
-<<<<<<< HEAD
         page.find('.action-icon.action-icon--edit').click
-=======
-        page.find('.action-icon.edit').click
->>>>>>> [New Admin] - Process groups (#1141)
       end
 
       within ".edit_participatory_process_group" do

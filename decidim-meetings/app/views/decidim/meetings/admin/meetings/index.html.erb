@@ -47,27 +47,21 @@
               <% end %>
               <td class="table-list__actions">
                 <% if can? :update, current_feature %>
-                  <%= link_to edit_meeting_path(meeting), data: { tooltip: true, disable_hover: false }, title: t("actions.edit", scope: "decidim.meetings"), class: "action-icon" do %>
-                    <%= icon "pencil" %>
-                  <% end %>
+                  <%= link_to "pencil", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings") %>
                 <% end %>
 
                 <% if can? :update, current_feature %>
-                  <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), data: { tooltip: true, disable_hover: false }, title: t("actions.close", scope: "decidim.meetings"), class: "action-icon" do %>
+                  <%= icon_link_to "lock-locked", edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), t("actions.close", scope: "decidim.meetings") %>
                     <%= icon "lock-locked" %>
                   <% end %>
                 <% end %>
 
                 <% if can? :update, current_feature %>
-                  <%= link_to meeting_attachments_path(meeting), data: { tooltip: true, disable_hover: false }, title: t("actions.attachments", scope: "decidim.meetings"), class: "action-icon" do %>
-                    <%= icon "paperclip" %>
-                  <% end %>
+                  <%= icon_link_to "paperclip", meeting_attachments_path(meeting), t("actions.attachments", scope: "decidim.meetings") %>
                 <% end %>
 
                 <% if can? :destroy, current_feature %>
-                  <%= link_to meeting_path(meeting), method: :delete, class: "action-icon action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings"), tooltip: true, disable_hover: false }, aria_haspopup: true, title: t("actions.destroy", scope: "decidim.meetings") do %>
-                    <%= icon "circle-x" %>
-                  <% end %>
+                  <%= icon_link_to "circle-x", meeting_path(meeting), t("actions.destroy", scope: "decidim.meetings"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") %>
                 <% end %>
               </td>
             </tr>
