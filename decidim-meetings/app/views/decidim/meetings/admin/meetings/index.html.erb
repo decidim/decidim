@@ -47,13 +47,11 @@
               <% end %>
               <td class="table-list__actions">
                 <% if can? :update, current_feature %>
-                  <%= link_to "pencil", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings") %>
+                  <%= icon_link_to "pencil", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings") %>
                 <% end %>
 
                 <% if can? :update, current_feature %>
                   <%= icon_link_to "lock-locked", edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), t("actions.close", scope: "decidim.meetings") %>
-                    <%= icon "lock-locked" %>
-                  <% end %>
                 <% end %>
 
                 <% if can? :update, current_feature %>
@@ -61,7 +59,7 @@
                 <% end %>
 
                 <% if can? :destroy, current_feature %>
-                  <%= icon_link_to "circle-x", meeting_path(meeting), t("actions.destroy", scope: "decidim.meetings"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") %>
+                  <%= icon_link_to "circle-x", meeting_path(meeting), t("actions.destroy", scope: "decidim.meetings"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.meetings") } %>
                 <% end %>
               </td>
             </tr>

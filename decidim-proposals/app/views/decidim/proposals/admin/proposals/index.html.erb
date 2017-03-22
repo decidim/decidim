@@ -1,46 +1,62 @@
-<h2><%= t(".title") %></h2>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
 
-<div class="actions title">
-  <% if feature_settings.official_proposals_enabled %>
-    <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'new' if can? :manage, current_feature %>
-  <% end %>
+      <% if feature_settings.official_proposals_enabled %>
+        <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'button tiny button--title' if can? :manage, current_feature %>
+      <% end %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.proposal.fields.title", scope: "decidim.proposals") %></th>
+            <th><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></th>
+            <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
+            <th><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></th>
+            <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% proposals.each do |proposal| %>
+            <tr data-id="<%= proposal.id %>">
+              <td>
+                <%= proposal.title %><br />
+              </td>
+              <td>
+                <% if proposal.category %>
+                  <%= translated_attribute proposal.category.name %>
+                <% end %>
+              </td>
+              <td>
+                <% if proposal.scope %>
+                  <%= proposal.scope.name %>
+                <% else %>
+                  <%= t("decidim.participatory_processes.scopes.global") %>
+                <% end %>
+              </td>
+              <td>
+                <% if proposal.state.nil? %>
+                  <% if can? :update, proposal %>
+                    <%= link_to t("actions.answer", scope: "decidim.proposals"), edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), class: "button tiny" %>
+                  <% end %>
+                <% else %>
+                  <strong class="<%= proposal.state == 'accepted' ? 'text-success' : 'text-alert' %>">
+                    <%= humanize_proposal_state proposal.state %>
+                  </strong>
+                <% end %>
+              </td>
+              <td class="table-list__actions">
+                <%= icon_link_to "eye", decidim_proposals.proposal_path(id: proposal, feature_id: current_feature, participatory_process_id: current_participatory_process), t("actions.preview", scope: "decidim.admin"), target: :blank %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-
-<table class="stack">
-  <thead>
-    <tr>
-      <th><%= t("models.proposal.fields.title", scope: "decidim.proposals") %></th>
-      <th><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></th>
-      <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
-      <th><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></th>
-      <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% proposals.each do |proposal| %>
-      <tr data-id="<%= proposal.id %>">
-        <td>
-          <%= link_to proposal.title, decidim_proposals.proposal_path(id: proposal, feature_id: current_feature, participatory_process_id: current_participatory_process), target: :blank %><br />
-        </td>
-        <td>
-          <% if proposal.category %>
-            <%= translated_attribute proposal.category.name %>
-          <% end %>
-        </td>
-        <td>
-          <% if proposal.scope %>
-            <%= proposal.scope.name %>
-          <% else %>
-            <%= t("decidim.participatory_processes.scopes.global") %>
-          <% end %>
-        </td>
-        <td>
-          <%= humanize_proposal_state proposal.state %>
-        </td>
-        <td class="actions">
-          <%= link_to t("actions.answer", scope: "decidim.proposals"), edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id) if can? :update, proposal %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
