@@ -95,6 +95,7 @@ ignore_unused:
  - activemodel.attributes.*
  - decidim.admin.participatory_process_steps.default_title
  - activemodel.errors.messages.*
+ - actions.confirm_destroy
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'
