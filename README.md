@@ -69,9 +69,9 @@ This will also create some default data so you can start testing the app:
 * A `Decidim::Organization` named `Decidim Staging`. You probably want to
   change its name and hostname to match your needs.
 * A `Decidim::User` acting as an admin for the organization, with email
- `admin@decidim.org` and password `decidim123456`.
+ `admin@example.org` and password `decidim123456`.
 * A `Decidim::User` that also belongs to the organization but it's a regular
-  user, with email `user@decidim.org` and password `decidim123456`.
+  user, with email `user@example.org` and password `decidim123456`.
 
 This data won't be created in production environments, if you still want to do it, run:
 
@@ -146,7 +146,7 @@ After you create a development app (`bundle exec rake development_app`):
 - `bundle exec rails s`
 - Go to 'http://localhost:3000'
 
-Optionally, you can log in as: user@decidim.org | decidim123456
+Optionally, you can log in as: user@example.org | decidim123456
 
 Also, if you want to verify yourself against the default authorization handler use a document number ended with "X".
 
@@ -157,7 +157,7 @@ After you create a development app (`bundle exec rake development_app`):
 - `cd development_app`
 - `bundle exec rails s`
 - Go to 'http://localhost:3000/admin'
-- Login data: admin@decidim.org | decidim123456
+- Login data: admin@example.org | decidim123456
 
 
 ## Components
