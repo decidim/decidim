@@ -29,9 +29,9 @@ RSpec.shared_examples "manage attachments examples" do
   end
 
   it "can add attachments to a process" do
-    find("#attachments .actions .new").click
+    find(".card-title a.new").click
 
-    within ".new_attachment" do
+    within ".new_participatory_process_attachment" do
       fill_in_i18n(
         :attachment_title,
         "#title-tabs",
@@ -63,7 +63,7 @@ RSpec.shared_examples "manage attachments examples" do
 
   it "can delete an attachment from a process" do
     within find("tr", text: stripped(translated(attachment.title))) do
-      click_link "Destroy"
+      page.find('a.action-icon--remove').click
     end
 
     within ".callout-wrapper" do
@@ -76,11 +76,11 @@ RSpec.shared_examples "manage attachments examples" do
   it "can update an attachment" do
     within "#attachments" do
       within find("tr", text: stripped(translated(attachment.title))) do
-        click_link "Edit"
+        page.find('a.action-icon--edit').click
       end
     end
 
-    within ".edit_attachment" do
+    within ".edit_participatory_process_attachment" do
       fill_in_i18n(
         :attachment_title,
         "#title-tabs",
