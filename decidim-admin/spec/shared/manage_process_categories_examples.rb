@@ -8,25 +8,10 @@ RSpec.shared_examples "manage process categories examples" do
     click_link "Categories"
   end
 
-  it "displays all fields from a single category" do
-    within "#categories table" do
-      click_link translated(category.name)
-    end
-
-    within "dl" do
-      expect(page).to have_i18n_content(category.name, locale: :en)
-      expect(page).to have_i18n_content(category.name, locale: :es)
-      expect(page).to have_i18n_content(category.name, locale: :ca)
-      expect(page).to have_i18n_content(category.description, locale: :en)
-      expect(page).to have_i18n_content(category.description, locale: :es)
-      expect(page).to have_i18n_content(category.description, locale: :ca)
-    end
-  end
-
   it "creates a new category" do
-    find("#categories .actions .new").click
+    find(".card-title a.new").click
 
-    within ".new_category" do
+    within ".new_participatory_process_category" do
       fill_in_i18n(
         :category_name,
         "#name-tabs",
@@ -57,11 +42,11 @@ RSpec.shared_examples "manage process categories examples" do
   it "updates a category" do
     within "#categories" do
       within find("tr", text: translated(category.name)) do
-        click_link "Edit"
+        page.find('a.action-icon--edit').click
       end
     end
 
-    within ".edit_category" do
+    within ".edit_participatory_process_category" do
       fill_in_i18n(
         :category_name,
         "#name-tabs",
@@ -92,7 +77,7 @@ RSpec.shared_examples "manage process categories examples" do
 
       it "deletes a category" do
         within find("tr", text: translated(category2.name)) do
-          click_link "Destroy"
+          page.find('a.action-icon--remove').click
         end
 
         within ".callout-wrapper" do
@@ -114,7 +99,7 @@ RSpec.shared_examples "manage process categories examples" do
 
       it "deletes a category" do
         within find("tr", text: translated(category2.name)) do
-          click_link "Destroy"
+          page.find('a.action-icon--remove').click
         end
 
         within ".callout-wrapper" do
