@@ -79,7 +79,7 @@ describe "Content pages", type: :feature do
 
       it "can edit them" do
         within find("tr", text: translated(decidim_page.title)) do
-          page.find('.action-icon.edit').click
+          page.find('.action-icon.action-icon--edit').click
         end
 
         within ".edit_static_page" do
@@ -126,7 +126,7 @@ describe "Content pages", type: :feature do
 
       it "can visit them" do
         within find("tr", text: translated(decidim_page.title)) do
-          page.find('.action-icon.preview').click
+          page.find('.action-icon.action-icon--preview').click
         end
 
         expect(page).to have_content(translated(decidim_page.title))

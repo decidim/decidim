@@ -46,7 +46,7 @@ describe "Organization scopes", type: :feature do
 
       it "can edit them" do
         within find("tr", text: scope.name) do
-          page.find('a.action-icon.edit').click
+          page.find('a.action-icon.action-icon--edit').click
         end
 
         within ".edit_scope" do
