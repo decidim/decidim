@@ -23,11 +23,11 @@
               </td>
               <td class="table-list__actions">
                 <% if can? :update, scope %>
-                  <%= icon_link_to "pencil", ['edit', scope], t("actions.edit", scope: "decidim.admin"), "action-icon--edit", :get %>
+                  <%= icon_link_to "pencil", ['edit', scope], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
                 <% end %>
 
                 <% if can? :destroy, scope %>
-                  <%= icon_link_to "circle-x", scope, t("actions.destroy", scope: "decidim.admin"), "action-icon--remove", :delete, { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                  <%= icon_link_to "circle-x", scope, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                 <% end %>
               </td>
             </tr>

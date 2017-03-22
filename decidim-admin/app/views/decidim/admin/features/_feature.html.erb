@@ -9,25 +9,25 @@
   </td>
   <td class="table-list__actions">
     <% if feature.manifest.admin_engine %>
-      <%= icon_link_to "pencil", manage_feature_path(participatory_process, feature), t("actions.manage", scope: "decidim.admin"), "action-icon--manage", :get %>
+      <%= icon_link_to "pencil", manage_feature_path(participatory_process, feature), t("actions.manage", scope: "decidim.admin"), class: "action-icon--manage" %>
     <% end %>
 
     <% if can?(:update, feature) %>
       <% if feature.published? %>
-        <%= icon_link_to "cloud-download", url_for(action: :unpublish, id: feature, controller: "features"), t("actions.unpublish", scope: "decidim.admin"), "action-icon--unpublish", :put %>
+        <%= icon_link_to "cloud-download", url_for(action: :unpublish, id: feature, controller: "features"), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
       <% else %>
-        <%= icon_link_to "cloud-upload", url_for(action: :publish, id: feature, controller: "features"), t("actions.publish", scope: "decidim.admin"), "action-icon--publish", :put %>
+        <%= icon_link_to "cloud-upload", url_for(action: :publish, id: feature, controller: "features"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put %>
       <% end %>
     <% end %>
 
     <% if can? :update, feature %>
-      <%= icon_link_to "cog", url_for(action: :edit, id: feature, controller: "features"), t("actions.configure", scope: "decidim.admin"), "action-icon--configure", :get %>
+      <%= icon_link_to "cog", url_for(action: :edit, id: feature, controller: "features"), t("actions.configure", scope: "decidim.admin"), class: "action-icon--configure" %>
     <% end %>
 
     <% if can? :update, feature %>
-      <%= icon_link_to "key", edit_participatory_process_feature_permissions_path(feature_id: feature), t("actions.permissions", scope: "decidim.admin"), "action-icon--permissions", :get %>
+      <%= icon_link_to "key", edit_participatory_process_feature_permissions_path(feature_id: feature), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
     <% end %>
 
-    <%= icon_link_to "circle-x", url_for(action: :destroy, id: feature, controller: "features"), t("actions.destroy", scope: "decidim.admin"), "action-icon--remove", :delete %>
+    <%= icon_link_to "circle-x", url_for(action: :destroy, id: feature, controller: "features"), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>
   </td>
 </tr>
