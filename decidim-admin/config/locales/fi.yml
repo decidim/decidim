@@ -274,9 +274,6 @@ fi:
             name: Nimi
             phone: Puhelinnumero
             users_count: Käyttäjämäärä
-      moderations:
-        index:
-          title: Otsikko
       newsletters:
         create:
           error: Tämän uutiskirjeen luonnissa tapahtui virhe.
