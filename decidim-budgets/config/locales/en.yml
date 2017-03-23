@@ -18,6 +18,7 @@ en:
         edit: Edit
         new: New %{name}
         title: Actions
+        preview: Preview
       admin:
         models:
           project:

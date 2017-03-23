@@ -47,15 +47,15 @@
               <% end %>
               <td class="table-list__actions">
                 <% if can? :update, current_feature %>
-                  <%= icon_link_to "pencil", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings") %>
+                  <%= icon_link_to "pencil", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings"), class: "action-icon--edit" %>
                 <% end %>
 
                 <% if can? :update, current_feature %>
-                  <%= icon_link_to "lock-locked", edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), t("actions.close", scope: "decidim.meetings") %>
+                  <%= icon_link_to "lock-locked", edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), t("actions.close", scope: "decidim.meetings"), class: "action-icon--close" %>
                 <% end %>
 
                 <% if can? :update, current_feature %>
-                  <%= icon_link_to "paperclip", meeting_attachments_path(meeting), t("actions.attachments", scope: "decidim.meetings") %>
+                  <%= icon_link_to "paperclip", meeting_attachments_path(meeting), t("actions.attachments", scope: "decidim.meetings"), class: "action-icon--attachments" %>
                 <% end %>
 
                 <% if can? :destroy, current_feature %>

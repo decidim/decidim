@@ -13,7 +13,7 @@ RSpec.shared_examples "manage meetings" do
 
   it "updates a meeting" do
     within find("tr", text: translated(meeting.title)) do
-      click_link "Edit"
+      page.find('a.action-icon--edit').click
     end
 
     within ".edit_meeting" do
@@ -50,7 +50,7 @@ RSpec.shared_examples "manage meetings" do
   end
 
   it "creates a new meeting" do
-    find(".actions .new").click
+    click_link "New Meeting"
 
     within ".new_meeting" do
       fill_in_i18n(
@@ -110,7 +110,7 @@ RSpec.shared_examples "manage meetings" do
 
     it "deletes a meeting" do
       within find("tr", text: translated(meeting2.title)) do
-        click_link "Delete"
+        page.find('a.action-icon--remove').click
       end
 
       within ".callout-wrapper" do
@@ -130,7 +130,7 @@ RSpec.shared_examples "manage meetings" do
 
     it "updates a meeting" do
       within find("tr", text: translated(meeting.title)) do
-        click_link "Edit"
+        page.find('a.action-icon--edit').click
       end
 
       within ".edit_meeting" do
@@ -156,7 +156,7 @@ RSpec.shared_examples "manage meetings" do
     end
 
     it "creates a new meeting" do
-      find(".actions .new").click
+      click_link "New Meeting"
 
       within ".new_meeting" do
         fill_in_i18n(
@@ -216,7 +216,7 @@ RSpec.shared_examples "manage meetings" do
 
     it "closes a meeting with a report" do
       within find("tr", text: translated(meeting.title)) do
-        click_link "Close"
+        page.find('a.action-icon--close').click
       end
 
       within ".edit_close_meeting" do
@@ -250,7 +250,7 @@ RSpec.shared_examples "manage meetings" do
 
       it "can update the information" do
         within find("tr", text: translated(meeting.title)) do
-          click_link "Close"
+          page.find('a.action-icon--close').click
         end
 
         within ".edit_close_meeting" do

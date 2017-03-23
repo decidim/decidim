@@ -3,7 +3,7 @@
 RSpec.shared_examples "manage projects" do
   it "updates a project" do
     within find("tr", text: translated(project.title)) do
-      click_link "Edit"
+      find("a.action-icon--edit").click
     end
 
     within ".edit_project" do
@@ -61,7 +61,7 @@ RSpec.shared_examples "manage projects" do
   end
 
   it "creates a new project" do
-    find(".actions .new").click
+    click_link "New Project"
 
     within ".new_project" do
       fill_in_i18n(
@@ -104,7 +104,7 @@ RSpec.shared_examples "manage projects" do
 
     it "deletes a project" do
       within find("tr", text: translated(project2.title)) do
-        click_link "Delete"
+        find("a.action-icon--remove").click
       end
 
       within ".callout-wrapper" do

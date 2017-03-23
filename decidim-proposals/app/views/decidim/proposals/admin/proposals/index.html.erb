@@ -51,7 +51,7 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
-                <%= icon_link_to "eye", decidim_proposals.proposal_path(id: proposal, feature_id: current_feature, participatory_process_id: current_participatory_process), t("actions.preview", scope: "decidim.admin"), target: :blank %>
+                <%= icon_link_to "eye", decidim_proposals.proposal_path(id: proposal, feature_id: current_feature, participatory_process_id: current_participatory_process), t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank %>
               </td>
             </tr>
           <% end %>
