@@ -1,0 +1,6 @@
+  <%= decidim_form_for(@form, html: { class: "form new_participatory_user_role" }) do |f| %>
+    <%= render partial: 'form', object: f %>
+    <div class="button--double form-general-submit">
+      <%= f.submit t(".create") %>
+    </div>
+  <% end %>

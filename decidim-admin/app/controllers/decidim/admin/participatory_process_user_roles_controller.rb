@@ -14,6 +14,11 @@ module Decidim
         authorize! :read, Decidim::Admin::ParticipatoryProcessUserRole
       end
 
+      def new
+        authorize! :create, Decidim::Admin::ParticipatoryProcessUserRole
+        @form = form(ParticipatoryProcessUserRoleForm).instance
+      end
+
       def create
         authorize! :create, Decidim::Admin::ParticipatoryProcessUserRole
         @form = form(ParticipatoryProcessUserRoleForm).from_params(params)
@@ -27,6 +32,30 @@ module Decidim
             flash[:alert] = I18n.t("participatory_process_user_roles.create.error", scope: "decidim.admin")
           end
           redirect_to participatory_process_user_roles_path(participatory_process)
+        end
+      end
+
+      def edit
+        @user_role = collection.find(params[:id])
+        authorize! :update, @user_role
+        @form = form(ParticipatoryProcessUserRoleForm).from_model(@user_role.user, current_process: participatory_process)
+      end
+
+      def update
+        @user_role = collection.find(params[:id])
+        authorize! :update, @user_role
+        @form = form(ParticipatoryProcessUserRoleForm).from_params(params, current_process: participatory_process)
+
+        UpdateParticipatoryProcessAdmin.call(@user_role, @form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("user_roles.update.success", scope: "decidim.admin")
+            redirect_to participatory_process_user_roles_path(participatory_process)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("user_roles.update.error", scope: "decidim.admin")
+            render :edit
+          end
         end
       end
 
