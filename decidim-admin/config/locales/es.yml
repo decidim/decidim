@@ -274,9 +274,6 @@ es:
             name: Nombre
             phone: Teléfono
             users_count: Número de usuarios
-      moderations:
-        index:
-          title: Grupo de procesos participativos
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
