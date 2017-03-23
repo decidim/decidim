@@ -274,9 +274,6 @@ ca:
             name: Nom
             phone: Telèfon
             users_count: Número d'usuaris
-      moderations:
-        index:
-          title: Grup de processos participatius
       newsletters:
         create:
           error: S'ha produït un error en crear aquest butlletí.
