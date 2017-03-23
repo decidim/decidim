@@ -81,5 +81,9 @@ module Decidim
     def documents
       @documents ||= attachments.select(&:document?)
     end
+
+    def hashtag
+      attributes["hashtag"].to_s.gsub("#", "")
+    end
   end
 end

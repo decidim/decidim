@@ -10,9 +10,11 @@
         </div>
         <div>
           <h2 class="text-highlight heading-small">
-            <span class="process-header__hashtag">
-              <%= current_participatory_process.hashtag %>
-            </span>
+            <% if current_participatory_process.hashtag.present? %>
+              <span class="process-header__hashtag">
+                <%= link_to "##{current_participatory_process.hashtag}", "https://twitter.com/hashtag/#{current_participatory_process.hashtag}" %>
+              </span>
+            <% end %>
             <%= translated_attribute(current_participatory_process.subtitle) %>
           </h2>
         </div>
