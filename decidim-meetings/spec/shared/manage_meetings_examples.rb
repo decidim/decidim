@@ -40,9 +40,11 @@ RSpec.shared_examples "manage meetings" do
 
   context "previewing meetings" do
     it "allows the user to preview the meeting" do
-      new_window = window_opened_by { click_link translated(meeting.title) }
+      within find("tr", text: translated(meeting.title)) do
+        @new_window = window_opened_by { find("a.action-icon--preview").click }
+      end
 
-      within_window new_window do
+      within_window @new_window do
         expect(current_path).to eq decidim_meetings.meeting_path(id: meeting.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
         expect(page).to have_content(translated(meeting.title))
       end

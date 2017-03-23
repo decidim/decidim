@@ -25,7 +25,7 @@
           <% meetings.each do |meeting| %>
             <tr data-id="<%= meeting.id %>">
               <td>
-                <%= link_to translated_attribute(meeting.title), decidim_meetings.meeting_path(id: meeting, feature_id: current_feature, participatory_process_id: current_participatory_process), target: :blank %><br />
+                <%= translated_attribute(meeting.title) %><br />
               </td>
               <td>
                 <% if meeting.start_time %>
@@ -46,6 +46,8 @@
                 </td>
               <% end %>
               <td class="table-list__actions">
+                <%= icon_link_to "eye", decidim_meetings.meeting_path(id: meeting, feature_id: current_feature, participatory_process_id: current_participatory_process), t("actions.preview", scope: "decidim.meetings"), class: "action-icon--preview", target: :blank %><br />
+
                 <% if can? :update, current_feature %>
                   <%= icon_link_to "pencil", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings"), class: "action-icon--edit" %>
                 <% end %>

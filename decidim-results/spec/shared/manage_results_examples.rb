@@ -30,10 +30,10 @@ RSpec.shared_examples "manage results" do
   context "previewing results" do
     it "allows the user to preview the result" do
       within find("tr", text: translated(result.title)) do
-        new_window = window_opened_by { find("a.action-icon--preview").click }
+        @new_window = window_opened_by { find("a.action-icon--preview").click }
       end
 
-      within_window new_window do
+      within_window @new_window do
         expect(current_path).to eq decidim_results.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
         expect(page).to have_content(translated(result.title))
       end

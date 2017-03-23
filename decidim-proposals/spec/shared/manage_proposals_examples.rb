@@ -14,10 +14,10 @@ RSpec.shared_examples "manage proposals" do
   context "previewing proposals" do
     it "allows the user to preview the proposal" do
       within find("tr", text: proposal.title) do
-        new_window = window_opened_by { find("a.action-icon--preview").click }
+        @new_window = window_opened_by { find("a.action-icon--preview").click }
       end
 
-      within_window new_window do
+      within_window @new_window do
         expect(current_path).to eq decidim_proposals.proposal_path(id: proposal.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
         expect(page).to have_content(translated(proposal.title))
       end

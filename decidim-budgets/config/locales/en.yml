@@ -17,8 +17,8 @@ en:
         destroy: Delete
         edit: Edit
         new: New %{name}
-        title: Actions
         preview: Preview
+        title: Actions
       admin:
         models:
           project:

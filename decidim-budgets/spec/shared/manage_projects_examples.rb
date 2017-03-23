@@ -29,9 +29,11 @@ RSpec.shared_examples "manage projects" do
 
   context "previewing projects" do
     it "allows the user to preview the project" do
-      new_window = window_opened_by { click_link translated(project.title) }
+      within find("tr", text: translated(project.title)) do
+        @new_window = window_opened_by { find("a.action-icon--preview").click }
+      end
 
-      within_window new_window do
+      within_window @new_window do
         expect(current_path).to eq decidim_budgets.project_path(id: project.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
         expect(page).to have_content(translated(project.title))
       end

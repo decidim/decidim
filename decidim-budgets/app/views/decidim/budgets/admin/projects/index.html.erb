@@ -26,7 +26,7 @@
                <%= project.confirmed_orders_count %>
               </td>
               <td class="table-list__actions">
-                <%= icon_link_to "eye", decidim_budgets.project_path(id: project, feature_id: current_feature, participatory_process_id: current_participatory_process), t("actions.preview", scope: "decidim.admin"), target: :blank, class: "action-icon--preview" %>
+                <%= icon_link_to "eye", decidim_budgets.project_path(id: project, feature_id: current_feature, participatory_process_id: current_participatory_process), t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
 
                 <% if can? :update, current_feature %>
                   <%= icon_link_to "pencil", edit_project_path(project), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
