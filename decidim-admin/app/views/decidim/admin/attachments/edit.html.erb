@@ -1,9 +1,7 @@
-<h3><%= t ".title" %></h3>
+<%= decidim_form_for(@form, url: url_for([@attachment.attached_to, @attachment]), html: { class: "form edit_participatory_process_attachment" }) do |f| %>
+  <%= render partial: 'decidim/admin/attachments/form', object: f, locals: { title: t(".title") } %>
 
-<%= decidim_form_for(@form, url: url_for([@attachment.attached_to, @attachment])) do |f| %>
-  <%= render partial: 'decidim/admin/attachments/form', object: f %>
-
-  <div class="actions">
+  <div class="button--double form-general-submit">
     <%= f.submit t(".update") %>
   </div>
 <% end %>
