@@ -32,7 +32,7 @@
                   <% if can? :destroy, category %>
                     <%= icon_link_to "circle-x", participatory_process_category_path(participatory_process, category), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                   <% end %>
-                  </td>
+                </td>
               </tr>
               <% category.subcategories.each do |subcategory| %>
                 <tr class="extra__table-list__subcategory">
