@@ -274,6 +274,9 @@ es:
             name: Nombre
             phone: Teléfono
             users_count: Número de usuarios
+      moderations:
+        index:
+          title: Moderaciones
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
