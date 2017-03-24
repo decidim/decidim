@@ -188,7 +188,7 @@ RSpec.shared_examples "manage proposals" do
         end
 
         within ".edit_proposal_answer" do
-          fill_in_i18n(
+          fill_in_i18n_editor(
             :proposal_answer_answer,
             "#answer-tabs",
             en: "The proposal doesn't make any sense",
