@@ -1,37 +1,54 @@
-<h2><%= t(".title") %></h2>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_project_path, class: 'button tiny button--title' if can? :manage, current_feature %>
+    </h2>
+  </div>
 
-<dl>
-  <dt><%= t ".finished_orders" %>: </dt><dd><%= finished_orders.count %></dd>
-  <dt><%= t ".pending_orders" %>: </dt><dd><%= pending_orders.count %></dd>
-</dl>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.project.fields.title", scope: "decidim.budgets") %></th>
+            <th class="center"><%= t("index.confirmed_orders_count") %></th>
+            <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% projects.each do |project| %>
+            <tr data-id="<%= project.id %>">
+              <td>
+                <%= translated_attribute(project.title) %><br />
+              </td>
+              <td class='center'>
+               <%= project.confirmed_orders_count %>
+              </td>
+              <td class="table-list__actions">
+                <%= icon_link_to "eye", decidim_budgets.project_path(id: project, feature_id: current_feature, participatory_process_id: current_participatory_process), t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
 
-<div class="actions title">
-  <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.project.name", scope: "decidim.budgets.admin")), new_project_path, class: 'new' if can? :manage, current_feature %>
+                <% if can? :update, current_feature %>
+                  <%= icon_link_to "pencil", edit_project_path(project), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
+                <% end %>
+
+                <% if can? :update, current_feature %>
+                  <%= icon_link_to "paperclip", project_attachments_path(project), t("actions.attachments", scope: "decidim.budgets"), class: "action-icon--attachments" %>
+                <% end %>
+
+                <% if can? :destroy, current_feature %>
+                  <%= icon_link_to "circle-x", project_path(project), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-divider">
+    <strong><%= t ".finished_orders" %>: </strong><span><%= finished_orders.count %></span>
+    <span>|</span>
+    <strong><%= t ".pending_orders" %>: </strong><span><%= pending_orders.count %></span>
+  </div>
 </div>
-
-<table class="stack">
-  <thead>
-    <tr>
-      <th><%= t("models.project.fields.title", scope: "decidim.budgets") %></th>
-      <th class="center"><%= t("index.confirmed_orders_count") %></th>
-      <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% projects.each do |project| %>
-      <tr data-id="<%= project.id %>">
-        <td>
-          <%= link_to translated_attribute(project.title), decidim_budgets.project_path(id: project, feature_id: current_feature, participatory_process_id: current_participatory_process), target: :blank %><br />
-        </td>
-        <td class='center'>
-         <%= project.confirmed_orders_count %>
-        </td>
-        <td class="actions">
-          <%= link_to t("actions.edit", scope: "decidim.budgets"), edit_project_path(project) if can? :update, current_feature %>
-          <%= link_to t("actions.attachments", scope: "decidim.budgets"), project_attachments_path(project) if can? :update, current_feature %>
-          <%= link_to t("actions.destroy", scope: "decidim.budgets"), project_path(project), method: :delete, class: "small alert button", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } if can? :destroy, current_feature %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
