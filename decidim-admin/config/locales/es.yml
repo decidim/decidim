@@ -276,7 +276,7 @@ es:
             users_count: Número de usuarios
       moderations:
         index:
-          title: Grupo de procesos participativos
+          title: Moderaciones
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
