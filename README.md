@@ -117,7 +117,7 @@ Now you have a new Decidim app created at `<app-name>` 🎉
 In order to develop on decidim, you'll need:
 
 * **PostgreSQL** 9.4+
-* **Ruby** 2.4.0
+* **Ruby** 2.4.1
 * **NodeJS** with **yarn** (JavaScript dependency manager, can be installed with `npm install yarn`)
 * **ImageMagick**
 * **PhantomJS**

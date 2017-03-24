@@ -1,4 +1,4 @@
-FROM ruby:2.4.0
+FROM ruby:2.4.1
 MAINTAINER david.morcillo@codegram.com
 
 ENV APP_HOME /decidim
