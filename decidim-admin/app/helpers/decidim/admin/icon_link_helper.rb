@@ -16,11 +16,12 @@ module Decidim
       def icon_link_to(icon_name, link, title, options = {})
         link_to(link,
                 method: options[:method],
-                class: "action-icon " + options[:class],
+                class: "action-icon #{options[:class]}",
                 data: { tooltip: true, disable_hover: false }.merge(options[:data] || {}),
                 tooltip: true,
                 disable_hover: false,
-                title: title) do
+                title: title,
+                target: options[:target]) do
           icon(icon_name)
         end
       end
