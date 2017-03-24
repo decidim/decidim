@@ -274,6 +274,9 @@ ca:
             name: Nom
             phone: Telèfon
             users_count: Número d'usuaris
+      moderations:
+        index:
+          title: Moderacions
       newsletters:
         create:
           error: S'ha produït un error en crear aquest butlletí.
