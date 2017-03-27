@@ -17,8 +17,8 @@ module Decidim
       update_personal_data
       update_avatar
       update_password
-      @user.save!
 
+      @user.save!
       @form.remove_avatar = false
       broadcast(:ok, @user.unconfirmed_email.present?)
     end
