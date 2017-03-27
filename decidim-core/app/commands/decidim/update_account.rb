@@ -17,10 +17,17 @@ module Decidim
       update_personal_data
       update_avatar
       update_password
-      @user.save!
 
-      @form.remove_avatar = false
-      broadcast(:ok, @user.unconfirmed_email.present?)
+      if @user.valid?
+        @user.save!
+        @form.remove_avatar = false
+        broadcast(:ok, @user.unconfirmed_email.present?)
+      else
+        if @user.errors.has_key? :avatar
+          @form.errors.add :avatar, @user.errors[:avatar]
+        end
+        broadcast(:invalid)
+      end
     end
 
     private
