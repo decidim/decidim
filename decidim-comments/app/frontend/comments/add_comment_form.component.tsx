@@ -19,7 +19,7 @@ import {
 interface AddCommentFormProps {
   session: AddCommentFormSessionFragment & {
     user: any;
-  };
+  } | null;
   commentable: AddCommentFormCommentableFragment;
   showTitle?: boolean;
   submitButtonClassName?: string;
@@ -262,27 +262,30 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    */
   private _renderCommentAs() {
     const { session, commentable: { id, type } } = this.props;
-    const { user, verifiedUserGroups } = session;
 
-    if (verifiedUserGroups.length > 0) {
-      return (
-        <div className="field">
-          <label htmlFor={`add-comment-${type}-${id}-user-group-id`}>
-            {I18n.t("components.add_comment_form.form.user_group_id.label")}
-          </label>
-          <select
-            ref={this.setUserGroupIdSelect}
-            id={`add-comment-${type}-${id}-user-group-id`}
-          >
-            <option value="">{user.name}</option>
-            {
-              verifiedUserGroups.map((userGroup) => (
-                <option key={userGroup.id} value={userGroup.id}>{userGroup.name}</option>
-              ))
-            }
-          </select>
-        </div>
-      );
+    if (session) {
+      const { user, verifiedUserGroups } = session;
+
+      if (verifiedUserGroups.length > 0) {
+        return (
+          <div className="field">
+            <label htmlFor={`add-comment-${type}-${id}-user-group-id`}>
+              {I18n.t("components.add_comment_form.form.user_group_id.label")}
+            </label>
+            <select
+              ref={this.setUserGroupIdSelect}
+              id={`add-comment-${type}-${id}-user-group-id`}
+            >
+              <option value="">{user.name}</option>
+              {
+                verifiedUserGroups.map((userGroup) => (
+                  <option key={userGroup.id} value={userGroup.id}>{userGroup.name}</option>
+                ))
+              }
+            </select>
+          </div>
+        );
+      }
     }
 
     return null;
