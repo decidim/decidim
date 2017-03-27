@@ -24,7 +24,7 @@ module Decidim
       # Returns an ActiveRecord::Relation.
       def query
         ParticipatoryProcessUserRole
-          .where(participatory_process: process, role: :admin)
+          .where(participatory_process: process, role: [:admin, :collaborator])
       end
 
       private
