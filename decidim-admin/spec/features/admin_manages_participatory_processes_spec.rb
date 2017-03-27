@@ -70,6 +70,29 @@ describe "Admin manage participatory processes", type: :feature do
     end
   end
 
+  context "updating a participatory process" do
+    let!(:participatory_process3) { create(:participatory_process, organization: organization) }
+
+    before do
+      visit decidim_admin.participatory_processes_path
+    end
+
+    it "update a participatory process without images does not delete them" do
+      click_link translated(participatory_process3.title)
+      click_processes_menu_link "Settings"
+      click_button "Update participatory process"
+
+      within ".flash" do
+        expect(page).to have_content("successfully")
+      end
+
+      within ".tabs-content" do
+        expect(page).to have_css("img[src*='#{participatory_process3.hero_image.url}']")
+        expect(page).to have_css("img[src*='#{participatory_process3.banner_image.url}']")
+      end
+    end
+  end
+
   context "deleting a participatory process" do
     let!(:participatory_process2) { create(:participatory_process, organization: organization) }
 
