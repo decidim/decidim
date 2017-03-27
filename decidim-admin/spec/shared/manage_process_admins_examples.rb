@@ -50,7 +50,7 @@ RSpec.shared_examples "manage process admins examples" do
       end
 
       within ".edit_participatory_process_user_roles" do
-        select "collaborator", from: :participatory_process_user_role_role
+        select "admin", from: :participatory_process_user_role_role
 
         find("*[type=submit]").click
       end
@@ -60,7 +60,7 @@ RSpec.shared_examples "manage process admins examples" do
       end
 
       within "#process_admins table" do
-        expect(page).to have_content("Collaborator")
+        expect(page).to have_content("Administrator")
       end
     end
 
