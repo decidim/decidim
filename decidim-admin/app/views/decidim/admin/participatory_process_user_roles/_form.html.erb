@@ -13,7 +13,7 @@
       <%= form.email_field :email, readonly: @form.persisted? %>
     </div>
     <div class="row column">
-      <%= form.label :roles %>
+      <%= form.label :role %>
       <%= select :participatory_process_user_role, :role, Decidim::Admin::ParticipatoryProcessUserRole::ROLES, include_blank: false %>
     </div>
   </div>

@@ -44,16 +44,16 @@ module Decidim
       def update
         @user_role = collection.find(params[:id])
         authorize! :update, @user_role
-        @form = form(ParticipatoryProcessUserRoleForm).from_params(params, current_process: participatory_process)
+        @form = form(ParticipatoryProcessUserRoleForm).from_params(params)
 
-        UpdateParticipatoryProcessAdmin.call(@user_role, @form) do
+        UpdateParticipatoryProcessAdmin.call(@form, @user_role) do
           on(:ok) do
-            flash[:notice] = I18n.t("user_roles.update.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("participatory_process_user_roles.update.success", scope: "decidim.admin")
             redirect_to participatory_process_user_roles_path(participatory_process)
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("user_roles.update.error", scope: "decidim.admin")
+            flash.now[:alert] = I18n.t("participatory_process_user_roles.update.error", scope: "decidim.admin")
             render :edit
           end
         end

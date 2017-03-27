@@ -154,6 +154,8 @@ en:
               steps_title: Steps
           participatory_process_user_roles:
             index:
+              admin: Adminsitrator
+              collaborator: Collaborator
               process_admins_title: Participatory process admins
       feature_permissions:
         edit:
@@ -248,6 +250,7 @@ en:
         participatory_process_user_role:
           fields:
             email: Email
+            name: Name
             role: Role
         scope:
           fields:
@@ -368,15 +371,19 @@ en:
           success: Participatory process step updated successfully.
       participatory_process_user_roles:
         create:
-          error: There was an error adding an admin for this participatory process.
-          success: Admin created successfully for this participatory process.
+          error: There was an error adding an admin role for this participatory process.
+          success: Admin role created successfully for this participatory process.
         destroy:
-          success: Admin destroyed successfully for this participatory process.
+          success: Admin role destroyed successfully for this participatory process.
         edit:
-          title: Title
+          title: Update participatory process admin role.
           update: Update
         new:
           create: Create
+          title: New participatory process admin role.
+        update:
+          error: There was an error updated an admin role for this participatory process.
+          success: Admin role updated successfully for this participatory process.
       participatory_processes:
         create:
           error: There was an error creating a new participatory process.

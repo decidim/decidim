@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t(".process_admins_title", scope: "decidim.admin") %>
       <% if can? :create, Decidim::Admin::ParticipatoryProcessUserRole %>
-         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_step.name", scope: "decidim.admin")), new_participatory_process_user_role_path(participatory_process), class: 'button tiny button--title' %>
+         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_step.name", scope: "decidim.admin")), new_participatory_process_user_role_path(participatory_process), class: 'button tiny button--title new' %>
       <% end %>
     </h2>
   </div>
@@ -13,6 +13,7 @@
       <table class="stack">
         <thead>
           <tr>
+            <th><%= t("models.participatory_process_user_role.fields.name", scope: "decidim.admin") %></th>
             <th><%= t("models.participatory_process_user_role.fields.email", scope: "decidim.admin") %></th>
             <th><%= t("models.participatory_process_user_role.fields.role", scope: "decidim.admin") %></th>
             <th class="actions"></th>
@@ -21,11 +22,14 @@
         <tbody>
           <% process_admin_roles.each do |role| %>
             <tr>
-                <td>
+              <td>
+                <%= role.user.name %><br />
+              </td>
+              <td>
                 <%= role.user.email %><br />
               </td>
               <td>
-                <%= role.user.roles[0] %><br />
+                <%= t(".#{role.role}", scope: "decidim.admin") %><br />
               </td>
               <td class="table-list__actions">
                 <% if can? :update, role %>
