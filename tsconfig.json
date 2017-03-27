@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "skipLibCheck": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "moduleResolution": "node"
+    },
+    "includes": [
+        "decidim-comments/app/frontend/**/*.tsx",
+        "decidim-comments/app/frontend/**/*.ts",
+        "webpack.d.ts"
+    ]
+}

@@ -12,25 +12,26 @@ module.exports = env => {
 
   const config = webpackValidator({
     entry: {
-      comments: './decidim-comments/app/frontend/entry.js'
+      comments: './decidim-comments/app/frontend/entry.ts'
     },
     output: {
       path: __dirname,
       filename: 'decidim-[name]/app/assets/javascripts/decidim/[name]/bundle.js'
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.graphql', '.yml']
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.yml']
     },
     devtool: ifProd('source-map', 'eval'),
     module: {
-      noParse: [
-        /\/sinon\.js/
-      ],
       loaders: [
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
           loaders: ['babel-loader', 'eslint-loader']
+        },
+        {
+          test: /\.tsx?$/,
+          loaders: ['awesome-typescript-loader']
         },
         {
           test: /\.js.es6$/,
@@ -42,7 +43,8 @@ module.exports = env => {
         },
         {
           test: /\.(graphql|gql)$/,
-          loaders: ['raw-loader']
+          exclude: /node_modules/,
+          loader: 'graphql-tag/loader'
         },
         {
           test: /\.json$/,

@@ -1,0 +1,9 @@
+#import "../fragments/comment.fragment.graphql"
+
+mutation UpVote($id: ID!) {
+  comment(id: $id) {
+    upVote {
+      ...Comment
+    }
+  }
+}

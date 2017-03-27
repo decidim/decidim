@@ -1,0 +1,20 @@
+#import "../fragments/up_vote.fragment.graphql"
+#import "../fragments/down_vote.fragment.graphql"
+
+fragment CommentData on Comment {
+  id
+  sgid
+  type
+  body
+  createdAt
+  author {
+    name
+    avatarUrl
+  }
+  hasComments
+  acceptsNewComments
+  alignment
+  alreadyReported
+  ...UpVote
+  ...DownVote
+}

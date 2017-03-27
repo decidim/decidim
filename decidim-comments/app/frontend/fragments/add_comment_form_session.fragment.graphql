@@ -1,0 +1,6 @@
+fragment AddCommentFormSession on Session {
+  verifiedUserGroups {
+    id
+    name
+  }
+}

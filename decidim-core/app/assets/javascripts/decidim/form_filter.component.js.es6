@@ -1,4 +1,4 @@
-/* eslint-disable no-div-regex, no-useless-escape, no-param-reassign */
+/* eslint-disable no-div-regex, no-useless-escape, no-param-reassign, id-length */
 
 /**
  * A plain Javascript component that handles the form filter.
@@ -7,9 +7,6 @@
  */
 ((exports) => {
   class FormFilterComponent {
-    mounted;
-    $form;
-
     constructor($form) {
       this.$form = $form;
       this.mounted = false;
@@ -102,7 +99,7 @@
     _parseLocationOrderValue() {
       const url = this._getLocation();
       const match = url.match(/order=([^&]*)/);
-      const $orderMenu = $('.order-by .menu');
+      const $orderMenu = this.$form.find('.order-by .menu');
       let order = $orderMenu.find('.menu a:first').data('order');
 
       if (match) {
