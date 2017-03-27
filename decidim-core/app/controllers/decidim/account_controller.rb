@@ -19,10 +19,10 @@ module Decidim
       UpdateAccount.call(current_user, @account) do
         on(:ok) do |_account, unconfirmed_email|
           flash.now[:notice] = if unconfirmed_email
-                                t("account.update.success_with_email_confirmation", scope: "decidim")
-                              else
-                                t("account.update.success", scope: "decidim")
-                              end
+                                 t("account.update.success_with_email_confirmation", scope: "decidim")
+                               else
+                                 t("account.update.success", scope: "decidim")
+                               end
 
           bypass_sign_in(current_user)
         end
