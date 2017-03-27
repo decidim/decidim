@@ -5,3 +5,4 @@ ignore_unused:
 - "decidim.features.budgets.settings.*"
 - "decidim.features.budgets.actions.*"
 - "activemodel.attributes.project.*"
+- "decidim.resource_links.*"
