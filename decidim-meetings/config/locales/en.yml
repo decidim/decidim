@@ -62,6 +62,7 @@ en:
       meetings:
         filters:
           category: Category
+          category_prompt: Select a category
           date: Date
           past: Past
           scopes: Scopes

@@ -84,6 +84,7 @@ en:
           activity: Activity
           all: All
           category: Category
+          category_prompt: Select a category
           citizenship: Citizenship
           official: Official
           origin: Origin

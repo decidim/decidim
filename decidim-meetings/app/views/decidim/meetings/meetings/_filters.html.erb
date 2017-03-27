@@ -21,6 +21,6 @@
   <% end %>
 
   <% if current_feature.categories.any? %>
-    <%= form.categories_select :category_id, current_feature.categories, legend_title: t(".category"), disable_parents: false, label: false, include_blank: true %>
+    <%= form.categories_select :category_id, current_feature.categories, legend_title: t(".category"), disable_parents: false, label: false, prompt: t('.category_prompt') %>
   <% end %>
 <% end %>
