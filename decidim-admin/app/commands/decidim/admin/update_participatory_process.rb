@@ -34,7 +34,7 @@ module Decidim
 
       private
 
-      attr_reader :form
+      attr_reader :form, :participatory_process
 
       def update_participatory_process
         @participatory_process.assign_attributes(attributes)
@@ -47,8 +47,8 @@ module Decidim
           subtitle: form.subtitle,
           slug: form.slug,
           hashtag: form.hashtag,
-          hero_image: form.hero_image,
-          banner_image: form.banner_image,
+          hero_image: form.hero_image || participatory_process.hero_image,
+          banner_image: form.banner_image || participatory_process.banner_image,
           promoted: form.promoted,
           description: form.description,
           short_description: form.short_description,
