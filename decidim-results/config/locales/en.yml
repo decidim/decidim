@@ -61,6 +61,7 @@ en:
             other: "%{count} results"
         filters:
           category: Category
+          category_prompt: Select a category
           scopes: Scopes
           search: Search
         filters_small_view:
