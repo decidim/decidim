@@ -277,7 +277,7 @@ en:
             users_count: Users count
       moderations:
         index:
-          title: Title
+          title: Moderations
       newsletters:
         create:
           error: There's been an error creating this newsletter.

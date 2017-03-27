@@ -1,65 +1,75 @@
-<h2><%= t(".title") %></h2>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
 
-<div class="actions title">
-  <%= link_to t("actions.not_hidden", scope: "decidim.moderations"), decidim_admin.participatory_process_moderations_path %>
-  |
-  <%= link_to t("actions.hidden", scope: "decidim.moderations"), decidim_admin.participatory_process_moderations_path(hidden: true) %>
-</div>
+      <div class="card__filter">
+        <%= link_to t("actions.not_hidden", scope: "decidim.moderations"), decidim_admin.participatory_process_moderations_path %>
+        |
+        <%= link_to t("actions.hidden", scope: "decidim.moderations"), decidim_admin.participatory_process_moderations_path(hidden: true) %>
+      </div>
+    </h2>
+  </div>
 
-<table class="stack">
-  <thead>
-    <tr>
-      <th><%= t("models.moderation.fields.reportable", scope: "decidim.moderations") %></th>
-      <th><%= t("models.moderation.fields.reported_content", scope: "decidim.moderations") %></th>
-      <th><%= t("models.moderation.fields.reports", scope: "decidim.moderations") %></th>
-      <th><%= t("models.moderation.fields.report_count", scope: "decidim.moderations") %></th>
-      <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
-      <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% moderations.each do |moderation| %>
-      <tr data-id="<%= moderation.id %>">
-        <td>
-          <%= moderation.reportable.class.name %>
-        </td>
-        <td>
-          <%= moderation.reportable.reported_content %>
-        </td>
-        <td>
-          <ul>
-            <% moderation.reports.each do |report| %>
-              <li>
-                <% if report.details.blank? %>
-                  <%= report.reason %>
-                <% else %>
-                  <span
-                    data-tooltip
-                    aria-haspopup="true"
-                    class="has-tip"
-                    title="<%= report.details %>">
-                      <%= report.reason %>
-                  </span>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.moderation.fields.reportable", scope: "decidim.moderations") %></th>
+            <th><%= t("models.moderation.fields.reported_content", scope: "decidim.moderations") %></th>
+            <th><%= t("models.moderation.fields.reports", scope: "decidim.moderations") %></th>
+            <th><%= t("models.moderation.fields.report_count", scope: "decidim.moderations") %></th>
+            <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
+            <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% moderations.each do |moderation| %>
+            <tr data-id="<%= moderation.id %>">
+              <td>
+                <%= moderation.reportable.class.name %>
+              </td>
+              <td>
+                <%= moderation.reportable.reported_content %>
+              </td>
+              <td>
+                <ul>
+                  <% moderation.reports.each do |report| %>
+                    <li>
+                      <% if report.details.blank? %>
+                        <%= report.reason %>
+                      <% else %>
+                        <span
+                          data-tooltip
+                          aria-haspopup="true"
+                          class="has-tip"
+                          title="<%= report.details %>">
+                            <%= report.reason %>
+                        </span>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </td>
+              <td>
+                <%= moderation.report_count %>
+              </td>
+              <td>
+                <%= l moderation.hidden_at if moderation.hidden_at.present? %>
+              </td>
+              <td class="actions">
+                <% if can? :unreport, moderation %>
+                  <%= link_to t("actions.unreport", scope: "decidim.moderations"), decidim_admin.unreport_participatory_process_moderation_path(id: moderation), method: :put, class: "button" %>
                 <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </td>
-        <td>
-          <%= moderation.report_count %>
-        </td>
-        <td>
-          <%= l moderation.hidden_at if moderation.hidden_at.present? %>
-        </td>
-        <td class="actions">
-          <% if can? :unreport, moderation %>
-            <%= link_to t("actions.unreport", scope: "decidim.moderations"), decidim_admin.unreport_participatory_process_moderation_path(id: moderation), method: :put, class: "button" %>
+                <% if !moderation.reportable.hidden? && can?(:hide, moderation) %>
+                  | <%= link_to t("actions.hide", scope: "decidim.moderations"), decidim_admin.hide_participatory_process_moderation_path(id: moderation), method: :put, class: "button" %>
+                <% end %>
+              </td>
+            </tr>
           <% end %>
-          <% if !moderation.reportable.hidden? && can?(:hide, moderation) %>
-            | <%= link_to t("actions.hide", scope: "decidim.moderations"), decidim_admin.hide_participatory_process_moderation_path(id: moderation), method: :put, class: "button" %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
