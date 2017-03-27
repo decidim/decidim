@@ -233,5 +233,27 @@ describe "Orders", type: :feature do
       expect(page).to have_i18n_content(project.title)
       expect(page).to have_i18n_content(project.description)
     end
+
+    context "with linked proposals" do
+      let(:proposal_feature) do
+        create(:feature, manifest_name: :proposals, participatory_process: project.feature.participatory_process)
+      end
+      let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+
+      before do
+        project.link_resources(proposals, "included_proposals")
+      end
+
+      it "shows related proposals" do
+        visit_feature
+        click_link translated(project.title)
+
+        proposals.each do |proposal|
+          expect(page).to have_content(proposal.title)
+          expect(page).to have_content(proposal.author_name)
+          expect(page).to have_content(proposal.votes.size)
+        end
+      end
+    end
   end
 end
