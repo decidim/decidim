@@ -19,18 +19,19 @@ env:
     - PHANTOMJS_BIN="$HOME/travis_phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64/bin/phantomjs"
   matrix:
     - GEM=. DB=postgres
-    - GEM=decidim-admin DB=postgres
-    - GEM=decidim-core DB=postgres
-    - GEM=decidim-system DB=postgres
-    - GEM=decidim-api DB=postgres
-    - GEM=decidim-pages DB=postgres
-    - GEM=decidim-comments DB=postgres
-    - GEM=decidim-meetings DB=postgres
-    - GEM=decidim-proposals DB=postgres
-    - GEM=decidim-results DB=postgres
-    - GEM=decidim-budgets DB=postgres
+    # - GEM=decidim-admin DB=postgres
+    # - GEM=decidim-core DB=postgres
+    # - GEM=decidim-system DB=postgres
+    # - GEM=decidim-api DB=postgres
+    # - GEM=decidim-pages DB=postgres
+    # - GEM=decidim-comments DB=postgres
+    # - GEM=decidim-meetings DB=postgres
+    # - GEM=decidim-proposals DB=postgres
+    # - GEM=decidim-results DB=postgres
+    # - GEM=decidim-budgets DB=postgres
 
 before_install:
+  - nvm install 7
   # Upgrade PhantomJS
   - "export PATH=$HOME/travis_phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64/bin:$PATH"
   - "if [ $(phantomjs --version) != $PHANTOMJS_VERSION ]; then rm -rf $HOME/travis_phantomjs; mkdir -p $HOME/travis_phantomjs; fi"
@@ -38,12 +39,8 @@ before_install:
   - "if [ $(phantomjs --version) != $PHANTOMJS_VERSION ]; then tar -xvf $HOME/travis_phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 -C $HOME/travis_phantomjs; fi"
   - "phantomjs --version"
   # Repo for newer Node.js versions
-  - curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
   - gem update --system
   - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
-  - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  - sudo apt-get update -qq
-  - sudo apt-get install -y -qq yarn
   - yarn --ignore-engines
 
 bundler_args: --jobs=3 --retry=3 --deployment --path="$HOME/.bundle"
