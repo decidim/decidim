@@ -141,6 +141,9 @@ en:
         update:
           error: There was an error updating this category.
           success: Category updated successfully.
+      dashboard:
+        show:
+          welcome: Welcome to the new Decidim Panel Admin.
       decidim:
         admin:
           attachments:
