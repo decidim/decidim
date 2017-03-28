@@ -71,6 +71,7 @@ ca:
             other: "%{count} projectes"
         filters:
           category: Categoria
+          category_prompt: Selecciona una categoria
           scopes: Àmbits
           search: Cerca
         filters_small_view:
@@ -118,6 +119,9 @@ ca:
       destroy:
         error: S'ha produït un error en cancel·lar el seu vot
         success: El seu vot ha estat cancel·lat correctament
+    resource_links:
+      included_proposals:
+        project_proposals: 'Propostes incloses en aquest projecte:'
   index:
     confirmed_orders_count: Nombre de vots
   total_budget: Pressupost total
