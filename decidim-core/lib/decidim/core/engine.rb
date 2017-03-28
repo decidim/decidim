@@ -35,6 +35,7 @@ require "geocoder"
 require "decidim/api"
 
 require "decidim/query_extensions"
+require "decidim/i18n_exceptions"
 
 module Decidim
   module Core
