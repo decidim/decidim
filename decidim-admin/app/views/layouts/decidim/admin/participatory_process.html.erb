@@ -14,19 +14,17 @@
       <% if can? :read, Decidim::Feature %>
         <li <% if is_active_link?(decidim_admin.participatory_process_features_path(participatory_process)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("features", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_features_path(participatory_process) %>
-          <% if is_active_link?(decidim_admin.participatory_process_features_path(participatory_process)) %>
-            <ul>
-              <% participatory_process.features.each do |feature| %>
-                <% if feature.manifest.admin_engine %>
-                  <li <% if is_active_link?(decidim_admin.manage_feature_path(participatory_process, feature)) %> class="is-active" <% end %>>
-                    <%= link_to decidim_admin.manage_feature_path(participatory_process, feature) do %>
-                      <%= translated_attribute feature.name %>
-                    <% end %>
-                  </li>
-                <% end %>
+          <ul>
+            <% participatory_process.features.each do |feature| %>
+              <% if feature.manifest.admin_engine %>
+                <li <% if is_active_link?(decidim_admin.manage_feature_path(participatory_process, feature)) %> class="is-active" <% end %>>
+                  <%= link_to decidim_admin.manage_feature_path(participatory_process, feature) do %>
+                    <%= translated_attribute feature.name %>
+                  <% end %>
+                </li>
               <% end %>
-            </ul>
-          <% end %>
+            <% end %>
+          </ul>
         </li>
       <% end %>
       <% if can? :read, Decidim::Category %>

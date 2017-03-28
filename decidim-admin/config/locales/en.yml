@@ -28,6 +28,7 @@ en:
         official_img_footer: Official logo footer
         official_img_header: Official logo header
         official_url: Official organization url
+        reference_prefix: Reference prefix
         show_statistics: Show statistics
         welcome_text: Welcome text
       participatory_process:
@@ -40,15 +41,21 @@ en:
         hero_image: Home image
         local_area: Local area
         meta_scope: Scope metadata
+        participatory_process_group_id: Processes group
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
-        scope: Scope
+        scope_id: Scope
         short_description: Short description
         slug: URL slug
         subtitle: Subtitle
         target: Target
         title: Title
+      participatory_process_group:
+        name: Name
+        description: Description
+        participatory_process_ids: Related processes
+        hero_image: Image
       participatory_process_step:
         description: Description
         end_date: End date
