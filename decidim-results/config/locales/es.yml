@@ -60,6 +60,7 @@ es:
             other: "%{count} resultados"
         filters:
           category: Categoría
+          category_prompt: Selecciona una categoría
           scopes: Ámbitos
           search: Buscar
         filters_small_view:

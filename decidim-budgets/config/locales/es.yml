@@ -71,6 +71,7 @@ es:
             other: "%{count} proyectos"
         filters:
           category: Categoría
+          category_prompt: Selecciona una categoría
           scopes: Ámbitos
           search: Buscar
         filters_small_view:
@@ -118,6 +119,9 @@ es:
       destroy:
         error: Ha habido un error al cancelar tu voto
         success: Tu voto ha sido cancelado correctamente
+    resource_links:
+      included_proposals:
+        project_proposals: 'Propuestas incluidas en este proyecto:'
   index:
     confirmed_orders_count: Número de votos
   total_budget: Presupuesto total

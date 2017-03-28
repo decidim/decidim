@@ -61,6 +61,7 @@ ca:
       meetings:
         filters:
           category: Categoria
+          category_prompt: Selecciona una categoria
           date: Data
           past: Passades
           scopes: Àmbits
