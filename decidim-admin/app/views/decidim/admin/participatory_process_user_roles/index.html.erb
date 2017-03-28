@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t(".process_admins_title", scope: "decidim.admin") %>
       <% if can? :create, Decidim::Admin::ParticipatoryProcessUserRole %>
-         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_step.name", scope: "decidim.admin")), new_participatory_process_user_role_path(participatory_process), class: 'button tiny button--title new' %>
+         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_user_role.name", scope: "decidim.admin")), new_participatory_process_user_role_path(participatory_process), class: 'button tiny button--title new' %>
       <% end %>
     </h2>
   </div>

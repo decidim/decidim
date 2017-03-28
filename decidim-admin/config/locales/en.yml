@@ -52,10 +52,10 @@ en:
         target: Target
         title: Title
       participatory_process_group:
-        name: Name
         description: Description
-        participatory_process_ids: Related processes
         hero_image: Image
+        name: Name
+        participatory_process_ids: Related processes
       participatory_process_step:
         description: Description
         end_date: End date
@@ -64,6 +64,8 @@ en:
         title: Title
       participatory_process_user_role:
         email: Email
+        name: Name
+        role: Role
       scope:
         name: Name
         organization: Organization
@@ -166,7 +168,7 @@ en:
             index:
               admin: Administrator
               collaborator: Collaborator
-              process_admins_title: Participatory process admins
+              process_admins_title: Participatory process users
       feature_permissions:
         edit:
           everyone: Everyone
@@ -216,7 +218,7 @@ en:
           features: Features
           info: Info
           moderations: Moderations
-          process_admins: Process admins
+          process_admins: Process users
           steps: Steps
         scopes: Scopes
         settings: Settings
@@ -262,6 +264,7 @@ en:
             email: Email
             name: Name
             role: Role
+          name: Participatory Process User
         scope:
           fields:
             created_at: Created at
