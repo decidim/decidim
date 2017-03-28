@@ -83,6 +83,7 @@ ca:
           activity: Activitat
           all: Tots
           category: Categoria
+          category_prompt: Selecciona una categoria
           citizenship: Ciutadania
           official: Oficial
           origin: Origen
