@@ -2,12 +2,17 @@
 module Decidim
   module Admin
     # The main application controller that inherits from Rails.
-    class ApplicationController < ActionController::Base
+    class ApplicationController < ::DecidimController
       include NeedsOrganization
       include NeedsAuthorization
       include FormFactory
       include LocaleSwitcher
       include PayloadInfo
+      helper Decidim::Admin::ApplicationHelper
+      helper Decidim::Admin::AttributesDisplayHelper
+      helper Decidim::Admin::FeatureSettingsHelper
+      helper Decidim::Admin::ProcessGroupsForSelectHelper
+      helper Decidim::Admin::ProcessesForSelectHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::OrganizationScopesHelper
