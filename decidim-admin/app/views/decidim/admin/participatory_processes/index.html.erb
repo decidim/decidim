@@ -38,7 +38,7 @@
               </td>
               <td class="table-list__actions">
                 <% if can? :update, process %>
-                  <%= icon_link_to "pencil", edit_participatory_process_path(process), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new", method: :put %>
+                  <%= icon_link_to "pencil", edit_participatory_process_path(process), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
                 <% end %>
 
                 <% if can? :preview, process %>
