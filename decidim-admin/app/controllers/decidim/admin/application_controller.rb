@@ -8,6 +8,11 @@ module Decidim
       include FormFactory
       include LocaleSwitcher
       include PayloadInfo
+      helper Decidim::Admin::ApplicationHelper
+      helper Decidim::Admin::AttributesDisplayHelper
+      helper Decidim::Admin::FeatureSettingsHelper
+      helper Decidim::Admin::ProcessGroupsForSelectHelper
+      helper Decidim::Admin::ProcessesForSelectHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::OrganizationScopesHelper
