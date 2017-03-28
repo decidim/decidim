@@ -100,7 +100,6 @@ en:
         add: Add
         configure: Configure
         confirm_destroy: Are you sure you want to delete this?
-        create: Create
         destroy: Destroy
         edit: Edit
         manage: Manage
@@ -109,7 +108,6 @@ en:
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
-        title: Actions
         unpublish: Unpublish
         verify: Verify
       attachments:
@@ -143,6 +141,9 @@ en:
         update:
           error: There was an error updating this category.
           success: Category updated successfully.
+      dashboard:
+        show:
+          welcome: Welcome to the new Decidim Panel Admin.
       decidim:
         admin:
           attachments:
@@ -156,6 +157,8 @@ en:
               steps_title: Steps
           participatory_process_user_roles:
             index:
+              admin: Administrator
+              collaborator: Collaborator
               process_admins_title: Participatory process admins
       feature_permissions:
         edit:
@@ -250,6 +253,8 @@ en:
         participatory_process_user_role:
           fields:
             email: Email
+            name: Name
+            role: Role
         scope:
           fields:
             created_at: Created at
@@ -369,10 +374,19 @@ en:
           success: Participatory process step updated successfully.
       participatory_process_user_roles:
         create:
-          error: There was an error adding an admin for this participatory process.
-          success: Admin created successfully for this participatory process.
+          error: There was an error adding an user for this participatory process.
+          success: User created successfully for this participatory process.
         destroy:
-          success: Admin destroyed successfully for this participatory process.
+          success: User destroyed successfully for this participatory process.
+        edit:
+          title: Update participatory process user.
+          update: Update
+        new:
+          create: Create
+          title: New participatory process user.
+        update:
+          error: There was an error updated an user for this participatory process.
+          success: User updated successfully for this participatory process.
       participatory_processes:
         create:
           error: There was an error creating a new participatory process.
