@@ -1,4 +1,4 @@
-<%=  decidim_form_for(@form, url: page_path, method: :post, html: { class: "form edit_participatory_process_page" }) do |form| %>
+<%=  decidim_form_for(@form, url: page_path, method: :post, html: { class: "form edit_page" }) do |form| %>
   <%= render partial: 'form', object: form, locals: { title: t('.title') }  %>
 
   <div class="button--double form-general-submit">

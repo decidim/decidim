@@ -1,4 +1,4 @@
-<%= decidim_form_for(@form, url: participatory_process_category_path(@category.participatory_process, @category), html: { class: "form edit_participatory_process_category" }) do |f| %>
+<%= decidim_form_for(@form, url: participatory_process_category_path(@category.participatory_process, @category), html: { class: "form edit_category" }) do |f| %>
   <%= render partial: 'form', object: f, locals: { title: t('.title') } %>
 
   <div class="button--double form-general-submit">
