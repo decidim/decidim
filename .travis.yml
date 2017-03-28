@@ -41,7 +41,6 @@ before_install:
   - "phantomjs --version"
   # Repo for newer Node.js versions
   - gem update --system
-  - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
   - yarn --ignore-engines
 
 bundler_args: --jobs=3 --retry=3 --deployment --path="$HOME/.bundle"
