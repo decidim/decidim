@@ -60,6 +60,7 @@ ca:
             other: "%{count} resultats"
         filters:
           category: Categoria
+          category_prompt: Selecciona una categoria
           scopes: Àmbits
           search: Cerca
         filters_small_view:
