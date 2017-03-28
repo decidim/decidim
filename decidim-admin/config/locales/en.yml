@@ -374,19 +374,19 @@ en:
           success: Participatory process step updated successfully.
       participatory_process_user_roles:
         create:
-          error: There was an error adding an admin role for this participatory process.
-          success: Admin role created successfully for this participatory process.
+          error: There was an error adding an admingo for this participatory process.
+          success: Admingo created successfully for this participatory process.
         destroy:
-          success: Admin role destroyed successfully for this participatory process.
+          success: Admingo destroyed successfully for this participatory process.
         edit:
-          title: Update participatory process admin role.
+          title: Update participatory process admingo.
           update: Update
         new:
           create: Create
-          title: New participatory process admin role.
+          title: New participatory process admingo.
         update:
-          error: There was an error updated an admin role for this participatory process.
-          success: Admin role updated successfully for this participatory process.
+          error: There was an error updated an admingo for this participatory process.
+          success: Admingo updated successfully for this participatory process.
       participatory_processes:
         create:
           error: There was an error creating a new participatory process.
