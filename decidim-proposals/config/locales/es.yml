@@ -83,6 +83,7 @@ es:
           activity: Actividad
           all: Todas
           category: Categoría
+          category_prompt: Selecciona una categoría
           citizenship: Ciudadanía
           official: Oficial
           origin: Origen
