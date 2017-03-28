@@ -157,7 +157,7 @@ en:
               steps_title: Steps
           participatory_process_user_roles:
             index:
-              admin: Adminsitrator
+              admin: Administrator
               collaborator: Collaborator
               process_admins_title: Participatory process admins
       feature_permissions:
