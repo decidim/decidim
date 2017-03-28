@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= title %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.text_field :name, readonly: @form.persisted? %>
+    </div>
+    <div class="row column">
+      <%= form.email_field :email, readonly: @form.persisted? %>
+    </div>
+    <div class="row column">
+      <%= form.label :role %>
+      <%= select :participatory_process_user_role, :role, Decidim::Admin::ParticipatoryProcessUserRole::ROLES, include_blank: false %>
+    </div>
+  </div>
+</div>
