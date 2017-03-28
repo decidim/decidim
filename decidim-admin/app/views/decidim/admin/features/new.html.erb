@@ -1,9 +1,13 @@
-<h3><%= t ".title", name: t("#{manifest.name}.name", scope: "decidim.features") %></h3>
-
-<%= decidim_form_for([participatory_process, @form], url: participatory_process_features_path(type: params[:type]), method: "post") do |form| %>
-  <%= render partial: 'form', object: form, locals: { feature: @feature } %>
-
-  <div class="actions">
+<%= decidim_form_for([participatory_process, @form], url: participatory_process_features_path(type: params[:type]), method: "post", html: { class: "new_feature form" }) do |form| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t ".title", name: t("#{manifest.name}.name", scope: "decidim.features") %></h2>
+    </div>
+    <div class="card-section">
+      <%= render partial: 'form', object: form, locals: { feature: @feature } %>
+    </div>
+  </div>
+  <div class="button--double form-general-submit">
     <%= form.submit t(".add") %>
   </div>
 <% end %>
