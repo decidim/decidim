@@ -16,7 +16,7 @@ es:
         body: Cuerpo
         subject: Asunto
       organization:
-        default_locale: Configuración regional predeterminada
+        default_locale: Idioma predeterminado
         description: Descripción
         favicon: Icono
         homepage_image: Imagen de portada
