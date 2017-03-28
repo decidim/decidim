@@ -1,9 +1,6 @@
-<h2 class="process-title-summary">
-  <%= t ".title" %>
-</h2>
 
 <%= decidim_form_for(@form, url: participatory_process_step_path(@participatory_process_step.participatory_process, @participatory_process_step), html: { class: "form edit_participatory_process_step" }) do |f| %>
-  <%= render partial: 'form', object: f %>
+  <%= render partial: 'form', object: f, locals: { title: t('.title') } %>
 
   <div class="button--double form-general-submit">
     <%= f.submit t(".update") %>

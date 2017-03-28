@@ -23,7 +23,7 @@
             <% attached_to.attachments.each do |attachment| %>
               <tr data-id="<%= attachment.id %>">
                 <td>
-                  <%= link_to translated_attribute(attachment.title), polymorphic_path([attached_to, attachment]) %><br />
+                  <%= link_to translated_attribute(attachment.title), edit_polymorphic_path([attached_to, attachment]) %><br />
                 </td>
                 <td>
                   <%= attachment.file_type %>

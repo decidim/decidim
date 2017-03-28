@@ -12,12 +12,18 @@
       <%= form.translated :text_field, :subtitle %>
     </div>
 
-    <div class="row column">
-      <%= form.text_field :slug %>
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.text_field :slug %>
+      </div>
+
+      <div class="columns xlarge-6">
+        <%= form.text_field :hashtag %>
+      </div>
     </div>
 
     <div class="row column">
-      <%= form.text_field :hashtag %>
+      <%= form.check_box :promoted %>
     </div>
 
     <div class="row column">
@@ -28,36 +34,45 @@
       <%= form.translated :editor, :description, toolbar: :full, lines: 25 %>
     </div>
 
-    <div class="row column">
-      <%= form.file_field :hero_image %>
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.file_field :hero_image %>
+      </div>
+
+        <div class="columns xlarge-6">
+        <%= form.file_field :banner_image %>
+      </div>
     </div>
 
-    <div class="row column">
-      <%= form.file_field :banner_image %>
+
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.date_field :end_date %>
+      </div>
+      
+      <div class="columns xlarge-6">
+        <%= form.translated :text_field, :meta_scope %>
+      </div>
     </div>
 
-    <div class="row column">
-      <%= form.check_box :promoted %>
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.translated :text_field, :developer_group %>
+      </div>
+
+      <div class="columns xlarge-6">
+        <%= form.translated :text_field, :local_area %>
+      </div>
     </div>
 
-    <div class="row column">
-      <%= form.date_field :end_date %>
-    </div>
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.translated :text_field, :target %>
+      </div>
 
-    <div class="row column">
-      <%= form.translated :text_field, :meta_scope %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :developer_group %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :local_area %>
-    </div>
-
-    <div class="row column">
-      <%= form.translated :text_field, :target %>
+      <div class="columns xlarge-6">
+        <%= form.collection_select :scope_id, organization_scopes, :id, :name %>
+      </div>
     </div>
 
     <div class="row column">
@@ -66,10 +81,6 @@
 
     <div class="row column">
       <%= form.translated :text_field, :participatory_structure %>
-    </div>
-
-    <div class="row column">
-      <%= form.collection_select :scope_id, organization_scopes, :id, :name %>
     </div>
 
     <div class="row column">
