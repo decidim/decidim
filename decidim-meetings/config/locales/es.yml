@@ -61,6 +61,7 @@ es:
       meetings:
         filters:
           category: Categoría
+          category_prompt: Selecciona una categoría
           date: Fecha
           past: Pasadas
           scopes: Ámbitos
