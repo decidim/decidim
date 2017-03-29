@@ -163,34 +163,34 @@ es:
           success: Permisos actualizados correctamente.
       features:
         create:
-          error: Se ha producido un error al añadir esta funcionalidad.
-          success: Funcionalidad añadida correctamente.
+          error: Se ha producido un error al añadir este componente.
+          success: Componente añadida correctamente.
         destroy:
-          error: Se ha producido un error destruir esta funcionalidad.
-          success: Funcionalidad eliminada correctamente.
+          error: Se ha producido un error destruir este componente.
+          success: Componente eliminada correctamente.
         edit:
-          title: Editar funcionalidad
+          title: Editar componente
           update: Actualizar
         form:
           global_settings: Ajustes globales
           step_settings: Configuración de fase
         index:
-          add: Añadir funcionalidad
+          add: Añadir componente
           headers:
             actions: Acciones
-            name: Nombre de la funcionalidad
-            type: Tipo de funcionalidad
+            name: Nombre de el componente
+            type: Tipo de componente
         new:
-          add: Añadir funcionalidad
-          title: 'Añadir funcionalidad: %{name}'
+          add: Añadir Componente
+          title: 'Añadir componente: %{name}'
         publish:
-          success: La funcionalidad se ha publicado correctamente.
-        title: Funcionalidades
+          success: El componente se ha publicado correctamente.
+        title: Componentes
         unpublish:
-          success: La funcionalidad se ha despublicado correctamente.
+          success: El componente se ha despublicado correctamente.
         update:
-          error: Se ha producido un error al actualizar esta funcionalidad.
-          success: La funcionalidad se ha actualizado correctamente.
+          error: Se ha producido un error al actualizar este componente.
+          success: El componente se ha actualizado correctamente.
       menu:
         dashboard: Panel de control
         newsletters: Boletines
@@ -199,7 +199,7 @@ es:
         participatory_processes_submenu:
           attachments: Archivos adjuntos
           categories: Categorías
-          features: Funcionalidades
+          features: Componentes
           info: Información
           moderations: Denuncias
           process_admins: Administradores del proceso
