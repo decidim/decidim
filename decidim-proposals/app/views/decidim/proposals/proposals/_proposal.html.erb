@@ -1,6 +1,9 @@
 <div class="column">
   <article class="card card--proposal">
     <div class="card__content">
+      <%= link_to proposal_proposal_widget_path(proposal), class: "share__icon" do %>
+        <%= icon "code" %>
+      <% end %>
       <div class="card__header">
         <%= link_to proposal do%>
           <h5 class="card__title"><%= proposal.title %></h5>
