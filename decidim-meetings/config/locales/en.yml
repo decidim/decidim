@@ -47,7 +47,6 @@ en:
           destroy:
             success: Meeting successfully deleted
           edit:
-            title: Edit meeting
             update: Update meeting
           index:
             title: Meetings
