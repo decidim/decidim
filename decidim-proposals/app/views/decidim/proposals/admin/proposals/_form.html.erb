@@ -1,25 +1,33 @@
-<div class="field">
-  <%= form.text_field :title %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_area :body, rows: 10 %>
+    </div>
+
+    <% if feature_settings.geocoding_enabled? %>
+      <div class="row column">
+        <%= form.text_field :address %>
+      </div>
+    <% end %>
+
+    <% if @form.categories&.any? %>
+      <div class="row column">
+        <%= form.categories_select :category_id, @form.categories, prompt: t(".select_a_category") %>
+      </div>
+    <% end %>
+
+    <% if !@form.process_scope %>
+      <div class="row column">
+        <%= form.collection_select :scope_id, organization_scopes, :id, :name %>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<div class="field">
-  <%= form.text_area :body, rows: 10 %>
-</div>
-
-<% if feature_settings.geocoding_enabled? %>
-  <div class="field">
-    <%= form.text_field :address %>
-  </div>
-<% end %>
-
-<% if @form.categories&.any? %>
-  <div class="field">
-    <%= form.categories_select :category_id, @form.categories, prompt: t(".select_a_category") %>
-  </div>
-<% end %>
-
-<% if !@form.process_scope %>
-  <div class="field">
-    <%= form.collection_select :scope_id, organization_scopes, :id, :name %>
-  </div>
-<% end %>

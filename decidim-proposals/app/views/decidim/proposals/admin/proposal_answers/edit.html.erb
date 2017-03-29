@@ -1,15 +1,21 @@
-<h3><%= t ".title", title: proposal.title %></h3>
+<%=  decidim_form_for(@form, url: proposal_proposal_answer_path(proposal, @form), html: { class: "form answer_proposal" }) do |f| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t ".title", title: proposal.title %></h2>
+    </div>
+    
+    <div class="card-section">
+      <div class="row column">
+        <%= f.collection_radio_buttons :state, [["accepted", t('.accepted')], ["rejected", t('.rejected')]], :first, :last, prompt: true %>
+      </div>
 
-<%=  decidim_form_for(@form, url: proposal_proposal_answer_path(proposal, @form)) do |f| %>
-  <div class="field">
-    <%= f.collection_radio_buttons :state, [["accepted", t('.accepted')], ["rejected", t('.rejected')]], :first, :last, prompt: true %>
+      <div class="row column">
+        <%= f.translated :editor, :answer, autofocus: true, rows: 15 %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.translated :editor, :answer, autofocus: true, rows: 15 %>
-  </div>
-
-  <div class="actions">
+  <div class="button--double form-general-submit">
     <%= f.submit t(".answer_proposal") %>
   </div>
 <% end %>

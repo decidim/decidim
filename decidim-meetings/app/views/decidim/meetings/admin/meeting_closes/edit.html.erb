@@ -1,9 +1,7 @@
-<h3><%= t ".title" %></h3>
+<%=  decidim_form_for(@form, url: meeting_meeting_close_path(meeting, @form), html: { class: "form close_meeting" }) do |f| %>
+  <%= render partial: 'form', object: f, locals: { title: t('.title') }  %>
 
-<%=  decidim_form_for(@form, url: meeting_meeting_close_path(meeting, @form)) do |f| %>
-  <%= render partial: 'form', object: f %>
-
-  <div class="actions">
+  <div class="button--double form-general-submit">
     <%= f.submit t(".close") %>
   </div>
 <% end %>
