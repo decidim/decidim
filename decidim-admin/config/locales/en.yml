@@ -329,11 +329,13 @@ en:
           title: Edit organization
           update: Update organization
         form:
+          current_image: Current image
           facebook: Facebook
           github: GitHub
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
+          url: Url
           youtube: YouTube
         update:
           error: There was an error when updating this organization.

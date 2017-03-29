@@ -43,14 +43,32 @@
 <div class="row">
   <div class="columns xlarge-4">
     <%= form.file_field :homepage_image %>
+    <% if current_organization.homepage_image.present? %>
+      <label><%= t('.current_image') %></label>
+      <%= image_tag current_organization.homepage_image.url %>
+      <label><%= t('.url') %></label>
+      <%= link_to current_organization.homepage_image.file.identifier, current_organization.homepage_image.url, target: "_blank" %>
+    <% end %>
   </div>
 
   <div class="columns xlarge-4">
     <%= form.file_field :logo %>
+    <% if current_organization.logo.present? %>
+      <label><%= t('.current_image') %></label>
+      <%= image_tag current_organization.logo.url %>
+      <label><%= t('.url') %></label>
+      <%= link_to current_organization.logo.file.identifier, current_organization.logo.url, target: "_blank" %>
+    <% end %>
   </div>
 
   <div class="columns xlarge-4">
     <%= form.file_field :favicon %>
+    <% if current_organization.favicon.present? %>
+      <label><%= t('.current_image') %></label>
+      <%= image_tag current_organization.favicon.url %>
+      <label><%= t('.url') %></label>
+      <%= link_to current_organization.favicon.file.identifier, current_organization.favicon.url, target: "_blank" %>
+    <% end %>
   </div>
 </div>
 
