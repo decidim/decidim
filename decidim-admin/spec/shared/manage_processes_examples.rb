@@ -50,7 +50,7 @@ RSpec.shared_examples "manage processes examples" do
     end
 
     within ".container" do
-      expect(page).to have_content("My new title")
+      expect(page).to have_selector("input[value='My new title']")
       expect(page).not_to have_css("img[src*='#{image2_filename}']")
       expect(page).to have_css("img[src*='#{image3_filename}']")
     end

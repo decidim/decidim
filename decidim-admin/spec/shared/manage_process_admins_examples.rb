@@ -6,7 +6,7 @@ RSpec.shared_examples "manage process admins examples" do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin.edit_participatory_process_path(participatory_process)
-    click_link "Process admins"
+    click_link "Process users"
   end
 
   it "process admins" do

@@ -22,9 +22,9 @@ RSpec.shared_examples "manage attachments examples" do
       click_link translated(attachment.title, locale: :en)
     end
 
-    expect(page).to have_content(stripped(translated(attachment.title, locale: :en)))
-    expect(page).to have_content(stripped(translated(attachment.description, locale: :en)))
-    expect(page).to have_content(attachment.file_type)
+    expect(page).to have_selector("input#attachment_title_en[value='#{translated(attachment.title, locale: :en)}']")
+    expect(page).to have_selector("input#attachment_description_en[value='#{translated(attachment.description, locale: :en)}']")
+    expect(page).to have_content(attachment.file.url)
     expect(page).to have_css("img[src~='#{attachment.thumbnail_url}']")
   end
 

@@ -17,5 +17,16 @@
     <div class="row column">
       <%= form.file_field :file %>
     </div>
+
+    <% if @attachment && @attachment.file.present? %>
+      <div class="row column">
+        <label><%= t('.current_file') %></label>
+        <% if @attachment.photo? %>
+          <%= image_tag form.object.file.url(:thumbnail) %>
+        <% end %>
+        <label><%= t('.url') %></label>
+        <%= link_to @attachment.file.url, @attachment.file.url, target: "_blank" %>
+      </div>
+    <% end %>
   </div>
 </div>

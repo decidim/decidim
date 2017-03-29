@@ -81,17 +81,15 @@ describe "Admin manage participatory processes", type: :feature do
 
     it "update a participatory process without images does not delete them" do
       click_link translated(participatory_process3.title)
-      click_processes_menu_link "Settings"
+      click_processes_menu_link "Info"
       click_button "Update participatory process"
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 
-      within ".tabs-content" do
-        expect(page).to have_css("img[src*='#{participatory_process3.hero_image.url}']")
-        expect(page).to have_css("img[src*='#{participatory_process3.banner_image.url}']")
-      end
+      expect(page).to have_css("img[src*='#{participatory_process3.hero_image.url}']")
+      expect(page).to have_css("img[src*='#{participatory_process3.banner_image.url}']")
     end
   end
 

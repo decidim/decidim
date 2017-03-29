@@ -259,6 +259,7 @@ en:
       too_many_marks: Is using too many marks
       too_much_caps: Is using too much caps
       too_short: Is too short
+      content_type_whitelist_error: The file type is not valid
   invisible_captcha:
     sentence_for_humans: If you are human, ignore this field
     timestamp_error_message: Sorry, that was too quick! Please resubmit.

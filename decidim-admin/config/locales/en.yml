@@ -128,6 +128,9 @@ en:
         edit:
           title: Edit attachment
           update: Update attachment
+        form:
+          current_file: Current file
+          url: Url
         new:
           create: Create attachment
           title: New attachment
@@ -273,7 +276,6 @@ en:
           fields:
             created_at: Created at
             title: Title
-          name: Page
         user:
           fields:
             created_at: Creation date
@@ -372,8 +374,6 @@ en:
         edit:
           title: Edit participatory process step
           update: Update participatory process step
-        form:
-          title: Title
         new:
           create: Create participatory process step
           title: New participatory process step
@@ -406,7 +406,9 @@ en:
         edit:
           update: Update participatory process
         form:
+          current_image: Current image
           title: General Information
+          url: Url
         index:
           not_published: Not published
           published: Published
