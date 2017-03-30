@@ -16,7 +16,7 @@
       <% if feature.published? %>
         <%= icon_link_to "x", url_for(action: :unpublish, id: feature, controller: "features"), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
       <% else %>
-        <%= icon_link_to "pin", url_for(action: :publish, id: feature, controller: "features"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put %>
+        <%= icon_link_to "check", url_for(action: :publish, id: feature, controller: "features"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put %>
       <% end %>
     <% end %>
 
