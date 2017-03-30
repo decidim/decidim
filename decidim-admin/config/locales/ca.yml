@@ -1,4 +1,6 @@
 ca:
+  actions:
+    confirm_destroy: Confirmar destruir
   activemodel:
     attributes:
       attachment:
@@ -25,6 +27,7 @@ ca:
         official_img_footer: Logotip oficial del peu de pàgina
         official_img_header: Logotip oficial de la capçalera
         official_url: URL oficial de l'organització
+        reference_prefix: Prefix de referència
         show_statistics: Mostra Estadístiques
         welcome_text: Text de benvinguda
       participatory_process:
@@ -37,14 +40,21 @@ ca:
         hero_image: Imatge de portada
         local_area: Àrea municipal
         meta_scope: 'Metadades: àmbit'
+        participatory_process_group_id: Grup de processos
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         promoted: Promogut
+        scope_id: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
         subtitle: Subtítol
         target: A qui va dirigit?
         title: Títol
+      participatory_process_group:
+        description: Descripció
+        hero_image: Imatge
+        name: Nom
+        participatory_process_ids: Processos relacionats
       participatory_process_step:
         description: Descripció
         end_date: Data de finalització
@@ -53,6 +63,8 @@ ca:
         title: Títol
       participatory_process_user_role:
         email: Correu electrònic
+        name: Nom
+        role: Rol
       scope:
         name: Nom
         organization: Organització
@@ -93,6 +105,7 @@ ca:
     admin:
       actions:
         activate: Activar
+        add: Afegir
         configure: Configurar
         confirm_destroy: Segur que ho vols eliminar?
         destroy: Eliminar
@@ -114,6 +127,9 @@ ca:
         edit:
           title: Edita arxiu adjunt
           update: Actualitza adjunt
+        form:
+          current_file: Fitxer actual
+          url: URL
         new:
           create: Crea arxiu adjunt
           title: Nou arxiu adjunt
@@ -136,6 +152,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta categoria.
           success: Categoria actualitzada correctament.
+      dashboard:
+        show:
+          welcome: Benvingut al nou panell d'administració de Decidim.
       decidim:
         admin:
           attachments:
@@ -147,6 +166,11 @@ ca:
           participatory_process_steps:
             index:
               steps_title: Fases
+          participatory_process_user_roles:
+            index:
+              admin: Administrador
+              collaborator: Col·laborador
+              process_admins_title: Usuaris del procés participatiu
       feature_permissions:
         edit:
           everyone: Tothom
@@ -185,19 +209,24 @@ ca:
           error: S'ha produït un error en actualitzar aquesta funcionalitat.
           success: La funcionalitat s'ha actualitzat correctament.
       menu:
+        admins: Administradors
         dashboard: Tauler de control
         newsletters: Butlletins
+        participatory_process_groups: Grups de processos
+        participatory_processes: Processos
         participatory_processes_submenu:
           attachments: Adjunts
           categories: Categories
           features: Funcionalitats
           info: Informació
           moderations: Moderacions
+          process_admins: Usuaris del procés
           steps: Fases del procés
         scopes: Àmbits
         settings: Configuració
         static_pages: Pàgines
         user_groups: Grups d'usuaris
+        users: Usuaris
       models:
         attachment:
           fields:
@@ -225,6 +254,7 @@ ca:
         participatory_process_group:
           fields:
             name: Nom
+          name: Grup de processos
         participatory_process_step:
           fields:
             end_date: Data de finalització
@@ -234,6 +264,9 @@ ca:
         participatory_process_user_role:
           fields:
             email: Correu electrònic
+            name: Nom
+            role: Rol
+          name: Usuari del procés
         scope:
           fields:
             created_at: Data de creació
@@ -294,6 +327,15 @@ ca:
         edit:
           title: Edita organització
           update: Actualitza organització
+        form:
+          current_image: Imatge actual
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Social
+          twitter: Twitter
+          url: URL
+          youtube: YouTube
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: Organització actualitzada correctament.
@@ -301,9 +343,11 @@ ca:
         destroy:
           success: Grup eliminat correctament.
         edit:
+          title: Editar grup de procés
           update: Actualitza
         new:
           create: Crear
+          title: Nou grup de processos
         update:
           error: Hi ha hagut un error actualitzant aquest grup de processos participatius.
           success: Grup de procés participatiu actualitzat correctament.
@@ -339,6 +383,20 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
           success: La fase de procés participatiu s'ha actualitzat correctament.
+      participatory_process_user_roles:
+        create:
+          error: Hi ha hagut un error en afegir un usuari a aquest procés participatiu.
+          success: Usuari creat amb èxit per a aquest procés participatiu.
+        destroy:
+          success: Usuari eliminat amb èxit per a aquest procés participatiu.
+        edit:
+          title: Editar usuari de procés participatiu.
+          update: Actualitzar
+        new:
+          create: Crear
+          title: Nou usuari de procés participatiu.
+        update:
+          error: Hi ha hagut un error actualitzant l'usuari d'aquest procés participatiu.
       participatory_processes:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.
