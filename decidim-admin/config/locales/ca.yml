@@ -40,7 +40,6 @@ ca:
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         promoted: Promogut
-        scope: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
         subtitle: Subtítol
@@ -96,7 +95,6 @@ ca:
         activate: Activar
         configure: Configurar
         confirm_destroy: Segur que ho vols eliminar?
-        create: Crear
         destroy: Eliminar
         edit: Editar
         manage: Gestionar
@@ -105,7 +103,6 @@ ca:
         preview: Previsualitzar
         publish: Publicar
         resend_invitation: Tornar a enviar invitació
-        title: Accions
         unpublish: Despublicar
         verify: Verificar
       attachments:
@@ -149,11 +146,7 @@ ca:
               categories_title: Categories
           participatory_process_steps:
             index:
-              steps_hint: Pots arrossegar les files de la taula per reordenar les fases del procés.
               steps_title: Fases
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Administradors del procés participatiu
       feature_permissions:
         edit:
           everyone: Tothom
@@ -194,22 +187,17 @@ ca:
       menu:
         dashboard: Tauler de control
         newsletters: Butlletins
-        participatory_process_groups: Grups de processos participatius
-        participatory_processes: Processos participatius
         participatory_processes_submenu:
           attachments: Adjunts
           categories: Categories
           features: Funcionalitats
           info: Informació
           moderations: Moderacions
-          process_admins: Administradors del procés
-          settings: Configuració
           steps: Fases del procés
         scopes: Àmbits
         settings: Configuració
         static_pages: Pàgines
         user_groups: Grups d'usuaris
-        users: Administradors
       models:
         attachment:
           fields:
@@ -237,10 +225,8 @@ ca:
         participatory_process_group:
           fields:
             name: Nom
-          name: Grup de processos participatius
         participatory_process_step:
           fields:
-            active: Activa
             end_date: Data de finalització
             start_date: Data d'inici
             title: Títol
@@ -252,12 +238,10 @@ ca:
           fields:
             created_at: Data de creació
             name: Nom
-          name: Àmbit
         static_page:
           fields:
             created_at: Data de creació
             title: Títol
-          name: Pàgina
         user:
           fields:
             created_at: Data de creació
@@ -320,7 +304,6 @@ ca:
           update: Actualitza
         new:
           create: Crear
-          name: Nom
         update:
           error: Hi ha hagut un error actualitzant aquest grup de processos participatius.
           success: Grup de procés participatiu actualitzat correctament.
@@ -356,12 +339,6 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
           success: La fase de procés participatiu s'ha actualitzat correctament.
-      participatory_process_user_roles:
-        create:
-          error: S'ha produït un error en crear un nou administrador per a aquest procés participatiu.
-          success: L'administrador per a aquest procés participatiu s'ha creat correctament.
-        destroy:
-          success: L'administrador per a aquest procés participatiu s'ha eliminat correctament.
       participatory_processes:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.
@@ -370,9 +347,6 @@ ca:
           success: El procés participatiu s'ha eliminat correctament.
         edit:
           update: Actualitzar procés participatiu
-        new:
-          create: Crear procés participatiu
-          title: Nou procés participatiu
         update:
           error: S'ha produït un error en l'actualització d'aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
