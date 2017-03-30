@@ -11,7 +11,7 @@ module Decidim
         helper_method :meetings, :meeting
 
         def meetings
-          @meetings ||= Meeting.where(feature: current_feature)
+          @meetings ||= Meeting.where(feature: current_feature).page(params[:page]).per(15)
         end
 
         def meeting
