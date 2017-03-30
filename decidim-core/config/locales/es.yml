@@ -249,6 +249,7 @@ es:
         subject: Contraseña modificada
   errors:
     messages:
+      content_type_whitelist_error: El tipo de archivo no es válido
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
       invalid_manifest: Manifiesto inválido
       invalid_participatory_process: Proceso participativo inválido
