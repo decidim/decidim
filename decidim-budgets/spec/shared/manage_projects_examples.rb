@@ -3,7 +3,7 @@
 RSpec.shared_examples "manage projects" do
   it "updates a project" do
     within find("tr", text: translated(project.title)) do
-      click_link "Edit"
+      find("a.action-icon--edit").click
     end
 
     within ".edit_project" do
@@ -18,7 +18,7 @@ RSpec.shared_examples "manage projects" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -29,9 +29,11 @@ RSpec.shared_examples "manage projects" do
 
   context "previewing projects" do
     it "allows the user to preview the project" do
-      new_window = window_opened_by { click_link translated(project.title) }
+      within find("tr", text: translated(project.title)) do
+        @new_window = window_opened_by { find("a.action-icon--preview").click }
+      end
 
-      within_window new_window do
+      within_window @new_window do
         expect(current_path).to eq decidim_budgets.project_path(id: project.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
         expect(page).to have_content(translated(project.title))
       end
@@ -61,7 +63,7 @@ RSpec.shared_examples "manage projects" do
   end
 
   it "creates a new project" do
-    find(".actions .new").click
+    click_link "New Project"
 
     within ".new_project" do
       fill_in_i18n(
@@ -86,7 +88,7 @@ RSpec.shared_examples "manage projects" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -104,10 +106,10 @@ RSpec.shared_examples "manage projects" do
 
     it "deletes a project" do
       within find("tr", text: translated(project2.title)) do
-        click_link "Delete"
+        find("a.action-icon--remove").click
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 

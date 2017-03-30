@@ -18,7 +18,7 @@ RSpec.shared_examples "manage moderations" do
   end
 
   before do
-    visit decidim_admin.participatory_process_path(participatory_process)
+    visit decidim_admin.edit_participatory_process_path(participatory_process)
     click_link "Moderations"
   end
 
@@ -41,7 +41,7 @@ RSpec.shared_examples "manage moderations" do
         click_link "Unreport"
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("Resource successfully unreported")
       end
     end
@@ -53,7 +53,7 @@ RSpec.shared_examples "manage moderations" do
         click_link "Hide"
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("Resource successfully hidden")
       end
 

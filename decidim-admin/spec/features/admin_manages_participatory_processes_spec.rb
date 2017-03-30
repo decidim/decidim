@@ -15,7 +15,9 @@ describe "Admin manage participatory processes", type: :feature do
   end
 
   it "creates a new participatory_process" do
-    find(".actions .new").click
+    within ".secondary-nav__actions" do
+      page.find('a.button').click
+    end
 
     within ".new_participatory_process" do
       fill_in_i18n(
@@ -58,11 +60,11 @@ describe "Admin manage participatory processes", type: :feature do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
-    within ".tabs-content" do
+    within ".container" do
       expect(page).to have_content("My participatory process")
       expect(page).to have_content(@group_name)
       expect(page).to have_css("img[src*='#{image1_filename}']")
@@ -79,17 +81,15 @@ describe "Admin manage participatory processes", type: :feature do
 
     it "update a participatory process without images does not delete them" do
       click_link translated(participatory_process3.title)
-      click_processes_menu_link "Settings"
+      click_processes_menu_link "Info"
       click_button "Update participatory process"
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 
-      within ".tabs-content" do
-        expect(page).to have_css("img[src*='#{participatory_process3.hero_image.url}']")
-        expect(page).to have_css("img[src*='#{participatory_process3.banner_image.url}']")
-      end
+      expect(page).to have_css("img[src*='#{participatory_process3.hero_image.url}']")
+      expect(page).to have_css("img[src*='#{participatory_process3.banner_image.url}']")
     end
   end
 
@@ -102,10 +102,9 @@ describe "Admin manage participatory processes", type: :feature do
 
     it "deletes a participatory_process" do
       click_link translated(participatory_process2.title)
-      click_processes_menu_link "Settings"
       click_link "Destroy"
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 

@@ -23,7 +23,9 @@ describe "Admin manages newsletters", type: :feature do
     it "allows a newsletter to be created" do
       visit decidim_admin.newsletters_path
 
-      find("#newsletters .actions .new").click
+      within ".secondary-nav" do
+        find(".button.new").click
+      end
 
       within ".new_newsletter" do
         fill_in_i18n(
@@ -45,7 +47,7 @@ describe "Admin manages newsletters", type: :feature do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("Preview")
+      expect(page).to have_content("PREVIEW")
       expect(page).to have_content("A fancy newsletter for #{user.name}")
     end
   end
@@ -83,7 +85,7 @@ describe "Admin manages newsletters", type: :feature do
     it "allows a newsletter to be updated" do
       visit decidim_admin.newsletters_path
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        click_link "Edit"
+        page.find('.action-icon.edit').click
       end
 
       within ".edit_newsletter" do
@@ -106,7 +108,7 @@ describe "Admin manages newsletters", type: :feature do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("Preview")
+      expect(page).to have_content("PREVIEW")
       expect(page).to have_content("A fancy newsletter")
     end
   end
@@ -117,14 +119,14 @@ describe "Admin manages newsletters", type: :feature do
     it "allows a newsletter to be created" do
       visit decidim_admin.newsletter_path(newsletter)
 
-      within ".actions" do
+      within ".button--double" do
         find("*", text: "Deliver").click
       end
 
-      expect(page).to have_content("Newsletters")
+      expect(page).to have_content("NEWSLETTERS")
       expect(page).to have_content("successfully")
 
-      within ".newsletters tbody" do
+      within "tbody" do
         expect(page).to have_content("5 / 5")
       end
     end
@@ -137,7 +139,7 @@ describe "Admin manages newsletters", type: :feature do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        click_link "Destroy"
+        page.find('.action-icon.action-icon--remove').click
       end
 
       expect(page).to have_content("successfully")

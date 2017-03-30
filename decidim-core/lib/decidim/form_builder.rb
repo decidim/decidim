@@ -40,20 +40,24 @@ module Decidim
         )
       end
 
-      field_label = label_i18n(name, options[:label] || label_for(name))
+      label_tabs = content_tag(:div, class: "label--tabs") do
+        field_label = label_i18n(name, options[:label] || label_for(name))
 
-      tabs_panels = "".html_safe
-      if options[:label] != false
-        tabs_panels = content_tag(:ul, class: "tabs", id: "#{name}-tabs", data: { tabs: true }) do
-          locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-            string + content_tag(:li, class: tab_element_class_for("title", index)) do
-              title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
-              element_class = ""
-              element_class += "alert" if error?(name_with_locale(name, locale))
-              content_tag(:a, title, href: "##{name}-panel-#{index}", class: element_class)
+        tabs_panels = "".html_safe
+        if options[:label] != false
+          tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: "#{name}-tabs", data: { tabs: true }) do
+            locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
+              string + content_tag(:li, class: tab_element_class_for("title", index)) do
+                title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
+                element_class = ""
+                element_class += "alert" if error?(name_with_locale(name, locale))
+                content_tag(:a, title, href: "##{name}-panel-#{index}", class: element_class)
+              end
             end
           end
         end
+
+        safe_join [field_label, tabs_panels]
       end
 
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: "#{name}-tabs" }) do
@@ -64,7 +68,7 @@ module Decidim
         end
       end
 
-      safe_join [field_label, tabs_panels, tabs_content]
+      safe_join [label_tabs, tabs_content]
     end
 
     # Public: generates a hidden field and a container for WYSIWYG editor

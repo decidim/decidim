@@ -1,0 +1,49 @@
+.tabs--lang{
+  background-color: transparent;
+  float: right;
+  li{
+    border-right: 1px solid $light-gray;
+  }
+  li:last-child{
+    border-right: 0;
+  }
+
+  a{
+    padding: 0 .5rem;
+    font-weight: normal;
+    color: $muted;
+    &:hover{
+      color: $anchor-color-hover;
+    }
+  }
+  .is-active a{
+    font-weight: 600;
+    color: $anchor-color;
+  }
+  a.is-tab-error{
+    color: $alert-color;
+  }
+}
+
+.label--tabs{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  label{
+    display: inline-block;
+  }
+}
+
+.tab-custom-error-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tab-custom-error{
+  @extend .form-error;
+  margin-right: .3rem;
+}
+
+.is-tab-custom-error-visible{
+  display: block;
+}

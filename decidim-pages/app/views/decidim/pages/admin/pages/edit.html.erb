@@ -1,9 +1,7 @@
-<h3><%= t ".title" %></h3>
+<%=  decidim_form_for(@form, url: page_path, method: :post, html: { class: "form edit_page" }) do |form| %>
+  <%= render partial: 'form', object: form, locals: { title: t('.title') }  %>
 
-<%=  decidim_form_for(@form, url: page_path, method: :post) do |form| %>
-  <%= render partial: 'form', object: form %>
-
-  <div class="actions">
+  <div class="button--double form-general-submit">
     <%= form.submit t(".save") %>
   </div>
 <% end %>

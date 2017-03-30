@@ -13,6 +13,7 @@ module Decidim
       helper Decidim::Admin::FeatureSettingsHelper
       helper Decidim::Admin::ProcessGroupsForSelectHelper
       helper Decidim::Admin::ProcessesForSelectHelper
+      helper Decidim::Admin::IconLinkHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::OrganizationScopesHelper

@@ -1,40 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<title>Decidim - admin</title>
-<%= render partial: 'layouts/decidim/admin/header' %>
-</head>
-
-<body>
-  <div class="off-canvas-wrapper">
-    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-      <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
-        <div class="sidebar">
-          <%= render partial: 'layouts/decidim/admin/sidebar' %>
-        </div>
-      </div>
-
-      <div class="off-canvas-content" data-off-canvas-content>
-        <div class="title-bar hide-for-large">
-          <div class="title-bar-left">
-            <button class="menu-icon" type="button" data-open="my-info"></button>
-            <span class="title-bar-title"><%= title %></span>
-          </div>
-        </div>
-        <div class="row main-content">
-          <div class="small-12 column">
-            <% if content_for?(:title) %>
-              <section class="page-title">
-                <%= content_for :title %>
-              </section>
-            <% end %>
-
-            <%= display_flash_messages %>
-            <%= yield %>
-          </div>
-        </div>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="author" content="">
+    <meta name="copyright" content="">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%= render partial: 'layouts/decidim/admin/header' %>
+  </head>
+  <body>
+    <%= render partial: 'layouts/decidim/admin/template_top' %>
+    <div class="layout-nav">
+      <%= render partial: 'layouts/decidim/admin/main_nav' %>
+      <%= yield :secondary_nav if content_for? :secondary_nav %>
+    </div>
+    <div class="layout-content">
+      <%= render partial: 'layouts/decidim/admin/callouts_full' %>
+      <div class="container">
+        <%= yield %>
       </div>
     </div>
-  </div>
-</body>
+    <%= render partial: 'layouts/decidim/admin/template_bottom' %>
+  </body>
 </html>

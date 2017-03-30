@@ -22,16 +22,25 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_attachment
-        broadcast(:ok)
+        build_attachment
+
+        if @attachment.valid?
+          @attachment.save!
+          broadcast(:ok)
+        else
+          if @attachment.errors.has_key? :file
+            @form.errors.add :file, @attachment.errors[:file]
+          end
+          broadcast(:invalid)
+        end
       end
 
       private
 
       attr_reader :form
 
-      def create_attachment
-        Attachment.create!(
+      def build_attachment
+        @attachment = Attachment.new(
           title: form.title,
           description: form.description,
           file: form.file,

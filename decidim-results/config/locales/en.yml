@@ -28,6 +28,7 @@ en:
         destroy: Delete
         edit: Edit
         new: New %{name}
+        preview: Preview
         title: Actions
       admin:
         models:

@@ -1,23 +1,34 @@
-<div class="field">
-  <%= form.translated :text_area, :closing_report, autofocus: true, rows: 15 %>
-</div>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
 
-<div class="field">
-  <%= form.text_area :attending_organizations, rows: 5 %>
-</div>
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_area, :closing_report, autofocus: true, rows: 15 %>
+    </div>
 
-<div class="field">
-  <%= form.number_field :attendees_count, min: 0 %>
-</div>
+    <div class="row column">
+      <%= form.text_area :attending_organizations, rows: 5 %>
+    </div>
 
-<div class="field">
-  <%= form.number_field :contributions_count, min: 0 %>
-</div>
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.number_field :attendees_count, min: 0 %>
+      </div>
 
-<% if @form.proposals %>
-  <%= form.select :proposal_ids,
-                  @form.proposals.order("title ASC").pluck(:title, :id),
-                  { include_blank: true },
-                  { multiple: true, class: "chosen-select" }
-  %>
-<% end %>
+      <div class="columns xlarge-6">
+        <%= form.number_field :contributions_count, min: 0 %>
+      </div>
+    </div>
+    <div class="row column">
+      <% if @form.proposals %>
+        <%= form.select :proposal_ids,
+                        @form.proposals.order("title ASC").pluck(:title, :id),
+                        { include_blank: true },
+                        { multiple: true, class: "chosen-select" }
+        %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -33,9 +33,11 @@ en:
     proposals:
       actions:
         answer: Answer
-        new: New proposal
+        new: New Proposal
         title: Actions
       admin:
+        actions:
+          preview: Preview
         models:
           proposal:
             name: Proposal

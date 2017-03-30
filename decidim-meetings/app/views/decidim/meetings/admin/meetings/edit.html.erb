@@ -1,9 +1,8 @@
-<h3><%= t ".title" %></h3>
-
-<%=  decidim_form_for(@form) do |f| %>
+<%=  decidim_form_for(@form, html: { class: "form edit_meeting" })  do |f| %>
   <%= render partial: 'form', object: f %>
 
-  <div class="actions">
-    <%= f.submit t(".update") %>
-  </div>
+    <div class="button--double form-general-submit">
+      <%= f.submit t(".update") %>
+    </div>
 <% end %>
+

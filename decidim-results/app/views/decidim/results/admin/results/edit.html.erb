@@ -1,9 +1,8 @@
-<h3><%= t ".title" %></h3>
+<%=  decidim_form_for(@form, html: { class: "form edit_result" }) do |f| %>
+  <%= render partial: 'form', object: f, locals: { title: t('.title') }  %>
 
-<%=  decidim_form_for(@form) do |f| %>
-  <%= render partial: 'form', object: f %>
-
-  <div class="actions">
+  <div class="button--double form-general-submit">
     <%= f.submit t(".update") %>
   </div>
 <% end %>
+

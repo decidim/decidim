@@ -1,0 +1,11 @@
+<div class="main-nav">
+  <ul>
+    <%= admin_menu_item_to "dashboard", decidim_admin.root_path, active: :exact %>
+    <%= admin_menu_item_to "participatory_processes", decidim_admin.participatory_processes_path, icon_name: "target", active: :inclusive %>
+    <%= admin_menu_item_to "participatory_process_groups", decidim_admin.participatory_process_groups_path, icon_name: "layers", active: :inclusive %>
+    <%= admin_menu_item_to "static_pages", decidim_admin.static_pages_path, icon_name: "book", active: :inclusive if can? :read, Decidim::StaticPage %>
+    <%= admin_menu_item_to "users", decidim_admin.users_path, icon_name: "person", active: :inclusive, active_class: is_active_link?(decidim_admin.users_path) || is_active_link?(decidim_admin.user_groups_path) ? "is-active" : "" if can? :read, :admin_users %>
+    <%= admin_menu_item_to "newsletters", decidim_admin.newsletters_path, icon_name: "envelope-closed", active: :inclusive if can? :index, Decidim::Newsletter %>
+    <%= admin_menu_item_to "settings", decidim_admin.edit_organization_path, icon_name: "wrench", active: :inclusive, active_class: is_active_link?(decidim_admin.edit_organization_path) || is_active_link?(decidim_admin.scopes_path) ? "is-active" : "" if can? :read, current_organization %>
+  </ul>
+</div>

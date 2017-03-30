@@ -1,9 +1,7 @@
-<h3><%= t ".title", name: t("#{@feature.manifest.name}.name", scope: "decidim.features") %></h3>
+<%= decidim_form_for([participatory_process, @form], url: participatory_process_feature_path(participatory_process, @feature), method: "put", html: { class: "form edit_feature" }) do |form| %>
+  <%= render partial: 'form', object: form, locals: { feature: @feature, title: t(".title", name: t("#{@feature.manifest.name}.name", scope: "decidim.features"))} %>
 
-<%= decidim_form_for([participatory_process, @form], url: participatory_process_feature_path(participatory_process, @feature), method: "put") do |form| %>
-  <%= render partial: 'form', object: form, locals: { feature: @feature } %>
-
-  <div class="actions">
+  <div class="button--double form-general-submit">
     <%= form.submit t(".update") %>
   </div>
 <% end %>

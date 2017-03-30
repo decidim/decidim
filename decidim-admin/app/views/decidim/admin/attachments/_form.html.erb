@@ -1,11 +1,32 @@
-<div class="field">
-  <%= form.translated :text_field, :title, autofocus: true %>
-</div>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= title %>
+    </h2>
+  </div>
 
-<div class="field">
-  <%= form.translated :text_field, :description %>
-</div>
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :title, autofocus: true %>
+    </div>
 
-<div class="field">
-  <%= form.file_field :file %>
+    <div class="row column">
+      <%= form.translated :text_field, :description %>
+    </div>
+
+    <div class="row column">
+      <%= form.file_field :file %>
+    </div>
+
+    <% if @attachment && @attachment.file.present? %>
+      <div class="row column">
+        <label><%= t('.current_file') %></label>
+        <% if @attachment.photo? %>
+          <%= image_tag form.object.file.url(:thumbnail) %>
+        <% end %>
+        <label><%= t('.url') %></label>
+        <%= link_to @attachment.file.url, @attachment.file.url, target: "_blank" %>
+      </div>
+    <% end %>
+  </div>
 </div>

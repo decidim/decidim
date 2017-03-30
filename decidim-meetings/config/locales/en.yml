@@ -30,6 +30,7 @@ en:
         destroy: Delete
         edit: Edit
         new: New %{name}
+        preview: Preview
         title: Actions
       admin:
         meeting_closes:
@@ -46,7 +47,6 @@ en:
           destroy:
             success: Meeting successfully deleted
           edit:
-            title: Edit meeting
             update: Update meeting
           index:
             title: Meetings

@@ -22,16 +22,16 @@ RSpec.shared_examples "manage attachments examples" do
       click_link translated(attachment.title, locale: :en)
     end
 
-    expect(page).to have_content(stripped(translated(attachment.title, locale: :en)))
-    expect(page).to have_content(stripped(translated(attachment.description, locale: :en)))
-    expect(page).to have_content(attachment.file_type)
+    expect(page).to have_selector("input#attachment_title_en[value='#{translated(attachment.title, locale: :en)}']")
+    expect(page).to have_selector("input#attachment_description_en[value='#{translated(attachment.description, locale: :en)}']")
+    expect(page).to have_content(attachment.file.url)
     expect(page).to have_css("img[src~='#{attachment.thumbnail_url}']")
   end
 
   it "can add attachments to a process" do
-    find("#attachments .actions .new").click
+    find(".card-title a.new").click
 
-    within ".new_attachment" do
+    within ".new_participatory_process_attachment" do
       fill_in_i18n(
         :attachment_title,
         "#title-tabs",
@@ -52,7 +52,7 @@ RSpec.shared_examples "manage attachments examples" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -63,10 +63,10 @@ RSpec.shared_examples "manage attachments examples" do
 
   it "can delete an attachment from a process" do
     within find("tr", text: stripped(translated(attachment.title))) do
-      click_link "Destroy"
+      page.find('a.action-icon--remove').click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -76,11 +76,11 @@ RSpec.shared_examples "manage attachments examples" do
   it "can update an attachment" do
     within "#attachments" do
       within find("tr", text: stripped(translated(attachment.title))) do
-        click_link "Edit"
+        page.find('a.action-icon--edit').click
       end
     end
 
-    within ".edit_attachment" do
+    within ".edit_participatory_process_attachment" do
       fill_in_i18n(
         :attachment_title,
         "#title-tabs",
@@ -92,7 +92,7 @@ RSpec.shared_examples "manage attachments examples" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 

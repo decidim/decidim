@@ -13,7 +13,7 @@ RSpec.shared_examples "manage meetings" do
 
   it "updates a meeting" do
     within find("tr", text: translated(meeting.title)) do
-      click_link "Edit"
+      page.find('a.action-icon--edit').click
     end
 
     within ".edit_meeting" do
@@ -29,7 +29,7 @@ RSpec.shared_examples "manage meetings" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -40,9 +40,11 @@ RSpec.shared_examples "manage meetings" do
 
   context "previewing meetings" do
     it "allows the user to preview the meeting" do
-      new_window = window_opened_by { click_link translated(meeting.title) }
+      within find("tr", text: translated(meeting.title)) do
+        @new_window = window_opened_by { find("a.action-icon--preview").click }
+      end
 
-      within_window new_window do
+      within_window @new_window do
         expect(current_path).to eq decidim_meetings.meeting_path(id: meeting.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
         expect(page).to have_content(translated(meeting.title))
       end
@@ -50,7 +52,7 @@ RSpec.shared_examples "manage meetings" do
   end
 
   it "creates a new meeting" do
-    find(".actions .new").click
+    click_link "New Meeting"
 
     within ".new_meeting" do
       fill_in_i18n(
@@ -92,7 +94,7 @@ RSpec.shared_examples "manage meetings" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -110,10 +112,10 @@ RSpec.shared_examples "manage meetings" do
 
     it "deletes a meeting" do
       within find("tr", text: translated(meeting2.title)) do
-        click_link "Delete"
+        page.find('a.action-icon--remove').click
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 
@@ -130,7 +132,7 @@ RSpec.shared_examples "manage meetings" do
 
     it "updates a meeting" do
       within find("tr", text: translated(meeting.title)) do
-        click_link "Edit"
+        page.find('a.action-icon--edit').click
       end
 
       within ".edit_meeting" do
@@ -146,7 +148,7 @@ RSpec.shared_examples "manage meetings" do
         find("*[type=submit]").click
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 
@@ -156,7 +158,7 @@ RSpec.shared_examples "manage meetings" do
     end
 
     it "creates a new meeting" do
-      find(".actions .new").click
+      click_link "New Meeting"
 
       within ".new_meeting" do
         fill_in_i18n(
@@ -198,7 +200,7 @@ RSpec.shared_examples "manage meetings" do
         find("*[type=submit]").click
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 
@@ -216,7 +218,7 @@ RSpec.shared_examples "manage meetings" do
 
     it "closes a meeting with a report" do
       within find("tr", text: translated(meeting.title)) do
-        click_link "Close"
+        page.find('a.action-icon--close').click
       end
 
       within ".edit_close_meeting" do
@@ -234,7 +236,7 @@ RSpec.shared_examples "manage meetings" do
         click_button "Close"
       end
 
-      within ".flash" do
+      within ".callout-wrapper" do
         expect(page).to have_content("Meeting successfully closed")
       end
 
@@ -250,7 +252,7 @@ RSpec.shared_examples "manage meetings" do
 
       it "can update the information" do
         within find("tr", text: translated(meeting.title)) do
-          click_link "Close"
+          page.find('a.action-icon--close').click
         end
 
         within ".edit_close_meeting" do
@@ -258,7 +260,7 @@ RSpec.shared_examples "manage meetings" do
           click_button "Close"
         end
 
-        within ".flash" do
+        within ".callout-wrapper" do
           expect(page).to have_content("Meeting successfully closed")
         end
       end

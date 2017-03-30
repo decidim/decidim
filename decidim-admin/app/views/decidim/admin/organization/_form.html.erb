@@ -1,73 +1,87 @@
-<div class="field">
-  <%= form.text_field :name %>
+<div class="row">
+  <div class="columns xlarge-6">
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="columns xlarge-6">
+    <div class="label--tabs">
+      <label for="organization_social_handlers">
+        <%= t('.social_handlers') %>
+      </label>
+      <ul class="tabs tabs--lang" data-tabs id="organization_social_handlers">
+        <% Decidim::Organization::SOCIAL_HANDLERS.each do |handler| %>
+          <li class="tabs-title <% if handler == Decidim::Organization::SOCIAL_HANDLERS.first %> is-active <% end %>">
+            <a href="#<%= handler %>" <% if handler == Decidim::Organization::SOCIAL_HANDLERS.first %> aria-selected="true" <% end %>>
+              <%= t(".#{handler}") %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="tabs-content" data-tabs-content="organization_social_handlers">
+      <% Decidim::Organization::SOCIAL_HANDLERS.each do |handler| %>
+        <div class="tabs-panel <% if handler == Decidim::Organization::SOCIAL_HANDLERS.first %> is-active <% end %>" id="<%= handler %>">
+          <%= form.text_field "#{handler}_handler", label: false %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<div class="field">
-  <%= form.text_field :reference_prefix %>
-</div>
-
-<div class="field">
-  <%= form.text_field :twitter_handler %>
-</div>
-
-<div class="field">
-  <%= form.text_field :facebook_handler %>
-</div>
-
-<div class="field">
-  <%= form.text_field :instagram_handler %>
-</div>
-
-<div class="field">
-  <%= form.text_field :youtube_handler %>
-</div>
-
-<div class="field">
-  <%= form.text_field :github_handler %>
-</div>
-
-<div class="field">
+<div class="row column">
   <%= form.translated :editor, :description %>
 </div>
 
-<div class="field">
+<div class="row column">
   <%= form.translated :text_area, :welcome_text %>
 </div>
 
-<div class="field">
+<div class="row column">
   <%= form.collection_select :default_locale, localized_locales(current_organization.available_locales), :id, :name %>
 </div>
 
-<div class="field">
-  <%= form.file_field :homepage_image %>
+<div class="row">
+  <div class="columns xlarge-4">
+    <%= form.file_field :homepage_image %>
+    <% if current_organization.homepage_image.present? %>
+      <label><%= t('.current_image') %></label>
+      <%= image_tag current_organization.homepage_image.url %>
+      <label><%= t('.url') %></label>
+      <%= link_to current_organization.homepage_image.file.identifier, current_organization.homepage_image.url, target: "_blank" %>
+    <% end %>
+  </div>
+
+  <div class="columns xlarge-4">
+    <%= form.file_field :logo %>
+    <% if current_organization.logo.present? %>
+      <label><%= t('.current_image') %></label>
+      <%= image_tag current_organization.logo.url %>
+      <label><%= t('.url') %></label>
+      <%= link_to current_organization.logo.file.identifier, current_organization.logo.url, target: "_blank" %>
+    <% end %>
+  </div>
+
+  <div class="columns xlarge-4">
+    <%= form.file_field :favicon %>
+    <% if current_organization.favicon.present? %>
+      <label><%= t('.current_image') %></label>
+      <%= image_tag current_organization.favicon.url %>
+      <label><%= t('.url') %></label>
+      <%= link_to current_organization.favicon.file.identifier, current_organization.favicon.url, target: "_blank" %>
+    <% end %>
+  </div>
 </div>
 
-<div class="field">
-  <%= form.file_field :logo %>
+<div class="row">
+  <div class="columns xlarge-6">
+    <%= form.text_field :reference_prefix %>
+  </div>
+
+  <div class="columns xlarge-6">
+    <%= form.text_field :official_url %>
+  </div>
 </div>
 
-<div class="field">
-  <%= form.file_field :favicon %>
-</div>
-
-<div class="field">
-  <%= form.text_field :official_url %>
-</div>
-
-<div class="field">
-  <%= form.file_field :official_img_header %>
-  <% if current_organization.official_img_header? %>
-      <%= image_tag current_organization.official_img_header.url.to_s %>
-  <% end %>
-</div>
-
-<div class="field">
-  <%= form.file_field :official_img_footer %>
-  <% if current_organization.official_img_footer? %>
-      <%= image_tag current_organization.official_img_footer.url.to_s %>
-  <% end %>
-</div>
-
-<div class="field">
+<div class="row column">
   <%= form.check_box :show_statistics %>
 </div>

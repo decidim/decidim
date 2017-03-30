@@ -1,5 +1,7 @@
 ---
 en:
+  actions:
+    confirm_destroy: Confirm destroy
   activemodel:
     attributes:
       attachment:
@@ -26,6 +28,7 @@ en:
         official_img_footer: Official logo footer
         official_img_header: Official logo header
         official_url: Official organization url
+        reference_prefix: Reference prefix
         show_statistics: Show statistics
         welcome_text: Welcome text
       participatory_process:
@@ -38,15 +41,21 @@ en:
         hero_image: Home image
         local_area: Local area
         meta_scope: Scope metadata
+        participatory_process_group_id: Processes group
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
-        scope: Scope
+        scope_id: Scope
         short_description: Short description
         slug: URL slug
         subtitle: Subtitle
         target: Target
         title: Title
+      participatory_process_group:
+        description: Description
+        hero_image: Image
+        name: Name
+        participatory_process_ids: Related processes
       participatory_process_step:
         description: Description
         end_date: End date
@@ -55,6 +64,8 @@ en:
         title: Title
       participatory_process_user_role:
         email: Email
+        name: Name
+        role: Role
       scope:
         name: Name
         organization: Organization
@@ -95,9 +106,9 @@ en:
     admin:
       actions:
         activate: Activate
+        add: Add
         configure: Configure
         confirm_destroy: Are you sure you want to delete this?
-        create: Create
         destroy: Destroy
         edit: Edit
         manage: Manage
@@ -106,7 +117,6 @@ en:
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
-        title: Actions
         unpublish: Unpublish
         verify: Verify
       attachments:
@@ -118,6 +128,9 @@ en:
         edit:
           title: Edit attachment
           update: Update attachment
+        form:
+          current_file: Current file
+          url: Url
         new:
           create: Create attachment
           title: New attachment
@@ -140,6 +153,9 @@ en:
         update:
           error: There was an error updating this category.
           success: Category updated successfully.
+      dashboard:
+        show:
+          welcome: Welcome to the new Decidim Panel Admin.
       decidim:
         admin:
           attachments:
@@ -150,11 +166,12 @@ en:
               categories_title: Categories
           participatory_process_steps:
             index:
-              steps_hint: You can drag the rows of the table in order to reorder the process steps.
               steps_title: Steps
           participatory_process_user_roles:
             index:
-              process_admins_title: Participatory process admins
+              admin: Administrator
+              collaborator: Collaborator
+              process_admins_title: Participatory process users
       feature_permissions:
         edit:
           everyone: Everyone
@@ -193,24 +210,24 @@ en:
           error: There has been an error updating this feature.
           success: The feature was updated successfully.
       menu:
+        admins: Admins
         dashboard: Dashboard
         newsletters: Newsletters
-        participatory_process_groups: Participatory process groups
-        participatory_processes: Participatory processes
+        participatory_process_groups: Process groups
+        participatory_processes: Processes
         participatory_processes_submenu:
           attachments: Attachments
           categories: Categories
           features: Features
           info: Info
           moderations: Moderations
-          process_admins: Process admins
-          settings: Settings
+          process_admins: Process users
           steps: Steps
         scopes: Scopes
         settings: Settings
         static_pages: Pages
         user_groups: User groups
-        users: Admin users
+        users: Users
       models:
         attachment:
           fields:
@@ -238,10 +255,9 @@ en:
         participatory_process_group:
           fields:
             name: Name
-          name: Participatory process group
+          name: Process group
         participatory_process_step:
           fields:
-            active: Active
             end_date: End date
             start_date: Start date
             title: Title
@@ -249,16 +265,17 @@ en:
         participatory_process_user_role:
           fields:
             email: Email
+            name: Name
+            role: Role
+          name: Participatory Process User
         scope:
           fields:
             created_at: Created at
             name: Name
-          name: Scope
         static_page:
           fields:
             created_at: Created at
             title: Title
-          name: Page
         user:
           fields:
             created_at: Creation date
@@ -311,6 +328,15 @@ en:
         edit:
           title: Edit organization
           update: Update organization
+        form:
+          current_image: Current image
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Social
+          twitter: Twitter
+          url: Url
+          youtube: YouTube
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
@@ -318,10 +344,11 @@ en:
         destroy:
           success: Participatory process group destroyed successfully.
         edit:
+          title: Edit process group
           update: Update
         new:
           create: Create
-          name: Name
+          title: New process group
         update:
           error: There was en error updating this participatory process group.
           success: Participatory process group updated successfully.
@@ -359,10 +386,19 @@ en:
           success: Participatory process step updated successfully.
       participatory_process_user_roles:
         create:
-          error: There was an error adding an admin for this participatory process.
-          success: Admin created successfully for this participatory process.
+          error: There was an error adding an user for this participatory process.
+          success: User created successfully for this participatory process.
         destroy:
-          success: Admin destroyed successfully for this participatory process.
+          success: User destroyed successfully for this participatory process.
+        edit:
+          title: Update participatory process user.
+          update: Update
+        new:
+          create: Create
+          title: New participatory process user.
+        update:
+          error: There was an error updated an user for this participatory process.
+          success: User updated successfully for this participatory process.
       participatory_processes:
         create:
           error: There was an error creating a new participatory process.
@@ -371,9 +407,16 @@ en:
           success: Participatory process destroyed successfully.
         edit:
           update: Update participatory process
+        form:
+          current_image: Current image
+          title: General Information
+          url: Url
+        index:
+          not_published: Not published
+          published: Published
         new:
-          create: Create participatory process
-          title: New participatory process
+          create: Create particiatory process
+          title: New particiatory process
         update:
           error: There was an error when updating this participatory process.
           success: Participatory process updated successfully.
@@ -431,6 +474,9 @@ en:
         destroy:
           error: There was an error when trying to delete this user.
           success: User is no longer an administrator.
+        form:
+          email: Email
+          name: Name
         new:
           create: Invite
           title: Invite user as administrator
@@ -463,3 +509,12 @@ en:
     participatory_processes:
       participatory_process_groups:
         none: None
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Newsletters
+        settings:
+          title: Settings
+        users:
+          title: Users

@@ -27,7 +27,7 @@ module Decidim::FeatureTestHelpers
   end
 
   def within_flash_messages
-    within ".flash.callout" do
+    within ".flash" do
       yield
     end
   end

@@ -6,6 +6,8 @@ module Decidim
     # Controller that allows managing all scopes at the admin panel.
     #
     class ScopesController < ApplicationController
+      layout "decidim/admin/settings"
+
       def index
         authorize! :index, Scope
         @scopes = collection

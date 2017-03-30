@@ -8,7 +8,7 @@ module Decidim
     class UsersController < Admin::ApplicationController
       def index
         authorize! :index, :admin_users
-        @users = collection
+        @users = collection.page(params[:page]).per(15)
       end
 
       def new

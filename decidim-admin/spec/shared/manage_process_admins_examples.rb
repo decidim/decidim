@@ -5,8 +5,8 @@ RSpec.shared_examples "manage process admins examples" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim_admin.participatory_process_path(participatory_process)
-    click_link "Process admins"
+    visit decidim_admin.edit_participatory_process_path(participatory_process)
+    click_link "Process users"
   end
 
   it "process admins" do
@@ -16,8 +16,9 @@ RSpec.shared_examples "manage process admins examples" do
   end
 
   it "creates a new process admin" do
+    find(".card-title a.new").click
 
-    within "#process_admins form" do
+    within ".new_participatory_process_user_role" do
       fill_in :participatory_process_user_role_email, with: other_user.email
       fill_in :participatory_process_user_role_name, with: "John Doe"
       select "admin", from: :participatory_process_user_role_role
@@ -25,7 +26,7 @@ RSpec.shared_examples "manage process admins examples" do
       find("*[type=submit]").click
     end
 
-    within ".flash" do
+    within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
@@ -34,19 +35,41 @@ RSpec.shared_examples "manage process admins examples" do
     end
   end
 
-  context "deleting a participatory process step" do
+  describe "when managing different users" do
     let!(:user_role2) { create(:participatory_process_user_role, participatory_process: participatory_process, user: other_user) }
 
     before do
       visit current_path
     end
 
-    it "deletes a participatory_process_step" do
-      within find("#process_admins tr", text: other_user.email) do
-        click_link "Destroy"
+    it "updates a process admin" do
+      within "#process_admins" do
+        within find("#process_admins tr", text: other_user.email) do
+          page.find('.action-icon--edit').click
+        end
       end
 
-      within ".flash" do
+      within ".edit_participatory_process_user_roles" do
+        select "admin", from: :participatory_process_user_role_role
+
+        find("*[type=submit]").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      within "#process_admins table" do
+        expect(page).to have_content("Administrator")
+      end
+    end
+
+    it "deletes a participatory_process_user_role" do
+      within find("#process_admins tr", text: other_user.email) do
+        page.find('a.action-icon--remove').click
+      end
+
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 

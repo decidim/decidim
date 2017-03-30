@@ -13,9 +13,11 @@ RSpec.shared_examples "manage proposals" do
 
   context "previewing proposals" do
     it "allows the user to preview the proposal" do
-      new_window = window_opened_by { click_link proposal.title }
+      within find("tr", text: proposal.title) do
+        @new_window = window_opened_by { find("a.action-icon--preview").click }
+      end
 
-      within_window new_window do
+      within_window @new_window do
         expect(current_path).to eq decidim_proposals.proposal_path(id: proposal.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
         expect(page).to have_content(translated(proposal.title))
       end
@@ -46,7 +48,7 @@ RSpec.shared_examples "manage proposals" do
           end
 
           it "can be related to a scope" do
-            find(".actions .new").click
+            click_link "New Proposal"
 
             within "form" do
               expect(page).to have_content(/Scope/i)
@@ -54,7 +56,7 @@ RSpec.shared_examples "manage proposals" do
           end
 
           it "creates a new proposal" do
-            find(".actions .new").click
+            click_link "New Proposal"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
@@ -65,7 +67,7 @@ RSpec.shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            within ".flash" do
+            within ".callout-wrapper" do
               expect(page).to have_content("successfully")
             end
 
@@ -86,7 +88,7 @@ RSpec.shared_examples "manage proposals" do
           end
 
           it "cannot be related to a scope" do
-            find(".actions .new").click
+            click_link "New Proposal"
 
             within "form" do
               expect(page).not_to have_content(/Scope/i)
@@ -94,7 +96,7 @@ RSpec.shared_examples "manage proposals" do
           end
 
           it "creates a new proposal related to the process scope" do
-            find(".actions .new").click
+            click_link "New Proposal"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
@@ -103,7 +105,7 @@ RSpec.shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            within ".flash" do
+            within ".callout-wrapper" do
               expect(page).to have_content("successfully")
             end
 
@@ -126,7 +128,7 @@ RSpec.shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to the process scope" do
-              find(".actions .new").click
+              click_link "New Proposal"
 
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Make decidim great again"
@@ -136,7 +138,7 @@ RSpec.shared_examples "manage proposals" do
                 find("*[type=submit]").click
               end
 
-              within ".flash" do
+              within ".callout-wrapper" do
                 expect(page).to have_content("successfully")
               end
 
@@ -161,7 +163,7 @@ RSpec.shared_examples "manage proposals" do
 
       it "cannot create a new proposal" do
         visit_feature
-        expect(page).not_to have_selector(".actions .new")
+        expect(page).not_to have_content("New Proposal")
       end
     end
   end
@@ -199,7 +201,7 @@ RSpec.shared_examples "manage proposals" do
           click_button "Answer proposal"
         end
 
-        within ".flash" do
+        within ".callout-wrapper" do
           expect(page).to have_content("Proposal successfully answered")
         end
 
@@ -220,7 +222,7 @@ RSpec.shared_examples "manage proposals" do
           click_button "Answer proposal"
         end
 
-        within ".flash" do
+        within ".callout-wrapper" do
           expect(page).to have_content("Proposal successfully answered")
         end
 
