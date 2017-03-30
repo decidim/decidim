@@ -32,7 +32,6 @@ es:
     proposals:
       actions:
         answer: Respuesta
-        new: Nueva propuesta
         title: Acciones
       admin:
         models:
