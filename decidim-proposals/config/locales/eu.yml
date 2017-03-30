@@ -22,7 +22,6 @@ eu:
     proposals:
       actions:
         answer: Erantzuna
-        new: Proposamen berria
         title: Ekintzak
       admin:
         models:
