@@ -29,6 +29,7 @@ es:
         destroy: Borrar
         edit: Editar
         new: Nuevo/a %{name}
+        preview: Previsualizar
         title: Acciones
       admin:
         meeting_closes:
