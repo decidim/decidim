@@ -7,6 +7,8 @@
 // = require ./sort_steps
 // = require ./tab_focus
 // = require decidim/editor
+// = require foundation-datepicker
+// = require form_datepicker
 // = require_self
 
 const pageLoad = () => {
@@ -16,4 +18,5 @@ const pageLoad = () => {
 
 $(() => {
   pageLoad();
+  formDatePicker();
 });
