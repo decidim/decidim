@@ -40,7 +40,6 @@ fi:
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
         promoted: Korostettu
-        scope: Konteksti
         short_description: Lyhyt kuvaus
         slug: URL-tunniste
         subtitle: Alaotsikko
@@ -96,7 +95,6 @@ fi:
         activate: Aktivoi
         configure: Asetukset
         confirm_destroy: Haluatko varmasti poistaa tämän?
-        create: Luo
         destroy: Tuhoa
         edit: Muokkaa
         manage: Hallitse
@@ -105,7 +103,6 @@ fi:
         preview: Esikatsele
         publish: Julkaise
         resend_invitation: Lähetä kutsu uudelleen
-        title: Toiminnot
         unpublish: Lopeta julkaisu
         verify: Vahvista
       attachments:
@@ -149,11 +146,7 @@ fi:
               categories_title: Kategoriat
           participatory_process_steps:
             index:
-              steps_hint: Voit vetää taulukon rivejä järjestääksesi prosessin vaiheet uuteen järjestykseen.
               steps_title: Vaihe
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Osallistumisprosessin hallinnoijat
       feature_permissions:
         edit:
           everyone: Kaikki
@@ -194,22 +187,17 @@ fi:
       menu:
         dashboard: Hallintapaneeli
         newsletters: Uutiskirjeet
-        participatory_process_groups: Osallistumisprosessien ryhmät
-        participatory_processes: Osallistumisprosessit
         participatory_processes_submenu:
           attachments: Liitteet
           categories: Kategoriat
           features: Ominaisuudet
           info: Tiedot
           moderations: Moderointi
-          process_admins: Prosessin hallinnoijat
-          settings: Asetukset
           steps: Vaiheet
         scopes: Kontekstit
         settings: Asetukset
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
-        users: Hallinnointikäyttäjät
       models:
         attachment:
           fields:
@@ -237,10 +225,8 @@ fi:
         participatory_process_group:
           fields:
             name: Nimi
-          name: Osallistumisprosessin ryhmä
         participatory_process_step:
           fields:
-            active: Aktivoi
             end_date: Lopetusaika
             start_date: Aloitusaika
             title: Otsikko
@@ -252,12 +238,10 @@ fi:
           fields:
             created_at: Luonnin ajankohta
             name: Nimi
-          name: Konteksti
         static_page:
           fields:
             created_at: Luonnin ajankohta
             title: Otsikko
-          name: Sivu
         user:
           fields:
             created_at: Luontipäivämäärä
@@ -317,7 +301,6 @@ fi:
           update: Päivitä
         new:
           create: Luo
-          name: Nimi
         update:
           error: Tämän osallistumisprosessien ryhmän päivityksessä tapahtui virhe.
           success: Osallistumisprosessien ryhmä päivitetty onnistuneesti.
@@ -353,12 +336,6 @@ fi:
         update:
           error: Tämän osallistumisprosessin vaiheen päivityksessä tapahtui virhe.
           success: Osallistumisprosessin vaihe päivitetty onnistuneesti.
-      participatory_process_user_roles:
-        create:
-          error: Tämän osallistumisprosessin hallinnointikäyttäjän lisäyksessä tapahtui virhe.
-          success: Hallinnointikäyttäjä lisätty onnistuneesti tälle osallistumisprosessille.
-        destroy:
-          success: Tämän osallistumisprosessin hallinnointikäyttäjä tuhottu onnistuneesti.
       participatory_processes:
         create:
           error: Uuden osallistumisprosessin luonnissa tapahtui virhe.
@@ -367,9 +344,6 @@ fi:
           success: Osallistumisprosessi tuhottu onnistuneesti.
         edit:
           update: Päivitä osallistumisprosessia
-        new:
-          create: Luo osallistumisprosessi
-          title: Uusi osallistumisprosessi
         update:
           error: Tämän osallistumisprosessin päivityksessä tapahtui virhe.
           success: Osallistumisprosessi päivitetty onnistuneesti.
