@@ -11,7 +11,9 @@ module Decidim
       isolate_namespace Decidim::Results
 
       routes do
-        resources :results, only: [:index, :show]
+        resources :results, only: [:index, :show] do
+          resource :result_widget, only: :show, path: "embed"
+        end
         root to: "results#index"
       end
     end
