@@ -16,6 +16,7 @@ ca:
         destroy: Esborrar
         edit: Editar
         new: Nou %{name}
+        preview: Previsualitzar
         title: Accions
       admin:
         models:
