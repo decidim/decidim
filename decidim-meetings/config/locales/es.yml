@@ -45,7 +45,6 @@ es:
           destroy:
             success: El encuentro se ha eliminado correctamente
           edit:
-            title: Editar encuentro
             update: Actualizar encuentro
           index:
             title: Lista de encuentros
