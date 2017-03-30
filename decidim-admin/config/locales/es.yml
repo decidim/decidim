@@ -1,4 +1,6 @@
 es:
+  actions:
+    confirm_destroy: '¿Estás seguro?'
   activemodel:
     attributes:
       attachment:
@@ -25,6 +27,7 @@ es:
         official_img_footer: Logotipo oficial de pie de página
         official_img_header: Logotipo oficial de cabecera
         official_url: URL oficial de organización
+        reference_prefix: Prefijo de la referencia
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
       participatory_process:
@@ -37,14 +40,21 @@ es:
         hero_image: Imagen de portada
         local_area: Áreas muncipales
         meta_scope: 'Metadatos: ámbito'
+        participatory_process_group_id: Grupo de procesos
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
+        scope_id: Ámbito
         short_description: Breve descripción
         slug: Texto corto de URL
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
         title: Título
+      participatory_process_group:
+        description: Descripción
+        hero_image: Imagen
+        name: Nombre
+        participatory_process_ids: Procesos relacionados
       participatory_process_step:
         description: Descripción
         end_date: Fecha de finalización
@@ -53,6 +63,8 @@ es:
         title: Título
       participatory_process_user_role:
         email: Email
+        name: Nombre
+        role: Rol
       scope:
         name: Nombre
         organization: Organización
@@ -93,6 +105,7 @@ es:
     admin:
       actions:
         activate: Activar
+        add: Añadir
         configure: Configurar
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Eliminar
@@ -114,6 +127,9 @@ es:
         edit:
           title: Editar archivo adjunto
           update: Actualizar archivo adjunto
+        form:
+          current_file: Archivo actual
+          url: URL
         new:
           create: Crear archivo adjunto
           title: Nuevo archivo adjunto
@@ -136,6 +152,9 @@ es:
         update:
           error: Se ha producido un error al actualizar esta categoría.
           success: Categoría actualizada correctamente.
+      dashboard:
+        show:
+          welcome: Bienvenido al nuevo panel de administración de Decidim.
       decidim:
         admin:
           attachments:
@@ -147,6 +166,11 @@ es:
           participatory_process_steps:
             index:
               steps_title: Fases
+          participatory_process_user_roles:
+            index:
+              admin: Administrador
+              collaborator: Colaborador
+              process_admins_title: Usuarios del proceso
       feature_permissions:
         edit:
           everyone: Todo el mundo
@@ -185,19 +209,24 @@ es:
           error: Se ha producido un error al actualizar esta funcionalidad.
           success: La funcionalidad se ha actualizado correctamente.
       menu:
+        admins: Administradores
         dashboard: Panel de control
         newsletters: Boletines
+        participatory_process_groups: Grupos de procesos
+        participatory_processes: Procesos
         participatory_processes_submenu:
           attachments: Archivos adjuntos
           categories: Categorías
           features: Funcionalidades
           info: Información
           moderations: Denuncias
+          process_admins: Usuarios del proceso
           steps: Fases del proceso
         scopes: Ámbitos
         settings: Configuración
         static_pages: Páginas
         user_groups: Grupos de usuarios
+        users: Usuarios
       models:
         attachment:
           fields:
@@ -225,6 +254,7 @@ es:
         participatory_process_group:
           fields:
             name: Nombre
+          name: Grupo de procesos
         participatory_process_step:
           fields:
             end_date: Fecha de finalización
@@ -234,6 +264,9 @@ es:
         participatory_process_user_role:
           fields:
             email: Correo electrónico
+            name: Nombre
+            role: Rol
+          name: Usuario del proceso
         scope:
           fields:
             created_at: Fecha de creación
@@ -294,6 +327,15 @@ es:
         edit:
           title: Editar organización
           update: Actualizar organización
+        form:
+          current_image: Imagen actual
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Social
+          twitter: Twitter
+          url: URL
+          youtube: YouTube
         update:
           error: Se produjo un error al actualizar esta organización.
           success: Organización actualizada correctamente.
@@ -301,9 +343,11 @@ es:
         destroy:
           success: Grupo destruido correctamente.
         edit:
+          title: Editar grupo de procesos
           update: Actualizar
         new:
           create: Crear
+          title: Nuevo grupo de procesos
         update:
           error: Se ha producido un error actualizando este grupo.
           success: Grupo actualizado correctamente.
@@ -339,6 +383,12 @@ es:
         update:
           error: Se ha producido un error en la actualización de esta fase de proceso participativo.
           success: La fase de proceso participativo se ha actualizado correctamente.
+      participatory_process_user_roles:
+        create:
+          error: Se ha producido un error al crear el usuario para este proceso participativo.
+          success: Usuario creado con éxito para este proceso participativo.
+        destroy:
+          success: Usuario eliminado con éxito para este proceso participativo.
       participatory_processes:
         create:
           error: Se ha producido un error al crear un nuevo proceso participativo.
