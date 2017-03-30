@@ -1,6 +1,6 @@
 ca:
   actions:
-    confirm_destroy: Confirmar destruir
+    confirm_destroy: N'estàs segur?
   activemodel:
     attributes:
       attachment:
@@ -397,6 +397,7 @@ ca:
           title: Nou usuari de procés participatiu.
         update:
           error: Hi ha hagut un error actualitzant l'usuari d'aquest procés participatiu.
+          success: Usuari actualitzat satisfactòriament per a aquest procés participatiu.
       participatory_processes:
         create:
           error: S'ha produït un error en crear un nou procés participatiu.
@@ -405,6 +406,16 @@ ca:
           success: El procés participatiu s'ha eliminat correctament.
         edit:
           update: Actualitzar procés participatiu
+        form:
+          current_image: imatge actual
+          title: Informació general
+          url: URL
+        index:
+          not_published: No publicat
+          published: Publicat
+        new:
+          create: Crear procés participatiu
+          title: Nou procés participatiu
         update:
           error: S'ha produït un error en l'actualització d'aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
@@ -462,6 +473,9 @@ ca:
         destroy:
           error: S'ha produït un error en intentar eliminar aquest usuari.
           success: L'usuari ja no és un administrador.
+        form:
+          email: Correu electrònic
+          name: Nom
         new:
           create: Convidar
           title: Convidar un usuari com a administrador
@@ -494,3 +508,12 @@ ca:
     participatory_processes:
       participatory_process_groups:
         none: Cap
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Butlletins
+        settings:
+          title: Configuració
+        users:
+          title: Usuaris
