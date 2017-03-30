@@ -279,6 +279,10 @@ en:
       participatory_process_groups:
         participatory_process_group:
           browse: Browse
+      participatory_process_widgets:
+        show:
+          active_step: Active step
+          take_part: Take part
       participatory_processes:
         index:
           promoted_processes: Highlighted processes

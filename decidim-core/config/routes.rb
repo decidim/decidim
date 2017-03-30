@@ -24,6 +24,7 @@ Decidim::Core::Engine.routes.draw do
   resources :participatory_process_groups, only: :show, path: "processes_groups"
   resources :participatory_processes, only: [:index, :show], path: "processes" do
     resources :participatory_process_steps, only: [:index], path: "steps"
+    resource :participatory_process_widget, only: :show, path: "embed"
   end
 
   scope "/processes/:participatory_process_id/f/:feature_id" do

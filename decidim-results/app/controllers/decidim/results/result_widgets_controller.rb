@@ -1,8 +1,6 @@
 module Decidim
   module Results
     class ResultWidgetsController < Decidim::WidgetsController
-      layout 'decidim/widget'
-
       helper_method :model
 
       private
