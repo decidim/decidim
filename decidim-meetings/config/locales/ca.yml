@@ -29,6 +29,7 @@ ca:
         destroy: Esborra
         edit: Edita
         new: Nou/va %{name}
+        preview: Previsualitzar
         title: Accions
       admin:
         meeting_closes:
