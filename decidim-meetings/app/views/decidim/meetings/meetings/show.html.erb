@@ -47,6 +47,7 @@
       <% end %>
     <%= feature_reference(meeting) %>
     <%= render partial: "decidim/shared/share_modal" %>
+    <%= embedded_code_for(meeting_meeting_widget_path(meeting)).html_safe %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">

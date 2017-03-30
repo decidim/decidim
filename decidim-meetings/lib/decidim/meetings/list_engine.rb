@@ -12,7 +12,9 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
-        resources :meetings, only: [:index, :show]
+        resources :meetings, only: [:index, :show] do
+          resource :meeting_widget, only: :show, path: "embed"
+        end
         root to: "meetings#index"
       end
     end
