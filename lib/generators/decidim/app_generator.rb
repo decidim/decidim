@@ -72,10 +72,6 @@ module Decidim
         SecureRandom.hex(64)
       end
 
-      def app_json
-        template "app.json.erb", "app.json"
-      end
-
       def install
         Decidim::Generators::InstallGenerator.start [
           "--recreate_db=#{options[:recreate_db]}",

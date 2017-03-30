@@ -33,6 +33,7 @@ Decidim is a participatory democracy framework written on Ruby on Rails original
 - [Install "Decidim" for an organization](#installation-instructions)
 - [Upgrade an already existing "Decidim" installation](#upgrade-instructions)
 - [Use Docker to deploy "Decidim"](#docker-instructions)
+- [Deploying to Heroku](#deploying-to-heroku)
 - [Check current components](#components)
 - [Further configuration](#further-configuration)
 - [Technical tradeoffs](#technical-tradeoffs)
@@ -111,6 +112,10 @@ Also you can run it as a standalone container like this:
 `docker run --rm -v $(pwd):/tmp -it codegram/decidim bundle exec bin/decidim /tmp/<app-name>`
 
 Now you have a new Decidim app created at `<app-name>` 🎉
+
+## Deploying to Heroku
+
+Once you've generated the Decidim app you might need to do some changes in order to deploy it to Heroku. You can check [codegram/decidim-deploy-heroku](https://github.com/codegram/decidim-deploy-heroku) for an opinionated example of things to do before deploying to Heroku.
 
 ## How to contribute
 
