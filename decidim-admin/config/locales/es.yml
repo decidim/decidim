@@ -389,6 +389,15 @@ es:
           success: Usuario creado con éxito para este proceso participativo.
         destroy:
           success: Usuario eliminado con éxito para este proceso participativo.
+        edit:
+          title: Editar usuario del proceso
+          update: Actualizar
+        new:
+          create: Crear
+          title: Nuevo usuario del proceso
+        update:
+          error: Se ha producido un error al crear el usuario para este proceso participativo.
+          success: Usuario actualizado correctamente para este proceso participativo.
       participatory_processes:
         create:
           error: Se ha producido un error al crear un nuevo proceso participativo.
@@ -397,6 +406,16 @@ es:
           success: El proceso participativo se ha eliminado correctamente.
         edit:
           update: Actualizar proceso participativo
+        form:
+          current_image: Imagen actual
+          title: Información general
+          url: URL
+        index:
+          not_published: No publicado
+          published: Publicado
+        new:
+          create: Crear proceso
+          title: Nuevo proceso
         update:
           error: Se ha producido un error en la actualización de este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
@@ -454,6 +473,9 @@ es:
         destroy:
           error: Hubo un error al tratar de eliminar este usuario.
           success: El usuario ya no es un administrador.
+        form:
+          email: Correo electrónico
+          name: Nombre
         new:
           create: Invitar
           title: Invitar a un usuario como administrador
@@ -486,3 +508,12 @@ es:
     participatory_processes:
       participatory_process_groups:
         none: Ninguno
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Boletines
+        settings:
+          title: Ajustes
+        users:
+          title: Usuarios
