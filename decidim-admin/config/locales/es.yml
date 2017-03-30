@@ -40,7 +40,6 @@ es:
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
-        scope: Ámbito
         short_description: Breve descripción
         slug: Texto corto de URL
         subtitle: Subtítulo
@@ -96,7 +95,6 @@ es:
         activate: Activar
         configure: Configurar
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
-        create: Crear
         destroy: Eliminar
         edit: Editar
         manage: Gestionar
@@ -105,7 +103,6 @@ es:
         preview: Previsualizar
         publish: Publicar
         resend_invitation: Reenviar invitación
-        title: Acciones
         unpublish: Despublicar
         verify: Verificar
       attachments:
@@ -149,11 +146,7 @@ es:
               categories_title: Categorías
           participatory_process_steps:
             index:
-              steps_hint: Puedes arrastrar las filas de la tabla para reordenar las fases del proceso.
               steps_title: Fases
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Administradores del proceso participativo
       feature_permissions:
         edit:
           everyone: Todo el mundo
@@ -194,22 +187,17 @@ es:
       menu:
         dashboard: Panel de control
         newsletters: Boletines
-        participatory_process_groups: Grupos de procesos participativos
-        participatory_processes: Procesos participativos
         participatory_processes_submenu:
           attachments: Archivos adjuntos
           categories: Categorías
           features: Funcionalidades
           info: Información
           moderations: Denuncias
-          process_admins: Administradores del proceso
-          settings: Configuración
           steps: Fases del proceso
         scopes: Ámbitos
         settings: Configuración
         static_pages: Páginas
         user_groups: Grupos de usuarios
-        users: Administradores
       models:
         attachment:
           fields:
@@ -237,10 +225,8 @@ es:
         participatory_process_group:
           fields:
             name: Nombre
-          name: Grupo de procesos participativos
         participatory_process_step:
           fields:
-            active: Activa
             end_date: Fecha de finalización
             start_date: Fecha de inicio
             title: Título
@@ -252,12 +238,10 @@ es:
           fields:
             created_at: Fecha de creación
             name: Nombre
-          name: Ámbito
         static_page:
           fields:
             created_at: Fecha de creación
             title: Título
-          name: Página
         user:
           fields:
             created_at: Fecha de creación
@@ -320,7 +304,6 @@ es:
           update: Actualizar
         new:
           create: Crear
-          name: Nombre
         update:
           error: Se ha producido un error actualizando este grupo.
           success: Grupo actualizado correctamente.
@@ -356,12 +339,6 @@ es:
         update:
           error: Se ha producido un error en la actualización de esta fase de proceso participativo.
           success: La fase de proceso participativo se ha actualizado correctamente.
-      participatory_process_user_roles:
-        create:
-          error: Se ha producido un error al crear un administrador para este proceso participativo.
-          success: El administrador para este proceso participativo se ha creado correctamente.
-        destroy:
-          success: El administrador para este proceso participativo se ha eliminado correctamente.
       participatory_processes:
         create:
           error: Se ha producido un error al crear un nuevo proceso participativo.
@@ -370,9 +347,6 @@ es:
           success: El proceso participativo se ha eliminado correctamente.
         edit:
           update: Actualizar proceso participativo
-        new:
-          create: Crear proceso participativo
-          title: Nuevo proceso participativo
         update:
           error: Se ha producido un error en la actualización de este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
