@@ -32,7 +32,6 @@ fi:
     proposals:
       actions:
         answer: Vastaa
-        new: Uusi ehdotus
         title: Toiminnot
       admin:
         models:
