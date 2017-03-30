@@ -57,7 +57,7 @@ module Decidim
         private
 
         def projects
-          @projects ||= Project.where(feature: current_feature)
+          @projects ||= Project.where(feature: current_feature).page(params[:page]).per(15)
         end
 
         def orders
