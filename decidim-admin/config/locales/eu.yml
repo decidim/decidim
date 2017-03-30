@@ -30,7 +30,6 @@ eu:
         hashtag: Traola
         hero_image: Orri nagusiko irudia
         promoted: Nabarmendua
-        scope: Esparrua
         short_description: Deskribapen laburra
         slug: URL testu laburra
         subtitle: Azpititulua
@@ -64,7 +63,6 @@ eu:
         activate: Aktibatu
         configure: Konfiguratu
         confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
-        create: Sortu
         destroy: Kendu
         edit: Editatu
         manage: Kudeatu
@@ -73,7 +71,6 @@ eu:
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
-        title: Ekintzak
         unpublish: Desargitaratu
         verify: Egiaztatu
       attachments:
@@ -117,11 +114,7 @@ eu:
               categories_title: Kategoriak
           participatory_process_steps:
             index:
-              steps_hint: Taularen errenkadak arrastatu dezakezu prozesuaren faseak berrantolatzeko.
               steps_title: Faseak
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Prozesu partizipatiboaren administratzaileak
       feature_permissions:
         edit:
           everyone: Edonor
@@ -161,20 +154,16 @@ eu:
           success: Funtzionalitatea zuzen eguneratu da.
       menu:
         dashboard: Kontrol-panela
-        participatory_processes: Prozesu partizipatiboak
         participatory_processes_submenu:
           attachments: Fitxategi erantsiak
           categories: Kategoriak
           features: Funtzionalitateak
           info: Informazioa
-          process_admins: Prozesuaren administratzaileak
-          settings: Konfigurazioa
           steps: Prozesuaren faseak
         scopes: Esparruak
         settings: Konfigurazioa
         static_pages: Erlaitzak
         user_groups: Erabiltzaile-taldeak
-        users: Administratzaileak
       models:
         attachment:
           fields:
@@ -194,7 +183,6 @@ eu:
           name: Prozesu partizipatiboa
         participatory_process_step:
           fields:
-            active: Aktiboa
             end_date: Bukaera-data
             start_date: Hasiera-data
             title: Izenburua
@@ -206,12 +194,10 @@ eu:
           fields:
             created_at: Sortze-data
             name: Izena
-          name: Esparrua
         static_page:
           fields:
             created_at: Sortze-data
             title: Izenburua
-          name: Orrialdea
         user:
           fields:
             created_at: Sortze-data
@@ -267,12 +253,6 @@ eu:
         update:
           error: Errorea gertatu da prozesu partizipatiboaren fase hau eguneratzean.
           success: Prozesu partizipatiboaren fasea zuzen eguneratu da.
-      participatory_process_user_roles:
-        create:
-          error: Errorea gertatu da prozesu partizipatibo honetarako administratzaile bat sortzean.
-          success: Prozesu partizipatibo honetarako administratzailea zuzen sortu da.
-        destroy:
-          success: Prozesu partizipatibo honetarako administratzailea zuzen sortu da.
       participatory_processes:
         create:
           error: Errorea gertatu da prozesu partizipatibo berri bat sortzean.
@@ -281,9 +261,6 @@ eu:
           success: Prozesu partizipatiboa zuzen ezabatu da.
         edit:
           update: Eguneratu prozesu partizipatiboa
-        new:
-          create: Sortu prozesu partizipatiboa
-          title: Prozesu partizipatibo berria
         update:
           error: Errorea gertatu da prozesu partizipatibo hau eguneratzean.
           success: Prozesu partizipatiboa zuzen eguneratu da.

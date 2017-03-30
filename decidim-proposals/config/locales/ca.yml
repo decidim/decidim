@@ -35,6 +35,8 @@ ca:
         new: Nova proposta
         title: Accions
       admin:
+        actions:
+          preview: Previsualitzar
         models:
           proposal:
             name: Proposta

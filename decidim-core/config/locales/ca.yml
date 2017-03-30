@@ -249,6 +249,7 @@ ca:
         subject: Contrasenya modificada
   errors:
     messages:
+      content_type_whitelist_error: El tipus de fitxer no és vàlid
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
       invalid_manifest: Arxiu de manifest invàlid
       invalid_participatory_process: Procés participatiu invàlid

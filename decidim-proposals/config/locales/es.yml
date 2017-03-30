@@ -35,6 +35,8 @@ es:
         new: Nueva propuesta
         title: Acciones
       admin:
+        actions:
+          preview: Previsualizar
         models:
           proposal:
             name: Propuesta

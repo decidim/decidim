@@ -45,7 +45,6 @@ fi:
           destroy:
             success: Tapaaminen onnistuneesti poistettu
           edit:
-            title: Muokkaa tapaamista
             update: Päivitä tapaaminen
           index:
             title: Tapaamiset

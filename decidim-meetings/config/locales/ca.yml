@@ -29,6 +29,7 @@ ca:
         destroy: Esborra
         edit: Edita
         new: Nou/va %{name}
+        preview: Previsualitzar
         title: Accions
       admin:
         meeting_closes:
@@ -45,7 +46,6 @@ ca:
           destroy:
             success: La trobada s'ha eliminat correctament
           edit:
-            title: Edita trobada
             update: Actualitzar trobada
           index:
             title: Trobades

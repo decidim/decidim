@@ -29,6 +29,7 @@ es:
         destroy: Borrar
         edit: Editar
         new: Nuevo/a %{name}
+        preview: Previsualizar
         title: Acciones
       admin:
         meeting_closes:
@@ -45,7 +46,6 @@ es:
           destroy:
             success: El encuentro se ha eliminado correctamente
           edit:
-            title: Editar encuentro
             update: Actualizar encuentro
           index:
             title: Lista de encuentros

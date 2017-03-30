@@ -35,7 +35,6 @@ eu:
           destroy:
             success: Topaketa zuzen ezabatu da.
           edit:
-            title: Editatu topaketa
             update: Eguneratu topaketa
           index:
             title: Topaketa-zerrenda
