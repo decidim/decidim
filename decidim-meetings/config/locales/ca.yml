@@ -45,7 +45,6 @@ ca:
           destroy:
             success: La trobada s'ha eliminat correctament
           edit:
-            title: Edita trobada
             update: Actualitzar trobada
           index:
             title: Trobades
