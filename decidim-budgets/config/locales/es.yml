@@ -16,6 +16,7 @@ es:
         destroy: Borrar
         edit: Editar
         new: Nuevo %{name}
+        preview: Previsualizar
         title: Acciones
       admin:
         models:
