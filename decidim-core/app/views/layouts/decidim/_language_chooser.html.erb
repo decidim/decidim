@@ -1,14 +1,14 @@
-<div class="topbar__dropmenu language-choose">
-  <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
-    <li class="is-dropdown-submenu-parent">
-      <%= link_to t("name", scope: "locale") %>
-      <% if available_locales.length > 1 %>
+<% if available_locales.length > 1 %>
+  <div class="topbar__dropmenu language-choose">
+    <ul class="dropdown menu" data-dropdown-menu data-close-on-click-inside="false">
+      <li class="is-dropdown-submenu-parent">
+        <%= link_to t("name", scope: "locale") %>
         <ul class="menu is-dropdown-submenu">
           <% (available_locales - [I18n.locale.to_s]).each do |locale| %>
             <li><%= link_to locale_name(locale), decidim.locale_path(locale: locale), method: :post%></li>
           <% end %>
         </ul>
-      <% end %>
-    </li>
-  </ul>
-</div>
+      </li>
+    </ul>
+  </div>
+<% end %>
