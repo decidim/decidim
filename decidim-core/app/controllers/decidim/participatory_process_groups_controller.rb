@@ -3,7 +3,7 @@ require_dependency "decidim/application_controller"
 
 module Decidim
   class ParticipatoryProcessGroupsController < ApplicationController
-    helper_method :participatory_processes, :group
+    helper_method :participatory_processes, :group, :collection
 
     def show
       authorize! :read, ParticipatoryProcessGroup
@@ -14,6 +14,7 @@ module Decidim
     def participatory_processes
       @participatory_processes ||= group.participatory_processes.published
     end
+    alias_method :collection, :participatory_processes
 
     def group
       Decidim::ParticipatoryProcessGroup.find(params[:id])
