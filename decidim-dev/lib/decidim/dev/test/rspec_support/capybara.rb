@@ -27,10 +27,7 @@ capybara_options = {
       File.join(File.dirname(__FILE__), "phantomjs_polyfills", "promise.js")
     ),
     File.expand_path(
-      File.join(File.dirname(__FILE__), "phantomjs_polyfills", "bind-polyfill.js")
-    ),
-    File.expand_path(
-      File.join(File.dirname(__FILE__), "phantomjs_polyfills", "object-assign-polyfill.js")
+      File.join(File.dirname(__FILE__), "phantomjs_polyfills", "phantomjs-shim.js")
     )
   ],
   js_errors: true,
