@@ -1,4 +1,4 @@
-fragment DownVote on Comment {
+fragment DownVoteButton on Comment {
   id
   downVotes
   downVoted
