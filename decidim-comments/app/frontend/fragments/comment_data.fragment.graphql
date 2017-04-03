@@ -1,5 +1,5 @@
-#import "../fragments/up_vote.fragment.graphql"
-#import "../fragments/down_vote.fragment.graphql"
+#import "../fragments/up_vote_button.fragment.graphql"
+#import "../fragments/down_vote_button.fragment.graphql"
 
 fragment CommentData on Comment {
   id
@@ -15,6 +15,6 @@ fragment CommentData on Comment {
   acceptsNewComments
   alignment
   alreadyReported
-  ...UpVote
-  ...DownVote
+  ...UpVoteButton
+  ...DownVoteButton
 }

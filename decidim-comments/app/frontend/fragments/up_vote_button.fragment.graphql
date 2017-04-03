@@ -1,4 +1,4 @@
-fragment UpVote on Comment {
+fragment UpVoteButton on Comment {
   id
   upVotes
   upVoted
