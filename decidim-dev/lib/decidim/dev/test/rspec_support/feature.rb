@@ -35,6 +35,7 @@ module Decidim
     def show
       @commentable = DummyResource.find(params[:id])
       render inline: %{
+        <%= csrf_meta_tags %>
         <%= display_flash_messages %>
         <div class="reveal" id="loginModal" data-reveal></div>
         <%= javascript_include_tag 'application' %>
