@@ -58,6 +58,11 @@ module Decidim
         template "autoprefixer_initializer.rb", "#{dummy_path}/config/initializers/autoprefixer.rb"
       end
 
+      def test_env
+        gsub_file "#{dummy_path}/config/environments/test.rb",
+          /allow_forgery_protection = (.*)/, 'allow_forgery_protection = true'
+      end
+
       private
 
       def dummy_path
