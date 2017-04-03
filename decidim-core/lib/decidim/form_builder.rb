@@ -49,8 +49,8 @@ module Decidim
             locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
               string + content_tag(:li, class: tab_element_class_for("title", index)) do
                 title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
-                element_class = ""
-                element_class += "alert" if error?(name_with_locale(name, locale))
+                element_class = nil
+                element_class = "is-tab-error" if error?(name_with_locale(name, locale))
                 content_tag(:a, title, href: "##{name}-panel-#{index}", class: element_class)
               end
             end
