@@ -13,11 +13,14 @@ module Decidim
         end
 
         let!(:deliverable_users) do
-          create_list(:user, 5, organization: organization, newsletter_notifications: true)
+          create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications: true)
         end
 
         let!(:not_deliverable_users) do
           create_list(:user, 3, organization: organization, newsletter_notifications: false)
+        end
+        let!(:unconfirmed_users) do
+          create_list(:user, 3, organization: organization, newsletter_notifications: true)
         end
 
         let(:command) { described_class.new(newsletter) }
