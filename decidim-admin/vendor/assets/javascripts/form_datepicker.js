@@ -9,7 +9,12 @@ function formDatePicker(){
     		disableDblClickSelection: true,
     		leftArrow:'<<',
     		rightArrow:'>>'
-    	});
+    	})
+      .on('changeDate', function (ev) {
+        $(ev.target).parent().siblings().find("input").val(moment(ev.date));
+      });
     }
   );
 }
+
+
