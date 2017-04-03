@@ -2,7 +2,9 @@
 <html class="no-js">
   <head>
     <title><%= decidim_page_title %></title>
-    <%= render partial: 'layouts/decidim/head' %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'decidim/widget' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>

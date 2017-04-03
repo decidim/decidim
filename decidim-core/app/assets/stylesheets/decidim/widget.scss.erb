@@ -1,0 +1,17 @@
+@import "variables";
+@import "utils/*";
+
+@import "foundation";
+@include foundation-everything;
+
+@import "modules/typography";
+@import "modules/cards";
+
+<% Decidim.feature_manifests.map(&:stylesheet).compact.each do |stylesheet| %>
+@import "<%= stylesheet %>";
+<% end %>
+
+body, .column, .card {
+  padding: 0;
+  margin: 0;
+}
