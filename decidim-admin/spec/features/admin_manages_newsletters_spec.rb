@@ -6,7 +6,7 @@ require "spec_helper"
 describe "Admin manages newsletters", type: :feature do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization: organization) }
-  let!(:deliverable_users) { create_list(:user, 5, newsletter_notifications: true, organization: organization) }
+  let!(:deliverable_users) { create_list(:user, 5, :confirmed, newsletter_notifications: true, organization: organization) }
 
   before do
     switch_to_host(organization.host)

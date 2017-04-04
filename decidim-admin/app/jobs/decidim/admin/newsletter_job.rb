@@ -25,7 +25,7 @@ module Decidim
       private
 
       def recipients
-        @recipients ||= User.where(newsletter_notifications: true).where.not(email: nil)
+        @recipients ||= User.where(newsletter_notifications: true).where.not(email: nil, confirmed_at: nil)
       end
     end
   end
