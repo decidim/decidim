@@ -148,6 +148,22 @@ module Decidim
       template.html_safe
     end
 
+    # Public: Override so the date fields are rendered using foundation
+    # datepicker scripts
+    def datetime_field(attribute, options = {})
+      template = ""
+      template += @template.label(@object_name, attribute)
+      template += @template.text_field(@object_name, attribute, options.merge({
+        value: object.send(attribute).strftime("%m/%d/%Y %H:%M"),
+        name: nil,
+        id: nil,
+        data: { datepicker: '', startdate: object.send(attribute).strftime("%d/%m/%Y %H:%M"), timepicker: '' }
+      }))
+      template += @template.text_field(@object_name, attribute)
+      template += error_and_help_text(attribute, options)
+      template.html_safe
+    end
+
     private
 
     # Private: Override from FoundationRailsHelper in order to render
