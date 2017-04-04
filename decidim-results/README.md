@@ -8,7 +8,7 @@ results will be available as a Feature for a Participatory Process.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-results
+gem 'decidim-results'
 ```
 
 And then execute:
