@@ -11,7 +11,7 @@ function formDatePicker(){
     		rightArrow:'>>'
     	})
       .on('changeDate', function (ev) {
-        $(ev.target).parent().siblings().find("input").val(moment(ev.date));
+        $(ev.target).siblings("input").val(moment(ev.date));
       });
     }
   );
