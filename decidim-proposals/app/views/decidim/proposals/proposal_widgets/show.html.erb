@@ -17,6 +17,9 @@
           </div>
         </div>
       </div>
+      <%= render partial: "decidim/proposals/proposals/proposal_badge", locals: { proposal: model } %>
+      <p><%= truncate(model.body, length: 100) %></p>
+      <%= render partial: "decidim/proposals/proposals/tags", locals: { proposal: model } %>
     </div>
   </article>
 </div>

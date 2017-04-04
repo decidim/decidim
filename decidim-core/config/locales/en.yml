@@ -205,6 +205,10 @@ en:
           invalid: "%{field} isn't valid."
           ok: Ok
           title: Not authorized
+      embed_modal:
+        close_window: Close window
+        embed: Copy the following URL in your website
+        embed_link: Embed
       flag_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close

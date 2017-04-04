@@ -9,5 +9,8 @@
 
   <body>
     <%= yield %>
+    <div class="organization">
+      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+    </div>
   </body>
 </html>
