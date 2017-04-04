@@ -2,7 +2,7 @@
 module Decidim
   module WidgetUrlsHelper
     def embedded_code_for(url)
-      "<iframe id='decidim-iframe' frameborder='0' scrolling='no' onload='setIframeHeight(this.id)' src='#{url}'></iframe>"
+      "#{content_tag(:iframe, '', src: url, id: "decidim-iframe", frameborder: 0, scrolling: "no", onload: "setIframeHeight(this.id)")}"
     end
   end
 end

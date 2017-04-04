@@ -48,8 +48,8 @@
     <%= feature_reference(meeting) %>
     <%= render partial: "decidim/shared/share_modal" %>
 
-    <% embed_url = embedded_code_for(meeting_meeting_widget_path(meeting)) %>
-    <%= render partial: "decidim/shared/embed_modal", locals: { embed_url: embed_url } %>
+    <% embed_code = embedded_code_for(meeting_meeting_widget_url(meeting)) %>
+    <%= render partial: "decidim/shared/embed_modal", locals: { embed_code: embed_code } %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">

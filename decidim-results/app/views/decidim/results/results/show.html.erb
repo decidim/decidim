@@ -41,8 +41,8 @@
     <%= feature_reference(result) %>
     <%= render partial: "decidim/shared/share_modal" %>
 
-    <% embed_url = embedded_code_for(result_result_widget_path(result)) %>
-    <%= render partial: "decidim/shared/embed_modal", locals: { embed_url: embed_url } %>
+    <% embed_code = embedded_code_for(result_result_widget_url(result)) %>
+    <%= render partial: "decidim/shared/embed_modal", locals: { embed_code: embed_code } %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
