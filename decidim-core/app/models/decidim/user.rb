@@ -8,7 +8,7 @@ module Decidim
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
-           :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
+           :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2], request_keys: [:env]
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
     has_many :authorizations, foreign_key: "decidim_user_id", class_name: Decidim::Authorization, inverse_of: :user
@@ -51,6 +51,14 @@ module Decidim
 
     def name
       super || I18n.t("decidim.anonymous_user")
+    end
+
+    def self.find_for_authentication(warden_conditions)
+      organization = warden_conditions.dig(:env, "decidim.current_organization")
+      where(
+        email: warden_conditions[:email],
+        decidim_organization_id: organization.id
+      ).first
     end
 
     private
