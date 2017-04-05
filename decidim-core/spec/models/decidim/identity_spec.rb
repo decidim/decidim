@@ -32,6 +32,11 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
+      context "when the organization is different than the user's organization" do
+        let(:organization) { create :organization }
+        it { is_expected.to be_invalid }
+      end
+
       context "when the uid already exists for the same provider" do
         it "is valid for another organization" do
           identity.save

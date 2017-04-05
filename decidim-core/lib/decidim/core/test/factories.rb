@@ -187,6 +187,7 @@ FactoryGirl.define do
     provider "facebook"
     sequence(:uid)
     user
+    organization { user.organization }
   end
 
   factory :authorization, class: Decidim::Authorization do
