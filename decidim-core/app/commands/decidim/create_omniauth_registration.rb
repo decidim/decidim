@@ -63,7 +63,8 @@ module Decidim
     def create_identity
       @user.identities.create!(
         provider: form.provider,
-        uid: form.uid
+        uid: form.uid,
+        organization: organization
       )
     end
 

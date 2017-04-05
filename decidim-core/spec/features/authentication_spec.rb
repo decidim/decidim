@@ -345,7 +345,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
     end
   end
 
-  context "When a user is already registered in another organization" do
+  context "When a user is already registered in another organization with the same email" do
     let(:user) { create(:user, :confirmed) }
 
     describe "Sign Up" do
@@ -363,6 +363,46 @@ describe "Authentication", type: :feature, perform_enqueued: true do
           end
 
           expect(page).to have_content("confirmation link")
+        end
+      end
+    end
+  end
+
+  context "When a user is already registered in another organization with the same fb account" do
+    let(:user) { create(:user, :confirmed) }
+    let(:identity) { create(:identity, user: user, provider: "facebook", uid: "12345") }
+
+    let(:omniauth_hash) {
+        OmniAuth::AuthHash.new({
+          provider: identity.provider,
+          uid: identity.uid,
+          info: {
+            email: user.email,
+            name: "Facebook User",
+            verified: true
+          }
+        })
+      }
+
+    before :each do
+      OmniAuth.config.test_mode = true
+      OmniAuth.config.mock_auth[:facebook] = omniauth_hash
+    end
+
+    after :each do
+      OmniAuth.config.test_mode = false
+      OmniAuth.config.mock_auth[:facebook] = nil
+    end
+
+    describe "Sign Up" do
+      context "when the user has confirmed the email in facebook" do
+        it "creates a new User without sending confirmation instructions" do
+          find(".sign-up-link").click
+
+          click_link "Sign in with Facebook"
+
+          expect(page).to have_content("Successfully")
+          expect_user_logged
         end
       end
     end
