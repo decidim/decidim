@@ -180,34 +180,34 @@ ca:
           success: Permisos actualitzats correctament.
       features:
         create:
-          error: S'ha produït un error en afegir aquest component.
-          success: Component creat correctament.
+          error: S'ha produït un error en afegir aquesta funcionalitat.
+          success: Funcionalitat creada correctament.
         destroy:
-          error: S'ha produït un error destruir aquest component.
-          success: Component eliminat correctament.
+          error: S'ha produït un error destruir aquesta funcionalitat.
+          success: Funcionalitat eliminada correctament.
         edit:
-          title: Editar component
+          title: Editar funcionalitat
           update: Actualitza
         form:
           global_settings: Configuració global
           step_settings: Configuració de fase
         index:
-          add: Afegir component
+          add: Afegir funcionalitat
           headers:
             actions: Accions
-            name: Nom del component
-            type: Tipus de component
+            name: Nom de la funcionalitat
+            type: Tipus de funcionalitat
         new:
-          add: Afegir component
-          title: 'Afegir component: %{name}'
+          add: Afegir funcionalitat
+          title: 'Afegir funcionalitat: %{name}'
         publish:
-          success: El component s'ha publicat correctament.
-        title: Components
+          success: La funcionalitat s'ha publicat correctament.
+        title: Funcionalitats
         unpublish:
-          success: El component ha estat despublicada exitosament.
+          success: La funcionalitat ha estat despublicada exitosament.
         update:
-          error: S'ha produït un error en actualitzar aquest component.
-          success: El component s'ha actualitzat correctament.
+          error: S'ha produït un error en actualitzar aquesta funcionalitat.
+          success: La funcionalitat s'ha actualitzat correctament.
       menu:
         admins: Administradors
         dashboard: Tauler de control
@@ -217,7 +217,7 @@ ca:
         participatory_processes_submenu:
           attachments: Adjunts
           categories: Categories
-          features: Components
+          features: Funcionalitats
           info: Informació
           moderations: Moderacions
           process_admins: Usuaris del procés

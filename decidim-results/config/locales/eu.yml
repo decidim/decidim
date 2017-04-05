@@ -1,19 +1,33 @@
 eu:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Kategoria
+        decidim_scope_id: Esparrua
+        description: Deskribapena
+        proposal_ids: Sartutako proposamenak
+        title: Izenburua
   decidim:
     features:
       results:
         name: Emaitzak
+        settings:
+          global:
+            comments_enabled: Iruzkinak gaituta
+          step:
+            comments_blocked: Iruzkinak blokeatuta
     resource_links:
       included_proposals:
         result_proposals: Emaitza honetan jasotako proposamenak
       meetings_through_proposals:
-        result_meetings: Honekin lotutako topaketak
+        result_meetings: Proposamenarekin lotutako topaketak
     results:
       actions:
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
-        destroy: Garbitu
+        destroy: Ezabatu
         edit: Editatu
         new: '%{name} berria'
+        preview: Aurreikusi
         title: Ekintzak
       admin:
         models:
@@ -43,14 +57,18 @@ eu:
       results:
         count:
           results_count:
-            one: Emaitza bat
+            one: 1 emaitza
             other: "%{count} emaitza"
         filters:
           category: Kategoria
+          category_prompt: Aukeratu kategoria bat
           scopes: Esparruak
           search: Bilatu
         filters_small_view:
+          close_modal: Itxi leihoa
+          filter: Iragazi
           filter_by: 'Iragazi honen arabera:'
+          unfold: Zabaldu
         show:
           stats:
             attendees: Bertaratuak
@@ -58,4 +76,4 @@ eu:
             contributions: Ekarpenak
             meetings: Topaketa-zerrenda
             proposals: Proposamenak
-            votes: Euskarria
+            votes: Sostenguak

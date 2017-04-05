@@ -1,4 +1,6 @@
 eu:
+  actions:
+    confirm_destroy: Ziur zaude?
   activemodel:
     attributes:
       attachment:
@@ -12,6 +14,9 @@ eu:
       feature:
         name: Izena
         weight: Pisua
+      newsletter:
+        body: Testua
+        subject: Gaia
       organization:
         default_locale: Eskualdeko ezarpen lehenetsiak
         description: Deskribapena
@@ -19,6 +24,10 @@ eu:
         homepage_image: Orri nagusiko irudia
         logo: Logotipo
         name: Izena
+        official_img_footer: Orri-oineko logotipo ofiziala
+        official_img_header: Goiburuko logotipo ofiziala
+        official_url: Erakundearen URL ofiziala
+        reference_prefix: Erreferentzia-aurrizkia
         show_statistics: Erakutsi estatistikak
         welcome_text: Ongietorri-testua
       participatory_process:
@@ -29,11 +38,23 @@ eu:
         end_date: Bukaera-data
         hashtag: Traola
         hero_image: Orri nagusiko irudia
+        local_area: Udal-alorrak
+        meta_scope: 'Metadatuak: esparrua'
+        participatory_process_group_id: Prozesu-multzoa
+        participatory_scope: Esparru partizipatiboa
+        participatory_structure: Egitura partizipatiboa
         promoted: Nabarmendua
+        scope_id: Esparrua
         short_description: Deskribapen laburra
         slug: URL testu laburra
         subtitle: Azpititulua
+        target: Nori zuzentzen zaio?
         title: Izenburua
+      participatory_process_group:
+        description: Deskribapena
+        hero_image: Irudia
+        name: Izena
+        participatory_process_ids: Elkarrekin lotutako prozesuak
       participatory_process_step:
         description: Deskribapena
         end_date: Bukaera-data
@@ -42,6 +63,8 @@ eu:
         title: Izenburua
       participatory_process_user_role:
         email: Posta elektronikoa
+        name: Izena
+        role: Rola
       scope:
         name: Izena
         organization: Erakundea
@@ -56,11 +79,33 @@ eu:
   activerecord:
     attributes:
       decidim/participatory_process:
+        banner_image: Bannerra
+        description: Deskribapena
+        developer_group: Talde sustatzailea
+        domain: Domeinua
+        end_date: Bukaera-data
+        hashtag: Traola
+        hero_image: Orri nagusiko irudia
+        local_area: Udal-alorrak
+        meta_scope: 'Metadatuak: esparrua'
+        participatory_scope: Esparru partizipatiboa
+        participatory_structure: Egitura partizipatiboa
         promoted: Nabarmendua
+        scope: Esparrua
+        short_description: Deskribapen laburra
+        slug: URL laburra
+        subtitle: Azpititulua
+        target: Nori zuzentzen zaio?
+        title: Izenburua
+      decidim/static_page:
+        content: Edukia
+        slug: URL laburra
+        title: Izenburua
   decidim:
     admin:
       actions:
         activate: Aktibatu
+        add: Gehitu
         configure: Konfiguratu
         confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
         destroy: Kendu
@@ -82,6 +127,9 @@ eu:
         edit:
           title: Editatu fitxategi erantsia
           update: Eguneratu fitxategi erantsia
+        form:
+          current_file: Oraingo fitxategia
+          url: url
         new:
           create: Sortu fitxategi erantsia
           title: Fitxategi erantsi berria
@@ -104,6 +152,9 @@ eu:
         update:
           error: Errorea gertatu da kategoria hau eguneratzean.
           success: Kategoria zuzen eguneratu da.
+      dashboard:
+        show:
+          welcome: Ongi etorri Decidim administrazio-panel berrira.
       decidim:
         admin:
           attachments:
@@ -115,6 +166,11 @@ eu:
           participatory_process_steps:
             index:
               steps_title: Faseak
+          participatory_process_user_roles:
+            index:
+              admin: Administratzailea
+              collaborator: Kolaboratzailea
+              process_admins_title: Prozesu partizipatiboko erabiltzaileak
       feature_permissions:
         edit:
           everyone: Edonor
@@ -153,17 +209,24 @@ eu:
           error: Errorea gertatu da funtzionalitate hau eguneratzean.
           success: Funtzionalitatea zuzen eguneratu da.
       menu:
+        admins: Administratzaileak
         dashboard: Kontrol-panela
+        newsletters: Buletinak
+        participatory_process_groups: Prozesu-multzoak
+        participatory_processes: Prozesuak
         participatory_processes_submenu:
           attachments: Fitxategi erantsiak
           categories: Kategoriak
           features: Funtzionalitateak
           info: Informazioa
+          moderations: Salaketak
+          process_admins: Prozesuko erabiltzaileak
           steps: Prozesuaren faseak
         scopes: Esparruak
         settings: Konfigurazioa
         static_pages: Erlaitzak
         user_groups: Erabiltzaile-taldeak
+        users: Erabiltzaileak
       models:
         attachment:
           fields:
@@ -174,6 +237,13 @@ eu:
           fields:
             name: Izena
           name: Kategoria
+        newsletter:
+          fields:
+            created_at: Sortze-data
+            progress: ' Aurrerapena '
+            sent_at: ' Bidalketa-data: '
+            subject: Gaia
+          name: Buletina
         participatory_process:
           fields:
             created_at: Sortze-data
@@ -181,6 +251,10 @@ eu:
             published: Argitaratua
             title: Izenburua
           name: Prozesu partizipatiboa
+        participatory_process_group:
+          fields:
+            name: Izena
+          name: Prozesu-multzoak
         participatory_process_step:
           fields:
             end_date: Bukaera-data
@@ -190,6 +264,9 @@ eu:
         participatory_process_user_role:
           fields:
             email: Posta elektronikoa
+            name: Izena
+            role: Rola
+          name: ' Erabiltzailearen prozesu partizipatiboa '
         scope:
           fields:
             created_at: Sortze-data
@@ -214,13 +291,66 @@ eu:
             name: Izena
             phone: Telefonoa
             users_count: Erabiltzaile kopurua
+      moderations:
+        index:
+          title: ' Moderazioak '
+      newsletters:
+        create:
+          error: ' Errorea gertatu da buletin hau sortzean.'
+          success: Buletina ongi sortu da. Mesedez, berrikusi bidali baino lehen.
+        deliver:
+          error: Errorea gertatu da buletin hau entregatzean.
+          success: Buletina ongi bidali da.
+        destroy:
+          error_already_sent: 'Albiste-buletina ezin da deuseztatu: Bidalita dago jada.'
+          success: Buletina ongi deuseztatu da.
+        edit:
+          save_and_preview: Gorde eta aurreikusi
+          title: Editatu buletina
+        form:
+          interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu gaiaren edo testuaren edozein tokitan, eta horren ordez hartzailearen izena agertuko da.'
+        index:
+          confirm_delete: Ziur zaude buletin hau deuseztatu nahi duzula?
+          title: Buletinak
+        new:
+          save: Gorde
+          title: Buletin berria
+        show:
+          confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
+          deliver: Bidali buletina
+          preview: Aurreikusi
+          subject: Gaia
+        update:
+          error: Errorea gertatu da buletin hau eguneratzean.
+          success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
       organization:
         edit:
           title: Editatu erakundea
           update: Eguneratu erakundea
+        form:
+          current_image: Oraingo irudia
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Gizarte
+          twitter: Twitter
+          url: Url
+          youtube: YouTube
         update:
           error: Errorea gertatu da erakunde hau eguneratzean.
           success: Erakundea zuzen eguneratu da.
+      participatory_process_groups:
+        destroy:
+          success: Multzoa zuzen deuseztatu da.
+        edit:
+          title: Edizio-prozesuen multzoa
+          update: Eguneratu
+        new:
+          create: Sortu
+          title: Prozesu-multzo berria
+        update:
+          error: Errorea gertatu da multzo hau ezabatzean.
+          success: Multzoa zuzen eguneratu da.
       participatory_process_publications:
         create:
           error: Errorea gertatu da prozesu partizipatibo hau argitaratzean.
@@ -253,6 +383,21 @@ eu:
         update:
           error: Errorea gertatu da prozesu partizipatiboaren fase hau eguneratzean.
           success: Prozesu partizipatiboaren fasea zuzen eguneratu da.
+      participatory_process_user_roles:
+        create:
+          error: Errorea gertatu da prozesu partizipatibo honetako erabiltzaile bat gehitzean.
+          success: Ongi sortu da erabiltzailea prozesu partizipatibo honetarako.
+        destroy:
+          success: Ongi deuseztatu da erabiltzailea prozesu partizipatibo honetarako.
+        edit:
+          title: Prozesu partizipatiboko erabiltzailea eguneratzea.
+          update: Eguneratu
+        new:
+          create: Sortu
+          title: Partaidetza-prozesu berriko erabiltzailea.
+        update:
+          error: Errorea gertatu da prozesu partizipatibo honetako erabiltzaile bat eguneratzean.
+          success: Ongi eguneratu da erabiltzailea prozesu partizipatibo honetarako.
       participatory_processes:
         create:
           error: Errorea gertatu da prozesu partizipatibo berri bat sortzean.
@@ -261,9 +406,23 @@ eu:
           success: Prozesu partizipatiboa zuzen ezabatu da.
         edit:
           update: Eguneratu prozesu partizipatiboa
+        form:
+          current_image: Oraingo irudia
+          title: Informazio orokorra
+          url: Url
+        index:
+          not_published: Argitaratu gabe
+          published: Argitaratua
+        new:
+          create: Sortu prozesu partizipatiboa
+          title: Prozesu partizipatibo berria
         update:
           error: Errorea gertatu da prozesu partizipatibo hau eguneratzean.
           success: Prozesu partizipatiboa zuzen eguneratu da.
+      participatory_processes_group:
+        create:
+          error: Errorea gertatu da multzo hau sortzean.
+          success: Multzoa zuzen eguneratu da.
       scopes:
         create:
           error: Errorea gertatu da esparru berri bat sortzean.
@@ -298,6 +457,7 @@ eu:
           success: Orria zuzen eguneratu da.
       titles:
         dashboard: Kontrol-panela
+        participatory_process_groups: Prozesu partizipatiboen multzoak
         participatory_processes: Prozesu partizipatiboak
         scopes: Esparruak
         static_pages: Erlaitzak
@@ -313,9 +473,47 @@ eu:
         destroy:
           error: Errorea gertatu da erabiltzaile hau ezabatzen saiatzean.
           success: Erabiltzailea ez da jada administratzailea.
+        form:
+          email: Helbide elektronikoa
+          name: Izena
         new:
           create: Gonbit egin
           title: Gonbit egin erabiltzaile bati administratzaile gisa
         resend_invitation:
           error: Errorea gertatu da gonbit-mezua bidaltzen saiatzean.
           success: Gonbita ongi bidali da.
+    moderations:
+      actions:
+        hidden: ' Ezkutatuta'
+        hide: Ezkutatu
+        not_hidden: Ezkutatu gabe
+        title: ' Salaketak'
+        unreport: Ezeztatu salaketa
+      admin:
+        reportable:
+          hide:
+            invalid: Errorea gertatu da edukia ezkutatzean.
+            success: Edukia zuzen ezkutatu da.
+          unreport:
+            invalid: Arazo bat izan da salaketa ezeztatzean.
+            success: Salaketa zuzen ezeztatu da.
+      models:
+        moderation:
+          fields:
+            hidden_at: Ezkutatze-data
+            report_count: Salaketa-kopurua
+            reportable: Mota
+            reported_content: Edukia
+            reports: Salaketak
+    participatory_processes:
+      participatory_process_groups:
+        none: Bat ere ez
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Buletinak
+        settings:
+          title: Ezarpenak
+        users:
+          title: Erabiltzaileak

@@ -1,10 +1,12 @@
 eu:
   activemodel:
     attributes:
+      report:
+        details: Iruzkin gehigarriak
       user:
         email: Zure helbide elektronikoa
         name: Zure izena
-        password: Pasahitz berria
+        password: Pasahitza
         password_confirmation: Baieztatu zure pasahitz berria
         user_group_document_number: Egiaztagiri-zenbakia
         user_group_name: Erakundearen izena
@@ -13,7 +15,7 @@ eu:
     attributes:
       decidim/user:
         current_password: Egungo pasahitza
-        email: Posta elektronikoa
+        email: Helbide elektronikoa
         name: Erabiltzaile-izena
         password: Pasahitza
         password_confirmation: Baieztatu pasahitza
@@ -50,18 +52,24 @@ eu:
         name: baimen-adibidea
       errors:
         duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: foo
+        name: foo baimena
     authorizations:
       create:
         error: Errorea gertatu da baimena sortzean.
         success: Baimendua izan zara zuzen.
-      current_participatory_processes: behako bat eman egungo prozesuei
+      current_participatory_processes: eman behakoa egungo prozesuei
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Egiaztatu baimen-adibidea ........ren kontra
+          decidim/dummy_authorization_handler: 'Egiaztatu baimen-adibidea honekin erkatuta:'
         title: Egiaztatu zure nortasuna
         verify_with_these_options: 'Hona zure nortasuna egiaztatzeko dituzun aukerak:'
       new:
         authorize: Bidali
+        authorize_with: 'Egiaztatu nire nortasuna honen bidez: %{authorizer}'
       skip_verification: Oraingoz, urrats hau egin gabe utzi dezakezu eta %{link}
     core:
       actions:
@@ -87,6 +95,7 @@ eu:
             user_group: Erakundea / Kolektiboa
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
           terms: erabilera-baldintzak
+          tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
           username_help: Izen publikoa, zuk argitaratutakoetan agertzekoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
       sessions:
         new:
@@ -95,10 +104,26 @@ eu:
       shared:
         omniauth_buttons:
           or: Edo
+    features:
+      dummy:
+        actions:
+          bar: Bar
+          foo: foo
+        name: Funtzionaltasun-proba
+        settings:
+          global:
+            comments_enabled: Iruzkinak gaituta
+            dummy_global_attribute_1: Atributu-proba, 1
+            dummy_global_attribute_2: Atributu-proba, 2
+          step:
+            comments_blocked: Iruzkinak blokeatuta
+            dummy_step_attribute_1: Atributu-faseko proba, 1
+            dummy_step_attribute_2: Atributu-faseko proba, 2
     filters:
       linked_classes:
         all: Guztiak
         meeting: Topaketak
+        project: Proiektuak
         proposal: Proposamenak
         result: Emaitzak
     forms:
@@ -106,7 +131,11 @@ eu:
         error: Errorea bat dago eremu honetan.
     menu:
       home: Hasiera
+      more_information: Argibide gehiago
       processes: Prozesuak
+    newsletter_mailer:
+      newsletter:
+        note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
     notifications_settings:
       show:
         comments_notifications: Jakinarazpenak jaso nahi ditut nik argitaratutakoei iruzkinak egiten dizkietenean.
@@ -120,6 +149,13 @@ eu:
       index:
         not_verified: Egiaztatu gabe
         verified: Egiaztatuta
+    pages:
+      index:
+        title: Argibide gehiago
+    participatory_process_groups:
+      show:
+        group_participatory_processes: '%{group} talderako prozesuak'
+        title: Prozesu partizipatiboen multzoak
     participatory_process_steps:
       index:
         process_steps: Prozesuaren faseak
@@ -127,6 +163,10 @@ eu:
     participatory_processes:
       index:
         title: Prozesu partizipatiboak
+      participatory_process_groups:
+        none: Bat ere ez
+      scopes:
+        global: Esparrua orokorrak
       show:
         developer_group: Talde sustatzailea
         end_date: Bukaera-data
@@ -135,6 +175,19 @@ eu:
         participatory_structure: Egitura partizipatiboa
         scope: Esparrua
         target: Nori zuzentzen zaio?
+    reported_mailer:
+      hide:
+        hello: Kaixo, %{name},
+        report_html: "<p>Honako eduki hau automatikoki ezkutatu da: <p>%{content} <p>.</p>"
+        subject: Eduki bat automatikoki ezkutatu da
+      report:
+        hello: Kaixo, %{name},
+        report_html: "<p>Honako eduki hau salatua izan da: <p>%{content}<p></p>"
+        subject: Eduki bat salatua izan da
+    reports:
+      create:
+        error: Errorea gertatu da edukia salatzean. Mesedez, saiatu berriro.
+        success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
     shared:
       action_authorization_modal:
         incomplete:
@@ -143,15 +196,28 @@ eu:
           reauthorize: Berriz eskuratu baimena
           title: Mesedez, eskura ezazu berriz baimena
         missing:
+          authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
+          explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
           title: Baimena behar da
         unauthorized:
           explanation: Ezin diozu heldu ekintza honi, baimen-datuetako batzuk ez direlako behar direnak.
           invalid: "%{field} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
+      flag_modal:
+        already_reported: Eduki hau jada salatuta dago, eta administratzaile batek.
+        close: Itxi
+        description: Eduki hau desegokia da?
+        does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
+        offensive: Ertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
+        report: Salatu
+        spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
+        title: Salatu arazo bat
       login_modal:
         please_sign_in: Mesedez, erregistratu
         sign_up: Erregistratu
+      reference:
+        reference: 'Erreferentzia: %{reference}'
       share_modal:
         close_window: Itxi leihoa
         share: Partekatu
@@ -164,25 +230,42 @@ eu:
     mailer:
       invitation_instructions:
         accept: Onartu gonbita
+        accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
         hello: Kaixo, %{email},
         ignore: |-
-          Onartu nahi ez baduzu gonbit hau, ez egin kasu mezu honi.<br />
-          Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
+          Nahi ez baduzu onartu gonbit hau, ez egin kasu mezu honi.<br />Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
         invited_you_as_admin: "%{invited_by} izeneko batek gonbit egin dizu %{application} aplikazioaren administratzaile izateko; onartzeko, egin klik esteka honetan:"
+        someone_invited_you: 'Orbaitek gonbit egin dizu aplikazio honetara: %{application}. Onartzeko, egin klik esteka honetan:'
+      invite_admin:
+        subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
+      invite_collaborator:
+        subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
+      organization_admin_invitation_instructions:
+        subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
       password_change:
         greeting: Kaixo %{recipient}!
         message: Zuregana jotzen dugu jakinarazteko zure pasahitza zuzen aldatu dela.
         subject: Pasahitza aldatu da
   errors:
     messages:
+      content_type_whitelist_error: fitxategi mota ez da zuzena
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
       invalid_manifest: Manifestua ez da baliozkoa
       invalid_participatory_process: Prozesu partizipatiboa ez da baliozkoa
+      long_words: Hitz luzeegiak ditu
+      must_start_with_caps: Letra larriz hasi behar du
       nesting_too_deep: ezin da egon azpikategoria batean
+      too_many_marks: Galdera- eta harridura-ikur gehiegi erabiltzen ari zara
+      too_much_caps: Letra larri gehiegi erabiltzen ari zara
+      too_short: Laburregia da
+  invisible_captcha:
+    sentence_for_humans: Gizaki bat bazara, ez egin kasu eremu honi
+    timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, bidali.
   layouts:
     decidim:
       cookie_warning:
-        link_label: aquí
+        description_html: 'Webgune honek bere cookieak eta hirugarrenenak erabiltzen ditu, nabigazioa hobetu eta intereseko edukiak eta zerbitzuak eskaintze aldera. Nabigatzen jarraituz gero, gure cookie-politika onartzen delakoan gaude. Argibide gehiago jasotzeko, kontsultatu hemen: %{link}.'
+        link_label: hemen
         ok: Ados nago
       footer:
         made_with_open_source: 'Webgune hau egiteko, <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software librea</a> erabili da.'
@@ -191,6 +274,9 @@ eu:
         navigation: Nabigazioa
         sign_in: Sartu
         sign_up: Erregistratu
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Arakatu
       participatory_processes:
         index:
           promoted_processes: Prozesu nabarmenduak
@@ -198,7 +284,7 @@ eu:
           no_processes_yet: Oraindik ez dago prozesu partizipatiborik!
         order_by_processes:
           processes:
-            one: "Prozesu %{count}"
+            one: "%{count} prozesu"
             other: "%{count} prozesu"
         participatory_process:
           active_step: 'Oraingo fasea:'
@@ -227,9 +313,9 @@ eu:
     name: Euskera
   pages:
     '404':
-      back_home: Hasierara itzuli
+      back_home: Itzuli hasierara
       content_doesnt_exist: Helbide okerra da edo ezabatu da.
-      title: Bilatzen duzun orria ez dago!
+      title: Ez dugu aurkitu bilatzen duzun orria!
     '500':
       title: Arazo bat izan da gure zerbitzariarekin
       try_later: Mesedez, berriz saiatu geroago.
@@ -237,3 +323,53 @@ eu:
       extended:
         debates: Eztabaidak
         debates_explanation: Gure ustez hirirako inportanteak diren gauzak ezagutu, eztabaidatu eta partekatuko ditugu.
+        how_to_participate: Nola har dezaket parte prozesu batean?
+        meetings: Topaketak
+        meetings_explanation: Gure ustez hirirako inportanteak diren gauzak ezagutu, eztabaidatu eta partekatuko ditugu.
+        more_info: Argibide gehiago
+        proposals: Proposamenak
+        proposals_explanation: Gune irekia herritarren proposamenetarako, adierazteko zer-nolako hiritan bizi nahi dugun.
+      footer_sub_hero:
+        footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
+        footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
+        register: Erregistratu
+      hero:
+        participate: Parte hartu
+        welcome: Ongi etorri %{organization} erakundera!
+      highlighted_processes:
+        active_processes: Prozesu aktiboak
+        active_step: Fase aktiboa
+        see_all_processes: Ikusi prozesu guztiak
+      statistics:
+        headline: '%{organization} erakundearen egungo egoera'
+        processes: Prozesuak
+        users: Erabiltzaileak
+      sub_hero:
+        register: Erregistroa
+  social_share_button:
+    delicious: Delicious
+    douban: Douban
+    email: Helbide elektronikoa
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: 'Partekatu honekin: %{name}'
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Ireki zure WeChat, egin klik "Discover" botoian, eta gero, egin klik berriro "Eskaneatu QR kodea” menuan.
+    weibo: Sina Weibo
+    xing: Xing
+  views:
+    pagination:
+      first: "&laquo; Lehena"
+      last: Azkena &raquo;
+      next: Hurrengoa &rsaquo;
+      previous: "&lsaquo; Aurrekoa"
+      truncate: "&hellip;"

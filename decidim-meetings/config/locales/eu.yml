@@ -7,18 +7,29 @@ eu:
         closing_report: Txostena
         contributions_count: Ekarpen-kopurua
         proposal_ids: Topaketan sortutako proposamenak
+      meeting:
+        adress: Helbidea
+        decidim_category_id: Kategoria
+        decidim_scope_id: Esparrua
+        description: Deskribapena
+        end_time: Amaiera-ordua
+        location: Kokapena
+        location_hints: Kokapen-argibideak
+        start_time: Hasiera-ordua
+        title: Izenburua
   decidim:
     features:
       meetings:
         name: Topaketa-zerrenda
     meetings:
       actions:
-        attachments: Fitxategi erantsiak
+        attachments: Eranskinak
         close: Itxi
         confirm_destroy: Ziur zaude topaketa hau ezabatu nahi duzula?
-        destroy: Garbitu
+        destroy: Ezabatu
         edit: Editatu
         new: '%{name} berria'
+        preview: Aurreikusi
         title: Ekintzak
       admin:
         meeting_closes:
@@ -50,9 +61,12 @@ eu:
       meetings:
         filters:
           category: Kategoria
-          date: Jaioteguna
+          category_prompt: Aukeratu kategoria bat
+          date: Data
+          past: Aurrekoak
           scopes: Esparruak
           search: Bilatu
+          upcoming: Hurrengoak
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi
@@ -60,6 +74,9 @@ eu:
           unfold: Zabaldu
         index:
           view_meeting: Ikusi topaketa
+        meetings:
+          no_meetings_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago ezein topaketarik programaturik.
+          upcoming_meetings_warning: Orain ez dago topaketarik programaturik, baina aurreko topaketak ikus ditzakezu.
         show:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
@@ -75,4 +92,8 @@ eu:
             title: Izenburua
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Honekin lotutako emaitzak:'
+        meeting_results: 'Topaketaren emaitzak:'
+        result_meetings: 'Proposamenarekin lotutako topaketak:'
+      proposals_from_meeting:
+        meeting_proposals: 'Topaketari dagozkion proposamenak:'
+        proposal_meetings: 'Proposamenarekin lotutako topaketak:'

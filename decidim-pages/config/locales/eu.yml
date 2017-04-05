@@ -2,10 +2,12 @@ eu:
   decidim:
     features:
       pages:
-        name: Orrialdea
+        name: Orria
         settings:
           global:
-            comments_enabled: Iruzkin gaituak
+            comments_enabled: Iruzkinak gaituta
+          step:
+            comments_blocked: Iruzkinak blokeatuta
     pages:
       admin:
         models:
