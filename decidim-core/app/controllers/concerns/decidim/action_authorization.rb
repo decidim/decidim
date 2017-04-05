@@ -65,7 +65,7 @@ module Decidim
     end
 
     def _action_authorizer(action_name)
-      ActionAuthorizer.new(current_user, current_feature, action_name)
+      ::Decidim::ActionAuthorizer.new(current_user, current_feature, action_name)
     end
 
     class Unauthorized < StandardError; end
