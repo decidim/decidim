@@ -11,26 +11,32 @@ module Decidim
       def create
         authorize_action! "vote"
 
-        AddLineItem.call(current_order, project, current_user) do
-          on(:ok) do |order|
-            self.current_order = order
-            render "update_budget"
-          end
+        respond_to do |format|
+          AddLineItem.call(current_order, project, current_user) do
+            on(:ok) do |order|
+              self.current_order = order
+              format.html { redirect_to :back }
+              format.js { render "update_budget" }
+            end
 
-          on(:invalid) do
-            render nothing: true, status: 422
+            on(:invalid) do
+              render nothing: true, status: 422
+            end
           end
         end
       end
 
       def destroy
-        RemoveLineItem.call(current_order, project) do
-          on(:ok) do |_order|
-            render "update_budget"
-          end
+        respond_to do |format|
+          RemoveLineItem.call(current_order, project) do
+            on(:ok) do |_order|
+              format.html { redirect_to :back }
+              format.js { render "update_budget" }
+            end
 
-          on(:invalid) do
-            render nothing: true, status: 422
+            on(:invalid) do
+              render nothing: true, status: 422
+            end
           end
         end
       end
