@@ -53,6 +53,12 @@ module Decidim
       super || I18n.t("decidim.anonymous_user")
     end
 
+    # Check if the user exists with the given email and the current organization
+    #
+    # warden_conditions - A hash with the authentication conditions
+    #                   * email - a String that represents user's email.
+    #                   * env - A Hash containing environment variables.
+    # Returns a User.
     def self.find_for_authentication(warden_conditions)
       organization = warden_conditions.dig(:env, "decidim.current_organization")
       where(
