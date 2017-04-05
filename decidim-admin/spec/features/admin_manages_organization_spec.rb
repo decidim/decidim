@@ -30,7 +30,21 @@ describe "Admin manages ogranization", type: :feature do
         ca: "El meu súper text de benvinguda"
       }
 
+      %w(Twitter Facebook Instagram YouTube GitHub).each do |network|
+        click_link network
+        fill_in "organization_#{network.downcase}_handler", with: "decidim"
+      end
+
       click_button "Update organization"
+      select "Castellano", from: "Default locale"
+      fill_in "Reference prefix", with: "ABC"
+      fill_in "Official organization url", with: "http://www.example.com"
+
+      attach_file "Homepage image", Decidim::Dev.asset("city.jpeg")
+      attach_file "Logo", Decidim::Dev.asset("city2.jpeg")
+      attach_file "Icon", Decidim::Dev.asset("city3.jpeg")
+      attach_file "Official logo header", Decidim::Dev.asset("city2.jpeg")
+      attach_file "Official logo footer", Decidim::Dev.asset("city3.jpeg")
 
       expect(page).to have_content("updated successfully")
     end
