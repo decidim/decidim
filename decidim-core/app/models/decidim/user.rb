@@ -7,7 +7,7 @@ module Decidim
     MAXIMUM_AVATAR_FILE_SIZE = 5.megabytes
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable,
-           :recoverable, :rememberable, :trackable, :decidim_validatable,
+           :recoverable, :rememberable, :trackable, :decidim_validatable, :lockable,
            :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
