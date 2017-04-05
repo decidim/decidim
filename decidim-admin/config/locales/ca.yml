@@ -36,14 +36,14 @@ ca:
         developer_group: Grup promotor
         domain: Àrees municipals
         end_date: Data de finalització
-        hashtag: Etiqueta
+        hashtag: Hashtag
         hero_image: Imatge de portada
         local_area: Àrea municipal
         meta_scope: 'Metadades: àmbit'
         participatory_process_group_id: Grup de processos
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
-        promoted: Promogut
+        promoted: Destacat
         scope_id: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
@@ -90,7 +90,7 @@ ca:
         meta_scope: 'Metadades: àmbit'
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
-        promoted: Promogut
+        promoted: Destacat
         scope: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
