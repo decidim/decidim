@@ -79,7 +79,7 @@ module Decidim
     describe "validation scopes" do
       context "when a user with the same email exists in another organization" do
         let(:email) { "foo@bar.com" }
-        let(:user) { build(:user, email: email) }
+        let(:user) { create(:user, email: email) }
 
         before do
           create(:user, email: email)

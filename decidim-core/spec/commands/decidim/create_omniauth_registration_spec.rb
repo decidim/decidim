@@ -109,6 +109,7 @@ module Decidim
             last_identity = Identity.last
             expect(last_identity.provider).to eq(form.provider)
             expect(last_identity.uid).to eq(form.uid)
+            expect(last_identity.organization).to eq(organization)
           end
 
           it "confirms the user if the email is already verified" do
