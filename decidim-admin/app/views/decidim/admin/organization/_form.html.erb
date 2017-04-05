@@ -45,7 +45,7 @@
     <%= form.file_field :homepage_image %>
     <% if current_organization.homepage_image.present? %>
       <label><%= t('.current_image') %></label>
-      <%= image_tag current_organization.homepage_image.url %>
+      <%= image_tag current_organization.homepage_image.big.url %>
       <label><%= t('.url') %></label>
       <%= link_to current_organization.homepage_image.file.filename, current_organization.homepage_image.url, target: "_blank" %>
     <% end %>
@@ -55,7 +55,7 @@
     <%= form.file_field :logo %>
     <% if current_organization.logo.present? %>
       <label><%= t('.current_image') %></label>
-      <%= image_tag current_organization.logo.url %>
+      <%= image_tag current_organization.logo.medium.url %>
       <label><%= t('.url') %></label>
       <%= link_to current_organization.logo.file.filename, current_organization.logo.url, target: "_blank" %>
     <% end %>
@@ -65,7 +65,7 @@
     <%= form.file_field :favicon %>
     <% if current_organization.favicon.present? %>
       <label><%= t('.current_image') %></label>
-      <%= image_tag current_organization.favicon.url %>
+      <%= image_tag current_organization.favicon.big.url %>
       <label><%= t('.url') %></label>
       <%= link_to current_organization.favicon.file.filename, current_organization.favicon.url, target: "_blank" %>
     <% end %>
