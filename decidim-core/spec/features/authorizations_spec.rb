@@ -10,7 +10,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
   end
 
   context "a new user" do
-    let(:user) { create(:user, :confirmed) }
+    let(:user) { create(:user, :confirmed, organization: organization) }
 
     context "when one authorization has been configured" do
       before do
