@@ -102,6 +102,9 @@ en:
         content: Content
         slug: URL slug
         title: Title
+  dates:
+    formats:
+      timepicker: "%m/%d/%Y %H:%M"
   decidim:
     admin:
       actions:

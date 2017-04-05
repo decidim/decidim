@@ -1,6 +1,9 @@
 ca:
   actions:
     confirm_destroy: N'estàs segur?
+  dates:
+    formats:
+      timepicker: '%d/%m/%Y %H:%M'
   activemodel:
     attributes:
       attachment:
