@@ -407,4 +407,26 @@ describe "Authentication", type: :feature, perform_enqueued: true do
       end
     end
   end
+
+  context "when a user with the same email is already registered in another organization" do
+    let(:organization2) { create(:organization) }
+
+    let!(:user2) { create(:user, :confirmed, email: "fake@user.com", name: "Wrong user", organization: organization2) }
+    let!(:user) { create(:user, :confirmed, email: "fake@user.com", name: "Right user", organization: organization) }
+
+    describe "Sign in" do
+      it "authenticates the right user" do
+        find(".sign-in-link").click
+
+        within ".new_user" do
+          fill_in :user_email, with: user.email
+          fill_in :user_password, with: "password1234"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("successfully")
+        expect(page).to have_content("Right user")
+      end
+    end
+  end
 end
