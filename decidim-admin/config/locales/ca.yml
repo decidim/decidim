@@ -2,6 +2,7 @@ ca:
   actions:
     confirm_destroy: N'estàs segur?
   dates:
+  time:
     formats:
       timepicker: '%d/%m/%Y %H:%M'
   activemodel:

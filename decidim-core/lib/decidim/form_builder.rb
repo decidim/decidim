@@ -134,7 +134,7 @@ module Decidim
     end
 
     # Public: Override so the date fields are rendered using foundation
-    # datepicker scripts
+    # datepicker library
     def date_field(attribute, options = {})
       template = ""
       template += @template.label(@object_name, attribute)
@@ -148,18 +148,18 @@ module Decidim
       template.html_safe
     end
 
-    # Public: Override so the date fields are rendered using foundation
-    # datepicker scripts
+    # Public: Generates a timepicker field using foundation
+    # datepicker library
     def datetime_field(attribute, options = {})
       template = ""
       template += @template.label(@object_name, attribute)
       template += @template.text_field(@object_name, attribute, options.merge({
-        value: object.send(attribute).strftime("%m/%d/%Y %H:%M"),
+        value: I18n.localize(object.send(attribute), format: :timepicker),
         name: nil,
         id: nil,
-        data: { datepicker: '', startdate: object.send(attribute).strftime("%d/%m/%Y %H:%M"), timepicker: '' }
+        data: { datepicker: '', timepicker: '' }
       }))
-      template += @template.text_field(@object_name, attribute)
+      template += @template.hidden_field(@object_name, attribute)
       template += error_and_help_text(attribute, options)
       template.html_safe
     end

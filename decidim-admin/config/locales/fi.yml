@@ -1,5 +1,5 @@
 fi:
-  dates:
+  time:
     formats:
       timepicker: '%d/%m/%Y %H:%M'
   activemodel:

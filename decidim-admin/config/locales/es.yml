@@ -1,7 +1,7 @@
 es:
   actions:
     confirm_destroy: '¿Estás seguro?'
-  dates:
+  time:
     formats:
       timepicker: '%d/%m/%Y %H:%M'
   activemodel:

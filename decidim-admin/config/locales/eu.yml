@@ -1,7 +1,7 @@
 eu:
   actions:
     confirm_destroy: Ziur zaude?
-  dates:
+  time:
     formats:
       timepicker: '%d/%m/%Y %H:%M'
   activemodel:
