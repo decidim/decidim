@@ -1,9 +1,18 @@
 eu:
+  activerecord:
+    errors:
+      messages:
+        cannot_have_comments: ezin zaio iruzkinik egin
   decidim:
     comments:
       comment_notification_mailer:
+        comment_created:
+          new_comment_html: 'Iruzkin berri bat dago, <b>%{commenter}</b> iruzkingilearena, hemen: <b>%{commentable_link}</b>'
         hello: Kaixo, %{name},
+        manage_email_subscriptions_html: 'Halako mezurik jaso nahi ez baduzu, aldatu konfigurazioa hemen: %{link}.'
         notifications_settings_link: jakinarazpenen konfigurazio-orria
+        reply_created:
+          new_reply_html: 'Iruzkin berri bat dago, <b>%{commenter}</b> iruzkingilearena, hemen: <b>%{commentable_link}</b>'
       mailer:
         comment_notification:
           comment_created:
@@ -12,6 +21,7 @@ eu:
             subject: Zure iruzkinetako bati erantzuna eman diote
     components:
       add_comment_form:
+        account_message: '<a href="%{sign_in_url}">Sartu zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina egiteko. '
         form:
           body:
             label: Iruzkina
@@ -19,23 +29,37 @@ eu:
           form_error: Testua behar da, eta ezin du izan %{length} karaktere baino gehiago.
           submit: Bidali
           user_group_id:
-            label: 'Iruzkindu honela:'
+            label: 'Egin iruzkina honako honen gisa:'
         opinion:
           neutral: Neutrala
-        title: Jarri hemen zure iruzkina
+        title: Egin hemen zure iruzkina
       comment:
         alignment:
           against: Aurka
           in_favor: Alde
         reply: Erantzuna
+        report:
+          action: Salatu
+          already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
+          close: Itxi
+          description: Eduki hau desegokia da?
+          details: iruzkin gehigarriak
+          reasons:
+            does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
+            offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
+            spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
+          title: Salatu arazo bat
       comment_order_selector:
         order:
-          best_rated: Balorazio hoberena
+          best_rated: Balorazio hoberenak
           most_discussed: Eztabaidatuenak
-          older: Zaharrena
-          recent: Berri-berria
+          older: Zaharrenak
+          recent: Berrienak
         title: 'Ordenatu honen arabera:'
+      comment_thread:
+        title: 'Solasaldia honekin: %{authorName}'
       comments:
+        blocked_comments_warning: Oraingo faseko iruzkinak desaktibatuta daude, baina aurreko faseetako iruzkinak irakur ditzakezu.
         loading: Iruzkinak kargatzen...
         title: "%{count} iruzkin"
       featured_comment:
