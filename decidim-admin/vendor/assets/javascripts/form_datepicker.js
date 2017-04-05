@@ -5,10 +5,13 @@ function formDatePicker(){
       const language = $("html").attr('lang') || 'en';
       const pickTime = $(this).attr('data-timepicker') === '';
       const format = $(this).fdatepicker.dates[language] && $(this).fdatepicker.dates[language].format || 'mm/dd/yyyy';
-      console.log(format)
+
+      if (pickTime) {
+         format = `${format}, hh:ii`;
+      };
 
       $(this).fdatepicker({
-        format: `${format}, hh:ii`,
+        format,
     		initialDate,
         language,
     		disableDblClickSelection: true,
