@@ -102,9 +102,6 @@ en:
         content: Content
         slug: URL slug
         title: Title
-  time:
-    formats:
-      timepicker: "%m/%d/%Y %H:%M"
   decidim:
     admin:
       actions:
@@ -521,3 +518,6 @@ en:
           title: Settings
         users:
           title: Users
+  time:
+    formats:
+      timepicker: "%m/%d/%Y %H:%M"
