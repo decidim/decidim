@@ -344,4 +344,27 @@ describe "Authentication", type: :feature, perform_enqueued: true do
       end
     end
   end
+
+  context "When a user is already registered in another organization" do
+    let(:user) { create(:user, :confirmed) }
+
+    describe "Sign Up" do
+      context "using the same email" do
+        it "creates a new User" do
+          find(".sign-up-link").click
+
+          within ".new_user" do
+            fill_in :user_email, with: user.email
+            fill_in :user_name, with: "Responsible Citizen"
+            fill_in :user_password, with: "123456"
+            fill_in :user_password_confirmation, with: "123456"
+            check :user_tos_agreement
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_content("confirmation link")
+        end
+      end
+    end
+  end
 end
