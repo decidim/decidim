@@ -1,10 +1,68 @@
 eu:
   decidim:
     system:
+      actions:
+        confirm_destroy: Ziur hau ezabatu nahi duzula?
+        destroy: Ezabatu
+        edit: Editatu
+        new: '%{name} berria'
+        save: Gorde
+        title: Ekintzak
       admins:
         create:
-          success: Admin sortu da
+          error: Errorea gertatu da administratzaile berri bat sortzean.
+          success: Administratzailea zuzen sortu da
+        destroy:
+          success: Administratzailea zuzen sortu da
+        edit:
+          title: Editatu administratzailea
+          update: Eguneratu administratzailea
+        index:
+          title: Administratzaileak
+        new:
+          create: Sortu administratzailea
+          title: Administratzaile berria
+        update:
+          error: Errorea gertatu da administratzaile hau eguneratzean.
+          success: Administratzailea zuzen eguneratu da
+      default_pages:
+        placeholders:
+          content: Mesedez, gehitu eduki adierazgarria orri honetan, kontrol-panela baliatuta.
+          title: 'Izenburu lehenetsia orri honetarako: %{page}'
+      menu:
+        admins: Administratzaileak
+        dashboard: Kontrol-panela
+        organizations: Erakundeak
       models:
         admin:
           fields:
-            email: Emaila
+            created_at: Sortze-data
+            email: Helbide elektronikoa
+          name: Administratzailea
+          validations:
+            email_uniqueness: beste administratzaile bat dago, helbide elektroniko hauxe bera duena
+        organization:
+          actions:
+            save_and_invite: Sortu erakundea eta gonbit egin administratzaileari
+          fields:
+            created_at: Sortze-data
+            name: Izena
+          name: Erakundea
+        page:
+          name: Orria
+      organizations:
+        create:
+          error: Errorea gertatu da erakunde berri bat sortzean.
+          success: Erakundea zuzen sortu da.
+        edit:
+          secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+        index:
+          title: Erakundeak
+        new:
+          secondary_hosts_hint: Sartu haietako bakoitza lerro batean
+          title: Erakunde berria
+        update:
+          error: Errorea gertatu da erakunde hau eguneratzean.
+          success: Erakundea zuzen eguneratu da.
+      titles:
+        dashboard: Kontrol-panela
