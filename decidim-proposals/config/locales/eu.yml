@@ -2,28 +2,41 @@ eu:
   activemodel:
     attributes:
       proposal:
-        body: Testu-gorputza
+        body: Testua
         category_id: Kategoria
         scope_id: Esparrua
         title: Izenburua
         user_group_id: 'Sortu proposamen bat honako hau gisa:'
+      proposal_answer:
+        answer: Erantzuna
   decidim:
     features:
       proposals:
         actions:
           create: Sortu proposamenak
-          vote: Bozkatu
+          vote: Proiektuaren alde egin
         name: Proposamenak
         settings:
+          global:
+            comments_enabled: Iruzkinak gaituta
+            geocoding_enabled: Geokodeketa gaituta
+            official_proposals_enabled: Proposamen ofizialak gaituta
+            proposal_answering_enabled: Erantzun ofiziala gaitutako proposamenei
+            vote_limit: Boto-muga
           step:
+            comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Gaitu proposamenen sorrera
+            proposal_answering_enabled: Erantzuna aktibatutako proposamenei
             votes_blocked: Bozketa blokeatuta
-            votes_enabled: Boto gaituak
+            votes_enabled: Botoak gaituta
     proposals:
       actions:
         answer: Erantzuna
+        new: Proposamen berria
         title: Ekintzak
       admin:
+        actions:
+          preview: Aurreikusi
         models:
           proposal:
             name: Proposamena
@@ -31,7 +44,8 @@ eu:
           edit:
             accepted: Onartuta
             answer_proposal: Erantzuna proposamenari
-            rejected: Uko eginda
+            rejected: Baztertuta
+            title: 'Erantzun proposamen honi: %{title}'
         proposals:
           answer:
             invalid: Arazo bat izan da proposamen honi erantzutean.
@@ -49,7 +63,7 @@ eu:
       answers:
         accepted: Onartuta
         not_answered: Erantzun gabe
-        rejected: Uko eginda
+        rejected: Baztertuta
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Proposamena zuzen sortu da.
@@ -64,17 +78,18 @@ eu:
       proposals:
         count:
           proposals_count:
-            one: Proposamen bat
+            one: 1 proposamen
             other: "%{count} proposamen"
         filters:
           accepted: Onartuta
           activity: Jarduera
           all: Guztiak
           category: Kategoria
+          category_prompt: Aukeratu kategoria bat
           citizenship: Herritarrak
           official: Ofiziala
           origin: Jatorria
-          rejected: Ezetsiak
+          rejected: Baztertuta
           related_to: Honekin lotuta
           scopes: Esparruak
           search: Bilatu
@@ -87,6 +102,7 @@ eu:
           unfold: Zabaldu
         index:
           new_proposal: Proposamen berria
+          view_proposal: Ikusi proposamena
         linked_proposals:
           proposal_votes:
             one: <span class="card--list__data__number">1</span>boto
@@ -98,25 +114,33 @@ eu:
           title: Proposamen berria
         orders:
           label: 'Antolatu proposamenak honen arabera:'
-          most_voted: Bozkatuena
-          random: Ausazkoa
-          recent: Berri-berria
+          most_voted: Bozkatuenak
+          random: Ausazkoa eran
+          recent: Berrienak
         proposal:
-          view_proposal: Proposamena ikusi
+          view_proposal: Ikusi proposamena
         show:
-          proposal_rejected_reason: 'Proposamen hau baztertu da honako arrazoi hauengatik:'
+          proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
+          proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
+          report: Salatu
         vote_button:
           already_voted: Bozkatuta duzu
           no_votes_remaining: Ez da gelditzen botorik
-          vote: Bozkatu
+          vote: Proiektuaren alde egin
           votes_blocked: Bozketa desaktibatu da
         votes_count:
           count:
-            one: BOTOA EMAN
-            other: ZENBAT BOTO
+            one: SOSTENGU
+            other: SOSTENGU
         votes_limit:
           vote_limit:
-            description: Nahi beste proposamen bozkatu ordez, gehienez ere %{limit} proposamen bozka ditzakezu.
-            left: Gainerakoa
-            title: Gehienez, %{limit} boto dituzu banatzeko
-            votes: Zenbat boto
+            description: Nahi beste proposamenari sostengua eman ordez, gehienez ere %{limit} proposamenen alde egin dezakezu.
+            left: Emateke
+            title: Gehienez, %{limit} boto eman ditzakezu
+            votes: Boto
+    resource_links:
+      included_proposals:
+        proposal_projects: 'Proiektu hauetatik sortutako proposamena:'
+        proposal_results: 'Emaitza hauetatik sortutako proposamena:'
+      proposals_from_meeting:
+        proposal_meetings: Proposamenarekin lotutako topaketak
