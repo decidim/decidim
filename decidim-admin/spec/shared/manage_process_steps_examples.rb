@@ -20,26 +20,27 @@ RSpec.shared_examples "manage process steps examples" do
   it "creates a new participatory_process" do
     find(".card-title a.button").click
 
-    within ".new_participatory_process_step" do
-      fill_in_i18n(
-        :participatory_process_step_title,
-        "#title-tabs",
-        en: "My participatory process step",
-        es: "Mi fase de proceso participativo",
-        ca: "La meva fase de procés participatiu"
-      )
-      fill_in_i18n_editor(
-        :participatory_process_step_description,
-        "#description-tabs",
-        en: "A longer description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
+    fill_in_i18n(
+      :participatory_process_step_title,
+      "#title-tabs",
+      en: "My participatory process step",
+      es: "Mi fase de proceso participativo",
+      ca: "La meva fase de procés participatiu"
+    )
+    fill_in_i18n_editor(
+      :participatory_process_step_description,
+      "#description-tabs",
+      en: "A longer description",
+      es: "Descripción más larga",
+      ca: "Descripció més llarga"
+    )
 
-      page.execute_script("$('#date_field_participatory_process_step_start_date').focus()")
-      page.execute_script("$('#date_field_participatory_process_step_start_date').focus()")
-      find(".datepicker-dropdown")
-      
+    page.execute_script("$('#date_field_participatory_process_step_start_date').focus()")
+    page.find('.datepicker-dropdown .day', text: '12').click
+    page.execute_script("$('#date_field_participatory_process_step_end_date').focus()")
+    page.find('.datepicker-dropdown .day', text: '22').click
+
+    within ".new_participatory_process_step" do
       find("*[type=submit]").click
     end
 
@@ -49,6 +50,8 @@ RSpec.shared_examples "manage process steps examples" do
 
     within "#steps table" do
       expect(page).to have_content("My participatory process step")
+      expect(page).to have_content("12,")
+      expect(page).to have_content("22,")
     end
   end
 

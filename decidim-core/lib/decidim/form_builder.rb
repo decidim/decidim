@@ -151,10 +151,12 @@ module Decidim
     # Public: Generates a timepicker field using foundation
     # datepicker library
     def datetime_field(attribute, options = {})
+      value = object.send(attribute)
+      formatted_value = I18n.localize(value, format: :timepicker) if value
       template = ""
       template += @template.label(@object_name, attribute)
       template += @template.text_field(@object_name, attribute, options.merge({
-        value: I18n.localize(object.send(attribute), format: :timepicker),
+        value: formatted_value,
         name: nil,
         id: "datetime_field_#{@object_name}_#{attribute}",
         data: { datepicker: '', timepicker: '' }

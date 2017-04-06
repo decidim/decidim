@@ -19,7 +19,7 @@ RSpec.shared_examples "manage processes examples" do
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
       it "allows the user to preview the unpublished process" do
-        within find("tr", text: translated(participatory_process.title)) do
+        within find("tr", text: object.send(attribute)translated(participatory_process.title)) do
           page.find('a.action-icon--preview').click
         end
 
@@ -32,16 +32,19 @@ RSpec.shared_examples "manage processes examples" do
   it "updates an participatory_process" do
     click_link translated(participatory_process.title)
 
-    within ".edit_participatory_process" do
-      fill_in_i18n(
-        :participatory_process_title,
-        "#title-tabs",
-        en: "My new title",
-        es: "Mi nuevo título",
-        ca: "El meu nou títol"
-      )
-      attach_file :participatory_process_banner_image, image3_path
+    fill_in_i18n(
+      :participatory_process_title,
+      "#title-tabs",
+      en: "My new title",
+      es: "Mi nuevo título",
+      ca: "El meu nou títol"
+    )
+    attach_file :participatory_process_banner_image, image3_path
 
+    page.execute_script("$('#date_field_participatory_process_end_date').focus()")
+    page.find('.datepicker-dropdown .day', text: '22').click
+
+    within ".edit_participatory_process" do
       find("*[type=submit]").click
     end
 
