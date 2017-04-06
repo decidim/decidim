@@ -7,12 +7,12 @@
 // = require ./sort_steps
 // = require ./tab_focus
 // = require decidim/editor
-// = require moment.min
 // = require foundation-datepicker
 // = require form_datepicker
+// = require moment.min
 // = require_self
 
-window.DecidimAdmin = window.DecidimAdmin || {};
+window.Decidim = window.Decidim || {};
 
 const pageLoad = () => {
   $(document).foundation();
@@ -21,7 +21,7 @@ const pageLoad = () => {
 
 $(() => {
   pageLoad();
-  if (window.DecidimAdmin.formDatePicker) {
-    window.DecidimAdmin.formDatePicker();
+ if (window.Decidim.formDatePicker) {
+    window.Decidim.formDatePicker();
   }
 });

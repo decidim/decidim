@@ -27,7 +27,8 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
 
       it "redirects the user to the authorization form after the first sign in" do
         fill_in "Document number", with: "123456789X"
-        fill_in "Birthday", with: "1970-01-01"
+        page.execute_script("$('##date_field_authorization_handler_birthday').focus()")
+        page.find('.datepicker-dropdown .day', text: '12').click
         click_button "Send"
         expect(page).to have_content("You've been successfully authorized")
       end
@@ -75,8 +76,8 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
       click_link "Example authorization"
 
       fill_in "Document number", with: "123456789X"
-      fill_in "Birthday", with: "1970-01-01"
-      click_button "Send"
+      page.execute_script("$('##date_field_authorization_handler_birthday').focus()")
+      page.find('.datepicker-dropdown .day', text: '12').click      click_button "Send"
 
       expect(page).to have_content("You've been successfully authorized")
 

@@ -26,6 +26,6 @@
     });
   };
 
-  exports.DecidimAdmin = exports.DecidimAdmin || {};
-  exports.DecidimAdmin.formDatePicker = formDatePicker;
+  exports.Decidim = exports.Decidim || {};
+  exports.Decidim.formDatePicker = formDatePicker;
 })(window);
