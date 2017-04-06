@@ -140,7 +140,7 @@ module Decidim
       template += @template.label(@object_name, attribute)
       template += @template.text_field(@object_name, attribute, options.merge({
         name: nil,
-        id: nil,
+        id: "date_field_#{@object_name}_#{attribute}",
         data: { datepicker: '', startdate: object.send(attribute) }
       }))
       template += @template.hidden_field(@object_name, attribute)
@@ -156,7 +156,7 @@ module Decidim
       template += @template.text_field(@object_name, attribute, options.merge({
         value: I18n.localize(object.send(attribute), format: :timepicker),
         name: nil,
-        id: nil,
+        id: "datetime_field_#{@object_name}_#{attribute}",
         data: { datepicker: '', timepicker: '' }
       }))
       template += @template.hidden_field(@object_name, attribute)

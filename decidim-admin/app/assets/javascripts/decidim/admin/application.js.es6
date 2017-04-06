@@ -12,6 +12,8 @@
 // = require form_datepicker
 // = require_self
 
+window.DecidimAdmin = window.DecidimAdmin || {};
+
 const pageLoad = () => {
   $(document).foundation();
   sortSteps();
@@ -19,5 +21,7 @@ const pageLoad = () => {
 
 $(() => {
   pageLoad();
-  formDatePicker();
+  if (window.DecidimAdmin.formDatePicker) {
+    window.DecidimAdmin.formDatePicker();
+  }
 });

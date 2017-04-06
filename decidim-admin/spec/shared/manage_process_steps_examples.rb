@@ -36,9 +36,10 @@ RSpec.shared_examples "manage process steps examples" do
         ca: "Descripció més llarga"
       )
 
-      fill_in :participatory_process_step_start_date, with: 1.months.ago.to_date
-      fill_in :participatory_process_step_end_date, with: 2.months.from_now.to_date
-
+      page.execute_script("$('#date_field_participatory_process_step_start_date').focus()")
+      page.execute_script("$('#date_field_participatory_process_step_start_date').focus()")
+      find(".datepicker-dropdown")
+      
       find("*[type=submit]").click
     end
 
