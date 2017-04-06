@@ -44,7 +44,7 @@ module Decidim
           comments_notifications: true,
           replies_notifications: true
         })
-      .invite!(
+      @user.invite!(
         form.invited_by,
         invitation_instructions: form.invitation_instructions
       )
