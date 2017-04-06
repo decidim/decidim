@@ -1,17 +1,17 @@
 ((exports) => {
   const formDatePicker = () => {
-    $('[data-datepicker]').each(function () {
+    $('[data-datepicker]').each((_index, node) => {
       const language = $('html').attr('lang') || 'en';
-      const initialDate = $(this).attr('data-startdate') || '';
-      const pickTime = $(this).attr('data-timepicker') === '';
-      const languageProps = $(this).fdatepicker.dates[language];
-      let format = languageProps && languageProps.format || 'mm/dd/yyyy';
+      const initialDate = $(node).data('startdate') || '';
+      const pickTime = $(node).data('timepicker') === '';
+      const languageProps = $(node).fdatepicker.dates[language] && $(node).fdatepicker.dates[language].format;
+      let format = languageProps || 'mm/dd/yyyy';
 
       if (pickTime) {
         format = `${format}, hh:ii`;
-      };
+      }
 
-      $(this).fdatepicker({
+      $(node).fdatepicker({
         format,
         initialDate,
         language,
@@ -19,8 +19,7 @@
         disableDblClickSelection: true,
         leftArrow: '<<',
         rightArrow: '>>'
-      })
-      .on('changeDate', (ev) => {
+      }).on('changeDate', (ev) => {
         $(ev.target).siblings('input').val(exports.moment.utc(ev.date));
       });
     });

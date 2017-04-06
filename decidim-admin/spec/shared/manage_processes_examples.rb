@@ -19,7 +19,7 @@ RSpec.shared_examples "manage processes examples" do
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
       it "allows the user to preview the unpublished process" do
-        within find("tr", text: object.send(attribute)translated(participatory_process.title)) do
+        within find("tr", text: translated(participatory_process.title)) do
           page.find('a.action-icon--preview').click
         end
 
