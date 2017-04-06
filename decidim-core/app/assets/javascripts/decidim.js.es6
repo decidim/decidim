@@ -2,6 +2,7 @@
 // = require modernizr
 // = require svg4everybody.min
 // = require morphdom
+// = require moment.min
 // = require foundation-datepicker
 // = require form_datepicker
 // = require decidim/history
