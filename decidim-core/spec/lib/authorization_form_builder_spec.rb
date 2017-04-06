@@ -25,7 +25,8 @@ module Decidim
       end
 
       it "includes the public handler attributes" do
-        expect(find("input#authorization_handler_birthday")["type"]).to eq("date")
+        expect(find("input#date_field_authorization_handler_birthday")["type"]).to eq("text")
+        expect(find("input#authorization_handler_birthday")["type"]).to eq("hidden")
         expect(find("input#authorization_handler_document_number")["type"]).to eq("text")
       end
 
@@ -38,7 +39,7 @@ module Decidim
     describe "input" do
       it "renders a single field for an attribute" do
         html = builder.input(:birthday)
-        expect(html).to eq('<label for="authorization_handler_birthday">Birthday<input type="date" name="authorization_handler[birthday]" id="authorization_handler_birthday" /></label>')
+        expect(html).to eq('<label for="authorization_handler_birthday">Birthday</label><input id="date_field_authorization_handler_birthday" data-datepicker="" type="text" /><input type="hidden" name="authorization_handler[birthday]" id="authorization_handler_birthday" />')
       end
 
       context "specifying the input type" do
