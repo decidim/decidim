@@ -30,6 +30,7 @@
         "Quill": false,
         "SVGInjector": false,
         "require": false,
+        "DecidimAdmin": false,
         "L": false
     },
     "rules": {
