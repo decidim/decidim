@@ -265,10 +265,10 @@ en:
             email: Email
             name: Name
             role: Role
+          name: Participatory Process User
           roles:
             admin: Administrator
             collaborator: Collaborator
-          name: Participatory Process User
         scope:
           fields:
             created_at: Created at

@@ -21,7 +21,7 @@ RSpec.shared_examples "manage process admins examples" do
     within ".new_participatory_process_user_role" do
       fill_in :participatory_process_user_role_email, with: other_user.email
       fill_in :participatory_process_user_role_name, with: "John Doe"
-      select "admin", from: :participatory_process_user_role_role
+      select "Administrator", from: :participatory_process_user_role_role
 
       find("*[type=submit]").click
     end
@@ -50,7 +50,7 @@ RSpec.shared_examples "manage process admins examples" do
       end
 
       within ".edit_participatory_process_user_roles" do
-        select "admin", from: :participatory_process_user_role_role
+        select "Administrator", from: :participatory_process_user_role_role
 
         find("*[type=submit]").click
       end
