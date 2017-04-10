@@ -10,7 +10,7 @@ es:
       category:
         description: Descripción
         name: Nombre
-        parent: Padre
+        parent_id: Superior
       feature:
         name: Nombre
         weight: Peso
@@ -234,8 +234,6 @@ es:
             title: Título
           name: Archivo adjunto
         category:
-          fields:
-            name: Nombre
           name: Categoría
         newsletter:
           fields:
@@ -517,3 +515,6 @@ es:
           title: Ajustes
         users:
           title: Usuarios
+  time:
+    formats:
+      timepicker: "%d / %m / %Y %H:%M"
