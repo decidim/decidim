@@ -10,7 +10,7 @@ ca:
       category:
         description: Descripció
         name: Nom
-        parent: Pare
+        parent_id: Superior
       feature:
         name: Nom
         weight: Pes
@@ -234,8 +234,6 @@ ca:
             title: Títol
           name: Arxiu adjunt
         category:
-          fields:
-            name: Nom
           name: Categoria
         newsletter:
           fields:
@@ -517,3 +515,6 @@ ca:
           title: Configuració
         users:
           title: Usuaris
+  time:
+    formats:
+      timepicker: "%d / %m / %Y %H:%M"
