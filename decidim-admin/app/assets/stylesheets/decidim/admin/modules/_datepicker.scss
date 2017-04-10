@@ -1,0 +1,224 @@
+$calendar-bg-color: $white;
+$calendar-border: 1px solid rgba(0, 0, 0, 0.1);
+$calendar-border-color: rgba(0, 0, 0, 0.1);
+$calendar-active-color: $primary-color;
+$calendar-bg-hover: $light-gray;
+$calendar-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+$calendar-color-old: $medium-gray;
+$calendar-color-disabled: $light-gray;
+$calendar-radius: $global-radius;
+$calendar-font-size: $global-font-size * .9;
+
+.datepicker {
+  display: none;
+  position: absolute;
+  padding: 4px;
+  margin-top: 1px;
+  direction: ltr;
+}
+
+.datepicker.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 160px;
+  list-style: none;
+  background-color: $calendar-bg-color;
+  border: $calendar-border;
+  border-radius: $calendar-radius;
+  box-shadow: $calendar-shadow;
+  background-clip: padding-box;
+  font-size: $calendar-font-size;
+  line-height: 18px;
+}
+
+.datepicker.dropdown-menu th {
+  padding: 4px 5px;
+}
+
+.datepicker.dropdown-menu td {
+  padding: 6px 9px;
+}
+
+.datepicker table {
+  border: 0;
+  margin: 0;
+  width: auto;
+}
+
+.datepicker table tr td span {
+  display: block;
+  width: 23%;
+  height: 54px;
+  line-height: 54px;
+  float: left;
+  margin: 1%;
+  cursor: pointer;
+}
+
+.datepicker td {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  font-size: $calendar-font-size;
+  padding: 4px 8px;
+  background: $calendar-bg-color;
+  cursor: pointer;
+}
+
+.datepicker td.active.day,
+.datepicker td.active.year {
+  background: $calendar-active-color;
+}
+
+.datepicker .day:hover,
+.datepicker .date-switch:hover,
+.datepicker .prev:hover,
+.datepicker .next:hover,
+.datepicker .month:hover,
+.datepicker .year:hover{
+  background-color: $calendar-bg-hover;
+  &.active{
+    background: $calendar-active-color;
+  }
+}
+
+
+.datepicker td.new,
+.datepicker td.old {
+  color: $calendar-color-old;
+}
+
+.datepicker td span.active {
+  background: $calendar-active-color;
+}
+
+.datepicker td.day.disabled {
+  color: $calendar-color-disabled;
+}
+
+.datepicker td span.month.disabled,
+.datepicker td span.year.disabled {
+  color: $calendar-color-disabled;
+}
+
+.datepicker th {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  font-size: $calendar-font-size;
+  padding: 4px 8px;
+  background: $calendar-bg-color;
+  cursor: pointer;
+}
+
+.datepicker th.active.day,
+.datepicker th.active.year {
+  background: $calendar-active-color;
+}
+
+.datepicker th.date-switch {
+  width: 145px;
+}
+
+.datepicker th span.active {
+  background: $calendar-active-color;
+}
+
+.datepicker .cw {
+  font-size: 10px;
+  width: 12px;
+  padding: 0 2px 0 5px;
+  vertical-align: middle;
+}
+
+.datepicker.days div.datepicker-days {
+  display: block;
+}
+
+.datepicker.months div.datepicker-months {
+  display: block;
+}
+
+.datepicker.years div.datepicker-years {
+  display: block;
+}
+
+.datepicker thead tr:first-child th {
+  cursor: pointer;
+}
+
+.datepicker thead tr:first-child th.cw {
+  cursor: default;
+  background-color: transparent;
+}
+
+.datepicker tfoot tr:first-child th {
+  cursor: pointer;
+}
+
+.datepicker-inline {
+  width: 220px;
+}
+
+.datepicker-rtl {
+  direction: rtl;
+}
+
+.datepicker-rtl table tr td span {
+  float: right;
+}
+
+.datepicker-dropdown {
+  top: 0;
+  left: 0;
+}
+
+.datepicker-dropdown:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-bottom-color: $calendar-border-color;
+  position: absolute;
+  top: -7px;
+  left: 6px;
+}
+
+.datepicker-dropdown:after {
+  content: '';
+  display: inline-block;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid $calendar-bg-color;
+  position: absolute;
+  top: -6px;
+  left: 7px;
+}
+
+.datepicker > div,
+.datepicker-dropdown::after,
+.datepicker-dropdown::before {
+  display: none;
+}
+
+.datepicker-close {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  width: 15px;
+  height: 30px;
+  padding: 0;
+  display: none;
+}
+
+.table-striped .datepicker table tr td,
+.table-striped .datepicker table tr th {
+  background-color: transparent;
+}

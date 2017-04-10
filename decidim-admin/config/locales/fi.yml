@@ -1,4 +1,7 @@
 fi:
+  time:
+    formats:
+      timepicker: '%d/%m/%Y %H:%M'
   activemodel:
     attributes:
       attachment:

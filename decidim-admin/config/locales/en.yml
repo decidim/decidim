@@ -518,3 +518,6 @@ en:
           title: Settings
         users:
           title: Users
+  time:
+    formats:
+      timepicker: "%m/%d/%Y %H:%M"
