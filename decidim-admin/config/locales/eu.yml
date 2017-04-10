@@ -1,6 +1,9 @@
 eu:
   actions:
     confirm_destroy: Ziur zaude?
+  time:
+    formats:
+      timepicker: '%d/%m/%Y %H:%M'
   activemodel:
     attributes:
       attachment:

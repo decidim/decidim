@@ -45,7 +45,7 @@
     <%= form.file_field :homepage_image %>
     <% if current_organization.homepage_image.present? %>
       <label><%= t('.current_image') %></label>
-      <%= image_tag current_organization.homepage_image.url %>
+      <%= image_tag current_organization.homepage_image.big.url %>
       <label><%= t('.url') %></label>
       <%= link_to current_organization.homepage_image.file.filename, current_organization.homepage_image.url, target: "_blank" %>
     <% end %>
@@ -55,7 +55,7 @@
     <%= form.file_field :logo %>
     <% if current_organization.logo.present? %>
       <label><%= t('.current_image') %></label>
-      <%= image_tag current_organization.logo.url %>
+      <%= image_tag current_organization.logo.medium.url %>
       <label><%= t('.url') %></label>
       <%= link_to current_organization.logo.file.filename, current_organization.logo.url, target: "_blank" %>
     <% end %>
@@ -65,9 +65,31 @@
     <%= form.file_field :favicon %>
     <% if current_organization.favicon.present? %>
       <label><%= t('.current_image') %></label>
-      <%= image_tag current_organization.favicon.url %>
+      <%= image_tag current_organization.favicon.big.url %>
       <label><%= t('.url') %></label>
       <%= link_to current_organization.favicon.file.filename, current_organization.favicon.url, target: "_blank" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns xlarge-6">
+    <%= form.file_field :official_img_header %>
+    <% if current_organization.official_img_header.present? %>
+      <label><%= t('.current_image') %></label>
+      <%= image_tag current_organization.official_img_header.url %>
+      <label><%= t('.url') %></label>
+      <%= link_to current_organization.official_img_header.file.filename, current_organization.official_img_header.url, target: "_blank" %>
+    <% end %>
+  </div>
+
+  <div class="columns xlarge-6">
+    <%= form.file_field :official_img_footer %>
+    <% if current_organization.official_img_footer.present? %>
+      <label><%= t('.current_image') %></label>
+      <%= image_tag current_organization.official_img_footer.url %>
+      <label><%= t('.url') %></label>
+      <%= link_to current_organization.official_img_footer.file.filename, current_organization.official_img_footer.url, target: "_blank" %>
     <% end %>
   </div>
 </div>

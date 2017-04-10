@@ -8,7 +8,8 @@ module Decidim
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
-           :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
+           :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2],
+           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email]
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization
     has_many :authorizations, foreign_key: "decidim_user_id", class_name: Decidim::Authorization, inverse_of: :user
@@ -51,6 +52,20 @@ module Decidim
 
     def name
       super || I18n.t("decidim.anonymous_user")
+    end
+
+    # Check if the user exists with the given email and the current organization
+    #
+    # warden_conditions - A hash with the authentication conditions
+    #                   * email - a String that represents user's email.
+    #                   * env - A Hash containing environment variables.
+    # Returns a User.
+    def self.find_for_authentication(warden_conditions)
+      organization = warden_conditions.dig(:env, "decidim.current_organization")
+      where(
+        email: warden_conditions[:email],
+        decidim_organization_id: organization.id
+      ).first
     end
 
     private

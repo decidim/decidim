@@ -11,7 +11,7 @@ en:
       category:
         description: Description
         name: Name
-        parent: Parent
+        parent_id: Parent
       feature:
         name: Name
         weight: Weight
@@ -235,8 +235,6 @@ en:
             title: Title
           name: Attachment
         category:
-          fields:
-            name: Name
           name: Category
         newsletter:
           fields:
@@ -518,3 +516,6 @@ en:
           title: Settings
         users:
           title: Users
+  time:
+    formats:
+      timepicker: "%m/%d/%Y %H:%M"

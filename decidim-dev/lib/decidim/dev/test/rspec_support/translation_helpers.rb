@@ -23,7 +23,7 @@ module TranslationHelpers
   #
   # field - the name of the field that should be filled, without the
   #   locale-related part (e.g. `:participatory_process_title`)
-  # tab_slector - a String representing the ID of the HTML element that holds
+  # tab_selector - a String representing the ID of the HTML element that holds
   #   the tabs for this input. It ususally is `"#<attribute_name>-tabs" (e.g.
   #   "#title-tabs")
   # localized_values - a Hash where the keys are the locales IDs and the values

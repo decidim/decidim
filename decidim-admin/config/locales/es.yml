@@ -1,6 +1,9 @@
 es:
   actions:
     confirm_destroy: '¿Estás seguro?'
+  time:
+    formats:
+      timepicker: '%d/%m/%Y %H:%M'
   activemodel:
     attributes:
       attachment:

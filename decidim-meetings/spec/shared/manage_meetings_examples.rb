@@ -54,43 +54,51 @@ RSpec.shared_examples "manage meetings" do
   it "creates a new meeting" do
     click_link "New Meeting"
 
+    fill_in_i18n(
+      :meeting_title,
+      "#title-tabs",
+      en: "My meeting",
+      es: "Mi meeting",
+      ca: "El meu meeting"
+    )
+    fill_in_i18n(
+      :meeting_location,
+      "#location-tabs",
+      en: "Location",
+      es: "Location",
+      ca: "Location"
+    )
+    fill_in_i18n(
+      :meeting_location_hints,
+      "#location_hints-tabs",
+      en: "Location hints",
+      es: "Location hints",
+      ca: "Location hints"
+    )
+    fill_in_i18n_editor(
+      :meeting_description,
+      "#description-tabs",
+      en: "A longer description",
+      es: "Descripción más larga",
+      ca: "Descripció més llarga"
+    )
+
+    fill_in :meeting_address, with: address
+
+    page.execute_script("$('#datetime_field_meeting_start_time').focus()")
+    page.find('.datepicker-dropdown .day', text: '12').click
+    page.find('.datepicker-dropdown .hour', text: '10:00').click
+    page.find('.datepicker-dropdown .minute', text: '10:50').click
+
+    page.execute_script("$('#datetime_field_meeting_end_time').focus()")
+    page.find('.datepicker-dropdown .day', text: '12').click
+    page.find('.datepicker-dropdown .hour', text: '12:00').click
+    page.find('.datepicker-dropdown .minute', text: '12:50').click
+
+    select scope.name, from: :meeting_decidim_scope_id
+    select translated(category.name), from: :meeting_decidim_category_id
+
     within ".new_meeting" do
-      fill_in_i18n(
-        :meeting_title,
-        "#title-tabs",
-        en: "My meeting",
-        es: "Mi meeting",
-        ca: "El meu meeting"
-      )
-      fill_in_i18n(
-        :meeting_location,
-        "#location-tabs",
-        en: "Location",
-        es: "Location",
-        ca: "Location"
-      )
-      fill_in_i18n(
-        :meeting_location_hints,
-        "#location_hints-tabs",
-        en: "Location hints",
-        es: "Location hints",
-        ca: "Location hints"
-      )
-      fill_in_i18n_editor(
-        :meeting_description,
-        "#description-tabs",
-        en: "A longer description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
-
-      fill_in :meeting_address, with: address
-      fill_in :meeting_start_time, with: 1.day.from_now
-      fill_in :meeting_end_time, with: 1.day.from_now + 2.hours
-
-      select scope.name, from: :meeting_decidim_scope_id
-      select translated(category.name), from: :meeting_decidim_category_id
-
       find("*[type=submit]").click
     end
 
@@ -160,43 +168,50 @@ RSpec.shared_examples "manage meetings" do
     it "creates a new meeting" do
       click_link "New Meeting"
 
+      fill_in_i18n(
+        :meeting_title,
+        "#title-tabs",
+        en: "My meeting",
+        es: "Mi meeting",
+        ca: "El meu meeting"
+      )
+      fill_in_i18n(
+        :meeting_location,
+        "#location-tabs",
+        en: "Location",
+        es: "Location",
+        ca: "Location"
+      )
+      fill_in_i18n(
+        :meeting_location_hints,
+        "#location_hints-tabs",
+        en: "Location hints",
+        es: "Location hints",
+        ca: "Location hints"
+      )
+      fill_in_i18n_editor(
+        :meeting_description,
+        "#description-tabs",
+        en: "A longer description",
+        es: "Descripción más larga",
+        ca: "Descripció més llarga"
+      )
+
+      fill_in :meeting_address, with: address
+      page.execute_script("$('#datetime_field_meeting_start_time').focus()")
+      page.find('.datepicker-dropdown .day', text: '12').click
+      page.find('.datepicker-dropdown .hour', text: '10:00').click
+      page.find('.datepicker-dropdown .minute', text: '10:50').click
+
+      page.execute_script("$('#datetime_field_meeting_end_time').focus()")
+      page.find('.datepicker-dropdown .day', text: '12').click
+      page.find('.datepicker-dropdown .hour', text: '12:00').click
+      page.find('.datepicker-dropdown .minute', text: '12:50').click
+
+      select scope.name, from: :meeting_decidim_scope_id
+      select translated(category.name), from: :meeting_decidim_category_id
+
       within ".new_meeting" do
-        fill_in_i18n(
-          :meeting_title,
-          "#title-tabs",
-          en: "My meeting",
-          es: "Mi meeting",
-          ca: "El meu meeting"
-        )
-        fill_in_i18n(
-          :meeting_location,
-          "#location-tabs",
-          en: "Location",
-          es: "Location",
-          ca: "Location"
-        )
-        fill_in_i18n(
-          :meeting_location_hints,
-          "#location_hints-tabs",
-          en: "Location hints",
-          es: "Location hints",
-          ca: "Location hints"
-        )
-        fill_in_i18n_editor(
-          :meeting_description,
-          "#description-tabs",
-          en: "A longer description",
-          es: "Descripción más larga",
-          ca: "Descripció més llarga"
-        )
-
-        fill_in :meeting_address, with: address
-        fill_in :meeting_start_time, with: 1.day.from_now
-        fill_in :meeting_end_time, with: 1.day.from_now + 2.hours
-
-        select scope.name, from: :meeting_decidim_scope_id
-        select translated(category.name), from: :meeting_decidim_category_id
-
         find("*[type=submit]").click
       end
 
