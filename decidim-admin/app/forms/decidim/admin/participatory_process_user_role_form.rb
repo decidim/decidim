@@ -14,6 +14,15 @@ module Decidim
       validates :email, :role, presence: true
       validates :name, presence: true
       validates :role, inclusion: { in: ParticipatoryProcessUserRole::ROLES }
+
+      def roles
+        Decidim::Admin::ParticipatoryProcessUserRole::ROLES.map do |role|
+          [
+            I18n.t(role, scope: "decidim.admin.models.participatory_process_user_role.roles"),
+            role
+          ]
+        end
+      end
     end
   end
 end
