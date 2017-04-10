@@ -10,7 +10,6 @@ eu:
       category:
         description: Deskribapena
         name: Izena
-        parent: Nagusia
       feature:
         name: Izena
         weight: Pisua
@@ -234,8 +233,6 @@ eu:
             title: Izenburua
           name: Fitxategi erantsia
         category:
-          fields:
-            name: Izena
           name: Kategoria
         newsletter:
           fields:
