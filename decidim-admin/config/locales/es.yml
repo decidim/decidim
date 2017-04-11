@@ -263,6 +263,9 @@ es:
             name: Nombre
             role: Rol
           name: Usuario del proceso
+          roles:
+            admin: Administrador
+            collaborator: Colaborador
         scope:
           fields:
             created_at: Fecha de creación
