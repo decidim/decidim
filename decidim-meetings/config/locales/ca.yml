@@ -8,7 +8,6 @@ ca:
         contributions_count: Nombre de contribucions
         proposal_ids: Propostes creades en una trobada
       meeting:
-        adress: Adreça
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         description: Descripció
