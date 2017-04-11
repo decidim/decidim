@@ -263,6 +263,9 @@ ca:
             name: Nom
             role: Rol
           name: Usuari del procés
+          roles:
+            admin: Administrador
+            collaborator: Col·laborador
         scope:
           fields:
             created_at: Data de creació
