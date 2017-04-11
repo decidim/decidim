@@ -9,7 +9,7 @@ en:
         contributions_count: Number of contributions
         proposal_ids: Proposals created in the meeting
       meeting:
-        adress: Adress
+        address: Address
         decidim_category_id: Category
         decidim_scope_id: Scope
         description: Description

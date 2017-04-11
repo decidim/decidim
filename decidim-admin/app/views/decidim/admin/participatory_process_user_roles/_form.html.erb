@@ -15,9 +15,8 @@
       </div>
       <div class="columns xlarge-4">
         <%= form.label :role %>
-        <%= select :participatory_process_user_role, :role, Decidim::Admin::ParticipatoryProcessUserRole::ROLES, include_blank: false %>
+        <%= select :participatory_process_user_role, :role, @form.roles, include_blank: false %>
       </div>
     </div>
-
   </div>
 </div>
