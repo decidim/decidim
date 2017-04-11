@@ -8,7 +8,6 @@ eu:
         contributions_count: Ekarpen-kopurua
         proposal_ids: Topaketan sortutako proposamenak
       meeting:
-        adress: Helbidea
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
         description: Deskribapena
