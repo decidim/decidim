@@ -8,7 +8,6 @@ fi:
         contributions_count: Kontribuutioiden määrä
         proposal_ids: Ehdotusta luotu tapaamisessa
       meeting:
-        adress: Adressi
         decidim_category_id: Kategoria
         decidim_scope_id: Konteksti
         description: Kuvaus
