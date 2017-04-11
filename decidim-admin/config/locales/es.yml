@@ -1,9 +1,6 @@
 es:
   actions:
     confirm_destroy: '¿Estás seguro?'
-  time:
-    formats:
-      timepicker: '%d/%m/%Y %H:%M'
   activemodel:
     attributes:
       attachment:
@@ -171,8 +168,6 @@ es:
               steps_title: Fases
           participatory_process_user_roles:
             index:
-              admin: Administrador
-              collaborator: Colaborador
               process_admins_title: Usuarios del proceso
       feature_permissions:
         edit:
