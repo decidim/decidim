@@ -1,10 +1,6 @@
 ca:
   actions:
     confirm_destroy: N'estàs segur?
-  dates:
-  time:
-    formats:
-      timepicker: '%d/%m/%Y %H:%M'
   activemodel:
     attributes:
       attachment:
@@ -172,8 +168,6 @@ ca:
               steps_title: Fases
           participatory_process_user_roles:
             index:
-              admin: Administrador
-              collaborator: Col·laborador
               process_admins_title: Usuaris del procés participatiu
       feature_permissions:
         edit:
