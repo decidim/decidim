@@ -44,6 +44,9 @@
     <%= render partial: "decidim/shared/share_modal" %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <% if @proposal.official_image_proposal.present? %>
+      <%= image_tag @proposal.official_image_proposal.url %>
+    <% end %>
     <div class="section">
       <%= render partial: "proposal_badge", locals: { proposal: @proposal } %>
       <p><%= @proposal.body %></p>

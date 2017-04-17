@@ -1,5 +1,11 @@
 <div class="column">
   <article class="card card--proposal">
+    <% if proposal.official_image_proposal.present? %>
+      <%= link_to proposal, class: "card__link" do %>
+        <div class="card__image-top"
+          style="background-image:url(<%= proposal.official_image_proposal.url %>)"></div>
+      <% end %>
+    <% end %>
     <div class="card__content">
       <div class="card__header">
         <%= link_to proposal do%>
