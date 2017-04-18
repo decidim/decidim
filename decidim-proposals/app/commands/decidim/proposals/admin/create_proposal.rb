@@ -38,7 +38,7 @@ module Decidim
             address: form.address,
             latitude: form.latitude,
             longitude: form.longitude,
-            official_image_proposal: form.official_image_proposal
+            image: form.image
           )
         end
       end

@@ -1,9 +1,9 @@
 <div class="column">
   <article class="card card--proposal">
-    <% if proposal.official_image_proposal.present? %>
+    <% if proposal.image.present? %>
       <%= link_to proposal, class: "card__link" do %>
         <div class="card__image-top"
-          style="background-image:url(<%= proposal.official_image_proposal.url %>)"></div>
+          style="background-image:url(<%= proposal.image.url %>)"></div>
       <% end %>
     <% end %>
     <div class="card__content">

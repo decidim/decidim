@@ -18,7 +18,7 @@ module Decidim
 
       validates :title, :body, presence: true
 
-      mount_uploader :official_image_proposal, Decidim::OfficialImageProposalUploader
+      mount_uploader :image, Decidim::ImageUploader
 
       geocoded_by :address, http_headers: lambda { |proposal| { "Referer" => proposal.feature.organization.host } }
 
