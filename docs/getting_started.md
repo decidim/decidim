@@ -1,0 +1,140 @@
+# Getting started with decidim
+
+## What is and what isn't decidim?
+
+Decidim is a set of libraries to create a participatory democracy framework on top of a Ruby on Rails app. This system allows having the system code separated from custom code for each installation and still enabling easy updates.
+
+These libraries are published to Rubygems.org, so you can add decidim to your Ruby on Rails app as external dependencies.
+
+If you want to start your own installation of decidim, you don't need to clone this repo. Keep reading to find out how to install decidim.
+
+## Creating your Decidim app
+
+### Using docker [experimental]
+
+> *Please note that this is **experimental***
+
+Make sure you have docker v17 at least. `cd` to your preferred folder and run this command:
+
+```
+docker run --rm -v $(pwd):/tmp codegram/decidim bash -c "bundle exec decidim /tmp/decidim_application"
+```
+
+This will create a `decidim_application` Ruby on Rails app using decidim in the current folder. It will install the latest released version of the gem.
+
+### Step by step
+
+First of all, you need to install the `decidim` gem:
+
+```
+$ gem install decidim decidim-core
+```
+
+Afterwards, you can create an application with the nice `decidim` executable:
+
+```
+$ decidim decidim_application
+$ cd decidim_application
+```
+
+### Initializing your app for local development
+
+You should now setup your database:
+
+```
+$ bin/rails db:create db:migrate db:seed
+```
+
+This will also create some default data so you can start testing the app:
+
+* A `Decidim::System::Admin` with email `system@example.org` and password `decidim123456`, to log in at `/system`.
+* A `Decidim::Organization` named `Decidim Staging`. You probably want to change its name and hostname to match your needs.
+* A `Decidim::User` acting as an admin for the organization, with email `admin@example.org` and password `decidim123456`.
+* A `Decidim::User` that also belongs to the organization but it's a regular user, with email `user@example.org` and password `decidim123456`.
+
+This data won't be created in production environments, if you still want to do it, run:
+
+```
+$ SEED=true rails db:setup
+```
+
+You can now start your server!
+
+```
+$ bin/rails s
+```
+
+Visit [http://localhost:3000](http://localhost:3000) to see your app running.
+
+## Configuration & setup
+
+Decidim comes pre-configured with some safe defaults, but can be changed through the `config/initializers/decidim.rb` file in your app. Check the comments there or read the comments in [the source file](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/decidim-core/lib/decidim/core.rb) (the part with the `config_accessor` calls) for more up-to-date info.
+
+We also have other guides on how to configure some extra features: 
+
+- [Social providers integration](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/social_providers.md): Enable sign up from social networks.
+- [Analytics](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/analytics.md): How to enable analytics
+
+## Creating an Authorization handler
+
+The most common use case is validating a user against a census, so that you can differentiate users living in your city from users living outside.
+
+The generator will have created an `ExampleAuthorizationHandler` so you can learn how to implement your own. You'll usually want to define some fields that you will use to authenticate against a census (for example, an ID and a Postal Code). In this class you'll need to write the logic to validate the user against the census. See the documentation for [the parent class](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/decidim-core/app/services/decidim/authorization_handler.rb) and a [live example in Decidim Barcelona](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb).
+
+You'll need to reference it from the Decidim initializer:
+
+```ruby
+# config/initializers/decidim.rb
+
+config.authorization_handlers = [<my authorization handler class>]
+```
+
+## Deploy
+
+Once you've generated the Decidim app you might need to do some changes in order to deploy it to Heroku. You can check [`codegram/decidim-deploy-heroku`](https://github.com/codegram/decidim-deploy-heroku) for an opinionated example of things to do before deploying to Heroku.
+
+Once you've successfully deployed your app to your favorite platform, you'll need to create your `System` user. First, access your production Rails console. In Heroku you'd need to run:
+
+```
+heroku run rails console --app <my heroku app name>
+```
+
+Then, you'll need to create your `Decidim::System` user:
+
+```ruby
+email = <your email>
+password = <a secure password>
+user = Decidim::System::Admin.new(email: my_email, password: my_password, password_confirmation: my_password)
+user.save!
+```
+
+This will create a system user with the email and password you set. We recommend using a random password generator and saving it to a password manager, so you have a more secure login.
+
+Then, visit the `/system` dashboard and login with the email and passwords you just entered and create your organization. You're done! :tada:
+
+You can check the [`decidim-system` README file](https://github.com/AjuntamentdeBarcelona/decidim/tree/master/decidim-system/README.md) for more info on how organizations work.
+
+### Seed data in production
+
+If you want, you can create seed data in production. Run this command in your production console:
+
+```
+$ SEED=true rails db:seed
+```
+
+If you used Codegram's [`decidim-deploy-heroku`](https://github.com/codegram/decidim-deploy-heroku), then you're all set. Otherwise you'll need to login as system user and edit the host for the organization. Set it to you production host, without the protocol and the port (so if your host is `https://my.host:3001`, you need to write `my.host`).
+
+## Keeping your app up-to-date
+
+We keep releasing new versions of decidim. In order to get the latest one, update your dependencies:
+
+```
+$ bundle update decidim
+```
+
+And make sure you get all the latest migrations:
+
+```
+$ bin/rails decidim:upgrade
+$ bin/rails db:migrate
+```
