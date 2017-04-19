@@ -1,33 +1,33 @@
-# Getting started with decidim
+# Getting started with Decidim
 
-## What is and what isn't decidim?
+## What is and what isn't Decidim?
 
-Decidim is a set of libraries to create a participatory democracy framework on top of a Ruby on Rails app. This system allows having the system code separated from custom code for each installation and still enabling easy updates.
+Decidim is a set of Ruby on Rails engines to create a participatory democracy framework on top of a Ruby on Rails app. This system allows having Decidim code separated from custom code for each installation and still enabling easy updates.
 
-These libraries are published to Rubygems.org, so you can add decidim to your Ruby on Rails app as external dependencies.
+These libraries are published to Rubygems.org, so you can add Decidim to your Ruby on Rails app as external dependencies.
 
-If you want to start your own installation of decidim, you don't need to clone this repo. Keep reading to find out how to install decidim.
+If you want to start your own installation of Decidim, you don't need to clone this repo. Keep reading to find out how to install Decidim.
 
 ## Creating your Decidim app
 
-### Using docker [experimental]
+### Using Docker [experimental]
 
 > *Please note that this is **experimental***
 
-Make sure you have docker v17 at least. `cd` to your preferred folder and run this command:
+Make sure you [have Docker v17 at least](https://docs.docker.com/engine/installation/). `cd` to your preferred folder and run this command:
 
 ```
 docker run --rm -v $(pwd):/tmp codegram/decidim bash -c "bundle exec decidim /tmp/decidim_application"
 ```
 
-This will create a `decidim_application` Ruby on Rails app using decidim in the current folder. It will install the latest released version of the gem.
+This will create a `decidim_application` Ruby on Rails app using Decidim in the current folder. It will install the latest released version of the gem.
 
 ### Step by step
 
 First of all, you need to install the `decidim` gem:
 
 ```
-$ gem install decidim decidim-core
+$ gem install decidim
 ```
 
 Afterwards, you can create an application with the nice `decidim` executable:
@@ -77,7 +77,7 @@ We also have other guides on how to configure some extra features:
 
 ## Creating an Authorization handler
 
-The most common use case is validating a user against a census, so that you can differentiate users living in your city from users living outside.
+Authorization handlers are used to validate users following some criteria. The most common use case is validating a user against a census, so that you can differentiate users living in your city from users living outside.
 
 The generator will have created an `ExampleAuthorizationHandler` so you can learn how to implement your own. You'll usually want to define some fields that you will use to authenticate against a census (for example, an ID and a Postal Code). In this class you'll need to write the logic to validate the user against the census. See the documentation for [the parent class](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/decidim-core/app/services/decidim/authorization_handler.rb) and a [live example in Decidim Barcelona](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb).
 
@@ -91,15 +91,9 @@ config.authorization_handlers = [<my authorization handler class>]
 
 ## Deploy
 
-Once you've generated the Decidim app you might need to do some changes in order to deploy it to Heroku. You can check [`codegram/decidim-deploy-heroku`](https://github.com/codegram/decidim-deploy-heroku) for an opinionated example of things to do before deploying to Heroku.
+Once you've generated the Decidim app you might need to do some changes in order to deploy it. You can check [`codegram/decidim-deploy-heroku`](https://github.com/codegram/decidim-deploy-heroku) for an opinionated example of things to do before deploying to Heroku, for example.
 
-Once you've successfully deployed your app to your favorite platform, you'll need to create your `System` user. First, access your production Rails console. In Heroku you'd need to run:
-
-```
-heroku run rails console --app <my heroku app name>
-```
-
-Then, you'll need to create your `Decidim::System` user:
+Once you've successfully deployed your app to your favorite platform, you'll need to create your `System` user. First you'll need to create your `Decidim::System` user in your production Ruby on Rails console:
 
 ```ruby
 email = <your email>
@@ -126,7 +120,7 @@ If you used Codegram's [`decidim-deploy-heroku`](https://github.com/codegram/dec
 
 ## Keeping your app up-to-date
 
-We keep releasing new versions of decidim. In order to get the latest one, update your dependencies:
+We keep releasing new versions of Decidim. In order to get the latest one, update your dependencies:
 
 ```
 $ bundle update decidim

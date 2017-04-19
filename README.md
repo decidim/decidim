@@ -28,7 +28,7 @@ Decidim is a participatory democracy framework written on Ruby on Rails original
 
 ## What do you need to do?
 
-- [Get started with decidim](#getting-started-with-decidim)
+- [Get started with Decidim](#getting-started-with-decidim)
 - [Contribute to the project](#how-to-contribute)
 - [Create & browse development app](#browse-decidim)
 - [Check current components](#components)
@@ -36,9 +36,9 @@ Decidim is a participatory democracy framework written on Ruby on Rails original
 
 ---
 
-## Getting started with decidim
+## Getting started with Decidim
 
-We've set up a guide on how to install, set up and upgrade decidim. See the [Getting started guide](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/getting_started.md).
+We've set up a guide on how to install, set up and upgrade Decidim. See the [Getting started guide](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/getting_started.md).
 
 ## How to contribute
 
