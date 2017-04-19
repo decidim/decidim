@@ -4,12 +4,14 @@
     <%= icon "code", class: "icon--after"%>
   </button>
 </div>
-<div class="reveal" id="processEmbed" data-reveal>
+<div class="reveal reveal--embed" id="processEmbed" data-reveal>
   <div class="reveal__header">
     <h3 class="reveal__title"><%= t(".embed") %>:</h3>
     <button class="close-button" data-close aria-label="<%= t(".close_window") %>" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <h4 class="embed__code"><%= embed_code %></h4>
+  <p class="embed__code">
+    <%= embed_code %>
+  </p>
 </div>

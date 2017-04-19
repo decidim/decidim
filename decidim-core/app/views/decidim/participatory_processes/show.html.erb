@@ -73,9 +73,7 @@
   <div class="row">
     <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
       <%= render partial: "decidim/shared/share_modal" %>
-
-      <% embed_code = embedded_code_for(participatory_process_participatory_process_widget_url(current_participatory_process)) %>
-      <%= render partial: "decidim/shared/embed_modal", locals: { embed_code: embed_code } %>
+      <%= embed_modal_for participatory_process_participatory_process_widget_url(current_participatory_process, format: :js) %>
     </div>
   </div>
 

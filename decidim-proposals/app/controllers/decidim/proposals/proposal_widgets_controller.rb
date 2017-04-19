@@ -15,6 +15,10 @@ module Decidim
       def current_participatory_process
         @current_participatory_process ||= model.feature.participatory_process
       end
+
+      def iframe_url
+        @iframe_url ||= proposal_proposal_widget_url(model)
+      end
     end
   end
 end

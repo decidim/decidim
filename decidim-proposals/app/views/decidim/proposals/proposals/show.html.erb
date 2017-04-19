@@ -42,9 +42,7 @@
     <% end %>
     <%= feature_reference(@proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
-
-    <% embed_code = embedded_code_for(proposal_proposal_widget_url(@proposal)) %>
-    <%= render partial: "decidim/shared/embed_modal", locals: { embed_code: embed_code } %>
+    <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
