@@ -1,20 +1,28 @@
+/* eslint-disable no-var, prefer-template */
 document.write('<iframe src="<%= iframe_url %>" frameborder="0" scrollin="no" onload="setIframeHeight(this)"></iframe>');
 
-function getDocHeight(doc) {
-    doc = doc || document;
+(function (exports) {
+  var getDocHeight = function(doc) {
+    var body = doc.body;
+    var html = doc.documentElement;
+    var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-    var body = doc.body, html = doc.documentElement;
-    var height = Math.max( body.scrollHeight, body.offsetHeight, 
-        html.clientHeight, html.scrollHeight, html.offsetHeight );
     return height;
-}
+  }
 
-function setIframeHeight(ifrm) {
-    var doc = ifrm.contentDocument? ifrm.contentDocument: 
-        ifrm.contentWindow.document;
+  exports.setIframeHeight = function(ifrm) {
+    var doc = null;
+
+    if (ifrm.contentDocument) {
+      doc = ifrm.contentDocument;
+    } else {
+      doc = ifrm.contentWindow.document;
+    }
+
     ifrm.style.visibility = 'hidden';
     ifrm.style.height = "10px";
 
-    ifrm.style.height = getDocHeight( doc ) + 4 + "px";
+    ifrm.style.height = getDocHeight(doc) + 4 + "px";
     ifrm.style.visibility = 'visible';
-}
+  }
+}(window));
