@@ -186,7 +186,7 @@ RSpec.shared_examples "manage proposals" do
 
       it "can reject a proposal" do
         within find("tr", text: proposal.title) do
-          click_link "Answer"
+          find("a.action-icon--edit-answer").click
         end
 
         within ".edit_proposal_answer" do
@@ -214,7 +214,7 @@ RSpec.shared_examples "manage proposals" do
 
       it "can accept a proposal" do
         within find("tr", text: proposal.title) do
-          click_link "Answer"
+          find("a.action-icon--edit-answer").click
         end
 
         within ".edit_proposal_answer" do
