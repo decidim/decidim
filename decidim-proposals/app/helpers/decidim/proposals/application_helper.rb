@@ -27,6 +27,21 @@ module Decidim
 
         I18n.t(value, scope: "decidim.proposals.answers")
       end
+
+      # Public: The css class applied based on the proposal state.
+      #
+      # state - The String state of the proposal.
+      #
+      # Returns a String.
+      def proposal_state_css_class(state)
+        if state == "accepted"
+          "text-success"
+        elsif state == "rejected"
+          "text-alert"
+        else
+          "text-warning"
+        end
+      end
     end
   end
 end
