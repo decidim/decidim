@@ -74,6 +74,7 @@ We also have other guides on how to configure some extra features:
 
 - [Social providers integration](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/social_providers.md): Enable sign up from social networks.
 - [Analytics](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/analytics.md): How to enable analytics
+- [Geocoding](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/geocoding.md): How to enable geocoding for proposals and meetings
 
 ## Creating an Authorization handler
 
