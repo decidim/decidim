@@ -186,7 +186,7 @@ RSpec.shared_examples "manage proposals" do
 
       it "can reject a proposal" do
         within find("tr", text: proposal.title) do
-          click_link "Answer"
+          find("a.action-icon--edit-answer").click
         end
 
         within ".edit_proposal_answer" do
@@ -214,7 +214,41 @@ RSpec.shared_examples "manage proposals" do
 
       it "can accept a proposal" do
         within find("tr", text: proposal.title) do
-          click_link "Answer"
+          find("a.action-icon--edit-answer").click
+        end
+
+        within ".edit_proposal_answer" do
+          choose "Accepted"
+          click_button "Answer proposal"
+        end
+
+        within ".callout-wrapper" do
+          expect(page).to have_content("Proposal successfully answered")
+        end
+
+        within find("tr", text: proposal.title) do
+          within find("td:nth-child(4)") do
+            expect(page).to have_content("Accepted")
+          end
+        end
+      end
+
+      it "can edit a proposal answer" do
+        proposal.update_attributes!(
+          state: 'rejected',
+          answer: {
+            'en' => "I don't like it"
+          },
+          answered_at: Time.current
+        )
+
+        visit decidim_admin.manage_feature_path(participatory_process_id: participatory_process, feature_id: current_feature)
+
+        within find("tr", text: proposal.title) do
+          within find("td:nth-child(4)") do
+            expect(page).to have_content("Rejected")
+          end
+          find("a.action-icon--edit-answer").click
         end
 
         within ".edit_proposal_answer" do
