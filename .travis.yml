@@ -16,6 +16,8 @@ env:
   global:
     - BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
     - BUNDLE_PATH="$HOME/.bundle"
+    - CHROME_BIN="/tmp/chrome-linux/chrome"
+    - PATH="/tmp:$PATH"
   matrix:
     - GEM=. DB=postgres
     - GEM=decidim-admin DB=postgres
@@ -33,11 +35,10 @@ before_install:
   - nvm install 7
   - gem update --system
   - yarn --ignore-engines
-  - curl "https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F440004%2Fchrome-linux.zip?generation=1482293777505000&alt=media" > chromium-browser.zip
-  - unzip chromium-browser.zip
-  - export CHROME_BIN_PATH=`pwd`
-  - curl "http://chromedriver-data.storage.googleapis.com/continuous/chromedriver_linux64_2.28.460342.zip" > chromedriver.zip
-  - unzip chromedriver.zip
+  - curl "https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F440004%2Fchrome-linux.zip?generation=1482293777505000&alt=media" > /tmp/chromium-browser.zip
+  - unzip /tmp/chromium-browser.zip -d /tmp
+  - curl "http://chromedriver-data.storage.googleapis.com/continuous/chromedriver_linux64_2.28.460342.zip" > /tmp/chromedriver.zip
+  - unzip /tmp/chromedriver.zip -d /tmp
 
 bundler_args: --jobs=3 --retry=3 --deployment --path="$HOME/.bundle"
 
