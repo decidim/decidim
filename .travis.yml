@@ -16,7 +16,7 @@ env:
   global:
     - BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
     - BUNDLE_PATH="$HOME/.bundle"
-    - CHROME_BIN="/tmp/chrome-linux/chrome"
+    - CAPYBARA_CHROME_BIN="/tmp/chrome-linux/chrome"
     - PATH="/tmp:$PATH"
   matrix:
     - GEM=. DB=postgres

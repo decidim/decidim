@@ -46,7 +46,7 @@ end
 Capybara.register_driver :headless_chromium do |app|
   caps = Selenium::WebDriver::Remote::Capabilities.chrome(
     "chromeOptions" => {
-      'binary' => ENV['CHROME_BIN'],
+      'binary' => ENV['CAPYBARA_CHROME_BIN'],
       'args' => ['headless', 'disable-gpu']
     }
   )
@@ -62,7 +62,7 @@ Capybara::Screenshot::RSpec.add_link_to_screenshot_for_failed_examples = true
 
 Capybara.configure do |config|
   config.always_include_port = true
-  config.default_driver = ENV['CHROME_BIN'].present? ? :headless_chromium : :poltergeist
+  config.default_driver = ENV['CAPYBARA_CHROME_BIN'].present? ? :headless_chromium : :poltergeist
   config.always_include_port = true
 end
 
