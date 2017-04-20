@@ -2,6 +2,7 @@
 
 require "capybara/poltergeist"
 require "capybara-screenshot/rspec"
+require 'selenium-webdriver'
 
 module Decidim
   # Helpers meant to be used only during capybara test runs.
@@ -42,12 +43,26 @@ Capybara.register_driver :debug do |app|
   Capybara::Poltergeist::Driver.new(app, capybara_options.merge(inspector: true))
 end
 
+Capybara.register_driver :headless_chromium do |app|
+  caps = Selenium::WebDriver::Remote::Capabilities.chrome(
+    "chromeOptions" => {
+      'binary' => ENV['CHROME_BIN_PATH'],
+      'args' => ['headless', 'disable-gpu']
+    }
+  )
+  driver = Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    desired_capabilities: caps
+  )
+end
+
 Capybara::Screenshot.prune_strategy = :keep_last_run
 Capybara::Screenshot::RSpec.add_link_to_screenshot_for_failed_examples = true
 
 Capybara.configure do |config|
   config.always_include_port = true
-  config.default_driver = :poltergeist
+  config.default_driver = ENV['CHROME_BIN_PATH'].present? ? :headless_chromium : :poltergeist
   config.always_include_port = true
 end
 

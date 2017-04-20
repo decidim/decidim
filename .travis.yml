@@ -42,6 +42,11 @@ before_install:
   # Repo for newer Node.js versions
   - gem update --system
   - yarn --ignore-engines
+  - curl "https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F440004%2Fchrome-linux.zip?generation=1482293777505000&alt=media" > chromium-browser.zip
+  - unzip chromium-browser.zip
+  - export CHROME_BIN_PATH=`pwd`
+  - curl "http://chromedriver-data.storage.googleapis.com/continuous/chromedriver_linux64_2.28.460342.zip" > chromedriver.zip
+  - unzip chromedriver.zip
 
 bundler_args: --jobs=3 --retry=3 --deployment --path="$HOME/.bundle"
 
