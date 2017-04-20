@@ -16,8 +16,6 @@ env:
   global:
     - BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
     - BUNDLE_PATH="$HOME/.bundle"
-    - PHANTOMJS_VERSION=2.1.1
-    - PHANTOMJS_BIN="$HOME/travis_phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64/bin/phantomjs"
   matrix:
     - GEM=. DB=postgres
     - GEM=decidim-admin DB=postgres
@@ -33,13 +31,6 @@ env:
 
 before_install:
   - nvm install 7
-  # Upgrade PhantomJS
-  - "export PATH=$HOME/travis_phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64/bin:$PATH"
-  - "if [ $(phantomjs --version) != $PHANTOMJS_VERSION ]; then rm -rf $HOME/travis_phantomjs; mkdir -p $HOME/travis_phantomjs; fi"
-  - "if [ $(phantomjs --version) != $PHANTOMJS_VERSION ]; then wget https://github.com/Medium/phantomjs/releases/download/v$PHANTOMJS_VERSION/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 -O $HOME/travis_phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2; fi"
-  - "if [ $(phantomjs --version) != $PHANTOMJS_VERSION ]; then tar -xvf $HOME/travis_phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 -C $HOME/travis_phantomjs; fi"
-  - "phantomjs --version"
-  # Repo for newer Node.js versions
   - gem update --system
   - yarn --ignore-engines
   - curl "https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F440004%2Fchrome-linux.zip?generation=1482293777505000&alt=media" > chromium-browser.zip
@@ -56,7 +47,6 @@ cache:
     - $TRAVIS_BUILD_DIR/.yarn-cache
     - $TRAVIS_BUILD_DIR/node_modules
     - $BUNDLE_PATH
-    - $HOME/travis_phantomjs
 
 script:
   - cd $GEM;
