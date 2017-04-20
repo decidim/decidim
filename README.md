@@ -38,7 +38,7 @@ Decidim is a participatory democracy framework written on Ruby on Rails original
 
 ## Getting started with Decidim
 
-We've set up a guide on how to install, set up and upgrade Decidim. See the [Getting started guide](https://github.com/AjuntamentdeBarcelona/decidim/blob/master/docs/getting_started.md).
+We've set up a guide on how to install, set up and upgrade Decidim. See the [Getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md).
 
 ## How to contribute
 
@@ -95,12 +95,14 @@ After you create a development app (`bundle exec rake development_app`):
 | ------------- |-------------|
 | [Admin](https://github.com/decidim/decidim/tree/master/decidim-admin)      | This library adds an administration dashboard so users can manage their organization, participatory processes and all other entities. |
 | [API](https://github.com/decidim/decidim/tree/master/decidim-api)      | This library exposes a GraphQL API to programatically interact with the Decidim platform via HTTP      |
+| [Budgets](https://github.com/decidim/decidim/tree/master/decidim-budgets) | Adds a participatory budgets system to any participatory process. |
 | [Comments](https://github.com/decidim/decidim/tree/master/decidim-comments) | The Comments module adds the ability to include comments to any resource which can be commentable by users.      |
 | [Core](https://github.com/decidim/decidim/tree/master/decidim-core) | The basics of Decidim: users, participatory processes, etc. This is the only required engine to run Decidim, all the others are optional. |
 | [Dev](https://github.com/decidim/decidim/tree/master/decidim-dev) | This gem aids the local development of Decidim's features. |
 | [Meeting](https://github.com/decidim/decidim/tree/master/decidim-meetings) | The Meeeting module adds meeting to any participatory process. It adds a CRUD engine to the admin and public view scoped inside the participatory process. |
 | [Pages](https://github.com/decidim/decidim/tree/master/decidim-pages) | The Pages module adds static page capabilities to any participatory process. It basically provides an interface to include arbitrary HTML content to any step. |
 | [Proposals](https://github.com/decidim/decidim/tree/master/decidim-proposals) | The Proposals module adds one of the main features of Decidim: allows users to contribute to a participatory process by creating proposals. |
+| [Results](https://github.com/decidim/decidim/tree/master/decidim-results) | Adds a results section to any participatory process so users can follow along the state of the accepted proposals. |
 | [System](https://github.com/decidim/decidim/tree/master/decidim-system) | Multitenant Admin to manage multiple organizations in a single installation |
 
 ## Technical tradeoffs
