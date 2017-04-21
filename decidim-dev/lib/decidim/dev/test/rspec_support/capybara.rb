@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "capybara/poltergeist"
 require "capybara-screenshot/rspec"
 require 'selenium-webdriver'
 
@@ -22,34 +21,23 @@ module Decidim
   end
 end
 
-capybara_options = {
-  extensions: [
-    File.expand_path(
-      File.join(File.dirname(__FILE__), "phantomjs_polyfills", "promise.js")
-    ),
-    File.expand_path(
-      File.join(File.dirname(__FILE__), "phantomjs_polyfills", "phantomjs-shim.js")
-    )
-  ],
-  js_errors: true,
-  url_whitelist: ["http://*.lvh.me", "localhost", "127.0.0.1"]
-}
+Capybara.register_driver :chrome do |app|
+  chrome_options = {
+    args: ['headless', 'disable-gpu']
+  }
 
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, capybara_options)
-end
+  if ENV['CAPYBARA_CHROME_BIN'].present?
+    chrome_options.merge!({
+      binary: ENV['CAPYBARA_CHROME_BIN']
+    })
+  end
 
-Capybara.register_driver :debug do |app|
-  Capybara::Poltergeist::Driver.new(app, capybara_options.merge(inspector: true))
-end
+  p chrome_options.inspect
 
-Capybara.register_driver :headless_chromium do |app|
   caps = Selenium::WebDriver::Remote::Capabilities.chrome(
-    "chromeOptions" => {
-      'binary' => ENV['CAPYBARA_CHROME_BIN'],
-      'args' => ['headless', 'disable-gpu']
-    }
+    "chromeOptions" => chrome_options
   )
+
   driver = Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
@@ -62,7 +50,7 @@ Capybara::Screenshot::RSpec.add_link_to_screenshot_for_failed_examples = true
 
 Capybara.configure do |config|
   config.always_include_port = true
-  config.default_driver = ENV['CAPYBARA_CHROME_BIN'].present? ? :headless_chromium : :poltergeist
+  config.default_driver = :chrome
   config.always_include_port = true
 end
 
