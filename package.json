@@ -1,7 +1,7 @@
 {
   "name": "decidim",
   "repository": {
-    "url": "git@github.com:AjuntamentdeBarcelona/decidim.git",
+    "url": "git@github.com:decidim/decidim.git",
     "type": "git"
   },
   "author": "Marc Riera <mrc2407@gmail.com>",
