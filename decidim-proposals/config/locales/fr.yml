@@ -1,0 +1,5 @@
+fr:
+  activemodel:
+    attributes:
+      proposal:
+        title: Titre
