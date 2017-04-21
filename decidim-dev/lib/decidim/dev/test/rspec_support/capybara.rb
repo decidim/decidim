@@ -23,16 +23,14 @@ end
 
 Capybara.register_driver :chrome do |app|
   chrome_options = {
-    args: ['headless', 'disable-gpu']
+    "args" => ['headless', 'disable-gpu']
   }
 
   if ENV['CAPYBARA_CHROME_BIN'].present?
     chrome_options.merge!({
-      binary: ENV['CAPYBARA_CHROME_BIN']
+      "binary" => ENV['CAPYBARA_CHROME_BIN']
     })
   end
-
-  p chrome_options.inspect
 
   caps = Selenium::WebDriver::Remote::Capabilities.chrome(
     "chromeOptions" => chrome_options
