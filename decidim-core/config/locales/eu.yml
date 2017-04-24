@@ -267,8 +267,6 @@ eu:
         description_html: 'Webgune honek bere cookieak eta hirugarrenenak erabiltzen ditu, nabigazioa hobetu eta intereseko edukiak eta zerbitzuak eskaintze aldera. Nabigatzen jarraituz gero, gure cookie-politika onartzen delakoan gaude. Argibide gehiago jasotzeko, kontsultatu hemen: %{link}.'
         link_label: hemen
         ok: Ados nago
-      footer:
-        made_with_open_source: 'Webgune hau egiteko, <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software librea</a> erabili da.'
       header:
         close_menu: Itxi menua
         navigation: Nabigazioa
