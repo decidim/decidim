@@ -14,9 +14,11 @@ jobs:
     working_directory: /code
     steps:
       - run:
+          name: Install system dependencies
+          command: apt-get update && apt-get install -y unzip libnss3 libgconf-2-4
+      - run:
           name: Installing Chrome
           command: |
-            apt-get update && apt-get install -y unzip
             curl "https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F440004%2Fchrome-linux.zip?generation=1482293777505000&alt=media" > /tmp/chromium-browser.zip
             unzip /tmp/chromium-browser.zip -d /tmp
       - checkout
