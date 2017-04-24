@@ -87,3 +87,5 @@ jobs:
             yarn test -- decidim-budgets
             cd decidim-budgets
             bundle exec rspec spec
+      - store_artifacts:
+          path: /code/spec/decidim_dummy_app/tmp/capybara

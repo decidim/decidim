@@ -42,7 +42,7 @@ describe "Admin manage participatory process groups", type: :feature do
     end
 
     expect(page).to have_content("My group")
-      expect(page).to have_content(@participatory_processes.first.title["en"])
+    expect(page).to have_content(@participatory_processes.first.title["en"])
     expect(page).to have_css("img[src*='#{image1_filename}']")
   end
 
@@ -94,6 +94,8 @@ describe "Admin manage participatory process groups", type: :feature do
       within find("tr", text: participatory_process_group.name["en"]) do
         page.find('.action-icon.action-icon--remove').click
       end
+
+      accept_alert
 
       within ".callout-wrapper" do
         expect(page).to have_content("successfully")
