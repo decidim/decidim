@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: codegram/decidim
+        environment:
+          DATABASE_USERNAME: postgres
+          DUMMY_PATH: /code/spec/decidim_dummy_app
+      - image: postgres
+        environment:
+          POSTGRES_USER: postgres
+
+    working_directory: /code
+    steps:
+      - checkout
+      - run: bundle install
+      - run: bundle exec rake generate_test_app
+      - run: cd decidim-proposals && bundle exec rspec spec/features/proposals_spec.rb:74
