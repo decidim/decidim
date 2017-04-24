@@ -14,10 +14,76 @@ jobs:
     working_directory: /code
     steps:
       - checkout
-      - run: bundle install
-      - run: bundle exec rake generate_test_app
+      - run:
+          name: Install app dependencies
+          command: |
+            bundle install
+            yarn
+      - run:
+          name: Generate test app
+          command: bundle exec rake generate_test_app
+      - run:
+          name: Global specs
+          command: |
+            yarn lint
+            bundle exec rspec spec
+      - run:
+          name: Admin specs
+          command: |
+            yarn test -- decidim-admin
+            cd decidim-admin
+            bundle exec rspec spec
+      - run:
+          name: Core specs
+          command: |
+            yarn test -- decidim-core
+            cd decidim-core
+            bundle exec rspec spec
+      - run:
+          name: System specs
+          command: |
+            yarn test -- decidim-system
+            cd decidim-system
+            bundle exec rspec spec
+      - run:
+          name: Api specs
+          command: |
+            yarn test -- decidim-api
+            cd decidim-api
+            bundle exec rspec spec
+      - run:
+          name: Pages specs
+          command: |
+            yarn test -- decidim-pages
+            cd decidim-pages
+            bundle exec rspec spec
+      - run:
+          name: Comments specs
+          command: |
+            yarn test -- decidim-comments
+            cd decidim-comments
+            bundle exec rspec spec
+      - run:
+          name: Meetings specs
+          command: |
+            yarn test -- decidim-meetings
+            cd decidim-meetings
+            bundle exec rspec spec
       - run:
           name: Proposals specs
           command: |
+            yarn test -- decidim-proposals
             cd decidim-proposals
-            bundle exec rspec spec/features/proposals_spec.rb
+            bundle exec rspec spec
+      - run:
+          name: Results specs
+          command: |
+            yarn test -- decidim-results
+            cd decidim-results
+            bundle exec rspec spec
+      - run:
+          name: Budgets specs
+          command: |
+            yarn test -- decidim-budgets
+            cd decidim-budgets
+            bundle exec rspec spec
