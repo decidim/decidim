@@ -30,8 +30,9 @@ describe "Vote Proposal", type: :feature do
         participatory_process: participatory_process)
     end
 
-    it "shows the vote count but not the vote button" do
-      expect(page).to have_css('.card__support__data', text: "1 VOTE")
+    it "shows the vote count and the vote button is disabled" do
+      visit_feature
+      expect(page).to have_css('.card__support__data', text: "0 VOTES")
       expect(page).to have_content("Voting disabled")
     end
   end
