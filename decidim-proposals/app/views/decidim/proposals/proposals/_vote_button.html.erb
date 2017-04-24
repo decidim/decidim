@@ -1,8 +1,14 @@
 <div id="proposal-<%= proposal.id %>-vote-button">
   <% if !current_user %>
-    <button class="card__button button <%= vote_button_classes(from_proposals_list) %>" data-toggle="loginModal">
-      <%= t('.vote') %>
-    </button>
+    <% if current_settings.votes_blocked? %>
+      <button class="card__button button <%= vote_button_classes(from_proposals_list) %> disabled" data-toggle="loginModal">
+        <%= t('.votes_blocked') %>
+      </button>
+    <% else %>
+      <button class="card__button button <%= vote_button_classes(from_proposals_list) %>" data-toggle="loginModal">
+        <%= t('.vote') %>
+       </button>
+    <% end %>
   <% else %>
     <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
       <% if vote_limit_enabled? %>
