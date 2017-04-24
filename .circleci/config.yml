@@ -6,7 +6,7 @@ jobs:
         environment:
           DATABASE_USERNAME: postgres
           DUMMY_PATH: /code/spec/decidim_dummy_app
-          CAPYBARA_CHROME_BIN: /tmp/google-chrome/chrome
+          CAPYBARA_CHROME_BIN: /tmp/chrome-linux/chrome
       - image: postgres
         environment:
           POSTGRES_USER: postgres
