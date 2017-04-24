@@ -22,22 +22,16 @@ module Decidim
 end
 
 Capybara.register_driver :chromium do |app|
-  chromium_options = {
-    "args" => ['headless', 'disable-gpu']
-  }
-
   if ENV['CAPYBARA_CHROMIUM_BIN'].present?
-    chromium_options.merge!({
-      "binary" => ENV['CAPYBARA_CHROMIUM_BIN']
-    })
+    caps = Selenium::WebDriver::Remote::Capabilities.chrome(
+      "chromeOptions" => {
+        'binary' => ENV['CAPYBARA_CHROMIUM_BIN'],
+        'args' => ['headless', 'disable-gpu']
+      }
+    )
+  else
+    caps = Selenium::WebDriver::Remote::Capabilities.chrome
   end
-
-  caps = Selenium::WebDriver::Remote::Capabilities.chrome(
-    "chromeOptions" => chromium_options
-  )
-
-  p caps.inspect
-
   driver = Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
