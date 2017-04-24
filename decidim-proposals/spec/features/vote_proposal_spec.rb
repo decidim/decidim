@@ -22,6 +22,20 @@ describe "Vote Proposal", type: :feature do
     end
   end
 
+  context "when votes are blocked" do
+    let!(:feature) do
+      create(:proposal_feature,
+        :with_votes_blocked,
+        manifest: manifest,
+        participatory_process: participatory_process)
+    end
+
+    it "shows the vote count but not the vote button" do
+      expect(page).to have_css('.card__support__data', text: "1 VOTE")
+      expect(page).to have_content("Voting disabled")
+    end
+  end
+
   context "when votes are enabled" do
     let!(:feature) do
       create(:proposal_feature,
@@ -39,20 +53,6 @@ describe "Vote Proposal", type: :feature do
         end
 
         expect(page).to have_css('#loginModal', visible: true)
-      end
-    end
-  
-    context "when votes are blocked" do
-      let!(:feature) do
-        create(:proposal_feature,
-          :with_votes_blocked,
-          manifest: manifest,
-          participatory_process: participatory_process)
-      end
-
-      it "shows the vote count but not the vote button" do
-        expect(page).to have_css('.card__support__data', text: "1 VOTE")
-        expect(page).to have_content("Voting disabled")
       end
     end
 
