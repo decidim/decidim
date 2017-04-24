@@ -19,8 +19,6 @@ jobs:
             apt-get update && apt-get install -y unzip
             curl "https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F440004%2Fchrome-linux.zip?generation=1482293777505000&alt=media" > /tmp/chromium-browser.zip
             unzip /tmp/chromium-browser.zip -d /tmp
-            curl "https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip" > /tmp/chromedriver.zip
-            unzip /tmp/chromedriver.zip -d /usr/bin
       - checkout
       - run: bundle install
       - run: bundle exec rake generate_test_app
