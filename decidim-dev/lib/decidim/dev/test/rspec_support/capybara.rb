@@ -43,18 +43,8 @@ Capybara.register_driver :debug do |app|
   Capybara::Poltergeist::Driver.new(app, capybara_options.merge(inspector: true))
 end
 
-Capybara.register_driver :chrome do |app|
-  caps = Selenium::WebDriver::Remote::Capabilities.chrome(
-    "chromeOptions" => {
-      'binary' => ENV['CAPYBARA_CHROME_BIN'],
-      'args' => %w{headless disable-gpu}
-    }
-  )
-  driver = Capybara::Selenium::Driver.new(
-    app,
-    browser: :chrome,
-    desired_capabilities: caps
-  )
+Capybara.register_driver :remote_chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :remote, url: "http://localhost:4444/wd/hub", desired_capabilities: :chrome)
 end
 
 Capybara::Screenshot.prune_strategy = :keep_last_run
@@ -62,7 +52,7 @@ Capybara::Screenshot::RSpec.add_link_to_screenshot_for_failed_examples = true
 
 Capybara.configure do |config|
   config.always_include_port = true
-  config.default_driver = :chrome
+  config.default_driver = ENV['CAPYBARA_DRIVER']&.to_sym || :poltergeist
   config.always_include_port = true
 end
 
