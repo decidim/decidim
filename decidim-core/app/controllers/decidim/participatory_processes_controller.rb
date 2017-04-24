@@ -13,6 +13,7 @@ module Decidim
 
     helper Decidim::AttachmentsHelper
     helper Decidim::ParticipatoryProcessHelper
+    helper Decidim::WidgetUrlsHelper
     helper_method :collection, :promoted_participatory_processes, :participatory_processes
 
     def index

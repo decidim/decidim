@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <title><%= decidim_page_title %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'decidim/widget' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <%= yield %>
+    <div class="organization">
+      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+    </div>
+  </body>
+</html>
