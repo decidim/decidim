@@ -269,7 +269,7 @@ es:
         link_label: aquí
         ok: Estoy de acuerdo
       footer:
-        made_with_open_source: 'Esta web está hecha con <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software libre</a>.'
+        made_with_open_source: 'Esta web está hecha con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.'
       header:
         close_menu: Cerrar menú
         navigation: Navegación

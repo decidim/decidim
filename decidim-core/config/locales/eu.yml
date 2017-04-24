@@ -268,7 +268,7 @@ eu:
         link_label: hemen
         ok: Ados nago
       footer:
-        made_with_open_source: 'Webgune hau egiteko, <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software librea</a> erabili da.'
+        made_with_open_source: 'Webgune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software librea</a> erabili da.'
       header:
         close_menu: Itxi menua
         navigation: Nabigazioa
