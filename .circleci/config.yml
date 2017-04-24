@@ -10,7 +10,7 @@ jobs:
       - image: postgres
         environment:
           POSTGRES_USER: postgres
-      - image: selenium/standalone-chrome
+      - image: nkovacs/selenium-standalone-phantomjs
     working_directory: /code
     steps:
       - checkout

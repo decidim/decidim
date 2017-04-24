@@ -44,7 +44,7 @@ Capybara.register_driver :debug do |app|
 end
 
 Capybara.register_driver :remote_chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :remote, url: "http://localhost:4444/wd/hub", desired_capabilities: :chrome)
+  Capybara::Selenium::Driver.new(app, browser: :remote, url: "http://localhost:4444/wd/hub", desired_capabilities: :phantomjs)
 end
 
 Capybara::Screenshot.prune_strategy = :keep_last_run
