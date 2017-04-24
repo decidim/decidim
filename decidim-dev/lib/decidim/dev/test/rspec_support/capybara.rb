@@ -47,7 +47,7 @@ Capybara.register_driver :chrome do |app|
   caps = Selenium::WebDriver::Remote::Capabilities.chrome(
     "chromeOptions" => {
       'binary' => ENV['CAPYBARA_CHROME_BIN'],
-      'args' => %w{headless no-sandbox disable-gpu}
+      'args' => %w{headless disable-gpu}
     }
   )
   driver = Capybara::Selenium::Driver.new(

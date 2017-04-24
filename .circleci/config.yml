@@ -15,12 +15,18 @@ jobs:
     steps:
       - run:
           name: Install system dependencies
-          command: apt-get update && apt-get install -y unzip libnss3 libgconf-2-4
+          command: |
+            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+            echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
+            apt-get update
+            apt-get install -y google-chrome-stable unzip libnss3 libgconf-2-4
       - run:
           name: Installing Chrome
           command: |
             curl "https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F440004%2Fchrome-linux.zip?generation=1482293777505000&alt=media" > /tmp/chromium-browser.zip
             unzip /tmp/chromium-browser.zip -d /tmp
+            curl "http://chromedriver-data.storage.googleapis.com/continuous/chromedriver_linux64_2.28.460342.zip" > /tmp/chromedriver.zip
+            unzip /tmp/chromedriver.zip -d /bin
       - checkout
       - run: bundle install
       - run: bundle exec rake generate_test_app
