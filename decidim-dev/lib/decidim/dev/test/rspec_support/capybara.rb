@@ -50,6 +50,10 @@ end
 Capybara::Screenshot.prune_strategy = :keep_last_run
 Capybara::Screenshot::RSpec.add_link_to_screenshot_for_failed_examples = true
 
+Capybara::Screenshot.register_driver(:remote_chrome) do |driver, path|
+  driver.browser.save_screenshot(path)
+end
+
 Capybara.configure do |config|
   config.always_include_port = true
   config.default_driver = ENV['CAPYBARA_DRIVER']&.to_sym || :poltergeist
