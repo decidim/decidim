@@ -22,10 +22,15 @@ module Decidim
       end
 
       context "when the file is a malicious image" do
+        let(:attachment_path) {
+          File.expand_path(
+            File.join(File.dirname(__FILE__), "..", "..", "..", "..", "decidim-dev", "spec", "support", "malicious.jpg")
+          )
+        }
         subject do
           build(
             :attachment,
-            file: Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "..", "..", "decidim-dev", "spec", "support", "malicious.jpg"), "image/jpg")
+            file: Rack::Test::UploadedFile.new(attachment_path, "image/jpg")
           )
         end
 

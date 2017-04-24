@@ -16,7 +16,9 @@ module Decidim
 
     context "when there's a partial to render the form" do
       before do
-        filepath = File.join(Dir.pwd, "/app/views/", handler.to_partial_path).split("/")
+        filepath = File.expand_path(
+          File.join(Dir.pwd, "/app/views/", handler.to_partial_path).split("/")
+        )
         filename = "_" + filepath.pop + ".html.erb"
         @filepath = filepath.join("/")
         FileUtils.mkdir_p(@filepath)
