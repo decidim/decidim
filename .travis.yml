@@ -16,20 +16,20 @@ env:
   global:
     - BUNDLE_GEMFILE="$TRAVIS_BUILD_DIR/Gemfile"
     - BUNDLE_PATH="$HOME/.bundle"
-    - CAPYBARA_CHROME_BIN="/tmp/chrome-linux/chrome"
+    - CAPYBARA_CHROMIUM_BIN="/tmp/chrome-linux/chrome"
     - PATH="/tmp:$PATH"
   matrix:
     - GEM=. DB=postgres
-    - GEM=decidim-admin DB=postgres
-    - GEM=decidim-core DB=postgres
-    - GEM=decidim-system DB=postgres
-    - GEM=decidim-api DB=postgres
-    - GEM=decidim-pages DB=postgres
-    - GEM=decidim-comments DB=postgres
-    - GEM=decidim-meetings DB=postgres
+    # - GEM=decidim-admin DB=postgres
+    # - GEM=decidim-core DB=postgres
+    # - GEM=decidim-system DB=postgres
+    # - GEM=decidim-api DB=postgres
+    # - GEM=decidim-pages DB=postgres
+    # - GEM=decidim-comments DB=postgres
+    # - GEM=decidim-meetings DB=postgres
     - GEM=decidim-proposals DB=postgres
-    - GEM=decidim-results DB=postgres
-    - GEM=decidim-budgets DB=postgres
+    # - GEM=decidim-results DB=postgres
+    # - GEM=decidim-budgets DB=postgres
 
 before_install:
   - nvm install 7

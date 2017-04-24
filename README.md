@@ -29,7 +29,7 @@ Decidim is a participatory democracy framework written on Ruby on Rails original
 ## What do you need to do?
 
 - [Contribute to the project](#how-to-contribute)
-- [How to test decidim engines](#testing)
+- [How to test Decidim engines](#testing)
 - [Create & browse development app](#browse-decidim)
 - [Install "Decidim" for an organization](#installation-instructions)
 - [Upgrade an already existing "Decidim" installation](#upgrade-instructions)
