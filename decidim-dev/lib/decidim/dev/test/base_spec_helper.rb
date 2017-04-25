@@ -5,9 +5,9 @@ engine_name = ENV["ENGINE_NAME"]
 engine_spec_dir = File.join(Dir.pwd, "spec")
 dummy_app_path = File.expand_path(File.join(Dir.pwd, "..", "spec", "decidim_dummy_app"))
 
-if ENV["CI"]
+if ENV["CI_WORKING_DIRECTORY"].present?
   require "simplecov"
-  SimpleCov.root(ENV["CIRCLE_BUILD_URL"])
+  SimpleCov.root(ENV["CI_WORKING_DIRECTORY"])
 
   SimpleCov.start do
     filters.clear
@@ -17,7 +17,7 @@ if ENV["CI"]
     add_filter "/vendor/"
 
     add_filter do |src|
-      !(src.filename =~ /^#{ENV["CIRCLE_BUILD_URL"]}/)
+      !(src.filename =~ /^#{ENV["CI_WORKING_DIRECTORY"]}/)
     end
   end
 

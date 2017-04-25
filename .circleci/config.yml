@@ -4,13 +4,13 @@ jobs:
     docker:
       - image: codegram/decidim
         environment:
-          CI: true
+          CI_WORKING_DIRECTORY: /code
           DATABASE_USERNAME: postgres
       - image: postgres
         environment:
           POSTGRES_USER: postgres
     parallelism: 4
-    working_directory: /code
+    working_directory: $CI_WORKING_DIRECTORY
     steps:
       - run:
           name: Install PhantomJS
