@@ -22,6 +22,21 @@ describe "Vote Proposal", type: :feature do
     end
   end
 
+  context "when votes are blocked" do
+    let!(:feature) do
+      create(:proposal_feature,
+        :with_votes_blocked,
+        manifest: manifest,
+        participatory_process: participatory_process)
+    end
+
+    it "shows the vote count and the vote button is disabled" do
+      visit_feature
+      expect(page).to have_css('.card__support__data', text: "0 VOTES")
+      expect(page).to have_content("Voting disabled")
+    end
+  end
+
   context "when votes are enabled" do
     let!(:feature) do
       create(:proposal_feature,
