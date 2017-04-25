@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: codegram/decidim
         environment:
-          CI_WORKING_DIRECTORY: /code
+          SIMPLECOV: true
           DATABASE_USERNAME: postgres
       - image: postgres
         environment:
