@@ -28,94 +28,17 @@ Decidim is a participatory democracy framework written on Ruby on Rails original
 
 ## What do you need to do?
 
+- [Get started with Decidim](#getting-started-with-decidim)
 - [Contribute to the project](#how-to-contribute)
 - [Create & browse development app](#browse-decidim)
-- [Install "Decidim" for an organization](#installation-instructions)
-- [Upgrade an already existing "Decidim" installation](#upgrade-instructions)
-- [Use Docker to deploy "Decidim"](#docker-instructions)
-- [Deploying to Heroku](#deploying-to-heroku)
 - [Check current components](#components)
-- [Further configuration](#further-configuration)
 - [Technical tradeoffs](#technical-tradeoffs)
 
 ---
 
-## Installation instructions
+## Getting started with Decidim
 
-First of all, you need to install the `decidim` gem, which currently is in a *prerelease* status.
-
-```
-$ gem install decidim decidim-core --pre
-```
-
-Afterwards, you can create an application with the nice `decidim` executable:
-
-```
-$ decidim decidim_application
-$ cd decidim_application
-```
-
-**Note**: *These steps will be replaced by a simple `gem install decidim && decidim decidim_application` once the gem is released.*
-
-You should now setup your database:
-
-```
-$ rails db:setup
-```
-
-This will also create some default data so you can start testing the app:
-
-* A `Decidim::System::Admin` with email `system@example.org` and password
- `decidim123456`, to log in at `/system`.
-* A `Decidim::Organization` named `Decidim Staging`. You probably want to
-  change its name and hostname to match your needs.
-* A `Decidim::User` acting as an admin for the organization, with email
- `admin@example.org` and password `decidim123456`.
-* A `Decidim::User` that also belongs to the organization but it's a regular
-  user, with email `user@example.org` and password `decidim123456`.
-
-This data won't be created in production environments, if you still want to do it, run:
-
-```
-$ SEED=true rails db:setup
-```
-
-You can now start your server!
-
-```
-$ rails s
-```
-
-## Upgrade instructions
-
-```
-$ bundle update decidim
-```
-
-And don't forget to run the upgrade script:
-
-```
-$ rails decidim:upgrade
-
-```
-
-If new migrations appear, remember to:
-```
-$ rails db:migrate
-```
-
-## Docker instructions
-
-You can use Docker instead of installing the gems yourself. Run `docker-compose build` and then you can generate a new decidim application using `docker-compose run --rm decidim bundle exec bin/decidim <app-name>`.
-
-Also you can run it as a standalone container like this:
-`docker run --rm -v $(pwd):/tmp -it codegram/decidim bundle exec bin/decidim /tmp/<app-name>`
-
-Now you have a new Decidim app created at `<app-name>` 🎉
-
-## Deploying to Heroku
-
-Once you've generated the Decidim app you might need to do some changes in order to deploy it to Heroku. You can check [codegram/decidim-deploy-heroku](https://github.com/codegram/decidim-deploy-heroku) for an opinionated example of things to do before deploying to Heroku.
+We've set up a guide on how to install, set up and upgrade Decidim. See the [Getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md).
 
 ## How to contribute
 
@@ -172,18 +95,15 @@ After you create a development app (`bundle exec rake development_app`):
 | ------------- |-------------|
 | [Admin](https://github.com/decidim/decidim/tree/master/decidim-admin)      | This library adds an administration dashboard so users can manage their organization, participatory processes and all other entities. |
 | [API](https://github.com/decidim/decidim/tree/master/decidim-api)      | This library exposes a GraphQL API to programatically interact with the Decidim platform via HTTP      |
+| [Budgets](https://github.com/decidim/decidim/tree/master/decidim-budgets) | Adds a participatory budgets system to any participatory process. |
 | [Comments](https://github.com/decidim/decidim/tree/master/decidim-comments) | The Comments module adds the ability to include comments to any resource which can be commentable by users.      |
 | [Core](https://github.com/decidim/decidim/tree/master/decidim-core) | The basics of Decidim: users, participatory processes, etc. This is the only required engine to run Decidim, all the others are optional. |
 | [Dev](https://github.com/decidim/decidim/tree/master/decidim-dev) | This gem aids the local development of Decidim's features. |
 | [Meeting](https://github.com/decidim/decidim/tree/master/decidim-meetings) | The Meeeting module adds meeting to any participatory process. It adds a CRUD engine to the admin and public view scoped inside the participatory process. |
 | [Pages](https://github.com/decidim/decidim/tree/master/decidim-pages) | The Pages module adds static page capabilities to any participatory process. It basically provides an interface to include arbitrary HTML content to any step. |
 | [Proposals](https://github.com/decidim/decidim/tree/master/decidim-proposals) | The Proposals module adds one of the main features of Decidim: allows users to contribute to a participatory process by creating proposals. |
+| [Results](https://github.com/decidim/decidim/tree/master/decidim-results) | Adds a results section to any participatory process so users can follow along the state of the accepted proposals. |
 | [System](https://github.com/decidim/decidim/tree/master/decidim-system) | Multitenant Admin to manage multiple organizations in a single installation |
-
-## Further configuration
-
-- [Social providers integration](https://github.com/decidim/decidim/blob/master/docs/social_providers.md): Enable sign up from social networks.
-- [Analytics](https://github.com/decidim/decidim/blob/master/docs/analytics.md): How to enable analytics
 
 ## Technical tradeoffs
 
