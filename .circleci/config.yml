@@ -11,6 +11,9 @@ jobs:
         environment:
           POSTGRES_USER: postgres
       - image: nkovacs/selenium-standalone-phantomjs
+        environment:
+          SCREEN_WIDTH: 1920
+          SCREEN_HEIGHT: 1080
     working_directory: /code
     steps:
       - checkout
