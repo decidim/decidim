@@ -9,6 +9,7 @@ jobs:
       - image: postgres
         environment:
           POSTGRES_USER: postgres
+    parallelism: 4
     working_directory: /code
     steps:
       - run:
@@ -29,69 +30,38 @@ jobs:
           name: Generate test app
           command: bundle exec rake generate_test_app
       - run:
-          name: Global specs
+          name: Run tests
           command: |
-            yarn lint
-            bundle exec rspec spec
-      - run:
-          name: Admin specs
-          command: |
-            yarn test -- decidim-admin
-            cd decidim-admin
-            bundle exec rspec spec
-      - run:
-          name: Core specs
-          command: |
-            yarn test -- decidim-core
-            cd decidim-core
-            bundle exec rspec spec
-      - run:
-          name: System specs
-          command: |
-            yarn test -- decidim-system
-            cd decidim-system
-            bundle exec rspec spec
-      - run:
-          name: Api specs
-          command: |
-            yarn test -- decidim-api
-            cd decidim-api
-            bundle exec rspec spec
-      - run:
-          name: Pages specs
-          command: |
-            yarn test -- decidim-pages
-            cd decidim-pages
-            bundle exec rspec spec
-      - run:
-          name: Comments specs
-          command: |
-            yarn test -- decidim-comments
-            cd decidim-comments
-            bundle exec rspec spec
-      - run:
-          name: Meetings specs
-          command: |
-            yarn test -- decidim-meetings
-            cd decidim-meetings
-            bundle exec rspec spec
-      - run:
-          name: Proposals specs
-          command: |
-            yarn test -- decidim-proposals
-            cd decidim-proposals
-            bundle exec rspec spec
-      - run:
-          name: Results specs
-          command: |
-            yarn test -- decidim-results
-            cd decidim-results
-            bundle exec rspec spec
-      - run:
-          name: Budgets specs
-          command: |
-            yarn test -- decidim-budgets
-            cd decidim-budgets
-            bundle exec rspec spec
+            case $CIRCLE_NODE_INDEX in
+              0)
+                cd /code && yarn lint && bundle exec rspec spec
+                cd /code && yarn test -- decidim-api
+                cd /code/decidim-api && bundle exec rspec spec
+                cd /code && yarn test -- decidim-core
+                cd /code/decidim-core && bundle exec rspec spec
+                ;;
+              1)
+                cd /code && yarn test -- decidim-admin
+                cd /code/decidim-admin && bundle exec rspec spec
+                cd /code && yarn test -- decidim-comments
+                cd /code/decidim-comments && bundle exec rspec spec
+                ;;
+              2)
+                cd /code && yarn test -- decidim-proposals
+                cd /code/decidim-proposals && bundle exec rspec spec
+                cd /code && yarn test -- decidim-meetings
+                cd /code/decidim-meetings && bundle exec rspec spec
+                ;;
+              3)
+                cd /code && yarn test -- decidim-pages
+                cd /code/decidim-pages && bundle exec rspec spec
+                cd /code && yarn test -- decidim-system
+                cd /code/decidim-system && bundle exec rspec spec
+                cd /code && yarn test -- decidim-results
+                cd /code/decidim-results && bundle exec rspec spec
+                cd /code && yarn test -- decidim-budgets
+                cd /code/decidim-budgets && bundle exec rspec spec
+                ;;
+            esac
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
