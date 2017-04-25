@@ -3,3 +3,7 @@ module AlertHelper
     page.driver.browser.switch_to.alert.accept unless page.driver.browser.browser == :phantomjs
   end
 end
+
+RSpec.configure do |config|
+  config.include AlertHelper
+end
