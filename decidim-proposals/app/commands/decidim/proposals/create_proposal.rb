@@ -40,7 +40,8 @@ module Decidim
           feature: form.feature,
           address: form.address,
           latitude: form.latitude,
-          longitude: form.longitude
+          longitude: form.longitude,
+          image: form.image
         )
       end
     end
