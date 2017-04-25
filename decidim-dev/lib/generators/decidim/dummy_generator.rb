@@ -24,7 +24,7 @@ module Decidim
 
       def source_paths
         [
-          File.expand_path("../templates", __FILE__)
+          File.expand_path("templates", __dir__)
         ]
       end
 

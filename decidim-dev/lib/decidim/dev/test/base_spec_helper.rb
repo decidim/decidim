@@ -30,7 +30,7 @@ require "rails"
 require "active_support/core_ext/string"
 require "decidim/core"
 require "decidim/core/test"
-require "#{File.dirname(__FILE__)}/rspec_support/feature.rb"
+require "#{__dir__}/rspec_support/feature.rb"
 
 begin
   require "#{dummy_app_path}/config/environment"

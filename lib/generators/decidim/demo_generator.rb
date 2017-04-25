@@ -12,7 +12,7 @@ module Decidim
     class DemoGenerator < Rails::Generators::Base
       def source_paths
         [
-          File.expand_path("../../../../decidim-dev/lib/decidim/dev", __FILE__)
+          File.expand_path("../../../decidim-dev/lib/decidim/dev", __dir__)
         ]
       end
 

@@ -6,7 +6,7 @@ module Decidim
       railtie_name :decidim_dev
 
       rake_tasks do
-        Dir[File.join(File.dirname(__FILE__), "../../tasks/*.rake")].each do |file|
+        Dir[File.join(__dir__, "../../tasks/*.rake")].each do |file|
           load file
         end
       end

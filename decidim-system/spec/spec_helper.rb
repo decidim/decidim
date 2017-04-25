@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-ENV["ENGINE_NAME"] = File.dirname(File.dirname(__FILE__)).split("/").last
+ENV["ENGINE_NAME"] = File.dirname(__dir__).split("/").last
+
 require "decidim/dev/test/base_spec_helper"
 
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+Dir["#{__dir__}/support/**/*.rb"].each { |f| require f }

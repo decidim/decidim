@@ -24,10 +24,10 @@ end
 capybara_options = {
   extensions: [
     File.expand_path(
-      File.join(File.dirname(__FILE__), "phantomjs_polyfills", "promise.js")
+      File.join(__dir__, "phantomjs_polyfills", "promise.js")
     ),
     File.expand_path(
-      File.join(File.dirname(__FILE__), "phantomjs_polyfills", "phantomjs-shim.js")
+      File.join(__dir__, "phantomjs_polyfills", "phantomjs-shim.js")
     )
   ],
   js_errors: true,

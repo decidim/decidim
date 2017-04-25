@@ -12,7 +12,7 @@
 
     ```ruby
     # frozen_string_literal: true
-    $LOAD_PATH.push File.expand_path("../lib", __FILE__)
+    $LOAD_PATH.push File.expand_path("lib", __dir__)
 
     require_relative "../decidim-core/lib/decidim/core/version"
 
@@ -40,11 +40,11 @@
     # This command will automatically be run when you run "rails" with Rails gems
     # installed from the root of your application.
 
-    ENGINE_ROOT = File.expand_path("../..", __FILE__)
-    ENGINE_PATH = File.expand_path("../../lib/decidim/<engine_name>/engine", __FILE__)
+    ENGINE_ROOT = File.expand_path("..", __dir__)
+    ENGINE_PATH = File.expand_path("..lib/decidim/<engine_name>/engine", __dir__)
 
     # Set up gems listed in the Gemfile.
-    ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile", __FILE__)
+    ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
     require "bundler/setup" if File.exist?(ENV["BUNDLE_GEMFILE"])
 
     require "rails/all"
@@ -141,7 +141,7 @@
 
     ```ruby
     # frozen_string_literal: true
-    ENV["ENGINE_NAME"] = File.dirname(File.dirname(__FILE__)).split("/").last
+    ENV["ENGINE_NAME"] = File.dirname(__dir__).split("/").last
     require "decidim/test/base_spec_helper"
     ```
 
