@@ -1,9 +1,10 @@
 <div id="proposal-<%= proposal.id %>-votes-count" class="card__support__data">
-  <span class="<%= votes_count_classes(from_proposals_list)[:number] %>">
-    <%= proposal.proposal_votes_count %>
-  </span>
-  <span class="<%= votes_count_classes(from_proposals_list)[:label]  %>">
-    <%= t('.count', count: proposal.proposal_votes_count) %>
-  </span>
-
+  <% if !current_settings.votes_hidden? %>
+    <span class="<%= votes_count_classes(from_proposals_list)[:number] %>">
+      <%= proposal.proposal_votes_count %>
+    </span>
+    <span class="<%= votes_count_classes(from_proposals_list)[:label]  %>">
+      <%= t('.count', count: proposal.proposal_votes_count) %>
+    </span>
+  <% end %>
 </div>
