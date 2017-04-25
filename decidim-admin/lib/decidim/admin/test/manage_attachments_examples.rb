@@ -66,8 +66,6 @@ RSpec.shared_examples "manage attachments examples" do
       page.find('a.action-icon--remove').click
     end
 
-    accept_alert_dialogue
-
     within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end

@@ -96,8 +96,6 @@ RSpec.shared_examples "manage process steps examples" do
         page.find('.action-icon--remove').click
       end
 
-      accept_alert_dialogue
-
       within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end

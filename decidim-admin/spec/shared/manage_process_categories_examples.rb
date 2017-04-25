@@ -80,8 +80,6 @@ RSpec.shared_examples "manage process categories examples" do
           page.find('a.action-icon--remove').click
         end
 
-        accept_alert_dialogue
-
         within ".callout-wrapper" do
           expect(page).to have_content("successfully")
         end
@@ -103,8 +101,6 @@ RSpec.shared_examples "manage process categories examples" do
         within find("tr", text: translated(category2.name)) do
           page.find('a.action-icon--remove').click
         end
-
-        accept_alert_dialogue
 
         within ".callout-wrapper" do
           expect(page).to have_content("error deleting")
