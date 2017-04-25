@@ -4,8 +4,8 @@ jobs:
     docker:
       - image: codegram/decidim
         environment:
+          CI: true
           DATABASE_USERNAME: postgres
-          DUMMY_PATH: /code/spec/decidim_dummy_app
       - image: postgres
         environment:
           POSTGRES_USER: postgres

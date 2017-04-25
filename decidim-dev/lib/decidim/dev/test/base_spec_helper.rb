@@ -3,11 +3,11 @@ ENV["RAILS_ENV"] ||= "test"
 
 engine_name = ENV["ENGINE_NAME"]
 engine_spec_dir = File.join(Dir.pwd, "spec")
-dummy_app_path = ENV["DUMMY_PATH"] || File.expand_path(File.join(engine_spec_dir, "#{engine_name}_dummy_app"))
+dummy_app_path = File.expand_path(File.join(Dir.pwd, "..", "spec", "decidim_dummy_app"))
 
 if ENV["CI"]
   require "simplecov"
-  SimpleCov.root(ENV["TRAVIS_BUILD_DIR"])
+  SimpleCov.root(ENV["CIRCLE_BUILD_URL"])
 
   SimpleCov.start do
     filters.clear
@@ -17,7 +17,7 @@ if ENV["CI"]
     add_filter "/vendor/"
 
     add_filter do |src|
-      !(src.filename =~ /^#{ENV["TRAVIS_BUILD_DIR"]}/)
+      !(src.filename =~ /^#{ENV["CIRCLE_BUILD_URL"]}/)
     end
   end
 

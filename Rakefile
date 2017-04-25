@@ -3,6 +3,7 @@ require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 require_relative "lib/generators/decidim/app_generator"
 require_relative "lib/generators/decidim/docker_generator"
+require_relative "./decidim-dev/lib/generators/decidim/dummy_generator"
 
 DECIDIM_GEMS = %w(core system admin api pages meetings proposals comments results budgets dev).freeze
 
@@ -77,8 +78,6 @@ desc "Install yarn dependencies"
 task "yarn:install" do
   sh "yarn"
 end
-
-require_relative "./decidim-dev/lib/generators/decidim/dummy_generator"
 
 engine_path = Dir.pwd
 dummy_app_path = File.expand_path(File.join(engine_path, "spec", "decidim_dummy_app"))
