@@ -10,7 +10,7 @@ jobs:
         environment:
           POSTGRES_USER: postgres
     parallelism: 4
-    working_directory: $CI_WORKING_DIRECTORY
+    working_directory: /code
     steps:
       - run:
           name: Install PhantomJS
