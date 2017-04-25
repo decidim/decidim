@@ -73,7 +73,7 @@ RSpec.configure do |config|
 
     config.include RSpec::Repeat
     config.around :each, type: :feature do |example|
-      repeat example, 1.times, wait: 1, verbose: true
+      repeat example, 5.times, wait: 1, verbose: true
     end
   end
 end
