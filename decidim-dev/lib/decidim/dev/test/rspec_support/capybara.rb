@@ -2,7 +2,6 @@
 
 require "capybara/poltergeist"
 require "capybara-screenshot/rspec"
-require 'selenium-webdriver'
 
 module Decidim
   # Helpers meant to be used only during capybara test runs.
@@ -43,20 +42,12 @@ Capybara.register_driver :debug do |app|
   Capybara::Poltergeist::Driver.new(app, capybara_options.merge(inspector: true))
 end
 
-Capybara.register_driver :remote_chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :remote, url: "http://localhost:4444/wd/hub", desired_capabilities: :phantomjs)
-end
-
 Capybara::Screenshot.prune_strategy = :keep_last_run
 Capybara::Screenshot::RSpec.add_link_to_screenshot_for_failed_examples = true
 
-Capybara::Screenshot.register_driver(:remote_chrome) do |driver, path|
-  driver.browser.save_screenshot(path)
-end
-
 Capybara.configure do |config|
   config.always_include_port = true
-  config.default_driver = ENV['CAPYBARA_DRIVER']&.to_sym || :poltergeist
+  config.default_driver = :poltergeist
   config.always_include_port = true
 end
 
