@@ -29,7 +29,7 @@ en:
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
         edit: Edit
-        new: New %{name}
+        new: New
         preview: Preview
         title: Actions
       admin:
@@ -47,12 +47,12 @@ en:
           destroy:
             success: Meeting successfully deleted
           edit:
-            update: Update meeting
+            update: Update
           index:
             title: Meetings
           new:
             create: Create meeting
-            title: New meeting
+            title: Create
           update:
             invalid: There's been a problem updating this meeting
             success: Meeting successfully updated

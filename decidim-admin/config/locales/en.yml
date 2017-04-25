@@ -102,6 +102,9 @@ en:
         content: Content
         slug: URL slug
         title: Title
+      decidim/participatory_process_step:
+        start_date: Start date
+        end_date: End date
   decidim:
     admin:
       actions:
@@ -112,7 +115,7 @@ en:
         destroy: Destroy
         edit: Edit
         manage: Manage
-        new: New %{name}
+        new: Create
         permissions: Permissions
         preview: Preview
         publish: Publish
@@ -127,7 +130,7 @@ en:
           success: Attachment destroyed successfully.
         edit:
           title: Edit attachment
-          update: Update attachment
+          update: Update
         form:
           current_file: Current file
           url: Url
@@ -146,7 +149,7 @@ en:
           success: Category deleted successfully.
         edit:
           title: Edit category
-          update: Update category
+          update: Update
         new:
           create: Create category
           title: New category
@@ -326,7 +329,7 @@ en:
       organization:
         edit:
           title: Edit organization
-          update: Update organization
+          update: Update
         form:
           current_image: Current image
           facebook: Facebook
@@ -374,9 +377,9 @@ en:
           success: Participatory process step destroyed successfully.
         edit:
           title: Edit participatory process step
-          update: Update participatory process step
+          update: Update
         new:
-          create: Create participatory process step
+          create: Create
           title: New participatory process step
         ordering:
           error: There was an error when reordering this participatory process steps.
@@ -405,7 +408,7 @@ en:
         destroy:
           success: Participatory process destroyed successfully.
         edit:
-          update: Update participatory process
+          update: Update
         form:
           current_image: Current image
           title: General Information
@@ -414,8 +417,8 @@ en:
           not_published: Not published
           published: Published
         new:
-          create: Create particiatory process
-          title: New particiatory process
+          create: Create
+          title: New participatory process
         update:
           error: There was an error when updating this participatory process.
           success: Participatory process updated successfully.
@@ -431,7 +434,7 @@ en:
           success: Scope successfully destroyed
         edit:
           title: Edit scope
-          update: Update scope
+          update: Update
         new:
           create: Create scope
           title: New scope
@@ -448,9 +451,9 @@ en:
           success: Page successfully destroyed
         edit:
           title: Edit page
-          update: Update page
+          update: Update
         new:
-          create: Create page
+          create: Create
           title: New page
         update:
           error: There was an error when updating this page.

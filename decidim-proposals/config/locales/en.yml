@@ -33,7 +33,7 @@ en:
     proposals:
       actions:
         answer: Answer
-        new: New Proposal
+        new: Create
         title: Actions
       admin:
         actions:
@@ -60,7 +60,7 @@ en:
             title: Proposals
           new:
             create: Create proposal
-            title: New proposal
+            title: Create
       answers:
         accepted: Accepted
         not_answered: Not answered

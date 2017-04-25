@@ -111,7 +111,7 @@ es:
         destroy: Eliminar
         edit: Editar
         manage: Gestionar
-        new: Nuevo %{name}
+        new: Nuevo
         permissions: Permisos
         preview: Previsualizar
         publish: Publicar
