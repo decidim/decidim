@@ -43,14 +43,14 @@ jobs:
               1)
                 cd /code && yarn test -- decidim-admin
                 cd /code/decidim-admin && bundle exec rspec spec
-                cd /code && yarn test -- decidim-comments
-                cd /code/decidim-comments && bundle exec rspec spec
+                cd /code && yarn test -- decidim-meetings
+                cd /code/decidim-meetings && bundle exec rspec spec
                 ;;
               2)
                 cd /code && yarn test -- decidim-proposals
                 cd /code/decidim-proposals && bundle exec rspec spec
-                cd /code && yarn test -- decidim-meetings
-                cd /code/decidim-meetings && bundle exec rspec spec
+                cd /code && yarn test -- decidim-comments
+                cd /code/decidim-comments && bundle exec rspec spec
                 ;;
               3)
                 cd /code && yarn test -- decidim-pages
