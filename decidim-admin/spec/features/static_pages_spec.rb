@@ -115,7 +115,7 @@ describe "Content pages", type: :feature do
           page.find('.action-icon.action-icon--remove').click
         end
 
-        accept_alert
+        accept_alert_dialogue
 
         within ".callout-wrapper" do
           expect(page).to have_content("successfully")

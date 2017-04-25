@@ -69,7 +69,7 @@ RSpec.shared_examples "manage process admins examples" do
         page.find('a.action-icon--remove').click
       end
 
-      accept_alert
+      accept_alert_dialogue
 
       within ".callout-wrapper" do
         expect(page).to have_content("successfully")

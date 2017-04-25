@@ -123,7 +123,7 @@ describe "Admin manages newsletters", type: :feature do
         find("*", text: "Deliver").click
       end
 
-      accept_alert
+      accept_alert_dialogue
 
       expect(page).to have_content("NEWSLETTERS")
       expect(page).to have_content("successfully")
@@ -144,7 +144,7 @@ describe "Admin manages newsletters", type: :feature do
         page.find('.action-icon.action-icon--remove').click
       end
 
-      accept_alert
+      accept_alert_dialogue
 
       expect(page).to have_content("successfully")
       expect(page).to have_no_css("tr[data-newsletter-id=\"#{newsletter.id}\"]")
