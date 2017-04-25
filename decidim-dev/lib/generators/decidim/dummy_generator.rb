@@ -18,8 +18,8 @@ module Decidim
     class DummyGenerator < Rails::Generators::Base
       desc "Generate dummy app for testing purposes"
 
-      class_option :engine_path, type: :string,
-                                 desc: "The library where the dummy app will be installed"
+      class_option :dummy_app_path, type: :string,
+                                desc: "The path where the dummy app will be installed"
 
       def source_paths
         [
@@ -28,12 +28,12 @@ module Decidim
       end
 
       def cleanup
-        remove_directory_if_exists(dummy_path)
+        remove_directory_if_exists(dummy_app_path)
       end
 
       def create_dummy_app
         Decidim::Generators::AppGenerator.start [
-          dummy_path,
+          dummy_app_path,
           "--skip_gemfile",
           "--skip-bundle",
           "--skip-git",
@@ -44,29 +44,29 @@ module Decidim
       end
 
       def set_locales
-        inject_into_file "#{dummy_path}/config/application.rb", after: "class Application < Rails::Application" do
+        inject_into_file "#{dummy_app_path}/config/application.rb", after: "class Application < Rails::Application" do
           "\n    config.i18n.available_locales = %w(en ca es)\n    config.i18n.default_locale = :en"
         end
       end
 
       def decidim_dev
-        template "decidim_dev.rb", "#{dummy_path}/config/initializers/decidim_dev.rb"
+        template "decidim_dev.rb", "#{dummy_app_path}/config/initializers/decidim_dev.rb"
 
         # TODO: Remove these after PhantomJS updates WebKit version (see YML and
         #       initializer comments)
-        template "autoprefixer.yml", "#{dummy_path}/config/autoprefixer.yml"
-        template "autoprefixer_initializer.rb", "#{dummy_path}/config/initializers/autoprefixer.rb"
+        template "autoprefixer.yml", "#{dummy_app_path}/config/autoprefixer.yml"
+        template "autoprefixer_initializer.rb", "#{dummy_app_path}/config/initializers/autoprefixer.rb"
       end
 
       def test_env
-        gsub_file "#{dummy_path}/config/environments/test.rb",
+        gsub_file "#{dummy_app_path}/config/environments/test.rb",
           /allow_forgery_protection = (.*)/, 'allow_forgery_protection = true'
       end
 
       private
 
-      def dummy_path
-        ENV["DUMMY_PATH"] || engine_path + "/spec/#{dir_name}_dummy_app"
+      def dummy_app_path
+        options[:dummy_app_path]
       end
 
       def remove_directory_if_exists(path)
@@ -74,11 +74,7 @@ module Decidim
       end
 
       def dir_name
-        engine_path.split("/").last
-      end
-
-      def engine_path
-        options[:engine_path]
+        dummy_app_path.split("/").last
       end
     end
   end

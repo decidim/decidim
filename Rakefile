@@ -79,15 +79,15 @@ task "yarn:install" do
   sh "yarn"
 end
 
-engine_path = Dir.pwd
-dummy_app_path = File.expand_path(File.join(engine_path, "spec", "decidim_dummy_app"))
+dummy_path = Dir.pwd
+dummy_app_path = File.expand_path(File.join(dummy_path, "spec", "decidim_dummy_app"))
 
 desc "Generates a dummy app for testing"
 task :generate_test_app do
   unless Dir.exists? dummy_app_path
     Decidim::Generators::DummyGenerator.start(
       [
-        "--engine_path=#{engine_path}",
+        "--dummy_app_path=#{dummy_app_path}",
         "--migrate=true",
         "--quiet"
       ]
@@ -96,7 +96,5 @@ task :generate_test_app do
     require File.join(dummy_app_path, "config", "application")
     Rails.application.load_tasks
     Rake.application["assets:precompile"].invoke
-
-    FileUtils.cd(engine_path)
   end
 end
