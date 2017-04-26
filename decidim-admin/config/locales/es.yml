@@ -111,7 +111,6 @@ es:
         destroy: Eliminar
         edit: Editar
         manage: Gestionar
-        new: Nuevo %{name}
         permissions: Permisos
         preview: Previsualizar
         publish: Publicar
@@ -126,7 +125,6 @@ es:
           success: El archivo adjunto se ha eliminado correctamente.
         edit:
           title: Editar archivo adjunto
-          update: Actualizar archivo adjunto
         form:
           current_file: Archivo actual
           url: URL
@@ -145,7 +143,6 @@ es:
           success: Categoría eliminada correctamente.
         edit:
           title: Editar categoría
-          update: Actualizar categoría
         new:
           create: Crear categoría
           title: Nueva categoría
@@ -325,7 +322,6 @@ es:
       organization:
         edit:
           title: Editar organización
-          update: Actualizar organización
         form:
           current_image: Imagen actual
           facebook: Facebook
@@ -373,9 +369,7 @@ es:
           success: La fase de proceso participativo se ha eliminado correctamente.
         edit:
           title: Editar fase de proceso participativo
-          update: Actualizar fase de proceso participativo
         new:
-          create: Crear fase de proceso participativo
           title: Nuevo fase de proceso participativo
         ordering:
           error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
@@ -403,8 +397,6 @@ es:
           success: El proceso participativo se ha creado correctamente. Sigue ahora con la configuración de las fases.
         destroy:
           success: El proceso participativo se ha eliminado correctamente.
-        edit:
-          update: Actualizar proceso participativo
         form:
           current_image: Imagen actual
           title: Información general
@@ -412,9 +404,6 @@ es:
         index:
           not_published: No publicado
           published: Publicado
-        new:
-          create: Crear proceso
-          title: Nuevo proceso
         update:
           error: Se ha producido un error en la actualización de este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
@@ -430,7 +419,6 @@ es:
           success: Ámbito eliminado con éxito
         edit:
           title: Editar alcance
-          update: Actualizar ámbito
         new:
           create: Crear ámbito
           title: Nuevo ámbito
@@ -447,9 +435,7 @@ es:
           success: La página se ha eliminado correctamente.
         edit:
           title: Editar página
-          update: Actualizar página
         new:
-          create: Crear página
           title: Nueva página
         update:
           error: Se ha producido un error en la actualización de ésta página.
