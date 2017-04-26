@@ -46,6 +46,9 @@ module Decidim
       class_option :migrate, type: :boolean, default: false,
                              desc: "Run migrations after installing decidim"
 
+      class_option :app_const_base, type: :string,
+                                    desc: "The application constant name"
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -78,6 +81,10 @@ module Decidim
           "--migrate=#{options[:migrate]}",
           "--app_name=#{app_name}"
         ]
+      end
+
+      def app_const_base
+        options["app_const_base"] || super
       end
 
       def add_ignore_uploads

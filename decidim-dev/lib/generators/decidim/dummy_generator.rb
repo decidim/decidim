@@ -34,6 +34,7 @@ module Decidim
       def create_dummy_app
         Decidim::Generators::AppGenerator.start [
           dummy_app_path,
+          "--app_const_base=DummyApplication",
           "--skip_gemfile",
           "--skip-bundle",
           "--skip-git",
