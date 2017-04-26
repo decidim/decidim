@@ -29,7 +29,7 @@ RSpec.shared_examples "manage processes examples" do
     end
   end
 
-  it "updates an participatory_process" do
+  it "updates a participatory_process" do
     click_link translated(participatory_process.title)
 
     fill_in_i18n(
