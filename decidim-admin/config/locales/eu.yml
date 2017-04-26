@@ -10,6 +10,7 @@ eu:
       category:
         description: Deskribapena
         name: Izena
+        parent_id: Nagusia
       feature:
         name: Izena
         weight: Pisua

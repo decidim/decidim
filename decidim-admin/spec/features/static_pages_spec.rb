@@ -102,11 +102,6 @@ describe "Content pages", type: :feature do
 
         within "table" do
           expect(page).to have_content("Not welcomed anymore")
-          click_link("Not welcomed anymore")
-        end
-
-        within "dl" do
-          expect(page).to have_content("This is the new content")
         end
       end
 

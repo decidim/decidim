@@ -111,6 +111,7 @@ ca:
         destroy: Eliminar
         edit: Editar
         manage: Gestionar
+        new: Nou
         permissions: Permisos
         preview: Previsualitzar
         publish: Publicar
@@ -436,6 +437,7 @@ ca:
         edit:
           title: Editar pàgina
         new:
+          create: Crear
           title: Nova pàgina
         update:
           error: S'ha produït un error en l'actualització d'aquests pàgina.

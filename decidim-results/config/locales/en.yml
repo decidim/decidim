@@ -27,7 +27,7 @@ en:
         confirm_destroy: Are you sure you want to delete this result?
         destroy: Delete
         edit: Edit
-        new: New %{name}
+        new: New
         preview: Preview
         title: Actions
       admin:
@@ -42,11 +42,11 @@ en:
             success: Result successfully deleted
           edit:
             title: Edit result
-            update: Update result
+            update: Update
           index:
             title: Results
           new:
-            create: Create result
+            create: Create
             title: New result
           update:
             invalid: There's been a problem updating this result

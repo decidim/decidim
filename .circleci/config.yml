@@ -28,7 +28,7 @@ jobs:
             yarn
       - run:
           name: Generate test app
-          command: bundle exec rake generate_test_app
+          command: bundle exec rake decidim:generate_test_app
       - run:
           name: Run tests
           command: |

@@ -46,7 +46,6 @@ describe "Proposals", type: :feature do
 
           it "can be related to a scope" do
             visit_feature
-
             click_link "New proposal"
 
             within "form.new_proposal" do
@@ -62,7 +61,6 @@ describe "Proposals", type: :feature do
 
           it "cannot be related to a scope" do
             visit_feature
-
             click_link "New proposal"
 
             within "form.new_proposal" do
@@ -104,7 +102,6 @@ describe "Proposals", type: :feature do
 
           it "creates a new proposal" do
             visit_feature
-
             click_link "New proposal"
 
             within ".new_proposal" do
@@ -136,7 +133,6 @@ describe "Proposals", type: :feature do
 
           it "creates a new proposal as a user group" do
             visit_feature
-
             click_link "New proposal"
 
             within ".new_proposal" do
@@ -160,7 +156,7 @@ describe "Proposals", type: :feature do
           context "when geocoding is enabled" do
             let!(:feature) do
               create(:proposal_feature,
-                    :with_creation_enabled,          
+                    :with_creation_enabled,
                     :with_geocoding_enabled,
                     manifest: manifest,
                     participatory_process: participatory_process)
@@ -168,7 +164,6 @@ describe "Proposals", type: :feature do
 
             it "creates a new proposal as a user group" do
               visit_feature
-
               click_link "New proposal"
 
               within ".new_proposal" do

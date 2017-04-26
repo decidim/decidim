@@ -137,7 +137,7 @@ module Decidim
     # datepicker library
     def date_field(attribute, options = {})
       template = ""
-      template += @template.label(@object_name, attribute)
+      template += label(attribute, label_for(attribute))
       template += @template.text_field(@object_name, attribute, options.merge({
         name: nil,
         id: "date_field_#{@object_name}_#{attribute}",
@@ -154,7 +154,7 @@ module Decidim
       value = object.send(attribute)
       formatted_value = I18n.localize(value, format: :timepicker) if value
       template = ""
-      template += @template.label(@object_name, attribute)
+      template += label(attribute, label_for(attribute))
       template += @template.text_field(@object_name, attribute, options.merge({
         value: formatted_value,
         name: nil,

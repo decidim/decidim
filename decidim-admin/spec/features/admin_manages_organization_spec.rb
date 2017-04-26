@@ -35,7 +35,7 @@ describe "Admin manages ogranization", type: :feature do
         fill_in "organization_#{network.downcase}_handler", with: "decidim"
       end
 
-      click_button "Update organization"
+      click_button "Update"
       select "Castellano", from: "Default locale"
       fill_in "Reference prefix", with: "ABC"
       fill_in "Official organization url", with: "http://www.example.com"
