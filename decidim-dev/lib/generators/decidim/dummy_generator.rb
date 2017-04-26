@@ -19,7 +19,7 @@ module Decidim
       desc "Generate dummy app for testing purposes"
 
       class_option :dummy_app_path, type: :string,
-                                desc: "The path where the dummy app will be installed"
+                                    desc: "The path where the dummy app will be installed"
 
       def source_paths
         [
