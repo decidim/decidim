@@ -27,6 +27,8 @@ engines:
     enabled: false
   fixme:
     enabled: true
+  rubocop:
+    enabled: true
 
 ratings:
   paths:
