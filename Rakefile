@@ -77,17 +77,15 @@ dummy_app_path = File.expand_path(File.join(dummy_path, "spec", "decidim_dummy_a
 
 desc "Generates a dummy app for testing"
 task :generate_test_app do
-  unless Dir.exists? dummy_app_path
-    Decidim::Generators::DummyGenerator.start(
-      [
-        "--dummy_app_path=#{dummy_app_path}",
-        "--migrate=true",
-        "--quiet"
-      ]
-    )
+  Decidim::Generators::DummyGenerator.start(
+    [
+      "--dummy_app_path=#{dummy_app_path}",
+      "--migrate=true",
+      "--quiet"
+    ]
+  )
 
-    require File.join(dummy_app_path, "config", "application")
-    Rails.application.load_tasks
-    Rake.application["assets:precompile"].invoke
-  end
+  require File.join(dummy_app_path, "config", "application")
+  Rails.application.load_tasks
+  Rake.application["assets:precompile"].invoke
 end
