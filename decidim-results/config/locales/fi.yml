@@ -26,7 +26,6 @@ fi:
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa
-        new: Uusi %{name}
         title: Toiminnot
       admin:
         models:
@@ -40,11 +39,9 @@ fi:
             success: Tulos poistettu onnistuneesti
           edit:
             title: Muokkaa tulosta
-            update: Päivitä tulos
           index:
             title: Tulokset
           new:
-            create: Luo tulos
             title: Uusi tulos
           update:
             invalid: Tuloksen päivityksessä tapahtui virhe
