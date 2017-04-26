@@ -28,7 +28,6 @@ es:
         confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
         destroy: Borrar
         edit: Editar
-        new: Nuevo/a %{name}
         preview: Previsualizar
         title: Acciones
       admin:
@@ -45,13 +44,8 @@ es:
             success: Encuentro creado con éxito
           destroy:
             success: El encuentro se ha eliminado correctamente
-          edit:
-            update: Actualizar encuentro
           index:
             title: Lista de encuentros
-          new:
-            create: Crear encuentro
-            title: Nuevo encuentro
           update:
             invalid: Ha habido un problema al actualizar este encuentro
             success: Encuentro actualizado correctamente
