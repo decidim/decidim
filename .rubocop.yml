@@ -23,7 +23,6 @@ AllCops:
     - '**/Gemfile'
     - '**/*.gemspec'
     - '**/vendor/**/*'
-    - 'spec/*'
     - 'decidim-*/spec/**/*'
     - 'decidim-*/test/**/*'
     - 'decidim-*/db/**/*'
