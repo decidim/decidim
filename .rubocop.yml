@@ -22,7 +22,7 @@ AllCops:
   Exclude:
     - '**/Gemfile'
     - '**/*.gemspec'
-    - 'vendor/**/*'
+    - '**/vendor/**/*'
     - 'spec/*'
     - 'decidim-*/spec/**/*'
     - 'decidim-*/test/**/*'
@@ -828,8 +828,8 @@ Style/PredicateName:
   # Exclude Rspec specs because there is a strong convetion to write spec
   # helpers in the form of `have_something` or `be_something`.
   Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
+    - '**/spec/**/*'
+    - '**/test/**/*'
 
 Style/Documentation:
   Enabled: false
