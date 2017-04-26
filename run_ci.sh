@@ -1,10 +1,11 @@
 #!/bin/bash
 set -ev
-if [ "$GEM" == "." ]; then
-  yarn test:ci
-  docker build --rm=false -t codegram/decidim .
-elif [ -f "run_ci.sh" ]; then
-  sh ./run_ci.sh
-fi
 
-bundle exec rake
+if [ "$GEM" == "." ]; then
+  yarn lint
+  bundle exec rspec spec
+else
+  yarn test -- $GEM
+  bundle exec rake generate_test_app
+  cd $GEM && bundle exec rake
+fi

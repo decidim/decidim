@@ -54,7 +54,6 @@ cache:
     - $HOME/travis_phantomjs
 
 script:
-  - cd $GEM;
   - $TRAVIS_BUILD_DIR/run_ci.sh
 
 rvm:

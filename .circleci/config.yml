@@ -1,0 +1,67 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: codegram/decidim
+        environment:
+          SIMPLECOV: true
+          DATABASE_USERNAME: postgres
+      - image: postgres
+        environment:
+          POSTGRES_USER: postgres
+    parallelism: 4
+    working_directory: /code
+    steps:
+      - run:
+          name: Install PhantomJS
+          command: |
+            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
+            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
+            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
+            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - checkout
+      - run:
+          name: Install app dependencies
+          command: |
+            bundle install
+            yarn
+      - run:
+          name: Generate test app
+          command: bundle exec rake generate_test_app
+      - run:
+          name: Run tests
+          command: |
+            case $CIRCLE_NODE_INDEX in
+              0)
+                cd /code && yarn lint && bundle exec rspec spec
+                cd /code && yarn test -- decidim-api
+                cd /code/decidim-api && bundle exec rspec spec
+                cd /code && yarn test -- decidim-core
+                cd /code/decidim-core && bundle exec rspec spec
+                ;;
+              1)
+                cd /code && yarn test -- decidim-admin
+                cd /code/decidim-admin && bundle exec rspec spec
+                cd /code && yarn test -- decidim-meetings
+                cd /code/decidim-meetings && bundle exec rspec spec
+                ;;
+              2)
+                cd /code && yarn test -- decidim-proposals
+                cd /code/decidim-proposals && bundle exec rspec spec
+                cd /code && yarn test -- decidim-comments
+                cd /code/decidim-comments && bundle exec rspec spec
+                ;;
+              3)
+                cd /code && yarn test -- decidim-pages
+                cd /code/decidim-pages && bundle exec rspec spec
+                cd /code && yarn test -- decidim-system
+                cd /code/decidim-system && bundle exec rspec spec
+                cd /code && yarn test -- decidim-results
+                cd /code/decidim-results && bundle exec rspec spec
+                cd /code && yarn test -- decidim-budgets
+                cd /code/decidim-budgets && bundle exec rspec spec
+                ;;
+            esac
+      - store_artifacts:
+          path: /code/spec/decidim_dummy_app/tmp/capybara

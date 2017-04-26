@@ -38,6 +38,7 @@ Decidim is a participatory democracy framework written on Ruby on Rails original
 
 - [Get started with Decidim](#getting-started-with-decidim)
 - [Contribute to the project](#how-to-contribute)
+- [How to test Decidim engines](#testing)
 - [Create & browse development app](#browse-decidim)
 - [Check current components](#components)
 - [Technical tradeoffs](#technical-tradeoffs)
@@ -69,11 +70,8 @@ $ yarn install
 
 You have several rake tasks available for you:
 
-* `bundle exec rake development_app`: Creates a development app inside `decidim_development` which you can use to run an application with the gems in your path.
+* `bundle exec rake development_app`: Creates a development app which you can use to run an application with the gems in your path.
 * `bundle exec rake test_all`: Generates a test app for every engine and runs their tests.
-* `bundle exec rake generate_all`: Generates all the tests apps but doesn't run the tests - this is useful is you want to run them manually afterwards.
-* `cd <component>` and do `bundle exec rspec spec` to run those particular tests.
-
 
 ### Browse Decidim
 
