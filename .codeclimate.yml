@@ -52,4 +52,5 @@ exclude_paths:
 - "doc/how_to_create_a_plugin.md"
 - "bundle.js"
 - "development_app/**/*"
+- "docker_development_app/**/*"
 - "spec/decidim_dummy_app/**/*"

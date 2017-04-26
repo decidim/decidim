@@ -28,6 +28,7 @@ AllCops:
     - 'decidim-*/test/**/*'
     - 'decidim-*/db/**/*'
     - 'development_app/**/*'
+    - 'docker_development_app/**/*'
     - 'node_modules/**/*'
     - 'spec/decidim_dummy_app/**/*'
   # Default formatter will be used if no -f/--format option is given.
