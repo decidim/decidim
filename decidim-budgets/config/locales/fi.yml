@@ -15,7 +15,6 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista
         edit: Muokkaa
-        new: Uusi %{name}
         title: Toiminnot
       admin:
         models:
@@ -29,13 +28,11 @@ fi:
             success: Projekti tuhottu onnistuneesti
           edit:
             title: Muokkaa projektia
-            update: Päivitä projektia
           index:
             finished_orders: Valmiit tilaukset
             pending_orders: Odottavat tilaukset
             title: Projektit
           new:
-            create: Luo projekti
             title: Uusi tulos
           update:
             invalid: Tämän projektin päivityksessä tapahtui virhe
