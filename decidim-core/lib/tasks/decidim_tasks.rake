@@ -4,7 +4,7 @@
 #   # Task goes here
 # end
 require_relative "../../../decidim-dev/lib/generators/decidim/dummy_generator"
-require 'byebug'
+
 namespace :decidim do
   desc "Install migrations from Decidim to the app."
   task upgrade: ["railties:install:migrations"]
