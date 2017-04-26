@@ -15,7 +15,6 @@ es:
             body: Cuerpo
         pages:
           edit:
-            save: Guardar página
             title: Editar página
           update:
             invalid: Ha habido errores al guardar la página.
