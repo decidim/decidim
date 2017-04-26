@@ -6,6 +6,6 @@ if [ "$GEM" == "." ]; then
   bundle exec rspec spec
 else
   yarn test -- $GEM
-  bundle exec rake generate_test_app
+  bundle exec rake decidim:generate_test_app
   cd $GEM && bundle exec rake
 fi
