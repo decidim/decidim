@@ -196,6 +196,8 @@ Style/AndOr:
     - always
     - conditionals
 
+Style/AsciiComments:
+  Enabled: false
 
 # Checks if usage of %() or %Q() matches configuration.
 Style/BarePercentLiterals:
