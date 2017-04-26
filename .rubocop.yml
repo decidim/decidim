@@ -539,7 +539,7 @@ Style/GlobalVars:
 # `MinBodyLength` defines the number of lines of the a body of an if / unless
 # needs to have to trigger this cop
 Style/GuardClause:
-  MinBodyLength: 1
+  MinBodyLength: 6
 
 Style/HashSyntax:
   EnforcedStyle: ruby19
@@ -832,8 +832,7 @@ Style/PredicateName:
     - 'test/**/*'
 
 Style/Documentation:
-  Exclude:
-    - '**/*/spec/**/*_spec.rb'
+  Enabled: false
 
 Style/RaiseArgs:
   EnforcedStyle: exploded
@@ -1108,7 +1107,7 @@ Metrics/ModuleLength:
 
 # Avoid complex methods.
 Metrics/CyclomaticComplexity:
-  Max: 6
+  Max: 9
 
 Metrics/LineLength:
   Max: 180
@@ -1130,7 +1129,7 @@ Metrics/ParameterLists:
   CountKeywordArgs: true
 
 Metrics/PerceivedComplexity:
-  Max: 7
+  Max: 10
 
 ##################### Lint ##################################
 
@@ -1281,7 +1280,13 @@ Rails/Validation:
 
 Metrics/BlockLength:
   Exclude:
+    - 'decidim-admin/app/controllers/decidim/admin/concerns/has_attachments.rb'
     - 'decidim-api/lib/decidim/api/schema.rb'
+    - 'decidim-core/app/controllers/concerns/decidim/needs_authorization.rb'
+    - 'decidim-core/lib/decidim/core/api/translated_field_type.rb'
+    - 'decidim-core/lib/decidim/resourceable.rb'
+    - 'decidim-comments/lib/decidim/comments/api/comment_type.rb'
+    - 'decidim-*/**/routes.rb'
     - 'decidim-*/**/*/types/**/*'
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'
