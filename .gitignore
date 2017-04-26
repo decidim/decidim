@@ -1,4 +1,4 @@
-**/spec/*_dummy_app
+spec/decidim_dummy_app/
 .byebug_history
 pkg/
 vendor/bundle
