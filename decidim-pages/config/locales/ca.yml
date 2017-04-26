@@ -15,6 +15,7 @@ ca:
             body: Cos
         pages:
           edit:
+            save: Actualitzar
             title: Editar pàgina
           update:
             invalid: Hi ha hagut errors en desar la pàgina.
