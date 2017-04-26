@@ -14,7 +14,7 @@ en:
     features:
       proposals:
         actions:
-          create: Create proposals
+          create: Create
           vote: Vote
         name: Proposals
         settings:
@@ -33,7 +33,7 @@ en:
     proposals:
       actions:
         answer: Answer
-        new: Create
+        new: New
         title: Actions
       admin:
         actions:
@@ -44,7 +44,7 @@ en:
         proposal_answers:
           edit:
             accepted: Accepted
-            answer_proposal: Answer proposal
+            answer_proposal: Answer
             rejected: Rejected
             title: Answer for proposal %{title}
         proposals:
@@ -59,8 +59,8 @@ en:
           index:
             title: Proposals
           new:
-            create: Create proposal
-            title: Create
+            create: Create
+            title: Create proposal
       answers:
         accepted: Accepted
         not_answered: Not answered

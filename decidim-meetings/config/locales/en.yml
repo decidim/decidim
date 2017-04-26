@@ -51,8 +51,8 @@ en:
           index:
             title: Meetings
           new:
-            create: Create meeting
-            title: Create
+            create: Create 
+            title: Create meeting
           update:
             invalid: There's been a problem updating this meeting
             success: Meeting successfully updated

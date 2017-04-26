@@ -101,7 +101,6 @@ ca:
         content: Contingut
         slug: Nom curt d'URL
         title: Títol
-
   decidim:
     admin:
       actions:

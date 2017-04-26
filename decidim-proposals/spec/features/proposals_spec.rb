@@ -47,7 +47,7 @@ describe "Proposals", type: :feature do
           it "can be related to a scope" do
             visit_feature
 
-            click_link "New proposal"
+           click_link "New"
 
             within "form.new_proposal" do
               expect(page).to have_content(/Scope/i)
@@ -63,7 +63,7 @@ describe "Proposals", type: :feature do
           it "cannot be related to a scope" do
             visit_feature
 
-            click_link "New proposal"
+           click_link "New"
 
             within "form.new_proposal" do
               expect(page).not_to have_content("Scope")
@@ -74,7 +74,7 @@ describe "Proposals", type: :feature do
         it "creates a new proposal" do
           visit_feature
 
-          click_link "New proposal"
+         click_link "New"
 
           within ".new_proposal" do
             fill_in :proposal_title, with: "Oriol for president"
@@ -105,7 +105,7 @@ describe "Proposals", type: :feature do
           it "creates a new proposal" do
             visit_feature
 
-            click_link "New proposal"
+           click_link "New"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Oriol for president"
@@ -137,7 +137,7 @@ describe "Proposals", type: :feature do
           it "creates a new proposal as a user group" do
             visit_feature
 
-            click_link "New proposal"
+           click_link "New"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Oriol for president"
@@ -160,7 +160,7 @@ describe "Proposals", type: :feature do
           context "when geocoding is enabled" do
             let!(:feature) do
               create(:proposal_feature,
-                    :with_creation_enabled,          
+                    :with_creation_enabled,
                     :with_geocoding_enabled,
                     manifest: manifest,
                     participatory_process: participatory_process)
@@ -169,7 +169,7 @@ describe "Proposals", type: :feature do
             it "creates a new proposal as a user group" do
               visit_feature
 
-              click_link "New proposal"
+             click_link "New"
 
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Oriol for president"
@@ -200,7 +200,7 @@ describe "Proposals", type: :feature do
 
           it "should show a modal dialog" do
             visit_feature
-            click_link "New proposal"
+           click_link "New"
             expect(page).to have_content("Authorization required")
           end
         end

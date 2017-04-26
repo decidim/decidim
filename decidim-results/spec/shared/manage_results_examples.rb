@@ -41,7 +41,7 @@ RSpec.shared_examples "manage results" do
   end
 
   it "creates a new result" do
-    click_link "New Result"
+   click_link "New"
 
     within ".new_result" do
       fill_in_i18n(

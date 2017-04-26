@@ -63,7 +63,7 @@ RSpec.shared_examples "manage projects" do
   end
 
   it "creates a new project" do
-    click_link "New Project"
+   click_link "New"
 
     within ".new_project" do
       fill_in_i18n(

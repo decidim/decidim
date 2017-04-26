@@ -98,13 +98,13 @@ en:
         subtitle: Subtitle
         target: Target
         title: Title
+      decidim/participatory_process_step:
+        end_date: End date
+        start_date: Start date
       decidim/static_page:
         content: Content
         slug: URL slug
         title: Title
-      decidim/participatory_process_step:
-        start_date: Start date
-        end_date: End date
   decidim:
     admin:
       actions:
@@ -115,7 +115,7 @@ en:
         destroy: Destroy
         edit: Edit
         manage: Manage
-        new: Create
+        new: New
         permissions: Permissions
         preview: Preview
         publish: Publish
@@ -453,7 +453,7 @@ en:
           title: Edit page
           update: Update
         new:
-          create: Create
+          create: New
           title: New page
         update:
           error: There was an error when updating this page.
