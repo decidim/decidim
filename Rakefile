@@ -12,19 +12,10 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 desc "Runs all tests in all Decidim engines"
-task :test_all do
+task test_all: [:generate_test_app] do
   DECIDIM_GEMS.each do |gem_name|
     Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
       sh "rake"
-    end
-  end
-end
-
-desc "Generates test apps for all the engines"
-task :generate_all do
-  DECIDIM_GEMS.each do |gem_name|
-    Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
-      sh "rake generate_test_app"
     end
   end
 end
