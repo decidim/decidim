@@ -1,9 +1,6 @@
 eu:
   actions:
     confirm_destroy: Ziur zaude?
-  time:
-    formats:
-      timepicker: '%d/%m/%Y %H:%M'
   activemodel:
     attributes:
       attachment:
@@ -13,7 +10,6 @@ eu:
       category:
         description: Deskribapena
         name: Izena
-        parent: Nagusia
       feature:
         name: Izena
         weight: Pisua
@@ -171,8 +167,6 @@ eu:
               steps_title: Faseak
           participatory_process_user_roles:
             index:
-              admin: Administratzailea
-              collaborator: Kolaboratzailea
               process_admins_title: Prozesu partizipatiboko erabiltzaileak
       feature_permissions:
         edit:
@@ -237,8 +231,6 @@ eu:
             title: Izenburua
           name: Fitxategi erantsia
         category:
-          fields:
-            name: Izena
           name: Kategoria
         newsletter:
           fields:

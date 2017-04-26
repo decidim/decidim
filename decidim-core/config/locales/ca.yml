@@ -204,6 +204,10 @@ ca:
           invalid: "%{field} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
+      embed_modal:
+        close_window: Tanca la finestra
+        embed: Enganxa la següent URL al teu lloc web
+        embed_link: Incrustar
       flag_modal:
         already_reported: Aquest contingut ja ha estat denunciat i serà revisat per un administrador.
         close: Tancar
@@ -269,7 +273,7 @@ ca:
         link_label: aquí
         ok: Hi estic d'acord
       footer:
-        made_with_open_source: 'Aquesta web està feta amb <a target="_blank" href="https://github.com/decidim/decidim">software lliure</a>.'
+        made_with_open_source: 'Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari de codi obert</a>.'
       header:
         close_menu: Tancar menú
         navigation: Navegació
@@ -278,6 +282,10 @@ ca:
       participatory_process_groups:
         participatory_process_group:
           browse: Explorar
+      participatory_process_widgets:
+        show:
+          active_step: Fase activa
+          take_part: Participa
       participatory_processes:
         index:
           promoted_processes: Processos destacats

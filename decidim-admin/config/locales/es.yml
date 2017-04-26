@@ -1,9 +1,6 @@
 es:
   actions:
     confirm_destroy: '¿Estás seguro?'
-  time:
-    formats:
-      timepicker: '%d/%m/%Y %H:%M'
   activemodel:
     attributes:
       attachment:
@@ -13,7 +10,7 @@ es:
       category:
         description: Descripción
         name: Nombre
-        parent: Padre
+        parent_id: Superior
       feature:
         name: Nombre
         weight: Peso
@@ -171,8 +168,6 @@ es:
               steps_title: Fases
           participatory_process_user_roles:
             index:
-              admin: Administrador
-              collaborator: Colaborador
               process_admins_title: Usuarios del proceso
       feature_permissions:
         edit:
@@ -237,8 +232,6 @@ es:
             title: Título
           name: Archivo adjunto
         category:
-          fields:
-            name: Nombre
           name: Categoría
         newsletter:
           fields:
@@ -270,6 +263,9 @@ es:
             name: Nombre
             role: Rol
           name: Usuario del proceso
+          roles:
+            admin: Administrador
+            collaborator: Colaborador
         scope:
           fields:
             created_at: Fecha de creación
@@ -520,3 +516,6 @@ es:
           title: Ajustes
         users:
           title: Usuarios
+  time:
+    formats:
+      timepicker: "%d / %m / %Y %H:%M"

@@ -1,7 +1,4 @@
 fi:
-  time:
-    formats:
-      timepicker: '%d/%m/%Y %H:%M'
   activemodel:
     attributes:
       attachment:
@@ -11,7 +8,6 @@ fi:
       category:
         description: Kuvaus
         name: Nimi
-        parent: Isäntä
       feature:
         name: Nimi
         weight: Painoarvo
@@ -208,8 +204,6 @@ fi:
             title: Otsikko
           name: Liite
         category:
-          fields:
-            name: Nimi
           name: Kategoria
         newsletter:
           fields:
