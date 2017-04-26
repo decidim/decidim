@@ -26,7 +26,6 @@ ca:
         confirm_destroy: Esteu segur que voleu suprimir aquest resultat?
         destroy: Esborra
         edit: Edita
-        new: Nou/va %{name}
         preview: Previsualitzar
         title: Accions
       admin:
@@ -41,11 +40,9 @@ ca:
             success: El resultat ha estat eliminat correctament
           edit:
             title: Edita resultat
-            update: Actualitza resultat
           index:
             title: Resultats
           new:
-            create: Crea resultat
             title: Nou resultat
           update:
             invalid: Hi ha hagut un problema en actualitzar aquest resultat
