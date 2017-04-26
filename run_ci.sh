@@ -1,10 +1,9 @@
 #!/bin/bash
 set -ev
 if [ "$GEM" == "." ]; then
-  yarn test:ci
-  docker build --rm=false -t codegram/decidim .
+  yarn lint
 elif [ -f "run_ci.sh" ]; then
-  sh ./run_ci.sh
+  yarn test -- $GEM
 fi
 
-bundle exec rake
+cd $GEM && bundle exec rake
