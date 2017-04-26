@@ -15,6 +15,7 @@ es:
         confirm_destroy: '¿Estás seguro de que deseas eliminar este proyecto?'
         destroy: Borrar
         edit: Editar
+        new: Nuevo
         preview: Previsualizar
         title: Acciones
       admin:
@@ -29,11 +30,13 @@ es:
             success: Proyecto eliminado exitosamente
           edit:
             title: Editar proyecto
+            update: Actualizar
           index:
             finished_orders: Votos finalizados
             pending_orders: Votos pendientes
             title: Proyectos
           new:
+            create: Crear
             title: Nuevo resultado
           update:
             invalid: Ha habido un problema al actualizar este proyecto
