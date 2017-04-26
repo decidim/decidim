@@ -1,28 +1,22 @@
 /* eslint-disable no-var, prefer-template */
-document.write('<iframe src="<%= iframe_url %>" frameborder="0" scrolling="no" onload="setIframeHeight(this)"></iframe>');
+var iframe = document.createElement('iframe');
 
-(function (exports) {
-  var getDocHeight = function(doc) {
-    var body = doc.body;
-    var html = doc.documentElement;
-    var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+iframe.src = "<%= iframe_url %>";
+iframe.frameBorder = "0"
+iframe.scrolling = "no";
+iframe.style.visibility = 'hidden';
+iframe.style.height = "10px";
+iframe.onload = function () {
+  iframe.contentWindow.postMessage({ type: "GET_HEIGHT" }, "*");
+}
 
-    return height;
+document.body.appendChild(iframe);
+
+window.addEventListener("message", function (event) {
+  var height = event.data.height;
+
+  if (event.data.type === "SET_HEIGHT") {
+    iframe.style.height = height + "px";
+    iframe.style.visibility = 'visible';
   }
-
-  exports.setIframeHeight = function(ifrm) {
-    var doc = null;
-
-    if (ifrm.contentDocument) {
-      doc = ifrm.contentDocument;
-    } else {
-      doc = ifrm.contentWindow.document;
-    }
-
-    ifrm.style.visibility = 'hidden';
-    ifrm.style.height = "10px";
-
-    ifrm.style.height = getDocHeight(doc) + 4 + "px";
-    ifrm.style.visibility = 'visible';
-  }
-}(window));
+});

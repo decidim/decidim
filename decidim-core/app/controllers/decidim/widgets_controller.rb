@@ -4,6 +4,7 @@ module Decidim
   class WidgetsController < Decidim::ApplicationController
     skip_authorization_check only: :show
     skip_before_filter :verify_authenticity_token
+    after_action :allow_iframe, only: :show
 
     layout 'decidim/widget'
 
@@ -20,6 +21,10 @@ module Decidim
 
     def iframe_url
       raise NotImplementedError
+    end
+
+    def allow_iframe
+      response.headers.delete "X-Frame-Options"
     end
   end
 end
