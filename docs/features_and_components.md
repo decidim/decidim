@@ -4,7 +4,7 @@ Features are the core contract between external modules and the core. They're us
 
 ## How do I create a new feature?
 
-Features are just gems with one or more Rails engines included in it. You can use as an example [decidim-pages](https://github.com/AjuntamentdeBarcelona/decidim/tree/master/decidim-pages).
+Features are just gems with one or more Rails engines included in it. You can use as an example [decidim-pages](https://github.com/decidim/decidim/tree/master/decidim-pages).
 
 Check out the `lib/decidim/pages` folder: It includes several files, the most important of which is `feature.rb`.
 

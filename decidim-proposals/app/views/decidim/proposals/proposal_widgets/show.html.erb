@@ -1,0 +1,25 @@
+<div class="column">
+  <article class="card card--proposal">
+    <div class="card__content">
+      <div class="card__header">
+        <%= link_to model do%>
+          <h5 class="card__title"><%= model.title %></h5>
+        <% end %>
+        <div class="card__author author-data author-data--small">
+          <div class="author-data__main">
+            <div class="author author--inline">
+              <span class="author__avatar author__avatar--small">
+                <%= image_tag model.author_avatar_url %>
+              </span>
+              <span class="author__name"><%= model.author_name %></span>
+              <%= l model.created_at, format: "%d/%m/%Y" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= render partial: "decidim/proposals/proposals/proposal_badge", locals: { proposal: model } %>
+      <p><%= truncate(model.body, length: 100) %></p>
+      <%= render partial: "decidim/proposals/proposals/tags", locals: { proposal: model } %>
+    </div>
+  </article>
+</div>

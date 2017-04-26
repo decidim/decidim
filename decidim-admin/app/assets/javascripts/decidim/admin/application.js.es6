@@ -6,6 +6,7 @@
 // = require html.sortable
 // = require ./sort_steps
 // = require ./tab_focus
+// = require ./toggle_nav
 // = require decidim/editor
 // = require foundation-datepicker
 // = require form_datepicker
@@ -17,6 +18,10 @@ window.Decidim = window.Decidim || {};
 const pageLoad = () => {
   $(document).foundation();
   sortSteps();
+
+  if (DecidimAdmin) {
+    DecidimAdmin.toggleNav();
+  }
 };
 
 $(() => {

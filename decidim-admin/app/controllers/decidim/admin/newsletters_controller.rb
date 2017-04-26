@@ -28,7 +28,7 @@ module Decidim
         email = NewsletterMailer.newsletter(current_user, @newsletter)
         Premailer::Rails::Hook.perform(email)
 
-        render html: email.html_part.body.decoded
+        render html: email.html_part.body.decoded.html_safe
       end
 
       def create

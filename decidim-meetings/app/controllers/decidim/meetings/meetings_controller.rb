@@ -6,6 +6,8 @@ module Decidim
     class MeetingsController < Decidim::Meetings::ApplicationController
       include FilterResource
 
+      helper Decidim::WidgetUrlsHelper
+
       helper_method :meetings, :geocoded_meetings, :meeting
 
       def index

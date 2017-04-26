@@ -29,7 +29,7 @@
                 <%= role.user.email %><br />
               </td>
               <td>
-                <%= t(".#{role.role}", scope: "decidim.admin") %><br />
+                <%= t("#{role.role}", scope: "decidim.admin.models.participatory_process_user_role.roles") %><br />
               </td>
               <td class="table-list__actions">
                 <% if can? :update, role %>

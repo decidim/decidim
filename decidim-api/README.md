@@ -23,7 +23,7 @@ $ bundle
 ```
 
 ## Contributing
-See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
+See [Decidim](https://github.com/decidim/decidim).
 
 ## License
-See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
+See [Decidim](https://github.com/decidim/decidim).

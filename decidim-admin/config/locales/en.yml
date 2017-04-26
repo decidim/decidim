@@ -169,8 +169,6 @@ en:
               steps_title: Steps
           participatory_process_user_roles:
             index:
-              admin: Administrator
-              collaborator: Collaborator
               process_admins_title: Participatory process users
       feature_permissions:
         edit:
@@ -266,6 +264,9 @@ en:
             name: Name
             role: Role
           name: Participatory Process User
+          roles:
+            admin: Administrator
+            collaborator: Collaborator
         scope:
           fields:
             created_at: Created at

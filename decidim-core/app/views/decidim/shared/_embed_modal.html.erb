@@ -1,0 +1,19 @@
+<div class="text-center">
+  <button class="share-link link text-center" data-open="processEmbed">
+    <%= t(".embed_link") %>
+    <%= icon "code", class: "icon--after"%>
+  </button>
+</div>
+<div class="reveal reveal--embed" id="processEmbed" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t(".embed") %>:</h3>
+    <button class="close-button" data-close aria-label="<%= t(".close_window") %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <p class="embed__code">
+    <%= js_embed_code %>
+    <br />
+    <%= embed_code %>
+  </p>
+</div>
