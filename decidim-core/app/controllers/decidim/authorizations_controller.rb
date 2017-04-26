@@ -49,10 +49,6 @@ module Decidim
       @handler ||= AuthorizationHandler.handler_for(handler_name, handler_params)
     end
 
-    def handlers
-      @handlers ||= Decidim.authorization_handlers
-    end
-
     protected
 
     def stored_location
