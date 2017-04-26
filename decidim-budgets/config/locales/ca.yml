@@ -15,7 +15,6 @@ ca:
         confirm_destroy: Estàs segur que vols eliminar aquest projecte?
         destroy: Esborrar
         edit: Editar
-        new: Nou %{name}
         preview: Previsualitzar
         title: Accions
       admin:
@@ -30,13 +29,11 @@ ca:
             success: Projecte eliminat correctament
           edit:
             title: Editar projecte
-            update: Actualitzar projecte
           index:
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
             title: Projectes
           new:
-            create: Crear projecte
             title: Nou resultat
           update:
             invalid: Hi ha hagut un problema actualitzant aquest projecte
