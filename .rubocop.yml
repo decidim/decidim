@@ -972,7 +972,7 @@ Style/SpaceInsideStringInterpolation:
     - no_space
 
 Style/SymbolArray:
-  EnforcedStyle: percent
+  EnforcedStyle: brackets
   SupportedStyles:
     - percent
     - brackets
