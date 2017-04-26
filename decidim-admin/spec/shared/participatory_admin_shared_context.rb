@@ -6,14 +6,14 @@ RSpec.shared_context "participatory process admin" do
   let!(:user_role) { create :participatory_process_user_role, user: process_admin, participatory_process: participatory_process }
   let(:image1_filename) { "city.jpeg" }
   let(:image1_path) do
-    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image1_filename)
+    File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image1_filename))
   end
   let(:image2_filename) { "city2.jpeg" }
   let(:image2_path) do
-    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image2_filename)
+    File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image2_filename))
   end
   let(:image3_filename) { "city3.jpeg" }
   let(:image3_path) do
-    File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image3_filename)
+    File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", image3_filename))
   end
 end

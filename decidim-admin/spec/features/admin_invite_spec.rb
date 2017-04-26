@@ -6,6 +6,12 @@ describe "Admin invite", type: :feature do
     Decidim::System::RegisterOrganizationForm.new(params)
   end
 
+  let(:homepage_image_path) {
+    File.expand_path(
+      File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg")
+    )
+  }
+
   let(:params) do
     {
       name: "Gotham City",
@@ -14,7 +20,7 @@ describe "Admin invite", type: :feature do
       organization_admin_name: "Fiorello Henry La Guardia",
       organization_admin_email: "f.laguardia@gotham.gov",
       welcome_text_en: "Welcome",
-      homepage_image: Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg"), "image/jpg"),
+      homepage_image: Rack::Test::UploadedFile.new(homepage_image_path, "image/jpg"),
       available_locales: ["en"],
       default_locale: "en"
     }

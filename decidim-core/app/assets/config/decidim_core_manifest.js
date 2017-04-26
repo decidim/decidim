@@ -7,3 +7,4 @@
 //= link decidim/map.css
 //= link_directory ../../../vendor/assets/javascripts/datepicker-locales
 //= link decidim/widget.css
+//= link decidim/widget.js

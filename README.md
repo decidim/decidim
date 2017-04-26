@@ -1,6 +1,16 @@
-# Decidim [![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim) [![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim) [![GitHub contributors](https://img.shields.io/github/contributors/decidim/decidim.svg)](https://github.com/decidim/decidim/graphs/contributors) [![License: AGPL v3](https://img.shields.io/github/license/decidim/decidim.svg)](https://github.com/decidim/decidim/blob/master/LICENSE-AGPLv3.txt)
+<img src="https://decidim.github.io/images/logo.svg" alt="Decidim Logo">
 
-[![Demo](https://img.shields.io/badge/demo-staging-orange.svg?style=flat)](http://staging.decidim.codegram.com)
+The participatory democracy framework.
+
+> Democracy never felt so real.
+
+Decidim is a participatory democracy framework written on Ruby on Rails originally developed for the Barcelona City government online and offline participation website. Installing this libraries you'll get a generator and gems to help you develop web applications like the ones found on [example applications](#example-applications) or like [our demo application](http://staging.decidim.codegram.com).
+
+---
+
+[![Gem](https://img.shields.io/gem/v/decidim.svg)](https://rubygems.org/gems/decidim)
+[![Gem](https://img.shields.io/gem/dt/decidim.svg)](https://rubygems.org/gems/decidim)
+[![GitHub contributors](https://img.shields.io/github/contributors/decidim/decidim.svg)](https://github.com/decidim/decidim/graphs/contributors)
 [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/decidim/decidim/master)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/decidim/decidim)
 
@@ -24,12 +34,11 @@
 
 ---
 
-Decidim is a participatory democracy framework written on Ruby on Rails originally developed for the Barcelona City government online and offline participation website. Installing this libraries you'll get a generator and gems to help you develop web applications like the ones found on [example applications](#example-applications).
-
 ## What do you need to do?
 
 - [Get started with Decidim](#getting-started-with-decidim)
 - [Contribute to the project](#how-to-contribute)
+- [How to test Decidim engines](#testing)
 - [Create & browse development app](#browse-decidim)
 - [Check current components](#components)
 - [Technical tradeoffs](#technical-tradeoffs)
@@ -61,11 +70,8 @@ $ yarn install
 
 You have several rake tasks available for you:
 
-* `bundle exec rake development_app`: Creates a development app inside `decidim_development` which you can use to run an application with the gems in your path.
+* `bundle exec rake development_app`: Creates a development app which you can use to run an application with the gems in your path.
 * `bundle exec rake test_all`: Generates a test app for every engine and runs their tests.
-* `bundle exec rake generate_all`: Generates all the tests apps but doesn't run the tests - this is useful is you want to run them manually afterwards.
-* `cd <component>` and do `bundle exec rspec spec` to run those particular tests.
-
 
 ### Browse Decidim
 
