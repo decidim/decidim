@@ -13,6 +13,7 @@ ca:
     features:
       proposals:
         actions:
+          create: Crear
           vote: Donar suport
         name: Propostes
         settings:
@@ -31,6 +32,7 @@ ca:
     proposals:
       actions:
         answer: Respondre
+        new: Nova
         title: Accions
       admin:
         actions:
@@ -41,6 +43,7 @@ ca:
         proposal_answers:
           edit:
             accepted: Acceptada
+            answer_proposal: Resposta
             rejected: Rebutjada
             title: Respondre a la proposta %{title}
         proposals:
@@ -54,6 +57,9 @@ ca:
             select_a_category: Selecciona una categoria
           index:
             title: Propostes
+          new:
+            create: Crear
+            title: Crear proposta
       answers:
         accepted: Acceptada
         not_answered: No resposta
