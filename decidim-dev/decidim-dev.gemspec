@@ -27,7 +27,6 @@ Gem::Specification.new do |s|
   s.add_dependency "launchy"
   s.add_dependency "i18n-tasks", "0.9.12"
   s.add_dependency "faker", "~> 1.7.3"
-  s.add_dependency "poltergeist", "~> 1.14.0"
   s.add_dependency "rails-controller-testing", "~> 1.0.1"
   s.add_dependency "simplecov", "~> 0.13"
   s.add_dependency "codecov", "~> 0.1.9"
@@ -36,4 +35,5 @@ Gem::Specification.new do |s|
   s.add_dependency "letter_opener_web", "~> 1.3.0"
   s.add_dependency "rspec-html-matchers", "~> 0.9.1"
   s.add_dependency "webmock", "~> 2.3.2"
+  s.add_dependency "selenium-webdriver", "~> 2.53.4"
 end

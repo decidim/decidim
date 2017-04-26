@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 set -ev
 if [ "$GEM" == "." ]; then
   yarn test:ci

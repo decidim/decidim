@@ -27,12 +27,6 @@ module Decidim
     #
     # Returns a String.
     def icon(name, options = {})
-      # Ugly hack to work around the issue of phantomjs not sending js events
-      # when clicking on a SVG element.
-      if Rails.env.test?
-        return content_tag(:span, "?", class: "icon icon--#{name}")
-      end
-
       html_properties = {}
 
       html_properties["width"] = options[:width]
@@ -56,9 +50,7 @@ module Decidim
     #
     # Returns an <img /> tag with the SVG icon.
     def external_icon(path, options = {})
-      # Ugly hack to prevent PhantomJS from freaking out with SVGs.
       classes = _icon_classes(options) + ["external-icon"]
-      return content_tag(:span, "?", class: classes.join(" "), "data-src" => path) if Rails.env.test?
 
       if path.split(".").last == "svg"
         asset = Rails.application.assets_manifest.find_sources(path).first

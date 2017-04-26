@@ -38,6 +38,7 @@ Decidim is a participatory democracy framework written on Ruby on Rails original
 
 - [Get started with Decidim](#getting-started-with-decidim)
 - [Contribute to the project](#how-to-contribute)
+- [How to test Decidim engines](#testing)
 - [Create & browse development app](#browse-decidim)
 - [Check current components](#components)
 - [Technical tradeoffs](#technical-tradeoffs)
@@ -56,7 +57,6 @@ In order to develop on decidim, you'll need:
 * **Ruby** 2.4.1
 * **NodeJS** with **yarn** (JavaScript dependency manager, can be installed with `npm install yarn`)
 * **ImageMagick**
-* **PhantomJS**
 
 The easiest way to work on decidim is to clone decidim's repository and install its dependencies
 

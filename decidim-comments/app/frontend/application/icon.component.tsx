@@ -8,7 +8,7 @@ interface IconProps {
 }
 
 export const Icon: React.SFC<IconProps> = ({ name, userAgent, iconExtraClassName }) => {
-  if (userAgent.match(/PhantomJS/) || userAgent.match(/Node/)) {
+  if (userAgent.match(/Node/)) {
     return <span className={`icon ${iconExtraClassName} ${name}`}>{name}</span>;
   }
 
