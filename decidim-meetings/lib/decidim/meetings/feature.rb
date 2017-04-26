@@ -16,6 +16,10 @@ Decidim.register_feature(:meetings) do |feature|
     resource.template = "decidim/meetings/meetings/linked_meetings"
   end
 
+  feature.register_stat :meetings_count do |features|
+    Decidim::Meetings::Meeting.where(feature: features).count
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?

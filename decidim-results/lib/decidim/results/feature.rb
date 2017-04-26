@@ -16,6 +16,10 @@ Decidim.register_feature(:results) do |feature|
     resource.template = "decidim/results/results/linked_results"
   end
 
+  feature.register_stat :results_count do |features|
+    Decidim::Results::Result.where(feature: features).count
+  end
+
   feature.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
   end

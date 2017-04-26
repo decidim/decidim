@@ -37,6 +37,19 @@ Decidim.register_feature(:proposals) do |feature|
     resource.template = "decidim/proposals/proposals/linked_proposals"
   end
 
+  feature.register_stat :proposals_count do |features|
+    Decidim::Proposals::Proposal.where(feature: features).count
+  end
+
+  feature.register_stat :accepted_proposals_count do |features|
+    Decidim::Proposals::Proposal.where(feature: features).accepted.count
+  end
+
+  feature.register_stat :votes_count do |features|
+    proposals = Decidim::Proposals::Proposal.where(feature: features)
+    Decidim::Proposals::ProposalVote.where(proposal: proposals).count
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?

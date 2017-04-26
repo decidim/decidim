@@ -155,4 +155,17 @@ module Decidim
   def self.resource_manifests
     @resource_manifests ||= feature_manifests.flat_map(&:resource_manifests)
   end
+
+  def self.stats
+    @stats ||= {}
+  end
+
+  def self.register_stat(name, block)
+    stats[name] = block
+  end
+
+  def self.stats_for(name, features)
+    return stats[name].call(features) if stats[name].present?
+    raise StandardError.new("Stats '#{name}' is not registered.")
+  end
 end

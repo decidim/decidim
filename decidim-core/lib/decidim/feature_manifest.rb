@@ -135,5 +135,17 @@ module Decidim
     def resource_manifests
       @resource_manifests ||= []
     end
+
+    # Public: Registers a stat inside a feature manifest.
+    #
+    # These stats can be used anywhere in the application using Decidim.stats_for method.
+    #
+    # name - The name of the stat
+    # block - A block that receive the features to filter out the stat.
+    #
+    # Returns nothing.
+    def register_stat(name, &block)
+      Decidim.register_stat(name, block)
+    end
   end
 end
