@@ -16,7 +16,7 @@ Decidim is a participatory democracy framework written on Ruby on Rails original
 
 
 ### Code quality
-[![Build Status](https://img.shields.io/travis/decidim/decidim/master.svg)](https://travis-ci.org/decidim/decidim)
+[![Build Status](https://img.shields.io/circleci/project/github/decidim/decidim.svg)](https://circleci.com/gh/decidim/decidim)
 [![Code Climate](https://img.shields.io/codeclimate/github/decidim/decidim.svg)](https://codeclimate.com/github/decidim/decidim/trends)
 [![codecov](https://img.shields.io/codecov/c/github/decidim/decidim.svg)](https://codecov.io/gh/decidim/decidim)
 [![Dependency Status](https://img.shields.io/gemnasium/decidim/decidim.svg)](https://gemnasium.com/github.com/decidim/decidim)
