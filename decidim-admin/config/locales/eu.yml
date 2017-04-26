@@ -110,7 +110,6 @@ eu:
         destroy: Kendu
         edit: Editatu
         manage: Kudeatu
-        new: '%{name} berria'
         permissions: Baimenak
         preview: Aurreikusi
         publish: Argitaratu
@@ -125,7 +124,6 @@ eu:
           success: Fitxategi erantsia zuzen ezabatu da.
         edit:
           title: Editatu fitxategi erantsia
-          update: Eguneratu fitxategi erantsia
         form:
           current_file: Oraingo fitxategia
           url: url
@@ -144,7 +142,6 @@ eu:
           success: Kategoria zuzen ezabatu da.
         edit:
           title: Editatu kategoria
-          update: Eguneratu kategoria
         new:
           create: Sortu kategoria
           title: Kategoria berria
@@ -321,7 +318,6 @@ eu:
       organization:
         edit:
           title: Editatu erakundea
-          update: Eguneratu erakundea
         form:
           current_image: Oraingo irudia
           facebook: Facebook
@@ -369,9 +365,7 @@ eu:
           success: Prozesu partizipatiboaren fasea zuzen ezabatu da.
         edit:
           title: Editatu prozesu partizipatiboaren fasea
-          update: Eguneratu prozesu partizipatiboaren fasea
         new:
-          create: Sortu prozesu partizipatiboaren fasea
           title: Prozesu partizipatiboaren fase berria
         ordering:
           error: Errorea gertatu da prozesu partizipatiboaren faseak berrantolatzean.
@@ -399,8 +393,6 @@ eu:
           success: Prozesu partizipatiboa zuzen sortu da. Orain, jarrai ezazu faseak konfiguratzen.
         destroy:
           success: Prozesu partizipatiboa zuzen ezabatu da.
-        edit:
-          update: Eguneratu prozesu partizipatiboa
         form:
           current_image: Oraingo irudia
           title: Informazio orokorra
@@ -408,9 +400,6 @@ eu:
         index:
           not_published: Argitaratu gabe
           published: Argitaratua
-        new:
-          create: Sortu prozesu partizipatiboa
-          title: Prozesu partizipatibo berria
         update:
           error: Errorea gertatu da prozesu partizipatibo hau eguneratzean.
           success: Prozesu partizipatiboa zuzen eguneratu da.
@@ -426,7 +415,6 @@ eu:
           success: Esparrua ongi ezabatu da
         edit:
           title: Editatu helmena
-          update: Eguneratu esparrua
         new:
           create: Sortu esparrua
           title: Esparru berria
@@ -443,9 +431,7 @@ eu:
           success: Orria zuzen ezabatu da.
         edit:
           title: Editatu orria
-          update: Eguneratu orria
         new:
-          create: Sortu orria
           title: Orri berria
         update:
           error: Errorea gertatu da orri hau eguneratzean.
