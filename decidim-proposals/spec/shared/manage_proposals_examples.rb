@@ -48,7 +48,7 @@ RSpec.shared_examples "manage proposals" do
           end
 
           it "can be related to a scope" do
-            click_link "New"
+            find(".card-title a.button").click
 
             within "form" do
               expect(page).to have_content(/Scope/i)
@@ -56,7 +56,7 @@ RSpec.shared_examples "manage proposals" do
           end
 
           it "creates a new proposal" do
-            click_link "New"
+            find(".card-title a.button").click
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
@@ -88,7 +88,7 @@ RSpec.shared_examples "manage proposals" do
           end
 
           it "cannot be related to a scope" do
-            click_link "New"
+            find(".card-title a.button").click
 
             within "form" do
               expect(page).not_to have_content(/Scope/i)
@@ -96,7 +96,7 @@ RSpec.shared_examples "manage proposals" do
           end
 
           it "creates a new proposal related to the process scope" do
-            click_link "New"
+            find(".card-title a.button").click
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
@@ -128,7 +128,7 @@ RSpec.shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to the process scope" do
-              click_link "New"
+              find(".card-title a.button").click
 
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Make decidim great again"
