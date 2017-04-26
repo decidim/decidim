@@ -53,6 +53,7 @@ exclude_paths:
 - lib/generators/decidim/templates/app.json.erb
 - "doc/how_to_create_a_plugin.md"
 - "bundle.js"
+- "node_modules/**/*"
 - "development_app/**/*"
 - "docker_development_app/**/*"
 - "spec/decidim_dummy_app/**/*"
