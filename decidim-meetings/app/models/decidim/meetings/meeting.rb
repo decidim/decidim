@@ -16,7 +16,7 @@ module Decidim
 
       validates :title, presence: true
 
-      geocoded_by :address, http_headers: lambda { |proposal| { "Referer" => proposal.feature.organization.host } }
+      geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.feature.organization.host } }
 
       def closed?
         closed_at.present?

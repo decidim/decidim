@@ -31,7 +31,6 @@ module Decidim
 
         @proposals = @proposals.page(params[:page]).per(12)
         @proposals = reorder(@proposals)
-
       end
 
       def show

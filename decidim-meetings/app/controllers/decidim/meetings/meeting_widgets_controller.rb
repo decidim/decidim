@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   module Meetings
     class MeetingWidgetsController < Decidim::WidgetsController

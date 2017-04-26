@@ -16,7 +16,7 @@ module Decidim
         payload[:referer] = request.referer.to_s
         payload[:request_id] = request.uuid
         payload[:user_agent] = request.user_agent
-        payload[:xhr] = request.xhr? ? 'true' : 'false'
+        payload[:xhr] = request.xhr? ? "true" : "false"
       end
     end
   end

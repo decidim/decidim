@@ -24,7 +24,7 @@ module Decidim
 
         location = new_location_for(env, organization.host)
 
-        [301, { "Location" => location, 'Content-Type' => 'text/html', 'Content-Length' => '0'}, []]
+        [301, { "Location" => location, "Content-Type" => "text/html", "Content-Length" => "0" }, []]
       end
     end
 

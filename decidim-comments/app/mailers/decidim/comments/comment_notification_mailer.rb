@@ -32,7 +32,7 @@ module Decidim
       private
 
       def commentable_title
-        @commentable.title.kind_of?(Hash) ? @commentable.title[I18n.locale.to_s] : @commentable.title
+        @commentable.title.is_a?(Hash) ? @commentable.title[I18n.locale.to_s] : @commentable.title
       end
     end
   end

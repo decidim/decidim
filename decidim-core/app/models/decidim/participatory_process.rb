@@ -83,7 +83,7 @@ module Decidim
     end
 
     def hashtag
-      attributes["hashtag"].to_s.gsub("#", "")
+      attributes["hashtag"].to_s.delete("#")
     end
   end
 end

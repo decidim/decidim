@@ -14,7 +14,7 @@ module Decidim
     def participatory_processes
       @participatory_processes ||= group.participatory_processes.published
     end
-    alias_method :collection, :participatory_processes
+    alias collection participatory_processes
 
     def group
       Decidim::ParticipatoryProcessGroup.find(params[:id])

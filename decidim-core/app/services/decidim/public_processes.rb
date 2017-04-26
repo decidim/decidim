@@ -3,7 +3,6 @@ module Decidim
   # This service is in charge of gathering the ParticipatoryProcess and
   # ParticipatoryProcessGroup that are public and should be displayed together.
   class PublicProcesses
-
     # Initializes the PublicProcesses
     #
     # organization - The current organization

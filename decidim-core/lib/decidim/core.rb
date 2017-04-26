@@ -85,7 +85,7 @@ module Decidim
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
 
-   # Exposes a configuration option: the currency unit
+  # Exposes a configuration option: the currency unit
   config_accessor :currency_unit { "€" }
 
   # Exposes a configuration option: The maximum file size of an attachment.

@@ -6,7 +6,7 @@ module Decidim
     skip_before_filter :verify_authenticity_token
     after_action :allow_iframe, only: :show
 
-    layout 'decidim/widget'
+    layout "decidim/widget"
 
     helper_method :iframe_url
 

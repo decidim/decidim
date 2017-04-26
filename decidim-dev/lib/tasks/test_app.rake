@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "generators/decidim/dummy_generator"
 
 namespace :decidim do

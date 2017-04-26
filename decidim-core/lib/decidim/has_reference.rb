@@ -44,7 +44,7 @@ module Decidim
       # Returns nothing.
       def store_reference
         self[:reference] ||= calculate_reference
-        self.save if self.changed?
+        save if changed?
       end
     end
   end

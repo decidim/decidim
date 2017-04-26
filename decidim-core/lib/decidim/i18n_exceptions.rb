@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 unless Rails.env.production?
   module I18n
     class JustRaiseExceptionHandler < ExceptionHandler
