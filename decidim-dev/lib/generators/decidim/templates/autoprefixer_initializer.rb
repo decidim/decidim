@@ -9,7 +9,7 @@ module AutoprefixerRails
       # Disable autoprefixer for the graphiql-rails gem's assets because it
       # breaks some of the API tests when the '-webkit' prefixes are applied to
       # its CSS.
-      return if filename =~ /^graphiql\/.*/
+      return if filename =~ %r{^graphiql/.*}
 
       call_original(input)
     end

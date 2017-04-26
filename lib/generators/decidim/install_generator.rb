@@ -54,7 +54,7 @@ Decidim.seed!
 
       def append_assets
         append_file "app/assets/javascripts/application.js", "//= require decidim"
-        gsub_file "app/assets/javascripts/application.js", /\/\/= require turbolinks\n/, ""
+        gsub_file "app/assets/javascripts/application.js", %r{//= require turbolinks\n}, ""
         inject_into_file "app/assets/stylesheets/application.css",
                          before: "*= require_tree ." do
           "*= require decidim\n "

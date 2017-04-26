@@ -52,7 +52,7 @@ module Decidim
 
       # Public: Returns the commentable object of the parent comment
       def root_commentable
-        return commentable if depth == 0
+        return commentable if depth.zero?
         commentable.root_commentable
       end
 

@@ -11,14 +11,14 @@ module Decidim
       helper_method :meetings, :geocoded_meetings, :meeting
 
       def index
-        if search.results.empty? && params.dig("filter", "date") != "past"
-          @past_meetings = search_klass.new(search_params.merge(date: "past"))
-          unless @past_meetings.results.empty?
-            params[:filter] ||= {}
-            params[:filter][:date] = "past"
-            @forced_past_meetings = true
-            @search = @past_meetings
-          end
+        return unless search.results.empty? && params.dig("filter", "date") != "past"
+
+        @past_meetings = search_klass.new(search_params.merge(date: "past"))
+        unless @past_meetings.results.empty?
+          params[:filter] ||= {}
+          params[:filter][:date] = "past"
+          @forced_past_meetings = true
+          @search = @past_meetings
         end
       end
 

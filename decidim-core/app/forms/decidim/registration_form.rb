@@ -23,13 +23,13 @@ module Decidim
     validates :password, presence: true, confirmation: true, length: { in: Decidim::User.password_length }
     validates :tos_agreement, allow_nil: false, acceptance: true
 
-    validates :user_group_name, presence: true, if: :is_user_group?
-    validates :user_group_document_number, presence: true, if: :is_user_group?
-    validates :user_group_phone, presence: true, if: :is_user_group?
+    validates :user_group_name, presence: true, if: :user_group?
+    validates :user_group_document_number, presence: true, if: :user_group?
+    validates :user_group_phone, presence: true, if: :user_group?
 
     validate :email_unique_in_organization
 
-    def is_user_group?
+    def user_group?
       sign_up_as == "user_group"
     end
 

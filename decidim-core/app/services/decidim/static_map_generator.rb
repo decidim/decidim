@@ -35,11 +35,9 @@ module Decidim
         app_code: Decidim.geocoder.fetch(:here_app_code)
       }
 
-      uri = URI.parse(Decidim.geocoder.fetch(:static_map_url)).tap do |uri|
+      URI.parse(Decidim.geocoder.fetch(:static_map_url)).tap do |uri|
         uri.query = URI.encode_www_form params
       end
-
-      uri
     end
 
     def organization

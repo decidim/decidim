@@ -21,7 +21,7 @@ module Decidim
 
       transaction do
         create_user
-        create_user_group if form.is_user_group?
+        create_user_group if form.user_group?
       end
 
       broadcast(:ok, @user)
