@@ -1283,6 +1283,8 @@ Metrics/BlockLength:
     - 'decidim-admin/app/controllers/decidim/admin/concerns/has_attachments.rb'
     - 'decidim-api/lib/decidim/api/schema.rb'
     - 'decidim-core/app/controllers/concerns/decidim/needs_authorization.rb'
+    - 'decidim-core/app/controllers/concerns/decidim/filter_resource.rb'
+    - 'decidim-core/config/initializers/devise.rb'
     - 'decidim-core/lib/decidim/core/api/translated_field_type.rb'
     - 'decidim-core/lib/decidim/resourceable.rb'
     - 'decidim-comments/lib/decidim/comments/api/comment_type.rb'
