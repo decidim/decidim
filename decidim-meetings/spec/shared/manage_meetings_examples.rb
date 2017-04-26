@@ -52,7 +52,7 @@ RSpec.shared_examples "manage meetings" do
   end
 
   it "creates a new meeting" do
-    click_link "New Meeting"
+    find(".card-title a.button").click
 
     fill_in_i18n(
       :meeting_title,
@@ -166,7 +166,7 @@ RSpec.shared_examples "manage meetings" do
     end
 
     it "creates a new meeting" do
-      click_link "New Meeting"
+      find(".card-title a.button").click
 
       fill_in_i18n(
         :meeting_title,

@@ -82,7 +82,7 @@ describe "Admin manage participatory processes", type: :feature do
     it "update a participatory process without images does not delete them" do
       click_link translated(participatory_process3.title)
       click_processes_menu_link "Info"
-      click_button "Update participatory process"
+      click_button "Update"
 
       within ".callout-wrapper" do
         expect(page).to have_content("successfully")

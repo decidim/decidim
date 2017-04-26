@@ -16,7 +16,7 @@ en:
             body: Body
         pages:
           edit:
-            save: Save page
+            save: Update
             title: Edit page
           update:
             invalid: There's been errors when saving the page.

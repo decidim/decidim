@@ -63,7 +63,7 @@ RSpec.shared_examples "manage projects" do
   end
 
   it "creates a new project" do
-    click_link "New Project"
+    find(".card-title a.button").click
 
     within ".new_project" do
       fill_in_i18n(

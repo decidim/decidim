@@ -6,7 +6,7 @@ en:
         confirm_destroy: Are you sure you want to delete this?
         destroy: Destroy
         edit: Edit
-        new: New %{name}
+        new: New
         save: Save
         title: Actions
       admins:
@@ -17,11 +17,11 @@ en:
           success: Admin successfully destroyed
         edit:
           title: Edit admin
-          update: Update admin
+          update: Update
         index:
           title: Admins
         new:
-          create: Create admin
+          create: Create
           title: New admin
         update:
           error: There was an error when updating this admin.
