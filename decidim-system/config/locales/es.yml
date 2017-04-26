@@ -5,6 +5,7 @@ es:
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Eliminar
         edit: Editar
+        new: Nuevo
         save: Guardar
         title: Acciones
       admins:
@@ -15,9 +16,11 @@ es:
           success: El administrador se ha eliminado correctamente.
         edit:
           title: Editar administrador
+          update: Actualizar
         index:
           title: Administradores
         new:
+          create: Crear
           title: Nuevo administrador
         update:
           error: Se ha producido un error al actualizar este administrador.
