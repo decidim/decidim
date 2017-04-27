@@ -29,6 +29,7 @@ es:
             proposal_answering_enabled: Respuesta a propuestas activadas
             votes_blocked: Votación bloqueada
             votes_enabled: Votos habilitados
+            votes_hidden: Votos ocultos (si los votos están habilitados, marcando esta opción ocultará el número de votos)
     proposals:
       actions:
         answer: Respuesta
