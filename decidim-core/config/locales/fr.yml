@@ -1,3 +1,7 @@
 fr:
+  activemodel:
+    attributes:
+      report:
+        details: Commentaires additionnels
   booleans:
     'true': 'Oui'
