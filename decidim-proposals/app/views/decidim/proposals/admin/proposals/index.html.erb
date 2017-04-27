@@ -3,6 +3,7 @@
     <h2 class="card-title">
       <%= t(".title") %>
 
+        <%= link_to t("actions.export", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'button tiny button--title' if can? :manage, current_feature %>
       <% if feature_settings.official_proposals_enabled %>
         <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'button tiny button--title' if can? :manage, current_feature %>
       <% end %>

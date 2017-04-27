@@ -33,6 +33,7 @@ en:
     proposals:
       actions:
         answer: Answer
+        export: Export
         new: New Proposal
         title: Actions
       admin:
