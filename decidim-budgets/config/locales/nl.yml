@@ -1,0 +1,5 @@
+nl:
+  activemodel:
+    attributes:
+      project:
+        description: Beschrijving
