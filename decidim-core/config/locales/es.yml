@@ -206,7 +206,6 @@ es:
           title: No autorizado
       embed_modal:
         close_window: Cerrar ventana
-        embed: Pega la siguiente URL en tu sitio web
         embed_link: Incrustar
       flag_modal:
         already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
