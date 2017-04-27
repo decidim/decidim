@@ -1,0 +1,5 @@
+fr:
+  decidim:
+    comments:
+      comment_notification_mailer:
+        hello: Bonjour %{name},
