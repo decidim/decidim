@@ -8,7 +8,6 @@ fi:
       category:
         description: Kuvaus
         name: Nimi
-        parent_id: Isäntä
       feature:
         name: Nimi
         weight: Painoarvo
