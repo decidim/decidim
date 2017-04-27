@@ -36,31 +36,31 @@ jobs:
               0)
                 cd /code && yarn lint && bundle exec rspec spec
                 cd /code && yarn test -- decidim-api
-                cd /code/decidim-api && bundle exec rspec spec
+                cd /code/decidim-api && bundle exec rake
                 cd /code && yarn test -- decidim-core
-                cd /code/decidim-core && bundle exec rspec spec
+                cd /code/decidim-core && bundle exec rake
                 ;;
               1)
                 cd /code && yarn test -- decidim-admin
-                cd /code/decidim-admin && bundle exec rspec spec
+                cd /code/decidim-admin && bundle exec rake
                 cd /code && yarn test -- decidim-meetings
-                cd /code/decidim-meetings && bundle exec rspec spec
+                cd /code/decidim-meetings && bundle exec rake
                 ;;
               2)
                 cd /code && yarn test -- decidim-proposals
-                cd /code/decidim-proposals && bundle exec rspec spec
+                cd /code/decidim-proposals && bundle exec rake
                 cd /code && yarn test -- decidim-comments
-                cd /code/decidim-comments && bundle exec rspec spec
+                cd /code/decidim-comments && bundle exec rake
                 ;;
               3)
                 cd /code && yarn test -- decidim-pages
-                cd /code/decidim-pages && bundle exec rspec spec
+                cd /code/decidim-pages && bundle exec rake
                 cd /code && yarn test -- decidim-system
-                cd /code/decidim-system && bundle exec rspec spec
+                cd /code/decidim-system && bundle exec rake
                 cd /code && yarn test -- decidim-results
-                cd /code/decidim-results && bundle exec rspec spec
+                cd /code/decidim-results && bundle exec rake
                 cd /code && yarn test -- decidim-budgets
-                cd /code/decidim-budgets && bundle exec rspec spec
+                cd /code/decidim-budgets && bundle exec rake
                 ;;
             esac
       - store_artifacts:
