@@ -3,5 +3,7 @@ fr:
     attributes:
       report:
         details: Commentaires additionnels
+      user:
+        email: Votre email
   booleans:
     'true': 'Oui'
