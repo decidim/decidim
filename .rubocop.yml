@@ -819,7 +819,6 @@ Style/PredicateName:
   # Predicate name prefixes that should be removed.
   NamePrefixBlacklist:
     - is_
-    - has_
     - have_
   # Predicate names which, despite having a blacklisted prefix, or no ?,
   # should still be accepted
@@ -830,6 +829,10 @@ Style/PredicateName:
   Exclude:
     - '**/spec/**/*'
     - '**/test/**/*'
+
+Style/PreferredHashMethods:
+  Enabled: true
+  EnforcedStyle: verbose
 
 Style/Documentation:
   Enabled: false
