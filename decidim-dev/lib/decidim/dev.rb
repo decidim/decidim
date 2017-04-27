@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "letter_opener_web"
+require "decidim/dev/railtie"
 
 module Decidim
   # Decidim::Dev holds all the convenience logic and libraries to be able to
