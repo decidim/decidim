@@ -1,3 +1,5 @@
+require "generators/decidim/dummy_generator"
+
 namespace :decidim do
   desc "Generates a dummy app for testing"
   task :generate_test_app do
