@@ -1,0 +1,5 @@
+nl:
+  activemodel:
+    attributes:
+      meeting:
+        decidim_category_id: Categorie
