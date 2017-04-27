@@ -3,3 +3,6 @@ nl:
     attributes:
       attachment:
         description: Beschrijving
+  time:
+    formats:
+      timepicker: "%d/%m/%Y %H:%M"
