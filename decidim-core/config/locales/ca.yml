@@ -206,7 +206,6 @@ ca:
           title: Acció no autoritzada
       embed_modal:
         close_window: Tanca la finestra
-        embed: Enganxa la següent URL al teu lloc web
         embed_link: Incrustar
       flag_modal:
         already_reported: Aquest contingut ja ha estat denunciat i serà revisat per un administrador.
