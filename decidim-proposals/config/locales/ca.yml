@@ -29,6 +29,7 @@ ca:
             proposal_answering_enabled: Resposta oficial a propostes activades
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
+            votes_hidden: Vots ocults (si els vots estan habilitats, marcant aquesta opció amagarà el nombre de vots)
     proposals:
       actions:
         answer: Respondre
