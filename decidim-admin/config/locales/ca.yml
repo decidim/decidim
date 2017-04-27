@@ -97,6 +97,9 @@ ca:
         subtitle: Subtítol
         target: A qui va dirigit?
         title: Títol
+      decidim/participatory_process_step:
+        end_date: Data de finalització
+        start_date: Data d'inici
       decidim/static_page:
         content: Contingut
         slug: Nom curt d'URL
@@ -111,7 +114,7 @@ ca:
         destroy: Eliminar
         edit: Editar
         manage: Gestionar
-        new: Nou
+        new: Nou/va
         permissions: Permisos
         preview: Previsualitzar
         publish: Publicar
@@ -126,7 +129,7 @@ ca:
           success: L'adjunt s'ha eliminat correctament.
         edit:
           title: Edita arxiu adjunt
-          update: Actualitza adjunt
+          update: Actualitzar
         form:
           current_file: Fitxer actual
           url: URL
@@ -145,7 +148,7 @@ ca:
           success: Categoria eliminada correctament.
         edit:
           title: Edita categoria
-          update: Actualitza la categoria
+          update: Actualitzar
         new:
           create: Crea una categoria
           title: Nova categoria
@@ -325,7 +328,7 @@ ca:
       organization:
         edit:
           title: Edita organització
-          update: Actualitza organització
+          update: Actualitzar
         form:
           current_image: Imatge actual
           facebook: Facebook
@@ -373,9 +376,9 @@ ca:
           success: La fase de procés participatiu s'ha eliminat correctament.
         edit:
           title: Editar fase de procés participatiu
-          update: Actualitzar fase de procés participatiu
+          update: Actualitzar
         new:
-          create: Crear fase de procés participatiu
+          create: Crear
           title: Nova fase de procés participatiu
         ordering:
           error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
@@ -404,7 +407,7 @@ ca:
         destroy:
           success: El procés participatiu s'ha eliminat correctament.
         edit:
-          update: Actualitzar procés participatiu
+          update: Actualitzar
         form:
           current_image: imatge actual
           title: Informació general
@@ -413,7 +416,7 @@ ca:
           not_published: No publicat
           published: Publicat
         new:
-          create: Crear procés participatiu
+          create: Crear
           title: Nou procés participatiu
         update:
           error: S'ha produït un error en l'actualització d'aquest procés participatiu.
@@ -430,7 +433,7 @@ ca:
           success: Àmbit eliminat amb èxit
         edit:
           title: Edita àmbit
-          update: Actualitza àmbit
+          update: Actualitzar
         new:
           create: Crea àmbit
           title: Nou àmbit
@@ -447,9 +450,9 @@ ca:
           success: La pàgina s'ha eliminat correctament.
         edit:
           title: Editar pàgina
-          update: Actualitzar pàgina
+          update: Actualitzar
         new:
-          create: Crear
+          create: Nova
           title: Nova pàgina
         update:
           error: S'ha produït un error en l'actualització d'aquests pàgina.

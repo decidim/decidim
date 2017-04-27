@@ -28,7 +28,7 @@ ca:
         confirm_destroy: Esteu segur de que voleu suprimir aquesta trobada?
         destroy: Esborra
         edit: Edita
-        new: Nou/va %{name}
+        new: Nova
         preview: Previsualitzar
         title: Accions
       admin:
@@ -46,12 +46,12 @@ ca:
           destroy:
             success: La trobada s'ha eliminat correctament
           edit:
-            update: Actualitzar trobada
+            update: Actualitzar
           index:
             title: Trobades
           new:
-            create: Crear trobada
-            title: Nova trobada
+            create: Crear
+            title: Crear trobada
           update:
             invalid: Hi ha hagut un problema en actualitzar aquesta trobada
             success: Trobada actualitzada correctament

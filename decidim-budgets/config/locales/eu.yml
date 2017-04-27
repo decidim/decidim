@@ -15,7 +15,6 @@ eu:
         confirm_destroy: Ziur zaude proiektu hau ezabatu nahi duzula?
         destroy: Garbitu
         edit: Editatu
-        new: '%{name} berria'
         preview: Aurreikusi
         title: Ekintzak
       admin:
@@ -30,13 +29,11 @@ eu:
             success: Proiektu ongi ezabatu da
           edit:
             title: Editatu proiektua
-            update: Eguneratu proiektua
           index:
             finished_orders: Emandako botoak
             pending_orders: Emateke dauden botoak
             title: Proiektuak
           new:
-            create: Sortu proiektua
             title: Emaitza berria
           update:
             invalid: Arazo bat izan da proiektu hau eguneratzean

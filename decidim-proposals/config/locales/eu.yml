@@ -13,7 +13,6 @@ eu:
     features:
       proposals:
         actions:
-          create: Sortu proposamenak
           vote: Proiektuaren alde egin
         name: Proposamenak
         settings:
@@ -32,7 +31,6 @@ eu:
     proposals:
       actions:
         answer: Erantzuna
-        new: Proposamen berria
         title: Ekintzak
       admin:
         actions:
@@ -43,7 +41,6 @@ eu:
         proposal_answers:
           edit:
             accepted: Onartuta
-            answer_proposal: Erantzuna proposamenari
             rejected: Baztertuta
             title: 'Erantzun proposamen honi: %{title}'
         proposals:
@@ -57,9 +54,6 @@ eu:
             select_a_category: Aukeratu kategoria bat
           index:
             title: Proposamenak
-          new:
-            create: Sortu proposamena
-            title: Proposamen berria
       answers:
         accepted: Onartuta
         not_answered: Erantzun gabe

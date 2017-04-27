@@ -5,7 +5,6 @@ eu:
         confirm_destroy: Ziur hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
-        new: '%{name} berria'
         save: Gorde
         title: Ekintzak
       admins:
@@ -16,11 +15,9 @@ eu:
           success: Administratzailea zuzen sortu da
         edit:
           title: Editatu administratzailea
-          update: Eguneratu administratzailea
         index:
           title: Administratzaileak
         new:
-          create: Sortu administratzailea
           title: Administratzaile berria
         update:
           error: Errorea gertatu da administratzaile hau eguneratzean.

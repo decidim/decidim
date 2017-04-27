@@ -5,7 +5,7 @@ ca:
         confirm_destroy: Segur que ho vols eliminar?
         destroy: Eliminar
         edit: Editar
-        new: Nou %{name}
+        new: Nou
         save: Desar
         title: Accions
       admins:
@@ -16,11 +16,11 @@ ca:
           success: L'administrador s'ha eliminat correctament
         edit:
           title: Editar administrador
-          update: Actualitzar administrador
+          update: Actualitzar
         index:
           title: Administradors
         new:
-          create: Crear administrador
+          create: Crear
           title: Nou administrador
         update:
           error: S'ha produït un error en actualitzar aquest administrador.

@@ -13,7 +13,7 @@ es:
     features:
       proposals:
         actions:
-          create: Crear propuestas
+          create: Crear
           vote: Dar apoyo
         name: Propuestas
         settings:
@@ -32,7 +32,7 @@ es:
     proposals:
       actions:
         answer: Respuesta
-        new: Nueva propuesta
+        new: Nueva
         title: Acciones
       admin:
         actions:
@@ -43,7 +43,7 @@ es:
         proposal_answers:
           edit:
             accepted: Aceptada
-            answer_proposal: Respuesta a la propuesta
+            answer_proposal: Respuesta
             rejected: Rechazada
             title: Responder a la propuesta %{title}
         proposals:
@@ -58,8 +58,8 @@ es:
           index:
             title: Propuestas
           new:
-            create: Crear propuesta
-            title: Nueva propuesta
+            create: Crear
+            title: Crear propuesta
       answers:
         accepted: Aceptadas
         not_answered: No contestada
