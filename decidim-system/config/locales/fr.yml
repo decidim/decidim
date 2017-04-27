@@ -1,1 +1,5 @@
 fr:
+  decidim:
+    system:
+      actions:
+        destroy: Détruire

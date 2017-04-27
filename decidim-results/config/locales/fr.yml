@@ -1,1 +1,5 @@
 fr:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Catégorie

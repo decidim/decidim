@@ -1,3 +1,5 @@
 nl:
   decidim:
-    components:
+    comments:
+      comment_notification_mailer:
+        hello: Hallo %{name},

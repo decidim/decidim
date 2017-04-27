@@ -1,1 +1,5 @@
 nl:
+  activemodel:
+    attributes:
+      attachment:
+        description: Beschrijving

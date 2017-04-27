@@ -1,1 +1,373 @@
 nl:
+  activemodel:
+    attributes:
+      report:
+        details: Aanvullende opmerkingen
+      user:
+        email: Uw e-mailadres
+        name: Uw naam
+        password: Nieuw wachtwoord
+        password_confirmation: Bevestig uw nieuwe wachtwoord
+        user_group_document_number: Organisatie documentnummer
+        user_group_name: Naam van de organisatie
+        user_group_phone: Telefoon organisatie
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Huidige wachtwoord
+        email: E-mailadres
+        name: Gebruikersnaam
+        password: Wachtwoord
+        password_confirmation: Wachtwoordbevestiging
+        remember_me: Blijf ingelogd
+        user_group_document_number: Organisatie documentnummer
+        user_group_name: Naam van de organisatie
+        user_group_phone: Telefoon organisatie
+  booleans:
+    'false': 'Nee'
+    'true': 'Ja'
+  carrierwave:
+    errors:
+      image_too_big: De afbeelding is te groot
+  decidim:
+    account:
+      show:
+        change_password: Wachtwoord wijzigen
+        update_account: Account bijwerken
+      update:
+        error: Er is een fout opgetreden bij het bijwerken van uw account.
+        success: Uw account is bijgewerkt.
+        success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
+    anonymous_user: Anoniem
+    application:
+      documents:
+        related_documents: Gerelateerde documenten
+      photos:
+        related_photos: Gerelateerde foto 's
+    authorization_handlers:
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Documentnummer
+          postal_code: Postcode
+        name: Voorbeeld machtiging
+      errors:
+        duplicate_authorization: Een gebruiker is al gemachtigd met dezelfde gegevens.
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Foo machtiging
+    authorizations:
+      create:
+        error: Er is een fout opgetreden bij het verlenen van de machtiging.
+        success: U bent geautoriseerd.
+      current_participatory_processes: neem een kijkje bij de huidige processen
+      first_login:
+        actions:
+          decidim/dummy_authorization_handler: Gebruik de voorbeeld autorisatie
+        title: Verifieer uw identiteit
+        verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
+      new:
+        authorize: Verstuur
+        authorize_with: Controleer via %{authorizer}
+      skip_verification: U kunt dit overslaan voor nu en %{link}
+    core:
+      actions:
+        unauthorized: U bent niet gemachtigd dit te doen
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Er is een ander account met hetzelfde e-mailadres
+        new:
+          complete_profile: Volledig profiel
+          sign_up: Gelieve uw profiel te voltooien
+          subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
+          username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
+      registrations:
+        new:
+          already_have_an_account?: U heeft al een account?
+          newsletter_notifications: Stuur me informatie over relevante activiteiten
+          sign_in: Aanmelden
+          sign_up: Registratie
+          sign_up_as:
+            legend: Aanmelden als
+            user: Individu
+            user_group: Organisatie/collectief
+          subtitle: Meldt u aan om deel te nemen aan discussies en voorstellen te steunen.
+          terms: de bepalingen en voorwaarden van gebruik
+          tos_agreement: Door het aanmelden gaat u akkoord met %{link}.
+          username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
+      sessions:
+        new:
+          are_you_new?: Nieuw op het platform?
+          register: Een account aanmaken
+      shared:
+        omniauth_buttons:
+          or: Of
+    features:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Dummy functie
+        settings:
+          global:
+            comments_enabled: Reacties ingeschakeld
+            dummy_global_attribute_1: Dummy Kenmerk 1
+            dummy_global_attribute_2: Dummy kenmerk 2
+          step:
+            comments_blocked: Reacties geblokkeerd
+            dummy_step_attribute_1: Dummy Stap Kenmerk 1
+            dummy_step_attribute_2: Dummy Stap Kenmerk 2
+    filters:
+      linked_classes:
+        all: Alle
+        meeting: Vergaderingen
+        project: Projecten
+        proposal: Voorstellen
+        result: Resultaten
+    forms:
+      errors:
+        error: Er is een fout in dit veld.
+    menu:
+      home: Home
+      more_information: Meer informatie
+      processes: Processen
+    newsletter_mailer:
+      newsletter:
+        note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
+    notifications_settings:
+      show:
+        comments_notifications: Ik wil e-mail ontvangen wanneer iemand reageert in mijn publicaties.
+        newsletter_notifications: Ik wil informatie ontvangen over relevante activiteiten
+        replies_notifications: Ik wil e-mail ontvangen wanneer iemand reageert op mijn reacties.
+        update_notifications_settings: Wijzigingen opslaan
+      update:
+        error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
+        success: Uw notificatie instellingen zijn bijgewerkt.
+    own_user_groups:
+      index:
+        not_verified: Niet geverifieerd
+        verified: Geverifieerd
+    pages:
+      index:
+        title: Meer informatie
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Processen voor %{group}
+        title: Titel
+    participatory_process_steps:
+      index:
+        process_steps: Processtappen
+        title: Participatieve processtappen
+    participatory_processes:
+      index:
+        title: Participatieve processen
+      participatory_process_groups:
+        none: Geen
+      scopes:
+        global: Globaal bereik
+      show:
+        developer_group: Ontwikkelaarsgroep
+        end_date: Einddatum
+        local_area: Lokale buurt
+        participatory_scope: Participatief toepassingsgebied
+        participatory_structure: Participatieve structuur
+        scope: Reikwijdte
+        target: Doel
+    reported_mailer:
+      hide:
+        hello: Hallo %{name},
+        report_html: "<p>De volgende inhoud: <p>%{content}<p>is automatisch verborgen.</p>"
+        subject: Een bron is automatisch verborgen
+      report:
+        hello: Hallo %{name},
+        report_html: "<p>De volgende inhoud: <p>%{content} <p>is gemeld.</p>"
+        subject: Een bron is gemeld
+    reports:
+      create:
+        error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
+        success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
+    shared:
+      action_authorization_modal:
+        incomplete:
+          cancel: Annuleer
+          explanation: 'Ook al bent u momenteel geautoriseerd met "%{authorization}", moeten we u vragen opnieuw autoriseren omdat we niet beschikken over de volgende gegevens:'
+          reauthorize: Opnieuw autoriseren
+          title: Autoriseert u opnieuw alstublieft
+        missing:
+          authorize: Autoriseren met "%{authorization}"
+          explanation: Om deze actie uit te voeren, moet u autoriseren met "%{authorization}".
+          title: Autorisatie vereist
+        unauthorized:
+          explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
+          invalid: "%{field} is niet geldig."
+          ok: Ok
+          title: Niet geautoriseerd
+      flag_modal:
+        already_reported: Deze inhoud is al gemeld en zal worden beoordeeld door een beheerder.
+        close: Sluit
+        description: Is deze inhoud ongepast?
+        does_not_belong: Bevat illegale activiteit, dreiging met zelfmoord, persoonlijke gegevens, of iets anders dat u denkt dat niet thuis hoort op %{organization_name}.
+        offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, bedreigingen, zelfmoord dreiging of haat zaaien.
+        report: Rapporteren
+        spam: Bevat clickbait, reclame, oplichting of script bots.
+        title: Meld een probleem
+      login_modal:
+        please_sign_in: Log in alstublieft
+        sign_up: Registreren
+      reference:
+        reference: 'Referentie: %{reference}'
+      share_modal:
+        close_window: Sluit dit scherm
+        share: Deel
+        share_link: Link delen
+  devise:
+    invitations:
+      edit:
+        header: Uw wachtwoord instellen
+        submit_button: Opslaan
+    mailer:
+      invitation_instructions:
+        accept: Accepteer uitnodiging
+        accept_until: Deze uitnodiging zal verlopen op %{due_date}.
+        hello: Hallo %{email},
+        ignore: |-
+          Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
+        invited_you_as_admin: "%{invited_by} heeft u uitgenodigd als beheerder van %{application}, u kunt deze uitnodiging accepteren via onderstaande link."
+        someone_invited_you: Iemand heeft u uitgenodigd bij %{application}, u kunt deze uitnodiging accepteren via onderstaande link.
+      invite_admin:
+        subject: U bent uitgenodigd om %{organization} te beheren
+      invite_collaborator:
+        subject: U bent uitgenodigd om samen te werken bij %{organization}
+      organization_admin_invitation_instructions:
+        subject: U bent uitgenodigd om %{organization} te beheren
+      password_change:
+        greeting: Hallo %{recipient}!
+        message: Wij informeren u dat uw wachtwoord is gewijzigd.
+        subject: Wachtwoord is veranderd
+  errors:
+    messages:
+      content_type_whitelist_error: Het bestandstype is niet geldig
+      file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}
+      invalid_manifest: Ongeldig manifest
+      invalid_participatory_process: Ongeldige participatief proces
+      long_words: Bevat woorden die te lang zijn
+      must_start_with_caps: Moet beginnen met hoofdletters
+      nesting_too_deep: kan niet binnen een subcategorie zijn
+      too_many_marks: Gebruikt te veel markeringen
+      too_much_caps: Gebruikt te veel hoofdletters
+      too_short: Is te kort
+  invisible_captcha:
+    sentence_for_humans: Als u een mens bent negeert u dit veld
+    timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: Deze website maakt gebruik van cookies. Door gebruik te blijven maken van de site gaat u hiermee akkoord. Meer informatie via %{link}.
+        link_label: hier
+        ok: Ik ga akkoord
+      header:
+        close_menu: Menu sluiten
+        navigation: Navigatie
+        sign_in: Aanmelden
+        sign_up: Registreren
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Browsen
+      participatory_processes:
+        index:
+          promoted_processes: Gemarkeerde processen
+        no_processes_yet:
+          no_processes_yet: Er zijn nog geen participatieve processen!
+        order_by_processes:
+          processes:
+            one: "%{count} proces"
+            other: "%{count} processen"
+        participatory_process:
+          active_step: 'Huidige stap:'
+          take_part: Deelnemen
+        promoted_process:
+          active_step: 'Huidige stap:'
+          more_info: Meer informatie
+          take_part: Deelnemen
+      process_header:
+        process_menu_item: Het proces
+        unfold: Ontvouwen
+      process_header_steps:
+        step: Stap %{current} van %{total}
+        view_steps: Bekijk stappen
+      user_menu:
+        admin_dashboard: Beheer dashboard
+        profile: Mijn account
+        sign_out: Afmelden
+      user_profile:
+        account: Account
+        authorizations: Bevoegdheden
+        notifications_settings: Notificatie instellingen
+        title: Gebruikersinstellingen
+        user_groups: Organisaties
+  locale:
+    name: Engels
+  pages:
+    '404':
+      back_home: Terug naar huis
+      content_doesnt_exist: Dit adres is onjuist of is verwijderd.
+      title: De pagina die u zoekt is niet gevonden
+    '500':
+      title: Er was een probleem met de server
+      try_later: Probeer het later opnieuw.
+    home:
+      extended:
+        debates: Debatten
+        debates_explanation: Laten we elkaar ontmoeten, in debat gaan, en ideeën uitwisselen; dat is belangrijk voor onze stad.
+        how_to_participate: Hoe neem ik deel in een proces?
+        meetings: Vergaderingen
+        meetings_explanation: Laten we elkaar ontmoeten, in debat gaan, en ideeën uitwisselen over wat belangrijk is voor onze stad.
+        more_info: Meer informatie
+        proposals: Voorstellen
+        proposals_explanation: Publieke ruimte voor voorstellen over de stad waarin we willen leven.
+      footer_sub_hero:
+        footer_sub_hero_body: Laten we bouwen aan een open, transparante en collaborative maatschappij.<br /> Neem deel en beslis.
+        footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
+        register: Registreren
+      hero:
+        participate: Deelnemen
+        welcome: Welkom bij %{organization}!
+      highlighted_processes:
+        active_processes: Actieve processen
+        active_step: Actieve stap
+        see_all_processes: Toon alle processen
+      statistics:
+        headline: Huidige stand van %{organization}
+        processes: Processen
+        users: Gebruikers
+      sub_hero:
+        register: Registeren
+  social_share_button:
+    delicious: Heerlijk
+    douban: Douban
+    email: E-mail
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker Nieuws
+    linkedin: LinkedIn
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Delen op %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Open uw WeChat, klik op "Ontdekken" en open het menu "QR-Code scannen".
+    weibo: Sina Weibo
+    xing: Xing
+  views:
+    pagination:
+      first: "&laquo; Eerste"
+      last: Laatste &raquo;
+      next: Volgende &rsaquo;
+      previous: "&lsaquo; Vorige"
+      truncate: "&hellip;"
