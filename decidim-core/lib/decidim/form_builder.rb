@@ -136,14 +136,15 @@ module Decidim
     # Public: Override so the date fields are rendered using foundation
     # datepicker library
     def date_field(attribute, options = {})
+      value = object.send(attribute)
       template = ""
       template += label(attribute, label_for(attribute))
       template += @template.text_field(@object_name, attribute, options.merge({
         name: nil,
         id: "date_field_#{@object_name}_#{attribute}",
-        data: { datepicker: '', startdate: object.send(attribute) }
+        data: { datepicker: '', startdate: value }
       }))
-      template += @template.hidden_field(@object_name, attribute)
+      template += @template.hidden_field(@object_name, attribute, value: value)
       template += error_and_help_text(attribute, options)
       template.html_safe
     end
@@ -161,7 +162,7 @@ module Decidim
         id: "datetime_field_#{@object_name}_#{attribute}",
         data: { datepicker: '', timepicker: '' }
       }))
-      template += @template.hidden_field(@object_name, attribute)
+      template += @template.hidden_field(@object_name, attribute, value: value)
       template += error_and_help_text(attribute, options)
       template.html_safe
     end
