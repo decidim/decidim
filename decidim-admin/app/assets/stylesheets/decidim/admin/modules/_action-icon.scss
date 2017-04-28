@@ -11,3 +11,17 @@
 .action-icon.action-icon--remove{
   color: $alert-color;
 }
+
+.action-icon--hide{
+  position: relative;
+
+  &:before{
+    border-left: 1px solid;
+    bottom: 0;
+    content: "";
+    left: 36%;
+    position: absolute;
+    top: 0;
+    transform: rotate(-45deg);
+  }
+}

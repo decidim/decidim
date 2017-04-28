@@ -48,11 +48,20 @@
                 </td>
               <% end %>
               <td class="actions">
+
                 <% if can? :unreport, moderation %>
-                  <%= link_to t("actions.unreport", scope: "decidim.moderations"), decidim_admin.unreport_participatory_process_moderation_path(id: moderation), method: :put, class: "button" %>
+                  <%= icon_link_to "action-undo",
+                                   decidim_admin.unreport_participatory_process_moderation_path(id: moderation),
+                                   t("actions.unreport", scope: "decidim.moderations"),
+                                   class: "action-icon--unreport",
+                                   method: :put %>
                 <% end %>
                 <% if !moderation.reportable.hidden? && can?(:hide, moderation) %>
-                  | <%= link_to t("actions.hide", scope: "decidim.moderations"), decidim_admin.hide_participatory_process_moderation_path(id: moderation), method: :put, class: "button" %>
+                  <%= icon_link_to "eye",
+                                   decidim_admin.hide_participatory_process_moderation_path(id: moderation),
+                                   t("actions.hide", scope: "decidim.moderations"),
+                                   class: "action-icon--hide",
+                                   method: :put %>
                 <% end %>
               </td>
             </tr>
