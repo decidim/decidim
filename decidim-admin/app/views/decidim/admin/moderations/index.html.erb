@@ -20,7 +20,9 @@
             <th><%= t("models.moderation.fields.reported_content", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.reports", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.report_count", scope: "decidim.moderations") %></th>
-            <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
+            <% if params[:hidden] %>
+              <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
+            <% end %>
             <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
           </tr>
         </thead>
@@ -55,9 +57,11 @@
               <td>
                 <%= moderation.report_count %>
               </td>
-              <td>
-                <%= l moderation.hidden_at if moderation.hidden_at.present? %>
-              </td>
+              <% if params[:hidden] %>
+                <td>
+                  <%= l moderation.hidden_at if moderation.hidden_at.present? %>
+                </td>
+              <% end %>
               <td class="actions">
                 <% if can? :unreport, moderation %>
                   <%= link_to t("actions.unreport", scope: "decidim.moderations"), decidim_admin.unreport_participatory_process_moderation_path(id: moderation), method: :put, class: "button" %>
