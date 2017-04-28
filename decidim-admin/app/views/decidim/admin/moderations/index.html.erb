@@ -30,7 +30,7 @@
           <% moderations.each do |moderation| %>
             <tr data-id="<%= moderation.id %>">
               <td>
-                <%= moderation.reportable.class.name %>
+                <%= moderation.reportable.class.name.demodulize %>
               </td>
               <td>
                 <%= moderation.reportable.reported_content %>
