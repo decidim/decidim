@@ -5,10 +5,6 @@ module Decidim
     "0.0.9.pre"
   end
 
-  def self.rails_version
-    ["~> 5.0.2"]
-  end
-
   def self.add_default_gemspec_properties(spec)
     spec.version = Decidim.version
     spec.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
