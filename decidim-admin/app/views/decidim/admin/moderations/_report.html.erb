@@ -1,0 +1,11 @@
+<% if report.details.blank? %>
+  <%= report.reason %>
+<% else %>
+  <span
+    data-tooltip
+    aria-haspopup="true"
+    class="has-tip"
+    title="<%= report.details %>">
+      <%= report.reason %>
+  </span>
+<% end %>

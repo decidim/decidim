@@ -36,23 +36,8 @@
                 <%= moderation.reportable.reported_content %>
               </td>
               <td>
-                <ul>
-                  <% moderation.reports.each do |report| %>
-                    <li>
-                      <% if report.details.blank? %>
-                        <%= report.reason %>
-                      <% else %>
-                        <span
-                          data-tooltip
-                          aria-haspopup="true"
-                          class="has-tip"
-                          title="<%= report.details %>">
-                            <%= report.reason %>
-                        </span>
-                      <% end %>
-                    </li>
-                  <% end %>
-                </ul>
+                <% reports = moderation.reports.map { |report| render 'report', report: report } %>
+                <%= safe_join(reports, ',') %>
               </td>
               <td>
                 <%= moderation.report_count %>
