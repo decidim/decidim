@@ -48,7 +48,6 @@ Capybara::Screenshot::RSpec.add_link_to_screenshot_for_failed_examples = true
 Capybara.configure do |config|
   config.always_include_port = true
   config.default_driver = :poltergeist
-  config.always_include_port = true
 end
 
 RSpec.configure do |config|
