@@ -44,7 +44,7 @@
               </td>
               <% if params[:hidden] %>
                 <td>
-                  <%= l moderation.hidden_at if moderation.hidden_at.present? %>
+                  <%= l(moderation.hidden_at, format: :long) if moderation.hidden_at.present? %>
                 </td>
               <% end %>
               <td class="actions">
