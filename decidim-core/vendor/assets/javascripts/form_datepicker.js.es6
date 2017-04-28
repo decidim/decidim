@@ -20,7 +20,9 @@
         leftArrow: '<<',
         rightArrow: '>>'
       }).on('changeDate', (ev) => {
-        $(ev.target).siblings('input').val(exports.moment(ev.date));
+        let newDate = exports.moment.utc(ev.date).format('YYYY-MM-DDTHH:mm:ss');
+
+        $(ev.target).siblings('input').val(newDate);
       });
     });
   };
