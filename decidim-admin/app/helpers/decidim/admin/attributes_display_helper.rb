@@ -6,7 +6,7 @@ module Decidim
     module AttributesDisplayHelper
       # Displays the given attributes list in a list. This is a simple
       # `show_for` alternative, so there's no way to modify how an attribute is
-      # shown and there is no intention on adding this. It is intnded to be
+      # shown and there is no intention on adding this. It is intended to be
       # used inside a `dl` HTML tag, so you can customize how a specific
       # attribute has to be shown directly:
       #
