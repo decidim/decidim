@@ -498,3 +498,6 @@ eu:
           title: Ezarpenak
         users:
           title: Erabiltzaileak
+  time:
+    formats:
+      timepicker: "%d/%m/%Y %H:%M"
