@@ -1,5 +1,4 @@
 const webpack              = require('webpack');
-const webpackValidator     = require('webpack-validator');
 const webpackConfigUtils   = require('webpack-config-utils');
 const getIfUtils           = webpackConfigUtils.getIfUtils;
 const ProgressBarPlugin    = require('progress-bar-webpack-plugin');
@@ -10,7 +9,7 @@ module.exports = env => {
   const ifProd = envUtils.ifProd;
   const ifTest = envUtils.ifTest;
 
-  const config = webpackValidator({
+  const config = {
     entry: {
       comments: './decidim-comments/app/frontend/entry.ts'
     },
@@ -78,6 +77,6 @@ module.exports = env => {
       'react/lib/ExecutionEnvironment': 'react',
       'react/lib/ReactContext': 'react'
     }
-  });
+  };
   return config;
 };
