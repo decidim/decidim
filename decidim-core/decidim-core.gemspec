@@ -17,8 +17,9 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", *Decidim.rails_version
-  s.add_dependency "devise", "~> 4.2"
+  s.add_dependency "rails", "~> 5.0.2"
+  s.add_dependency "rails-i18n"
+  s.add_dependency "devise", "~> 4.2.1"
   s.add_dependency "devise-i18n", "~> 1.1.0"
   s.add_dependency "invisible_captcha", "~> 0.9.2"
   s.add_dependency "rectify", "~> 0.9.1"
