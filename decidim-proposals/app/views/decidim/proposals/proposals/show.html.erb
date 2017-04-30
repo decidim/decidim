@@ -41,6 +41,9 @@
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
+    <% if @proposal.image.present? %>
+      <%= image_tag @proposal.image.url %>
+    <% end %>
     <div class="section">
       <%= render partial: "proposal_badge", locals: { proposal: @proposal } %>
       <p><%= @proposal.body %></p>

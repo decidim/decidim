@@ -12,6 +12,12 @@
       <%= form.text_area :body, rows: 10 %>
     </div>
 
+    <%if feature_settings.image_enabled? %>
+      <div class="row column">
+        <%= form.file_field :image %>
+      </div>
+    <% end %>  
+
     <% if feature_settings.geocoding_enabled? %>
       <div class="row column">
         <%= form.text_field :address %>
