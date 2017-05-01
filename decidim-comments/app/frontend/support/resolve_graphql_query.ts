@@ -20,7 +20,7 @@ const resolver = (fieldName: string, root: any) => root[fieldName];
 const resolveGraphQLQuery = (document: any, options: any = {}) => {
   const { filterResult, rootValue, context, variables } = options;
 
-  let result = graphql(
+  const result = graphql(
     resolver,
     document,
     rootValue,

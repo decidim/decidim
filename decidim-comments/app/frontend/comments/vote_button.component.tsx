@@ -1,5 +1,5 @@
 import * as React from "react";
-import Icon       from "../application/icon.component";
+import Icon from "../application/icon.component";
 
 interface VoteButtonProps {
   buttonClassName: string;

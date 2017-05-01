@@ -1,7 +1,7 @@
-import * as React           from "react";
-import { graphql }          from "react-apollo";
+import * as React from "react";
+import { graphql } from "react-apollo";
 
-import VoteButton           from "./vote_button.component";
+import VoteButton from "./vote_button.component";
 
 import {
   CommentFragment,
