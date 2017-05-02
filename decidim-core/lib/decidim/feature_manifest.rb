@@ -141,6 +141,8 @@ module Decidim
     # These stats can be used anywhere in the application using Decidim.stats_for method.
     #
     # name - The name of the stat
+    # options - A hash of options
+    #         * primary: Wether the stat is primary or not.
     # block - A block that receive the features to filter out the stat.
     #
     # Returns nothing.

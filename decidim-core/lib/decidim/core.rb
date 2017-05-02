@@ -156,14 +156,30 @@ module Decidim
     @resource_manifests ||= feature_manifests.flat_map(&:resource_manifests)
   end
 
+  # Public: Stores all the registered stats
+  #
+  # Returns a Hash where each key is the name of the registered stat and
+  # the value is another Hash containing some stats properties.
   def self.stats
     @stats ||= {}
   end
 
+  # Public: Register a stat
+  #
+  # name - The name of the stat
+  # options - A hash of options
+  #         * primary: Wether the stat is primary or not.
+  # block - A block that receive the features to filter out the stat.
   def self.register_stat(name, options = {}, block)
     stats[name] = { primary: options.fetch(:primary, false), block: block }
   end
 
+  # Public: Returns a number returned by executing the corresponding block.
+  #
+  # name - The name of the stat
+  # features - An array of Decidim::Feature
+  #
+  # Returns the result of executing the stats block using the passing features or an error.
   def self.stats_for(name, features)
     return stats[name][:block].call(features) if stats[name].present?
     raise StandardError, "Stats '#{name}' is not registered."
