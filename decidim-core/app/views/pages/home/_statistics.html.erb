@@ -7,14 +7,8 @@
       <div class="columns small-centered mediumlarge-10 large-8">
         <div class="home-pam">
           <div class="home-pam__highlight">
-            <div class="home-pam__data">
-              <h4 class="home-pam__title"><%= t(".users_count") %></h4>
-              <span class="home-pam__number users_count"><%= stats.users_count %></span>
-            </div>
-            <div class="home-pam__data">
-              <h4 class="home-pam__title"><%= t(".processes_count") %></h4>
-              <span class="home-pam__number processes_count"><%= stats.processes_count %></span>
-            </div>
+            <%= stats.users_count %>
+            <%= stats.processes_count %>
           </div>
           <div class="home-pam__highlight">
             <%= stats.highlighted %>

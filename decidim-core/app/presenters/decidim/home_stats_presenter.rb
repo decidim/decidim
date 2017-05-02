@@ -1,22 +1,33 @@
 # frozen_string_literal: true
 module Decidim
+  # A presenter to render statistics in the hoomepage.
   class HomeStatsPresenter < Rectify::Presenter
     attribute :organization, Decidim::Organization
 
+    # Public: Render a collection of primary stats.
     def highlighted
       render_stats(filtered_stats(primary: true))
     end
 
+    # Public: Render a collection of stats that are not primary.
     def not_highlighted
       render_stats(filtered_stats(primary: false))
     end
 
+    # Public: Render the number of users for the current organization.
     def users_count
-      Decidim::User.where(organization: organization).count
+      render_stats_data(
+        :users_count,
+        Decidim::User.where(organization: organization).count
+      )
     end
 
+    # Public: Render the number of published participatory processes for the current organization.
     def processes_count
-      (OrganizationParticipatoryProcesses.new(organization) | PublicParticipatoryProcesses.new).count
+      render_stats_data(
+        :processes_count,
+        (OrganizationParticipatoryProcesses.new(organization) | PublicParticipatoryProcesses.new).count
+      )
     end
 
     private
@@ -24,14 +35,18 @@ module Decidim
     def render_stats(stats = {})
       safe_join(
         stats.map do |name, _stat|
-          content_tag :div, "", class: "home-pam__data" do
-            safe_join([
-                        content_tag(:h4, I18n.t(name, scope: "pages.home.statistics"), class: "home-pam__title"),
-                        content_tag(:span, Decidim.stats_for(name, published_features), class: "home-pam__number #{name}")
-                      ])
-          end
+          render_stats_data(name, Decidim.stats_for(name, published_features))
         end
       )
+    end
+
+    def render_stats_data(name, data)
+      content_tag :div, "", class: "home-pam__data" do
+        safe_join([
+                    content_tag(:h4, I18n.t(name, scope: "pages.home.statistics"), class: "home-pam__title"),
+                    content_tag(:span, " #{data}", class: "home-pam__number #{name}")
+                  ])
+      end
     end
 
     def filtered_stats(filter = {})
