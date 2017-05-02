@@ -2,4 +2,78 @@ nl:
   activemodel:
     attributes:
       result:
+        decidim_category_id: Category
+        decidim_scope_id: Scope
+        description: Description
+        proposal_ids: Included proposals
         title: Titel
+  decidim:
+    features:
+      results:
+        name: Results
+        settings:
+          global:
+            comments_enabled: Comments enabled
+          step:
+            comments_blocked: Comments blocked
+    resource_links:
+      included_proposals:
+        result_proposals: Proposals included in this result
+      meetings_through_proposals:
+        result_meetings: Related meetings
+    results:
+      actions:
+        confirm_destroy: Are you sure you want to delete this result?
+        destroy: Delete
+        edit: Edit
+        new: New
+        preview: Preview
+        title: Actions
+      admin:
+        models:
+          result:
+            name: Result
+        results:
+          create:
+            invalid: There's been a problem creating this result
+            success: Result successfully created
+          destroy:
+            success: Result successfully deleted
+          edit:
+            title: Edit result
+            update: Update
+          index:
+            title: Results
+          new:
+            create: Create
+            title: New result
+          update:
+            invalid: There's been a problem updating this result
+            success: Result successfully updated
+      models:
+        result:
+          fields:
+            title: Title
+      results:
+        count:
+          results_count:
+            one: 1 result
+            other: "%{count} results"
+        filters:
+          category: Category
+          category_prompt: Select a category
+          scopes: Scopes
+          search: Search
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        show:
+          stats:
+            attendees: Attendees
+            comments: Comments
+            contributions: Contributions
+            meetings: Meetings
+            proposals: Proposals
+            votes: Supports
