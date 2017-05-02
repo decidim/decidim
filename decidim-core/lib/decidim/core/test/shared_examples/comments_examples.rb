@@ -3,17 +3,15 @@
 RSpec.shared_examples "comments" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, organization: organization) }
-  let!(:comments) {
-    3.times.map do
+  let!(:comments) do
+    Array.new(3) do
       create(:comment, commentable: commentable)
     end
-  }
+  end
   let(:authenticated) { false }
 
   def visit_commentable_path
-    if authenticated
-      login_as user, scope: :user
-    end
+    login_as user, scope: :user if authenticated
     visit resource_path
   end
 
@@ -42,13 +40,13 @@ RSpec.shared_examples "comments" do
     visit_commentable_path
 
     within ".order-by" do
-      page.find('.dropdown.menu .is-dropdown-submenu-parent').hover
+      page.find(".dropdown.menu .is-dropdown-submenu-parent").hover
     end
 
     click_link "Best rated"
 
     within "#comments" do
-      expect(page.find('.comment', match: :first)).to have_content "Most Rated Comment"
+      expect(page.find(".comment", match: :first)).to have_content "Most Rated Comment"
     end
   end
 
@@ -98,9 +96,9 @@ RSpec.shared_examples "comments" do
             expect(page).to have_content "This is a new comment"
           end
         else
-          expect {
+          expect do
             wait_for_email subject: "new comment"
-          }.to raise_error StandardError
+          end.to raise_error StandardError
         end
       end
     end
@@ -173,7 +171,7 @@ RSpec.shared_examples "comments" do
 
         expect(page).to have_selector(".add-comment form")
 
-        page.find('.opinion-toggle--ok').click
+        page.find(".opinion-toggle--ok").click
 
         within ".add-comment form" do
           fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "I am in favor about this!"
@@ -181,7 +179,7 @@ RSpec.shared_examples "comments" do
         end
 
         within "#comments" do
-          expect(page).to have_selector 'span.success.label', text: "In favor"
+          expect(page).to have_selector "span.success.label", text: "In favor"
         end
       end
     end
@@ -195,9 +193,9 @@ RSpec.shared_examples "comments" do
         visit_commentable_path
 
         within "#comment_#{comments[0].id}" do
-          expect(page).to have_selector('.comment__votes--up', text: /0/)
-          page.find('.comment__votes--up').click
-          expect(page).to have_selector('.comment__votes--up', text: /1/)
+          expect(page).to have_selector(".comment__votes--up", text: /0/)
+          page.find(".comment__votes--up").click
+          expect(page).to have_selector(".comment__votes--up", text: /1/)
         end
       end
 
@@ -205,9 +203,9 @@ RSpec.shared_examples "comments" do
         visit_commentable_path
 
         within "#comment_#{comments[0].id}" do
-          expect(page).to have_selector('.comment__votes--down', text: /0/)
-          page.find('.comment__votes--down').click
-          expect(page).to have_selector('.comment__votes--down', text: /1/)
+          expect(page).to have_selector(".comment__votes--down", text: /0/)
+          page.find(".comment__votes--down").click
+          expect(page).to have_selector(".comment__votes--down", text: /1/)
         end
       end
     end

@@ -10,7 +10,7 @@ module Decidim
       has_one :moderation, as: :reportable, foreign_key: "decidim_reportable_id", foreign_type: "decidim_reportable_type", class_name: "Decidim::Moderation"
       has_many :reports, through: :moderation
 
-      scope :reported, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:report_count].gt 0) }
+      scope :reported, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:report_count].gt(0)) }
       scope :hidden, -> { left_outer_joins(:moderation).where.not(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
       scope :not_hidden, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
 

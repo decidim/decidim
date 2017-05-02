@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# rubocop:disable Metrics/BlockLength
 require "active_support/concern"
 
 module Decidim
@@ -16,11 +15,11 @@ module Decidim
       end
 
       def method_missing(method_name, *_arguments)
-        @filter.present? && @filter.key?(method_name) ? @filter[method_name] : super
+        @filter.present? && @filter.has_key?(method_name) ? @filter[method_name] : super
       end
 
       def respond_to_missing?(method_name, include_private = false)
-        @filter.present? && @filter.key?(method_name) || super
+        @filter.present? && @filter.has_key?(method_name) || super
       end
     end
 

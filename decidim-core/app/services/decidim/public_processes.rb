@@ -3,7 +3,6 @@ module Decidim
   # This service is in charge of gathering the ParticipatoryProcess and
   # ParticipatoryProcessGroup that are public and should be displayed together.
   class PublicProcesses
-
     # Initializes the PublicProcesses
     #
     # organization - The current organization
@@ -32,7 +31,10 @@ module Decidim
     attr_reader :organization
 
     def ordered_processes
-      @sorted_processes ||= Decidim::ParticipatoryProcess.where(organization: organization).order("promoted DESC").includes(:active_step).order("decidim_participatory_process_steps.end_date ASC")
+      @sorted_processes ||= Decidim::ParticipatoryProcess.where(organization: organization)
+                                                         .order("promoted DESC")
+                                                         .includes(:active_step)
+                                                         .order("decidim_participatory_process_steps.end_date ASC")
     end
 
     def participatory_process_groups

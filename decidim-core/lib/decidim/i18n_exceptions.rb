@@ -1,12 +1,13 @@
+# frozen_string_literal: true
 unless Rails.env.production?
   module I18n
     class JustRaiseExceptionHandler < ExceptionHandler
       def call(exception, locale, key, options)
         if exception.is_a?(MissingTranslationData) || exception.is_a?(MissingTranslation)
           raise exception.to_exception
-        else
-          super
         end
+
+        super
       end
     end
   end

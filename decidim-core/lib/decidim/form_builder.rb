@@ -20,6 +20,7 @@ module Decidim
     # html_options - a Hash with options
     #
     # Renders a collection of check boxes.
+    # rubocop:disable Metrics/ParameterLists
     def collection_check_boxes(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
       super + error_and_help_text(attribute, options)
     end
@@ -139,11 +140,9 @@ module Decidim
       value = object.send(attribute)
       template = ""
       template += label(attribute, label_for(attribute))
-      template += @template.text_field(@object_name, attribute, options.merge({
-        name: nil,
-        id: "date_field_#{@object_name}_#{attribute}",
-        data: { datepicker: '', startdate: value }
-      }))
+      template += @template.text_field(@object_name, attribute, options.merge(name: nil,
+                                                                              id: "date_field_#{@object_name}_#{attribute}",
+                                                                              data: { datepicker: "", startdate: value }))
       template += @template.hidden_field(@object_name, attribute, value: value)
       template += error_and_help_text(attribute, options)
       template.html_safe
@@ -156,12 +155,10 @@ module Decidim
       formatted_value = I18n.localize(value, format: :timepicker) if value
       template = ""
       template += label(attribute, label_for(attribute))
-      template += @template.text_field(@object_name, attribute, options.merge({
-        value: formatted_value,
-        name: nil,
-        id: "datetime_field_#{@object_name}_#{attribute}",
-        data: { datepicker: '', timepicker: '' }
-      }))
+      template += @template.text_field(@object_name, attribute, options.merge(value: formatted_value,
+                                                                              name: nil,
+                                                                              id: "datetime_field_#{@object_name}_#{attribute}",
+                                                                              data: { datepicker: "", timepicker: "" }))
       template += @template.hidden_field(@object_name, attribute, value: value)
       template += error_and_help_text(attribute, options)
       template.html_safe

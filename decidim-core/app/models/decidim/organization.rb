@@ -4,7 +4,7 @@ module Decidim
   # installation we can find many organizations and each of them can start
   # their own participatory processes.
   class Organization < ApplicationRecord
-    SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github]
+    SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
 
     has_many :participatory_process_groups, foreign_key: "decidim_organization_id", class_name: Decidim::ParticipatoryProcessGroup, inverse_of: :organization
     has_many :participatory_processes, foreign_key: "decidim_organization_id", class_name: Decidim::ParticipatoryProcess, inverse_of: :organization

@@ -61,7 +61,7 @@ module Decidim
 
       def test_env
         gsub_file "#{dummy_app_path}/config/environments/test.rb",
-          /allow_forgery_protection = (.*)/, 'allow_forgery_protection = true'
+                  /allow_forgery_protection = (.*)/, "allow_forgery_protection = true"
       end
 
       private

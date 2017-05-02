@@ -36,14 +36,13 @@ module Decidim
 
     def invite_user
       @user = Decidim::User.create(
-        {
-          name: form.name,
-          email: form.email.downcase,
-          organization: form.organization,
-          roles: form.roles,
-          comments_notifications: true,
-          replies_notifications: true
-        })
+        name: form.name,
+        email: form.email.downcase,
+        organization: form.organization,
+        roles: form.roles,
+        comments_notifications: true,
+        replies_notifications: true
+      )
       @user.invite!(
         form.invited_by,
         invitation_instructions: form.invitation_instructions

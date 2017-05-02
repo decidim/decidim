@@ -48,10 +48,10 @@ module Decidim
       def moderations
         @moderations ||= begin
           moderations = Decidim::Moderation.where(participatory_process: participatory_process)
-          moderations = if params[:hidden]
-                          moderations.where.not(hidden_at: nil)
-                        else
-                          moderations.where(hidden_at: nil)
+          if params[:hidden]
+            moderations.where.not(hidden_at: nil)
+          else
+            moderations.where(hidden_at: nil)
           end
         end
       end

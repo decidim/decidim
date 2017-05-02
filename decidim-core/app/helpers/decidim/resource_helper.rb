@@ -65,8 +65,8 @@ module Decidim
     def linked_classes_for(klass)
       return [] unless klass.respond_to?(:linked_classes_for)
 
-      klass.linked_classes_for(current_feature).map do |klass|
-        [klass.underscore, t(klass.demodulize.downcase, scope: "decidim.filters.linked_classes")]
+      klass.linked_classes_for(current_feature).map do |k|
+        [k.underscore, t(k.demodulize.downcase, scope: "decidim.filters.linked_classes")]
       end
     end
 
