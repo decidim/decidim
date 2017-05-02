@@ -33,10 +33,10 @@ module Decidim
       validates :default_locale, inclusion: { in: :available_locales }
 
       validates :official_img_header,
-                file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                file_size: { less_than_or_equal_to: Decidim.maximum_attachment_size },
                 file_content_type: { allow: ["image/jpeg", "image/png"] }
       validates :official_img_footer,
-                file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                file_size: { less_than_or_equal_to: Decidim.maximum_attachment_size },
                 file_content_type: { allow: ["image/jpeg", "image/png"] }
 
       private
