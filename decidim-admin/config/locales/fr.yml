@@ -41,6 +41,8 @@ fr:
         local_area: Quartier
         meta_scope: Metadonnées du processus
         participatory_process_group_id: Groupe de processus
+        participatory_structure: Organisations concernées
+        scope_id: Sujet ou zone d'application
         short_description: Résumé
         subtitle: Sous-titre
         target: Objectif
@@ -63,6 +65,7 @@ fr:
       static_page:
         content: Contenu
         organization: Organisation
+        slug: Identifiant
         title: Titre
     errors:
       messages:
