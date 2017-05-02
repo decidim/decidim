@@ -15,6 +15,8 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista
         edit: Muokkaa
+        new: New
+        preview: Preview
         title: Toiminnot
       admin:
         models:
@@ -28,11 +30,13 @@ fi:
             success: Projekti tuhottu onnistuneesti
           edit:
             title: Muokkaa projektia
+            update: Update
           index:
             finished_orders: Valmiit tilaukset
             pending_orders: Odottavat tilaukset
             title: Projektit
           new:
+            create: Create
             title: Uusi tulos
           update:
             invalid: Tämän projektin päivityksessä tapahtui virhe
@@ -68,6 +72,7 @@ fi:
             other: "%{count} projektia"
         filters:
           category: Kategoria
+          category_prompt: Select a category
           scopes: Konteksti
           search: Haku
         filters_small_view:
@@ -115,6 +120,9 @@ fi:
       destroy:
         error: Äänesi peruutuksen yhteydessä tapahtui virhe
         success: Äänesi on peruttu onnistuneesti
+    resource_links:
+      included_proposals:
+        project_proposals: 'Proposals included in this project:'
   index:
     confirmed_orders_count: Tilauksien määrä
   total_budget: Koko budjetti
