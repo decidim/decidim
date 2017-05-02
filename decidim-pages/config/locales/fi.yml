@@ -15,6 +15,7 @@ fi:
             body: Runko
         pages:
           edit:
+            save: Update
             title: Muokkaa sivua
           update:
             invalid: Sivun tallennuksessa oli virheitä.
