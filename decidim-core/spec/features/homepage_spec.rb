@@ -127,11 +127,11 @@ describe "Homepage", type: :feature do
         end
 
         it "should have the correct values for the statistics" do
-          within ".users-count" do
+          within ".users_count" do
             expect(page).to have_content("4")
           end
 
-          within ".processes-count" do
+          within ".processes_count" do
             expect(page).to have_content("2")
           end
         end
