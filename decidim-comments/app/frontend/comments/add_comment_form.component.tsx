@@ -1,10 +1,10 @@
 /* eslint-disable no-return-assign, react/no-unused-prop-types, max-lines */
-import * as classnames                   from "classnames";
-import * as React                        from "react";
-import { graphql }                       from "react-apollo";
-import * as uuid                         from "uuid";
+import * as classnames from "classnames";
+import * as React from "react";
+import { graphql } from "react-apollo";
+import * as uuid from "uuid";
 
-import Icon                              from "../application/icon.component";
+import Icon from "../application/icon.component";
 
 const { I18n, Translate } = require("react-i18nify");
 
@@ -159,7 +159,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     const { error } = this.state;
     const className = classnames({ "is-invalid-input": error });
 
-    let textAreaProps: any = {
+    const textAreaProps: any = {
       ref: (textarea: HTMLTextAreaElement) => {this.bodyTextArea = textarea; },
       id: `add-comment-${type}-${id}`,
       className,
@@ -312,7 +312,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
   private addComment = (evt: React.FormEvent<HTMLFormElement>) => {
     const { alignment } = this.state;
     const { addComment, onCommentAdded } = this.props;
-    let addCommentParams: { body: string, alignment: number, userGroupId?: string } = { body: this.bodyTextArea.value, alignment };
+    const addCommentParams: { body: string, alignment: number, userGroupId?: string } = { body: this.bodyTextArea.value, alignment };
 
     evt.preventDefault();
 

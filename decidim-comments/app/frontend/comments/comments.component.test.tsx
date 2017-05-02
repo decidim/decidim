@@ -1,14 +1,14 @@
-import { shallow }          from "enzyme";
+import { shallow } from "enzyme";
 import * as React from "react";
 
-import AddCommentForm       from "./add_comment_form.component";
+import AddCommentForm from "./add_comment_form.component";
 import CommentOrderSelector from "./comment_order_selector.component";
-import CommentThread        from "./comment_thread.component";
+import CommentThread from "./comment_thread.component";
 import { Comments, commentsQuery } from "./comments.component";
 
 import generateCommentsData from "../support/generate_comments_data";
-import generateUserData     from "../support/generate_user_data";
-import resolveGraphQLQuery  from "../support/resolve_graphql_query";
+import generateUserData from "../support/generate_user_data";
+import resolveGraphQLQuery from "../support/resolve_graphql_query";
 
 import { loadLocaleTranslations } from "../support/load_translations";
 

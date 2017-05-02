@@ -1,6 +1,6 @@
 import { date, image, lorem, name, random } from "faker/locale/en";
 
-import { CommentFragment }           from "../support/schema";
+import { CommentFragment } from "../support/schema";
 
 /**
  * Generate random comment data to emulate a database real content
@@ -8,7 +8,7 @@ import { CommentFragment }           from "../support/schema";
  * @returns {Object[]} - An array of objects representing comments data
  */
 const generateCommentsData = (num = 1) => {
-  let commentsData: CommentFragment[] = [];
+  const commentsData: CommentFragment[] = [];
 
   for (let idx = 0; idx < num; idx += 1) {
     commentsData.push({

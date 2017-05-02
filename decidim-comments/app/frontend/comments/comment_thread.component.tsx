@@ -1,6 +1,6 @@
-import * as React            from "react";
+import * as React from "react";
 
-import Comment               from "./comment.component";
+import Comment from "./comment.component";
 
 import {
   AddCommentFormSessionFragment,

@@ -1,8 +1,8 @@
-import { shallow }          from "enzyme";
+import { shallow } from "enzyme";
 import * as React from "react";
 
-import { DownVoteButton }   from "./down_vote_button.component";
-import VoteButton           from "./vote_button.component";
+import { DownVoteButton } from "./down_vote_button.component";
+import VoteButton from "./vote_button.component";
 
 import generateCommentsData from "../support/generate_comments_data";
 
@@ -13,7 +13,7 @@ describe("<DownVoteButton />", () => {
   const downVote = jasmine.createSpy("downVote");
 
   beforeEach(() => {
-    let commentsData = generateCommentsData(1);
+    const commentsData = generateCommentsData(1);
 
     comment = commentsData[0];
   });

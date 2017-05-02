@@ -1,11 +1,11 @@
-import * as React           from "react";
-import { graphql }          from "react-apollo";
+import * as React from "react";
+import { graphql } from "react-apollo";
 
-import Application          from "../application/application.component";
+import Application from "../application/application.component";
 
-import AddCommentForm       from "./add_comment_form.component";
+import AddCommentForm from "./add_comment_form.component";
 import CommentOrderSelector from "./comment_order_selector.component";
-import CommentThread        from "./comment_thread.component";
+import CommentThread from "./comment_thread.component";
 
 import {
   GetCommentsQuery,
@@ -18,7 +18,7 @@ interface CommentsProps extends GetCommentsQuery {
   loading?: boolean;
   orderBy: string;
   reorderComments: (orderBy: string) => void;
-};
+}
 
 /**
  * The core class of the Decidim Comments engine.

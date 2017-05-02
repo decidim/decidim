@@ -1,6 +1,7 @@
 **/*{.,-}min.js
 decidim-*/vendor/**/*.js
 spec/decidim_dummy_app/**/*.js
+docker_development_app
 development_app
 **/node_modules/**
 vendor/bundle/**
