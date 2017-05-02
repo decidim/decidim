@@ -3,3 +3,20 @@ fr:
     features:
       pages:
         name: Page
+        settings:
+          global:
+            comments_enabled: Comments enabled
+          step:
+            comments_blocked: Comments blocked
+    pages:
+      admin:
+        models:
+          components:
+            body: Body
+        pages:
+          edit:
+            save: Update
+            title: Edit page
+          update:
+            invalid: There's been errors when saving the page.
+            success: Page saved successfully.
