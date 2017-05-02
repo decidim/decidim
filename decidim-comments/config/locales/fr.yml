@@ -3,3 +3,7 @@ fr:
     comments:
       comment_notification_mailer:
         hello: Bonjour %{name},
+    components:
+      add_comment_form:
+        form:
+          submit: Envoyer
