@@ -18,7 +18,6 @@ env:
     - BUNDLE_PATH="$HOME/.bundle"
     - PHANTOMJS_VERSION=2.1.1
     - PHANTOMJS_BIN="$HOME/travis_phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64/bin/phantomjs"
-    - SIMPLECOV=true
   matrix:
     - GEM=. DB=postgres
     - GEM=decidim-admin DB=postgres
