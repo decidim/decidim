@@ -2,4 +2,127 @@ nl:
   activemodel:
     attributes:
       project:
+        budget: Budget
+        decidim_category_id: Category
+        decidim_scope_id: Scope
         description: Beschrijving
+        proposal_ids: Related proposals
+        title: Title
+  decidim:
+    budgets:
+      actions:
+        attachments: Attachments
+        confirm_destroy: Are you sure you want to delete this project?
+        destroy: Delete
+        edit: Edit
+        new: New
+        preview: Preview
+        title: Actions
+      admin:
+        models:
+          project:
+            name: Project
+        projects:
+          create:
+            invalid: There's been a problem creating this project
+            success: Project successfully created
+          destroy:
+            success: Project successfully destroyed
+          edit:
+            title: Edit project
+            update: Update
+          index:
+            finished_orders: Finished orders
+            pending_orders: Pending orders
+            title: Projects
+          new:
+            create: Create
+            title: New result
+          update:
+            invalid: There's been a problem updating this project
+            success: Project successfully updated
+      models:
+        project:
+          fields:
+            title: Title
+      projects:
+        budget_confirm:
+          are_you_sure: Do you agree? Once you have confirmed your vote, you can not change it.
+          cancel: Cancel
+          confirm: Confirm
+          description: These are the projects you have chosen to be part of the budget.
+          title: Confirm vote
+        budget_excess:
+          close: Close
+          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          ok: OK
+          title: Maximum budget exceeded
+        budget_summary:
+          are_you_sure: Are you sure you want to cancel your vote?
+          assigned: 'Assigned:'
+          cancel_order: delete your vote and start over
+          checked_out:
+            description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
+            title: Budget vote completed
+          description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
+          title: You decide the budget
+        count:
+          projects_count:
+            one: 1 project
+            other: "%{count} projects"
+        filters:
+          category: Category
+          category_prompt: Select a category
+          scopes: Scopes
+          search: Search
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        order_progress:
+          vote: Vote
+        order_selected_projects:
+          remove: Remove
+          selected_projects:
+            one: project selected
+            other: projects selected
+          view: View
+        project:
+          add: Add
+          count:
+            one: 1 support
+            other: "%{count} supports"
+          remove: Remove
+        project_budget_button:
+          add: Add
+          added: Added
+        show:
+          budget: Budget
+          view_all_projects: View all projects
+    features:
+      budgets:
+        actions:
+          vote: Vote
+        name: Budgets
+        settings:
+          global:
+            comments_enabled: Comments enabled
+            total_budget: Total budget
+            vote_threshold_percent: Vote threshold percent
+          step:
+            comments_blocked: Comments blocked
+            votes_enabled: Votes enabled
+    orders:
+      checkout:
+        error: An error ocurred while processing your vote
+        success: Your vote has been accepted successfully
+      destroy:
+        error: An error ocurred while canceling your vote
+        success: Your vote has been canceled successfully
+    resource_links:
+      included_proposals:
+        project_proposals: 'Proposals included in this project:'
+  index:
+    confirmed_orders_count: Orders count
+  total_budget: Total budget
