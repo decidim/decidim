@@ -16,8 +16,11 @@ Decidim.register_feature(:results) do |feature|
     resource.template = "decidim/results/results/linked_results"
   end
 
-  feature.register_stat :results_count, primary: true do |features|
-    Decidim::Results::Result.where(feature: features).count
+  feature.register_stat :results_count, primary: true do |features, start_at, end_at|
+    results = Decidim::Results::Result.where(feature: features)
+    results = results.where("created_at >= ?", start_at) if start_at.present?
+    results = results.where("created_at <= ?", end_at) if end_at.present?
+    results.count
   end
 
   feature.settings(:global) do |settings|

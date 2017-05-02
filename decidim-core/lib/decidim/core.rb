@@ -178,10 +178,12 @@ module Decidim
   #
   # name - The name of the stat
   # features - An array of Decidim::Feature
+  # start_at - A date to filter resources created after it
+  # end_at - A date to filter resources created before it.
   #
   # Returns the result of executing the stats block using the passing features or an error.
-  def self.stats_for(name, features)
-    return stats[name][:block].call(features) if stats[name].present?
+  def self.stats_for(name, features, start_at = nil, end_at = nil)
+    return stats[name][:block].call(features, start_at, end_at) if stats[name].present?
     raise StandardError, "Stats '#{name}' is not registered."
   end
 end
