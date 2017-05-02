@@ -26,6 +26,7 @@ eu:
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
+        new: New
         preview: Aurreikusi
         title: Ekintzak
       admin:
@@ -40,9 +41,11 @@ eu:
             success: Emaitza zuzen ezabatu da.
           edit:
             title: Editatu emaitza
+            update: Update
           index:
             title: Emaitzak
           new:
+            create: Create
             title: Emaitza berria
           update:
             invalid: Arazo bat izan da emaitza hau eguneratzean.
