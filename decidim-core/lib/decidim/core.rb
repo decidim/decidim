@@ -166,6 +166,6 @@ module Decidim
 
   def self.stats_for(name, features)
     return stats[name][:block].call(features) if stats[name].present?
-    raise StandardError.new("Stats '#{name}' is not registered.")
+    raise StandardError, "Stats '#{name}' is not registered."
   end
 end
