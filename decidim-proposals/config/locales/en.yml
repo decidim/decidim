@@ -73,6 +73,7 @@ en:
         proposal:
           fields:
             category: Category
+            export: Export
             official_proposal: Official proposal
             scope: Scope
             state: State

@@ -11,6 +11,8 @@ module Decidim
         resources :proposals, only: [:index, :new, :create] do
           resources :proposal_answers, only: [:edit, :update]
         end
+
+        resources :proposal_exports
         root to: "proposals#index"
       end
 

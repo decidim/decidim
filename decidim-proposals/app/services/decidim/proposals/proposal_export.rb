@@ -4,17 +4,17 @@ require 'csv'
 
 module Decidim
   module Proposals
-    class ProposalExport
+    class ProposalExporter
       include Decidim::ResourceHelper
 
-      def initialize
-        @scope = Proposal.all
+      def initialize(participatory_process)
+        @proposals = participatory_process.proposals
       end
 
       def export
         CSV.generate do |csv|
-          csv << generate_headers_from(@scope.first)
-          @scope.each do |proposal|
+          csv << generate_headers_from(@proposals.first)
+          @proposals.each do |proposal|
             csv << row(proposal)
           end
         end

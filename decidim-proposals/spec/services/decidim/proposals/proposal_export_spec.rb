@@ -17,7 +17,6 @@ module Decidim
         end
 
         it "returns the proposals in CSV format" do
-          byebug
           pending "pending"
           subject.export
         end
