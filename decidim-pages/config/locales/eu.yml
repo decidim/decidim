@@ -15,6 +15,7 @@ eu:
             body: Testu-gorputza
         pages:
           edit:
+            save: Update
             title: Editatu orria
           update:
             invalid: Erroreak gertatu dira orria gordetzean.
