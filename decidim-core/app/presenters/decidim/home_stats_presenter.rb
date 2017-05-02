@@ -2,6 +2,14 @@ module Decidim
   class HomeStatsPresenter < Rectify::Presenter
     attribute :organization, Decidim::Organization
 
+    def highlighted
+      render_stats(filtered_stats(primary: true))
+    end
+
+    def not_highlighted
+      render_stats(filtered_stats(primary: false))
+    end
+
     def users_count
       Decidim::User.where(organization: organization).count
     end
@@ -10,27 +18,24 @@ module Decidim
       (OrganizationParticipatoryProcesses.new(organization) | PublicParticipatoryProcesses.new).count
     end
 
-    def accepted_proposals_count
-      Decidim.stats_for(:accepted_proposals_count, published_features)
-    end
-
-    def proposals_count
-      Decidim.stats_for(:proposals_count, published_features)
-    end
-
-    def results_count
-      Decidim.stats_for(:results_count, published_features)
-    end
-
-    def votes_count
-      Decidim.stats_for(:votes_count, published_features)
-    end
-
-    def meetings_count
-      Decidim.stats_for(:meetings_count, published_features)
-    end
-
     private
+
+    def render_stats(stats = {})
+      safe_join(
+        stats.map do |name, _|
+          content_tag :div, '', class: "home-pam__data" do
+            safe_join([
+              content_tag(:h4, I18n.t(name, scope: "pages.home.statistics"), class: "home-pam__title"),
+              content_tag(:span, Decidim.stats_for(name, published_features), class: "home-pam__number #{name}")
+            ])
+          end
+        end
+      )
+    end
+
+    def filtered_stats(filter = {})
+      Decidim.stats.select { |name, stat| stat[:primary] == filter.fetch(:primary, false) }
+    end
 
     def published_features
       @published_features ||= Feature.where(participatory_process: ParticipatoryProcess.published)

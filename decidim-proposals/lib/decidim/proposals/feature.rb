@@ -37,12 +37,12 @@ Decidim.register_feature(:proposals) do |feature|
     resource.template = "decidim/proposals/proposals/linked_proposals"
   end
 
-  feature.register_stat :proposals_count do |features|
-    Decidim::Proposals::Proposal.where(feature: features).count
+  feature.register_stat :accepted_proposals_count, primary: true do |features|
+    Decidim::Proposals::Proposal.where(feature: features).accepted.count
   end
 
-  feature.register_stat :accepted_proposals_count do |features|
-    Decidim::Proposals::Proposal.where(feature: features).accepted.count
+  feature.register_stat :proposals_count do |features|
+    Decidim::Proposals::Proposal.where(feature: features).count
   end
 
   feature.register_stat :votes_count do |features|

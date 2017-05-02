@@ -8,37 +8,19 @@
         <div class="home-pam">
           <div class="home-pam__highlight">
             <div class="home-pam__data">
-              <h4 class="home-pam__title"><%= t(".users") %></h4>
-              <span class="home-pam__number users-count"><%= stats.users_count %></span>
+              <h4 class="home-pam__title"><%= t(".users_count") %></h4>
+              <span class="home-pam__number users_count"><%= stats.users_count %></span>
             </div>
             <div class="home-pam__data">
-              <h4 class="home-pam__title"><%= t(".processes") %></h4>
-              <span class="home-pam__number processes-count"><%= stats.processes_count %></span>
+              <h4 class="home-pam__title"><%= t(".processes_count") %></h4>
+              <span class="home-pam__number processes_count"><%= stats.processes_count %></span>
             </div>
           </div>
           <div class="home-pam__highlight">
-            <div class="home-pam__data">
-              <h4 class="home-pam__title"><%= t(".accepted_proposals") %></h4>
-              <span class="home-pam__number accepted-proposals-count"><%= stats.accepted_proposals_count %></span>
-            </div>
-            <div class="home-pam__data">
-              <h4 class="home-pam__title"><%= t(".results") %></h4>
-              <span class="home-pam__number results-count"><%= stats.results_count %></span>
-            </div>
+            <%= stats.highlighted %>
           </div>
           <div class="home-pam__lowlight">
-            <div class="home-pam__data">
-              <h4 class="home-pam__title"><%= t(".proposals") %></h4>
-              <span class="home-pam__number proposals-count"><%= stats.proposals_count %></span>
-            </div>
-            <div class="home-pam__data">
-              <h4 class="home-pam__title"><%= t(".votes") %></h4>
-              <span class="home-pam__number votes-count"><%= stats.votes_count %></span>
-            </div>
-            <div class="home-pam__data">
-              <h4 class="home-pam__title"><%= t(".meetings") %></h4>
-              <span class="home-pam__number meetings-count"><%= stats.meetings_count %></span>
-            </div>
+            <%= stats.not_highlighted %>
           </div>
         </div>
       </div>

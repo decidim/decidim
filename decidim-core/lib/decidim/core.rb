@@ -160,12 +160,12 @@ module Decidim
     @stats ||= {}
   end
 
-  def self.register_stat(name, block)
-    stats[name] = block
+  def self.register_stat(name, options = {}, block)
+    stats[name] = { primary: options.fetch(:primary, false), block: block }
   end
 
   def self.stats_for(name, features)
-    return stats[name].call(features) if stats[name].present?
+    return stats[name][:block].call(features) if stats[name].present?
     raise StandardError.new("Stats '#{name}' is not registered.")
   end
 end

@@ -144,8 +144,8 @@ module Decidim
     # block - A block that receive the features to filter out the stat.
     #
     # Returns nothing.
-    def register_stat(name, &block)
-      Decidim.register_stat(name, block)
+    def register_stat(name, options = {}, &block)
+      Decidim.register_stat(name, options, block)
     end
   end
 end
