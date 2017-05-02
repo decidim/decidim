@@ -11,8 +11,7 @@ module Decidim
 
     authorize_resource :public_pages, class: false
     delegate :page, to: :page_finder
-    helper_method :page, :promoted_participatory_processes, :highlighted_participatory_processes, :participatory_processes,
-                  :users, :accepted_proposals_count, :results_count, :proposals_count, :votes_count, :meetings_count
+    helper_method :page, :promoted_participatory_processes, :highlighted_participatory_processes, :stats
 
     def index
       @pages = current_organization.static_pages.all.to_a.sort do |a, b|
@@ -22,15 +21,6 @@ module Decidim
 
     def page_finder
       @page_finder ||= Decidim::PageFinder.new(params[:id], current_organization)
-    end
-
-    def users
-      @users ||= Decidim::User.where(organization: current_organization)
-    end
-
-    # This should be deleted once the statistics are done properly.
-    def participatory_processes
-      @processes ||= OrganizationParticipatoryProcesses.new(current_organization) | PublicParticipatoryProcesses.new
     end
 
     def promoted_participatory_processes
@@ -43,28 +33,8 @@ module Decidim
 
     private
 
-    def accepted_proposals_count
-      Decidim.stats_for(:accepted_proposals_count, published_features)
-    end
-
-    def proposals_count
-      Decidim.stats_for(:proposals_count, published_features)
-    end
-
-    def results_count
-      Decidim.stats_for(:results_count, published_features)
-    end
-
-    def votes_count
-      Decidim.stats_for(:votes_count, published_features)
-    end
-
-    def meetings_count
-      Decidim.stats_for(:meetings_count, published_features)
-    end
-
-    def published_features
-      @published_features ||= Feature.where(participatory_process: ParticipatoryProcess.published)
+    def stats
+      @stats ||= HomeStatsPresenter.new(organization: current_organization)
     end
   end
 end
