@@ -1,5 +1,99 @@
 nl:
   activemodel:
     attributes:
+      close_meeting:
+        attendees_count: Number of attendees
+        attending_organizations: List of organizations that attended
+        closing_report: Report
+        contributions_count: Number of contributions
+        proposal_ids: Proposals created in the meeting
       meeting:
+        address: Address
         decidim_category_id: Categorie
+        decidim_scope_id: Scope
+        description: Description
+        end_time: End Time
+        location: Location
+        location_hints: Location hints
+        start_time: Start Time
+        title: Title
+  decidim:
+    features:
+      meetings:
+        name: Meetings
+    meetings:
+      actions:
+        attachments: Attachments
+        close: Close
+        confirm_destroy: Are you sure you want to delete this meeting?
+        destroy: Delete
+        edit: Edit
+        new: New
+        preview: Preview
+        title: Actions
+      admin:
+        meeting_closes:
+          edit:
+            close: Close
+            title: Close meeting
+        meetings:
+          close:
+            invalid: There's been a problem closing this meeting
+            success: Meeting successfully closed
+          create:
+            invalid: There's been a problem creating this meeting
+            success: Meeting successfully created
+          destroy:
+            success: Meeting successfully deleted
+          edit:
+            update: Update
+          index:
+            title: Meetings
+          new:
+            create: Create
+            title: Create meeting
+          update:
+            invalid: There's been a problem updating this meeting
+            success: Meeting successfully updated
+        models:
+          meeting:
+            name: Meeting
+      meetings:
+        filters:
+          category: Category
+          category_prompt: Select a category
+          date: Date
+          past: Past
+          scopes: Scopes
+          search: Search
+          upcoming: Upcoming
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        index:
+          view_meeting: View meeting
+        meetings:
+          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
+          upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
+        show:
+          attendees: Attendees count
+          contributions: Contributions count
+          meeting_report: Meeting report
+          organizations: Attending organizations
+      models:
+        meeting:
+          fields:
+            closed: Closed
+            end_time: End date
+            map: Map
+            start_time: Start date
+            title: Title
+    resource_links:
+      meetings_through_proposals:
+        meeting_results: 'Related results:'
+        result_meetings: 'Related meetings:'
+      proposals_from_meeting:
+        meeting_proposals: 'Related proposals:'
+        proposal_meetings: 'Related meetings:'
