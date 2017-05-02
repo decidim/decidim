@@ -13,6 +13,7 @@ fi:
     features:
       proposals:
         actions:
+          create: Create
           vote: Äänestä
         name: Ehdotukset
         settings:
@@ -28,17 +29,22 @@ fi:
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
             votes_blocked: Äänestys estetty
             votes_enabled: Äänestys sallittu
+            votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     proposals:
       actions:
         answer: Vastaa
+        new: New
         title: Toiminnot
       admin:
+        actions:
+          preview: Preview
         models:
           proposal:
             name: Ehdotus
         proposal_answers:
           edit:
             accepted: Hyväksytty
+            answer_proposal: Answer
             rejected: Hylätty
             title: 'Vastaa ehdotukseen: %{title}'
         proposals:
@@ -52,6 +58,9 @@ fi:
             select_a_category: Valitse kategoria
           index:
             title: Ehdotukset
+          new:
+            create: Create
+            title: Create proposal
       answers:
         accepted: Hyväksytty
         not_answered: Vastaamaton
@@ -77,6 +86,7 @@ fi:
           activity: Aktiivisuus
           all: Kaikki
           category: Kategoria
+          category_prompt: Select a category
           citizenship: Kansalaisuus
           official: Virallinen
           origin: Alkuperä
