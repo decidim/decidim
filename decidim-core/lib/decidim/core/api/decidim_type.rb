@@ -8,5 +8,9 @@ module Decidim
     field :version, !types.String, "The current decidim's version of this deployment." do
       resolve ->(obj, _args, _ctx) { obj.version }
     end
+
+    field :application_name, !types.String, "The current installation's name." do
+      resolve ->(obj, _args, _ctx) { obj.application_name }
+    end
   end
 end

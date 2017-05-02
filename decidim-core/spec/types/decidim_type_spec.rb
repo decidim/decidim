@@ -17,5 +17,13 @@ module Decidim
         expect(response).to eq("version" => Decidim.version)
       end
     end
+
+    describe "application_name" do
+      let(:query) { "{ application_name }" }
+
+      it "returns the application's name" do
+        expect(response).to eq("application_name" => Decidim.application_name)
+      end
+    end
   end
 end
