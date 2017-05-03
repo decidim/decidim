@@ -351,8 +351,13 @@ ca:
         see_all_processes: Veure tots els processos
       statistics:
         headline: Estat actual de %{organization}
-        processes: Processos
-        users: Usuaris
+        meetings_count: Meetings
+        processes_count: Processes
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        users_count: Users
+        votes_count: Votes
       sub_hero:
         register: Registre
   social_share_button:
