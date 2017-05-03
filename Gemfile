@@ -3,12 +3,9 @@ source "https://rubygems.org"
 
 ruby "2.4.1"
 
-gemspec path: "."
-gemspec path: "decidim-core"
-gemspec path: "decidim-system"
-gemspec path: "decidim-admin"
-gemspec path: "decidim-dev"
-gemspec path: "decidim-api"
-gemspec path: "decidim-pages"
-gemspec path: "decidim-comments"
-gemspec path: "decidim-meetings"
+gem "decidim", path: "."
+gem "decidim-dev", path: "decidim-dev"
+
+Dir.glob("decidim-!(dev)") do |file|
+  gem file, path: file
+end

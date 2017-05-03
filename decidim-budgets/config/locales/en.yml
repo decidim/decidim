@@ -16,7 +16,7 @@ en:
         confirm_destroy: Are you sure you want to delete this project?
         destroy: Delete
         edit: Edit
-        new: New %{name}
+        new: New
         preview: Preview
         title: Actions
       admin:
@@ -31,13 +31,13 @@ en:
             success: Project successfully destroyed
           edit:
             title: Edit project
-            update: Update project
+            update: Update
           index:
             finished_orders: Finished orders
             pending_orders: Pending orders
             title: Projects
           new:
-            create: Create project
+            create: Create
             title: New result
           update:
             invalid: There's been a problem updating this project

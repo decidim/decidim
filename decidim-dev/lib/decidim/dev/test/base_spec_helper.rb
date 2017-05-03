@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 ENV["RAILS_ENV"] ||= "test"
 
-engine_name = ENV["ENGINE_NAME"]
+root_path = File.join(Dir.pwd, "..")
 engine_spec_dir = File.join(Dir.pwd, "spec")
-dummy_app_path = File.expand_path(File.join(engine_spec_dir, "#{engine_name}_dummy_app"))
+dummy_app_path = File.expand_path(File.join(root_path, "spec", "decidim_dummy_app"))
 
-if ENV["CI"]
+if ENV["SIMPLECOV"]
   require "simplecov"
-  SimpleCov.root(ENV["TRAVIS_BUILD_DIR"])
+  SimpleCov.root(root_path)
 
   SimpleCov.start do
     filters.clear
@@ -17,7 +17,7 @@ if ENV["CI"]
     add_filter "/vendor/"
 
     add_filter do |src|
-      !(src.filename =~ /^#{ENV["TRAVIS_BUILD_DIR"]}/)
+      !(src.filename =~ /^#{root_path}/)
     end
   end
 
@@ -34,7 +34,7 @@ require "#{File.dirname(__FILE__)}/rspec_support/feature.rb"
 begin
   require "#{dummy_app_path}/config/environment"
 rescue LoadError
-  puts "Could not load dummy application. Please ensure you have run `bundle exec rake generate_test_app`"
+  puts "Could not load dummy application. Please ensure you have run `bundle exec rake decidim:generate_test_app`"
   puts "Tried to load it from #{dummy_app_path}"
   exit(-1)
 end
@@ -45,4 +45,3 @@ Dir["#{engine_spec_dir}/support/**/*.rb"].each { |f| require f }
 Dir["#{engine_spec_dir}/shared/**/*.rb"].each { |f| require f }
 
 require_relative "spec_helper"
-require_relative "i18n_spec"

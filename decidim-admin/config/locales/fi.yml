@@ -1,7 +1,4 @@
 fi:
-  time:
-    formats:
-      timepicker: '%d/%m/%Y %H:%M'
   activemodel:
     attributes:
       attachment:
@@ -11,7 +8,6 @@ fi:
       category:
         description: Kuvaus
         name: Nimi
-        parent: Isäntä
       feature:
         name: Nimi
         weight: Painoarvo
@@ -101,7 +97,6 @@ fi:
         destroy: Tuhoa
         edit: Muokkaa
         manage: Hallitse
-        new: Uusi %{name}
         permissions: Oikeudet
         preview: Esikatsele
         publish: Julkaise
@@ -116,7 +111,6 @@ fi:
           success: Liite tuhottu onnistuneesti.
         edit:
           title: Muokkaa liitettä
-          update: Päivitä liite
         new:
           create: Luo liite
           title: Uusi liite
@@ -132,7 +126,6 @@ fi:
           success: Kategoria poistettu onnistuneesti.
         edit:
           title: Muokkaa kategoriaa
-          update: Päivitä kategoria
         new:
           create: Luo kategoria
           title: Uusi kategoria
@@ -208,8 +201,6 @@ fi:
             title: Otsikko
           name: Liite
         category:
-          fields:
-            name: Nimi
           name: Kategoria
         newsletter:
           fields:
@@ -293,7 +284,6 @@ fi:
       organization:
         edit:
           title: Muokkaa organisaatiota
-          update: Päivitä organisaatio
         update:
           error: Tämän organisaation päivityksessä tapahtui virhe.
           success: Organisaatio päivitetty onnistuneesti.
@@ -330,9 +320,7 @@ fi:
           success: Osallistumisprosessin vaihe tuhottu onnistuneesti.
         edit:
           title: Muokkaa osallistumisprosessin vaihetta
-          update: Päivitä osallistumisprosessin vaihe
         new:
-          create: Luo osallistumisprosessin vaihe
           title: Uusi osallistumisprosessin vaihe
         ordering:
           error: Tämän osallistumisprosessin vaiheiden järjestämisessä tapahtui virhe.
@@ -345,8 +333,6 @@ fi:
           success: Osallistumisprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
         destroy:
           success: Osallistumisprosessi tuhottu onnistuneesti.
-        edit:
-          update: Päivitä osallistumisprosessia
         update:
           error: Tämän osallistumisprosessin päivityksessä tapahtui virhe.
           success: Osallistumisprosessi päivitetty onnistuneesti.
@@ -362,7 +348,6 @@ fi:
           success: Konteksti tuhottu onnistuneesti
         edit:
           title: Muokkaa kontekstia
-          update: Päivitä konteksti
         new:
           create: Luo konteksti
           title: Uusi konteksti
@@ -379,9 +364,7 @@ fi:
           success: Sivu tuhottu onnistuneesti
         edit:
           title: Muokkaa sivua
-          update: Päivitä sivu
         new:
-          create: Luo sivu
           title: Uusi sivu
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
@@ -436,3 +419,6 @@ fi:
     participatory_processes:
       participatory_process_groups:
         none: Ei ryhmää
+  time:
+    formats:
+      timepicker: "%d/%m/%Y %H:%M"

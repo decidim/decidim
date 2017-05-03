@@ -20,9 +20,6 @@ module Decidim
                      .includes(:category)
                      .includes(:scope)
 
-        @proposals = @proposals.page(params[:page]).per(12)
-        @proposals = reorder(@proposals)
-
         @voted_proposals = if current_user
                              ProposalVote.where(
                                author: current_user,
@@ -31,6 +28,9 @@ module Decidim
                            else
                              []
                            end
+
+        @proposals = @proposals.page(params[:page]).per(12)
+        @proposals = reorder(@proposals)
       end
 
       def show
@@ -64,8 +64,15 @@ module Decidim
 
       private
 
+      # Gets how the proposals should be ordered based on the choice made by the user.
+      #
+      # Note that when votes are active and hidden at the same time, the "most_voted"
+      # option is not available, so it's replaced to "random" to avoid people
+      # changing the URL manually.
       def order
-        @order = params[:order] || "random"
+        return @order if @order
+        @order = "random" if current_settings.votes_enabled? && current_settings.votes_hidden? && params[:order] == "most_voted"
+        @order ||= params[:order] || "random"
       end
 
       # Returns: A random float number between -1 and 1 to be used as a random seed at the database.

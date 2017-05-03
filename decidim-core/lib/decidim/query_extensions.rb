@@ -29,7 +29,7 @@ module Decidim
         end
 
         field :decidim, DecidimType, "Decidim's framework properties." do
-          resolve ->(_obj, _args, ctx) { Decidim }
+          resolve ->(_obj, _args, _ctx) { Decidim }
         end
       end
     end

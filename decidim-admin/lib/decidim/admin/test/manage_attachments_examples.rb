@@ -63,7 +63,7 @@ RSpec.shared_examples "manage attachments examples" do
 
   it "can delete an attachment from a process" do
     within find("tr", text: stripped(translated(attachment.title))) do
-      page.find('a.action-icon--remove').click
+      page.find("a.action-icon--remove").click
     end
 
     within ".callout-wrapper" do
@@ -76,7 +76,7 @@ RSpec.shared_examples "manage attachments examples" do
   it "can update an attachment" do
     within "#attachments" do
       within find("tr", text: stripped(translated(attachment.title))) do
-        page.find('a.action-icon--edit').click
+        page.find("a.action-icon--edit").click
       end
     end
 

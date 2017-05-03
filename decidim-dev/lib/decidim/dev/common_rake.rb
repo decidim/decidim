@@ -1,28 +1,10 @@
 # frozen_string_literal: true
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
-require_relative "../../generators/decidim/dummy_generator"
 
-engine_path = Dir.pwd
-engine_name = engine_path.split("/").last
-dummy_app_path = File.expand_path(File.join(engine_path, "spec", "#{engine_name}_dummy_app"))
-
-desc "Generates a dummy app for testing"
-task :generate_test_app do
-  Decidim::Generators::DummyGenerator.start(
-    [
-      "--engine_path=#{engine_path}",
-      "--migrate=true",
-      "--quiet"
-    ]
-  )
-
-  require File.join(dummy_app_path, "config", "application")
-  Rails.application.load_tasks
-  Rake.application["assets:precompile"].invoke
-
-  FileUtils.cd(engine_path)
+RSpec::Core::RakeTask.new(:spec) do |t|
+  # The i18n_spec part needs to go first or it won't be include. It seems like a
+  # bug in RSpec to me... https://github.com/rspec/rspec-core/issues/2418
+  t.rspec_opts = "--pattern #{__dir__}/test/i18n_spec.rb,**/*_spec.rb"
 end
-
-RSpec::Core::RakeTask.new(:spec)
-task default: [:generate_test_app, :spec]
+task default: [:spec]

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "letter_opener_web"
+require "decidim/dev/railtie"
 
 module Decidim
   # Decidim::Dev holds all the convenience logic and libraries to be able to
@@ -11,11 +12,13 @@ module Decidim
     #
     # Returns a String with the path for a particular asset.
     def self.asset(name)
-      File.join(
-        File.dirname(__FILE__),
-        "dev",
-        "assets",
-        name
+      File.expand_path(
+        File.join(
+          File.dirname(__FILE__),
+          "dev",
+          "assets",
+          name
+        )
       )
     end
   end

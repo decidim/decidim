@@ -1,15 +1,15 @@
-import { mount, shallow }   from "enzyme";
+import { mount, shallow } from "enzyme";
 import * as $ from "jquery";
 import * as React from "react";
 
 import { CommentFragment } from "../support/schema";
-import AddCommentForm       from "./add_comment_form.component";
-import Comment              from "./comment.component";
-import DownVoteButton       from "./down_vote_button.component";
-import UpVoteButton         from "./up_vote_button.component";
+import AddCommentForm from "./add_comment_form.component";
+import Comment from "./comment.component";
+import DownVoteButton from "./down_vote_button.component";
+import UpVoteButton from "./up_vote_button.component";
 
 import generateCommentsData from "../support/generate_comments_data";
-import generateUserData     from "../support/generate_user_data";
+import generateUserData from "../support/generate_user_data";
 
 import { loadLocaleTranslations } from "../support/load_translations";
 
@@ -19,7 +19,7 @@ describe("<Comment />", () => {
 
   beforeEach(() => {
     loadLocaleTranslations("en");
-    let commentsData = generateCommentsData(1);
+    const commentsData = generateCommentsData(1);
     commentsData[0].comments = generateCommentsData(3);
 
     comment = commentsData[0];

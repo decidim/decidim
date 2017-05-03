@@ -34,7 +34,11 @@ class ExampleAuthorizationHandler < Decidim::AuthorizationHandler
   # The only method that needs to be implemented for an authorization handler.
   # Here you can add your business logic to check if the authorization should
   # be created or not, you should return a Boolean value.
-  def authorized?
+  #
+  # Note that if you set some validations and overwrite this method, then the
+  # validations will not run, so it's easier to just remove this method and reite
+  # your logic using ActiveModel validations.
+  def valid?
     raise NotImplementedError
   end
 

@@ -5,13 +5,13 @@ RSpec.shared_examples "reports" do
     it "should be given the option to sign in" do
       visit reportable_path
 
-      expect(page).to have_selector('.author-data__extra')
+      expect(page).to have_selector(".author-data__extra")
 
       within ".author-data__extra", match: :first do
-        page.find('button').click
+        page.find("button").click
       end
 
-      expect(page).to have_css('#loginModal', visible: true)
+      expect(page).to have_css("#loginModal", visible: true)
     end
   end
 
@@ -24,13 +24,13 @@ RSpec.shared_examples "reports" do
       it "reports the resource" do
         visit reportable_path
 
-        expect(page).to have_selector('.author-data__extra')
+        expect(page).to have_selector(".author-data__extra")
 
         within ".author-data__extra", match: :first do
-          page.find('button').click
+          page.find("button").click
         end
 
-        expect(page).to have_css('.flag-modal', visible: true)
+        expect(page).to have_css(".flag-modal", visible: true)
 
         within ".flag-modal" do
           click_button "Report"
@@ -49,13 +49,13 @@ RSpec.shared_examples "reports" do
       it "cannot report it twice" do
         visit reportable_path
 
-        expect(page).to have_selector('.author-data__extra')
+        expect(page).to have_selector(".author-data__extra")
 
         within ".author-data__extra", match: :first do
-          page.find('button').click
+          page.find("button").click
         end
 
-        expect(page).to have_css('.flag-modal', visible: true)
+        expect(page).to have_css(".flag-modal", visible: true)
 
         expect(page).to have_content "already reported"
       end

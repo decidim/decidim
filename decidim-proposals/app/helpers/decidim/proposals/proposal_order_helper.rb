@@ -7,7 +7,7 @@ module Decidim
       def order_fields
         @order_fields ||= begin
           order_fields = [:random, :recent]
-          order_fields << :most_voted if current_settings.votes_enabled?
+          order_fields << :most_voted if current_settings.votes_enabled? && !current_settings.votes_hidden?
           order_fields
         end
       end

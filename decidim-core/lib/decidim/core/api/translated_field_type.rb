@@ -20,7 +20,7 @@ module Decidim
         description "A list of locales to scope the translations to."
       end
 
-      resolve ->(obj, args, _ctx) {
+      resolve lambda { |obj, args, _ctx|
         translations = obj.stringify_keys
         translations = translations.slice(*args["locales"]) if args["locales"]
 
@@ -33,7 +33,7 @@ module Decidim
       description "Returns a single translation given a locale."
       argument :locale, !types.String, "A locale to search for"
 
-      resolve ->(obj, args, _ctx) {
+      resolve lambda { |obj, args, _ctx|
         translations = obj.stringify_keys
         translations[args["locale"]]
       }

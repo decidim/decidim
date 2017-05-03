@@ -13,7 +13,6 @@ fi:
     features:
       proposals:
         actions:
-          create: Luo ehdotuksia
           vote: Äänestä
         name: Ehdotukset
         settings:
@@ -40,7 +39,6 @@ fi:
         proposal_answers:
           edit:
             accepted: Hyväksytty
-            answer_proposal: Vastaa ehdotukseen
             rejected: Hylätty
             title: 'Vastaa ehdotukseen: %{title}'
         proposals:
@@ -54,9 +52,6 @@ fi:
             select_a_category: Valitse kategoria
           index:
             title: Ehdotukset
-          new:
-            create: Luo ehdotus
-            title: Uusi ehdotus
       answers:
         accepted: Hyväksytty
         not_answered: Vastaamaton

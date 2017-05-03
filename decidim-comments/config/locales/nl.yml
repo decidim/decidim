@@ -1,0 +1,5 @@
+nl:
+  decidim:
+    comments:
+      comment_notification_mailer:
+        hello: Hallo %{name},

@@ -53,8 +53,10 @@ cache:
     - $BUNDLE_PATH
     - $HOME/travis_phantomjs
 
+before_script:
+  - bundle exec rake decidim:generate_test_app
+
 script:
-  - cd $GEM;
   - $TRAVIS_BUILD_DIR/run_ci.sh
 
 rvm:

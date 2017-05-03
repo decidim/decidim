@@ -27,6 +27,11 @@ module Decidim
         }
       end
       let(:organization) { create(:organization) }
+      let(:homepage_image_path) {
+        File.expand_path(
+          File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg")
+        )
+      }
       let(:attributes) do
         {
           "organization" => {
@@ -40,7 +45,7 @@ module Decidim
             "description_en" => description[:en],
             "description_es" => description[:es],
             "description_ca" => description[:ca],
-            "homepage_image" => Rack::Test::UploadedFile.new(File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg"), "image/jpeg"),
+            "homepage_image" => Rack::Test::UploadedFile.new(homepage_image_path, "image/jpeg"),
             "show_statics" => false,
             "twitter_handler" => twitter_handler,
             "facebook_handler" => facebook_handler,

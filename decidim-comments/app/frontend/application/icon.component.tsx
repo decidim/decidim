@@ -1,5 +1,5 @@
 import * as React from "react";
-import assetUrl   from "../support/asset_url";
+import assetUrl from "../support/asset_url";
 
 interface IconProps {
   name: string;

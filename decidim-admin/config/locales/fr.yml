@@ -1,0 +1,147 @@
+fr:
+  actions:
+    confirm_destroy: Confirmer la suppression
+  activemodel:
+    attributes:
+      attachment:
+        description: Description
+        file: Fichier
+        title: Titre
+      category:
+        description: Description
+        name: Nom
+        parent_id: Parent
+      feature:
+        name: Nom
+        weight: Epaisseur
+      newsletter:
+        body: Corps de texte
+        subject: Objet
+      organization:
+        default_locale: Langue par défaut
+        description: Description
+        favicon: Icône
+        homepage_image: Image de la page d'accueil
+        logo: Logo
+        name: Nom
+        official_img_footer: Logo officiel - pied de page
+        official_img_header: Logo officiel - barre de navigation
+        official_url: Url officielle de l'organisation
+        reference_prefix: Préfixe de référence
+        show_statistics: Afficher les statistiques
+        welcome_text: Texte de bienvenue
+      participatory_process:
+        banner_image: Image d'en-tête
+        description: Description
+        developer_group: Groupe promoteur
+        domain: Domaine
+        end_date: Date de fin
+        hashtag: Hashtag
+        hero_image: Image de la page d'accueil
+        local_area: Quartier
+        meta_scope: Metadonnées du processus
+        participatory_process_group_id: Groupe de processus
+        participatory_structure: Organisations concernées
+        scope_id: Sujet ou zone d'application
+        short_description: Résumé
+        subtitle: Sous-titre
+        target: Objectif
+        title: Titre
+      participatory_process_group:
+        description: Description
+        hero_image: Image
+      participatory_process_step:
+        description: Description
+        end_date: Date de fin
+        short_description: Résumé
+        start_date: Date de commencement
+        title: Titre
+      participatory_process_user_role:
+        email: Courriel
+        name: Nom
+      scope:
+        name: Nom
+        organization: Organisation
+      static_page:
+        content: Contenu
+        organization: Organisation
+        slug: Identifiant
+        title: Titre
+    errors:
+      messages:
+        invalid_json: JSON non valide
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Image d'en-tête
+        description: Description
+        domain: Domaine
+        end_date: Date de fin
+        hashtag: Hashtag
+        hero_image: Image de la page d'accueil
+        local_area: Quartier
+        short_description: Résumé
+        subtitle: Sous-titre
+        target: Objectif
+        title: Titre
+      decidim/static_page:
+        content: Contenu
+        title: Titre
+  decidim:
+    admin:
+      actions:
+        activate: Activer
+      categories:
+        update:
+          success: Catégorie mise à jour avec succès.
+      dashboard:
+        show:
+          welcome: Bienvenue dans le nouveau panneau d’administration Decidim.
+      decidim:
+        admin:
+          attachments:
+            index:
+              attachments_title: Pièces jointes
+          categories:
+            index:
+              categories_title: Catégories
+          participatory_process_steps:
+            index:
+              steps_title: Etapes
+      feature_permissions:
+        edit:
+          everyone: Tout le monde
+          submit: Enregistrer les autorisations
+          title: Modifier les autorisations
+        update:
+          success: Autorisations mises à jour avec succès.
+      features:
+        create:
+          error: Une erreur s'est produite lors de la création de cette fonctionnalité.
+          success: Fonctionnalité créée avec succès.
+        destroy:
+          success: Fonctionnalité supprimée avec succès.
+        edit:
+          title: Editer la fonctionnalité
+          update: Mise à jour
+        form:
+          global_settings: Paramètres généraux
+        index:
+          add: Ajouter une fonctionnalité
+          headers:
+            actions: Actions
+            name: Nom de la fonctionnalité
+            type: Type de fonctionnalité
+        new:
+          add: Ajouter une fonctionnalité
+          title: 'Ajouter la fonctionnalité : %{name}'
+        publish:
+          success: La fonctionnalité a été publiée avec succès.
+        title: Fonctionnalités
+        unpublish:
+          success: La fonctionnalité a été dépubliée avec succès.
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
+  time:
+    formats:
+      timepicker: "%d/%m/%Y %H:%M"

@@ -48,8 +48,8 @@ module Decidim
 
       context "when hero_image is too big" do
         before do
-          allow(Decidim).to receive(:maximum_attachment_size).and_return(5.megabytes)
-          expect(subject.hero_image).to receive(:size).and_return(6.megabytes)
+          an_amount_too_large = (Decidim.maximum_attachment_size + 1).megabytes
+          expect(subject.hero_image).to receive(:size).and_return(an_amount_too_large)
         end
 
         it { is_expected.not_to be_valid }

@@ -13,7 +13,7 @@ ca:
     features:
       proposals:
         actions:
-          create: Crear propostes
+          create: Crear
           vote: Donar suport
         name: Propostes
         settings:
@@ -29,10 +29,11 @@ ca:
             proposal_answering_enabled: Resposta oficial a propostes activades
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
+            votes_hidden: Vots ocults (si els vots estan habilitats, marcant aquesta opció amagarà el nombre de vots)
     proposals:
       actions:
         answer: Respondre
-        new: Nova proposta
+        new: Nova
         title: Accions
       admin:
         actions:
@@ -43,7 +44,7 @@ ca:
         proposal_answers:
           edit:
             accepted: Acceptada
-            answer_proposal: Resposta de la proposta
+            answer_proposal: Resposta
             rejected: Rebutjada
             title: Respondre a la proposta %{title}
         proposals:
@@ -58,8 +59,8 @@ ca:
           index:
             title: Propostes
           new:
-            create: Crear proposta
-            title: Nova proposta
+            create: Crear
+            title: Crear proposta
       answers:
         accepted: Acceptada
         not_answered: No resposta

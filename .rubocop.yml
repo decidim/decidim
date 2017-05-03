@@ -22,13 +22,13 @@ AllCops:
   Exclude:
     - '**/Gemfile'
     - '**/*.gemspec'
-    - 'vendor/**/*'
-    - 'spec/*'
+    - '**/vendor/**/*'
     - 'decidim-*/spec/**/*'
     - 'decidim-*/test/**/*'
     - 'decidim-*/db/**/*'
     - 'development_app/**/*'
-    - 'node_modules/**/*'
+    - 'docker_development_app/**/*'
+    - 'spec/decidim_dummy_app/**/*'
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -78,7 +78,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.4
 
 # Indent private/protected/public as deep as method definitions
 Style/AccessModifierIndentation:
@@ -194,6 +194,8 @@ Style/AndOr:
     - always
     - conditionals
 
+Style/AsciiComments:
+  Enabled: false
 
 # Checks if usage of %() or %Q() matches configuration.
 Style/BarePercentLiterals:
@@ -289,7 +291,7 @@ Style/BracesAroundHashParameters:
 
 # Indentation of `when`.
 Style/CaseIndentation:
-  EnforcedStyle: case
+  IndentWhenRelativeTo: case
   SupportedStyles:
     - case
     - end
@@ -535,7 +537,7 @@ Style/GlobalVars:
 # `MinBodyLength` defines the number of lines of the a body of an if / unless
 # needs to have to trigger this cop
 Style/GuardClause:
-  MinBodyLength: 1
+  MinBodyLength: 6
 
 Style/HashSyntax:
   EnforcedStyle: ruby19
@@ -815,7 +817,6 @@ Style/PredicateName:
   # Predicate name prefixes that should be removed.
   NamePrefixBlacklist:
     - is_
-    - has_
     - have_
   # Predicate names which, despite having a blacklisted prefix, or no ?,
   # should still be accepted
@@ -824,12 +825,15 @@ Style/PredicateName:
   # Exclude Rspec specs because there is a strong convetion to write spec
   # helpers in the form of `have_something` or `be_something`.
   Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
+    - '**/spec/**/*'
+    - '**/test/**/*'
+
+Style/PreferredHashMethods:
+  Enabled: true
+  EnforcedStyle: verbose
 
 Style/Documentation:
-  Exclude:
-    - '**/*/spec/**/*_spec.rb'
+  Enabled: false
 
 Style/RaiseArgs:
   EnforcedStyle: exploded
@@ -969,7 +973,7 @@ Style/SpaceInsideStringInterpolation:
     - no_space
 
 Style/SymbolArray:
-  EnforcedStyle: percent
+  EnforcedStyle: brackets
   SupportedStyles:
     - percent
     - brackets
@@ -1104,7 +1108,7 @@ Metrics/ModuleLength:
 
 # Avoid complex methods.
 Metrics/CyclomaticComplexity:
-  Max: 6
+  Max: 9
 
 Metrics/LineLength:
   Max: 180
@@ -1126,7 +1130,7 @@ Metrics/ParameterLists:
   CountKeywordArgs: true
 
 Metrics/PerceivedComplexity:
-  Max: 7
+  Max: 10
 
 ##################### Lint ##################################
 
@@ -1141,7 +1145,7 @@ Lint/BlockAlignment:
   # The value `start_of_line` means it should be aligned with the whole
   # expression's starting line.
   # The value `either` means both are allowed.
-  EnforcedStyleAlignWith: either
+  AlignWith: either
 
 # Align ends correctly.
 Lint/EndAlignment:
@@ -1152,7 +1156,7 @@ Lint/EndAlignment:
   # situations, `end` should still be aligned with the keyword.
   # The value `start_of_line` means that `end` should be aligned with the start
   # of the line which the matching keyword appears on.
-  EnforcedStyleAlignWith: keyword
+  AlignWith: keyword
   AutoCorrect: false
 
 Lint/DefEndAlignment:
@@ -1160,7 +1164,7 @@ Lint/DefEndAlignment:
   # The value `start_of_line` means that `end` should be aligned with method
   # calls like `private`, `public`, etc, if present in front of the `def`
   # keyword on the same line.
-  EnforcedStyleAlignWith: start_of_line
+  AlignWith: start_of_line
   AutoCorrect: false
 
 Lint/InheritException:
@@ -1268,7 +1272,7 @@ Rails/TimeZone:
     - flexible
 
 Rails/UniqBeforePluck:
-  EnforcedStyle: conservative
+  EnforcedMode: conservative
   AutoCorrect: false
 
 Rails/Validation:
@@ -1277,7 +1281,15 @@ Rails/Validation:
 
 Metrics/BlockLength:
   Exclude:
+    - 'decidim-admin/app/controllers/decidim/admin/concerns/has_attachments.rb'
     - 'decidim-api/lib/decidim/api/schema.rb'
+    - 'decidim-core/app/controllers/concerns/decidim/needs_authorization.rb'
+    - 'decidim-core/app/controllers/concerns/decidim/filter_resource.rb'
+    - 'decidim-core/config/initializers/devise.rb'
+    - 'decidim-core/lib/decidim/core/api/translated_field_type.rb'
+    - 'decidim-core/lib/decidim/resourceable.rb'
+    - 'decidim-comments/lib/decidim/comments/api/comment_type.rb'
+    - 'decidim-*/**/routes.rb'
     - 'decidim-*/**/*/types/**/*'
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'

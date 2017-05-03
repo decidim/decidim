@@ -2,7 +2,7 @@
 # This holds Decidim's version and the Rails version on which it depends.
 module Decidim
   def self.version
-    "0.0.7"
+    "0.0.9.pre"
   end
 
   def self.rails_version
@@ -14,7 +14,7 @@ module Decidim
     spec.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
     spec.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
     spec.license = "AGPLv3"
-    spec.homepage = "https://github.com/AjuntamentdeBarcelona/decidim"
+    spec.homepage = "https://github.com/decidim/decidim"
     spec.required_ruby_version = ">= 2.3.1"
   end
 end

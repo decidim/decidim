@@ -31,12 +31,8 @@
     <% if current_settings.votes_enabled? %>
       <div class="card extra">
         <div class="card__content">
-            <div id="proposal-<%= @proposal.id %>-votes-count">
-              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-            </div>
-            <div id="proposal-<%= @proposal.id %>-vote-button">
-              <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
-            </div>
+          <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+          <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
         </div>
       </div>
     <% end %>

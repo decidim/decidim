@@ -14,7 +14,7 @@ en:
     features:
       proposals:
         actions:
-          create: Create proposals
+          create: Create
           vote: Vote
         name: Proposals
         settings:
@@ -30,11 +30,12 @@ en:
             proposal_answering_enabled: Proposal answering enabled
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
+            votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     proposals:
       actions:
         answer: Answer
         export: Export
-        new: New Proposal
+        new: New
         title: Actions
       admin:
         actions:
@@ -45,7 +46,7 @@ en:
         proposal_answers:
           edit:
             accepted: Accepted
-            answer_proposal: Answer proposal
+            answer_proposal: Answer
             rejected: Rejected
             title: Answer for proposal %{title}
         proposals:
@@ -60,8 +61,8 @@ en:
           index:
             title: Proposals
           new:
-            create: Create proposal
-            title: New proposal
+            create: Create
+            title: Create proposal
       answers:
         accepted: Accepted
         not_answered: Not answered

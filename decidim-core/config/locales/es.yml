@@ -204,6 +204,10 @@ es:
           invalid: "%{field} no es válido."
           ok: De acuerdo
           title: No autorizado
+      embed_modal:
+        close_window: Cerrar ventana
+        embed: Por favor, pega este código en tu página
+        embed_link: Incrustar
       flag_modal:
         already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
         close: Cerrar
@@ -269,7 +273,7 @@ es:
         link_label: aquí
         ok: Estoy de acuerdo
       footer:
-        made_with_open_source: 'Esta web está hecha con <a target="_blank" href="https://github.com/AjuntamentdeBarcelona/decidim">software libre</a>.'
+        made_with_open_source: 'Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.'
       header:
         close_menu: Cerrar menú
         navigation: Navegación
@@ -278,6 +282,10 @@ es:
       participatory_process_groups:
         participatory_process_group:
           browse: Explorar
+      participatory_process_widgets:
+        show:
+          active_step: Fase activa
+          take_part: Participa
       participatory_processes:
         index:
           promoted_processes: Procesos destacados

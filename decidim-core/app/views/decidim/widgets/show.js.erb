@@ -1,28 +1,32 @@
 /* eslint-disable no-var, prefer-template */
-document.write('<iframe src="<%= iframe_url %>" frameborder="0" scrolling="no" onload="setIframeHeight(this)"></iframe>');
+(function () {
+  var iframe = document.createElement('iframe');
+  var scripts = document.getElementsByTagName('script');
+  var me = null;
 
-(function (exports) {
-  var getDocHeight = function(doc) {
-    var body = doc.body;
-    var html = doc.documentElement;
-    var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-
-    return height;
+  if (document.currentScript) {
+    me = document.currentScript;
+  } else {
+    me = scripts[scripts.length - 1];
   }
 
-  exports.setIframeHeight = function(ifrm) {
-    var doc = null;
+  iframe.src = "<%= iframe_url %>";
+  iframe.frameBorder = "0"
+  iframe.scrolling = "no";
+  iframe.style.visibility = 'hidden';
+  iframe.style.height = "10px";
+  iframe.onload = function () {
+    iframe.contentWindow.postMessage({ type: "GET_HEIGHT" }, "*");
+  }
 
-    if (ifrm.contentDocument) {
-      doc = ifrm.contentDocument;
-    } else {
-      doc = ifrm.contentWindow.document;
+  me.insertAdjacentElement('afterend', iframe);
+
+  window.addEventListener("message", function (event) {
+    var height = event.data.height;
+
+    if (event.data.type === "SET_HEIGHT") {
+      iframe.style.height = height + "px";
+      iframe.style.visibility = 'visible';
     }
-
-    ifrm.style.visibility = 'hidden';
-    ifrm.style.height = "10px";
-
-    ifrm.style.height = getDocHeight(doc) + 4 + "px";
-    ifrm.style.visibility = 'visible';
-  }
-}(window));
+  });
+}());

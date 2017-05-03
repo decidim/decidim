@@ -1,0 +1,5 @@
+nl:
+  decidim:
+    system:
+      actions:
+        destroy: Vernietigen

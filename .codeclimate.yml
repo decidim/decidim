@@ -27,6 +27,8 @@ engines:
     enabled: false
   fixme:
     enabled: true
+  rubocop:
+    enabled: true
 
 ratings:
   paths:
@@ -40,16 +42,18 @@ ratings:
   - "**.py"
   - "**.rb"
 exclude_paths:
-- "**/spec/**/*"
-- "**/*/Rakefile"
 - "**/vendor/**/*"
-- "**/db/**/*"
+- "decidim-*/spec/**/*"
+- "decidim-*/test/**/*"
+- "decidim-*/db/**/*"
 - "**/*.test.js"
 - "**/*.test.jsx"
 - "decidim-core/app/assets/stylesheets/decidim/email.css"
 - .rubocop.yml
 - lib/generators/decidim/templates/app.json.erb
-- "decidim-*/db/seeds.rb"
-- "decidim-*/config/routes.rb"
-- "doc/how_to_create_a_plugin.md"
+- "docs/how_to_create_a_plugin.md"
 - "bundle.js"
+- "node_modules/**/*"
+- "development_app/**/*"
+- "docker_development_app/**/*"
+- "spec/decidim_dummy_app/**/*"

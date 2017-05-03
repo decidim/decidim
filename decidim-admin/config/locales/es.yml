@@ -1,9 +1,6 @@
 es:
   actions:
     confirm_destroy: '¿Estás seguro?'
-  time:
-    formats:
-      timepicker: '%d/%m/%Y %H:%M'
   activemodel:
     attributes:
       attachment:
@@ -13,7 +10,7 @@ es:
       category:
         description: Descripción
         name: Nombre
-        parent: Padre
+        parent_id: Superior
       feature:
         name: Nombre
         weight: Peso
@@ -100,6 +97,9 @@ es:
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
         title: Título
+      decidim/participatory_process_step:
+        end_date: Fecha de finalización
+        start_date: Fecha de inicio
       decidim/static_page:
         content: Contenido
         slug: Texto corto de URL
@@ -114,7 +114,7 @@ es:
         destroy: Eliminar
         edit: Editar
         manage: Gestionar
-        new: Nuevo %{name}
+        new: Nuevo/a
         permissions: Permisos
         preview: Previsualizar
         publish: Publicar
@@ -129,7 +129,7 @@ es:
           success: El archivo adjunto se ha eliminado correctamente.
         edit:
           title: Editar archivo adjunto
-          update: Actualizar archivo adjunto
+          update: Actualizar
         form:
           current_file: Archivo actual
           url: URL
@@ -148,7 +148,7 @@ es:
           success: Categoría eliminada correctamente.
         edit:
           title: Editar categoría
-          update: Actualizar categoría
+          update: Actualizar
         new:
           create: Crear categoría
           title: Nueva categoría
@@ -171,8 +171,6 @@ es:
               steps_title: Fases
           participatory_process_user_roles:
             index:
-              admin: Administrador
-              collaborator: Colaborador
               process_admins_title: Usuarios del proceso
       feature_permissions:
         edit:
@@ -237,8 +235,6 @@ es:
             title: Título
           name: Archivo adjunto
         category:
-          fields:
-            name: Nombre
           name: Categoría
         newsletter:
           fields:
@@ -270,6 +266,9 @@ es:
             name: Nombre
             role: Rol
           name: Usuario del proceso
+          roles:
+            admin: Administrador
+            collaborator: Colaborador
         scope:
           fields:
             created_at: Fecha de creación
@@ -329,7 +328,7 @@ es:
       organization:
         edit:
           title: Editar organización
-          update: Actualizar organización
+          update: Actualizar
         form:
           current_image: Imagen actual
           facebook: Facebook
@@ -377,9 +376,9 @@ es:
           success: La fase de proceso participativo se ha eliminado correctamente.
         edit:
           title: Editar fase de proceso participativo
-          update: Actualizar fase de proceso participativo
+          update: Actualizar
         new:
-          create: Crear fase de proceso participativo
+          create: Crear
           title: Nuevo fase de proceso participativo
         ordering:
           error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
@@ -408,7 +407,7 @@ es:
         destroy:
           success: El proceso participativo se ha eliminado correctamente.
         edit:
-          update: Actualizar proceso participativo
+          update: Actualizar
         form:
           current_image: Imagen actual
           title: Información general
@@ -417,8 +416,8 @@ es:
           not_published: No publicado
           published: Publicado
         new:
-          create: Crear proceso
-          title: Nuevo proceso
+          create: Crear
+          title: Nuevo proceso participativo
         update:
           error: Se ha producido un error en la actualización de este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
@@ -434,7 +433,7 @@ es:
           success: Ámbito eliminado con éxito
         edit:
           title: Editar alcance
-          update: Actualizar ámbito
+          update: Actualizar
         new:
           create: Crear ámbito
           title: Nuevo ámbito
@@ -451,9 +450,9 @@ es:
           success: La página se ha eliminado correctamente.
         edit:
           title: Editar página
-          update: Actualizar página
+          update: Actualizar
         new:
-          create: Crear página
+          create: Nueva
           title: Nueva página
         update:
           error: Se ha producido un error en la actualización de ésta página.
@@ -520,3 +519,6 @@ es:
           title: Ajustes
         users:
           title: Usuarios
+  time:
+    formats:
+      timepicker: "%d/%m/%Y %H:%M"

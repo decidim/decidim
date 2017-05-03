@@ -1,9 +1,11 @@
 .reveal--embed {
+  overflow-y: hidden;
   .embed__code {
     font-family: monospace;
     background: $light-gray-dark;
     padding: 1em;
     border-radius: .3em;
     font-size: 1em;
+    overflow-y: auto;
   }
 }

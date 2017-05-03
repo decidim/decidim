@@ -36,7 +36,7 @@ module Decidim
 
       def create_participatory_process_group
         transaction do
-          group = ParticipatoryProcessGroup.create(
+          ParticipatoryProcessGroup.create(
             name: form.name,
             description: form.description,
             hero_image: form.hero_image,

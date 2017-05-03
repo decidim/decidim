@@ -1,0 +1,97 @@
+fr:
+  activemodel:
+    attributes:
+      project:
+        budget: Budget
+        decidim_category_id: Catégorie
+        decidim_scope_id: Champ d'application
+        description: Description
+        proposal_ids: Propositions liées
+        title: Titre
+  decidim:
+    budgets:
+      actions:
+        attachments: Pièces jointes
+        confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
+        destroy: Supprimer
+        edit: Modifier
+        preview: Aperçu
+        title: Actions
+      admin:
+        models:
+          project:
+            name: Projet
+        projects:
+          create:
+            invalid: Il y a eu un problème lors de la création de ce projet
+            success: Projet créé avec succès
+          destroy:
+            success: Projet supprimé avec succès
+          edit:
+            title: Éditer un projet
+          index:
+            finished_orders: Commandes terminées
+            pending_orders: Commandes en attente
+            title: Projets
+          new:
+            title: Nouveau résultat
+          update:
+            invalid: Il y a eu un problème de mise à jour de ce projet
+            success: Projet mis à jour avec succès
+      models:
+        project:
+          fields:
+            title: Titre
+      projects:
+        budget_confirm:
+          are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre vote, vous ne pourrez plus le modifier.
+          cancel: Annuler
+          confirm: Confirmer
+          description: Voici les projets que vous avez choisis pour le budget.
+          title: Confirmez votre vote
+        budget_excess:
+          close: Fermer
+          description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné ou voter selon vos préférences.
+          ok: D'accord
+          title: Budget maximum dépassé
+        budget_summary:
+          are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
+          assigned: 'Affecté à :'
+          cancel_order: supprimer votre vote et recommencer
+          checked_out:
+            description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
+            title: Vote du budget terminé
+          description: A quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
+          title: Vous décidez du budget
+        count:
+          projects_count:
+            one: 1 projet
+            other: "%{count} projets"
+        filters:
+          category: Catégorie
+          category_prompt: Sélectionner une catégorie
+          scopes: Étendues
+          search: Rechercher
+        filters_small_view:
+          close_modal: Fermer la vue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Déplier
+        order_progress:
+          vote: Voter
+        order_selected_projects:
+          remove: Supprimer
+          selected_projects:
+            one: projet sélectionné
+            other: projets sélectionnés
+          view: Voir
+        project:
+          add: Ajouter
+          count:
+            one: 1 soutien
+            other: "%{count} soutiens"
+    features:
+      budgets:
+        settings:
+          global:
+            vote_threshold_percent: Pourcentage de seuil de vote

@@ -1,12 +1,12 @@
-import * as classnames     from "classnames";
-import * as moment         from "moment";
-import * as React          from "react";
+import * as classnames from "classnames";
+import * as moment from "moment";
+import * as React from "react";
 
 import Icon from "../application/icon.component";
 
-import AddCommentForm      from "./add_comment_form.component";
-import DownVoteButton      from "./down_vote_button.component";
-import UpVoteButton        from "./up_vote_button.component";
+import AddCommentForm from "./add_comment_form.component";
+import DownVoteButton from "./down_vote_button.component";
+import UpVoteButton from "./up_vote_button.component";
 
 import {
   AddCommentFormSessionFragment,

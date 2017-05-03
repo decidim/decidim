@@ -4,6 +4,9 @@ require "rspec/core/rake_task"
 require_relative "lib/generators/decidim/app_generator"
 require_relative "lib/generators/decidim/docker_generator"
 
+load "decidim-core/lib/tasks/decidim_tasks.rake"
+load "decidim-dev/lib/tasks/test_app.rake"
+
 DECIDIM_GEMS = %w(core system admin api pages meetings proposals comments results budgets dev).freeze
 
 RSpec::Core::RakeTask.new(:spec)
@@ -11,19 +14,10 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 desc "Runs all tests in all Decidim engines"
-task :test_all do
+task test_all: ["decidim:generate_test_app"] do
   DECIDIM_GEMS.each do |gem_name|
     Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
       sh "rake"
-    end
-  end
-end
-
-desc "Generates test apps for all the engines"
-task :generate_all do
-  DECIDIM_GEMS.each do |gem_name|
-    Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
-      sh "rake generate_test_app"
     end
   end
 end
@@ -49,9 +43,11 @@ task :development_app do
   )
 
   Dir.chdir("#{File.dirname(__FILE__)}/development_app") do
-    sh "bundle exec spring stop"
-    sh "bundle exec rake db:drop db:create db:migrate db:seed"
-    sh "bundle exec rails generate decidim:demo"
+    Bundler.with_clean_env do
+      sh "bundle exec spring stop"
+      sh "bundle exec rake db:drop db:create db:migrate db:seed"
+      sh "bundle exec rails generate decidim:demo"
+    end
   end
 end
 

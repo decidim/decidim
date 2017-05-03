@@ -9,14 +9,14 @@ const { I18n } = require("react-i18nify");
  * @returns {Void} - Nothing
  */
 const loadTranslations = () => {
-  const translationsContext = (<any> require).context("../../../config/locales/", true, /\.yml$/);
+  const translationsContext = (require as any).context("../../../config/locales/", true, /\.yml$/);
   const translationFiles = requireAll(translationsContext);
 
   const translations = translationsContext.keys().reduce((acc: any, key: string, index: number) => {
     const match = key.match(/\.\/(.*)\.yml/);
 
     if (match) {
-      let locale = match[1];
+      const locale = match[1];
       acc[locale] = translationFiles[index][locale].decidim;
     }
 
