@@ -45,4 +45,3 @@ Dir["#{engine_spec_dir}/support/**/*.rb"].each { |f| require f }
 Dir["#{engine_spec_dir}/shared/**/*.rb"].each { |f| require f }
 
 require_relative "spec_helper"
-require_relative "i18n_spec"
