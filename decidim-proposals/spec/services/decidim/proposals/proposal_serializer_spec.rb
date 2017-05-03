@@ -1,0 +1,69 @@
+require "spec_helper"
+
+module Decidim
+  module Proposals
+    describe ProposalSerializer do
+      let!(:proposal) { create(:proposal) }
+      let!(:category) { create(:category, participatory_process: feature.participatory_process) }
+      let(:participatory_process) { feature.participatory_process }
+      let(:feature) { proposal.feature }
+
+      let!(:meetings_feature) { create(:feature, manifest_name: "meetings", participatory_process: participatory_process) }
+      let(:meetings) { create_list(:meeting, 2, feature: meetings_feature) }
+
+      before do
+        proposal.update_attribute(:category, category)
+        proposal.link_resources(meetings, "proposals_from_meeting")
+      end
+
+      subject do
+        described_class.new(proposal)
+      end
+
+      describe "#serialize" do
+        let(:serialized) { subject.serialize }
+
+        it "serializes the id" do
+          expect(serialized).to include(id: proposal.id)
+        end
+
+        it "serializes the category" do
+          expect(serialized[:category]).to include(id: category.id)
+          expect(serialized[:category]).to include(name: category.name)
+        end
+
+        it "serializes the title" do
+          expect(serialized).to include(title: proposal.title)
+        end
+
+        it "serializes the body" do
+          expect(serialized).to include(body: proposal.body)
+        end
+
+        it "serializes the amount of votes" do
+          expect(serialized).to include(votes: proposal.proposal_votes_count)
+        end
+
+        it "serializes the amount of comments" do
+          expect(serialized).to include(comments: proposal.comments.count)
+        end
+
+        it "serializes the date of creation" do
+          expect(serialized).to include(created_at: proposal.created_at)
+        end
+
+        it "serializes the url" do
+          expect(serialized[:url]).to include("http", proposal.id.to_s)
+        end
+
+        it "serializes the feature" do
+          expect(serialized[:feature]).to include(id: proposal.feature.id)
+        end
+
+        it "serializes the meetings" do
+          expect(serialized[:meeting_ids]).to include(*meetings.map(&:id))
+        end
+      end
+    end
+  end
+end

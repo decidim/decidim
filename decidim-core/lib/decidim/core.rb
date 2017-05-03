@@ -24,6 +24,7 @@ module Decidim
   autoload :HasCategory, "decidim/has_category"
   autoload :HasReference, "decidim/has_reference"
   autoload :Attributes, "decidim/attributes"
+  autoload :Exporters, "decidim/exporters"
 
   include ActiveSupport::Configurable
 
