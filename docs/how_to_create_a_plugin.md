@@ -166,16 +166,61 @@ module Decidim
 end
 ```
 
-9. Replace `Rakefile` with:
+9. Add `lib/decidim/<engine_name>/feature.rb` with this:
+
+```ruby
+# frozen_string_literal: true
+
+require_dependency "decidim/features/namer"
+
+Decidim.register_feature(:<engine_name>) do |feature|
+  feature.engine = Decidim::<EngineName>::Engine
+  feature.admin_engine = Decidim::<EngineName>::AdminEngine
+  feature.icon = "decidim/<engine_name>/icon.svg"
+
+  feature.on(:before_destroy) do |instance|
+    # Code executed before removing the feature
+  end
+
+  # These actions permissions can be configured in the admin panel
+  feature.actions = %w()
+
+  feature.settings(:global) do |settings|
+    # Add your global settings
+    # Available types: :integer, :boolean
+    # settings.attribute :vote_limit, type: :integer, default: 0
+  end
+
+  feature.settings(:step) do |settings|
+    # Add your settings per step
+  end
+
+  feature.register_resource do |resource|
+    # Register a optional resource that can be references from other resources.
+    # resource.model_class_name = "Decidim::<EngineName>::<ResourceName>"
+    # resource.template = "decidim/<engine_name>/<resource_view_folder>/linked_<resource_name_plural>"
+  end
+
+  feature.register_stat :some_stat do |features, start_at, end_at|
+    # Register some stat number to the application
+  end
+
+  feature.seeds do
+    # Add some seeds for this feature
+  end
+end
+```
+
+10. Replace `Rakefile` with:
 
 ```ruby
 # frozen_string_literal: true
 require "decidim/common_rake"
 ```
 
-10. Remove `license` and change `README`
+11. Remove `license` and change `README`
 
-11. Add `spec/spec_helper.rb` with:
+12. Add `spec/spec_helper.rb` with:
 
 ```ruby
 ENV["ENGINE_NAME"] = File.dirname(File.dirname(__FILE__)).split("/").last

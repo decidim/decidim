@@ -19,6 +19,13 @@ Decidim.register_feature(:budgets) do |feature|
     resource.template = "decidim/budgets/projects/linked_projects"
   end
 
+  feature.register_stat :projects_count do |features, start_at, end_at|
+    projects = Decidim::Budgets::Project.where(feature: features)
+    projects = projects.where("created_at >= ?", start_at) if start_at.present?
+    projects = projects.where("created_at <= ?", end_at) if end_at.present?
+    projects.count
+  end
+
   feature.settings(:global) do |settings|
     settings.attribute :total_budget, type: :integer, default: 100_000_000
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
