@@ -351,11 +351,11 @@ en:
         active_step: Active step
         see_all_processes: See all processes
       statistics:
-        accepted_proposals_count: Accepted proposals
         headline: Current state of %{organization}
         meetings_count: Meetings
         processes_count: Processes
-        proposals_count: Total proposals
+        projects_count: Projects
+        proposals_count: Proposals
         results_count: Results
         users_count: Users
         votes_count: Votes
