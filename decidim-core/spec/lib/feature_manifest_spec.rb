@@ -54,5 +54,19 @@ module Decidim
         end
       end
     end
+
+    describe "register_stat" do
+      before do
+        allow(Decidim).to receive(:register_stat)
+      end
+
+      it "calls Decidim.register_stat with the same arguments" do
+        options = { primary: true }
+        subject.register_stat :foo, options do
+          10
+        end
+        expect(Decidim).to have_received(:register_stat).with(:foo, options, instance_of(Proc))
+      end
+    end
   end
 end
