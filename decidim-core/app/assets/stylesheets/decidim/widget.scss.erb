@@ -13,13 +13,19 @@
 @import "<%= stylesheet %>";
 <% end %>
 
-body, .column, .card {
-  padding: 0;
+$widget-padding: 8px;
+
+body {
+  padding: $widget-padding;
+  margin: 0;
+}
+
+.card {
   margin: 0;
 }
 
 .organization {
-  margin: 15px 5px 0 5px;
+  margin-top: $widget-padding;
   text-align: right;
 }
 
