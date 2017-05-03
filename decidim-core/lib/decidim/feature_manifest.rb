@@ -136,6 +136,11 @@ module Decidim
       @resource_manifests ||= []
     end
 
+    # Public: Stores an instance of StatsRegistry
+    def self.stats
+      @stats ||= StatsRegistry.new
+    end
+
     # Public: Registers a stat inside a feature manifest.
     #
     # These stats can be used anywhere in the application using Decidim.stats_for method.
@@ -147,7 +152,7 @@ module Decidim
     #
     # Returns nothing.
     def register_stat(name, options = {}, &block)
-      Decidim.register_stat(name, options, block)
+      # Decidim.register_stat(name, options, block)
     end
   end
 end

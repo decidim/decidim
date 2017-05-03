@@ -6,36 +6,27 @@ module Decidim
 
     # Public: Render a collection of primary stats.
     def highlighted
-      render_stats(filtered_stats(primary: true))
+      safe_join([
+        safe_join(
+          Decidim.stats.only([:users_count, :processes_count]).with_context(organization).map do |name, data|
+            render_stats_data(name, data)
+          end
+        ),
+        render_stats(priority: StatsRegistry::HIGH_PRIORITY)
+      ])
     end
 
     # Public: Render a collection of stats that are not primary.
     def not_highlighted
-      render_stats(filtered_stats(primary: false))
-    end
-
-    # Public: Render the number of users for the current organization.
-    def users_count
-      render_stats_data(
-        :users_count,
-        Decidim::User.where(organization: organization).count
-      )
-    end
-
-    # Public: Render the number of published participatory processes for the current organization.
-    def processes_count
-      render_stats_data(
-        :processes_count,
-        (OrganizationParticipatoryProcesses.new(organization) | PublicParticipatoryProcesses.new).count
-      )
+      render_stats(priority: StatsRegistry::MEDIUM_PRIORITY)
     end
 
     private
 
-    def render_stats(stats = {})
+    def render_stats(conditions)
       safe_join(
-        stats.map do |name, _stat|
-          render_stats_data(name, Decidim.stats_for(name, published_features))
+        Decidim.stats.except([:users_count, :processes_count]).filter(conditions).with_context(published_features).map do |name, data|
+          render_stats_data(name, data)
         end
       )
     end
@@ -47,10 +38,6 @@ module Decidim
                     content_tag(:span, " #{data}", class: "home-pam__number #{name}")
                   ])
       end
-    end
-
-    def filtered_stats(filter = {})
-      Decidim.stats.select { |_name, stat| stat[:primary] == filter.fetch(:primary, false) }
     end
 
     def published_features

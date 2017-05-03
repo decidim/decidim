@@ -119,6 +119,16 @@ module Decidim
           )
         end
       end
+
+      initializer "decidim.stats" do
+        Decidim.stats.register :users_count, priority: StatsRegistry::HIGH_PRIORITY do |organization|
+          Decidim::User.where(organization: organization).count
+        end
+
+        Decidim.stats.register :processes_count, priority: StatsRegistry::HIGH_PRIORITY do |organization|
+          (OrganizationParticipatoryProcesses.new(organization) | PublicParticipatoryProcesses.new).count
+        end
+      end
     end
   end
 end
