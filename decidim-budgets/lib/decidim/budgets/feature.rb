@@ -19,7 +19,7 @@ Decidim.register_feature(:budgets) do |feature|
     resource.template = "decidim/budgets/projects/linked_projects"
   end
 
-  feature.register_stat :projects_count do |features, start_at, end_at|
+  feature.register_stat :projects_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|
     projects = Decidim::Budgets::Project.where(feature: features)
     projects = projects.where("created_at >= ?", start_at) if start_at.present?
     projects = projects.where("created_at <= ?", end_at) if end_at.present?

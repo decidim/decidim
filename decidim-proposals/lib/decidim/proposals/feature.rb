@@ -37,11 +37,11 @@ Decidim.register_feature(:proposals) do |feature|
     resource.template = "decidim/proposals/proposals/linked_proposals"
   end
 
-  feature.register_stat :proposals_count, primary: true do |features, start_at, end_at|
+  feature.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
     Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).count
   end
 
-  feature.register_stat :votes_count do |features, start_at, end_at|
+  feature.register_stat :votes_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at)
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
