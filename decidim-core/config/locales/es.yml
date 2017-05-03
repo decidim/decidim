@@ -351,8 +351,13 @@ es:
         see_all_processes: Ver todos los procesos
       statistics:
         headline: Estado actual de %{organization}
-        processes: Procesos
-        users: Usuarios
+        meetings_count: Meetings
+        processes_count: Processes
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        users_count: Users
+        votes_count: Votes
       sub_hero:
         register: Registro
   social_share_button:
