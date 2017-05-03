@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Decidim
-  # A presenter to render statistics in the hoomepage.
+  # A presenter to render statistics in the homepage.
   class HomeStatsPresenter < Rectify::Presenter
     attribute :organization, Decidim::Organization
 
@@ -54,7 +54,7 @@ module Decidim
     end
 
     def published_features
-      @published_features ||= Feature.where(participatory_process: ParticipatoryProcess.published)
+      @published_features ||= Feature.where(participatory_process: organization.participatory_processes.published)
     end
   end
 end
