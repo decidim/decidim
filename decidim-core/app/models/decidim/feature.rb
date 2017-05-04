@@ -81,6 +81,11 @@ module Decidim
       step_settings.fetch(active_step.id.to_s)
     end
 
+    # Public: Returns the value of the registered primary stat.
+    def primary_stat
+      @primary_stat ||= manifest.stats.filter(primary: true).with_context([self]).map { |name, value| [name, value] }.first&.last
+    end
+
     private
 
     def serialize_settings(schema, value)

@@ -60,7 +60,7 @@ module Decidim
         allow(subject.stats).to receive(:register)
       end
 
-      it "calls Decidim.register_stat with the same arguments" do
+      it "calls subject.stats with the same arguments" do
         resolver = Proc.new { 10 }
         options = { primary: true }
         subject.register_stat :foo, options, &resolver
