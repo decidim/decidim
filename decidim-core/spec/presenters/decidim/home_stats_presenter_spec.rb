@@ -60,6 +60,10 @@ module Decidim
           [
             "<div class=\"home-pam__lowlight\">",
               "<div class=\"home-pam__data\">",
+                "<h4 class=\"home-pam__title\">Comments</h4>",
+                "<span class=\"home-pam__number comments_count\"> 0</span>",
+              "</div>",
+              "<div class=\"home-pam__data\">",
                 "<h4 class=\"home-pam__title\">Bar</h4>",
                 "<span class=\"home-pam__number bar\"> 20</span>",
               "</div>",
