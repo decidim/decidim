@@ -23,7 +23,7 @@ Decidim.register_feature(:pages) do |feature|
     pages = Decidim::Pages::Page.where(feature: features)
     pages = pages.where("created_at >= ?", start_at) if start_at.present?
     pages = pages.where("created_at <= ?", end_at) if end_at.present?
-    Decidim::Comments::Comment.where(commentable: pages).count
+    Decidim::Comments::Comment.where(root_commentable: pages).count
   end
 
   feature.settings(:global) do |settings|

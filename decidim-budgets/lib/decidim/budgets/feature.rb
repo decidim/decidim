@@ -25,7 +25,7 @@ Decidim.register_feature(:budgets) do |feature|
 
   feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
     projects = Decidim::Budgets::FilteredProjects.for(features, start_at, end_at)
-    Decidim::Comments::Comment.where(commentable: projects).count
+    Decidim::Comments::Comment.where(root_commentable: projects).count
   end
 
   feature.settings(:global) do |settings|

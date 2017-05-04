@@ -48,7 +48,7 @@ Decidim.register_feature(:proposals) do |feature|
 
   feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at)
-    Decidim::Comments::Comment.where(commentable: proposals).count
+    Decidim::Comments::Comment.where(root_commentable: proposals).count
   end
 
   feature.seeds do

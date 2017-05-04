@@ -22,7 +22,7 @@ Decidim.register_feature(:results) do |feature|
 
   feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
     results = Decidim::Results::FilteredResults.for(features, start_at, end_at)
-    Decidim::Comments::Comment.where(commentable: results).count
+    Decidim::Comments::Comment.where(root_commentable: results).count
   end
 
   feature.settings(:global) do |settings|
