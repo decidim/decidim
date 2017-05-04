@@ -6,7 +6,7 @@ module Decidim
     describe Comment do
       let!(:commentable) { create(:dummy_resource) }
       let!(:comment) { create(:comment, commentable: commentable) }
-      let!(:replies) { 3.times.map { create(:comment, commentable: comment) } }
+      let!(:replies) { 3.times.map { create(:comment, commentable: comment, root_commentable: commentable) } }
       let!(:up_vote) { create(:comment_vote, :up_vote, comment: comment) }
       let!(:down_vote) { create(:comment_vote, :down_vote, comment: comment) }
 
@@ -21,6 +21,10 @@ module Decidim
 
       it "has an associated commentable" do
         expect(subject.commentable).to eq(commentable)
+      end
+
+      it "has an associated commentable" do
+        expect(subject.root_commentable).to eq(commentable)
       end
 
       it "has a up_votes association returning comment votes with weight 1" do
@@ -81,14 +85,6 @@ module Decidim
 
         it "should return false if the given user has not downvoted the comment" do
           expect(subject.down_voted_by?(user)).to be_falsy
-        end
-      end
-
-      describe "#root_commentable" do
-        let(:reply) { create(:comment, commentable: subject) }
-
-        it "returns the commentable object from the parent comment" do
-          expect(reply.root_commentable).to eq(subject.commentable)
         end
       end
     end
