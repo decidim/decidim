@@ -5,3 +5,5 @@ ignore_unused:
 - "decidim.resource_links.*"
 - activerecord.attributes.*
 - activemodel.attributes.*
+search:
+  strict: false

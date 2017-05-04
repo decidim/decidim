@@ -6,3 +6,6 @@ ignore_unused:
 - "decidim.features.budgets.actions.*"
 - "activemodel.attributes.project.*"
 - "decidim.resource_links.*"
+
+search:
+  strict: false

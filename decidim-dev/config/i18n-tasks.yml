@@ -2,3 +2,5 @@ base_locale: en
 ignore_unused:
 - "decidim.resource_links.test_link.*"
 - "decidim.dummy.admin.exports.dummies"
+search:
+  strict: false
