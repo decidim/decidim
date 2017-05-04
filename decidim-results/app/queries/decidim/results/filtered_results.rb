@@ -8,7 +8,7 @@ module Decidim
       # features - An array of Decidim::Feature
       # start_at - A date to filter resources created after it
       # end_at - A date to filter resources created before it.
-      def self.for(features, start_at, end_at)
+      def self.for(features, start_at = nil, end_at = nil)
         new(features, start_at, end_at).query
       end
 
@@ -17,7 +17,7 @@ module Decidim
       # features - An array of Decidim::Feature
       # start_at - A date to filter resources created after it
       # end_at - A date to filter resources created before it.
-      def initialize(features, start_at, end_at)
+      def initialize(features, start_at = nil, end_at = nil)
         @features = features
         @start_at = start_at
         @end_at = end_at
@@ -28,7 +28,7 @@ module Decidim
       def query
         results = Decidim::Results::Result.where(feature: @features)
         results = results.where("created_at >= ?", @start_at) if @start_at.present?
-        results = results.where("end_at <= ?", @end_at) if @end_at.present?
+        results = results.where("created_at <= ?", @end_at) if @end_at.present?
         results
       end
     end
