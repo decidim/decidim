@@ -23,7 +23,7 @@ module Decidim
     #         * priority: The priority of the stat used for render issues.
     # block - A block that receive the features to filter out the stat.
     def register(name, options = {}, &block)
-      stat = @stats.detect { |stat| stat[:name] == name }
+      stat = @stats.detect { |s| s[:name] == name }
       raise StandardError, "Stats '#{name}' is already registered." if stat.present?
 
       options[:primary] ||= false
@@ -45,7 +45,7 @@ module Decidim
     #
     # Returns the result of executing the stats block using the passing context or an error.
     def resolve(name, context, start_at = nil, end_at = nil)
-      stat = @stats.detect { |stat| stat[:name] == name }
+      stat = @stats.detect { |s| s[:name] == name }
       return stat[:block].call(context, start_at, end_at) if stat.present?
       raise StandardError, "Stats '#{name}' is not registered."
     end
