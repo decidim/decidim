@@ -57,7 +57,7 @@ module Decidim
       end
 
       def root_commentable(commentable)
-        return commentable unless commentable.kind_of? Decidim::Comments::Comment
+        return commentable unless commentable.is_a? Decidim::Comments::Comment
         root_commentable commentable.commentable
       end
     end
