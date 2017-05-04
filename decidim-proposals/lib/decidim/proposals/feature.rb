@@ -46,6 +46,11 @@ Decidim.register_feature(:proposals) do |feature|
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
 
+  feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
+    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at)
+    Decidim::Comments::Comment.where(commentable: proposals).count
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?

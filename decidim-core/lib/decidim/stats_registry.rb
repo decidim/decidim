@@ -32,6 +32,7 @@ module Decidim
       @stats.push(name: name,
                   primary: options[:primary],
                   priority: options[:priority],
+                  tag: options[:tag],
                   block: block)
     end
 
