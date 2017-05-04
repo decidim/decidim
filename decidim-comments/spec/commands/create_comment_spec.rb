@@ -55,6 +55,7 @@ module Decidim
             expect(Comment).to receive(:create!).with({
               author: author,
               commentable: commentable,
+              root_commentable: commentable,
               body: body,
               alignment: alignment,
               decidim_user_group_id: user_group_id
@@ -108,6 +109,11 @@ module Decidim
 
           context "and the comment is a reply" do
             let (:commentable) { create(:comment, commentable: dummy_resource) }
+
+            it "stores the root commentable" do
+              command.call
+              expect(Comment.last.root_commentable).to eq(dummy_resource)
+            end
 
             it "sends an email to the author of the parent comment" do
               expect(CommentNotificationMailer)

@@ -18,6 +18,7 @@ module Decidim
       MAX_DEPTH = 3
 
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
+      belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: CommentVote, dependent: :destroy
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: CommentVote, dependent: :destroy
 
@@ -48,12 +49,6 @@ module Decidim
       # Returns a bool value to indicate if the condition is truthy or not
       def down_voted_by?(user)
         down_votes.any? { |vote| vote.author == user }
-      end
-
-      # Public: Returns the commentable object of the parent comment
-      def root_commentable
-        return commentable if depth.zero?
-        commentable.root_commentable
       end
 
       # Public: Overrides the `reported_content` Reportable concern method.
