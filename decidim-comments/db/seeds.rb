@@ -6,6 +6,7 @@
 #   Decidim::Comments::Comment.create!(
 #     author: author,
 #     commentable: commentable,
+#     root_commentable: commentable,
 #     body: Faker::Lorem.paragraph
 #   )
 # end
