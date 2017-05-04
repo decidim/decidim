@@ -6,45 +6,56 @@ module Decidim
 
     # Public: Render a collection of primary stats.
     def highlighted
-      safe_join([
-                  safe_join(
-                    Decidim.stats.only([:users_count, :processes_count]).with_context(organization).map do |name, data|
-                      render_stats_data(name, data)
-                    end
-                  ),
-                  render_stats(priority: StatsRegistry::HIGH_PRIORITY),
-                  render_feature_stats(priority: StatsRegistry::HIGH_PRIORITY)
-                ])
-    end
+      highlighted_stats = Decidim.stats.only([:users_count, :processes_count]).with_context(organization).map { |name, data| [name, data] }
+      highlighted_stats = highlighted_stats.concat(global_stats(priority: StatsRegistry::HIGH_PRIORITY))
+      highlighted_stats = highlighted_stats.concat(feature_stats(priority: StatsRegistry::HIGH_PRIORITY))
+      highlighted_stats = highlighted_stats.reject(&:empty?)
 
-    # Public: Render a collection of stats that are not primary.
-    def not_highlighted
-      safe_join([
-                  render_stats(priority: StatsRegistry::MEDIUM_PRIORITY),
-                  render_feature_stats(priority: StatsRegistry::MEDIUM_PRIORITY)
-                ])
-    end
-
-    private
-
-    def render_stats(conditions)
       safe_join(
-        Decidim.stats.except([:users_count, :processes_count]).filter(conditions).with_context(published_features).map do |name, data|
-          render_stats_data(name, data)
+        highlighted_stats.in_groups_of(2, false).map do |stats|
+          content_tag :div, class: "home-pam__highlight" do
+            safe_join(
+              stats.map do |name, data|
+                render_stats_data(name, data)
+              end
+            )
+          end
         end
       )
     end
 
-    def render_feature_stats(conditions)
-      safe_join([
-                  Decidim.feature_manifests.map do |feature|
-                    safe_join([
-                                feature.stats.filter(conditions).with_context(published_features).map do |name, data|
-                                  render_stats_data(name, data)
-                                end
-                              ])
-                  end
-                ])
+    # Public: Render a collection of stats that are not primary.
+    def not_highlighted
+      not_highlighted_stats = global_stats(priority: StatsRegistry::MEDIUM_PRIORITY)
+      not_highlighted_stats = not_highlighted_stats.concat(feature_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
+      not_highlighted_stats = not_highlighted_stats.reject(&:empty?)
+
+      safe_join(
+        not_highlighted_stats.in_groups_of(3, false).map do |stats|
+          content_tag :div, class: "home-pam__lowlight" do
+            safe_join(
+              stats.map do |name, data|
+                render_stats_data(name, data)
+              end
+            )
+          end
+        end
+      )
+    end
+
+    private
+
+    def global_stats(conditions)
+      Decidim.stats.except([:users_count, :processes_count])
+          .filter(conditions)
+          .with_context(published_features)
+          .map { |name, data| [name, data] }
+    end
+
+    def feature_stats(conditions)
+      Decidim.feature_manifests.map do |feature|
+        feature.stats.filter(conditions).with_context(published_features).map { |name, data| [name, data] }.flatten
+      end
     end
 
     def render_stats_data(name, data)

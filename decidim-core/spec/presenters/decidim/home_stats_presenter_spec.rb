@@ -25,15 +25,47 @@ module Decidim
       })
     end
 
+    before do
+      allow(Decidim).to receive(:feature_manifests).and_return([])
+    end
+
     describe "#highlighted" do
       it "renders a collection of high priority stats including users and proceses" do
-        expect(subject.highlighted).to eq("<div class=\"home-pam__data\"><h4 class=\"home-pam__title\">Users</h4><span class=\"home-pam__number users_count\"> 1</span></div><div class=\"home-pam__data\"><h4 class=\"home-pam__title\">Processes</h4><span class=\"home-pam__number processes_count\"> 1</span></div><div class=\"home-pam__data\"><h4 class=\"home-pam__title\">Foo</h4><span class=\"home-pam__number foo\"> 10</span></div>")
+        expect(subject.highlighted).to eq(
+          [
+            "<div class=\"home-pam__highlight\">",
+              "<div class=\"home-pam__data\">",
+                "<h4 class=\"home-pam__title\">Users</h4>",
+                "<span class=\"home-pam__number users_count\"> 1</span>",
+              "</div>",
+              "<div class=\"home-pam__data\">",
+                "<h4 class=\"home-pam__title\">Processes</h4>",
+                "<span class=\"home-pam__number processes_count\"> 1</span>",
+              "</div>",
+            "</div>",
+            "<div class=\"home-pam__highlight\">",
+              "<div class=\"home-pam__data\">",
+                "<h4 class=\"home-pam__title\">Foo</h4>",
+                "<span class=\"home-pam__number foo\"> 10</span>",
+              "</div>",
+            "</div>"
+          ].join("")
+        )
       end
     end
 
     describe "#not_highlighted" do
       it "renders a collection of medium priority stats" do
-        expect(subject.not_highlighted).to eq("<div class=\"home-pam__data\"><h4 class=\"home-pam__title\">Bar</h4><span class=\"home-pam__number bar\"> 20</span></div>")
+        expect(subject.not_highlighted).to eq(
+          [
+            "<div class=\"home-pam__lowlight\">",
+              "<div class=\"home-pam__data\">",
+                "<h4 class=\"home-pam__title\">Bar</h4>",
+                "<span class=\"home-pam__number bar\"> 20</span>",
+              "</div>",
+            "</div>"
+          ].join("")
+        )
       end
     end
   end
