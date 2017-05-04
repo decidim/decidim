@@ -1,5 +1,5 @@
 base_locale: en
-locales: [en]
+
 ignore_unused:
 - "decidim.features.budgets.name"
 - "decidim.features.budgets.settings.*"
