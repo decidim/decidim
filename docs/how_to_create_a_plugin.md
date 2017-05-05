@@ -3,7 +3,7 @@
 1. Run the following command:
 
 ```bash
-- rails plugin new decidim-<engine_name> --skip-gemfile --skip-test --skip-gemspec
+rails plugin new decidim-<engine_name> --skip-gemfile --skip-test --skip-gemspec
 ```
 
 1. Create a `decidim-<engine_name>.gemspec` file with this content:
