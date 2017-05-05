@@ -42,7 +42,7 @@ require_relative "../decidim-core/lib/decidim/core/version"
 Gem::Specification.new do |s|
   Decidim.add_default_gemspec_properties(s)
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 ```
 
 ---
@@ -218,7 +218,7 @@ end
 require "decidim/common_rake"
 ```
 
-11. Remove `license` and change `README`
+11. Remove `MIT-LICENSE` and change `README`
 
 12. Add `spec/spec_helper.rb` with:
 

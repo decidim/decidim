@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.description = "Adds core features so other engines can hook into the framework."
   s.license     = "AGPLv3"
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "rails", *Decidim.rails_version
   s.add_dependency "devise", "~> 4.2"
