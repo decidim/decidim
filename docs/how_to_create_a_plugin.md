@@ -102,8 +102,6 @@ source 'https://rubygems.org'
 
 gem 'decidim', path: '..'
 gemspec
-
-eval(File.read(File.join(File.dirname(__FILE__), "..", "Gemfile.common")))
 ```
 
 4. Remove `test` folder
