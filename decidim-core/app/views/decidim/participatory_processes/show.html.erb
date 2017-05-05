@@ -20,49 +20,49 @@
       <div class="card extra definition-data">
         <% if translated_attribute(current_participatory_process.meta_scope).present? %>
           <div class="definition-data__item scope">
-            <span class="definition-data__title"><%= t(".scope") =%></span>
+            <span class="definition-data__title"><%= t(".scope") %></span>
               <%== translated_attribute(current_participatory_process.meta_scope) %>
           </div>
         <% end %>
 
         <% if current_participatory_process.end_date.present? %>
           <div class="definition-data__item end-date">
-            <span class="definition-data__title"><%= t(".end_date")=%></span>
+            <span class="definition-data__title"><%= t(".end_date") %></span>
               <%== l(current_participatory_process.end_date, format: :long) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_process.developer_group).present? %>
           <div class="definition-data__item developer-group">
-            <span class="definition-data__title"><%= t(".developer_group") =%></span>
+            <span class="definition-data__title"><%= t(".developer_group") %></span>
               <%== translated_attribute(current_participatory_process.developer_group) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_process.local_area).present? %>
           <div class="definition-data__item local_area">
-            <span class="definition-data__title"><%= t(".local_area") =%></span>
+            <span class="definition-data__title"><%= t(".local_area") %></span>
               <%== translated_attribute(current_participatory_process.local_area) %>
           </div>
         <% end %>
 
          <% if translated_attribute(current_participatory_process.target).present? %>
           <div class="definition-data__item target">
-            <span class="definition-data__title"><%= t(".target") =%></span>
+            <span class="definition-data__title"><%= t(".target") %></span>
               <%== translated_attribute(current_participatory_process.target) %>
           </div>
         <% end %>
 
          <% if translated_attribute(current_participatory_process.participatory_scope).present? %>
           <div class="definition-data__item participatory_scope">
-            <span class="definition-data__title"><%= t(".participatory_scope") =%></span>
+            <span class="definition-data__title"><%= t(".participatory_scope") %></span>
               <%== translated_attribute(current_participatory_process.participatory_scope) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_process.participatory_structure).present? %>
           <div class="definition-data__item participatory_structure">
-            <span class="definition-data__title"><%= t(".participatory_structure") =%></span>
+            <span class="definition-data__title"><%= t(".participatory_structure") %></span>
               <%== translated_attribute(current_participatory_process.participatory_structure) %>
           </div>
         <% end %>
