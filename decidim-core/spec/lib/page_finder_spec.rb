@@ -23,7 +23,7 @@ module Decidim
     end
 
     describe "find" do
-      subject { finder.find  }
+      subject { finder.find }
 
       context "when a page exists for the slug" do
         before do

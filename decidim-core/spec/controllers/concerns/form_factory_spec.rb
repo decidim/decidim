@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -33,7 +34,6 @@ module Decidim
     describe "instance" do
       it "returns an instance of the form" do
         expect(subject.instance).to be_kind_of(form_klass)
-
       end
     end
 

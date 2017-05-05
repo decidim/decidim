@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   class DeviseMailerPreview < ActionMailer::Preview
     def confirmation_instructions

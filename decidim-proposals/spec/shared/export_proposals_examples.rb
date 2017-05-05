@@ -18,7 +18,7 @@ RSpec.shared_examples "export proposals" do
     end
 
     expect(last_email.subject).to include("proposals", "csv")
-    expect(last_email.attachments.length).to be > 0
+    expect(last_email.attachments.length).to be_positive
     expect(last_email.attachments.first.filename).to match(/^proposals.*\.zip$/)
   end
 
@@ -31,7 +31,7 @@ RSpec.shared_examples "export proposals" do
     end
 
     expect(last_email.subject).to include("proposals", "json")
-    expect(last_email.attachments.length).to be > 0
+    expect(last_email.attachments.length).to be_positive
     expect(last_email.attachments.first.filename).to match(/^proposals.*\.zip$/)
   end
 end

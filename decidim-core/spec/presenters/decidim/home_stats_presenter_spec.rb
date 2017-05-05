@@ -10,10 +10,11 @@ module Decidim
     let!(:process) { create(:participatory_process, organization: organization) }
 
     before :all do
-      Decidim.stats.register :foo, priority: StatsRegistry::HIGH_PRIORITY, &Proc.new { 10 }
-      Decidim.stats.register :bar, priority: StatsRegistry::MEDIUM_PRIORITY, &Proc.new { 20 }
-      Decidim.stats.register :baz, priority: StatsRegistry::LOW_PRIORITY, &Proc.new { 30 }
-      I18n.backend.store_translations(:en, {
+      Decidim.stats.register :foo, priority: StatsRegistry::HIGH_PRIORITY, &proc { 10 }
+      Decidim.stats.register :bar, priority: StatsRegistry::MEDIUM_PRIORITY, &proc { 20 }
+      Decidim.stats.register :baz, priority: StatsRegistry::LOW_PRIORITY, &proc { 30 }
+      I18n.backend.store_translations(
+        :en,
         pages: {
           home: {
             statistics: {
@@ -22,7 +23,7 @@ module Decidim
             }
           }
         }
-      })
+      )
     end
 
     before do

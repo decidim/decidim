@@ -6,7 +6,7 @@ module Decidim
   describe FilterFormBuilder do
     let(:helper) { Class.new(ActionView::Base).new }
     let(:categories) do
-      create_list(:category, 3) 
+      create_list(:category, 3)
       Category.all
     end
     let(:scopes) { create_list(:scope, 3) }
@@ -21,43 +21,43 @@ module Decidim
 
     shared_examples "fieldset_wrapper" do
       it "wraps fields in a fieldset inside a div with class 'filters__section'" do
-        expect(parsed.css('.filters__section fieldset').first).to be
+        expect(parsed.css(".filters__section fieldset").first).to be
       end
 
       it "adds a legend tag with a h6 tag inside with value provided by 'legend' option" do
-        expect(parsed.css('legend h6.heading6').first.text).to eq("Date")
+        expect(parsed.css("legend h6.heading6").first.text).to eq("Date")
       end
     end
 
     context "#collection_radio_buttons" do
       let(:output) do
-        builder.collection_radio_buttons :order_start_time, [["asc", "asc"], ["desc", "desc"]], :first, :last, legend_title: 'Date'
+        builder.collection_radio_buttons :order_start_time, [%w(asc asc), %w(desc desc)], :first, :last, legend_title: "Date"
       end
       let(:parsed) { Nokogiri::HTML(output) }
 
       include_examples "fieldset_wrapper"
 
       it "renders the radio buttons inside its labels" do
-        expect(parsed.css('label input').first).to be
+        expect(parsed.css("label input").first).to be
       end
     end
 
     context "#collection_check_boxes" do
       let(:output) do
-        builder.collection_check_boxes :scope_id, scopes, :id, :name, legend_title: 'Date'
+        builder.collection_check_boxes :scope_id, scopes, :id, :name, legend_title: "Date"
       end
       let(:parsed) { Nokogiri::HTML(output) }
 
       include_examples "fieldset_wrapper"
 
       it "renders the check boxes inside its labels" do
-        expect(parsed.css('label input').first).to be
+        expect(parsed.css("label input").first).to be
       end
     end
 
     context "#categories_select" do
       let(:output) do
-        builder.categories_select :category_id, categories, legend_title: 'Date', disable_parents: false, label: false, include_blank: true
+        builder.categories_select :category_id, categories, legend_title: "Date", disable_parents: false, label: false, include_blank: true
       end
       let(:parsed) { Nokogiri::HTML(output) }
 

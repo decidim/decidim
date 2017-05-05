@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -8,7 +9,7 @@ module Decidim
       let(:scope2) { create :scope, organization: feature.organization }
       let(:participatory_process) { feature.participatory_process }
       let(:user) { create(:user, organization: feature.organization) }
-      let!(:proposal) { create(:proposal, feature: feature, scope: scope1)}
+      let!(:proposal) { create(:proposal, feature: feature, scope: scope1) }
 
       describe "results" do
         let(:activity) { [] }
@@ -19,7 +20,7 @@ module Decidim
         let(:scope_id) { nil }
 
         subject do
-          described_class.new({
+          described_class.new(
             feature: feature,
             activity: activity,
             search_text: search_text,
@@ -28,7 +29,7 @@ module Decidim
             related_to: related_to,
             scope_id: scope_id,
             current_user: user
-          }).results
+          ).results
         end
 
         it "only includes proposals from the given feature" do
@@ -115,7 +116,7 @@ module Decidim
         end
 
         context "scope_id" do
-          let!(:proposal2) { create(:proposal, feature: feature, scope: scope2)}
+          let!(:proposal2) { create(:proposal, feature: feature, scope: scope2) }
 
           context "when a single id is being sent" do
             let(:scope_id) { scope1.id }
@@ -134,7 +135,7 @@ module Decidim
           end
 
           context "when `global` is being sent" do
-            let!(:resource_without_scope) { create(:proposal, feature: feature, scope: nil)}
+            let!(:resource_without_scope) { create(:proposal, feature: feature, scope: nil) }
             let(:scope_id) { ["global"] }
 
             it "returns resources without a scope" do
@@ -151,12 +152,12 @@ module Decidim
 
             it "returns only proposals related to meetings" do
               related_proposal = create(:proposal, :accepted, feature: feature)
-              related_proposal_2 = create(:proposal, :accepted, feature: feature)
+              related_proposal2 = create(:proposal, :accepted, feature: feature)
               create_list(:proposal, 3, feature: feature)
               meeting.link_resources([related_proposal], "proposals_from_meeting")
-              related_proposal_2.link_resources([meeting], "proposals_from_meeting")
+              related_proposal2.link_resources([meeting], "proposals_from_meeting")
 
-              expect(subject).to match_array([related_proposal, related_proposal_2])
+              expect(subject).to match_array([related_proposal, related_proposal2])
             end
           end
 
@@ -165,15 +166,14 @@ module Decidim
             let(:results_feature) { create(:feature, manifest_name: "results", participatory_process: participatory_process) }
             let(:result) { create :result, feature: results_feature }
 
-
             it "returns only proposals related to results" do
               related_proposal = create(:proposal, :accepted, feature: feature)
-              related_proposal_2 = create(:proposal, :accepted, feature: feature)
+              related_proposal2 = create(:proposal, :accepted, feature: feature)
               create_list(:proposal, 3, feature: feature)
               result.link_resources([related_proposal], "included_proposals")
-              related_proposal_2.link_resources([result], "included_proposals")
+              related_proposal2.link_resources([result], "included_proposals")
 
-              expect(subject).to match_array([related_proposal, related_proposal_2])
+              expect(subject).to match_array([related_proposal, related_proposal2])
             end
           end
         end

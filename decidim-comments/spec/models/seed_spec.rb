@@ -7,7 +7,7 @@ module Decidim
       let(:subject) { Decidim::Comments::Seed }
 
       describe "#comments_for(resource)" do
-        it 'creates comments for a page if one is given' do
+        it "creates comments for a page if one is given" do
           dummy_resource = create(:dummy_resource)
           subject.comments_for(dummy_resource)
           expect(Decidim::Comments::SortedComments.for(dummy_resource).length).to be_between(1, 5).inclusive

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -61,7 +62,7 @@ module Decidim
       end
 
       it "calls subject.stats with the same arguments" do
-        resolver = Proc.new { 10 }
+        resolver = proc { 10 }
         options = { primary: true }
         subject.register_stat :foo, options, &resolver
         expect(subject.stats).to have_received(:register).with(:foo, options, &resolver)

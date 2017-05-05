@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.shared_context "participatory process admin" do
   let(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization: organization) }

@@ -27,18 +27,18 @@ module Decidim
         }
       end
       let(:organization) { create(:organization) }
-      let(:homepage_image_path) {
+      let(:homepage_image_path) do
         File.expand_path(
           File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg")
         )
-      }
+      end
       let(:attributes) do
         {
           "organization" => {
             "name" => name,
             "reference_prefix" => reference_prefix,
             "default_locale" => :en,
-            "available_locales" => %w{en ca es},
+            "available_locales" => %w(en ca es),
             "welcome_text_en" => welcome_text[:en],
             "welcome_text_es" => welcome_text[:es],
             "welcome_text_ca" => welcome_text[:ca],

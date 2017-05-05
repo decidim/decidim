@@ -1,11 +1,12 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Admin::CreateScope do
   let(:organization) { create :organization }
-  let(:name) { "My scope"}
+  let(:name) { "My scope" }
   let(:form) do
     double(
-      :invalid? => invalid,
+      invalid?: invalid,
       name: name,
       organization: organization
     )

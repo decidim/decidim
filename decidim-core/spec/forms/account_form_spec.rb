@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -20,7 +21,7 @@ module Decidim
     end
 
     let(:name) { "Lord of the Foo" }
-    let(:email) { "depths@ofthe.bar"}
+    let(:email) { "depths@ofthe.bar" }
     let(:password) { "abcde123" }
     let(:password_confirmation) { password }
     let(:avatar) { File.open("spec/assets/avatar.jpg") }

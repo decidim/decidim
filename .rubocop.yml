@@ -23,7 +23,6 @@ AllCops:
     - '**/Gemfile'
     - '**/*.gemspec'
     - '**/vendor/**/*'
-    - 'decidim-*/spec/**/*'
     - 'decidim-*/test/**/*'
     - 'decidim-*/db/migrate/**'
     - 'development_app/**/*'
@@ -99,6 +98,10 @@ Style/Alias:
 Style/AccessorMethodName:
   Exclude:
     - "lib/generators/decidim/app_generator.rb"
+
+Style/AlignArray:
+  Exclude:
+    - 'decidim-*/spec/**/*.rb'
 
 # Align the elements of a hash literal if they span more than one line.
 Style/AlignHash:
@@ -1119,6 +1122,8 @@ Metrics/LineLength:
   URISchemes:
     - http
     - https
+  Exclude:
+    - 'decidim-*/spec/**/*.rb'
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
@@ -1293,6 +1298,7 @@ Metrics/BlockLength:
     - 'decidim-*/**/*/types/**/*'
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'
+    - 'decidim-*/spec/**/*.rb'
 
 Lint/HandleExceptions:
   Exclude:

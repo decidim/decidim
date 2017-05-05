@@ -58,8 +58,7 @@ describe "Participatory Processes", type: :feature do
         create(:participatory_process_step,
                :active,
                participatory_process: participatory_process,
-               title: { en: "Active step", ca: "Fase activa", es: "Fase activa" },
-              )
+               title: { en: "Active step", ca: "Fase activa", es: "Fase activa" })
       end
 
       it "links to the active step" do

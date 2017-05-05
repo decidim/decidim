@@ -7,7 +7,6 @@ describe GeocodingValidator do
     Class.new do
       def self.model_name
         ActiveModel::Name.new(self, nil, "Validatable")
-
       end
 
       include Virtus.model
@@ -33,9 +32,10 @@ describe GeocodingValidator do
 
   context "when the address is valid" do
     before do
-      Geocoder::Lookup::Test.add_stub(address, [
-        { 'latitude' => latitude, 'longitude' => longitude }
-      ])
+      Geocoder::Lookup::Test.add_stub(
+        address,
+        [{ "latitude" => latitude, "longitude" => longitude }]
+      )
     end
 
     it "uses Geocoder to compute its coordinates" do

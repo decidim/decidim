@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe "Explore results", type: :feature do
@@ -25,7 +26,7 @@ describe "Explore results", type: :feature do
       expect(page).to have_selector("article.card", count: results_count)
 
       results.each do |result|
-        expect(page).to have_content(translated result.title)
+        expect(page).to have_content(translated(result.title))
       end
     end
   end
@@ -104,7 +105,7 @@ describe "Explore results", type: :feature do
 
     context "when a proposal has comments" do
       let(:result) { results.first }
-      let(:author) { create(:user, :confirmed, organization: feature.organization)}
+      let(:author) { create(:user, :confirmed, organization: feature.organization) }
       let!(:comments) { create_list(:comment, 3, commentable: result) }
 
       before do

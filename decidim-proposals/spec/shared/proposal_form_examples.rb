@@ -7,8 +7,8 @@ RSpec.shared_examples "a proposal form" do
   let(:author) { create(:user, organization: feature.organization) }
   let(:category) { create(:category, participatory_process: feature.participatory_process) }
   let(:scope) { create(:scope, organization: feature.organization) }
-  let(:category_id) { category.try(:id)}
-  let(:scope_id) { scope.try(:id)}
+  let(:category_id) { category.try(:id) }
+  let(:scope_id) { scope.try(:id) }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:address) { nil }
@@ -58,28 +58,29 @@ RSpec.shared_examples "a proposal form" do
 
   context "with invalid category_id" do
     let(:category_id) { 987 }
-    it { is_expected.to be_invalid}
+    it { is_expected.to be_invalid }
   end
 
   context "with invalid scope_id" do
     let(:scope_id) { 987 }
-    it { is_expected.to be_invalid}
+    it { is_expected.to be_invalid }
   end
 
   context "when geocoding is enabled" do
     let(:feature) { create(:proposal_feature, :with_geocoding_enabled) }
 
     context "when the address is not present" do
-      it { is_expected.to be_invalid}
+      it { is_expected.to be_invalid }
     end
 
     context "when the address is present" do
       let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
 
       before do
-        Geocoder::Lookup::Test.add_stub(address, [
-          { 'latitude' => latitude, 'longitude' => longitude }
-        ])
+        Geocoder::Lookup::Test.add_stub(
+          address,
+          [{ "latitude" => latitude, "longitude" => longitude }]
+        )
       end
 
       it "validates the address and store its coordinates" do

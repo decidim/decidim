@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # frozen_literal_string: true
 
 require "spec_helper"
@@ -52,9 +53,10 @@ describe Decidim::Meetings::Admin::MeetingForm do
   end
 
   before do
-    Geocoder::Lookup::Test.add_stub(address, [
-      { 'latitude' => latitude, 'longitude' => longitude }
-    ])
+    Geocoder::Lookup::Test.add_stub(
+      address,
+      [{ "latitude" => latitude, "longitude" => longitude }]
+    )
   end
 
   subject { described_class.from_params(attributes).with_context(context) }

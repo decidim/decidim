@@ -1,10 +1,11 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Meetings::Admin::CloseMeeting do
   let(:meeting) { create :meeting }
   let(:form) do
     double(
-      :invalid? => invalid,
+      invalid?: invalid,
       closing_report: { en: "Great meeting" },
       attendees_count: 10,
       contributions_count: 15,

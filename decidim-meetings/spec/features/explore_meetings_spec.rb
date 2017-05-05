@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe "Explore meetings", type: :feature do
@@ -83,7 +84,7 @@ describe "Explore meetings", type: :feature do
     end
 
     context "No meetings scheduled" do
-      let!(:meetings){ [] }
+      let!(:meetings) { [] }
 
       it "shows the correct warning" do
         visit_feature

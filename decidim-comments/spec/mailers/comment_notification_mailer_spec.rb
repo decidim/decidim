@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -6,7 +7,7 @@ module Decidim
     describe CommentNotificationMailer, type: :mailer do
       let(:commentable) { create(:dummy_resource) }
       let(:comment) { create(:comment, commentable: commentable) }
-      let(:reply) { create(:comment, commentable: comment)}
+      let(:reply) { create(:comment, commentable: comment) }
 
       describe "comment_created" do
         let(:mail) { described_class.comment_created(user, comment, commentable) }

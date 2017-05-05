@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -19,10 +20,9 @@ module Decidim
 
     context "when no organization exists for the current host" do
       let(:host) { "blah.lvh.me" }
-      let!(:organization) { create(:organization, host: 'fake.host.com', secondary_hosts: [host]) }
+      let!(:organization) { create(:organization, host: "fake.host.com", secondary_hosts: [host]) }
 
       context "when an organization exists with the current host as secondary host" do
-
         it "redirects the user to the primary host of the detected organization" do
           code, new_env = middleware.call(env)
 

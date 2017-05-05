@@ -15,7 +15,7 @@ describe "Process admin manages comments", type: :feature do
       create(:comment, commentable: resource)
     end
   end
-  
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user

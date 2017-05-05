@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Meetings::MeetingSearch do
@@ -39,7 +40,7 @@ describe Decidim::Meetings::MeetingSearch do
       let(:default_params) { { feature: nil } }
 
       it "raises an error" do
-        expect{ subject.results }.to raise_error(StandardError, "Missing feature")
+        expect { subject.results }.to raise_error(StandardError, "Missing feature")
       end
     end
   end
@@ -103,7 +104,7 @@ describe Decidim::Meetings::MeetingSearch do
       end
 
       context "when `global` is being sent" do
-        let!(:resource_without_scope) { create(:meeting, feature: current_feature, scope: nil)}
+        let!(:resource_without_scope) { create(:meeting, feature: current_feature, scope: nil) }
         let(:params) { default_params.merge(scope_id: ["global"]) }
 
         it "returns resources without a scope" do

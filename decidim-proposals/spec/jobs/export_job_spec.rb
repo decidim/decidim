@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -15,7 +16,7 @@ module Decidim
         expect(email.subject).to include("proposals")
         attachment = email.attachments.first
 
-        expect(attachment.read.length > 0).to be
+        expect(attachment.read.length).to be_positive
         expect(attachment.mime_type).to eq("application/zip")
         expect(attachment.filename).to match(/^proposals-[0-9]+-[0-9]+-[0-9]+-[0-9]+\.zip$/)
       end

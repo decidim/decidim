@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -9,7 +10,8 @@ module Decidim
       let(:manifest) { feature.manifest }
 
       let(:form) do
-        instance_double(FeatureForm,
+        instance_double(
+          FeatureForm,
           name: {
             en: "My feature",
             ca: "La meva funcionalitat",
@@ -35,9 +37,9 @@ module Decidim
         let(:valid) { true }
 
         it "broadcasts :ok and updates the feature" do
-          expect {
+          expect do
             described_class.call(form, feature)
-          }.to broadcast(:ok)
+          end.to broadcast(:ok)
 
           expect(feature["name"]["en"]).to eq("My feature")
           expect(feature.weight).to eq(3)
@@ -68,9 +70,9 @@ module Decidim
         let(:valid) { false }
 
         it "creates the feature" do
-          expect {
+          expect do
             described_class.call(form, feature)
-          }.to broadcast(:invalid)
+          end.to broadcast(:invalid)
 
           feature.reload
           expect(feature.name["en"]).not_to eq("My feature")

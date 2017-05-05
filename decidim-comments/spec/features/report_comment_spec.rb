@@ -13,8 +13,10 @@ describe "Report Comment", type: :feature do
   let!(:user) { create :user, :confirmed, organization: organization }
 
   let!(:feature) do
-    create(:feature,
+    create(
+      :feature,
       manifest: manifest,
-      participatory_process: participatory_process)
+      participatory_process: participatory_process
+    )
   end
 end

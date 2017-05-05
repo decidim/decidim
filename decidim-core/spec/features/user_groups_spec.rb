@@ -34,7 +34,7 @@ describe "User groups", type: :feature, perform_enqueued: true do
       click_link "Organizations"
 
       expect(page).to have_content(user_group.name)
-      expect(page).not_to have_content("Not verified")      
+      expect(page).not_to have_content("Not verified")
       expect(page).to have_content("Verified")
     end
   end

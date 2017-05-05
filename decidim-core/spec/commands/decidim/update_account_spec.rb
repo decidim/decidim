@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -107,9 +108,7 @@ module Decidim
         let(:message) { "Avatar is too big." }
         before do
           expect(user).to receive(:valid?).and_return(false)
-          expect(user).to receive(:errors).and_return({
-            avatar: message
-          }).at_least(:once)
+          expect(user).to receive(:errors).and_return(avatar: message).at_least(:once)
           allow(form).to receive_message_chain(:errors, :add).with(:avatar, message)
         end
 

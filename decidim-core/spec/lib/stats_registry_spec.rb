@@ -5,8 +5,8 @@ require "spec_helper"
 module Decidim
   describe StatsRegistry do
     subject { described_class.new }
-    let (:result) { 10 }
-    let (:resolver) { Proc.new { result } }
+    let(:result) { 10 }
+    let(:resolver) { proc { result } }
 
     describe "register" do
       it "registers a stat by its name and default options" do
@@ -26,9 +26,7 @@ module Decidim
       it "raises an error if the stat already exists" do
         subject.register :foo, &resolver
 
-        expect {
-          subject.register :foo, &resolver
-        }.to raise_error StandardError
+        expect { subject.register :foo, &resolver }.to raise_error StandardError
       end
     end
 
@@ -38,13 +36,13 @@ module Decidim
       end
 
       it "resolves a stat block given a context" do
-        context = { bar: 'bar' }
+        context = { bar: "bar" }
         expect(resolver).to receive(:call).with(context, nil, nil).and_call_original
         expect(subject.resolve(:foo, context)).to eq(result)
       end
 
       it "resolves a stat block given a context and optional start and end dates" do
-        context = { bar: 'bar' }
+        context = { bar: "bar" }
         start_at = 1.week.ago
         end_at = Time.current
         expect(resolver).to receive(:call).with(context, start_at, end_at).and_call_original
@@ -52,16 +50,14 @@ module Decidim
       end
 
       it "raises an error if the stat is not available" do
-        expect {
-          subject.resolve :bar, []
-        }.to raise_error StandardError
+        expect { subject.resolve :bar, [] }.to raise_error StandardError
       end
     end
 
     describe "with_context" do
-      let(:values) { { foo: 10, bar: 20 }}
-      let(:foo_resolver) { Proc.new { |ctx| values[ctx[:foo]] } }
-      let(:bar_resolver) { Proc.new { |ctx| values[ctx[:bar]] } }
+      let(:values) { { foo: 10, bar: 20 } }
+      let(:foo_resolver) { proc { |ctx| values[ctx[:foo]] } }
+      let(:bar_resolver) { proc { |ctx| values[ctx[:bar]] } }
 
       before :each do
         subject.register :foo, &foo_resolver

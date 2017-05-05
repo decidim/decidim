@@ -6,8 +6,8 @@ module Decidim
     describe CreateComment, :db do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization)}
-        let(:feature) { create(:feature, participatory_process: participatory_process)}
+        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:feature) { create(:feature, participatory_process: participatory_process) }
         let(:author) { create(:user, organization: organization) }
         let(:dummy_resource) { create :dummy_resource, feature: feature }
         let(:commentable) { dummy_resource }
@@ -52,14 +52,15 @@ module Decidim
           end
 
           it "creates a new comment" do
-            expect(Comment).to receive(:create!).with({
+            expect(Comment).to receive(:create!).with(
               author: author,
               commentable: commentable,
               root_commentable: commentable,
               body: body,
               alignment: alignment,
               decidim_user_group_id: user_group_id
-            }).and_call_original
+            ).and_call_original
+
             expect do
               command.call
             end.to change { Comment.count }.by(1)
@@ -108,7 +109,7 @@ module Decidim
           end
 
           context "and the comment is a reply" do
-            let (:commentable) { create(:comment, commentable: dummy_resource) }
+            let(:commentable) { create(:comment, commentable: dummy_resource) }
 
             it "stores the root commentable" do
               command.call
@@ -125,7 +126,7 @@ module Decidim
             end
 
             context "and I am the author of the parent comment" do
-              let (:commentable) { create(:comment, author: author, commentable: dummy_resource) }
+              let(:commentable) { create(:comment, author: author, commentable: dummy_resource) }
 
               it "doesn't send an email" do
                 expect(CommentNotificationMailer).not_to receive(:reply_created)

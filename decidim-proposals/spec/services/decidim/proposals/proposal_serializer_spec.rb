@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -62,7 +63,7 @@ module Decidim
 
         it "serializes the meetings" do
           expect(serialized[:meeting_urls].length).to eq(2)
-          expect(serialized[:meeting_urls].first).to match(/http.*\/meetings/)
+          expect(serialized[:meeting_urls].first).to match(%r{http.*/meetings})
         end
       end
     end
