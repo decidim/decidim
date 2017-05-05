@@ -3,7 +3,7 @@
 1. Run the following command:
 
 ```bash
-- rails plugin new decidim-<engine_name> --skip-gemfile
+- rails plugin new decidim-<engine_name> --skip-gemfile --skip-test
 ```
 
 1. Change the `decidim-<engine_name>.gemspec` file:
@@ -95,8 +95,6 @@ s.add_dependency "foundation_rails_helper", "~> 2.0.0"
 ```
 
 ---
-
-1. Remove `test` folder
 
 1. Remove `bin/test` and add `bin/rails` with this content:
 
