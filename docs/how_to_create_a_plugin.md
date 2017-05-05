@@ -1,11 +1,12 @@
 # How to create a Decidim engine
 
 1. Run the following command:
+
 ```bash
 - rails plugin new decidim-<engine_name>
 ```
 
-2. Change the `decidim-<engine_name>.gemspec` file:
+1. Change the `decidim-<engine_name>.gemspec` file:
 
 > Change this:
 
@@ -95,7 +96,7 @@ s.add_dependency "foundation_rails_helper", "~> 2.0.0"
 
 ---
 
-3. Replace `Gemfile` content with this:
+1. Replace `Gemfile` content with this:
 
 ```ruby
 source 'https://rubygems.org'
@@ -104,9 +105,9 @@ gem 'decidim', path: '..'
 gemspec
 ```
 
-4. Remove `test` folder
+1. Remove `test` folder
 
-5. Remove `bin/test` and add `bin/rails` with this content:
+1. Remove `bin/test` and add `bin/rails` with this content:
 
 ```ruby
 #!/usr/bin/env ruby
@@ -125,7 +126,7 @@ require "rails/all"
 require "rails/engine/commands"
 ```
 
-6. Change `lib/decidim/<engine_name>.rb`
+1. Change `lib/decidim/<engine_name>.rb`
 
 > Add this
 
@@ -134,9 +135,9 @@ require "rails/engine/commands"
 require "decidim/<engine_name>/engine"
 ```
 
-7. Remove `lib/decidim/<engine_name>/version.rb`
+1. Remove `lib/decidim/<engine_name>/version.rb`
 
-8. Add `lib/decidim/<engine_name>/engine.rb` with this:
+1. Add `lib/decidim/<engine_name>/engine.rb` with this:
 
 ```ruby
 # frozen_string_literal: true
@@ -164,7 +165,7 @@ module Decidim
 end
 ```
 
-9. Add `lib/decidim/<engine_name>/feature.rb` with this:
+1. Add `lib/decidim/<engine_name>/feature.rb` with this:
 
 ```ruby
 # frozen_string_literal: true
@@ -209,16 +210,16 @@ Decidim.register_feature(:<engine_name>) do |feature|
 end
 ```
 
-10. Replace `Rakefile` with:
+1. Replace `Rakefile` with:
 
 ```ruby
 # frozen_string_literal: true
 require "decidim/common_rake"
 ```
 
-11. Remove `MIT-LICENSE` and change `README`
+1. Remove `MIT-LICENSE` and change `README`
 
-12. Add `spec/spec_helper.rb` with:
+1. Add `spec/spec_helper.rb` with:
 
 ```ruby
 ENV["ENGINE_NAME"] = File.dirname(File.dirname(__FILE__)).split("/").last
