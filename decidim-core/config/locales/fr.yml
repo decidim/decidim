@@ -350,10 +350,10 @@ fr:
         active_step: Active step
         see_all_processes: See all processes
       statistics:
+        comments_count: Comments
         headline: Current state of %{organization}
         meetings_count: Meetings
         processes_count: Processes
-        projects_count: Projects
         proposals_count: Proposals
         results_count: Results
         users_count: Users
