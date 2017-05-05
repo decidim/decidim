@@ -3,95 +3,34 @@
 1. Run the following command:
 
 ```bash
-- rails plugin new decidim-<engine_name> --skip-gemfile --skip-test
+- rails plugin new decidim-<engine_name> --skip-gemfile --skip-test --skip-gemspec
 ```
 
-1. Change the `decidim-<engine_name>.gemspec` file:
-
-> Change this:
-
-```ruby
-$:.push File.expand_path("../lib", __FILE__)
-```
-
-> Into this:
+1. Create a `decidim-<engine_name>.gemspec` file with this content:
 
 ```ruby
 # frozen_string_literal: true
 $LOAD_PATH.push File.expand_path("../lib", __FILE__)
-```
 
----
-
-> Change this:
-
-```ruby
-require "decidim/<engine_name>/version"
-```
-
-> Into this:
-
-```ruby
 require_relative "../decidim-core/lib/decidim/core/version"
-```
 
----
-
-> Add this:
-
-```ruby
 Gem::Specification.new do |s|
   Decidim.add_default_gemspec_properties(s)
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
-```
 
----
+  s.add_dependency "decidim-core", Decidim.version
+  s.add_dependency "rails", *Decidim.rails_version
 
-> Remove this:
+  s.add_development_dependency "decidim-dev", Decidim.version
 
-```ruby
-s.version     = Decidim::<EngineName>::VERSION
-s.authors     = [""]
-s.email       = [""]
-s.homepage    = "TODO"
-s.license     = "MIT"
-```
-
----
-
-> Add this:
-
-```ruby
-s.add_dependency "decidim-core", Decidim.version
-```
-
----
-
-> Remove this:
-
-```ruby
-s.add_dependency "rails", "~> 5.0.0", ">= 5.0.0.1"
-s.add_development_dependency "sqlite3"
-```
-
-> And add this instead:
-
-```ruby
-s.add_dependency "rails", *Decidim.rails_version
-s.add_development_dependency "decidim-dev", Decidim.version
-```
-
----
-
-> Add more dependencies as needed:
-
-```ruby
-s.add_dependency "foundation-rails", "~> 6.2.4.0"
-s.add_dependency "autoprefixer-rails", ["~> 6.7", ">= 6.7.4"]
-s.add_dependency "sass-rails", "~> 5.0.0"
-s.add_dependency "jquery-rails", "~> 4.0"
-s.add_dependency "foundation_rails_helper", "~> 2.0.0"
+  # Add more dependencies as needed:
+  s.add_dependency "foundation-rails", "~> 6.2.4.0"
+  s.add_dependency "autoprefixer-rails", ["~> 6.7", ">= 6.7.4"]
+  s.add_dependency "sass-rails", "~> 5.0.0"
+  s.add_dependency "jquery-rails", "~> 4.0"
+  s.add_dependency "foundation_rails_helper", "~> 2.0.0"
+end
 ```
 
 ---
