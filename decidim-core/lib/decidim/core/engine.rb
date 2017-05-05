@@ -119,6 +119,22 @@ module Decidim
           )
         end
       end
+
+      initializer "decidim.stats" do
+        Decidim.stats.register :users_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
+          users = Decidim::User.where(organization: organization)
+          users = users.where("created_at >= ?", start_at) if start_at.present?
+          users = users.where("created_at <= ?", end_at) if end_at.present?
+          users.count
+        end
+
+        Decidim.stats.register :processes_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
+          processes = (OrganizationParticipatoryProcesses.new(organization) | PublicParticipatoryProcesses.new)
+          processes = processes.where("created_at >= ?", start_at) if start_at.present?
+          processes = processes.where("created_at <= ?", end_at) if end_at.present?
+          processes.count
+        end
+      end
     end
   end
 end

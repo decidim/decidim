@@ -1,16 +1,9 @@
-module Decidim
-  module Comments
-    class Comment < ApplicationRecord
-      # Public: Returns the commentable object of the parent comment
-      def root_commentable
-        return commentable if depth.zero?
-        commentable.root_commentable
-      end
-    end
-  end
-end
-
 class AddRootCommentableToComments < ActiveRecord::Migration[5.0]
+  def root_commentable(comment)
+    return comment.commentable if comment.depth.zero?
+    root_commentable comment.commentable
+  end
+
   def change
     # 1. Add root_commentable fields
     change_table :decidim_comments_comments do |t|
@@ -20,7 +13,7 @@ class AddRootCommentableToComments < ActiveRecord::Migration[5.0]
     # 2. Store root_commentable data
     Decidim::Comments::Comment.find_each do |comment|
       root_commentable = comment.depth.zero? ? comment.commentable : comment.root_commentable
-      comment.root_commentable = root_commentable
+      comment.root_commentable = root_commentable(comment)
       comment.save
     end
 

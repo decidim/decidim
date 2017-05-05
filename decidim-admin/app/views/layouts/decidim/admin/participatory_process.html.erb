@@ -20,6 +20,9 @@
                 <li <% if is_active_link?(decidim_admin.manage_feature_path(participatory_process, feature)) %> class="is-active" <% end %>>
                   <%= link_to decidim_admin.manage_feature_path(participatory_process, feature) do %>
                     <%= translated_attribute feature.name %>
+                    <% if feature.primary_stat.present? %>
+                      <span class="component-counter <%= "component-counter--off" if feature.primary_stat.zero? %>"><%= feature.primary_stat %></span>
+                    <% end %>
                   <% end %>
                 </li>
               <% end %>

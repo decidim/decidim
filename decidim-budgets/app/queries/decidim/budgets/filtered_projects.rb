@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 module Decidim
-  module Proposals
-    # A class used to find proposals filtered by features and a date range
-    class FilteredProposals < Rectify::Query
+  module Budgets
+    # A class used to find projects filtered by features and a date range
+    class FilteredProjects < Rectify::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # features - An array of Decidim::Feature
@@ -23,13 +23,13 @@ module Decidim
         @end_at = end_at
       end
 
-      # Finds the Proposals scoped to an array of features and filtered
+      # Finds the Projects scoped to an array of features and filtered
       # by a range of dates.
       def query
-        proposals = Decidim::Proposals::Proposal.where(feature: @features)
-        proposals = proposals.where("created_at >= ?", @start_at) if @start_at.present?
-        proposals = proposals.where("created_at <= ?", @end_at) if @end_at.present?
-        proposals
+        projects = Decidim::Budgets::Project.where(feature: @features)
+        projects = projects.where("created_at >= ?", @start_at) if @start_at.present?
+        projects = projects.where("created_at <= ?", @end_at) if @end_at.present?
+        projects
       end
     end
   end
