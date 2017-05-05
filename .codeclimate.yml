@@ -45,7 +45,7 @@ exclude_paths:
 - "**/vendor/**/*"
 - "decidim-*/spec/**/*"
 - "decidim-*/test/**/*"
-- "decidim-*/db/**/*"
+- "decidim-*/db/migrate/**/*"
 - "**/*.test.js"
 - "**/*.test.jsx"
 - "decidim-core/app/assets/stylesheets/decidim/email.css"

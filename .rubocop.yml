@@ -25,7 +25,7 @@ AllCops:
     - '**/vendor/**/*'
     - 'decidim-*/spec/**/*'
     - 'decidim-*/test/**/*'
-    - 'decidim-*/db/**/*'
+    - 'decidim-*/db/migrate/**'
     - 'development_app/**/*'
     - 'docker_development_app/**/*'
     - 'spec/decidim_dummy_app/**/*'
