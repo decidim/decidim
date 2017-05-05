@@ -350,10 +350,10 @@ fi:
         active_step: Aktiivinen vaihe
         see_all_processes: Näytä kaikki prosessit
       statistics:
+        comments_count: Comments
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Meetings
         processes_count: Processes
-        projects_count: Projects
         proposals_count: Proposals
         results_count: Results
         users_count: Users
