@@ -9,7 +9,6 @@ module Decidim
 
       before do
         @request.env["decidim.current_organization"] = organization
-        @request.env["devise.mapping"] = Devise.mappings[:user]
       end
 
       describe "GET show" do
