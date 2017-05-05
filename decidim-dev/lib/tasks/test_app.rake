@@ -15,7 +15,7 @@ namespace :decidim do
     )
 
     Dir.chdir(dummy_app_path) do
-      sh "bundle exec rake assets:precompile"
+      Bundler.with_clean_env { sh "bundle exec rake assets:precompile" }
     end
   end
 end
