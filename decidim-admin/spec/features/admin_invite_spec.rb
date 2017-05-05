@@ -26,7 +26,7 @@ describe "Admin invite", type: :feature do
     }
   end
 
-  before(:each) do
+  before do
     expect { Decidim::System::RegisterOrganization.new(form).call }.to broadcast(:ok)
     switch_to_host("decide.lvh.me")
   end
