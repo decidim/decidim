@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Decidim
-  # This class stores differen stats computations and resolves them given a context.
+  # This class stores different stats computations and resolves them given a context.
   class StatsRegistry
     HIGH_PRIORITY = 1
     MEDIUM_PRIORITY = 2
