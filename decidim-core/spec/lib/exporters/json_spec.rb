@@ -20,11 +20,11 @@ describe Decidim::Exporters::JSON do
     [OpenStruct.new(id: 1, name: "foo"), OpenStruct.new(id: 2, name: "bar")]
   end
 
-  subject { described_class.new(serializer) }
+  subject { described_class.new(collection, serializer) }
 
   describe "export" do
     it "exports the collection using the right serializer" do
-      json = JSON.parse(subject.export(collection))
+      json = JSON.parse(subject.export.data)
       expect(json[0]).to eq("id" => 1, "serialized_name" => "foo")
       expect(json[1]).to eq("id" => 2, "serialized_name" => "bar")
     end

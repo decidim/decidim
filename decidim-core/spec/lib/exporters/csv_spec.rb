@@ -1,4 +1,5 @@
 require "spec_helper"
+require "csv"
 
 describe Decidim::Exporters::CSV do
   let(:serializer) do
@@ -24,12 +25,13 @@ describe Decidim::Exporters::CSV do
     ]
   end
 
-  subject { described_class.new(serializer) }
+  subject { described_class.new(collection, serializer) }
 
   describe "export" do
     it "exports the collection using the right serializer" do
-      exported = subject.export(collection)
-      expect(exported[0]["serialized_name__ca"]).to eq("foocat")
+      exported = subject.export.read
+      data = CSV.parse(exported, headers: true, col_sep: ";").map { |row| row.to_h }
+      expect(data[0]["serialized_name/ca"]).to eq("foocat")
     end
   end
 end

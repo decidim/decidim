@@ -1,31 +1,41 @@
+require 'csv'
+
 module Decidim
   module Exporters
-    class CSV
-      def initialize(serializer)
-        @serializer = serializer
+    class CSV < Exporter
+      def export
+        data = ::CSV.generate(headers: headers, write_headers: true, col_sep: ";") do |csv|
+          processed_collection.each do |resource|
+            csv << headers.map { |header| resource[header] }
+          end
+        end
+
+        ExportData.new(data, "csv")
       end
 
-      def export(collection)
-        collection.map do |resource|
-          @serializer.new(resource).serialize.inject({}) do |result, (key, value)|
-            result.merge!(flatten(key, value))
-          end
+      private
+
+      def headers
+        return [] if processed_collection.empty?
+        processed_collection.first.keys
+      end
+
+      def processed_collection
+        @processed_collection ||= collection.map do |resource|
+          flatten(@serializer.new(resource).serialize)
         end
       end
 
-      def flatten(key, object)
+      def flatten(object, key = nil)
         if object.kind_of? Hash
           object.inject({}) do |result, (subkey, value)|
-            result.merge(flatten("#{key}__#{subkey}", value))
+            new_key = key ? "#{key}/#{subkey}" : subkey.to_s
+            result.merge(flatten(value, new_key))
           end
         elsif object.kind_of?(Array)
-          {
-            key => object.map(&:to_s).join(", ")
-          }
+          { key.to_s => object.map(&:to_s).join(", ") }
         else
-          {
-            key => object
-          }
+          { key.to_s => object }
         end
       end
     end

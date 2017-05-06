@@ -1,14 +1,14 @@
+require "json"
+
 module Decidim
   module Exporters
-    class JSON
-      def initialize(serializer)
-        @serializer = serializer
-      end
-
-      def export(collection)
-        collection.map do |resource|
+    class JSON < Exporter
+      def export
+        data = ::JSON.pretty_generate(@collection.map do |resource|
           @serializer.new(resource).serialize
-        end.to_json
+        end)
+
+        ExportData.new(data, "json")
       end
     end
   end

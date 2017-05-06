@@ -46,6 +46,7 @@ Gem::Specification.new do |s|
   s.add_dependency "premailer-rails", "~> 1.9.5"
   s.add_dependency "nokogiri", "~> 1.7.1"
   s.add_dependency "geocoder", "~> 1.4.2"
+  s.add_dependency "rubyzip", "1.2.1"
 
   s.add_dependency "decidim-api", Decidim.version
 
