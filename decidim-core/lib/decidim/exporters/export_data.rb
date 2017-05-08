@@ -1,12 +1,21 @@
-class ExportData
-  attr_reader :extension
+module Decidim
+  module Exporters
+    # Holds the result of an export.
+    class ExportData
+      attr_reader :extension
 
-  def initialize(data, extension)
-    @data = data
-    @extension = extension
-  end
+      # Initializes an `ExportData` with the RAW data and the extension.
+      def initialize(data, extension)
+        @data = data
+        @extension = extension
+      end
 
-  def read
-    @data
+      # Gives back the raw data of the export.
+      #
+      # Returns a String with the result of the export.
+      def read
+        @data
+      end
+    end
   end
 end

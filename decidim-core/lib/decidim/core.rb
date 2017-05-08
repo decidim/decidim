@@ -25,6 +25,7 @@ module Decidim
   autoload :HasReference, "decidim/has_reference"
   autoload :Attributes, "decidim/attributes"
   autoload :Exporters, "decidim/exporters"
+  autoload :FileZipper, "decidim/file_zipper"
 
   include ActiveSupport::Configurable
 

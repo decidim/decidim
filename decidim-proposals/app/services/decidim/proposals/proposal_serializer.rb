@@ -13,8 +13,8 @@ module Decidim
         {
           id: @proposal.id,
           category: {
-            id: @proposal.category.id,
-            name: @proposal.category.name
+            id: @proposal.category.try(:id),
+            name: @proposal.category.try(:name)
           },
           title: @proposal.title,
           body: @proposal.body,

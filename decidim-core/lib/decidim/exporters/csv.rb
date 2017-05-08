@@ -2,7 +2,17 @@ require 'csv'
 
 module Decidim
   module Exporters
+    # Exports any serialized object (Hash) into a readable CSV. It transforms
+    # the columns using slashes in a way that can be afterwards reconstructed
+    # into the original nested hash.
+    #
+    # For example, `{ name: { ca: "Hola", en: "Hello" } }` would result into
+    # the columns: `name/ca` and `name/es`.
     class CSV < Exporter
+      # Public: Exports a CSV serialized version of the collection using the
+      # provided serializer and following the previously described strategy.
+      #
+      # Returns an ExportData instance.
       def export
         data = ::CSV.generate(headers: headers, write_headers: true, col_sep: ";") do |csv|
           processed_collection.each do |resource|

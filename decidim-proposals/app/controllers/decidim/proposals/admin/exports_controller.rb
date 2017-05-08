@@ -9,31 +9,14 @@ module Decidim
           authorize! :read, Proposal
           authorize! :export, Proposal
 
-          respond_to do |format|
-            format.csv do
-              exporter = Decidim::Exporters::CSV.new(proposals, ProposalSerializer)
+          ExportJob.perform_later(
+            current_user,
+            current_feature,
+            params[:format]
+          )
 
-              send_data ExportNotifier.new("proposals", exporter).notify,
-                        type: "application/zip",
-                        disposition: "attachment",
-                        filename: "zipfile.zip"
-            end
-
-            format.json do |format|
-              send_data Decidim::Exporters::JSON.new(proposals, ProposalSerializer).export.data,
-                        type: "application/json",
-                        disposition: "attachment",
-                        filename: "#{filename}.json"
-            end
-          end
-        end
-
-        private
-
-        def proposals
-          Proposal
-            .where(feature: current_feature)
-            .includes(:category, feature: { participatory_process: :organization })
+          flash[:notice] = "Exporting"
+          redirect_to :back
         end
       end
     end
