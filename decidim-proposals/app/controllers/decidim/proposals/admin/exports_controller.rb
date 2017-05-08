@@ -15,7 +15,7 @@ module Decidim
             params[:format]
           )
 
-          flash[:notice] = "Exporting"
+          flash[:notice] = t("decidim.proposals.exports.notice")
           redirect_to :back
         end
       end
