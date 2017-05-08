@@ -61,7 +61,8 @@ module Decidim
         end
 
         it "serializes the meetings" do
-          expect(serialized[:meeting_ids]).to include(*meetings.map(&:id))
+          expect(serialized[:meeting_urls].length).to eq(2)
+          expect(serialized[:meeting_urls].first).to match(/http.*\/meetings/)
         end
       end
     end
