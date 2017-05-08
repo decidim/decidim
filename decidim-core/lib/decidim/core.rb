@@ -24,6 +24,7 @@ module Decidim
   autoload :HasCategory, "decidim/has_category"
   autoload :HasReference, "decidim/has_reference"
   autoload :Attributes, "decidim/attributes"
+  autoload :StatsRegistry, "decidim/stats_registry"
   autoload :Exporters, "decidim/exporters"
   autoload :FileZipper, "decidim/file_zipper"
 
@@ -156,5 +157,10 @@ module Decidim
   # Returns an Array[ResourceManifest]
   def self.resource_manifests
     @resource_manifests ||= feature_manifests.flat_map(&:resource_manifests)
+  end
+
+  # Public: Stores an instance of StatsRegistry
+  def self.stats
+    @stats ||= StatsRegistry.new
   end
 end

@@ -34,6 +34,7 @@ module Decidim
       def create_comment
         @comment = Comment.create!(author: @author,
                                    commentable: @commentable,
+                                   root_commentable: root_commentable(@commentable),
                                    body: form.body,
                                    alignment: form.alignment,
                                    decidim_user_group_id: form.user_group_id)
@@ -53,6 +54,11 @@ module Decidim
 
       def same_author?
         @author == @commentable.author
+      end
+
+      def root_commentable(commentable)
+        return commentable.root_commentable if commentable.is_a? Decidim::Comments::Comment
+        commentable
       end
     end
   end

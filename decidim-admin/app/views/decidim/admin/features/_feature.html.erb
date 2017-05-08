@@ -25,7 +25,11 @@
     <% end %>
 
     <% if can? :update, feature %>
-      <%= icon_link_to "key", edit_participatory_process_feature_permissions_path(feature_id: feature), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
+      <% if feature.manifest.actions.empty? %>
+        <%= icon "key", class: "action-icon action-icon--disabled" %>
+      <% else %>
+        <%= icon_link_to "key", edit_participatory_process_feature_permissions_path(feature_id: feature), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
+      <% end %>
     <% end %>
 
     <%= icon_link_to "circle-x", url_for(action: :destroy, id: feature, controller: "features"), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>

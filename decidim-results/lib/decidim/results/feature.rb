@@ -16,6 +16,15 @@ Decidim.register_feature(:results) do |feature|
     resource.template = "decidim/results/results/linked_results"
   end
 
+  feature.register_stat :results_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
+    Decidim::Results::FilteredResults.for(features, start_at, end_at).count
+  end
+
+  feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
+    results = Decidim::Results::FilteredResults.for(features, start_at, end_at)
+    Decidim::Comments::Comment.where(root_commentable: results).count
+  end
+
   feature.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
   end

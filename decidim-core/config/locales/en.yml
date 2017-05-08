@@ -355,9 +355,14 @@ en:
         active_step: Active step
         see_all_processes: See all processes
       statistics:
+        comments_count: Comments
         headline: Current state of %{organization}
-        processes: Processes
-        users: Users
+        meetings_count: Meetings
+        processes_count: Processes
+        proposals_count: Proposals
+        results_count: Results
+        users_count: Users
+        votes_count: Votes
       sub_hero:
         register: Register
   social_share_button:

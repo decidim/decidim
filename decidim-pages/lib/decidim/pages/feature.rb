@@ -19,6 +19,13 @@ Decidim.register_feature(:pages) do |feature|
     end
   end
 
+  feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
+    pages = Decidim::Pages::Page.where(feature: features)
+    pages = pages.where("created_at >= ?", start_at) if start_at.present?
+    pages = pages.where("created_at <= ?", end_at) if end_at.present?
+    Decidim::Comments::Comment.where(root_commentable: pages).count
+  end
+
   feature.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
   end

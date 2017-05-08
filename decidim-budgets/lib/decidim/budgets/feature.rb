@@ -19,6 +19,15 @@ Decidim.register_feature(:budgets) do |feature|
     resource.template = "decidim/budgets/projects/linked_projects"
   end
 
+  feature.register_stat :projects_count, primary: true do |features, start_at, end_at|
+    Decidim::Budgets::FilteredProjects.for(features, start_at, end_at).count
+  end
+
+  feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
+    projects = Decidim::Budgets::FilteredProjects.for(features, start_at, end_at)
+    Decidim::Comments::Comment.where(root_commentable: projects).count
+  end
+
   feature.settings(:global) do |settings|
     settings.attribute :total_budget, type: :integer, default: 100_000_000
     settings.attribute :vote_threshold_percent, type: :integer, default: 70

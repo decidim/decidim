@@ -1,0 +1,7 @@
+.table-list__actions {
+  .action-icon {
+    &.action-icon--disabled {
+      color: rgba($muted, .3);
+    }
+  }
+}

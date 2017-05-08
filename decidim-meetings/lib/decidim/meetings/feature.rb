@@ -16,6 +16,13 @@ Decidim.register_feature(:meetings) do |feature|
     resource.template = "decidim/meetings/meetings/linked_meetings"
   end
 
+  feature.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|
+    meetings = Decidim::Meetings::Meeting.where(feature: features)
+    meetings = meetings.where("created_at >= ?", start_at) if start_at.present?
+    meetings = meetings.where("created_at <= ?", end_at) if end_at.present?
+    meetings.count
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?

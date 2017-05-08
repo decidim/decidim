@@ -104,6 +104,7 @@ ignore_unused:
   - invisible_captcha.*
   - decidim.participatory_processes.scopes.global
   - decidim.participatory_processes.participatory_process_groups.none
+  - pages.home.statistics.*
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'

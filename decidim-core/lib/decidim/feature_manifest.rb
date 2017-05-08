@@ -135,5 +135,23 @@ module Decidim
     def resource_manifests
       @resource_manifests ||= []
     end
+
+    # Public: Stores an instance of StatsRegistry
+    def stats
+      @stats ||= StatsRegistry.new
+    end
+
+    # Public: Registers a stat inside a feature manifest.
+    #
+    # name - The name of the stat
+    # options - A hash of options
+    #         * primary: Wether the stat is primary or not.
+    #         * priority: The priority of the stat used for render issues.
+    # block - A block that receive the features to filter out the stat.
+    #
+    # Returns nothing.
+    def register_stat(name, options = {}, &block)
+      stats.register(name, options, &block)
+    end
   end
 end
