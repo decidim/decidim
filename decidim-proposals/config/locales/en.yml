@@ -72,12 +72,12 @@ en:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully.
       exports:
-        notice: Your export is currently in progress. You'll receive an email when it's complete.
+        notice: Your export is currently in progress. You'll receive an email when
+          it's complete.
       models:
         proposal:
           fields:
             category: Category
-            export: Export
             official_proposal: Official proposal
             scope: Scope
             state: State
