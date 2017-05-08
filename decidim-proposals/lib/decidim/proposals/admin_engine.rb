@@ -12,7 +12,7 @@ module Decidim
           resources :proposal_answers, only: [:edit, :update]
 
           collection do
-            resources :exports
+            resources :exports, only: [:create]
           end
         end
 
