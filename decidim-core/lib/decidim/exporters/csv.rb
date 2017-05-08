@@ -1,4 +1,5 @@
-require 'csv'
+# frozen_string_literal: true
+require "csv"
 
 module Decidim
   module Exporters
@@ -37,12 +38,12 @@ module Decidim
       end
 
       def flatten(object, key = nil)
-        if object.kind_of? Hash
+        if object.is_a? Hash
           object.inject({}) do |result, (subkey, value)|
             new_key = key ? "#{key}/#{subkey}" : subkey.to_s
             result.merge(flatten(value, new_key))
           end
-        elsif object.kind_of?(Array)
+        elsif object.is_a?(Array)
           { key.to_s => object.map(&:to_s).join(", ") }
         else
           { key.to_s => object }

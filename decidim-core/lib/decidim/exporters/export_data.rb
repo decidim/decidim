@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   module Exporters
     # Holds the result of an export.

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Decidim
   module Exporters
     # Abstract class providing the interface and partial implementation
@@ -21,13 +22,9 @@ module Decidim
 
       private
 
-      def collection
-        @collection
-      end
+      attr_reader :collection
 
-      def serializer
-        @serializer
-      end
+      attr_reader :serializer
     end
   end
 end

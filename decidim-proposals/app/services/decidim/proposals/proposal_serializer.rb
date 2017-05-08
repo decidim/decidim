@@ -37,9 +37,7 @@ module Decidim
         feature.organization
       end
 
-      def proposal
-        @proposal
-      end
+      attr_reader :proposal
 
       def participatory_process
         feature.participatory_process
