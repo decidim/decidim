@@ -7,6 +7,7 @@ describe "Process admin manages proposals", type: :feature do
   let(:user) { process_admin }
   it_behaves_like "manage proposals"
   it_behaves_like "manage moderations"
+  it_behaves_like "export proposals"
   include_context "feature"
   let(:manifest_name) { "proposals" }
 
