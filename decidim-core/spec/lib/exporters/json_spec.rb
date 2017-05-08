@@ -24,7 +24,7 @@ describe Decidim::Exporters::JSON do
 
   describe "export" do
     it "exports the collection using the right serializer" do
-      json = JSON.parse(subject.export.data)
+      json = JSON.parse(subject.export.read)
       expect(json[0]).to eq("id" => 1, "serialized_name" => "foo")
       expect(json[1]).to eq("id" => 2, "serialized_name" => "bar")
     end
