@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Proposals
     # Abstract class from which all models in this engine inherit.

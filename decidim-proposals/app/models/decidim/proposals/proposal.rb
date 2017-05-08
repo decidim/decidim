@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Proposals
     # The data store for a Proposal in the Decidim::Proposals component.
@@ -20,8 +21,8 @@ module Decidim
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.feature.organization.host } }
 
-      scope :accepted,   -> { where(state: "accepted") }
-      scope :rejected,   -> { where(state: "rejected") }
+      scope(:accepted,   -> { where(state: "accepted") })
+      scope(:rejected,   -> { where(state: "rejected") })
 
       def author_name
         user_group&.name || author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
