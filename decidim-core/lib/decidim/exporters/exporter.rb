@@ -22,9 +22,7 @@ module Decidim
 
       private
 
-      attr_reader :collection
-
-      attr_reader :serializer
+      attr_reader :collection, :serializer
     end
   end
 end
