@@ -6,7 +6,7 @@ describe Decidim::Admin::CreateParticipatoryProcess do
   let(:scope) { create :scope, organization: organization }
   let(:errors) { double.as_null_object }
   let(:form) do
-    double(
+    instance_double( Decidim::Admin::ParticipatoryProcessForm,
       :invalid? => invalid,
       title: {en: "title"},
       subtitle: {en: "subtitle"},
@@ -16,6 +16,12 @@ describe Decidim::Admin::CreateParticipatoryProcess do
       hero_image: nil,
       banner_image: nil,
       promoted: nil,
+      developer_group: "developer group",
+      local_area: "local",
+      target: "target",
+      participatory_scope: "participatory scope",
+      participatory_structure: "participatory structure",
+      end_date: nil,
       description: {en: "description"},
       short_description: {en: "short_description"},
       current_organization: organization,
