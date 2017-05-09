@@ -91,7 +91,7 @@ module Decidim
     # Returns a String.
     def _decidim_resource_route(resource, route_type, options)
       manifest = resource.class.resource_manifest
-      engine = send(manifest.mounted_engine_name)
+      engine = manifest.feature_manifest.engine
 
       url_params = {
         id: resource.id,
@@ -99,7 +99,7 @@ module Decidim
         participatory_process_id: resource.feature.participatory_process.id
       }
 
-      engine.send("#{manifest.route_name}_#{route_type}", url_params.merge(options))
+      engine.routes.url_helpers.send("#{manifest.route_name}_#{route_type}", url_params.merge(options))
     end
   end
 end

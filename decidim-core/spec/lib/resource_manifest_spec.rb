@@ -52,11 +52,5 @@ module Decidim
 
       it { is_expected.to be_invalid }
     end
-
-    describe "mounted_engine_name" do
-      it "builds it" do
-        expect(subject.mounted_engine_name).to eq("decidim_dummy")
-      end
-    end
   end
 end

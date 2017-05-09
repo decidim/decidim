@@ -6,6 +6,7 @@ module Decidim
     # formats.
     class ProposalSerializer
       include Rails.application.routes.url_helpers
+      include Decidim::ResourceHelper
 
       # Public: Initializes the serializer with a proposal.
       def initialize(proposal)
@@ -45,7 +46,7 @@ module Decidim
 
       def meetings
         @proposal.linked_resources(:meetings, "proposals_from_meeting").map do |meeting|
-          Decidim::Meetings::ListEngine.routes.url_helpers.meeting_url(
+          decidim_resource_url(
             meeting,
             feature_id: feature,
             participatory_process_id: participatory_process,
