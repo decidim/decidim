@@ -350,14 +350,7 @@ es:
         active_step: Fase activa
         see_all_processes: Ver todos los procesos
       statistics:
-        comments_count: Comments
         headline: Estado actual de %{organization}
-        meetings_count: Meetings
-        processes_count: Processes
-        proposals_count: Proposals
-        results_count: Results
-        users_count: Users
-        votes_count: Votes
       sub_hero:
         register: Registro
   social_share_button:
