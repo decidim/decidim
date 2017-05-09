@@ -5,7 +5,6 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän?
         destroy: Poista
         edit: Muokkaa
-        new: New
         save: Tallenna
         title: Toiminnot
       admins:
@@ -16,11 +15,9 @@ fi:
           success: Hallinnoija poistettu onnistuneesti
         edit:
           title: Muokkaa hallinnoijaa
-          update: Update
         index:
           title: Hallinnoijat
         new:
-          create: Create
           title: Uusi hallinnoija
         update:
           error: Hallinnoijan päivityksessä tapahtui virhe.
