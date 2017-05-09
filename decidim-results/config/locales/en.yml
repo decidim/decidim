@@ -70,8 +70,6 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
-        result:
-          view: "View result"
         show:
           stats:
             attendees: Attendees
