@@ -15,7 +15,6 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
         destroy: Supprimer
         edit: Modifier
-        new: New
         preview: Aperçu
         title: Actions
       admin:
@@ -30,13 +29,11 @@ fr:
             success: Projet supprimé avec succès
           edit:
             title: Éditer un projet
-            update: Update
           index:
             finished_orders: Commandes terminées
             pending_orders: Commandes en attente
             title: Projets
           new:
-            create: Create
             title: Nouveau résultat
           update:
             invalid: Il y a eu un problème de mise à jour de ce projet
@@ -93,36 +90,8 @@ fr:
           count:
             one: 1 soutien
             other: "%{count} soutiens"
-          remove: Remove
-        project_budget_button:
-          add: Add
-          added: Added
-        show:
-          budget: Budget
-          view_all_projects: View all projects
     features:
       budgets:
-        actions:
-          vote: Vote
-        name: Budgets
         settings:
           global:
-            comments_enabled: Comments enabled
-            total_budget: Total budget
             vote_threshold_percent: Pourcentage de seuil de vote
-          step:
-            comments_blocked: Comments blocked
-            votes_enabled: Votes enabled
-    orders:
-      checkout:
-        error: An error ocurred while processing your vote
-        success: Your vote has been accepted successfully
-      destroy:
-        error: An error ocurred while canceling your vote
-        success: Your vote has been canceled successfully
-    resource_links:
-      included_proposals:
-        project_proposals: 'Proposals included in this project:'
-  index:
-    confirmed_orders_count: Orders count
-  total_budget: Total budget
