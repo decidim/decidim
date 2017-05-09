@@ -8,7 +8,6 @@ eu:
         contributions_count: Ekarpen-kopurua
         proposal_ids: Topaketan sortutako proposamenak
       meeting:
-        address: Address
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
         description: Deskribapena
@@ -28,7 +27,6 @@ eu:
         confirm_destroy: Ziur zaude topaketa hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
-        new: New
         preview: Aurreikusi
         title: Ekintzak
       admin:
@@ -45,13 +43,8 @@ eu:
             success: Topaketa ongi sortu da
           destroy:
             success: Topaketa zuzen ezabatu da.
-          edit:
-            update: Update
           index:
             title: Topaketa-zerrenda
-          new:
-            create: Create
-            title: Create meeting
           update:
             invalid: Arazo bat izan da topaketa hau eguneratzean.
             success: Topaketa zuzen eguneratu da.
