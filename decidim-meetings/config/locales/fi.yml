@@ -8,7 +8,6 @@ fi:
         contributions_count: Kontribuutioiden määrä
         proposal_ids: Ehdotusta luotu tapaamisessa
       meeting:
-        address: Address
         decidim_category_id: Kategoria
         decidim_scope_id: Konteksti
         description: Kuvaus
@@ -28,8 +27,6 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
         destroy: Poista
         edit: Muokkaa
-        new: New
-        preview: Preview
         title: Toiminnot
       admin:
         meeting_closes:
@@ -45,13 +42,8 @@ fi:
             success: Tapaaminen onnistuneesti luotu
           destroy:
             success: Tapaaminen onnistuneesti poistettu
-          edit:
-            update: Update
           index:
             title: Tapaamiset
-          new:
-            create: Create
-            title: Create meeting
           update:
             invalid: Tapaamisen luonnissa tapahtui virhe
             success: Tapaaminen luotu onnistuneesti
@@ -61,7 +53,6 @@ fi:
       meetings:
         filters:
           category: Kategoria
-          category_prompt: Select a category
           date: Päivämäärä
           past: Menneet
           scopes: Kontekstit
