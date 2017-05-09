@@ -1,6 +1,4 @@
 fi:
-  actions:
-    confirm_destroy: Confirm destroy
   activemodel:
     attributes:
       attachment:
@@ -10,7 +8,6 @@ fi:
       category:
         description: Kuvaus
         name: Nimi
-        parent_id: Parent
       feature:
         name: Nimi
         weight: Painoarvo
@@ -27,7 +24,6 @@ fi:
         official_img_footer: Virallinen alapalkin logo
         official_img_header: Virallinen yläpalkin logo
         official_url: Virallinen organisaation URL-osoite
-        reference_prefix: Reference prefix
         show_statistics: Näytä tilastot
         welcome_text: Tervetuloa-teksti
       participatory_process:
@@ -40,21 +36,14 @@ fi:
         hero_image: Kotisivun kuva
         local_area: Paikallisalue
         meta_scope: Kontekstin metadata
-        participatory_process_group_id: Processes group
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
         promoted: Korostettu
-        scope_id: Scope
         short_description: Lyhyt kuvaus
         slug: URL-tunniste
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
-      participatory_process_group:
-        description: Description
-        hero_image: Image
-        name: Name
-        participatory_process_ids: Related processes
       participatory_process_step:
         description: Kuvaus
         end_date: Lopetusaika
@@ -63,8 +52,6 @@ fi:
         title: Otsikko
       participatory_process_user_role:
         email: Sähköposti
-        name: Name
-        role: Role
       scope:
         name: Nimi
         organization: Organisaatio
@@ -97,9 +84,6 @@ fi:
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
-      decidim/participatory_process_step:
-        end_date: End date
-        start_date: Start date
       decidim/static_page:
         content: Sisältö
         slug: URL-tunniste
@@ -108,13 +92,11 @@ fi:
     admin:
       actions:
         activate: Aktivoi
-        add: Add
         configure: Asetukset
         confirm_destroy: Haluatko varmasti poistaa tämän?
         destroy: Tuhoa
         edit: Muokkaa
         manage: Hallitse
-        new: New
         permissions: Oikeudet
         preview: Esikatsele
         publish: Julkaise
@@ -129,10 +111,6 @@ fi:
           success: Liite tuhottu onnistuneesti.
         edit:
           title: Muokkaa liitettä
-          update: Update
-        form:
-          current_file: Current file
-          url: Url
         new:
           create: Luo liite
           title: Uusi liite
@@ -148,16 +126,12 @@ fi:
           success: Kategoria poistettu onnistuneesti.
         edit:
           title: Muokkaa kategoriaa
-          update: Update
         new:
           create: Luo kategoria
           title: Uusi kategoria
         update:
           error: Tämän kategorian luonnissa tapahtui virhe.
           success: Kategoria päivitetty onnistuneesti.
-      dashboard:
-        show:
-          welcome: Welcome to the new Decidim Panel Admin.
       decidim:
         admin:
           attachments:
@@ -169,9 +143,6 @@ fi:
           participatory_process_steps:
             index:
               steps_title: Vaihe
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Participatory process users
       feature_permissions:
         edit:
           everyone: Kaikki
@@ -210,24 +181,19 @@ fi:
           error: Tämän ominaisuuden päivityksessä tapahtui virhe.
           success: Ominaisuus päivitetty onnistuneesti.
       menu:
-        admins: Admins
         dashboard: Hallintapaneeli
         newsletters: Uutiskirjeet
-        participatory_process_groups: Process groups
-        participatory_processes: Processes
         participatory_processes_submenu:
           attachments: Liitteet
           categories: Kategoriat
           features: Ominaisuudet
           info: Tiedot
           moderations: Moderointi
-          process_admins: Process users
           steps: Vaiheet
         scopes: Kontekstit
         settings: Asetukset
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
-        users: Users
       models:
         attachment:
           fields:
@@ -253,7 +219,6 @@ fi:
         participatory_process_group:
           fields:
             name: Nimi
-          name: Process group
         participatory_process_step:
           fields:
             end_date: Lopetusaika
@@ -263,12 +228,6 @@ fi:
         participatory_process_user_role:
           fields:
             email: Sähköposti
-            name: Name
-            role: Role
-          name: Participatory Process User
-          roles:
-            admin: Administrator
-            collaborator: Collaborator
         scope:
           fields:
             created_at: Luonnin ajankohta
@@ -293,9 +252,6 @@ fi:
             name: Nimi
             phone: Puhelinnumero
             users_count: Käyttäjämäärä
-      moderations:
-        index:
-          title: Moderations
       newsletters:
         create:
           error: Tämän uutiskirjeen luonnissa tapahtui virhe.
@@ -328,16 +284,6 @@ fi:
       organization:
         edit:
           title: Muokkaa organisaatiota
-          update: Update
-        form:
-          current_image: Current image
-          facebook: Facebook
-          github: GitHub
-          instagram: Instagram
-          social_handlers: Social
-          twitter: Twitter
-          url: Url
-          youtube: YouTube
         update:
           error: Tämän organisaation päivityksessä tapahtui virhe.
           success: Organisaatio päivitetty onnistuneesti.
@@ -345,11 +291,9 @@ fi:
         destroy:
           success: Osallistumisprosessien ryhmä poistettu onnistuneesti.
         edit:
-          title: Edit process group
           update: Päivitä
         new:
           create: Luo
-          title: New process group
         update:
           error: Tämän osallistumisprosessien ryhmän päivityksessä tapahtui virhe.
           success: Osallistumisprosessien ryhmä päivitetty onnistuneesti.
@@ -376,48 +320,19 @@ fi:
           success: Osallistumisprosessin vaihe tuhottu onnistuneesti.
         edit:
           title: Muokkaa osallistumisprosessin vaihetta
-          update: Update
         new:
-          create: Create
           title: Uusi osallistumisprosessin vaihe
         ordering:
           error: Tämän osallistumisprosessin vaiheiden järjestämisessä tapahtui virhe.
         update:
           error: Tämän osallistumisprosessin vaiheen päivityksessä tapahtui virhe.
           success: Osallistumisprosessin vaihe päivitetty onnistuneesti.
-      participatory_process_user_roles:
-        create:
-          error: There was an error adding an user for this participatory process.
-          success: User created successfully for this participatory process.
-        destroy:
-          success: User destroyed successfully for this participatory process.
-        edit:
-          title: Update participatory process user.
-          update: Update
-        new:
-          create: Create
-          title: New participatory process user.
-        update:
-          error: There was an error updated an user for this participatory process.
-          success: User updated successfully for this participatory process.
       participatory_processes:
         create:
           error: Uuden osallistumisprosessin luonnissa tapahtui virhe.
           success: Osallistumisprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
         destroy:
           success: Osallistumisprosessi tuhottu onnistuneesti.
-        edit:
-          update: Update
-        form:
-          current_image: Current image
-          title: General Information
-          url: Url
-        index:
-          not_published: Not published
-          published: Published
-        new:
-          create: Create
-          title: New participatory process
         update:
           error: Tämän osallistumisprosessin päivityksessä tapahtui virhe.
           success: Osallistumisprosessi päivitetty onnistuneesti.
@@ -433,7 +348,6 @@ fi:
           success: Konteksti tuhottu onnistuneesti
         edit:
           title: Muokkaa kontekstia
-          update: Update
         new:
           create: Luo konteksti
           title: Uusi konteksti
@@ -450,9 +364,7 @@ fi:
           success: Sivu tuhottu onnistuneesti
         edit:
           title: Muokkaa sivua
-          update: Update
         new:
-          create: New
           title: Uusi sivu
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
@@ -475,9 +387,6 @@ fi:
         destroy:
           error: Tämän käyttäjän poistamisessa tapahtui virhe.
           success: Käyttäjä ei ole enää hallinnoija.
-        form:
-          email: Email
-          name: Name
         new:
           create: Kutsu
           title: Kutsu käyttäjä hallinnoijaksi
@@ -510,15 +419,6 @@ fi:
     participatory_processes:
       participatory_process_groups:
         none: Ei ryhmää
-  layouts:
-    decidim:
-      admin:
-        newsletters:
-          title: Newsletters
-        settings:
-          title: Settings
-        users:
-          title: Users
   time:
     formats:
       timepicker: "%d/%m/%Y %H:%M"
