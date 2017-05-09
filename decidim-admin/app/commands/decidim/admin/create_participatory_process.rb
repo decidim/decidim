@@ -37,6 +37,7 @@ module Decidim
       def create_participatory_process
         transaction do
           process = ParticipatoryProcess.new(
+            organization: form.current_organization,
             title: form.title,
             subtitle: form.subtitle,
             slug: form.slug,
@@ -46,9 +47,14 @@ module Decidim
             hero_image: form.hero_image,
             banner_image: form.banner_image,
             promoted: form.promoted,
-            meta_scope: form.meta_scope,
             scope: form.scope,
-            organization: form.current_organization,
+            developer_group: form.developer_group,
+            local_area: form.local_area,
+            target: form.target,
+            participatory_scope: form.participatory_scope,
+            participatory_structure: form.participatory_structure,
+            meta_scope: form.meta_scope,
+            end_date: form.end_date,
             participatory_process_group: form.participatory_process_group
           )
 
