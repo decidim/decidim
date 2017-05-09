@@ -69,12 +69,5 @@ module Decidim
     def route_name
       super || model_class_name.demodulize.underscore
     end
-
-    # The engine for the resource. It will be used to build routes.
-    #
-    # Returns a Rails::Engine.
-    def mounted_engine_name
-      "decidim_#{feature_manifest.name}"
-    end
   end
 end

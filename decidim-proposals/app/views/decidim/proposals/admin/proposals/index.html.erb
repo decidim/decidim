@@ -3,9 +3,21 @@
     <h2 class="card-title">
       <%= t(".title") %>
 
-      <% if feature_settings.official_proposals_enabled %>
-        <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'button tiny button--title' if can? :manage, current_feature %>
-      <% end %>
+      <div class="button--title">
+
+        <% if feature_settings.official_proposals_enabled %>
+          <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'button tiny button--simple' if can? :manage, current_feature %>
+        <% end %>
+
+      <button class="exports dropdown tiny button button--simple" data-toggle="export-dropdown"><%= t "actions.export", scope: "decidim.proposals" %></button>
+      <div class="dropdown-pane" id="export-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
+        <ul class="vertical menu add-features">
+          <li class="exports--csv"><%= link_to "CSV", exports_path(feature_id: current_feature, participatory_process_id: current_participatory_process, format: :csv), method: :post %></li>
+          <li class="exports--json"><%= link_to "JSON", exports_path(feature_id: current_feature, participatory_process_id: current_participatory_process, format: :json), method: :post %></li>
+        </ul>
+      </div>
+
+      </div>
     </h2>
   </div>
 

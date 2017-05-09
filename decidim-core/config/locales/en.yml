@@ -105,6 +105,10 @@ en:
       shared:
         omniauth_buttons:
           or: Or
+    export_mailer:
+      export:
+        ready: Please find attached a zipped version of your export.
+      subject: Your export "%{name}" is ready
     features:
       dummy:
         actions:
