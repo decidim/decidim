@@ -10,7 +10,6 @@ eu:
       category:
         description: Deskribapena
         name: Izena
-        parent_id: Parent
       feature:
         name: Izena
         weight: Pisua
@@ -97,9 +96,6 @@ eu:
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
         title: Izenburua
-      decidim/participatory_process_step:
-        end_date: End date
-        start_date: Start date
       decidim/static_page:
         content: Edukia
         slug: URL laburra
@@ -114,7 +110,6 @@ eu:
         destroy: Kendu
         edit: Editatu
         manage: Kudeatu
-        new: New
         permissions: Baimenak
         preview: Aurreikusi
         publish: Argitaratu
@@ -129,7 +124,6 @@ eu:
           success: Fitxategi erantsia zuzen ezabatu da.
         edit:
           title: Editatu fitxategi erantsia
-          update: Update
         form:
           current_file: Oraingo fitxategia
           url: url
@@ -148,7 +142,6 @@ eu:
           success: Kategoria zuzen ezabatu da.
         edit:
           title: Editatu kategoria
-          update: Update
         new:
           create: Sortu kategoria
           title: Kategoria berria
@@ -266,9 +259,6 @@ eu:
             name: Izena
             role: Rola
           name: ' Erabiltzailearen prozesu partizipatiboa '
-          roles:
-            admin: Administrator
-            collaborator: Collaborator
         scope:
           fields:
             created_at: Sortze-data
@@ -328,7 +318,6 @@ eu:
       organization:
         edit:
           title: Editatu erakundea
-          update: Update
         form:
           current_image: Oraingo irudia
           facebook: Facebook
@@ -376,9 +365,7 @@ eu:
           success: Prozesu partizipatiboaren fasea zuzen ezabatu da.
         edit:
           title: Editatu prozesu partizipatiboaren fasea
-          update: Update
         new:
-          create: Create
           title: Prozesu partizipatiboaren fase berria
         ordering:
           error: Errorea gertatu da prozesu partizipatiboaren faseak berrantolatzean.
@@ -406,8 +393,6 @@ eu:
           success: Prozesu partizipatiboa zuzen sortu da. Orain, jarrai ezazu faseak konfiguratzen.
         destroy:
           success: Prozesu partizipatiboa zuzen ezabatu da.
-        edit:
-          update: Update
         form:
           current_image: Oraingo irudia
           title: Informazio orokorra
@@ -415,9 +400,6 @@ eu:
         index:
           not_published: Argitaratu gabe
           published: Argitaratua
-        new:
-          create: Create
-          title: New participatory process
         update:
           error: Errorea gertatu da prozesu partizipatibo hau eguneratzean.
           success: Prozesu partizipatiboa zuzen eguneratu da.
@@ -433,7 +415,6 @@ eu:
           success: Esparrua ongi ezabatu da
         edit:
           title: Editatu helmena
-          update: Update
         new:
           create: Sortu esparrua
           title: Esparru berria
@@ -450,9 +431,7 @@ eu:
           success: Orria zuzen ezabatu da.
         edit:
           title: Editatu orria
-          update: Update
         new:
-          create: New
           title: Orri berria
         update:
           error: Errorea gertatu da orri hau eguneratzean.
