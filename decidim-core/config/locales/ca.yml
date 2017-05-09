@@ -351,8 +351,6 @@ ca:
         see_all_processes: Veure tots els processos
       statistics:
         headline: Estat actual de %{organization}
-        processes: Processos
-        users: Usuaris
       sub_hero:
         register: Registre
   social_share_button:

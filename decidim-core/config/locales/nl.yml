@@ -340,8 +340,6 @@ nl:
         see_all_processes: Toon alle processen
       statistics:
         headline: Huidige stand van %{organization}
-        processes: Processen
-        users: Gebruikers
       sub_hero:
         register: Registeren
   social_share_button:

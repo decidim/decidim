@@ -340,8 +340,6 @@ fi:
         see_all_processes: Näytä kaikki prosessit
       statistics:
         headline: Tämänhetkinen tila organisaatiolle %{organization}
-        processes: Prosessit
-        users: Käyttäjät
       sub_hero:
         register: Rekisteröidy
   social_share_button:

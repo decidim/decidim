@@ -351,8 +351,6 @@ es:
         see_all_processes: Ver todos los procesos
       statistics:
         headline: Estado actual de %{organization}
-        processes: Procesos
-        users: Usuarios
       sub_hero:
         register: Registro
   social_share_button:

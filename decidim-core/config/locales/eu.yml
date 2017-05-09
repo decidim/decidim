@@ -340,8 +340,6 @@ eu:
         see_all_processes: Ikusi prozesu guztiak
       statistics:
         headline: '%{organization} erakundearen egungo egoera'
-        processes: Prozesuak
-        users: Erabiltzaileak
       sub_hero:
         register: Erregistroa
   social_share_button:

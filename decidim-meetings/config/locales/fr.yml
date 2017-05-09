@@ -3,3 +3,7 @@ fr:
     attributes:
       close_meeting:
         attendees_count: Nombre de participants
+  decidim:
+    meetings:
+      actions:
+        close: Fermer
