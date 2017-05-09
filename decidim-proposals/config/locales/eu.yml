@@ -13,7 +13,6 @@ eu:
     features:
       proposals:
         actions:
-          create: Create
           vote: Proiektuaren alde egin
         name: Proposamenak
         settings:
@@ -29,11 +28,9 @@ eu:
             proposal_answering_enabled: Erantzuna aktibatutako proposamenei
             votes_blocked: Bozketa blokeatuta
             votes_enabled: Botoak gaituta
-            votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     proposals:
       actions:
         answer: Erantzuna
-        new: New
         title: Ekintzak
       admin:
         actions:
@@ -44,7 +41,6 @@ eu:
         proposal_answers:
           edit:
             accepted: Onartuta
-            answer_proposal: Answer
             rejected: Baztertuta
             title: 'Erantzun proposamen honi: %{title}'
         proposals:
@@ -58,9 +54,6 @@ eu:
             select_a_category: Aukeratu kategoria bat
           index:
             title: Proposamenak
-          new:
-            create: Create
-            title: Create proposal
       answers:
         accepted: Onartuta
         not_answered: Erantzun gabe
