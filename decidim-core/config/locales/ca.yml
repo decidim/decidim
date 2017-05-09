@@ -350,14 +350,7 @@ ca:
         active_step: Fase activa
         see_all_processes: Veure tots els processos
       statistics:
-        comments_count: Comments
         headline: Estat actual de %{organization}
-        meetings_count: Meetings
-        processes_count: Processes
-        proposals_count: Proposals
-        results_count: Results
-        users_count: Users
-        votes_count: Votes
       sub_hero:
         register: Registre
   social_share_button:
