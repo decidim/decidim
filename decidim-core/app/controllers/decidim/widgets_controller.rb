@@ -8,7 +8,7 @@ module Decidim
 
     layout "decidim/widget"
 
-    helper_method :iframe_url
+    helper_method :model, :iframe_url, :current_participatory_process
 
     def show
       respond_to do |format|
@@ -18,6 +18,10 @@ module Decidim
     end
 
     private
+
+    def current_participatory_process
+      @current_participatory_process ||= model.feature.participatory_process
+    end
 
     def iframe_url
       raise NotImplementedError

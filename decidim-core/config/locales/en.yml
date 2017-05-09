@@ -323,6 +323,8 @@ en:
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Organizations
+      widget:
+        see_more: "See more"
   locale:
     name: English
   pages:

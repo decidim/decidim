@@ -9,3 +9,24 @@
     overflow-y: auto;
   }
 }
+
+$widget-padding: 8px;
+
+body.widget {
+  background: #fff;
+  padding: $widget-padding;
+  margin: 0;
+
+  .participatory-process{
+    margin-bottom: $widget-padding;
+  }
+
+  .card {
+    margin: 0;
+  }
+
+  .organization {
+    margin-top: $widget-padding;
+    text-align: right;
+  }
+}

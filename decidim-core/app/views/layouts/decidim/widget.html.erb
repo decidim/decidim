@@ -3,12 +3,63 @@
   <head>
     <title><%= decidim_page_title %></title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'decidim/widget' %>
+    <%= stylesheet_link_tag    'application' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="widget">
+    <% if content_for(:header) == "false" %>
+    <% elsif content_for?(:header) %>
+      <%= content_for(:header) %>
+    <% else %>
+      <div class="participatory-process">
+        <%= link_to translated_attribute(current_participatory_process.title), decidim.participatory_process_path(current_participatory_process), target: "_blank" %>
+      </div>
+    <% end %>
+    <div class="row collapse">
+      <div class="column">
+
+        <article class="card">
+          <% if current_participatory_process.banner_image %>
+            <div class="card__image-top" style="background-image: url(<%= current_participatory_process.banner_image.url %>)"></div>
+          <% end %>
+
+          <div class="card__content">
+            <div class="card__header">
+              <%= link_to model do%>
+                <h5 class="card__title"><%= content_for(:title) %></h5>
+              <% end %>
+              <% if model.try(:author) %>
+                <div class="card__author author-data author-data--small">
+                  <div class="author-data__main">
+                    <div class="author author--inline">
+                      <span class="author__avatar author__avatar--small">
+                        <%= image_tag model.author_avatar_url %>
+                      </span>
+                      <span class="author__name"><%= model.author_name %></span>
+                      <%= l model.created_at, format: "%d/%m/%Y" %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <%= yield %>
+          </div>
+          <div class="card__footer">
+            <% if content_for?(:footer) %>
+              <%= content_for(:footer) %>
+            <% else %>
+              <div class="card__support">
+                <div class="card__support__data"></div>
+                <%= link_to model, class: "card__button button small", target: "_blank" do %>
+                  <%= t('.see_more') %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </article>
+      </div>
+    </div>
     <div class="organization">
       <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
     </div>
