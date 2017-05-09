@@ -204,10 +204,6 @@ eu:
           invalid: "%{field} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
-      embed_modal:
-        close_window: Close window
-        embed: Please paste this code in your page
-        embed_link: Embed
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek.
         close: Itxi
@@ -271,8 +267,6 @@ eu:
         description_html: 'Webgune honek bere cookieak eta hirugarrenenak erabiltzen ditu, nabigazioa hobetu eta intereseko edukiak eta zerbitzuak eskaintze aldera. Nabigatzen jarraituz gero, gure cookie-politika onartzen delakoan gaude. Argibide gehiago jasotzeko, kontsultatu hemen: %{link}.'
         link_label: hemen
         ok: Ados nago
-      footer:
-        made_with_open_source: 'Website made with <a target="_blank" href="https://github.com/decidim/decidim">open-source software</a>.'
       header:
         close_menu: Itxi menua
         navigation: Nabigazioa
@@ -281,10 +275,6 @@ eu:
       participatory_process_groups:
         participatory_process_group:
           browse: Arakatu
-      participatory_process_widgets:
-        show:
-          active_step: Active step
-          take_part: Take part
       participatory_processes:
         index:
           promoted_processes: Prozesu nabarmenduak
@@ -349,14 +339,7 @@ eu:
         active_step: Fase aktiboa
         see_all_processes: Ikusi prozesu guztiak
       statistics:
-        comments_count: Comments
         headline: '%{organization} erakundearen egungo egoera'
-        meetings_count: Meetings
-        processes_count: Processes
-        proposals_count: Proposals
-        results_count: Results
-        users_count: Users
-        votes_count: Votes
       sub_hero:
         register: Erregistroa
   social_share_button:
