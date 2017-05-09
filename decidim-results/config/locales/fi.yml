@@ -26,8 +26,6 @@ fi:
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa
-        new: New
-        preview: Preview
         title: Toiminnot
       admin:
         models:
@@ -41,11 +39,9 @@ fi:
             success: Tulos poistettu onnistuneesti
           edit:
             title: Muokkaa tulosta
-            update: Update
           index:
             title: Tulokset
           new:
-            create: Create
             title: Uusi tulos
           update:
             invalid: Tuloksen päivityksessä tapahtui virhe
@@ -61,7 +57,6 @@ fi:
             other: "%{count} tulosta"
         filters:
           category: Kategoria
-          category_prompt: Select a category
           scopes: Konteksti
           search: Haku
         filters_small_view:
