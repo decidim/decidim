@@ -1,3 +1,4 @@
+<% content_for(:header, "false") %>
 <% content_for(:title, translated_attribute(model.title)) %>
 <p class="card__desc"><%== html_truncate(translated_attribute(model.short_description), length: 630, separator: '...') %></p>
 <% content_for(:footer) do %>
