@@ -6,7 +6,7 @@ class UpdateRootCommentableForComments < ActiveRecord::Migration[5.0]
 
     Decidim::Comments::Comment.where("depth > 0").find_each do |comment|
       comment.root_commentable = root_commentable(comment)
-      comment.save
+      comment.save(validate: false)
     end
   end
 
