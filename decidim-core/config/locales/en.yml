@@ -278,7 +278,7 @@ en:
         link_label: here
         ok: I agree
       footer:
-        made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">open-source software</a>.
+        made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Close menu
         navigation: Navigation
