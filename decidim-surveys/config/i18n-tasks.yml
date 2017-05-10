@@ -1,0 +1,6 @@
+base_locale: en
+locales: [en]
+ignore_unused:
+- "decidim.features.surveys.name"
+ignore_missing:
+  - decidim.participatory_processes.scopes.global
