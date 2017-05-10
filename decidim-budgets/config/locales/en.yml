@@ -120,6 +120,7 @@ en:
           step:
             comments_blocked: Comments blocked
             votes_enabled: Votes enabled
+            show_votes: Show votes
     orders:
       checkout:
         error: An error ocurred while processing your vote
