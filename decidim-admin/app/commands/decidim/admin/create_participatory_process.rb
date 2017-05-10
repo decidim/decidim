@@ -35,30 +35,30 @@ module Decidim
       attr_reader :form
 
       def create_participatory_process
-        transaction do
-          process = ParticipatoryProcess.new(
-            organization: form.current_organization,
-            title: form.title,
-            subtitle: form.subtitle,
-            slug: form.slug,
-            hashtag: form.hashtag,
-            description: form.description,
-            short_description: form.short_description,
-            hero_image: form.hero_image,
-            banner_image: form.banner_image,
-            promoted: form.promoted,
-            scope: form.scope,
-            developer_group: form.developer_group,
-            local_area: form.local_area,
-            target: form.target,
-            participatory_scope: form.participatory_scope,
-            participatory_structure: form.participatory_structure,
-            meta_scope: form.meta_scope,
-            end_date: form.end_date,
-            participatory_process_group: form.participatory_process_group
-          )
+        process = ParticipatoryProcess.new(
+          organization: form.current_organization,
+          title: form.title,
+          subtitle: form.subtitle,
+          slug: form.slug,
+          hashtag: form.hashtag,
+          description: form.description,
+          short_description: form.short_description,
+          hero_image: form.hero_image,
+          banner_image: form.banner_image,
+          promoted: form.promoted,
+          scope: form.scope,
+          developer_group: form.developer_group,
+          local_area: form.local_area,
+          target: form.target,
+          participatory_scope: form.participatory_scope,
+          participatory_structure: form.participatory_structure,
+          meta_scope: form.meta_scope,
+          end_date: form.end_date,
+          participatory_process_group: form.participatory_process_group
+        )
 
-          return process unless process.valid?
+        return process unless process.valid?
+        transaction do
           process.save!
 
           process.steps.create!(
