@@ -138,6 +138,7 @@ module Decidim
     # datepicker library
     def date_field(attribute, options = {})
       value = object.send(attribute)
+      iso_value = value.strftime("%Y-%m-%dT%H:%M:%S") if value
       template = ""
       template += label(attribute, label_for(attribute))
       template += @template.text_field(
@@ -147,7 +148,7 @@ module Decidim
                       id: "date_field_#{@object_name}_#{attribute}",
                       data: { datepicker: "", startdate: value })
       )
-      template += @template.hidden_field(@object_name, attribute, value: value)
+      template += @template.hidden_field(@object_name, attribute, value: iso_value)
       template += error_and_help_text(attribute, options)
       template.html_safe
     end
@@ -156,7 +157,10 @@ module Decidim
     # datepicker library
     def datetime_field(attribute, options = {})
       value = object.send(attribute)
-      formatted_value = I18n.localize(value, format: :timepicker) if value
+      if value
+        iso_value = value.strftime("%Y-%m-%dT%H:%M:%S")
+        formatted_value = I18n.localize(value, format: :timepicker)
+      end
       template = ""
       template += label(attribute, label_for(attribute))
       template += @template.text_field(
@@ -167,7 +171,7 @@ module Decidim
                       id: "datetime_field_#{@object_name}_#{attribute}",
                       data: { datepicker: "", timepicker: "" })
       )
-      template += @template.hidden_field(@object_name, attribute, value: value)
+      template += @template.hidden_field(@object_name, attribute, value: iso_value)
       template += error_and_help_text(attribute, options)
       template.html_safe
     end
