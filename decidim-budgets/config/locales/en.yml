@@ -119,8 +119,8 @@ en:
             vote_threshold_percent: Vote threshold percent
           step:
             comments_blocked: Comments blocked
-            votes_enabled: Votes enabled
             show_votes: Show votes
+            votes_enabled: Votes enabled
     orders:
       checkout:
         error: An error ocurred while processing your vote
