@@ -104,6 +104,10 @@ ca:
       shared:
         omniauth_buttons:
           or: O
+    export_mailer:
+      export:
+        ready: S'adjunta una versió comprimida de l'exportació.
+      subject: L'exportació "%{name}" està a punt
     features:
       dummy:
         actions:
@@ -318,6 +322,8 @@ ca:
         notifications_settings: Configuració de les notificacions
         title: Configuració d'usuari
         user_groups: Organitzacions
+      widget:
+        see_more: "Veure més"
   locale:
     name: Català
   pages:
@@ -350,7 +356,14 @@ ca:
         active_step: Fase activa
         see_all_processes: Veure tots els processos
       statistics:
+        comments_count: Comentaris
         headline: Estat actual de %{organization}
+        meetings_count: Trobades
+        processes_count: Processos
+        proposals_count: Propostes
+        results_count: Resultats
+        users_count: Usuaris
+        votes_count: Suports
       sub_hero:
         register: Registre
   social_share_button:

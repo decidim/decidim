@@ -104,6 +104,10 @@ es:
       shared:
         omniauth_buttons:
           or: O
+    export_mailer:
+      export:
+        ready: Adjunto encontrará una versión comprimida de su exportación.
+      subject: Su exportación "%{name}" está lista
     features:
       dummy:
         actions:
@@ -318,6 +322,8 @@ es:
         notifications_settings: Configuracion de notificaciones
         title: Ajustes de usuario
         user_groups: Organizaciones
+      widget:
+        see_more: "Ver más"
   locale:
     name: Castellano
   pages:
@@ -350,7 +356,14 @@ es:
         active_step: Fase activa
         see_all_processes: Ver todos los procesos
       statistics:
+        comments_count: Comentarios
         headline: Estado actual de %{organization}
+        meetings_count: Encuentros
+        processes_count: Procesos
+        proposals_count: Propuestas
+        results_count: Resultados
+        users_count: Usuarios
+        votes_count: Votos
       sub_hero:
         register: Registro
   social_share_button:
