@@ -119,6 +119,7 @@ en:
             vote_threshold_percent: Vote threshold percent
           step:
             comments_blocked: Comments blocked
+            show_votes: Show votes
             votes_enabled: Votes enabled
     orders:
       checkout:
