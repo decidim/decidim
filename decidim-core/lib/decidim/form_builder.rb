@@ -138,7 +138,8 @@ module Decidim
     # datepicker library
     def date_field(attribute, options = {})
       value = object.send(attribute)
-      data = value.present? ? { datepicker: "", startdate: I18n.localize(value, format: :datepicker) } : { datepicker: "" }
+      data = { datepicker: "" }
+      data[:startdate] = I18n.localize(value, format: :datepicker) if value.present?
       iso_value = value.present? ? value.strftime("%Y-%m-%d") : ""
 
       template = ""
