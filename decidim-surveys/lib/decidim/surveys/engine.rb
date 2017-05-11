@@ -7,9 +7,8 @@ module Decidim
       isolate_namespace Decidim::Surveys
 
       routes do
-        # Add engine routes here
-        # resources :surveys
-        # root to: "surveys#index"
+        resources :surveys, only: [:show]
+        root to: "surveys#show"
       end
 
       initializer "decidim_surveys.assets" do |app|

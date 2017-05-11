@@ -1,0 +1,14 @@
+<% add_decidim_meta_tags({
+  title: translated_attribute(@survey.title),
+  description: translated_attribute(@survey.description),
+}) %>
+
+<div class="row column">
+  <div class="row">
+    <div class="columns medium-7 mediumlarge-8">
+      <div class="section">
+        <%== translated_attribute @survey.description %>
+      </div>
+    </div>
+  </div>
+</div>

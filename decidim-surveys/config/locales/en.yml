@@ -3,4 +3,17 @@ en:
   decidim:
     features:
       surveys:
-        name: Surveys
+        name: Survey
+    surveys:
+      admin:
+        models:
+          components:
+            description: Description
+            toc: Toc
+        surveys:
+          edit:
+            save: Save
+            title: Title
+          update:
+            invalid: There's been errors when saving the survey.
+            success: Survey saved successfully.

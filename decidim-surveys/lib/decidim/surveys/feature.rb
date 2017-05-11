@@ -7,9 +7,17 @@ Decidim.register_feature(:surveys) do |feature|
   feature.admin_engine = Decidim::Surveys::AdminEngine
   feature.icon = "decidim/surveys/icon.svg"
 
-  # feature.on(:before_destroy) do |instance|
-  #   # Code executed before removing the feature
-  # end
+  feature.on(:create) do |instance|
+    Decidim::Surveys::CreateSurvey.call(instance) do
+      on(:invalid) { raise "Can't create survey" }
+    end
+  end
+
+  feature.on(:destroy) do |instance|
+    Decidim::Surveys::DestroySurvey.call(instance) do
+      on(:error) { raise "Can't destroy survey" }
+    end
+  end
 
   # These actions permissions can be configured in the admin panel
   # feature.actions = %w()
@@ -34,7 +42,27 @@ Decidim.register_feature(:surveys) do |feature|
   #   # Register some stat number to the application
   # end
 
-  # feature.seeds do
-  #   # Add some seeds for this feature
-  # end
+  feature.seeds do
+    Decidim::ParticipatoryProcess.all.each do |process|
+      next unless process.steps.any?
+
+      feature = Decidim::Feature.create!(
+        name: Decidim::Features::Namer.new(process.organization.available_locales, :surveys).i18n_name,
+        manifest_name: :surveys,
+        published_at: Time.current,
+        participatory_process: process
+      )
+
+      Decidim::Surveys::Survey.create!(
+        feature: feature,
+        title: Decidim::Faker::Localized.paragraph,
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        toc: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(2)
+        end
+      )
+    end
+  end
 end
