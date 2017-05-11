@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "decidim-proposals", Decidim.version
   spec.add_dependency "decidim-results", Decidim.version
   spec.add_dependency "decidim-budgets", Decidim.version
+  spec.add_dependency "decidim-surveys", Decidim.version
   spec.add_dependency "rails", Decidim.rails_version
   spec.add_dependency "rails-i18n", Decidim.rails_version
 

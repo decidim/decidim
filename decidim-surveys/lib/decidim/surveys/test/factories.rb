@@ -8,5 +8,14 @@ FactoryGirl.define do
     participatory_process { create(:participatory_process, :with_steps) }
   end
 
-  # Add engine factories here
+  factory :survey, class: Decidim::Surveys::Survey do
+    title { Decidim::Faker::Localized.sentence }
+    description do
+      Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        Decidim::Faker::Localized.sentence(4)
+      end
+    end
+    toc { Decidim::Faker::Localized.sentence(4) }
+    feature { build(:surveys_feature) }
+  end
 end

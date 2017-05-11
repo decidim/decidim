@@ -8,13 +8,8 @@ module Decidim
       paths["db/migrate"] = nil
 
       routes do
-        # Add admin engine routes here
-        # resources :surveys do
-        #   collection do
-        #     resources :exports, only: [:create]
-        #   end
-        # end
-        # root to: "surveys#index"
+        post "/", to: "surveys#update", as: :survey
+        root to: "surveys#edit"
       end
 
       initializer "decidim_surveys.inject_abilities_to_user" do |_app|
