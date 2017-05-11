@@ -276,8 +276,6 @@ ca:
         description_html: "Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès.\nEn continuar la navegació entenem que s’accepta la nostra política de cookies. Per a més informació consulta %{link}."
         link_label: aquí
         ok: Hi estic d'acord
-      footer:
-        made_with_open_source: 'Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari de codi obert</a>.'
       header:
         close_menu: Tancar menú
         navigation: Navegació
