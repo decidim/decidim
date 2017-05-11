@@ -138,7 +138,9 @@ module Decidim
     # datepicker library
     def date_field(attribute, options = {})
       value = object.send(attribute)
-      iso_value = value.strftime("%Y-%m-%dT%H:%M:%S") if value
+      data = value.present? ? { datepicker: "", startdate: I18n.localize(value, format: :datepicker) } : { datepicker: "" }
+      iso_value = value.present? ? value.strftime("%Y-%m-%d") : ""
+
       template = ""
       template += label(attribute, label_for(attribute))
       template += @template.text_field(
@@ -146,7 +148,7 @@ module Decidim
         attribute,
         options.merge(name: nil,
                       id: "date_field_#{@object_name}_#{attribute}",
-                      data: { datepicker: "", startdate: value })
+                      data: data )
       )
       template += @template.hidden_field(@object_name, attribute, value: iso_value)
       template += error_and_help_text(attribute, options)

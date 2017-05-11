@@ -520,6 +520,9 @@ en:
           title: Settings
         users:
           title: Users
+  date:
+    formats:
+      datepicker: "%m/%d/%Y"
   time:
     formats:
       timepicker: "%m/%d/%Y %H:%M"

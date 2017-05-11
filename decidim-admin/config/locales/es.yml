@@ -519,6 +519,9 @@ es:
           title: Ajustes
         users:
           title: Usuarios
+  date:
+    formats:
+      datepicker: "%d/%m/%Y"
   time:
     formats:
       timepicker: "%d/%m/%Y %H:%M"

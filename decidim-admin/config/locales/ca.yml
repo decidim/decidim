@@ -519,6 +519,9 @@ ca:
           title: Configuració
         users:
           title: Usuaris
+  date:
+    formats:
+      datepicker: "%d/%m/%Y"
   time:
     formats:
       timepicker: "%d/%m/%Y %H:%M"

@@ -419,6 +419,9 @@ fi:
     participatory_processes:
       participatory_process_groups:
         none: Ei ryhmää
+  date:
+    formats:
+      datepicker: "%d/%m/%Y"
   time:
     formats:
       timepicker: "%d/%m/%Y %H:%M"
