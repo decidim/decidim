@@ -100,6 +100,9 @@ eu:
         content: Edukia
         slug: URL laburra
         title: Izenburua
+  date:
+    formats:
+      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -498,9 +501,6 @@ eu:
           title: Ezarpenak
         users:
           title: Erabiltzaileak
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   time:
     formats:
       timepicker: "%d/%m/%Y %H:%M"

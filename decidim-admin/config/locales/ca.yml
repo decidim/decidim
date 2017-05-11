@@ -104,6 +104,9 @@ ca:
         content: Contingut
         slug: Nom curt d'URL
         title: Títol
+  date:
+    formats:
+      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -519,9 +522,6 @@ ca:
           title: Configuració
         users:
           title: Usuaris
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   time:
     formats:
       timepicker: "%d/%m/%Y %H:%M"

@@ -104,6 +104,9 @@ es:
         content: Contenido
         slug: Texto corto de URL
         title: Título
+  date:
+    formats:
+      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -519,9 +522,6 @@ es:
           title: Ajustes
         users:
           title: Usuarios
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   time:
     formats:
       timepicker: "%d/%m/%Y %H:%M"
