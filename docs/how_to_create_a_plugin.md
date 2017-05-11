@@ -1,5 +1,7 @@
 # How to create a Decidim engine
 
+## Standard way
+
 1. Run the following command:
 
 ```bash
@@ -153,3 +155,9 @@ require "decidim/common_rake"
 ENV["ENGINE_NAME"] = File.dirname(File.dirname(__FILE__)).split("/").last
 require "decidim/test/base_spec_helper"
 ```
+
+## Experimental way
+
+Plugin creation is being automated in
+[decidim-generators](https://github.com/codegram/decidim-generators). It's in an
+early stage, but you might want to give it a try.
