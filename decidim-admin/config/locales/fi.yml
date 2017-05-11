@@ -424,4 +424,5 @@ fi:
         none: Ei ryhmää
   time:
     formats:
+      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"

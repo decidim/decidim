@@ -524,4 +524,5 @@ es:
           title: Usuarios
   time:
     formats:
+      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"

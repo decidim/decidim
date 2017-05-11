@@ -8,4 +8,5 @@ nl:
       datepicker: "%d/%m/%Y"
   time:
     formats:
+      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"

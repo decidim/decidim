@@ -503,4 +503,5 @@ eu:
           title: Erabiltzaileak
   time:
     formats:
+      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"
