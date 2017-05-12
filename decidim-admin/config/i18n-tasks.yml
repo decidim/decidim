@@ -97,6 +97,7 @@ ignore_unused:
  - activemodel.errors.messages.*
  - actions.confirm_destroy
  - time.formats.*
+ - date.formats.*
 
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'

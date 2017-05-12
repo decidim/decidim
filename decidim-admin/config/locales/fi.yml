@@ -88,6 +88,9 @@ fi:
         content: Sisältö
         slug: URL-tunniste
         title: Otsikko
+  date:
+    formats:
+      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -421,4 +424,5 @@ fi:
         none: Ei ryhmää
   time:
     formats:
+      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"

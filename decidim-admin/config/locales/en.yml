@@ -105,6 +105,9 @@ en:
         content: Content
         slug: URL slug
         title: Title
+  date:
+    formats:
+      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -522,4 +525,5 @@ en:
           title: Users
   time:
     formats:
+      datepicker: "%m/%d/%Y"
       timepicker: "%m/%d/%Y %H:%M"
