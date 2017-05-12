@@ -20,17 +20,13 @@ module Decidim
       def call
         return broadcast(:invalid) if process.nil? || process.published?
 
-        publish_process
+        process.publish!
         broadcast(:ok)
       end
 
       private
 
       attr_reader :process
-
-      def publish_process
-        process.update_attribute(:published_at, Time.current)
-      end
     end
   end
 end

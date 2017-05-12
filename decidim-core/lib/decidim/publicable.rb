@@ -29,5 +29,21 @@ module Decidim
     def published?
       published_at.present?
     end
+
+    #
+    # Public: Publishes this feature
+    #
+    # Returns true if the record was properly saved, false otherwise.
+    def publish!
+      update_attribute(:published_at, Time.current)
+    end
+
+    #
+    # Public: Unpublishes this feature
+    #
+    # Returns true if the record was properly saved, false otherwise.
+    def unpublish!
+      update_attribute(:published_at, nil)
+    end
   end
 end
