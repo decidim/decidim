@@ -35,8 +35,8 @@ module Decidim
 
       validate :slug, :slug_uniqueness
 
-      validates :hero_image, file_size: { less_than_or_equal_to: Decidim.maximum_attachment_size }, file_content_type: { allow: ["image/jpeg", "image/png"] }
-      validates :banner_image, file_size: { less_than_or_equal_to: Decidim.maximum_attachment_size }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+      validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+      validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
 
       def map_model(model)
         self.scope_id = model.decidim_scope_id
