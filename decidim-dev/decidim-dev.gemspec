@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = "Decidim Dev tools"
   s.description = "Utilities and tools we need to develop Decidim"
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "decidim", Decidim.version
   s.add_dependency "factory_girl_rails"

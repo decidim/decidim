@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.name        = "decidim-admin"
   s.summary     = "Organization administration"
   s.description = "Organization administration to manage a single organization."
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim.version
   s.add_dependency "rails", *Decidim.rails_version
