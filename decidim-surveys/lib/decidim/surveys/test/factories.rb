@@ -23,4 +23,10 @@ FactoryGirl.define do
     body { Decidim::Faker::Localized.sentence }
     survey
   end
+
+  factory :survey_answer, class: Decidim::Surveys::SurveyAnswer do
+    body { Decidim::Faker::Localized.sentence }
+    survey
+    question { create(:survey_question, survey: survey )}
+  end
 end

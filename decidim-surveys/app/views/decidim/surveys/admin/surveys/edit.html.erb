@@ -2,7 +2,11 @@
   <%= render partial: 'form', object: form, locals: { title: t('.title') }  %>
 
   <div class="button--double form-general-submit">
-    <%= form.submit t(".save"), class: "button hollow" %>
-    <%= form.submit t(".save_and_publish"), name: "save_and_publish", data: { confirm: t('.are_you_sure') } %>
+    <% if @survey.published? %>
+      <%= form.submit t(".save"), class: "button" %>
+    <% else %>
+      <%= form.submit t(".save"), class: "button hollow" %>
+      <%= form.submit t(".save_and_publish"), name: "save_and_publish", data: { confirm: t('.are_you_sure') } %>
+    <% end %>
   </div>
 <% end %>

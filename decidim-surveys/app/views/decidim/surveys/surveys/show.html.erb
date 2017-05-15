@@ -1,20 +1,63 @@
 <% add_decidim_meta_tags({
-  title: translated_attribute(@survey.title),
-  description: translated_attribute(@survey.description),
+  title: translated_attribute(survey.title),
+  description: translated_attribute(survey.description),
 }) %>
+
+<div class="row column view-header">
+  <h2 class="heading2"><%= translated_attribute survey.title %></h2>
+</div>
 
 <div class="row column">
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
-        <%== translated_attribute @survey.description %>
+        <%== translated_attribute survey.description %>
       </div>
 
-      <ol>
-        <% @survey.questions.each do |question| %>
-          <li><%= translated_attribute question.body %></li>
+      <% unless survey.published? %>
+        <div class="section">
+          <div class="callout warning">
+            <h5><%= t('.survey_not_published.title') %></h5>
+            <p><%= t('.survey_not_published.body') %></p>
+          </div>
+        </div>
+      <% else %>
+        <% if current_user %>
+          <% if survey.answered_by?(current_user) %>
+            <div class="section">
+              <div class="callout sucesss">
+                <h5><%= t('.survey_answered.title') %></h5>
+                <p><%= t('.survey_answered.body') %></p>
+              </div>
+            </div>
+          <% else %>
+            <div class="answer-survey">
+              <h5 class="section-heading"><%= t('.answer_survey.title') %></h5>
+              <%= decidim_form_for(@form, url: answer_survey_path(survey), method: :post, html: { class: "form" }) do |form| %>
+                <% @form.answers.each_with_index do |answer, idx| %>
+                  <div class="field">
+                    <% field_id = "survey_#{survey.id}_question_#{answer.question.id}_answer_body" %>
+                    <%= label_tag field_id , "#{idx + 1}. #{translated_attribute(answer.question.body)}" %>
+                    <%= text_field_tag "survey[answers][][body]", "", id: field_id %>
+                    <%= hidden_field_tag "survey[answers][][survey_question_id]", answer.question.id %>
+                  </div>
+                <% end %>
+
+                <div class="button--double form-general-submit">
+                  <%= form.submit t(".submit"), class: "button" %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="answer-survey">
+            <h5 class="section-heading"><%= t('.answer_survey.title') %></h5>
+            <p>
+              <%= t('.answer_survey.anonymous_user_message', sign_in_link: decidim.new_user_session_path, sign_up_link: decidim.new_user_registration_path).html_safe %>
+            </p>
+          </div>
         <% end %>
-      </ol>
+      <% end %>
     </div>
   </div>
 </div>

@@ -13,6 +13,11 @@ module Decidim
       def published?
         published_at.present?
       end
+
+      # Public: returns wether the survey is answered by the user or not.
+      def answered_by?(user)
+        SurveyAnswer.where(user: user, survey: self, question: questions).count == questions.length
+      end
     end
   end
 end

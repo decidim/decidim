@@ -39,6 +39,20 @@ module Decidim
           expect(survey).to be_published
         end
       end
+
+      context "#answered_by?" do
+        let!(:user) { create(:user, organization: survey.feature.participatory_process.organization) }
+        let!(:question) { create(:survey_question, survey: survey) }
+
+        it "returns false if the given user has not answered the survey" do
+          expect(survey.answered_by?(user)).to be_falsy
+        end
+
+        it "returns true if the given user has answered the survey" do
+          create(:survey_answer, survey: survey, question: question, user: user)
+          expect(survey.answered_by?(user)).to be_truthy
+        end
+      end
     end
   end
 end
