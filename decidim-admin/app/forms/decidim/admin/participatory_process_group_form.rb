@@ -17,7 +17,7 @@ module Decidim
 
       validates :name, :description, translatable_presence: true
 
-      validates :hero_image, file_size: { less_than_or_equal_to: Decidim.maximum_attachment_size }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+      validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
     end
   end
 end

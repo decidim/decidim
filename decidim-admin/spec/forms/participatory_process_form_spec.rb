@@ -35,7 +35,7 @@ module Decidim
         }
       end
       let(:slug) { "slug" }
-      let(:attachement) { test_file("city.jpeg", "image/jpeg") }
+      let(:attachment) { test_file("city.jpeg", "image/jpeg") }
       let(:attributes) do
         {
           "participatory_process" => {
@@ -51,8 +51,8 @@ module Decidim
             "short_description_en" => short_description[:en],
             "short_description_es" => short_description[:es],
             "short_description_ca" => short_description[:ca],
-            "hero_image" => attachement,
-            "banner_image" => attachement,
+            "hero_image" => attachment,
+            "banner_image" => attachment,
             "slug" => slug
           }
         }
@@ -69,8 +69,8 @@ module Decidim
 
       context "when hero_image is too big" do
         before do
-          an_amount_too_large = (Decidim.maximum_attachment_size + 1).megabytes
-          expect(subject.hero_image).to receive(:size).twice.and_return(an_amount_too_large)
+          allow(Decidim).to receive(:maximum_attachment_size).and_return(5.megabytes)
+          expect(subject.hero_image).to receive(:size).twice.and_return(6.megabytes)
         end
 
         it { is_expected.not_to be_valid }
@@ -78,15 +78,15 @@ module Decidim
 
       context "when banner_image is too big" do
         before do
-          an_amount_too_large = (Decidim.maximum_attachment_size + 1).megabytes
-          expect(subject.banner_image).to receive(:size).twice.and_return(an_amount_too_large)
+          allow(Decidim).to receive(:maximum_attachment_size).and_return(5.megabytes)
+          expect(subject.banner_image).to receive(:size).twice.and_return(6.megabytes)
         end
 
         it { is_expected.not_to be_valid }
       end
 
       context "when images are not the expected type" do
-        let(:attachement) { test_file("Exampledocument.pdf", "application/pdf") }
+        let(:attachment) { test_file("Exampledocument.pdf", "application/pdf") }
 
         it { is_expected.not_to be_valid }
       end
