@@ -7,6 +7,7 @@ module Decidim
         include TranslatableAttributes
 
         attribute :id, String
+        attribute :deleted, Boolean, default: false
         translatable_attribute :body, String
       end
     end

@@ -18,6 +18,7 @@ en:
             title: Title
           form:
             add_question: Add question
+            remove_question: Remove question
           update:
             invalid: There's been errors when saving the survey.
             success: Survey saved successfully.

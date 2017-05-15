@@ -97,7 +97,7 @@ describe "Edit a survey", type: :feature do
         click_button "Save and publish"
       end
 
-       within ".callout-wrapper" do
+      within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 
@@ -105,6 +105,30 @@ describe "Edit a survey", type: :feature do
 
       expect(page).to have_content("Modified question")
       expect(page).not_to have_content("This is the first question")
+    end
+
+    it "removes the question" do
+      visit_feature_admin
+
+      within "form.edit_survey" do
+        expect(page).to have_selector('.survey-question', count: 1)
+
+        within ".survey-question" do
+          click_button "Remove question"
+        end
+
+        click_button "Save"
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      visit_feature_admin
+
+      within "form.edit_survey" do
+        expect(page).to have_selector('.survey-question', count: 0)
+      end
     end
   end
 end

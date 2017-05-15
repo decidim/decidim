@@ -19,6 +19,7 @@
       <template id="survey-question-tmpl">
         <div class="survey-question">
           <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", {}, label: "Question", disabled: true %>
+          <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
         </div>
       </template>
 
@@ -26,6 +27,7 @@
         <div class="survey-question">
           <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, label: "Question", tabs_prefix: "survey-question-#{question.id}" %>
           <%= hidden_field_tag "survey[questions][][id]", question.id %>
+          <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
         </div>
       <% end %>
     </div>

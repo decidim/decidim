@@ -36,5 +36,30 @@
     event.stopPropagation();
   };
 
+  const removeQuestion = (event) => {
+    try {
+      const $target = $(event.target);
+      const $question = $target.parent('.survey-question');
+      const $idInput = $question.find('input[name="survey[questions][][id]"]');
+
+      if ($idInput.length > 0) {
+        const deleteInput = document.createElement('input');
+        deleteInput.name = "survey[questions][][deleted]";
+        deleteInput.type = "hidden";
+        deleteInput.value = "true";
+        $question.append(deleteInput);
+        $question.hide();
+      } else {
+        $question.remove();
+      }
+    } catch(e) {
+      console.error(e);
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
   $addQuestionButtons.on('click', addQuestion);
+  $container.on('click', '.remove-question', removeQuestion);
 })(document);

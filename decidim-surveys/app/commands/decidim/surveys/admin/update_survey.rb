@@ -35,7 +35,12 @@ module Decidim
 
           @form.questions.each do |form_question|
             if form_question.id.present?
-              @survey.questions.where(id: form_question.id).first.update_attributes!(body: form_question.body)
+              question = @survey.questions.where(id: form_question.id).first
+              if form_question.deleted?
+                question.destroy
+              else
+                question.update_attributes!(body: form_question.body)
+              end
             else
               @survey.questions.create(body: form_question.body)
             end

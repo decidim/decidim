@@ -75,6 +75,31 @@ module Decidim
             end
           end
         end
+
+        describe "when the survey has an existing question" do
+          let!(:survey_question) { create(:survey_question, survey: survey )}
+
+          context "and the question should be removed" do
+            let(:form_params) do
+              {
+                "questions" => [
+                  {
+                    "id" => survey_question.id,
+                    "body" => survey_question.body,
+                    "deleted" => "true"
+                  }
+                ]
+              }
+            end
+
+            it "deletes the survey question" do
+              command.call
+              survey.reload
+
+              expect(survey.questions.length).to eq(0)
+            end
+          end
+        end
       end
     end
   end
