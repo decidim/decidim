@@ -28,7 +28,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
       it "redirects the user to the authorization form after the first sign in" do
         fill_in "Document number", with: "123456789X"
         page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
-        page.find('.datepicker-dropdown .day', text: '12').click
+        page.find(".datepicker-dropdown .day", text: "12").click
 
         click_button "Send"
         expect(page).to have_content("You've been successfully authorized")
@@ -78,7 +78,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
 
       fill_in "Document number", with: "123456789X"
       page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
-      page.find('.datepicker-dropdown .day', text: '12').click
+      page.find(".datepicker-dropdown .day", text: "12").click
       click_button "Send"
 
       expect(page).to have_content("You've been successfully authorized")
@@ -97,8 +97,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
       let!(:authorization) do
         create(:authorization,
                name: Decidim::DummyAuthorizationHandler.handler_name,
-               user: user
-              )
+               user: user)
       end
 
       it "shows the authorization at their account" do
@@ -128,4 +127,3 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
     end
   end
 end
-

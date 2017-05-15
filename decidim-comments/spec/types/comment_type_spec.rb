@@ -28,7 +28,7 @@ module Decidim
       end
 
       describe "hasComments" do
-        let (:query) { "{ hasComments }" }
+        let(:query) { "{ hasComments }" }
 
         it "returns false if the comment has not comments" do
           expect(response).to include("hasComments" => false)
@@ -47,7 +47,7 @@ module Decidim
       end
 
       describe "acceptsNewComments" do
-        let (:query) { "{ acceptsNewComments }" }
+        let(:query) { "{ acceptsNewComments }" }
 
         it "returns the return value of accepts_new_comments? method" do
           expect(response).to include("acceptsNewComments" => model.accepts_new_comments?)
@@ -56,8 +56,7 @@ module Decidim
 
       describe "comments" do
         let!(:random_comment) { FactoryGirl.create(:comment) }
-        let!(:replies) { 3.times.map { |n| FactoryGirl.create(:comment, commentable: model, created_at: Time.now - n.days) } }
-
+        let!(:replies) { Array.new(3) { |n| FactoryGirl.create(:comment, commentable: model, created_at: Time.now - n.days) } }
 
         let(:query) { "{ comments { id } }" }
 
@@ -69,7 +68,7 @@ module Decidim
         end
 
         it "return comment's comments ordered by date" do
-          response_ids = response["comments"].map{|reply| reply["id"].to_i }
+          response_ids = response["comments"].map { |reply| reply["id"].to_i }
           replies_ids = replies.sort_by(&:created_at).map(&:id)
           expect(response_ids).to eq(replies_ids)
         end

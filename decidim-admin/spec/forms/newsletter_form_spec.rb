@@ -23,8 +23,8 @@ module Decidim
       end
 
       subject do
-        described_class.new(subject: newsletter_subject, body: body).
-          with_context(current_organization: organization)
+        described_class.new(subject: newsletter_subject, body: body)
+                       .with_context(current_organization: organization)
       end
 
       context "when everything is OK" do

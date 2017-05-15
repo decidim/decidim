@@ -10,7 +10,7 @@ describe Decidim::Api::QueryType do
 
     context "When the user is logged in" do
       it "return current user data" do
-        expect(response["session"]).to include({ "user" => { "name" => current_user.name } })
+        expect(response["session"]).to include("user" => { "name" => current_user.name })
       end
     end
 

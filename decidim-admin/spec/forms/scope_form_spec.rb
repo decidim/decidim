@@ -15,7 +15,7 @@ module Decidim
       end
       let(:context) do
         {
-          "current_organization" => organization,
+          "current_organization" => organization
         }
       end
 

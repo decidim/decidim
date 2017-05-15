@@ -51,9 +51,7 @@ module Decidim
           end
 
           it "creates a new comment vote" do
-            expect(comment.up_votes).to receive(:create!).with({
-              author: author
-            }).and_call_original
+            expect(comment.up_votes).to receive(:create!).with(author: author).and_call_original
             expect do
               command.call
             end.to change { CommentVote.count }.by(1)
@@ -102,9 +100,7 @@ module Decidim
               end
 
               it "creates a new comment vote" do
-                expect(comment.down_votes).to receive(:create!).with({
-                  author: author
-                }).and_call_original
+                expect(comment.down_votes).to receive(:create!).with(author: author).and_call_original
                 expect do
                   command.call
                 end.to change { CommentVote.count }.by(1)

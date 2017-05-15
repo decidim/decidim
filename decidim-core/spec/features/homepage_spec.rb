@@ -54,7 +54,7 @@ describe "Homepage", type: :feature do
 
     describe "includes participatory porcesses ending soon" do
       context "when exists more than 8 participatory processes" do
-        let!(:participatory_process){
+        let!(:participatory_process) do
           create_list(
             :participatory_process,
             10,
@@ -63,7 +63,7 @@ describe "Homepage", type: :feature do
             description: { en: "Description", ca: "Descripció", es: "Descripción" },
             short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
           )
-        }
+        end
 
         it "should show a maximum of 8" do
           visit current_path
@@ -92,16 +92,16 @@ describe "Homepage", type: :feature do
 
     describe "includes statistics" do
       let!(:users) { create_list(:user, 4, :confirmed, organization: organization) }
-      let!(:participatory_process){
-          create_list(
-            :participatory_process,
-            2,
-            :published, 
-            organization: organization,
-            description: { en: "Description", ca: "Descripció", es: "Descripción" },
-            short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
-          )
-      }
+      let!(:participatory_process) do
+        create_list(
+          :participatory_process,
+          2,
+          :published,
+          organization: organization,
+          description: { en: "Description", ca: "Descripció", es: "Descripción" },
+          short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
+        )
+      end
 
       context "when organization show_statistics attribute is false" do
         let(:organization) { create(:organization, show_statistics: false) }

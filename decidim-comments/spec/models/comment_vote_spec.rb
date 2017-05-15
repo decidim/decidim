@@ -9,7 +9,7 @@ module Decidim
       let!(:feature) { create(:feature, participatory_process: participatory_process) }
       let!(:commentable) { create(:dummy_resource, feature: feature) }
       let!(:author) { create(:user, organization: organization) }
-      let!(:comment) { create(:comment, commentable: commentable, author: author)}
+      let!(:comment) { create(:comment, commentable: commentable, author: author) }
       let!(:comment_vote) { create(:comment_vote, comment: comment, author: author) }
 
       it "is valid" do
@@ -25,9 +25,9 @@ module Decidim
       end
 
       it "validates uniqueness for author and comment combination" do
-        expect {
+        expect do
           create(:comment_vote, comment: comment, author: author)
-        }.to raise_error(ActiveRecord::RecordInvalid)
+        end.to raise_error(ActiveRecord::RecordInvalid)
       end
 
       it "is invalid with a weight different from 1 and -1" do

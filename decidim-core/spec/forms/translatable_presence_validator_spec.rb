@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -8,7 +9,7 @@ module Decidim
         mimic :participatory_process
         attribute :current_organization, Decidim::Organization
         translatable_attribute :description, String
-      end.from_params({participatory_process: { description: description }}, { current_organization: organization })
+      end.from_params({ participatory_process: { description: description } }, current_organization: organization)
     end
     let(:organization) { build(:organization, available_locales: available_locales) }
     let(:available_locales) { %w(en ca) }

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Budgets::AddLineItem do
@@ -5,7 +6,7 @@ describe Decidim::Budgets::AddLineItem do
   let(:participatory_process) { create :participatory_process, :with_steps, organization: user.organization }
   let(:feature) { create(:budget_feature, participatory_process: participatory_process, settings: settings) }
   let(:project) { create(:project, feature: feature, budget: 60_000) }
-  let(:settings) { { "total_budget" => 100_000, vote_threshold_percent: 50 }}
+  let(:settings) { { "total_budget" => 100_000, vote_threshold_percent: 50 } }
   let(:order) { nil }
 
   subject { described_class.new(order, project, user) }
@@ -19,17 +20,13 @@ describe Decidim::Budgets::AddLineItem do
       let!(:order) { create(:order, user: user, feature: feature) }
 
       it "doesn't create a new order" do
-        expect {
-          subject.call
-        }.not_to change { Decidim::Budgets::Order.count }
+        expect { subject.call }.not_to change { Decidim::Budgets::Order.count }
       end
     end
 
     context "when a order for the current user doesn't exist" do
       it "creates an order" do
-        expect {
-          subject.call
-        }.to change { Decidim::Budgets::Order.count }.by(1)
+        expect { subject.call }.to change { Decidim::Budgets::Order.count }.by(1)
       end
     end
 
@@ -47,8 +44,8 @@ describe Decidim::Budgets::AddLineItem do
 
     let!(:order) do
       order = create(:order,
-                    user: user,
-                    feature: feature)
+                     user: user,
+                     feature: feature)
       order.projects << projects
       order.checked_out_at = Time.current
       order.save!

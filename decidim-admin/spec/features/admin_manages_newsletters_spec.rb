@@ -80,12 +80,12 @@ describe "Admin manages newsletters", type: :feature do
   end
 
   describe "update newsletter" do
-    let!(:newsletter) { create(:newsletter, organization: organization)}
+    let!(:newsletter) { create(:newsletter, organization: organization) }
 
     it "allows a newsletter to be updated" do
       visit decidim_admin.newsletters_path
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        page.find('.action-icon.edit').click
+        page.find(".action-icon.edit").click
       end
 
       within ".edit_newsletter" do
@@ -114,7 +114,7 @@ describe "Admin manages newsletters", type: :feature do
   end
 
   describe "deliver a newsletter" do
-    let!(:newsletter) { create(:newsletter, organization: organization)}
+    let!(:newsletter) { create(:newsletter, organization: organization) }
 
     it "allows a newsletter to be created" do
       visit decidim_admin.newsletter_path(newsletter)
@@ -133,13 +133,13 @@ describe "Admin manages newsletters", type: :feature do
   end
 
   describe "destroy a newsletter" do
-    let!(:newsletter) { create(:newsletter, organization: organization)}
+    let!(:newsletter) { create(:newsletter, organization: organization) }
 
     it "destroys a newsletter" do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        page.find('.action-icon.action-icon--remove').click
+        page.find(".action-icon.action-icon--remove").click
       end
 
       expect(page).to have_content("successfully")

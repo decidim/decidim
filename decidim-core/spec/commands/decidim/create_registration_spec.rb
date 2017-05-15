@@ -66,7 +66,7 @@ module Decidim
           end
 
           it "creates a new user" do
-            expect(User).to receive(:create!).with({
+            expect(User).to receive(:create!).with(
               name: form.name,
               email: form.email,
               password: form.password,
@@ -76,10 +76,9 @@ module Decidim
               organization: organization,
               comments_notifications: true,
               replies_notifications: true
-            }).and_call_original
-            expect do
-              command.call
-            end.to change { User.count }.by(1)
+            ).and_call_original
+
+            expect { command.call }.to change { User.count }.by(1)
           end
         end
 
@@ -100,9 +99,7 @@ module Decidim
             end
 
             it "doesn't create a user group" do
-              expect do
-                command.call
-              end.not_to change { UserGroup.count }
+              expect { command.call }.not_to change { UserGroup.count }
             end
           end
 
@@ -112,11 +109,12 @@ module Decidim
             end
 
             it "creates a new user group" do
-              expect(UserGroup).to receive(:new).with({
+              expect(UserGroup).to receive(:new).with(
                 name: form.user_group_name,
                 document_number: form.user_group_document_number,
                 phone: form.user_group_phone
-              }).and_call_original
+              ).and_call_original
+
               expect do
                 command.call
                 expect(UserGroup.last.users.first).to eq(User.last)

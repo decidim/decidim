@@ -25,7 +25,7 @@ module Decidim
     end
 
     describe "avatarUrl" do
-      let (:query) { "{ avatarUrl }" }
+      let(:query) { "{ avatarUrl }" }
 
       it "returns the user avatar url" do
         expect(response).to include("avatarUrl" => model.avatar.url)

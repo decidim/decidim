@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Admin::CreateParticipatoryProcess do
@@ -6,10 +7,11 @@ describe Decidim::Admin::CreateParticipatoryProcess do
   let(:scope) { create :scope, organization: organization }
   let(:errors) { double.as_null_object }
   let(:form) do
-    instance_double( Decidim::Admin::ParticipatoryProcessForm,
-      :invalid? => invalid,
-      title: {en: "title"},
-      subtitle: {en: "subtitle"},
+    instance_double(
+      Decidim::Admin::ParticipatoryProcessForm,
+      invalid?: invalid,
+      title: { en: "title" },
+      subtitle: { en: "subtitle" },
       slug: "slug",
       hashtag: "hashtag",
       meta_scope: "meta scope",
@@ -22,8 +24,8 @@ describe Decidim::Admin::CreateParticipatoryProcess do
       participatory_scope: "participatory scope",
       participatory_structure: "participatory structure",
       end_date: nil,
-      description: {en: "description"},
-      short_description: {en: "short_description"},
+      description: { en: "description" },
+      short_description: { en: "short_description" },
       current_organization: organization,
       scope: scope,
       errors: errors,

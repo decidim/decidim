@@ -6,7 +6,7 @@ module Decidim
     let(:user) { double(authorizations: [authorization]) }
     let(:feature) { double(permissions: permissions) }
     let(:action) { "vote" }
-    let(:permissions) { {action => permission} }
+    let(:permissions) { { action => permission } }
     let(:permission) { {} }
     let(:authorization) { double(name: "foo_handler", metadata: metadata) }
     let(:metadata) { { postal_code: "1234", location: "Tomorrowland" } }
@@ -93,7 +93,7 @@ module Decidim
             it "returns invalid" do
               expect(response).to_not be_ok
               expect(response.code).to eq(:invalid)
-              expect(response.data).to include(fields: {postal_code: "789"})
+              expect(response.data).to include(fields: { postal_code: "789" })
             end
           end
 

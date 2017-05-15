@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
@@ -9,7 +10,7 @@ module Decidim
       allow(controller).to receive(:current_feature).and_return(feature)
 
       allow(controller).to receive(:current_participatory_process)
-                             .and_return(participatory_process)
+        .and_return(participatory_process)
     end
 
     controller do

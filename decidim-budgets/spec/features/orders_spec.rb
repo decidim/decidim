@@ -22,10 +22,10 @@ describe "Orders", type: :feature do
       visit_feature
 
       within "#project-#{project.id}-item" do
-        page.find('.budget--list__action').click
+        page.find(".budget--list__action").click
       end
 
-      expect(page).to have_css('#loginModal', visible: true)
+      expect(page).to have_css("#loginModal", visible: true)
     end
   end
 
@@ -39,10 +39,10 @@ describe "Orders", type: :feature do
         visit_feature
 
         within "#project-#{project.id}-item" do
-          page.find('.budget--list__action').click
+          page.find(".budget--list__action").click
         end
 
-        expect(page).to have_selector '.budget-list__data--added', count: 1
+        expect(page).to have_selector ".budget-list__data--added", count: 1
 
         expect(page).to have_content "ASSIGNED: €25,000,000"
         expect(page).to have_content "1 project selected"
@@ -69,7 +69,7 @@ describe "Orders", type: :feature do
         visit_feature
 
         within "#project-#{project.id}-item" do
-          page.find('.budget--list__action').click
+          page.find(".budget--list__action").click
         end
 
         expect(page).to have_content("Authorization required")
@@ -86,7 +86,7 @@ describe "Orders", type: :feature do
         expect(page).to have_content "ASSIGNED: €25,000,000"
 
         within "#project-#{project.id}-item" do
-          page.find('.budget--list__action').click
+          page.find(".budget--list__action").click
         end
 
         expect(page).to have_content "ASSIGNED: €0"
@@ -97,7 +97,7 @@ describe "Orders", type: :feature do
           expect(page).to have_content "0%"
         end
 
-        expect(page).not_to have_selector '.budget-list__data--added'
+        expect(page).not_to have_selector ".budget-list__data--added"
       end
 
       context "and try to vote a project that exceed the total budget" do
@@ -107,10 +107,10 @@ describe "Orders", type: :feature do
           visit_feature
 
           within "#project-#{expensive_project.id}-item" do
-            page.find('.budget--list__action').click
+            page.find(".budget--list__action").click
           end
 
-          expect(page).to have_css('#budget-excess', visible: true)
+          expect(page).to have_css("#budget-excess", visible: true)
         end
       end
 
@@ -121,19 +121,19 @@ describe "Orders", type: :feature do
           visit_feature
 
           within "#project-#{other_project.id}-item" do
-            page.find('.budget--list__action').click
+            page.find(".budget--list__action").click
           end
 
-          expect(page).to have_selector '.budget-list__data--added', count: 2
+          expect(page).to have_selector ".budget-list__data--added", count: 2
 
           within "#order-progress .budget-summary__progressbox:not(.budget-summary__progressbox--fixed)" do
-            page.find('.button.small').click
+            page.find(".button.small").click
           end
 
-          expect(page).to have_css('#budget-confirm', visible: true)
+          expect(page).to have_css("#budget-confirm", visible: true)
 
           within "#budget-confirm" do
-            page.find('.button.expanded').click
+            page.find(".button.expanded").click
           end
 
           expect(page).to have_content("successfully")
@@ -158,7 +158,7 @@ describe "Orders", type: :feature do
         visit_feature
 
         within ".budget-summary" do
-          page.find('.cancel-order').click
+          page.find(".cancel-order").click
         end
 
         expect(page).to have_content("successfully")
@@ -168,7 +168,7 @@ describe "Orders", type: :feature do
         end
 
         within ".budget-summary" do
-          expect(page).not_to have_selector('.cancel-order')
+          expect(page).not_to have_selector(".cancel-order")
         end
       end
     end
@@ -176,25 +176,25 @@ describe "Orders", type: :feature do
     context "and votes are disabled" do
       let!(:feature) do
         create(:budget_feature,
-              :with_votes_disabled,
-              manifest: manifest,
-              participatory_process: participatory_process)
+               :with_votes_disabled,
+               manifest: manifest,
+               participatory_process: participatory_process)
       end
 
       it "cannot create new orders" do
         visit_feature
 
-        expect(page).to have_selector('button.budget--list__action[disabled]', count: 3)
-        expect(page).to have_no_selector('.budget-summary')
+        expect(page).to have_selector("button.budget--list__action[disabled]", count: 3)
+        expect(page).to have_no_selector(".budget-summary")
       end
     end
 
     context "and show votes are enabled" do
       let!(:feature) do
         create(:budget_feature,
-              :with_show_votes_enabled,
-              manifest: manifest,
-              participatory_process: participatory_process)
+               :with_show_votes_enabled,
+               manifest: manifest,
+               participatory_process: participatory_process)
       end
 
       let!(:order) do

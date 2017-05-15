@@ -7,7 +7,7 @@ RSpec.shared_examples "manage processes examples" do
 
       it "allows the user to preview the unpublished process" do
         within find("tr", text: translated(participatory_process.title)) do
-          page.find('a.action-icon--preview').click
+          page.find("a.action-icon--preview").click
         end
 
         expect(page).to have_css(".process-header")
@@ -20,7 +20,7 @@ RSpec.shared_examples "manage processes examples" do
 
       it "allows the user to preview the unpublished process" do
         within find("tr", text: translated(participatory_process.title)) do
-          page.find('a.action-icon--preview').click
+          page.find("a.action-icon--preview").click
         end
 
         expect(current_path).to eq decidim.participatory_process_path(participatory_process)
@@ -42,7 +42,7 @@ RSpec.shared_examples "manage processes examples" do
     attach_file :participatory_process_banner_image, image3_path
 
     page.execute_script("$('#date_field_participatory_process_end_date').focus()")
-    page.find('.datepicker-dropdown .day', text: '22').click
+    page.find(".datepicker-dropdown .day", text: "22").click
 
     within ".edit_participatory_process" do
       find("*[type=submit]").click
@@ -92,7 +92,7 @@ RSpec.shared_examples "manage processes examples" do
 
       participatory_process.reload
       expect(participatory_process).not_to be_published
-  end
+    end
   end
 
   context "when there are multiple organizations in the system" do

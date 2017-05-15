@@ -7,9 +7,9 @@ describe Decidim::Proposals::FilteredProposals do
   let(:feature) { create(:proposal_feature, participatory_process: participatory_process) }
   let(:another_feature) { create(:proposal_feature, participatory_process: participatory_process) }
 
-  let(:proposals) { create_list(:proposal, 3, feature: feature)}
-  let(:old_proposals) { create_list(:proposal, 3, feature: feature, created_at: 10.days.ago)}
-  let(:another_proposals) { create_list(:proposal, 3, feature: another_feature)}
+  let(:proposals) { create_list(:proposal, 3, feature: feature) }
+  let(:old_proposals) { create_list(:proposal, 3, feature: feature, created_at: 10.days.ago) }
+  let(:another_proposals) { create_list(:proposal, 3, feature: another_feature) }
 
   it "returns proposals included in a collection of features" do
     expect(Decidim::Proposals::FilteredProposals.for([feature, another_feature])).to match_array proposals.concat(old_proposals, another_proposals)

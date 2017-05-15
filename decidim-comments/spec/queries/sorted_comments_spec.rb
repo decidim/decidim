@@ -18,11 +18,11 @@ describe Decidim::Comments::SortedComments do
 
   it "eager loads comment's author, up_votes and down_votes" do
     comment = subject.query[0]
-    expect {
+    expect do
       expect(comment.author.name).to be_present
       expect(comment.up_votes.size).to eq(0)
       expect(comment.down_votes.size).to eq(0)
-    }.not_to make_database_queries
+    end.not_to make_database_queries
   end
 
   it "return the comments ordered by created_at asc by default" do
@@ -44,7 +44,7 @@ describe Decidim::Comments::SortedComments do
 
   context "When order_by is not default" do
     context "When order by recent" do
-      let!(:order_by) {"recent"}
+      let!(:order_by) { "recent" }
 
       it "return the comments ordered by recent" do
         previous_comment = create(:comment, commentable: commentable, author: author, created_at: 1.week.ago, updated_at: 1.week.ago)
@@ -54,7 +54,7 @@ describe Decidim::Comments::SortedComments do
     end
 
     context "When order by best_rated" do
-      let!(:order_by) {"best_rated"}
+      let!(:order_by) { "best_rated" }
 
       it "return the comments ordered by best_rated" do
         most_voted_comment = create(:comment, commentable: commentable, author: author, created_at: 1.week.ago, updated_at: 1.week.ago)
@@ -66,7 +66,7 @@ describe Decidim::Comments::SortedComments do
     end
 
     context "When order by most_discussed" do
-      let!(:order_by) {"most_discussed"}
+      let!(:order_by) { "most_discussed" }
 
       it "return the comments ordered by most_discussed" do
         most_commented = create(:comment, commentable: commentable, author: author, created_at: 1.week.ago, updated_at: 1.week.ago)

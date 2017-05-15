@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Meetings::Admin::UpdateMeeting do
@@ -11,11 +12,11 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
   let(:longitude) { 2.1234 }
   let(:form) do
     double(
-      :invalid? => invalid,
-      title: {en: "title"},
-      description: {en: "description"},
-      location: {en: "location"},
-      location_hints: {en: "location_hints"},
+      invalid?: invalid,
+      title: { en: "title" },
+      description: { en: "description" },
+      location: { en: "location" },
+      location_hints: { en: "location_hints" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
       scope: scope,

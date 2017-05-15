@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Budgets::Admin::UpdateProject do
@@ -18,9 +19,9 @@ describe Decidim::Budgets::Admin::UpdateProject do
   end
   let(:form) do
     double(
-      :invalid? => invalid,
-      title: {en: "title"},
-      description: {en: "description"},
+      invalid?: invalid,
+      title: { en: "title" },
+      description: { en: "description" },
       budget: 10_000_000,
       proposal_ids: proposals.map(&:id),
       scope: scope,

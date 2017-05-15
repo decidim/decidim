@@ -35,7 +35,7 @@ describe Decidim::Budgets::Project do
     let(:order) { create :order, feature: project.feature }
     let(:unfinished_order) { create :order, feature: project.feature }
     let!(:line_item) { create :line_item, project: project, order: order }
-    let!(:line_item_1) { create :line_item, project: project , order: unfinished_order}
+    let!(:line_item_1) { create :line_item, project: project, order: unfinished_order }
 
     it "return number of finished orders for this project" do
       order.reload.update_attributes!(checked_out_at: Time.current)

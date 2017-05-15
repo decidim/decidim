@@ -36,9 +36,9 @@ RSpec.shared_examples "manage process steps examples" do
     )
 
     page.execute_script("$('#date_field_participatory_process_step_start_date').focus()")
-    page.find('.datepicker-dropdown .day', text: '12').click
+    page.find(".datepicker-dropdown .day", text: "12").click
     page.execute_script("$('#date_field_participatory_process_step_end_date').focus()")
-    page.find('.datepicker-dropdown .day', text: '22').click
+    page.find(".datepicker-dropdown .day", text: "22").click
 
     within ".new_participatory_process_step" do
       find("*[type=submit]").click
@@ -58,7 +58,7 @@ RSpec.shared_examples "manage process steps examples" do
   it "updates a participatory_process_step" do
     within "#steps" do
       within find("tr", text: translated(process_step.title)) do
-        page.find('.action-icon--edit').click
+        page.find(".action-icon--edit").click
       end
     end
 
@@ -93,7 +93,7 @@ RSpec.shared_examples "manage process steps examples" do
 
     it "deletes a participatory_process_step" do
       within find("tr", text: translated(process_step2.title)) do
-        page.find('.action-icon--remove').click
+        page.find(".action-icon--remove").click
       end
 
       within ".callout-wrapper" do
@@ -109,7 +109,7 @@ RSpec.shared_examples "manage process steps examples" do
   context "activating a step" do
     it "activates a step" do
       within find("tr", text: translated(process_step.title)) do
-        page.find('.action-icon--activate').click
+        page.find(".action-icon--activate").click
       end
 
       within find("tr", text: translated(process_step.title)) do

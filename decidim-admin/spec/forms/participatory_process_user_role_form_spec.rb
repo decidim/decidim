@@ -24,7 +24,7 @@ module Decidim
       end
 
       context "when email is missing" do
-        let(:email) { }
+        let(:email) {}
 
         it { is_expected.to be_invalid }
       end

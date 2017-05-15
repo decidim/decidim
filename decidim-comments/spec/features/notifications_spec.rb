@@ -6,18 +6,18 @@ describe "Comment notifications", type: :feature do
   let!(:feature) { create(:feature, manifest_name: :dummy, organization: organization) }
   let!(:user) { create(:user, :confirmed, organization: organization) }
   let!(:commentable) { create(:dummy_resource, feature: feature) }
-  let!(:comments) {
-    3.times.map do
+  let!(:comments) do
+    Array.new(3) do
       create(:comment, commentable: commentable)
     end
-  }
+  end
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
   end
 
-  it "commentable author receives an email with a link to the comment", perform_enqueued: true  do
+  it "commentable author receives an email with a link to the comment", perform_enqueued: true do
     visit decidim_dummy.dummy_resource_path(commentable, feature_id: commentable.feature, participatory_process_id: commentable.feature.participatory_process)
     expect(page).to have_selector(".add-comment form")
 

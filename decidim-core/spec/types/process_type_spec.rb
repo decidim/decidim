@@ -25,7 +25,7 @@ module Decidim
     end
 
     describe "steps" do
-      let!(:step){ create(:participatory_process_step, participatory_process: model)}
+      let!(:step) { create(:participatory_process_step, participatory_process: model) }
 
       let(:query) { "{ steps { edges { node { id } } } }" }
 

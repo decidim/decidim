@@ -1,9 +1,11 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Budgets::CancelOrder do
   let(:user) { create(:user) }
   let(:feature) do
-    create(:budget_feature,
+    create(
+      :budget_feature,
       :with_total_budget_and_vote_threshold_percent,
       organization: user.organization
     )

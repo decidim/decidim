@@ -21,8 +21,9 @@ describe "Content pages", type: :feature do
     it "shows the list of all the pages" do
       decidim_pages.each do |decidim_page|
         expect(page).to have_css(
-                          "a[href=\"#{decidim.page_path(decidim_page)}\"]",
-                          text: decidim_page.title[I18n.locale.to_s].upcase)
+          "a[href=\"#{decidim.page_path(decidim_page)}\"]",
+          text: decidim_page.title[I18n.locale.to_s].upcase
+        )
       end
     end
   end
@@ -79,19 +80,19 @@ describe "Content pages", type: :feature do
 
       it "can edit them" do
         within find("tr", text: translated(decidim_page.title)) do
-          page.find('.action-icon.action-icon--edit').click
+          page.find(".action-icon.action-icon--edit").click
         end
 
         within ".edit_static_page" do
           fill_in_i18n(
             :static_page_title,
             "#title-tabs",
-            en: "Not welcomed anymore",
+            en: "Not welcomed anymore"
           )
           fill_in_i18n_editor(
             :static_page_content,
             "#content-tabs",
-            en: "This is the new <strong>content</strong>",
+            en: "This is the new <strong>content</strong>"
           )
           find("*[type=submit]").click
         end
@@ -107,7 +108,7 @@ describe "Content pages", type: :feature do
 
       it "can destroy them" do
         within find("tr", text: translated(decidim_page.title)) do
-          page.find('.action-icon.action-icon--remove').click
+          page.find(".action-icon.action-icon--remove").click
         end
 
         within ".callout-wrapper" do
@@ -121,7 +122,7 @@ describe "Content pages", type: :feature do
 
       it "can visit them" do
         within find("tr", text: translated(decidim_page.title)) do
-          page.find('.action-icon.action-icon--preview').click
+          page.find(".action-icon.action-icon--preview").click
         end
 
         expect(page).to have_content(translated(decidim_page.title))

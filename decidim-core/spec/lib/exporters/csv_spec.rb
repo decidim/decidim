@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 require "csv"
 
@@ -30,7 +31,7 @@ describe Decidim::Exporters::CSV do
   describe "export" do
     it "exports the collection using the right serializer" do
       exported = subject.export.read
-      data = CSV.parse(exported, headers: true, col_sep: ";").map { |row| row.to_h }
+      data = CSV.parse(exported, headers: true, col_sep: ";").map(&:to_h)
       expect(data[0]["serialized_name/ca"]).to eq("foocat")
     end
   end

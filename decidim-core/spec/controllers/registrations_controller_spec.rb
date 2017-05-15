@@ -29,8 +29,8 @@ module Decidim
         before do
           expect_any_instance_of(Decidim::User)
             .to receive(:active_for_authentication?)
-              .at_least(:once)
-              .and_return(true)
+            .at_least(:once)
+            .and_return(true)
           expect(controller).to receive(:sign_up).and_call_original
         end
 

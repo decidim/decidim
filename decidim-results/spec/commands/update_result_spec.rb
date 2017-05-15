@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Results::Admin::UpdateResult do
-  let(:result) { create :result}
+  let(:result) { create :result }
   let(:organization) { result.feature.organization }
   let(:scope) { create :scope, organization: organization }
   let(:category) { create :category, participatory_process: result.feature.participatory_process }
@@ -27,9 +28,9 @@ describe Decidim::Results::Admin::UpdateResult do
   end
   let(:form) do
     double(
-      :invalid? => invalid,
-      title: {en: "title"},
-      description: {en: "description"},
+      invalid?: invalid,
+      title: { en: "title" },
+      description: { en: "description" },
       proposal_ids: proposals.map(&:id),
       scope: scope,
       category: category

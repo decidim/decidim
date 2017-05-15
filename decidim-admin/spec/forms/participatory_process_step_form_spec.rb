@@ -31,7 +31,7 @@ module Decidim
             "description_es" => description[:es],
             "description_ca" => description[:ca],
             "start_date" => start_date,
-            "end_date" => end_date,
+            "end_date" => end_date
           }
         }
       end

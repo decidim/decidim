@@ -5,8 +5,8 @@ describe "Proposals", type: :feature do
   include_context "feature"
   let!(:feature) do
     create(:proposal_feature,
-      manifest: manifest,
-      participatory_process: participatory_process)
+           manifest: manifest,
+           participatory_process: participatory_process)
   end
   let(:manifest_name) { "proposals" }
 
@@ -20,9 +20,10 @@ describe "Proposals", type: :feature do
   let(:longitude) { 2.1234 }
 
   before do
-    Geocoder::Lookup::Test.add_stub(address, [
-      { 'latitude' => latitude, 'longitude' => longitude }
-    ])
+    Geocoder::Lookup::Test.add_stub(
+      address,
+      [{ "latitude" => latitude, "longitude" => longitude }]
+    )
   end
 
   context "creating a new proposal" do
@@ -94,10 +95,10 @@ describe "Proposals", type: :feature do
         context "when geocoding is enabled" do
           let!(:feature) do
             create(:proposal_feature,
-                  :with_creation_enabled,
-                  :with_geocoding_enabled,
-                  manifest: manifest,
-                  participatory_process: participatory_process)
+                   :with_creation_enabled,
+                   :with_geocoding_enabled,
+                   manifest: manifest,
+                   participatory_process: participatory_process)
           end
 
           it "creates a new proposal" do
@@ -156,10 +157,10 @@ describe "Proposals", type: :feature do
           context "when geocoding is enabled" do
             let!(:feature) do
               create(:proposal_feature,
-                    :with_creation_enabled,
-                    :with_geocoding_enabled,
-                    manifest: manifest,
-                    participatory_process: participatory_process)
+                     :with_creation_enabled,
+                     :with_geocoding_enabled,
+                     manifest: manifest,
+                     participatory_process: participatory_process)
             end
 
             it "creates a new proposal as a user group" do
@@ -353,7 +354,7 @@ describe "Proposals", type: :feature do
   end
 
   context "when a proposal has been linked in a project" do
-    let(:proposal) { create(:proposal, feature: feature)}
+    let(:proposal) { create(:proposal, feature: feature) }
     let(:budget_feature) do
       create(:feature, manifest_name: :budgets, participatory_process: proposal.feature.participatory_process)
     end
@@ -398,7 +399,7 @@ describe "Proposals", type: :feature do
     context "when filtering" do
       context "when official_proposals setting is enabled" do
         before do
-          feature.update_attributes(settings: { official_proposals_enabled: true})
+          feature.update_attributes(settings: { official_proposals_enabled: true })
         end
 
         it "can be filtered by origin" do
@@ -439,7 +440,7 @@ describe "Proposals", type: :feature do
 
       context "when official_proposals setting is not enabled" do
         before do
-          feature.update_attributes(settings: { official_proposals_enabled: false } )
+          feature.update_attributes(settings: { official_proposals_enabled: false })
         end
 
         it "cannot be filtered by origin" do
@@ -453,7 +454,7 @@ describe "Proposals", type: :feature do
 
       context "when scoped_proposals setting is enabled" do
         before do
-          feature.update_attributes(settings: { scoped_proposals_enabled: true } )
+          feature.update_attributes(settings: { scoped_proposals_enabled: true })
         end
 
         it "cannot be filtered by scope" do
@@ -481,7 +482,7 @@ describe "Proposals", type: :feature do
 
       context "when proposal_answering feature setting is enabled" do
         before do
-          feature.update_attributes(settings: { proposal_answering_enabled: true } )
+          feature.update_attributes(settings: { proposal_answering_enabled: true })
         end
 
         context "when proposal_answering step setting is enabled" do
@@ -563,7 +564,7 @@ describe "Proposals", type: :feature do
 
       context "when proposal_answering feature setting is not enabled" do
         before do
-          feature.update_attributes(settings: { proposal_answering_enabled: false } )
+          feature.update_attributes(settings: { proposal_answering_enabled: false })
         end
 
         it "cannot be filtered by state" do
@@ -580,9 +581,9 @@ describe "Proposals", type: :feature do
       context "by 'most_support'" do
         let!(:feature) do
           create(:proposal_feature,
-            :with_votes_enabled,
-            manifest: manifest,
-            participatory_process: participatory_process)
+                 :with_votes_enabled,
+                 manifest: manifest,
+                 participatory_process: participatory_process)
         end
 
         before do
@@ -599,13 +600,13 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within ".order-by" do
-            page.find('.dropdown.menu .is-dropdown-submenu-parent').hover
+            page.find(".dropdown.menu .is-dropdown-submenu-parent").hover
           end
 
           click_link "Most voted"
 
-          expect(page.find('#proposals .card-grid .column:first-child', text: most_voted_proposal.title)).to be
-          expect(page.find('#proposals .card-grid .column:last-child', text: less_voted_proposal.title)).to be
+          expect(page.find("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)).to be
+          expect(page.find("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)).to be
         end
       end
 
@@ -617,13 +618,13 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within ".order-by" do
-            page.find('.dropdown.menu .is-dropdown-submenu-parent').hover
+            page.find(".dropdown.menu .is-dropdown-submenu-parent").hover
           end
 
           click_link "Recent"
 
-          expect(page.find('#proposals .card-grid .column:first-child', text: recent_proposal.title)).to be
-          expect(page.find('#proposals .card-grid .column:last-child', text: older_proposal.title)).to be
+          expect(page.find("#proposals .card-grid .column:first-child", text: recent_proposal.title)).to be
+          expect(page.find("#proposals .card-grid .column:last-child", text: older_proposal.title)).to be
         end
       end
     end

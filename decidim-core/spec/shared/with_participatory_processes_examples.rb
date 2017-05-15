@@ -66,7 +66,7 @@ RSpec.shared_examples "with promoted participatory processes" do
           organization: organization
         )
 
-        unpromoted = create(
+        _unpromoted = create(
           :participatory_process,
           :with_steps,
           :unpublished,

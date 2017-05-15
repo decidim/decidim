@@ -172,9 +172,9 @@ module Decidim
       end
 
       it "sorts subcategories by name" do
-        subcategory_2 = create(:category, name: { "en" => "First subcategory" }, parent: category, participatory_process: feature.participatory_process)
+        subcategory2 = create(:category, name: { "en" => "First subcategory" }, parent: category, participatory_process: feature.participatory_process)
 
-        expect(subject.css("option")[2].text).to eq("- #{subcategory_2.name["en"]}")
+        expect(subject.css("option")[2].text).to eq("- #{subcategory2.name["en"]}")
         expect(subject.css("option")[3].text).to eq("- #{subcategory.name["en"]}")
       end
 

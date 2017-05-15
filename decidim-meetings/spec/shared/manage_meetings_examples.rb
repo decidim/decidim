@@ -6,14 +6,15 @@ RSpec.shared_examples "manage meetings" do
   let(:longitude) { 2.1234 }
 
   before do
-    Geocoder::Lookup::Test.add_stub(address, [
-      { 'latitude' => latitude, 'longitude' => longitude }
-    ])
+    Geocoder::Lookup::Test.add_stub(
+      address,
+      [{ "latitude" => latitude, "longitude" => longitude }]
+    )
   end
 
   it "updates a meeting" do
     within find("tr", text: translated(meeting.title)) do
-      page.find('a.action-icon--edit').click
+      page.find("a.action-icon--edit").click
     end
 
     within ".edit_meeting" do
@@ -86,14 +87,14 @@ RSpec.shared_examples "manage meetings" do
     fill_in :meeting_address, with: address
 
     page.execute_script("$('#datetime_field_meeting_start_time').focus()")
-    page.find('.datepicker-dropdown .day', text: '12').click
-    page.find('.datepicker-dropdown .hour', text: '10:00').click
-    page.find('.datepicker-dropdown .minute', text: '10:50').click
+    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .hour", text: "10:00").click
+    page.find(".datepicker-dropdown .minute", text: "10:50").click
 
     page.execute_script("$('#datetime_field_meeting_end_time').focus()")
-    page.find('.datepicker-dropdown .day', text: '12').click
-    page.find('.datepicker-dropdown .hour', text: '12:00').click
-    page.find('.datepicker-dropdown .minute', text: '12:50').click
+    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .hour", text: "12:00").click
+    page.find(".datepicker-dropdown .minute", text: "12:50").click
 
     select scope.name, from: :meeting_decidim_scope_id
     select translated(category.name), from: :meeting_decidim_category_id
@@ -120,7 +121,7 @@ RSpec.shared_examples "manage meetings" do
 
     it "deletes a meeting" do
       within find("tr", text: translated(meeting2.title)) do
-        page.find('a.action-icon--remove').click
+        page.find("a.action-icon--remove").click
       end
 
       within ".callout-wrapper" do
@@ -140,7 +141,7 @@ RSpec.shared_examples "manage meetings" do
 
     it "updates a meeting" do
       within find("tr", text: translated(meeting.title)) do
-        page.find('a.action-icon--edit').click
+        page.find("a.action-icon--edit").click
       end
 
       within ".edit_meeting" do
@@ -199,14 +200,14 @@ RSpec.shared_examples "manage meetings" do
 
       fill_in :meeting_address, with: address
       page.execute_script("$('#datetime_field_meeting_start_time').focus()")
-      page.find('.datepicker-dropdown .day', text: '12').click
-      page.find('.datepicker-dropdown .hour', text: '10:00').click
-      page.find('.datepicker-dropdown .minute', text: '10:50').click
+      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .hour", text: "10:00").click
+      page.find(".datepicker-dropdown .minute", text: "10:50").click
 
       page.execute_script("$('#datetime_field_meeting_end_time').focus()")
-      page.find('.datepicker-dropdown .day', text: '12').click
-      page.find('.datepicker-dropdown .hour', text: '12:00').click
-      page.find('.datepicker-dropdown .minute', text: '12:50').click
+      page.find(".datepicker-dropdown .day", text: "12").click
+      page.find(".datepicker-dropdown .hour", text: "12:00").click
+      page.find(".datepicker-dropdown .minute", text: "12:50").click
 
       select scope.name, from: :meeting_decidim_scope_id
       select translated(category.name), from: :meeting_decidim_category_id
@@ -233,7 +234,7 @@ RSpec.shared_examples "manage meetings" do
 
     it "closes a meeting with a report" do
       within find("tr", text: translated(meeting.title)) do
-        page.find('a.action-icon--close').click
+        page.find("a.action-icon--close").click
       end
 
       within ".edit_close_meeting" do
@@ -267,7 +268,7 @@ RSpec.shared_examples "manage meetings" do
 
       it "can update the information" do
         within find("tr", text: translated(meeting.title)) do
-          page.find('a.action-icon--close').click
+          page.find("a.action-icon--close").click
         end
 
         within ".edit_close_meeting" do

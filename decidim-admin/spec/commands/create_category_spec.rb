@@ -24,7 +24,7 @@ module Decidim
             form_params,
             current_process: participatory_process
           ).with_context(
-            current_organization: organization,
+            current_organization: organization
           )
         end
         let(:command) { described_class.new(form, participatory_process) }

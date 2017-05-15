@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Results::Admin::CreateResult do
@@ -27,9 +28,9 @@ describe Decidim::Results::Admin::CreateResult do
   end
   let(:form) do
     double(
-      :invalid? => invalid,
-      title: {en: "title"},
-      description: {en: "description"},
+      invalid?: invalid,
+      title: { en: "title" },
+      description: { en: "description" },
       proposal_ids: proposals.map(&:id),
       scope: scope,
       category: category,

@@ -56,7 +56,7 @@ describe "Admin manage participatory process groups", type: :feature do
 
     it "can edit them" do
       within find("tr", text: participatory_process_group.name["en"]) do
-        page.find('.action-icon.action-icon--edit').click
+        page.find(".action-icon.action-icon--edit").click
       end
 
       within ".edit_participatory_process_group" do
@@ -92,7 +92,7 @@ describe "Admin manage participatory process groups", type: :feature do
 
     it "can destroy them" do
       within find("tr", text: participatory_process_group.name["en"]) do
-        page.find('.action-icon.action-icon--remove').click
+        page.find(".action-icon.action-icon--remove").click
       end
 
       within ".callout-wrapper" do

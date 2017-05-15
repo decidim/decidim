@@ -1,12 +1,13 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Decidim::Admin::UpdateScope do
   let(:organization) { create :organization }
   let(:scope) { create :scope, organization: organization }
-  let(:name) { "My scope"}
+  let(:name) { "My scope" }
   let(:form) do
     double(
-      :invalid? => invalid,
+      invalid?: invalid,
       name: name
     )
   end
