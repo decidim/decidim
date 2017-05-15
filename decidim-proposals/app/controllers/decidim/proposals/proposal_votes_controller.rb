@@ -21,7 +21,9 @@ module Decidim
       def destroy
         authorize! :unvote, proposal
 
-        proposal.votes.where(author: current_user).delete_all
+        proposal.votes.where(author: current_user).destroy_all
+        proposal.reload
+
         @from_proposals_list = params[:from_proposals_list] == "true"
         render :update_buttons_and_counters
       end

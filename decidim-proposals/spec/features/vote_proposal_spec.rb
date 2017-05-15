@@ -144,6 +144,10 @@ describe "Vote Proposal", type: :feature do
               page.find(".card__button").click
             end
 
+            within "#proposal-#{proposal.id}-votes-count" do
+              expect(page).to have_content("0 VOTES")
+            end
+
             expect(page).to have_content("REMAINING 10 VOTES")
           end
         end
