@@ -56,7 +56,7 @@
 
 1. Change `lib/decidim/<engine_name>.rb`
 
-    > Add this
+    Add this
 
     ```ruby
     # frozen_string_literal: true
