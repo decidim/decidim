@@ -27,22 +27,30 @@ module Decidim
         private
 
         def update_survey
-          @survey.update_attributes!(
+          attributes = {
             title: @form.title,
             description: @form.description,
             toc: @form.toc
-          )
+          }
 
-          @form.questions.each do |form_question|
-            if form_question.id.present?
-              question = @survey.questions.where(id: form_question.id).first
-              if form_question.deleted?
-                question.destroy
+          if @form.published_at.present?
+            attributes[:published_at] = @form.published_at
+          end
+
+          @survey.update_attributes!(attributes)
+
+          unless @survey.published?
+            @form.questions.each do |form_question|
+              if form_question.id.present?
+                question = @survey.questions.where(id: form_question.id).first
+                if form_question.deleted?
+                  question.destroy
+                else
+                  question.update_attributes!(body: form_question.body)
+                end
               else
-                question.update_attributes!(body: form_question.body)
+                @survey.questions.create(body: form_question.body)
               end
-            else
-              @survey.questions.create(body: form_question.body)
             end
           end
         end

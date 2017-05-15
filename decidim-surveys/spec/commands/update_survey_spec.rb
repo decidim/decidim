@@ -9,6 +9,7 @@ module Decidim
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
         let(:feature) { create(:feature, manifest_name: "surveys", participatory_process: participatory_process) }
         let(:survey) { create(:survey, feature: feature) }
+        let(:published_at) { nil }
         let(:form_params) do
           {
             "description" => {
@@ -31,7 +32,8 @@ module Decidim
                   "es" => "Segunda pregunta"
                 }
               }
-            ]
+            ],
+            "published_at" => published_at
           }
         end
         let(:form) do
@@ -98,6 +100,17 @@ module Decidim
 
               expect(survey.questions.length).to eq(0)
             end
+          end
+        end
+
+        describe "when the form params include the published_at field" do
+          let(:published_at) { Time.current }
+
+          it "publishes the survey" do
+            command.call
+            survey.reload
+
+            expect(survey).to be_published
           end
         end
       end

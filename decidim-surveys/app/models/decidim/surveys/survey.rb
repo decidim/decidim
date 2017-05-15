@@ -8,6 +8,11 @@ module Decidim
       feature_manifest_name "surveys"
 
       has_many :questions, class_name: SurveyQuestion, foreign_key: "decidim_survey_id"
+
+      # Public: returns wether the survey is published or not.
+      def published?
+        published_at.present?
+      end
     end
   end
 end

@@ -32,6 +32,13 @@ module Decidim
       it "has an associated feature" do
         expect(survey.feature).to be_a(Decidim::Feature)
       end
+
+      context "#published?" do
+        it "returns true when published_at is not nil" do
+          survey.published_at = Time.current
+          expect(survey).to be_published
+        end
+      end
     end
   end
 end

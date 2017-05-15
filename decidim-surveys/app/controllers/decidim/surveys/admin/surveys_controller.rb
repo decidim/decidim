@@ -9,6 +9,7 @@ module Decidim
         end
 
         def update
+          params["published_at"] = Time.current if params.has_key? "save_and_publish"
           @form = form(Admin::SurveyForm).from_params(params)
 
           Admin::UpdateSurvey.call(@form, survey) do

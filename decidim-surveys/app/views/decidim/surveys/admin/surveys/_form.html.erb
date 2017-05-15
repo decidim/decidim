@@ -14,20 +14,24 @@
     </div>
 
     <div class="row column survey-questions">
-      <button class="button add-question"><%= t('.add_question') %></button>
+      <% unless @survey.published? %>
+        <button class="button add-question"><%= t('.add_question') %></button>
 
-      <template id="survey-question-tmpl">
-        <div class="survey-question">
-          <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", {}, label: "Question", disabled: true %>
-          <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
-        </div>
-      </template>
+        <template id="survey-question-tmpl">
+          <div class="survey-question">
+            <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", {}, label: "Question", disabled: true %>
+            <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
+          </div>
+        </template>
+      <% end %>
 
       <% @form.questions.each do |question| %>
         <div class="survey-question">
-          <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, label: "Question", tabs_prefix: "survey-question-#{question.id}" %>
+          <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, label: "Question", tabs_prefix: "survey-question-#{question.id}", disabled: @survey.published? %>
           <%= hidden_field_tag "survey[questions][][id]", question.id %>
-          <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
+          <% unless @survey.published? %>
+            <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
+          <% end %>
         </div>
       <% end %>
     </div>

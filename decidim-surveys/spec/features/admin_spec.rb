@@ -61,17 +61,17 @@ describe "Edit a survey", type: :feature do
         end
       end
 
-      click_button "Save and publish"
+      click_button "Save"
     end
 
     within ".callout-wrapper" do
       expect(page).to have_content("successfully")
     end
 
-    visit_feature
+    visit_feature_admin
 
-    expect(page).to have_content("This is the first question")
-    expect(page).to have_content("This is the second question")
+    expect(page).to have_selector("input[value='This is the first question']")
+    expect(page).to have_selector("input[value='This is the second question']")
   end
 
   describe "when a survey has an existing question" do
@@ -101,10 +101,10 @@ describe "Edit a survey", type: :feature do
         expect(page).to have_content("successfully")
       end
 
-      visit_feature
+      visit_feature_admin
 
-      expect(page).to have_content("Modified question")
-      expect(page).not_to have_content("This is the first question")
+      expect(page).to have_selector("input[value='Modified question']")
+      expect(page).not_to have_selector("input[value='This is the first question']")
     end
 
     it "removes the question" do
@@ -129,6 +129,28 @@ describe "Edit a survey", type: :feature do
       within "form.edit_survey" do
         expect(page).to have_selector('.survey-question', count: 0)
       end
+    end
+
+    it "publishes a survey" do
+      visit_feature_admin
+
+      within "form.edit_survey" do
+        click_button "Save and publish"
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      visit_feature_admin
+
+      expect(page).not_to have_content("Add question")
+      expect(page).not_to have_content("Remove question")
+      expect(page).to have_selector("input[value='This is the first question'][disabled]")
+
+      visit_feature
+
+      expect(page).to have_content("This is the first question");
     end
   end
 end

@@ -9,6 +9,7 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :toc, String
+        attribute :published_at, DateTime
 
         attribute :questions, Array[SurveyQuestionForm]
       end
