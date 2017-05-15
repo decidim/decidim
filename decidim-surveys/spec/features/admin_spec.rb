@@ -50,7 +50,7 @@ describe "Edit a survey", type: :feature do
     within "form.edit_survey" do
       2.times { click_button "Add question" }
 
-      expect(page).to have_selector('.survey-question', count: 2)
+      expect(page).to have_selector(".survey-question", count: 2)
 
       page.all(".survey-question").each_with_index do |survey_question, idx|
         questions_body[idx].each do |locale, value|
@@ -75,20 +75,20 @@ describe "Edit a survey", type: :feature do
   end
 
   describe "when a survey has an existing question" do
-    let(:body) {
+    let(:body) do
       {
         en: "This is the first question",
         ca: "Aquesta es la primera pregunta",
         es: "Esta es la primera pregunta"
       }
-    }
+    end
     let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
 
     it "modifies the question" do
       visit_feature_admin
 
       within "form.edit_survey" do
-        expect(page).to have_selector('.survey-question', count: 1)
+        expect(page).to have_selector(".survey-question", count: 1)
 
         within ".survey-question" do
           fill_in "survey_questions__body_en", with: "Modified question"
@@ -111,7 +111,7 @@ describe "Edit a survey", type: :feature do
       visit_feature_admin
 
       within "form.edit_survey" do
-        expect(page).to have_selector('.survey-question', count: 1)
+        expect(page).to have_selector(".survey-question", count: 1)
 
         within ".survey-question" do
           click_button "Remove question"
@@ -127,7 +127,7 @@ describe "Edit a survey", type: :feature do
       visit_feature_admin
 
       within "form.edit_survey" do
-        expect(page).to have_selector('.survey-question', count: 0)
+        expect(page).to have_selector(".survey-question", count: 0)
       end
     end
 
@@ -150,7 +150,7 @@ describe "Edit a survey", type: :feature do
 
       visit_feature
 
-      expect(page).to have_content("This is the first question");
+      expect(page).to have_content("This is the first question")
     end
   end
 end

@@ -44,9 +44,9 @@ module Decidim
         end
 
         it "doesn't create survey answers" do
-          expect {
+          expect do
             command.call
-          }.not_to change { SurveyAnswer.count }
+          end.not_to change { SurveyAnswer.count }
         end
       end
 
@@ -56,9 +56,9 @@ module Decidim
         end
 
         it "creates a survey answer for each question answered" do
-          expect {
+          expect do
             command.call
-          }.to change { SurveyAnswer.count }.by(2)
+          end.to change { SurveyAnswer.count }.by(2)
           last_answer = SurveyAnswer.last
           expect(last_answer.survey).to eq(survey)
         end

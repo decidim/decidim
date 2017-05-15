@@ -79,7 +79,7 @@ module Decidim
         end
 
         describe "when the survey has an existing question" do
-          let!(:survey_question) { create(:survey_question, survey: survey )}
+          let!(:survey_question) { create(:survey_question, survey: survey) }
 
           context "and the question should be removed" do
             let(:form_params) do

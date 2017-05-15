@@ -30,9 +30,7 @@ module Decidim
           end
 
           it "creates a new survey with the same name as the feature" do
-            expect(Survey).to receive(:new).with({
-              feature: feature
-            }).and_call_original
+            expect(Survey).to receive(:new).with(feature: feature).and_call_original
 
             expect do
               command.call
