@@ -21,6 +21,7 @@ module Decidim
           return broadcast(:invalid) if @form.invalid?
 
           update_survey
+          update_survey_questions unless @survey.published?
           broadcast(:ok)
         end
 
@@ -38,19 +39,19 @@ module Decidim
           end
 
           @survey.update_attributes!(attributes)
+        end
 
-          unless @survey.published?
-            @form.questions.each do |form_question|
-              if form_question.id.present?
-                question = @survey.questions.where(id: form_question.id).first
-                if form_question.deleted?
-                  question.destroy
-                else
-                  question.update_attributes!(body: form_question.body)
-                end
+        def update_survey_questions
+          @form.questions.each do |form_question|
+            if form_question.id.present?
+              question = @survey.questions.where(id: form_question.id).first
+              if form_question.deleted?
+                question.destroy
               else
-                @survey.questions.create(body: form_question.body)
+                question.update_attributes!(body: form_question.body)
               end
+            else
+              @survey.questions.create(body: form_question.body)
             end
           end
         end
