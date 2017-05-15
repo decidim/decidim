@@ -5,7 +5,7 @@ $(() => {
   const $container = $('.editor-container');
   const quillFormats = ['bold', 'italic', 'link', 'underline', 'header', 'list', 'video'];
 
-  $container.each((idx, container) => {
+  const createQuillEditor = (container) => {
     const toolbar = $(container).data('toolbar');
 
     let quillToolbar = [
@@ -39,6 +39,13 @@ $(() => {
       }
     });
 
-    quill.root.innerHTML = $input.val();
+    quill.root.innerHTML = $input.val() || '';
+  };
+
+  $container.each((idx, container) => {
+    createQuillEditor(container);
   });
+
+  window.Decidim = window.Decidim || {};
+  window.Decidim.createQuillEditor = createQuillEditor;
 });

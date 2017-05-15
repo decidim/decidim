@@ -32,6 +32,10 @@ module Decidim
             description: @form.description,
             toc: @form.toc
           )
+
+          @form.questions.each do |form_question|
+            @survey.questions.create(body: form_question.body)
+          end
         end
       end
     end

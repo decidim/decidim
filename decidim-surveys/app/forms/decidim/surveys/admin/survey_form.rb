@@ -9,6 +9,8 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :toc, String
+
+        attribute :questions, Array[SurveyQuestionForm]
       end
     end
   end

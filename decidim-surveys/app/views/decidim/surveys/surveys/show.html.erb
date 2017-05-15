@@ -9,6 +9,12 @@
       <div class="section">
         <%== translated_attribute @survey.description %>
       </div>
+
+      <ol>
+        <% @survey.questions.each do |question| %>
+          <li><%= translated_attribute question.body %></li>
+        <% end %>
+      </ol>
     </div>
   </div>
 </div>

@@ -18,4 +18,9 @@ FactoryGirl.define do
     toc { Decidim::Faker::Localized.sentence(4) }
     feature { build(:surveys_feature) }
   end
+
+  factory :survey_question, class: Decidim::Surveys::SurveyQuestion do
+    body { Decidim::Faker::Localized.sentence }
+    survey
+  end
 end

@@ -12,5 +12,17 @@
     <div class="row column">
       <%= form.translated :editor, :toc, toolbar: :full, lines: 30, label: t("models.components.toc", scope: "decidim.surveys.admin")  %>
     </div>
+
+    <div class="row column survey-questions">
+      <button class="button add-question"><%= t('.add_question') %></button>
+
+      <template id="survey-question-tmpl">
+        <div class="survey-question">
+          <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", {}, label: "Question" %>
+        </div>
+      </template>
+    </div>
   </div>
 </div>
+
+<%= javascript_include_tag "decidim/surveys/admin/surveys" %>

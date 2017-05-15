@@ -6,6 +6,8 @@ module Decidim
       include Decidim::HasFeature
 
       feature_manifest_name "surveys"
+
+      has_many :questions, class_name: SurveyQuestion, foreign_key: "decidim_survey_id"
     end
   end
 end
