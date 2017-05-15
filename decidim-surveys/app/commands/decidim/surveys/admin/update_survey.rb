@@ -34,7 +34,11 @@ module Decidim
           )
 
           @form.questions.each do |form_question|
-            @survey.questions.create(body: form_question.body)
+            if form_question.id.present?
+              @survey.questions.where(id: form_question.id).first.update_attributes!(body: form_question.body)
+            else
+              @survey.questions.create(body: form_question.body)
+            end
           end
         end
       end

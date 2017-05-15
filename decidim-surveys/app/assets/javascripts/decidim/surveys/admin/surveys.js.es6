@@ -12,6 +12,7 @@
       const $newQuestion = $.tmpl(templateId, {});
       const tabsId = `survey-question-${+new Date()}-${~~(Math.random() * 1000000)}`;
 
+      $newQuestion.find('input[disabled]').attr('disabled', false);
       $newQuestion.appendTo($container);
       $newQuestion.find('.label--tabs ul.tabs').attr('id', tabsId);
       $newQuestion.find('.label--tabs .tabs-title a').each(function (idx, node) {

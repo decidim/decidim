@@ -6,6 +6,7 @@ module Decidim
       class SurveyQuestionForm < Decidim::Form
         include TranslatableAttributes
 
+        attribute :id, String
         translatable_attribute :body, String
       end
     end

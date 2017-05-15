@@ -18,9 +18,16 @@
 
       <template id="survey-question-tmpl">
         <div class="survey-question">
-          <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", {}, label: "Question" %>
+          <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", {}, label: "Question", disabled: true %>
         </div>
       </template>
+
+      <% @form.questions.each do |question| %>
+        <div class="survey-question">
+          <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, label: "Question", tabs_prefix: "survey-question-#{question.id}" %>
+          <%= hidden_field_tag "survey[questions][][id]", question.id %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

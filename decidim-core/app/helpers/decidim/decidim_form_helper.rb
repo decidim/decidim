@@ -36,6 +36,7 @@ module Decidim
       locales = Decidim.available_locales
 
       tabs_id = "#{object_name}-#{name}-tabs"
+      tabs_id = "#{options[:tabs_prefix]}-#{tabs_id}" if options[:tabs_prefix].present?
 
       if locales.count == 1
         return send(
@@ -54,9 +55,9 @@ module Decidim
             locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
               string + content_tag(:li, class: tab_element_class_for("title", index)) do
                 title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
-                element_class = nil
-                # element_class = "is-tab-error" if error?(name_with_locale(name, locale))
-                content_tag(:a, title, href: "##{name}-panel-#{index}", class: element_class)
+                tab_content_id = "#{name}-panel-#{index}"
+                tab_content_id = "#{options[:tabs_prefix]}-#{tab_content_id}" if options[:tabs_prefix].present?
+                content_tag(:a, title, href: "##{tab_content_id}")
               end
             end
           end
@@ -67,7 +68,9 @@ module Decidim
 
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-          string + content_tag(:div, class: tab_element_class_for("panel", index), id: "#{name}-panel-#{index}") do
+          tab_content_id = "#{name}-panel-#{index}"
+          tab_content_id = "#{options[:tabs_prefix]}-#{tab_content_id}" if options[:tabs_prefix].present?
+          string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
             send(type, "#{object_name}[#{name_with_locale(name, locale)}]", value[locale], options.merge(label: false))
           end
         end
