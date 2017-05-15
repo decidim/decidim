@@ -25,7 +25,7 @@
         <% if current_user %>
           <% if survey.answered_by?(current_user) %>
             <div class="section">
-              <div class="callout sucesss">
+              <div class="callout success">
                 <h5><%= t('.survey_answered.title') %></h5>
                 <p><%= t('.survey_answered.body') %></p>
               </div>
