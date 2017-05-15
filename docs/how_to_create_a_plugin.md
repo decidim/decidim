@@ -35,8 +35,6 @@ Gem::Specification.new do |s|
 end
 ```
 
----
-
 1. Remove `bin/test` and add `bin/rails` with this content:
 
 ```ruby
