@@ -6,11 +6,11 @@ describe Decidim::Surveys::Abilities::CurrentUser do
   let(:user) { build(:user, organization: organization) }
   let(:participatory_process) { build(:participatory_process, organization: organization) }
   let(:surveys_feature) { build(:surveys_feature, participatory_process: participatory_process) }
-  let(:context) {
+  let(:context) do
     {
       current_feature: surveys_feature
     }
-  }
+  end
 
   subject { described_class.new(user, context) }
 

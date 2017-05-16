@@ -19,12 +19,12 @@ describe "Admin manages ogranization", type: :feature do
       fill_in "Name", with: "My super-uber organization"
 
       fill_in_i18n_editor :organization_description, "#organization-description-tabs", en: "My own super description",
-                                                                          es: "Mi gran descripción",
-                                                                          ca: "La meva gran descripció"
+                                                                                       es: "Mi gran descripción",
+                                                                                       ca: "La meva gran descripció"
 
       fill_in_i18n :organization_welcome_text, "#organization-welcome_text-tabs", en: "My super welcome text",
-                                                                     es: "Mi super texto de bienvenida",
-                                                                     ca: "El meu súper text de benvinguda"
+                                                                                  es: "Mi super texto de bienvenida",
+                                                                                  ca: "El meu súper text de benvinguda"
 
       %w(Twitter Facebook Instagram YouTube GitHub).each do |network|
         click_link network
