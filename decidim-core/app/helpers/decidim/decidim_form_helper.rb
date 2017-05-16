@@ -15,7 +15,17 @@ module Decidim
       form_for(record, options, &block)
     end
 
-    # TODO
+    # A custom helper to include an editor field without requiring a form object
+    #
+    # name - The input name
+    # value - The input value
+    # options - The set of options to send to the field
+    #           :label   - The Boolean value to create or not the input label (optional) (default: true)
+    #           :toolbar - The String value to configure WYSIWYG toolbar. It should be 'basic' or
+    #                      or 'full' (optional) (default: 'basic')
+    #           :lines   - The Integer to indicate how many lines should editor have (optional)
+    #
+    # Returns a rich editor to be included in a html template.
     def editor_field_tag(name, value, options = {})
       options[:toolbar] ||= "basic"
       options[:lines] ||= 10
@@ -31,7 +41,17 @@ module Decidim
       end
     end
 
-    # TODO
+    # A custom helper to include a translated field without requiring a form object.
+    #
+    # type        - The type of the translated input field.
+    # object_name - The object name used to identify the Foundation tabs.
+    # name        - The name of the input which will be suffixed with the corresponding locales.
+    # value       - A hash containing the value for each locale.
+    # options     - An optional hash of options.
+    #             * tabs_prefix: A prefix to identify the Foundation tabs element.
+    #             * label: The label used for the field.
+    #
+    # Returns a Foundation tabs element with the translated input field.
     def translated_field_tag(type, object_name, name, value = {}, options = {})
       locales = Decidim.available_locales
 
@@ -79,12 +99,14 @@ module Decidim
       safe_join [label_tabs, tabs_content]
     end
 
+    # Helper method used by `translated_field_tag`
     def tab_element_class_for(type, index)
       element_class = "tabs-#{type}"
       element_class += " is-active" if index.zero?
       element_class
     end
 
+    # Helper method used by `translated_field_tag`
     def name_with_locale(name, locale)
       "#{name}_#{locale.to_s.gsub("-", "__")}"
     end

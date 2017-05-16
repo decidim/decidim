@@ -12,12 +12,13 @@ en:
             toc: Toc
         surveys:
           edit:
-            are_you_sure: Are you sure
+            are_you_sure: This action will publish the survey and you will not be able to keep editing the survey questions. Are you sure?
             save: Save
             save_and_publish: Save and publish
             title: Title
           form:
             add_question: Add question
+            question: Question
             remove_question: Remove question
           update:
             invalid: There's been errors when saving the survey.
@@ -31,6 +32,7 @@ en:
             anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a>
               or <a href="%{sign_up_link}">sign up</a> to answer the survey.
             title: Answer the survey
+          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
           submit: Submit
           survey_answered:
             body: You have already answered this survey.

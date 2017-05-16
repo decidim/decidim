@@ -1,6 +1,6 @@
 // = require jquery-tmpl
 
-((exports) => {
+(() => {
   const $addQuestionButtons = $('.add-question');
   const templateId = 'survey-question-tmpl';
   const $container = $('.survey-questions');
@@ -10,7 +10,7 @@
   const addQuestion = (event) => {
     try {
       const $newQuestion = $.tmpl(templateId, {});
-      const tabsId = `survey-question-${+new Date()}-${~~(Math.random() * 1000000)}`;
+      const tabsId = `survey-question-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 1000000)}`;
 
       $newQuestion.find('input[disabled]').attr('disabled', false);
       $newQuestion.appendTo($container);
@@ -25,11 +25,8 @@
       });
 
       $newQuestion.foundation();
-
-      // TODO: editor?
-      // window.Decidim.createQuillEditor($newQuestion[0]);
-    } catch(e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error); // eslint-disable-line no-console
     }
 
     event.preventDefault();
@@ -52,8 +49,8 @@
       } else {
         $question.remove();
       }
-    } catch(e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error); // eslint-disable-line no-console
     }
 
     event.preventDefault();
@@ -62,4 +59,4 @@
 
   $addQuestionButtons.on('click', addQuestion);
   $container.on('click', '.remove-question', removeQuestion);
-})(document);
+})();
