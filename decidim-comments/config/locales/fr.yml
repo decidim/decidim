@@ -13,7 +13,14 @@ fr:
         notifications_settings_link: la page de configuration des notifications
         reply_created:
           new_reply_html: Il y a une nouvelle réponse à votre commentaire de <b>%{commenter}</b> dans <b>%{commentable_link}</b>
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: Vous avez un nouveau commentaire
+          reply_created:
+            subject: Vous avez une nouvelle réponse à votre commentaire
     components:
       add_comment_form:
+        account_message: 'Pour ajouter votre commentaire <a href="%{sign_in_url}"> identifiez vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>. '
         form:
           submit: Envoyer
