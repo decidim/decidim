@@ -3,7 +3,11 @@
 require "i18n/tasks"
 
 RSpec.shared_examples_for "I18n sanity" do
-  let(:i18n) { I18n::Tasks::BaseTask.new(locales: [I18n.default_locale]) }
+  let(:locales) do
+    ENV["ENFORCED_LOCALES"].present? ? ENV["ENFORCED_LOCALES"].split(",") : [:en]
+  end
+
+  let(:i18n) { I18n::Tasks::BaseTask.new(locales: locales) }
   let(:missing_keys) { i18n.missing_keys }
   let(:unused_keys) { i18n.unused_keys }
 
