@@ -22,14 +22,14 @@ RSpec.shared_examples "manage process steps examples" do
 
     fill_in_i18n(
       :participatory_process_step_title,
-      "#title-tabs",
+      "#participatory_process_step-title-tabs",
       en: "My participatory process step",
       es: "Mi fase de proceso participativo",
       ca: "La meva fase de procés participatiu"
     )
     fill_in_i18n_editor(
       :participatory_process_step_description,
-      "#description-tabs",
+      "#participatory_process_step-description-tabs",
       en: "A longer description",
       es: "Descripción más larga",
       ca: "Descripció més llarga"
@@ -65,7 +65,7 @@ RSpec.shared_examples "manage process steps examples" do
     within ".edit_participatory_process_step" do
       fill_in_i18n(
         :participatory_process_step_title,
-        "#title-tabs",
+        "#participatory_process_step-title-tabs",
         en: "My new title",
         es: "Mi nuevo título",
         ca: "El meu nou títol"

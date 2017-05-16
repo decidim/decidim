@@ -9,7 +9,7 @@ RSpec.shared_examples "manage results" do
     within ".edit_result" do
       fill_in_i18n(
         :result_title,
-        "#title-tabs",
+        "#result-title-tabs",
         en: "My new title",
         es: "Mi nuevo título",
         ca: "El meu nou títol"
@@ -46,14 +46,14 @@ RSpec.shared_examples "manage results" do
     within ".new_result" do
       fill_in_i18n(
         :result_title,
-        "#title-tabs",
+        "#result-title-tabs",
         en: "My result",
         es: "Mi result",
         ca: "El meu result"
       )
       fill_in_i18n_editor(
         :result_description,
-        "#description-tabs",
+        "#result-description-tabs",
         en: "A longer description",
         es: "Descripción más larga",
         ca: "Descripció més llarga"

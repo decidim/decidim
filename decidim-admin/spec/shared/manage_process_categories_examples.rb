@@ -14,14 +14,14 @@ RSpec.shared_examples "manage process categories examples" do
     within ".new_participatory_process_category" do
       fill_in_i18n(
         :category_name,
-        "#name-tabs",
+        "#category-name-tabs",
         en: "My category",
         es: "Mi categoría",
         ca: "La meva categoria"
       )
       fill_in_i18n_editor(
         :category_description,
-        "#description-tabs",
+        "#category-description-tabs",
         en: "Description",
         es: "Descripción",
         ca: "Descripció"
@@ -49,7 +49,7 @@ RSpec.shared_examples "manage process categories examples" do
     within ".edit_participatory_process_category" do
       fill_in_i18n(
         :category_name,
-        "#name-tabs",
+        "#category-name-tabs",
         en: "My new name",
         es: "Mi nuevo nombre",
         ca: "El meu nou nom"

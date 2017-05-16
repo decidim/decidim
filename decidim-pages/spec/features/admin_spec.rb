@@ -29,7 +29,7 @@ describe "Edit a page", type: :feature do
       }
 
       within "form.edit_page" do
-        fill_in_i18n_editor(:page_body, "#body-tabs", new_body)
+        fill_in_i18n_editor(:page_body, "#page-body-tabs", new_body)
         find("*[type=submit]").click
       end
 

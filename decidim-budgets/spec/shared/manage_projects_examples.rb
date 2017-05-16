@@ -9,7 +9,7 @@ RSpec.shared_examples "manage projects" do
     within ".edit_project" do
       fill_in_i18n(
         :project_title,
-        "#title-tabs",
+        "#project-title-tabs",
         en: "My new title",
         es: "Mi nuevo título",
         ca: "El meu nou títol"
@@ -68,14 +68,14 @@ RSpec.shared_examples "manage projects" do
     within ".new_project" do
       fill_in_i18n(
         :project_title,
-        "#title-tabs",
+        "#project-title-tabs",
         en: "My project",
         es: "Mi proyecto",
         ca: "El meu projecte"
       )
       fill_in_i18n_editor(
         :project_description,
-        "#description-tabs",
+        "#project-description-tabs",
         en: "A longer description",
         es: "Descripción más larga",
         ca: "Descripció més llarga"

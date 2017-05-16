@@ -19,14 +19,14 @@ describe "Admin manage participatory process groups", type: :feature do
     within ".new_participatory_process_group" do
       fill_in_i18n(
         :participatory_process_group_name,
-        "#name-tabs",
+        "#participatory_process_group-name-tabs",
         en: "My group",
         es: "Mi grupo",
         ca: "El meu grup"
       )
       fill_in_i18n_editor(
         :participatory_process_group_description,
-        "#description-tabs",
+        "#participatory_process_group-description-tabs",
         en: "A longer description",
         es: "Descripción más larga",
         ca: "Descripció més llarga"
@@ -62,14 +62,14 @@ describe "Admin manage participatory process groups", type: :feature do
       within ".edit_participatory_process_group" do
         fill_in_i18n(
           :participatory_process_group_name,
-          "#name-tabs",
+          "#participatory_process_group-name-tabs",
           en: "My old group",
           es: "Mi grupo antiguo",
           ca: "El meu grup antic"
         )
         fill_in_i18n_editor(
           :participatory_process_group_description,
-          "#description-tabs",
+          "#participatory_process_group-description-tabs",
           en: "New description",
           es: "Nueva descripción",
           ca: "Nova descripció"
