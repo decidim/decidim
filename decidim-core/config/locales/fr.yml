@@ -137,3 +137,25 @@ fr:
         report: Signaler
         spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
         title: Signaler un problème
+      login_modal:
+        please_sign_in: Veuillez vous connecter
+        sign_up: S'inscrire
+      reference:
+        reference: 'Référence: %{reference}'
+      share_modal:
+        close_window: Fermer la fenêtre
+        share: Partager
+        share_link: Lien de partage
+  devise:
+    invitations:
+      edit:
+        header: Définir votre mot de passe
+        submit_button: sauvegarder
+    mailer:
+      invitation_instructions:
+        accept: Accepter l'invitation
+        accept_until: Cette invitation expirera le %{due_date}.
+        hello: Bonjour %{email},
+        ignore: |-
+          Si vous ne souhaitez pas accepter l'invitation, ignorez cet email.<br /> Votre compte ne sera créé qu'après avoir cliqué sur le lien ci-dessus et défini votre mot de passe.
+        invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de l'%{application}, vous pouvez accepter cette invitation en cliquant sur le lien ci-dessous."
