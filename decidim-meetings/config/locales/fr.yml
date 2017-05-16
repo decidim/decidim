@@ -3,6 +3,9 @@ fr:
     attributes:
       close_meeting:
         attendees_count: Nombre de participants
+        attending_organizations: Liste des organisations qui ont assisté à la rencontre
+        closing_report: Signaler
+        contributions_count: Nombre de contributions
   decidim:
     meetings:
       actions:
