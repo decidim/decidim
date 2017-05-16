@@ -94,6 +94,12 @@ module Decidim
         end
       end
 
+      def set_locales
+        inject_into_file "config/application.rb", after: "class Application < Rails::Application" do
+          "\n    config.i18n.available_locales = %w(en ca es)\n    config.i18n.default_locale = :en"
+        end
+      end
+
       def remove_default_error_pages
         remove_file "public/404.html"
         remove_file "public/500.html"

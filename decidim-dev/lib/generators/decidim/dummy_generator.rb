@@ -47,12 +47,6 @@ module Decidim
         ]
       end
 
-      def set_locales
-        inject_into_file "#{dummy_app_path}/config/application.rb", after: "class Application < Rails::Application" do
-          "\n    config.i18n.available_locales = %w(en ca es)\n    config.i18n.default_locale = :en"
-        end
-      end
-
       def decidim_dev
         template "decidim_dev.rb", "#{dummy_app_path}/config/initializers/decidim_dev.rb"
 
