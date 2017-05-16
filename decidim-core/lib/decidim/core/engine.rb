@@ -125,6 +125,7 @@ module Decidim
           users = Decidim::User.where(organization: organization)
           users = users.where("created_at >= ?", start_at) if start_at.present?
           users = users.where("created_at <= ?", end_at) if end_at.present?
+          users = users.where.not(confirmed_at: nil)
           users.count
         end
 
