@@ -19,9 +19,8 @@ describe "Answer a survey", type: :feature do
       "es" => "<p>Contenido de la encuesta</p>"
     }
   end
-  let(:published_at) { nil }
   let(:user) { create(:user, :confirmed, organization: feature.organization) }
-  let!(:survey) { create(:survey, feature: feature, title: title, description: description, published_at: published_at) }
+  let!(:survey) { create(:survey, feature: feature, title: title, description: description) }
   let!(:survey_question_1) { create(:survey_question, survey: survey) }
   let!(:survey_question_2) { create(:survey_question, survey: survey) }
 
@@ -41,7 +40,9 @@ describe "Answer a survey", type: :feature do
   end
 
   context "when the survey is published" do
-    let(:published_at) { Time.current }
+    before do
+      survey.update_attributes(published_at: Time.current)
+    end
 
     context "when the user is not logged in" do
       it "the survey cannot be answered" do
