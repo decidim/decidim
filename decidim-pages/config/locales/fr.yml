@@ -17,3 +17,6 @@ fr:
           edit:
             save: Mettre à jour
             title: Modifier la page
+          update:
+            invalid: Il y a eu des erreurs lors de la sauvegarde de la page.
+            success: Page enregistrée avec succès.
