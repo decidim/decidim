@@ -13,3 +13,7 @@ fr:
         models:
           components:
             body: Corps de texte
+        pages:
+          edit:
+            save: Mettre à jour
+            title: Modifier la page
