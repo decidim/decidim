@@ -24,7 +24,7 @@ module Decidim
       private
 
       def questions_before_publishing?
-        errors.add(:published_at, :invalid) if published? && questions.length == 0
+        errors.add(:published_at, :invalid) if published? && questions.empty?
       end
     end
   end

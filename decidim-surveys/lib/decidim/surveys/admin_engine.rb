@@ -15,7 +15,7 @@ module Decidim
       end
 
       initializer "decidim_surveys.assets" do |app|
-        app.config.assets.precompile += %w(admin/decidim_surveys_manifest.js admin/decidim_surveys_manifest.css)
+        app.config.assets.precompile += %w(admin/decidim_surveys_manifest.js)
       end
 
       initializer "decidim_surveys.inject_abilities_to_user" do |_app|
