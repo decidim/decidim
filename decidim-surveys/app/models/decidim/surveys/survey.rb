@@ -9,7 +9,7 @@ module Decidim
 
       has_many :questions, class_name: SurveyQuestion, foreign_key: "decidim_survey_id"
 
-      validate :have_questions_before_publishing
+      validate :questions_before_publishing?
 
       # Public: returns wether the survey is published or not.
       def published?
@@ -23,8 +23,8 @@ module Decidim
 
       private
 
-      def have_questions_before_publishing
-        errors.add(:published_at, :invalid) if published? && questions.length === 0
+      def questions_before_publishing?
+        errors.add(:published_at, :invalid) if published? && questions.length == 0
       end
     end
   end
