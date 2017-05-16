@@ -5,5 +5,8 @@ fr:
         details: Commentaires additionnels
       user:
         email: Votre email
+        name: Votre nom
+        password: Nouveau mot de passe
+        password_confirmation: Confirmez votre nouveau mot de passe
   booleans:
     'true': 'Oui'
