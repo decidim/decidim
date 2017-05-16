@@ -3,3 +3,5 @@ fr:
     attributes:
       result:
         decidim_category_id: Catégorie
+        decidim_scope_id: Sujet ou zone d'application
+        description: Description
