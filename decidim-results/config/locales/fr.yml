@@ -5,3 +5,9 @@ fr:
         decidim_category_id: Catégorie
         decidim_scope_id: Sujet ou zone d'application
         description: Description
+        proposal_ids: Propositions incluses
+        title: Titre
+  decidim:
+    features:
+      results:
+        name: Résultats
