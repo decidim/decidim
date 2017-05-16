@@ -52,3 +52,37 @@ fr:
         name: Exemple d'autorisation
       errors:
         duplicate_authorization: Un utilisateur est déjà autorisé avec les mêmes données.
+      foo_authorization:
+        fields:
+          bar: Machin
+          foo: Truc
+        name: Autorisation Truc
+    authorizations:
+      create:
+        error: Une erreur s'est produite lors de la création de l'autorisation.
+        success: Votre autorisation a été réalisée avec succès.
+      current_participatory_processes: Voir les processus en cours
+      first_login:
+        actions:
+          decidim/dummy_authorization_handler: Vérifier en comparant avec l'autorisation exemple
+        title: Vérifiez votre identité
+        verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité:'
+      new:
+        authorize: Envoyer
+        authorize_with: Vérifiez avec %{authorizer}
+      skip_verification: Vous pouvez ignorer ceci pour l'instant et %{link}
+    core:
+      actions:
+        unauthorized: Vous n'êtes pas autorisé à effectuer cette action
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Un autre compte utilise la même adresse de email
+        new:
+          complete_profile: Complétez votre profil
+          sign_up: Veuillez compléter votre profil
+          subtitle: Remplissez le formulaire suivant pour compléter l'inscription
+          username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
+      registrations:
+        new:
+          already_have_an_account?: Vous avez déjà un compte?
