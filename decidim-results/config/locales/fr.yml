@@ -11,3 +11,11 @@ fr:
     features:
       results:
         name: Résultats
+        settings:
+          global:
+            comments_enabled: Commentaires activés
+          step:
+            comments_blocked: Commentaires bloqués
+    resource_links:
+      included_proposals:
+        result_proposals: Propositions incluses dans ce résultat
