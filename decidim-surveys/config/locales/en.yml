@@ -4,6 +4,8 @@ en:
     features:
       surveys:
         name: Survey
+        actions:
+          answer: Answer
     surveys:
       admin:
         models:
