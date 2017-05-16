@@ -159,3 +159,20 @@ fr:
         ignore: |-
           Si vous ne souhaitez pas accepter l'invitation, ignorez cet email.<br /> Votre compte ne sera créé qu'après avoir cliqué sur le lien ci-dessus et défini votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de l'%{application}, vous pouvez accepter cette invitation en cliquant sur le lien ci-dessous."
+        someone_invited_you: Quelqu'un vous a invité à %{application}, vous pouvez accepter l'invitation en cliquant sur le lien ci-dessous.
+      invite_admin:
+        subject: Vous avez été invité à gérer %{organization}
+  pages:
+    '404':
+      back_home: Retour à l'accueil
+      content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
+      title: La page que vous recherchez ne peut être trouvée
+    '500':
+      title: Il y a eu un problème avec notre serveur
+      try_later: Veuillez réessayer plus tard.
+    home:
+      extended:
+        debates: Débats
+        debates_explanation: Participons à des rencontres, débattons et échangeons sur les sujets qui comptent pour notre ville.
+        how_to_participate: Comment puis-je participer à un processus participatif?
+        meetings: Rencontres
