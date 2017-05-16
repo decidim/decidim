@@ -6,7 +6,7 @@ module Decidim
     subject { described_class.new(organization: organization) }
 
     let!(:organization) { create(:organization) }
-    let!(:user) { create(:user, organization: organization) }
+    let!(:user) { create(:user, :confirmed, organization: organization) }
     let!(:process) { create(:participatory_process, organization: organization) }
 
     before :all do
