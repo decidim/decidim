@@ -132,3 +132,8 @@ fr:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
         description: Ce contenu est-il inapproprié?
+        does_not_belong: Contient des activités illégales, des menaces suicidaires, des informations personnelles, ou autre chose que vous pensez ne pas être approprié à %{organization_name}.
+        offensive: Contient des propos racisme, sexiste, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
+        report: Signaler
+        spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
+        title: Signaler un problème
