@@ -3,4 +3,6 @@ fr:
     attributes:
       proposal:
         body: Corps de texte
+        category_id: Catégorie
+        scope_id: Sujet ou zone d'application
         title: Titre
