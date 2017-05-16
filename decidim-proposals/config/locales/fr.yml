@@ -9,3 +9,10 @@ fr:
         user_group_id: Créer une proposition en tant que
       proposal_answer:
         answer: Répondre
+  decidim:
+    features:
+      proposals:
+        actions:
+          create: Créer
+          vote: Voter
+        name: Propositions
