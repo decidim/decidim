@@ -1,6 +1,6 @@
 # Decidim::Surveys
 
-The Surveys module adds one of the main features of Decidim: allows users to contribute to a particiaptory process by creating surveys.
+The Surveys module adds one of the main features of Decidim: allows admins to contribute to a participatory process by creating surveys. Users can participate in the surveys answering their questions from the public page.
 
 ## Usage
 Surveys will be available as a Feature for a Participatory Process.

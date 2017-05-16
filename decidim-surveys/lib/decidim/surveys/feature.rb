@@ -13,9 +13,9 @@ Decidim.register_feature(:surveys) do |feature|
     end
   end
 
-  feature.on(:destroy) do |instance|
-    Decidim::Surveys::DestroySurvey.call(instance) do
-      on(:error) { raise "Can't destroy survey" }
+  feature.on(:before_destroy) do |instance|
+    if Decidim::Surveys::Survey.where(feature: instance).any?
+      raise "Can't destroy this feature when there are surveys"
     end
   end
 
@@ -53,7 +53,7 @@ Decidim.register_feature(:surveys) do |feature|
         participatory_process: process
       )
 
-      Decidim::Surveys::Survey.create!(
+      survey = Decidim::Surveys::Survey.create!(
         feature: feature,
         title: Decidim::Faker::Localized.paragraph,
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -63,6 +63,13 @@ Decidim.register_feature(:surveys) do |feature|
           Decidim::Faker::Localized.paragraph(2)
         end
       )
+
+      3.times do
+        Decidim::Surveys::SurveyQuestion.create!(
+          survey: survey,
+          body: Decidim::Faker::Localized.paragraph
+        )
+      end
     end
   end
 end

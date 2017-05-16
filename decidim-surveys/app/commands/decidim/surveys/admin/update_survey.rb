@@ -12,7 +12,6 @@ module Decidim
         def initialize(form, survey)
           @form = form
           @survey = survey
-          @survey_old_published_at = survey.published_at
         end
 
         # Updates the survey if valid.
@@ -21,8 +20,11 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          update_survey
-          update_survey_questions unless survey_was_published?
+          Survey.transaction do
+            update_survey
+            update_survey_questions if @survey.published_at_changed? || !@survey.published
+          end
+
           broadcast(:ok)
         end
 
@@ -47,18 +49,14 @@ module Decidim
             if form_question.id.present?
               question = @survey.questions.where(id: form_question.id).first
               if form_question.deleted?
-                question.destroy
+                question.destroy!
               else
                 question.update_attributes!(body: form_question.body)
               end
             else
-              @survey.questions.create(body: form_question.body)
+              @survey.questions.create!(body: form_question.body)
             end
           end
-        end
-
-        def survey_was_published?
-          @survey_old_published_at.present?
         end
       end
     end
