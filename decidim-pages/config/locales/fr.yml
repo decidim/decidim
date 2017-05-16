@@ -3,3 +3,13 @@ fr:
     features:
       pages:
         name: Page
+        settings:
+          global:
+            comments_enabled: Commentaires activés
+          step:
+            comments_blocked: Commentaires bloqués
+    pages:
+      admin:
+        models:
+          components:
+            body: Corps de texte
