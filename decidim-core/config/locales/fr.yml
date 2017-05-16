@@ -8,5 +8,17 @@ fr:
         name: Votre nom
         password: Nouveau mot de passe
         password_confirmation: Confirmez votre nouveau mot de passe
+        user_group_document_number: Numéro de document de l'organisation
+        user_group_name: Nom de l'organisation
+        user_group_phone: Téléphone de l'organisation
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Mot de passe actuel
+        email: Email
+        name: Nom d'utilisateur
+        password: Mot de passe
+        password_confirmation: Confirmation mot de passe
+        remember_me: Rester connecté
   booleans:
     'true': 'Oui'
