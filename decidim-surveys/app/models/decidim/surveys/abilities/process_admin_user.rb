@@ -15,7 +15,9 @@ module Decidim
           @user = user
           @context = context
 
-          # can :manage, SomeResource
+          can :manage, Survey do |survey|
+            participatory_processes.include?(survey.feature.participatory_process)
+          end
         end
 
         private

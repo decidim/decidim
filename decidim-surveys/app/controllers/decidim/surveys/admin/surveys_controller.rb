@@ -5,10 +5,12 @@ module Decidim
       # This controller allows the user to update a Page.
       class SurveysController < Admin::ApplicationController
         def edit
+          authorize! :edit, Survey
           @form = form(Admin::SurveyForm).from_model(survey)
         end
 
         def update
+          authorize! :update, Survey
           params["published_at"] = Time.current if params.has_key? "save_and_publish"
           @form = form(Admin::SurveyForm).from_params(params)
 

@@ -20,7 +20,7 @@ Decidim.register_feature(:surveys) do |feature|
   end
 
   # These actions permissions can be configured in the admin panel
-  # feature.actions = %w()
+  feature.actions = %w(answer)
 
   # feature.settings(:global) do |settings|
   #   # Add your global settings

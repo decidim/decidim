@@ -15,7 +15,7 @@ module Decidim
           @user = user
           @context = context
 
-          # can :manage, SomeResource
+          can :manage, Survey
         end
 
         private

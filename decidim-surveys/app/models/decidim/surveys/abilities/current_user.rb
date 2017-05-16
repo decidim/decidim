@@ -15,7 +15,7 @@ module Decidim
           @user = user
           @context = context
 
-          # can :manage, SomeResource if authorized?(:some_action)
+          can :answer, Survey if authorized?(:answer)
         end
 
         private
