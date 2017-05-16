@@ -9,6 +9,9 @@ fr:
         proposal_ids: Propositions créées lors de la rencontre
       meeting:
         address: Adresse
+        decidim_category_id: Catégorie
+        decidim_scope_id: Sujet ou zone d'application
+        description: Description
   decidim:
     meetings:
       actions:
