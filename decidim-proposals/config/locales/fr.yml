@@ -6,3 +6,6 @@ fr:
         category_id: Catégorie
         scope_id: Sujet ou zone d'application
         title: Titre
+        user_group_id: Créer une proposition en tant que
+      proposal_answer:
+        answer: Répondre
