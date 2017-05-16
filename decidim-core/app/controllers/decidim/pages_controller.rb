@@ -24,7 +24,7 @@ module Decidim
     end
 
     def promoted_participatory_processes
-      @promoted_processes ||= OrganizationParticipatoryProcesses.new(current_organization) | PublicParticipatoryProcesses.new | PromotedParticipatoryProcesses.new
+      @promoted_processes ||= OrganizationParticipatoryProcesses.new(current_organization) | PrioritizedParticipatoryProcesses.new | PromotedParticipatoryProcesses.new
     end
 
     def highlighted_participatory_processes
