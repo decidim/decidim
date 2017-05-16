@@ -8,13 +8,11 @@ RSpec.shared_examples_for "I18n sanity" do
   let(:unused_keys) { i18n.unused_keys }
 
   it "does not have missing keys" do
-    expect(missing_keys).to be_empty,
-                            "Missing #{missing_keys.leaves.count} i18n keys, run `i18n-tasks missing` to show them"
+    expect(missing_keys).to be_empty, "#{missing_keys.inspect} are missing"
   end
 
   it "does not have unused keys" do
-    expect(unused_keys).to be_empty,
-                           "#{unused_keys.leaves.count} unused i18n keys, run `i18n-tasks unused` to show them"
+    expect(unused_keys).to be_empty, "#{unused_keys.inspect} are unused"
   end
 
   it "is normalized" do
