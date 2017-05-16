@@ -29,6 +29,22 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
+      context "without questions" do
+        it "cannot be published" do
+          survey.published_at = Time.current
+          expect(survey).not_to be_valid
+        end
+      end
+
+      context "with questions" do
+        it "can be published" do
+          create(:survey_question, survey: survey)
+          survey.reload
+          survey.published_at = Time.current
+          expect(survey).to be_valid
+        end
+      end
+
       it "has an associated feature" do
         expect(survey.feature).to be_a(Decidim::Feature)
       end
