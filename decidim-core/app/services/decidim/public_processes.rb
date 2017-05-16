@@ -15,7 +15,7 @@ module Decidim
     #
     # Returns an Array.
     def collection
-      (participatory_processes + participatory_process_groups).flatten
+      (participatory_processes.to_a + participatory_process_groups).flatten
     end
 
     # Public: The collection of published ParticipatoryProcess to be displayed at the
@@ -23,19 +23,12 @@ module Decidim
     #
     # Returns an ActiveRecord::Relation.
     def participatory_processes
-      @participatory_processes ||= ordered_processes.published
+      @participatory_processes ||= OrganizationPrioritizedParticipatoryProcesses.new(organization)
     end
 
     private
 
     attr_reader :organization
-
-    def ordered_processes
-      @sorted_processes ||= Decidim::ParticipatoryProcess.where(organization: organization)
-                                                         .order("promoted DESC")
-                                                         .includes(:active_step)
-                                                         .order("decidim_participatory_process_steps.end_date ASC")
-    end
 
     def participatory_process_groups
       Decidim::ParticipatoryProcessGroup.where(organization: organization)
