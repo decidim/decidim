@@ -6,6 +6,9 @@ fr:
         attending_organizations: Liste des organisations qui ont assisté à la rencontre
         closing_report: Signaler
         contributions_count: Nombre de contributions
+        proposal_ids: Propositions créées lors de la rencontre
+      meeting:
+        address: Adresse
   decidim:
     meetings:
       actions:
