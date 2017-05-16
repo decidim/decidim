@@ -20,5 +20,35 @@ fr:
         password: Mot de passe
         password_confirmation: Confirmation mot de passe
         remember_me: Rester connecté
+        user_group_document_number: Numéro de document de l'organisation
+        user_group_name: Nom de l'organisation
+        user_group_phone: Téléphone de l'organisation
   booleans:
+    'false': 'Non'
     'true': 'Oui'
+  carrierwave:
+    errors:
+      image_too_big: L'image est trop grande
+  decidim:
+    account:
+      show:
+        change_password: Changer de mot de passe
+        update_account: Mettre à jour votre compte
+      update:
+        error: Une erreur s'est produite lors de la mise à jour de votre compte.
+        success: Votre compte a été mis à jour avec succès.
+        success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse e-mail.
+    anonymous_user: Anonyme
+    application:
+      documents:
+        related_documents: Documents connexes
+      photos:
+        related_photos: Photos associées
+    authorization_handlers:
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Numéro de document
+          postal_code: Code postal
+        name: Exemple d'autorisation
+      errors:
+        duplicate_authorization: Un utilisateur est déjà autorisé avec les mêmes données.
