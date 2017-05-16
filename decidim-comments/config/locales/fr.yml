@@ -10,6 +10,9 @@ fr:
           new_comment_html: Un nouveau commentaire a été publié par <b>%{commenter}</b> dans <b>%{commentable_link}</b>
         hello: Bonjour %{name},
         manage_email_subscriptions_html: Vous pouvez arrêter de recevoir ces emails en modifiant vos paramètres dans %{link}.
+        notifications_settings_link: la page de configuration des notifications
+        reply_created:
+          new_reply_html: Il y a une nouvelle réponse à votre commentaire de <b>%{commenter}</b> dans <b>%{commentable_link}</b>
     components:
       add_comment_form:
         form:
