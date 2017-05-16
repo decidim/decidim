@@ -10,30 +10,30 @@ module Decidim
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
-               class_name: Decidim::Organization,
+               class_name: "Decidim::Organization",
                inverse_of: :participatory_processes
     belongs_to :participatory_process_group,
                foreign_key: "decidim_participatory_process_group_id",
-               class_name: Decidim::ParticipatoryProcessGroup,
+               class_name: "Decidim::ParticipatoryProcessGroup",
                inverse_of: :participatory_processes
     belongs_to :scope,
                foreign_key: "decidim_scope_id",
-               class_name: Decidim::Scope
+               class_name: "Decidim::Scope"
     has_many :steps,
              -> { order(position: :asc) },
              foreign_key: "decidim_participatory_process_id",
-             class_name: Decidim::ParticipatoryProcessStep,
+             class_name: "Decidim::ParticipatoryProcessStep",
              dependent: :destroy,
              inverse_of: :participatory_process
     has_one :active_step,
             -> { where(active: true) },
             foreign_key: "decidim_participatory_process_id",
-            class_name: Decidim::ParticipatoryProcessStep,
+            class_name: "Decidim::ParticipatoryProcessStep",
             dependent: :destroy,
             inverse_of: :participatory_process
     has_many :categories,
              foreign_key: "decidim_participatory_process_id",
-             class_name: Decidim::Category,
+             class_name: "Decidim::Category",
              dependent: :destroy,
              inverse_of: :participatory_process
 

@@ -7,7 +7,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :category, foreign_key: "decidim_category_id", class_name: Decidim::Category
+      belongs_to :category, foreign_key: "decidim_category_id", class_name: "Decidim::Category"
       validate :category_belongs_to_organization
 
       private

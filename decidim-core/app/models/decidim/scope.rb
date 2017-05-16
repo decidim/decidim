@@ -6,7 +6,7 @@ module Decidim
   class Scope < ApplicationRecord
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
-               class_name: Decidim::Organization,
+               class_name: "Decidim::Organization",
                inverse_of: :scopes
 
     validates :name, presence: true, uniqueness: { scope: :organization }
