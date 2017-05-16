@@ -2,4 +2,5 @@ fr:
   activemodel:
     attributes:
       proposal:
+        body: Corps de texte
         title: Titre
