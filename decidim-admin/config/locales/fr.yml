@@ -43,6 +43,7 @@ fr:
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectif
         participatory_structure: Organisations concernées
+        promoted: Mis en avant
         scope_id: Sujet ou zone d'application
         short_description: Résumé
         slug: Identifiant
@@ -85,7 +86,12 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Quartier
+        participatory_scope: Objectif du processus participatif
+        participatory_structure: Organisations concernées
+        promoted: Mis en avant
+        scope: Sujet ou zone d'application
         short_description: Résumé
+        slug: Identifiant
         subtitle: Sous-titre
         target: Objectif
         title: Titre
