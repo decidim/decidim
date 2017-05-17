@@ -15,7 +15,16 @@ fr:
         end_time: Heure de fin
         location: Lieu
         location_hints: Indicateurs d’emplacement
+        start_time: Heure de début
+        title: Titre
   decidim:
+    features:
+      meetings:
+        name: Rencontres
     meetings:
       actions:
+        attachments: Documents liés
         close: Fermer
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer cette rencontre?
+        destroy: Supprimer
+        edit: Modifier
