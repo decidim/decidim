@@ -95,14 +95,31 @@ fr:
         subtitle: Sous-titre
         target: Objectif
         title: Titre
+      decidim/participatory_process_step:
+        end_date: Date de fin
+        start_date: Date de début
       decidim/static_page:
         content: Contenu
+        slug: Identifiant
         title: Titre
+  date:
+    formats:
+      datepicker: "%m / %j / %A"
   decidim:
     admin:
       actions:
         activate: Activer
+        add: Ajouter
       categories:
+        destroy:
+          error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toute sous-catégorie et assurez-vous qu'aucune autre entité n'appartient à cette catégorie avant de réessayer.
+          success: Catégorie supprimée avec succès.
+        edit:
+          title: Modifier la catégorie
+          update: Mettre à jour
+        new:
+          create: Créer une catégorie
+          title: Nouvelle catégorie
         update:
           success: Catégorie mise à jour avec succès.
       dashboard:
