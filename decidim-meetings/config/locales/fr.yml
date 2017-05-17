@@ -28,3 +28,10 @@ fr:
         confirm_destroy: Êtes-vous sûr de vouloir supprimer cette rencontre?
         destroy: Supprimer
         edit: Modifier
+        new: Nouveau
+        preview: Aperçu
+        title: Actions
+      admin:
+        meeting_closes:
+          edit:
+            close: Fermer
