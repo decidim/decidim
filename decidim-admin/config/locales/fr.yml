@@ -268,8 +268,17 @@ fr:
             email: Email
             name: Nom
             role: Rôle
+          name: Role utilisateur du processus participatif
+          roles:
+            admin: Administrateur
+            collaborator: Rédacteur
+        scope:
+          fields:
+            created_at: Crée le
+            name: Nom
         static_page:
           fields:
+            created_at: Crée le
             title: Titre
         user:
           fields:
@@ -330,7 +339,25 @@ fr:
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
+          url: Url
+          youtube: YouTube
+        update:
+          error: Erreur lors de la mise à jour de cette organisation.
+          success: Organisation mise à jour avec succès.
+      participatory_process_groups:
+        destroy:
+          success: Le groupe de processus participatif a été détruit avec succès.
+        edit:
+          title: Modifier le groupe de processus
+          update: Mettre à jour
+        new:
+          create: Créer
       participatory_processes:
+        index:
+          published: Publié
+        new:
+          create: Créer
+          title: Nouveau processus participatif
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce processus participatif.
           success: Processus participatif mis à jour avec succès.
@@ -411,6 +438,28 @@ fr:
             success: Ressource masquée avec succès.
           unreport:
             invalid: Il y a eu un problème lors de l'annulation du signalement de la ressource.
+            success: La ressource n'est plus signalée.
+      models:
+        moderation:
+          fields:
+            hidden_at: Masqué le
+            report_count: Nombre de signalement
+            reportable: Signalable
+            reported_content: Contenu signalé
+            reports: Signalements
+    participatory_processes:
+      participatory_process_groups:
+        none: Aucun
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Bulletins d'information (newsletter)
+        settings:
+          title: Paramètres
+        users:
+          title: Utilisateurs
   time:
     formats:
+      datepicker: "%m / %j / %A"
       timepicker: "%d/%m/%Y %H:%M"
