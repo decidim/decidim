@@ -4,12 +4,12 @@ require "spec_helper"
 describe "Explore results", type: :feature do
   include_context "feature"
 
-  let(:titles) { ["Biure", "Atque", "Delectus", "Quia", "Fuga"] }
+  let(:titles) { %w(Biure Atque Delectus Quia Fuga) }
   let(:manifest_name) { "results" }
   let(:results_count) { 5 }
   let!(:scope) { create :scope, organization: organization }
   let!(:results) do
-    results_count.times.map do |n|
+    Array.new(results_count) do |n|
       create(:result, title: { en: titles[n] }, feature: feature)
     end
   end
