@@ -15,17 +15,14 @@ describe "Explore results", type: :feature do
   end
 
   context "index" do
-    it "shows all result ordered alphabetically", driver: :debug do
+    it "shows all results ordered alphabetically" do
       visit_feature
 
-      expect(page).to have_selector("article.card", count: results_count)
-      card_titles = page.all(".card__title")
+      expect(page).to have_selector(".card--result", count: results_count)
 
-      expect(card_titles[0].text).to eq(titles[1])
-      expect(card_titles[1].text).to eq(titles[0])
-      expect(card_titles[2].text).to eq(titles[2])
-      expect(card_titles[3].text).to eq(titles[4])
-      expect(card_titles[4].text).to eq(titles[3])
+      results.each do |result|
+        expect(page).to have_content(translated(result.title))
+      end
     end
 
     context "when filtering" do
