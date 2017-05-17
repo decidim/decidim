@@ -37,3 +37,12 @@ fr:
           create:
             invalid: Il y a eu un problème pour créer ce résultat
             success: Résultat créé avec succès
+          destroy:
+            success: Résultat supprimé avec succès
+          edit:
+            title: Modifier le résultat
+            update: Mettre à jour
+          index:
+            title: Résultats
+          new:
+            create: Créer
