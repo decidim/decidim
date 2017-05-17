@@ -50,3 +50,14 @@ fr:
           name: Organisation
         page:
           name: Page
+      organizations:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
+          success: Organisation créée avec succès.
+        edit:
+          secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+        index:
+          title: Organisations
+        new:
+          secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+          title: Nouvelle organisation
