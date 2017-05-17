@@ -46,3 +46,7 @@ fr:
             title: Résultats
           new:
             create: Créer
+            title: Nouveau résultat
+          update:
+            invalid: Il y a eu un problème pour mettre à jour ce résultat
+            success: Résultat mis à jour avec succès
