@@ -52,6 +52,8 @@ fr:
       participatory_process_group:
         description: Description
         hero_image: Image
+        name: Nom
+        participatory_process_ids: Processus participatifs liés
       participatory_process_step:
         description: Description
         end_date: Date de fin
