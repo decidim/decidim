@@ -43,6 +43,8 @@ fr:
           create:
             invalid: Il y a eu un problème lors de la création de cette rencontre
             success: Rencontre créée avec succès
+          destroy:
+            success: La rencontre a été supprimée avec succès
       meetings:
         filters:
           category_prompt: Sélectionner une catégorie
@@ -65,3 +67,9 @@ fr:
           attendees: Nombre de participants
           contributions: Décompte des contributions
           meeting_report: Compte rendu de la rencontre
+          organizations: Organisations participantes
+      models:
+        meeting:
+          fields:
+            closed: Clos
+            end_time: Heure de fin
