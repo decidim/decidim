@@ -29,3 +29,10 @@ fr:
             proposal_answering_enabled: Réponse aux propositions activée
             votes_blocked: Votes bloqués
             votes_enabled: Votes activés
+            votes_hidden: Cacher les votes (si les votes sont activés, le compte des votes sera caché)
+    proposals:
+      actions:
+        answer: Répondre
+        export: Exporter
+        new: Nouveau
+        title: Actions
