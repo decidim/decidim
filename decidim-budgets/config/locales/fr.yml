@@ -30,6 +30,7 @@ fr:
             success: Projet supprimé avec succès
           edit:
             title: Éditer un projet
+            update: Mettre à jour
           index:
             finished_orders: Commandes terminées
             pending_orders: Commandes en attente
