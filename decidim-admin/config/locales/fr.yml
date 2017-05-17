@@ -63,6 +63,7 @@ fr:
       participatory_process_user_role:
         email: Courriel
         name: Nom
+        role: Rôle
       scope:
         name: Nom
         organization: Organisation
