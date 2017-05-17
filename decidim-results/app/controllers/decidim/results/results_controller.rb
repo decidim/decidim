@@ -12,7 +12,7 @@ module Decidim
       private
 
       def results
-        @results ||= search.results.page(params[:page]).per(12)
+        @results ||= search.results.order("title -> '#{I18n.locale}' ASC").page(params[:page]).per(12)
       end
 
       def result
