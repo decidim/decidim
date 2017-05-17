@@ -45,6 +45,16 @@ fr:
             success: Rencontre créée avec succès
           destroy:
             success: La rencontre a été supprimée avec succès
+          edit:
+            update: Mettre à jour
+          index:
+            title: Rencontres
+          new:
+            create: Créer
+            title: Créer une rencontre
+          update:
+            invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
+            success: Réncontre mise à jour avec succès
       meetings:
         filters:
           category_prompt: Sélectionner une catégorie
