@@ -92,10 +92,32 @@ fr:
           sign_up_as:
             legend: S'inscrire en tant que
             user: Individu
+            user_group: Organisation / Collectif
+          subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
+          terms: Les termes et conditions d'utilisation
+          tos_agreement: En vous inscrivant, vous acceptez %{link}.
+          username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
+      sessions:
+        new:
+          are_you_new?: Nouveau sur la plate-forme?
+          register: Créer un compte
+      shared:
+        omniauth_buttons:
+          or: Ou
+    export_mailer:
+      export:
+        ready: Vous trouverez ci-joint une version zippée de votre exportation.
+      subject: Votre export "%{name}" est prêt
     features:
       dummy:
+        actions:
+          bar: Machin
+          foo: Truc
+        name: Fonctionnalité exemple
         settings:
           global:
+            comments_enabled: Commentaires activés
+            dummy_global_attribute_1: Exemple d'attribut 1
             dummy_global_attribute_2: Exemple d'attribut 2
           step:
             comments_blocked: Commentaires bloqués
@@ -122,7 +144,31 @@ fr:
       show:
         comments_notifications: Je souhaite recevoir des notifications par email lorsque quelqu'un a commenté mes publications.
         newsletter_notifications: Je souhaite recevoir des lettres d'informations sur l'activité de la plateforme
+        replies_notifications: Je souhaite recevoir des notifications par email lorsque quelqu'un répond à mes commentaires.
+        update_notifications_settings: Enregistrer les modifications
+      update:
+        error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
+        success: Vos paramètres de notifications ont été mis à jour avec succès.
+    own_user_groups:
+      index:
+        not_verified: Non vérifié
+        verified: Vérifié
+    pages:
+      index:
+        title: Plus d'information
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Processus participatifs pour %{group}
+        title: Titre
+    participatory_process_steps:
+      index:
+        process_steps: Etapes du processus
+        title: Etapes du processus participatif
     participatory_processes:
+      index:
+        title: Processus participatifs
+      participatory_process_groups:
+        none: Aucun
       show:
         local_area: Localisation
         participatory_scope: Sujet ou zone d'application du processus
