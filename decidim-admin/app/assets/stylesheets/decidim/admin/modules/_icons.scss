@@ -1,6 +1,8 @@
+$icon-size: 14px;
+
 .icon{
-  width: 14px;
-  height: 14px;
+  width: $icon-size;
+  height: $icon-size;
   fill: currentColor;
 }
 

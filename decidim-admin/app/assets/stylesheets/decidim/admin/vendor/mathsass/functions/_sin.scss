@@ -1,0 +1,9 @@
+// Returns the sine of a number.
+// @param {Number} $x A number in rad or deg. Assuming unitless number to be in rad.
+// @example
+//     sin(1.0472) // 0.86603
+//     sin(60deg)  // 0.86603
+@function sin ($x) {
+    $x: unitless-rad($x);
+    @return cos($x - $PI / 2);
+}
