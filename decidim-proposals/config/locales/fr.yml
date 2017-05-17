@@ -50,3 +50,23 @@ fr:
         accepted: Publié
         not_answered: Resté sans réponse
         rejected: Refusée
+      create:
+        error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
+        success: Proposition créée avec succès.
+      exports:
+        notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
+      models:
+        proposal:
+          fields:
+            category: Catégorie
+            official_proposal: Proposition officielle
+            scope: Sujet ou zone d'application
+            state: Etat
+            title: Titre
+      proposals:
+        count:
+          proposals_count:
+            one: 1 proposition
+            other: "%{count} propositions"
+        filters:
+          accepted: Publié
