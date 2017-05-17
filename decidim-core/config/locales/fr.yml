@@ -92,6 +92,21 @@ fr:
           sign_up_as:
             legend: S'inscrire en tant que
             user: Individu
+    features:
+      dummy:
+        settings:
+          global:
+            dummy_global_attribute_2: Exemple d'attribut 2
+          step:
+            comments_blocked: Commentaires bloqués
+            dummy_step_attribute_1: Exemple d'attribut pour une étape 1
+            dummy_step_attribute_2: Exemple d'attribut pour une étape 2
+    filters:
+      linked_classes:
+        all: Tout
+        meeting: Rencontres
+        project: Projets
+        proposal: Propositions
     participatory_processes:
       show:
         local_area: Localisation
