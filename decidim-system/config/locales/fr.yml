@@ -46,3 +46,5 @@ fr:
             save_and_invite: Créer une organisation et inviter un administrateur
           fields:
             created_at: Crée le
+            name: Nom
+          name: Organisation
