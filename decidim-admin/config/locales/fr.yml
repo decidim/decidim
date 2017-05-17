@@ -133,7 +133,19 @@ fr:
         edit:
           title: Modifier le document lié
           update: Mettre à jour
+        form:
+          current_file: Fichier actuel
+          url: Url
+        new:
+          create: Lier un document
+          title: Nouveau document lié
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce document lié.
+          success: Document lié mis à jour avec succès.
       categories:
+        create:
+          error: Une erreur s'est produite lors de la création de cette catégorie.
+          success: Catégorie créée avec succès.
         destroy:
           error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toute sous-catégorie et assurez-vous qu'aucune autre entité n'appartient à cette catégorie avant de réessayer.
           success: Catégorie supprimée avec succès.
@@ -204,6 +216,7 @@ fr:
         admins: Administrateurs
         dashboard: Tableau de bord
         newsletters: Bulletins d'information (newsletter)
+        participatory_process_groups: Groupes de processus participatifs
         participatory_processes: Processus participatifs
         participatory_processes_submenu:
           attachments: Documents liés
@@ -229,6 +242,32 @@ fr:
         newsletter:
           fields:
             created_at: Crée le
+            progress: Avancement
+            sent_at: Envoyé à
+            subject: Objet
+          name: Bulletin d'information (newsletter)
+        participatory_process:
+          fields:
+            created_at: Crée le
+            promoted: Mis en évidence
+            published: Publié
+            title: Titre
+          name: Processus participatif
+        participatory_process_group:
+          fields:
+            name: Nom
+          name: Groupes de processus participatifs
+        participatory_process_step:
+          fields:
+            end_date: Date de fin
+            start_date: Date de début
+            title: Titre
+          name: Etape du processus participatif
+        participatory_process_user_role:
+          fields:
+            email: Email
+            name: Nom
+            role: Rôle
         static_page:
           fields:
             title: Titre
