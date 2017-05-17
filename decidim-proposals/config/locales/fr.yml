@@ -16,3 +16,7 @@ fr:
           create: Créer
           vote: Voter
         name: Propositions
+        settings:
+          global:
+            comments_enabled: Commentaires activés
+            geocoding_enabled: Géocodage activé
