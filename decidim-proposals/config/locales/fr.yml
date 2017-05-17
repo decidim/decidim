@@ -47,6 +47,16 @@ fr:
             accepted: Publié
             answer_proposal: Répondre
             rejected: Refusée
+            title: Réponse à la proposition %{title}
+        proposals:
+          answer:
+            invalid: Il y a eu un problème concernant la réponse à cette proposition
+            success: La réponse à la proposition a publiée avec succès
+          create:
+            invalid: Il y a eu un problème lors de la création de cette proposition
+            success: Proposition créée avec succès
+          form:
+            select_a_category: Sélectionner une catégorie
       answers:
         accepted: Publié
         not_answered: Resté sans réponse
