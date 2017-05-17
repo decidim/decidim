@@ -38,3 +38,9 @@ fr:
           against: Contre
           in_favor: Pour
         reply: Répondre
+        report:
+          action: Signaler
+          already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
+          close: Fermer
+          description: Ce contenu est-il inapproprié?
+          details: Commentaires additionnels
