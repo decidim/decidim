@@ -25,3 +25,4 @@ fr:
       actions:
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce résultat?
         destroy: Supprimer
+        edit: Modifier
