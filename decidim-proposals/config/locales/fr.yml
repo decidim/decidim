@@ -20,3 +20,4 @@ fr:
           global:
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
+            official_proposals_enabled: Propositions officielles activées
