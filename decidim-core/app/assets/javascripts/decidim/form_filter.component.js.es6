@@ -9,6 +9,7 @@
   class FormFilterComponent {
     constructor($form) {
       this.$form = $form;
+      this.id = this.$form.attr('id') || this._getUID();
       this.mounted = false;
 
       this._onFormChange = this._onFormChange.bind(this);
@@ -24,7 +25,7 @@
       if (this.mounted) {
         this.mounted = false;
         this.$form.off('change', 'input, select', this._onFormChange);
-        exports.Decidim.History.unregisterCallback(`filters-${this.$form.attr('id')}`)
+        exports.Decidim.History.unregisterCallback(`filters-${this.id}`)
       }
     }
 
@@ -37,7 +38,7 @@
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
         this.$form.on('change', 'input, select', this._onFormChange);
-        exports.Decidim.History.registerCallback(`filters-${this.$form.attr('id')}`, () => {
+        exports.Decidim.History.registerCallback(`filters-${this.id}`, () => {
           this._onPopState();
         });
       }
@@ -186,6 +187,15 @@
       }
 
       exports.Decidim.History.pushState(newUrl);
+    }
+
+    /**
+     * Generates a unique identifier for the form.
+     * @private
+     * @returns {String} - Returns a unique identifier
+     */
+    _getUID() {
+      return `filter-form-${new Date().setUTCMilliseconds()}-${Math.floor(Math.random() * 10000000)}`;
     }
   }
 
