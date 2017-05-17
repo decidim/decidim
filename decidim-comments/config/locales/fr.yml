@@ -60,3 +60,7 @@ fr:
         title: Conversation avec %{authorName}
       comments:
         blocked_comments_warning: Les commentaires sont désactivés dans l'étape actuelle, mais vous pouvez lire les commentaires des étapes précédentes.
+        loading: Chargement des commentaires ...
+        title: "%{count} commentaires"
+      featured_comment:
+        title: Commentaire vedette
