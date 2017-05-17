@@ -50,3 +50,16 @@ fr:
           update:
             invalid: Il y a eu un problème pour mettre à jour ce résultat
             success: Résultat mis à jour avec succès
+      models:
+        result:
+          fields:
+            title: Titre
+      results:
+        count:
+          results_count:
+            one: 1 résultat
+            other: "%{count} résultats"
+        show:
+          stats:
+            contributions: Contributions
+            meetings: Rencontre
