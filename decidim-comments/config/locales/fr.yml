@@ -52,3 +52,11 @@ fr:
       comment_order_selector:
         order:
           best_rated: Les mieux notés
+          most_discussed: Les plus débattus
+          older: Les plus anciens
+          recent: Les plus récents
+        title: 'Classement par :'
+      comment_thread:
+        title: Conversation avec %{authorName}
+      comments:
+        blocked_comments_warning: Les commentaires sont désactivés dans l'étape actuelle, mais vous pouvez lire les commentaires des étapes précédentes.
