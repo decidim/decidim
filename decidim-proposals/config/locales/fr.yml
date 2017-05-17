@@ -101,3 +101,15 @@ fr:
           label: 'Classement des propositions par:'
           most_voted: Les plus votées
           random: Aléatoire
+          recent: Les plus récents
+        proposal:
+          view_proposal: Voir la proposition
+        show:
+          proposal_accepted_reason: 'Cette proposition a été acceptée parce que :'
+          proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
+          report: Signaler
+        vote_button:
+          already_voted: Déjà voté
+          no_votes_remaining: Aucun vote restant
+          vote: Voter
+          votes_blocked: Votes désactivés
