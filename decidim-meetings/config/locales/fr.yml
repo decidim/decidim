@@ -55,8 +55,12 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
             success: Réncontre mise à jour avec succès
+        models:
+          meeting:
+            name: Rencontre
       meetings:
         filters:
+          category: Catégorie
           category_prompt: Sélectionner une catégorie
           date: Date
           past: Passées
