@@ -57,6 +57,11 @@ fr:
             success: Proposition créée avec succès
           form:
             select_a_category: Sélectionner une catégorie
+          index:
+            title: Propositions
+          new:
+            create: Créer
+            title: Créer une proposition
       answers:
         accepted: Publié
         not_answered: Resté sans réponse
@@ -87,3 +92,12 @@ fr:
           category_prompt: Sélectionner une catégorie
           citizenship: Citoyenneté
           official: Elu(e)
+        new:
+          back: Retour
+          select_a_category: Veuillez sélectionner une catégorie
+          send: Envoyer
+          title: Nouvelle proposition
+        orders:
+          label: 'Classement des propositions par:'
+          most_voted: Les plus votées
+          random: Aléatoire
