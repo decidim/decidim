@@ -352,6 +352,45 @@ fr:
           update: Mettre à jour
         new:
           create: Créer
+          title: Nouveau groupe de processus participatifs
+        update:
+          error: Il y a eu une erreur lors de la mise à jour de ce groupe de processus participatif.
+          success: Groupe de processus participatif mis à jour avec succès.
+      participatory_process_publications:
+        create:
+          error: Il y a eu une erreur lors de la publication de ce processus participatif.
+          success: Processus participatif publié avec succès.
+        destroy:
+          error: Il y a eu une erreur lors de la publication de ce processus participatif.
+          success: Processus participatif dépublié avec succès.
+      participatory_process_step_activations:
+        create:
+          error: Une erreur s'est produite lors de l'activation de cette étape du processus participatif.
+          success: Etape du processus participatif activée avec succès.
+      participatory_process_steps:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle étape du processus participatif.
+          success: Etape de processus participatif créée avec succès.
+        default_title: Introduction
+        destroy:
+          error:
+            active_step: Vous ne pouvez pas supprimer l'étape active du processus.
+            last_step: Vous ne pouvez pas supprimer la dernière étape d'un processus.
+          success: L'étape du processus participatif a été détruite avec succès.
+        edit:
+          title: Modifier l'étape du processus participatif
+          update: Mettre à jour
+        new:
+          create: Créer
+          title: Nouvelle étape du processus participatif
+        ordering:
+          error: Une erreur s'est produite lors de la réorganisation des étapes du processus participatif.
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette étape du processus participatif.
+          success: Etape du processus participatif mise à jour avec succès.
+      participatory_process_user_roles:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour ce processus participatif.
       participatory_processes:
         index:
           published: Publié
