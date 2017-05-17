@@ -87,3 +87,13 @@ fr:
           fields:
             closed: Clos
             end_time: Heure de fin
+            map: Carte
+            start_time: Date de début
+            title: Titre
+    resource_links:
+      meetings_through_proposals:
+        meeting_results: 'Résultats associés :'
+        result_meetings: 'Rencontres connexes :'
+      proposals_from_meeting:
+        meeting_proposals: 'Propositions connexes :'
+        proposal_meetings: 'Rencontre connexes :'
