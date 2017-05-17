@@ -107,6 +107,21 @@ fr:
         meeting: Rencontres
         project: Projets
         proposal: Propositions
+        result: Résultats
+    forms:
+      errors:
+        error: Ce champ contient une erreur.
+    menu:
+      home: Accueil
+      more_information: Plus d'information
+      processes: Processus participatifs
+    newsletter_mailer:
+      newsletter:
+        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux bulletins d'information de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+    notifications_settings:
+      show:
+        comments_notifications: Je souhaite recevoir des notifications par email lorsque quelqu'un a commenté mes publications.
+        newsletter_notifications: Je souhaite recevoir des lettres d'informations sur l'activité de la plateforme
     participatory_processes:
       show:
         local_area: Localisation
