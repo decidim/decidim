@@ -391,6 +391,17 @@ fr:
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour ce processus participatif.
+          success: Utilisateur créé avec succès pour ce processus participatif.
+        destroy:
+          success: L'utilisateur a été détruit avec succès pour ce processus participatif.
+        edit:
+          title: Mettre à jour l'utilisateur du processus participatif.
+          update: Mettre à jour
+        new:
+          create: Créer
+          title: Nouvel utilisateur de processus participatif.
+        update:
+          error: Il y a eu une erreur lors de la mise à jour d'un utilisateur pour ce processus participatif.
       participatory_processes:
         index:
           published: Publié
