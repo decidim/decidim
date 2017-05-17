@@ -44,7 +44,7 @@ module Decidim
       html_properties["class"] = (["icon--#{name}"] + _icon_classes(options)).join(" ")
 
       content_tag :svg, html_properties do
-        content_tag :use, nil, "xlink:href" => "#{asset_url("decidim/icons.svg")}#icon-#{name}"
+        content_tag :use, nil, "xlink:href" => "#{asset_path("decidim/icons.svg")}#icon-#{name}"
       end
     end
 
