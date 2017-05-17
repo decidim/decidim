@@ -49,3 +49,6 @@ fr:
             offensive: Contient des propos racisme, sexiste, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
             spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
           title: Signaler un problème
+      comment_order_selector:
+        order:
+          best_rated: Les mieux notés
