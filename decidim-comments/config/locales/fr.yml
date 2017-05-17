@@ -28,3 +28,13 @@ fr:
             placeholder: Que pensez-vous de cela?
           form_error: Le texte est requis et ne peut pas dépasser %{length} caractères.
           submit: Envoyer
+          user_group_id:
+            label: Commenter en tant que
+        opinion:
+          neutral: Neutre
+        title: Ajoutez votre commentaire
+      comment:
+        alignment:
+          against: Contre
+          in_favor: Pour
+        reply: Répondre
