@@ -60,3 +60,4 @@ fr:
           view_meeting: Voir la rencontre
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
+          upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontre planifiées, mais ici, vous trouverez une liste de toutes les réunions passées.
