@@ -48,3 +48,5 @@ fr:
             created_at: Crée le
             name: Nom
           name: Organisation
+        page:
+          name: Page
