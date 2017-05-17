@@ -6,7 +6,7 @@ class CreateDecidimSurveys < ActiveRecord::Migration[5.0]
       t.jsonb :tos
       t.references :decidim_feature, index: true
       t.datetime :published_at
-      
+
       t.timestamps
     end
   end
