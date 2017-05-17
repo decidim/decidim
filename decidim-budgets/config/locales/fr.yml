@@ -36,6 +36,7 @@ fr:
             pending_orders: Commandes en attente
             title: Projets
           new:
+            create: Créer
             title: Nouveau résultat
           update:
             invalid: Il y a eu un problème de mise à jour de ce projet
