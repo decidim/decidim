@@ -215,6 +215,24 @@ fr:
       too_many_marks: Utilise trop de signes de ponctuations
       too_much_caps: Utilise trop de majuscule
       too_short: Est trop court
+  invisible_captcha:
+    sentence_for_humans: Si vous êtes humain, ignorez ce champ
+    timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
+  layouts:
+    decidim:
+      user_menu:
+        profile: Mon compte
+        sign_out: Déconnexion
+      user_profile:
+        account: Compte
+        authorizations: Autorisations
+        notifications_settings: Paramètres des notifications
+        title: Paramètres utilisateur
+        user_groups: Organisations
+      widget:
+        see_more: "Voir plus"
+  locale:
+    name: Anglais
   pages:
     '404':
       back_home: Retour à l'accueil
