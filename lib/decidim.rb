@@ -10,6 +10,7 @@ require "decidim/meetings"
 require "decidim/proposals"
 require "decidim/results"
 require "decidim/budgets"
+require "decidim/surveys"
 
 # Module declaration.
 module Decidim

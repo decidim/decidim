@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :title, autofocus: true %>
+    </div>
+    <div class="row column">
+      <%= form.translated :editor, :description, toolbar: :full, lines: 30, label: t("models.components.description", scope: "decidim.surveys.admin")  %>
+    </div>
+    <div class="row column">
+      <%= form.translated :editor, :toc, toolbar: :full, lines: 30, label: t("models.components.toc", scope: "decidim.surveys.admin")  %>
+    </div>
+
+    <div class="row column survey-questions">
+      <% unless @survey.published? %>
+        <button class="button add-question"><%= t('.add_question') %></button>
+
+        <template id="survey-question-tmpl">
+          <div class="survey-question">
+            <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", {}, label: t('.question'), disabled: true %>
+            <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
+          </div>
+        </template>
+      <% end %>
+
+      <% @form.questions.each do |question| %>
+        <div class="survey-question">
+          <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, label: t('.question'), tabs_prefix: "survey-question-#{question.id}", disabled: @survey.published? %>
+          <%= hidden_field_tag "survey[questions][][id]", question.id %>
+          <% unless @survey.published? %>
+            <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/surveys/admin/surveys" %>

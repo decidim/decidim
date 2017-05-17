@@ -29,7 +29,7 @@ describe "Admin manages newsletters", type: :feature do
       within ".new_newsletter" do
         fill_in_i18n(
           :newsletter_subject,
-          "#subject-tabs",
+          "#newsletter-subject-tabs",
           en: "A fancy newsletter for %{name}",
           es: "Un correo electrónico muy chulo para %{name}",
           ca: "Un correu electrònic flipant per a %{name}"
@@ -37,7 +37,7 @@ describe "Admin manages newsletters", type: :feature do
 
         fill_in_i18n_editor(
           :newsletter_body,
-          "#body-tabs",
+          "#newsletter-body-tabs",
           en: "Hello %{name}! Relevant content.",
           es: "Hola, %{name}! Contenido relevante.",
           ca: "Hola, %{name}! Contingut rellevant."
@@ -90,7 +90,7 @@ describe "Admin manages newsletters", type: :feature do
       within ".edit_newsletter" do
         fill_in_i18n(
           :newsletter_subject,
-          "#subject-tabs",
+          "#newsletter-subject-tabs",
           en: "A fancy newsletter",
           es: "Un correo electrónico muy chulo",
           ca: "Un correu electrònic flipant"
@@ -98,7 +98,7 @@ describe "Admin manages newsletters", type: :feature do
 
         fill_in_i18n_editor(
           :newsletter_body,
-          "#body-tabs",
+          "#newsletter-body-tabs",
           en: "Relevant content.",
           es: "Contenido relevante.",
           ca: "Contingut rellevant."
