@@ -31,3 +31,13 @@ fr:
           title: Titre par défaut pour %{page}
       menu:
         admins: Administrateurs
+        dashboard: Tableau de bord
+        organizations: Organisations
+      models:
+        admin:
+          fields:
+            created_at: Crée le
+            email: Courriel
+          name: Administrateur
+          validations:
+            email_uniqueness: un autre administrateur avec la même adresse email existe déjà
