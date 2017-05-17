@@ -35,3 +35,8 @@ fr:
         meeting_closes:
           edit:
             close: Fermer
+            title: Clore la rencontre
+        meetings:
+          close:
+            invalid: Il y a eu un problème au moment de clore cette réunion
+            success: Rencontre cloturée avec succès
