@@ -169,7 +169,11 @@ fr:
         title: Processus participatifs
       participatory_process_groups:
         none: Aucun
+      scopes:
+        global: Portée globale
       show:
+        developer_group: Groupe d'initiateurs
+        end_date: Date de fin
         local_area: Localisation
         participatory_scope: Sujet ou zone d'application du processus
         participatory_structure: Organisations concernées
@@ -254,6 +258,7 @@ fr:
     messages:
       content_type_whitelist_error: Le type de fichier n'est pas valide
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
+      invalid_manifest: Manifeste invalide
       invalid_participatory_process: Processus participatif invalide
       long_words: Contient des mots trop longs
       must_start_with_caps: Doit commencer par des majuscules
@@ -266,7 +271,44 @@ fr:
     timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
   layouts:
     decidim:
+      cookie_warning:
+        description_html: Ce site utilise des cookies. En continuant à parcourir le site, vous acceptez notre utilisation des cookies. En savoir plus à ce sujet %{link}.
+        link_label: ici
+        ok: '"J''accepte"'
+      footer:
+        made_with_open_source: 'Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.'
+      header:
+        close_menu: Fermer le menu
+        navigation: Navigation
+        sign_in: Se connecter
+        sign_up: S'inscrire
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Naviguer
+      participatory_process_widgets:
+        show:
+          active_step: Etape active
+          take_part: Participer
+      participatory_processes:
+        index:
+          promoted_processes: Processus mis en avant
+        no_processes_yet:
+          no_processes_yet: Pas encore de processus participatifs!
+        participatory_process:
+          active_step: 'Étape actuelle :'
+          take_part: Participer
+        promoted_process:
+          active_step: 'Étape actuelle :'
+          more_info: Plus d'informations
+          take_part: Participer
+      process_header:
+        process_menu_item: Le processus
+        unfold: Déplier
+      process_header_steps:
+        step: Étape %{current} sur %{total}
+        view_steps: Voir les étapes
       user_menu:
+        admin_dashboard: Tableau de bord des administrateurs
         profile: Mon compte
         sign_out: Déconnexion
       user_profile:
