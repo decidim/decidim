@@ -89,6 +89,9 @@ fr:
           newsletter_notifications: Recevoir des lettres d'informations sur l'activité de la plateforme 
           sign_in: S'identifier
           sign_up: S'inscrire
+          sign_up_as:
+            legend: S'inscrire en tant que
+            user: Individu
     participatory_processes:
       show:
         local_area: Localisation
