@@ -196,6 +196,25 @@ fr:
         someone_invited_you: Quelqu'un vous a invité à %{application}, vous pouvez accepter l'invitation en cliquant sur le lien ci-dessous.
       invite_admin:
         subject: Vous avez été invité à gérer %{organization}
+      invite_collaborator:
+        subject: Vous avez été invité à collaborer sur %{organization}
+      organization_admin_invitation_instructions:
+        subject: Vous avez été invité à gérer %{organization}
+      password_change:
+        greeting: Bonjour %{recipient}!
+        message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
+        subject: Mot de passe modifié
+  errors:
+    messages:
+      content_type_whitelist_error: Le type de fichier n'est pas valide
+      file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
+      invalid_participatory_process: Processus participatif invalide
+      long_words: Contient des mots trop longs
+      must_start_with_caps: Doit commencer par des majuscules
+      nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
+      too_many_marks: Utilise trop de signes de ponctuations
+      too_much_caps: Utilise trop de majuscule
+      too_short: Est trop court
   pages:
     '404':
       back_home: Retour à l'accueil
