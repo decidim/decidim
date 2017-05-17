@@ -15,6 +15,7 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
         destroy: Supprimer
         edit: Modifier
+        new: Nouveau
         preview: Aperçu
         title: Actions
       admin:
