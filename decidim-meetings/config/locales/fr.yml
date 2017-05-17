@@ -14,7 +14,7 @@ fr:
         description: Description
         end_time: Heure de fin
         location: Lieu
-        location_hints: Conseils d'emplacement
+        location_hints: Indicateurs d’emplacement
   decidim:
     meetings:
       actions:
