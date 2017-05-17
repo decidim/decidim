@@ -402,8 +402,21 @@ fr:
           title: Nouvel utilisateur de processus participatif.
         update:
           error: Il y a eu une erreur lors de la mise à jour d'un utilisateur pour ce processus participatif.
+          success: L'utilisateur a été mis à jour avec succès pour ce processus participatif.
       participatory_processes:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau processus participatif.
+          success: Processus participatif créé avec succès. Configurez maintenant ses étapes.
+        destroy:
+          success: Processus participatif détruit avec succès.
+        edit:
+          update: Mettre à jour
+        form:
+          current_image: Image actuelle
+          title: Informations générales
+          url: Url
         index:
+          not_published: Non publié
           published: Publié
         new:
           create: Créer
