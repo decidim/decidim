@@ -14,3 +14,5 @@ fr:
           success: Admin créé avec succès
         destroy:
           success: L'admin a détruit avec succès
+        edit:
+          title: Modifier l'administrateur
