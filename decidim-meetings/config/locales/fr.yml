@@ -40,3 +40,11 @@ fr:
           close:
             invalid: Il y a eu un problème au moment de clore cette réunion
             success: Rencontre cloturée avec succès
+          create:
+            invalid: Il y a eu un problème lors de la création de cette rencontre
+            success: Rencontre créée avec succès
+      meetings:
+        filters:
+          category_prompt: Sélectionner une catégorie
+          date: Date
+          past: Passées
