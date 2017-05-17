@@ -200,6 +200,74 @@ fr:
           fields:
             content_type: Type de contenus
             title: Titre
+          name: Document lié
+        category:
+          name: Catégorie
+        newsletter:
+          fields:
+            created_at: Crée le
+        static_page:
+          fields:
+            title: Titre
+        user:
+          fields:
+            created_at: Date de création
+            email: Email
+            invitation_accepted_at: Date d'acceptation de l'invitation
+            invitation_sent_at: Date d'envoi de l'invitation
+            last_sign_in_at: Date de la dernière connexion
+            name: Nom
+          name: Utilisateur
+        user_group:
+          fields:
+            created_at: Crée le
+            document_number: Numéro de document
+            name: Nom
+            phone: Téléphone
+            users_count: Nombre d'utilisateurs
+      moderations:
+        index:
+          title: Modérations
+      newsletters:
+        create:
+          error: Il y a eu une erreur lors de la création de ce bulletin d'information.
+          success: Bulletin d'information créé avec succès. Veuillez le vérifier avant de l'envoyer.
+        deliver:
+          error: Erreur lors de l'envoi de ce bulletin d'information.
+          success: Bulletin d'information envoyé avec succès.
+        destroy:
+          error_already_sent: Suppression impossible car le bulletin d'information a déjà été envoyé.
+          success: Bulletin d'information supprimé avec succès.
+        edit:
+          save_and_preview: Enregistrer et prévisualiser
+          title: Modifier le bulletin d'information
+        form:
+          interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
+        index:
+          confirm_delete: Êtes-vous sûr de vouloir supprimer ce bulletin d'information ?
+          title: Bulletins d'information (newsletter)
+        new:
+          save: Enregistrer
+          title: Nouveau bulletin d'information
+        show:
+          confirm_deliver: Êtes-vous sûr de vouloir envoyer ce bulletin d'information? Cette action ne peut pas être annulée.
+          deliver: Envoyer le bulletin d'information
+          preview: Aperçu
+          subject: Objet
+        update:
+          error: Erreur lors de la mise à jour du bulletin d'information.
+          success: Bulletin d'information mis à jour avec succès. Veuillez le vérifier avant de l'envoyer.
+      organization:
+        edit:
+          title: Modifier l'organisation
+          update: Mettre à jour
+        form:
+          current_image: Image actuelle
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Social
+          twitter: Twitter
   time:
     formats:
       timepicker: "%d/%m/%Y %H:%M"
