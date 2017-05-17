@@ -34,7 +34,7 @@ RSpec.shared_examples "manage processes examples" do
 
     fill_in_i18n(
       :participatory_process_title,
-      "#title-tabs",
+      "#participatory_process-title-tabs",
       en: "My new title",
       es: "Mi nuevo título",
       ca: "El meu nou títol"

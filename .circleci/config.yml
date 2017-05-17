@@ -60,7 +60,9 @@ jobs:
                 (cd /code && yarn test -- decidim-results) &&
                 (cd /code/decidim-results && bundle exec rake) &&
                 (cd /code && yarn test -- decidim-budgets) &&
-                (cd /code/decidim-budgets && bundle exec rake)
+                (cd /code/decidim-budgets && bundle exec rake) &&
+                (cd /code && yarn test -- decidim-surveys) &&
+                (cd /code/decidim-surveys && bundle exec rake)
                 ;;
             esac
       - store_artifacts:
