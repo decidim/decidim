@@ -93,12 +93,26 @@ fr:
           count:
             one: 1 soutien
             other: "%{count} soutiens"
+          remove: Supprimer
+        project_budget_button:
+          add: Ajouter
+          added: Ajouté
+        show:
+          budget: Budget
+          view_all_projects: Voir tous les projets
     features:
       budgets:
+        actions:
+          vote: Voter
+        name: Budgets
         settings:
           global:
+            comments_enabled: Commentaires activés
+            total_budget: Budget total
             vote_threshold_percent: Pourcentage de seuil de vote
           step:
+            comments_blocked: Commentaires bloqués
+            show_votes: Afficher les votes
             votes_enabled: Votes activés
     orders:
       checkout:
