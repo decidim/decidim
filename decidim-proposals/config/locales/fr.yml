@@ -46,6 +46,7 @@ fr:
           edit:
             accepted: Publié
             answer_proposal: Répondre
+            rejected: Refusée
       answers:
         accepted: Publié
         not_answered: Resté sans réponse
@@ -73,3 +74,6 @@ fr:
           activity: Activité
           all: Toutes
           category: Catégorie
+          category_prompt: Sélectionner une catégorie
+          citizenship: Citoyenneté
+          official: Elu(e)
