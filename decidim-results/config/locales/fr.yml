@@ -59,6 +59,14 @@ fr:
           results_count:
             one: 1 résultat
             other: "%{count} résultats"
+        filters:
+          category: Catégorie
+          category_prompt: Sélectionner une catégorie
+          scopes: Sujets ou zones d'application
+          search: Rechercher
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
         show:
           stats:
             contributions: Contributions
