@@ -124,6 +124,15 @@ fr:
         resend_invitation: Renvoyer l'invitation
         unpublish: Dépublier
         verify: Vérifier
+      attachments:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau document lié.
+          success: Document lié créé avec succès.
+        destroy:
+          success: Document lié détruit avec succès.
+        edit:
+          title: Modifier le document lié
+          update: Mettre à jour
       categories:
         destroy:
           error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toute sous-catégorie et assurez-vous qu'aucune autre entité n'appartient à cette catégorie avant de réessayer.
