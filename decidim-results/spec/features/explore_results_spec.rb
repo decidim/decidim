@@ -17,7 +17,7 @@ describe "Explore results", type: :feature do
   context "index" do
     it "shows all result ordered alphabetically", driver: :debug do
       visit_feature
-      sleep 1
+
       expect(page).to have_selector("article.card", count: results_count)
       card_titles = page.all(".card__title")
 
