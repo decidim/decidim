@@ -22,3 +22,10 @@ fr:
             geocoding_enabled: Géocodage activé
             official_proposals_enabled: Propositions officielles activées
             proposal_answering_enabled: Réponse aux propositions activée
+            vote_limit: Limite de vote
+          step:
+            comments_blocked: Commentaires bloqués
+            creation_enabled: Module propositions activé
+            proposal_answering_enabled: Réponse aux propositions activée
+            votes_blocked: Votes bloqués
+            votes_enabled: Votes activés
