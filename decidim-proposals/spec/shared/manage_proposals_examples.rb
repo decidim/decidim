@@ -193,7 +193,7 @@ RSpec.shared_examples "manage proposals" do
         within ".edit_proposal_answer" do
           fill_in_i18n_editor(
             :proposal_answer_answer,
-            "#answer-tabs",
+            "#proposal_answer-answer-tabs",
             en: "The proposal doesn't make any sense",
             es: "La propuesta no tiene sentido",
             ca: "La proposta no te sentit"

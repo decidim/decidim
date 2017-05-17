@@ -30,7 +30,7 @@ describe "Admin manages features", type: :feature do
       within ".new_feature" do
         fill_in_i18n(
           :feature_name,
-          "#name-tabs",
+          "#feature-name-tabs",
           en: "My feature",
           ca: "La meva funcionalitat",
           es: "Mi funcionalitat"
@@ -92,7 +92,7 @@ describe "Admin manages features", type: :feature do
       within ".edit_feature" do
         fill_in_i18n(
           :feature_name,
-          "#name-tabs",
+          "#feature-name-tabs",
           en: "My updated feature",
           ca: "La meva funcionalitat actualitzada",
           es: "Mi funcionalidad actualizada"

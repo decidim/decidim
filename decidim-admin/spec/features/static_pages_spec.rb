@@ -45,7 +45,7 @@ describe "Content pages", type: :feature do
 
         fill_in_i18n(
           :static_page_title,
-          "#title-tabs",
+          "#static_page-title-tabs",
           en: "Welcome to Decidim",
           es: "Te damos la bienvendida a Decidim",
           ca: "Et donem la benvinguda a Decidim"
@@ -53,7 +53,7 @@ describe "Content pages", type: :feature do
 
         fill_in_i18n_editor(
           :static_page_content,
-          "#content-tabs",
+          "#static_page-content-tabs",
           en: "<p>Some HTML content</p>",
           es: "<p>Contenido HTML</p>",
           ca: "<p>Contingut HTML</p>"
@@ -86,12 +86,12 @@ describe "Content pages", type: :feature do
         within ".edit_static_page" do
           fill_in_i18n(
             :static_page_title,
-            "#title-tabs",
+            "#static_page-title-tabs",
             en: "Not welcomed anymore"
           )
           fill_in_i18n_editor(
             :static_page_content,
-            "#content-tabs",
+            "#static_page-content-tabs",
             en: "This is the new <strong>content</strong>"
           )
           find("*[type=submit]").click

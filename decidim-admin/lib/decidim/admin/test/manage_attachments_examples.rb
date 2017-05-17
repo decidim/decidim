@@ -34,7 +34,7 @@ RSpec.shared_examples "manage attachments examples" do
     within ".new_participatory_process_attachment" do
       fill_in_i18n(
         :attachment_title,
-        "#title-tabs",
+        "#attachment-title-tabs",
         en: "Very Important Document",
         es: "Documento Muy Importante",
         ca: "Document Molt Important"
@@ -42,7 +42,7 @@ RSpec.shared_examples "manage attachments examples" do
 
       fill_in_i18n(
         :attachment_description,
-        "#description-tabs",
+        "#attachment-description-tabs",
         en: "This document contains important information",
         es: "Este documento contiene información importante",
         ca: "Aquest document conté informació important"
@@ -83,7 +83,7 @@ RSpec.shared_examples "manage attachments examples" do
     within ".edit_participatory_process_attachment" do
       fill_in_i18n(
         :attachment_title,
-        "#title-tabs",
+        "#attachment-title-tabs",
         en: "This is a nice photo",
         es: "Una foto muy guay",
         ca: "Aquesta foto és ben xula"

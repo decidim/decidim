@@ -30,6 +30,7 @@ env:
     - GEM=decidim-proposals DB=postgres
     - GEM=decidim-results DB=postgres
     - GEM=decidim-budgets DB=postgres
+    - GEM=decidim-surveys DB=postgres
 
 before_install:
   - nvm install 7

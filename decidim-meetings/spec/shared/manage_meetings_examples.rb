@@ -20,7 +20,7 @@ RSpec.shared_examples "manage meetings" do
     within ".edit_meeting" do
       fill_in_i18n(
         :meeting_title,
-        "#title-tabs",
+        "#meeting-title-tabs",
         en: "My new title",
         es: "Mi nuevo título",
         ca: "El meu nou títol"
@@ -57,28 +57,28 @@ RSpec.shared_examples "manage meetings" do
 
     fill_in_i18n(
       :meeting_title,
-      "#title-tabs",
+      "#meeting-title-tabs",
       en: "My meeting",
       es: "Mi meeting",
       ca: "El meu meeting"
     )
     fill_in_i18n(
       :meeting_location,
-      "#location-tabs",
+      "#meeting-location-tabs",
       en: "Location",
       es: "Location",
       ca: "Location"
     )
     fill_in_i18n(
       :meeting_location_hints,
-      "#location_hints-tabs",
+      "#meeting-location_hints-tabs",
       en: "Location hints",
       es: "Location hints",
       ca: "Location hints"
     )
     fill_in_i18n_editor(
       :meeting_description,
-      "#description-tabs",
+      "#meeting-description-tabs",
       en: "A longer description",
       es: "Descripción más larga",
       ca: "Descripció més llarga"
@@ -147,7 +147,7 @@ RSpec.shared_examples "manage meetings" do
       within ".edit_meeting" do
         fill_in_i18n(
           :meeting_title,
-          "#title-tabs",
+          "#meeting-title-tabs",
           en: "My new title",
           es: "Mi nuevo título",
           ca: "El meu nou títol"
@@ -171,28 +171,28 @@ RSpec.shared_examples "manage meetings" do
 
       fill_in_i18n(
         :meeting_title,
-        "#title-tabs",
+        "#meeting-title-tabs",
         en: "My meeting",
         es: "Mi meeting",
         ca: "El meu meeting"
       )
       fill_in_i18n(
         :meeting_location,
-        "#location-tabs",
+        "#meeting-location-tabs",
         en: "Location",
         es: "Location",
         ca: "Location"
       )
       fill_in_i18n(
         :meeting_location_hints,
-        "#location_hints-tabs",
+        "#meeting-location_hints-tabs",
         en: "Location hints",
         es: "Location hints",
         ca: "Location hints"
       )
       fill_in_i18n_editor(
         :meeting_description,
-        "#description-tabs",
+        "#meeting-description-tabs",
         en: "A longer description",
         es: "Descripción más larga",
         ca: "Descripció més llarga"
@@ -240,7 +240,7 @@ RSpec.shared_examples "manage meetings" do
       within ".edit_close_meeting" do
         fill_in_i18n(
           :close_meeting_closing_report,
-          "#closing_report-tabs",
+          "#close_meeting-closing_report-tabs",
           en: "The meeting was great!",
           es: "El encuentro fue genial",
           ca: "La trobada va ser genial"
