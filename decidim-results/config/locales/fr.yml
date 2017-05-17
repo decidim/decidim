@@ -67,8 +67,11 @@ fr:
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Déplier
         show:
           stats:
+            attendees: Participants
             contributions: Contributions
             meetings: Rencontre
             proposals: Propositions
