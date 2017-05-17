@@ -44,3 +44,7 @@ fr:
           close: Fermer
           description: Ce contenu est-il inapproprié?
           details: Commentaires additionnels
+          reasons:
+            does_not_belong: Contient des activités illégales, des menaces suicidaires, des informations personnelles, ou autre chose que vous pensez ne pas être approprié à %{organization_name}.
+            offensive: Contient des propos racisme, sexiste, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
+            spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
