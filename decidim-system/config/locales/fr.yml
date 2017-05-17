@@ -41,3 +41,8 @@ fr:
           name: Administrateur
           validations:
             email_uniqueness: un autre administrateur avec la même adresse email existe déjà
+        organization:
+          actions:
+            save_and_invite: Créer une organisation et inviter un administrateur
+          fields:
+            created_at: Crée le
