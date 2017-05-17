@@ -92,6 +92,25 @@ fr:
           category_prompt: Sélectionner une catégorie
           citizenship: Citoyenneté
           official: Elu(e)
+          origin: Retour à l'original
+          rejected: Refusée
+          related_to: Liée à
+          scopes: Sujets ou zones d'application
+          search: Rechercher
+          state: État
+          voted: Voté
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Déplier
+        index:
+          new_proposal: Nouvelle proposition
+          view_proposal: Voir la proposition
+        linked_proposals:
+          proposal_votes:
+            one: <span class="card--list__data__number">1</span>vote
+            other: <span class="card--list__data__number">%{count}</span>votes
         new:
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
@@ -113,3 +132,19 @@ fr:
           no_votes_remaining: Aucun vote restant
           vote: Voter
           votes_blocked: Votes désactivés
+        votes_count:
+          count:
+            one: VOTE
+            other: VOTES
+        votes_limit:
+          vote_limit:
+            description: Au lieu de voter autant de propositions que vous voulez, vous ne pouvez voter que jusqu'à %{limit} propositions.
+            left: Restant
+            title: Vous disposez de %{limit} votes à distribuer
+            votes: Votes
+    resource_links:
+      included_proposals:
+        proposal_projects: 'Proposition figurant dans ces projets :'
+        proposal_results: 'Proposition figurant dans ces résultats :'
+      proposals_from_meeting:
+        proposal_meetings: Rencontres connexes
