@@ -16,3 +16,6 @@ fr:
           success: L'admin a détruit avec succès
         edit:
           title: Modifier l'administrateur
+          update: Mettre à jour
+        index:
+          title: Administrateurs
