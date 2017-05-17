@@ -121,6 +121,7 @@ fr:
           create: Créer une catégorie
           title: Nouvelle catégorie
         update:
+          error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
           success: Catégorie mise à jour avec succès.
       dashboard:
         show:
@@ -136,6 +137,9 @@ fr:
           participatory_process_steps:
             index:
               steps_title: Etapes
+          participatory_process_user_roles:
+            index:
+              process_admins_title: Administrateurs du processus participatifs
       feature_permissions:
         edit:
           everyone: Tout le monde
@@ -148,12 +152,14 @@ fr:
           error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
         destroy:
+          error: Erreur lors de la suppression de la fonctionnalité.
           success: Fonctionnalité supprimée avec succès.
         edit:
           title: Editer la fonctionnalité
           update: Mise à jour
         form:
           global_settings: Paramètres généraux
+          step_settings: Définition des étapes
         index:
           add: Ajouter une fonctionnalité
           headers:
@@ -170,6 +176,30 @@ fr:
           success: La fonctionnalité a été dépubliée avec succès.
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
+          success: La fonctionnalité a été mise à jour avec succès.
+      menu:
+        admins: Administrateurs
+        dashboard: Tableau de bord
+        newsletters: Bulletins d'information (newsletter)
+        participatory_processes: Processus participatifs
+        participatory_processes_submenu:
+          attachments: Documents liés
+          categories: Catégories
+          features: Fonctionnalités
+          info: Information
+          moderations: Modérations
+          process_admins: Administrateurs du processus participatifs
+          steps: Etapes
+        scopes: Sujets ou zones d'application
+        settings: Paramètres
+        static_pages: Pages
+        user_groups: Groupes d'utilisateurs
+        users: Utilisateurs
+      models:
+        attachment:
+          fields:
+            content_type: Type de contenus
+            title: Titre
   time:
     formats:
       timepicker: "%d/%m/%Y %H:%M"
