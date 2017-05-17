@@ -72,6 +72,7 @@ fr:
         show:
           stats:
             attendees: Participants
+            comments: Commentaires
             contributions: Contributions
             meetings: Rencontre
             proposals: Propositions
