@@ -98,3 +98,16 @@ fr:
         settings:
           global:
             vote_threshold_percent: Pourcentage de seuil de vote
+          step:
+            votes_enabled: Votes activés
+    orders:
+      checkout:
+        error: Une erreur s'est produite lors du traitement de votre vote
+        success: Votre vote a été enregistré avec succès
+      destroy:
+        error: Une erreur s'est produite lors de l'annulation de votre vote
+        success: Votre vote a été annulé avec succès
+    resource_links:
+      included_proposals:
+        project_proposals: 'Propositions incluses dans ce projet:'
+  total_budget: Budget total
