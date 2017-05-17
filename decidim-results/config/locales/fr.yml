@@ -26,3 +26,14 @@ fr:
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce résultat?
         destroy: Supprimer
         edit: Modifier
+        new: Nouveau
+        preview: Aperçu
+        title: Actions
+      admin:
+        models:
+          result:
+            name: Résultat
+        results:
+          create:
+            invalid: Il y a eu un problème pour créer ce résultat
+            success: Résultat créé avec succès
