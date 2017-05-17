@@ -268,6 +268,79 @@ fr:
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
+      participatory_processes:
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce processus participatif.
+          success: Processus participatif mis à jour avec succès.
+      participatory_processes_group:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus participatif.
+          success: Groupe de processus participatif créé avec succès.
+      scopes:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouveau sujet ou zone d'application.
+          success: Sujet ou zone d'application créée avec succès.
+        destroy:
+          success: Sujet ou zone d'application détruite avec succès
+        edit:
+          title: Editer le sujet ou la zone d'application
+          update: Mettre à jour
+        new:
+          create: Créer un sujet ou une zone d'application
+          title: Nouveau sujet ou zone d'application
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce sujet ou zone d'application.
+          success: Sujet ou zone d'application mis à jour avec succès
+      static_pages:
+        actions:
+          view: Voir la page publique
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle page.
+          success: Page créée avec succès.
+        destroy:
+          success: La page a été détruite avec succès
+        edit:
+          title: Modifier la page
+          update: Mettre à jour
+        new:
+          create: Nouveau
+          title: Nouvelle page
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette page.
+          success: Page mise à jour avec succès
+      titles:
+        dashboard: Tableau de bord
+        participatory_process_groups: Groupes de processus participatifs
+        participatory_processes: Processus participatifs
+        scopes: Sujets ou zones d'application
+        static_pages: Pages
+        user_groups: Groupes d'utilisateurs
+        users: Utilisateurs
+      user_groups:
+        verify:
+          success: Le groupe d'utilisateurs a été vérifié avec succès.
+      users:
+        create:
+          error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
+          success: Utilisateur invité avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la tentative de suppression de cet utilisateur.
+          success: L'utilisateur n'est plus un administrateur.
+        form:
+          email: Email
+          name: Nom
+        new:
+          create: Inviter
+          title: Inviter l'utilisateur en tant qu'administrateur
+        resend_invitation:
+          error: Une erreur s'est produite lors de l'envoi de l'email d'invitation.
+          success: Email d'invitation envoyé avec succès.
+    moderations:
+      actions:
+        hidden: Masqué
+        hide: Masquer
+        not_hidden: Non masqué
+        title: Modérations
   time:
     formats:
       timepicker: "%d/%m/%Y %H:%M"
