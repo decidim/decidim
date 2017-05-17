@@ -70,3 +70,6 @@ fr:
             other: "%{count} propositions"
         filters:
           accepted: Publié
+          activity: Activité
+          all: Toutes
+          category: Catégorie
