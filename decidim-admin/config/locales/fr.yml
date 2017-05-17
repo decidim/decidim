@@ -45,6 +45,7 @@ fr:
         participatory_structure: Organisations concernées
         scope_id: Sujet ou zone d'application
         short_description: Résumé
+        slug: Identifiant
         subtitle: Sous-titre
         target: Objectif
         title: Titre
@@ -88,9 +89,6 @@ fr:
       decidim/static_page:
         content: Contenu
         title: Titre
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -148,5 +146,4 @@ fr:
           error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
   time:
     formats:
-      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"
