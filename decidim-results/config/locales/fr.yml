@@ -3,3 +3,25 @@ fr:
     attributes:
       result:
         decidim_category_id: Catégorie
+        decidim_scope_id: Sujet ou zone d'application
+        description: Description
+        proposal_ids: Propositions incluses
+        title: Titre
+  decidim:
+    features:
+      results:
+        name: Résultats
+        settings:
+          global:
+            comments_enabled: Commentaires activés
+          step:
+            comments_blocked: Commentaires bloqués
+    resource_links:
+      included_proposals:
+        result_proposals: Propositions incluses dans ce résultat
+      meetings_through_proposals:
+        result_meetings: Rencontres connexes
+    results:
+      actions:
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer ce résultat?
+        destroy: Supprimer

@@ -3,6 +3,18 @@ fr:
     attributes:
       close_meeting:
         attendees_count: Nombre de participants
+        attending_organizations: Liste des organisations qui ont assisté à la rencontre
+        closing_report: Signaler
+        contributions_count: Nombre de contributions
+        proposal_ids: Propositions créées lors de la rencontre
+      meeting:
+        address: Adresse
+        decidim_category_id: Catégorie
+        decidim_scope_id: Sujet ou zone d'application
+        description: Description
+        end_time: Heure de fin
+        location: Lieu
+        location_hints: Conseils d'emplacement
   decidim:
     meetings:
       actions:

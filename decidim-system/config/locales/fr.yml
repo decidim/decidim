@@ -2,4 +2,20 @@ fr:
   decidim:
     system:
       actions:
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer cela?
         destroy: Détruire
+        edit: Modifier
+        new: Nouveau
+        save: Sauvegarder
+        title: Actions
+      admins:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouvel administrateur.
+          success: Admin créé avec succès
+        destroy:
+          success: L'admin a détruit avec succès
+        edit:
+          title: Modifier l'administrateur
+          update: Mettre à jour
+        index:
+          title: Administrateurs
