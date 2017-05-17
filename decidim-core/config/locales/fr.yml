@@ -88,6 +88,7 @@ fr:
           already_have_an_account?: Vous avez déjà un compte?
           newsletter_notifications: Recevoir des lettres d'informations sur l'activité de la plateforme 
           sign_in: S'identifier
+          sign_up: S'inscrire
     participatory_processes:
       show:
         local_area: Localisation
