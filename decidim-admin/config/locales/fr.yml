@@ -81,11 +81,13 @@ fr:
       decidim/participatory_process:
         banner_image: Image d'en-tête
         description: Description
+        developer_group: Initiateurs
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Quartier
+        meta_scope: Métadonnées du sujet ou de la zone d'application
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
@@ -110,6 +112,18 @@ fr:
       actions:
         activate: Activer
         add: Ajouter
+        configure: Configurer
+        confirm_destroy: Confirmez-vous la suppression ?
+        destroy: Supprimer
+        edit: Modifier
+        manage: Gérer
+        new: Nouveau
+        permissions: Autorisations
+        preview: Aperçu
+        publish: Publier
+        resend_invitation: Renvoyer l'invitation
+        unpublish: Dépublier
+        verify: Vérifier
       categories:
         destroy:
           error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toute sous-catégorie et assurez-vous qu'aucune autre entité n'appartient à cette catégorie avant de réessayer.
@@ -341,6 +355,14 @@ fr:
         hide: Masquer
         not_hidden: Non masqué
         title: Modérations
+        unreport: Annuler le signalement
+      admin:
+        reportable:
+          hide:
+            invalid: Il y a eu un problème au moment de masquer la ressource.
+            success: Ressource masquée avec succès.
+          unreport:
+            invalid: Il y a eu un problème lors de l'annulation du signalement de la ressource.
   time:
     formats:
       timepicker: "%d/%m/%Y %H:%M"
