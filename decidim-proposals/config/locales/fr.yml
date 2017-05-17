@@ -36,3 +36,12 @@ fr:
         export: Exporter
         new: Nouveau
         title: Actions
+      admin:
+        actions:
+          preview: Aperçu
+        models:
+          proposal:
+            name: Proposition
+        proposal_answers:
+          edit:
+            accepted: Publié
