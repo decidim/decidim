@@ -23,4 +23,7 @@ fr:
       add_comment_form:
         account_message: 'Pour ajouter votre commentaire <a href="%{sign_in_url}"> identifiez vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>. '
         form:
+          body:
+            label: Commentaire
+            placeholder: Que pensez-vous de cela?
           submit: Envoyer
