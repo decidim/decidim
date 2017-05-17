@@ -26,4 +26,5 @@ fr:
           body:
             label: Commentaire
             placeholder: Que pensez-vous de cela?
+          form_error: Le texte est requis et ne peut pas dépasser %{length} caractères.
           submit: Envoyer
