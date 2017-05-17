@@ -61,3 +61,8 @@ fr:
         new:
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
           title: Nouvelle organisation
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette organisation.
+          success: Organisation mise à jour avec succès.
+      titles:
+        dashboard: Tableau de bord
