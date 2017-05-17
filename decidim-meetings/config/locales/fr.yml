@@ -48,3 +48,15 @@ fr:
           category_prompt: Sélectionner une catégorie
           date: Date
           past: Passées
+          scopes: Sujets ou zones d'application
+          search: Rechercher
+          upcoming: À venir
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Déplier
+        index:
+          view_meeting: Voir la rencontre
+        meetings:
+          no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
