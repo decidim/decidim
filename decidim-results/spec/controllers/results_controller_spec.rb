@@ -12,7 +12,7 @@ module Decidim
 
       describe "results" do
         let(:titles) { %w(Biure Atque Delectus Quia Fuga) }
-        let(:feature) { create(:result_feature)}
+        let(:feature) { create(:result_feature) }
         let(:results_count) { titles.size }
 
         it "returns a collection of results ordered by title" do
