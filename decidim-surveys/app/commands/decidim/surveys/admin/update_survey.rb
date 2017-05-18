@@ -32,7 +32,7 @@ module Decidim
 
         def update_survey_questions
           @form.questions.each do |form_question|
-            question_attributes = { body: form_question.body, position: form_question.position  }
+            question_attributes = { body: form_question.body, position: form_question.position }
             if form_question.id.present?
               question = @survey.questions.where(id: form_question.id).first
               if form_question.deleted?
