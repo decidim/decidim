@@ -82,7 +82,7 @@ module Decidim
 
   # Exposes a configuration option: The application name String.
   config_accessor :available_locales do
-    %w(en ca es eu fi)
+    %w(en ca es eu fi fr nl)
   end
 
   # Exposes a configuration option: an object to configure geocoder
