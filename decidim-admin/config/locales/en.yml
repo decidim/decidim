@@ -345,6 +345,9 @@ en:
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
+      participatory_process_copies:
+        new:
+          copy: Copy
       participatory_process_groups:
         destroy:
           success: Participatory process group destroyed successfully.
@@ -425,6 +428,10 @@ en:
         update:
           error: There was an error when updating this participatory process.
           success: Participatory process updated successfully.
+      participatory_processes_copies:
+        create:
+          error: Error
+          success: Successfully
       participatory_processes_group:
         create:
           error: There was an error creating a new participatory process group.

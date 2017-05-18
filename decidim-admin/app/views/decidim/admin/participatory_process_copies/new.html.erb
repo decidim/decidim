@@ -1,0 +1,19 @@
+<div class="card" id="processes">
+  <div class="card-divider">
+    <h2 class="card-title">
+      Copy PP
+    </h2>
+  </div>
+  <%= decidim_form_for(@form, url: participatory_process_copies_path(participatory_process), method: :post, html: { class: "form copy_participatory_process" }) do |f| %>
+
+    <div class="row column">
+      <%= f.translated :text_field, :title, autofocus: true %>
+    </div>
+    <div class="row column">
+      <%= f.text_field :slug %>
+    </div>
+    <div class="button--double form-general-submit">
+      <%= f.submit t(".copy") %>
+    </div>
+  <% end %>
+</div>
