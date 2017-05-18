@@ -68,14 +68,14 @@ module Decidim
       published_at.present?
     end
 
-    # All the attachments that are photos for this porcess.
+    # All the attachments that are photos for this process.
     #
     # Returns an Array<Attachment>
     def photos
       @photos ||= attachments.select(&:photo?)
     end
 
-    # All the attachments that are documents for this porcess.
+    # All the attachments that are documents for this process.
     #
     # Returns an Array<Attachment>
     def documents

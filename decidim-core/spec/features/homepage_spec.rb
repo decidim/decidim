@@ -52,7 +52,7 @@ describe "Homepage", type: :feature do
       end
     end
 
-    describe "includes participatory porcesses ending soon" do
+    describe "includes participatory processes ending soon" do
       context "when exists more than 8 participatory processes" do
         let!(:participatory_process) do
           create_list(
