@@ -493,7 +493,7 @@ en:
         hidden: Hidden
         hide: Hide
         not_hidden: Not hidden
-        title: Moderations
+        title: Actions
         unreport: Unreport
       admin:
         reportable:
@@ -507,7 +507,7 @@ en:
         moderation:
           fields:
             hidden_at: Hidden at
-            report_count: Report count
+            report_count: Count
             reportable: Reportable
             reported_content: Reported content
             reports: Reports

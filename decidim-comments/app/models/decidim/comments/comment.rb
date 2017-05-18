@@ -53,7 +53,7 @@ module Decidim
 
       # Public: Overrides the `reported_content` Reportable concern method.
       def reported_content
-        "<p>#{body}</p>"
+        body
       end
 
       private

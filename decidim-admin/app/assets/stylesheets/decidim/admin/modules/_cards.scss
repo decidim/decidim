@@ -12,13 +12,6 @@
   }
 }
 
-.card__filter{
-  margin-bottom: 0;
-  @include breakpoint(mediumlarge){
-    float: right;
-  }
-}
-
 .card__icon-open{
   display: none;
 }

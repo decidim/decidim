@@ -20,7 +20,9 @@
             <th><%= t("models.moderation.fields.reported_content", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.reports", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.report_count", scope: "decidim.moderations") %></th>
-            <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
+            <% if params[:hidden] %>
+              <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
+            <% end %>
             <th class="actions"><%= t("actions.title", scope: "decidim.moderations") %></th>
           </tr>
         </thead>
@@ -28,42 +30,38 @@
           <% moderations.each do |moderation| %>
             <tr data-id="<%= moderation.id %>">
               <td>
-                <%= moderation.reportable.class.name %>
+                <%= moderation.reportable.class.name.demodulize %>
               </td>
               <td>
                 <%= moderation.reportable.reported_content %>
               </td>
               <td>
-                <ul>
-                  <% moderation.reports.each do |report| %>
-                    <li>
-                      <% if report.details.blank? %>
-                        <%= report.reason %>
-                      <% else %>
-                        <span
-                          data-tooltip
-                          aria-haspopup="true"
-                          class="has-tip"
-                          title="<%= report.details %>">
-                            <%= report.reason %>
-                        </span>
-                      <% end %>
-                    </li>
-                  <% end %>
-                </ul>
+                <% reports = moderation.reports.map { |report| render 'report', report: report } %>
+                <%= safe_join(reports, ',') %>
               </td>
               <td>
                 <%= moderation.report_count %>
               </td>
-              <td>
-                <%= l moderation.hidden_at if moderation.hidden_at.present? %>
-              </td>
+              <% if params[:hidden] %>
+                <td>
+                  <%= l(moderation.hidden_at, format: :long) if moderation.hidden_at.present? %>
+                </td>
+              <% end %>
               <td class="actions">
+
                 <% if can? :unreport, moderation %>
-                  <%= link_to t("actions.unreport", scope: "decidim.moderations"), decidim_admin.unreport_participatory_process_moderation_path(id: moderation), method: :put, class: "button" %>
+                  <%= icon_link_to "action-undo",
+                                   decidim_admin.unreport_participatory_process_moderation_path(id: moderation),
+                                   t("actions.unreport", scope: "decidim.moderations"),
+                                   class: "action-icon--unreport",
+                                   method: :put %>
                 <% end %>
                 <% if !moderation.reportable.hidden? && can?(:hide, moderation) %>
-                  | <%= link_to t("actions.hide", scope: "decidim.moderations"), decidim_admin.hide_participatory_process_moderation_path(id: moderation), method: :put, class: "button" %>
+                  <%= icon_link_to "eye",
+                                   decidim_admin.hide_participatory_process_moderation_path(id: moderation),
+                                   t("actions.hide", scope: "decidim.moderations"),
+                                   class: "action-icon--hide",
+                                   method: :put %>
                 <% end %>
               </td>
             </tr>
