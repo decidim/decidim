@@ -112,6 +112,7 @@ ca:
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:
             comments_blocked: Comentaris bloquejats
+            show_votes: Mostra vots
             votes_enabled: Suports habilitats
     orders:
       checkout:
