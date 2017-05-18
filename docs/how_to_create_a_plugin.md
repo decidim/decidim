@@ -29,13 +29,6 @@
       s.add_dependency "rails", *Decidim.rails_version
 
       s.add_development_dependency "decidim-dev", Decidim.version
-
-      # Add more dependencies as needed:
-      s.add_dependency "foundation-rails", "~> 6.2.4.0"
-      s.add_dependency "autoprefixer-rails", ["~> 6.7", ">= 6.7.4"]
-      s.add_dependency "sass-rails", "~> 5.0.0"
-      s.add_dependency "jquery-rails", "~> 4.0"
-      s.add_dependency "foundation_rails_helper", "~> 2.0.0"
     end
     ```
 
@@ -75,11 +68,6 @@
     require "active_support/all"
 
     require "decidim/core"
-    require "jquery-rails"
-    require "sass-rails"
-    require "foundation-rails"
-    require "foundation_rails_helper"
-    require "autoprefixer-rails"
 
     module Decidim
       module <EngineName>
