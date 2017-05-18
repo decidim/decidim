@@ -308,7 +308,7 @@ nl:
         title: Gebruikersinstellingen
         user_groups: Organisaties
   locale:
-    name: Engels
+    name: Nederlands
   pages:
     '404':
       back_home: Terug naar huis

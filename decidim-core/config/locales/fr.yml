@@ -324,7 +324,7 @@ fr:
       widget:
         see_more: "Voir plus"
   locale:
-    name: Anglais
+    name: Français
   pages:
     '404':
       back_home: Retour à l'accueil
