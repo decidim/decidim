@@ -89,7 +89,7 @@ describe "Answer a survey", type: :feature do
       it "the questions are ordered by position" do
         visit_feature
 
-        form_fields = all('.answer-survey .field')
+        form_fields = all(".answer-survey .field")
 
         expect(form_fields[0]).to have_i18n_content(survey_question_2.body)
         expect(form_fields[1]).to have_i18n_content(survey_question_1.body)
