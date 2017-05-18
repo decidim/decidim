@@ -12,9 +12,11 @@
     try {
       const $newQuestion = $.tmpl(templateId, {});
       const tabsId = `survey-question-${new Date().getTime()}-${Math.floor(Math.random() * 1000000)}`;
+      const position = $container.find('.survey-question').length;
 
       $newQuestion.find('input[disabled]').attr('disabled', false);
-      $newQuestion.find('input[name="survey[questions][][position]"]').val($container.find('.survey-question').length);
+      $newQuestion.find('input[name="survey[questions][][position]"]').val(position);
+      $newQuestion.find('label:first-child').html(`${$newQuestion.find('label:first-child').html()} #${position + 1}`);
       $newQuestion.appendTo($container);
       $newQuestion.find('.label--tabs ul.tabs').attr('id', tabsId);
       $newQuestion.find('.label--tabs .tabs-title a').each(function (idx, node) {

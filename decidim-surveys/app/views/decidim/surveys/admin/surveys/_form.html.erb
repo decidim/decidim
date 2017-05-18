@@ -29,7 +29,7 @@
       <div class="survey-questions-list <%= 'published' if @survey.published? %>">
         <% @form.questions.each_with_index do |question, idx| %>
           <div class="survey-question">
-            <%- label = @survey.published? ? t('.question') : "#{icon("move")} #{t('.question')}".html_safe %>
+            <%- label = (@survey.published? ? t('.question') : "#{icon("move")} #{t('.question')}".html_safe) + " ##{(question.position || idx) + 1}"%>
             <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, label: label, tabs_prefix: "survey-question-#{question.id}", disabled: @survey.published? %>
             <%= hidden_field_tag "survey[questions][][id]", question.id %>
             <%= hidden_field_tag "survey[questions][][position]", question.position || idx %>

@@ -1,8 +1,10 @@
 .survey-questions {
   label {
     cursor: pointer;
-    .icon--move {
-      vertical-align: middle;
-    }
   }
+}
+
+.icon--move {
+  vertical-align: middle;
+  cursor: pointer;
 }
