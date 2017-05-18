@@ -21,8 +21,8 @@ describe "Answer a survey", type: :feature do
   end
   let(:user) { create(:user, :confirmed, organization: feature.organization) }
   let!(:survey) { create(:survey, feature: feature, title: title, description: description) }
-  let!(:survey_question_1) { create(:survey_question, survey: survey) }
-  let!(:survey_question_2) { create(:survey_question, survey: survey) }
+  let!(:survey_question_1) { create(:survey_question, survey: survey, position: 1) }
+  let!(:survey_question_2) { create(:survey_question, survey: survey, position: 0) }
 
   context "when the survey is not published" do
     it "the survey cannot be answered" do
@@ -84,6 +84,15 @@ describe "Answer a survey", type: :feature do
         expect(page).not_to have_content("ANSWER THE SURVEY")
         expect(page).not_to have_i18n_content(survey_question_1.body)
         expect(page).not_to have_i18n_content(survey_question_2.body)
+      end
+
+      it "the questions are ordered by position" do
+        visit_feature
+
+        form_fields = all('.answer-survey .field')
+
+        expect(form_fields[0]).to have_i18n_content(survey_question_2.body)
+        expect(form_fields[1]).to have_i18n_content(survey_question_1.body)
       end
     end
   end
