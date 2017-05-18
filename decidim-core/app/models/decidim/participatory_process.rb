@@ -68,20 +68,6 @@ module Decidim
       published_at.present?
     end
 
-    # All the attachments that are photos for this process.
-    #
-    # Returns an Array<Attachment>
-    def photos
-      @photos ||= attachments.select(&:photo?)
-    end
-
-    # All the attachments that are documents for this process.
-    #
-    # Returns an Array<Attachment>
-    def documents
-      @documents ||= attachments.select(&:document?)
-    end
-
     def hashtag
       attributes["hashtag"].to_s.delete("#")
     end
