@@ -10,7 +10,7 @@ fr:
       meeting:
         address: Adresse
         decidim_category_id: Catégorie
-        decidim_scope_id: Sujet ou zone d'application
+        decidim_scope_id: Domaine d'application
         description: Description
         end_time: Heure de fin
         location: Lieu
@@ -64,7 +64,7 @@ fr:
           category_prompt: Sélectionner une catégorie
           date: Date
           past: Passées
-          scopes: Sujets ou zones d'application
+          scopes: Domaines d'application
           search: Rechercher
           upcoming: À venir
         filters_small_view:
