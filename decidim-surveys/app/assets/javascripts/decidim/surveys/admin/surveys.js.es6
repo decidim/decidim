@@ -8,6 +8,16 @@
 
   $.template(templateId, $(`#${templateId}`).html());
 
+  const computeLabelOrder = () => {
+    const $questions = $('.survey-question:not(.hidden)');
+
+    $questions.each((idx, el) => {
+      const $questionlabel = $(el).find('label:first');
+
+      $questionlabel.html($questionlabel.html().replace(/#(\d+)/, `#${idx + 1}`));
+    });
+  };
+
   const addQuestion = (event) => {
     try {
       const $newQuestion = $.tmpl(templateId, {});
@@ -33,6 +43,8 @@
       console.error(error); // eslint-disable-line no-console
     }
 
+    computeLabelOrder();
+
     event.preventDefault();
     event.stopPropagation();
   };
@@ -48,6 +60,7 @@
         deleteInput.name = "survey[questions][][deleted]";
         deleteInput.type = "hidden";
         deleteInput.value = "true";
+        $question.addClass('hidden');
         $question.append(deleteInput);
         $question.hide();
       } else {
@@ -57,10 +70,26 @@
       console.error(error); // eslint-disable-line no-console
     }
 
+    computeLabelOrder();
+
     event.preventDefault();
     event.stopPropagation();
   };
 
   $addQuestionButtons.on('click', addQuestion);
   $wrapper.on('click', '.remove-question', removeQuestion);
+
+  if (DecidimAdmin) {
+    DecidimAdmin.sortList('.survey-questions-list:not(.published)', {
+      handle: 'label',
+      placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
+      forcePlaceholderSize: true,
+      onSortUpdate: ($children) => {
+        $children.each((idx, el) => {
+          $(el).find('input[name="survey[questions][][position]"]').val(idx);
+        });
+        computeLabelOrder();
+      }
+    });
+  }
 })();

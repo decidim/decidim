@@ -20,17 +20,6 @@ const pageLoad = () => {
   if (DecidimAdmin) {
     DecidimAdmin.toggleNav();
 
-    DecidimAdmin.sortList('.survey-questions-list:not(.published)', {
-      handle: 'label',
-      placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
-      forcePlaceholderSize: true,
-      onSortUpdate: ($children) => {
-        $children.each((idx, el) => {
-          $(el).find('input[name="survey[questions][][position]"]').val(idx);
-        })
-      }
-    });
-
     DecidimAdmin.sortList('#steps tbody', {
       placeholder: $('<tr style="border-style: dashed; border-color: #000"><td colspan="4">&nbsp;</td></tr>')[0],
       onSortUpdate: ($children) => {
