@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require "decidim/budgets/admin"
-require "decidim/budgets/list_engine"
+require "decidim/budgets/engine"
 require "decidim/budgets/admin_engine"
 require "decidim/budgets/feature"
 
