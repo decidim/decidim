@@ -104,6 +104,9 @@ es:
         content: Contenido
         slug: Texto corto de URL
         title: Título
+  date:
+    formats:
+      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -489,6 +492,7 @@ es:
         hidden: Ocultas
         hide: Esconder
         not_hidden: No ocultas
+        title: Acciones
         unreport: Cancelar denuncia
       admin:
         reportable:
@@ -502,6 +506,7 @@ es:
         moderation:
           fields:
             hidden_at: Fecha de ocultación
+            report_count: Recuento
             reportable: Tipo
             reported_content: Contenido
             reports: Denuncias
@@ -519,4 +524,5 @@ es:
           title: Usuarios
   time:
     formats:
+      datepicker: "%m/%d/%Y"
       timepicker: "%d/%m/%Y %H:%M"
