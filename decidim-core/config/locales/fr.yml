@@ -175,9 +175,9 @@ fr:
         developer_group: Groupe d'initiateurs
         end_date: Date de fin
         local_area: Localisation
-        participatory_scope: Sujet ou zone d'application du processus
+        participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
-        scope: Sujet ou zone d'application
+        scope: Domaine d'application
         target: Public
     reported_mailer:
       hide:
@@ -294,6 +294,10 @@ fr:
           promoted_processes: Processus mis en avant
         no_processes_yet:
           no_processes_yet: Pas encore de processus participatifs!
+        order_by_processes:
+          processes:
+            one: "%{count} processus participatif"
+            other: "%{count} processus participatifs"
         participatory_process:
           active_step: 'Étape actuelle :'
           take_part: Participer
