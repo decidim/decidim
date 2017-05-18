@@ -88,8 +88,92 @@ fr:
           already_have_an_account?: Vous avez déjà un compte?
           newsletter_notifications: Recevoir des lettres d'informations sur l'activité de la plateforme 
           sign_in: S'identifier
-    participatory_processes:
+          sign_up: S'inscrire
+          sign_up_as:
+            legend: S'inscrire en tant que
+            user: Individu
+            user_group: Organisation / Collectif
+          subtitle: Inscrivez-vous pour participer aux discussions et pour exprimer votre soutien aux propositions de votre choix.
+          terms: Les termes et conditions d'utilisation
+          tos_agreement: En vous inscrivant, vous acceptez %{link}.
+          username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
+      sessions:
+        new:
+          are_you_new?: Nouveau sur la plate-forme?
+          register: Créer un compte
+      shared:
+        omniauth_buttons:
+          or: Ou
+    export_mailer:
+      export:
+        ready: Vous trouverez ci-joint une version zippée de votre exportation.
+      subject: Votre export "%{name}" est prêt
+    features:
+      dummy:
+        actions:
+          bar: Machin
+          foo: Truc
+        name: Fonctionnalité exemple
+        settings:
+          global:
+            comments_enabled: Commentaires activés
+            dummy_global_attribute_1: Exemple d'attribut 1
+            dummy_global_attribute_2: Exemple d'attribut 2
+          step:
+            comments_blocked: Commentaires bloqués
+            dummy_step_attribute_1: Exemple d'attribut pour une étape 1
+            dummy_step_attribute_2: Exemple d'attribut pour une étape 2
+    filters:
+      linked_classes:
+        all: Tout
+        meeting: Rencontres
+        project: Projets
+        proposal: Propositions
+        result: Résultats
+    forms:
+      errors:
+        error: Ce champ contient une erreur.
+    menu:
+      home: Accueil
+      more_information: Plus d'information
+      processes: Processus participatifs
+    newsletter_mailer:
+      newsletter:
+        note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux bulletins d'information de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+    notifications_settings:
       show:
+        comments_notifications: Je souhaite recevoir des notifications par email lorsque quelqu'un a commenté mes publications.
+        newsletter_notifications: Je souhaite recevoir des lettres d'informations sur l'activité de la plateforme
+        replies_notifications: Je souhaite recevoir des notifications par email lorsque quelqu'un répond à mes commentaires.
+        update_notifications_settings: Enregistrer les modifications
+      update:
+        error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
+        success: Vos paramètres de notifications ont été mis à jour avec succès.
+    own_user_groups:
+      index:
+        not_verified: Non vérifié
+        verified: Vérifié
+    pages:
+      index:
+        title: Plus d'information
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Processus participatifs pour %{group}
+        title: Titre
+    participatory_process_steps:
+      index:
+        process_steps: Etapes du processus
+        title: Etapes du processus participatif
+    participatory_processes:
+      index:
+        title: Processus participatifs
+      participatory_process_groups:
+        none: Aucun
+      scopes:
+        global: Portée globale
+      show:
+        developer_group: Groupe d'initiateurs
+        end_date: Date de fin
         local_area: Localisation
         participatory_scope: Sujet ou zone d'application du processus
         participatory_structure: Organisations concernées
@@ -162,6 +246,81 @@ fr:
         someone_invited_you: Quelqu'un vous a invité à %{application}, vous pouvez accepter l'invitation en cliquant sur le lien ci-dessous.
       invite_admin:
         subject: Vous avez été invité à gérer %{organization}
+      invite_collaborator:
+        subject: Vous avez été invité à collaborer sur %{organization}
+      organization_admin_invitation_instructions:
+        subject: Vous avez été invité à gérer %{organization}
+      password_change:
+        greeting: Bonjour %{recipient}!
+        message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
+        subject: Mot de passe modifié
+  errors:
+    messages:
+      content_type_whitelist_error: Le type de fichier n'est pas valide
+      file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
+      invalid_manifest: Manifeste invalide
+      invalid_participatory_process: Processus participatif invalide
+      long_words: Contient des mots trop longs
+      must_start_with_caps: Doit commencer par des majuscules
+      nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
+      too_many_marks: Utilise trop de signes de ponctuations
+      too_much_caps: Utilise trop de majuscule
+      too_short: Est trop court
+  invisible_captcha:
+    sentence_for_humans: Si vous êtes humain, ignorez ce champ
+    timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: Ce site utilise des cookies. En continuant à parcourir le site, vous acceptez notre utilisation des cookies. En savoir plus à ce sujet %{link}.
+        link_label: ici
+        ok: '"J''accepte"'
+      footer:
+        made_with_open_source: 'Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.'
+      header:
+        close_menu: Fermer le menu
+        navigation: Navigation
+        sign_in: Se connecter
+        sign_up: S'inscrire
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Naviguer
+      participatory_process_widgets:
+        show:
+          active_step: Etape active
+          take_part: Participer
+      participatory_processes:
+        index:
+          promoted_processes: Processus mis en avant
+        no_processes_yet:
+          no_processes_yet: Pas encore de processus participatifs!
+        participatory_process:
+          active_step: 'Étape actuelle :'
+          take_part: Participer
+        promoted_process:
+          active_step: 'Étape actuelle :'
+          more_info: Plus d'informations
+          take_part: Participer
+      process_header:
+        process_menu_item: Le processus
+        unfold: Déplier
+      process_header_steps:
+        step: Étape %{current} sur %{total}
+        view_steps: Voir les étapes
+      user_menu:
+        admin_dashboard: Tableau de bord des administrateurs
+        profile: Mon compte
+        sign_out: Déconnexion
+      user_profile:
+        account: Compte
+        authorizations: Autorisations
+        notifications_settings: Paramètres des notifications
+        title: Paramètres utilisateur
+        user_groups: Organisations
+      widget:
+        see_more: "Voir plus"
+  locale:
+    name: Anglais
   pages:
     '404':
       back_home: Retour à l'accueil

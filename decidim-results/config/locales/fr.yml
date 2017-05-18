@@ -25,3 +25,55 @@ fr:
       actions:
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce résultat?
         destroy: Supprimer
+        edit: Modifier
+        new: Nouveau
+        preview: Aperçu
+        title: Actions
+      admin:
+        models:
+          result:
+            name: Résultat
+        results:
+          create:
+            invalid: Il y a eu un problème pour créer ce résultat
+            success: Résultat créé avec succès
+          destroy:
+            success: Résultat supprimé avec succès
+          edit:
+            title: Modifier le résultat
+            update: Mettre à jour
+          index:
+            title: Résultats
+          new:
+            create: Créer
+            title: Nouveau résultat
+          update:
+            invalid: Il y a eu un problème pour mettre à jour ce résultat
+            success: Résultat mis à jour avec succès
+      models:
+        result:
+          fields:
+            title: Titre
+      results:
+        count:
+          results_count:
+            one: 1 résultat
+            other: "%{count} résultats"
+        filters:
+          category: Catégorie
+          category_prompt: Sélectionner une catégorie
+          scopes: Sujets ou zones d'application
+          search: Rechercher
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Déplier
+        show:
+          stats:
+            attendees: Participants
+            comments: Commentaires
+            contributions: Contributions
+            meetings: Rencontre
+            proposals: Propositions
+            votes: Soutiens

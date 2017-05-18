@@ -14,8 +14,86 @@ fr:
         description: Description
         end_time: Heure de fin
         location: Lieu
-        location_hints: Conseils d'emplacement
+        location_hints: Indicateurs d’emplacement
+        start_time: Heure de début
+        title: Titre
   decidim:
+    features:
+      meetings:
+        name: Rencontres
     meetings:
       actions:
+        attachments: Documents liés
         close: Fermer
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer cette rencontre?
+        destroy: Supprimer
+        edit: Modifier
+        new: Nouveau
+        preview: Aperçu
+        title: Actions
+      admin:
+        meeting_closes:
+          edit:
+            close: Fermer
+            title: Clore la rencontre
+        meetings:
+          close:
+            invalid: Il y a eu un problème au moment de clore cette réunion
+            success: Rencontre cloturée avec succès
+          create:
+            invalid: Il y a eu un problème lors de la création de cette rencontre
+            success: Rencontre créée avec succès
+          destroy:
+            success: La rencontre a été supprimée avec succès
+          edit:
+            update: Mettre à jour
+          index:
+            title: Rencontres
+          new:
+            create: Créer
+            title: Créer une rencontre
+          update:
+            invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
+            success: Réncontre mise à jour avec succès
+        models:
+          meeting:
+            name: Rencontre
+      meetings:
+        filters:
+          category: Catégorie
+          category_prompt: Sélectionner une catégorie
+          date: Date
+          past: Passées
+          scopes: Sujets ou zones d'application
+          search: Rechercher
+          upcoming: À venir
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Déplier
+        index:
+          view_meeting: Voir la rencontre
+        meetings:
+          no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
+          upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontre planifiées, mais ici, vous trouverez une liste de toutes les réunions passées.
+        show:
+          attendees: Nombre de participants
+          contributions: Décompte des contributions
+          meeting_report: Compte rendu de la rencontre
+          organizations: Organisations participantes
+      models:
+        meeting:
+          fields:
+            closed: Clos
+            end_time: Heure de fin
+            map: Carte
+            start_time: Date de début
+            title: Titre
+    resource_links:
+      meetings_through_proposals:
+        meeting_results: 'Résultats associés :'
+        result_meetings: 'Rencontres connexes :'
+      proposals_from_meeting:
+        meeting_proposals: 'Propositions connexes :'
+        proposal_meetings: 'Rencontre connexes :'

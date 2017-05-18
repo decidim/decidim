@@ -43,14 +43,18 @@ fr:
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectif
         participatory_structure: Organisations concernées
+        promoted: Mis en avant
         scope_id: Sujet ou zone d'application
         short_description: Résumé
+        slug: Identifiant
         subtitle: Sous-titre
         target: Objectif
         title: Titre
       participatory_process_group:
         description: Description
         hero_image: Image
+        name: Nom
+        participatory_process_ids: Processus participatifs liés
       participatory_process_step:
         description: Description
         end_date: Date de fin
@@ -60,6 +64,7 @@ fr:
       participatory_process_user_role:
         email: Courriel
         name: Nom
+        role: Rôle
       scope:
         name: Nom
         organization: Organisation
@@ -76,27 +81,82 @@ fr:
       decidim/participatory_process:
         banner_image: Image d'en-tête
         description: Description
+        developer_group: Initiateurs
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Quartier
+        meta_scope: Métadonnées du sujet ou de la zone d'application
+        participatory_scope: Objectif du processus participatif
+        participatory_structure: Organisations concernées
+        promoted: Mis en avant
+        scope: Sujet ou zone d'application
         short_description: Résumé
+        slug: Identifiant
         subtitle: Sous-titre
         target: Objectif
         title: Titre
+      decidim/participatory_process_step:
+        end_date: Date de fin
+        start_date: Date de début
       decidim/static_page:
         content: Contenu
+        slug: Identifiant
         title: Titre
   date:
     formats:
-      datepicker: "%d/%m/%Y"
+      datepicker: "%m / %j / %A"
   decidim:
     admin:
       actions:
         activate: Activer
-      categories:
+        add: Ajouter
+        configure: Configurer
+        confirm_destroy: Confirmez-vous la suppression ?
+        destroy: Supprimer
+        edit: Modifier
+        manage: Gérer
+        new: Nouveau
+        permissions: Autorisations
+        preview: Aperçu
+        publish: Publier
+        resend_invitation: Renvoyer l'invitation
+        unpublish: Dépublier
+        verify: Vérifier
+      attachments:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau document lié.
+          success: Document lié créé avec succès.
+        destroy:
+          success: Document lié détruit avec succès.
+        edit:
+          title: Modifier le document lié
+          update: Mettre à jour
+        form:
+          current_file: Fichier actuel
+          url: Url
+        new:
+          create: Lier un document
+          title: Nouveau document lié
         update:
+          error: Une erreur s'est produite lors de la mise à jour de ce document lié.
+          success: Document lié mis à jour avec succès.
+      categories:
+        create:
+          error: Une erreur s'est produite lors de la création de cette catégorie.
+          success: Catégorie créée avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toute sous-catégorie et assurez-vous qu'aucune autre entité n'appartient à cette catégorie avant de réessayer.
+          success: Catégorie supprimée avec succès.
+        edit:
+          title: Modifier la catégorie
+          update: Mettre à jour
+        new:
+          create: Créer une catégorie
+          title: Nouvelle catégorie
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
           success: Catégorie mise à jour avec succès.
       dashboard:
         show:
@@ -112,6 +172,9 @@ fr:
           participatory_process_steps:
             index:
               steps_title: Etapes
+          participatory_process_user_roles:
+            index:
+              process_admins_title: Administrateurs du processus participatifs
       feature_permissions:
         edit:
           everyone: Tout le monde
@@ -124,12 +187,14 @@ fr:
           error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
         destroy:
+          error: Erreur lors de la suppression de la fonctionnalité.
           success: Fonctionnalité supprimée avec succès.
         edit:
           title: Editer la fonctionnalité
           update: Mise à jour
         form:
           global_settings: Paramètres généraux
+          step_settings: Définition des étapes
         index:
           add: Ajouter une fonctionnalité
           headers:
@@ -146,7 +211,318 @@ fr:
           success: La fonctionnalité a été dépubliée avec succès.
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
+          success: La fonctionnalité a été mise à jour avec succès.
+      menu:
+        admins: Administrateurs
+        dashboard: Tableau de bord
+        newsletters: Bulletins d'information (newsletter)
+        participatory_process_groups: Groupes de processus participatifs
+        participatory_processes: Processus participatifs
+        participatory_processes_submenu:
+          attachments: Documents liés
+          categories: Catégories
+          features: Fonctionnalités
+          info: Information
+          moderations: Modérations
+          process_admins: Administrateurs du processus participatifs
+          steps: Etapes
+        scopes: Sujets ou zones d'application
+        settings: Paramètres
+        static_pages: Pages
+        user_groups: Groupes d'utilisateurs
+        users: Utilisateurs
+      models:
+        attachment:
+          fields:
+            content_type: Type de contenus
+            title: Titre
+          name: Document lié
+        category:
+          name: Catégorie
+        newsletter:
+          fields:
+            created_at: Crée le
+            progress: Avancement
+            sent_at: Envoyé à
+            subject: Objet
+          name: Bulletin d'information (newsletter)
+        participatory_process:
+          fields:
+            created_at: Crée le
+            promoted: Mis en évidence
+            published: Publié
+            title: Titre
+          name: Processus participatif
+        participatory_process_group:
+          fields:
+            name: Nom
+          name: Groupes de processus participatifs
+        participatory_process_step:
+          fields:
+            end_date: Date de fin
+            start_date: Date de début
+            title: Titre
+          name: Etape du processus participatif
+        participatory_process_user_role:
+          fields:
+            email: Email
+            name: Nom
+            role: Rôle
+          name: Role utilisateur du processus participatif
+          roles:
+            admin: Administrateur
+            collaborator: Rédacteur
+        scope:
+          fields:
+            created_at: Crée le
+            name: Nom
+        static_page:
+          fields:
+            created_at: Crée le
+            title: Titre
+        user:
+          fields:
+            created_at: Date de création
+            email: Email
+            invitation_accepted_at: Date d'acceptation de l'invitation
+            invitation_sent_at: Date d'envoi de l'invitation
+            last_sign_in_at: Date de la dernière connexion
+            name: Nom
+          name: Utilisateur
+        user_group:
+          fields:
+            created_at: Crée le
+            document_number: Numéro de document
+            name: Nom
+            phone: Téléphone
+            users_count: Nombre d'utilisateurs
+      moderations:
+        index:
+          title: Modérations
+      newsletters:
+        create:
+          error: Il y a eu une erreur lors de la création de ce bulletin d'information.
+          success: Bulletin d'information créé avec succès. Veuillez le vérifier avant de l'envoyer.
+        deliver:
+          error: Erreur lors de l'envoi de ce bulletin d'information.
+          success: Bulletin d'information envoyé avec succès.
+        destroy:
+          error_already_sent: Suppression impossible car le bulletin d'information a déjà été envoyé.
+          success: Bulletin d'information supprimé avec succès.
+        edit:
+          save_and_preview: Enregistrer et prévisualiser
+          title: Modifier le bulletin d'information
+        form:
+          interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
+        index:
+          confirm_delete: Êtes-vous sûr de vouloir supprimer ce bulletin d'information ?
+          title: Bulletins d'information (newsletter)
+        new:
+          save: Enregistrer
+          title: Nouveau bulletin d'information
+        show:
+          confirm_deliver: Êtes-vous sûr de vouloir envoyer ce bulletin d'information? Cette action ne peut pas être annulée.
+          deliver: Envoyer le bulletin d'information
+          preview: Aperçu
+          subject: Objet
+        update:
+          error: Erreur lors de la mise à jour du bulletin d'information.
+          success: Bulletin d'information mis à jour avec succès. Veuillez le vérifier avant de l'envoyer.
+      organization:
+        edit:
+          title: Modifier l'organisation
+          update: Mettre à jour
+        form:
+          current_image: Image actuelle
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Social
+          twitter: Twitter
+          url: Url
+          youtube: YouTube
+        update:
+          error: Erreur lors de la mise à jour de cette organisation.
+          success: Organisation mise à jour avec succès.
+      participatory_process_groups:
+        destroy:
+          success: Le groupe de processus participatif a été détruit avec succès.
+        edit:
+          title: Modifier le groupe de processus
+          update: Mettre à jour
+        new:
+          create: Créer
+          title: Nouveau groupe de processus participatifs
+        update:
+          error: Il y a eu une erreur lors de la mise à jour de ce groupe de processus participatif.
+          success: Groupe de processus participatif mis à jour avec succès.
+      participatory_process_publications:
+        create:
+          error: Il y a eu une erreur lors de la publication de ce processus participatif.
+          success: Processus participatif publié avec succès.
+        destroy:
+          error: Il y a eu une erreur lors de la publication de ce processus participatif.
+          success: Processus participatif dépublié avec succès.
+      participatory_process_step_activations:
+        create:
+          error: Une erreur s'est produite lors de l'activation de cette étape du processus participatif.
+          success: Etape du processus participatif activée avec succès.
+      participatory_process_steps:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle étape du processus participatif.
+          success: Etape de processus participatif créée avec succès.
+        default_title: Introduction
+        destroy:
+          error:
+            active_step: Vous ne pouvez pas supprimer l'étape active du processus.
+            last_step: Vous ne pouvez pas supprimer la dernière étape d'un processus.
+          success: L'étape du processus participatif a été détruite avec succès.
+        edit:
+          title: Modifier l'étape du processus participatif
+          update: Mettre à jour
+        new:
+          create: Créer
+          title: Nouvelle étape du processus participatif
+        ordering:
+          error: Une erreur s'est produite lors de la réorganisation des étapes du processus participatif.
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette étape du processus participatif.
+          success: Etape du processus participatif mise à jour avec succès.
+      participatory_process_user_roles:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour ce processus participatif.
+          success: Utilisateur créé avec succès pour ce processus participatif.
+        destroy:
+          success: L'utilisateur a été détruit avec succès pour ce processus participatif.
+        edit:
+          title: Mettre à jour l'utilisateur du processus participatif.
+          update: Mettre à jour
+        new:
+          create: Créer
+          title: Nouvel utilisateur de processus participatif.
+        update:
+          error: Il y a eu une erreur lors de la mise à jour d'un utilisateur pour ce processus participatif.
+          success: L'utilisateur a été mis à jour avec succès pour ce processus participatif.
+      participatory_processes:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau processus participatif.
+          success: Processus participatif créé avec succès. Configurez maintenant ses étapes.
+        destroy:
+          success: Processus participatif détruit avec succès.
+        edit:
+          update: Mettre à jour
+        form:
+          current_image: Image actuelle
+          title: Informations générales
+          url: Url
+        index:
+          not_published: Non publié
+          published: Publié
+        new:
+          create: Créer
+          title: Nouveau processus participatif
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce processus participatif.
+          success: Processus participatif mis à jour avec succès.
+      participatory_processes_group:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus participatif.
+          success: Groupe de processus participatif créé avec succès.
+      scopes:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouveau sujet ou zone d'application.
+          success: Sujet ou zone d'application créée avec succès.
+        destroy:
+          success: Sujet ou zone d'application détruite avec succès
+        edit:
+          title: Editer le sujet ou la zone d'application
+          update: Mettre à jour
+        new:
+          create: Créer un sujet ou une zone d'application
+          title: Nouveau sujet ou zone d'application
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce sujet ou zone d'application.
+          success: Sujet ou zone d'application mis à jour avec succès
+      static_pages:
+        actions:
+          view: Voir la page publique
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle page.
+          success: Page créée avec succès.
+        destroy:
+          success: La page a été détruite avec succès
+        edit:
+          title: Modifier la page
+          update: Mettre à jour
+        new:
+          create: Nouveau
+          title: Nouvelle page
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette page.
+          success: Page mise à jour avec succès
+      titles:
+        dashboard: Tableau de bord
+        participatory_process_groups: Groupes de processus participatifs
+        participatory_processes: Processus participatifs
+        scopes: Sujets ou zones d'application
+        static_pages: Pages
+        user_groups: Groupes d'utilisateurs
+        users: Utilisateurs
+      user_groups:
+        verify:
+          success: Le groupe d'utilisateurs a été vérifié avec succès.
+      users:
+        create:
+          error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
+          success: Utilisateur invité avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la tentative de suppression de cet utilisateur.
+          success: L'utilisateur n'est plus un administrateur.
+        form:
+          email: Email
+          name: Nom
+        new:
+          create: Inviter
+          title: Inviter l'utilisateur en tant qu'administrateur
+        resend_invitation:
+          error: Une erreur s'est produite lors de l'envoi de l'email d'invitation.
+          success: Email d'invitation envoyé avec succès.
+    moderations:
+      actions:
+        hidden: Masqué
+        hide: Masquer
+        not_hidden: Non masqué
+        title: Modérations
+        unreport: Annuler le signalement
+      admin:
+        reportable:
+          hide:
+            invalid: Il y a eu un problème au moment de masquer la ressource.
+            success: Ressource masquée avec succès.
+          unreport:
+            invalid: Il y a eu un problème lors de l'annulation du signalement de la ressource.
+            success: La ressource n'est plus signalée.
+      models:
+        moderation:
+          fields:
+            hidden_at: Masqué le
+            report_count: Nombre de signalement
+            reportable: Signalable
+            reported_content: Contenu signalé
+            reports: Signalements
+    participatory_processes:
+      participatory_process_groups:
+        none: Aucun
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Bulletins d'information (newsletter)
+        settings:
+          title: Paramètres
+        users:
+          title: Utilisateurs
   time:
     formats:
-      datepicker: "%d/%m/%Y"
+      datepicker: "%m / %j / %A"
       timepicker: "%d/%m/%Y %H:%M"

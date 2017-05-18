@@ -19,3 +19,50 @@ fr:
           update: Mettre à jour
         index:
           title: Administrateurs
+        new:
+          create: Créer
+          title: Nouvel administrateur
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cet administrateur.
+          success: Administrateur mis à jour avec succès
+      default_pages:
+        placeholders:
+          content: Ajoutez du contenu pertinent à cette page en allant sur l'interface d'administration.
+          title: Titre par défaut pour %{page}
+      menu:
+        admins: Administrateurs
+        dashboard: Tableau de bord
+        organizations: Organisations
+      models:
+        admin:
+          fields:
+            created_at: Crée le
+            email: Courriel
+          name: Administrateur
+          validations:
+            email_uniqueness: un autre administrateur avec la même adresse email existe déjà
+        organization:
+          actions:
+            save_and_invite: Créer une organisation et inviter un administrateur
+          fields:
+            created_at: Crée le
+            name: Nom
+          name: Organisation
+        page:
+          name: Page
+      organizations:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
+          success: Organisation créée avec succès.
+        edit:
+          secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+        index:
+          title: Organisations
+        new:
+          secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+          title: Nouvelle organisation
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette organisation.
+          success: Organisation mise à jour avec succès.
+      titles:
+        dashboard: Tableau de bord

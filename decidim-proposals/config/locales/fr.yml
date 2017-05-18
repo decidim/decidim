@@ -21,3 +21,130 @@ fr:
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
             official_proposals_enabled: Propositions officielles activées
+            proposal_answering_enabled: Réponse aux propositions activée
+            vote_limit: Limite de vote
+          step:
+            comments_blocked: Commentaires bloqués
+            creation_enabled: Module propositions activé
+            proposal_answering_enabled: Réponse aux propositions activée
+            votes_blocked: Votes bloqués
+            votes_enabled: Votes activés
+            votes_hidden: Cacher les votes (si les votes sont activés, le compte des votes sera caché)
+    proposals:
+      actions:
+        answer: Répondre
+        export: Exporter
+        new: Nouveau
+        title: Actions
+      admin:
+        actions:
+          preview: Aperçu
+        models:
+          proposal:
+            name: Proposition
+        proposal_answers:
+          edit:
+            accepted: Publié
+            answer_proposal: Répondre
+            rejected: Refusée
+            title: Réponse à la proposition %{title}
+        proposals:
+          answer:
+            invalid: Il y a eu un problème concernant la réponse à cette proposition
+            success: La réponse à la proposition a publiée avec succès
+          create:
+            invalid: Il y a eu un problème lors de la création de cette proposition
+            success: Proposition créée avec succès
+          form:
+            select_a_category: Sélectionner une catégorie
+          index:
+            title: Propositions
+          new:
+            create: Créer
+            title: Créer une proposition
+      answers:
+        accepted: Publié
+        not_answered: Resté sans réponse
+        rejected: Refusée
+      create:
+        error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
+        success: Proposition créée avec succès.
+      exports:
+        notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
+      models:
+        proposal:
+          fields:
+            category: Catégorie
+            official_proposal: Proposition officielle
+            scope: Sujet ou zone d'application
+            state: Etat
+            title: Titre
+      proposals:
+        count:
+          proposals_count:
+            one: 1 proposition
+            other: "%{count} propositions"
+        filters:
+          accepted: Publié
+          activity: Activité
+          all: Toutes
+          category: Catégorie
+          category_prompt: Sélectionner une catégorie
+          citizenship: Citoyenneté
+          official: Elu(e)
+          origin: Retour à l'original
+          rejected: Refusée
+          related_to: Liée à
+          scopes: Sujets ou zones d'application
+          search: Rechercher
+          state: État
+          voted: Voté
+        filters_small_view:
+          close_modal: Fermer la fenêtre de dialogue
+          filter: Filtrer
+          filter_by: Filtrer par
+          unfold: Déplier
+        index:
+          new_proposal: Nouvelle proposition
+          view_proposal: Voir la proposition
+        linked_proposals:
+          proposal_votes:
+            one: <span class="card--list__data__number">1</span>vote
+            other: <span class="card--list__data__number">%{count}</span>votes
+        new:
+          back: Retour
+          select_a_category: Veuillez sélectionner une catégorie
+          send: Envoyer
+          title: Nouvelle proposition
+        orders:
+          label: 'Classement des propositions par:'
+          most_voted: Les plus votées
+          random: Aléatoire
+          recent: Les plus récents
+        proposal:
+          view_proposal: Voir la proposition
+        show:
+          proposal_accepted_reason: 'Cette proposition a été acceptée parce que :'
+          proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
+          report: Signaler
+        vote_button:
+          already_voted: Déjà voté
+          no_votes_remaining: Aucun vote restant
+          vote: Voter
+          votes_blocked: Votes désactivés
+        votes_count:
+          count:
+            one: VOTE
+            other: VOTES
+        votes_limit:
+          vote_limit:
+            description: Au lieu de voter autant de propositions que vous voulez, vous ne pouvez voter que jusqu'à %{limit} propositions.
+            left: Restant
+            title: Vous disposez de %{limit} votes à distribuer
+            votes: Votes
+    resource_links:
+      included_proposals:
+        proposal_projects: 'Proposition figurant dans ces projets :'
+        proposal_results: 'Proposition figurant dans ces résultats :'
+      proposals_from_meeting:
+        proposal_meetings: Rencontres connexes

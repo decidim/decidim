@@ -30,11 +30,13 @@ fr:
             success: Projet supprimé avec succès
           edit:
             title: Éditer un projet
+            update: Mettre à jour
           index:
             finished_orders: Commandes terminées
             pending_orders: Commandes en attente
             title: Projets
           new:
+            create: Créer
             title: Nouveau résultat
           update:
             invalid: Il y a eu un problème de mise à jour de ce projet
@@ -91,8 +93,35 @@ fr:
           count:
             one: 1 soutien
             other: "%{count} soutiens"
+          remove: Supprimer
+        project_budget_button:
+          add: Ajouter
+          added: Ajouté
+        show:
+          budget: Budget
+          view_all_projects: Voir tous les projets
     features:
       budgets:
+        actions:
+          vote: Voter
+        name: Budgets
         settings:
           global:
+            comments_enabled: Commentaires activés
+            total_budget: Budget total
             vote_threshold_percent: Pourcentage de seuil de vote
+          step:
+            comments_blocked: Commentaires bloqués
+            show_votes: Afficher les votes
+            votes_enabled: Votes activés
+    orders:
+      checkout:
+        error: Une erreur s'est produite lors du traitement de votre vote
+        success: Votre vote a été enregistré avec succès
+      destroy:
+        error: Une erreur s'est produite lors de l'annulation de votre vote
+        success: Votre vote a été annulé avec succès
+    resource_links:
+      included_proposals:
+        project_proposals: 'Propositions incluses dans ce projet:'
+  total_budget: Budget total
