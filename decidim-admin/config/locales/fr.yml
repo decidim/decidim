@@ -39,12 +39,12 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Quartier
-        meta_scope: Metadonnées du processus
+        meta_scope: Metadonnée du domaine d'application
         participatory_process_group_id: Groupe de processus
-        participatory_scope: Objectif
+        participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
-        scope_id: Sujet ou zone d'application
+        scope_id: Domaine d'application
         short_description: Résumé
         slug: Identifiant
         subtitle: Sous-titre
@@ -87,11 +87,11 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Quartier
-        meta_scope: Métadonnées du sujet ou de la zone d'application
+        meta_scope: Metadonnée du domaine d'application
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
-        scope: Sujet ou zone d'application
+        scope: Domaine d'application
         short_description: Résumé
         slug: Identifiant
         subtitle: Sous-titre
@@ -226,7 +226,7 @@ fr:
           moderations: Modérations
           process_admins: Administrateurs du processus participatifs
           steps: Etapes
-        scopes: Sujets ou zones d'application
+        scopes: Domaines d'application
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -430,19 +430,19 @@ fr:
           success: Groupe de processus participatif créé avec succès.
       scopes:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouveau sujet ou zone d'application.
-          success: Sujet ou zone d'application créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouveau domaine d'application.
+          success: Domaine d'application créée avec succès.
         destroy:
-          success: Sujet ou zone d'application détruite avec succès
+          success: Domaine d'application détruit avec succès
         edit:
-          title: Editer le sujet ou la zone d'application
+          title: Editer le domaine d'application
           update: Mettre à jour
         new:
-          create: Créer un sujet ou une zone d'application
-          title: Nouveau sujet ou zone d'application
+          create: Créer un domaine d'application
+          title: Nouveau domaine d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce sujet ou zone d'application.
-          success: Sujet ou zone d'application mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce domaine d'application.
+          success: Domaine d'application mis à jour avec succès
       static_pages:
         actions:
           view: Voir la page publique
@@ -464,7 +464,7 @@ fr:
         dashboard: Tableau de bord
         participatory_process_groups: Groupes de processus participatifs
         participatory_processes: Processus participatifs
-        scopes: Sujets ou zones d'application
+        scopes: Domaines d'application
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
@@ -492,7 +492,7 @@ fr:
         hidden: Masqué
         hide: Masquer
         not_hidden: Non masqué
-        title: Modérations
+        title: Actions
         unreport: Annuler le signalement
       admin:
         reportable:
@@ -506,7 +506,7 @@ fr:
         moderation:
           fields:
             hidden_at: Masqué le
-            report_count: Nombre de signalement
+            report_count: Compter
             reportable: Signalable
             reported_content: Contenu signalé
             reports: Signalements

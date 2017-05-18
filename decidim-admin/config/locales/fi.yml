@@ -88,9 +88,6 @@ fi:
         content: Sisältö
         slug: URL-tunniste
         title: Otsikko
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -401,7 +398,6 @@ fi:
         hidden: Piilotettu
         hide: Piilota
         not_hidden: Näkyvillä
-        title: Moderoinnit
         unreport: Poista raportointi
       admin:
         reportable:
@@ -415,7 +411,6 @@ fi:
         moderation:
           fields:
             hidden_at: Piilotuksen ajankohta
-            report_count: Raportointimäärä
             reportable: Raportoitava
             reported_content: Raportoitava sisältö
             reports: Raportit
@@ -424,5 +419,4 @@ fi:
         none: Ei ryhmää
   time:
     formats:
-      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"

@@ -100,9 +100,6 @@ eu:
         content: Edukia
         slug: URL laburra
         title: Izenburua
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -471,7 +468,6 @@ eu:
         hidden: ' Ezkutatuta'
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
-        title: ' Salaketak'
         unreport: Ezeztatu salaketa
       admin:
         reportable:
@@ -485,7 +481,6 @@ eu:
         moderation:
           fields:
             hidden_at: Ezkutatze-data
-            report_count: Salaketa-kopurua
             reportable: Mota
             reported_content: Edukia
             reports: Salaketak
@@ -503,5 +498,4 @@ eu:
           title: Erabiltzaileak
   time:
     formats:
-      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"

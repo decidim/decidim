@@ -3,7 +3,7 @@ fr:
     attributes:
       result:
         decidim_category_id: Catégorie
-        decidim_scope_id: Sujet ou zone d'application
+        decidim_scope_id: Domaine d'application
         description: Description
         proposal_ids: Propositions incluses
         title: Titre
@@ -62,7 +62,7 @@ fr:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          scopes: Sujets ou zones d'application
+          scopes: Domaines d'application
           search: Rechercher
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue

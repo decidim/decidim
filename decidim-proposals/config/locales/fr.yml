@@ -4,7 +4,7 @@ fr:
       proposal:
         body: Corps de texte
         category_id: Catégorie
-        scope_id: Sujet ou zone d'application
+        scope_id: Domaine d'application
         title: Titre
         user_group_id: Créer une proposition en tant que
       proposal_answer:
@@ -76,7 +76,7 @@ fr:
           fields:
             category: Catégorie
             official_proposal: Proposition officielle
-            scope: Sujet ou zone d'application
+            scope: Domaine d'application
             state: Etat
             title: Titre
       proposals:
@@ -95,7 +95,7 @@ fr:
           origin: Retour à l'original
           rejected: Refusée
           related_to: Liée à
-          scopes: Sujets ou zones d'application
+          scopes: Domaines d'application
           search: Rechercher
           state: État
           voted: Voté

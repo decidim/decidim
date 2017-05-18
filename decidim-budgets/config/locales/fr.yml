@@ -4,7 +4,7 @@ fr:
       project:
         budget: Budget
         decidim_category_id: Catégorie
-        decidim_scope_id: Champ d'application
+        decidim_scope_id: Domaine d'application
         description: Description
         proposal_ids: Propositions liées
         title: Titre
@@ -73,7 +73,7 @@ fr:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          scopes: Étendues
+          scopes: Domaines d'application
           search: Rechercher
         filters_small_view:
           close_modal: Fermer la vue
@@ -124,4 +124,6 @@ fr:
     resource_links:
       included_proposals:
         project_proposals: 'Propositions incluses dans ce projet:'
+  index:
+    confirmed_orders_count: Nombre de votes comptés
   total_budget: Budget total
