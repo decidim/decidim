@@ -124,4 +124,6 @@ fr:
     resource_links:
       included_proposals:
         project_proposals: 'Propositions incluses dans ce projet:'
+  index:
+    confirmed_orders_count: Nombre de votes comptés
   total_budget: Budget total
