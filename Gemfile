@@ -5,7 +5,3 @@ ruby "2.4.1"
 
 gem "decidim", path: "."
 gem "decidim-dev", path: "decidim-dev"
-
-Dir.glob("decidim-!(dev)") do |file|
-  gem file, path: file
-end
