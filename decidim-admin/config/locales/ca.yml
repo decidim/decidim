@@ -104,9 +104,6 @@ ca:
         content: Contingut
         slug: Nom curt d'URL
         title: Títol
-  date:
-    formats:
-      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -492,7 +489,6 @@ ca:
         hidden: Ocults
         hide: Amagar
         not_hidden: No ocult
-        title: Moderacions
         unreport: Desfer denúncia
       admin:
         reportable:
@@ -506,7 +502,6 @@ ca:
         moderation:
           fields:
             hidden_at: Data d'ocultació
-            report_count: Número de denúncies
             reportable: Tipus
             reported_content: Contingut
             reports: Denúncies
@@ -524,5 +519,4 @@ ca:
           title: Usuaris
   time:
     formats:
-      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"
