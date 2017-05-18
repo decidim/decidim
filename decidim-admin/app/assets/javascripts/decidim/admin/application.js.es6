@@ -17,6 +17,7 @@ window.Decidim = window.Decidim || {};
 
 const pageLoad = () => {
   $(document).foundation();
+
   sortSteps();
 
   if (DecidimAdmin) {
@@ -26,7 +27,22 @@ const pageLoad = () => {
 
 $(() => {
   pageLoad();
- if (window.Decidim.formDatePicker) {
+
+  if ($('.survey-questions-list:not(.published)').length > 0) {
+    window.sortable('.survey-questions-list', {
+      handle: "label",
+      placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
+      forcePlaceholderSize: true
+    })[0].addEventListener('sortupdate', (event) => {
+      const $questions = $(event.target).children();
+
+      $questions.each((idx, el) => {
+        $(el).find('input[name="survey[questions][][position]"]').val(idx);
+      })
+    });
+  }
+
+  if (window.Decidim.formDatePicker) {
     window.Decidim.formDatePicker();
   }
 });

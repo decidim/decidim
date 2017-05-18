@@ -19,21 +19,26 @@
 
         <template id="survey-question-tmpl">
           <div class="survey-question">
-            <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", {}, label: t('.question'), disabled: true %>
+            <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", {}, label: "#{icon("move")} #{t('.question')}".html_safe, disabled: true %>
+            <%= hidden_field_tag "survey[questions][][position]", "", disabled: true %>
             <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
           </div>
         </template>
       <% end %>
 
-      <% @form.questions.each do |question| %>
-        <div class="survey-question">
-          <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, label: t('.question'), tabs_prefix: "survey-question-#{question.id}", disabled: @survey.published? %>
-          <%= hidden_field_tag "survey[questions][][id]", question.id %>
-          <% unless @survey.published? %>
-            <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
-          <% end %>
-        </div>
-      <% end %>
+      <div class="survey-questions-list <%= 'published' if @survey.published? %>">
+        <% @form.questions.each_with_index do |question, idx| %>
+          <div class="survey-question">
+            <%- label = @survey.published? ? t('.question') : "#{icon("move")} #{t('.question')}".html_safe %>
+            <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, label: label, tabs_prefix: "survey-question-#{question.id}", disabled: @survey.published? %>
+            <%= hidden_field_tag "survey[questions][][id]", question.id %>
+            <%= hidden_field_tag "survey[questions][][position]", question.position || idx %>
+            <% unless @survey.published? %>
+              <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
