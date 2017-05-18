@@ -54,9 +54,7 @@
     require "rails/engine/commands"
     ```
 
-1. Change `lib/decidim/<engine_name>.rb`
-
-    Add this
+1. Replace `lib/decidim/<engine_name>.rb` with this:
 
     ```ruby
     # frozen_string_literal: true
@@ -81,7 +79,7 @@
 
     module Decidim
       module <EngineName>
-        # Decidim's core Rails Engine.
+        # Decidim's <EngineName> Rails Engine.
         class Engine < ::Rails::Engine
           isolate_namespace Decidim::<EngineName>
 
@@ -150,6 +148,7 @@
 1. Add `spec/spec_helper.rb` with:
 
     ```ruby
+    # frozen_string_literal: true
     ENV["ENGINE_NAME"] = File.dirname(File.dirname(__FILE__)).split("/").last
     require "decidim/test/base_spec_helper"
     ```
