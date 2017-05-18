@@ -112,6 +112,7 @@ es:
             vote_threshold_percent: Porcentaje mínimo del presupuesto
           step:
             comments_blocked: Comentarios bloqueados
+            show_votes: Mostrar votos
             votes_enabled: Votos habilitados
     orders:
       checkout:
