@@ -19,6 +19,10 @@
     Gem::Specification.new do |s|
       Decidim.add_default_gemspec_properties(s)
 
+      s.name        = "decidim-<engine_name>"
+      s.summary     = "<engine_description>"
+      s.description = s.summary
+
       s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
       s.add_dependency "decidim-core", Decidim.version
