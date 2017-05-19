@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Participatory Processes", type: :feature do
   let(:organization) { create(:organization) }
-  let!(:participatory_process) do
+  let(:base_process) do
     create(
       :participatory_process,
       organization: organization,
@@ -17,7 +17,18 @@ describe "Participatory Processes", type: :feature do
     switch_to_host(organization.host)
   end
 
+  context "when there are no processes" do
+    before do
+      visit decidim.participatory_processes_path
+    end
+
+    it "shows a messages about the lack of processes" do
+      expect(page).to have_content("No participatory processes yet!")
+    end
+  end
+
   context "when there are some processes" do
+    let!(:participatory_process) { base_process }
     let!(:promoted_process) { create(:participatory_process, :promoted, organization: organization) }
     let!(:unpublished_process) { create(:participatory_process, :unpublished, organization: organization) }
 
@@ -74,6 +85,7 @@ describe "Participatory Processes", type: :feature do
   end
 
   describe "when going to the participatory process page" do
+    let!(:participatory_process) { base_process }
     let!(:published_feature) { create(:feature, :published, participatory_process: participatory_process) }
     let!(:unpublished_feature) { create(:feature, :unpublished, participatory_process: participatory_process) }
 
