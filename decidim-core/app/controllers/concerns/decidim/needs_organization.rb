@@ -4,7 +4,7 @@ require "active_support/concern"
 
 module Decidim
   # Shared behaviour for controllers that need an organization present in order
-  # to work. The origanization is injected via the CurrentOrganization
+  # to work. The organization is injected via the CurrentOrganization
   # middleware.
   module NeedsOrganization
     extend ActiveSupport::Concern

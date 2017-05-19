@@ -14,14 +14,14 @@ module Decidim
                inverse_of: :attached_to,
                as: :attached_to
 
-      # All the attachments that are photos for this porcess.
+      # All the attachments that are photos for this process.
       #
       # Returns an Array<Attachment>
       def photos
         @photos ||= attachments.select(&:photo?)
       end
 
-      # All the attachments that are documents for this porcess.
+      # All the attachments that are documents for this process.
       #
       # Returns an Array<Attachment>
       def documents

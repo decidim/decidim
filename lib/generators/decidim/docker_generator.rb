@@ -49,10 +49,6 @@ module Decidim
 
       private
 
-      def path_to_decidim
-        "/Users/oriol/Code/decidim"
-      end
-
       def remove_directory_if_exists
         remove_dir(path) if File.directory?(path)
       end
