@@ -15,7 +15,7 @@ module Decidim
 
         describe "when the vote is not created" do
           before do
-            expect(comment.up_votes).to receive(:create!).and_raise(ActiveRecord::RecordInvalid)
+            expect(comment).to receive_message_chain("up_votes.create!").and_raise(ActiveRecord::RecordInvalid)
           end
 
           it "broadcasts invalid" do
@@ -31,7 +31,7 @@ module Decidim
 
         describe "when the vote is already created for this user" do
           before do
-            expect(comment.up_votes).to receive(:create!).and_raise(ActiveRecord::RecordNotUnique)
+            expect(comment).to receive_message_chain("up_votes.create!").and_raise(ActiveRecord::RecordNotUnique)
           end
 
           it "broadcasts invalid" do
@@ -51,7 +51,6 @@ module Decidim
           end
 
           it "creates a new comment vote" do
-            expect(comment.up_votes).to receive(:create!).with(author: author).and_call_original
             expect do
               command.call
             end.to change { CommentVote.count }.by(1)
@@ -64,7 +63,7 @@ module Decidim
 
             describe "when the vote is not created" do
               before do
-                expect(comment.down_votes).to receive(:create!).and_raise(ActiveRecord::RecordInvalid)
+                expect(comment).to receive_message_chain("down_votes.create!").and_raise(ActiveRecord::RecordInvalid)
               end
 
               it "broadcasts invalid" do
@@ -80,7 +79,7 @@ module Decidim
 
             describe "when the vote is already created for this user" do
               before do
-                expect(comment.down_votes).to receive(:create!).and_raise(ActiveRecord::RecordNotUnique)
+                expect(comment).to receive_message_chain("down_votes.create!").and_raise(ActiveRecord::RecordNotUnique)
               end
 
               it "broadcasts invalid" do
@@ -100,7 +99,6 @@ module Decidim
               end
 
               it "creates a new comment vote" do
-                expect(comment.down_votes).to receive(:create!).with(author: author).and_call_original
                 expect do
                   command.call
                 end.to change { CommentVote.count }.by(1)
