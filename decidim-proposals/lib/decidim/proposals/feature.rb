@@ -117,15 +117,17 @@ Decidim.register_feature(:proposals) do |feature|
         email = "vote-author-#{process.id}-#{n}-#{m}@example.org"
         name = "#{Faker::Name.name} #{process.id} #{n} #{m}"
 
-        author = Decidim::User.create!(email: email,
-                                       password: "password1234",
-                                       password_confirmation: "password1234",
-                                       name: name,
-                                       organization: feature.organization,
-                                       tos_agreement: "1",
-                                       confirmed_at: Time.current,
-                                       comments_notifications: true,
-                                       replies_notifications: true)
+        author = Decidim::User.find_or_initialize_by(email: email)
+        author.update!(
+          password: "password1234",
+          password_confirmation: "password1234",
+          name: name,
+          organization: feature.organization,
+          tos_agreement: "1",
+          confirmed_at: Time.current,
+          comments_notifications: true,
+          replies_notifications: true
+        )
 
         Decidim::Proposals::ProposalVote.create!(proposal: proposal,
                                                  author: author)

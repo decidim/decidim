@@ -28,9 +28,8 @@ if !Rails.env.production? || ENV["SEED"]
     )
   end
 
-  Decidim::User.create!(
+  Decidim::User.find_or_initialize_by(email: "admin@example.org").update!(
     name: Faker::Name.name,
-    email: "admin@example.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
     organization: organization,
@@ -42,9 +41,8 @@ if !Rails.env.production? || ENV["SEED"]
     replies_notifications: true
   )
 
-  Decidim::User.create!(
+  Decidim::User.find_or_initialize_by(email: "user@example.org").update!(
     name: Faker::Name.name,
-    email: "user@example.org",
     password: "decidim123456",
     password_confirmation: "decidim123456",
     confirmed_at: Time.current,
@@ -115,22 +113,25 @@ if !Rails.env.production? || ENV["SEED"]
   end
 
   Decidim::ParticipatoryProcess.find_each do |process|
-    Decidim::ParticipatoryProcessStep.create!(
+    Decidim::ParticipatoryProcessStep.find_or_initialize_by(
+      participatory_process: process,
+      active: true
+    ).update!(
       title: Decidim::Faker::Localized.sentence(1, false, 2),
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(3)
       end,
-      active: true,
       start_date: 1.month.ago.at_midnight,
-      end_date: 2.months.from_now.at_midnight,
-      participatory_process: process
+      end_date: 2.months.from_now.at_midnight
     )
 
     # Create users with specific roles
     Decidim::ParticipatoryProcessUserRole::ROLES.each do |role|
-      user = Decidim::User.create!(
+      email = "participatory_process_#{process.id}_#{role}@example.org"
+
+      user = Decidim::User.find_or_initialize_by(email: email)
+      user.update!(
         name: Faker::Name.name,
-        email: "participatory_process_#{process.id}_#{role}@example.org",
         password: "decidim123456",
         password_confirmation: "decidim123456",
         organization: organization,
@@ -141,7 +142,11 @@ if !Rails.env.production? || ENV["SEED"]
         replies_notifications: true
       )
 
-      Decidim::ParticipatoryProcessUserRole.create!(user: user, participatory_process: process, role: role)
+      Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
+        user: user,
+        participatory_process: process,
+        role: role
+      )
     end
 
     Decidim::Attachment.create!(
