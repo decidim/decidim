@@ -17,7 +17,7 @@ describe "Vote Proposal", type: :feature do
 
   context "when votes are not enabled" do
     it "doesn't show the vote proposal button and counts" do
-      expect(page).to have_no_css(".card__button", text: "Vote")
+      expect(page).to have_no_button("Vote")
       expect(page).to have_no_css(".card__support__data span", text: "0 VOTES")
     end
   end
@@ -67,7 +67,7 @@ describe "Vote Proposal", type: :feature do
         it "should be able to vote the proposal" do
           within "#proposal-#{proposal.id}-vote-button" do
             click_button "Vote"
-            expect(page).to have_css(".card__button.success", text: "Already voted")
+            expect(page).to have_button("Already voted")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
@@ -84,7 +84,7 @@ describe "Vote Proposal", type: :feature do
 
         it "should not be able to vote it again" do
           within "#proposal-#{proposal.id}-vote-button" do
-            expect(page).to have_css(".card__button.success", text: "Already voted")
+            expect(page).to have_button("Already voted")
             click_button("Already voted")
           end
 
@@ -140,7 +140,7 @@ describe "Vote Proposal", type: :feature do
 
           it "should be able to undo the vote" do
             within "#proposal-#{proposal.id}-vote-button" do
-              expect(page).to have_css(".card__button.success")
+              expect(page).to have_button("Already voted")
               click_button "Already voted"
             end
 
