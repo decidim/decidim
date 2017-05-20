@@ -50,7 +50,7 @@ describe "Vote Proposal", type: :feature do
         visit_feature
 
         within ".card__support", match: :first do
-          page.find(".card__button").click
+          click_button "Vote"
         end
 
         expect(page).to have_css("#loginModal", visible: true)
@@ -66,7 +66,7 @@ describe "Vote Proposal", type: :feature do
       context "when the proposal is not voted yet" do
         it "should be able to vote the proposal" do
           within "#proposal-#{proposal.id}-vote-button" do
-            page.find(".card__button").click
+            click_button "Vote"
             expect(page).to have_css(".card__button.success", text: "Already voted")
           end
 
@@ -85,7 +85,7 @@ describe "Vote Proposal", type: :feature do
         it "should not be able to vote it again" do
           within "#proposal-#{proposal.id}-vote-button" do
             expect(page).to have_css(".card__button.success", text: "Already voted")
-            page.find(".card__button").click
+            click_button("Already voted")
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
@@ -109,7 +109,7 @@ describe "Vote Proposal", type: :feature do
         context "when the proposal is not voted yet" do
           it "should update the remaining votes counter" do
             within "#proposal-#{proposal.id}-vote-button" do
-              page.find(".card__button").click
+              click_button "Vote"
               expect(page).to have_css(".card__button.success")
             end
 
@@ -125,7 +125,7 @@ describe "Vote Proposal", type: :feature do
 
           it "should show a modal dialog" do
             within "#proposal-#{proposal.id}-vote-button" do
-              page.find(".card__button").click
+              click_button "Vote"
             end
 
             expect(page).to have_content("Authorization required")
@@ -141,7 +141,7 @@ describe "Vote Proposal", type: :feature do
           it "should be able to undo the vote" do
             within "#proposal-#{proposal.id}-vote-button" do
               expect(page).to have_css(".card__button.success")
-              page.find(".card__button").click
+              click_button "Already voted"
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
