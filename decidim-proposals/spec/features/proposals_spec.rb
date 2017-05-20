@@ -606,8 +606,8 @@ describe "Proposals", type: :feature do
 
           click_link "Most voted"
 
-          expect(page.find("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)).to be
-          expect(page.find("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)).to be
+          expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
+          expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
         end
       end
 
@@ -624,8 +624,8 @@ describe "Proposals", type: :feature do
 
           click_link "Recent"
 
-          expect(page.find("#proposals .card-grid .column:first-child", text: recent_proposal.title)).to be
-          expect(page.find("#proposals .card-grid .column:last-child", text: older_proposal.title)).to be
+          expect(page).to have_selector("#proposals .card-grid .column:first-child", text: recent_proposal.title)
+          expect(page).to have_selector("#proposals .card-grid .column:last-child", text: older_proposal.title)
         end
       end
     end
