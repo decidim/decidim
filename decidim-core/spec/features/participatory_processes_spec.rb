@@ -73,7 +73,7 @@ describe "Participatory Processes", type: :feature do
     end
   end
 
-  describe "show" do
+  describe "when going to the participatory process page" do
     let!(:published_feature) { create(:feature, :published, participatory_process: participatory_process) }
     let!(:unpublished_feature) { create(:feature, :unpublished, participatory_process: participatory_process) }
 
