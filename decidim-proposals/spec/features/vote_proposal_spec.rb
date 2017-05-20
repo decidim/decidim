@@ -17,8 +17,8 @@ describe "Vote Proposal", type: :feature do
 
   context "when votes are not enabled" do
     it "doesn't show the vote proposal button and counts" do
-      expect(page).not_to have_css(".card__button", text: "Vote")
-      expect(page).not_to have_css(".card__support__data span", text: "0 VOTES")
+      expect(page).to have_no_css(".card__button", text: "Vote")
+      expect(page).to have_no_css(".card__support__data span", text: "0 VOTES")
     end
   end
 
