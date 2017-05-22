@@ -8,6 +8,7 @@ module Decidim
 
         attribute :id, String
         attribute :position, Integer
+        attribute :mandatory, Boolean, default: false
         attribute :deleted, Boolean, default: false
 
         translatable_attribute :body, String
