@@ -11,7 +11,7 @@ describe "Admin copy participatory process", type: :feature do
   end
 
   it "without any context" do
-    page.find('.action-icon--copy', match: :first).click
+    page.find(".action-icon--copy", match: :first).click
 
     within ".copy_participatory_process" do
       fill_in_i18n(
@@ -21,7 +21,7 @@ describe "Admin copy participatory process", type: :feature do
         es: "Copia del proceso participativo",
         ca: "Còpia del procés participatiu"
       )
-      fill_in :participatory_process_copy_slug, with: 'pp-copy'
+      fill_in :participatory_process_copy_slug, with: "pp-copy"
       click_button "Copy"
     end
 
