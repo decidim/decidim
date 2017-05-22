@@ -9,7 +9,7 @@ module Decidim
 
     included do
       has_many :attachments,
-               class_name: Decidim::Attachment,
+               class_name: "Decidim::Attachment",
                dependent: :destroy,
                inverse_of: :attached_to,
                as: :attached_to

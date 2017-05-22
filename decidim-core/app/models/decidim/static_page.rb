@@ -7,7 +7,7 @@ module Decidim
   # Pages with a default slug cannot be destroyed and its slug cannot be
   # modified.
   class StaticPage < ApplicationRecord
-    belongs_to :organization, foreign_key: "decidim_organization_id", class_name: Decidim::Organization, inverse_of: :static_pages
+    belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization", inverse_of: :static_pages
 
     validates :slug, :organization, presence: true
     validates :slug, uniqueness: { scope: :organization }

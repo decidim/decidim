@@ -4,8 +4,8 @@ module Decidim
   class Report < ApplicationRecord
     REASONS = %w(spam offensive does_not_belong).freeze
 
-    belongs_to :moderation, foreign_key: "decidim_moderation_id", class_name: Decidim::Moderation
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: Decidim::User
+    belongs_to :moderation, foreign_key: "decidim_moderation_id", class_name: "Decidim::Moderation"
+    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
     validates :moderation, :user, :reason, presence: true
     validates :user, uniqueness: { scope: :decidim_moderation_id }

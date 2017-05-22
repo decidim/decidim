@@ -14,6 +14,7 @@ module Decidim
 
     include_examples "with participatory processes"
     include_examples "with promoted participatory processes"
+    include_examples "with participatory processes and groups"
 
     describe "GET show" do
       context "when the process is unpublished" do
