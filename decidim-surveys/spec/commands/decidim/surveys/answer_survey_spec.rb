@@ -16,11 +16,11 @@ module Decidim
           "answers" => [
             {
               "body" => "This is my first answer",
-              "survey_question_id" => survey_question_1.id
+              "question_id" => survey_question_1.id
             },
             {
               "body" => "This is my first answer",
-              "survey_question_id" => survey_question_2.id
+              "question_id" => survey_question_2.id
             }
           ]
         }

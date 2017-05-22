@@ -56,13 +56,13 @@ describe "Edit a survey", type: :feature do
         questions_body[idx].each do |locale, value|
           within survey_question do
             click_link I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
-            fill_in "survey_questions__body_#{locale}", with: value
+            find("input[name='survey[questions][][body_#{locale}]']").send_keys value
           end
         end
       end
 
       within ".survey-question:last-child" do
-        check "survey_questions__mandatory"
+        check "Mandatory"
       end
 
       click_button "Save"
@@ -95,7 +95,7 @@ describe "Edit a survey", type: :feature do
         expect(page).to have_selector(".survey-question", count: 1)
 
         within ".survey-question" do
-          fill_in "survey_questions__body_en", with: "Modified question"
+          fill_in "survey-question-#{survey_question.id}_body_en", with: "Modified question"
         end
 
         click_button "Save and publish"

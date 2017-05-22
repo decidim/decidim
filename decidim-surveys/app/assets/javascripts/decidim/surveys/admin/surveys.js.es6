@@ -8,42 +8,49 @@
 
   $.template(templateId, $(`#${templateId}`).html());
 
-  const computeLabelOrder = () => {
+  const computeQuestionPositions = () => {
     const $questions = $('.survey-question:not(.hidden)');
 
     $questions.each((idx, el) => {
       const $questionlabel = $(el).find('label:first');
 
+      $(el).find('input[name="survey[questions][][position]"]').val(idx);
       $questionlabel.html($questionlabel.html().replace(/#(\d+)/, `#${idx + 1}`));
     });
   };
 
+  const createSortableList = () => {
+    if (DecidimAdmin) {
+      DecidimAdmin.sortList('.survey-questions-list:not(.published)', {
+        handle: 'label',
+        placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
+        forcePlaceholderSize: true,
+        onSortUpdate: computeQuestionPositions
+      });
+    }
+  };
+
   const addQuestion = (event) => {
     try {
-      const $newQuestion = $.tmpl(templateId, {});
       const tabsId = `survey-question-${new Date().getTime()}-${Math.floor(Math.random() * 1000000)}`;
       const position = $container.find('.survey-question').length;
+      const $newQuestion = $.tmpl(templateId, {
+        position,
+        questionLabelPosition: position + 1,
+        tabsId
+      });
 
       $newQuestion.find('input[disabled]').attr('disabled', false);
-      $newQuestion.find('input[name="survey[questions][][position]"]').val(position);
-      $newQuestion.find('label:first-child').html(`${$newQuestion.find('label:first-child').html()} #${position + 1}`);
+      $newQuestion.find('ul.tabs').attr('data-tabs', true);
       $newQuestion.appendTo($container);
-      $newQuestion.find('.label--tabs ul.tabs').attr('id', tabsId);
-      $newQuestion.find('.label--tabs .tabs-title a').each(function (idx, node) {
-        const href = $(node).attr('href');
-        $(node).attr('href', href.replace('#', `#${tabsId}-`));
-      });
-      $newQuestion.find('.tabs-content').attr('data-tabs-content', tabsId);
-      $newQuestion.find('.tabs-content .tabs-panel').each(function (idx, node) {
-        $(node).attr('id', `${tabsId}-${$(node).attr('id')}`);
-      });
 
       $newQuestion.foundation();
+
+      createSortableList();
+      computeQuestionPositions();
     } catch (error) {
       console.error(error); // eslint-disable-line no-console
     }
-
-    computeLabelOrder();
 
     event.preventDefault();
     event.stopPropagation();
@@ -66,11 +73,11 @@
       } else {
         $question.remove();
       }
+
+      computeQuestionPositions();
     } catch (error) {
       console.error(error); // eslint-disable-line no-console
     }
-
-    computeLabelOrder();
 
     event.preventDefault();
     event.stopPropagation();
@@ -79,17 +86,5 @@
   $addQuestionButtons.on('click', addQuestion);
   $wrapper.on('click', '.remove-question', removeQuestion);
 
-  if (DecidimAdmin) {
-    DecidimAdmin.sortList('.survey-questions-list:not(.published)', {
-      handle: 'label',
-      placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
-      forcePlaceholderSize: true,
-      onSortUpdate: ($children) => {
-        $children.each((idx, el) => {
-          $(el).find('input[name="survey[questions][][position]"]').val(idx);
-        });
-        computeLabelOrder();
-      }
-    });
-  }
+  createSortableList();
 })();

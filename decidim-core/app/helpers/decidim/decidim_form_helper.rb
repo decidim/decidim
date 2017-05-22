@@ -48,15 +48,16 @@ module Decidim
     # name        - The name of the input which will be suffixed with the corresponding locales.
     # value       - A hash containing the value for each locale.
     # options     - An optional hash of options.
-    #             * tabs_prefix: A prefix to identify the Foundation tabs element.
+    #             * tabs_id: The id to identify the Foundation tabs element.
     #             * label: The label used for the field.
     #
     # Returns a Foundation tabs element with the translated input field.
     def translated_field_tag(type, object_name, name, value = {}, options = {})
       locales = Decidim.available_locales
 
-      tabs_id = "#{object_name}-#{name}-tabs"
-      tabs_id = "#{options[:tabs_prefix]}-#{tabs_id}" if options[:tabs_prefix].present?
+      tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
+      enabled_tabs = options[:enable_tabs] == nil ? true : options[:enable_tabs]
+      tabs_panels_data = enabled_tabs ? { tabs: true } : {}
 
       if locales.count == 1
         return send(
@@ -71,12 +72,11 @@ module Decidim
 
         tabs_panels = "".html_safe
         if options[:label] != false
-          tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
+          tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: tabs_panels_data) do
             locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
               string + content_tag(:li, class: tab_element_class_for("title", index)) do
                 title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
-                tab_content_id = "#{name}-panel-#{index}"
-                tab_content_id = "#{options[:tabs_prefix]}-#{tab_content_id}" if options[:tabs_prefix].present?
+                tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
                 content_tag(:a, title, href: "##{tab_content_id}")
               end
             end
@@ -88,10 +88,9 @@ module Decidim
 
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-          tab_content_id = "#{name}-panel-#{index}"
-          tab_content_id = "#{options[:tabs_prefix]}-#{tab_content_id}" if options[:tabs_prefix].present?
+          tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
-            send(type, "#{object_name}[#{name_with_locale(name, locale)}]", value[locale], options.merge(label: false))
+            send(type, "#{object_name}[#{name_with_locale(name, locale)}]", value[locale], options.merge(id: "#{tabs_id}_#{name}_#{locale}", label: false))
           end
         end
       end

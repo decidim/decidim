@@ -11,6 +11,13 @@ module Decidim
       def question
         @question ||= SurveyQuestion.find(question_id)
       end
+
+      # Private: Map the correct fields.
+      #
+      # Returns nothing.
+      def map_model(model)
+        self.question_id = model.id
+      end
     end
   end
 end
