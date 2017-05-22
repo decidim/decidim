@@ -19,19 +19,16 @@
     Gem::Specification.new do |s|
       Decidim.add_default_gemspec_properties(s)
 
+      s.name        = "decidim-<engine_name>"
+      s.summary     = "<engine_description>"
+      s.description = s.summary
+
       s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
       s.add_dependency "decidim-core", Decidim.version
       s.add_dependency "rails", *Decidim.rails_version
 
       s.add_development_dependency "decidim-dev", Decidim.version
-
-      # Add more dependencies as needed:
-      s.add_dependency "foundation-rails", "~> 6.2.4.0"
-      s.add_dependency "autoprefixer-rails", ["~> 6.7", ">= 6.7.4"]
-      s.add_dependency "sass-rails", "~> 5.0.0"
-      s.add_dependency "jquery-rails", "~> 4.0"
-      s.add_dependency "foundation_rails_helper", "~> 2.0.0"
     end
     ```
 
@@ -54,9 +51,7 @@
     require "rails/engine/commands"
     ```
 
-1. Change `lib/decidim/<engine_name>.rb`
-
-    Add this
+1. Replace `lib/decidim/<engine_name>.rb` with this:
 
     ```ruby
     # frozen_string_literal: true
@@ -73,15 +68,10 @@
     require "active_support/all"
 
     require "decidim/core"
-    require "jquery-rails"
-    require "sass-rails"
-    require "foundation-rails"
-    require "foundation_rails_helper"
-    require "autoprefixer-rails"
 
     module Decidim
       module <EngineName>
-        # Decidim's core Rails Engine.
+        # Decidim's <EngineName> Rails Engine.
         class Engine < ::Rails::Engine
           isolate_namespace Decidim::<EngineName>
 
@@ -150,6 +140,7 @@
 1. Add `spec/spec_helper.rb` with:
 
     ```ruby
+    # frozen_string_literal: true
     ENV["ENGINE_NAME"] = File.dirname(File.dirname(__FILE__)).split("/").last
     require "decidim/test/base_spec_helper"
     ```
