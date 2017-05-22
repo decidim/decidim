@@ -348,6 +348,7 @@ en:
       participatory_process_copies:
         new:
           copy: Copy
+          title: Title
       participatory_process_groups:
         destroy:
           success: Participatory process group destroyed successfully.

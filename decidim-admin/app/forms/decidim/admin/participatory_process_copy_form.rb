@@ -10,6 +10,12 @@ module Decidim
       translatable_attribute :title, String
 
       attribute :slug, String
+      attribute :copy_steps, Boolean
+      attribute :copy_categories, Boolean
+      attribute :copy_process_users, Boolean
+      attribute :copy_moderations, Boolean
+      attribute :copy_pages, Boolean
+      attribute :copy_features, Boolean
 
       validates :slug, presence: true
       validates :title, translatable_presence: true

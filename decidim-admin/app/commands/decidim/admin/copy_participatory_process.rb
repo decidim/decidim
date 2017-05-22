@@ -20,7 +20,11 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
-        copy_participatory_process
+
+        ParticipatoryProcess.transaction do
+          copy_participatory_process
+          copy_participatory_process_steps if @form.copy_steps?
+        end
 
         broadcast(:ok, @copied_process)
       end
@@ -66,6 +70,20 @@ module Decidim
 
         #   process
         # end
+      end
+
+      def copy_participatory_process_steps
+        @participatory_process.steps.each do |step|
+          ParticipatoryProcessStep.create!(
+            title: step.title,
+            description: step.description,
+            start_date: step.start_date,
+            end_date: step.end_date,
+            participatory_process: @copied_process
+            position: step.position
+            active: step.active
+          )
+        end
       end
     end
   end

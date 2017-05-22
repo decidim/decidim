@@ -1,19 +1,52 @@
-<div class="card" id="processes">
-  <div class="card-divider">
-    <h2 class="card-title">
-      Copy PP
-    </h2>
-  </div>
-  <%= decidim_form_for(@form, url: participatory_process_copies_path(participatory_process), method: :post, html: { class: "form copy_participatory_process" }) do |f| %>
+<%= decidim_form_for(@form, url: participatory_process_copies_path(participatory_process), method: :post, html: { class: "form copy_participatory_process" }) do |form| %>
 
-    <div class="row column">
-      <%= f.translated :text_field, :title, autofocus: true %>
+  <div class="card" id="processes">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t ".title" %></h2>
     </div>
-    <div class="row column">
-      <%= f.text_field :slug %>
+    <div class="card-section">
+      <div class="row">
+        <div class="column xlarge-8">
+          <%= form.translated :text_field, :title, autofocus: true %>
+        </div>
+        <div class="column xlarge-4">
+          <%= form.text_field :slug %>
+        </div>
+      </div>
     </div>
-    <div class="button--double form-general-submit">
-      <%= f.submit t(".copy") %>
+    <div class="card-divider">
+      <h2 class="card-title"><%= t ".title" %></h2>
     </div>
-  <% end %>
-</div>
+    <div class="card-section">
+      <div class="row">
+        <div class="columns xlarge-3">
+          <%= form.check_box :copy_steps %>
+        </div>
+
+        <div class="columns xlarge-3">
+          <%= form.check_box :copy_categories %>
+        </div>
+        <div class="columns xlarge-3">
+          <%= form.check_box :copy_process_users %>
+        </div>
+
+        <div class="columns xlarge-3">
+          <%= form.check_box :copy_moderations %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns xlarge-3">
+          <%= form.check_box :copy_pages %>
+        </div>
+
+        <div class="columns xlarge-9">
+          <%= form.check_box :copy_features %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= form.submit t(".copy") %>
+  </div>
+<% end %>
