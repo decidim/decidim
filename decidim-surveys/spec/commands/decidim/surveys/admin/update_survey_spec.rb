@@ -32,7 +32,8 @@ module Decidim
                   "ca" => "Segona pregunta",
                   "es" => "Segunda pregunta"
                 },
-                "position" => "1"
+                "position" => "1",
+                "mandatory" => "1"
               }
             ],
             "published_at" => published_at
@@ -77,6 +78,8 @@ module Decidim
             survey.questions.each_with_index do |question, idx|
               expect(question.body["en"]).to eq(form_params["questions"][idx]["body"]["en"])
             end
+
+            expect(survey.questions[1]).to be_mandatory
           end
         end
 
