@@ -106,7 +106,7 @@ describe "Answer a survey", type: :feature do
           within ".alert.flash" do
             expect(page).to have_content("error")
           end
-          expect(page).to have_content("can't be blank")          
+          expect(page).to have_content("can't be blank")
         end
       end
     end

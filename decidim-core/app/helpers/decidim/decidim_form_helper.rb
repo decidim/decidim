@@ -56,7 +56,7 @@ module Decidim
       locales = Decidim.available_locales
 
       tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
-      enabled_tabs = options[:enable_tabs] == nil ? true : options[:enable_tabs]
+      enabled_tabs = options[:enable_tabs].nil? ? true : options[:enable_tabs]
       tabs_panels_data = enabled_tabs ? { tabs: true } : {}
 
       if locales.count == 1
