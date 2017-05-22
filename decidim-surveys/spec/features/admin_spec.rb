@@ -61,6 +61,10 @@ describe "Edit a survey", type: :feature do
         end
       end
 
+      within ".survey-question:last-child" do
+        check "survey_questions__mandatory"
+      end
+
       click_button "Save"
     end
 

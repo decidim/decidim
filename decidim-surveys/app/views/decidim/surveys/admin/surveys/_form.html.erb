@@ -19,7 +19,13 @@
 
         <template id="survey-question-tmpl">
           <div class="survey-question">
-            <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", {}, label: "#{icon("move")} #{t('.question')}".html_safe, disabled: true %>
+            <div class="row column">
+              <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", {}, label: "#{icon("move")} #{t('.question')}".html_safe, disabled: true %>
+            </div>
+            <div class="row column">
+              <%= check_box_tag "survey[questions][][mandatory]" %>
+              <%= label_tag "survey_questions__mandatory", t('activemodel.attributes.survey_question.mandatory') %>              
+            </div>
             <%= hidden_field_tag "survey[questions][][position]", "", disabled: true %>
             <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
           </div>
@@ -31,7 +37,15 @@
           <div class="survey-question">
             <%- label = @survey.published? ? t('.question') : "#{icon("move")} #{t('.question')} ##{(question.position || idx) + 1}".html_safe
 %>
-            <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, label: label, tabs_prefix: "survey-question-#{question.id}", disabled: @survey.published? %>
+            <div class="row column">
+              <%= translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, label: label, tabs_prefix: "survey-question-#{question.id}", disabled: @survey.published? %>
+            </div>
+
+            <div class="row column">
+              <%= check_box_tag "survey[questions][][mandatory]", "1", question.mandatory, id: "survey_questions_#{question.id}_mandatory" %>
+              <%= label_tag "survey_questions_#{question.id}_mandatory", t('activemodel.attributes.survey_question.mandatory') %>
+            </div>
+
             <%= hidden_field_tag "survey[questions][][id]", question.id %>
             <%= hidden_field_tag "survey[questions][][position]", question.position || idx %>
             <% unless @survey.published? %>
