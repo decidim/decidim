@@ -23,14 +23,16 @@ module Decidim
                 "en" => "First question",
                 "ca" => "Primera pregunta",
                 "es" => "Primera pregunta"
-              }
+              },
+              position: 0
             },
             {
               body: {
                 "en" => "Second question",
                 "ca" => "Segona pregunta",
                 "es" => "Segunda pregunta"
-              }
+              },
+              position: 1
             }
           ]
         end

@@ -32,15 +32,16 @@ module Decidim
 
         def update_survey_questions
           @form.questions.each do |form_question|
+            question_attributes = { body: form_question.body, position: form_question.position }
             if form_question.id.present?
               question = @survey.questions.where(id: form_question.id).first
               if form_question.deleted?
                 question.destroy!
               else
-                question.update_attributes!(body: form_question.body)
+                question.update_attributes!(question_attributes)
               end
             else
-              @survey.questions.create!(body: form_question.body)
+              @survey.questions.create!(question_attributes)
             end
           end
         end
