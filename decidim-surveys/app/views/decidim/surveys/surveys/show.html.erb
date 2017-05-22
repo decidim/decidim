@@ -33,7 +33,7 @@
           <% else %>
             <div class="answer-survey">
               <h5 class="section-heading"><%= t('.answer_survey.title') %></h5>
-              <%= decidim_form_for(@form, url: answer_survey_path(survey), method: :post, html: { class: "form" }) do |form| %>
+              <%= decidim_form_for(@form, url: answer_survey_path(survey), method: :post, html: { class: "form answer-survey" }) do |form| %>
                 <% @form.answers.each_with_index do |answer, idx| %>
                   <div class="field">
                     <% field_id = "survey_#{survey.id}_question_#{answer.question.id}_answer_body" %>

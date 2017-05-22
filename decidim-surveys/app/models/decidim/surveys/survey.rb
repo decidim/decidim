@@ -7,7 +7,7 @@ module Decidim
 
       feature_manifest_name "surveys"
 
-      has_many :questions, class_name: SurveyQuestion, foreign_key: "decidim_survey_id"
+      has_many :questions, -> { order(:position) }, class_name: SurveyQuestion, foreign_key: "decidim_survey_id"
 
       validate :questions_before_publishing?
 

@@ -7,8 +7,12 @@ module Decidim
         include TranslatableAttributes
 
         attribute :id, String
+        attribute :position, Integer
         attribute :deleted, Boolean, default: false
+
         translatable_attribute :body, String
+
+        validates :position, numericality: { greater_than_or_equal_to: 0 }
       end
     end
   end
