@@ -31,7 +31,7 @@ module Decidim
             SurveyAnswer.create!(
               user: @current_user,
               survey: @survey,
-              decidim_survey_question_id: form_answer.survey_question_id,
+              question: form_answer.question,
               body: form_answer.body
             )
           end

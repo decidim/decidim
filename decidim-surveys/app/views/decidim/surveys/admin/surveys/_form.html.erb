@@ -24,7 +24,7 @@
             </div>
             <div class="row column">
               <%= check_box_tag "survey[questions][][mandatory]" %>
-              <%= label_tag "survey_questions__mandatory", t('activemodel.attributes.survey_question.mandatory') %>              
+              <%= label_tag "survey_questions__mandatory", t('activemodel.attributes.survey_question.mandatory') %>
             </div>
             <%= hidden_field_tag "survey[questions][][position]", "", disabled: true %>
             <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
@@ -42,7 +42,7 @@
             </div>
 
             <div class="row column">
-              <%= check_box_tag "survey[questions][][mandatory]", "1", question.mandatory, id: "survey_questions_#{question.id}_mandatory" %>
+              <%= check_box_tag "survey[questions][][mandatory]", "1", question.mandatory, id: "survey_questions_#{question.id}_mandatory", disabled: @survey.published? %>
               <%= label_tag "survey_questions_#{question.id}_mandatory", t('activemodel.attributes.survey_question.mandatory') %>
             </div>
 

@@ -40,6 +40,15 @@ module Decidim
           expect(subject).not_to be_valid
         end
       end
+
+      context "when question is mandatory" do
+        let(:survey_question) { create(:survey_question, survey: survey, mandatory: true) }
+
+        it "is not valid with an empty body" do
+          subject.body = ""
+          expect(subject).not_to be_valid
+        end
+      end
     end
   end
 end

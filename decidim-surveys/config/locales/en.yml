@@ -4,6 +4,8 @@ en:
     attributes:
       survey_question:
         mandatory: "Mandatory"
+      survey_answer:
+        body: "Answer"
   decidim:
     features:
       surveys:
