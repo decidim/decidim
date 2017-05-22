@@ -39,6 +39,8 @@ module Decidim
           "--skip-bundle",
           "--skip-git",
           "--skip-keeps",
+          "--skip-listen",
+          "--skip-spring",
           "--skip-test",
           "--recreate_db"
         ]
