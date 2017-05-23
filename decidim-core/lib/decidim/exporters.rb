@@ -5,5 +5,6 @@ module Decidim
     autoload :JSON, "decidim/exporters/json"
     autoload :CSV, "decidim/exporters/csv"
     autoload :ExportData, "decidim/exporters/export_data"
+    autoload :Serializer, "decidim/exporters/serializer"
   end
 end

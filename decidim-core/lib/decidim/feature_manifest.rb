@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require_dependency "decidim/features/settings_manifest"
+require_dependency "decidim/features/export_manifest"
 
 module Decidim
   # This class handles all the logic associated to configuring a feature
@@ -126,6 +127,20 @@ module Decidim
       yield(manifest)
       manifest.validate!
       resource_manifests << manifest
+    end
+
+    def exports(name, &block)
+      @exports ||= []
+      @exports << [name, block]
+      @export_manifests = nil
+    end
+
+    def export_manifests
+      @export_manifests ||= @exports.map do |(name, block)|
+        Decidim::Features::ExportManifest.new(name).tap do |manifest|
+          block.call(manifest)
+        end
+      end
     end
 
     # Public: Finds all the registered resource manifest's via the
