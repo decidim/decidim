@@ -55,21 +55,6 @@ module Decidim
           end_date: @participatory_process.end_date,
           participatory_process_group: @participatory_process.participatory_process_group
         )
-
-        # return process unless process.valid?
-        # transaction do
-        #   process.save!
-
-        #   process.steps.create!(
-        #     title: TranslationsHelper.multi_translation(
-        #       "decidim.admin.participatory_process_steps.default_title",
-        #       form.current_organization.available_locales
-        #     ),
-        #     active: true
-        #   )
-
-        #   process
-        # end
       end
 
       def copy_participatory_process_steps
@@ -79,8 +64,8 @@ module Decidim
             description: step.description,
             start_date: step.start_date,
             end_date: step.end_date,
-            participatory_process: @copied_process
-            position: step.position
+            participatory_process: @copied_process,
+            position: step.position,
             active: step.active
           )
         end
