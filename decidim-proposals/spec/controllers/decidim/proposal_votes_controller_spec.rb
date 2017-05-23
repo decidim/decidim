@@ -97,14 +97,12 @@ module Decidim
             create(:proposal_feature, :with_votes_enabled)
           end
 
-          it "does not allow deleting a vote" do
+          it "deletes the vote" do
             expect do
               delete :destroy, format: :js, params: params
-            end.not_to change { ProposalVote.count }
+            end.to change { ProposalVote.count }.by(-1)
 
-            expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(302)
-            expect(ProposalVote.count).to eq(1)
+            expect(ProposalVote.count).to eq(0)
           end
         end
       end
