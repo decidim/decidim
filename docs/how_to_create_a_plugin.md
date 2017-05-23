@@ -93,7 +93,6 @@
 
     Decidim.register_feature(:<engine_name>) do |feature|
       feature.engine = Decidim::<EngineName>::Engine
-      feature.admin_engine = Decidim::<EngineName>::AdminEngine
       feature.icon = "decidim/<engine_name>/icon.svg"
 
       feature.on(:before_destroy) do |instance|
