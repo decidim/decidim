@@ -100,7 +100,7 @@ describe "Admin manage participatory process groups", type: :feature do
       end
 
       within "table" do
-        expect(page).not_to have_content(participatory_process_group.name)
+        expect(page).not_to have_content(participatory_process_group.name["en"])
       end
     end
   end

@@ -104,7 +104,7 @@ RSpec.shared_examples "manage processes examples" do
 
     it "doesn't let the admin manage processes form other organizations" do
       within "table" do
-        expect(page).not_to have_content(external_participatory_process.title)
+        expect(page).not_to have_content(external_participatory_process.title["en"])
       end
     end
   end

@@ -115,7 +115,7 @@ PATH
   specs:
     decidim-dev (0.2.0.pre)
       byebug
-      capybara (~> 2.13.0)
+      capybara (~> 2.14.0)
       capybara-screenshot (~> 1.0.14)
       codecov (~> 0.1.9)
       database_cleaner (~> 1.5.0)
@@ -198,7 +198,7 @@ GEM
     builder (3.2.3)
     byebug (9.0.6)
     cancancan (1.16.0)
-    capybara (2.13.0)
+    capybara (2.14.0)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
