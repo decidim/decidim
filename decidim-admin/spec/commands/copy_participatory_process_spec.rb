@@ -13,11 +13,21 @@ describe Decidim::Admin::CopyParticipatoryProcess do
       invalid?: invalid,
       title: { en: "title" },
       slug: "copied_slug",
-      copy_steps?: copy_steps
+      copy_steps?: copy_steps,
+      copy_categories?: copy_categories
+
     )
   end
+  let!(:category) do
+    create(
+      :category,
+      participatory_process: participatory_process
+    )
+  end
+
   let(:invalid) { false }
   let(:copy_steps) { false }
+  let(:copy_categories) { false }
 
   subject { described_class.new(form, participatory_process) }
 
@@ -45,6 +55,15 @@ describe Decidim::Admin::CopyParticipatoryProcess do
     it "duplicates a participatory process and the steps" do
       expect { subject.call }.to change { Decidim::ParticipatoryProcessStep.count }.by(1)
       expect(Decidim::ParticipatoryProcessStep.pluck(:decidim_participatory_process_id).uniq.count).to eq 2
+    end
+  end
+
+  context "when copy_steps exists" do
+    let(:copy_categories) { true }
+
+    it "duplicates a participatory process and the steps" do
+      expect { subject.call }.to change { Decidim::Category.count }.by(1)
+      expect(Decidim::Category.pluck(:decidim_participatory_process_id).uniq.count).to eq 2
     end
   end
 end

@@ -24,6 +24,7 @@ module Decidim
         ParticipatoryProcess.transaction do
           copy_participatory_process
           copy_participatory_process_steps if @form.copy_steps?
+          copy_participatory_process_categories if @form.copy_categories?
         end
 
         broadcast(:ok, @copied_process)
@@ -67,6 +68,17 @@ module Decidim
             participatory_process: @copied_process,
             position: step.position,
             active: step.active
+          )
+        end
+      end
+
+      def copy_participatory_process_categories
+        @participatory_process.categories.each do |category|
+          Category.create!(
+            name: category.name,
+            description: category.description,
+            parent_id: category.parent_id,
+            participatory_process: @copied_process
           )
         end
       end
