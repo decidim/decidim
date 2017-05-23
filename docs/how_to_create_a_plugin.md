@@ -56,6 +56,7 @@
     ```ruby
     # frozen_string_literal: true
     require "decidim/<engine_name>/engine"
+    require "decidim/<engine_name>/feature"
     ```
 
 1. Remove `lib/decidim/<engine_name>/version.rb`
