@@ -138,10 +138,17 @@ describe "Vote Proposal", type: :feature do
             visit_feature
           end
 
-          it "should be able to undo the vote" do
+          it "should not be able to vote it again" do
             within "#proposal-#{proposal.id}-vote-button" do
               expect(page).to have_button("Already voted")
+              expect(page).to have_no_button("Vote")
+            end
+          end
+
+          it "should be able to undo the vote" do
+            within "#proposal-#{proposal.id}-vote-button" do
               click_button "Already voted"
+              expect(page).to have_button("Vote")
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
