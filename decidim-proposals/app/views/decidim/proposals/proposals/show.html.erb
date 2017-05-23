@@ -61,7 +61,7 @@
         <div class="section">
           <div class="callout warning">
             <h5><%= t(".proposal_rejected_reason") %></h5>
-            <p><%= translated_attribute @proposal.answer %></p>
+            <p><%== translated_attribute @proposal.answer %></p>
           </div>
         </div>
       <% end %>
