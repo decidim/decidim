@@ -6,6 +6,7 @@ en:
         body: Answer
       survey_question:
         mandatory: Mandatory
+        question_type: Type
   decidim:
     features:
       surveys:
@@ -13,6 +14,11 @@ en:
           answer: Answer
         name: Survey
     surveys:
+      question_types:
+        short_answer: Short answer
+        long_answer: Long answer
+        single_option: Single option
+        multiple_option: Multiple option
       admin:
         application_helper:
           label_for_question:

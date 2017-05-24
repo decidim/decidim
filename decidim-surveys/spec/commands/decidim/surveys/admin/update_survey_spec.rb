@@ -24,7 +24,8 @@ module Decidim
                   "ca" => "Primera pregunta",
                   "es" => "Primera pregunta"
                 },
-                "position" => "0"
+                "position" => "0",
+                "question_type" => "short_answer"
               },
               {
                 "body" => {
@@ -33,7 +34,8 @@ module Decidim
                   "es" => "Segunda pregunta"
                 },
                 "position" => "1",
-                "mandatory" => "1"
+                "mandatory" => "1",
+                "question_type" => "long_answer"
               }
             ],
             "published_at" => published_at
@@ -80,6 +82,7 @@ module Decidim
             end
 
             expect(survey.questions[1]).to be_mandatory
+            expect(survey.questions[1].question_type).to eq("long_answer")
           end
         end
 
@@ -94,6 +97,7 @@ module Decidim
                     "id" => survey_question.id,
                     "body" => survey_question.body,
                     "position" => 0,
+                    "question_type" => "short_answer",
                     "deleted" => "true"
                   }
                 ]

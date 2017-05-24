@@ -20,7 +20,15 @@
     <%= label_tag "", t('activemodel.attributes.survey_question.mandatory'), for: mandatory_id_for_question(question) %>
   </div>
 
-  <%= hidden_field_tag "survey[questions][][id]", question.id, disabled: disabled_for_question(survey, question) %>
+  <div class="row column">
+    <%= label_tag "", t('activemodel.attributes.survey_question.question_type'), for: question_type_id_for_question(question) %>
+    <%= select_tag "survey[questions][][question_type]", options_from_collection_for_select(question_types, :first, :last, question.question_type), id: question_type_id_for_question(question), disabled: disabled_for_question(survey, question) %>
+  </div>
+
+  <% if question.persisted? %>
+    <%= hidden_field_tag "survey[questions][][id]", question.id, disabled: disabled_for_question(survey, question) %>
+  <% end %>
+
   <%= hidden_field_tag "survey[questions][][position]", position_for_question(question) || 0, disabled: disabled_for_question(survey, question) %>
 
   <% unless survey.published? %>

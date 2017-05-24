@@ -20,6 +20,11 @@ module Decidim
           "${tabsId}_mandatory"
         end
 
+        def question_type_id_for_question(question)
+          return "survey_questions_#{question.id}_question_type" if question.persisted?
+          "${tabsId}_question_type"
+        end
+
         def position_for_question(question)
           return question.position if question.persisted?
           "${position}"

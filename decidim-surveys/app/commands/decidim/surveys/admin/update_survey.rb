@@ -35,7 +35,8 @@ module Decidim
             question_attributes = {
               body: form_question.body,
               position: form_question.position,
-              mandatory: form_question.mandatory
+              mandatory: form_question.mandatory,
+              question_type: form_question.question_type
             }
             if form_question.id.present?
               question = @survey.questions.where(id: form_question.id).first

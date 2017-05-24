@@ -61,11 +61,6 @@ describe "Edit a survey", type: :feature do
         end
       end
 
-      within ".survey-question:last-child" do
-        check "Mandatory"
-        select "Long answer", from: "Type"
-      end
-
       click_button "Save"
     end
 
@@ -97,6 +92,8 @@ describe "Edit a survey", type: :feature do
 
         within ".survey-question" do
           fill_in "survey-question-#{survey_question.id}_body_en", with: "Modified question"
+          check "Mandatory"
+          select "Long answer", from: "Type"
         end
 
         click_button "Save and publish"
@@ -110,6 +107,8 @@ describe "Edit a survey", type: :feature do
 
       expect(page).to have_selector("input[value='Modified question']")
       expect(page).not_to have_selector("input[value='This is the first question']")
+      expect(page).to have_selector("input#survey_questions_#{survey_question.id}_mandatory[checked]")
+      expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='long_answer'][selected]")
     end
 
     it "removes the question" do

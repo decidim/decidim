@@ -4,7 +4,7 @@ module Decidim
     module Admin
       # This controller allows the user to update a Page.
       class SurveysController < Admin::ApplicationController
-        helper_method :survey, :blank_question
+        helper_method :survey, :blank_question, :question_types
 
         def edit
           authorize! :edit, Survey
@@ -32,11 +32,17 @@ module Decidim
         private
 
         def survey
-          @survey ||= Surveys::Survey.find_by(feature: current_feature)
+          @survey ||= Survey.find_by(feature: current_feature)
         end
 
         def blank_question
           @blank_question ||= survey.questions.build(body: {})
+        end
+
+        def question_types
+          @question_types ||= SurveyQuestion::TYPES.map do |question_type|
+            [question_type, I18n.t("decidim.surveys.question_types.#{question_type}")]
+          end
         end
       end
     end
