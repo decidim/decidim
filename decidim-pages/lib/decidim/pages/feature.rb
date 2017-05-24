@@ -19,6 +19,13 @@ Decidim.register_feature(:pages) do |feature|
     end
   end
 
+  feature.on(:copy) do |context|
+    pages = Decidim::Pages::Page.where(feature: context[:old_feature])
+    pages.each do |page|
+      Decidim::Pages::Page.create!(feature: context[:new_feature], body: page.body)
+    end
+  end
+
   feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
     pages = Decidim::Pages::Page.where(feature: features)
     pages = pages.where("created_at >= ?", start_at) if start_at.present?

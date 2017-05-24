@@ -25,6 +25,7 @@ module Decidim
           copy_participatory_process
           copy_participatory_process_steps if @form.copy_steps?
           copy_participatory_process_categories if @form.copy_categories?
+          copy_participatory_process_features if @form.copy_features?
         end
 
         broadcast(:ok, @copied_process)
@@ -80,6 +81,19 @@ module Decidim
             parent_id: category.parent_id,
             participatory_process: @copied_process
           )
+        end
+      end
+
+      def copy_participatory_process_features
+        @participatory_process.features.each do |feature|
+          new_feature = Feature.create!(
+            manifest_name: feature.manifest_name,
+            name: feature.name,
+            participatory_process: @copied_process,
+            settings: feature.settings,
+            step_settings: feature.step_settings
+          )
+          feature.manifest.run_hooks(:copy, new_feature: new_feature, old_feature: feature)
         end
       end
     end
