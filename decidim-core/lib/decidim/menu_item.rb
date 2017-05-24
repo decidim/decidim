@@ -15,6 +15,7 @@ module Decidim
       @label = label
       @url = url
       @position = options.delete(:position) || Float::INFINITY
+      @visible = options.delete(:if) || -> { true }
       @options = options
     end
 
@@ -26,6 +27,10 @@ module Decidim
 
     def url(context)
       in_context(@url, context)
+    end
+
+    def visible?(context)
+      in_context(@visible, context)
     end
 
     private

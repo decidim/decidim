@@ -41,5 +41,15 @@ module Decidim
         expect(subject.as_link).to have_link("Foo", href: "/path/to/foos")
       end
     end
+
+    describe "when if parameter evaluates to false" do
+      let(:menu_item) { MenuItem.new("Foo", "/foos", if: -> { admin? }) }
+
+      it "renders nothing" do
+        allow(view).to receive(:admin?).and_return(false)
+
+        expect(subject.as_link).to be_empty
+      end
+    end
   end
 end

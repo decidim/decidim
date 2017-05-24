@@ -70,12 +70,17 @@ module Decidim
     #         The lower the position, the earlier in the menu the item will
     #         be displayed.  Default: Float::INFINITY
     #
+    # @option options [Symbol, Proc] :if
+    #         Decides whether the menu item will be displayed. Evaluated on
+    #         each request.
+    #
     # @example
     #
     #   menu.item "My Resource", "/resources"
     #   menu.item "Meetings", -> { decidim_meetings.root_path }
     #   menu.item ->{ I18n.t("menu.processes") }, -> { decidim.processes_path }
     #   menu.item "Gestor de Procesos", "/processes", active: :exact
+    #   menu.item "Gestor de Procesos", "/processes", if: -> { admin? }
     #
     def item(label, url, options = {})
       @items << MenuItem.new(label, url, options)

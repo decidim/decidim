@@ -14,10 +14,12 @@ module Decidim
       @view = view
     end
 
-    delegate :label, :url, :options, to: :@menu_item
+    delegate :label, :url, :options, :visible?, to: :@menu_item
     delegate :active_link_to, to: :@view
 
     def as_link
+      return "" unless visible?(@view)
+
       active_link_to label(@view), url(@view), link_options
     end
 
