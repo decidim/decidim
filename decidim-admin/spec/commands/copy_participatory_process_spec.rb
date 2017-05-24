@@ -7,7 +7,7 @@ describe Decidim::Admin::CopyParticipatoryProcess do
   let(:scope) { create :scope, organization: organization }
   let(:errors) { double.as_null_object }
   let!(:participatory_process) { create :participatory_process, :with_steps }
-  let!(:feature) {create :feature, manifest_name: :dummy, participatory_process: participatory_process }
+  let!(:feature) { create :feature, manifest_name: :dummy, participatory_process: participatory_process }
   let(:form) do
     instance_double(
       Decidim::Admin::ParticipatoryProcessCopyForm,
@@ -47,9 +47,9 @@ describe Decidim::Admin::CopyParticipatoryProcess do
 
       old_participatory_process = Decidim::ParticipatoryProcess.first
       new_participatory_process = Decidim::ParticipatoryProcess.last
-  
+
       expect(new_participatory_process.slug).to eq("copied_slug")
-      expect(new_participatory_process.title['en']).to eq("title")
+      expect(new_participatory_process.title["en"]).to eq("title")
       expect(new_participatory_process.organization).to eq(old_participatory_process.organization)
       expect(new_participatory_process.subtitle).to eq(old_participatory_process.subtitle)
       expect(new_participatory_process.description).to eq(old_participatory_process.description)
@@ -78,7 +78,7 @@ describe Decidim::Admin::CopyParticipatoryProcess do
       expect(Decidim::ParticipatoryProcessStep.pluck(:decidim_participatory_process_id).uniq.count).to eq 2
 
       old_participatory_process_step = Decidim::ParticipatoryProcessStep.first
-      new_participatory_process_step  = Decidim::ParticipatoryProcessStep.last
+      new_participatory_process_step = Decidim::ParticipatoryProcessStep.last
 
       expect(new_participatory_process_step.title).to eq(old_participatory_process_step.title)
       expect(new_participatory_process_step.description).to eq(old_participatory_process_step.description)
@@ -95,7 +95,7 @@ describe Decidim::Admin::CopyParticipatoryProcess do
       expect(Decidim::Category.pluck(:decidim_participatory_process_id).uniq.count).to eq 2
 
       old_participatory_process_category = Decidim::Category.first
-      new_participatory_process_category  = Decidim::Category.last
+      new_participatory_process_category = Decidim::Category.last
 
       expect(new_participatory_process_category.name).to eq(old_participatory_process_category.name)
       expect(new_participatory_process_category.description).to eq(old_participatory_process_category.description)
@@ -107,7 +107,7 @@ describe Decidim::Admin::CopyParticipatoryProcess do
     let(:copy_features) { true }
 
     it "duplicates a participatory process and the steps" do
-      dummy_hook = Proc.new {}
+      dummy_hook = proc {}
       feature.manifest.on :copy, &dummy_hook
       expect(dummy_hook).to receive(:call).with(new_feature: an_instance_of(Decidim::Feature), old_feature: feature)
 
