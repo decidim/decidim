@@ -9,14 +9,20 @@ module Decidim
       validates :body, presence: true, if: -> { question.mandatory? }
 
       def question
-        @question ||= SurveyQuestion.find(question_id)
+        @question ||= survey.questions.find(question_id)
       end
 
-      # Private: Map the correct fields.
+      # Public: Map the correct fields.
       #
       # Returns nothing.
       def map_model(model)
         self.question_id = model.id
+      end
+
+      private
+
+      def survey
+        @survey ||= Survey.where(feature: current_feature).first
       end
     end
   end

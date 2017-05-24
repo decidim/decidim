@@ -29,7 +29,8 @@ module Decidim
         SurveyForm.from_params(
           form_params
         ).with_context(
-          current_organization: current_organization
+          current_organization: current_organization,
+          current_feature: feature
         )
       end
       let(:command) { described_class.new(form, current_user, survey) }

@@ -11,7 +11,9 @@ module Decidim
       let!(:survey_answer) { create(:survey_answer, user: user, survey: survey, question: survey_question) }
 
       subject do
-        described_class.from_model(survey_answer)
+        described_class.from_model(survey_answer).with_context({
+          current_feature: survey.feature
+        })
       end
 
       context "when everything is OK" do

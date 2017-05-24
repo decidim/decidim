@@ -48,6 +48,7 @@ module Decidim
     # name        - The name of the input which will be suffixed with the corresponding locales.
     # value       - A hash containing the value for each locale.
     # options     - An optional hash of options.
+    #             * enable_tabs: Adds the data-tabs attribute so Foundation picks up automatically.
     #             * tabs_id: The id to identify the Foundation tabs element.
     #             * label: The label used for the field.
     #
