@@ -11,8 +11,8 @@ module Decidim
         end
 
         def label_for_question(survey, question)
-          return survey.published? ? t('.question') : "#{icon("move")} #{t('.question')}".html_safe if question.persisted?
-          "#{icon("move")} #{t('.question')} #${questionLabelPosition}".html_safe
+          return survey.published? ? t(".question") : "#{icon("move")} #{t(".question")}".html_safe if question.persisted?
+          "#{icon("move")} #{t(".question")} #${questionLabelPosition}".html_safe
         end
 
         def mandatory_id_for_question(question)
