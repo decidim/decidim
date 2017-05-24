@@ -9,9 +9,7 @@ module Decidim
       let!(:survey_question) { create(:survey_question, survey: survey) }
 
       subject do
-        described_class.from_model(survey).with_context({
-          current_feature: survey.feature
-        })
+        described_class.from_model(survey).with_context(current_feature: survey.feature)
       end
 
       it "builds empty answers for each question" do
