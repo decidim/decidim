@@ -14,6 +14,9 @@ en:
         name: Survey
     surveys:
       admin:
+        application_helper:
+          label_for_question:
+            question: Question
         models:
           components:
             description: Description
@@ -27,6 +30,7 @@ en:
             title: Title
           form:
             add_question: Add question
+          question:
             question: Question
             remove_question: Remove question
           update:

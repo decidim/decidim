@@ -1,0 +1,29 @@
+<div class="survey-question">
+  <div class="row column">
+    <%=
+      translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, {
+        tabs_id: tabs_id_for_question(question),
+        label: label_for_question(survey, question),
+        disabled: disabled_for_question(survey, question),
+        enable_tabs: question.persisted?
+      }
+    %>
+  </div>
+
+  <div class="row column">
+    <%=
+      check_box_tag "survey[questions][][mandatory]", "1", question.mandatory, {
+        id: mandatory_id_for_question(question),
+        disabled: disabled_for_question(survey, question)
+      }
+    %>
+    <%= label_tag "", t('activemodel.attributes.survey_question.mandatory'), for: mandatory_id_for_question(question) %>
+  </div>
+
+  <%= hidden_field_tag "survey[questions][][id]", question.id, disabled: disabled_for_question(survey, question) %>
+  <%= hidden_field_tag "survey[questions][][position]", position_for_question(question) || 0, disabled: disabled_for_question(survey, question) %>
+
+  <% unless survey.published? %>
+    <button class="button small alert hollow remove-question"><%= t('.remove_question') %></button>
+  <% end %>
+</div>
