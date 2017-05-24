@@ -38,7 +38,14 @@
                   <div class="field">
                     <% field_id = "survey_#{survey.id}_question_#{answer.question.id}_answer_body" %>
                     <%= label_tag field_id , "#{idx + 1}. #{translated_attribute(answer.question.body)} #{'*' if answer.question.mandatory?}" %>
-                    <%= text_field_tag "survey[answers][][body]", answer.body, id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}" %>
+
+                    <% case answer.question.question_type %>
+                      <% when "short_answer" %>
+                        <%= text_field_tag "survey[answers][][body]", answer.body, id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}" %>
+                      <% when "long_answer" %>
+                        <%= text_area_tag "survey[answers][][body]", answer.body, id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}" %>                      
+                    <% end %>
+
                     <%= hidden_field_tag "survey[answers][][question_id]", answer.question.id %>
                     <% answer.errors.full_messages.each do |msg| %>
                       <%= content_tag :small, msg, class: "form-error is-visible" %>

@@ -109,6 +109,18 @@ describe "Answer a survey", type: :feature do
           expect(page).to have_content("can't be blank")
         end
       end
+
+      context "when a question type is a long answer" do
+        let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "long_answer") }
+        let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "long_answer") }
+
+        it "the long answer questions are rendered as a textarea" do
+          visit_feature
+
+          expect(page).to have_selector("textarea#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body")
+          expect(page).to have_selector("textarea#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body")
+        end
+      end
     end
   end
 end
