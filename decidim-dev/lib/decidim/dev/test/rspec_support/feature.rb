@@ -45,6 +45,18 @@ module Decidim
   end
 end
 
+class DummySerializer
+  def initialize(id)
+    @id = id
+  end
+
+  def serialize
+    {
+      id: @id
+    }
+  end
+end
+
 Decidim.register_feature(:dummy) do |feature|
   feature.engine = Decidim::DummyEngine
 
@@ -66,6 +78,14 @@ Decidim.register_feature(:dummy) do |feature|
     resource.name = :dummy
     resource.model_class_name = "Decidim::DummyResource"
     resource.template = "decidim/dummy_resource/linked_dummys"
+  end
+
+  feature.exports :dummies do |exports|
+    exports.collection do
+      [1, 2, 3]
+    end
+
+    exports.serializer DummySerializer
   end
 end
 
