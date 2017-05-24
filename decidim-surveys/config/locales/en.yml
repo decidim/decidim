@@ -2,8 +2,10 @@
 en:
   activemodel:
     attributes:
+      survey_answer:
+        body: Answer
       survey_question:
-        mandatory: "Mandatory"
+        mandatory: Mandatory
   decidim:
     features:
       surveys:
