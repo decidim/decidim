@@ -1837,7 +1837,7 @@ entities@^1.1.1, entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
 
-enzyme@^2.7.1:
+enzyme@^2.8.2:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-2.8.2.tgz#6c8bcb05012abc4aa4bc3213fb23780b9b5b1714"
   dependencies:
@@ -2777,7 +2777,7 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
-intl@^1.2:
+intl@1.2:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
 
@@ -3763,7 +3763,7 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-moment@^2.17.1, moment@^2.18.1:
+moment@2.18.1, moment@^2.18.1:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
@@ -4228,7 +4228,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.4, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@~15.5.7:
+prop-types@15.5.8, prop-types@^15.5.4, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@~15.5.7:
   version "15.5.8"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
   dependencies:
@@ -4344,15 +4344,23 @@ react-apollo@^1.1.2:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
-react-i18nify@^1.8.5:
-  version "1.8.5"
-  resolved "https://registry.yarnpkg.com/react-i18nify/-/react-i18nify-1.8.5.tgz#845440c4f8fb60c5d1816f79d5f79d753af48781"
+react-i18nify@^1.8.7:
+  version "1.8.7"
+  resolved "https://registry.yarnpkg.com/react-i18nify/-/react-i18nify-1.8.7.tgz#6ee2b688496bef8c5e091bb190c55570b9d94cf1"
   dependencies:
-    intl "^1.2"
-    moment "^2.17.1"
-    react "^15.4.2"
+    intl "1.2"
+    moment "2.18.1"
+    prop-types "15.5.8"
+    react "15.5.4"
 
-react@^15.4.2, react@^15.5.4:
+react-test-renderer@^15.5.4:
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.5.4.tgz#d4ebb23f613d685ea8f5390109c2d20fbf7c83bc"
+  dependencies:
+    fbjs "^0.8.9"
+    object-assign "^4.1.0"
+
+react@15.5.4, react@^15.5.4:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
   dependencies:
