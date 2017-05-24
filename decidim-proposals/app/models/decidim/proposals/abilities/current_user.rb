@@ -20,7 +20,7 @@ module Decidim
           end
 
           can :unvote, Proposal do |_proposal|
-            authorized?(:vote) && voting_enabled? && vote_limit_enabled?
+            authorized?(:vote) && voting_enabled?
           end
 
           can :create, Proposal if authorized?(:create) && creation_enabled?
