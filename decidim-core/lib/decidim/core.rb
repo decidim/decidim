@@ -28,6 +28,8 @@ module Decidim
   autoload :StatsRegistry, "decidim/stats_registry"
   autoload :Exporters, "decidim/exporters"
   autoload :FileZipper, "decidim/file_zipper"
+  autoload :Menu, "decidim/menu"
+  autoload :MenuItem, "decidim/menu_item"
 
   include ActiveSupport::Configurable
 
@@ -163,5 +165,14 @@ module Decidim
   # Public: Stores an instance of StatsRegistry
   def self.stats
     @stats ||= StatsRegistry.new
+  end
+
+  # Public: Registers configuration for a new or existing menu
+  #
+  # name   - A string or symbol with the name of the menu
+  # &block - A block using the DSL defined in `Decidim::MenuItem`
+  #
+  def self.menu(name, &block)
+    Menu.register(name.to_sym, &block)
   end
 end
