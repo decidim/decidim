@@ -60,8 +60,10 @@ module Decidim
       end
 
       def copy_participatory_process_steps
+        @steps_relationship = {}
+
         @participatory_process.steps.each do |step|
-          ParticipatoryProcessStep.create!(
+          new_step = ParticipatoryProcessStep.create!(
             title: step.title,
             description: step.description,
             start_date: step.start_date,
@@ -70,6 +72,7 @@ module Decidim
             position: step.position,
             active: step.active
           )
+          @steps_relationship[step.id.to_s] = new_step.id.to_s
         end
       end
 
@@ -86,14 +89,22 @@ module Decidim
 
       def copy_participatory_process_features
         @participatory_process.features.each do |feature|
+          copied_step_settings = @form.copy_steps? ? map_step_settings(feature.step_settings) : {}
           new_feature = Feature.create!(
             manifest_name: feature.manifest_name,
             name: feature.name,
             participatory_process: @copied_process,
             settings: feature.settings,
-            step_settings: feature.step_settings
+            step_settings: copied_step_settings
           )
           feature.manifest.run_hooks(:copy, new_feature: new_feature, old_feature: feature)
+        end
+      end
+
+      def map_step_settings(step_settings)
+        step_settings.reduce({}) do |acc, (step_id, settings)|
+          acc[@steps_relationship[step_id.to_s]] = settings
+          acc
         end
       end
     end

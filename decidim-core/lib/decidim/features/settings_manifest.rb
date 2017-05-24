@@ -64,7 +64,7 @@ module Decidim
       @schema
     end
 
-    # Semi-private: Attributes are an abstraction used by FeatureSettingsManifest
+    # Semi-private: Attribute are an abstraction used by FeatureSettingsManifest
     # to encapsulate behavior related to each individual settings field. Shouldn't
     # be used from the outside.
     class Attribute
