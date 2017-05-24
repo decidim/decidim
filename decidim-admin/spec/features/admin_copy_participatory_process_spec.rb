@@ -4,6 +4,7 @@ require "spec_helper"
 describe "Admin copy participatory process", type: :feature do
   include_context "participatory process admin"
   let!(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
+  let!(:feature) { create :feature, manifest_name: :dummy, participatory_process: participatory_process }
   let!(:category) do
     create(
       :category,
@@ -71,7 +72,7 @@ describe "Admin copy participatory process", type: :feature do
       end
     end
 
-    it "copies the process with steps" do
+    it "copies the process with categories" do
       page.check("participatory_process_copy[copy_categories]")
       click_button "Copy"
 
@@ -83,6 +84,22 @@ describe "Admin copy participatory process", type: :feature do
       within ".table-list" do
         participatory_process.categories.each do |category|
           expect(page).to have_content(translated(category.name))
+        end
+      end
+    end
+
+    it "copies the process with features" do
+      page.check("participatory_process_copy[copy_features]")
+      click_button "Copy"
+
+      expect(page).to have_content("Successfully")
+
+      click_link "Copy participatory process"
+      click_link "Features"
+
+      within ".table-list" do
+        participatory_process.features.each do |feature|
+          expect(page).to have_content(translated(feature.name))
         end
       end
     end
