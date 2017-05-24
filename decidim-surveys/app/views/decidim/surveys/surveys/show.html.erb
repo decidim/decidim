@@ -37,9 +37,12 @@
                 <% @form.answers.each_with_index do |answer, idx| %>
                   <div class="field">
                     <% field_id = "survey_#{survey.id}_question_#{answer.question.id}_answer_body" %>
-                    <%= label_tag field_id , "#{idx + 1}. #{translated_attribute(answer.question.body)}" %>
-                    <%= text_field_tag "survey[answers][][body]", "", id: field_id %>
-                    <%= hidden_field_tag "survey[answers][][survey_question_id]", answer.question.id %>
+                    <%= label_tag field_id , "#{idx + 1}. #{translated_attribute(answer.question.body)} #{'*' if answer.question.mandatory?}" %>
+                    <%= text_field_tag "survey[answers][][body]", answer.body, id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}" %>
+                    <%= hidden_field_tag "survey[answers][][question_id]", answer.question.id %>
+                    <% answer.errors.full_messages.each do |msg| %>
+                      <%= content_tag :small, msg, class: "form-error is-visible" %>
+                    <% end %>
                   </div>
                 <% end %>
 

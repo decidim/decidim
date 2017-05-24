@@ -94,6 +94,21 @@ describe "Answer a survey", type: :feature do
         expect(form_fields[0]).to have_i18n_content(survey_question_2.body)
         expect(form_fields[1]).to have_i18n_content(survey_question_1.body)
       end
+
+      context "when a question is mandatory" do
+        let!(:survey_question_2) { create(:survey_question, survey: survey, position: 0, mandatory: true) }
+
+        it "users cannot leave that question blank" do
+          visit_feature
+
+          click_button "Submit"
+
+          within ".alert.flash" do
+            expect(page).to have_content("error")
+          end
+          expect(page).to have_content("can't be blank")
+        end
+      end
     end
   end
 end

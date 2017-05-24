@@ -32,7 +32,8 @@ module Decidim
                 "ca" => "Segona pregunta",
                 "es" => "Segunda pregunta"
               },
-              position: 1
+              position: 1,
+              mandatory: true
             }
           ]
         end

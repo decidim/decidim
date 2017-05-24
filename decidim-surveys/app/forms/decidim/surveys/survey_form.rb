@@ -10,7 +10,7 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.answers = model.questions.map do |question|
-          SurveyAnswerForm.from_params(question: question)
+          SurveyAnswerForm.from_params(question_id: question.id)
         end
       end
     end

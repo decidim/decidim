@@ -1,5 +1,11 @@
 ---
 en:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Answer
+      survey_question:
+        mandatory: Mandatory
   decidim:
     features:
       surveys:

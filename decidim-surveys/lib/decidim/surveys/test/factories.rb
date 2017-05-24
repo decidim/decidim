@@ -21,6 +21,7 @@ FactoryGirl.define do
 
   factory :survey_question, class: Decidim::Surveys::SurveyQuestion do
     body { Decidim::Faker::Localized.sentence }
+    mandatory false
     survey
   end
 
