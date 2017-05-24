@@ -63,6 +63,7 @@ describe "Edit a survey", type: :feature do
 
       within ".survey-question:last-child" do
         check "Mandatory"
+        select "Long answer", from: "Type"
       end
 
       click_button "Save"

@@ -13,9 +13,15 @@
 
     $questions.each((idx, el) => {
       const $questionlabel = $(el).find('label:first');
+      const questionLabelContent = $questionlabel.html();
 
       $(el).find('input[name="survey[questions][][position]"]').val(idx);
-      $questionlabel.html($questionlabel.html().replace(/#(\d+)/, `#${idx + 1}`));
+
+      if (questionLabelContent.match(/#(\d+)/)) {
+        $questionlabel.html(questionLabelContent.replace(/#(\d+)/, `#${idx + 1}`));
+      } else {
+        $questionlabel.html(`${questionLabelContent} #${idx + 1}`);
+      }
     });
   };
 
@@ -87,4 +93,5 @@
   $wrapper.on('click', '.remove-question', removeQuestion);
 
   createSortableList();
+  computeQuestionPositions();
 })();
