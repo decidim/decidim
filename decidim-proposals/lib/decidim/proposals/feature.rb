@@ -51,10 +51,10 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.exports :proposals do |exports|
-    exports.collection do |feature|
-      proposals = Decidim::Proposals::Proposal
-                    .where(feature: feature)
-                    .includes(:category, feature: { participatory_process: :organization })
+    exports.collection do |feature_instance|
+      Decidim::Proposals::Proposal
+        .where(feature: feature_instance)
+        .includes(:category, feature: { participatory_process: :organization })
     end
 
     exports.serializer Decidim::Proposals::ProposalSerializer

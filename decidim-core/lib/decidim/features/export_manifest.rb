@@ -17,18 +17,10 @@ module Decidim
         end
       end
 
-      def serializer(serializer = nil, &block)
-        if block_given?
-          @serializer = Class.new(Decidim::Exporters::Serializer, &block)
-        elsif serializer
-          @serializer = serializer
-        else
-          @serializer
-        end
-      end
+      def serializer(serializer = nil)
+        return @serializer unless serializer
 
-      def verify!
-        raise "Incomplete manifest!" unless name && collection && serializer
+        @serializer = serializer
       end
     end
   end
