@@ -45,7 +45,7 @@
         tabsId
       });
 
-      $newQuestion.find('input[disabled]').attr('disabled', false);
+      $newQuestion.find('[disabled]').attr('disabled', false);
       $newQuestion.find('ul.tabs').attr('data-tabs', true);
       $newQuestion.appendTo($container);
 
