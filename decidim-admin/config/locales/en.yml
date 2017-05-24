@@ -125,6 +125,8 @@ en:
         resend_invitation: Resend invitation
         unpublish: Unpublish
         verify: Verify
+      exports:
+        export_as: "%{name} as %{export_format}"
       attachments:
         create:
           error: There was an error creating a new attachment.

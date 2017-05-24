@@ -52,7 +52,7 @@ Decidim.register_feature(:proposals) do |feature|
 
   feature.exports :proposals do |exports|
     exports.collection do |feature|
-      proposals = Proposal
+      proposals = Decidim::Proposals::Proposal
                     .where(feature: feature)
                     .includes(:category, feature: { participatory_process: :organization })
     end

@@ -23,6 +23,7 @@ Decidim::Admin::Engine.routes.draw do
           put :publish
           put :unpublish
         end
+        resources :exports, only: :create
       end
 
       resources :moderations do
