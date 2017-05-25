@@ -1,36 +1,24 @@
 // = require jquery-tmpl
+// = require ./auto_label_by_position.component
 
-(() => {
+((exports) => {
+  const { AutoLabelByPositionComponent } = exports.DecidimAdmin;
+
   const $addQuestionButtons = $('.add-question');
   const templateId = 'survey-question-tmpl';
   const $container = $('.survey-questions');
 
+  const autoLabelByPosition = new AutoLabelByPositionComponent('.survey-question:not(.hidden)', '.card-title span');
+
   $.template(templateId, $(`#${templateId}`).html());
-
-  const computeQuestionPositions = () => {
-    const $questions = $('.survey-question:not(.hidden)');
-
-    $questions.each((idx, el) => {
-      const $questionlabel = $(el).find('label:first');
-      const questionLabelContent = $questionlabel.html();
-
-      $(el).find('input[name="survey[questions][][position]"]').val(idx);
-
-      if (questionLabelContent.match(/#(\d+)/)) {
-        $questionlabel.html(questionLabelContent.replace(/#(\d+)/, `#${idx + 1}`));
-      } else {
-        $questionlabel.html(`${questionLabelContent} #${idx + 1}`);
-      }
-    });
-  };
 
   const createSortableList = () => {
     if (DecidimAdmin) {
       DecidimAdmin.sortList('.survey-questions-list:not(.published)', {
-        handle: 'label',
+        handle: '.card-divider',
         placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
         forcePlaceholderSize: true,
-        onSortUpdate: computeQuestionPositions
+        onSortUpdate: () => { autoLabelByPosition.run() }
       });
     }
   };
@@ -52,7 +40,7 @@
       $newQuestion.foundation();
 
       createSortableList();
-      computeQuestionPositions();
+      autoLabelByPosition.run();
     } catch (error) {
       console.error(error); // eslint-disable-line no-console
     }
@@ -64,7 +52,7 @@
   const removeQuestion = (event) => {
     try {
       const $target = $(event.target);
-      const $question = $target.parent('.survey-question');
+      const $question = $target.parents('.survey-question');
       const $idInput = $question.find('input[name="survey[questions][][id]"]');
 
       if ($idInput.length > 0) {
@@ -79,7 +67,7 @@
         $question.remove();
       }
 
-      computeQuestionPositions();
+      autoLabelByPosition.run();
     } catch (error) {
       console.error(error); // eslint-disable-line no-console
     }
@@ -92,5 +80,5 @@
   $wrapper.on('click', '.remove-question', removeQuestion);
 
   createSortableList();
-  computeQuestionPositions();
-})();
+  autoLabelByPosition.run();
+})(window);

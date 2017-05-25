@@ -14,11 +14,6 @@ en:
           answer: Answer
         name: Survey
     surveys:
-      question_types:
-        short_answer: Short answer
-        long_answer: Long answer
-        single_option: Single option
-        multiple_option: Multiple option
       admin:
         application_helper:
           label_for_question:
@@ -39,9 +34,15 @@ en:
           question:
             question: Question
             remove_question: Remove question
+            statement: Statement
           update:
             invalid: There's been errors when saving the survey.
             success: Survey saved successfully.
+      question_types:
+        long_answer: Long answer
+        multiple_option: Multiple option
+        short_answer: Short answer
+        single_option: Single option
       surveys:
         answer:
           invalid: There's been errors when answering the survey.
