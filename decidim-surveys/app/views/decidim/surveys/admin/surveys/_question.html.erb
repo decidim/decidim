@@ -1,5 +1,5 @@
-<div class="card survey-question">
-  <div class="card-divider">
+<div class="card survey-question" id="survey-question-<%= question.id %>-field">
+  <div class="card-divider question-divider">
     <h2 class="card-title">
     <span><%= label_for_question(survey, question) %></span>
     <% unless survey.published? %>
@@ -39,7 +39,19 @@
       <%= hidden_field_tag "survey[questions][][id]", question.id, disabled: disabled_for_question(survey, question) %>
     <% end %>
 
-    <%= hidden_field_tag "survey[questions][][position]", position_for_question(question) || 0, disabled: disabled_for_question(survey, question) %>
+    <%= hidden_field_tag "survey[questions][][position]", question.position || 0, disabled: disabled_for_question(survey, question) %>
     <%= hidden_field_tag "survey[questions][][deleted]", false, disabled: disabled_for_question(survey, question) %>
+
+    <div class="survey-question-answer-options">
+      <% unless survey.published? %>
+        <button class="button add-answer-option"><%= t('.add_answer_option') %></button>
+      <% end %>
+
+      <div class="survey-question-answer-options-list <%= 'published' if survey.published? %>">
+        <% question.answer_options.each_with_index do |answer_option, idx| %>
+          <%= render "answer_option", question: question, answer_option: answer_option, idx: idx %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

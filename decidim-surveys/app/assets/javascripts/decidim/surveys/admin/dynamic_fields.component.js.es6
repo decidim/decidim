@@ -42,16 +42,12 @@
 
     _addField() {
       const $container = $(this.wrapperSelector).find(this.containerSelector);
-      const position = $container.children().length;
+      const uid = this._getUID();
+      const tabsId = `${this.tabsPrefix}-${uid}`;
 
-      const tabsId = `${this.tabsPrefix}-${this._getUID()}`;
+      const $newField = $.tmpl(this.templateId, { tabsId });
 
-      const $newField = $.tmpl(this.templateId, {
-        position,
-        questionLabelPosition: position + 1,
-        tabsId
-      });
-
+      $newField.attr('id', `${tabsId}-field`);
       $newField.find('[disabled]').attr('disabled', false);
       $newField.find('ul.tabs').attr('data-tabs', true);
 
