@@ -72,7 +72,7 @@ module Decidim
       def order
         return @order if @order
         @order = "random" if current_settings.votes_enabled? && current_settings.votes_hidden? && params[:order] == "most_voted"
-        @order ||= params[:order] || "random"
+        @order ||= params[:order].presence || "random"
       end
 
       # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
