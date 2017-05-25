@@ -45,9 +45,7 @@ module Decidim
       # Returns the stored serializer if previously stored, or
       # `Decidim::Exporters::Serializer` as a default implementation.
       def serializer(serializer = nil)
-        return (@serializer || Decidim::Exporters::Serializer) unless serializer
-
-        @serializer = serializer
+        @serializer ||= serializer || Decidim::Exporters::Serializer
       end
     end
   end
