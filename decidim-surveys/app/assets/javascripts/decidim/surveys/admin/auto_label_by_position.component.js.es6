@@ -4,6 +4,8 @@
       this.listSelector = options.listSelector;
       this.labelSelector = options.labelSelector;
       this.onPositionComputed = options.onPositionComputed;
+
+      this.run();
     }
 
     run() {

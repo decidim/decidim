@@ -40,5 +40,6 @@
     <% end %>
 
     <%= hidden_field_tag "survey[questions][][position]", position_for_question(question) || 0, disabled: disabled_for_question(survey, question) %>
+    <%= hidden_field_tag "survey[questions][][deleted]", false, disabled: disabled_for_question(survey, question) %>
   </div>
 </div>
