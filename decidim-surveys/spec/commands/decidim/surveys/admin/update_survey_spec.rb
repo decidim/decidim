@@ -25,7 +25,8 @@ module Decidim
                   "es" => "Primera pregunta"
                 },
                 "position" => "0",
-                "question_type" => "short_answer"
+                "question_type" => "short_answer",
+                "answer_options" => []                
               },
               {
                 "body" => {
@@ -35,7 +36,8 @@ module Decidim
                 },
                 "position" => "1",
                 "mandatory" => "1",
-                "question_type" => "long_answer"
+                "question_type" => "long_answer",
+                "answer_options" => []
               }
             ],
             "published_at" => published_at
@@ -83,6 +85,7 @@ module Decidim
 
             expect(survey.questions[1]).to be_mandatory
             expect(survey.questions[1].question_type).to eq("long_answer")
+            expect(survey.questions[1].answer_options).to eq([])
           end
         end
 

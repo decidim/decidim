@@ -22,6 +22,10 @@
     <template id="survey-question-tmpl">
       <%= render "question", question: blank_question %>
     </template>
+
+    <template id="survey-question-answer-option-tmpl">
+      <%= render "answer_option", answer_option: blank_answer_option, question: nil, idx: nil %>
+    </template>
   <% end %>
 
   <div class="survey-questions-list <%= 'published' if survey.published? %>">

@@ -24,6 +24,7 @@ FactoryGirl.define do
     mandatory false
     position 0
     question_type Decidim::Surveys::SurveyQuestion::TYPES.first
+    answer_options []
     survey
   end
 

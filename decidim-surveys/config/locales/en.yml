@@ -23,6 +23,10 @@ en:
             description: Description
             toc: Toc
         surveys:
+          answer_option:
+            answer_option: Answer option
+            remove_answer_option: Remove answer option
+            statement: Statement
           edit:
             are_you_sure: This action will publish the survey and you will not be
               able to keep editing the survey questions. Are you sure?
@@ -32,6 +36,7 @@ en:
           form:
             add_question: Add question
           question:
+            add_answer_option: Add answer option
             question: Question
             remove_question: Remove question
             statement: Statement

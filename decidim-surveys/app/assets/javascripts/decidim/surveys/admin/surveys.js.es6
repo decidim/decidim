@@ -7,7 +7,7 @@
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: '.survey-question:not(.hidden)',
-    labelSelector: '.card-title span',
+    labelSelector: '.card-title span:first',
     onPositionComputed: (el, idx) => {
       $(el).find('input[name="survey[questions][][position]"]').val(idx);
     }
@@ -15,10 +15,22 @@
 
   const createSortableList = () => {
     createSortList('.survey-questions-list:not(.published)', {
-      handle: '.card-divider',
+      handle: '.question-divider',
       placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
       forcePlaceholderSize: true,
       onSortUpdate: () => { autoLabelByPosition.run() }
+    });
+  };
+
+  const createDynamicFieldsForAnswerOptions = (fieldId) => {
+    createDynamicFields({
+      templateId: `survey-question-answer-option-tmpl`,
+      tabsPrefix: `survey-question-answer-option`,
+      wrapperSelector: `#${fieldId} .survey-question-answer-options`,
+      containerSelector: `.survey-question-answer-options-list`,
+      fieldSelector: `.survey-question-answer-option`,
+      addFieldButtonSelector: `.add-answer-option`,
+      removeFieldButtonSelector: `.remove-answer-option`
     });
   };
 
@@ -30,9 +42,12 @@
     fieldSelector: '.survey-question',
     addFieldButtonSelector: '.add-question',
     removeFieldButtonSelector: '.remove-question',
-    onAddField: () => {
+    onAddField: ($field) => {
+      const fieldId = $field.attr('id');
+
       createSortableList();
       autoLabelByPosition.run();
+      createDynamicFieldsForAnswerOptions(fieldId);
     },
     onRemoveField: () => {
       autoLabelByPosition.run();
@@ -40,4 +55,8 @@
   });
 
   createSortableList();
+
+  $('.survey-question').each((idx, el) => {
+    createDynamicFieldsForAnswerOptions($(el).attr('id'));
+  });
 })(window);

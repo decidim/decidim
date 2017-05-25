@@ -10,9 +10,13 @@ module Decidim
           "${tabsId}"
         end
 
+        def tabs_id_for_question_answer_option(question, idx)
+          return "survey-question-answer-option-#{question.id}-#{idx}" if question.present?
+          "${tabsId}"
+        end
+
         def label_for_question(survey, question)
-          return survey.published? ? t(".question") : "#{icon("move")} #{t(".question")}".html_safe if question.persisted?
-          "#{icon("move")} #{t(".question")} #${questionLabelPosition}".html_safe
+          return survey.published? ? t(".question") : "#{icon("move")} #{t(".question")}".html_safe
         end
 
         def mandatory_id_for_question(question)
@@ -23,11 +27,6 @@ module Decidim
         def question_type_id_for_question(question)
           return "survey_questions_#{question.id}_question_type" if question.persisted?
           "${tabsId}_question_type"
-        end
-
-        def position_for_question(question)
-          return question.position if question.persisted?
-          "${position}"
         end
 
         def disabled_for_question(survey, question)

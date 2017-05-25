@@ -131,7 +131,8 @@ describe "Edit a survey", type: :feature do
     visit_feature_admin
 
     expect(page).to have_selector("input[value='This is the first question']")
-    expect(page).to have_selector("input[value='This is the second question']")
+    expect(page).to have_selector("input[value='This is the first option']")
+    expect(page).to have_selector("input[value='This is the second option']")
   end
 
   describe "when a survey has an existing question" do

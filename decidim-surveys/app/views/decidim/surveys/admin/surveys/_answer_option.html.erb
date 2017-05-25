@@ -1,0 +1,23 @@
+<div class="card survey-question-answer-option">
+  <div class="card-divider">
+    <h2 class="card-title">
+    <span><%= t(".answer_option") %></span>
+    <% unless survey.published? %>
+      <button class="button small alert hollow remove-answer-option button--title"><%= t('.remove_answer_option') %></button>
+    <% end %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%=
+        translated_field_tag :text_field_tag, "survey[questions][][answer_options][]", "body", answer_option.body, {
+          tabs_id: tabs_id_for_question_answer_option(question, idx),
+          label: t('.statement'),
+          disabled: question.nil? || disabled_for_question(survey, question),
+          enable_tabs: question.present?
+        }
+      %>
+    </div>
+  </div>
+</div>
