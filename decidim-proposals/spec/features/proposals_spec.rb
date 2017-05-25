@@ -601,6 +601,7 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within ".order-by" do
+            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
             page.find("a", text: "Random").click
             click_link "Most voted"
           end
@@ -618,6 +619,7 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within ".order-by" do
+            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
             page.find("a", text: "Random").click
             click_link "Recent"
           end
