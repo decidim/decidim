@@ -14,6 +14,14 @@ module Decidim
     end
   end
 
+  class DummyAdminEngine < Rails::Engine
+    engine_name "dummy_admin"
+
+    routes do
+      root to: proc { [200, {}, ["DUMMY ADMIN ENGINE"]] }
+    end
+  end
+
   class DummyResource < ActiveRecord::Base
     include HasFeature
     include Resourceable
@@ -59,6 +67,7 @@ end
 
 Decidim.register_feature(:dummy) do |feature|
   feature.engine = Decidim::DummyEngine
+  feature.admin_engine = Decidim::DummyAdminEngine
 
   feature.actions = %w(foo bar)
 

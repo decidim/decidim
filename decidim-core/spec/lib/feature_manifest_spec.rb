@@ -68,5 +68,41 @@ module Decidim
         expect(subject.stats).to have_received(:register).with(:foo, options, &resolver)
       end
     end
+
+    describe "exports" do
+      let(:collection1) { [{ id: 1 }, { id: 2 }] }
+      let(:collection2) { [{ name: "ed" }, { name: "john" }] }
+      let(:serializer) { Class.new }
+
+      before do
+        subject.exports :foos do |exports|
+          exports.collection { collection1 }
+          exports.serializer serializer
+        end
+
+        subject.exports :bars do |exports|
+          exports.collection { collection2 }
+        end
+      end
+
+      let(:manifests) { subject.export_manifests }
+
+      describe "#export_manifests" do
+        it "creates manifest instances" do
+          expect(manifests[0]).to be_kind_of(Decidim::Features::ExportManifest)
+          expect(manifests[1]).to be_kind_of(Decidim::Features::ExportManifest)
+        end
+
+        it "initializes instances properly" do
+          expect(manifests[0].name).to eq(:foos)
+          expect(manifests[1].name).to eq(:bars)
+        end
+
+        it "passes through the manifest instance as block parameter" do
+          expect(manifests[0].collection.call).to eq(collection1)
+          expect(manifests[1].collection.call).to eq(collection2)
+        end
+      end
+    end
   end
 end
