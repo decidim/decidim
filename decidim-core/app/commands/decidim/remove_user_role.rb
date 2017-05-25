@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A command to remove a role from a given User.
   class RemoveUserRole < Rectify::Command

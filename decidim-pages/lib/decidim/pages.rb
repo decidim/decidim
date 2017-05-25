@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "decidim/pages/admin"
 require "decidim/pages/engine"
 require "decidim/pages/admin_engine"

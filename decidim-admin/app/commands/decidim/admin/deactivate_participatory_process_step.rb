@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Admin
     # A command that sets all steps in a participatory process as inactive

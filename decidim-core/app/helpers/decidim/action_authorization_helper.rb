@@ -1,5 +1,6 @@
 # encoding: utf-8
 # frozen_string_literal: true
+
 module Decidim
   module ActionAuthorizationHelper
     # Public: Renders a modal that explains why she can't perform an action,

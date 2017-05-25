@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Comments
     # Some resources will be configured as commentable objects so users can

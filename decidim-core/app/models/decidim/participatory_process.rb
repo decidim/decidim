@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Interaction between a user and an organization is done via a
   # ParticipatoryProcess. It's a unit of action from the Organization point of

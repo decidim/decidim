@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This is the base class for authorization handlers, all implementations
   # should inherit from it.

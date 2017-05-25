@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A base form object to hold common logic, like automatically adding as
   # public method the params sent as context by the `FormFactory` concern.

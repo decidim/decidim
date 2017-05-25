@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Comments
     # A GraphQL resolver to handle `upVote` and `downVote` mutations

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Admin
     # A form object to create or update pages.

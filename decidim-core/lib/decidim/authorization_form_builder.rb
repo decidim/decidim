@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "decidim/form_builder"
 
 module Decidim

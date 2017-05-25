@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Pages
     # This is the admin interface for `decidim-pages`. It lets you edit and

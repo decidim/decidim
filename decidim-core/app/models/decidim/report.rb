@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A reportable can be reported one time for each user.
   class Report < ApplicationRecord

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Exporters
     # Abstract class providing the interface and partial implementation

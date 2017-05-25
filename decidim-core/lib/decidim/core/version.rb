@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This holds Decidim's version and the Rails version on which it depends.
 module Decidim
   def self.version

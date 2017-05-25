@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A Helper to render and link to resources.
   module AttachmentsHelper

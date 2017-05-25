@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 RSpec.shared_examples "manage process categories examples" do
   before do
     switch_to_host(organization.host)

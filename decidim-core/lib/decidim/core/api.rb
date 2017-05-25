@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   autoload :AuthorInterface, "decidim/core/api/author_interface"
   autoload :TranslatedFieldType, "decidim/core/api/translated_field_type"

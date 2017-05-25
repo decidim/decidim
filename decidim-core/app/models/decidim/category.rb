@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Categories serve as a taxonomy for components to use for while in the
   # context of a participatory process.

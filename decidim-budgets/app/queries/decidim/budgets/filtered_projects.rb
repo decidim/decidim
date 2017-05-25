@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Budgets
     # A class used to find projects filtered by features and a date range

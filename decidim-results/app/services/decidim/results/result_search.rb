@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Results
     # This class handles search and filtering of results. Needs a

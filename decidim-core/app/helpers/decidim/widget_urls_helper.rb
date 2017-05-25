@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module WidgetUrlsHelper
     def embed_modal_for(url)

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Comments
     CommentableMutationType = GraphQL::ObjectType.define do

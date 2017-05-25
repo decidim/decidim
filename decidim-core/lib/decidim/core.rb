@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 require "decidim/core/engine"
 require "decidim/core/version"
 require "decidim/core/api"

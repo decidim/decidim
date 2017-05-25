@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A ResourceLink allows linking resources (other entities in Decidim) between
   # them without them having to know each other.

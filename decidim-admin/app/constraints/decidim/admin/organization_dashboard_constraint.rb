@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Admin
     # A Rails routes constraint to only allow access to an Organization admin to

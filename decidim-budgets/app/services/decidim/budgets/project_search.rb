@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Budgets
     # This class handles search and filtering of projects. Needs a

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.shared_examples "an authorization handler" do
   before do
     unless respond_to?(:handler)

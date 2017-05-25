@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Admin
     # Defines a relation between a user and a participatory process, and what

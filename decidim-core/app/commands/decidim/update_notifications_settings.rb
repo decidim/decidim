@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This command updates the user's notifictions settings.
   class UpdateNotificationsSettings < Rectify::Command

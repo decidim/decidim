@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Admin
     # A class used to find the roles of the users that can manage a given

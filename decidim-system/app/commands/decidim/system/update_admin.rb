@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module System
     # A command with all the business logic when updating an admin in

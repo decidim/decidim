@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Comments
     # A command with all the business logic to upvote a comment

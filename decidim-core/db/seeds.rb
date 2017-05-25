@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 if !Rails.env.production? || ENV["SEED"]
   require "decidim/faker/localized"
 

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A command to authorize a user with an authorization handler.
   class AuthorizeUser < Rectify::Command

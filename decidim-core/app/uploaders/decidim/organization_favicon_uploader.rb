@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This class deals with uploading an organization's favicon.
   class OrganizationFaviconUploader < ImageUploader

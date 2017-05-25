@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Proposals
     # This is the engine that runs on the public interface of `decidim-proposals`.

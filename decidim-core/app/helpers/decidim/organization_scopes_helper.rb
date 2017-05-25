@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 module Decidim
   # A Helper to render scopes, including a global scope, for forms.
   module OrganizationScopesHelper

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This concern contains the logic related to authorship
   module Authorable

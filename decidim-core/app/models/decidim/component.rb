@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A Component represents the association between a participatory process and a
   # Component Engine. It configures how that component should behave, its name,

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   class NewsletterMailer < ApplicationMailer
     add_template_helper Decidim::TranslationsHelper

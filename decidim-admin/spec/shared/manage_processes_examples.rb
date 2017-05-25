@@ -1,5 +1,6 @@
 # coding: utf-8
 # frozen_string_literal: true
+
 RSpec.shared_examples "manage processes examples" do
   context "previewing processes" do
     context "when the process is unpublished" do

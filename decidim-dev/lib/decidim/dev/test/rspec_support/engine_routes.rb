@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This is a quick hack so all controller specs have their engine's routes
   # included as well as our Devise mapping.

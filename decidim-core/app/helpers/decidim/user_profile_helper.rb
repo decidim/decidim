@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Helpers used in controllers implementing the `Decidim::UserProfile` concern.
   module UserProfileHelper

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This type represents a UserGroup
   UserGroupType = GraphQL::ObjectType.define do

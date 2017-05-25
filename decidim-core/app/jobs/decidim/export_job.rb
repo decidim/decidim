@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   class ExportJob < ApplicationJob
     queue_as :default

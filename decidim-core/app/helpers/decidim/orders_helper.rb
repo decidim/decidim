@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Helper that provides methods to render order selector and links
   module OrdersHelper
