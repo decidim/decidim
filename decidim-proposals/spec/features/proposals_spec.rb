@@ -602,9 +602,8 @@ describe "Proposals", type: :feature do
 
           within ".order-by" do
             page.find(".dropdown.menu .is-dropdown-submenu-parent").hover
+            click_link "Most voted"
           end
-
-          click_link "Most voted"
 
           expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
           expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
@@ -620,9 +619,8 @@ describe "Proposals", type: :feature do
 
           within ".order-by" do
             page.find(".dropdown.menu .is-dropdown-submenu-parent").hover
+            click_link "Recent"
           end
-
-          click_link "Recent"
 
           expect(page).to have_selector("#proposals .card-grid .column:first-child", text: recent_proposal.title)
           expect(page).to have_selector("#proposals .card-grid .column:last-child", text: older_proposal.title)
