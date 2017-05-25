@@ -1,10 +1,11 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Decidim
   module Comments
     describe Export do
       let(:subject) { described_class }
-      let!(:feature) { create(:feature, manifest_name: "dummy" )}
+      let!(:feature) { create(:feature, manifest_name: "dummy") }
       let!(:dummy_resources) { create_list(:dummy_resource, 2, feature: feature) }
       let!(:comments) { create_list(:comment, 5, commentable: dummy_resources[1], root_commentable: dummy_resources[1]) }
       let!(:other_comments) { create_list(:comment, 5) }
