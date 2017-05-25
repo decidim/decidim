@@ -34,7 +34,7 @@ describe "Admin copy participatory process", type: :feature do
         click_button "Copy"
       end
 
-      expect(page).to have_content("Successfully")
+      expect(page).to have_content("successfully")
       expect(page).to have_content("Copy participatory process")
       expect(page).to have_content("Not published")
     end
@@ -60,7 +60,7 @@ describe "Admin copy participatory process", type: :feature do
       page.check("participatory_process_copy[copy_steps]")
       click_button "Copy"
 
-      expect(page).to have_content("Successfully")
+      expect(page).to have_content("successfully")
 
       click_link "Copy participatory process"
       click_link "Steps"
@@ -76,7 +76,7 @@ describe "Admin copy participatory process", type: :feature do
       page.check("participatory_process_copy[copy_categories]")
       click_button "Copy"
 
-      expect(page).to have_content("Successfully")
+      expect(page).to have_content("successfully")
 
       click_link "Copy participatory process"
       click_link "Categories"
@@ -92,7 +92,7 @@ describe "Admin copy participatory process", type: :feature do
       page.check("participatory_process_copy[copy_features]")
       click_button "Copy"
 
-      expect(page).to have_content("Successfully")
+      expect(page).to have_content("successfully")
 
       click_link "Copy participatory process"
       click_link "Features"
