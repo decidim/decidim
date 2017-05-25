@@ -11,13 +11,13 @@ module Decidim
       # registers a MenuItem DSL block for the menu.
       #
       # @param name [Symbol] Name of the menu
+      # @param &block [Menu] Registration body of the menu. It's stored to be
+      #                      evaluated at rendering time
       #
-      # @yield [Menu] Invokes the block to register menu items on the menu
-      #
-      def register(name)
+      def register(name, &block)
         menu = find(name) || create(name)
 
-        yield(menu) if block_given?
+        menu.configurations << block
 
         menu
       end
@@ -56,14 +56,27 @@ module Decidim
       end
     end
 
+    attr_reader :configurations
+
     def initialize
+      @configurations = []
+    end
+
+    #
+    # Evaluates the registered configurations for this menu in a view context
+    #
+    def build_for(context)
       @items = []
+
+      @configurations.each do |configuration|
+        context.instance_exec(self, &configuration)
+      end
     end
 
     # Public: Registers a new item for the menu
     #
-    # @param label [String, Symbol, Proc] A compulsory label for the menu item
-    # @param url [String, Symbol, Proc] The URL this item will link to
+    # @param label [String, Symbol] A compulsory label for the menu item
+    # @param url [String, Symbol] The URL this item will link to
     # @param options [Hash] The options for the menu item
     #
     # @option options [Float] :position
@@ -77,10 +90,10 @@ module Decidim
     # @example
     #
     #   menu.item "My Resource", "/resources"
-    #   menu.item "Meetings", -> { decidim_meetings.root_path }
-    #   menu.item ->{ I18n.t("menu.processes") }, -> { decidim.processes_path }
+    #   menu.item I18n.t("menu.meetings"), decidim_meetings.root_path
+    #   menu.item current_user.username, decidim.profile_path
     #   menu.item "Gestor de Procesos", "/processes", active: :exact
-    #   menu.item "Gestor de Procesos", "/processes", if: -> { admin? }
+    #   menu.item "Gestor de Procesos", "/processes", if: admin?
     #
     def item(label, url, options = {})
       @items << MenuItem.new(label, url, options)

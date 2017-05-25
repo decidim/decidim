@@ -12,6 +12,8 @@ module Decidim
     def initialize(menu, view)
       @menu = menu
       @view = view
+
+      @menu.build_for(@view)
     end
 
     delegate :items, to: :@menu

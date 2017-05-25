@@ -18,9 +18,9 @@ module Decidim
     delegate :active_link_to, to: :@view
 
     def as_link
-      return "" unless visible?(@view)
+      return "" unless visible?
 
-      active_link_to label(@view), url(@view), link_options
+      active_link_to label, url, link_options
     end
 
     private

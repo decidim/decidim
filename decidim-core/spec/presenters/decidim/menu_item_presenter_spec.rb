@@ -14,16 +14,6 @@ module Decidim
       end
     end
 
-    context "when label is a proc" do
-      let(:menu_item) { MenuItem.new(-> { foo_label }, "/boo") }
-
-      it "renders label evaluated in view context" do
-        allow(view).to receive(:foo_label).and_return("A beautiful foo")
-
-        expect(subject.as_link).to have_content("A beautiful foo")
-      end
-    end
-
     context "when url is a literal" do
       let(:menu_item) { MenuItem.new("Foo", "/boo") }
 
@@ -32,22 +22,10 @@ module Decidim
       end
     end
 
-    context "when url is a proc" do
-      let(:menu_item) { MenuItem.new("Foo", -> { foo_path }) }
-
-      it "renders url evaluated in view context" do
-        allow(view).to receive(:foo_path).and_return("/path/to/foos")
-
-        expect(subject.as_link).to have_link("Foo", href: "/path/to/foos")
-      end
-    end
-
-    describe "when if parameter evaluates to false" do
-      let(:menu_item) { MenuItem.new("Foo", "/foos", if: -> { admin? }) }
+    describe "when visible parameter is false" do
+      let(:menu_item) { MenuItem.new("Foo", "/foos", if: false) }
 
       it "renders nothing" do
-        allow(view).to receive(:admin?).and_return(false)
-
         expect(subject.as_link).to be_empty
       end
     end

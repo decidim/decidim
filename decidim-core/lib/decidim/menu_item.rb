@@ -7,40 +7,24 @@ module Decidim
   class MenuItem
     # Builds a new menu item
     #
-    # @param label [String, Symbol, Proc] A compulsory label for the menu item
-    # @param url [String, Symbol, Proc] The URL this item will link to
+    # @param label [String, Symbol] A compulsory label for the menu item
+    # @param url [String, Symbol] The URL this item will link to
     # @param options [Hash] The options for the menu item
     #
     def initialize(label, url, options = {})
       @label = label
       @url = url
       @position = options.delete(:position) || Float::INFINITY
-      @visible = options.delete(:if) || -> { true }
+      @if = options.delete(:if)
       @options = options
     end
 
-    attr_reader :position, :options
+    attr_reader :label, :url, :position, :options
 
-    def label(context)
-      in_context(@label, context)
-    end
+    def visible?
+      return true if @if.nil? || @if
 
-    def url(context)
-      in_context(@url, context)
-    end
-
-    def visible?(context)
-      in_context(@visible, context)
-    end
-
-    private
-
-    def in_context(attribute, context)
-      if attribute.is_a?(Proc)
-        context.instance_exec(&attribute)
-      else
-        attribute
-      end
+      false
     end
   end
 end

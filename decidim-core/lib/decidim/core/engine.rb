@@ -136,18 +136,18 @@ module Decidim
 
       initializer "decidim.menu" do
         Decidim.menu :menu do |menu|
-          menu.item -> { I18n.t("menu.home", scope: "decidim") },
-                    -> { decidim.root_path },
+          menu.item I18n.t("menu.home", scope: "decidim"),
+                    decidim.root_path,
                     position: 1,
                     active: :exact
 
-          menu.item -> { I18n.t("menu.processes", scope: "decidim") },
-                    -> { decidim.participatory_processes_path },
+          menu.item I18n.t("menu.processes", scope: "decidim"),
+                    decidim.participatory_processes_path,
                     position: 2,
                     active: :inclusive
 
-          menu.item -> { I18n.t("menu.more_information", scope: "decidim") },
-                    -> { decidim.pages_path },
+          menu.item I18n.t("menu.more_information", scope: "decidim"),
+                    decidim.pages_path,
                     position: 3,
                     active: :inclusive
         end
