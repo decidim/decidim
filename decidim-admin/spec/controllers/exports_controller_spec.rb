@@ -14,19 +14,33 @@ module Decidim
         sign_in user, scope: :user
       end
 
+      let(:params) do
+        {
+          id: "dummies",
+          feature_id: feature.id,
+          participatory_process_id: participatory_process.id
+        }
+      end
+
       describe "POST create" do
-        it "creates an export" do
-          params = {
-            id: "dummies",
-            feature_id: feature.id,
-            participatory_process_id: participatory_process.id,
-            format: "csv"
-          }
+        context "when a format is provided" do
+          it "enqueues a job with the provided format" do
+            params[:format] = "csv"
 
-          expect(ExportJob).to receive(:perform_later)
-            .with(user, feature, "dummies", "csv")
+            expect(ExportJob).to receive(:perform_later)
+              .with(user, feature, "dummies", "csv")
 
-          post(:create, params: params)
+            post(:create, params: params)
+          end
+        end
+
+        context "when a format is not provided" do
+          it "enqueues a job with the default format" do
+            expect(ExportJob).to receive(:perform_later)
+              .with(user, feature, "dummies", "json")
+
+            post(:create, params: params)
+          end
         end
       end
     end
