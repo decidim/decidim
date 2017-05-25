@@ -6,18 +6,24 @@ module Decidim
     #
     # Initializes a menu for presentation
     #
-    # @param menu [Menu] The globally registered menu to be rendered
+    # @param name [Symbol] The name of the menu registry to be rendered
     # @param view [ActionView::Base] The view scope to render the menu
     #
-    def initialize(menu, view)
-      @menu = menu
+    def initialize(name, view)
+      @name = name
       @view = view
-
-      @menu.build_for(@view)
     end
 
-    delegate :items, to: :@menu
+    delegate :items, to: :evaluated_menu
     delegate :content_tag, :safe_join, to: :@view
+
+    def evaluated_menu
+      @evaluated_menu ||= begin
+                            menu = Menu.new(@name)
+                            menu.build_for(@view)
+                            menu
+                          end
+    end
 
     def as_nav_list
       content_tag :ul, class: "main-nav" do

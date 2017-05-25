@@ -4,15 +4,13 @@ require "spec_helper"
 
 module Decidim
   describe MenuPresenter, type: :helper do
-    subject { MenuPresenter.new(menu, view) }
+    subject { MenuPresenter.new(:custom_menu, view) }
 
-    let(:menu) { Menu.find(:custom_menu) }
-
-    after { Menu.destroy(:custom_menu) }
+    after { MenuRegistry.destroy(:custom_menu) }
 
     context "when using compulsory options" do
       before do
-        Decidim.menu :custom_menu do |menu|
+        MenuRegistry.register :custom_menu do |menu|
           menu.item "Foo", "/foo"
           menu.item "Bar", "/bar"
         end
@@ -29,7 +27,7 @@ module Decidim
 
     context "when using position options" do
       before do
-        Decidim.menu :custom_menu do |menu|
+        MenuRegistry.register :custom_menu do |menu|
           menu.item "Foo", "/foo", position: 2
           menu.item "Bar", "/bar", position: 1
         end

@@ -30,6 +30,7 @@ module Decidim
   autoload :FileZipper, "decidim/file_zipper"
   autoload :Menu, "decidim/menu"
   autoload :MenuItem, "decidim/menu_item"
+  autoload :MenuRegistry, "decidim/menu_registry"
 
   include ActiveSupport::Configurable
 
@@ -173,6 +174,6 @@ module Decidim
   # &block - A block using the DSL defined in `Decidim::MenuItem`
   #
   def self.menu(name, &block)
-    Menu.register(name.to_sym, &block)
+    MenuRegistry.register(name.to_sym, &block)
   end
 end

@@ -5,70 +5,16 @@ module Decidim
   # This class handles all logic regarding registering menus
   #
   class Menu
-    class << self
-      #
-      # Finds a menu by name or creates it if it doesn't exist. Optionally,
-      # registers a MenuItem DSL block for the menu.
-      #
-      # @param name [Symbol] Name of the menu
-      # @param &block [Menu] Registration body of the menu. It's stored to be
-      #                      evaluated at rendering time
-      #
-      def register(name, &block)
-        menu = find(name) || create(name)
-
-        menu.configurations << block
-
-        menu
-      end
-
-      #
-      # Finds a menu by name
-      #
-      # @param name [Symbol] The name of the menu
-      #
-      def find(name)
-        all[name]
-      end
-
-      #
-      # Creates an empty named menu
-      #
-      # @param name [Symbol] The name of the menu
-      #
-      def create(name)
-        all[name] = new
-      end
-
-      #
-      # Destroys a named menu
-      #
-      # @param name [Symbol] The name of the menu
-      #
-      def destroy(name)
-        all[name] = nil
-      end
-
-      private
-
-      def all
-        @all ||= {}
-      end
-    end
-
-    attr_reader :configurations
-
-    def initialize
-      @configurations = []
+    def initialize(name)
+      @name = name
+      @items = []
     end
 
     #
     # Evaluates the registered configurations for this menu in a view context
     #
     def build_for(context)
-      @items = []
-
-      @configurations.each do |configuration|
+      registry.configurations.each do |configuration|
         context.instance_exec(self, &configuration)
       end
     end
@@ -104,6 +50,12 @@ module Decidim
     #
     def items
       @items.sort_by(&:position)
+    end
+
+    private
+
+    def registry
+      @registry ||= MenuRegistry.find(@name)
     end
   end
 end
