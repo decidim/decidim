@@ -4,7 +4,6 @@ require "spec_helper"
 module Decidim
   module Admin
     describe ExportsHelper do
-      let(:options) { {} }
       subject do
         Nokogiri::HTML(helper.export_dropdown(feature))
       end
