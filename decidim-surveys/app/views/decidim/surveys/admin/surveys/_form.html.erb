@@ -12,22 +12,22 @@
     <div class="row column">
       <%= form.translated :editor, :toc, toolbar: :full, lines: 30, label: t("models.components.toc", scope: "decidim.surveys.admin")  %>
     </div>
+  </div>
+</div>
 
-    <div class="row column survey-questions">
-      <% unless survey.published? %>
-        <button class="button add-question"><%= t('.add_question') %></button>
+<div class="survey-questions">
+  <% unless survey.published? %>
+    <button class="button add-question"><%= t('.add_question') %></button>
 
-        <template id="survey-question-tmpl">
-          <%= render "question", question: blank_question %>
-        </template>
-      <% end %>
+    <template id="survey-question-tmpl">
+      <%= render "question", question: blank_question %>
+    </template>
+  <% end %>
 
-      <div class="survey-questions-list <%= 'published' if survey.published? %>">
-        <% @form.questions.each_with_index do |question, idx| %>
-          <%= render "question", question: question %>
-        <% end %>
-      </div>
-    </div>
+  <div class="survey-questions-list <%= 'published' if survey.published? %>">
+    <% @form.questions.each_with_index do |question, idx| %>
+      <%= render "question", question: question %>
+    <% end %>
   </div>
 </div>
 
