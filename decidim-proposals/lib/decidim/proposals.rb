@@ -8,5 +8,6 @@ module Decidim
   # This namespace holds the logic of the `Proposals` component. This component
   # allows users to create proposals in a participatory process.
   module Proposals
+    autoload :ProposalSerializer, "decidim/proposals/proposal_serializer"
   end
 end

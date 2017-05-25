@@ -1,5 +1,9 @@
 en:
   decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: "Dummies"
     resource_links:
       test_link:
         dummy_resource_dummy: Related dummy

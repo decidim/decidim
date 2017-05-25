@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require_dependency "decidim/features/settings_manifest"
+require_dependency "decidim/features/export_manifest"
 
 module Decidim
   # This class handles all the logic associated to configuring a feature
@@ -126,6 +127,36 @@ module Decidim
       yield(manifest)
       manifest.validate!
       resource_manifests << manifest
+    end
+
+    # Public: Registers an export artifact with a name and its properties
+    # defined in `Decidim::Features::ExportManifest`.
+    #
+    # Export artifacts provide an unified way for features to register
+    # exportable collections serialized via a `Serializer` than eventually
+    # are transformed to their formats.
+    #
+    # name  - The name of the artifact. Should be unique in the context of
+    #         the feature.
+    # block - A block that receives the manifest as its only argument.
+    #
+    # Returns nothing.
+    def exports(name, &block)
+      @exports ||= []
+      @exports << [name, block]
+      @export_manifests = nil
+    end
+
+    # Pubic: Returns a collection of previously registered export manifests
+    # for this feature.
+    #
+    # Returns an Array<Decidim::Features::ExportManifest>.
+    def export_manifests
+      @export_manifests ||= @exports.map do |(name, block)|
+        Decidim::Features::ExportManifest.new(name).tap do |manifest|
+          block.call(manifest)
+        end
+      end
     end
 
     # Public: Finds all the registered resource manifest's via the

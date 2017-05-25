@@ -39,6 +39,21 @@ Decidim.register_feature(:my_feature) do |feature|
   feature.on(:create) do |feature|
     MyFeature::DoSomething.with(feature)
   end
+
+  # Export definitions allow features to declare any number of exportable files.
+  # 
+  # An export definition needs a unique name, a collection, and a Serializer. If
+  # no serializer is provided, a default, naive one will be used.
+  #
+  # Exports are then exposed via the UI, so the implementer only needs to care
+  # about the export definitions.
+  feature.exports :feature_resources do |exports|
+    exports.collection do |feature|
+      MyFeature::Resource.where(feature: feature)
+    end
+
+    exports.serializer MyFeature::ResourceSerializer
+  end
 end
 ```
 

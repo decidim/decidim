@@ -10,6 +10,8 @@ module Decidim
         include NeedsParticipatoryProcess
         include FeatureSettings
 
+        helper Decidim::Admin::ExportsHelper
+
         helper_method :current_feature,
                       :current_participatory_process,
                       :parent_path

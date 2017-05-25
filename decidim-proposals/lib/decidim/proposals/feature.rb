@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require_dependency "decidim/features/namer"
 
 Decidim.register_feature(:proposals) do |feature|
@@ -49,6 +48,16 @@ Decidim.register_feature(:proposals) do |feature|
   feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at)
     Decidim::Comments::Comment.where(root_commentable: proposals).count
+  end
+
+  feature.exports :proposals do |exports|
+    exports.collection do |feature_instance|
+      Decidim::Proposals::Proposal
+        .where(feature: feature_instance)
+        .includes(:category, feature: { participatory_process: :organization })
+    end
+
+    exports.serializer Decidim::Proposals::ProposalSerializer
   end
 
   feature.seeds do

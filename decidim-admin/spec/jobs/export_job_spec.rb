@@ -2,23 +2,22 @@
 require "spec_helper"
 
 module Decidim
-  module Proposals
+  module Admin
     describe ExportJob do
-      let!(:feature) { create(:feature, manifest_name: "proposals") }
-      let!(:proposals) { create_list(:proposal, 3, feature: feature) }
+      let!(:feature) { create(:feature, manifest_name: "dummy") }
       let(:organization) { feature.organization }
       let!(:user) { create(:user, organization: organization) }
 
       it "sends an email with the result of the export" do
-        ExportJob.perform_now(user, feature, "csv")
+        ExportJob.perform_now(user, feature, "dummies", "csv")
 
         email = last_email
-        expect(email.subject).to include("proposals")
+        expect(email.subject).to include("dummies")
         attachment = email.attachments.first
 
         expect(attachment.read.length).to be_positive
         expect(attachment.mime_type).to eq("application/zip")
-        expect(attachment.filename).to match(/^proposals-[0-9]+-[0-9]+-[0-9]+-[0-9]+\.zip$/)
+        expect(attachment.filename).to match(/^dummies-[0-9]+-[0-9]+-[0-9]+-[0-9]+\.zip$/)
       end
 
       describe "CSV" do
@@ -26,14 +25,14 @@ module Decidim
           export_data = double
 
           expect(Decidim::Exporters::CSV)
-            .to(receive(:new).with(anything, ProposalSerializer))
+            .to(receive(:new).with(anything, DummySerializer))
             .and_return(double(export: export_data))
 
           expect(ExportMailer)
             .to(receive(:export).with(user, anything, export_data))
             .and_return(double(deliver_now: true))
 
-          ExportJob.perform_now(user, feature, "csv")
+          ExportJob.perform_now(user, feature, "dummies", "csv")
         end
       end
 
@@ -42,14 +41,14 @@ module Decidim
           export_data = double
 
           expect(Decidim::Exporters::JSON)
-            .to(receive(:new).with(anything, ProposalSerializer))
+            .to(receive(:new).with(anything, DummySerializer))
             .and_return(double(export: export_data))
 
           expect(ExportMailer)
             .to(receive(:export).with(user, anything, export_data))
             .and_return(double(deliver_now: true))
 
-          ExportJob.perform_now(user, feature, "json")
+          ExportJob.perform_now(user, feature, "dummies", "json")
         end
       end
     end

@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     # This class serializes a Proposal so can be exported to CSV, JSON or other
     # formats.
-    class ProposalSerializer
+    class ProposalSerializer < Decidim::Exporters::Serializer
       include Rails.application.routes.url_helpers
       include Decidim::ResourceHelper
 

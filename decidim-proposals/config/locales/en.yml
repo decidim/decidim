@@ -35,12 +35,13 @@ en:
     proposals:
       actions:
         answer: Answer
-        export: Export
         new: New
         title: Actions
       admin:
         actions:
           preview: Preview
+        exports:
+          proposals: Proposals
         models:
           proposal:
             name: Proposal
@@ -71,9 +72,6 @@ en:
       create:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully.
-      exports:
-        notice: Your export is currently in progress. You'll receive an email when
-          it's complete.
       models:
         proposal:
           fields:
