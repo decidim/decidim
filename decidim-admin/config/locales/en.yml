@@ -116,6 +116,7 @@ en:
         configure: Configure
         confirm_destroy: Are you sure you want to delete this?
         destroy: Destroy
+        export: Export
         edit: Edit
         manage: Manage
         new: New
@@ -127,6 +128,7 @@ en:
         verify: Verify
       exports:
         export_as: "%{name} as %{export_format}"
+        notice: "Your export is currently in progress. You'll receive an email when it's complete."
       attachments:
         create:
           error: There was an error creating a new attachment.

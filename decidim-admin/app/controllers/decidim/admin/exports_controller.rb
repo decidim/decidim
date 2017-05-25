@@ -12,7 +12,7 @@ module Decidim
 
         ExportJob.perform_later(current_user, feature, name, params[:format])
 
-        flash[:notice] = t("decidim.#{name}.exports.notice")
+        flash[:notice] = t("decidim.admin.exports.notice")
         redirect_to :back
       end
     end
