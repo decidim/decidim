@@ -102,7 +102,7 @@ module Decidim
       end
 
       def map_step_settings(step_settings)
-        step_settings.reduce({}) do |acc, (step_id, settings)|
+        step_settings.each_with_object({}) do |(step_id, settings), acc|
           acc[@steps_relationship[step_id.to_s]] = settings
           acc
         end
