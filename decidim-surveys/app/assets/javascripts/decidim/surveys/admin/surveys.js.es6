@@ -1,14 +1,25 @@
 // = require jquery-tmpl
 // = require ./auto_label_by_position.component
+// = require ./dynamic_fields.component
 
 ((exports) => {
-  const { AutoLabelByPositionComponent } = exports.DecidimAdmin;
+  const { AutoLabelByPositionComponent, DynamicFieldsComponent } = exports.DecidimAdmin;
 
   const $addQuestionButtons = $('.add-question');
   const templateId = 'survey-question-tmpl';
   const $container = $('.survey-questions');
 
-  const autoLabelByPosition = new AutoLabelByPositionComponent('.survey-question:not(.hidden)', '.card-title span');
+  const autoLabelByPosition = new AutoLabelByPositionComponent({
+    listSelector: '.survey-question:not(.hidden)',
+    labelSelector: '.card-title span',
+    onPositionComputed: (el, idx) => {
+      $(el).find('input[name="survey[questions][][position]"]').val(idx);
+    }
+  });
+
+  const dynamicFields = new DynamicFieldsComponent(
+
+  );
 
   $.template(templateId, $(`#${templateId}`).html());
 
