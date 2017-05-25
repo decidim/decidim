@@ -1,8 +1,9 @@
 ((exports) => {
   class AutoLabelByPositionComponent {
-    constructor(listSelector, labelSelector) {
-      this.listSelector = listSelector;
-      this.labelSelector = labelSelector;
+    constructor(options = {}) {
+      this.listSelector = options.listSelector;
+      this.labelSelector = options.labelSelector;
+      this.onPositionComputed = options.onPositionComputed;
     }
 
     run() {
@@ -18,7 +19,9 @@
           $label.html(`${labelContent} #${idx + 1}`);
         }
 
-        // $(el).find('input[name="survey[questions][][position]"]').val(idx);        
+        if (this.onPositionComputed) {
+          this.onPositionComputed(el, idx);
+        }
       });
     }
   }
