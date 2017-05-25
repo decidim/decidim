@@ -601,7 +601,7 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within ".order-by" do
-            page.find(".dropdown.menu .is-dropdown-submenu-parent").hover
+            page.find("a", text: "Random").click
             click_link "Most voted"
           end
 
@@ -618,7 +618,7 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within ".order-by" do
-            page.find(".dropdown.menu .is-dropdown-submenu-parent").hover
+            page.find("a", text: "Random").click
             click_link "Recent"
           end
 
