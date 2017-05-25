@@ -33,7 +33,6 @@ ca:
     proposals:
       actions:
         answer: Respondre
-        export: Exporta
         new: Nova
         title: Accions
       admin:
@@ -69,8 +68,6 @@ ca:
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: Proposta creada correctament.
-      exports:
-        notice: La seva exportació està actualment en curs. Rebràs un correu electrònic quan estigui complet.
       models:
         proposal:
           fields:
