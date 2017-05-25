@@ -80,10 +80,6 @@ module Decidim
         @participatory_process = collection.find(params[:id])
       end
 
-      # def duplicate
-      #   @participatory_process = collection.find(params[:id])
-      # end
-
       private
 
       attr_reader :participatory_process
