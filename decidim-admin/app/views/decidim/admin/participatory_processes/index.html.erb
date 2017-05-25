@@ -37,7 +37,7 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
-                  <%= icon_link_to "clipboard", new_participatory_process_copy_path(process), t("actions.configure", scope: "decidim.admin"), class: "action-icon--copy" %>
+                  <%= icon_link_to "clipboard", new_participatory_process_copy_path(process), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
 
                 <% if can? :update, process %>
                   <%= icon_link_to "pencil", edit_participatory_process_path(process), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
