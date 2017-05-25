@@ -49,7 +49,7 @@ module Decidim
     # The weighted list of items in the menu
     #
     def items
-      @items.sort_by(&:position)
+      @items.select(&:visible?).sort_by(&:position)
     end
 
     private

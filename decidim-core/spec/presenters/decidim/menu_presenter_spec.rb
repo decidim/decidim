@@ -40,5 +40,21 @@ module Decidim
           have_selector("li:last-child", text: "Foo")
       end
     end
+
+    context "when using visibilty options" do
+      before do
+        MenuRegistry.register :custom_menu do |menu|
+          menu.item "Foo", "/foo", if: Time.now.year == 2000
+          menu.item "Bar", "/bar"
+        end
+      end
+
+      it "skips non visible options" do
+        expect(subject.as_nav_list).to \
+          have_selector("ul") &
+          have_selector("li", count: 1) &
+          have_link("Bar", href: "/bar")
+      end
+    end
   end
 end
