@@ -1139,6 +1139,10 @@ Metrics/PerceivedComplexity:
 
 ##################### Lint ##################################
 
+# TODO: This cop was buggy in 0.48.1. Reenable when upgrading to 0.49.0
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
 # Allow safe assignment in conditions.
 Lint/AssignmentInCondition:
   AllowSafeAssignment: true
