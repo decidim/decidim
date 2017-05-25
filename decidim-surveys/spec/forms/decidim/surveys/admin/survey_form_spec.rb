@@ -24,7 +24,8 @@ module Decidim
                 "ca" => "Primera pregunta",
                 "es" => "Primera pregunta"
               },
-              position: 0
+              position: 0,
+              question_type: "short_answer"              
             },
             {
               body: {
@@ -33,7 +34,8 @@ module Decidim
                 "es" => "Segunda pregunta"
               },
               position: 1,
-              mandatory: true
+              mandatory: true,
+              question_type: "short_answer"
             }
           ]
         end
