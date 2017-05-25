@@ -41,6 +41,7 @@ en:
         actions:
           preview: Preview
         exports:
+          comments: Comments
           proposals: Proposals
         models:
           proposal:
