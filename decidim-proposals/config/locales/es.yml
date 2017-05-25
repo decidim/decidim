@@ -33,7 +33,6 @@ es:
     proposals:
       actions:
         answer: Respuesta
-        export: Exportar
         new: Nueva
         title: Acciones
       admin:
@@ -69,8 +68,6 @@ es:
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada correctamente.
-      exports:
-        notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
       models:
         proposal:
           fields:
