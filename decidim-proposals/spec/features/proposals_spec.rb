@@ -389,7 +389,7 @@ describe "Proposals", type: :feature do
 
         expect(page).to have_css(".card--proposal", count: 12)
 
-        find(".pagination-next a").click
+        click_link "Next"
 
         expect(page).to have_selector(".pagination .current", text: "2")
 
