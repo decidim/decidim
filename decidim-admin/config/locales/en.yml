@@ -349,7 +349,7 @@ en:
       participatory_process_copies:
         new:
           copy: Copy
-          select: Select which data you would like to copy
+          select: Select which data you would like to duplicate
           title: Duplicate participatory processs
       participatory_process_groups:
         destroy:
@@ -433,7 +433,7 @@ en:
           success: Participatory process updated successfully.
       participatory_processes_copies:
         create:
-          error: There was an error when copying this participatory process.
+          error: There was an error when duplicating this participatory process.
           success: Participatory process duplicated successfully.
       participatory_processes_group:
         create:

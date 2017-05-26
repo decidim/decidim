@@ -50,6 +50,7 @@ describe Decidim::Admin::CopyParticipatoryProcess do
 
       expect(new_participatory_process.slug).to eq("copied_slug")
       expect(new_participatory_process.title["en"]).to eq("title")
+      expect(new_participatory_process.published?).to be_falsy
       expect(new_participatory_process.organization).to eq(old_participatory_process.organization)
       expect(new_participatory_process.subtitle).to eq(old_participatory_process.subtitle)
       expect(new_participatory_process.description).to eq(old_participatory_process.description)

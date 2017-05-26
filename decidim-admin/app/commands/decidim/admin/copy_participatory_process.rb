@@ -7,6 +7,7 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
+      # participatory_process - A participatory_process we want to duplicate
       def initialize(form, participatory_process)
         @form = form
         @participatory_process = participatory_process
@@ -103,8 +104,7 @@ module Decidim
 
       def map_step_settings(step_settings)
         step_settings.each_with_object({}) do |(step_id, settings), acc|
-          acc[@steps_relationship[step_id.to_s]] = settings
-          acc
+          acc.update(@steps_relationship[step_id.to_s] => settings)
         end
       end
     end

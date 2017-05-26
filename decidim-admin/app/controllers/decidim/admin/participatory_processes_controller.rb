@@ -77,7 +77,7 @@ module Decidim
       end
 
       def copy
-        @participatory_process = collection.find(params[:id])
+        @participatory_process ||= collection.find(params[:id])
       end
 
       private
