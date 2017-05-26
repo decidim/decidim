@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_dependency "decidim/features/settings_manifest"
 require_dependency "decidim/features/export_manifest"
 

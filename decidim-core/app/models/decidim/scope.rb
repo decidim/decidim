@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Scopes are used in some entities through Decidim to help users know which is
   # the scope of a participatory process.

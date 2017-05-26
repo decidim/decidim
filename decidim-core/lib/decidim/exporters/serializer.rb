@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Exporters
     # This is an abstract class with a very naive default implementation

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 shared_examples_for "has scope" do
   context "when the scope is from another organization" do
     before do

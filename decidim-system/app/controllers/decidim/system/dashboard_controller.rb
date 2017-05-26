@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_dependency "decidim/system/application_controller"
 
 module Decidim

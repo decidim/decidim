@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A moderation belongs to a reportable and includes many reports
   class Moderation < ApplicationRecord

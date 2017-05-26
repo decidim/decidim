@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A command with all the business logic to create a user through the sign up form.
   # It enables the option to sign up as a user group.

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 # frozen_literal_string: true
 
 require "spec_helper"

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 RSpec.shared_examples "manage attachments examples" do
   let!(:attachment) do
     Decidim::AttachmentUploader.enable_processing = true

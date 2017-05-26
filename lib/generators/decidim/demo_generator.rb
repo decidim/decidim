@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
 require "decidim/core/version"

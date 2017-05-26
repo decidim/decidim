@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Attachment can be any type of document or images related to a partcipatory
   # process.

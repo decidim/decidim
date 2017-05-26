@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Proposals
     # Simple helpers to handle markup variations for proposal votes partials

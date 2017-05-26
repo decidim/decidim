@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "decidim/results/admin"
 require "decidim/results/engine"
 require "decidim/results/admin_engine"

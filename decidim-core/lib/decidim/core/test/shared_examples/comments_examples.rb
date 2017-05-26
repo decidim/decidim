@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 RSpec.shared_examples "comments" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, organization: organization) }

@@ -1,5 +1,6 @@
 # coding: utf-8
 # frozen_string_literal: true
+
 # This validator takes care of ensuring the validated content is
 # respectful, doesn't use caps, and overall is meaningful.
 class EtiquetteValidator < ActiveModel::EachValidator

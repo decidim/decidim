@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A Feature represents a self-contained group of functionalities usually
   # defined via a FeatureManifest and its Components. It's meant to be able to

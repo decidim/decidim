@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.shared_examples "with participatory processes" do
   before do
     @request.env["decidim.current_organization"] = organization

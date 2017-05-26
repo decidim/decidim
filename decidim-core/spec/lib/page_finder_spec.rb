@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "spec_helper"
 require_dependency "decidim/page_finder"
 

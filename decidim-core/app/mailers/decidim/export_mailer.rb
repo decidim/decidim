@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This mailer sends a notification email containing the export as an
   # attachment.

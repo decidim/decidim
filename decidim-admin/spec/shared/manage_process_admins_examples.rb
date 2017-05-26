@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.shared_examples "manage process admins examples" do
   let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
 

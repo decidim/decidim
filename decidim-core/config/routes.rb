@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Decidim::Core::Engine.routes.draw do
   mount Decidim::Api::Engine => "/api"
 

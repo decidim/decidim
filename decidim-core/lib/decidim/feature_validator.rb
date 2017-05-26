@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # A custom validator to make sure features are correctly assigned to a model.
 #
 # Adds a presence validation and checks that the manifest is the correct one.

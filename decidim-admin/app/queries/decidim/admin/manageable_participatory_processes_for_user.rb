@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Admin
     # A class used to find the ParticipatoryProcesses that the given user can

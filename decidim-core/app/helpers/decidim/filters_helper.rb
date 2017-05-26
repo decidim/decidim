@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Helper that provides a single method to create filter resource forms
   module FiltersHelper

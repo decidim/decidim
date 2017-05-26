@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 RSpec.shared_examples "export proposals" do
   let!(:proposals) { create_list :proposal, 3, feature: current_feature }
 

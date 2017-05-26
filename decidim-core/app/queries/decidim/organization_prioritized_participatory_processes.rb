@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This query class returns the public Participatory Processes given an
   # Organization in a meaningful order.

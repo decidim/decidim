@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Budgets
     # The data store for a Order in the Decidim::Budgets component. It is unique for each

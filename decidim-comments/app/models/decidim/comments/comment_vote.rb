@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Comments
     # A comment can include user votes. A user should be able to upVote, votes with

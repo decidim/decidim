@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "spec_helper"
 require_relative "../../../app/helpers/decidim/application_helper"
 

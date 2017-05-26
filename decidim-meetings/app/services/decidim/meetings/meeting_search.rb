@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Meetings
     # This class handles search and filtering of meetings. Needs a

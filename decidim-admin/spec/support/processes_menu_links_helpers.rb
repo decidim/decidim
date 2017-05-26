@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # A collection of methods to help dealing with processes menu links.
 module ProcessesMenuLinksHelpers
   # Clicks a link in the submenu of a participatory process navigation.

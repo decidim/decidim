@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A middleware that enhances the request with the current organization based
   # on the hostname.

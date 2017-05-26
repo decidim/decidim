@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This type represents a localized string in a single language.
   LocalizedStringType = GraphQL::ObjectType.define do

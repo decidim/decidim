@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Proposals
     # This helper include some methods for rendering proposals dynamic maps.

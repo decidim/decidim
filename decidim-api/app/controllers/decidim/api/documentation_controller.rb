@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Api
     # This controller takes queries from an HTTP endpoint and sends them out to

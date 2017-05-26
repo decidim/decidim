@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 FactoryGirl.define do
   factory :meeting, class: Decidim::Meetings::Meeting do
     title { Decidim::Faker::Localized.sentence(3) }

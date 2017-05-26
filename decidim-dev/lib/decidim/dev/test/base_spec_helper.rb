@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 ENV["RAILS_ENV"] ||= "test"
 
 root_path = File.join(Dir.pwd, "..")
@@ -17,7 +18,7 @@ if ENV["SIMPLECOV"]
     add_filter "/vendor/"
 
     add_filter do |src|
-      !(src.filename =~ /^#{root_path}/)
+      src.filename !~ /^#{root_path}/
     end
   end
 

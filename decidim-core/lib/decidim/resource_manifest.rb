@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Features inside a component can expose different Resources, these resources
   # will be used to be linked between each other and other possible features.

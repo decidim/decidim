@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A presenter to render statistics in the homepage.
   class HomeStatsPresenter < Rectify::Presenter

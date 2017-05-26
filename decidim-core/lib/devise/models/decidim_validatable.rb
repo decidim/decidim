@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Devise
   module Models
     # Validatable creates all needed validations for a user email and password.
@@ -37,7 +38,7 @@ module Devise
       end
 
       def self.assert_validations_api!(base) #:nodoc:
-        unavailable_validations = VALIDATIONS.select { |v| !base.respond_to?(v) }
+        unavailable_validations = VALIDATIONS.reject { |v| base.respond_to?(v) }
 
         unless unavailable_validations.empty?
           raise "Could not use :validatable module since #{base} does not respond " \

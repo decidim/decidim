@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   class ParticipatoryProcessGroup < ApplicationRecord
     has_many :participatory_processes,

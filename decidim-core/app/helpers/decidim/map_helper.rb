@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This helper include some methods for rendering resources static and dynamic maps.
   module MapHelper

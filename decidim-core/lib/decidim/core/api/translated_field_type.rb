@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This type represents a translated field in multiple languages.
   TranslatedFieldType = GraphQL::ObjectType.define do

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "spec_helper"
 require "decidim/dev/test/authorization_shared_examples"
 

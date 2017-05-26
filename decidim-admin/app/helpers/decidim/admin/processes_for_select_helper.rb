@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Admin
     # This class contains helpers needed to format ParticipatoryProcesses

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This class stores different stats computations and resolves them given a context.
   class StatsRegistry

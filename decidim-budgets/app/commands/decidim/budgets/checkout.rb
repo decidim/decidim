@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Budgets
     # A command with all the business to checkout.
