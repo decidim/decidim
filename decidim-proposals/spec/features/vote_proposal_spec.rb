@@ -55,10 +55,13 @@ describe "Vote Proposal", type: :feature do
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
-        visit_feature
       end
 
       context "when the proposal is not voted yet" do
+        before do
+          visit_feature
+        end
+
         it "should be able to vote the proposal" do
           within "#proposal-#{proposal.id}-vote-button" do
             click_button "Vote"
@@ -113,6 +116,10 @@ describe "Vote Proposal", type: :feature do
         end
 
         context "when the proposal is not voted yet" do
+          before do
+            visit_feature
+          end
+
           it "should update the remaining votes counter" do
             within "#proposal-#{proposal.id}-vote-button" do
               click_button "Vote"
