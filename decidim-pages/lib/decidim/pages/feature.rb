@@ -20,9 +20,8 @@ Decidim.register_feature(:pages) do |feature|
   end
 
   feature.on(:copy) do |context|
-    pages = Decidim::Pages::Page.where(feature: context[:old_feature])
-    pages.each do |page|
-      Decidim::Pages::Page.create!(feature: context[:new_feature], body: page.body)
+    Decidim::Pages::CopyPage.call(context) do
+      on(:invalid) { raise "Can't duplicate page" }
     end
   end
 
