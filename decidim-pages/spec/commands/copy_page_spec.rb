@@ -7,8 +7,8 @@ module Decidim
       describe "call" do
         let(:feature) { create(:feature, manifest_name: "pages") }
         let!(:page) { create(:page, feature: feature) }
-        let(:new_feature) {create(:feature, manifest_name: "pages")}
-        let(:context) { {new_feature: new_feature, old_feature: feature} }
+        let(:new_feature) { create(:feature, manifest_name: "pages") }
+        let(:context) { { new_feature: new_feature, old_feature: feature } }
         let(:command) { described_class.new(context) }
 
         describe "when the page is not duplicated" do

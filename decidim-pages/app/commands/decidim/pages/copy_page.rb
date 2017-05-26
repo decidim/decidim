@@ -10,17 +10,15 @@ module Decidim
       end
 
       def call
-        begin
-          Decidim::Pages::Page.transaction do
-            pages = Decidim::Pages::Page.where(feature: @context[:old_feature])
-            pages.each do |page|
-              Decidim::Pages::Page.create!(feature: @context[:new_feature], body: page.body)
-            end
+        Decidim::Pages::Page.transaction do
+          pages = Decidim::Pages::Page.where(feature: @context[:old_feature])
+          pages.each do |page|
+            Decidim::Pages::Page.create!(feature: @context[:new_feature], body: page.body)
           end
-          broadcast(:ok)
-        rescue ActiveRecord::RecordInvalid
-          broadcast(:invalid)
         end
+        broadcast(:ok)
+      rescue ActiveRecord::RecordInvalid
+        broadcast(:invalid)
       end
     end
   end
