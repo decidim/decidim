@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "database_cleaner", "~> 1.6.0"
   s.add_dependency "capybara", "~> 2.14.0"
   s.add_dependency "capybara-screenshot", "~> 1.0.14"
-  s.add_dependency "rspec-rails", "~> 3.5"
+  s.add_dependency "rspec-rails", "~> 3.5", "< 3.6"
   s.add_dependency "rspec-repeat", "~> 1.0.2"
   s.add_dependency "byebug"
   s.add_dependency "wisper-rspec", "~> 0.0.3"
