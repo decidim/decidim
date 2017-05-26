@@ -10,12 +10,6 @@ describe "Vote Proposal", type: :feature do
   let!(:proposal) { Decidim::Proposals::Proposal.where(feature: feature).first }
   let!(:user) { create :user, :confirmed, organization: organization }
 
-  let!(:feature) do
-    create(:proposal_feature,
-           manifest: manifest,
-           participatory_process: participatory_process)
-  end
-
   context "when votes are not enabled" do
     it "doesn't show the vote proposal button and counts" do
       expect(page).to have_no_button("Vote")
