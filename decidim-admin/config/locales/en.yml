@@ -116,6 +116,7 @@ en:
         configure: Configure
         confirm_destroy: Are you sure you want to delete this?
         destroy: Destroy
+        duplicate: Duplicate
         edit: Edit
         export: Export
         manage: Manage
@@ -349,6 +350,11 @@ en:
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
+      participatory_process_copies:
+        new:
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate participatory processs
       participatory_process_groups:
         destroy:
           success: Participatory process group destroyed successfully.
@@ -429,6 +435,10 @@ en:
         update:
           error: There was an error when updating this participatory process.
           success: Participatory process updated successfully.
+      participatory_processes_copies:
+        create:
+          error: There was an error when duplicating this participatory process.
+          success: Participatory process duplicated successfully.
       participatory_processes_group:
         create:
           error: There was an error creating a new participatory process group.

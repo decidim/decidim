@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: participatory_process_copies_path(participatory_process), method: :post, html: { class: "form copy_participatory_process" }) do |f| %>
+  <%= render partial: 'form', object: f, locals: { title: t('.title'), select: t('.select')} %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".copy") %>
+  </div>
+<% end %>

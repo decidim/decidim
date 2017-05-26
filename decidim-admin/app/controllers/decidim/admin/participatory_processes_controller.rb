@@ -76,6 +76,10 @@ module Decidim
         redirect_to participatory_processes_path
       end
 
+      def copy
+        @participatory_process ||= collection.find(params[:id])
+      end
+
       private
 
       attr_reader :participatory_process
