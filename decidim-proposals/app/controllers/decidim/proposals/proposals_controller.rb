@@ -65,14 +65,17 @@ module Decidim
       private
 
       # Gets how the proposals should be ordered based on the choice made by the user.
-      #
-      # Note that when votes are active and hidden at the same time, the "most_voted"
-      # option is not available, so it's replaced to "random" to avoid people
-      # changing the URL manually.
       def order
-        return @order if @order
-        @order = "random" if current_settings.votes_enabled? && current_settings.votes_hidden? && params[:order] == "most_voted"
-        @order ||= params[:order].presence || "random"
+        @order ||= available_orders.detect { |order| order == params[:order] } || "random"
+      end
+
+      # Available orders based on enabled settings
+      def available_orders
+        if current_settings.votes_enabled? && current_settings.votes_hidden?
+          %w(random recent)
+        else
+          %w(random recent most_voted)
+        end
       end
 
       # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
