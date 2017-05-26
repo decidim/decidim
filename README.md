@@ -106,7 +106,7 @@ After you create a development app (`bundle exec rake development_app`):
 | [Comments](https://github.com/decidim/decidim/tree/master/decidim-comments) | The Comments module adds the ability to include comments to any resource which can be commentable by users.      |
 | [Core](https://github.com/decidim/decidim/tree/master/decidim-core) | The basics of Decidim: users, participatory processes, etc. This is the only required engine to run Decidim, all the others are optional. |
 | [Dev](https://github.com/decidim/decidim/tree/master/decidim-dev) | This gem aids the local development of Decidim's features. |
-| [Meeting](https://github.com/decidim/decidim/tree/master/decidim-meetings) | The Meeeting module adds meeting to any participatory process. It adds a CRUD engine to the admin and public view scoped inside the participatory process. |
+| [Meeting](https://github.com/decidim/decidim/tree/master/decidim-meetings) | The Meeting module adds meeting to any participatory process. It adds a CRUD engine to the admin and public view scoped inside the participatory process. |
 | [Pages](https://github.com/decidim/decidim/tree/master/decidim-pages) | The Pages module adds static page capabilities to any participatory process. It basically provides an interface to include arbitrary HTML content to any step. |
 | [Proposals](https://github.com/decidim/decidim/tree/master/decidim-proposals) | The Proposals module adds one of the main features of Decidim: allows users to contribute to a participatory process by creating proposals. |
 | [Results](https://github.com/decidim/decidim/tree/master/decidim-results) | Adds a results section to any participatory process so users can follow along the state of the accepted proposals. |
@@ -116,7 +116,7 @@ After you create a development app (`bundle exec rake development_app`):
 
 ### Architecture
 
-This is not your tipical Ruby on Rails Vanilla App. We've tried that using [Consul](http://decide.es) but we've found some problems on reutilization, adaptation, modularization and configuration. You can read more about that on "[Propuesta de Cambios de Arquitectura de Consul](https://www.gitbook.com/book/alabs/propuesta-de-cambios-en-la-arquitectura-de-consul/details)".
+This is not your typical Ruby on Rails Vanilla App. We've tried that using [Consul](http://decide.es) but we've found some problems on reutilization, adaptation, modularization and configuration. You can read more about that on "[Propuesta de Cambios de Arquitectura de Consul](https://www.gitbook.com/book/alabs/propuesta-de-cambios-en-la-arquitectura-de-consul/details)".
 
 ### Turbolinks
 

@@ -54,7 +54,7 @@
     }
 
     /**
-     * Finds the values of the location prams that match the given regexp.
+     * Finds the values of the location params that match the given regexp.
      * @private
      * @param {Regexp} regex - a Regexp to match the params.
      * @returns {String[]} - An array of values of the params that match the regexp.
