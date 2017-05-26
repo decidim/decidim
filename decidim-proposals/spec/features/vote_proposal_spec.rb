@@ -116,7 +116,7 @@ describe "Vote Proposal", type: :feature do
           it "should update the remaining votes counter" do
             within "#proposal-#{proposal.id}-vote-button" do
               click_button "Vote"
-              expect(page).to have_css(".card__button.success")
+              expect(page).to have_button("Already voted")
             end
 
             expect(page).to have_content("REMAINING 9 VOTES")
