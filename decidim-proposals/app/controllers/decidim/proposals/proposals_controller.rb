@@ -91,8 +91,6 @@ module Decidim
           proposals.order(proposal_votes_count: :desc)
         when "recent"
           proposals.order(created_at: :desc)
-        else
-          proposals
         end
       end
 
