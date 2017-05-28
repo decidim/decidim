@@ -9,7 +9,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        helper_method :order, :random_seed
+        helper_method :order, :available_orders, :random_seed
 
         private
 
@@ -20,10 +20,10 @@ module Decidim
 
         # Available orders based on enabled settings
         def available_orders
-          if current_settings.votes_enabled? && current_settings.votes_hidden?
-            %w(random recent)
-          else
-            %w(random recent most_voted)
+          @available_orders ||= begin
+            available_orders = %w(random recent)
+            available_orders << "most_voted" if current_settings.votes_enabled? && !current_settings.votes_hidden?
+            available_orders
           end
         end
 
