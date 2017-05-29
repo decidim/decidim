@@ -15,7 +15,7 @@ module Decidim
     end
 
     delegate :label, :url, :options, to: :@menu_item
-    delegate :content_tag, :active_link_to, to: :@view
+    delegate :content_tag, :active_link_to, :active_link_to_class, to: :@view
 
     def as_link
       content_tag :li do
@@ -30,7 +30,11 @@ module Decidim
     end
 
     def active_class
-      "main-nav__link--active"
+      active_link_to_class(
+        url,
+        active: options[:active],
+        class_active: "main-nav__link--active"
+      )
     end
 
     def link_options
