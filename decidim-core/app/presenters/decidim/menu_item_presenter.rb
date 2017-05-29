@@ -23,12 +23,16 @@ module Decidim
       @active_class = options[:active_class]
     end
 
-    delegate :label, :url, :active, to: :@menu_item
-    delegate :content_tag, :link_to, :active_link_to_class, :is_active_link?, to: :@view
+    delegate :label, :url, :active, :icon_name, to: :@menu_item
+    delegate :content_tag, :link_to, :active_link_to_class, :is_active_link?, :icon, to: :@view
 
     def render
       content_tag :li, class: link_wrapper_classes do
-        link_to label, url
+        if icon_name
+          link_to(url) { icon(icon_name) + label }
+        else
+          link_to label, url
+        end
       end
     end
 

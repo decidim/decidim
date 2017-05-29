@@ -14,7 +14,7 @@
   <body>
     <%= render partial: 'layouts/decidim/admin/template_top' %>
     <div class="layout-nav">
-      <%= render partial: 'layouts/decidim/admin/main_nav' %>
+      <%= main_menu.render %>
       <%= yield :secondary_nav if content_for? :secondary_nav %>
     </div>
     <div class="layout-content">

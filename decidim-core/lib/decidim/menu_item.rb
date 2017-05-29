@@ -17,9 +17,10 @@ module Decidim
       @position = options[:position] || Float::INFINITY
       @if = options[:if]
       @active = options[:active]
+      @icon_name = options[:icon_name]
     end
 
-    attr_reader :label, :url, :position, :active
+    attr_reader :label, :url, :position, :active, :icon_name
 
     def visible?
       return true if @if.nil? || @if

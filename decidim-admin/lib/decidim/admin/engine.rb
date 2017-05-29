@@ -38,6 +38,49 @@ module Decidim
           config.abilities += ["Decidim::Admin::Abilities::CollaboratorUser"]
         end
       end
+
+      initializer "decidim_admin.menu" do
+        Decidim.menu :admin_menu do |menu|
+          menu.item I18n.t("menu.dashboard", scope: "decidim.admin"),
+                    decidim_admin.root_path,
+                    icon_name: "dashboard",
+                    active: :exact
+
+          menu.item I18n.t("menu.participatory_processes", scope: "decidim.admin"),
+                    decidim_admin.participatory_processes_path,
+                    icon_name: "target",
+                    active: :inclusive
+
+          menu.item I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
+                    decidim_admin.participatory_process_groups_path,
+                    icon_name: "layers",
+                    active: :inclusive
+
+          menu.item I18n.t("menu.static_pages", scope: "decidim.admin"),
+                    decidim_admin.static_pages_path,
+                    icon_name: "book",
+                    active: :inclusive,
+                    if: can?(:read, Decidim::StaticPage)
+
+          menu.item I18n.t("menu.users", scope: "decidim.admin"),
+                    decidim_admin.users_path,
+                    icon_name: "person",
+                    active: [%w(decidim/admin/user_groups decidim/admin/users), []],
+                    if: can?(:read, :admin_users)
+
+          menu.item I18n.t("menu.newsletters", scope: "decidim.admin"),
+                    decidim_admin.newsletters_path,
+                    icon_name: "envelope-closed",
+                    active: :inclusive,
+                    if: can?(:index, Decidim::Newsletter)
+
+          menu.item I18n.t("menu.settings", scope: "decidim.admin"),
+                    decidim_admin.edit_organization_path,
+                    icon_name: "wrench",
+                    active: [%w(decidim/admin/organization decidim/admin/scopes), []],
+                    if: can?(:read, current_organization)
+        end
+      end
     end
   end
 end
