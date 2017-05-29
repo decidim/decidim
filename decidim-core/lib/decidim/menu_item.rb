@@ -14,12 +14,12 @@ module Decidim
     def initialize(label, url, options = {})
       @label = label
       @url = url
-      @position = options.delete(:position) || Float::INFINITY
-      @if = options.delete(:if)
-      @options = options
+      @position = options[:position] || Float::INFINITY
+      @if = options[:if]
+      @active = options[:active]
     end
 
-    attr_reader :label, :url, :position, :options
+    attr_reader :label, :url, :position, :active
 
     def visible?
       return true if @if.nil? || @if

@@ -14,7 +14,7 @@ module Decidim
       @view = view
     end
 
-    delegate :label, :url, :options, to: :@menu_item
+    delegate :label, :url, :active, to: :@menu_item
     delegate :content_tag, :active_link_to, :active_link_to_class, to: :@view
 
     def as_link
@@ -32,14 +32,14 @@ module Decidim
     def active_class
       active_link_to_class(
         url,
-        active: options[:active],
+        active: active,
         class_active: "main-nav__link--active"
       )
     end
 
     def link_options
       {
-        active: options[:active],
+        active: active,
         class: element_class,
         class_active: active_class
       }
