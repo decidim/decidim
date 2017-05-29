@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # An example authorization handler used so that users can be verified against
 # third party systems.
 #

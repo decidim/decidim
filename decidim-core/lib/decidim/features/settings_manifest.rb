@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This class serves as a DSL that enables specifying an arbitrary settings
   # to a feature, so the admin panel can show a standarized UI to configure them.

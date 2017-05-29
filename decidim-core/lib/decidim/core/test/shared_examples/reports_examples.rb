@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 RSpec.shared_examples "reports" do
   context "when the user is not logged in" do
     it "should be given the option to sign in" do

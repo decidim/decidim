@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This module's job is to extend the API with custom fields related to
   # decidim-core.

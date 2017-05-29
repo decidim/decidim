@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # An authorization is a record that a User has been authorized somehow. Other
   # models in the system can use different kind of authorizations to allow a

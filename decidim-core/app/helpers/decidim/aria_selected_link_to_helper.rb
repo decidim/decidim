@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Module to add the attribute `aria-selected` to links when they are
   # pointing to the current path. Uses the `active_link_to` gem to calculate

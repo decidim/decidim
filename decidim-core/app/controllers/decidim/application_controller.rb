@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # The main application controller that inherits from Rails.
   class ApplicationController < ::DecidimController

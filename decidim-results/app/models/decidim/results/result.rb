@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Results
     # The data store for a Result in the Decidim::Results component. It stores a

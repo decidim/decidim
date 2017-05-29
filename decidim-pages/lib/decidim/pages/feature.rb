@@ -19,6 +19,12 @@ Decidim.register_feature(:pages) do |feature|
     end
   end
 
+  feature.on(:copy) do |context|
+    Decidim::Pages::CopyPage.call(context) do
+      on(:invalid) { raise "Can't duplicate page" }
+    end
+  end
+
   feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
     pages = Decidim::Pages::Page.where(feature: features)
     pages = pages.where("created_at >= ?", start_at) if start_at.present?

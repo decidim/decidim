@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Default CarrierWave setup.
 #
 CarrierWave.configure do |config|

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A heper to expose an easy way to add authorization forms in a view.
   module DecidimFormHelper

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This class infers the current feature we're scoped to by looking at the
   # request parameters and injects it into the environment.

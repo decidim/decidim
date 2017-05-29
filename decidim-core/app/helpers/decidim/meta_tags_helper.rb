@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Helper that provides convenient methods to deal with the page meta tags.
   module MetaTagsHelper

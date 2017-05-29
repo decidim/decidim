@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 shared_examples_for "has reference" do
   context "when the reference is nil" do
     before do

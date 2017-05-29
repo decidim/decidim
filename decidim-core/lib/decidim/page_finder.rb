@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A custom implementation for HighVoltage so we can correctly find which page
   # to render. We need this because we allow rendering pages with content from

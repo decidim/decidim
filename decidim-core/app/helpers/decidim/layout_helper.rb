@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # View helpers related to the layout.
   module LayoutHelper

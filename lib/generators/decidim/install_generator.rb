@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "rails/generators/base"
 require "securerandom"
 
@@ -31,9 +32,9 @@ module Decidim
       end
 
       def add_seeds
-        append_file("db/seeds.rb", <<-SEEDS_CONTENT)
-# You can remove the 'faker' gem if you don't want Decidim seeds.
-Decidim.seed!
+        append_file("db/seeds.rb", <<~SEEDS_CONTENT)
+          # You can remove the 'faker' gem if you don't want Decidim seeds.
+          Decidim.seed!
         SEEDS_CONTENT
       end
 

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Helper to print booleans in a human way.
   module HumanizeBooleansHelper

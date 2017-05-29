@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This is the base class to be used by other search services.
   # Searchlight documentation: https://github.com/nathanl/searchlight

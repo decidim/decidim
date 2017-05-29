@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A page is used to add static content to the website, it can be useful so
   # organization can add their own terms and conditions, privacy policy or

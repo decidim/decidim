@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Decidim::System::Engine.routes.draw do
   devise_for :admins,
              class_name: "Decidim::System::Admin",

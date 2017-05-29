@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # A collection of methods to help dealing with translated attributes.
 module TranslationHelpers
   # Gives the localized version of the attribute for the given locale. The

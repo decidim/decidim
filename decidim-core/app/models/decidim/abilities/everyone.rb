@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Abilities
     # Defines the base abilities for any user. Guest users will use these too.

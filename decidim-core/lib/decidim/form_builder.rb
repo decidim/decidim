@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "foundation_rails_helper/form_builder"
 
 module Decidim

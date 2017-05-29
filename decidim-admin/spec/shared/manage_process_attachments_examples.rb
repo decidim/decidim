@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 require "decidim/admin/test/manage_attachments_examples"
 
 RSpec.shared_examples "manage process attachments examples" do

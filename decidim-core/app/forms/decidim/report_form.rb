@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A form object to be used when public users want to report a reportable.
   class ReportForm < Decidim::Form

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Helpers related to the Participatory Process layout.
   module ParticipatoryProcessHelper

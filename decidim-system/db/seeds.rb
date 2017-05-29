@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 if !Rails.env.production? || ENV["SEED"]
   Decidim::System::Admin.create!(
     email: "system@example.org",

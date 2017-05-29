@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "decidim/translatable_attributes"
 
 module Decidim

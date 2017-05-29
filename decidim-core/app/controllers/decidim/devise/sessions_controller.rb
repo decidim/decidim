@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Devise
     # Custom Devise SessionsController to avoid namespace problems.

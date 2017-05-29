@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_dependency "decidim/admin/application_controller"
 
 module Decidim
@@ -74,6 +75,10 @@ module Decidim
         flash[:notice] = I18n.t("participatory_processes.destroy.success", scope: "decidim.admin")
 
         redirect_to participatory_processes_path
+      end
+
+      def copy
+        @participatory_process ||= collection.find(params[:id])
       end
 
       private

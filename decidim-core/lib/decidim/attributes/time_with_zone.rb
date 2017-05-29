@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Attributes
     # Custom Virtus value to parse a String representing a Time using

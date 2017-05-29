@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "spec_helper"
 
 describe "User groups", type: :feature, perform_enqueued: true do

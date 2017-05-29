@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Main application mailer configuration. Inherit from this to create new
   # mailers.

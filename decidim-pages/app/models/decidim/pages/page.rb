@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Pages
     # The data store for a Page in the Decidim::Pages component. It stores a

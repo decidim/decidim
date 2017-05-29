@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This class deals with uploading images to Decidim It is intended to just
   # hold the uploads configuration, so you should inherit from this class and

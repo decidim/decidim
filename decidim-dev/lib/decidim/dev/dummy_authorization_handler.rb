@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # An example implementation of an AuthorizationHandler to be used in tests.
   class DummyAuthorizationHandler < AuthorizationHandler

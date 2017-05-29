@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This query counts registered users from a collection of organizations
   # in an optional interval of time.

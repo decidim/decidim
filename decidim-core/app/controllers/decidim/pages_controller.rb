@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_dependency "decidim/application_controller"
 require_dependency "decidim/page_finder"
 

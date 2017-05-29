@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 RSpec.shared_examples "create a proposal" do |with_author|
   let(:feature) { create(:proposal_feature) }
   let(:organization) { feature.organization }

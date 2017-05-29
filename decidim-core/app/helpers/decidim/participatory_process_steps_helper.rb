@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # Helper that provides a single method to give a class to a
   # ParticipatoryProcessStep depending on their date.

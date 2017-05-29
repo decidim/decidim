@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # A helper that converts an array of locale IDs (two-letter identifiers, e.g.
   # `"en"`) to an array of Objects that have both the ID and their name in

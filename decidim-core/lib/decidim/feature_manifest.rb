@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_dependency "decidim/features/settings_manifest"
 require_dependency "decidim/features/export_manifest"
 
@@ -22,6 +23,11 @@ module Decidim
     # mix this engine's stylesheets with the main app's stylesheets so it can
     # use the scss variables and mixins provided by Decidim::Core.
     attribute :stylesheet, String, default: nil
+
+    # A path with the `scss` admin stylesheet this engine provides. It is used
+    # to mix this engine's stylesheets with the main app's admin stylesheets so
+    # it can use the scss variables and mixins provided by Decidim::Admin.
+    attribute :admin_stylesheet, String, default: nil
 
     # A String with the feature's icon. The icon must be stored in the
     # engine's assets path.

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 if !Rails.env.production? || ENV["SEED"]
   staging_organization = Decidim::Organization.order(id: :asc).first
 

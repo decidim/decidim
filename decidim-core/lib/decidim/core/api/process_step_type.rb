@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   # This type represents a step on a participatory process.
   ProcessStepType = GraphQL::ObjectType.define do

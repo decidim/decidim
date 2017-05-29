@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+
 require "spec_helper"
 
 module Decidim
   describe CurrentFeature do
     let(:request) { double(params: params, env: env) }
     let(:subject) { described_class.new(manifest) }
-    let(:params) { Hash.new }
+    let(:params) { {} }
     let(:manifest) { Decidim.find_feature_manifest("dummy") }
 
     context "when the env contains a current organization" do
