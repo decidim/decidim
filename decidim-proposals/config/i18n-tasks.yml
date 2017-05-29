@@ -9,5 +9,6 @@ ignore_unused:
 - "decidim.features.proposals.actions.*"
 - "decidim.proposals.proposals.orders.*"
 - "decidim.proposals.admin.exports.proposals"
+- "decidim.proposals.admin.exports.comments"
 ignore_missing:
   - decidim.participatory_processes.scopes.global
