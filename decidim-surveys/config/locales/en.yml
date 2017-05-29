@@ -37,7 +37,6 @@ en:
             add_question: Add question
           question:
             add_answer_option: Add answer option
-            question: Question
             remove_question: Remove question
             statement: Statement
           update:
