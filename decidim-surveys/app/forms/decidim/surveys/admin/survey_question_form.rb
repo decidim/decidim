@@ -18,8 +18,7 @@ module Decidim
         validates :position, numericality: { greater_than_or_equal_to: 0 }
         validates :question_type, inclusion: { in: SurveyQuestion::TYPES }
 
-        # Private: Map form answer_options to model answer options.
-        # TODO: I think this should be automatic but it is not working
+        # Private: answer options should be mapped manually.
         def map_model(model)
           self.answer_options = model.answer_options
         end
