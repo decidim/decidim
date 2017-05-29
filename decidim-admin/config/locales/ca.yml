@@ -115,7 +115,9 @@ ca:
         configure: Configurar
         confirm_destroy: Segur que ho vols eliminar?
         destroy: Eliminar
+        duplicate: Duplicar
         edit: Editar
+        export: Exporta
         manage: Gestionar
         new: Nou/va
         permissions: Permisos
@@ -175,6 +177,9 @@ ca:
           participatory_process_user_roles:
             index:
               process_admins_title: Usuaris del procés participatiu
+      exports:
+        export_as: "%{name} com a %{export_format}"
+        notice: La seva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
       feature_permissions:
         edit:
           everyone: Tothom
