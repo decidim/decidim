@@ -38,6 +38,8 @@ ca:
       admin:
         actions:
           preview: Previsualitzar
+        exports:
+          proposals: Propostes
         models:
           proposal:
             name: Proposta
