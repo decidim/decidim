@@ -33,6 +33,10 @@ module Decidim
         it "includes the depth" do
           expect(subject.serialize).to include(alignment: comment.depth)
         end
+
+        it "includes the root commentable's url" do
+          expect(subject.serialize[:root_commentable_url]).to match(/http/)
+        end
       end
     end
   end
