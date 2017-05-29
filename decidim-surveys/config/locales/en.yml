@@ -59,6 +59,7 @@ en:
             title: Answer the survey
           are_you_sure: This action cannot be undone and you will not be able to edit
             your answers. Are you sure?
+          authorize_lopd: Authorize lopd
           submit: Submit
           survey_answered:
             body: You have already answered this survey.

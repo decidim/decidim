@@ -4,7 +4,7 @@ module Decidim
     # This class holds a Form to update survey unswers from Decidim's public page
     class SurveyAnswerForm < Decidim::Form
       attribute :question_id, String
-      attribute :body, String
+      attribute :body, [String]
 
       validates :body, presence: true, if: -> { question.mandatory? }
 

@@ -4,6 +4,9 @@ module Decidim
     # This class holds a Form to answer a surveys from Decidim's public page.
     class SurveyForm < Decidim::Form
       attribute :answers, Array[SurveyAnswerForm]
+      attribute :authorize_lopd, Boolean
+
+      validates :authorize_lopd, allow_nil: false, acceptance: true
 
       # Private: Create the answers from the survey questions
       #
