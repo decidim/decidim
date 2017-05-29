@@ -25,11 +25,19 @@ module Decidim
 
     private
 
+    def element_class
+      "main-nav__link",
+    end
+
+    def active_class
+      "main-nav__link--active"
+    end
+
     def link_options
       {
         active: options[:active],
-        class: "main-nav__link",
-        class_active: "main-nav__link--active"
+        class: element_class,
+        class_active: active_class
       }
     end
   end
