@@ -44,6 +44,15 @@
                         <%= text_field_tag "survey[answers][][body]", answer.body, id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}" %>
                       <% when "long_answer" %>
                         <%= text_area_tag "survey[answers][][body]", answer.body, id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}" %>
+                      <% when "single_option" %>
+                        <div id="<%= field_id %>_answer_options">
+                          <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
+                            <div class="field">
+                              <%= radio_button_tag "survey[answers][][body]", "1", false, id: "#{field_id}_option_#{idx}" %>
+                              <%= label_tag "#{field_id}_option_#{idx}", translated_attribute(answer_option["body"]) %>
+                            </div>
+                          <% end %>
+                        </div>
                     <% end %>
 
                     <%= hidden_field_tag "survey[answers][][question_id]", answer.question.id %>
