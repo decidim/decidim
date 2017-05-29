@@ -30,23 +30,7 @@ module Decidim
       private
 
       def root_commentable_url
-        decidim_resource_url(root_commentable)
-      end
-
-      def root_commentable
-        @root_commentable ||= resource.root_commentable
-      end
-
-      def feature
-        @feature ||= root_commentable.feature
-      end
-
-      def participatory_process
-        @participatory_process ||= feature.participatory_process
-      end
-
-      def organization
-        @organization ||= participatory_process.organization
+        @root_commentable_url ||= decidim_resource_url(resource.root_commentable)
       end
     end
   end
