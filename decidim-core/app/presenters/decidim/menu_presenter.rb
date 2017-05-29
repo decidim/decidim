@@ -29,8 +29,10 @@ module Decidim
     end
 
     def as_nav_list
-      content_tag :ul, class: "main-nav" do
-        safe_join(menu_items)
+      content_tag :div, class: "main-nav" do
+        content_tag :ul do
+          safe_join(menu_items)
+        end
       end
     end
 

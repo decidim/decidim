@@ -24,11 +24,11 @@ module Decidim
     end
 
     delegate :label, :url, :active, to: :@menu_item
-    delegate :content_tag, :active_link_to, :active_link_to_class, to: :@view
+    delegate :content_tag, :link_to, :active_link_to_class, :is_active_link?, to: :@view
 
     def as_link
-      content_tag :li do
-        active_link_to label, url, link_options
+      content_tag :li, class: link_wrapper_classes do
+        link_to label, url
       end
     end
 
@@ -36,20 +36,18 @@ module Decidim
 
     attr_reader :element_class
 
+    def link_wrapper_classes
+      return element_class unless is_active_link?(url, active)
+
+      [element_class, active_class].compact.join(" ")
+    end
+
     def active_class
       active_link_to_class(
         url,
         active: active,
         class_active: @active_class
       )
-    end
-
-    def link_options
-      {
-        active: active,
-        class: element_class,
-        class_active: active_class
-      }
     end
   end
 end
