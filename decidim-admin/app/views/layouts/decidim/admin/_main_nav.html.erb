@@ -1,6 +1,6 @@
 <div class="main-nav">
   <ul>
-    <%= admin_menu_item_to "dashboard", decidim_admin.root_path, active: :exact %>
+    <%= admin_menu_item_to "dashboard", decidim_admin.root_path, icon_name: "dashboard", active: :exact %>
     <%= admin_menu_item_to "participatory_processes", decidim_admin.participatory_processes_path, icon_name: "target", active: :inclusive %>
     <%= admin_menu_item_to "participatory_process_groups", decidim_admin.participatory_process_groups_path, icon_name: "layers", active: :inclusive %>
     <%= admin_menu_item_to "static_pages", decidim_admin.static_pages_path, icon_name: "book", active: :inclusive if can? :read, Decidim::StaticPage %>
