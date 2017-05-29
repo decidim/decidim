@@ -15,14 +15,15 @@ module Decidim
         {
           "answers" => [
             {
-              "body" => "This is my first answer",
+              "body" => ["This is my first answer"],
               "question_id" => survey_question_1.id
             },
             {
-              "body" => "This is my first answer",
+              "body" => ["This is my first answer"],
               "question_id" => survey_question_2.id
             }
-          ]
+          ],
+          "authorize_toc" => "1"
         }
       end
       let(:form) do

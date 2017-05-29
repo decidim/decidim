@@ -79,7 +79,7 @@
 
                   <% if translated_attribute(survey.toc).present? %>
                     <div class="field">
-                      <%= form.check_box :authorize_lopd, label: t(".authorize_lopd") %>
+                      <%= form.check_box :authorize_toc, label: t(".authorize_toc") %>
                       <div class="help-text">
                         <%== translated_attribute survey.toc %>
                       </div>

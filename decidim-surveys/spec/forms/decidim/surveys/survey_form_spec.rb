@@ -16,8 +16,16 @@ module Decidim
         expect(subject.answers.length).to eq(1)
       end
 
-      context "when everything is OK" do
-        it { is_expected.to be_valid }
+      context "when authorize_toc is not accepted" do
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when authorize_toc is not accepted" do
+        before do
+          subject.authorize_toc = true
+        end
+
+        it { is_expected.to be_valid }        
       end
     end
   end
