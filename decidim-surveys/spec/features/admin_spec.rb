@@ -108,7 +108,11 @@ describe "Edit a survey", type: :feature do
         end
       end
 
+      expect(page).not_to have_content "Add answer option"
+
       select "Single option", from: "Type"
+
+      expect(page).to have_content "Add answer option"
 
       2.times { click_button "Add answer option" }
 
