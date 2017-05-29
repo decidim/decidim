@@ -123,7 +123,7 @@ describe "Answer a survey", type: :feature do
       end
 
       context "when question type is single option" do
-        let(:answer_options) { 4.times.map {{ "body" => Decidim::Faker::Localized.sentence }} }
+        let(:answer_options) { Array.new(4) { { "body" => Decidim::Faker::Localized.sentence } } }
         let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "single_option", answer_options: [answer_options[0], answer_options[1]]) }
         let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "single_option", answer_options: [answer_options[2], answer_options[3]]) }
 
@@ -155,7 +155,7 @@ describe "Answer a survey", type: :feature do
       end
 
       context "when question type is multiple option" do
-        let(:answer_options) { 4.times.map {{ "body" => Decidim::Faker::Localized.sentence }} }
+        let(:answer_options) { Array.new(4) { { "body" => Decidim::Faker::Localized.sentence } } }
         let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[0], answer_options[1]]) }
         let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[2], answer_options[3]]) }
 

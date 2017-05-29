@@ -25,7 +25,7 @@ module Decidim
                 "es" => "Primera pregunta"
               },
               position: 0,
-              question_type: "short_answer"              
+              question_type: "short_answer"
             },
             {
               body: {
