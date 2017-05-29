@@ -15,10 +15,12 @@ module Decidim
     end
 
     delegate :label, :url, :options, to: :@menu_item
-    delegate :active_link_to, to: :@view
+    delegate :content_tag, :active_link_to, to: :@view
 
     def as_link
-      active_link_to label, url, link_options
+      content_tag :li do
+        active_link_to label, url, link_options
+      end
     end
 
     private

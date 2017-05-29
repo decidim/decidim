@@ -35,9 +35,7 @@ module Decidim
 
     def menu_items
       items.map do |menu_item|
-        content_tag :li do
-          MenuItemPresenter.new(menu_item, @view).as_link
-        end
+        MenuItemPresenter.new(menu_item, @view).as_link
       end
     end
   end
