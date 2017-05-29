@@ -9,7 +9,7 @@ namespace :decidim do
     }
 
     Bundler.definition.specs.each do |spec|
-      next unless spec.name =~ /decidim-/
+      next unless spec.name.match?(/decidim-/)
 
       Dir.chdir(spec.full_gem_path) do
         Bundler.with_clean_env do
