@@ -115,7 +115,9 @@ es:
         configure: Configurar
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Eliminar
+        duplicate: Duplicar
         edit: Editar
+        export: Exportar
         manage: Gestionar
         new: Nuevo/a
         permissions: Permisos
@@ -175,6 +177,9 @@ es:
           participatory_process_user_roles:
             index:
               process_admins_title: Usuarios del proceso
+      exports:
+        export_as: "%{name} como %{export_format}"
+        notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
       feature_permissions:
         edit:
           everyone: Todo el mundo
@@ -344,6 +349,11 @@ es:
         update:
           error: Se produjo un error al actualizar esta organización.
           success: Organización actualizada correctamente.
+      participatory_process_copies:
+        new:
+          copy: Copiar
+          select: Seleccione los datos que desea duplicar
+          title: Duplicar proceso participativo
       participatory_process_groups:
         destroy:
           success: Grupo destruido correctamente.
@@ -424,6 +434,10 @@ es:
         update:
           error: Se ha producido un error en la actualización de este proceso participativo.
           success: El proceso participativo se ha actualizado correctamente.
+      participatory_processes_copies:
+        create:
+          error: Hubo un error al duplicar este proceso participativo.
+          success: El proceso participativo se duplicó con éxito.
       participatory_processes_group:
         create:
           error: Se ha producido un error al crear este grupo.
