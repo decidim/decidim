@@ -5,7 +5,12 @@ module Decidim
   module MenuHelper
     # Public: Returns the main menu presenter object
     def main_menu
-      @main_menu ||= MenuPresenter.new(:menu, self)
+      @main_menu ||= MenuPresenter.new(
+        :menu,
+        self,
+        element_class: "main-nav__link",
+        active_class: "main-nav__link--active"
+      )
     end
   end
 end

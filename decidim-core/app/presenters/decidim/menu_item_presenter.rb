@@ -8,10 +8,19 @@ module Decidim
     #
     # @param menu_item [MenuItem] The menu item itself
     # @param view [ActionView::Base] The view instance to help rendering the item
+    # @param options [Hash] The rendering options for the item
     #
-    def initialize(menu_item, view)
+    # @option options [String] :element_class
+    #         The CSS class to be used for the item
+    #
+    # @option options [String] :active_class
+    #         The CSS class to be used for the active item
+    #
+    def initialize(menu_item, view, options = {})
       @menu_item = menu_item
       @view = view
+      @element_class = options[:element_class]
+      @active_class = options[:active_class]
     end
 
     delegate :label, :url, :active, to: :@menu_item
@@ -25,15 +34,13 @@ module Decidim
 
     private
 
-    def element_class
-      "main-nav__link",
-    end
+    attr_reader :element_class
 
     def active_class
       active_link_to_class(
         url,
         active: active,
-        class_active: "main-nav__link--active"
+        class_active: @active_class
       )
     end
 

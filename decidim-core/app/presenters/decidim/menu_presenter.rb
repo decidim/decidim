@@ -8,10 +8,13 @@ module Decidim
     #
     # @param name [Symbol] The name of the menu registry to be rendered
     # @param view [ActionView::Base] The view scope to render the menu
+    # @param options [Hash] The rendering options for the menu entries
     #
-    def initialize(name, view)
+    def initialize(name, view, options = {})
       @name = name
       @view = view
+
+      @options = options
     end
 
     delegate :items, to: :evaluated_menu
@@ -35,7 +38,7 @@ module Decidim
 
     def menu_items
       items.map do |menu_item|
-        MenuItemPresenter.new(menu_item, @view).as_link
+        MenuItemPresenter.new(menu_item, @view, @options).as_link
       end
     end
   end
