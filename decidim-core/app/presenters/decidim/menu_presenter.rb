@@ -28,7 +28,7 @@ module Decidim
                           end
     end
 
-    def as_nav_list
+    def render
       content_tag :div, class: "main-nav" do
         content_tag :ul do
           safe_join(menu_items)
@@ -40,7 +40,7 @@ module Decidim
 
     def menu_items
       items.map do |menu_item|
-        MenuItemPresenter.new(menu_item, @view, @options).as_link
+        MenuItemPresenter.new(menu_item, @view, @options).render
       end
     end
   end

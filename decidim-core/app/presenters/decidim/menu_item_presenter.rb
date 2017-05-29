@@ -26,7 +26,7 @@ module Decidim
     delegate :label, :url, :active, to: :@menu_item
     delegate :content_tag, :link_to, :active_link_to_class, :is_active_link?, to: :@view
 
-    def as_link
+    def render
       content_tag :li, class: link_wrapper_classes do
         link_to label, url
       end

@@ -9,11 +9,11 @@ module Decidim
     let(:menu_item) { MenuItem.new("Foo", "/boo") }
 
     it "renders the label" do
-      expect(subject.as_link).to have_content("Foo")
+      expect(subject.render).to have_content("Foo")
     end
 
     it "renders the url" do
-      expect(subject.as_link).to have_link("Foo", href: "/boo")
+      expect(subject.render).to have_link("Foo", href: "/boo")
     end
   end
 end

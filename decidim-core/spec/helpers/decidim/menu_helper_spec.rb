@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe MenuHelper do
     describe "main_menu" do
-      let(:default_main_menu) { helper.main_menu.as_nav_list }
+      let(:default_main_menu) { helper.main_menu.render }
 
       it "renders the default main menu" do
         expect(default_main_menu).to \
