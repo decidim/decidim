@@ -15,8 +15,8 @@ module Decidim
           "${tabsId}"
         end
 
-        def label_for_question(survey, question)
-          return survey.published? ? t(".question") : "#{icon("move")} #{t(".question")}".html_safe
+        def label_for_question(survey, _question)
+          survey.published? ? t(".question") : "#{icon("move")} #{t(".question")}".html_safe
         end
 
         def mandatory_id_for_question(question)
