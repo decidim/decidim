@@ -17,7 +17,8 @@ module Decidim
         end
 
         it "selects the correct default active option" do
-          allow(view).to receive_message_chain(:request, :original_fullpath) { "/system/" }
+          allow(view).to \
+            receive(:params).and_return(controller: "decidim/system/dashboard", action: "show")
 
           expect(default_main_menu).to have_selector(".active", text: "Dashboard")
         end

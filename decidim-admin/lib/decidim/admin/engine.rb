@@ -44,7 +44,7 @@ module Decidim
           menu.item I18n.t("menu.dashboard", scope: "decidim.admin"),
                     decidim_admin.root_path,
                     icon_name: "dashboard",
-                    active: :exact
+                    active: ["decidim/admin/dashboard" => :show]
 
           menu.item I18n.t("menu.participatory_processes", scope: "decidim.admin"),
                     decidim_admin.participatory_processes_path,
