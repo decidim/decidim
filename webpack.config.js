@@ -3,6 +3,7 @@ const webpackConfigUtils   = require('webpack-config-utils');
 const getIfUtils           = webpackConfigUtils.getIfUtils;
 const ProgressBarPlugin    = require('progress-bar-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const PrepackWebpackPlugin = require('prepack-webpack-plugin').default;
 
 module.exports = env => {
   const envUtils = getIfUtils(env);
@@ -70,7 +71,8 @@ module.exports = env => {
         analyzerMode: ifTest('disabled', 'static'),
         reportFilename: 'webpack.report.html',
         openAnalyzer: false
-      })
+      }),
+      new PrepackWebpackPlugin()
     ],
     externals: {
       'react/addons': 'react',

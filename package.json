@@ -52,6 +52,7 @@
     "faker": "^4.1.0",
     "jest": "^19.0.2",
     "json-loader": "~0.5.4",
+    "prepack-webpack-plugin": "^1.1.0",
     "progress-bar-webpack-plugin": "~1.9.0",
     "react-addons-test-utils": "^15.5.1",
     "source-map-loader": "^0.2.1",
