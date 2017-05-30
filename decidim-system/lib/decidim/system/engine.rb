@@ -33,14 +33,17 @@ module Decidim
         Decidim.menu :system_menu do |menu|
           menu.item I18n.t("menu.dashboard", scope: "decidim.system"),
                     decidim_system.root_path,
+                    position: 1,
                     active: ["decidim/system/dashboard" => :show]
 
           menu.item I18n.t("menu.organizations", scope: "decidim.system"),
                     decidim_system.organizations_path,
+                    position: 2,
                     active: :inclusive
 
           menu.item I18n.t("menu.admins", scope: "decidim.system"),
                     decidim_system.admins_path,
+                    position: 3,
                     active: :inclusive
         end
       end
