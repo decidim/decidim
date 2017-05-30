@@ -6,6 +6,7 @@ Decidim.register_feature(:surveys) do |feature|
   feature.engine = Decidim::Surveys::Engine
   feature.admin_engine = Decidim::Surveys::AdminEngine
   feature.icon = "decidim/surveys/icon.svg"
+  feature.stylesheet = "decidim/surveys/surveys"
 
   feature.on(:create) do |instance|
     Decidim::Surveys::CreateSurvey.call(instance) do
