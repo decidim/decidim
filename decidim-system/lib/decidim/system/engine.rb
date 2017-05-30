@@ -28,6 +28,22 @@ module Decidim
       initializer "decidim_system.assets" do |app|
         app.config.assets.precompile += %w(decidim_system_manifest.js)
       end
+
+      initializer "decidim_system.menu" do
+        Decidim.menu :system_menu do |menu|
+          menu.item I18n.t("menu.dashboard", scope: "decidim.system"),
+                    decidim_system.root_path,
+                    active: :exact
+
+          menu.item I18n.t("menu.organizations", scope: "decidim.system"),
+                    decidim_system.organizations_path,
+                    active: :inclusive
+
+          menu.item I18n.t("menu.admins", scope: "decidim.system"),
+                    decidim_system.admins_path,
+                    active: :inclusive
+        end
+      end
     end
   end
 end

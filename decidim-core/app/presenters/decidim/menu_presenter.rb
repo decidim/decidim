@@ -29,7 +29,7 @@ module Decidim
     end
 
     def render
-      content_tag :div, class: "main-nav" do
+      content_tag :nav, class: "main-nav" do
         content_tag :ul do
           safe_join(menu_items)
         end

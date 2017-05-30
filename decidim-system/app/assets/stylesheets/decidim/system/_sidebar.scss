@@ -31,13 +31,20 @@
     @include show-for(large);
   }
 
-  .main-menu{
+  .main-nav{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     a{
       padding: $global-padding;
       display: block;
       color: $light-gray;
+    }
+    ul{
+      list-style: none;
+      margin-left: 0;
+    }
+
+    li{
       text-transform: uppercase;
       font-weight: bold;
       font-size: 0.9em;
