@@ -115,7 +115,9 @@ ca:
         configure: Configurar
         confirm_destroy: Segur que ho vols eliminar?
         destroy: Eliminar
+        duplicate: Duplicar
         edit: Editar
+        export: Exporta
         manage: Gestionar
         new: Nou/va
         permissions: Permisos
@@ -175,6 +177,9 @@ ca:
           participatory_process_user_roles:
             index:
               process_admins_title: Usuaris del procés participatiu
+      exports:
+        export_as: "%{name} com a %{export_format}"
+        notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
       feature_permissions:
         edit:
           everyone: Tothom
@@ -344,6 +349,11 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: Organització actualitzada correctament.
+      participatory_process_copies:
+        new:
+          copy: Còpia
+          select: Selecciona quines dades voleu duplicar
+          title: Duplicar procés participatiu
       participatory_process_groups:
         destroy:
           success: Grup eliminat correctament.
@@ -424,6 +434,10 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquest procés participatiu.
           success: El procés participatiu s'ha actualitzat correctament.
+      participatory_processes_copies:
+        create:
+          error: Hi ha hagut un error duplicant el procés participatiu.
+          success: El procés participatiu ha estat duplicat correctament.
       participatory_processes_group:
         create:
           error: S'ha produït un error creant aquest grup de processos participatius.
