@@ -28,7 +28,7 @@ module Decidim
       end
 
       def body_not_blank
-        errors.add("body", :invalid) if body.all?(&:blank?)
+        errors.add("body", :blank) if body.all?(&:blank?)
       end
     end
   end

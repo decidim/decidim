@@ -28,10 +28,9 @@ describe "Answer a survey", type: :feature do
     it "the survey cannot be answered" do
       visit_feature
 
-      expect(page).to have_i18n_content(survey.title)
+      expect(page).to have_i18n_content(survey.title, upcase: true)
       expect(page).to have_i18n_content(survey.description)
 
-      expect(page).not_to have_content("ANSWER THE SURVEY")
       expect(page).not_to have_i18n_content(survey_question_1.body)
       expect(page).not_to have_i18n_content(survey_question_2.body)
 
@@ -48,10 +47,9 @@ describe "Answer a survey", type: :feature do
       it "the survey cannot be answered" do
         visit_feature
 
-        expect(page).to have_i18n_content(survey.title)
+        expect(page).to have_i18n_content(survey.title, upcase: true)
         expect(page).to have_i18n_content(survey.description)
 
-        expect(page).to have_content("ANSWER THE SURVEY")
         expect(page).not_to have_i18n_content(survey_question_1.body)
         expect(page).not_to have_i18n_content(survey_question_2.body)
         expect(page).to have_content("Sign in with your account or sign up to answer the survey.")
@@ -66,13 +64,12 @@ describe "Answer a survey", type: :feature do
       it "the survey can be answered" do
         visit_feature
 
-        expect(page).to have_i18n_content(survey.title)
+        expect(page).to have_i18n_content(survey.title, upcase: true)
         expect(page).to have_i18n_content(survey.description)
-
-        expect(page).to have_content("ANSWER THE SURVEY")
 
         fill_in "survey_#{survey.id}_question_#{survey_question_1.id}_answer_body", with: "My first answer"
         fill_in "survey_#{survey.id}_question_#{survey_question_2.id}_answer_body", with: "My second answer"
+        check "Authorize toc"
 
         click_button "Submit"
 
@@ -81,7 +78,6 @@ describe "Answer a survey", type: :feature do
         end
 
         expect(page).to have_content("You have already answered this survey.")
-        expect(page).not_to have_content("ANSWER THE SURVEY")
         expect(page).not_to have_i18n_content(survey_question_1.body)
         expect(page).not_to have_i18n_content(survey_question_2.body)
       end
@@ -89,7 +85,7 @@ describe "Answer a survey", type: :feature do
       it "the questions are ordered by position" do
         visit_feature
 
-        form_fields = all(".answer-survey .field")
+        form_fields = all(".answer-survey .row")
 
         expect(form_fields[0]).to have_i18n_content(survey_question_2.body)
         expect(form_fields[1]).to have_i18n_content(survey_question_1.body)
@@ -100,6 +96,8 @@ describe "Answer a survey", type: :feature do
 
         it "users cannot leave that question blank" do
           visit_feature
+
+          check "Authorize toc"
 
           click_button "Submit"
 
@@ -141,6 +139,8 @@ describe "Answer a survey", type: :feature do
             choose answer_options[2]["body"][:en]
           end
 
+          check "Authorize toc"
+
           click_button "Submit"
 
           within ".success.flash" do
@@ -148,7 +148,6 @@ describe "Answer a survey", type: :feature do
           end
 
           expect(page).to have_content("You have already answered this survey.")
-          expect(page).not_to have_content("ANSWER THE SURVEY")
           expect(page).not_to have_i18n_content(survey_question_1.body)
           expect(page).not_to have_i18n_content(survey_question_2.body)
         end
@@ -174,6 +173,8 @@ describe "Answer a survey", type: :feature do
             check answer_options[2]["body"][:en]
           end
 
+          check "Authorize toc"
+
           click_button "Submit"
 
           within ".success.flash" do
@@ -181,7 +182,6 @@ describe "Answer a survey", type: :feature do
           end
 
           expect(page).to have_content("You have already answered this survey.")
-          expect(page).not_to have_content("ANSWER THE SURVEY")
           expect(page).not_to have_i18n_content(survey_question_1.body)
           expect(page).not_to have_i18n_content(survey_question_2.body)
         end
