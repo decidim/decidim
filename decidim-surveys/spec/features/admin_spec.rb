@@ -61,8 +61,68 @@ describe "Edit a survey", type: :feature do
         end
       end
 
-      within ".survey-question:last-child" do
-        check "Mandatory"
+      click_button "Save"
+    end
+
+    within ".callout-wrapper" do
+      expect(page).to have_content("successfully")
+    end
+
+    visit_feature_admin
+
+    expect(page).to have_selector("input[value='This is the first question']")
+    expect(page).to have_selector("input[value='This is the second question']")
+  end
+
+  it "adds a question with answer options" do
+    visit_feature_admin
+
+    question_body = {
+      en: "This is the first question",
+      ca: "Aquesta es la primera pregunta",
+      es: "Esta es la primera pregunta"
+    }
+
+    answer_options_body = [
+      {
+        en: "This is the first option",
+        ca: "Aquesta es la primera opció",
+        es: "Esta es la primera opción"
+      },
+      {
+        en: "This is the second option",
+        ca: "Aquesta es la segona opció",
+        es: "Esta es la segunda opción"
+      }
+    ]
+
+    within "form.edit_survey" do
+      click_button "Add question"
+
+      expect(page).to have_selector(".survey-question", count: 1)
+
+      question_body.each do |locale, value|
+        within ".survey-question" do
+          click_link I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
+          find("input[name='survey[questions][][body_#{locale}]']").send_keys value
+        end
+      end
+
+      expect(page).not_to have_content "Add answer option"
+
+      select "Single option", from: "Type"
+
+      expect(page).to have_content "Add answer option"
+
+      2.times { click_button "Add answer option" }
+
+      page.all(".survey-question-answer-option").each_with_index do |survey_question_answer_option, idx|
+        answer_options_body[idx].each do |locale, value|
+          within survey_question_answer_option do
+            click_link I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
+            find("input[name='survey[questions][][answer_options][][body_#{locale}]']").send_keys value
+          end
+        end
       end
 
       click_button "Save"
@@ -75,7 +135,8 @@ describe "Edit a survey", type: :feature do
     visit_feature_admin
 
     expect(page).to have_selector("input[value='This is the first question']")
-    expect(page).to have_selector("input[value='This is the second question']")
+    expect(page).to have_selector("input[value='This is the first option']")
+    expect(page).to have_selector("input[value='This is the second option']")
   end
 
   describe "when a survey has an existing question" do
@@ -96,6 +157,8 @@ describe "Edit a survey", type: :feature do
 
         within ".survey-question" do
           fill_in "survey-question-#{survey_question.id}_body_en", with: "Modified question"
+          check "Mandatory"
+          select "Long answer", from: "Type"
         end
 
         click_button "Save and publish"
@@ -109,6 +172,8 @@ describe "Edit a survey", type: :feature do
 
       expect(page).to have_selector("input[value='Modified question']")
       expect(page).not_to have_selector("input[value='This is the first question']")
+      expect(page).to have_selector("input#survey_questions_#{survey_question.id}_mandatory[checked]")
+      expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='long_answer'][selected]")
     end
 
     it "removes the question" do

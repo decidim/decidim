@@ -1,10 +1,12 @@
 .survey-questions {
-  label {
-    cursor: pointer;
+  .question-divider {
+    cursor: move;
+    h2 {
+      line-height: 32px;
+    }
   }
 }
 
 .icon--move {
   vertical-align: middle;
-  cursor: pointer;
 }

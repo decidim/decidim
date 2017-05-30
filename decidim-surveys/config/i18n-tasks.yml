@@ -3,6 +3,7 @@ locales: [en]
 ignore_unused:
 - "decidim.features.surveys.name"
 - "decidim.features.surveys.actions.*"
+- "decidim.surveys.admin.surveys.question.question"
 - "activemodel.attributes.survey_answer.*"
 ignore_missing:
   - decidim.participatory_processes.scopes.global

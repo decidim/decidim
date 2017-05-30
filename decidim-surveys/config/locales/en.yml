@@ -6,6 +6,7 @@ en:
         body: Answer
       survey_question:
         mandatory: Mandatory
+        question_type: Type
   decidim:
     features:
       surveys:
@@ -14,11 +15,18 @@ en:
         name: Survey
     surveys:
       admin:
+        application_helper:
+          label_for_question:
+            question: Question
         models:
           components:
             description: Description
             toc: Toc
         surveys:
+          answer_option:
+            answer_option: Answer option
+            remove_answer_option: Remove answer option
+            statement: Statement
           edit:
             are_you_sure: This action will publish the survey and you will not be
               able to keep editing the survey questions. Are you sure?
@@ -27,11 +35,19 @@ en:
             title: Title
           form:
             add_question: Add question
+          question:
+            add_answer_option: Add answer option
             question: Question
             remove_question: Remove question
+            statement: Statement
           update:
             invalid: There's been errors when saving the survey.
             success: Survey saved successfully.
+      question_types:
+        long_answer: Long answer
+        multiple_option: Multiple option
+        short_answer: Short answer
+        single_option: Single option
       surveys:
         answer:
           invalid: There's been errors when answering the survey.

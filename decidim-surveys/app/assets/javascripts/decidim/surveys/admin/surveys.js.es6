@@ -1,90 +1,85 @@
 // = require jquery-tmpl
+// = require ./auto_label_by_position.component
+// = require ./dynamic_fields.component
 
-(() => {
-  const $addQuestionButtons = $('.add-question');
-  const templateId = 'survey-question-tmpl';
-  const $wrapper = $('.survey-questions');
-  const $container = $wrapper.find('.survey-questions-list');
+((exports) => {
+  const { AutoLabelByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
 
-  $.template(templateId, $(`#${templateId}`).html());
+  const wrapperSelector = '.survey-questions';
+  const fieldSelector = '.survey-question';
+  const questionTypeSelector = '[name="survey[questions][][question_type]"]';
+  const answerOptionsWrapperSelector = '.survey-question-answer-options';
 
-  const computeQuestionPositions = () => {
-    const $questions = $('.survey-question:not(.hidden)');
-
-    $questions.each((idx, el) => {
-      const $questionlabel = $(el).find('label:first');
-
+  const autoLabelByPosition = new AutoLabelByPositionComponent({
+    listSelector: '.survey-question:not(.hidden)',
+    labelSelector: '.card-title span:first',
+    onPositionComputed: (el, idx) => {
       $(el).find('input[name="survey[questions][][position]"]').val(idx);
-      $questionlabel.html($questionlabel.html().replace(/#(\d+)/, `#${idx + 1}`));
+    }
+  });
+
+  const createSortableList = () => {
+    createSortList('.survey-questions-list:not(.published)', {
+      handle: '.question-divider',
+      placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
+      forcePlaceholderSize: true,
+      onSortUpdate: () => { autoLabelByPosition.run() }
     });
   };
 
-  const createSortableList = () => {
-    if (DecidimAdmin) {
-      DecidimAdmin.sortList('.survey-questions-list:not(.published)', {
-        handle: 'label',
-        placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
-        forcePlaceholderSize: true,
-        onSortUpdate: computeQuestionPositions
-      });
+  const createDynamicFieldsForAnswerOptions = (fieldId) => {
+    createDynamicFields({
+      templateId: `survey-question-answer-option-tmpl`,
+      tabsPrefix: `survey-question-answer-option`,
+      wrapperSelector: `#${fieldId} ${answerOptionsWrapperSelector}`,
+      containerSelector: `.survey-question-answer-options-list`,
+      fieldSelector: `.survey-question-answer-option`,
+      addFieldButtonSelector: `.add-answer-option`,
+      removeFieldButtonSelector: `.remove-answer-option`
+    });
+  };
+
+  const setAnswerOptionsWrapperVisibility = ($target) => {
+    const $answerOptionsWrapper = $target.parents(fieldSelector).find(answerOptionsWrapperSelector);
+    const value = $target.val();
+
+    $answerOptionsWrapper.hide();
+
+    if (value === 'single_option' || value === 'multiple_option') {
+      $answerOptionsWrapper.show();
     }
   };
 
-  const addQuestion = (event) => {
-    try {
-      const tabsId = `survey-question-${new Date().getTime()}-${Math.floor(Math.random() * 1000000)}`;
-      const position = $container.find('.survey-question').length;
-      const $newQuestion = $.tmpl(templateId, {
-        position,
-        questionLabelPosition: position + 1,
-        tabsId
-      });
-
-      $newQuestion.find('input[disabled]').attr('disabled', false);
-      $newQuestion.find('ul.tabs').attr('data-tabs', true);
-      $newQuestion.appendTo($container);
-
-      $newQuestion.foundation();
+  createDynamicFields({
+    templateId: 'survey-question-tmpl',
+    tabsPrefix: 'survey-question',
+    wrapperSelector: wrapperSelector,
+    containerSelector: '.survey-questions-list',
+    fieldSelector: fieldSelector,
+    addFieldButtonSelector: '.add-question',
+    removeFieldButtonSelector: '.remove-question',
+    onAddField: ($field) => {
+      const fieldId = $field.attr('id');
 
       createSortableList();
-      computeQuestionPositions();
-    } catch (error) {
-      console.error(error); // eslint-disable-line no-console
+      autoLabelByPosition.run();
+      createDynamicFieldsForAnswerOptions(fieldId);
+      setAnswerOptionsWrapperVisibility($field.find(questionTypeSelector));
+    },
+    onRemoveField: () => {
+      autoLabelByPosition.run();
     }
-
-    event.preventDefault();
-    event.stopPropagation();
-  };
-
-  const removeQuestion = (event) => {
-    try {
-      const $target = $(event.target);
-      const $question = $target.parent('.survey-question');
-      const $idInput = $question.find('input[name="survey[questions][][id]"]');
-
-      if ($idInput.length > 0) {
-        const deleteInput = document.createElement('input');
-        deleteInput.name = "survey[questions][][deleted]";
-        deleteInput.type = "hidden";
-        deleteInput.value = "true";
-        $question.addClass('hidden');
-        $question.append(deleteInput);
-        $question.hide();
-      } else {
-        $question.remove();
-      }
-
-      computeQuestionPositions();
-    } catch (error) {
-      console.error(error); // eslint-disable-line no-console
-    }
-
-    event.preventDefault();
-    event.stopPropagation();
-  };
-
-  $addQuestionButtons.on('click', addQuestion);
-  $wrapper.on('click', '.remove-question', removeQuestion);
+  });
 
   createSortableList();
-})();
+
+  $(fieldSelector).each((idx, el) => {
+    createDynamicFieldsForAnswerOptions($(el).attr('id'));
+    setAnswerOptionsWrapperVisibility($(el).find(questionTypeSelector));
+  });
+
+  $(wrapperSelector).on('change', questionTypeSelector, (ev) => {
+    const $target = $(ev.target);
+    setAnswerOptionsWrapperVisibility($target);
+  });
+})(window);
