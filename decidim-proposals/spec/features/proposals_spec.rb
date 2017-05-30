@@ -389,7 +389,7 @@ describe "Proposals", type: :feature do
 
         expect(page).to have_css(".card--proposal", count: 12)
 
-        find(".pagination-next a").click
+        click_link "Next"
 
         expect(page).to have_selector(".pagination .current", text: "2")
 
@@ -601,13 +601,13 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within ".order-by" do
-            page.find(".dropdown.menu .is-dropdown-submenu-parent").hover
+            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+            page.find("a", text: "Random").click
+            click_link "Most voted"
           end
 
-          click_link "Most voted"
-
-          expect(page.find("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)).to be
-          expect(page.find("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)).to be
+          expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
+          expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
         end
       end
 
@@ -619,13 +619,13 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within ".order-by" do
-            page.find(".dropdown.menu .is-dropdown-submenu-parent").hover
+            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+            page.find("a", text: "Random").click
+            click_link "Recent"
           end
 
-          click_link "Recent"
-
-          expect(page.find("#proposals .card-grid .column:first-child", text: recent_proposal.title)).to be
-          expect(page.find("#proposals .card-grid .column:last-child", text: older_proposal.title)).to be
+          expect(page).to have_selector("#proposals .card-grid .column:first-child", text: recent_proposal.title)
+          expect(page).to have_selector("#proposals .card-grid .column:last-child", text: older_proposal.title)
         end
       end
     end

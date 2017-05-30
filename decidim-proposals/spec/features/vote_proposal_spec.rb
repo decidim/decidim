@@ -10,12 +10,6 @@ describe "Vote Proposal", type: :feature do
   let!(:proposal) { Decidim::Proposals::Proposal.where(feature: feature).first }
   let!(:user) { create :user, :confirmed, organization: organization }
 
-  let!(:feature) do
-    create(:proposal_feature,
-           manifest: manifest,
-           participatory_process: participatory_process)
-  end
-
   context "when votes are not enabled" do
     it "doesn't show the vote proposal button and counts" do
       expect(page).to have_no_button("Vote")
@@ -61,10 +55,13 @@ describe "Vote Proposal", type: :feature do
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
-        visit_feature
       end
 
       context "when the proposal is not voted yet" do
+        before do
+          visit_feature
+        end
+
         it "should be able to vote the proposal" do
           within "#proposal-#{proposal.id}-vote-button" do
             click_button "Vote"
@@ -119,10 +116,14 @@ describe "Vote Proposal", type: :feature do
         end
 
         context "when the proposal is not voted yet" do
+          before do
+            visit_feature
+          end
+
           it "should update the remaining votes counter" do
             within "#proposal-#{proposal.id}-vote-button" do
               click_button "Vote"
-              expect(page).to have_css(".card__button.success")
+              expect(page).to have_button("Already voted")
             end
 
             expect(page).to have_content("REMAINING 9 VOTES")

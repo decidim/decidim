@@ -7,8 +7,9 @@ module Decidim
       helper Decidim::WidgetUrlsHelper
       include FormFactory
       include FilterResource
+      include Orderable
 
-      helper_method :order, :random_seed, :geocoded_proposals
+      helper_method :geocoded_proposals
 
       before_action :authenticate_user!, only: [:new, :create]
 
@@ -63,38 +64,6 @@ module Decidim
       end
 
       private
-
-      # Gets how the proposals should be ordered based on the choice made by the user.
-      #
-      # Note that when votes are active and hidden at the same time, the "most_voted"
-      # option is not available, so it's replaced to "random" to avoid people
-      # changing the URL manually.
-      def order
-        return @order if @order
-        @order = "random" if current_settings.votes_enabled? && current_settings.votes_hidden? && params[:order] == "most_voted"
-        @order ||= params[:order] || "random"
-      end
-
-      # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
-      def random_seed
-        @random_seed ||= (params[:random_seed] ? params[:random_seed].to_f : (rand * 2 - 1))
-      end
-
-      def reorder(proposals)
-        case order
-        when "random"
-          Proposal.transaction do
-            Proposal.connection.execute("SELECT setseed(#{Proposal.connection.quote(random_seed)})")
-            proposals.order("RANDOM()").load
-          end
-        when "most_voted"
-          proposals.order(proposal_votes_count: :desc)
-        when "recent"
-          proposals.order(created_at: :desc)
-        else
-          proposals
-        end
-      end
 
       def geocoded_proposals
         @geocoded_proposals ||= search.results.not_hidden.select(&:geocoded?)
