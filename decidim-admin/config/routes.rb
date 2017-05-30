@@ -66,6 +66,7 @@ Decidim::Admin::Engine.routes.draw do
     resources :user_groups, only: [:index] do
       member do
         put :verify
+        put :reject
       end
     end
 

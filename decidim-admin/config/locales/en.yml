@@ -124,6 +124,7 @@ en:
         permissions: Permissions
         preview: Preview
         publish: Publish
+        reject: Reject
         resend_invitation: Resend invitation
         unpublish: Unpublish
         verify: Verify
@@ -297,10 +298,12 @@ en:
           name: User
         user_group:
           fields:
+            actions: Actions
             created_at: Created at
             document_number: Document number
             name: Name
             phone: Phone
+            state: State
             users_count: Users count
       moderations:
         index:
@@ -484,6 +487,20 @@ en:
         user_groups: User groups
         users: Users
       user_groups:
+        index:
+          filter:
+            all: All
+            pending: Pending
+            rejected: Rejected
+            verified: Verified
+          filter_by: Filter by
+          search: Search
+          state:
+            pending: Pending
+            rejected: Rejected
+            verified: Verified
+        reject:
+          success: Success
         verify:
           success: The user group was verified successfully.
       users:

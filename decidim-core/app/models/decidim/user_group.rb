@@ -13,15 +13,26 @@ module Decidim
     mount_uploader :avatar, Decidim::AvatarUploader
 
     scope :verified, -> { where.not(verified_at: nil) }
+    scope :rejected, -> { where.not(rejected_at: nil) }
 
     # Public: Mark the user group as verified
     def verify!
-      update_attribute(:verified_at, Time.current)
+      update_attributes(verified_at: Time.current, rejected_at: nil)
     end
 
     # Public: Checks if the user group is verified.
     def verified?
       verified_at.present?
+    end
+
+    # Public: Mark the user group as rejected
+    def reject!
+      update_attributes(rejected_at: Time.current, verified_at: nil)
+    end
+
+    # Public: Checks if the user group is rejected.
+    def rejected?
+      rejected_at.present?
     end
   end
 end
