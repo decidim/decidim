@@ -1,4 +1,3 @@
-# coding: utf-8
 # frozen_string_literal: true
 
 # This validator takes care of ensuring the validated content is
