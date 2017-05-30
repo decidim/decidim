@@ -13,6 +13,7 @@ eu:
     features:
       proposals:
         actions:
+          create: Sortu
           vote: Proiektuaren alde egin
         name: Proposamenak
         settings:
