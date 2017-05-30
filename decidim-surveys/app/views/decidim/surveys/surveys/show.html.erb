@@ -46,25 +46,21 @@
                         <% when "long_answer" %>
                           <%= text_area_tag "survey[answers][#{answer_idx}][body][]", answer.body[0], id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}", rows: 10 %>
                         <% when "single_option" %>
-                          <div id="<%= field_id %>_answer_options">
+                          <div id="<%= field_id %>_answer_options" class="radio-button-collection">
                             <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-                              <div class="field">
-                                <%= label_tag "#{field_id}_option_#{idx}" do %>
-                                  <%= radio_button_tag "survey[answers][#{answer_idx}][body][]", translated_attribute(answer_option["body"]), answer.body.include?(translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
-                                  <%= translated_attribute(answer_option["body"]) %>
-                                <% end %>
-                              </div>
+                              <%= label_tag "#{field_id}_option_#{idx}" do %>
+                                <%= radio_button_tag "survey[answers][#{answer_idx}][body][]", translated_attribute(answer_option["body"]), answer.body.include?(translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
+                                <%= translated_attribute(answer_option["body"]) %>
+                              <% end %>
                             <% end %>
                           </div>
                         <% when "multiple_option" %>
-                          <div id="<%= field_id %>_answer_options">
+                          <div id="<%= field_id %>_answer_options" class="check-box-collection">
                             <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-                              <div class="field">
-                                <%= label_tag "#{field_id}_option_#{idx}" do %>
-                                  <%= check_box_tag "survey[answers][#{answer_idx}][body][]", translated_attribute(answer_option["body"]), answer.body.include?(translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
-                                  <%= translated_attribute(answer_option["body"]) %>
-                                <% end %>
-                              </div>
+                              <%= label_tag "#{field_id}_option_#{idx}" do %>
+                                <%= check_box_tag "survey[answers][#{answer_idx}][body][]", translated_attribute(answer_option["body"]), answer.body.include?(translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
+                                <%= translated_attribute(answer_option["body"]) %>
+                              <% end %>
                             <% end %>
                           </div>
                       <% end %>
@@ -78,9 +74,9 @@
                   <% end %>
 
                   <% if translated_attribute(survey.toc).present? %>
-                    <div class="field">
+                    <div class="row column">
                       <%= form.check_box :authorize_toc, label: t(".authorize_toc") %>
-                      <div class="help-text">
+                      <div class="authorize-toc-help-text help-text">
                         <%== translated_attribute survey.toc %>
                       </div>
                     </div>
