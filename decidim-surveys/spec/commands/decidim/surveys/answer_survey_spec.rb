@@ -22,7 +22,8 @@ module Decidim
               "body" => "This is my first answer",
               "survey_question_id" => survey_question_2.id
             }
-          ]
+          ],
+          "tos_agreement" => "1"
         }
       end
       let(:form) do

@@ -54,7 +54,7 @@ module Decidim
           attributes = {
             title: @form.title,
             description: @form.description,
-            toc: @form.toc
+            tos: @form.tos
           }
 
           if @form.published_at.present?

@@ -68,11 +68,11 @@
                     </div>
                   <% end %>
 
-                  <% if translated_attribute(survey.toc).present? %>
+                  <% if translated_attribute(survey.tos).present? %>
                     <div class="row column">
-                      <%= form.check_box :authorize_toc, label: t(".authorize_toc") %>
-                      <div class="authorize-toc-help-text help-text">
-                        <%== translated_attribute survey.toc %>
+                      <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "survey_#{survey.id}_tos_agreement" %>
+                      <div class="tos-agreement-help-text help-text">
+                        <%== translated_attribute survey.tos %>
                       </div>
                     </div>
                   <% end %>

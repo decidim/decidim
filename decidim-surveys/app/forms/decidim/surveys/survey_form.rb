@@ -5,6 +5,9 @@ module Decidim
     class SurveyForm < Decidim::Form
       attribute :answers, Array[SurveyAnswerForm]
 
+      attribute :tos_agreement, Boolean
+      validates :tos_agreement, allow_nil: false, acceptance: true
+
       # Private: Create the answers from the survey questions
       #
       # Returns nothing.
