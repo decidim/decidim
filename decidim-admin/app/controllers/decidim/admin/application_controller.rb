@@ -20,8 +20,6 @@ module Decidim
       helper Decidim::OrganizationScopesHelper
       helper Decidim::TranslationsHelper
 
-      helper Decidim::LanguageChooserHelper
-
       protect_from_forgery with: :exception, prepend: true
 
       def user_not_authorized_path

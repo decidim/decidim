@@ -43,7 +43,6 @@ class CommentOrderSelector extends React.Component<CommentOrderSelectorProps, Co
         <ul
           className="dropdown menu"
           data-dropdown-menu="data-dropdown-menu"
-          data-close-on-click-inside="false"
           ref={this.setDropdown}
         >
           <li>
