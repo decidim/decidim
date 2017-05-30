@@ -61,6 +61,16 @@ Decidim.register_feature(:proposals) do |feature|
     exports.serializer Decidim::Proposals::ProposalSerializer
   end
 
+  feature.exports :comments do |exports|
+    exports.collection do |feature_instance|
+      Decidim::Comments::Export.comments_for_resource(
+        Decidim::Proposals::Proposal, feature_instance
+      )
+    end
+
+    exports.serializer Decidim::Comments::CommentSerializer
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?

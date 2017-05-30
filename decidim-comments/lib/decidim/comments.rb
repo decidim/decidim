@@ -14,5 +14,7 @@ module Decidim
     autoload :CommentMutationType, "decidim/comments/api/comment_mutation_type"
     autoload :CommentType, "decidim/comments/api/comment_type"
     autoload :Commentable, "decidim/comments/commentable"
+    autoload :CommentSerializer, "decidim/comments/comment_serializer"
+    autoload :Export, "decidim/comments/export"
   end
 end
