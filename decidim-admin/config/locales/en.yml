@@ -486,6 +486,13 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
+      user_group:
+        reject:
+          invalid: There was an error when rejecting this user group.
+          success: User group updated successfully
+        verify:
+          invalid: There was an error when verifying this user group.
+          success: User group updated successfully
       user_groups:
         index:
           filter:
@@ -499,10 +506,6 @@ en:
             pending: Pending
             rejected: Rejected
             verified: Verified
-        reject:
-          success: Success
-        verify:
-          success: The user group was verified successfully.
       users:
         create:
           error: There was an error when inviting this user.

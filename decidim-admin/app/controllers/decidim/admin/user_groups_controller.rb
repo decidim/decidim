@@ -36,12 +36,12 @@ module Decidim
 
         VerifyUserGroup.call(@user_group) do
           on(:ok) do
-            flash[:notice] = I18n.t("user_groups.verify.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("user_group.verify.success", scope: "decidim.admin")
             redirect_back(fallback_location: decidim_admin.user_groups_path)
           end
 
           on(:invalid) do 
-            flash[:alert] = I18n.t("user_groups.verify.invalid", scope: "decidim.admin")
+            flash[:alert] = I18n.t("user_group.verify.invalid", scope: "decidim.admin")
             redirect_back(fallback_location: decidim_admin.user_groups_path)
           end
         end
@@ -53,12 +53,12 @@ module Decidim
 
         RejectUserGroup.call(@user_group) do
           on(:ok) do
-            flash[:notice] = I18n.t("user_groups.reject.success", scope: "decidim.admin")
+            flash[:notice] = I18n.t("user_group.reject.success", scope: "decidim.admin")
             redirect_back(fallback_location: decidim_admin.user_groups_path)
           end
 
           on(:invalid) do 
-            flash[:alert] = I18n.t("user_groups.reject.invalid", scope: "decidim.admin")
+            flash[:alert] = I18n.t("user_group.reject.invalid", scope: "decidim.admin")
             redirect_back(fallback_location: decidim_admin.user_groups_path)
           end
         end
