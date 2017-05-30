@@ -23,7 +23,7 @@ module Decidim
               "question_id" => survey_question_2.id
             }
           ],
-          "authorize_toc" => "1"
+          "tos_agreement" => "1"
         }
       end
       let(:form) do

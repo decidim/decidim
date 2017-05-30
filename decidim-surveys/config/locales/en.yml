@@ -21,7 +21,7 @@ en:
         models:
           components:
             description: Description
-            toc: Toc
+            tos: Terms of service
         surveys:
           answer_option:
             answer_option: Answer option
@@ -59,7 +59,7 @@ en:
             title: Answer the survey
           are_you_sure: This action cannot be undone and you will not be able to edit
             your answers. Are you sure?
-          authorize_toc: Authorize toc
+          tos_agreement: By participating in this survey you accept its Terms of Service
           submit: Submit
           survey_answered:
             body: You have already answered this survey.

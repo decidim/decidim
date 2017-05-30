@@ -60,7 +60,7 @@ Decidim.register_feature(:surveys) do |feature|
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        toc: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(2)
         end
       )

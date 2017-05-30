@@ -69,7 +69,7 @@ describe "Answer a survey", type: :feature do
 
         fill_in "survey_#{survey.id}_question_#{survey_question_1.id}_answer_body", with: "My first answer"
         fill_in "survey_#{survey.id}_question_#{survey_question_2.id}_answer_body", with: "My second answer"
-        check "Authorize toc"
+        check "survey_#{survey.id}_tos_agreement"
 
         click_button "Submit"
 
@@ -97,7 +97,7 @@ describe "Answer a survey", type: :feature do
         it "users cannot leave that question blank" do
           visit_feature
 
-          check "Authorize toc"
+          check "survey_#{survey.id}_tos_agreement"
 
           click_button "Submit"
 
@@ -139,7 +139,7 @@ describe "Answer a survey", type: :feature do
             choose answer_options[2]["body"][:en]
           end
 
-          check "Authorize toc"
+          check "survey_#{survey.id}_tos_agreement"
 
           click_button "Submit"
 
