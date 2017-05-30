@@ -29,19 +29,25 @@ eu:
             proposal_answering_enabled: Erantzuna aktibatutako proposamenei
             votes_blocked: Bozketa blokeatuta
             votes_enabled: Botoak gaituta
+            votes_hidden: Boto ezkutuak (Botoak gaituta egon eta aukera hau markatuz gero, ezkutuan geldituko da botoen kopurua)
     proposals:
       actions:
         answer: Erantzuna
+        new: Berria
         title: Ekintzak
       admin:
         actions:
           preview: Aurreikusi
+        exports:
+          comments: Iruzkinak
+          proposals: Proposamenak
         models:
           proposal:
             name: Proposamena
         proposal_answers:
           edit:
             accepted: Onartuta
+            answer_proposal: Erantzuna
             rejected: Baztertuta
             title: 'Erantzun proposamen honi: %{title}'
         proposals:
@@ -55,6 +61,9 @@ eu:
             select_a_category: Aukeratu kategoria bat
           index:
             title: Proposamenak
+          new:
+            create: Sortu
+            title: Sortu proposamena
       answers:
         accepted: Onartuta
         not_answered: Erantzun gabe
