@@ -1,6 +1,7 @@
 base_locale: en
-locales: [en]
 ignore_unused:
 - "decidim.features.meetings.name"
 - "activemodel.attributes.*"
 - "decidim.resource_links.*"
+search:
+  strict: false

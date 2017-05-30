@@ -1,5 +1,6 @@
 base_locale: en
-locales: [en]
 ignore_unused:
 - "decidim.features.pages.name"
 - "decidim.features.pages.settings.*"
+search:
+  strict: false

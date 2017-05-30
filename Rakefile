@@ -25,11 +25,20 @@ task test_all: ["decidim:generate_test_app"] do
 end
 
 desc "Pushes a new build for each gem."
-task release_all: [:webpack] do
+task release_all: [:check_locale_completeness, :webpack] do
   sh "rake release"
   DECIDIM_GEMS.each do |gem_name|
     Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
       sh "rake release"
+    end
+  end
+end
+
+desc "Makes sure all official locales are complete and clean."
+task :check_locale_completeness do
+  DECIDIM_GEMS.each do |gem_name|
+    Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
+      system({ "ENFORCED_LOCALES" => "en,ca,es" }, "rspec spec/i18n_spec.rb")
     end
   end
 end

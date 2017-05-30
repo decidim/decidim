@@ -1,8 +1,11 @@
 base_locale: en
-locales: [en]
+
 ignore_unused:
 - "decidim.features.budgets.name"
 - "decidim.features.budgets.settings.*"
 - "decidim.features.budgets.actions.*"
 - "activemodel.attributes.project.*"
 - "decidim.resource_links.*"
+
+search:
+  strict: false
