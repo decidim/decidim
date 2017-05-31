@@ -26,7 +26,7 @@ describe "Admin copy participatory process", type: :feature do
       within ".copy_participatory_process" do
         fill_in_i18n(
           :participatory_process_copy_title,
-          "#title-tabs",
+          "#participatory_process_copy-title-tabs",
           en: "Copy participatory process",
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
@@ -48,7 +48,7 @@ describe "Admin copy participatory process", type: :feature do
       within ".copy_participatory_process" do
         fill_in_i18n(
           :participatory_process_copy_title,
-          "#title-tabs",
+          "#participatory_process_copy-title-tabs",
           en: "Copy participatory process",
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
