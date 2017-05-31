@@ -6,10 +6,10 @@ import VoteButton from "./vote_button.component";
 
 import generateCommentsData from "../support/generate_comments_data";
 
-import { UpVoteFragment } from "../support/schema";
+import { UpVoteButtonFragment } from "../support/schema";
 
 describe("<UpVoteButton />", () => {
-  let comment: UpVoteFragment;
+  let comment: UpVoteButtonFragment;
   const upVote = jasmine.createSpy("upVote");
 
   beforeEach(() => {

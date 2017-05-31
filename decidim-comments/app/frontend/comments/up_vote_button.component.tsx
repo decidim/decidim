@@ -6,12 +6,12 @@ import VoteButton from "./vote_button.component";
 import {
   CommentFragment,
   GetCommentsQuery,
-  UpVoteFragment,
+  UpVoteButtonFragment,
   UpVoteMutation,
 } from "../support/schema";
 
 interface UpVoteButtonProps {
-  comment: UpVoteFragment;
+  comment: UpVoteButtonFragment;
   upVote?: () => void;
 }
 

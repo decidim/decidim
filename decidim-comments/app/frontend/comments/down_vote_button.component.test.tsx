@@ -6,10 +6,10 @@ import VoteButton from "./vote_button.component";
 
 import generateCommentsData from "../support/generate_comments_data";
 
-import { DownVoteFragment } from "../support/schema";
+import { DownVoteButtonFragment } from "../support/schema";
 
 describe("<DownVoteButton />", () => {
-  let comment: DownVoteFragment;
+  let comment: DownVoteButtonFragment;
   const downVote = jasmine.createSpy("downVote");
 
   beforeEach(() => {
