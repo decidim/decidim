@@ -400,16 +400,24 @@ describe "Proposals", type: :feature do
                participatory_process: participatory_process)
       end
 
+      let!(:most_voted_proposal) do
+        proposal = create(:proposal, feature: feature)
+        create_list(:proposal_vote, 3, proposal: proposal)
+        proposal
+      end
+
+      let!(:less_voted_proposal) { create(:proposal, feature: feature) }
+
+      before { visit_feature }
+
       it "lists the proposals ordered by votes by default" do
-        most_voted_proposal = create(:proposal, feature: feature)
-        create_list(:proposal_vote, 3, proposal: most_voted_proposal)
-        less_voted_proposal = create(:proposal, feature: feature)
-
-        visit_feature
-
         expect(page).to have_selector("a", text: "Most voted")
         expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
         expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
+      end
+
+      it "shows a disabled vote button for each proposal" do
+        expect(page).to have_button("Voting disabled", disabled: true, count: 2)
       end
     end
 
