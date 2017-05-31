@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Surveys
     # The data store for a SurveyAnswer in the Decidim::Surveys component.

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "decidim/core/test/factories"
 
 FactoryGirl.define do
@@ -15,7 +16,7 @@ FactoryGirl.define do
         Decidim::Faker::Localized.sentence(4)
       end
     end
-    toc { Decidim::Faker::Localized.sentence(4) }
+    tos { Decidim::Faker::Localized.sentence(4) }
     feature { build(:surveys_feature) }
   end
 

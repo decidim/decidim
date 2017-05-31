@@ -15,7 +15,7 @@ en:
         models:
           components:
             description: Description
-            toc: Toc
+            tos: Terms of service
         surveys:
           edit:
             are_you_sure: This action will publish the survey and you will not be
@@ -48,3 +48,4 @@ en:
           survey_not_published:
             body: The survey is not published yet and cannot be answered.
             title: Survey not published
+          tos_agreement: By participating in this survey you accept its Terms of Service
