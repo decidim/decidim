@@ -489,10 +489,10 @@ en:
       user_group:
         reject:
           invalid: There was an error when rejecting this user group.
-          success: User group updated successfully
+          success: User group rejected successfully
         verify:
           invalid: There was an error when verifying this user group.
-          success: User group updated successfully
+          success: User group verified successfully
       user_groups:
         index:
           filter:
