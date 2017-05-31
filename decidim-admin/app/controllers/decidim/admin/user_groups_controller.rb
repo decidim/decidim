@@ -11,23 +11,9 @@ module Decidim
         authorize! :index, UserGroup
         @query = params[:q]
         @state = params[:state]
-        @user_groups = collection
 
-        @user_groups = @user_groups.where("LOWER(name) LIKE LOWER('%#{@query}%')") if @query.present?
-
-        @user_groups = case @state
-                       when "verified"
-                         @user_groups.where.not(verified_at: nil)
-                       when "rejected"
-                         @user_groups.where.not(rejected_at: nil)
-                       when "pending"
-                         @user_groups.where(verified_at: nil, rejected_at: nil)
-                       else
-                         @user_groups
-                        end
-
-        @user_groups = @user_groups.page(params[:page])
-                                   .per(15)
+        @user_groups = Decidim::Admin::UserGroupsEvaluation.for(collection, @query, @state)
+                      .page(params[:page]).per(15)
       end
 
       def verify
