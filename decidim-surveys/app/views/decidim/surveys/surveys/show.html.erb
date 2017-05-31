@@ -37,14 +37,14 @@
 
                       <% case answer.question.question_type %>
                         <% when "short_answer" %>
-                          <%= text_field_tag "survey[answers][#{answer_idx}][body][]", answer.body[0], id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}" %>
+                          <%= text_field_tag "survey[answers][#{answer_idx}][body][]", answer.body.try(:first), id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}" %>
                         <% when "long_answer" %>
-                          <%= text_area_tag "survey[answers][#{answer_idx}][body][]", answer.body[0], id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}", rows: 10 %>
+                          <%= text_area_tag "survey[answers][#{answer_idx}][body][]", answer.body.try(:first), id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}", rows: 10 %>
                         <% when "single_option" %>
                           <div id="<%= field_id %>_answer_options" class="radio-button-collection">
                             <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
                               <%= label_tag "#{field_id}_option_#{idx}" do %>
-                                <%= radio_button_tag "survey[answers][#{answer_idx}][body][]", translated_attribute(answer_option["body"]), answer.body.include?(translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
+                                <%= radio_button_tag "survey[answers][#{answer_idx}][body][]", translated_attribute(answer_option["body"]), answer.body.try(:include?, translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
                                 <%= translated_attribute(answer_option["body"]) %>
                               <% end %>
                             <% end %>
@@ -53,7 +53,7 @@
                           <div id="<%= field_id %>_answer_options" class="check-box-collection">
                             <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
                               <%= label_tag "#{field_id}_option_#{idx}" do %>
-                                <%= check_box_tag "survey[answers][#{answer_idx}][body][]", translated_attribute(answer_option["body"]), answer.body.include?(translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
+                                <%= check_box_tag "survey[answers][#{answer_idx}][body][]", translated_attribute(answer_option["body"]), answer.body.try(:include?, translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
                                 <%= translated_attribute(answer_option["body"]) %>
                               <% end %>
                             <% end %>
@@ -70,7 +70,7 @@
 
                   <% if translated_attribute(survey.tos).present? %>
                     <div class="row column">
-                      <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "survey_#{survey.id}_tos_agreement" %>
+                      <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "survey_tos_agreement" %>
                       <div class="tos-agreement-help-text help-text">
                         <%== translated_attribute survey.tos %>
                       </div>
