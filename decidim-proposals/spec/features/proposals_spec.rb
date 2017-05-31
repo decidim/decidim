@@ -587,12 +587,6 @@ describe "Proposals", type: :feature do
                  participatory_process: participatory_process)
         end
 
-        before do
-          proposals.each do |proposal|
-            create(:proposal_vote, proposal: proposal)
-          end
-        end
-
         it "lists the proposals ordered by votes" do
           most_voted_proposal = create(:proposal, feature: feature)
           create_list(:proposal_vote, 3, proposal: most_voted_proposal)
