@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Surveys
     # This class holds a Form to answer a surveys from Decidim's public page.
