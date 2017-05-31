@@ -407,6 +407,7 @@ describe "Proposals", type: :feature do
 
         visit_feature
 
+        expect(page).to have_selector("a", text: "Most voted")
         expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
         expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
       end
