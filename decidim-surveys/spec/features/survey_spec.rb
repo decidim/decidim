@@ -73,10 +73,8 @@ describe "Answer a survey", type: :feature do
 
         fill_in "survey_#{survey.id}_question_#{survey_question_1.id}_answer_body", with: "My first answer"
         fill_in "survey_#{survey.id}_question_#{survey_question_2.id}_answer_body", with: "My second answer"
-<<<<<<< HEAD
-=======
+
         check "survey_#{survey.id}_tos_agreement"
->>>>>>> 09bf87e... Change from toc to tos
 
         click_button "Submit"
 
