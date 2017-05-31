@@ -59,7 +59,6 @@ en:
             title: Answer the survey
           are_you_sure: This action cannot be undone and you will not be able to edit
             your answers. Are you sure?
-          tos_agreement: By participating in this survey you accept its Terms of Service
           submit: Submit
           survey_answered:
             body: You have already answered this survey.
@@ -67,3 +66,4 @@ en:
           survey_not_published:
             body: The survey is not published yet and cannot be answered.
             title: Survey not published
+          tos_agreement: By participating in this survey you accept its Terms of Service

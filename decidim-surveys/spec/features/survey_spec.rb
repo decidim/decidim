@@ -173,7 +173,7 @@ describe "Answer a survey", type: :feature do
             check answer_options[2]["body"][:en]
           end
 
-          check "Authorize toc"
+          check "survey_#{survey.id}_tos_agreement"
 
           click_button "Submit"
 
