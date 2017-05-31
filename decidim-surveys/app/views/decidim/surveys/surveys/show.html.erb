@@ -3,8 +3,13 @@
   description: translated_attribute(survey.description),
 }) %>
 
-<div class="row column view-header">
-  <h2 class="heading2"><%= translated_attribute survey.title %></h2>
+<div class="row columns">
+  <h2 class="section-heading"><%= translated_attribute survey.title %></h2>
+  <div class="row">
+    <div class="columns large-6 medium-centered lead">
+      <%== translated_attribute survey.description %>
+    </div>
+  </div>
 </div>
 
 <div class="row">

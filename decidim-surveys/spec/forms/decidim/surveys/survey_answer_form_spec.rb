@@ -22,7 +22,12 @@ module Decidim
         let!(:survey_question) { create(:survey_question, survey: survey, mandatory: true) }
 
         it "is not valid if body is not present" do
-          subject.body = ""
+          subject.body = nil
+          expect(subject).not_to be_valid
+        end
+
+        it "is not valid if body entries are all blank" do
+          subject.body = [""]
           expect(subject).not_to be_valid
         end
       end

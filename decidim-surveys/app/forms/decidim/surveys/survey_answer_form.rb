@@ -8,6 +8,7 @@ module Decidim
       attribute :body, String
 
       validates :body, presence: true, if: -> { question.mandatory? }
+      validate :body_not_blank, if: -> { question.mandatory? }
 
       def question
         @question ||= survey.questions.find(question_id)
@@ -24,6 +25,11 @@ module Decidim
 
       def survey
         @survey ||= Survey.where(feature: current_feature).first
+      end
+
+      def body_not_blank
+        return if body.nil?
+        errors.add("body", :blank) if body.all?(&:blank?)
       end
     end
   end
