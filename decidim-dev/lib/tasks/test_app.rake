@@ -14,11 +14,5 @@ namespace :decidim do
         "--quiet"
       ]
     )
-
-    if ENV["CI"]
-      Dir.chdir(dummy_app_path) do
-        Bundler.with_clean_env { sh "bundle exec rake assets:precompile" }
-      end
-    end
   end
 end

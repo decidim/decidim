@@ -68,6 +68,7 @@ end
 Decidim.register_feature(:dummy) do |feature|
   feature.engine = Decidim::DummyEngine
   feature.admin_engine = Decidim::DummyAdminEngine
+  feature.icon = "decidim/dummy.svg"
 
   feature.actions = %w(foo bar)
 

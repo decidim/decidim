@@ -31,7 +31,8 @@ capybara_options = {
     )
   ],
   js_errors: true,
-  url_whitelist: ["http://*.lvh.me", "localhost", "127.0.0.1"]
+  url_whitelist: ["http://*.lvh.me", "localhost", "127.0.0.1"],
+  timeout: 1.minute
 }
 
 Capybara.register_driver :poltergeist do |app|
