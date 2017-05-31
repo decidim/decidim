@@ -104,6 +104,10 @@ eu:
       shared:
         omniauth_buttons:
           or: Edo
+    export_mailer:
+      export:
+        ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
+      subject: Prest duzu "%{name}" izeneko esportazioa
     features:
       dummy:
         actions:
@@ -204,6 +208,10 @@ eu:
           invalid: "%{field} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
+      embed_modal:
+        close_window: Itxi leihoa
+        embed: Mesedez, erantsi kode hau zure orrian
+        embed_link: Kapsulatu
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek.
         close: Itxi
@@ -267,6 +275,8 @@ eu:
         description_html: 'Webgune honek bere cookieak eta hirugarrenenak erabiltzen ditu, nabigazioa hobetu eta intereseko edukiak eta zerbitzuak eskaintze aldera. Nabigatzen jarraituz gero, gure cookie-politika onartzen delakoan gaude. Argibide gehiago jasotzeko, kontsultatu hemen: %{link}.'
         link_label: hemen
         ok: Ados nago
+      footer:
+        made_with_open_source: 'Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.'
       header:
         close_menu: Itxi menua
         navigation: Nabigazioa
@@ -275,6 +285,10 @@ eu:
       participatory_process_groups:
         participatory_process_group:
           browse: Arakatu
+      participatory_process_widgets:
+        show:
+          active_step: Fase gaitua
+          take_part: Parte hartu
       participatory_processes:
         index:
           promoted_processes: Prozesu nabarmenduak
@@ -307,6 +321,8 @@ eu:
         notifications_settings: Jakinarazpen-konfigurazioa
         title: Erabiltzaile-ezarpenak
         user_groups: Erakundeak
+      widget:
+        see_more: "Ikusi gehiago"
   locale:
     name: Euskera
   pages:
@@ -339,7 +355,14 @@ eu:
         active_step: Fase aktiboa
         see_all_processes: Ikusi prozesu guztiak
       statistics:
+        comments_count: Iruzkinak
         headline: '%{organization} erakundearen egungo egoera'
+        meetings_count: Topaketak
+        processes_count: Prozesuak
+        proposals_count: Proposamenak
+        results_count: Emaitzak
+        users_count: Erabiltzaileak
+        votes_count: Botoak
       sub_hero:
         register: Erregistroa
   social_share_button:

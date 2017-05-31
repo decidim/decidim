@@ -15,6 +15,7 @@ eu:
         confirm_destroy: Ziur zaude proiektu hau ezabatu nahi duzula?
         destroy: Garbitu
         edit: Editatu
+        new: Berria
         preview: Aurreikusi
         title: Ekintzak
       admin:
@@ -29,11 +30,13 @@ eu:
             success: Proiektu ongi ezabatu da
           edit:
             title: Editatu proiektua
+            update: Eguneratu
           index:
             finished_orders: Emandako botoak
             pending_orders: Emateke dauden botoak
             title: Proiektuak
           new:
+            create: Sortu
             title: Emaitza berria
           update:
             invalid: Arazo bat izan da proiektu hau eguneratzean
@@ -109,6 +112,7 @@ eu:
             vote_threshold_percent: Aurrekontuaren gutxieneko ehunekoa
           step:
             comments_blocked: Iruzkinak blokeatuta
+            show_votes: Erakutsi botoak
             votes_enabled: Botoak gaituta
     orders:
       checkout:

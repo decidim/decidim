@@ -10,6 +10,7 @@ eu:
       category:
         description: Deskribapena
         name: Izena
+        parent_id: Nagusia
       feature:
         name: Izena
         weight: Pisua
@@ -96,10 +97,16 @@ eu:
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
         title: Izenburua
+      decidim/participatory_process_step:
+        end_date: Bukaera-data
+        start_date: Hasiera-data
       decidim/static_page:
         content: Edukia
         slug: URL laburra
         title: Izenburua
+  date:
+    formats:
+      datepicker: "%Y / %m / %d"
   decidim:
     admin:
       actions:
@@ -108,8 +115,11 @@ eu:
         configure: Konfiguratu
         confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
         destroy: Kendu
+        duplicate: Kopia egin
         edit: Editatu
+        export: Esportatu
         manage: Kudeatu
+        new: Berria
         permissions: Baimenak
         preview: Aurreikusi
         publish: Argitaratu
@@ -124,6 +134,7 @@ eu:
           success: Fitxategi erantsia zuzen ezabatu da.
         edit:
           title: Editatu fitxategi erantsia
+          update: Eguneratu
         form:
           current_file: Oraingo fitxategia
           url: url
@@ -142,6 +153,7 @@ eu:
           success: Kategoria zuzen ezabatu da.
         edit:
           title: Editatu kategoria
+          update: Eguneratu
         new:
           create: Sortu kategoria
           title: Kategoria berria
@@ -165,6 +177,9 @@ eu:
           participatory_process_user_roles:
             index:
               process_admins_title: Prozesu partizipatiboko erabiltzaileak
+      exports:
+        export_as: "%{name} honako hau gisa: %{export_format}"
+        notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
       feature_permissions:
         edit:
           everyone: Edonor
@@ -259,6 +274,9 @@ eu:
             name: Izena
             role: Rola
           name: ' Erabiltzailearen prozesu partizipatiboa '
+          roles:
+            admin: Administratzailea
+            collaborator: Kolaboratzailea
         scope:
           fields:
             created_at: Sortze-data
@@ -318,6 +336,7 @@ eu:
       organization:
         edit:
           title: Editatu erakundea
+          update: Eguneratu
         form:
           current_image: Oraingo irudia
           facebook: Facebook
@@ -330,6 +349,11 @@ eu:
         update:
           error: Errorea gertatu da erakunde hau eguneratzean.
           success: Erakundea zuzen eguneratu da.
+      participatory_process_copies:
+        new:
+          copy: Copy
+          select: Aukeratu itzazu kopiatu nahi dituzun datuak
+          title: Egin prozesu partizipatiboaren kopia
       participatory_process_groups:
         destroy:
           success: Multzoa zuzen deuseztatu da.
@@ -365,7 +389,9 @@ eu:
           success: Prozesu partizipatiboaren fasea zuzen ezabatu da.
         edit:
           title: Editatu prozesu partizipatiboaren fasea
+          update: Eguneratu
         new:
+          create: Sortu
           title: Prozesu partizipatiboaren fase berria
         ordering:
           error: Errorea gertatu da prozesu partizipatiboaren faseak berrantolatzean.
@@ -393,6 +419,8 @@ eu:
           success: Prozesu partizipatiboa zuzen sortu da. Orain, jarrai ezazu faseak konfiguratzen.
         destroy:
           success: Prozesu partizipatiboa zuzen ezabatu da.
+        edit:
+          update: Eguneratu
         form:
           current_image: Oraingo irudia
           title: Informazio orokorra
@@ -400,9 +428,16 @@ eu:
         index:
           not_published: Argitaratu gabe
           published: Argitaratua
+        new:
+          create: Sortu
+          title: Prozesu partizipatibo berria
         update:
           error: Errorea gertatu da prozesu partizipatibo hau eguneratzean.
           success: Prozesu partizipatiboa zuzen eguneratu da.
+      participatory_processes_copies:
+        create:
+          error: Errorea gertatu da prozesu partizipatibo hau kopiatzean.
+          success: Prozesu partizipatiboa zuzen kopiatu da.
       participatory_processes_group:
         create:
           error: Errorea gertatu da multzo hau sortzean.
@@ -415,6 +450,7 @@ eu:
           success: Esparrua ongi ezabatu da
         edit:
           title: Editatu helmena
+          update: Eguneratu
         new:
           create: Sortu esparrua
           title: Esparru berria
@@ -431,7 +467,9 @@ eu:
           success: Orria zuzen ezabatu da.
         edit:
           title: Editatu orria
+          update: Eguneratu
         new:
+          create: Berria
           title: Orri berria
         update:
           error: Errorea gertatu da orri hau eguneratzean.
@@ -468,6 +506,7 @@ eu:
         hidden: ' Ezkutatuta'
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
+        title: Ekintzak
         unreport: Ezeztatu salaketa
       admin:
         reportable:
@@ -481,6 +520,7 @@ eu:
         moderation:
           fields:
             hidden_at: Ezkutatze-data
+            report_count: Zenbaketa
             reportable: Mota
             reported_content: Edukia
             reports: Salaketak
@@ -498,4 +538,5 @@ eu:
           title: Erabiltzaileak
   time:
     formats:
+      datepicker: "%Y / %m / %d"
       timepicker: "%d/%m/%Y %H:%M"
