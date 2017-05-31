@@ -43,6 +43,14 @@ Decidim.register_feature(:surveys) do |feature|
   #   # Register some stat number to the application
   # end
 
+  feature.exports :user_answers do |exports|
+    exports.collection do |feature|
+      Decidim::Surveys::SurveyUserAnswers.for(feature)
+    end
+
+    exports.serializer Decidim::Surveys::SurveyUserAnswersSerializer
+  end
+
   feature.seeds do
     Decidim::ParticipatoryProcess.all.each do |process|
       next unless process.steps.any?
