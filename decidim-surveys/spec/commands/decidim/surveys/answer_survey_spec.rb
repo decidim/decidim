@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "spec_helper"
 
 module Decidim
@@ -16,20 +17,22 @@ module Decidim
           "answers" => [
             {
               "body" => "This is my first answer",
-              "survey_question_id" => survey_question_1.id
+              "question_id" => survey_question_1.id
             },
             {
               "body" => "This is my first answer",
-              "survey_question_id" => survey_question_2.id
+              "question_id" => survey_question_2.id
             }
-          ]
+          ],
+          "tos_agreement" => "1"
         }
       end
       let(:form) do
         SurveyForm.from_params(
           form_params
         ).with_context(
-          current_organization: current_organization
+          current_organization: current_organization,
+          current_feature: feature
         )
       end
       let(:command) { described_class.new(form, current_user, survey) }

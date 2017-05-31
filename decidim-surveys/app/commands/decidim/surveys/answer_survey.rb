@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Surveys
     # This command is executed when the user answers a Survey.
@@ -31,7 +32,7 @@ module Decidim
             SurveyAnswer.create!(
               user: @current_user,
               survey: @survey,
-              decidim_survey_question_id: form_answer.survey_question_id,
+              question: form_answer.question,
               body: form_answer.body
             )
           end

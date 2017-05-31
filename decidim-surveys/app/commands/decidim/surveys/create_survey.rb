@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Surveys
     # Command that gets called whenever a feature's survey has to be created. It

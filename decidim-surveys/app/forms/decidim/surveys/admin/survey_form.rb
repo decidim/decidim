@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Surveys
     module Admin
@@ -8,7 +9,7 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :description, String
-        translatable_attribute :toc, String
+        translatable_attribute :tos, String
         attribute :published_at, DateTime
 
         attribute :questions, Array[SurveyQuestionForm]

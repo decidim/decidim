@@ -3,45 +3,84 @@
   description: translated_attribute(survey.description),
 }) %>
 
-<div class="row column view-header">
-  <h2 class="heading2"><%= translated_attribute survey.title %></h2>
+<div class="row columns">
+  <h2 class="section-heading"><%= translated_attribute survey.title %></h2>
+  <div class="row">
+    <div class="columns large-6 medium-centered lead">
+      <%== translated_attribute survey.description %>
+    </div>
+  </div>
 </div>
 
-<div class="row column">
-  <div class="row">
-    <div class="columns medium-7 mediumlarge-8">
-      <div class="section">
-        <%== translated_attribute survey.description %>
-      </div>
-
-      <% unless survey.published? %>
-        <div class="section">
-          <div class="callout warning">
-            <h5><%= t('.survey_not_published.title') %></h5>
-            <p><%= t('.survey_not_published.body') %></p>
-          </div>
-        </div>
-      <% else %>
-        <% if current_user %>
-          <% if survey.answered_by?(current_user) %>
-            <div class="section">
-              <div class="callout success">
-                <h5><%= t('.survey_answered.title') %></h5>
-                <p><%= t('.survey_answered.body') %></p>
-              </div>
+<div class="row">
+  <div class="columns large-6 medium-centered">
+    <div class="card">
+      <div class="card__content">
+        <% unless survey.published? %>
+          <div class="section">
+            <div class="callout warning">
+              <h5><%= t('.survey_not_published.title') %></h5>
+              <p><%= t('.survey_not_published.body') %></p>
             </div>
-          <% else %>
-            <div class="answer-survey">
-              <h5 class="section-heading"><%= t('.answer_survey.title') %></h5>
-              <%= decidim_form_for(@form, url: answer_survey_path(survey), method: :post, html: { class: "form answer-survey" }) do |form| %>
-                <% @form.answers.each_with_index do |answer, idx| %>
-                  <div class="field">
-                    <% field_id = "survey_#{survey.id}_question_#{answer.question.id}_answer_body" %>
-                    <%= label_tag field_id , "#{idx + 1}. #{translated_attribute(answer.question.body)}" %>
-                    <%= text_field_tag "survey[answers][][body]", "", id: field_id %>
-                    <%= hidden_field_tag "survey[answers][][survey_question_id]", answer.question.id %>
-                  </div>
-                <% end %>
+          </div>
+        <% else %>
+          <% if current_user %>
+            <% if survey.answered_by?(current_user) %>
+              <div class="section">
+                <div class="callout success">
+                  <h5><%= t('.survey_answered.title') %></h5>
+                  <p><%= t('.survey_answered.body') %></p>
+                </div>
+              </div>
+            <% else %>
+              <div class="answer-survey">
+                <%= decidim_form_for(@form, url: answer_survey_path(survey), method: :post, html: { class: "form answer-survey" }) do |form| %>
+                  <% @form.answers.each_with_index do |answer, answer_idx| %>
+                    <div class="row column">
+                      <% field_id = "survey_#{survey.id}_question_#{answer.question.id}_answer_body" %>
+                      <%= label_tag field_id , "#{answer_idx + 1}. #{translated_attribute(answer.question.body)} #{'*' if answer.question.mandatory?}" %>
+
+                      <% case answer.question.question_type %>
+                        <% when "short_answer" %>
+                          <%= text_field_tag "survey[answers][#{answer_idx}][body][]", answer.body.try(:first), id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}" %>
+                        <% when "long_answer" %>
+                          <%= text_area_tag "survey[answers][#{answer_idx}][body][]", answer.body.try(:first), id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}", rows: 10 %>
+                        <% when "single_option" %>
+                          <div id="<%= field_id %>_answer_options" class="radio-button-collection">
+                            <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
+                              <%= label_tag "#{field_id}_option_#{idx}" do %>
+                                <%= radio_button_tag "survey[answers][#{answer_idx}][body][]", translated_attribute(answer_option["body"]), answer.body.try(:include?, translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
+                                <%= translated_attribute(answer_option["body"]) %>
+                              <% end %>
+                            <% end %>
+                          </div>
+                        <% when "multiple_option" %>
+                          <div id="<%= field_id %>_answer_options" class="check-box-collection">
+                            <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
+                              <%= label_tag "#{field_id}_option_#{idx}" do %>
+                                <%= check_box_tag "survey[answers][#{answer_idx}][body][]", translated_attribute(answer_option["body"]), answer.body.try(:include?, translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
+                                <%= translated_attribute(answer_option["body"]) %>
+                              <% end %>
+                            <% end %>
+                          </div>
+                      <% end %>
+
+                      <%= hidden_field_tag "survey[answers][#{answer_idx}][question_id]", answer.question.id %>
+
+                      <% answer.errors.full_messages.each do |msg| %>
+                        <%= content_tag :small, msg, class: "form-error is-visible" %>
+                      <% end %>
+                    </div>
+                  <% end %>
+
+                  <% if translated_attribute(survey.tos).present? %>
+                    <div class="row column">
+                      <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "survey_tos_agreement" %>
+                      <div class="tos-agreement-help-text help-text">
+                        <%== translated_attribute survey.tos %>
+                      </div>
+                    </div>
+                  <% end %>
 
                 <div class="button--double form-general-submit">
                   <%= form.submit t(".submit"), class: "button", data: { confirm: t('.are_you_sure') } %>
