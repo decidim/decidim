@@ -579,7 +579,7 @@ describe "Proposals", type: :feature do
     end
 
     context "when ordering" do
-      context "by 'most_support'" do
+      context "by 'most_voted'" do
         let!(:feature) do
           create(:proposal_feature,
                  :with_votes_enabled,
