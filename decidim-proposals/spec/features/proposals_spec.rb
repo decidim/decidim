@@ -379,6 +379,26 @@ describe "Proposals", type: :feature do
       expect(page).to have_css(".card--proposal", count: 3)
     end
 
+    context "when voting phase is over" do
+      let!(:feature) do
+        create(:proposal_feature,
+               :with_votes_blocked,
+               manifest: manifest,
+               participatory_process: participatory_process)
+      end
+
+      it "lists the proposals ordered by votes by default" do
+        most_voted_proposal = create(:proposal, feature: feature)
+        create_list(:proposal_vote, 3, proposal: most_voted_proposal)
+        less_voted_proposal = create(:proposal, feature: feature)
+
+        visit_feature
+
+        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
+        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
+      end
+    end
+
     context "when there are a lot of proposals" do
       before do
         create_list(:proposal, 17, feature: feature)
@@ -579,18 +599,12 @@ describe "Proposals", type: :feature do
     end
 
     context "when ordering" do
-      context "by 'most_support'" do
+      context "by 'most_voted'" do
         let!(:feature) do
           create(:proposal_feature,
                  :with_votes_enabled,
                  manifest: manifest,
                  participatory_process: participatory_process)
-        end
-
-        before do
-          proposals.each do |proposal|
-            create(:proposal_vote, proposal: proposal)
-          end
         end
 
         it "lists the proposals ordered by votes" do
