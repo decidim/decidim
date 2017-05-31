@@ -228,7 +228,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
 
 
 /* Main nav */
-.main-nav{
+.main-nav ul{
   padding: 0;
   margin: 0;
   list-style: none;
@@ -246,7 +246,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   }
 }
 
-.main-nav__link{
+.main-nav__link a{
   display: block;
   padding: 1em 2em;
   color: $navbar-color;
@@ -260,7 +260,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   }
 }
 
-.main-nav__link--active{
+.main-nav__link--active a{
   box-shadow: $navbar-active-shadow-small;
   color: $navbar-active-color;
   background: $navbar-active-bg;

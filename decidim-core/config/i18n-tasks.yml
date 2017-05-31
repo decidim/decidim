@@ -48,8 +48,9 @@ data:
 # Find translate calls
 search:
   ## Paths or `File.find` patterns to search in:
-  # paths:
-  #  - app/
+  paths:
+   - app/
+   - lib/
 
   ## Root directories for relative keys resolution.
   # relative_roots:

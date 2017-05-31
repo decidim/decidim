@@ -11,6 +11,8 @@ module Decidim
       helper Decidim::TranslationsHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
+
+      helper Decidim::System::MenuHelper
     end
   end
 end
