@@ -16,8 +16,11 @@ module TranslationHelpers
   #
   # field - the field that holds the translations
   # locale - the ID of the locale to check
-  def have_i18n_content(field, locale: I18n.locale)
-    have_content(stripped(translated(field, locale: locale)))
+  # upcase - a boolean to indicate whether the string must be checked upcased or not.
+  def have_i18n_content(field, locale: I18n.locale, upcase: false)
+    content = stripped(translated(field, locale: locale))
+    content = content.upcase if upcase
+    have_content(content)
   end
 
   # Handles how to fill in i18n form fields.

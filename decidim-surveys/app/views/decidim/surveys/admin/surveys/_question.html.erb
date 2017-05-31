@@ -1,0 +1,57 @@
+<div class="card survey-question" id="survey-question-<%= question.id %>-field">
+  <div class="card-divider question-divider">
+    <h2 class="card-title">
+    <span><%= label_for_question(survey, question) %></span>
+    <% unless survey.published? %>
+      <button class="button small alert hollow remove-question button--title"><%= t('.remove_question') %></button>
+    <% end %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%=
+        translated_field_tag :text_field_tag, "survey[questions][]", "body", question.body, {
+          tabs_id: tabs_id_for_question(question),
+          label: t('.statement'),
+          disabled: disabled_for_question(survey, question),
+          enable_tabs: question.persisted?
+        }
+      %>
+    </div>
+
+    <div class="row column">
+      <%=
+        check_box_tag "survey[questions][][mandatory]", "1", question.mandatory, {
+          id: mandatory_id_for_question(question),
+          disabled: disabled_for_question(survey, question)
+        }
+      %>
+      <%= label_tag "", t('activemodel.attributes.survey_question.mandatory'), for: mandatory_id_for_question(question) %>
+    </div>
+
+    <div class="row column">
+      <%= label_tag "", t('activemodel.attributes.survey_question.question_type'), for: question_type_id_for_question(question) %>
+      <%= select_tag "survey[questions][][question_type]", options_from_collection_for_select(question_types, :first, :last, question.question_type), id: question_type_id_for_question(question), disabled: disabled_for_question(survey, question) %>
+    </div>
+
+    <% if question.persisted? %>
+      <%= hidden_field_tag "survey[questions][][id]", question.id, disabled: disabled_for_question(survey, question) %>
+    <% end %>
+
+    <%= hidden_field_tag "survey[questions][][position]", question.position || 0, disabled: disabled_for_question(survey, question) %>
+    <%= hidden_field_tag "survey[questions][][deleted]", false, disabled: disabled_for_question(survey, question) %>
+
+    <div class="survey-question-answer-options">
+      <% unless survey.published? %>
+        <button class="button add-answer-option"><%= t('.add_answer_option') %></button>
+      <% end %>
+
+      <div class="survey-question-answer-options-list <%= 'published' if survey.published? %>">
+        <% question.answer_options.each_with_index do |answer_option, idx| %>
+          <%= render "answer_option", question: question, answer_option: answer_option, idx: idx %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

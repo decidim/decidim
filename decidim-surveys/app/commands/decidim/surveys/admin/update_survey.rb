@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Surveys
     module Admin
@@ -35,8 +36,11 @@ module Decidim
             question_attributes = {
               body: form_question.body,
               position: form_question.position,
-              mandatory: form_question.mandatory
+              mandatory: form_question.mandatory,
+              question_type: form_question.question_type,
+              answer_options: form_question.answer_options.map { |answer| { "body" => answer.body } }
             }
+
             if form_question.id.present?
               question = @survey.questions.where(id: form_question.id).first
               if form_question.deleted?
@@ -54,7 +58,7 @@ module Decidim
           attributes = {
             title: @form.title,
             description: @form.description,
-            toc: @form.toc
+            tos: @form.tos
           }
 
           if @form.published_at.present?

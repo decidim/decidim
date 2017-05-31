@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Surveys
     module Admin
@@ -9,11 +10,14 @@ module Decidim
         attribute :id, String
         attribute :position, Integer
         attribute :mandatory, Boolean, default: false
+        attribute :question_type, String
+        attribute :answer_options, Array[SurveyQuestionAnswerOptionForm]
         attribute :deleted, Boolean, default: false
 
         translatable_attribute :body, String
 
         validates :position, numericality: { greater_than_or_equal_to: 0 }
+        validates :question_type, inclusion: { in: SurveyQuestion::TYPES }
       end
     end
   end
