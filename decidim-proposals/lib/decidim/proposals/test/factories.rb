@@ -21,6 +21,14 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_votes_disabled do
+      step_settings do
+        {
+          participatory_process.active_step.id => { votes_enabled: false }
+        }
+      end
+    end
+
     trait :with_vote_limit do
       transient do
         vote_limit 10

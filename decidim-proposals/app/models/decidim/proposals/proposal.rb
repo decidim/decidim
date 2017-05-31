@@ -24,6 +24,13 @@ module Decidim
       scope :accepted,   -> { where(state: "accepted") }
       scope :rejected,   -> { where(state: "rejected") }
 
+      def self.order_randomly(seed)
+        transaction do
+          connection.execute("SELECT setseed(#{connection.quote(seed)})")
+          order("RANDOM()").load
+        end
+      end
+
       def author_name
         user_group&.name || author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
       end

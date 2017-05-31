@@ -51,10 +51,7 @@ module Decidim
         def reorder(proposals)
           case order
           when "random"
-            Proposal.transaction do
-              Proposal.connection.execute("SELECT setseed(#{Proposal.connection.quote(random_seed)})")
-              proposals.order("RANDOM()").load
-            end
+            proposals.order_randomly(random_seed)
           when "most_voted"
             proposals.order(proposal_votes_count: :desc)
           when "recent"
