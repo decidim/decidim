@@ -22,9 +22,13 @@ module Decidim
         def available_orders
           @available_orders ||= begin
             available_orders = %w(random recent)
-            available_orders << "most_voted" if current_settings.votes_enabled? && !current_settings.votes_hidden?
+            available_orders << "most_voted" if votes_visible?
             available_orders
           end
+        end
+
+        def votes_visible?
+          current_settings.votes_enabled? && !current_settings.votes_hidden?
         end
 
         # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
