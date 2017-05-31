@@ -18,12 +18,6 @@ module Decidim
       expect(subject.users.count).to eq(2)
     end
 
-    describe "#verify!" do
-      it "mark the user group as verified" do
-        subject.verify!
-        expect(subject).to be_verified
-      end
-    end
 
     describe "scopes" do
       describe "#verified" do
@@ -32,6 +26,14 @@ module Decidim
           expect(UserGroup.verified.count).to eq(1)
         end
       end
+
+      describe "#rejected" do
+        it "returns rejected organizations" do
+          create(:user_group, :rejected)
+          expect(UserGroup.rejected.count).to eq(1)
+        end
+      end
+
     end
 
     describe "validations" do
