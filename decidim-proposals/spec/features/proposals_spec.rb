@@ -416,8 +416,9 @@ describe "Proposals", type: :feature do
         expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
       end
 
-      it "shows a disabled vote button for each proposal" do
+      it "shows a disabled vote button for each proposal, but no links to full proposals" do
         expect(page).to have_button("Voting disabled", disabled: true, count: 2)
+        expect(page).to have_no_link("View proposal")
       end
     end
 
@@ -441,6 +442,14 @@ describe "Proposals", type: :feature do
         expect(page).to have_selector("a", text: "Random")
         expect(page).to have_selector("#proposals .card-grid .column:first-child", text: lucky_proposal.title)
         expect(page).to have_selector("#proposals .card-grid .column:last-child", text: unlucky_proposal.title)
+      end
+
+      it "shows only links to full proposals" do
+        visit_feature
+
+        expect(page).to have_no_button("Voting disabled", disabled: true)
+        expect(page).to have_no_button("Vote")
+        expect(page).to have_link("View proposal", count: 2)
       end
     end
 

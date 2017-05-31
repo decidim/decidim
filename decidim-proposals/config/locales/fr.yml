@@ -118,6 +118,8 @@ fr:
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récents
+        proposal:
+          view_proposal: Voir la proposition
         show:
           proposal_accepted_reason: 'Cette proposition a été acceptée parce que :'
           proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
