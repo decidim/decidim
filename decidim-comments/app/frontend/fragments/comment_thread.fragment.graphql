@@ -1,9 +1,6 @@
 #import "../fragments/comment.fragment.graphql"
 
 fragment CommentThread on Comment {
-  author {
-    name
-  }
   hasComments
   ...Comment
 }

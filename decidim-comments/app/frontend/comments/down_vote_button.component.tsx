@@ -5,13 +5,13 @@ import VoteButton from "./vote_button.component";
 
 import {
   CommentFragment,
-  DownVoteFragment,
+  DownVoteButtonFragment,
   DownVoteMutation,
   GetCommentsQuery,
 } from "../support/schema";
 
 interface DownVoteButtonProps {
-  comment: DownVoteFragment;
+  comment: DownVoteButtonFragment;
   downVote?: () => void;
 }
 
