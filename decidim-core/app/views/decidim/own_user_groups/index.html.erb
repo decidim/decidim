@@ -16,7 +16,7 @@
                 <span class="alert label"><%= t('.rejected') %></span>
               <% end %>
               <% if !user_group.verified? && !user_group.rejected? %>
-                <span class="warning label"><%= t('.not_verified') %></span>
+                <span class="warning label"><%= t('.pending') %></span>
               <% end %>
             </div>
           </div>

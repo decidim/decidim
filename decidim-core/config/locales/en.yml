@@ -152,7 +152,7 @@ en:
         success: Your notifications settings were updated successfully.
     own_user_groups:
       index:
-        not_verified: Not verified
+        pending: Pending
         rejected: Rejected
         verified: Verified
     pages:
