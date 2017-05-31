@@ -16,14 +16,14 @@ module Decidim
         @user_groups = @user_groups.where("LOWER(name) LIKE LOWER('%#{@query}%')") if @query.present?
 
         @user_groups = case @state
-                        when "verified"
-                          @user_groups.where.not(verified_at: nil)
-                        when "rejected"
-                          @user_groups.where.not(rejected_at: nil)
-                        when "pending"
-                          @user_groups.where(verified_at: nil, rejected_at: nil)
-                        else
-                          @user_groups
+                       when "verified"
+                         @user_groups.where.not(verified_at: nil)
+                       when "rejected"
+                         @user_groups.where.not(rejected_at: nil)
+                       when "pending"
+                         @user_groups.where(verified_at: nil, rejected_at: nil)
+                       else
+                         @user_groups
                         end
 
         @user_groups = @user_groups.page(params[:page])
@@ -40,7 +40,7 @@ module Decidim
             redirect_back(fallback_location: decidim_admin.user_groups_path)
           end
 
-          on(:invalid) do 
+          on(:invalid) do
             flash[:alert] = I18n.t("user_group.verify.invalid", scope: "decidim.admin")
             redirect_back(fallback_location: decidim_admin.user_groups_path)
           end
@@ -57,7 +57,7 @@ module Decidim
             redirect_back(fallback_location: decidim_admin.user_groups_path)
           end
 
-          on(:invalid) do 
+          on(:invalid) do
             flash[:alert] = I18n.t("user_group.reject.invalid", scope: "decidim.admin")
             redirect_back(fallback_location: decidim_admin.user_groups_path)
           end
