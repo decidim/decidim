@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-undef */
+
 // = require jquery
 // = require decidim/api/react
 // = require decidim/api/react-dom
