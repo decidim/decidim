@@ -8,7 +8,7 @@ decidim-core/app/assets/stylesheets/decidim/email.css
 rubocop.ym
 ib/generators/decidim/templates/app.json.er
 docs/how_to_create_a_plugin.md
-bundle.js
+decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
 node_modules/**/*
 development_app/**/*
 docker_development_app/**/*
