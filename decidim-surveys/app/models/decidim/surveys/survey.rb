@@ -11,12 +11,12 @@ module Decidim
       has_many :questions, -> { order(:position) }, class_name: SurveyQuestion, foreign_key: "decidim_survey_id"
       has_many :answers, class_name: SurveyAnswer, foreign_key: "decidim_survey_id"
 
-      # Public: returns wether the survey is answered or not.
-      def answered?
-        answers.any?
+      # Public: returns whether the survey questions can be modified or not.
+      def questions_editable?
+        answers.empty?
       end
 
-      # Public: returns wether the survey is answered by the user or not.
+      # Public: returns whether the survey is answered by the user or not.
       def answered_by?(user)
         answers.where(user: user).count == questions.length
       end

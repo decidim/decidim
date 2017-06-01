@@ -40,10 +40,10 @@ module Decidim
         expect(survey.feature).to be_a(Decidim::Feature)
       end
 
-      context "#answered?" do
-        it "returns true when survey has already answers" do
+      context "#questions_editable?" do
+        it "returns false when survey has already answers" do
           create(:survey_answer, survey: survey)
-          expect(subject.reload).to be_answered
+          expect(subject.reload).not_to be_questions_editable
         end
       end
 
