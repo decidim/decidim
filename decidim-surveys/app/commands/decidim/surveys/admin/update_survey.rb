@@ -55,11 +55,9 @@ module Decidim
         end
 
         def update_survey
-          @survey.update_attributes!({
-            title: @form.title,
-            description: @form.description,
-            tos: @form.tos
-          })
+          @survey.update_attributes!(title: @form.title,
+                                     description: @form.description,
+                                     tos: @form.tos)
         end
 
         def questions_are_editable?
