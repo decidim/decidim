@@ -12,7 +12,7 @@ describe Decidim::Admin::RejectUserGroup do
 
     context "when the command is not valid" do
       before do
-        allow(user_group).to receive(:update_attributes!).and_raise(ActiveRecord::RecordInvalid)
+        allow(user_group).to receive(:update_attributes).and_raise(ActiveRecord::RecordInvalid)
       end
 
       let(:invalid) { true }
@@ -42,7 +42,7 @@ describe Decidim::Admin::RejectUserGroup do
 
     context "when the command is not valid" do
       before do
-        allow(user_group).to receive(:update_attributes!).and_raise(ActiveRecord::RecordInvalid)
+        allow(user_group).to receive(:update_attributes).and_raise(ActiveRecord::RecordInvalid)
       end
 
       let(:invalid) { true }

@@ -17,16 +17,15 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) unless @user_group.valid?
         verify_user_group
-        broadcast(:ok)
-      rescue ActiveRecord::RecordInvalid
-        broadcast(:invalid)
+        return broadcast(:ok)
       end
 
       private
 
       def verify_user_group
-        @user_group.update_attributes!(verified_at: Time.current, rejected_at: nil)
+        @user_group.update_attributes(verified_at: Time.current, rejected_at: nil)
       end
     end
   end

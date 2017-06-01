@@ -10,6 +10,7 @@ module Decidim
     validates :document_number, presence: true
     validates :phone, presence: true
     validates :avatar, file_size: { less_than_or_equal_to: 5.megabytes }
+
     validate :correct_state
 
     mount_uploader :avatar, Decidim::AvatarUploader
@@ -27,7 +28,7 @@ module Decidim
       rejected_at.present?
     end
 
-     # Public: Checks if the user group is pending.
+    # Public: Checks if the user group is pending.
     def pending?
       verified_at.blank? && rejected_at.blank?
     end
