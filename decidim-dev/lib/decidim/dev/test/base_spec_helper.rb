@@ -22,8 +22,10 @@ if ENV["SIMPLECOV"]
     end
   end
 
-  require "codecov"
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+  if ENV["CI"]
+    require "codecov"
+    SimpleCov.formatter = SimpleCov::Formatter::Codecov
+  end
 end
 
 require "rails"
