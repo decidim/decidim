@@ -49,7 +49,7 @@ module Decidim
           user_groups.where(verified_at: nil, rejected_at: nil)
         else
           user_groups
-          end
+        end
       end
     end
   end
