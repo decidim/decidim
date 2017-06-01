@@ -24,7 +24,7 @@ describe "Answer a survey", type: :feature do
   let!(:survey_question_1) { create(:survey_question, survey: survey, position: 1) }
   let!(:survey_question_2) { create(:survey_question, survey: survey, position: 0) }
 
-  context "when the survey is not published" do
+  context "when the survey doesn't allow answers" do
     it "the survey cannot be answered" do
       visit_feature
 
@@ -34,13 +34,19 @@ describe "Answer a survey", type: :feature do
       expect(page).not_to have_i18n_content(survey_question_1.body)
       expect(page).not_to have_i18n_content(survey_question_2.body)
 
-      expect(page).to have_content("The survey is not published yet and cannot be answered.")
+      expect(page).to have_content("The survey is closed and cannot be answered.")
     end
   end
 
-  context "when the survey is published" do
+  context "when the survey allow answers" do
     before do
-      survey.update_attributes(published_at: Time.current)
+      feature.update_attributes(
+        step_settings: {
+          feature.participatory_process.active_step.id => {
+            allow_answers: true
+          }
+        }
+      )
     end
 
     context "when the user is not logged in" do
