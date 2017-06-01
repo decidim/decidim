@@ -11,13 +11,10 @@ describe Decidim::Admin::RejectUserGroup do
     subject { described_class.new(user_group) }
 
     context "when the command is not valid" do
-      before do
-        allow(user_group).to receive(:update_attributes).and_raise(ActiveRecord::RecordInvalid)
-      end
-
       let(:invalid) { true }
 
       it "broadcast invalid in return" do
+        expect(user_group).to receive(:valid?).and_return(false)
         expect { subject.call }.to broadcast(:invalid)
 
         expect(user_group.rejected_at).to be_nil
@@ -41,13 +38,10 @@ describe Decidim::Admin::RejectUserGroup do
     subject { described_class.new(user_group) }
 
     context "when the command is not valid" do
-      before do
-        allow(user_group).to receive(:update_attributes).and_raise(ActiveRecord::RecordInvalid)
-      end
-
       let(:invalid) { true }
 
       it "broadcast invalid in return and do not clean verified_at" do
+        expect(user_group).to receive(:valid?).and_return(false)
         expect { subject.call }.to broadcast(:invalid)
 
         expect(user_group.verified_at).not_to be_nil
