@@ -1,0 +1,86 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+describe Decidim::Admin::UserGroupsEvaluation do
+  let(:organization) { create :organization }
+  let(:query) { nil }
+  let(:filter) { nil }
+  subject { described_class.new(Decidim::UserGroup.all, query, filter) }
+
+  describe 'when the list is not filtered' do
+    let!(:user_groups) { create_list(:user_group, 10, users: [create(:user, organization: organization)]) }
+
+    it "returns all the user groups" do
+      expect(subject.query).to eq (user_groups)
+    end
+  end
+
+  describe 'when the list is filtered' do
+    context 'recieves a search param' do
+      let(:user_groups) { ["Walter", "Fargo", "Phargo"]
+        .map { |name| create(:user_group, name: name,
+              users: [create(:user, organization: organization)])
+            }
+        }
+
+      let(:query) { "Argo" }
+
+      it 'returns all the user groups' do
+        expect(subject.query).to match_array([user_groups[1], user_groups[2]])
+      end
+    end
+
+    describe 'recieves a filter param' do
+      let!(:rejected_user_groups) { create_list(:user_group, 2, :rejected, users: [create(:user, organization: organization)]) }
+      let!(:verified_user_groups) { create_list(:user_group, 5, :verified, users: [create(:user, organization: organization)]) }
+      let!(:pedning_user_groups) { create_list(:user_group, 4, users: [create(:user, organization: organization)]) }
+
+      context 'when the user filters by "Verified"' do
+        let(:filter) { "verified" }
+
+        it "returns all the verified user groups" do
+          expect(subject.query.length).to eq(5)
+        end
+      end
+      context 'when the user filters by "Rejected"' do
+        let(:filter) { "rejected" }
+
+        it "returns all the verified user groups" do
+          expect(subject.query.length).to eq(2)
+        end
+      end
+      context 'when the user filters by "Pending"' do
+        let(:filter) { "pending" }
+
+        it "returns all the verified user groups" do
+          expect(subject.query.length).to eq(4)
+        end
+      end
+    end
+
+    context 'recieves a search and a filter aram' do
+      let(:rejected_user_groups) { ["Lorem", "Ipsum", "Dolor", "Amet"]
+        .map { |name| create(:user_group, :rejected, name: name,
+             users: [create(:user, organization: organization)])
+           }
+        }
+      let(:verified_user_groups) { ["Elit", "Vivamus", "Doctum"]
+        .map { |name| create(:user_group, :verified, name: name,
+             users: [create(:user, organization: organization)])
+            }
+        }
+      let(:pending_user_groups) { ["Walter", "Fargo", "Phargo"]
+        .map { |name| create(:user_group, name: name,
+             users: [create(:user, organization: organization)])
+            }
+        }
+      let(:query) { "lo" }
+      let(:filter) { "rejected" }
+
+      it 'returns the "Rejected" user groups that contain the query search' do
+        expect(subject.query).to match_array([rejected_user_groups[0], rejected_user_groups[2]])
+      end
+    end
+  end
+end
