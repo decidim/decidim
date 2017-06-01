@@ -69,7 +69,7 @@
               <% if user_group.rejected? %>
                 <%= t(".state.rejected") %>
               <% end %>
-              <% if !user_group.verified? && !user_group.rejected?%>
+              <% if user_group.pending?%>
                 <%= t(".state.pending") %>
               <% end %>
               </td>
