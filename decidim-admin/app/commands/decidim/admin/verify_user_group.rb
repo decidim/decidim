@@ -19,7 +19,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless @user_group.valid?
         verify_user_group
-        return broadcast(:ok)
+        broadcast(:ok)
       end
 
       private

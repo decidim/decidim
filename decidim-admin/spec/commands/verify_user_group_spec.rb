@@ -37,7 +37,7 @@ describe Decidim::Admin::VerifyUserGroup do
 
     subject { described_class.new(user_group) }
 
-    context "when the command is not valid" do 
+    context "when the command is not valid" do
       let(:invalid) { true }
 
       it "broadcast invalid in return and do not clean rejected_at" do
