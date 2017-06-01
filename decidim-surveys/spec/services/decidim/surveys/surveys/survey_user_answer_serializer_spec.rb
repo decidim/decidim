@@ -24,8 +24,7 @@ module Decidim
         it "includes the answer for each question" do
           survey_questions.each_with_index do |question, idx|
             expect(serialized).to include(
-              translated(question.body, locale: I18n.locale) =>
-                translated(survey_answers[idx].body, locale: I18n.locale)
+              "#{idx + 1}. #{translated(question.body, locale: I18n.locale)}" => survey_answers[idx].body
             )
           end
         end

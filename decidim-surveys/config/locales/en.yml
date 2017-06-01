@@ -18,7 +18,7 @@ en:
         export: Export
       admin:
         exports:
-          user_answers: User answers
+          survey_user_answers: Survey user answers
         application_helper:
           label_for_question:
             question: Question

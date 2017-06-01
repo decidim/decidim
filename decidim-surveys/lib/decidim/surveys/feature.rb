@@ -43,9 +43,10 @@ Decidim.register_feature(:surveys) do |feature|
   #   # Register some stat number to the application
   # end
 
-  feature.exports :user_answers do |exports|
+  feature.exports :survey_user_answers do |exports|
     exports.collection do |feature|
-      Decidim::Surveys::SurveyUserAnswers.for(feature)
+      survey = Decidim::Surveys::Survey.where(feature: feature).first
+      Decidim::Surveys::SurveyUserAnswers.for(survey)
     end
 
     exports.serializer Decidim::Surveys::SurveyUserAnswersSerializer
