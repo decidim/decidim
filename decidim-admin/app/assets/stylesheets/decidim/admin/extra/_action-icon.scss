@@ -2,6 +2,7 @@
   .action-icon {
     &.action-icon--disabled {
       color: rgba($muted, .3);
+      vertical-align: bottom
     }
   }
 }

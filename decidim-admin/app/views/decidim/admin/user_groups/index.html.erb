@@ -1,7 +1,7 @@
 <div class="filters row">
   <div class="column medium-3">
-    <span class="dropdown_text"><%= t(".filter_by") %> :</span>
-    <ul class="dropdown menu user-groups__dropmenu" data-dropdown-menu data-close-on-click-inside="false">
+    <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
+    <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-close-on-click-inside="false">
         <li class="is-dropdown-submenu-parent">
           <a href="#">
           <% if @state.present? %>
@@ -76,17 +76,17 @@
               <td class="table-list__actions">
                 <% if can?(:verify, user_group) %>
                   <% if !user_group.verified? %>
-                    <%= icon_link_to "circle-check", decidim_admin.verify_user_group_path(user_group), t("actions.verify", scope: "decidim.admin"), method: :put, class: "action-icon--activate" %>
+                    <%= icon_link_to "circle-check", decidim_admin.verify_user_group_path(user_group), t("actions.verify", scope: "decidim.admin"), method: :put, class: "action-icon--verify" %>
                   <% else %>
-                    <%= icon_link_to "circle-check", decidim_admin.verify_user_group_path(user_group), t("actions.verify", scope: "decidim.admin"), method: :put, class: "action-icon--disabled" %>
+                    <%= icon "circle-check", class: "action-icon action-icon--disabled" %>
                   <% end %>
                 <% end %>
 
                 <% if can?(:reject, user_group) %>
                   <% if !user_group.rejected? %>
-                    <%= icon_link_to "circle-x", decidim_admin.reject_user_group_path(user_group), t("actions.reject", scope: "decidim.admin"), method: :put, class: "action-icon--remove" %>
+                    <%= icon_link_to "circle-x", decidim_admin.reject_user_group_path(user_group), t("actions.reject", scope: "decidim.admin"), method: :put, class: "action-icon--reject" %>
                   <% else %>
-                    <%= icon_link_to "circle-x", decidim_admin.reject_user_group_path(user_group), t("actions.reject", scope: "decidim.admin"), method: :put, class: "action-icon--disabled" %>
+                    <%= icon "circle-x", class: "action-icon action-icon--disabled" %>
                   <% end %>
                 <% end %>
               </td>

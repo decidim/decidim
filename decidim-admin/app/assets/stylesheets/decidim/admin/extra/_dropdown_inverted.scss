@@ -1,4 +1,4 @@
-.user-groups__dropmenu{
+.dropdown-inverted{
   display: inline-block;
   vertical-align: middle;
   padding: 2px 10px 2px 2px;
@@ -33,18 +33,6 @@
   }
 }
 
-.dropdown_text{
+.dropdown-menu-inverted_label{
   vertical-align: middle;
-}
-
-#user-groups{
-  .action-icon--disabled {
-    pointer-events: none;
-  }
-  .action-icon--remove{
-    color: $muted;
-    &:hover{
-      color: $primary-color;
-    }
-  }
 }
