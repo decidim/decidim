@@ -4,14 +4,8 @@ require "spec_helper"
 
 describe "Proposals", type: :feature do
   include_context "feature"
-  let!(:feature) do
-    create(:proposal_feature,
-           manifest: manifest,
-           participatory_process: participatory_process)
-  end
   let(:manifest_name) { "proposals" }
 
-  let!(:proposals) { create_list(:proposal, 3, feature: feature) }
   let!(:category) { create :category, participatory_process: participatory_process }
   let!(:scope) { create :scope, organization: organization }
   let!(:user) { create :user, :confirmed, organization: organization }
@@ -213,6 +207,14 @@ describe "Proposals", type: :feature do
   end
 
   context "viewing a single proposal" do
+    let!(:feature) do
+      create(:proposal_feature,
+             manifest: manifest,
+             participatory_process: participatory_process)
+    end
+
+    let!(:proposals) { create_list(:proposal, 3, feature: feature) }
+
     it "allows viewing a single proposal" do
       proposal = proposals.first
 
@@ -355,6 +357,11 @@ describe "Proposals", type: :feature do
   end
 
   context "when a proposal has been linked in a project" do
+    let(:feature) do
+      create(:proposal_feature,
+             manifest: manifest,
+             participatory_process: participatory_process)
+    end
     let(:proposal) { create(:proposal, feature: feature) }
     let(:budget_feature) do
       create(:feature, manifest_name: :budgets, participatory_process: proposal.feature.participatory_process)
@@ -375,6 +382,12 @@ describe "Proposals", type: :feature do
 
   context "listing proposals in a participatory process" do
     it "lists all the proposals" do
+      create(:proposal_feature,
+             manifest: manifest,
+             participatory_process: participatory_process)
+
+      create_list(:proposal, 3, feature: feature)
+
       visit_feature
       expect(page).to have_css(".card--proposal", count: 3)
     end
@@ -387,15 +400,56 @@ describe "Proposals", type: :feature do
                participatory_process: participatory_process)
       end
 
+      let!(:most_voted_proposal) do
+        proposal = create(:proposal, feature: feature)
+        create_list(:proposal_vote, 3, proposal: proposal)
+        proposal
+      end
+
+      let!(:less_voted_proposal) { create(:proposal, feature: feature) }
+
+      before { visit_feature }
+
       it "lists the proposals ordered by votes by default" do
-        most_voted_proposal = create(:proposal, feature: feature)
-        create_list(:proposal_vote, 3, proposal: most_voted_proposal)
-        less_voted_proposal = create(:proposal, feature: feature)
+        expect(page).to have_selector("a", text: "Most voted")
+        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
+        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
+      end
+
+      it "shows a disabled vote button for each proposal, but no links to full proposals" do
+        expect(page).to have_button("Voting disabled", disabled: true, count: 2)
+        expect(page).to have_no_link("View proposal")
+      end
+    end
+
+    context "when voting is disabled" do
+      let!(:feature) do
+        create(:proposal_feature,
+               :with_votes_disabled,
+               manifest: manifest,
+               participatory_process: participatory_process)
+      end
+
+      let!(:lucky_proposal) { create(:proposal, title: "A", feature: feature) }
+      let!(:unlucky_proposal) { create(:proposal, title: "B", feature: feature) }
+
+      it "lists the proposals ordered randomly by default" do
+        allow_any_instance_of(Decidim::Proposals::Proposal::ActiveRecord_Relation).to \
+          receive(:order_randomly) { |scope, _seed| scope.order(title: :asc) }
 
         visit_feature
 
-        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
-        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
+        expect(page).to have_selector("a", text: "Random")
+        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: lucky_proposal.title)
+        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: unlucky_proposal.title)
+      end
+
+      it "shows only links to full proposals" do
+        visit_feature
+
+        expect(page).to have_no_button("Voting disabled", disabled: true)
+        expect(page).to have_no_button("Vote")
+        expect(page).to have_link("View proposal", count: 2)
       end
     end
 
@@ -413,7 +467,7 @@ describe "Proposals", type: :feature do
 
         expect(page).to have_selector(".pagination .current", text: "2")
 
-        expect(page).to have_css(".card--proposal", count: 8)
+        expect(page).to have_css(".card--proposal", count: 5)
       end
     end
 
@@ -433,28 +487,31 @@ describe "Proposals", type: :feature do
 
         context "by origin 'official'" do
           it "lists the filtered proposals" do
-            create(:proposal, :official, feature: feature, scope: scope)
+            create_list(:proposal, 2, :official, feature: feature, scope: scope)
+            create(:proposal, feature: feature, scope: scope)
             visit_feature
 
             within ".filters" do
               choose "Official"
             end
 
-            expect(page).to have_css(".card--proposal", count: 1)
-            expect(page).to have_content("1 PROPOSAL")
+            expect(page).to have_css(".card--proposal", count: 2)
+            expect(page).to have_content("2 PROPOSALS")
           end
         end
 
         context "by origin 'citizenship'" do
           it "lists the filtered proposals" do
+            create_list(:proposal, 2, feature: feature, scope: scope)
+            create(:proposal, :official, feature: feature, scope: scope)
             visit_feature
 
             within ".filters" do
               choose "Citizenship"
             end
 
-            expect(page).to have_css(".card--proposal", count: proposals.size)
-            expect(page).to have_content("#{proposals.size} PROPOSALS")
+            expect(page).to have_css(".card--proposal", count: 2)
+            expect(page).to have_content("2 PROPOSALS")
           end
         end
       end

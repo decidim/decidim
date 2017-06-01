@@ -108,6 +108,8 @@ fi:
           most_voted: Eniten ääniä saaneet
           random: Satunnainen
           recent: Viimeisimmät
+        proposal:
+          view_proposal: Näytä ehdotus
         show:
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
