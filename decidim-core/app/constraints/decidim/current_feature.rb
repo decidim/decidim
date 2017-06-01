@@ -42,7 +42,7 @@ module Decidim
       params = request.params
       return nil unless params["feature_id"]
 
-      @participatory_process.features.to_a.find do |feature|
+      @participatory_process.features.find do |feature|
         params["feature_id"].to_s == feature.id.to_s && feature.manifest_name == @manifest.name.to_s
       end
     end
