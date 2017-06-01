@@ -34,6 +34,6 @@ FactoryGirl.define do
     body { Decidim::Faker::Localized.sentence }
     survey
     question { create(:survey_question, survey: survey) }
-    user { create(:user, organization: survey.organization) }    
+    user { create(:user, organization: survey.organization) }
   end
 end

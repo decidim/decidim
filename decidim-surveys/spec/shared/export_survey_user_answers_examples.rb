@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 RSpec.shared_examples "export survey user answers" do
   let!(:survey_questions) { create_list :survey_question, 3, survey: survey }
   let!(:survey_answers) do
@@ -25,7 +26,7 @@ RSpec.shared_examples "export survey user answers" do
     end
 
     expect(last_email.subject).to include("survey_user_answers", "csv")
-    expect(last_email.attachments.length).to be > 0
+    expect(last_email.attachments.length).to be_positive
     expect(last_email.attachments.first.filename).to match(/^survey_user_answers.*\.zip$/)
   end
 
@@ -40,7 +41,7 @@ RSpec.shared_examples "export survey user answers" do
     end
 
     expect(last_email.subject).to include("survey_user_answers", "json")
-    expect(last_email.attachments.length).to be > 0
+    expect(last_email.attachments.length).to be_positive
     expect(last_email.attachments.first.filename).to match(/^survey_user_answers.*\.zip$/)
   end
 end

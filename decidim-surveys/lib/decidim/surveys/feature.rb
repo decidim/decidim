@@ -44,8 +44,8 @@ Decidim.register_feature(:surveys) do |feature|
   # end
 
   feature.exports :survey_user_answers do |exports|
-    exports.collection do |feature|
-      survey = Decidim::Surveys::Survey.where(feature: feature).first
+    exports.collection do |f|
+      survey = Decidim::Surveys::Survey.where(feature: f).first
       Decidim::Surveys::SurveyUserAnswers.for(survey)
     end
 

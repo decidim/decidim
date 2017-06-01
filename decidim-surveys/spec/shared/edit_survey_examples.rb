@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 RSpec.shared_examples "edit surveys" do
   it "updates the survey" do
     visit_feature_admin
