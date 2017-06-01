@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # A command with all the business logic when updating a user_group.
+    # A command with all the business logic when rejecting a user_group.
     class RejectUserGroup < Rectify::Command
       # Public: Initializes the command.
       #
@@ -18,7 +18,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        verify_user_group
+        reject_user_group
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid
         broadcast(:invalid)
@@ -26,7 +26,7 @@ module Decidim
 
       private
 
-      def verify_user_group
+      def reject_user_group
         @user_group.update_attributes!(rejected_at: Time.current, verified_at: nil)
       end
     end
