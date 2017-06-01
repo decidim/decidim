@@ -14,7 +14,11 @@ en:
           answer: Answer
         name: Survey
     surveys:
+      actions:
+        export: Export
       admin:
+        exports:
+          survey_user_answers: Survey user answers
         application_helper:
           label_for_question:
             question: Question

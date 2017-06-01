@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/core/test/factories"
+require "decidim/admin/test/factories"
 
 FactoryGirl.define do
   factory :surveys_feature, parent: :feature do
@@ -33,5 +34,6 @@ FactoryGirl.define do
     body { Decidim::Faker::Localized.sentence }
     survey
     question { create(:survey_question, survey: survey) }
+    user { create(:user, organization: survey.organization) }
   end
 end

@@ -1,13 +1,7 @@
+# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-require "spec_helper"
-
-describe "Edit a survey", type: :feature do
-  include_context "feature admin"
-  let(:feature) { create(:surveys_feature, participatory_process: participatory_process) }
-  let(:manifest_name) { feature.manifest_name }
-  let!(:survey) { create(:survey, feature: feature) }
-
+RSpec.shared_examples "edit surveys" do
   it "updates the survey" do
     visit_feature_admin
 
