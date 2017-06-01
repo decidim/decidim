@@ -16,7 +16,7 @@
   <div class="columns large-6 medium-centered">
     <div class="card">
       <div class="card__content">
-        <% unless survey.published? %>
+        <% unless survey.answered? %>
           <div class="section">
             <div class="callout warning">
               <h5><%= t('.survey_not_published.title') %></h5>

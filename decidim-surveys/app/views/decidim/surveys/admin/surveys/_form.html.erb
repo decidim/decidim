@@ -21,7 +21,11 @@
 </div>
 
 <div class="survey-questions">
-  <% unless survey.published? %>
+  <% if survey.answered? %>
+    <div class="callout warning">
+      <%= t('.already_answered_warning') %>
+    </div>
+  <% else %>
     <button class="button add-question"><%= t('.add_question') %></button>
 
     <template id="survey-question-tmpl">
@@ -33,7 +37,7 @@
     </template>
   <% end %>
 
-  <div class="survey-questions-list <%= 'published' if survey.published? %>">
+  <div class="survey-questions-list <%= 'answered' if survey.answered? %>">
     <% @form.questions.each_with_index do |question, idx| %>
       <%= render "question", question: question %>
     <% end %>

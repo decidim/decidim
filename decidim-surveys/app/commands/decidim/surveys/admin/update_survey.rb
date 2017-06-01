@@ -55,21 +55,15 @@ module Decidim
         end
 
         def update_survey
-          attributes = {
+          @survey.update_attributes!({
             title: @form.title,
             description: @form.description,
             tos: @form.tos
-          }
-
-          if @form.published_at.present?
-            attributes[:published_at] = @form.published_at
-          end
-
-          @survey.update_attributes!(attributes)
+          })
         end
 
         def questions_are_editable?
-          !@survey.published?
+          !@survey.answered?
         end
       end
     end
