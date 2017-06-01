@@ -22,7 +22,7 @@ module Decidim
           return broadcast(:invalid) if @form.invalid?
 
           Survey.transaction do
-            update_survey_questions if questions_are_editable?
+            update_survey_questions if @survey.questions_editable?
             update_survey
           end
 
@@ -55,21 +55,9 @@ module Decidim
         end
 
         def update_survey
-          attributes = {
-            title: @form.title,
-            description: @form.description,
-            tos: @form.tos
-          }
-
-          if @form.published_at.present?
-            attributes[:published_at] = @form.published_at
-          end
-
-          @survey.update_attributes!(attributes)
-        end
-
-        def questions_are_editable?
-          !@survey.published?
+          @survey.update_attributes!(title: @form.title,
+                                     description: @form.description,
+                                     tos: @form.tos)
         end
       end
     end

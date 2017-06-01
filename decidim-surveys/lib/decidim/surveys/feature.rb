@@ -29,9 +29,9 @@ Decidim.register_feature(:surveys) do |feature|
   #   # settings.attribute :vote_limit, type: :integer, default: 0
   # end
 
-  # feature.settings(:step) do |settings|
-  #   # Add your settings per step
-  # end
+  feature.settings(:step) do |settings|
+    settings.attribute :allow_answers, type: :boolean, default: false
+  end
 
   # feature.register_resource do |resource|
   #   # Register a optional resource that can be references from other resources.

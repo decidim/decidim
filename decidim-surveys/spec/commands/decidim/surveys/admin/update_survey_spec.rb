@@ -141,17 +141,6 @@ module Decidim
             end
           end
         end
-
-        describe "when the form params include the published_at field" do
-          let(:published_at) { Time.current }
-
-          it "publishes the survey" do
-            command.call
-            survey.reload
-
-            expect(survey).to be_published
-          end
-        end
       end
     end
   end

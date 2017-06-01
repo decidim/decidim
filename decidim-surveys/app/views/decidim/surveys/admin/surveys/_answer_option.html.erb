@@ -2,7 +2,7 @@
   <div class="card-divider">
     <h2 class="card-title">
     <span><%= t(".answer_option") %></span>
-    <% unless survey.published? %>
+    <% if survey.questions_editable? %>
       <button class="button small alert hollow remove-answer-option button--title"><%= t('.remove_answer_option') %></button>
     <% end %>
     </h2>

@@ -18,6 +18,12 @@ module Decidim
         expect(subject.questions.count).to eq(2)
       end
 
+      it "has an association of answers" do
+        create(:survey_answer, survey: subject, user: create(:user, organization: survey.feature.organization))
+        create(:survey_answer, survey: subject, user: create(:user, organization: survey.feature.organization))
+        expect(subject.reload.answers.count).to eq(2)
+      end
+
       context "without a feature" do
         let(:survey) { build :survey, feature: nil }
 
@@ -30,30 +36,14 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
-      context "without questions" do
-        it "cannot be published" do
-          survey.published_at = Time.current
-          expect(survey).not_to be_valid
-        end
-      end
-
-      context "with questions" do
-        it "can be published" do
-          create(:survey_question, survey: survey)
-          survey.reload
-          survey.published_at = Time.current
-          expect(survey).to be_valid
-        end
-      end
-
       it "has an associated feature" do
         expect(survey.feature).to be_a(Decidim::Feature)
       end
 
-      context "#published?" do
-        it "returns true when published_at is not nil" do
-          survey.published_at = Time.current
-          expect(survey).to be_published
+      context "#questions_editable?" do
+        it "returns false when survey has already answers" do
+          create(:survey_answer, survey: survey)
+          expect(subject.reload).not_to be_questions_editable
         end
       end
 

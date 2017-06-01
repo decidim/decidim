@@ -13,15 +13,16 @@ en:
         actions:
           answer: Answer
         name: Survey
+        settings:
+          step:
+            allow_answers: Allow answers
     surveys:
-      actions:
-        export: Export
       admin:
-        exports:
-          survey_user_answers: Survey user answers
         application_helper:
           label_for_question:
             question: Question
+        exports:
+          survey_user_answers: Survey user answers
         models:
           components:
             description: Description
@@ -32,13 +33,12 @@ en:
             remove_answer_option: Remove answer option
             statement: Statement
           edit:
-            are_you_sure: This action will publish the survey and you will not be
-              able to keep editing the survey questions. Are you sure?
             save: Save
-            save_and_publish: Save and publish
             title: Title
           form:
             add_question: Add question
+            already_answered_warning: The survey is already answered by some users
+              so you cannot modify its questions.
           question:
             add_answer_option: Add answer option
             question: Question
@@ -67,7 +67,7 @@ en:
           survey_answered:
             body: You have already answered this survey.
             title: Survey answered
-          survey_not_published:
-            body: The survey is not published yet and cannot be answered.
-            title: Survey not published
+          survey_closed:
+            body: The survey is closed and cannot be answered.
+            title: Survey closed
           tos_agreement: By participating in this survey you accept its Terms of Service

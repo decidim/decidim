@@ -17,7 +17,7 @@ module Decidim
         end
 
         def label_for_question(survey, _question)
-          survey.published? ? t(".question") : "#{icon("move")} #{t(".question")}".html_safe
+          survey.questions_editable? ? "#{icon("move")} #{t(".question")}".html_safe : t(".question")
         end
 
         def mandatory_id_for_question(question)
@@ -31,7 +31,7 @@ module Decidim
         end
 
         def disabled_for_question(survey, question)
-          !question.persisted? || survey.published?
+          !question.persisted? || !survey.questions_editable?
         end
       end
     end
