@@ -41,14 +41,14 @@ module Decidim
 
       def filter_by_state(user_groups)
         case @state
-          when "verified"
-            user_groups.where.not(verified_at: nil)
-          when "rejected"
-            user_groups.where.not(rejected_at: nil)
-          when "pending"
-            user_groups.where(verified_at: nil, rejected_at: nil)
-          else
-            user_groups
+        when "verified"
+          user_groups.where.not(verified_at: nil)
+        when "rejected"
+          user_groups.where.not(rejected_at: nil)
+        when "pending"
+          user_groups.where(verified_at: nil, rejected_at: nil)
+        else
+          user_groups
           end
       end
     end

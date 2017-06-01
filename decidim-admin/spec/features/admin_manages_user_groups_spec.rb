@@ -17,7 +17,7 @@ describe "Admin manage user groups", type: :feature do
 
   it "verifies a user group" do
     within "tr[data-user-group-id=\"#{user_group.id}\"]" do
-       page.find(".action-icon--activate", match: :first).click
+      page.find(".action-icon--activate", match: :first).click
     end
 
     expect(page).to have_content("verified successfully")
@@ -29,7 +29,7 @@ describe "Admin manage user groups", type: :feature do
 
   it "reject a user group" do
     within "tr[data-user-group-id=\"#{user_group.id}\"]" do
-       page.find(".action-icon--remove", match: :first).click
+      page.find(".action-icon--remove", match: :first).click
     end
 
     expect(page).to have_content("rejected successfully")

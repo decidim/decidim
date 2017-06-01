@@ -13,7 +13,7 @@ module Decidim
         @state = params[:state]
 
         @user_groups = Decidim::Admin::UserGroupsEvaluation.for(collection, @query, @state)
-                      .page(params[:page]).per(15)
+                                                           .page(params[:page]).per(15)
       end
 
       def verify

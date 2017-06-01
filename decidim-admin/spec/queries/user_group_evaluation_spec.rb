@@ -8,30 +8,32 @@ describe Decidim::Admin::UserGroupsEvaluation do
   let(:filter) { nil }
   subject { described_class.new(Decidim::UserGroup.all, query, filter) }
 
-  describe 'when the list is not filtered' do
+  describe "when the list is not filtered" do
     let!(:user_groups) { create_list(:user_group, 10, users: [create(:user, organization: organization)]) }
 
     it "returns all the user groups" do
-      expect(subject.query).to eq (user_groups)
+      expect(subject.query).to eq user_groups
     end
   end
 
-  describe 'when the list is filtered' do
-    context 'recieves a search param' do
-      let(:user_groups) { ["Walter", "Fargo", "Phargo"]
-        .map { |name| create(:user_group, name: name,
-              users: [create(:user, organization: organization)])
-            }
-        }
+  describe "when the list is filtered" do
+    context "recieves a search param" do
+      let(:user_groups) do
+        %w(Walter Fargo Phargo)
+          .map do |name|
+          create(:user_group, name: name,
+                              users: [create(:user, organization: organization)])
+        end
+      end
 
       let(:query) { "Argo" }
 
-      it 'returns all the user groups' do
+      it "returns all the user groups" do
         expect(subject.query).to match_array([user_groups[1], user_groups[2]])
       end
     end
 
-    describe 'recieves a filter param' do
+    describe "recieves a filter param" do
       let!(:rejected_user_groups) { create_list(:user_group, 2, :rejected, users: [create(:user, organization: organization)]) }
       let!(:verified_user_groups) { create_list(:user_group, 5, :verified, users: [create(:user, organization: organization)]) }
       let!(:pedning_user_groups) { create_list(:user_group, 4, users: [create(:user, organization: organization)]) }
@@ -59,22 +61,28 @@ describe Decidim::Admin::UserGroupsEvaluation do
       end
     end
 
-    context 'recieves a search and a filter aram' do
-      let(:rejected_user_groups) { ["Lorem", "Ipsum", "Dolor", "Amet"]
-        .map { |name| create(:user_group, :rejected, name: name,
-             users: [create(:user, organization: organization)])
-           }
-        }
-      let(:verified_user_groups) { ["Elit", "Vivamus", "Doctum"]
-        .map { |name| create(:user_group, :verified, name: name,
-             users: [create(:user, organization: organization)])
-            }
-        }
-      let(:pending_user_groups) { ["Walter", "Fargo", "Phargo"]
-        .map { |name| create(:user_group, name: name,
-             users: [create(:user, organization: organization)])
-            }
-        }
+    context "recieves a search and a filter aram" do
+      let(:rejected_user_groups) do
+        %w(Lorem Ipsum Dolor Amet)
+          .map do |name|
+          create(:user_group, :rejected, name: name,
+                                         users: [create(:user, organization: organization)])
+        end
+      end
+      let(:verified_user_groups) do
+        %w(Elit Vivamus Doctum)
+          .map do |name|
+          create(:user_group, :verified, name: name,
+                                         users: [create(:user, organization: organization)])
+        end
+      end
+      let(:pending_user_groups) do
+        %w(Walter Fargo Phargo)
+          .map do |name|
+          create(:user_group, name: name,
+                              users: [create(:user, organization: organization)])
+        end
+      end
       let(:query) { "lo" }
       let(:filter) { "rejected" }
 

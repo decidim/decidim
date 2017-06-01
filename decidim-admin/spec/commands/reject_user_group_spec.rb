@@ -26,18 +26,16 @@ describe Decidim::Admin::RejectUserGroup do
     end
 
     context "when the command is valid" do
-
       it "the user group is rejected" do
         expect { subject.call }.to broadcast(:ok)
 
         expect(user_group.verified_at).to be_nil
         expect(user_group.rejected_at).not_to be_nil
       end
-
     end
   end
 
-   describe "User group is already rejected" do
+  describe "User group is already rejected" do
     let!(:user_group) { create(:user_group, verified_at: Time.current, users: [create(:user, organization: organization)]) }
 
     subject { described_class.new(user_group) }
@@ -58,14 +56,12 @@ describe Decidim::Admin::RejectUserGroup do
     end
 
     context "when the command is valid" do
-
       it "the user group is rejected" do
         expect { subject.call }.to broadcast(:ok)
 
         expect(user_group.verified_at).to be_nil
         expect(user_group.rejected_at).not_to be_nil
       end
-
     end
   end
 end

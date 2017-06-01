@@ -18,7 +18,6 @@ module Decidim
       expect(subject.users.count).to eq(2)
     end
 
-
     describe "scopes" do
       describe "#verified" do
         it "returns verified organizations" do
@@ -33,7 +32,6 @@ module Decidim
           expect(UserGroup.rejected.count).to eq(1)
         end
       end
-
     end
 
     describe "validations" do
