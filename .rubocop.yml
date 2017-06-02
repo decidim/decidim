@@ -72,10 +72,6 @@ Style/Alias:
     - prefer_alias
     - prefer_alias_method
 
-Style/AccessorMethodName:
-  Exclude:
-    - "lib/generators/decidim/app_generator.rb"
-
 Style/AlignArray:
   Exclude:
     - 'decidim-*/spec/**/*.rb'
