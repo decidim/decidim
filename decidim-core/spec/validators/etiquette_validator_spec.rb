@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 
 require "spec_helper"
@@ -12,22 +13,22 @@ describe EtiquetteValidator do
       include Virtus.model
       include ActiveModel::Validations
 
-      attribute :title
+      attribute :body
 
-      validates :title, etiquette: true
+      validates :body, etiquette: true
     end
   end
 
-  let(:subject) { validatable.new(title: title) }
+  let(:subject) { validatable.new(body: body) }
 
-  context "when the title is reasonable" do
+  context "when the body is reasonable" do
     [
-      %(I am a very reasonable title, ain't I? I have the right length, the right style, the right words. Yup.),
-      %("Validate titles", they said. "It's gonna be fun!", they said.),
+      %(I am a very reasonable body, ain't I? I have the right length, the right style, the right words. Yup.),
+      %("Validate bodies", they said. "It's gonna be fun!", they said.),
       %(I contain special characters because I'm à la mode.)
-    ].each do |a_title|
-      describe "like \"#{a_title}\"" do
-        let(:title) { a_title }
+    ].each do |a_body|
+      describe "like \"#{a_body}\"" do
+        let(:body) { a_body }
 
         it "validates too much caps" do
           expect(subject).to be_valid
@@ -37,27 +38,27 @@ describe EtiquetteValidator do
   end
 
   context "when the text has too much caps" do
-    let(:title) { "A SCREAMING PIECE of text" }
+    let(:body) { "A SCREAMING PIECE of text" }
     it { is_expected.to be_invalid }
   end
 
   context "when the text has too many marks" do
-    let(:title) { "I am screaming!!?" }
+    let(:body) { "I am screaming!!?" }
     it { is_expected.to be_invalid }
   end
 
   context "when the text has very long words" do
-    let(:title) { "This word is veeeeeeeeeeeeeeeeeeeeeeeeeeeeery long." }
+    let(:body) { "This word is veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long." }
     it { is_expected.to be_invalid }
   end
 
   context "when the text is written starting in downcase" do
-    let(:title) { "i no care about grammer" }
+    let(:body) { "i no care about grammer" }
     it { is_expected.to be_invalid }
   end
 
-  context "when the title is too short" do
-    let(:title) { "Oh my god" }
+  context "when the body is too short" do
+    let(:body) { "Oh my god" }
     it { is_expected.to be_invalid }
   end
 end

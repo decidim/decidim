@@ -241,7 +241,7 @@ module Decidim
       max_length = options.delete(:maxlength) || length_for_attribute(attribute, :maximum)
 
       validation_options = {}
-      validation_options[:pattern] = "^(.){#{min_length},#{max_length}}$" if min_length.to_i.positive? || max_length.to_i.positive?
+      validation_options[:pattern] = "^(.|[\n\r]){#{min_length},#{max_length}}$" if min_length.to_i.positive? || max_length.to_i.positive?
       validation_options[:required] = options[:required] || attribute_required?(attribute)
       validation_options
     end
