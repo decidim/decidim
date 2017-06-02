@@ -1,11 +1,7 @@
 # Common configuration.
 AllCops:
   Exclude:
-    - '**/Gemfile'
-    - '**/*.gemspec'
     - '**/vendor/**/*'
-    - 'decidim-*/test/**/*'
-    - 'decidim-*/db/migrate/**'
     - 'development_app/**/*'
     - 'docker_development_app/**/*'
     - 'spec/decidim_dummy_app/**/*'
@@ -1285,6 +1281,7 @@ Metrics/BlockLength:
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'
     - 'decidim-*/spec/**/*.rb'
+    - '**/*.gemspec'
 
 Lint/HandleExceptions:
   Exclude:
