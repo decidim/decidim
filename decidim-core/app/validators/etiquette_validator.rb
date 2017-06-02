@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 
 # This validator takes care of ensuring the validated content is
@@ -36,7 +37,7 @@ class EtiquetteValidator < ActiveModel::EachValidator
   end
 
   def validate_length(record, attribute, value)
-    return if value.length > 15
+    return if value.length > 30
     record.errors.add(attribute, options[:message] || :too_short)
   end
 end
