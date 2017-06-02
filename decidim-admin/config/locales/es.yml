@@ -123,6 +123,7 @@ es:
         permissions: Permisos
         preview: Previsualizar
         publish: Publicar
+        reject: Rechazar
         resend_invitation: Reenviar invitación
         unpublish: Despublicar
         verify: Verificar
@@ -296,10 +297,12 @@ es:
           name: Usuario
         user_group:
           fields:
+            actions: Acciones
             created_at: Fecha de creación
             document_number: Número del documento
             name: Nombre
             phone: Teléfono
+            state: Estado
             users_count: Número de usuarios
       moderations:
         index:
@@ -482,6 +485,26 @@ es:
         static_pages: Páginas
         user_groups: Grupos de usuarios
         users: Usuarios
+      user_group:
+        reject:
+          invalid: Se ha producido un error al rechazar este grupo de usuarios.
+          success: Grupo de usuarios rechazado correctamente
+        verify:
+          invalid: Se ha producido un error al verificar este grupo de usuarios.
+          success: Grupo de usuarios verificado correctamente
+      user_groups:
+        index:
+          filter:
+            all: Todos
+            pending: Pendiente
+            rejected: Rechazados
+            verified: Verificados
+          filter_by: Filtrar por
+          search: Buscar
+          state:
+            pending: Pendiente
+            rejected: Rechazado
+            verified: Verificado
       users:
         create:
           error: Hubo un error al invitar a este usuario.
