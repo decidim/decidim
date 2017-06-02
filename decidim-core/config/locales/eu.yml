@@ -151,7 +151,6 @@ eu:
         success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
     own_user_groups:
       index:
-        not_verified: Egiaztatu gabe
         verified: Egiaztatuta
     pages:
       index:
@@ -322,7 +321,7 @@ eu:
         title: Erabiltzaile-ezarpenak
         user_groups: Erakundeak
       widget:
-        see_more: "Ikusi gehiago"
+        see_more: Ikusi gehiago
   locale:
     name: Euskera
   pages:

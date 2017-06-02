@@ -147,7 +147,6 @@ nl:
         success: Uw notificatie instellingen zijn bijgewerkt.
     own_user_groups:
       index:
-        not_verified: Niet geverifieerd
         verified: Geverifieerd
     pages:
       index:

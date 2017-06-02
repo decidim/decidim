@@ -377,9 +377,6 @@ fi:
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
         users: Käyttäjät
-      user_groups:
-        verify:
-          success: Käyttäjäryhmä vahvistettu onnistuneesti.
       users:
         create:
           error: Tämän käyttäjän kutsumisessa tapahtui virhe.

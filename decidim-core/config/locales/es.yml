@@ -151,7 +151,8 @@ es:
         success: La configuración de las notificaciones se han actualizado correctamente.
     own_user_groups:
       index:
-        not_verified: No verificada
+        pending: Pendientes
+        rejected: Rechazados
         verified: Verificada
     pages:
       index:
@@ -323,7 +324,7 @@ es:
         title: Ajustes de usuario
         user_groups: Organizaciones
       widget:
-        see_more: "Ver más"
+        see_more: Ver más
   locale:
     name: Castellano
   pages:

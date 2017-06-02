@@ -147,7 +147,6 @@ fi:
         success: Ilmoitusasetuksesi päivitettiin onnistuneesti.
     own_user_groups:
       index:
-        not_verified: Ei varmennettu
         verified: Varmennettu
     pages:
       index:

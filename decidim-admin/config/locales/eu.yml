@@ -482,9 +482,6 @@ eu:
         static_pages: Erlaitzak
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
-      user_groups:
-        verify:
-          success: Erabiltzaile-taldea ongi egiaztatu da.
       users:
         create:
           error: Errorea gertatu da erabiltzaile honi gonbit egitean.

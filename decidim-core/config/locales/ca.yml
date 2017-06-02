@@ -151,7 +151,8 @@ ca:
         success: La configuració de les notificacions s'han actualitzat correctament.
     own_user_groups:
       index:
-        not_verified: No verificada
+        pending: Pendents
+        rejected: Rebutjades
         verified: Verificada
     pages:
       index:
@@ -323,7 +324,7 @@ ca:
         title: Configuració d'usuari
         user_groups: Organitzacions
       widget:
-        see_more: "Veure més"
+        see_more: Veure més
   locale:
     name: Català
   pages:
