@@ -1,24 +1,5 @@
 # Common configuration.
 AllCops:
-  # Include common Ruby source files.
-  Include:
-    - '**/*.gemspec'
-    - '**/*.podspec'
-    - '**/*.jbuilder'
-    - '**/*.rake'
-    - '**/*.opal'
-    - '**/config.ru'
-    - '**/Rakefile'
-    - '**/Capfile'
-    - '**/Guardfile'
-    - '**/Podfile'
-    - '**/Thorfile'
-    - '**/Vagrantfile'
-    - '**/Berksfile'
-    - '**/Cheffile'
-    - '**/Vagabondfile'
-    - '**/Fastfile'
-    - '**/*Fastfile'
   Exclude:
     - '**/Gemfile'
     - '**/*.gemspec'
