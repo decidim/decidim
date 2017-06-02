@@ -482,9 +482,6 @@ es:
         static_pages: Páginas
         user_groups: Grupos de usuarios
         users: Usuarios
-      user_groups:
-        verify:
-          success: El grupo de usuarios se verificó con éxito.
       users:
         create:
           error: Hubo un error al invitar a este usuario.
