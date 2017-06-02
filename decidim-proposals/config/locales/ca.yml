@@ -39,6 +39,7 @@ ca:
         actions:
           preview: Previsualitzar
         exports:
+          comments: Comentaris
           proposals: Propostes
         models:
           proposal:
@@ -120,6 +121,8 @@ ca:
           most_voted: Més votat
           random: Aleatori
           recent: Recent
+        proposal:
+          view_proposal: Veure proposta
         show:
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
