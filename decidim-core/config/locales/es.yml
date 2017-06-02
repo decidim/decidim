@@ -151,6 +151,8 @@ es:
         success: La configuración de las notificaciones se han actualizado correctamente.
     own_user_groups:
       index:
+        pending: Pendientes
+        rejected: Rechazados
         verified: Verificada
     pages:
       index:
