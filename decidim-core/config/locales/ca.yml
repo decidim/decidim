@@ -151,6 +151,8 @@ ca:
         success: La configuració de les notificacions s'han actualitzat correctament.
     own_user_groups:
       index:
+        pending: Pendents
+        rejected: Rebutjades
         verified: Verificada
     pages:
       index:
