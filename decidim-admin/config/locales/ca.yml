@@ -123,6 +123,7 @@ ca:
         permissions: Permisos
         preview: Previsualitzar
         publish: Publicar
+        reject: Rebutjar
         resend_invitation: Tornar a enviar invitació
         unpublish: Despublicar
         verify: Verificar
@@ -296,10 +297,12 @@ ca:
           name: Usuari
         user_group:
           fields:
+            actions: Accions
             created_at: Data de creació
             document_number: Número de document
             name: Nom
             phone: Telèfon
+            state: Estat
             users_count: Número d'usuaris
       moderations:
         index:
@@ -482,6 +485,26 @@ ca:
         static_pages: Pàgines
         user_groups: Grups d'usuaris
         users: Usuaris
+      user_group:
+        reject:
+          invalid: Hi va hagut un error en rebutjar aquest grup d'usuaris.
+          success: Grup d'usuaris rebutjat amb èxit
+        verify:
+          invalid: Hi ha hagut un error en rebutjar aquest grup d'usuaris.
+          success: Grup d'usuaris verificat correctament
+      user_groups:
+        index:
+          filter:
+            all: Tots
+            pending: Pendents
+            rejected: Rebutjats
+            verified: Verificats
+          filter_by: Filtra per
+          search: Cerca
+          state:
+            pending: Pendent
+            rejected: Rebutjat
+            verified: Verificat
       users:
         create:
           error: Hi ha hagut un error en convidar a aquest usuari.
