@@ -2,7 +2,7 @@
 
 module Decidim
   # The main application controller that inherits from Rails.
-  class ApplicationController < ::DecidimController
+  class ApplicationController < Decidim.base_controller
     include Decidim::NeedsOrganization
     include Decidim::LocaleSwitcher
     include NeedsAuthorization
