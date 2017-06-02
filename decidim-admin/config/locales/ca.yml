@@ -482,9 +482,6 @@ ca:
         static_pages: Pàgines
         user_groups: Grups d'usuaris
         users: Usuaris
-      user_groups:
-        verify:
-          success: El grup d'usuaris ha estat verificat exitosament.
       users:
         create:
           error: Hi ha hagut un error en convidar a aquest usuari.
