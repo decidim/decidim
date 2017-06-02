@@ -24,7 +24,7 @@ describe EtiquetteValidator do
   context "when the body is reasonable" do
     [
       %(I am a very reasonable body, ain't I? I have the right length, the right style, the right words. Yup.),
-      %("Validate bodys", they said. "It's gonna be fun!", they said.),
+      %("Validate bodies", they said. "It's gonna be fun!", they said.),
       %(I contain special characters because I'm à la mode.)
     ].each do |a_body|
       describe "like \"#{a_body}\"" do
