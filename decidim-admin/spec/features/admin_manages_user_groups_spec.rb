@@ -17,13 +17,25 @@ describe "Admin manage user groups", type: :feature do
 
   it "verifies a user group" do
     within "tr[data-user-group-id=\"#{user_group.id}\"]" do
-      click_link "Verify", match: :first
+      page.find(".action-icon--verify", match: :first).click
     end
 
     expect(page).to have_content("verified successfully")
 
     within "tr[data-user-group-id=\"#{user_group.id}\"]" do
-      expect(page).to have_no_selector(".actions button", match: :first)
+      expect(page).to have_content("Verified")
+    end
+  end
+
+  it "reject a user group" do
+    within "tr[data-user-group-id=\"#{user_group.id}\"]" do
+      page.find(".action-icon--reject", match: :first).click
+    end
+
+    expect(page).to have_content("rejected successfully")
+
+    within "tr[data-user-group-id=\"#{user_group.id}\"]" do
+      expect(page).to have_content("Rejected")
     end
   end
 end

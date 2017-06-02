@@ -9,17 +9,45 @@ module Decidim
 
       def index
         authorize! :index, UserGroup
-        @user_groups = collection.page(params[:page]).per(15)
+        @query = params[:q]
+        @state = params[:state]
+
+        @user_groups = Decidim::Admin::UserGroupsEvaluation.for(collection, @query, @state)
+                                                           .page(params[:page]).per(15)
       end
 
       def verify
         @user_group = collection.find(params[:id])
         authorize! :verify, @user_group
 
-        @user_group.verify!
+        VerifyUserGroup.call(@user_group) do
+          on(:ok) do
+            flash[:notice] = I18n.t("user_group.verify.success", scope: "decidim.admin")
+            redirect_back(fallback_location: decidim_admin.user_groups_path)
+          end
 
-        flash[:notice] = I18n.t("user_groups.verify.success", scope: "decidim.admin")
-        redirect_to decidim_admin.user_groups_path
+          on(:invalid) do
+            flash[:alert] = I18n.t("user_group.verify.invalid", scope: "decidim.admin")
+            redirect_back(fallback_location: decidim_admin.user_groups_path)
+          end
+        end
+      end
+
+      def reject
+        @user_group = collection.find(params[:id])
+        authorize! :reject, @user_group
+
+        RejectUserGroup.call(@user_group) do
+          on(:ok) do
+            flash[:notice] = I18n.t("user_group.reject.success", scope: "decidim.admin")
+            redirect_back(fallback_location: decidim_admin.user_groups_path)
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("user_group.reject.invalid", scope: "decidim.admin")
+            redirect_back(fallback_location: decidim_admin.user_groups_path)
+          end
+        end
       end
 
       private

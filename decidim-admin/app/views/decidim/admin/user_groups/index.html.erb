@@ -1,4 +1,42 @@
-<div class="card">
+<div class="filters row">
+  <div class="column medium-3">
+    <span class="dropdown-menu-inverted_label"><%= t(".filter_by") %> :</span>
+    <ul class="dropdown menu dropdown-inverted" data-dropdown-menu data-close-on-click-inside="false">
+        <li class="is-dropdown-submenu-parent">
+          <a href="#">
+          <% if @state.present? %>
+            <%= t(".filter.#{@state}") %>
+          <% else %>
+            <%= t(".filter.all") %>
+          <% end %>
+          </a>
+          <ul class="menu is-dropdown-submenu">
+            <li><%= link_to t(".filter.pending"), url_for(state: "pending", q: @query) %></li>
+            <li><%= link_to t(".filter.rejected"), url_for(state: "rejected", q: @query) %></li>
+            <li><%= link_to t(".filter.verified"), url_for(state: "verified", q: @query) %></li>
+            <li><%= link_to t(".filter.all"), url_for(q: @query) %></li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+  <div class="column medium-4">
+    <%= form_tag "", method: :get do %>
+      <div class="filters__search">
+        <div class="input-group">
+          <%= search_field_tag :q, @query,label: false, class: "input-group-field", placeholder: t('.search') %>
+          <%= hidden_field_tag :state, @state %>
+          <div class="input-group-button">
+            <button type="submit" class="button button--muted">
+              <%= icon "magnifying-glass", aria_label: t('.search') %>
+            </button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="card" id='user-groups'>
   <div class="card-divider">
     <h2 class="card-title"><%= t "decidim.admin.titles.user_groups" %></h2>
   </div>
@@ -12,7 +50,8 @@
             <th><%= t("models.user_group.fields.phone", scope: "decidim.admin") %></th>
             <th><%= t("models.user_group.fields.users_count", scope: "decidim.admin") %></th>
             <th><%= t("models.user_group.fields.created_at", scope: "decidim.admin") %></th>
-            <th></th>
+            <th><%= t("models.user_group.fields.state", scope: "decidim.admin") %></th>
+            <th><%= t("models.user_group.fields.actions", scope: "decidim.admin") %></th>
           </tr>
         </thead>
         <tbody>
@@ -23,9 +62,32 @@
               <td><%= user_group.phone %></td>
               <td><%= user_group.users.size %></td>
               <td><%= l user_group.created_at, format: :short %></td>
-              <td class="text-right">
-                <% if can?(:verify, user_group) && !user_group.verified? %>
-                  <%= link_to t("actions.verify", scope: "decidim.admin"), decidim_admin.verify_user_group_path(user_group), method: :put, class: "button tiny" %>
+              <td>
+              <% if user_group.verified? %>
+                <%= t(".state.verified") %>
+              <% end %>
+              <% if user_group.rejected? %>
+                <%= t(".state.rejected") %>
+              <% end %>
+              <% if user_group.pending?%>
+                <%= t(".state.pending") %>
+              <% end %>
+              </td>
+              <td class="table-list__actions">
+                <% if can?(:verify, user_group) %>
+                  <% if !user_group.verified? %>
+                    <%= icon_link_to "circle-check", decidim_admin.verify_user_group_path(user_group), t("actions.verify", scope: "decidim.admin"), method: :put, class: "action-icon--verify" %>
+                  <% else %>
+                    <%= icon "circle-check", class: "action-icon action-icon--disabled" %>
+                  <% end %>
+                <% end %>
+
+                <% if can?(:reject, user_group) %>
+                  <% if !user_group.rejected? %>
+                    <%= icon_link_to "circle-x", decidim_admin.reject_user_group_path(user_group), t("actions.reject", scope: "decidim.admin"), method: :put, class: "action-icon--reject" %>
+                  <% else %>
+                    <%= icon "circle-x", class: "action-icon action-icon--disabled" %>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

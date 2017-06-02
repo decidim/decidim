@@ -172,6 +172,10 @@ FactoryGirl.define do
       verified_at { Time.current }
     end
 
+    trait :rejected do
+      rejected_at { Time.current }
+    end
+
     after(:create) do |user_group, evaluator|
       users = evaluator.users
       next if users.empty?

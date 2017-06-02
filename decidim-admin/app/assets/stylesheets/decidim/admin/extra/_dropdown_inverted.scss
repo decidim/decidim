@@ -1,0 +1,38 @@
+.dropdown-inverted{
+  display: inline-block;
+  vertical-align: middle;
+  padding: 2px 10px 2px 2px;
+  text-align: right;
+  .dropdown > li > a{
+    padding-left: 0;
+  }
+  .dropdown{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .is-dropdown-submenu{
+    z-index: 2;
+    text-align: left;
+    background-color: $white !important;
+    border: 1px solid $light-gray !important;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    min-width: 100px;
+    li{
+        padding: 8px 8px 0
+    }
+    li:hover{
+      background-color: darken($white, 5%) !important;
+    }
+    a{
+      color: $body-font-color;
+      padding: .5rem;
+    }
+    a:hover{
+      color: lighten($body-font-color, 20);
+    }
+  }
+}
+
+.dropdown-menu-inverted_label{
+  vertical-align: middle;
+}

@@ -124,6 +124,7 @@ en:
         permissions: Permissions
         preview: Preview
         publish: Publish
+        reject: Reject
         resend_invitation: Resend invitation
         unpublish: Unpublish
         verify: Verify
@@ -297,10 +298,12 @@ en:
           name: User
         user_group:
           fields:
+            actions: Actions
             created_at: Created at
             document_number: Document number
             name: Name
             phone: Phone
+            state: State
             users_count: Users count
       moderations:
         index:
@@ -483,9 +486,26 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
-      user_groups:
+      user_group:
+        reject:
+          invalid: There was an error when rejecting this user group.
+          success: User group rejected successfully
         verify:
-          success: The user group was verified successfully.
+          invalid: There was an error when verifying this user group.
+          success: User group verified successfully
+      user_groups:
+        index:
+          filter:
+            all: All
+            pending: Pending
+            rejected: Rejected
+            verified: Verified
+          filter_by: Filter by
+          search: Search
+          state:
+            pending: Pending
+            rejected: Rejected
+            verified: Verified
       users:
         create:
           error: There was an error when inviting this user.

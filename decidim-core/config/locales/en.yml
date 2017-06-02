@@ -152,7 +152,8 @@ en:
         success: Your notifications settings were updated successfully.
     own_user_groups:
       index:
-        not_verified: Not verified
+        pending: Pending
+        rejected: Rejected
         verified: Verified
     pages:
       index:
@@ -324,7 +325,7 @@ en:
         title: User settings
         user_groups: Organizations
       widget:
-        see_more: "See more"
+        see_more: See more
   locale:
     name: English
   pages:

@@ -39,7 +39,7 @@ module Decidim
             user != user_to_destroy
           end
 
-          can [:index, :verify], UserGroup
+          can [:index, :verify, :reject], UserGroup
         end
       end
     end

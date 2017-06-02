@@ -10,18 +10,34 @@ module Decidim
     validates :document_number, presence: true
     validates :phone, presence: true
     validates :avatar, file_size: { less_than_or_equal_to: 5.megabytes }
+
+    validate :correct_state
+
     mount_uploader :avatar, Decidim::AvatarUploader
 
     scope :verified, -> { where.not(verified_at: nil) }
-
-    # Public: Mark the user group as verified
-    def verify!
-      update_attribute(:verified_at, Time.current)
-    end
+    scope :rejected, -> { where.not(rejected_at: nil) }
 
     # Public: Checks if the user group is verified.
     def verified?
       verified_at.present?
+    end
+
+    # Public: Checks if the user group is rejected.
+    def rejected?
+      rejected_at.present?
+    end
+
+    # Public: Checks if the user group is pending.
+    def pending?
+      verified_at.blank? && rejected_at.blank?
+    end
+
+    private
+
+    # Private: Checks if the state user group is correct.
+    def correct_state
+      errors.add(:base, :invalid) if verified? && rejected?
     end
   end
 end
