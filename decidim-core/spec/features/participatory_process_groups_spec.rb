@@ -43,7 +43,10 @@ describe "Participatory Process Groups", type: :feature do
   describe "show" do
     let!(:participatory_process_group) { create(:participatory_process_group, organization: organization) }
     let!(:group_processes) { create_list(:participatory_process, 2, :published, organization: organization, participatory_process_group: participatory_process_group) }
-    let!(:unpublished_group_processes) { create_list(:participatory_process, 2, :unpublished, organization: organization, participatory_process_group: participatory_process_group) }
+
+    let!(:unpublished_group_processes) do
+      create_list(:participatory_process, 2, :unpublished, organization: organization, participatory_process_group: participatory_process_group)
+    end
 
     before do
       visit decidim.participatory_process_group_path(participatory_process_group)

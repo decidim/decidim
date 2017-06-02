@@ -1088,8 +1088,6 @@ Metrics/LineLength:
   URISchemes:
     - http
     - https
-  Exclude:
-    - 'decidim-*/spec/**/*.rb'
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?

@@ -41,13 +41,23 @@ module Decidim
     describe "input" do
       it "renders a single field for an attribute" do
         html = builder.input(:birthday)
-        expect(html).to eq('<label for="authorization_handler_birthday">Birthday</label><input id="date_field_authorization_handler_birthday" data-datepicker="" type="text" /><input value="" type="hidden" name="authorization_handler[birthday]" id="authorization_handler_birthday" />')
+        expect(html).to eq(
+          '<label for="authorization_handler_birthday">Birthday</label>' \
+          '<input id="date_field_authorization_handler_birthday" data-datepicker="" type="text" />' \
+          '<input value="" type="hidden" name="authorization_handler[birthday]" id="authorization_handler_birthday" />'
+        )
       end
 
       context "specifying the input type" do
         it "renders it" do
           html = builder.input(:document_number, as: :email_field)
-          expect(html).to eq('<label for="authorization_handler_document_number">Document number<input required="required" type="email" name="authorization_handler[document_number]" id="authorization_handler_document_number" /><span class="form-error">There&#39;s an error in this field.</span></label>')
+          expect(html).to eq(
+            '<label for="authorization_handler_document_number">' \
+              "Document number" \
+              '<input required="required" type="email" name="authorization_handler[document_number]" id="authorization_handler_document_number" />' \
+              '<span class="form-error">There&#39;s an error in this field.</span>' \
+            "</label>"
+          )
         end
       end
     end
