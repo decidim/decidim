@@ -468,9 +468,6 @@ fr:
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
-      user_groups:
-        verify:
-          success: Le groupe d'utilisateurs a été vérifié avec succès.
       users:
         create:
           error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
