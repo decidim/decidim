@@ -28,7 +28,7 @@ module Decidim
 
       env["decidim.current_participatory_process"] ||= @participatory_process
 
-      feature = detect_current_feature(request)
+      feature = detect_current_feature(params)
 
       return false unless feature
 
@@ -38,8 +38,7 @@ module Decidim
 
     private
 
-    def detect_current_feature(request)
-      params = request.params
+    def detect_current_feature(params)
       return nil unless params["feature_id"]
 
       @participatory_process.features.find do |feature|
