@@ -294,7 +294,7 @@ module Decidim
         end
 
         it "adds a pattern" do
-          expect(parsed.css("input[pattern='^(.){0,150}$']").first).to be
+          expect(parsed.css("input[pattern='^(.|[\n\r]){0,150}$']").first).to be
           expect(output).not_to include("maxlength")
         end
       end
@@ -305,7 +305,7 @@ module Decidim
         end
 
         it "adds a pattern" do
-          expect(parsed.css("input[pattern='^(.){150,}$']").first).to be
+          expect(parsed.css("input[pattern='^(.|[\n\r]){150,}$']").first).to be
           expect(output).not_to include("minlength")
         end
       end
@@ -345,7 +345,7 @@ module Decidim
           end
 
           it "injects the validations" do
-            expect(parsed.css("input[pattern='^(.){10,30}$']").first).to be
+            expect(parsed.css("input[pattern='^(.|[\n\r]){10,30}$']").first).to be
           end
 
           it "injects a span to show an error" do
@@ -359,7 +359,7 @@ module Decidim
           end
 
           it "injects the validations" do
-            expect(parsed.css("input[pattern='^(.){10,}$']").first).to be
+            expect(parsed.css("input[pattern='^(.|[\n\r]){10,}$']").first).to be
           end
         end
 
@@ -369,7 +369,7 @@ module Decidim
           end
 
           it "injects the validations" do
-            expect(parsed.css("input[pattern='^(.){0,50}$']").first).to be
+            expect(parsed.css("input[pattern='^(.|[\n\r]){0,50}$']").first).to be
           end
         end
       end

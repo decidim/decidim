@@ -48,7 +48,7 @@ describe EtiquetteValidator do
   end
 
   context "when the text has very long words" do
-    let(:body) { "This word is veeeeeeeeeeeeeeeeeeeeeeeeeeeeery long." }
+    let(:body) { "This word is veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long." }
     it { is_expected.to be_invalid }
   end
 
