@@ -72,10 +72,6 @@ Style/Alias:
     - prefer_alias
     - prefer_alias_method
 
-Style/AlignArray:
-  Exclude:
-    - 'decidim-*/spec/**/*.rb'
-
 # Align the elements of a hash literal if they span more than one line.
 Style/AlignHash:
   # Alignment of entries using hash rocket as separator. Valid values are:
