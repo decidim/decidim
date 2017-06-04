@@ -10,4 +10,10 @@ RSpec.shared_context "admin" do
   let!(:proposal) { create :proposal, feature: current_feature }
   let!(:category) { create :category, participatory_process: participatory_process }
   let!(:scope) { create :scope, organization: organization }
+
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+    visit decidim_admin.manage_feature_path(participatory_process_id: participatory_process, feature_id: current_feature)
+  end
 end

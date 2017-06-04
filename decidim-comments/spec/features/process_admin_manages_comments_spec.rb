@@ -15,10 +15,4 @@ describe "Process admin manages comments", type: :feature do
       create(:comment, commentable: resource)
     end
   end
-
-  before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-    visit decidim_admin.manage_feature_path(participatory_process_id: participatory_process, feature_id: current_feature)
-  end
 end
