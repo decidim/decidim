@@ -3,7 +3,9 @@
 require "spec_helper"
 
 describe "Process admin manages results", type: :feature do
-  include_context "admin"
   let(:user) { process_admin }
+
+  include_context "admin"
+
   it_behaves_like "manage results"
 end

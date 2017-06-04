@@ -3,10 +3,12 @@
 require "spec_helper"
 
 describe "Process admin manages surveys", type: :feature do
-  include_context "admin"
   let(:user) { process_admin }
+  let(:manifest_name) { "surveys" }
+
+  include_context "admin"
+  include_context "feature admin"
+
   it_behaves_like "edit surveys"
   it_behaves_like "export survey user answers"
-  include_context "feature admin"
-  let(:manifest_name) { "surveys" }
 end

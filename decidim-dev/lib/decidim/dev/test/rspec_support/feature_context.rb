@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.shared_context "feature" do
-  let!(:manifest_name) { raise NotImplementedError }
   let(:manifest) { Decidim.find_feature_manifest(manifest_name) }
 
   let!(:organization) { create(:organization) }
