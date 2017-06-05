@@ -121,8 +121,6 @@ eu:
           most_voted: Bozkatuenak
           random: Ausazkoa eran
           recent: Berrienak
-        proposal:
-          view_proposal: Ikusi proposamena
         show:
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
