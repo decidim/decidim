@@ -83,6 +83,20 @@ describe "Account", type: :feature, perform_enqueued: true do
           expect(user.reload.valid_password?("sekritpass123")).to eq(false)
         end
       end
+
+      context "when updating the email" do
+        it "needs to confirm it" do
+          within "form.edit_user" do
+            fill_in :user_email, with: "foo@bar.com"
+
+            find("*[type=submit]").click
+          end
+
+          within_flash_messages do
+            expect(page).to have_content("email to confirm")
+          end
+        end
+      end
     end
 
     context "when on the notifications settings page" do

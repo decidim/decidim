@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe UpdateAccount, perform_enqueued: true do
     let(:command) { described_class.new(user, form) }
-    let(:user) { create(:user) }
+    let(:user) { create(:user, :confirmed) }
     let(:valid) { true }
     let(:data) do
       {
