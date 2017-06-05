@@ -46,6 +46,9 @@ en:
           question: Are you sure you want to delete your account?
           title: Delete my account
         explanation: Please, fill in the reason you want to delete your account (optional).
+      destroy:
+        error: There's been an error deleting your account.
+        success: Your account was deleted successfully.
       show:
         change_password: Change password
         update_account: Update account
