@@ -9,10 +9,10 @@ en:
         name: Your name
         password: New password
         password_confirmation: Confirm your new password
+        remove_avatar: Remove avatar
         user_group_document_number: Organization document number
         user_group_name: Organization name
         user_group_phone: Organization phone
-        remove_avatar: Remove avatar
   activerecord:
     attributes:
       decidim/user:
