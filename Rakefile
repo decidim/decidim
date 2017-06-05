@@ -17,6 +17,8 @@ task default: :spec
 desc "Runs all tests in all Decidim engines"
 task test_all: ["decidim:generate_test_app"] do
   DECIDIM_GEMS.each do |gem_name|
+    next if gem_name == "dev"
+
     Dir.chdir("#{__dir__}/decidim-#{gem_name}") do
       puts "Running #{gem_name}'s tests..."
       sh "rake"
