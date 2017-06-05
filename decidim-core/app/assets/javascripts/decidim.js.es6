@@ -1,3 +1,4 @@
+// = require jquery
 // = require decidim/foundation
 // = require modernizr
 // = require svg4everybody.min

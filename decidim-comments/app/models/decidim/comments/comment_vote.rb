@@ -8,8 +8,7 @@ module Decidim
       belongs_to :comment, foreign_key: "decidim_comment_id", class_name: "Comment"
       belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
 
-      validates :comment, presence: true, uniqueness: { scope: :author }
-      validates :author, presence: true
+      validates :comment, uniqueness: { scope: :author }
       validates :weight, inclusion: { in: [-1, 1] }
       validate :author_and_comment_same_organization
 

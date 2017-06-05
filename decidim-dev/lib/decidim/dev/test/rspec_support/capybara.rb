@@ -54,7 +54,7 @@ end
 RSpec.configure do |config|
   config.before :each, type: :feature do
     Capybara.current_session.driver.reset!
-    switch_to_default_host
+    # switch_to_default_host
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :feature

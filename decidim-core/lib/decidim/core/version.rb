@@ -7,7 +7,7 @@ module Decidim
   end
 
   def self.rails_version
-    ["~> 5.0.2"]
+    ["~> 5.1.1"]
   end
 
   def self.add_default_gemspec_properties(spec)

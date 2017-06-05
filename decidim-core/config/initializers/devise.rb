@@ -300,22 +300,22 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  if Rails.application.secrets.dig(:omniauth, "facebook").present?
+  if Rails.application.secrets.dig(:omniauth, :facebook).present?
     config.omniauth :facebook,
-                    Rails.application.secrets.omniauth["facebook"]["app_id"],
-                    Rails.application.secrets.omniauth["facebook"]["app_secret"],
+                    Rails.application.secrets.omniauth[:facebook][:app_id],
+                    Rails.application.secrets.omniauth[:facebook][:app_secret],
                     scope: :email,
                     info_fields: "name,email,verified"
   end
-  if Rails.application.secrets.dig(:omniauth, "twitter").present?
+  if Rails.application.secrets.dig(:omniauth, :twitter).present?
     config.omniauth :twitter,
-                    Rails.application.secrets.omniauth["twitter"]["api_key"],
-                    Rails.application.secrets.omniauth["twitter"]["api_secret"]
+                    Rails.application.secrets.omniauth[:twitter][:api_key],
+                    Rails.application.secrets.omniauth[:twitter][:api_secret]
   end
-  if Rails.application.secrets.dig(:omniauth, "google_oauth2").present?
+  if Rails.application.secrets.dig(:omniauth, :google_oauth2).present?
     config.omniauth :google_oauth2,
-                    Rails.application.secrets.omniauth["google_oauth2"]["client_id"],
-                    Rails.application.secrets.omniauth["google_oauth2"]["client_secret"]
+                    Rails.application.secrets.omniauth[:google_oauth2][:client_id],
+                    Rails.application.secrets.omniauth[:google_oauth2][:client_secret]
   end
 
   # ==> Warden configuration

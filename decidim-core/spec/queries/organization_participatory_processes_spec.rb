@@ -43,7 +43,7 @@ module Decidim
       end
 
       context "without an organization" do
-        let(:organization) { nil }
+        subject { described_class.new(nil) }
 
         it "raises an exception" do
           expect do

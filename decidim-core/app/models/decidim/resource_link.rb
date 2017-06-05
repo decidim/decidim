@@ -12,8 +12,7 @@ module Decidim
     belongs_to :from, polymorphic: true
     belongs_to :to, polymorphic: true
 
-    validates :from, :to, :name, presence: true
-    validates :name, uniqueness: { scope: [:from, :to] }
+    validates :name, presence: true, uniqueness: { scope: [:from, :to] }
 
     validate :same_organization
 
