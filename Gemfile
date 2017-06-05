@@ -5,3 +5,5 @@ ruby "2.4.1"
 
 gem "decidim", path: "."
 gem "decidim-dev", path: "decidim-dev"
+
+gem "capybara", git: "https://github.com/teamcapybara/capybara"

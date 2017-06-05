@@ -102,7 +102,7 @@ describe "Admin manage participatory processes", type: :feature do
 
     it "deletes a participatory_process" do
       click_link translated(participatory_process2.title)
-      click_link "Destroy"
+      accept_alert { click_link "Destroy" }
 
       within ".callout-wrapper" do
         expect(page).to have_content("successfully")

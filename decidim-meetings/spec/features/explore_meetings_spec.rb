@@ -22,7 +22,11 @@ describe "Explore meetings", type: :feature do
     end
 
     context "filtering" do
-      it "allows searching by text" do
+      # This one spec seems special somehow. It does not use windows, so it
+      # should not fail in headless chrome. But it fails. And it uses filters
+      # which sometimes trigger the "double submission" problem in poltergeist.
+      # Here be dragons...
+      it "allows searching by text", driver: :poltergeist do
         visit_feature
         within ".filters" do
           fill_in :filter_search_text, with: translated(meetings.first.title)

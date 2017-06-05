@@ -93,7 +93,7 @@ RSpec.shared_examples "manage process steps examples" do
 
     it "deletes a participatory_process_step" do
       within find("tr", text: translated(process_step2.title)) do
-        page.find(".action-icon--remove").click
+        accept_alert { page.find(".action-icon--remove").click }
       end
 
       within ".callout-wrapper" do

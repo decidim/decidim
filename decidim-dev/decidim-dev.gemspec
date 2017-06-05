@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency "i18n-tasks", "0.9.15"
   s.add_dependency "faker", "~> 1.7.3"
   s.add_dependency "poltergeist", "~> 1.15.0"
+  s.add_dependency "selenium-webdriver", "~> 3.4.0"
   s.add_dependency "rails-controller-testing", "~> 1.0.1"
   s.add_dependency "simplecov", "~> 0.13"
   s.add_dependency "codecov", "~> 0.1.9"

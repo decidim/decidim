@@ -67,7 +67,7 @@ RSpec.shared_examples "manage process admins examples" do
 
     it "deletes a participatory_process_user_role" do
       within find("#process_admins tr", text: other_user.email) do
-        page.find("a.action-icon--remove").click
+        accept_alert { page.find("a.action-icon--remove").click }
       end
 
       within ".callout-wrapper" do
