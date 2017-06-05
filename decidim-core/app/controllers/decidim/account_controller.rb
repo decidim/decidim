@@ -42,6 +42,8 @@ module Decidim
     end
 
     def destroy
+      # sign_out(current_user)
+      redirect_to decidim.root_path
     end
 
     private
