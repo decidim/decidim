@@ -55,7 +55,7 @@ module Decidim
     #
     # Returns a Foundation tabs element with the translated input field.
     def translated_field_tag(type, object_name, name, value = {}, options = {})
-      locales = Decidim.available_locales
+      locales = available_locales
 
       tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
       enabled_tabs = options[:enable_tabs].nil? ? true : options[:enable_tabs]
@@ -92,7 +92,7 @@ module Decidim
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
           tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
-            send(type, "#{object_name}[#{name_with_locale(name, locale)}]", value[locale], options.merge(id: "#{tabs_id}_#{name}_#{locale}", label: false))
+            send(type, "#{object_name}[#{name_with_locale(name, locale)}]", value[locale.to_s], options.merge(id: "#{tabs_id}_#{name}_#{locale}", label: false))
           end
         end
       end
