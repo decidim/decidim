@@ -196,10 +196,6 @@ RSpec.shared_examples "comments" do
       end
 
       context "downvoting a comment" do
-        before do
-          visit resource_path
-        end
-
         it "works according to the setting in the commentable" do
           within "#comment_#{comments[0].id}" do
             if commentable.comments_have_votes?
