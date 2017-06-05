@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Admin manages comments", type: :feature do
   let(:manifest_name) { "dummy" }
+  let!(:dummy) { create :dummy_resource, feature: current_feature }
   let!(:resources) { create_list(:dummy_resource, 3, feature: current_feature) }
   let!(:reportables) do
     resources.map do |resource|

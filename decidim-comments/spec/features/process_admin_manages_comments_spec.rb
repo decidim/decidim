@@ -4,7 +4,8 @@ require "spec_helper"
 
 describe "Process admin manages comments", type: :feature do
   let(:user) { process_admin }
-  let(:manifest_name) { "proposals" }
+  let(:manifest_name) { "dummy" }
+  let!(:dummy) { create :dummy_resource, feature: current_feature }
   let!(:resources) { create_list(:dummy_resource, 3, feature: current_feature) }
   let!(:reportables) do
     resources.map do |resource|

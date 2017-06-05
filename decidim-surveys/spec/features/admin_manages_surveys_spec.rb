@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Admin manages surveys", type: :feature do
   let(:manifest_name) { "surveys" }
+  let!(:survey) { create :survey, feature: feature }
 
   include_context "feature admin"
   include_context "admin"
