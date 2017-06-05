@@ -82,7 +82,7 @@ module Decidim
             it "sends an email to the author of the commentable" do
               expect(CommentNotificationMailer)
                 .to receive(:comment_created)
-                .with(author, an_instance_of(Comment), commentable)
+                .with(an_instance_of(Comment), commentable)
                 .and_call_original
 
               command.call
@@ -120,7 +120,7 @@ module Decidim
             it "sends an email to the author of the parent comment" do
               expect(CommentNotificationMailer)
                 .to receive(:reply_created)
-                .with(author, an_instance_of(Comment), commentable, commentable.root_commentable)
+                .with(an_instance_of(Comment), commentable, commentable.root_commentable)
                 .and_call_original
 
               command.call
