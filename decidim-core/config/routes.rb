@@ -46,7 +46,11 @@ Decidim::Core::Engine.routes.draw do
         get :first_login
       end
     end
-    resource :account, only: [:show, :update], controller: "account"
+    resource :account, only: [:show, :update, :destroy], controller: "account" do
+      member do
+        get :delete
+      end
+    end
     resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     resources :own_user_groups, only: [:index]
   end

@@ -126,5 +126,23 @@ describe "Account", type: :feature, perform_enqueued: true do
         end
       end
     end
+
+    context "when on the delete my account page" do
+      before do
+        visit decidim.delete_account_path
+      end
+
+      it "the user can delete his account" do
+        fill_in :delete_account_delete_reason, with: "I just want to delete my account"
+
+        click_button "Delete my account"
+
+        click_button "Yes, I want to delete my account"
+
+        within_flash_messages do
+          expect(page).to have_content("successfully")
+        end
+      end
+    end
   end
 end

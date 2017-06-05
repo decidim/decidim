@@ -36,6 +36,14 @@ module Decidim
       render action: :show
     end
 
+    def delete
+      authorize! :delete, current_user
+      @form = form(DeleteAccountForm).from_model(current_user)
+    end
+
+    def destroy
+    end
+
     private
 
     def authorizations

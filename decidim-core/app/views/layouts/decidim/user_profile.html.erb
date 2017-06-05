@@ -19,6 +19,7 @@
                 <% if user_groups.any? %>
                   <%= user_profile_tab t("user_groups", scope: "layouts.decidim.user_profile"), own_user_groups_path %>
                 <% end %>
+                <%= user_profile_tab t("delete_my_account", scope: "layouts.decidim.user_profile"), delete_account_path %>
               </ul>
             </div>
           </div>
