@@ -9,8 +9,8 @@ module Decidim
 
       helper_method :commentable_title
 
-      def comment_created(user, comment, commentable)
-        with_user(user) do
+      def comment_created(comment, commentable)
+        with_user(commentable.author) do
           @comment = comment
           @commentable = commentable
           @organization = commentable.organization
@@ -19,8 +19,8 @@ module Decidim
         end
       end
 
-      def reply_created(user, reply, comment, commentable)
-        with_user(user) do
+      def reply_created(reply, comment, commentable)
+        with_user(comment.author) do
           @reply = reply
           @comment = comment
           @commentable = commentable
