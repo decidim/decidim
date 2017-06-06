@@ -13,7 +13,7 @@ module Decidim
     field :name, !types.String, "The user's name"
 
     field :avatarUrl, !types.String, "The user's avatar url" do
-      resolve ->(obj, _args, _ctx) { obj.deleted? ? obj.avatar.url : ActionController::Base.helpers.asset_path("decidim/default-avatar.svg") }
+      resolve ->(obj, _args, _ctx) { obj.deleted? ? ActionController::Base.helpers.asset_path("decidim/default-avatar.svg") : obj.avatar.url }
     end
 
     field :organizationName, !types.String, "The user's organization name" do
