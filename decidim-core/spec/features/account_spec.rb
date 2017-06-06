@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Account", type: :feature, perform_enqueued: true do
-  let(:user) { create(:user, :confirmed, password: "password1234", password_confirmation: "password1234" ) }
+  let(:user) { create(:user, :confirmed, password: "password1234", password_confirmation: "password1234") }
   let(:organization) { user.organization }
 
   before do

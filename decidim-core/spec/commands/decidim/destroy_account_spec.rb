@@ -10,7 +10,7 @@ module Decidim
     let(:valid) { true }
     let(:data) do
       {
-        delete_reason: "I want to delete my account",
+        delete_reason: "I want to delete my account"
       }
     end
 
@@ -56,18 +56,18 @@ module Decidim
       end
 
       it "deletes user's identities" do
-        expect {
+        expect do
           command.call
-        }.to change { Identity.count }.by(-1)
+        end.to change { Identity.count }.by(-1)
       end
 
       it "deletes user group memberships" do
         user_group = create(:user_group)
         create(:user_group_membership, user_group: user_group, user: user)
 
-        expect {
+        expect do
           command.call
-        }.to change { UserGroupMembership.count }.by(-1)
+        end.to change { UserGroupMembership.count }.by(-1)
       end
     end
   end

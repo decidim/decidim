@@ -21,11 +21,11 @@ module Decidim
     ROLES = %w(admin moderator collaborator official).freeze
 
     validates :organization, presence: true
-    validates :name, presence: true, unless: ->{ deleted? }
+    validates :name, presence: true, unless: -> { deleted? }
     validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :avatar, file_size: { less_than_or_equal_to: MAXIMUM_AVATAR_FILE_SIZE }
-    validates :email, uniqueness: { scope: :organization }, unless: ->{ deleted? }
+    validates :email, uniqueness: { scope: :organization }, unless: -> { deleted? }
     validate :all_roles_are_valid
     mount_uploader :avatar, Decidim::AvatarUploader
 
