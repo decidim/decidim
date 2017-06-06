@@ -1,0 +1,69 @@
+es:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Respuesta
+      survey_question:
+        mandatory: Obligatorio
+        question_type: Tipo
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Respuesta
+        name: Encuesta
+        settings:
+          step:
+            allow_answers: Permitir respuestas
+    surveys:
+      admin:
+        application_helper:
+          label_for_question:
+            question: Pregunta
+        exports:
+          survey_user_answers: Respuestas de los usuarios de la encuesta
+        models:
+          components:
+            description: Descripción
+            tos: Términos de servicio
+        surveys:
+          answer_option:
+            answer_option: Opción de respuesta
+            remove_answer_option: Eliminar opción de respuesta
+            statement: Enunciado
+          edit:
+            save: Guardar
+            title: Título
+          form:
+            add_question: Añadir pregunta
+            already_answered_warning: La encuesta ya está contestada por algunos usuarios, así que no puedes modificar sus preguntas.
+          question:
+            add_answer_option: Agregar opción de respuesta
+            question: Pregunta
+            remove_question: Eliminar pregunta
+            statement: Enunciado
+          update:
+            invalid: Se han producido errores al guardar la encuesta.
+            success: Encuesta guardada correctamente.
+      question_types:
+        long_answer: Respuesta larga
+        multiple_option: Opción múltiple
+        short_answer: Respuesta corta
+        single_option: Opción individual
+      surveys:
+        answer:
+          invalid: Se han producido errores al responder a la encuesta.
+          success: La encuesta ha sido respondida con éxito.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrate</a> para responder a la encuesta.
+            title: Contestar a la encuesta
+          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás seguro?
+          submit: Enviar
+          survey_answered:
+            body: Ya has respondido a esta encuesta.
+            title: Encuesta respondida
+          survey_closed:
+            body: La encuesta está cerrada y no se puede responder.
+            title: Encuesta cerrada
+          tos_agreement: Al participar en esta encuesta, aceptas sus términos de servicio
