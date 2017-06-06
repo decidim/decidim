@@ -20,11 +20,12 @@ module Decidim
 
     ROLES = %w(admin moderator collaborator official).freeze
 
-    validates :organization, :name, presence: true
+    validates :organization, presence: true
+    validates :name, presence: true, unless: ->{ deleted? }
     validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :avatar, file_size: { less_than_or_equal_to: MAXIMUM_AVATAR_FILE_SIZE }
-    validates :email, uniqueness: { scope: :organization }
+    validates :email, uniqueness: { scope: :organization }, unless: ->{ deleted? }
     validate :all_roles_are_valid
     mount_uploader :avatar, Decidim::AvatarUploader
 
@@ -72,6 +73,14 @@ module Decidim
         email: warden_conditions[:email],
         decidim_organization_id: organization.id
       ).first
+    end
+
+    protected
+
+    # Overrides devise email required validation.
+    # If the user has been deleted the email field is not required anymore.
+    def email_required?
+      !deleted?
     end
 
     private

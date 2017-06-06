@@ -15,18 +15,28 @@ module Decidim
     def call
       return broadcast(:invalid) unless @form.valid?
 
-      destroy_user_account!
+      Decidim::User.transaction do
+        destroy_user_account!
+        destroy_user_identities!
+      end
+
       broadcast(:ok)
     end
 
     private
 
     def destroy_user_account!
-      @user.email = "deleted-user-#{SecureRandom.uuid}@example.org"
+      @user.name = ""
+      @user.email = ""
       @user.delete_reason = @form.delete_reason
       @user.deleted_at = Time.current
       @user.skip_reconfirmation!
+      @user.remove_avatar!
       @user.save!
+    end
+
+    def destroy_user_identities!
+      @user.identities.destroy_all
     end
   end
 end

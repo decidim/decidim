@@ -59,11 +59,11 @@ export interface GetCommentsQuery {
     } | null,
   } | null;
   commentable: AddCommentFormCommentableFragment & {
-    // Wether the object can have new comments or not
+    // Whether the object can have new comments or not
     acceptsNewComments: boolean,
-    // Wether the object comments have alignment or not
+    // Whether the object comments have alignment or not
     commentsHaveAlignment: boolean,
-    // Wether the object comments have votes or not
+    // Whether the object comments have votes or not
     commentsHaveVotes: boolean,
     comments: Array< CommentThreadFragment & CommentFragment & CommentDataFragment & UpVoteButtonFragment & DownVoteButtonFragment & {
       // The Comment's unique ID
@@ -114,12 +114,12 @@ export interface CommentDataFragment extends UpVoteButtonFragment, DownVoteButto
     name: string,
     // The author's avatar url
     avatarUrl: string,
-    // Wheter the author's account has been deleted or not
+    // Whether the author's account has been deleted or not
     deleted: boolean,
   };
   // Check if the commentable has comments
   hasComments: boolean;
-  // Wether the object can have new comments or not
+  // Whether the object can have new comments or not
   acceptsNewComments: boolean;
   // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
   alignment: number | null;

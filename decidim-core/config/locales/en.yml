@@ -3,7 +3,7 @@ en:
   activemodel:
     attributes:
       account:
-        delete_reason: Reason
+        delete_reason: Reason to delete your account
       report:
         details: Additional comments
       user:
@@ -15,9 +15,6 @@ en:
         user_group_document_number: Organization document number
         user_group_name: Organization name
         user_group_phone: Organization phone
-    placeholders:
-      account:
-        delete_reason: Reason
   activerecord:
     attributes:
       decidim/user:

@@ -11,11 +11,7 @@
     <div class="author-data__main">
       <div class="author author--inline">
         <span class="author__avatar">
-          <% if @proposal.author&.deleted? %>
-            <%= image_tag ActionController::Base.helpers.asset_path("decidim/default-avatar.svg") %>
-          <% else%>
-            <%= image_tag @proposal.author_avatar_url %>
-          <% end %>
+          <%= image_tag @proposal.author_avatar_url %>
         </span>
         <%= l @proposal.created_at, format: :long %>
         <span class="author__name">

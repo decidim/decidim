@@ -6,6 +6,7 @@ module Decidim
   describe DestroyAccount do
     let(:command) { described_class.new(user, form) }
     let(:user) { create(:user, :confirmed) }
+    let!(:identity) { create(:identity, user: user) }
     let(:valid) { true }
     let(:data) do
       {
@@ -43,10 +44,21 @@ module Decidim
         expect(user.reload.deleted_at).not_to be_nil
       end
 
-      it "generates a random email so the user cannot log in again" do
-        allow(SecureRandom).to receive(:uuid).and_return("1234")
+      it "set name and email to blank string" do
         command.call
-        expect(user.reload.email).to eq("deleted-user-1234@example.org")
+        expect(user.reload.name).to eq("")
+        expect(user.reload.email).to eq("")
+      end
+
+      it "destroys the current user avatar" do
+        command.call
+        expect(user.reload.avatar).not_to be_present
+      end
+
+      it "deletes user's identities" do
+        expect {
+          command.call
+        }.to change { Identity.count }.by(-1)
       end
     end
   end
