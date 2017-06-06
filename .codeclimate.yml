@@ -23,6 +23,8 @@ engines:
     - efea7ddea03adadd8177a72831e928a3
     - 92b3f6841512dd90c0f7bb79618fb351
     - efea7ddea03adadd8177a72831e928a3
+    exclude_paths:
+    - "decidim-*/spec/**/*"
   eslint:
     enabled: false
   fixme:
