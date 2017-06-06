@@ -23,7 +23,8 @@ dependencies:
 
 machine:
   environment:
-    PATH: "${HOME}/${CIRCLE_PROJECT_REPONAME}/.chrome/latest:${HOME}/${CIRCLE_PROJECT_REPONAME}/.chromedriver:${PATH}"
+    CHROME_BINARY: "${HOME}/${CIRCLE_PROJECT_REPONAME}/.chrome/latest/chrome"
+    CHROMEDRIVER_BINARY: "${HOME}/${CIRCLE_PROJECT_REPONAME}/.chromedriver/chromedriver"
 
   node:
     version: 7

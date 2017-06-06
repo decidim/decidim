@@ -45,19 +45,28 @@ Capybara.register_driver :debug do |app|
 end
 
 Capybara.register_driver :chrome do |app|
-  Selenium::WebDriver::Chrome.path = File.expand_path(File.join("..", "..", "..", "..", "..", "..", ".chrome", "latest", "chrome"), __dir__) if ENV["CIRCLECI"]
+  chrome_options = {
+    args: %w(headless no-sandbox disable-gpu window-size=1024,768)
+  }
+
+  if ENV["CHROME_BINARY"].present?
+    chrome_options[:binary] = ENV["CHROME_BINARY"]
+  end
 
   caps = Selenium::WebDriver::Remote::Capabilities.chrome(
-    "chromeOptions" => {
-      "args" => %w(headless no-sandbox disable-gpu window-size=1024,768)
-    }
+    chrome_options: chrome_options
   )
 
-  Capybara::Selenium::Driver.new(
-    app,
+  driver_options = {
     browser: :chrome,
     desired_capabilities: caps
-  )
+  }
+
+  if ENV["CHROMEDRIVER_BINARY"].present?
+    driver_options[:driver_path] = ENV["CHROMEDRIVER_BINARY"]
+  end
+
+  Capybara::Selenium::Driver.new(app, driver_options)
 end
 
 Capybara::Screenshot.prune_strategy = :keep_last_run
