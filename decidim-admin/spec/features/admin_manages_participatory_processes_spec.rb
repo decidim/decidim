@@ -22,28 +22,28 @@ describe "Admin manage participatory processes", type: :feature do
     within ".new_participatory_process" do
       fill_in_i18n(
         :participatory_process_title,
-        "#title-tabs",
+        "#participatory_process-title-tabs",
         en: "My participatory process",
         es: "Mi proceso participativo",
         ca: "El meu procés participatiu"
       )
       fill_in_i18n(
         :participatory_process_subtitle,
-        "#subtitle-tabs",
+        "#participatory_process-subtitle-tabs",
         en: "Subtitle",
         es: "Subtítulo",
         ca: "Subtítol"
       )
       fill_in_i18n_editor(
         :participatory_process_short_description,
-        "#short_description-tabs",
+        "#participatory_process-short_description-tabs",
         en: "Short description",
         es: "Descripción corta",
         ca: "Descripció curta"
       )
       fill_in_i18n_editor(
         :participatory_process_description,
-        "#description-tabs",
+        "#participatory_process-description-tabs",
         en: "A longer description",
         es: "Descripción más larga",
         ca: "Descripció més llarga"

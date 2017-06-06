@@ -1,0 +1,73 @@
+---
+en:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Answer
+      survey_question:
+        mandatory: Mandatory
+        question_type: Type
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Answer
+        name: Survey
+        settings:
+          step:
+            allow_answers: Allow answers
+    surveys:
+      admin:
+        application_helper:
+          label_for_question:
+            question: Question
+        exports:
+          survey_user_answers: Survey user answers
+        models:
+          components:
+            description: Description
+            tos: Terms of service
+        surveys:
+          answer_option:
+            answer_option: Answer option
+            remove_answer_option: Remove answer option
+            statement: Statement
+          edit:
+            save: Save
+            title: Title
+          form:
+            add_question: Add question
+            already_answered_warning: The survey is already answered by some users
+              so you cannot modify its questions.
+          question:
+            add_answer_option: Add answer option
+            question: Question
+            remove_question: Remove question
+            statement: Statement
+          update:
+            invalid: There's been errors when saving the survey.
+            success: Survey saved successfully.
+      question_types:
+        long_answer: Long answer
+        multiple_option: Multiple option
+        short_answer: Short answer
+        single_option: Single option
+      surveys:
+        answer:
+          invalid: There's been errors when answering the survey.
+          success: Survey answered successfully.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a>
+              or <a href="%{sign_up_link}">sign up</a> to answer the survey.
+            title: Answer the survey
+          are_you_sure: This action cannot be undone and you will not be able to edit
+            your answers. Are you sure?
+          submit: Submit
+          survey_answered:
+            body: You have already answered this survey.
+            title: Survey answered
+          survey_closed:
+            body: The survey is closed and cannot be answered.
+            title: Survey closed
+          tos_agreement: By participating in this survey you accept its Terms of Service

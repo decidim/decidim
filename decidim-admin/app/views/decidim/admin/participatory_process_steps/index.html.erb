@@ -24,6 +24,7 @@
             <% participatory_process.steps.each do |step| %>
               <tr data-id="<%= step.id %>">
                 <td>
+                  <span class="table-list__actions"><%= icon("move", class: "action-icon") %></span>                
                   <% if step.active? %>
                     <span class="icon-active"></span>
                   <% end %>
