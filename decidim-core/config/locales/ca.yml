@@ -1,6 +1,8 @@
 ca:
   activemodel:
     attributes:
+      account:
+        delete_reason: Raó per eliminar el seu compte
       report:
         details: Comentaris addicionals
       user:
@@ -32,6 +34,17 @@ ca:
       image_too_big: La imatge és massa gran
   decidim:
     account:
+      delete:
+        alert: Aquesta acció no es pot desfer. Si elimina el seu compte no seràs capaç d'iniciar sessió.
+        confirm:
+          close: Tanca la finestra
+          ok: Sí, vull eliminar el meu compte
+          question: Estàs segur que vols eliminar el teu compte?
+          title: Eliminar el meu compte
+        explanation: Si us plau, omple la raó per la qual vols eliminar el teu compte (opcional).
+      destroy:
+        error: Hi ha hagut un error en eliminar el teu compte.
+        success: El teu compte s'ha eliminat correctament.
       show:
         change_password: Canvia la contrasenya
         update_account: Actualitzar compte
@@ -321,6 +334,7 @@ ca:
       user_profile:
         account: Compte
         authorizations: Autoritzacions
+        delete_my_account: Eliminar el meu compte
         notifications_settings: Configuració de les notificacions
         title: Configuració d'usuari
         user_groups: Organitzacions
