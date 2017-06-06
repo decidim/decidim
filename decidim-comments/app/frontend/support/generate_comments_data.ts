@@ -19,6 +19,7 @@ const generateCommentsData = (num = 1) => {
       author: {
         name: name.findName(),
         avatarUrl: image.imageUrl(),
+        deleted: false,
       },
       hasComments: false,
       comments: [],

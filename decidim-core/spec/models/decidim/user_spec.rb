@@ -100,5 +100,12 @@ module Decidim
         expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
     end
+
+    context "#deleted?" do
+      it "returns true if deleted_at is present" do
+        subject.deleted_at = Time.current
+        expect(subject).to be_deleted
+      end
+    end
   end
 end

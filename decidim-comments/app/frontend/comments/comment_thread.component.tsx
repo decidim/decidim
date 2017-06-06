@@ -58,7 +58,11 @@ class CommentThread extends React.Component<CommentThreadProps, undefined> {
     if (hasComments) {
       return (
         <h6 className="comment-thread__title">
-          {I18n.t("components.comment_thread.title", { authorName: author.name })}
+          {
+            author.deleted ?
+              I18n.t("components.comment_thread.title", { authorName: I18n.t("components.comment.deleted_user") }) :
+              I18n.t("components.comment_thread.title", { authorName: author.name })
+          }
         </h6>
       );
     }

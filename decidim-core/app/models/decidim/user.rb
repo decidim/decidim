@@ -55,6 +55,11 @@ module Decidim
       super || I18n.t("decidim.anonymous_user")
     end
 
+    # Check if the user account has been deleted or not
+    def deleted?
+      deleted_at.present?
+    end
+
     # Check if the user exists with the given email and the current organization
     #
     # warden_conditions - A hash with the authentication conditions

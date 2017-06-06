@@ -39,6 +39,17 @@ describe("<CommentThread />", () => {
       const wrapper = shallow(<CommentThread comment={comment} session={session} />);
       expect(wrapper.find("h6.comment-thread__title").text()).toContain(`Conversation with ${comment.author.name}`);
     });
+
+    describe("when the author's account has been deleted", () => {
+      beforeEach(() => {
+        comment.author.deleted = true;
+      });
+
+      it("should render a h6 comment-thread__title with 'Deleted user'", () => {
+        const wrapper = shallow(<CommentThread comment={comment} session={session} />);
+        expect(wrapper.find("h6.comment-thread__title").text()).toContain("Conversation with Deleted user");
+      });
+    });
   });
 
   describe("should render a Comment", () => {

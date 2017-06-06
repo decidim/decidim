@@ -360,6 +360,7 @@ const AddCommentFormWithMutation = graphql(addCommentMutation, {
               __typename: "User",
               name: ownProps.session.user.name,
               avatarUrl: ownProps.session.user.avatarUrl,
+              deleted: false,
             },
             comments: [],
             hasComments: false,

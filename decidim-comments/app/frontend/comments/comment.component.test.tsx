@@ -45,6 +45,17 @@ describe("<Comment />", () => {
     expect(wrapper.find("a.author__name").text()).toEqual(comment.author.name);
   });
 
+  describe("when the author's account has been deleted", () => {
+    beforeEach(() => {
+      comment.author.deleted = true;
+    });
+
+    it("should render 'Deleted user' inside a badge", () => {
+      const wrapper = shallow(<Comment comment={comment} session={session} />);
+      expect(wrapper.find("span.label.label--small.label--basic").text()).toEqual("Deleted user");
+    });
+  });
+
   it("should render author's avatar as a image tag", () => {
     const wrapper = shallow(<Comment comment={comment} session={session} />);
     expect(wrapper.find("a.author__avatar img").prop("src")).toEqual(comment.author.avatarUrl);

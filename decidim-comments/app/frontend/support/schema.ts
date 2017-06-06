@@ -89,6 +89,14 @@ export interface AddCommentFormSessionFragment {
   } >;
 }
 
+export interface CommentFragment extends CommentDataFragment, UpVoteButtonFragment, DownVoteButtonFragment {
+  comments: Array< CommentDataFragment & UpVoteButtonFragment & DownVoteButtonFragment & {
+    comments: Array< CommentDataFragment & UpVoteButtonFragment & DownVoteButtonFragment & {
+      comments: Array<CommentDataFragment & UpVoteButtonFragment & DownVoteButtonFragment>,
+    } >,
+  } >;
+}
+
 export interface CommentDataFragment extends UpVoteButtonFragment, DownVoteButtonFragment {
   // The Comment's unique ID
   id: string;
@@ -106,6 +114,8 @@ export interface CommentDataFragment extends UpVoteButtonFragment, DownVoteButto
     name: string,
     // The author's avatar url
     avatarUrl: string,
+    // Wheter the author's account has been deleted or not
+    deleted: boolean,
   };
   // Check if the commentable has comments
   hasComments: boolean;
@@ -120,14 +130,6 @@ export interface CommentDataFragment extends UpVoteButtonFragment, DownVoteButto
 export interface CommentThreadFragment extends CommentFragment, CommentDataFragment, UpVoteButtonFragment, DownVoteButtonFragment {
   // Check if the commentable has comments
   hasComments: boolean;
-}
-
-export interface CommentFragment extends CommentDataFragment, UpVoteButtonFragment, DownVoteButtonFragment {
-  comments: Array< CommentDataFragment & UpVoteButtonFragment & DownVoteButtonFragment & {
-    comments: Array< CommentDataFragment & UpVoteButtonFragment & DownVoteButtonFragment & {
-      comments: Array<CommentDataFragment & UpVoteButtonFragment & DownVoteButtonFragment>,
-    } >,
-  } >;
 }
 
 export interface DownVoteButtonFragment {
