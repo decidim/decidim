@@ -112,7 +112,7 @@
         # Add your settings per step
       end
 
-      # # Register a optional resource that can be references from other resources.
+      # # Register an optional resource that can be referenced from other resources.
       # feature.register_resource do |resource|
       #   resource.model_class_name = "Decidim::<EngineName>::<ResourceName>"
       #   resource.template = "decidim/<engine_name>/<resource_view_folder>/linked_<resource_name_plural>"
