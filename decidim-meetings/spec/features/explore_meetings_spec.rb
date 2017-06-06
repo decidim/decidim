@@ -26,6 +26,11 @@ describe "Explore meetings", type: :feature do
         visit_feature
         within ".filters" do
           fill_in :filter_search_text, with: translated(meetings.first.title)
+
+          # The form should be auto-submitted when filter box is filled up, but
+          # somehow it's not happening. So we workaround that be explicitly
+          # clicking on "Search" until we find out why.
+          find(".icon--magnifying-glass").click
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
