@@ -37,6 +37,7 @@ ca:
         alignment:
           against: En contra
           in_favor: A favor
+        deleted_user: Usuari eliminat
         reply: Respondre
         report:
           action: Denuncia
