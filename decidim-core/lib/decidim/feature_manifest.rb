@@ -64,8 +64,7 @@ module Decidim
     #
     # event_name - A String or Symbol with the event name.
     # context    - An optional context that will be provided to the block as a
-    #              parameter. Usually the subject of the hook, mostly the
-    #              Component.
+    #              parameter. Usually the subject of the hook.
     #
     # Returns nothing.
     def run_hooks(event_name, context = nil)

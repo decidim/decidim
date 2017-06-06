@@ -101,10 +101,10 @@ After you create a development app (`bundle exec rake development_app`):
 - Login data: admin@example.org | decidim123456
 
 
-## Components
+## Officially supported libraries
 
 
-| Component        | Description           |
+| Library        | Description           |
 | ------------- |-------------|
 | [Admin](https://github.com/decidim/decidim/tree/master/decidim-admin)      | This library adds an administration dashboard so users can manage their organization, participatory processes and all other entities. |
 | [API](https://github.com/decidim/decidim/tree/master/decidim-api)      | This library exposes a GraphQL API to programatically interact with the Decidim platform via HTTP      |
