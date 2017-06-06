@@ -1,0 +1,38 @@
+ca:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Resposta
+      survey_question:
+        mandatory: Obligatori
+        question_type: Tipus
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Resposta
+        name: Enquesta
+        settings:
+          step:
+            allow_answers: Permetre respostes
+    surveys:
+      admin:
+        application_helper:
+          label_for_question:
+            question: Pregunta
+        exports:
+          survey_user_answers: Respostes dels usuaris
+        models:
+          components:
+            description: Descripció
+            tos: Termes del servei
+        surveys:
+          answer_option:
+            answer_option: Opció de resposta
+            remove_answer_option: Elimina l'opció de resposta
+            statement: Enunciat
+          edit:
+            save: Desar
+            title: Títol
+          form:
+            add_question: Afegir pregunta
