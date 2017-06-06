@@ -60,6 +60,15 @@ module Decidim
           command.call
         }.to change { Identity.count }.by(-1)
       end
+
+      it "deletes user group memberships" do
+        user_group = create(:user_group)
+        create(:user_group_membership, user_group: user_group, user: user)
+
+        expect {
+          command.call
+        }.to change { UserGroupMembership.count }.by(-1)
+      end
     end
   end
 end

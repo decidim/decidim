@@ -17,7 +17,8 @@ module Decidim
 
       Decidim::User.transaction do
         destroy_user_account!
-        destroy_user_identities!
+        destroy_user_identities
+        destroy_user_group_memberships
       end
 
       broadcast(:ok)
@@ -35,8 +36,12 @@ module Decidim
       @user.save!
     end
 
-    def destroy_user_identities!
+    def destroy_user_identities
       @user.identities.destroy_all
+    end
+
+    def destroy_user_group_memberships
+      Decidim::UserGroupMembership.where(user: @user).destroy_all
     end
   end
 end
