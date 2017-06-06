@@ -9,7 +9,7 @@ Surveys will be available as a Feature for a Participatory Process.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-surveys
+gem 'decidim-surveys'
 ```
 
 And then execute:
