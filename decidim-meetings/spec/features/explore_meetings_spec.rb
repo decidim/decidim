@@ -22,14 +22,17 @@ describe "Explore meetings", type: :feature do
     end
 
     context "filtering" do
-      # This one spec seems special somehow. It does not use windows, so it
-      # should not fail in headless chrome. But it fails. And it uses filters
-      # which sometimes trigger the "double submission" problem in poltergeist.
-      # Here be dragons...
-      it "allows searching by text", driver: :poltergeist do
+      it "allows searching by text" do
         visit_feature
         within ".filters" do
           fill_in :filter_search_text, with: translated(meetings.first.title)
+
+          # The form should be auto-submitted when filter box is filled up, but
+          # somehow it's not happening in headless chrome. So we workaround that
+          # be explicitly clicking on "Search" until we find out why. Note that
+          # this test won't work with Rails >= 5.1 & poltergeist either, so this
+          # is the only workaround at the moment.
+          find(".icon--magnifying-glass").click
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
