@@ -36,3 +36,34 @@ ca:
             title: Títol
           form:
             add_question: Afegir pregunta
+            already_answered_warning: L'enquesta ja està contestada per alguns usuaris i per tant no pots modificar les seves preguntes.
+          question:
+            add_answer_option: Afegir opció de resposta
+            question: Pregunta
+            remove_question: Elimina pregunta
+            statement: Enunciat
+          update:
+            invalid: Hi ha hagut errors en desar l'enquesta.
+            success: Enquesta desada correctament.
+      question_types:
+        long_answer: Resposta llarga
+        multiple_option: Opció múltiple
+        short_answer: Resposta curta
+        single_option: Única opció
+      surveys:
+        answer:
+          invalid: Hi ha hagut errors en respondre a l'enquesta.
+          success: Enquesta resposta correctament.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Entra amb el teu compte</a> o <a href="%{sign_up_link}">dona't d'alta</a> per contestar l'enquesta.
+            title: Respon a l'enquesta
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les respostes. N'estàs segur?
+          submit: Enviar
+          survey_answered:
+            body: Vostè ja ha respost a aquesta enquesta.
+            title: Enquesta resposta
+          survey_closed:
+            body: L'enquesta està tancada i no pot ser resposta.
+            title: Enquesta tancada
+          tos_agreement: En participar en aquesta enquesta acceptes els Termes de Servei
