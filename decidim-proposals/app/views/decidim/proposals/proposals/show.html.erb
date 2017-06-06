@@ -15,7 +15,13 @@
         </span>
         <%= l @proposal.created_at, format: :long %>
         <span class="author__name">
-          <%= @proposal.author_name %>
+          <% if @proposal.author&.deleted? %>
+            <span class="label label--small label--basic">
+              <%= t('.deleted_user') %>
+            </span>
+          <% else %>
+            <%= @proposal.author_name %>
+          <% end %>
         </span>
       </div>
     </div>

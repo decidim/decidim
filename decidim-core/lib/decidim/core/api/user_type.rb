@@ -19,5 +19,7 @@ module Decidim
     field :organizationName, !types.String, "The user's organization name" do
       resolve ->(obj, _args, _ctx) { obj.organization.name }
     end
+
+    field :deleted, !types.Boolean, "Whether the user's account has been deleted or not", property: :deleted?
   end
 end

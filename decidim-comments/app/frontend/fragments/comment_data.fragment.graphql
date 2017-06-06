@@ -10,6 +10,7 @@ fragment CommentData on Comment {
   author {
     name
     avatarUrl
+    deleted
   }
   hasComments
   acceptsNewComments

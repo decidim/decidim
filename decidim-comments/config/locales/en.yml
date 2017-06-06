@@ -38,6 +38,7 @@ en:
         alignment:
           against: Against
           in_favor: In favor
+        deleted_user: Deleted user
         reply: Reply
         report:
           action: Report

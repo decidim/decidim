@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="columns large-8 end">
+    <div class="callout alert">
+      <p><%= t('.alert') %></p>
+    </div>
+    <p><%= t('.explanation') %></p>
+    <%= decidim_form_for(@form, url: account_path, method: :delete, html: { class: "user-form delete-account" }) do |f| %>
+      <div>
+        <label>
+          <span class="user-form__label"><%= t('activemodel.attributes.account.delete_reason') %></span>
+          <%= f.text_area :delete_reason, rows: 2 %>
+        </label>
+      </div>
+      <input type="submit" class="button open-modal-button" value="<%= t('.confirm.title') %>" />
+    <% end %>
+    <div class="tiny reveal" id="deleteConfirm" data-reveal>
+      <%= decidim_form_for(@form, url: account_path, method: :delete, html: { class: "user-form delete-account-modal" }) do |f| %>
+        <%= f.hidden_field :delete_reason %>
+
+        <p><%= t('.confirm.question') %></p>
+
+        <input type="submit" class="button expanded" value="<%= t('.confirm.ok') %>" />
+
+        <button class="close-button" data-close aria-label="<%= t('.confirm.close') %>" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>

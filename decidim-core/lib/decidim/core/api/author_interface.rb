@@ -7,6 +7,9 @@ module Decidim
     description "An author"
 
     field :name, !types.String, "The author's name"
+
     field :avatarUrl, !types.String, "The author's avatar url"
+
+    field :deleted, !types.Boolean, "Whether the author's account has been deleted or not"
   end
 end

@@ -17,5 +17,9 @@ module Decidim
     field :avatarUrl, !types.String, "The user's avatar url" do
       resolve ->(obj, _args, _ctx) { obj.avatar.url }
     end
+
+    field :deleted, !types.Boolean, "Whether the user group's has been deleted or not" do
+      resolve ->(_obj, _args, _ctx) { false }
+    end
   end
 end

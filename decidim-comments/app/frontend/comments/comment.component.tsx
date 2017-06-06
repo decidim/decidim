@@ -75,7 +75,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
                 <a className="author__avatar">
                   <img src={author.avatarUrl} alt="author-avatar" />
                 </a>
-                <a className="author__name">{author.name}</a>
+                {
+                  author.deleted ?
+                    <span className="label label--small label--basic">{I18n.t("components.comment.deleted_user")}</span> :
+                    <a className="author__name">{author.name}</a>
+                }
                 <time dateTime={createdAt}>{formattedCreatedAt}</time>
               </div>
             </div>

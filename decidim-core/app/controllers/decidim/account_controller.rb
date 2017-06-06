@@ -36,6 +36,29 @@ module Decidim
       render action: :show
     end
 
+    def delete
+      authorize! :delete, current_user
+      @form = form(DeleteAccountForm).from_model(current_user)
+    end
+
+    def destroy
+      authorize! :delete, current_user
+      @form = form(DeleteAccountForm).from_params(params)
+
+      DestroyAccount.call(current_user, @form) do
+        on(:ok) do
+          sign_out(current_user)
+          flash[:notice] = t("account.destroy.success", scope: "decidim")
+        end
+
+        on(:invalid) do
+          flash[:alert] = t("account.destroy.error", scope: "decidim")
+        end
+      end
+
+      redirect_to decidim.root_path
+    end
+
     private
 
     def authorizations

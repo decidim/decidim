@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      account:
+        delete_reason: Reason to delete your account
       report:
         details: Additional comments
       user:
@@ -33,6 +35,17 @@ en:
       image_too_big: The image is too big
   decidim:
     account:
+      delete:
+        alert: This action cannot be undone. If you delete your account you won't be able to log in.
+        confirm:
+          close: Close window
+          ok: Yes, I want to delete my account
+          question: Are you sure you want to delete your account?
+          title: Delete my account
+        explanation: Please, fill in the reason you want to delete your account (optional).
+      destroy:
+        error: There's been an error deleting your account.
+        success: Your account was deleted successfully.
       show:
         change_password: Change password
         update_account: Update account
@@ -322,6 +335,7 @@ en:
       user_profile:
         account: Account
         authorizations: Authorizations
+        delete_my_account: Delete my account
         notifications_settings: Notifications settings
         title: User settings
         user_groups: Organizations

@@ -7,8 +7,8 @@ module Decidim
   module Comments
     describe CommentNotificationMailer, type: :mailer do
       let(:organization) { create(:organization) }
-      let(:participatory_process) { create(:participatory_process, organization: organization)}
-      let(:feature) { create(:feature, participatory_process: participatory_process)}
+      let(:participatory_process) { create(:participatory_process, organization: organization) }
+      let(:feature) { create(:feature, participatory_process: participatory_process) }
       let(:commentable_author) { create(:user, organization: organization) }
       let(:commentable) { create(:dummy_resource, author: commentable_author, feature: feature) }
       let(:author) { create(:user, organization: organization) }
