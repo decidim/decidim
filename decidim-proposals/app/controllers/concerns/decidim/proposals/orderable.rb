@@ -28,7 +28,7 @@ module Decidim
         end
 
         def default_order
-          if current_settings.votes_enabled?
+          if votes_visible?
             detect_order("most_voted")
           else
             "random"
