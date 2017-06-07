@@ -40,11 +40,11 @@ es:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
           question: '¿Seguro que quieres eliminar tu cuenta?'
-          title: Borrar mi cuenta
+          title: Eliminar mi cuenta
         explanation: Por favor, rellena el motivo por el que deseas eliminar tu cuenta (opcional).
       destroy:
         error: Se ha producido un error al eliminar tu cuenta.
-        success: Su cuenta se ha eliminado correctamente.
+        success: Tu cuenta se ha eliminado correctamente.
       show:
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
@@ -334,7 +334,7 @@ es:
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones
-        delete_my_account: Borrar mi cuenta
+        delete_my_account: Eliminar mi cuenta
         notifications_settings: Configuracion de notificaciones
         title: Ajustes de usuario
         user_groups: Organizaciones
