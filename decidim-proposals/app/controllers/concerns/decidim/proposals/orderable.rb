@@ -15,7 +15,7 @@ module Decidim
 
         # Gets how the proposals should be ordered based on the choice made by the user.
         def order
-          @order ||= detect_order(params[:order] || "most_voted")
+          @order ||= detect_order(params[:order] || "most_voted") || "random"
         end
 
         # Available orders based on enabled settings
@@ -36,8 +36,8 @@ module Decidim
           @random_seed ||= (params[:random_seed] ? params[:random_seed].to_f : (rand * 2 - 1))
         end
 
-        def detect_order(candidate, default = "random")
-          available_orders.detect(-> { default }) { |order| order == candidate }
+        def detect_order(candidate)
+          available_orders.detect { |order| order == candidate }
         end
 
         def reorder(proposals)
