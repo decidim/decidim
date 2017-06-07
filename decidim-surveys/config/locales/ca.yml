@@ -61,9 +61,9 @@ ca:
           are_you_sure: Aquesta acció no es pot desfer i no podràs editar les respostes. N'estàs segur?
           submit: Enviar
           survey_answered:
-            body: Vostè ja ha respost a aquesta enquesta.
+            body: Ja ha respost a aquesta enquesta.
             title: Enquesta resposta
           survey_closed:
-            body: L'enquesta està tancada i no pot ser resposta.
+            body: L'enquesta està tancada i no s'hi pot participar.
             title: Enquesta tancada
           tos_agreement: En participar en aquesta enquesta acceptes els Termes de Servei
