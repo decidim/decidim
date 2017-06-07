@@ -1,0 +1,126 @@
+it:
+  activemodel:
+    attributes:
+      project:
+        decidim_category_id: Categoria
+        decidim_scope_id: Visibilità/ambito
+        description: Descrizione
+        proposal_ids: Proposte correlate
+        title: Titolo
+  decidim:
+    budgets:
+      actions:
+        attachments: Allegati
+        confirm_destroy: Sei certo di voler cancellare questo progetto?
+        destroy: Cancella
+        edit: Modifica
+        new: Nuovo
+        preview: Anteprima
+        title: Azioni
+      admin:
+        models:
+          project:
+            name: Progetto
+        projects:
+          create:
+            invalid: C'è stato un problema durante la creazione di questo progetto.
+            success: OK, progetto creato.
+          destroy:
+            success: OK, progetto eliminato.
+          edit:
+            title: Modifica il progetto
+            update: Aggiorna
+          index:
+            finished_orders: Ordini terminati.
+            pending_orders: Ordini pendenti.
+            title: Progetti
+          new:
+            create: Crea
+            title: Nuovo risultato
+          update:
+            invalid: C'è stato un problema durante l'aggiornamento di questo progetto.
+            success: OK, progetto aggiornato.
+      models:
+        project:
+          fields:
+            title: Titolo
+      projects:
+        budget_confirm:
+          are_you_sure: Sei d'accordo? Dopo che avrai confermato il tuo voto non potrai più modificarlo
+          cancel: Annulla
+          confirm: Conferma
+          description: Questi sono i progetti per i quali hai scelto di partecipare al budget.
+          title: Conferma il voto
+        budget_excess:
+          close: Chiudi
+          description: Questo progetto supera il budget e non può essere aggiunto. Se vuoi puoi cancellare un progetto che hai già scelto di aggiungere, oppure votare in base alle tue preferenze.
+          title: Budget superato
+        budget_summary:
+          are_you_sure: Sei certo di voler cancellare il tuo voto?
+          assigned: 'Assegnato:'
+          cancel_order: Cancella il tuo voto e ricomincia.
+          checked_out:
+            description: Hai già votato per il budget. Se hai cambiato idea puoi %{cancel_link}.
+            title: Voto di budget completato.
+          description: Per quali progetti pensi che dovremmo allocare del budget? Indica un budget minimo di %{minimum_budget} ai progetti che vuoi votare e vota con le tue preferenze per definire il budget.
+          title: Tu decidi il budget
+        count:
+          projects_count:
+            one: 1 progetto
+            other: "%{count} progetti"
+        filters:
+          category: Categoria
+          category_prompt: Scegli una categoria
+          scopes: Visibilità/ambito
+          search: Cerca
+        filters_small_view:
+          close_modal: Chiudi modalità
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Espandi
+        order_progress:
+          vote: Vota
+        order_selected_projects:
+          remove: Rimuovi
+          selected_projects:
+            one: Progetto scelto
+            other: Progetti scelti
+          view: Visualizza
+        project:
+          add: Aggiungi
+          count:
+            one: 1 supporto/voto
+            other: "%{count} supportati/voti"
+          remove: Elimina
+        project_budget_button:
+          add: Aggiungi
+          added: Aggiunto
+        show:
+          view_all_projects: Visualizza tutti i progetti
+    features:
+      budgets:
+        actions:
+          vote: Votazione
+        name: Investimenti
+        settings:
+          global:
+            comments_enabled: Commenti abilitati
+            total_budget: Budget totale
+            vote_threshold_percent: Soglia voti (percentuale)
+          step:
+            comments_blocked: Commenti bloccati
+            show_votes: Visualizza voti
+            votes_enabled: Voti abilitati
+    orders:
+      checkout:
+        error: C'è stato un errore durante l'acquisizione del voto.
+        success: OK, il tuo voto è stato acquisito.
+      destroy:
+        error: C'è stato un errore durante la cancellazione del voto.
+        success: OK, il tuo voto è stato cancellato.
+    resource_links:
+      included_proposals:
+        project_proposals: 'Proposte incluse in questo progetto:'
+  index:
+    confirmed_orders_count: Conteggio ordini
+  total_budget: Budget totale
