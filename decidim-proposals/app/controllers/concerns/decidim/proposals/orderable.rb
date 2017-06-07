@@ -28,7 +28,7 @@ module Decidim
         end
 
         def default_order
-          if current_settings.votes_blocked?
+          if current_settings.votes_enabled?
             detect_order("most_voted")
           else
             "random"
@@ -56,6 +56,8 @@ module Decidim
             proposals.order(proposal_votes_count: :desc)
           when "recent"
             proposals.order(created_at: :desc)
+          else
+            proposals
           end
         end
       end
