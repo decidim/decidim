@@ -17,7 +17,7 @@ task default: :spec
 desc "Runs all tests in all Decidim engines"
 task test_all: ["decidim:generate_test_app"] do
   DECIDIM_GEMS.each do |gem_name|
-    Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
+    Dir.chdir("#{__dir__}/decidim-#{gem_name}") do
       puts "Running #{gem_name}'s tests..."
       sh "rake"
     end
@@ -28,7 +28,7 @@ desc "Pushes a new build for each gem."
 task release_all: [:check_locale_completeness, :webpack] do
   sh "rake release"
   DECIDIM_GEMS.each do |gem_name|
-    Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
+    Dir.chdir("#{__dir__}/decidim-#{gem_name}") do
       sh "rake release"
     end
   end
@@ -37,7 +37,7 @@ end
 desc "Makes sure all official locales are complete and clean."
 task :check_locale_completeness do
   DECIDIM_GEMS.each do |gem_name|
-    Dir.chdir("#{File.dirname(__FILE__)}/decidim-#{gem_name}") do
+    Dir.chdir("#{__dir__}/decidim-#{gem_name}") do
       system({ "ENFORCED_LOCALES" => "en,ca,es" }, "rspec spec/i18n_spec.rb")
     end
   end
@@ -45,7 +45,7 @@ end
 
 desc "Generates a development app."
 task :development_app do
-  Dir.chdir(File.dirname(__FILE__)) do
+  Dir.chdir(__dir__) do
     sh "rm -fR development_app"
   end
 
@@ -53,7 +53,7 @@ task :development_app do
     ["development_app", "--path", ".."]
   )
 
-  Dir.chdir("#{File.dirname(__FILE__)}/development_app") do
+  Dir.chdir("#{__dir__}/development_app") do
     Bundler.with_clean_env do
       sh "bundle exec spring stop"
       sh "bundle exec rake db:drop db:create db:migrate db:seed"
@@ -64,11 +64,11 @@ end
 
 desc "Generates a development app based on Docker."
 task :docker_development_app do
-  Dir.chdir(File.dirname(__FILE__)) do
+  Dir.chdir(__dir__) do
     sh "rm -fR docker_development_app"
   end
 
-  path = File.dirname(__FILE__) + "/docker_development_app"
+  path = __dir__ + "/docker_development_app"
 
   Decidim::Generators::DockerGenerator.start(
     ["docker_development_app", "--path", path]

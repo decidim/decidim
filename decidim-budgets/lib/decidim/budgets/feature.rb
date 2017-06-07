@@ -65,13 +65,13 @@ Decidim.register_feature(:budgets) do |feature|
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
+          file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
           attached_to: project
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(File.dirname(__FILE__), "seeds", "Exampledocument.pdf")),
+          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
           attached_to: project
         )
         Decidim::Comments::Seed.comments_for(project)

@@ -28,7 +28,7 @@ module Decidim
         GraphiQL::Rails.config.tap do |config|
           config.query_params = true
           config.initial_query = File.read(
-            File.join(File.dirname(__FILE__), "graphiql-initial-query.txt")
+            File.join(__dir__, "graphiql-initial-query.txt")
           ).html_safe
         end
       end

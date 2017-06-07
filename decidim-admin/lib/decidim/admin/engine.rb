@@ -13,7 +13,7 @@ require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "rectify"
 
-require_dependency File.join(File.dirname(__FILE__), "..", "..", "..", "app/models/decidim/admin/abilities/admin_user")
+require_dependency File.join(__dir__, "..", "..", "..", "app/models/decidim/admin/abilities/admin_user")
 
 module Decidim
   module Admin

@@ -9,7 +9,7 @@ describe "Admin invite", type: :feature do
 
   let(:homepage_image_path) do
     File.expand_path(
-      File.join(File.dirname(__FILE__), "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg")
+      File.join(__dir__, "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg")
     )
   end
 

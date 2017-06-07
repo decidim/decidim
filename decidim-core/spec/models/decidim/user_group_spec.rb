@@ -50,7 +50,7 @@ module Decidim
       context "when the file is a malicious image" do
         let(:avatar_path) do
           File.expand_path(
-            File.join(File.dirname(__FILE__), "..", "..", "..", "..", "decidim-dev", "spec", "support", "malicious.jpg")
+            File.join(__dir__, "..", "..", "..", "..", "decidim-dev", "spec", "support", "malicious.jpg")
           )
         end
         let(:user_group) do

@@ -15,7 +15,7 @@ if !Rails.env.production? || ENV["SEED"]
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(15)
     end,
-    homepage_image: File.new(File.join(File.dirname(__FILE__), "seeds", "homepage_image.jpg")),
+    homepage_image: File.new(File.join(__dir__, "seeds", "homepage_image.jpg")),
     default_locale: I18n.default_locale,
     available_locales: Decidim.available_locales,
     reference_prefix: Faker::Name.suffix
@@ -103,7 +103,7 @@ if !Rails.env.production? || ENV["SEED"]
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(3)
       end,
-      hero_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
+      hero_image: File.new(File.join(__dir__, "seeds", "city.jpeg")),
       organization: organization
     )
   end
@@ -120,8 +120,8 @@ if !Rails.env.production? || ENV["SEED"]
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(3)
       end,
-      hero_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
-      banner_image: File.new(File.join(File.dirname(__FILE__), "seeds", "city2.jpeg")),
+      hero_image: File.new(File.join(__dir__, "seeds", "city.jpeg")),
+      banner_image: File.new(File.join(__dir__, "seeds", "city2.jpeg")),
       promoted: true,
       published_at: 2.weeks.ago,
       organization: organization,
@@ -153,13 +153,13 @@ if !Rails.env.production? || ENV["SEED"]
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
-      file: File.new(File.join(File.dirname(__FILE__), "seeds", "city.jpeg")),
+      file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
       attached_to: process
     )
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
-      file: File.new(File.join(File.dirname(__FILE__), "seeds", "Exampledocument.pdf")),
+      file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
       attached_to: process
     )
     2.times do

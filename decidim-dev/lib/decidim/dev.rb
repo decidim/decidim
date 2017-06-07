@@ -12,14 +12,7 @@ module Decidim
     #
     # Returns a String with the path for a particular asset.
     def self.asset(name)
-      File.expand_path(
-        File.join(
-          File.dirname(__FILE__),
-          "dev",
-          "assets",
-          name
-        )
-      )
+      File.expand_path(File.join(__dir__, "dev", "assets", name))
     end
   end
 end
