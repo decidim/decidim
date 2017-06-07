@@ -1,0 +1,353 @@
+it:
+  activemodel:
+    attributes:
+      report:
+        details: Commenti aggiuntivi
+      user:
+        email: La tua email
+        name: Il tuo nome
+        password: Nuova password
+        password_confirmation: Conferma la nuova password
+        user_group_document_number: Numero del documento dell'organizzazione
+        user_group_name: Nome dell'organizzazione
+        user_group_phone: Numero di telefono dell'organizzazione
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Password attuale
+        name: Nome Utente
+        password_confirmation: Conferma della password
+        remember_me: Ricordami (rimani collegato)
+        user_group_document_number: Numero del documento dell'organizzazione
+        user_group_name: Nome dell'organizzazione
+        user_group_phone: Numero di telefono dell'organizzazione
+  booleans:
+    'true': 'Si'
+  carrierwave:
+    errors:
+      image_too_big: La dimensione dell'immagine è troppo grande
+  decidim:
+    account:
+      show:
+        change_password: Cambio della password
+        update_account: Aggiorna l'account
+      update:
+        error: Si è verificato un errore durante l'aggiornamento del tuo account.
+        success: OK, il tuo account è stato aggiornato.
+    application:
+      documents:
+        related_documents: Documenti correlati
+      photos:
+        related_photos: Immagini correlate
+    authorization_handlers:
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Documento n.
+          postal_code: C.A.P.
+        name: Esempio di autorizzazione
+      errors:
+        duplicate_authorization: Esiste già un utente autorizzato con questi dati.
+    authorizations:
+      create:
+        error: Siè verificato un errore durante la fase di creazione dell'autenticazione.
+        success: OK, la fase di autorizzazione si è conclusa positivamente.
+      current_participatory_processes: Guarda il processo corrente.
+      first_login:
+        actions:
+          decidim/dummy_authorization_handler: Verifica rispetto all'autorizzazione blanda
+        title: Verifica della tua identità
+        verify_with_these_options: 'Opzioni per la verifica dell''autorizzazione:'
+      new:
+        authorize: Invia
+        authorize_with: Verifica con %{authorizer}
+      skip_verification: Se preferisci puoi saltare questa verifica per il momento e %{link}
+    core:
+      actions:
+        unauthorized: Non hai permessi sufficienti per effetuare questa azione
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Questo indirizzo email è già utilizzato per un altro account
+        new:
+          complete_profile: Completa il profilo
+          sign_up: Per cortesia completa il tuo profilo utente
+          subtitle: Per cortesia riempi i campi del seguente modulo al fine di completare la registrazione
+          username_help: Nome "pubblico" che comparirà per i tuoi post.  Usa un nome di fantasia se vuoi garantirti un certo grado di anonimato.
+      registrations:
+        new:
+          already_have_an_account?: Hai già un account?
+          newsletter_notifications: Ricevi informazioni su attività rilevanti effettuate con il tuo account
+          sign_up: Registrazione
+          sign_up_as:
+            legend: Registrati come
+            user: Individuo
+            user_group: Organizzazione/Gruppo di persone
+          subtitle: Registrati per partecipare alle discussioni e per votare le proposte.
+          terms: Termini e condizioni di utilizzo del servizio
+          tos_agreement: Effettuando la registrazione automaticamente accetti le seguenti condizioni %{link}.
+          username_help: Nome "pubblico" che comparirà per i tuoi post.  Usa un nome di fantasia se vuoi garantirti un certo grado di anonimato.
+      sessions:
+        new:
+          are_you_new?: Non conosci bene questa piattaforma?  Sei un neofita?
+          register: Crea un account
+      shared:
+        omniauth_buttons:
+          or: oppure
+    export_mailer:
+      export:
+        ready: Trovi in allegato una versione compressa (ZIP) dei dati esportati .
+      subject: Ecco i dati che hai chiesto di esportare per "%{name}"
+    features:
+      dummy:
+        name: Funzionalità fittizia
+        settings:
+          global:
+            comments_enabled: Commenti abilitati
+            dummy_global_attribute_1: Attributo fittizio 1
+            dummy_global_attribute_2: Attributo fittizio 2
+          step:
+            comments_blocked: Commenti bloccati
+            dummy_step_attribute_1: Attributo 1 della fase fittizia
+            dummy_step_attribute_2: Attributo 2 della fase fittizia
+    filters:
+      linked_classes:
+        all: Tutto
+        meeting: Incontri
+        project: Progetti
+        proposal: Proposte
+        result: Votazioni
+    forms:
+      errors:
+        error: Si è verificato un errore in questo campo.
+    menu:
+      more_information: Ulteriori informazioni
+      processes: Processi
+    newsletter_mailer:
+      newsletter:
+        note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni di ricezione delle notifiche sulla tua <a href="%{link}">pagina delle notifiche</a>.
+    notifications_settings:
+      show:
+        comments_notifications: Desidero ricevere un'email di notifica quando qualcuno mi scrive un commento.
+        newsletter_notifications: Desidero ricevere informazioni sulle attività rilevanti.
+        replies_notifications: Desidero ricevere notifiche tramite email quando qualcuno risponde ai miei commenti.
+        update_notifications_settings: Salva le modifiche
+      update:
+        error: Si è verificato un errore durante l'aggiornamento delle impostazioni di notifica.
+        success: OK, le impostazioni per le notifiche sono state modificate.
+    own_user_groups:
+      index:
+        verified: Verificato
+    pages:
+      index:
+        title: Ulteriori informazioni
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Processi per il gruppo %{group}
+        title: Titolo
+    participatory_process_steps:
+      index:
+        process_steps: Fasi del processo
+        title: Fasi del processo participatorio
+    participatory_processes:
+      index:
+        title: Processo participatorio
+      participatory_process_groups:
+        none: Nessuno
+      scopes:
+        global: Ambito globale
+      show:
+        developer_group: Gruppo di sviluppo
+        end_date: Data di fine
+        local_area: Area locale
+        participatory_scope: Ambito partecipativo
+        participatory_structure: Struttura partecipativa
+        scope: Ambito
+    reported_mailer:
+      hide:
+        hello: Ciao %{name},
+        report_html: "<p>Il seguente contenuto:<p>%{content}<p>&egrave; stato nascosto automaticamente.</p>"
+        subject: Una risorsa è stata cancellata automaticamente
+      report:
+        hello: Ciao %{name},
+        report_html: "<p>Il seguente contenuto:<p>%{content}<p>&egrave; stato riportato.</p>"
+        subject: Una risorsa è stata riportata
+    reports:
+      create:
+        error: Si è verificato un errore durante la creazione del report. Per cortesia, prova ad effettuare nuovamente l'operazione.
+        success: OK, il report è stato creato e sarà revisionato da un amministratore.
+    shared:
+      action_authorization_modal:
+        incomplete:
+          cancel: Annulla
+          explanation: 'Anche se attualmente sei autorizzato con "%{authorization}", abbiamo bisogno che tu richieda una nuova autorizzazione poiché risultano mancanti i seguenti dati:'
+          reauthorize: Ri-autorizza
+          title: Per cortesia, occorre una nuova autorizzazione
+        missing:
+          authorize: Autorizza con "%{authorization}"
+          explanation: Per effettuare questa operazione occorre che tu sia autorizzato con "%{authorization}".
+          title: E' necessaria l'autorizzazione
+        unauthorized:
+          explanation: Mi spiace, non puoi effettuare questa operazione poiché i tuoi dati di autorizzazione non corrispondono.
+          invalid: "Il campo %{field} non risulta valido."
+          title: Non autorizzato
+      embed_modal:
+        close_window: Chiudi la finestra
+        embed: Per cortesia incolla questo codice nella tua pagina
+        embed_link: Incorpora
+      flag_modal:
+        already_reported: Questo contenuto è già stato riportato e sarà revisionato da parte di un amministratore.
+        close: Chiudi
+        description: Questo contenuto è inappropriato?
+        does_not_belong: Contiene attività illegati, istigazione al suicidio, informazioni personali o riservate, minacce o altro che tu pensi che non sia appropriato per %{organization_name}.
+        offensive: Contiene contenuti razzisti, diffamatori, sessisti, insulti o attacchi personali, minacce di morte, istigazioni al suicidio o altre forme di odio verbale.
+        spam: Contiene pubblicità, truffe, spam oppure ha come intento di attirare traffico internet e "click".
+        title: Segnala un problema
+      login_modal:
+        please_sign_in: Per cortesia effettua l'accesso.
+        sign_up: Registrazione
+      share_modal:
+        close_window: Chiudi questa finestra
+        share: Condividi
+        share_link: Condividi questo link
+  devise:
+    invitations:
+      edit:
+        header: Imposta la password
+        submit_button: Salva
+    mailer:
+      invitation_instructions:
+        accept: Accetta l'invito
+        accept_until: Questo invito sarà valido fino al %{due_date}.
+        hello: Ciao %{email},
+        ignore: |-
+          Se non hai intenzione di accettare l'invito, per cortesia ignora questa email.<br />
+          Non verrà un account relativo al tuo profilo fino a che non effettuerai l'accesso al link precedente ed imposterai la tua password.
+        invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}, puoi accettare l'invito tramite il seguente link."
+        someone_invited_you: Sei stato invitato per %{application}, puoi accettare l'invito tramite il seguente link.
+      invite_admin:
+        subject: Sei stato invitato per la gestione della sezione relativa all'organizzazione %{organization}
+      invite_collaborator:
+        subject: Sei stato invitato a collaborare per la sezione relativa all'organizzazione %{organization}
+      organization_admin_invitation_instructions:
+        subject: Sei stato invitato a gestire la sezione relativa all'organizzazione %{organization}
+      password_change:
+        greeting: Ciao %{recipient}!
+        message: ti contattiamo per informarti che la tua password è stata modificata.
+        subject: Password modificata
+  errors:
+    messages:
+      content_type_whitelist_error: Il tipo di file non è valido.
+      file_size_is_less_than_or_equal_to: La dimensione del file deve essere minore o uguale a %{count}
+      invalid_manifest: Manifesto non valido
+      invalid_participatory_process: Processo partecipativo non valido
+      long_words: Contiene parole troppo lunghe
+      must_start_with_caps: Deve iniziare in maiuscolo
+      nesting_too_deep: Non può essere all'interno di una categoria (annidamento eccessivo)
+      too_many_marks: Uilizza troppi segni
+      too_much_caps: Utilizza troppe MAIUSCOLE
+      too_short: Il contenuto è troppo breve
+  invisible_captcha:
+    sentence_for_humans: Se sei una persona e non un computer, ignora questo campo
+    timestamp_error_message: Mi spiace, troppo veloce! Per cortesia sottoponi nuovamente il contenuto.
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: Questo sito utilizza dei cookies. Se continui la navigazione significa che approvi i nostri termini di utilizzo dei cookies. Per ulteriori dettagli in proposito leggi %{link}.
+        link_label: qui
+        ok: OK, accetto
+      footer:
+        made_with_open_source: 'Questo sito è su GitHub <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.'
+      header:
+        close_menu: Chiudi questo menu
+        navigation: Navigazione
+        sign_in: Accedi
+        sign_up: Registrati
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Naviga
+      participatory_process_widgets:
+        show:
+          active_step: Fasi attive
+          take_part: Unisciti
+      participatory_processes:
+        index:
+          promoted_processes: Processi evidenziati
+        no_processes_yet:
+          no_processes_yet: Non ci sono ancora dei processi partecipativi!
+        order_by_processes:
+          processes:
+            one: "%{count} processo"
+            other: "%{count} processi"
+        participatory_process:
+          active_step: 'Fase attuale:'
+          take_part: Unisciti
+        promoted_process:
+          active_step: 'Fase attuale:'
+          more_info: Più informazioni
+          take_part: Unisciti
+      process_header:
+        process_menu_item: Il processo
+        unfold: Espandi
+      process_header_steps:
+        step: Fase %{current} di %{total}
+        view_steps: Visualizza le fasi
+      user_menu:
+        admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
+        profile: Il mio account
+        sign_out: Esci
+      user_profile:
+        authorizations: Authorizzazioni
+        notifications_settings: Impostazioni delle notifiche
+        title: Impostazioni utente
+        user_groups: Organizzazioni
+      widget:
+        see_more: vedi di più
+  locale:
+    name: Italiano
+  pages:
+    '404':
+      back_home: Torna alla home page
+      content_doesnt_exist: Questo indirizzo non è corretto oppure è stato rimosso.
+      title: La pagina che stai cercando non esiste oppure non è disponibile
+    '500':
+      title: Si è verificato un problema da parte del server
+      try_later: Per cortesia riprova più tardi.
+    home:
+      extended:
+        debates: Dibattiti
+        debates_explanation: Incontriamoci, discutiamo e condividiamo le nostre opinioni sulle cose che riteniamo importanti per la nostra Città.
+        how_to_participate: Come posso partecipare ad un processo?
+        meetings: Incontri, meeting
+        meetings_explanation: Incontriamoci, discutiamo e condividiamo le nostre opinioni sulle cose che riteniamo importanti per la nostra Città.
+        more_info: Maggiori informazioni
+        proposals: Proposte
+        proposals_explanation: Spazio aperto per le proposte dei cittadini in merito al tipo di Città ideale in cui vorrebbero vivere.
+      footer_sub_hero:
+        footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
+        footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
+        register: Registrati
+      hero:
+        participate: Partecipa
+        welcome: Benvenuto su %{organization}!
+      highlighted_processes:
+        active_processes: Processi attivi
+        active_step: Fase attiva
+        see_all_processes: Vedi tutti i processi
+      statistics:
+        headline: Stato attuale dell'organizzazione %{organization}
+        meetings_count: Meeting
+        processes_count: Processi
+        proposals_count: Proposte
+        results_count: Resultati
+        users_count: Utenti
+        votes_count: Voti
+      sub_hero:
+        register: Registrati
+  social_share_button:
+    wechat_footer: Apri il tuo WeChat, clicca il pulsante "Discover", infine clicca sul menu "Scan QR Code".
+  views:
+    pagination:
+      first: "&laquo; Primo"
+      last: Ultimo &raquo;
+      next: Successivo &rsaquo;
+      previous: "&lsaquo; Precedente"
