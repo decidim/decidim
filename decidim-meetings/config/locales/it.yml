@@ -1,0 +1,87 @@
+it:
+  activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: Numero di partecipanti
+        attending_organizations: Elenco delle organizzazioni partecipanti
+      meeting:
+        address: Indirizzo
+        decidim_category_id: Categoria
+        decidim_scope_id: Visibilità
+        description: Descrizione
+        end_time: Orario fine
+        start_time: Orario inizio
+  decidim:
+    features:
+      meetings:
+        name: Incontri
+    meetings:
+      actions:
+        attachments: Allegati
+        close: Chiuso
+        confirm_destroy: Sei certo di voler cancellare questo meeting?
+        destroy: Cancella
+        edit: Modifica
+        new: Nuovo
+        preview: Anteprima
+        title: Azioni
+      admin:
+        meeting_closes:
+          edit:
+            close: Chiudi
+            title: Chiusura meeting
+        meetings:
+          close:
+            invalid: C'è stato un problema durante la chiusura di questo meeting.
+            success: OK, il meeting è stato chiuso.
+          create:
+            invalid: C'è stato un problema durante la creazione di questo meeting.
+            success: OK, il meeting è stato creato con successo.
+          destroy:
+            success: OK, il meeting è stato cancellato.
+          edit:
+            update: Modifica
+          new:
+            create: Crea
+            title: Crea meeting
+          update:
+            invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
+            success: OK, il meeting è stato aggiornato.
+      meetings:
+        filters:
+          category: Categoria
+          category_prompt: Scegli una categoria
+          date: Data
+          past: Passato
+          scopes: Visibilità
+          search: Cerca
+          upcoming: Imminenti
+        filters_small_view:
+          close_modal: Chiudi modalità
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Espandi
+        index:
+          view_meeting: Visualizza meeting
+        meetings:
+          no_meetings_warning: Nessun meeting corrisponde ai tuoi criteri di ricerca oppure non vi è nessun meeting in programma.
+          upcoming_meetings_warning: Attualmente non vi sono meeting in programma, ma qui puoi trovare elencati tutti i meeting effettuati in passato.
+        show:
+          attendees: Conteggio dei partecipanti
+          contributions: Conteggio dei contributi
+          organizations: Organizzazioni partecipanti.
+      models:
+        meeting:
+          fields:
+            closed: Chiuso
+            end_time: Data di fine
+            map: Mappa
+            start_time: Data di inizio
+            title: Titolo
+    resource_links:
+      meetings_through_proposals:
+        meeting_results: 'Risultati correlati:'
+        result_meetings: 'Meeting correlati:'
+      proposals_from_meeting:
+        meeting_proposals: 'Proposte correlate:'
+        proposal_meetings: 'Meeting correlati alle proposte:'
