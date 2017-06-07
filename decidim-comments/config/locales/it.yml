@@ -1,0 +1,65 @@
+it:
+  activerecord:
+    errors:
+      messages:
+        cannot_have_comments: non si possono fare commenti
+  decidim:
+    comments:
+      comment_notification_mailer:
+        comment_created:
+          new_comment_html: C'è un nuovo commento da parte di <b>%{commenter}</b> al link <b>%{commentable_link}</b>
+        hello: Ciao %{name},
+        manage_email_subscriptions_html: Puoi bloccare la ricezione di questo tipo di email variando le impostazioni su %{link}.
+        notifications_settings_link: pagina per le impostazioni delle notifiche
+        reply_created:
+          new_reply_html: C'è una nuova risposta al tuo commento da parte di <b>%{commenter}</b> in <b>%{commentable_link}</b>
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: C'è un nuovo commento
+          reply_created:
+            subject: Hai ricevuto una nuova risposta ad un tuo commento
+    components:
+      add_comment_form:
+        account_message: '<a href="%{sign_in_url}">Entra col tuo account</a> or <a href="%{sign_up_url}">Registrati</a> per poter commentare. '
+        form:
+          body:
+            label: Commenta
+            placeholder: Cosa ne pensi?
+          form_error: Il testo è necessario, deve essere obbligatoriamente indicato (max %{length} caratteri).
+          submit: Invia
+          user_group_id:
+            label: Commenta come
+        opinion:
+          neutral: Neutro
+        title: Aggiungi il tuo commento
+      comment:
+        alignment:
+          against: Contro
+          in_favor: A favore
+        reply: Rispondi
+        report:
+          already_reported: Questo contenuto è già stato indicato e sarà revisionato da un utente Admnistrator.
+          close: Chiudi
+          description: Trovi questo contenuto inappropriato?
+          details: motivazione
+          reasons:
+            does_not_belong: Contiene un'attività illegale, istigazioni al suicidio, minacce, informazioni personali o riservate, oppure vi sono dei contenuti che reputi inappropriati per %{organization_name}.
+            offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
+            spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
+          title: Segnala un problema
+      comment_order_selector:
+        order:
+          best_rated: Favoriti
+          most_discussed: Più discussi
+          older: Più vecchi
+          recent: Più recenti
+        title: 'Ordina per:'
+      comment_thread:
+        title: Conversazioni con %{authorName}
+      comments:
+        blocked_comments_warning: I commenti sono disabilitati per questa fase, ma puoi leggere i commenti delle fasi precedenti.
+        loading: Sto caricando i commenti ...
+        title: "%{count} commenti"
+      featured_comment:
+        title: Commento in primo piano
