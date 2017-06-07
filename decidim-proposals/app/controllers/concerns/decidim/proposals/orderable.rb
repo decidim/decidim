@@ -37,7 +37,7 @@ module Decidim
         end
 
         def detect_order(candidate, default = "random")
-          available_orders.detect(default) { |order| order == candidate }
+          available_orders.detect(lambda { default }) { |order| order == candidate }
         end
 
         def reorder(proposals)
