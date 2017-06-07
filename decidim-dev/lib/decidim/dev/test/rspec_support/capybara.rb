@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "capybara/poltergeist"
+require "selenium-webdriver"
 require "capybara-screenshot/rspec"
 
 module Decidim
@@ -43,12 +44,41 @@ Capybara.register_driver :debug do |app|
   Capybara::Poltergeist::Driver.new(app, capybara_options.merge(inspector: true))
 end
 
+Capybara.register_driver :chrome do |app|
+  chrome_options = {
+    args: %w(headless no-sandbox disable-gpu window-size=1024,768)
+  }
+
+  if ENV["CHROME_BINARY"].present?
+    chrome_options[:binary] = ENV["CHROME_BINARY"]
+  end
+
+  caps = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chrome_options: chrome_options
+  )
+
+  driver_options = {
+    browser: :chrome,
+    desired_capabilities: caps
+  }
+
+  if ENV["CHROMEDRIVER_BINARY"].present?
+    driver_options[:driver_path] = ENV["CHROMEDRIVER_BINARY"]
+  end
+
+  Capybara::Selenium::Driver.new(app, driver_options)
+end
+
 Capybara::Screenshot.prune_strategy = :keep_last_run
 Capybara::Screenshot::RSpec.add_link_to_screenshot_for_failed_examples = true
 
+Capybara::Screenshot.register_driver(:chrome) do |driver, path|
+  driver.browser.save_screenshot(path)
+end
+
 Capybara.configure do |config|
   config.always_include_port = true
-  config.default_driver = :poltergeist
+  config.default_driver = :chrome
 end
 
 RSpec.configure do |config|

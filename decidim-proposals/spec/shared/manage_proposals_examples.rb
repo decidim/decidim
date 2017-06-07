@@ -13,7 +13,7 @@ RSpec.shared_examples "manage proposals" do
     )
   end
 
-  context "previewing proposals" do
+  context "previewing proposals", driver: :poltergeist do
     it "allows the user to preview the proposal" do
       within find("tr", text: proposal.title) do
         @new_window = window_opened_by { find("a.action-icon--preview").click }

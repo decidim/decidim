@@ -59,6 +59,7 @@ In order to develop on decidim, you'll need:
 * **NodeJS** with **yarn** (JavaScript dependency manager, can be installed with `npm install yarn`)
 * **ImageMagick**
 * **PhantomJS**
+* **Chrome** and **chromedriver**
 
 The easiest way to work on decidim is to clone decidim's repository and install its dependencies
 

@@ -43,8 +43,6 @@ module Decidim
         double(manifest: double(icon: icon))
       end
 
-      let(:icon) { "a/fake/icon.svg" }
-
       describe "when the feature has no icon" do
         let(:icon) { nil }
 
@@ -55,6 +53,8 @@ module Decidim
       end
 
       describe "when the feature has no icon" do
+        let(:icon) { "a/fake/icon.svg" }
+
         it "returns a fallback" do
           result = helper.feature_icon(feature)
           expect(result).to include("a/fake/icon.svg")

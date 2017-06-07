@@ -25,8 +25,6 @@ RSpec.shared_examples "manage moderations" do
 
   context "listing moderations" do
     it "user can review them" do
-      click_link "Moderations"
-
       moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
           expect(page).to have_content moderation.reportable.reported_content
@@ -36,8 +34,6 @@ RSpec.shared_examples "manage moderations" do
     end
 
     it "user can un-report a resource" do
-      click_link "Moderations"
-
       within "tr[data-id=\"#{moderation.id}\"]" do
         find("a.action-icon--unreport").click
       end
@@ -48,8 +44,6 @@ RSpec.shared_examples "manage moderations" do
     end
 
     it "user can hide a resource" do
-      click_link "Moderations"
-
       within "tr[data-id=\"#{moderation.id}\"]" do
         find("a.action-icon--hide").click
       end

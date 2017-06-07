@@ -78,7 +78,7 @@ RSpec.shared_examples "manage process categories examples" do
 
       it "deletes a category" do
         within find("tr", text: translated(category2.name)) do
-          page.find("a.action-icon--remove").click
+          accept_alert { page.find("a.action-icon--remove").click }
         end
 
         within ".callout-wrapper" do
@@ -100,7 +100,7 @@ RSpec.shared_examples "manage process categories examples" do
 
       it "deletes a category" do
         within find("tr", text: translated(category2.name)) do
-          page.find("a.action-icon--remove").click
+          accept_alert { page.find("a.action-icon--remove").click }
         end
 
         within ".callout-wrapper" do

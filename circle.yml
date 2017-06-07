@@ -1,0 +1,38 @@
+---
+
+database:
+  override:
+    - echo "Skipping DB section."
+
+dependencies:
+  pre:
+    - curl -o- -L https://yarnpkg.com/install.sh | bash
+
+    - mkdir .chrome
+    - (cd .chrome && curl -o- -L https://raw.githubusercontent.com/scheib/chromium-latest-linux/master/update.sh | bash)
+
+    - mkdir .chromedriver
+    - curl -OLk https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
+    - unzip chromedriver_linux64
+    - cp chromedriver .chromedriver/
+
+  override:
+    - bundle check --path=vendor/bundle ||
+      bundle install --path=vendor/bundle --jobs=4
+    - yarn
+
+machine:
+  environment:
+    CHROME_BINARY: "${HOME}/${CIRCLE_PROJECT_REPONAME}/.chrome/latest/chrome"
+    CHROMEDRIVER_BINARY: "${HOME}/${CIRCLE_PROJECT_REPONAME}/.chromedriver/chromedriver"
+
+  node:
+    version: 7
+
+test:
+  pre:
+    - bundle exec rake decidim:generate_test_app
+
+  override:
+    - source .ci/run_splitted_ci.sh:
+        parallel: true

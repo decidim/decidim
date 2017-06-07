@@ -65,7 +65,7 @@ describe "Organization admins", type: :feature do
         expect(page).to have_content(other_admin.name)
 
         within "tr[data-user-id=\"#{other_admin.id}\"]" do
-          page.find(".action-icon.action-icon--remove").click
+          accept_alert { page.find(".action-icon.action-icon--remove").click }
         end
 
         expect(page).not_to have_content(other_admin.name)

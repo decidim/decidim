@@ -28,7 +28,7 @@ RSpec.shared_examples "manage projects" do
     end
   end
 
-  context "previewing projects" do
+  context "previewing projects", driver: :poltergeist do
     it "allows the user to preview the project" do
       within find("tr", text: translated(project.title)) do
         @new_window = window_opened_by { find("a.action-icon--preview").click }
@@ -107,7 +107,7 @@ RSpec.shared_examples "manage projects" do
 
     it "deletes a project" do
       within find("tr", text: translated(project2.title)) do
-        find("a.action-icon--remove").click
+        accept_alert { find("a.action-icon--remove").click }
       end
 
       within ".callout-wrapper" do
