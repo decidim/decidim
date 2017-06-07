@@ -2,7 +2,7 @@ ca:
   activemodel:
     attributes:
       account:
-        delete_reason: Raó per eliminar el seu compte
+        delete_reason: Raó per eliminar el teu compte
       report:
         details: Comentaris addicionals
       user:
@@ -35,7 +35,7 @@ ca:
   decidim:
     account:
       delete:
-        alert: Aquesta acció no es pot desfer. Si elimina el seu compte no seràs capaç d'iniciar sessió.
+        alert: Aquesta acció no es pot desfer. Si elimines el teu compte no seràs capaç d'iniciar sessió.
         confirm:
           close: Tanca la finestra
           ok: Sí, vull eliminar el meu compte
