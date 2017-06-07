@@ -56,6 +56,7 @@
     ```ruby
     # frozen_string_literal: true
     require "decidim/<engine_name>/engine"
+    require "decidim/<engine_name>/feature"
     ```
 
 1. Remove `lib/decidim/<engine_name>/version.rb`
@@ -92,7 +93,6 @@
 
     Decidim.register_feature(:<engine_name>) do |feature|
       feature.engine = Decidim::<EngineName>::Engine
-      feature.admin_engine = Decidim::<EngineName>::AdminEngine
       feature.icon = "decidim/<engine_name>/icon.svg"
 
       feature.on(:before_destroy) do |instance|
@@ -112,11 +112,11 @@
         # Add your settings per step
       end
 
-      feature.register_resource do |resource|
-        # Register a optional resource that can be references from other resources.
-        # resource.model_class_name = "Decidim::<EngineName>::<ResourceName>"
-        # resource.template = "decidim/<engine_name>/<resource_view_folder>/linked_<resource_name_plural>"
-      end
+      # # Register an optional resource that can be referenced from other resources.
+      # feature.register_resource do |resource|
+      #   resource.model_class_name = "Decidim::<EngineName>::<ResourceName>"
+      #   resource.template = "decidim/<engine_name>/<resource_view_folder>/linked_<resource_name_plural>"
+      # end
 
       feature.register_stat :some_stat do |features, start_at, end_at|
         # Register some stat number to the application
