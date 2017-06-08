@@ -1,0 +1,15 @@
+**/vendor/**/*
+decidim-*/spec/**/*
+decidim-*/test/**/*
+decidim-*/db/migrate/**/*
+**/*.test.js
+**/*.test.jsx
+decidim-core/app/assets/stylesheets/decidim/email.css
+rubocop.ym
+ib/generators/decidim/templates/app.json.er
+docs/how_to_create_a_plugin.md
+bundle.js
+node_modules/**/*
+development_app/**/*
+docker_development_app/**/*
+spec/decidim_dummy_app/**/*
