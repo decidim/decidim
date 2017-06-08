@@ -1,0 +1,22 @@
+it:
+  decidim:
+    features:
+      pages:
+        name: Pagina
+        settings:
+          global:
+            comments_enabled: Commenti abilitati
+          step:
+            comments_blocked: Commenti bloccati
+    pages:
+      admin:
+        models:
+          components:
+            body: Corpo del testo
+        pages:
+          edit:
+            save: Aggiorna
+            title: Modifica la pagina
+          update:
+            invalid: C'è stato un errore durante il salvataggio della pagina.
+            success: OK, la pagina è stata salvata.

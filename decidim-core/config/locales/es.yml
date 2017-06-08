@@ -1,6 +1,8 @@
 es:
   activemodel:
     attributes:
+      account:
+        delete_reason: Motivo de eliminar tu cuenta
       report:
         details: Comentarios adicionales
       user:
@@ -8,6 +10,7 @@ es:
         name: Tu nombre
         password: Contraseña
         password_confirmation: Confirma tu contraseña
+        remove_avatar: Eliminar imagen de perfil
         user_group_document_number: Número de documento acreditativo
         user_group_name: Nombre de la Organización
         user_group_phone: Teléfono de la organización
@@ -31,6 +34,17 @@ es:
       image_too_big: La imagen es demasiado grande
   decidim:
     account:
+      delete:
+        alert: Esta acción no se puede deshacer. Si eliminas tu cuenta, no podrás iniciar sesión.
+        confirm:
+          close: Cerrar ventana
+          ok: Sí, quiero eliminar mi cuenta
+          question: '¿Seguro que quieres eliminar tu cuenta?'
+          title: Eliminar mi cuenta
+        explanation: Por favor, rellena el motivo por el que deseas eliminar tu cuenta (opcional).
+      destroy:
+        error: Se ha producido un error al eliminar tu cuenta.
+        success: Tu cuenta se ha eliminado correctamente.
       show:
         change_password: Cambia la contraseña
         update_account: Actualizar cuenta
@@ -320,6 +334,7 @@ es:
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones
+        delete_my_account: Eliminar mi cuenta
         notifications_settings: Configuracion de notificaciones
         title: Ajustes de usuario
         user_groups: Organizaciones

@@ -1,0 +1,491 @@
+it:
+  actions:
+    confirm_destroy: Conferma eliminazione
+  activemodel:
+    attributes:
+      attachment:
+        description: Descrizione
+        title: Titolo
+      category:
+        description: Descrizione
+        name: Nome
+        parent_id: Su
+      feature:
+        weight: Peso
+      newsletter:
+        body: Testo
+        subject: Oggetto
+      organization:
+        default_locale: Lingua predefinita
+        description: Descrizione
+        favicon: Icona
+        homepage_image: immagine per la Homepage
+        official_img_footer: Logo ufficiale a piè pagina
+        official_img_header: Logo ufficiale per l'intestazione
+        official_url: URL ufficiale dell'organizzazione
+        reference_prefix: Prefisso
+        show_statistics: Mostra statistiche
+        welcome_text: Testo di benvenuto
+      participatory_process:
+        banner_image: Immagine Banner
+        description: Descrizione
+        developer_group: Gruppo di sviluppo
+        domain: Dominio
+        end_date: Data di fine
+        hero_image: Immagine per la Home
+        participatory_process_group_id: Gruppo di processi
+        participatory_structure: Struttura partecipativa
+        promoted: Promosso
+        short_description: Descrizione breve
+        subtitle: Sottotitolo
+        title: Titolo
+      participatory_process_group:
+        description: Descrizione
+        hero_image: Immagine
+        participatory_process_ids: Processi correlati
+      participatory_process_step:
+        description: Descrizione
+        end_date: Data di fine
+        short_description: Descrizione breve
+        start_date: Data di inizio
+        title: Titolo
+      participatory_process_user_role:
+        name: Nome
+        role: Ruolo
+      scope:
+        name: Nome
+        organization: Organizzazione
+      static_page:
+        content: Contenuto
+        organization: Organizzazione
+        title: Titolo
+    errors:
+      messages:
+        invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Immagine banner
+        description: Descrizione
+        developer_group: Gruppo di sviluppo
+        domain: Dominio
+        end_date: Data di fine
+        hero_image: Immagine sulla Home Page
+        participatory_scope: Visibilità/ambito partecipativo
+        participatory_structure: Struttura partecipativa
+        promoted: Promossa
+        scope: Visibilità/ambito
+        short_description: Descrizione breve
+        subtitle: Sottotitolo
+        title: Titolo
+      decidim/participatory_process_step:
+        end_date: Data di fine
+        start_date: Date di inizio
+      decidim/static_page:
+        content: Contenuto
+        title: Titolo
+  decidim:
+    admin:
+      actions:
+        activate: Attiva
+        configure: Configura
+        confirm_destroy: Sei sicuro di volerlo cancellare?
+        destroy: Elimina
+        duplicate: Duplica
+        edit: Modifica
+        export: Esporta
+        manage: Gestisci
+        new: Nuovo
+        permissions: Permessi
+        preview: Anteprima
+        publish: Pubblica
+        resend_invitation: Manda di nuovo l'invito
+        unpublish: Non pubblicarlo
+        verify: Verifica
+      attachments:
+        create:
+          error: Si è verificato un errore creando il nuovo allegato.
+          success: Allegato creato con successo.
+        destroy:
+          success: Allegato eliminato con successo.
+        edit:
+          title: Modifica allegato
+          update: Aggiorna
+        form:
+          current_file: File corrente
+          url: URL
+        new:
+          create: Crea allegato
+          title: Nuovo allegato
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo allegato.
+          success: Allegato modificato con successo.
+      categories:
+        create:
+          error: Si è verificato un errore durante la creazione di questa categoria.
+          success: OK, la categoria è stata creata.
+        destroy:
+          error: Si è verificato un errore durante la cancellazione di questa categoria. Assicurarsi di aver cancellato prima di tutto le eventuali sotto-categorie, assicurarsi che nessuna altra entità appartengaa questa categoria e provare di nuovo.
+          success: OK, categoria cancellata.
+        edit:
+          title: Modifica categoria
+          update: Aggiorna
+        new:
+          create: Crea nuova categoria
+          title: Nuova categoria
+        update:
+          error: Si è verificato un errore aggiornando questa categoria.
+          success: OK, la categoria è stata aggiornata.
+      dashboard:
+        show:
+          welcome: Benvenuto nel nuovo pannello di amministarzione.
+      decidim:
+        admin:
+          attachments:
+            index:
+              attachments_title: Allegati
+          categories:
+            index:
+              categories_title: Categorie
+          participatory_process_steps:
+            index:
+              steps_title: Fasi
+          participatory_process_user_roles:
+            index:
+              process_admins_title: Utenti del processo partecipativo.
+      exports:
+        export_as: "%{name} esporta come %{export_format}"
+        notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
+      feature_permissions:
+        edit:
+          everyone: Tutti
+          submit: Salva la configurazione dei permessi
+          title: Modifica i permessi
+        update:
+          success: OK, i permessi sono stati aggiornati.
+      features:
+        create:
+          error: Si è verificato un errore durante l'aggiunta di questa funzionalità (feature).
+          success: OK, la feature è stata creata.
+        destroy:
+          error: Si è verificato un errore durante l'eliminazione di questa funzionalità (feature).
+          success: OK, la feature è stata cancellata.
+        edit:
+          title: Modifica feature
+          update: Aggiorna
+        form:
+          global_settings: Impostazioni globali
+          step_settings: Imposta le fasi (Step)
+        index:
+          add: Aggiungi una funzionalità (feature)
+          headers:
+            actions: Azioni
+            name: Nome della funzionalità (feature)
+            type: Tipo di funzionalità (feature)
+        new:
+          add: Aggiungi una funzionalità (feature)
+          title: 'Aggiungi la feature: %{name}'
+        publish:
+          success: OK, la feature è stata pubblicata.
+        title: Funzionalità (features)
+        unpublish:
+          success: OK, questa feature adesso non è più pubblicata.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questa funzionalità (feature).
+          success: OK, la funzionalità (feature) è stata aggiornata.
+      menu:
+        admins: Amministratori
+        dashboard: Cruscotto (Dashboard)
+        participatory_process_groups: Gruppo di processi
+        participatory_processes: Processi
+        participatory_processes_submenu:
+          attachments: Allegati
+          categories: Categorie
+          features: Funzionalità (features)
+          info: Informazioni
+          moderations: Moderazioni
+          process_admins: Utenti
+          steps: Fasi (Steps)
+        scopes: Visibilità/ambito (Scopes)
+        settings: Impostazioni
+        static_pages: Pagine
+        user_groups: Gruppi di utenti
+        users: Utenti
+      models:
+        attachment:
+          fields:
+            content_type: Tipo
+            title: Titolo
+          name: Allegato
+        category:
+          name: Categorie
+        newsletter:
+          fields:
+            created_at: Creato il
+            progress: Avanzamento
+            sent_at: Inviato alle
+            subject: Oggetto
+        participatory_process:
+          fields:
+            created_at: Creato il
+            promoted: Evidenziato
+            published: Pubblicato
+            title: Titolo
+          name: Processo partecipativo
+        participatory_process_group:
+          fields:
+            name: Nome
+          name: Gruppo di processi
+        participatory_process_step:
+          fields:
+            end_date: Data di fine
+            start_date: Data di inizio
+            title: Titolo
+          name: Fase del processo partecipativo
+        participatory_process_user_role:
+          fields:
+            name: Nome
+            role: Ruolo
+          name: Utente del processo partecipativo
+          roles:
+            admin: Amministratore
+            collaborator: Collaboratore
+        scope:
+          fields:
+            created_at: Creato il
+            name: Nome
+        static_page:
+          fields:
+            created_at: Creato il
+            title: Titolo
+        user:
+          fields:
+            created_at: Data di creazione
+            invitation_accepted_at: Data dell'invito di accettazione
+            invitation_sent_at: Data di invio dell'invito
+            last_sign_in_at: Data dell'ultimo accesso
+            name: Nome
+          name: Utente
+        user_group:
+          fields:
+            created_at: Creato il
+            document_number: Numero del documento
+            name: Nome
+            phone: Telefono
+            users_count: Conteggio degli utenti
+      moderations:
+        index:
+          title: Moderazione
+      newsletters:
+        create:
+          error: Si è verificato un errore durante la creazione di questa newsletter.
+          success: OK, la Newsletter è stata creata. Adesso è possibile controllarla ed eventualmente inviarla.
+        deliver:
+          error: Si è verificato un errore durante l'invio di questa newsletter.
+        destroy:
+          error_already_sent: 'Non è possibile eliminare questa newsletter: è già stata inviata.'
+          success: OK, la Newsletter è stata eliminata.
+        edit:
+          save_and_preview: Salva e vedi l'anteprima
+          title: Modifica la Newsletter
+        form:
+          interpolations_hint: 'Suggerimento: puoi utilizzare "%{name}" ovunque nel corpo del testo  o nell''oggetto e sarà sostituito con il nome del contenitore.'
+        index:
+          confirm_delete: Sei sicuro di voler cancellare questa newsletter?
+        new:
+          save: Salva
+          title: Nuova newsletter
+        show:
+          confirm_deliver: Sei certo di voler inviare questa Newsletter?  Questa azione sarà irrevocabile.
+          deliver: Invia la newsletter
+          preview: Anteprima
+          subject: Oggetto
+        update:
+          success: OK, la Newsletter è stata aggiornata. Conviene controllarla prima di inviarla.
+      organization:
+        edit:
+          title: Modifica l'organizzazione
+          update: Modifica
+        form:
+          current_image: immagine corrente
+        update:
+          error: Si è verificato un errore durante la modifica di questa organizzazione.
+          success: OK, l'organizzazione è stata modificata.
+      participatory_process_copies:
+        new:
+          copy: Copia
+          select: Scegli quale quale dato vuoi duplicare
+          title: Duplicazione di un processo partecipativo.
+      participatory_process_groups:
+        edit:
+          title: Aggiorna un gruppo di processi
+          update: Aggiorna
+        new:
+          create: Crea
+          title: Nuovo gruppo di processi
+        update:
+          error: Si è verificato un errore aggiornando questo gruppo di processi partecipativi.
+          success: OK, il gruppo di processi partecipativi è stato modificato.
+      participatory_process_publications:
+        create:
+          error: Si è verificato un errore durante la pubblicazione di questo processo partecipativo.
+          success: OK, il processo partecipativo è stato pubblicato.
+        destroy:
+          error: Si è verificato un errore cercando di togliere dalla pubblicazione questo processo partecipativo.
+          success: OK, il processo partecipativo è stato tolto dalla pubblicazione.
+      participatory_process_step_activations:
+        create:
+          error: Si è verificato un errore cercando di attivare questa fase del processo partecipativo.
+          success: OK, il processo partecipativo è stato attivato.
+      participatory_process_steps:
+        create:
+          error: Si è verificato un errore creando questa nuova fase (step) di processo partecipativo.
+          success: OK, è stato creato il nuovo processo partecipativo.
+        default_title: Introduzione
+        destroy:
+          error:
+            active_step: Non è possibile cancellare questa fase poiché è attiva.
+            last_step: Non è possibile cancellare l'ultima fase di un processo.
+          success: OK, il processo partecipativo è stato eliminato.
+        edit:
+          title: Modifica una fase del processo partecipativo.
+          update: Aggiorna
+        new:
+          create: Crea
+          title: Nuova fase del processo partecipativo.
+        ordering:
+          error: Si è verificato un errore cercando di ri-ordinare le fasi di questo processo partecipativo.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questa fase del processo partecipativo.
+          success: OK, questa fase del processo partecipativo è stata aggiornata.
+      participatory_process_user_roles:
+        create:
+          error: Si è verificato un errore cercando di aggiungere un nuovo utente per questo processo partecipativo.
+          success: OK, è stato creato l'utente per questo processo partecipativo.
+        destroy:
+          success: L'utente per questo processo processo partecipativo è stato eliminato.
+        edit:
+          title: Aggiornamento utente di un processo partecipativo.
+          update: Aggiorna
+        new:
+          create: Crea
+          title: Nuovo utente per un processo partecipativo.
+        update:
+          error: Si è verificato un errore durante la fase di aggiornamento per questo processo partecipativo.
+          success: OK, è stato aggiornato l'utente per questo processo partecipativo.
+      participatory_processes:
+        create:
+          error: Si è verificato un errore durante la creazione del processo partecipativo.
+        destroy:
+          success: OK, il processo partecipativo è stato eliminato.
+        edit:
+          update: Aggiorna
+        form:
+          current_image: Immagine corrente
+          title: Informazioni generali
+          url: URL
+        index:
+          not_published: Non pubblicato
+          published: Pubblicato
+        new:
+          create: Crea
+          title: Nuovo processo partecipativo.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo processo partecipativo.
+          success: OK, il processo partecipativo è stato aggiornato.
+      participatory_processes_copies:
+        create:
+          error: Si è verificato un errore cercando di duplicare questo processo partecipativo.
+          success: OK, il processo partecipativo è stato duplicato.
+      participatory_processes_group:
+        create:
+          error: Si è verificato un errore cercando di creare il nuovo gruppo di processi partecipativi.
+          success: OK, il gruppo di processi partecipativi è stato creato.
+      scopes:
+        create:
+          error: Si è verificato un errore creando un nuovo ambito.
+          success: OK, è stato creato il nuovo àmbito.
+        destroy:
+          success: Ok, l'ambito è stato eliminato.
+        edit:
+          title: Modifica l'àmbito
+          update: Aggiorna
+        new:
+          create: Crea un àmbito
+          title: Nuovo ambito
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo àmbito.
+          success: OK, l'àmbito è stato aggiornato.
+      static_pages:
+        actions:
+          view: Visualizza la pagina pubblica
+        create:
+          error: Si è verificato un errore creando una nuova pagina.
+          success: OK, la nuova pagina è stata creata.
+        destroy:
+          success: OK, la pagina è stata eliminata.
+        edit:
+          title: Modifica la pagina
+          update: Aggiorna
+        new:
+          create: Nuovo
+          title: Nuova pagina
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questa pagina.
+          success: OK, la pagina è stata aggiornata.
+      titles:
+        dashboard: Cruscotto (Dashboard)
+        participatory_process_groups: Gruppo di processi partecipativi
+        participatory_processes: Processi partecipativi
+        scopes: Ambiti
+        static_pages: Pagine
+        user_groups: Gruppi di utenti
+        users: Utenti
+      users:
+        create:
+          error: Si è verificato un errore cercando di mandare l'invito a questo utente.
+          success: OK, utente invitato.
+        destroy:
+          error: Si è verificato un errore cercando di eliminare questo utente.
+          success: Questo utente non è più un amministratore.
+        form:
+          name: Nome
+        new:
+          create: Invita
+          title: Invita l'utente in qualità di amministratore
+        resend_invitation:
+          error: Si è verificato C'è stato un errore cercando di mandare l'invito tramite email.
+          success: OK, mandato inviato tramite email
+    moderations:
+      actions:
+        hidden: Nascosto
+        hide: Nascondi
+        not_hidden: Non nascosto
+        title: Azioni
+        unreport: Non inserire
+      admin:
+        reportable:
+          hide:
+            invalid: Si è verificato un problema cercando di nascondere la risorsa.
+            success: OK, la risorsa è stata nascosta.
+          unreport:
+            invalid: Si è verificato un problema cercando di visualizzare la risorsa .
+            success: OK, la risorda è visualizzabile.
+      models:
+        moderation:
+          fields:
+            hidden_at: Nascosto a
+            report_count: Conteggio
+            reportable: Inseribile
+            reported_content: Contenuto riportato
+            reports: Report
+    participatory_processes:
+      participatory_process_groups:
+        none: Nessuno
+  layouts:
+    decidim:
+      admin:
+        settings:
+          title: Impostazioni
+        users:
+          title: Utenti

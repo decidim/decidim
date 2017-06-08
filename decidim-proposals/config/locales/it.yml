@@ -1,0 +1,147 @@
+it:
+  activemodel:
+    attributes:
+      proposal:
+        body: Corpo del testo
+        category_id: Categoria
+        scope_id: Visibilità
+        title: Titolo
+        user_group_id: Crea proposta come
+      proposal_answer:
+        answer: Risposta
+  decidim:
+    features:
+      proposals:
+        actions:
+          create: Crea
+          vote: Vota
+        name: Proposte
+        settings:
+          global:
+            comments_enabled: Commenti abilitati
+            geocoding_enabled: Geocoding abilitato
+            official_proposals_enabled: Proposte ufficiali abilitate
+            proposal_answering_enabled: Risposta Proposte abilitata
+            vote_limit: Numero max di proposte votabili
+          step:
+            comments_blocked: Commenti bloccati
+            creation_enabled: Creazione delle Proposte abilitata
+            proposal_answering_enabled: Risposta Proposte abilitata
+            votes_blocked: Votazioni bloccate
+            votes_enabled: Votazioni abilitate
+            votes_hidden: Voti nascosti (se i voti sono abilitati, spuntando questa casella verrà nascosto il numero dei voti)
+    proposals:
+      actions:
+        answer: Risposta
+        new: Nuovo
+        title: Azioni
+      admin:
+        actions:
+          preview: Anteprima
+        exports:
+          proposals: Proposte
+        models:
+          proposal:
+            name: Proposta
+        proposal_answers:
+          edit:
+            accepted: Accettata
+            answer_proposal: Risposta
+            rejected: Rifiutata
+            title: Risposta per la proposta %{title}
+        proposals:
+          answer:
+            invalid: E' stato riscontrato un problema nella risposta per questa proposta
+            success: OK, risposta per la proposta registrata.
+          create:
+            invalid: Sono stati riscontrati dei problemi durante la creazione di questa proposta
+            success: OK, proposta creata.
+          form:
+            select_a_category: Scegli una categoria
+          index:
+            title: Proposte
+          new:
+            create: Crea
+            title: Crea una proposta
+      answers:
+        accepted: Accettata
+        not_answered: Non risposto
+        rejected: Rifiutata
+      create:
+        error: C'è stato un errore durante il salvataggio di questa proposta.
+        success: OK, la proposta è stata creata.
+      models:
+        proposal:
+          fields:
+            category: Categoria
+            official_proposal: Proposta ufficiale
+            scope: Visibilità
+            state: Stato
+            title: Titolo
+      proposals:
+        count:
+          proposals_count:
+            one: 1 proposta
+            other: "%{count} proposte"
+        filters:
+          accepted: Accettata
+          activity: Attività
+          category: Categoria
+          category_prompt: Scegli una categoria
+          citizenship: Cittadinanza
+          official: Ufficiale
+          origin: Origine
+          rejected: Rifiutata
+          related_to: Associata a
+          scopes: Visibilità
+          search: Cerca
+          state: Stato
+          voted: Votata
+        filters_small_view:
+          close_modal: Chiudi modalità
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Espandi
+        index:
+          new_proposal: Nuova proposta
+          view_proposal: Visualizza proposta
+        linked_proposals:
+          proposal_votes:
+            one: <span class="card--list__data__number">1</span>voto
+            other: <span class="card--list__data__number">%{count}</span>voti
+        new:
+          back: Indietro
+          select_a_category: Scegli una categoria
+          send: Invia
+          title: Nuova proposta
+        orders:
+          label: 'Ordina le proposte per:'
+          most_voted: Più votate
+          random: A caso
+          recent: le più recenti
+        proposal:
+          view_proposal: Visualizza la proposta
+        show:
+          proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
+          proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
+        vote_button:
+          already_voted: Già votata
+          no_votes_remaining: Sono finite le votazioni possibili
+          vote: Vota
+          votes_blocked: Votazioni disabilitate
+        votes_count:
+          count:
+            one: VOTO
+            other: VOTI
+        votes_limit:
+          vote_limit:
+            description: Invece di votare tutte le proposte possibili puoi soltanto votare fino a %{limit} proposte.
+            left: Restano
+            title: Hai ancora %{limit} voti
+            votes: Voti
+    resource_links:
+      included_proposals:
+        proposal_projects: 'Le proposte compaiono nei seguenti progetti:'
+        proposal_results: 'Le proposte compaiono nei seguenti risultati:'
+      proposals_from_meeting:
+        proposal_meetings: Meeting associati alla proposta

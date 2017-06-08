@@ -1,0 +1,69 @@
+ca:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Resposta
+      survey_question:
+        mandatory: Obligatori
+        question_type: Tipus
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Resposta
+        name: Enquesta
+        settings:
+          step:
+            allow_answers: Permetre respostes
+    surveys:
+      admin:
+        application_helper:
+          label_for_question:
+            question: Pregunta
+        exports:
+          survey_user_answers: Respostes dels usuaris
+        models:
+          components:
+            description: Descripció
+            tos: Termes del servei
+        surveys:
+          answer_option:
+            answer_option: Opció de resposta
+            remove_answer_option: Elimina l'opció de resposta
+            statement: Enunciat
+          edit:
+            save: Desar
+            title: Títol
+          form:
+            add_question: Afegir pregunta
+            already_answered_warning: L'enquesta ja està contestada per alguns usuaris i per tant no pots modificar les seves preguntes.
+          question:
+            add_answer_option: Afegir opció de resposta
+            question: Pregunta
+            remove_question: Elimina pregunta
+            statement: Enunciat
+          update:
+            invalid: Hi ha hagut errors en desar l'enquesta.
+            success: Enquesta desada correctament.
+      question_types:
+        long_answer: Resposta llarga
+        multiple_option: Opció múltiple
+        short_answer: Resposta curta
+        single_option: Única opció
+      surveys:
+        answer:
+          invalid: Hi ha hagut errors en respondre a l'enquesta.
+          success: Enquesta resposta correctament.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Entra amb el teu compte</a> o <a href="%{sign_up_link}">dona't d'alta</a> per contestar l'enquesta.
+            title: Respon a l'enquesta
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les respostes. N'estàs segur?
+          submit: Enviar
+          survey_answered:
+            body: Ja ha respost a aquesta enquesta.
+            title: Enquesta resposta
+          survey_closed:
+            body: L'enquesta està tancada i no s'hi pot participar.
+            title: Enquesta tancada
+          tos_agreement: En participar en aquesta enquesta acceptes els Termes de Servei

@@ -1,0 +1,5 @@
+it:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Risposta
