@@ -8,11 +8,11 @@ module Decidim
     process :validate_dimensions
 
     version :big do
-      process resize_to_fill: [500, 500]
+      process resize_and_pad: [500, 500]
     end
 
     version :thumb do
-      process resize_to_fill: [100, 100]
+      process resize_and_pad: [100, 100]
     end
 
     def default_url(*)
