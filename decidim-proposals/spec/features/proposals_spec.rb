@@ -412,6 +412,9 @@ describe "Proposals", type: :feature do
       allow_any_instance_of(Decidim::Proposals::Proposal::ActiveRecord_Relation).to \
         receive(:order_randomly) { |scope, _seed| scope.order(title: :asc) }
 
+      lucky_proposal = create(:proposal, title: "A", feature: feature)
+      unlucky_proposal = create(:proposal, title: "B", feature: feature)
+
       visit_feature
 
       expect(page).to have_selector("a", text: "Random")
