@@ -15,7 +15,7 @@ module Decidim
           type !types[ProcessType]
           description "Lists all processes."
 
-          resolve ->(_obj, _args, ctx) {
+          resolve lambda { |_obj, _args, ctx|
             OrganizationParticipatoryProcesses.new(ctx[:current_organization])
           }
         end
@@ -24,7 +24,7 @@ module Decidim
           type SessionType
           description "Return's information about the logged in user"
 
-          resolve ->(_obj, _args, ctx) {
+          resolve lambda { |_obj, _args, ctx|
             ctx[:current_user]
           }
         end

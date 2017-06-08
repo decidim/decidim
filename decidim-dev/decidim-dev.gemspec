@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
@@ -31,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails-controller-testing", "~> 1.0.1"
   s.add_dependency "simplecov", "~> 0.13"
   s.add_dependency "codecov", "~> 0.1.9"
-  s.add_dependency "rubocop", "~> 0.49.0"
+  s.add_dependency "rubocop", "~> 0.48.1"
   s.add_dependency "db-query-matchers", "~> 0.9.0"
   s.add_dependency "letter_opener_web", "~> 1.3.0"
   s.add_dependency "rspec-html-matchers", "~> 0.9.1"

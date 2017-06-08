@@ -111,6 +111,7 @@ module Decidim
 
       private
 
+      # rubocop:disable Style/AccessorMethodName
       def get_builder_class
         AppBuilder
       end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddParticipatoryProcessGroups < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_participatory_process_groups do |t|

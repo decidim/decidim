@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateLineItems < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_budgets_line_items do |t|

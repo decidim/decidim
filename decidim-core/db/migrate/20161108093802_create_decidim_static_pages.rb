@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDecidimStaticPages < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_static_pages do |t|

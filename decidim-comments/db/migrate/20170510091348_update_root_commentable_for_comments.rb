@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UpdateRootCommentableForComments < ActiveRecord::Migration[5.0]
   def up
     Decidim::Comments::Comment.where(depth: 0).update_all(
@@ -10,8 +12,7 @@ class UpdateRootCommentableForComments < ActiveRecord::Migration[5.0]
     end
   end
 
-  def down
-  end
+  def down; end
 
   private
 

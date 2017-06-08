@@ -2,7 +2,7 @@
 
 ENV["RAILS_ENV"] ||= "test"
 
-root_path = File.join(Dir.pwd, "..")
+root_path = File.expand_path("..", Dir.pwd)
 engine_spec_dir = File.join(Dir.pwd, "spec")
 dummy_app_path = File.expand_path(File.join(root_path, "spec", "decidim_dummy_app"))
 

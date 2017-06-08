@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateOrders < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_budgets_orders do |t|

@@ -1,30 +1,7 @@
 # Common configuration.
 AllCops:
-  # Include common Ruby source files.
-  Include:
-    - '**/*.gemspec'
-    - '**/*.podspec'
-    - '**/*.jbuilder'
-    - '**/*.rake'
-    - '**/*.opal'
-    - '**/config.ru'
-    - '**/Rakefile'
-    - '**/Capfile'
-    - '**/Guardfile'
-    - '**/Podfile'
-    - '**/Thorfile'
-    - '**/Vagrantfile'
-    - '**/Berksfile'
-    - '**/Cheffile'
-    - '**/Vagabondfile'
-    - '**/Fastfile'
-    - '**/*Fastfile'
   Exclude:
-    - '**/Gemfile'
-    - '**/*.gemspec'
     - '**/vendor/**/*'
-    - 'decidim-*/test/**/*'
-    - 'decidim-*/db/migrate/**'
     - 'development_app/**/*'
     - 'docker_development_app/**/*'
     - 'spec/decidim_dummy_app/**/*'
@@ -94,14 +71,6 @@ Style/Alias:
   SupportedStyles:
     - prefer_alias
     - prefer_alias_method
-
-Style/AccessorMethodName:
-  Exclude:
-    - "lib/generators/decidim/app_generator.rb"
-
-Style/AlignArray:
-  Exclude:
-    - 'decidim-*/spec/**/*.rb'
 
 # Align the elements of a hash literal if they span more than one line.
 Style/AlignHash:
@@ -634,10 +603,6 @@ Style/Lambda:
     - line_count_dependent
     - lambda
     - literal
-  Exclude:
-    - 'decidim-api/lib/decidim/api/schema.rb'
-    - 'decidim-api/lib/decidim/api/types/**/*'
-    - 'decidim-core/lib/decidim/query_extensions.rb'
 
 Style/LambdaCall:
   EnforcedStyle: call
@@ -671,10 +636,6 @@ Style/NumericPredicate:
   SupportedStyles:
     - predicate
     - comparison
-  # Exclude RSpec specs because assertions like `expect(1).to be > 0` cause
-  # false positives.
-  Exclude:
-    - 'spec/**/*'
 
 Style/MethodDefParentheses:
   EnforcedStyle: require_parentheses
@@ -830,7 +791,6 @@ Style/PredicateName:
   # helpers in the form of `have_something` or `be_something`.
   Exclude:
     - '**/spec/**/*'
-    - '**/test/**/*'
 
 Style/PreferredHashMethods:
   Enabled: true
@@ -1123,8 +1083,6 @@ Metrics/LineLength:
   URISchemes:
     - http
     - https
-  Exclude:
-    - 'decidim-*/spec/**/*.rb'
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
@@ -1226,8 +1184,6 @@ Rails/Exit:
     - app/**/*.rb
     - config/**/*.rb
     - lib/**/*.rb
-  Exclude:
-    - lib/**/*.rake
 
 Rails/FindBy:
   Include:
@@ -1304,7 +1260,4 @@ Metrics/BlockLength:
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'
     - 'decidim-*/spec/**/*.rb'
-
-Lint/HandleExceptions:
-  Exclude:
-    - "**/*/Rakefile"
+    - '**/*.gemspec'

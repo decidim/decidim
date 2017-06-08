@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddAnswersToProposals < ActiveRecord::Migration[5.0]
   def change
     add_column :decidim_proposals_proposals, :state, :string, index: true

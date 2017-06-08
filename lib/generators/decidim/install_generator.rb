@@ -106,10 +106,7 @@ module Decidim
       private
 
       def recreate_db
-        unless ENV["CI"]
-          rake "db:environment:set", env: "development"
-          rake "db:drop"
-        end
+        rake "db:environment:set dp:drop" unless ENV["CI"]
         rake "db:create"
         rake "db:migrate"
         rake "db:test:prepare"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddSocialMediaHandlersToOrganization < ActiveRecord::Migration[5.0]
   def change
     add_column :decidim_organizations, :instagram_handler, :string

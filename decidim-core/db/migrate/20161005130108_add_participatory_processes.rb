@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddParticipatoryProcesses < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_participatory_processes do |t|
@@ -8,8 +10,8 @@ class AddParticipatoryProcesses < ActiveRecord::Migration[5.0]
       t.text :short_description, null: false
       t.text :description, null: false
       t.references :decidim_organization,
-        foreign_key: true,
-        index: { name: 'index_decidim_processes_on_decidim_organization_id' }
+                   foreign_key: true,
+                   index: { name: "index_decidim_processes_on_decidim_organization_id" }
 
       t.timestamps
     end
