@@ -505,7 +505,7 @@ fr:
             hidden_at: Masqué le
             report_count: Compter
             reportable: Signalable
-            reported_content_url: Contenu signalé
+            reported_content: Contenu signalé
             reports: Signalements
     participatory_processes:
       participatory_process_groups:
