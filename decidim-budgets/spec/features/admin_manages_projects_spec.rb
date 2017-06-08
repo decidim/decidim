@@ -6,7 +6,7 @@ describe "Admin manages projects", type: :feature do
   let(:manifest_name) { "budgets" }
   let!(:project) { create :project, scope: scope, feature: current_feature }
 
-  include_context "admin"
+  include_context "feature admin"
 
   it_behaves_like "manage projects"
 end

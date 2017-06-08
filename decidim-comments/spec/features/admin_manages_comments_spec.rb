@@ -12,8 +12,7 @@ describe "Admin manages comments", type: :feature do
     end
   end
 
-  include_context "admin"
-  include_context "feature"
+  include_context "feature admin"
 
   it_behaves_like "manage moderations"
 end
