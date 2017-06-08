@@ -15,7 +15,7 @@ module Decidim
 
         # Gets how the proposals should be ordered based on the choice made by the user.
         def order
-          @order ||= detect_order(params[:order]) || detect_order("most_voted") || "random"
+          @order ||= detect_order(params[:order]) || default_order
         end
 
         # Available orders based on enabled settings
@@ -27,8 +27,17 @@ module Decidim
           end
         end
 
+        def default_order
+          return detect_order("most_voted") if votes_blocked?
+          "random"
+        end
+
         def votes_visible?
           current_settings.votes_enabled? && !current_settings.votes_hidden?
+        end
+
+        def votes_blocked?
+          votes_visible? && current_settings.votes_blocked?
         end
 
         # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
