@@ -10,6 +10,7 @@ module Decidim
     def report(user, report)
       with_user(user) do
         @report = report
+        @participatory_process = @report.moderation.participatory_process
         @organization = user.organization
         @user = user
         subject = I18n.t("report.subject", scope: "decidim.reported_mailer")
@@ -20,6 +21,7 @@ module Decidim
     def hide(user, report)
       with_user(user) do
         @report = report
+        @participatory_process = @report.moderation.participatory_process
         @organization = user.organization
         @user = user
         subject = I18n.t("hide.subject", scope: "decidim.reported_mailer")

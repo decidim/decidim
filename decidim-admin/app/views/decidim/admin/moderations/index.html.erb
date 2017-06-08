@@ -33,7 +33,11 @@
                 <%= moderation.reportable.class.name.demodulize %>
               </td>
               <td>
-                <%= moderation.reportable.reported_content_url %>
+                <%=
+                  link_to moderation.reportable.reported_content_url, target: "_blank" do
+                    (moderation.reportable.reported_content_url + " " + icon("external-link")).html_safe
+                  end
+                %>
               </td>
               <td>
                 <% reports = moderation.reports.map { |report| render 'report', report: report } %>
