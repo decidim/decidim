@@ -409,7 +409,7 @@ fi:
           fields:
             hidden_at: Piilotuksen ajankohta
             reportable: Raportoitava
-            reported_content: Raportoitava sisältö
+            reported_content_url: Raportoitava sisältö
             reports: Raportit
     participatory_processes:
       participatory_process_groups:

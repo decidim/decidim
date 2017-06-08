@@ -87,9 +87,9 @@ module Decidim
         true
       end
 
-      # Public: Overrides the `reported_content` Reportable concern method.
-      def reported_content
-        "<h3>#{title}</h3><p>#{body}</p>"
+      # Public: Overrides the `reported_content_url` Reportable concern method.
+      def reported_content_url
+        ResourceLocatorPresenter.new(self).url
       end
     end
   end

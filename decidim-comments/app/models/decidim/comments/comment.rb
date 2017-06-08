@@ -54,9 +54,9 @@ module Decidim
         down_votes.any? { |vote| vote.author == user }
       end
 
-      # Public: Overrides the `reported_content` Reportable concern method.
-      def reported_content
-        body
+      # Public: Overrides the `reported_content_url` Reportable concern method.
+      def reported_content_url
+        ResourceLocatorPresenter.new(root_commentable).url(anchor: "comment-#{id}")
       end
 
       private

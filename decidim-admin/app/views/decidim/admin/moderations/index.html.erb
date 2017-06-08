@@ -17,7 +17,7 @@
         <thead>
           <tr>
             <th><%= t("models.moderation.fields.reportable", scope: "decidim.moderations") %></th>
-            <th><%= t("models.moderation.fields.reported_content", scope: "decidim.moderations") %></th>
+            <th><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.reports", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.report_count", scope: "decidim.moderations") %></th>
             <% if params[:hidden] %>
@@ -33,7 +33,7 @@
                 <%= moderation.reportable.class.name.demodulize %>
               </td>
               <td>
-                <%= moderation.reportable.reported_content %>
+                <%= moderation.reportable.reported_content_url %>
               </td>
               <td>
                 <% reports = moderation.reports.map { |report| render 'report', report: report } %>

@@ -36,10 +36,10 @@ module Decidim
         moderation&.report_count&.positive?
       end
 
-      # Public: The reported content
+      # Public: The reported content url
       #
-      # Returns html content
-      def reported_content
+      # Returns String
+      def reported_content_url
         raise NotImplementedError
       end
     end

@@ -542,7 +542,7 @@ es:
             hidden_at: Fecha de ocultación
             report_count: Recuento
             reportable: Tipo
-            reported_content: Contenido
+            reported_content_url: Enlace al contenido
             reports: Denuncias
     participatory_processes:
       participatory_process_groups:

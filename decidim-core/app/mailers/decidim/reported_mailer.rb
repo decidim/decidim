@@ -5,7 +5,7 @@ module Decidim
   class ReportedMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
 
-    helper_method :reported_content
+    helper_method :reported_content_url
 
     def report(user, report)
       with_user(user) do
@@ -29,8 +29,8 @@ module Decidim
 
     private
 
-    def reported_content
-      @reported_content ||= @report.moderation.reportable.reported_content
+    def reported_content_url
+      @reported_content_url ||= @report.moderation.reportable.reported_content_url
     end
   end
 end
