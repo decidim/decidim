@@ -34,7 +34,7 @@ module Decidim
     end
 
     def max_image_height_or_width
-      2000
+      3840 # 4k UHD yeah!!
     end
 
     private
