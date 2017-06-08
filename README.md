@@ -20,7 +20,7 @@ Decidim is a participatory democracy framework written on Ruby on Rails original
 [![Code Climate](https://img.shields.io/codeclimate/github/decidim/decidim.svg)](https://codeclimate.com/github/decidim/decidim/trends)
 [![codecov](https://img.shields.io/codecov/c/github/decidim/decidim.svg)](https://codecov.io/gh/decidim/decidim)
 [![Dependency Status](https://img.shields.io/gemnasium/decidim/decidim.svg)](https://gemnasium.com/github.com/decidim/decidim)
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim/invite)
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim)
 [![Inline docs](http://inch-ci.org/github/decidim/decidim.svg?branch=master)](http://inch-ci.org/github/decidim/decidim)
 [![Accessibility issues](https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y)
 [![HTML issues](https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html)
@@ -52,6 +52,12 @@ We've set up a guide on how to install, set up and upgrade Decidim. See the [Get
 
 ## How to contribute
 
+### As a Translator
+
+Decidim is already translated on multiple languages (English, Spanish, Catalan, Basque, Italian, Finnish, Dutch and French). You can help us at [Crowdin, the translation service](https://crowdin.com/project/decidim), reviewing this translations or proposing a new language to add to the platform.
+
+### As a Developer
+
 In order to develop on decidim, you'll need:
 
 * **PostgreSQL** 9.4+
@@ -74,7 +80,7 @@ You have several rake tasks available for you:
 * `bundle exec rake development_app`: Creates a development app which you can use to run an application with the gems in your path.
 * `bundle exec rake test_all`: Generates a test app for every engine and runs their tests.
 
-### Browse Decidim
+#### Browse Decidim
 
 After you create a development app (`bundle exec rake development_app`):
 - `cd development_app`
@@ -86,7 +92,7 @@ Optionally, you can log in as: user@example.org | decidim123456
 Also, if you want to verify yourself against the default authorization handler use a document number ended with "X".
 
 
-### Browse Admin Interface
+#### Browse Admin Interface
 
 After you create a development app (`bundle exec rake development_app`):
 - `cd development_app`
