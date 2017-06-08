@@ -299,7 +299,7 @@ module Decidim
 
         it "adds a pattern" do
           expect(parsed.css("input[pattern='^(.|[\n\r]){0,150}$']").first).to be
-          expect(output).not_to include("maxlength")
+          expect(parsed.css("input[maxlength='150']")).to be
         end
       end
 
