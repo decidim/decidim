@@ -23,7 +23,7 @@ Dir["#{__dir__}/rspec_support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
   config.color = true
-  config.fail_fast = ENV["FAIL_FAST"] || false
+  config.fail_fast = ENV["FAIL_FAST"] == "true"
   config.infer_spec_type_from_file_location!
   config.mock_with :rspec
   config.raise_errors_for_deprecations!
