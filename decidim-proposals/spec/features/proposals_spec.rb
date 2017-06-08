@@ -408,6 +408,17 @@ describe "Proposals", type: :feature do
       expect(page).to have_css(".card--proposal", count: 3)
     end
 
+    it "lists the proposals ordered randomly by default" do
+      allow_any_instance_of(Decidim::Proposals::Proposal::ActiveRecord_Relation).to \
+        receive(:order_randomly) { |scope, _seed| scope.order(title: :asc) }
+
+      visit_feature
+
+      expect(page).to have_selector("a", text: "Random")
+      expect(page).to have_selector("#proposals .card-grid .column:first-child", text: lucky_proposal.title)
+      expect(page).to have_selector("#proposals .card-grid .column:last-child", text: unlucky_proposal.title)
+    end
+
     context "when voting phase is over" do
       let!(:feature) do
         create(:proposal_feature,
