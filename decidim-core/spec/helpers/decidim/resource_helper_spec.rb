@@ -7,34 +7,6 @@ module Decidim
     let(:feature) { create(:feature) }
     let(:resource) { create(:dummy_resource, feature: feature) }
 
-    describe "decidim_resource_path" do
-      subject { helper.decidim_resource_path(resource) }
-
-      let(:expected_resource_path) do
-        helper.decidim_dummy.dummy_resource_path(
-          participatory_process_id: feature.participatory_process.id,
-          feature_id: feature.id, id: resource.id
-        )
-      end
-
-      it { is_expected.to eq(expected_resource_path) }
-    end
-
-    describe "decidim_resource_url" do
-      subject { helper.decidim_resource_url(resource) }
-
-      let(:expected_resource_url) do
-        helper.decidim_dummy.dummy_resource_url(
-          participatory_process_id: feature.participatory_process.id,
-          feature_id: feature.id,
-          id: resource.id,
-          host: feature.organization.host
-        )
-      end
-
-      it { is_expected.to eq(expected_resource_url) }
-    end
-
     describe "linked_resources_for" do
       let(:linked_resource) { create(:dummy_resource, feature: feature, title: "Dummy title") }
 
@@ -93,6 +65,12 @@ module Decidim
       it "formats the values for the form" do
         expect(subject).to eq [["", "All"], ["decidim/meetings/meeting", "Meetings"]]
       end
+    end
+
+    describe "resource_locator" do
+      subject { helper.resource_locator(resource) }
+
+      it { is_expected.to be_an_instance_of(ResourceLocatorPresenter) }
     end
   end
 end

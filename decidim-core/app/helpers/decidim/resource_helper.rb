@@ -3,28 +3,6 @@
 module Decidim
   # A Helper to render and link to resources.
   module ResourceHelper
-    # Builds the path to a resource. Useful when linking to a resource from
-    # another engine.
-    #
-    # resource - An object that is a valid resource exposed by some feature.
-    # options - An optional hash of options to pass to the Rails router
-    #
-    # Returns a String.
-    def decidim_resource_path(resource, options = {})
-      _decidim_resource_route(resource, "path", options)
-    end
-
-    # Builds the url to a resource. Useful when linking to a resource from
-    # another engine.
-    #
-    # resource - An object that is a valid resource exposed by some feature.
-    # options - An optional hash of options to pass to the Rails router
-    #
-    # Returns a String.
-    def decidim_resource_url(resource, options = {})
-      _decidim_resource_route(resource, "url", options.merge(host: resource.organization.host))
-    end
-
     # Renders a collection of linked resources for a resource.
     #
     # resource  - The resource to get the links from.
@@ -87,20 +65,9 @@ module Decidim
       [["", t("all", scope: "decidim.filters.linked_classes")]] + linked_classes_for(klass)
     end
 
-    # Private: Build the route to a given resource.
-    #
-    # Returns a String.
-    def _decidim_resource_route(resource, route_type, options)
-      manifest = resource.class.resource_manifest
-      engine = manifest.feature_manifest.engine
-
-      url_params = {
-        id: resource.id,
-        feature_id: resource.feature.id,
-        participatory_process_id: resource.feature.participatory_process.id
-      }
-
-      engine.routes.url_helpers.send("#{manifest.route_name}_#{route_type}", url_params.merge(options))
+    # Returns an instance of ResourceLocatorPresenter with the given resource
+    def resource_locator(resource)
+      ResourceLocatorPresenter.new(resource)
     end
   end
 end
