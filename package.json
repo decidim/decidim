@@ -79,6 +79,7 @@
     "react-apollo": "^1.1.2",
     "react-dom": "^15.5.4",
     "react-i18nify": "^1.8.7",
+    "react-scrollable-anchor": "^0.4.2",
     "react-test-renderer": "^15.5.4",
     "uuid": "^3.0.1"
   },
