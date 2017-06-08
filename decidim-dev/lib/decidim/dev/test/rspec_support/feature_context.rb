@@ -26,15 +26,16 @@ end
 
 RSpec.shared_context "feature admin" do
   include_context "feature"
-  let(:user) { create(:user, :confirmed, organization: organization) }
+
+  let(:user) do
+    create :user,
+           :process_admin,
+           :confirmed,
+           organization: organization,
+           participatory_process: participatory_process
+  end
 
   before do
-    Decidim::Admin::ParticipatoryProcessUserRole.create!(
-      role: :admin,
-      user: user,
-      participatory_process: participatory_process
-    )
-
     login_as user, scope: :user
   end
 
