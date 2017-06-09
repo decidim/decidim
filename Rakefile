@@ -8,7 +8,7 @@ require_relative "lib/generators/decidim/docker_generator"
 load "decidim-core/lib/tasks/decidim_tasks.rake"
 load "decidim-dev/lib/tasks/test_app.rake"
 
-DECIDIM_GEMS = %w(core system admin api pages meetings proposals comments results budgets dev).freeze
+DECIDIM_GEMS = %w(core system admin api pages meetings proposals comments results budgets surveys dev).freeze
 
 RSpec::Core::RakeTask.new(:spec)
 
