@@ -8,8 +8,8 @@ module Decidim
 
       feature_manifest_name "surveys"
 
-      has_many :questions, -> { order(:position) }, class_name: SurveyQuestion, foreign_key: "decidim_survey_id"
-      has_many :answers, class_name: SurveyAnswer, foreign_key: "decidim_survey_id"
+      has_many :questions, -> { order(:position) }, class_name: "SurveyQuestion", foreign_key: "decidim_survey_id"
+      has_many :answers, class_name: "SurveyAnswer", foreign_key: "decidim_survey_id"
 
       # Public: returns whether the survey questions can be modified or not.
       def questions_editable?

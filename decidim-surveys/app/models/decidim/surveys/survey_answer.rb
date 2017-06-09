@@ -4,9 +4,9 @@ module Decidim
   module Surveys
     # The data store for a SurveyAnswer in the Decidim::Surveys component.
     class SurveyAnswer < Surveys::ApplicationRecord
-      belongs_to :user, class_name: Decidim::User, foreign_key: "decidim_user_id"
-      belongs_to :survey, class_name: Survey, foreign_key: "decidim_survey_id"
-      belongs_to :question, class_name: SurveyQuestion, foreign_key: "decidim_survey_question_id"
+      belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id"
+      belongs_to :survey, class_name: "Survey", foreign_key: "decidim_survey_id"
+      belongs_to :question, class_name: "SurveyQuestion", foreign_key: "decidim_survey_question_id"
 
       validates :body, presence: true, if: -> { question.mandatory? }
       validate :user_survey_same_organization
