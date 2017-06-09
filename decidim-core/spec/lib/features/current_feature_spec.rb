@@ -26,7 +26,7 @@ module Decidim
 
       context "when the params contain a participatory process id" do
         before do
-          params["participatory_process_id"] = current_participatory_process.id
+          params["participatory_process_id"] = current_participatory_process.id.to_s
         end
 
         context "when there's no feature" do
@@ -37,7 +37,7 @@ module Decidim
 
         context "when the feature doesn't belong to the participatory process" do
           before do
-            params["feature_id"] = feature.id
+            params["feature_id"] = feature.id.to_s
           end
 
           let(:feature) { create(:feature) }
@@ -49,7 +49,7 @@ module Decidim
 
         context "when the feature belongs to the participatory process" do
           before do
-            params["feature_id"] = feature.id
+            params["feature_id"] = feature.id.to_s
           end
 
           let(:feature) { create(:feature, participatory_process: current_participatory_process) }
