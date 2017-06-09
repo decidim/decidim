@@ -409,8 +409,7 @@ describe "Proposals", type: :feature do
     end
 
     it "lists the proposals ordered randomly by default" do
-      allow_any_instance_of(Decidim::Proposals::Proposal::ActiveRecord_Relation).to \
-        receive(:order_randomly) { |scope, _seed| scope.order(title: :asc) }
+      allow_any_instance_of(Decidim::Proposals::Proposal).to receive(:order_randomly) { |scope, _seed| scope.order(title: :asc) }
 
       lucky_proposal = create(:proposal, title: "A", feature: feature)
       unlucky_proposal = create(:proposal, title: "B", feature: feature)
