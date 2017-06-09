@@ -10,8 +10,7 @@ module Decidim
   class StaticPage < ApplicationRecord
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization", inverse_of: :static_pages
 
-    validates :slug, :organization, presence: true
-    validates :slug, uniqueness: { scope: :organization }
+    validates :slug, presence: true, uniqueness: { scope: :organization }
 
     # These pages will be created by default when registering an organization
     # and cannot be deleted.

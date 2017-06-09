@@ -9,8 +9,8 @@ module Decidim
     let(:secrets) do
       {
         omniauth: {
-          "facebook" => { "enabled" => facebook_enabled },
-          "twitter" => { "enabled" => twitter_enabled }
+          facebook: { enabled: facebook_enabled },
+          twitter: { enabled: twitter_enabled }
         }
       }
     end

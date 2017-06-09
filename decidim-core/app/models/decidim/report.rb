@@ -8,7 +8,7 @@ module Decidim
     belongs_to :moderation, foreign_key: "decidim_moderation_id", class_name: "Decidim::Moderation"
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
-    validates :moderation, :user, :reason, presence: true
+    validates :reason, presence: true
     validates :user, uniqueness: { scope: :decidim_moderation_id }
     validates :reason, inclusion: { in: REASONS }
     validate :user_and_moderation_same_organization

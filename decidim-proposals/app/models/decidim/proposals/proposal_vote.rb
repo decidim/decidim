@@ -7,7 +7,6 @@ module Decidim
       belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal", counter_cache: true
       belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
 
-      validates :proposal, :author, presence: true
       validates :proposal, uniqueness: { scope: :author }
       validate :author_and_proposal_same_organization
 

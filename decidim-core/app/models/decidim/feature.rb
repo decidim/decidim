@@ -10,8 +10,6 @@ module Decidim
     has_many :categories, through: :participatory_process
     has_many :scopes, through: :organization
 
-    validates :participatory_process, presence: true
-
     default_scope { order(arel_table[:weight].asc) }
 
     after_initialize :default_values
