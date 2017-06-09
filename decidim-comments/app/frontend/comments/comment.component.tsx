@@ -8,11 +8,6 @@ import AddCommentForm from "./add_comment_form.component";
 import DownVoteButton from "./down_vote_button.component";
 import UpVoteButton from "./up_vote_button.component";
 
-const ScrollableAnchor = require("react-scrollable-anchor").default;
-const configureAnchors = require("react-scrollable-anchor").configureAnchors;
-
-configureAnchors({ keepLastAnchorHash: true });
-
 import {
   AddCommentFormSessionFragment,
   CommentFragment,
@@ -47,6 +42,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
     votable: false,
   };
 
+  public commentNode: HTMLElement;
+
   constructor(props: CommentProps) {
     super(props);
 
@@ -56,11 +53,36 @@ class Comment extends React.Component<CommentProps, CommentState> {
   }
 
   public componentDidMount() {
+    const { comment: { id } } = this.props;
+    const hash = document.location.hash;
+    const regex = new RegExp(`#comment_${id}`);
+
+    function scrollTo(element: Element, to: number, duration: number) {
+      if (duration <= 0) {
+        return;
+      }
+      const difference = to - element.scrollTop;
+      const perTick = difference / duration * 10;
+
+      setTimeout(() => {
+          element.scrollTop = element.scrollTop + perTick;
+          if (element.scrollTop === to) {
+            return;
+          }
+          scrollTo(element, to, duration - 10);
+      }, 10);
+    }
+
+    if (regex.test(hash)) {
+      scrollTo(document.body, this.commentNode.offsetTop, 200);
+    }
+
     if (window.$(document).foundation) {
-      const { comment: { id } } = this.props;
       window.$(`#flagModalComment${id}`).foundation();
     }
   }
+
+  public getNodeReference = (commentNode: HTMLElement) => this.commentNode = commentNode;
 
   public render(): JSX.Element {
     const { session, comment: { id, author, body, createdAt }, articleClassName } = this.props;
@@ -72,46 +94,44 @@ class Comment extends React.Component<CommentProps, CommentState> {
     }
 
     return (
-      <ScrollableAnchor id={`comment_${id}`}>
-        <article id={`comment_${id}`} className={articleClassName}>
-          <div className="comment__header">
-            <div className="author-data">
-              <div className="author-data__main">
-                <div className="author author--inline">
-                  <a className="author__avatar">
-                    <img src={author.avatarUrl} alt="author-avatar" />
-                  </a>
-                  {
-                    author.deleted ?
-                      <span className="label label--small label--basic">{I18n.t("components.comment.deleted_user")}</span> :
-                      <a className="author__name">{author.name}</a>
-                  }
-                  <time dateTime={createdAt}>{formattedCreatedAt}</time>
-                </div>
-              </div>
-              <div className="author-data__extra">
-                <button type="button" title={I18n.t("components.comment.report.title")} data-open={modalName}>
-                  <Icon name="icon-flag" iconExtraClassName="icon--small" />
-                </button>
-                {this._renderFlagModal()}
+      <article id={`comment_${id}`} className={articleClassName} ref={this.getNodeReference}>
+        <div className="comment__header">
+          <div className="author-data">
+            <div className="author-data__main">
+              <div className="author author--inline">
+                <a className="author__avatar">
+                  <img src={author.avatarUrl} alt="author-avatar" />
+                </a>
+                {
+                  author.deleted ?
+                    <span className="label label--small label--basic">{I18n.t("components.comment.deleted_user")}</span> :
+                    <a className="author__name">{author.name}</a>
+                }
+                <time dateTime={createdAt}>{formattedCreatedAt}</time>
               </div>
             </div>
+            <div className="author-data__extra">
+              <button type="button" title={I18n.t("components.comment.report.title")} data-open={modalName}>
+                <Icon name="icon-flag" iconExtraClassName="icon--small" />
+              </button>
+              {this._renderFlagModal()}
+            </div>
           </div>
-          <div className="comment__content">
-            <p>
-              {this._renderAlignmentBadge()}
-              {body}
-            </p>
-          </div>
-          <div className="comment__footer">
-            {this._renderReplyButton()}
-            {this._renderVoteButtons()}
-          </div>
-          {this._renderReplies()}
-          {this._renderAdditionalReplyButton()}
-          {this._renderReplyForm()}
-        </article>
-      </ScrollableAnchor>
+        </div>
+        <div className="comment__content">
+          <p>
+            {this._renderAlignmentBadge()}
+            {body}
+          </p>
+        </div>
+        <div className="comment__footer">
+          {this._renderReplyButton()}
+          {this._renderVoteButtons()}
+        </div>
+        {this._renderReplies()}
+        {this._renderAdditionalReplyButton()}
+        {this._renderReplyForm()}
+      </article>
     );
   }
 
