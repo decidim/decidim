@@ -70,14 +70,14 @@ describe('FormFilterComponent', () => {
       it('clears the form data', () => {
         spyOn(subject, '_clearForm');
 
-        window.onpopstate();
+        window.onpopstate({ isTrusted: true });
 
         expect(subject._clearForm).toHaveBeenCalled();
       });
 
       it('sets the correct form fields based on the current location', () => {
         spyOn(subject, '_getLocation').and.returnValue('/filters?filter[scope_id][]=1&scope_id[]=2&filter[category_id]=2');
-        window.onpopstate();
+        window.onpopstate({ isTrusted: true });
 
         expect($(selector).find('select').val()).toEqual('2');
         expect($(selector).find('input[name="filter[scope_id][]"][value="1"]')[0].checked).toBeTruthy();

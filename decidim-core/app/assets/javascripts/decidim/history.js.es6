@@ -4,10 +4,13 @@
 ((exports) => {
   let callbacks = {};
 
-  exports.onpopstate = () => {
-    for (let callbackId in callbacks) {
-      if (callbacks.hasOwnProperty(callbackId)) {
-        callbacks[callbackId]();
+  exports.onpopstate = (event) => {
+    // Ensure the event is caused by user action
+    if (event.isTrusted) {
+      for (let callbackId in callbacks) {
+        if (callbacks.hasOwnProperty(callbackId)) {
+          callbacks[callbackId]();
+        }
       }
     }
   };
