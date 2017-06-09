@@ -141,14 +141,21 @@ describe "Homepage", type: :feature do
 
     describe "social links" do
       before do
+        organization.update(
+          twitter_handler: "twitter_handler",
+          facebook_handler: "facebook_handler",
+          youtube_handler: "youtube_handler",
+          github_handler: "github_handler"
+        )
+
         visit current_path
       end
 
       it "includes the linsk to social networks" do
-        expect(page).to have_xpath("//a[@href = 'https://twitter.com/#{organization.twitter_handler}']")
-        expect(page).to have_xpath("//a[@href = 'https://www.facebook.com/#{organization.facebook_handler}']")
-        expect(page).to have_xpath("//a[@href = 'https://www.youtube.com/#{organization.youtube_handler}']")
-        expect(page).to have_xpath("//a[@href = 'https://www.github.com/#{organization.github_handler}']")
+        expect(page).to have_xpath("//a[@href = 'https://twitter.com/twitter_handler']")
+        expect(page).to have_xpath("//a[@href = 'https://www.facebook.com/facebook_handler']")
+        expect(page).to have_xpath("//a[@href = 'https://www.youtube.com/youtube_handler']")
+        expect(page).to have_xpath("//a[@href = 'https://www.github.com/github_handler']")
       end
     end
   end
