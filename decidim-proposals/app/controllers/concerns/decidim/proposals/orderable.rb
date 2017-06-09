@@ -28,8 +28,11 @@ module Decidim
         end
 
         def default_order
-          return detect_order("most_voted") if votes_blocked?
-          "random"
+          if votes_blocked?
+            detect_order("most_voted")
+          else
+            "random"
+          end
         end
 
         def votes_visible?
