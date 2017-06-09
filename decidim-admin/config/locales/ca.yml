@@ -542,6 +542,7 @@ ca:
             hidden_at: Data d'ocultació
             report_count: Recompte
             reportable: Tipus
+            reported_content_url: URL contingut del contingut reportat
             reports: Denúncies
     participatory_processes:
       participatory_process_groups:
