@@ -122,11 +122,8 @@ RSpec.shared_examples "manage proposals" do
           end
 
           context "when geocoding is enabled" do
-            let!(:current_feature) do
-              create(:proposal_feature,
-                     :with_geocoding_enabled,
-                     manifest: manifest,
-                     participatory_process: participatory_process)
+            before do
+              current_feature.update_attributes(settings: { geocoding_enabled: true })
             end
 
             it "creates a new proposal related to the process scope" do

@@ -145,6 +145,16 @@ FactoryGirl.define do
       roles ["admin"]
     end
 
+    trait :process_admin do
+      transient { participatory_process nil }
+
+      after(:create) do |user, evaluator|
+        create :participatory_process_user_role,
+               user: user,
+               participatory_process: evaluator.participatory_process
+      end
+    end
+
     trait :moderator do
       roles ["moderator"]
     end
