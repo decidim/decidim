@@ -397,6 +397,20 @@ describe "Proposals", type: :feature do
   end
 
   context "listing proposals in a participatory process" do
+    shared_examples_for "a random proposal ordering" do
+      let!(:lucky_proposal) { create(:proposal, feature: feature) }
+      let!(:unlucky_proposal) { create(:proposal, feature: feature) }
+
+      it "lists the proposals ordered randomly by default" do
+        visit_feature
+
+        expect(page).to have_selector("a", text: "Random")
+        expect(page).to have_selector("#proposals .card-grid .column", count: 2)
+        expect(page).to have_selector("#proposals .card-grid .column", text: lucky_proposal.title)
+        expect(page).to have_selector("#proposals .card-grid .column", text: unlucky_proposal.title)
+      end
+    end
+
     it "lists all the proposals" do
       create(:proposal_feature,
              manifest: manifest,
@@ -408,17 +422,8 @@ describe "Proposals", type: :feature do
       expect(page).to have_css(".card--proposal", count: 3)
     end
 
-    it "lists the proposals ordered randomly by default" do
-      allow_any_instance_of(Decidim::Proposals::Proposal).to receive(:order_randomly) { |scope, _seed| scope.order(title: :asc) }
-
-      lucky_proposal = create(:proposal, title: "A", feature: feature)
-      unlucky_proposal = create(:proposal, title: "B", feature: feature)
-
-      visit_feature
-
-      expect(page).to have_selector("a", text: "Random")
-      expect(page).to have_selector("#proposals .card-grid .column:first-child", text: lucky_proposal.title)
-      expect(page).to have_selector("#proposals .card-grid .column:last-child", text: unlucky_proposal.title)
+    describe "default ordering" do
+      it_behaves_like "a random proposal ordering"
     end
 
     context "when voting phase is over" do
@@ -459,19 +464,13 @@ describe "Proposals", type: :feature do
                participatory_process: participatory_process)
       end
 
-      let!(:lucky_proposal) { create(:proposal, feature: feature) }
-      let!(:unlucky_proposal) { create(:proposal, feature: feature) }
-
-      it "lists the proposals ordered randomly by default" do
-        visit_feature
-
-        expect(page).to have_selector("a", text: "Random")
-        expect(page).to have_selector("#proposals .card-grid .column", count: 2)
-        expect(page).to have_selector("#proposals .card-grid .column", text: lucky_proposal.title)
-        expect(page).to have_selector("#proposals .card-grid .column", text: unlucky_proposal.title)
+      describe "order" do
+        it_behaves_like "a random proposal ordering"
       end
 
       it "shows only links to full proposals" do
+        create_list(:proposal, 2, feature: feature)
+
         visit_feature
 
         expect(page).to have_no_button("Voting disabled", disabled: true)
