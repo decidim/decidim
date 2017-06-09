@@ -177,11 +177,9 @@ fi:
     reported_mailer:
       hide:
         hello: Hei %{name},
-        report_html: "<p>Seuraava sisältö:<p>%{content}<p>on lisätty automaattisesti.</p>"
         subject: Resurssi on piilotettu automaattisesti
       report:
         hello: Hei %{name},
-        report_html: "<p>Seuraava sisältö:<p>%{content}<p>on raportoitu.</p>"
         subject: Resurssi on raportoitu
     reports:
       create:
