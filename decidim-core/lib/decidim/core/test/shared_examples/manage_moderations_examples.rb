@@ -29,7 +29,7 @@ RSpec.shared_examples "manage moderations" do
 
       moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
-          expect(page).to have_content moderation.reportable.reported_content
+          expect(page).to have_content moderation.reportable.reported_content_url
           expect(page).to have_content moderation.reports.first.reason
         end
       end
@@ -58,7 +58,7 @@ RSpec.shared_examples "manage moderations" do
         expect(page).to have_content("Resource successfully hidden")
       end
 
-      expect(page).to have_no_content(moderation.reportable.reported_content)
+      expect(page).to have_no_content(moderation.reportable.reported_content_url)
     end
   end
 
@@ -68,7 +68,7 @@ RSpec.shared_examples "manage moderations" do
 
       hidden_moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
-          expect(page).to have_content moderation.reportable.reported_content
+          expect(page).to have_content moderation.reportable.reported_content_url
         end
       end
     end

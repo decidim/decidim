@@ -543,7 +543,7 @@ en:
             hidden_at: Hidden at
             report_count: Count
             reportable: Reportable
-            reported_content: Reported content
+            reported_content_url: Reported content URL
             reports: Reports
     participatory_processes:
       participatory_process_groups:

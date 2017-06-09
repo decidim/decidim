@@ -31,8 +31,8 @@ module Decidim
 
     feature_manifest_name "dummy"
 
-    def reported_content
-      title
+    def reported_content_url
+      ResourceLocatorPresenter.new(self).url
     end
   end
 

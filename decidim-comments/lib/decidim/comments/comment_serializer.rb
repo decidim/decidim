@@ -30,7 +30,7 @@ module Decidim
       private
 
       def root_commentable_url
-        @root_commentable_url ||= decidim_resource_url(resource.root_commentable)
+        @root_commentable_url ||= Decidim::ResourceLocatorPresenter.new(resource.root_commentable).url
       end
     end
   end

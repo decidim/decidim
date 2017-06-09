@@ -1,5 +1,9 @@
 <p><%= t(".hello", name: @user.name) %></p>
 
 <p>
-  <%= t(".report_html", { content: reported_content.html_safe }) %>
+  <%= t(".report_html", { url: reported_content_url }) %>
+</p>
+
+<p>
+  <%= link_to t(".manage_moderations"), decidim_admin.participatory_process_moderations_path(@participatory_process.id) %>
 </p>

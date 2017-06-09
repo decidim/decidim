@@ -198,11 +198,13 @@ en:
     reported_mailer:
       hide:
         hello: Hello %{name},
-        report_html: "<p>The following content:<p>%{content}<p>has been hidden automatically.</p>"
+        manage_moderations: Manage moderations
+        report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
       report:
         hello: Hello %{name},
-        report_html: "<p>The following content:<p>%{content}<p>has been reported.</p>"
+        manage_moderations: Manage moderations
+        report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
         subject: A resource has been reported
     reports:
       create:

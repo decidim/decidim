@@ -197,11 +197,11 @@ ca:
     reported_mailer:
       hide:
         hello: Hola %{name},
-        report_html: "<p>El següent contingut:</p>%{content}<p>ha estat amagat automàticament.</p>"
+        report_html: <p>El següent <a href="%{url}">contingut</a> ha estat amagat automàticament.</p>
         subject: Un contingut ha estat amagat automàticament
       report:
         hello: Hola %{name},
-        report_html: "<p>El següent contingut:</p>%{content}<p>ha estat denunciat.</p>"
+        report_html: <p>El següent <a href="%{url}">contingut</a> ha estat denunciat.</p>
         subject: Un contingut ha estat denunciat
     reports:
       create:

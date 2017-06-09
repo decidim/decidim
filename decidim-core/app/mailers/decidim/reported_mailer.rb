@@ -5,11 +5,12 @@ module Decidim
   class ReportedMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
 
-    helper_method :reported_content
+    helper_method :reported_content_url
 
     def report(user, report)
       with_user(user) do
         @report = report
+        @participatory_process = @report.moderation.participatory_process
         @organization = user.organization
         @user = user
         subject = I18n.t("report.subject", scope: "decidim.reported_mailer")
@@ -20,6 +21,7 @@ module Decidim
     def hide(user, report)
       with_user(user) do
         @report = report
+        @participatory_process = @report.moderation.participatory_process
         @organization = user.organization
         @user = user
         subject = I18n.t("hide.subject", scope: "decidim.reported_mailer")
@@ -29,8 +31,8 @@ module Decidim
 
     private
 
-    def reported_content
-      @reported_content ||= @report.moderation.reportable.reported_content
+    def reported_content_url
+      @reported_content_url ||= @report.moderation.reportable.reported_content_url
     end
   end
 end

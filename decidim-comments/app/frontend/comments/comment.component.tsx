@@ -42,6 +42,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
     votable: false,
   };
 
+  public commentNode: HTMLElement;
+
   constructor(props: CommentProps) {
     super(props);
 
@@ -51,11 +53,36 @@ class Comment extends React.Component<CommentProps, CommentState> {
   }
 
   public componentDidMount() {
+    const { comment: { id } } = this.props;
+    const hash = document.location.hash;
+    const regex = new RegExp(`#comment_${id}`);
+
+    function scrollTo(element: Element, to: number, duration: number) {
+      if (duration <= 0) {
+        return;
+      }
+      const difference = to - element.scrollTop;
+      const perTick = difference / duration * 10;
+
+      setTimeout(() => {
+          element.scrollTop = element.scrollTop + perTick;
+          if (element.scrollTop === to) {
+            return;
+          }
+          scrollTo(element, to, duration - 10);
+      }, 10);
+    }
+
+    if (regex.test(hash)) {
+      scrollTo(document.body, this.commentNode.offsetTop, 200);
+    }
+
     if (window.$(document).foundation) {
-      const { comment: { id } } = this.props;
       window.$(`#flagModalComment${id}`).foundation();
     }
   }
+
+  public getNodeReference = (commentNode: HTMLElement) => this.commentNode = commentNode;
 
   public render(): JSX.Element {
     const { session, comment: { id, author, body, createdAt }, articleClassName } = this.props;
@@ -67,7 +94,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
     }
 
     return (
-      <article id={`comment_${id}`} className={articleClassName}>
+      <article id={`comment_${id}`} className={articleClassName} ref={this.getNodeReference}>
         <div className="comment__header">
           <div className="author-data">
             <div className="author-data__main">
