@@ -11,8 +11,8 @@ module Decidim
 
       belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id"
 
-      has_many :projects, through: :line_items, class_name: "Decidim::Budgets::Project", foreign_key: "decidim_project_id"
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_order_id", dependent: :destroy
+      has_many :projects, through: :line_items, class_name: "Decidim::Budgets::Project", foreign_key: "decidim_project_id"
 
       validates :user, uniqueness: { scope: :feature }
       validate :user_belongs_to_organization
