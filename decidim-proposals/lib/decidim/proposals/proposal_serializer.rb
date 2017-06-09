@@ -46,12 +46,7 @@ module Decidim
 
       def meetings
         @proposal.linked_resources(:meetings, "proposals_from_meeting").map do |meeting|
-          decidim_resource_url(
-            meeting,
-            feature_id: feature,
-            participatory_process_id: participatory_process,
-            host: organization.host
-          )
+          Decidim::ResourceLocatorPresenter.new(meeting).url
         end
       end
 

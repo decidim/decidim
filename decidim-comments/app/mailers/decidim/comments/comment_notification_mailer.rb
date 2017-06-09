@@ -13,6 +13,7 @@ module Decidim
         with_user(commentable.author) do
           @comment = comment
           @commentable = commentable
+          @locator = Decidim::ResourceLocatorPresenter.new(@commentable)
           @organization = commentable.organization
           subject = I18n.t("comment_created.subject", scope: "decidim.comments.mailer.comment_notification")
           mail(to: commentable.author.email, subject: subject)
@@ -24,6 +25,7 @@ module Decidim
           @reply = reply
           @comment = comment
           @commentable = commentable
+          @locator = Decidim::ResourceLocatorPresenter.new(@commentable)
           @organization = commentable.organization
           subject = I18n.t("reply_created.subject", scope: "decidim.comments.mailer.comment_notification")
           mail(to: comment.author.email, subject: subject)
