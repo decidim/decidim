@@ -459,8 +459,8 @@ describe "Proposals", type: :feature do
                participatory_process: participatory_process)
       end
 
-      let!(:lucky_proposal) { create(:proposal, title: "A", feature: feature) }
-      let!(:unlucky_proposal) { create(:proposal, title: "B", feature: feature) }
+      let!(:lucky_proposal) { create(:proposal, feature: feature) }
+      let!(:unlucky_proposal) { create(:proposal, feature: feature) }
 
       it "lists the proposals ordered randomly by default" do
         visit_feature
