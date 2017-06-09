@@ -28,15 +28,16 @@ module Decidim
         end
 
         def default_order
-          if current_settings.votes_blocked?
-            detect_order("most_voted")
-          else
-            "random"
-          end
+          return detect_order("most_voted") if votes_blocked?
+          "random"
         end
 
         def votes_visible?
           current_settings.votes_enabled? && !current_settings.votes_hidden?
+        end
+
+        def votes_blocked?
+          votes_visible? && current_settings.votes_blocked?
         end
 
         # Returns: A random float number between -1 and 1 to be used as a random seed at the database.
