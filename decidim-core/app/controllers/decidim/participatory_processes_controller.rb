@@ -14,6 +14,7 @@ module Decidim
 
     helper Decidim::AttachmentsHelper
     helper Decidim::ParticipatoryProcessHelper
+    helper Decidim::IconHelper
     helper Decidim::WidgetUrlsHelper
     helper_method :collection, :promoted_participatory_processes, :participatory_processes
 
