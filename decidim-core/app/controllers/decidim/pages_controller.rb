@@ -25,11 +25,13 @@ module Decidim
     end
 
     def promoted_participatory_processes
-      @promoted_processes ||= OrganizationPrioritizedParticipatoryProcesses.new(current_organization) | PromotedParticipatoryProcesses.new
+      @promoted_participatory_processes ||=
+        OrganizationPrioritizedParticipatoryProcesses.new(current_organization) | PromotedParticipatoryProcesses.new
     end
 
     def highlighted_participatory_processes
-      @highlighted_processes ||= OrganizationParticipatoryProcesses.new(current_organization) | HighlightedParticipatoryProcesses.new
+      @highlighted_participatory_processes ||=
+        OrganizationParticipatoryProcesses.new(current_organization) | HighlightedParticipatoryProcesses.new
     end
 
     private
