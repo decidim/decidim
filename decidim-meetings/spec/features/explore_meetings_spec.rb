@@ -224,18 +224,39 @@ describe "Explore meetings", type: :feature do
     let(:attached_to) { meeting }
     it_behaves_like "has attachments"
 
-    context "when the meeting is closed" do
-      let!(:meeting) { create(:meeting, :closed, feature: feature) }
-
+    shared_examples_for "a closing report page" do
       it "shows the closing report" do
         visit_feature
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(meeting.closing_report)
 
         within ".definition-data" do
-          expect(page).to have_content(meeting.attendees_count)
-          expect(page).to have_content(meeting.contributions_count)
-          expect(page).to have_content(meeting.attending_organizations)
+          expect(page).to have_content("ATTENDEES COUNT #{meeting.attendees_count}")
+          expect(page).to have_content("ATTENDING ORGANIZATIONS #{meeting.attending_organizations}")
+        end
+      end
+    end
+
+    context "when the meeting is closed and had no contributions" do
+      let!(:meeting) { create(:meeting, :closed, contributions_count: 0, feature: feature) }
+
+      it_behaves_like "a closing report page"
+
+      it "does not show contributions count" do
+        within ".definition-data" do
+          expect(page).to have_no_content("CONTRIBUTIONS COUNT 0")
+        end
+      end
+    end
+
+    context "when the meeting is closed and had contributions" do
+      let!(:meeting) { create(:meeting, :closed, contributions_count: 1, feature: feature) }
+
+      it_behaves_like "a closing report page"
+
+      it "shows contributions count" do
+        within ".definition-data" do
+          expect(page).to have_content("CONTRIBUTIONS COUNT 1")
         end
       end
     end
