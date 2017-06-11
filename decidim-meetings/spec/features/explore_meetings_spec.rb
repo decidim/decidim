@@ -233,9 +233,9 @@ describe "Explore meetings", type: :feature do
         expect(page).to have_i18n_content(meeting.closing_report)
 
         within ".definition-data" do
-          expect(page).to have_content(meeting.attendees_count)
-          expect(page).to have_content(meeting.contributions_count)
-          expect(page).to have_content(meeting.attending_organizations)
+          expect(page).to have_content("ATTENDEES COUNT #{meeting.attendees_count}")
+          expect(page).to have_content("CONTRIBUTIONS COUNT #{meeting.contributions_count}")
+          expect(page).to have_content("ATTENDING ORGANIZATIONS #{meeting.attending_organizations}")
         end
       end
     end
