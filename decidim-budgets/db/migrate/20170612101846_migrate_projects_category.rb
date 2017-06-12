@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MigrateProjectsCategory < ActiveRecord::Migration[5.1]
   def change
     Decidim::Budgets::Project.find_each do |project|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MigrateProposalsCategory < ActiveRecord::Migration[5.1]
   def change
     Decidim::Proposals::Proposal.find_each do |proposal|

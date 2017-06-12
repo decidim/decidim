@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MigrateMeetingsCategory < ActiveRecord::Migration[5.1]
   def change
     Decidim::Meetings::Meeting.find_each do |meeting|

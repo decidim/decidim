@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MigrateResultsCategory < ActiveRecord::Migration[5.1]
   def change
     Decidim::Results::Result.find_each do |result|
