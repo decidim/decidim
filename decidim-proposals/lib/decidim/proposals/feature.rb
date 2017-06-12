@@ -92,13 +92,17 @@ Decidim.register_feature(:proposals) do |feature|
       scopes = feature.organization.scopes + [nil]
 
       20.times do |n|
+        author = Decidim::User.where(organization: feature.organization).all.sample
+        user_group = [true, false].sample ? author.user_groups.verified.sample : nil
+
         proposal = Decidim::Proposals::Proposal.create!(
           feature: feature,
           category: categories.sample,
           scope: scopes.sample,
           title: Faker::Lorem.sentence(2),
           body: Faker::Lorem.paragraphs(2).join("\n"),
-          author: Decidim::User.where(organization: feature.organization).all.sample
+          author: author,
+          user_group: user_group
         )
 
         if n > 15

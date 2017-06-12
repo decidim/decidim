@@ -6,15 +6,7 @@
           <h5 class="card__title"><%= proposal.title %></h5>
         <% end %>
         <div class="card__author author-data author-data--small">
-          <div class="author-data__main">
-            <div class="author author--inline">
-              <span class="author__avatar author__avatar--small">
-                <%= image_tag proposal.author_avatar_url %>
-              </span>
-              <span class="author__name"><%= proposal.author_name %></span>
-              <%= l proposal.created_at, format: "%d/%m/%Y" %>
-            </div>
-          </div>
+          <%= render partial: "author", locals: { proposal: proposal } %>
         </div>
       </div>
       <%= render partial: "proposal_badge", locals: { proposal: proposal } %>

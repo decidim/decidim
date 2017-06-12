@@ -13,15 +13,15 @@ module Decidim
         property :commentable_type
       end
 
-      field :acceptsNewComments, !types.Boolean, "Wether the object can have new comments or not" do
+      field :acceptsNewComments, !types.Boolean, "Whether the object can have new comments or not" do
         property :accepts_new_comments?
       end
 
-      field :commentsHaveAlignment, !types.Boolean, "Wether the object comments have alignment or not" do
+      field :commentsHaveAlignment, !types.Boolean, "Whether the object comments have alignment or not" do
         property :comments_have_alignment?
       end
 
-      field :commentsHaveVotes, !types.Boolean, "Wether the object comments have votes or not" do
+      field :commentsHaveVotes, !types.Boolean, "Whether the object comments have votes or not" do
         property :comments_have_votes?
       end
 

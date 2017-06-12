@@ -82,6 +82,9 @@ en:
             state: State
             title: Title
       proposals:
+        author:
+          deleted: Deleted user
+          verified_user_group: Verified organization
         count:
           proposals_count:
             one: 1 proposal
@@ -126,7 +129,6 @@ en:
         proposal:
           view_proposal: View proposal
         show:
-          deleted_user: Deleted user
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_rejected_reason: 'This proposal has been rejected because:'
           report: Report

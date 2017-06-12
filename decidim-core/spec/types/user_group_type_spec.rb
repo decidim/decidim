@@ -32,5 +32,25 @@ module Decidim
         expect(response).to include("avatarUrl" => model.avatar.url)
       end
     end
+
+    describe "isVerified" do
+      let(:query) { "{ isVerified }" }
+
+      context "when the user group is verified" do
+        let(:model) { create(:user_group, :verified) }
+
+        it "returns true" do
+          expect(response).to include("isVerified" => true)
+        end
+      end
+
+      context "when the user group is not verified" do
+        let(:model) { create(:user_group, :rejected) }
+
+        it "returns false" do
+          expect(response).to include("isVerified" => false)
+        end
+      end
+    end
   end
 end

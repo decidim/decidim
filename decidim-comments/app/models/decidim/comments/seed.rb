@@ -15,12 +15,15 @@ module Decidim
         organization = resource.organization
 
         rand(1..5).times do
-          random = rand(Decidim::User.count)
+          author = Decidim::User.where(organization: organization).all.sample
+          user_group = [true, false].sample ? author.user_groups.verified.sample : nil
+
           Comment.create(
             commentable: resource,
             root_commentable: resource,
             body: ::Faker::Lorem.sentence,
-            author: Decidim::User.where(organization: organization).offset(random).first
+            author: author,
+            user_group: user_group
           )
         end
       end

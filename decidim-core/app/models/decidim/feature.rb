@@ -30,7 +30,7 @@ module Decidim
       where(published_at: nil)
     end
 
-    # Public: Finds out wether this feature is published.
+    # Public: Finds out whether this feature is published.
     #
     # Returns true if published, false otherwise.
     def published?
