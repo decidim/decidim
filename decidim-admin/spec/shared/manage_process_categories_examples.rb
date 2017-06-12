@@ -124,7 +124,6 @@ RSpec.shared_examples "manage process categories examples" do
 
         within find("tr", text: translated(category.name)) do
           expect(page).not_to have_selector("a.action-icon--remove")
-          expect(page).to have_selector(".action-icon--disabled")
         end
       end
     end
