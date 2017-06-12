@@ -19,7 +19,7 @@ module Decidim
       class_option :migrate, type: :boolean, default: false,
                              desc: "Run migrations after installing decidim"
       class_option :recreate_db, type: :boolean, default: false,
-                                 desc: "Run migrations after installing decidim"
+                                 desc: "Recreate db after installing decidim"
 
       def install
         route "mount Decidim::Core::Engine => '/'"

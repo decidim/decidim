@@ -151,7 +151,7 @@ describe "Homepage", type: :feature do
         visit current_path
       end
 
-      it "includes the linsk to social networks" do
+      it "includes the links to social networks" do
         expect(page).to have_xpath("//a[@href = 'https://twitter.com/twitter_handler']")
         expect(page).to have_xpath("//a[@href = 'https://www.facebook.com/facebook_handler']")
         expect(page).to have_xpath("//a[@href = 'https://www.youtube.com/youtube_handler']")

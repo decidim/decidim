@@ -2,8 +2,8 @@
 
 module Decidim
   # A Feature represents a self-contained group of functionalities usually
-  # defined via a FeatureManifest and its Components. It's meant to be able to
-  # provide a single feature that spans over several steps, each one with its component.
+  # defined via a FeatureManifest. It's meant to be able to provide a single
+  # feature that spans over several steps.
   class Feature < ApplicationRecord
     belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id"
     has_one :organization, through: :participatory_process
