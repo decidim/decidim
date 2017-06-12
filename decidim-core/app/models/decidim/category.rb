@@ -19,6 +19,9 @@ module Decidim
       where(parent_id: nil)
     end
 
+    def unused?
+    end
+
     private
 
     def forbid_deep_nesting

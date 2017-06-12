@@ -71,44 +71,60 @@ RSpec.shared_examples "manage process categories examples" do
   context "deleting a category" do
     let!(:category2) { create(:category, participatory_process: participatory_process) }
 
-    context "when the category has no subcategories" do
-      before do
-        visit current_path
+    context "when the category has no associated content" do
+      context "when the category has no subcategories" do
+        before do
+          visit current_path
+        end
+
+        it "deletes a category" do
+          within find("tr", text: translated(category2.name)) do
+            page.find("a.action-icon--remove").click
+          end
+
+          within ".callout-wrapper" do
+            expect(page).to have_content("successfully")
+          end
+
+          within "#categories table" do
+            expect(page).not_to have_content(translated(category2.name))
+          end
+        end
       end
 
-      it "deletes a category" do
-        within find("tr", text: translated(category2.name)) do
-          page.find("a.action-icon--remove").click
+      context "when the category has some subcategories" do
+        let!(:subcategory) { create(:subcategory, parent: category2) }
+
+        before do
+          visit current_path
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        it "deletes a category" do
+          within find("tr", text: translated(category2.name)) do
+            page.find("a.action-icon--remove").click
+          end
 
-        within "#categories table" do
-          expect(page).not_to have_content(translated(category2.name))
+          within ".callout-wrapper" do
+            expect(page).to have_content("error deleting")
+          end
+
+          within "#categories table" do
+            expect(page).to have_content(translated(category2.name))
+          end
         end
       end
     end
 
-    context "when the category has some subcategories" do
-      let!(:subcategory) { create(:subcategory, parent: category2) }
+    context "when the category has associated content" do
+      let!(:feature) { create(:feature, participatory_process: participatory_process) }
+      let!(:dummy_resource) { create(:dummy_resource, feature: feature, category: category) }
 
-      before do
+      it "cannot delete it" do
         visit current_path
-      end
 
-      it "deletes a category" do
-        within find("tr", text: translated(category2.name)) do
-          page.find("a.action-icon--remove").click
-        end
-
-        within ".callout-wrapper" do
-          expect(page).to have_content("error deleting")
-        end
-
-        within "#categories table" do
-          expect(page).to have_content(translated(category2.name))
+        within find("tr", text: translated(category.name)) do
+          expect(page).not_to have_selector("a.action-icon--remove")
+          expect(page).to have_selector(".action-icon--disabled")
         end
       end
     end
