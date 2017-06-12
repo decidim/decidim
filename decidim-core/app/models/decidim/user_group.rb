@@ -6,8 +6,8 @@ module Decidim
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_group_id
     has_many :users, through: :memberships, class_name: "Decidim::User", foreign_key: :decidim_user_id
 
-    validates :name, presence: true
-    validates :document_number, presence: true
+    validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }
+    validates :document_number, presence: true, uniqueness: { scope: :decidim_organization_id }
     validates :phone, presence: true
     validates :avatar, file_size: { less_than_or_equal_to: 5.megabytes }
 
