@@ -181,11 +181,9 @@ fr:
     reported_mailer:
       hide:
         hello: Bonjour %{name},
-        report_html: "<p>Le contenu suivant: <p>%{content}<p> a été masqué automatiquement.</p>"
         subject: Une ressource a été cachée automatiquement
       report:
         hello: Bonjour %{name},
-        report_html: "<p>Le contenu suivant: <p>%{content}<p> a été signalé.</p>"
         subject: Une ressource a été signalée
     reports:
       create:

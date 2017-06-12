@@ -165,11 +165,9 @@ it:
     reported_mailer:
       hide:
         hello: Ciao %{name},
-        report_html: "<p>Il seguente contenuto:<p>%{content}<p>&egrave; stato nascosto automaticamente.</p>"
         subject: Una risorsa è stata cancellata automaticamente
       report:
         hello: Ciao %{name},
-        report_html: "<p>Il seguente contenuto:<p>%{content}<p>&egrave; stato riportato.</p>"
         subject: Una risorsa è stata riportata
     reports:
       create:

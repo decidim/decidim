@@ -181,11 +181,9 @@ eu:
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
-        report_html: "<p>Honako eduki hau automatikoki ezkutatu da: <p>%{content} <p>.</p>"
         subject: Eduki bat automatikoki ezkutatu da
       report:
         hello: Kaixo, %{name},
-        report_html: "<p>Honako eduki hau salatua izan da: <p>%{content}<p></p>"
         subject: Eduki bat salatua izan da
     reports:
       create:

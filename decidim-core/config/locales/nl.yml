@@ -177,11 +177,9 @@ nl:
     reported_mailer:
       hide:
         hello: Hallo %{name},
-        report_html: "<p>De volgende inhoud: <p>%{content}<p>is automatisch verborgen.</p>"
         subject: Een bron is automatisch verborgen
       report:
         hello: Hallo %{name},
-        report_html: "<p>De volgende inhoud: <p>%{content} <p>is gemeld.</p>"
         subject: Een bron is gemeld
     reports:
       create:
