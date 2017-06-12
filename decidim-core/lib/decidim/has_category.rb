@@ -8,10 +8,9 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :category,
-                 foreign_key: "decidim_category_id",
-                 class_name: "Decidim::Category",
-                 optional: true
+      has_one :categorization, as: :categorizable
+      has_one :category, through: :categorization
+
       validate :category_belongs_to_organization
 
       private
