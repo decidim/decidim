@@ -11,6 +11,10 @@ module Decidim
       include Concerns::ParticipatoryProcessAdmin
       include Concerns::HasAttachments
 
+      def after_destroy_path
+        participatory_process_attachments_path(participatory_process.id)
+      end
+
       def attached_to
         participatory_process
       end
