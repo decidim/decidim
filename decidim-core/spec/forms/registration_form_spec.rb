@@ -90,7 +90,6 @@ module Decidim
       let(:user_group_document_number) { "123456789Z" }
       let(:user_group_phone) { "333-333-333" }
 
-
       context "when everything is OK" do
         it { is_expected.to be_valid }
       end

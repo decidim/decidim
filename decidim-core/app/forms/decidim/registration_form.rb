@@ -24,7 +24,7 @@ module Decidim
     validates :tos_agreement, allow_nil: false, acceptance: true
 
     validates :user_group_name, presence: true, if: :user_group?
-    validates :user_group_document_number, presence: true,  if: :user_group?
+    validates :user_group_document_number, presence: true, if: :user_group?
     validates :user_group_phone, presence: true, if: :user_group?
 
     validate :email_unique_in_organization

@@ -20,7 +20,6 @@ module Decidim
         let(:user_group_document_number) { "123456789Z" }
         let(:user_group_phone) { "333-333-333" }
 
-
         let(:form_params) do
           {
             "user" => {
@@ -90,7 +89,7 @@ module Decidim
           let(:user_group_name) { "My organization" }
           let(:user_group_document_number) { "123456789Z" }
           let(:user_group_phone) { "333-333-333" }
-          let(:user_group_decidim_organization_id ) { organization.id }
+          let(:user_group_decidim_organization_id) { organization.id }
 
           describe "when the form is not valid" do
             before do

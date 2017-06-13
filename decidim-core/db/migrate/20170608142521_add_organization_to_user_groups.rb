@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddOrganizationToUserGroups < ActiveRecord::Migration[5.0]
   def change
     add_column :decidim_user_groups, :decidim_organization_id, :integer
