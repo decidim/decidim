@@ -174,7 +174,7 @@ FactoryGirl.define do
     phone { Faker::PhoneNumber.phone_number }
     avatar { test_file("avatar.jpg", "image/jpeg") }
     organization
-    
+
     transient do
       users []
     end
