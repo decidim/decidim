@@ -26,7 +26,9 @@ module Decidim
 
     # Handle the category_id filter
     def search_category_id
-      query.where(decidim_category_id: category_ids)
+      query
+        .includes(:categorization)
+        .where(decidim_categorizations: { decidim_category_id: category_ids })
     end
 
     # Handles the scope_id filter. When we want to show only those that do not

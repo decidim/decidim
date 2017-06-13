@@ -27,6 +27,7 @@ module Decidim
     include Resourceable
     include Reportable
     include Authorable
+    include HasCategory
     include Decidim::Comments::Commentable
 
     feature_manifest_name "dummy"
@@ -110,6 +111,7 @@ RSpec.configure do |config|
 
         t.references :decidim_feature, index: true
         t.references :decidim_author, index: true
+        t.references :decidim_category, index: true
 
         t.timestamps
       end

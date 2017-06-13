@@ -156,6 +156,8 @@ en:
         edit:
           title: Edit category
           update: Update
+        index:
+          category_used: This category cannot be removed because it is in use.
         new:
           create: Create category
           title: New category
