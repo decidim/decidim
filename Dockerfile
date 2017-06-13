@@ -26,6 +26,7 @@ ADD decidim-meetings/decidim-meetings.gemspec /tmp/decidim-meetings/decidim-meet
 ADD decidim-proposals/decidim-proposals.gemspec /tmp/decidim-proposals/decidim-proposals.gemspec
 ADD decidim-results/decidim-results.gemspec /tmp/decidim-results/decidim-results.gemspec
 ADD decidim-budgets/decidim-budgets.gemspec /tmp/decidim-proposals/decidim-budgets.gemspec
+ADD decidim-surveys/decidim-surveys.gemspec /tmp/decidim-surveys/decidim-surveys.gemspec
 
 ADD package.json /tmp/package.json
 ADD yarn.lock /tmp/yarn.lock
