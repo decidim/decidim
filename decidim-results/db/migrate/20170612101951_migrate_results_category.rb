@@ -13,7 +13,7 @@ class MigrateResultsCategory < ActiveRecord::Migration[5.1]
     # Create categorizations
     ActiveRecord::Base.connection.execute('
       INSERT INTO decidim_categorizations(decidim_category_id, categorizable_id, categorizable_type, created_at, updated_at)
-        SELECT decidim_category_id, id, "Decidim::Results::Result", NOW(), NOW()
+        SELECT decidim_category_id, id, \'Decidim::Results::Result\', NOW(), NOW()
         FROM decidim_results_results
         WHERE decidim_category_id IS NOT NULL
     ')
