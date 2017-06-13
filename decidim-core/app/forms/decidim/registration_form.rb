@@ -47,9 +47,9 @@ module Decidim
 
     def user_group_document_number_unique_in_organization
       errors.add :user_group_document_number, :taken if UserGroup.where(
-          document_number: user_group_document_number, 
-          decidim_organization_id: current_organization.id
-        ).first.present?
+        document_number: user_group_document_number,
+        decidim_organization_id: current_organization.id
+      ).first.present?
     end
   end
 end
