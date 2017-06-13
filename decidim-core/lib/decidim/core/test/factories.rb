@@ -173,7 +173,7 @@ FactoryGirl.define do
     document_number { Faker::Number.number(8) + "X" }
     phone { Faker::PhoneNumber.phone_number }
     avatar { test_file("avatar.jpg", "image/jpeg") }
-    organization
+    organization { user.organization }
 
     transient do
       users []
