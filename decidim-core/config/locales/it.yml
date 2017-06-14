@@ -337,7 +337,6 @@ it:
         processes_count: Processi
         proposals_count: Proposte
         results_count: Resultati
-        users_count: Utenti
         votes_count: Voti
       sub_hero:
         register: Registrati
