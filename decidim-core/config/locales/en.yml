@@ -381,7 +381,7 @@ en:
         processes_count: Processes
         proposals_count: Proposals
         results_count: Results
-        users_count: Users
+        users_count: Participants
         votes_count: Votes
       sub_hero:
         register: Register
