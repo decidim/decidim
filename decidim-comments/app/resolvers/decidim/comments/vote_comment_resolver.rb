@@ -14,6 +14,9 @@ module Decidim
           on(:ok) do |comment|
             return comment
           end
+          on(:invalid) do
+            return GraphQL::ExecutionError.new(I18n.t("votes.create.error", scope: "decidim.comments"))
+          end
         end
       end
     end

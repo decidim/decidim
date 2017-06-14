@@ -20,6 +20,9 @@ en:
             subject: You have a new comment
           reply_created:
             subject: You have a new reply of your comment
+      votes:
+        create:
+          error: There's been errors when voting the comment.
     components:
       add_comment_form:
         account_message: '<a href="%{sign_in_url}">Sign in with your account</a> or <a href="%{sign_up_url}">sign up</a> to add your comment. '
