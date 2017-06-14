@@ -358,7 +358,6 @@ eu:
         processes_count: Prozesuak
         proposals_count: Proposamenak
         results_count: Emaitzak
-        users_count: Erabiltzaileak
         votes_count: Botoak
       sub_hero:
         register: Erregistroa
