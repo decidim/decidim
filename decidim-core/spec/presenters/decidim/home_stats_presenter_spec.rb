@@ -36,7 +36,7 @@ module Decidim
         expect(subject.highlighted).to eq(
           "<div class=\"home-pam__highlight\">" \
             "<div class=\"home-pam__data\">" \
-              "<h4 class=\"home-pam__title\">Users</h4>" \
+              "<h4 class=\"home-pam__title\">Participants</h4>" \
               "<span class=\"home-pam__number users_count\"> 1</span>" \
             "</div>" \
             "<div class=\"home-pam__data\">" \
