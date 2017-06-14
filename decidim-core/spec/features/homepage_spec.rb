@@ -123,7 +123,7 @@ describe "Homepage", type: :feature do
           within "#statistics" do
             expect(page).to have_content("Current state of #{organization.name}")
             expect(page).to have_content("PROCESSES")
-            expect(page).to have_content("USERS")
+            expect(page).to have_content("PARTICIPANTS")
           end
         end
 
