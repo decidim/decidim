@@ -139,6 +139,15 @@ If you plan to release your application you'll need to publish it using the same
 
 ## Example applications
 
+As Decidim is a ruby gem, you can see the [https://github.com/decidim/decidim/network/dependents?type=application](dependent repostiories) to see how many applications are on the wild or tests that others developers have made. Here's a partial list with some of the projects that have used Decidim: 
+
 * [Demo](http://staging.decidim.codegram.com)
-* [Decidim Barcelona](https://decidim.barcelona)
-* [L'H ON dels barris](https://www.lhon-participa.cat)
+* [Decidim Barcelona](https://decidim.barcelona) - [https://github.com/AjuntamentdeBarcelona/decidim-barcelona](View Github)
+* [L'H ON Participa](https://www.lhon-participa.cat) - [https://github.com/HospitaletDeLlobregat/decidim-hospitalet](View Github)
+* [Decidim Terrassa](https://participa.terrassa.cat) - [https://github.com/AjuntamentDeTerrassa/decidim-terrassa](View Github)
+* [Decidim Sabadell](https://decidim.sabadell.cat) - [https://github.com/AjuntamentDeSabadell/decidim-sabadell](View Github)
+* [Decidim Gavà](https://participa.gavaciutat.cat) - [https://github.com/AjuntamentDeGava/decidim-gava](View Github)
+* [Decidim Sant Cugat](https://decidim.santcugat.cat/) - [https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat](View Github)
+* [Vilanova Participa](http://participa.vilanova.cat) - [https://github.com/vilanovailageltru/decidim-vilanova](View Github)
+* [Erabaki Pamplona](https://erabaki.pamplona.es) - [https://github.com/ErabakiPamplona/erabaki](View Github)
+* [Decidim Mataró](https://www.decidimmataro.cat) - [https://github.com/AjuntamentDeMataro/decidim-mataro](View Github)
