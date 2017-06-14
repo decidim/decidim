@@ -10,6 +10,8 @@ fragment CommentData on Comment {
   author {
     name
     avatarUrl
+    isVerified
+    isUser
     deleted
   }
   hasComments

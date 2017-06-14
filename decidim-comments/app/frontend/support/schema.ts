@@ -114,6 +114,10 @@ export interface CommentDataFragment extends UpVoteButtonFragment, DownVoteButto
     name: string,
     // The author's avatar url
     avatarUrl: string,
+    // Whether the author is verified or not
+    isVerified: boolean,
+    // Whether the author is a user or another kind of author (User Group)
+    isUser: boolean,
     // Whether the author's account has been deleted or not
     deleted: boolean,
   };

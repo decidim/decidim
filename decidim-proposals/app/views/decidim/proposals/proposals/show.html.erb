@@ -8,23 +8,7 @@
 <div class="row column view-header">
   <h2 class="heading2"><%= @proposal.title %></h2>
   <div class="author-data">
-    <div class="author-data__main">
-      <div class="author author--inline">
-        <span class="author__avatar">
-          <%= image_tag @proposal.author_avatar_url %>
-        </span>
-        <%= l @proposal.created_at, format: :long %>
-        <span class="author__name">
-          <% if @proposal.author&.deleted? %>
-            <span class="label label--small label--basic">
-              <%= t('.deleted_user') %>
-            </span>
-          <% else %>
-            <%= @proposal.author_name %>
-          <% end %>
-        </span>
-      </div>
-    </div>
+    <%= render partial: "author", locals: { proposal: @proposal } %>
     <div class="author-data__extra">
       <button type="button" data-open="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" title="<%= t('.report') %>" aria-controls="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" aria-haspopup="true" tabindex="0">
         <%= icon "flag", aria_label: t('.report'), class: 'icon--small' %>

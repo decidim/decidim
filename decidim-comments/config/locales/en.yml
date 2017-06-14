@@ -51,6 +51,7 @@ en:
             offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
             spam: Contains clickbait, advertising, scams or script bots.
           title: Report a problem
+        verified_user_group: Verified organization
       comment_order_selector:
         order:
           best_rated: Best rated

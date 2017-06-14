@@ -17,6 +17,14 @@ module Decidim
       end
     end
 
+    describe "isVerified" do
+      let(:query) { "{ isVerified }" }
+
+      it "returns false" do
+        expect(response).to include("isVerified" => false)
+      end
+    end
+
     describe "avatarUrl" do
       let(:query) { "{ avatarUrl }" }
 

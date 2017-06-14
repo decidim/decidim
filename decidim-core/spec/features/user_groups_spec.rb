@@ -22,6 +22,12 @@ describe "User groups", type: :feature, perform_enqueued: true do
       expect(page).to have_content(user_group.name)
       expect(page).to have_content("Pending")
     end
+
+    describe "#verified?" do
+      it "returns false" do
+        expect(user_group.verified?).to eq(false)
+      end
+    end
   end
 
   context "when the user group is rejected" do
@@ -47,6 +53,12 @@ describe "User groups", type: :feature, perform_enqueued: true do
 
       expect(page).to have_content(user_group.name)
       expect(page).to have_content("Verified")
+    end
+
+    describe "#verified?" do
+      it "returns true" do
+        expect(user_group.verified?).to eq(true)
+      end
     end
   end
 end

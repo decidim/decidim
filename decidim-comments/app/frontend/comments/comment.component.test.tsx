@@ -156,7 +156,7 @@ describe("<Comment />", () => {
   it("should render a 'in favor' badge if comment's alignment is 1", () => {
     comment.alignment = 1;
     const wrapper = shallow(<Comment comment={comment} session={session} />);
-    expect(wrapper.find("span.success.label").text()).toEqual("In favor");
+    expect(wrapper.find("span.alignment.label").text()).toEqual("In favor");
   });
 
   it("should render a 'against' badge if comment's alignment is -1", () => {

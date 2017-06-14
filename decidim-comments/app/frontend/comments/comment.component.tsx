@@ -102,10 +102,17 @@ class Comment extends React.Component<CommentProps, CommentState> {
                 <a className="author__avatar">
                   <img src={author.avatarUrl} alt="author-avatar" />
                 </a>
-                {
-                  author.deleted ?
+                { author.deleted ?
                     <span className="label label--small label--basic">{I18n.t("components.comment.deleted_user")}</span> :
                     <a className="author__name">{author.name}</a>
+                }
+                { !author.isUser && author.isVerified &&
+                  <span>
+                    &nbsp;
+                    <span className="label success label--small">
+                      {I18n.t("components.comment.verified_user_group")}
+                    </span>
+                  </span>
                 }
                 <time dateTime={createdAt}>{formattedCreatedAt}</time>
               </div>
@@ -275,7 +282,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    */
   private _renderAlignmentBadge() {
     const { comment: { alignment } } = this.props;
-    const spanClassName = classnames("label", {
+    const spanClassName = classnames("label alignment", {
       success: alignment === 1,
       alert: alignment === -1,
     });

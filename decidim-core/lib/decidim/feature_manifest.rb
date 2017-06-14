@@ -181,7 +181,7 @@ module Decidim
     #
     # name - The name of the stat
     # options - A hash of options
-    #         * primary: Wether the stat is primary or not.
+    #         * primary: Whether the stat is primary or not.
     #         * priority: The priority of the stat used for render issues.
     # block - A block that receive the features to filter out the stat.
     #

@@ -19,6 +19,8 @@ const generateCommentsData = (num = 1) => {
       author: {
         name: name.findName(),
         avatarUrl: image.imageUrl(),
+        isVerified: Math.random() >= 0.5,
+        isUser: Math.random() >= 0.5,
         deleted: false,
       },
       hasComments: false,

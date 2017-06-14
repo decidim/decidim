@@ -1,0 +1,23 @@
+<div class="author-data__main">
+  <div class="author author--inline">
+    <span class="author__avatar author__avatar--small">
+      <%= image_tag proposal.author_avatar_url %>
+    </span>
+    <span class="author__name">
+      <% if proposal.author&.deleted? %>
+        <span class="label label--small label--basic">
+          <%= t('.deleted') %>
+        </span>
+      <% else %>
+        <%= proposal.author_name %>
+      <% end %>
+    </span>
+    <% if proposal.user_group && proposal.user_group.verified? %>
+      &nbsp;
+      <span class="label label--highlight label--small">
+        <%= t ".verified_user_group" %>
+      </span>
+    <% end %>
+    <%= l proposal.created_at, format: "%d/%m/%Y" %>
+  </div>
+</div>
