@@ -380,7 +380,6 @@ ca:
         processes_count: Processos
         proposals_count: Propostes
         results_count: Resultats
-        users_count: Usuaris
         votes_count: Suports
       sub_hero:
         register: Registre
