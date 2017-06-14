@@ -16,9 +16,9 @@ module Decidim
         let(:tos_agreement) { "1" }
         let(:newsletter_notifications) { "1" }
 
-        let(:user_group_name) { nil }
-        let(:user_group_document_number) { nil }
-        let(:user_group_phone) { nil }
+        let(:user_group_name) { "My organization" }
+        let(:user_group_document_number) { "123456789Z" }
+        let(:user_group_phone) { "333-333-333" }
 
         let(:form_params) do
           {
@@ -89,6 +89,7 @@ module Decidim
           let(:user_group_name) { "My organization" }
           let(:user_group_document_number) { "123456789Z" }
           let(:user_group_phone) { "333-333-333" }
+          let(:user_group_decidim_organization_id) { organization.id }
 
           describe "when the form is not valid" do
             before do
@@ -113,7 +114,8 @@ module Decidim
               expect(UserGroup).to receive(:new).with(
                 name: form.user_group_name,
                 document_number: form.user_group_document_number,
-                phone: form.user_group_phone
+                phone: form.user_group_phone,
+                decidim_organization_id: organization.id
               ).and_call_original
 
               expect do

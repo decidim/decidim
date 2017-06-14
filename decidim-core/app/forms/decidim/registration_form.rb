@@ -28,6 +28,8 @@ module Decidim
     validates :user_group_phone, presence: true, if: :user_group?
 
     validate :email_unique_in_organization
+    validate :user_group_name_unique_in_organization
+    validate :user_group_document_number_unique_in_organization
 
     def user_group?
       sign_up_as == "user_group"
@@ -37,6 +39,17 @@ module Decidim
 
     def email_unique_in_organization
       errors.add :email, :taken if User.where(email: email, organization: current_organization).first.present?
+    end
+
+    def user_group_name_unique_in_organization
+      errors.add :user_group_name, :taken if UserGroup.where(name: user_group_name, decidim_organization_id: current_organization.id).first.present?
+    end
+
+    def user_group_document_number_unique_in_organization
+      errors.add :user_group_document_number, :taken if UserGroup.where(
+        document_number: user_group_document_number,
+        decidim_organization_id: current_organization.id
+      ).first.present?
     end
   end
 end

@@ -59,7 +59,8 @@ task :development_app do
   Dir.chdir("#{__dir__}/development_app") do
     Bundler.with_clean_env do
       sh "bundle exec spring stop"
-      sh "bundle exec rake db:drop db:create db:migrate db:seed"
+      sh "bundle exec rake db:drop db:create db:migrate"
+      sh "bundle exec rake db:seed"
       sh "bundle exec rails generate decidim:demo"
     end
   end
