@@ -6,6 +6,9 @@ en:
         cannot_have_comments: can't have comments
   decidim:
     comments:
+      votes:
+        create:
+          error: "There's been errors when voting the comment."
       comment_notification_mailer:
         comment_created:
           new_comment_html: There is a new comment from <b>%{commenter}</b> in <b>%{commentable_link}</b>
