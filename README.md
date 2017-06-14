@@ -139,7 +139,7 @@ If you plan to release your application you'll need to publish it using the same
 
 ## Example applications
 
-As Decidim is a ruby gem, you can see the [https://github.com/decidim/decidim/network/dependents?type=application](dependent repostiories) to see how many applications are on the wild or tests that others developers have made. Here's a partial list with some of the projects that have used Decidim: 
+As Decidim is a ruby gem, you can see the [dependent repostiories](https://github.com/decidim/decidim/network/dependents?type=application) to see how many applications are on the wild or tests that others developers have made. Here's a partial list with some of the projects that have used Decidim: 
 
 * [Demo](http://staging.decidim.codegram.com)
 * [Decidim Barcelona](https://decidim.barcelona) - [View code](https://github.com/AjuntamentdeBarcelona/decidim-barcelona)
