@@ -80,6 +80,9 @@ es:
             state: Estado
             title: Título
       proposals:
+        author:
+          deleted: Usuario eliminado
+          verified_user_group: Organización verificada
         count:
           proposals_count:
             one: 1 propuesta
