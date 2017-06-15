@@ -60,5 +60,9 @@ module Decidim
     def hashtag
       attributes["hashtag"].to_s.delete("#")
     end
+
+    def subscopes
+      scope ? scope.children : organization.top_scopes
+    end
   end
 end

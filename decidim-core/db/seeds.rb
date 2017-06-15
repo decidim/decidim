@@ -21,11 +21,39 @@ if !Rails.env.production? || ENV["SEED"]
     reference_prefix: Faker::Name.suffix
   )
 
+  province = Decidim::ScopeType.create!(
+    name: Decidim::Faker::Localized.literal("province"),
+    plural: Decidim::Faker::Localized.literal("provinces"),
+    organization: organization
+  )
+
+  municipality = Decidim::ScopeType.create!(
+    name: Decidim::Faker::Localized.literal("municipality"),
+    plural: Decidim::Faker::Localized.literal("municipalities"),
+    organization: organization
+  )
+
   3.times.each do
-    Decidim::Scope.create!(
-      name: Faker::Address.unique.state,
+    parent = Decidim::Scope.create!(
+      name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
+      code: Faker::Address.unique.country_code,
+      scope_type: province,
+      metadata: {},
+      deprecated: false,
       organization: organization
     )
+
+    5.times.each do
+      Decidim::Scope.create!(
+        name: Decidim::Faker::Localized.literal(Faker::Address.unique.city),
+        code: parent.code + "-" + Faker::Address.unique.state_abbr,
+        scope_type: municipality,
+        metadata: {},
+        deprecated: Faker::Boolean.boolean(0.1),
+        organization: organization,
+        parent: parent
+      )
+    end
   end
 
   Decidim::User.find_or_initialize_by(email: "admin@example.org").update!(

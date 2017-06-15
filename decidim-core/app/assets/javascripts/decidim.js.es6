@@ -6,6 +6,7 @@
 // = require moment.min
 // = require foundation-datepicker
 // = require form_datepicker
+
 // = require decidim/history
 // = require decidim/append_elements
 // = require decidim/user_registrations

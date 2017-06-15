@@ -278,9 +278,27 @@ FactoryGirl.define do
     end
   end
 
-  factory :scope, class: Decidim::Scope do
-    name { generate(:name) }
+  factory :scope_type, class: Decidim::ScopeType do
+    name Decidim::Faker::Localized.word
+    plural { Decidim::Faker::Localized.literal(name.values.first.pluralize) }
     organization
+  end
+
+  factory :scope, class: Decidim::Scope do
+    name { Decidim::Faker::Localized.literal(Faker::Address.unique.state) }
+    code { Faker::Address.unique.state_abbr }
+    scope_type
+    metadata { {} }
+    deprecated { false }
+    organization
+  end
+
+  factory :subscope, parent: :scope do
+    parent { build(:scope) }
+
+    before(:create) do |object|
+      object.parent.save unless object.parent.persisted?
+    end
   end
 
   factory :dummy_resource, class: Decidim::DummyResource do
