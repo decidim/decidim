@@ -6,6 +6,8 @@ module Decidim
       # Custom Passwords controller for Devise in order to use a custom layout
       # and views.
       class PasswordsController < ::Devise::PasswordsController
+        helper Decidim::DecidimFormHelper
+
         layout "decidim/system/login"
       end
     end
