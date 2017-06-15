@@ -19,6 +19,9 @@ ca:
             subject: Tens un nou comentari
           reply_created:
             subject: Tens una nova resposta del teu comentari
+      votes:
+        create:
+          error: Hi ha hagut errors en votar el comentari.
     components:
       add_comment_form:
         account_message: "<a href=\"%{sign_in_url}\">Entra amb el teu compte</a> o <a href=\"%{sign_up_url}\">registra't</a> per a deixar un comentari.\n"
@@ -50,6 +53,7 @@ ca:
             offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
             spam: Conté "clickbait", publicitat o estafes.
           title: Denuncia un problema
+        verified_user_group: Organització verificada
       comment_order_selector:
         order:
           best_rated: Més ben valorats

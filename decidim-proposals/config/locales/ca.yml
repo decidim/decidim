@@ -80,6 +80,9 @@ ca:
             state: Estat
             title: Títol
       proposals:
+        author:
+          deleted: Usuari eliminat
+          verified_user_group: Organització verificada
         count:
           proposals_count:
             one: 1 proposta
@@ -124,7 +127,6 @@ ca:
         proposal:
           view_proposal: Veure proposta
         show:
-          deleted_user: Usuari eliminat
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
           report: Informe

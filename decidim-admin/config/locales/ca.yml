@@ -155,6 +155,8 @@ ca:
         edit:
           title: Edita categoria
           update: Actualitzar
+        index:
+          category_used: Aquesta categoria no es pot suprimir perquè és en ús.
         new:
           create: Crea una categoria
           title: Nova categoria
