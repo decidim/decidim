@@ -15,7 +15,7 @@ module Decidim
         @from_proposals_list = params[:from_proposals_list] == "true"
 
         VoteProposal.call(proposal, current_user) do
-          on(:ok) do |vote|
+          on(:ok) do
             proposal.reload
             render :update_buttons_and_counters
           end

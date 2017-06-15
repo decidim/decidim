@@ -20,9 +20,9 @@ module Decidim
           end
 
           it "doesn't create a new vote for the proposal" do
-            expect {
+            expect do
               command.call
-            }.to change { ProposalVote.count }.by(0)
+            end.to change { ProposalVote.count }.by(0)
           end
         end
 
@@ -36,9 +36,9 @@ module Decidim
           end
 
           it "creates a new vote for the proposal" do
-            expect {
+            expect do
               command.call
-            }.to change { ProposalVote.count }.by(1)
+            end.to change { ProposalVote.count }.by(1)
           end
         end
       end

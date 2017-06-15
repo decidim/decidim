@@ -23,6 +23,7 @@ module Decidim
         destroy_proposal_vote
         broadcast(:ok, @proposal)
       end
+
       private
 
       def destroy_proposal_vote
