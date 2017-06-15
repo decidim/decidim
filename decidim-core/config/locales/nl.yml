@@ -305,7 +305,7 @@ nl:
         title: Gebruikersinstellingen
         user_groups: Organisaties
   locale:
-    name: Nederlands
+    name: Dutch
   pages:
     '404':
       back_home: Terug naar huis
