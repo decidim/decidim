@@ -19,6 +19,9 @@ es:
             subject: Tienes un nuevo comentario
           reply_created:
             subject: Uno de tus comentarios ha recibido respuesta
+      votes:
+        create:
+          error: Ha habido errores al votar el comentario.
     components:
       add_comment_form:
         account_message: "<a href=\"%{sign_in_url}\">Entra con tu cuenta</a> o <a href=\"%{sign_up_url}\">regístrate</a> para dejar tu comentario.\n"
@@ -50,6 +53,7 @@ es:
             offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
             spam: Contiene clickbait, publicidad o estafas.
           title: Denunciar un problema
+        verified_user_group: Organización verificada
       comment_order_selector:
         order:
           best_rated: Mejor valoración
