@@ -36,7 +36,7 @@ module Decidim
       unless action_authorization(action).ok?
         html_options ||= {}
         html_options["onclick"] = "event.preventDefault();"
-        html_options["data-toggle"] = "#{action.to_s.underscore}AuthorizationModal"
+        html_options["data-toggle"] = current_user ? "#{action.to_s.underscore}AuthorizationModal" : "loginModal"
         url = ""
       end
 
@@ -68,7 +68,7 @@ module Decidim
 
       unless action_authorization(action).ok?
         html_options["onclick"] = "event.preventDefault();"
-        html_options["data-toggle"] = "#{action.to_s.underscore}AuthorizationModal"
+        html_options["data-toggle"] = current_user ? "#{action.to_s.underscore}AuthorizationModal" : "loginModal"
         url = ""
       end
 
