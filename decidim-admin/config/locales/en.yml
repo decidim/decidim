@@ -70,8 +70,15 @@ en:
         name: Name
         role: Role
       scope:
+        code: Code
+        deprecated: Deprecated
         name: Name
         organization: Organization
+        scope_type: Scope type
+      scope_type:
+        name: Name
+        organization: Organization
+        plural: Plural
       static_page:
         content: Content
         organization: Organization
@@ -116,6 +123,7 @@ en:
       actions:
         activate: Activate
         add: Add
+        browse: Browse
         configure: Configure
         confirm_destroy: Are you sure you want to delete this?
         destroy: Destroy
@@ -225,6 +233,7 @@ en:
           moderations: Moderations
           process_admins: Process users
           steps: Steps
+        scope_types: Scope types
         scopes: Scopes
         settings: Settings
         static_pages: Pages
@@ -274,8 +283,12 @@ en:
             moderator: Moderator
         scope:
           fields:
-            created_at: Created at
             name: Name
+            scope_type: Scope type
+        scope_type:
+          fields:
+            name: Name
+            plural: Plural
         static_page:
           fields:
             created_at: Created at
@@ -446,6 +459,21 @@ en:
         create:
           error: There was an error creating a new participatory process group.
           success: Participatory process group created successfully.
+      scope_types:
+        create:
+          error: There was an error creating a new scope type.
+          success: Scope type created successfully.
+        destroy:
+          success: Scope type successfully destroyed
+        edit:
+          title: Edit scope type
+          update: Update
+        new:
+          create: Create scope type
+          title: New scope
+        update:
+          error: There was an error when updating this scope type.
+          success: Scope type updated successfully
       scopes:
         create:
           error: There was an error creating a new scope.
@@ -482,6 +510,7 @@ en:
         dashboard: Dashboard
         participatory_process_groups: Participatory process groups
         participatory_processes: Participatory processes
+        scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
         user_groups: User groups

@@ -25,6 +25,7 @@ PATH
       rectify (~> 0.9.1)
       sassc-rails (~> 1.3.0)
     decidim-api (0.5.0.pre.pre)
+      select2-rails (~> 4.0.3)
       graphiql-rails (~> 1.4.2)
       graphql (~> 1.6.0)
       rack-cors (~> 0.4.0)
@@ -498,6 +499,8 @@ GEM
       sprockets-rails
       tilt
     searchlight (4.1.0)
+    select2-rails (4.0.3)
+      thor (~> 0.14)
     simplecov (0.14.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)

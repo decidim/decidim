@@ -71,7 +71,7 @@
       </div>
 
       <div class="columns xlarge-6">
-        <%= form.collection_select :scope_id, organization_scopes, :id, :name %>
+        <%= form.select :scope_id, process_scopes_for_select(@participatory_process), {}, { "data-placeholder" => I18n.t("decidim.participatory_processes.scopes.global"), class: "scope_freetext" } %>
       </div>
     </div>
 

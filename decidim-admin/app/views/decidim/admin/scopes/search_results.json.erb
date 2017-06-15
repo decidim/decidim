@@ -1,0 +1,9 @@
+<%
+  results = @scopes.map do |scope|
+    {
+      id: scope.id,
+      text: translated_attribute(scope.name),
+      deprecated: scope.deprecated
+    }
+  end%>
+<%= raw( {results: results}.to_json ) %>
