@@ -81,6 +81,9 @@ en:
             scope: Scope
             state: State
             title: Title
+      proposal_votes:
+        create:
+          error: There's been errors when voting the proposal.
       proposals:
         author:
           deleted: Deleted user

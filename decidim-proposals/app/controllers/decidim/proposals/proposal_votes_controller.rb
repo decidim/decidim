@@ -12,20 +12,30 @@ module Decidim
 
       def create
         authorize! :vote, proposal
-
-        proposal.votes.create!(author: current_user)
         @from_proposals_list = params[:from_proposals_list] == "true"
-        render :update_buttons_and_counters
+
+        VoteProposal.call(proposal, current_user) do
+          on(:ok) do
+            proposal.reload
+            render :update_buttons_and_counters
+          end
+
+          on(:invalid) do
+            render json: { error: I18n.t("proposal_votes.create.error", scope: "decidim.proposals") }, status: 422
+          end
+        end
       end
 
       def destroy
         authorize! :unvote, proposal
-
-        proposal.votes.where(author: current_user).destroy_all
-        proposal.reload
-
         @from_proposals_list = params[:from_proposals_list] == "true"
-        render :update_buttons_and_counters
+
+        UnvoteProposal.call(proposal, current_user) do
+          on(:ok) do
+            proposal.reload
+            render :update_buttons_and_counters
+          end
+        end
       end
 
       private
