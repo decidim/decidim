@@ -380,6 +380,7 @@ es:
         processes_count: Procesos
         proposals_count: Propuestas
         results_count: Resultados
+        users_count: Participantes
         votes_count: Votos
       sub_hero:
         register: Registro
