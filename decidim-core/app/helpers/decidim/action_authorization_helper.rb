@@ -33,10 +33,10 @@ module Decidim
         html_options = arguments[2]
       end
 
-      unless action_authorization(action).ok?
+      unless current_user_authorized?(action)
         html_options ||= {}
         html_options["onclick"] = "event.preventDefault();"
-        html_options["data-toggle"] = "#{action.to_s.underscore}AuthorizationModal"
+        html_options["data-toggle"] = current_user ? "#{action.to_s.underscore}AuthorizationModal" : "loginModal"
         url = ""
       end
 
@@ -66,9 +66,9 @@ module Decidim
         html_options = arguments[2] || {}
       end
 
-      unless action_authorization(action).ok?
+      unless current_user_authorized?(action)
         html_options["onclick"] = "event.preventDefault();"
-        html_options["data-toggle"] = "#{action.to_s.underscore}AuthorizationModal"
+        html_options["data-toggle"] = current_user ? "#{action.to_s.underscore}AuthorizationModal" : "loginModal"
         url = ""
       end
 
@@ -77,6 +77,12 @@ module Decidim
       else
         button_to(body, url, html_options)
       end
+    end
+
+    private
+
+    def current_user_authorized?(action)
+      current_user && action_authorization(action).ok?
     end
   end
 end

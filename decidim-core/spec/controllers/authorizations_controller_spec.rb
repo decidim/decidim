@@ -17,7 +17,7 @@ module Decidim
       context "when the handler is not valid" do
         it "redirects the user" do
           post :create, params: { handler: "foo" }
-          expect(response).to redirect_to(account_path)
+          expect(response).to redirect_to(authorizations_path)
         end
       end
     end
@@ -26,7 +26,7 @@ module Decidim
       context "when the handler is not valid" do
         it "redirects the user" do
           get :new, params: { handler: "foo" }
-          expect(response).to redirect_to(account_path)
+          expect(response).to redirect_to(authorizations_path)
         end
       end
     end

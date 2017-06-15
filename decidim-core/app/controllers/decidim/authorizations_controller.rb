@@ -63,7 +63,7 @@ module Decidim
     end
 
     def handler_name
-      params[:handler] || params[:authorization_handler][:handler_name]
+      params[:handler] || params.dig(:authorization_handler, :handler_name)
     end
 
     def valid_handler
@@ -72,7 +72,7 @@ module Decidim
       logger.warn "Invalid authorization handler given: #{handler_name} doesn't"\
         "exist or you haven't added it to `Decidim.authorization_handlers`"
 
-      redirect_to(account_path) && (return false)
+      redirect_to(authorizations_path) && (return false)
     end
 
     def only_one_handler?
