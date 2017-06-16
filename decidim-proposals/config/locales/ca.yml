@@ -79,6 +79,9 @@ ca:
             scope: Àmbit
             state: Estat
             title: Títol
+      proposal_votes:
+        create:
+          error: Hi ha hagut errors en votar la proposta.
       proposals:
         author:
           deleted: Usuari eliminat
