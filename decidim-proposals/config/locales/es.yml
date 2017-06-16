@@ -79,6 +79,9 @@ es:
             scope: Ámbito
             state: Estado
             title: Título
+      proposal_votes:
+        create:
+          error: Ha habido errores al votar la propuesta.
       proposals:
         author:
           deleted: Usuario eliminado
