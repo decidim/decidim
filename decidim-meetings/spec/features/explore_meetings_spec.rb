@@ -64,7 +64,7 @@ describe "Explore meetings", type: :feature do
         visit_feature
 
         within ".filters" do
-          check scope.name
+          check translated(scope.name)
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
@@ -180,15 +180,15 @@ describe "Explore meetings", type: :feature do
       it "shows tags for scope" do
         expect(page).to have_selector("ul.tags.tags--meeting")
         within "ul.tags.tags--meeting" do
-          expect(page).to have_content(meeting.scope.name)
+          expect(page).to have_content(translated(meeting.scope.name))
         end
       end
 
       it "links to the filter for this scope" do
         within "ul.tags.tags--meeting" do
-          click_link meeting.scope.name
+          click_link translated(meeting.scope.name)
         end
-        expect(page).to have_checked_field(meeting.scope.name)
+        expect(page).to have_checked_field(translated(meeting.scope.name))
       end
     end
 

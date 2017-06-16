@@ -16,6 +16,14 @@ FactoryGirl.define do
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
   end
 
+  sequence(:scope_name) do |n|
+    "#{Faker::Lorem.sentence(1,true,3)} #{n}"
+  end
+
+  sequence(:scope_code) do |n|
+    "#{Faker::Lorem.characters(4).upcase}-#{n}"
+  end
+
   factory :category, class: Decidim::Category do
     name { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
@@ -285,8 +293,8 @@ FactoryGirl.define do
   end
 
   factory :scope, class: Decidim::Scope do
-    name { Decidim::Faker::Localized.literal(Faker::Address.unique.state) }
-    code { Faker::Address.unique.state_abbr }
+    name { Decidim::Faker::Localized.literal(generate(:scope_name)) }
+    code { generate(:scope_code) }
     scope_type
     metadata { {} }
     deprecated { false }

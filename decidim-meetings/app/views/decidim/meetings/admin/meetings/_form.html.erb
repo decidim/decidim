@@ -36,7 +36,7 @@
     <div class="row" >
       <% if !@form.process_scope %>
         <div class="columns xlarge-6" >
-          <%= form.collection_select :decidim_scope_id, participatory_process_scopes(current_participatory_process), :id, :name %>
+          <%= form.collection_select :decidim_scope_id, participatory_process_subscopes(current_participatory_process), :id, :name %>
         </div>
       <% end %>
 

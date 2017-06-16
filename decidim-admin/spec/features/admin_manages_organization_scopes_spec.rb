@@ -52,7 +52,7 @@ describe "Organization scopes", type: :feature do
       end
 
       it "can edit them" do
-        within find("tr", text: scope.name["en"]) do
+        within find("tr", text: translated(scope.name)) do
           page.find("a.action-icon.action-icon--edit").click
         end
 
@@ -73,7 +73,7 @@ describe "Organization scopes", type: :feature do
       end
 
       it "can destroy them" do
-        within find("tr", text: scope.name["en"]) do
+        within find("tr", text: translated(scope.name)) do
           page.find("a.action-icon.action-icon--remove").click
         end
 
@@ -82,7 +82,7 @@ describe "Organization scopes", type: :feature do
         end
 
         within "table" do
-          expect(page).not_to have_content(scope.name["en"])
+          expect(page).not_to have_content(translated(scope.name))
         end
       end
     end

@@ -64,7 +64,7 @@ describe "Explore results", type: :feature do
           visit_feature
 
           within ".filters" do
-            check scope.name
+            check translated(scope.name)
           end
 
           expect(page).to have_css(".card--result", count: 1)
@@ -154,7 +154,7 @@ describe "Explore results", type: :feature do
 
         expect(page).to have_selector("ul.tags.tags--result")
         within "ul.tags.tags--result" do
-          expect(page).to have_content(result.scope.name)
+          expect(page).to have_content(translated(result.scope.name))
         end
       end
 
@@ -162,9 +162,9 @@ describe "Explore results", type: :feature do
         visit path
 
         within "ul.tags.tags--result" do
-          click_link result.scope.name
+          click_link translated(result.scope.name)
         end
-        expect(page).to have_checked_field(result.scope.name)
+        expect(page).to have_checked_field(translated(result.scope.name))
       end
     end
 
