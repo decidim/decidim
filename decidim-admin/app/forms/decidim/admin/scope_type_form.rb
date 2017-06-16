@@ -12,7 +12,8 @@ module Decidim
 
       mimic :scope_type
 
-      validates :name, :organization, presence: true
+      validates :name, :plural, translatable_presence: true
+      validates :organization, presence: true
 
       alias organization current_organization
     end

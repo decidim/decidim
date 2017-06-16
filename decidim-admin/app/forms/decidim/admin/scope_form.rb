@@ -15,7 +15,8 @@ module Decidim
 
       mimic :scope
 
-      validates :name, :organization, :code, presence: true
+      validates :name, translatable_presence: true
+      validates :organization, :code, presence: true
       validate :code, :code_uniqueness
 
       alias organization current_organization

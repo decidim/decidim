@@ -11,5 +11,7 @@ module Decidim
                inverse_of: :scope_types
 
     has_many :scopes, foreign_key: "decidim_scope_type_id", class_name: "Decidim::Scope", inverse_of: :scope_type
+
+    validates :name, presence: true
   end
 end

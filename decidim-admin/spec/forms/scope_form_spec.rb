@@ -6,8 +6,8 @@ module Decidim
   module Admin
     describe ScopeForm do
       let(:organization) { create :organization }
-      let(:name) { Decidim::Faker::Localized.literal(Faker::Address.unique.state) }
-      let(:code) { Faker::Address.unique.state_abbr }
+      let(:name) { Decidim::Faker::Localized.literal(::Faker::Address.unique.state) }
+      let(:code) { ::Faker::Address.unique.state_abbr }
       let(:scope_type) { create :scope_type }
       let(:attributes) do
         {
@@ -31,19 +31,13 @@ module Decidim
       end
 
       context "when name is missing" do
-        let(:name) { nil }
+        let(:name) { {} }
 
         it { is_expected.to be_invalid }
       end
 
       context "when code is missing" do
-        let(:code) { nil }
-
-        it { is_expected.to be_invalid }
-      end
-
-      context "when organization is missing" do
-        let(:organization) { nil }
+        let(:code) { "" }
 
         it { is_expected.to be_invalid }
       end

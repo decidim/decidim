@@ -13,6 +13,8 @@ describe "Organization scopes", type: :feature do
   end
 
   describe "Managing scopes" do
+    let!(:scope_type) { create(:scope_type, organization: admin.organization) }
+
     before do
       login_as admin, scope: :user
       visit decidim_admin.root_path
@@ -24,15 +26,11 @@ describe "Organization scopes", type: :feature do
       click_link "Add"
 
       within ".new_scope" do
-        fill_in_i18n_editor(
-          :scope_name,
-          "#scope-name-tabs",
-          en: "My nice district",
-          es: "Mi lindo distrito",
-          ca: "El meu bonic barri"
-        )
+        fill_in_i18n :scope_name, "#scope-name-tabs", en: "My nice district",
+                                                      es: "Mi lindo distrito",
+                                                      ca: "El meu bonic barri"
         fill_in "Code", with: "MY-DISTRICT"
-        select @scope_type, from: :scope_scope_type_id
+        select scope_type.name["en"], from: :scope_scope_type_id
 
         find("*[type=submit]").click
       end
@@ -59,13 +57,9 @@ describe "Organization scopes", type: :feature do
         end
 
         within ".edit_scope" do
-          fill_in_i18n_editor(
-            :scope_name,
-            "#scope_name-tabs",
-            en: "Another district",
-            es: "Otro distrito",
-            ca: "Un altre districte"
-          )
+          fill_in_i18n :scope_name, "#scope-name-tabs", en: "Another district",
+                                                        es: "Otro distrito",
+                                                        ca: "Un altre districte"
           find("*[type=submit]").click
         end
 
@@ -73,13 +67,13 @@ describe "Organization scopes", type: :feature do
           expect(page).to have_content("successfully")
         end
 
-        within "table" do
-          expect(page).to have_content("Another district")
+        within ".scope-title-content" do
+          expect(page).to have_content("Another district".upcase)
         end
       end
 
       it "can destroy them" do
-        within find("tr", text: scope.name) do
+        within find("tr", text: scope.name["en"]) do
           page.find("a.action-icon.action-icon--remove").click
         end
 
@@ -88,7 +82,7 @@ describe "Organization scopes", type: :feature do
         end
 
         within "table" do
-          expect(page).not_to have_content(scope.name)
+          expect(page).not_to have_content(scope.name["en"])
         end
       end
     end
