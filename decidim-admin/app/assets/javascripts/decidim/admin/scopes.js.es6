@@ -1,9 +1,9 @@
-function formatScope(scope) {
-  if (scope.deprecated)
-    return $('<span class="deprecated">' + scope.text + '</span>');
-  else
-    return scope.text;
-};
+const formatScope = (scope) => {
+  if (scope.deprecated) {
+    return $(`<span class="deprecated">${scope.text}</span>`);
+  }
+  return scope.text;
+}
 
 $(() => {
   $(".scope_freetext").select2({
