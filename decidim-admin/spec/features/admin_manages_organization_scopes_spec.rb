@@ -24,7 +24,15 @@ describe "Organization scopes", type: :feature do
       click_link "Add"
 
       within ".new_scope" do
-        fill_in :scope_name, with: "My nice district"
+        fill_in_i18n_editor(
+          :scope_name,
+          "#scope-name-tabs",
+          en: "My nice district",
+          es: "Mi lindo distrito",
+          ca: "El meu bonic barri"
+        )
+        fill_in "Code", with: "MY-DISTRICT"
+        select @scope_type, from: :scope_scope_type_id
 
         find("*[type=submit]").click
       end
@@ -46,12 +54,18 @@ describe "Organization scopes", type: :feature do
       end
 
       it "can edit them" do
-        within find("tr", text: scope.name) do
+        within find("tr", text: scope.name["en"]) do
           page.find("a.action-icon.action-icon--edit").click
         end
 
         within ".edit_scope" do
-          fill_in :scope_name, with: "Another district"
+          fill_in_i18n_editor(
+            :scope_name,
+            "#scope_name-tabs",
+            en: "Another district",
+            es: "Otro distrito",
+            ca: "Un altre districte"
+          )
           find("*[type=submit]").click
         end
 

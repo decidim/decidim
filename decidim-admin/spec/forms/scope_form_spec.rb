@@ -5,12 +5,16 @@ require "spec_helper"
 module Decidim
   module Admin
     describe ScopeForm do
-      let(:name) { "my_name" }
-      let(:organization) { create(:organization) }
+      let(:organization) { create :organization }
+      let(:name) { Decidim::Faker::Localized.literal(Faker::Address.unique.state) }
+      let(:code) { Faker::Address.unique.state_abbr }
+      let(:scope_type) { create :scope_type }
       let(:attributes) do
         {
           "scope" => {
-            "name" => name
+            "name" => name,
+            "code" => code,
+            "scope_type" => scope_type
           }
         }
       end
@@ -32,26 +36,32 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
+      context "when code is missing" do
+        let(:code) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+
       context "when organization is missing" do
         let(:organization) { nil }
 
         it { is_expected.to be_invalid }
       end
 
-      context "when slug is not unique" do
+      context "when code is not unique" do
         before do
-          create(:scope, organization: organization, name: name)
+          create(:scope, organization: organization, code: code)
         end
 
         it "is not valid" do
           expect(subject).not_to be_valid
-          expect(subject.errors[:name]).not_to be_empty
+          expect(subject.errors[:code]).not_to be_empty
         end
       end
 
-      context "when the slug exists in another organization" do
+      context "when the code exists in another organization" do
         before do
-          create(:scope, name: name)
+          create(:scope, code: code)
         end
 
         it { is_expected.to be_valid }

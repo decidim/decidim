@@ -7,7 +7,7 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      def initialize(form, parent_scope = null)
+      def initialize(form, parent_scope = nil)
         @form = form
         @parent_scope = parent_scope
       end

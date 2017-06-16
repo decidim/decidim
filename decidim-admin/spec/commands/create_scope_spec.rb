@@ -4,12 +4,16 @@ require "spec_helper"
 
 describe Decidim::Admin::CreateScope do
   let(:organization) { create :organization }
-  let(:name) { "My scope" }
+  let(:name) { Decidim::Faker::Localized.literal(Faker::Address.unique.state) }
+  let(:code) { Faker::Address.unique.state_abbr }
+  let(:scope_type) { create :scope_type }
+
   let(:form) do
     double(
       invalid?: invalid,
       name: name,
-      organization: organization
+      organization: organization,
+      scope_type: scope_type
     )
   end
   let(:invalid) { false }

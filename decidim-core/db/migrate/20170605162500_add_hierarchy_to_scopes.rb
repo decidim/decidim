@@ -1,4 +1,6 @@
-class AddHierarchyToScopes   < ActiveRecord::Migration[5.0]
+# frozen_string_literal: true
+
+class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
   def self.up
     # schema migration
     create_table :decidim_scope_types do |t|
@@ -16,12 +18,12 @@ class AddHierarchyToScopes   < ActiveRecord::Migration[5.0]
       t.jsonb :metadata, default: {}, null: false
       t.boolean :deprecated, default: false, null: false
       t.integer :part_of, array: true, default: [], null: false
-      t.index :part_of, using: 'gin'
+      t.index :part_of, using: "gin"
     end
 
     # post migration data fixes
     Decidim::Scope.all.find_each do |s|
-      s.name2 = Hash[s.organization.available_locales.map{|lo| [lo, s.name]} ]
+      s.name2 = Hash[s.organization.available_locales.map { |lo| [lo, s.name] }]
       s.code = s.id.to_s
       s.save!
     end
@@ -30,12 +32,11 @@ class AddHierarchyToScopes   < ActiveRecord::Migration[5.0]
     change_table :decidim_scopes do |t|
       t.remove :name
       t.rename :name2, :name
-      t.index [ :decidim_organization_id, :code ], unique: true
+      t.index [:decidim_organization_id, :code], unique: true
     end
     change_column_null :decidim_scopes, :code, false
     change_column_null :decidim_scopes, :metadata, false
     change_column_null :decidim_scopes, :deprecated, false
-
 
     Decidim::Scope.reset_column_information
   end
@@ -43,7 +44,7 @@ class AddHierarchyToScopes   < ActiveRecord::Migration[5.0]
   def self.down
     # schema migration
     change_table :decidim_scopes do |t|
-      t.remove_index [ :organization, :code ], unique: true
+      t.remove_index [:organization, :code], unique: true
       t.remove :scope_type_id, :code, :part_of, :metadata, :deprecated
       t.change :name, :string, null: false
     end
