@@ -17,7 +17,7 @@ FactoryGirl.define do
   end
 
   sequence(:scope_name) do |n|
-    "#{Faker::Lorem.sentence(1,true,3)} #{n}"
+    "#{Faker::Lorem.sentence(1, true, 3)} #{n}"
   end
 
   sequence(:scope_code) do |n|
