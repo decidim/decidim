@@ -44,7 +44,7 @@ fr:
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
-        scope_id: Domaine d'application
+        scope_id: Zone d’application
         short_description: Résumé
         slug: Identifiant
         subtitle: Sous-titre
@@ -87,11 +87,11 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Quartier
-        meta_scope: Metadonnée du domaine d'application
+        meta_scope: Metadonnée de la zone d’application
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
-        scope: Domaine d'application
+        scope: Zone d’application
         short_description: Résumé
         slug: Identifiant
         subtitle: Sous-titre
@@ -226,7 +226,7 @@ fr:
           moderations: Modérations
           process_admins: Administrateurs du processus participatifs
           steps: Etapes
-        scopes: Domaines d'application
+        scopes: Zones d’application
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -430,7 +430,7 @@ fr:
           success: Groupe de processus participatif créé avec succès.
       scopes:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouveau domaine d'application.
+          error: Une erreur s'est produite lors de la création d'une nouvelle zone d’application.
           success: Domaine d'application créée avec succès.
         destroy:
           success: Domaine d'application détruit avec succès
