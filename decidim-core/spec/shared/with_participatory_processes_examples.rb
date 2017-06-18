@@ -56,6 +56,7 @@ RSpec.shared_examples "with promoted participatory processes" do
   before do
     @request.env["decidim.current_organization"] = organization
   end
+
   describe "helper methods" do
     describe "promoted_participatory_processes" do
       it "orders them by active_step end_date" do
