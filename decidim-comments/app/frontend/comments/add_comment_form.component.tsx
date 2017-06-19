@@ -143,7 +143,9 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
             >
               {I18n.t("components.add_comment_form.form.submit")}
             </button>
-            <span className="remaining-character-count">{remainingCharacterCount}</span>
+            <span className="remaining-character-count">
+              {I18n.t("components.add_comment_form.remaining_characters", { count:  remainingCharacterCount })}
+            </span>
           </div>
         </form>
       );
