@@ -16,7 +16,7 @@ module Decidim
       validates :title, :content, translatable_presence: true
       validates :slug, format: { with: /\A[a-z0-9-]+/ }
 
-      validate :slug, :slug_uniquenesscd ,.
+      validate :slug, :slug_uniqueness
 
       alias organization current_organization
 
