@@ -202,13 +202,13 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the upVote and downVote buttons or not
    */
   private _renderVoteButtons() {
-    const { comment, votable } = this.props;
+    const { session, comment, votable } = this.props;
 
     if (votable) {
       return (
         <div className="comment__votes">
-          <UpVoteButton comment={comment} />
-          <DownVoteButton comment={comment} />
+          <UpVoteButton session={session} comment={comment} />
+          <DownVoteButton session={session} comment={comment} />
         </div>
       );
     }
