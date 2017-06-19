@@ -7,6 +7,8 @@ module Decidim
     let(:page) { build(:static_page) }
 
     context "validations" do
+      let(:invalid_slug) { "#Invalid.Slug" }
+
       it "is valid" do
         expect(page).to be_valid
       end
@@ -23,6 +25,13 @@ module Decidim
         other_page = create(:static_page, slug: page.slug)
 
         expect(other_page).to be_valid
+      end
+
+      it "does not allow to create pages with an invalid slug" do
+        page = create(:static_page)
+        invalid_page = build(:static_page, slug: invalid_slug, organization: page.organization)
+
+        expect(invalid_page).not_to be_valid
       end
     end
 

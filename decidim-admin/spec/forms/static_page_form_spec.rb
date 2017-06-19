@@ -69,6 +69,18 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
+      context "when slug is invalid" do
+        let(:slug) { "#Slug.Invalid!" }
+
+        it { is_expected.to be_invalid }
+      end
+
+      context "when slug is not downcase" do
+        let(:slug) { "SLUG" }
+
+        it { is_expected.to be_valid }
+      end
+
       context "when slug is not unique" do
         before do
           create(:static_page, organization: organization, slug: slug)
