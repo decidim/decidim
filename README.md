@@ -116,6 +116,7 @@ After you create a development app (`bundle exec rake development_app`):
 | [Pages](https://github.com/decidim/decidim/tree/master/decidim-pages) | The Pages module adds static page capabilities to any participatory process. It basically provides an interface to include arbitrary HTML content to any step. |
 | [Proposals](https://github.com/decidim/decidim/tree/master/decidim-proposals) | The Proposals module adds one of the main features of Decidim: allows users to contribute to a participatory process by creating proposals. |
 | [Results](https://github.com/decidim/decidim/tree/master/decidim-results) | Adds a results section to any participatory process so users can follow along the state of the accepted proposals. |
+| [Surveys](https://github.com/decidim/decidim/tree/master/decidim-surveys) | Adds the ability for admins to create arbitrary surveys. |
 | [System](https://github.com/decidim/decidim/tree/master/decidim-system) | Multitenant Admin to manage multiple organizations in a single installation |
 
 ## Technical tradeoffs
