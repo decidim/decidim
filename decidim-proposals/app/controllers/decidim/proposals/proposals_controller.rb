@@ -24,7 +24,7 @@ module Decidim
         @voted_proposals = if current_user
                              ProposalVote.where(
                                author: current_user,
-                               proposal: @proposals
+                               proposal: @proposals.pluck(:id)
                              ).pluck(:decidim_proposal_id)
                            else
                              []
