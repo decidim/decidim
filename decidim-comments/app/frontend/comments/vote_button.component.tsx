@@ -8,7 +8,12 @@ interface VoteButtonProps {
   voteAction?: () => void;
   disabled?: boolean;
   selectedClass?: string;
+  userLoggedIn: boolean;
 }
+
+const preventDefault = (event: any) => {
+  event.preventDefault();
+};
 
 const VoteButton: React.SFC<VoteButtonProps> = ({
   buttonClassName,
@@ -17,11 +22,13 @@ const VoteButton: React.SFC<VoteButtonProps> = ({
   voteAction,
   disabled,
   selectedClass,
+  userLoggedIn,
 }) => (
   <button
     className={`${buttonClassName} ${selectedClass}`}
-    onClick={voteAction}
+    onClick={userLoggedIn ? voteAction : preventDefault}
     disabled={disabled}
+    data-open={userLoggedIn ? null : "loginModal"}
   >
     <Icon name={iconName} iconExtraClassName="icon--small" />
     {` ${votes}`}

@@ -4,6 +4,7 @@ import { graphql } from "react-apollo";
 import VoteButton from "./vote_button.component";
 
 import {
+  AddCommentFormSessionFragment,
   CommentFragment,
   GetCommentsQuery,
   UpVoteButtonFragment,
@@ -11,11 +12,15 @@ import {
 } from "../support/schema";
 
 interface UpVoteButtonProps {
+  session: AddCommentFormSessionFragment & {
+    user: any;
+  } | null;
   comment: UpVoteButtonFragment;
   upVote?: () => void;
 }
 
 export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
+  session,
   comment: { upVotes, upVoted, downVoted },
   upVote,
 }) => {
@@ -27,14 +32,18 @@ export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
      selectedClass = "is-vote-notselected";
   }
 
+  const userLoggedIn = session && session.user;
+  const disabled = upVoted || downVoted;
+
   return (
     <VoteButton
       buttonClassName="comment__votes--up"
       iconName="icon-chevron-top"
       votes={upVotes}
       voteAction={upVote}
-      disabled={upVoted || downVoted}
+      disabled={disabled}
       selectedClass={selectedClass}
+      userLoggedIn={userLoggedIn}
     />
   );
 };
