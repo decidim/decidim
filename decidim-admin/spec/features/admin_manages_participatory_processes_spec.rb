@@ -65,10 +65,9 @@ describe "Admin manage participatory processes", type: :feature do
     end
 
     within ".container" do
-      expect(page).to have_selector("input[value='My participatory process']")
-      expect(page).to have_selector("option[selected]", text: @group_name)
-      expect(page).to have_css("img[src*='#{image1_filename}']")
-      expect(page).to have_css("img[src*='#{image2_filename}']")
+      expect(current_path).to eq decidim_admin.participatory_process_steps_path(Decidim::ParticipatoryProcess.last)
+      expect(page).to have_content("STEPS")
+      expect(page).to have_content("Introduction")
     end
   end
 
