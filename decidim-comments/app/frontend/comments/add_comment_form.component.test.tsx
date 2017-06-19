@@ -1,7 +1,7 @@
 import { mount, ReactWrapper, shallow } from "enzyme";
 import * as React from "react";
 
-import { AddCommentForm } from "./add_comment_form.component";
+import { AddCommentForm, MAX_LENGTH } from "./add_comment_form.component";
 
 import generateUserData from "../support/generate_user_data";
 import generateUserGroupData from "../support/generate_user_group_data";
@@ -60,11 +60,6 @@ describe("<AddCommentForm />", () => {
     expect(wrapper.props()).toHaveProperty("submitButtonClassName", "button button--sc");
   });
 
-  it("should have a default prop maxLength of 1000", () => {
-    const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
-    expect(wrapper.props()).toHaveProperty("maxLength", 1000);
-  });
-
   it("should use prop submitButtonClassName as a className prop for submit button", () => {
     const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} submitButtonClassName="button small hollow" />);
     expect(wrapper.find('button[type="submit"]').hasClass("button")).toBeTruthy();
@@ -100,6 +95,17 @@ describe("<AddCommentForm />", () => {
   it("should not render a div with class 'opinion-toggle'", () => {
     const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
     expect(wrapper.find(".opinion-toggle").exists()).toBeFalsy();
+  });
+
+  it("should render the remaining character count", () => {
+    const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} />);
+    const commentBody = "This is a new comment!";
+    wrapper.find("textarea").simulate("change", {
+      target: {
+        value: commentBody,
+      },
+    });
+    expect(wrapper.find(".remaining-character-count").text()).toContain(MAX_LENGTH - commentBody.length);
   });
 
   describe("submitting the form", () => {

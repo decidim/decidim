@@ -24,7 +24,6 @@ interface AddCommentFormProps {
   showTitle?: boolean;
   submitButtonClassName?: string;
   autoFocus?: boolean;
-  maxLength?: number;
   arguable?: boolean;
   addComment?: (data: { body: string, alignment: number, userGroupId?: string }) => void;
   onCommentAdded?: () => void;
@@ -34,7 +33,10 @@ interface AddCommentFormState {
   disabled: boolean;
   error: boolean;
   alignment: number;
+  remainingCharacterCount: number;
 }
+
+export const MAX_LENGTH = 500;
 
 /**
  * Renders a form to create new comments.
@@ -47,7 +49,6 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     submitButtonClassName: "button button--sc",
     arguable: false,
     autoFocus: false,
-    maxLength: 1000,
   };
 
   public bodyTextArea: HTMLTextAreaElement;
@@ -60,6 +61,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       disabled: true,
       error: false,
       alignment: 0,
+      remainingCharacterCount: MAX_LENGTH,
     };
   }
 
@@ -124,7 +126,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    */
   private _renderForm() {
     const { session, submitButtonClassName, commentable: { id, type } } = this.props;
-    const { disabled } = this.state;
+    const { disabled, remainingCharacterCount } = this.state;
 
     if (session) {
       return (
@@ -141,6 +143,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
             >
               {I18n.t("components.add_comment_form.form.submit")}
             </button>
+            <span className="remaining-character-count">{remainingCharacterCount}</span>
           </div>
         </form>
       );
@@ -155,7 +158,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - The heading or an empty element
    */
   private _renderTextArea() {
-    const { commentable: { id, type }, autoFocus, maxLength } = this.props;
+    const { commentable: { id, type }, autoFocus } = this.props;
     const { error } = this.state;
     const className = classnames({ "is-invalid-input": error });
 
@@ -164,9 +167,9 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       id: `add-comment-${type}-${id}`,
       className,
       rows: "4",
-      maxLength,
+      maxLength: MAX_LENGTH,
       required: "required",
-      pattern: `^(.){0,${maxLength}}$`,
+      pattern: `^(.){0,${MAX_LENGTH}}$`,
       placeholder: I18n.t("components.add_comment_form.form.body.placeholder"),
       onChange: (evt: React.ChangeEvent<HTMLTextAreaElement>) => this._checkCommentBody(evt.target.value),
     };
@@ -186,13 +189,12 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - The error or an empty element
    */
   private _renderTextAreaError() {
-    const { maxLength } = this.props;
     const { error } = this.state;
 
     if (error) {
       return (
         <span className="form-error is-visible">
-          {I18n.t("components.add_comment_form.form.form_error", { length: maxLength })}
+          {I18n.t("components.add_comment_form.form.form_error", { length: MAX_LENGTH })}
         </span>
       );
     }
@@ -298,8 +300,10 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void} - Returns nothing
    */
   private _checkCommentBody(body: string) {
-    const { maxLength } = this.props;
-    this.setState({ disabled: body === "", error: body === "" || (maxLength !== undefined && body.length > maxLength) });
+    this.setState({
+      disabled: body === "", error: body === "" || body.length > MAX_LENGTH,
+      remainingCharacterCount: MAX_LENGTH - body.length,
+    });
   }
 
   /**
