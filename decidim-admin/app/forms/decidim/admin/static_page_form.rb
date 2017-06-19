@@ -14,9 +14,9 @@ module Decidim
 
       validates :slug, presence: true
       validates :title, :content, translatable_presence: true
-      validates :slug, format: { with: /^[a-z0-9-]+$/, multiline: true }
+      validates :slug, format: { with: /\A[a-z0-9-]+/ }
 
-      validate :slug, :slug_uniqueness
+      validate :slug, :slug_uniquenesscd ,.
 
       alias organization current_organization
 
