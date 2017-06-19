@@ -8,7 +8,6 @@ module Decidim
 
     context "validations" do
       let(:invalid_slug) { "#Invalid.Slug" }
-      let(:uppercase_slug) { "Uppercase-SLUG" }
 
       it "is valid" do
         expect(page).to be_valid
