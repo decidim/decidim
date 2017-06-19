@@ -77,7 +77,8 @@ Decidim.register_feature(:surveys) do |feature|
       3.times do
         Decidim::Surveys::SurveyQuestion.create!(
           survey: survey,
-          body: Decidim::Faker::Localized.paragraph
+          body: Decidim::Faker::Localized.paragraph,
+          question_type: "short_answer"
         )
       end
     end
