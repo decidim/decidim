@@ -14,7 +14,10 @@ module Decidim
 
       validates :slug, presence: true
       validates :title, :content, translatable_presence: true
+      validates :slug, format: { with: /^[a-z0-9-]+$/, :multiline => true}
+
       validate :slug, :slug_uniqueness
+
 
       alias organization current_organization
 
@@ -24,6 +27,10 @@ module Decidim
         return unless organization && organization.static_pages.where(slug: slug).where.not(id: id).any?
 
         errors.add(:slug, :taken)
+      end
+
+      def slug
+        super.to_s.downcase
       end
     end
   end
