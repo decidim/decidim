@@ -36,6 +36,8 @@ en:
             label: Comment as
         opinion:
           neutral: Neutral
+        remaining_characters: "%{count} characters left"
+        remaining_characters_1: "%{count} character left"
         title: Add your comment
       comment:
         alignment:
