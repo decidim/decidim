@@ -70,13 +70,13 @@ module Decidim
       end
 
       context "when slug is invalid" do
-        let(:slug) { '#Slug.Invalid!' }
+        let(:slug) { "#Slug.Invalid!" }
 
         it { is_expected.to be_invalid }
       end
 
       context "when slug is not downcase" do
-        let(:slug) { 'SLUG' }
+        let(:slug) { "SLUG" }
 
         it { is_expected.to be_valid }
       end
