@@ -679,6 +679,25 @@ describe "Proposals", type: :feature do
           end
         end
       end
+
+      context "when the user is logged in" do
+        before do
+          login_as user, scope: :user
+        end
+
+        it "can be filtered by category" do
+          create_list(:proposal, 3, feature: feature)
+          create(:proposal, feature: feature, category: category)
+
+          visit_feature
+
+          within "form.new_filter" do
+            select category.name[I18n.locale.to_s], from: "filter_category_id"
+          end
+
+          expect(page).to have_css(".card--proposal", count: 1)
+        end
+      end
     end
 
     context "when ordering" do
