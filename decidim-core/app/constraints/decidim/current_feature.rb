@@ -19,13 +19,12 @@ module Decidim
     # Returns a true if the request matched, false otherwise
     def matches?(request)
       env = request.env
-      params = request.params
 
       return false unless CurrentParticipatoryProcess.new.matches?(request)
 
       @participatory_process = env["decidim.current_participatory_process"]
 
-      feature = detect_current_feature(params)
+      feature = detect_current_feature(request.params)
 
       return false unless feature
 
