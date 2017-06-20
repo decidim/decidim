@@ -41,8 +41,6 @@ module Decidim
     private
 
     def detect_current_feature(params)
-      return nil unless params["feature_id"]
-
       @participatory_process.features.find do |feature|
         params["feature_id"] == feature.id.to_s && feature.manifest_name == @manifest.name.to_s
       end
