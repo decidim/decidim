@@ -11,12 +11,13 @@ module Decidim
       @manifest = manifest
     end
 
-    # Public: Injects the current feature into the environment.
+    # Public: Matches the request against a feature and injects it into the
+    #         environment.
     #
     # request - The request that holds the current feature relevant
     #           information.
     #
-    # Returns nothing.
+    # Returns a true if the request matched, false otherwise
     def matches?(request)
       env = request.env
       params = request.params
