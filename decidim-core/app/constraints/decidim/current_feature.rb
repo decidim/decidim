@@ -21,10 +21,10 @@ module Decidim
       env = request.env
       params = request.params
 
-      organization = env["decidim.current_organization"]
+      @organization = env["decidim.current_organization"]
 
       @participatory_process = env["decidim.current_participatory_process"] ||
-                               organization.participatory_processes.find_by_id(params["participatory_process_id"])
+                               detect_current_participatory_process(params)
 
       env["decidim.current_participatory_process"] ||= @participatory_process
 
@@ -39,6 +39,10 @@ module Decidim
     end
 
     private
+
+    def detect_current_participatory_process(params)
+      @organization.participatory_processes.find_by_id(params["participatory_process_id"])
+    end
 
     def detect_current_feature(params)
       @participatory_process.features.find do |feature|
