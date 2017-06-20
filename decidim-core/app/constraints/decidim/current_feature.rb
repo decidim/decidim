@@ -23,7 +23,7 @@ module Decidim
 
       organization = env["decidim.current_organization"]
 
-      @participatory_process = request.env["decidim.current_participatory_process"] ||
+      @participatory_process = env["decidim.current_participatory_process"] ||
                                organization.participatory_processes.find_by_id(params["participatory_process_id"])
 
       env["decidim.current_participatory_process"] ||= @participatory_process
