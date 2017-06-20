@@ -61,6 +61,14 @@ module Decidim
       self[:settings]["global"] = serialize_settings(settings_schema(:global), data)
     end
 
+    def default_step_settings
+      settings_schema(:step).new(self[:settings]["default_step"])
+    end
+
+    def default_step_settings=(data)
+      self[:settings]["default_step"] = serialize_settings(settings_schema(:step), data)
+    end
+
     def step_settings
       participatory_process.steps.each_with_object({}) do |step, result|
         result[step.id.to_s] = settings_schema(:step).new(self[:settings].dig("steps", step.id.to_s))
@@ -75,7 +83,7 @@ module Decidim
 
     def active_step_settings
       active_step = participatory_process.active_step
-      return nil unless active_step
+      return default_step_settings unless active_step
 
       step_settings.fetch(active_step.id.to_s)
     end

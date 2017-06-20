@@ -36,6 +36,7 @@ module Decidim
         @feature.update_attributes(
           name: form.name,
           settings: form.settings,
+          default_step_settings: form.default_step_settings,
           step_settings: form.step_settings,
           weight: form.weight
         )

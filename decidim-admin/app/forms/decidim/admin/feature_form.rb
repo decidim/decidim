@@ -14,6 +14,7 @@ module Decidim
       validates :name, translatable_presence: true
 
       attribute :settings, Object
+      attribute :default_step_settings, Object
       attribute :manifest
       attribute :weight, Integer, default: 0
 
@@ -23,10 +24,15 @@ module Decidim
       def map_model(model)
         self.attributes = model.attributes
         self.settings = model.settings
+        self.default_step_settings = model.default_step_settings
       end
 
       def settings?
         settings.manifest.attributes.any?
+      end
+
+      def default_step_settings?
+        default_step_settings.manifest.attributes.any?
       end
 
       def step_settings?

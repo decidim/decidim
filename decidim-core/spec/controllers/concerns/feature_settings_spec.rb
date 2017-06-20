@@ -26,8 +26,8 @@ module Decidim
 
     describe "current_settings" do
       context "when no step is active" do
-        it "returns nil" do
-          expect(controller.current_settings).to eq(nil)
+        it "returns the default step settings" do
+          expect(controller.current_settings).to eq(feature.default_step_settings)
         end
       end
 

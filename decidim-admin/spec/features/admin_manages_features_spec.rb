@@ -127,6 +127,38 @@ describe "Admin manages features", type: :feature do
         expect(all("input[type=checkbox]").first).to be_checked
       end
     end
+
+    context "when the process doesn't have active steps" do
+      let!(:participatory_process) do
+        create(:participatory_process, organization: organization)
+      end
+
+      it "updates the default step settings" do
+        within ".feature-#{feature.id}" do
+          page.find(".action-icon--configure").click
+        end
+
+        within ".edit_feature" do
+          within ".default-step-settings" do
+            all("input[type=checkbox]").first.click
+          end
+
+          find("*[type=submit]").click
+        end
+
+        within ".callout-wrapper" do
+          expect(page).to have_content("successfully")
+        end
+
+        within find("tr", text: "My feature") do
+          page.find(".action-icon--configure").click
+        end
+
+        within ".default-step-settings" do
+          expect(all("input[type=checkbox]").first).to be_checked
+        end
+      end
+    end
   end
 
   describe "remove a feature" do
