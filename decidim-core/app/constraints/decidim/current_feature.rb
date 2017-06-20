@@ -24,15 +24,14 @@ module Decidim
 
       @participatory_process = env["decidim.current_participatory_process"]
 
-      feature = detect_current_feature(request.params)
-
-      return false unless feature
-
-      env["decidim.current_feature"] ||= feature
-      true
+      current_feature(env, request.params) ? true : false
     end
 
     private
+
+    def current_feature(env, params)
+      env["decidim.current_feature"] ||= detect_current_feature(params)
+    end
 
     def detect_current_feature(params)
       @participatory_process.features.find do |feature|

@@ -17,15 +17,15 @@ module Decidim
 
       @organization = env["decidim.current_organization"]
 
-      participatory_process = env["decidim.current_participatory_process"] ||
-                              detect_current_participatory_process(request.params)
-
-      env["decidim.current_participatory_process"] ||= participatory_process
-
-      participatory_process ? true : false
+      current_participatory_process(env, request.params) ? true : false
     end
 
     private
+
+    def current_participatory_process(env, params)
+      env["decidim.current_participatory_process"] ||=
+        detect_current_participatory_process(params)
+    end
 
     def detect_current_participatory_process(params)
       @organization.participatory_processes.find_by_id(params["participatory_process_id"])
