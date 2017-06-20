@@ -19,8 +19,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid, :last_step) if @participatory_process.steps.count == 1
-        return broadcast(:invalid, :active_step) if @step.active?
+        return broadcast(:invalid, :active_step) if active_step?
 
         @step.destroy!
         reorder_steps
@@ -28,6 +27,10 @@ module Decidim
       end
 
       private
+
+      def active_step?
+        @participatory_process.steps.count > 1 && @step.active?
+      end
 
       def reorder_steps
         steps = @participatory_process.steps.reload
