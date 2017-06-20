@@ -21,14 +21,9 @@ module Decidim
       env = request.env
       params = request.params
 
-      @organization = env["decidim.current_organization"]
+      return false unless CurrentParticipatoryProcess.new.matches?(request)
 
-      @participatory_process = env["decidim.current_participatory_process"] ||
-                               detect_current_participatory_process(params)
-
-      env["decidim.current_participatory_process"] ||= @participatory_process
-
-      return false unless @participatory_process
+      @participatory_process = env["decidim.current_participatory_process"]
 
       feature = detect_current_feature(params)
 
@@ -39,10 +34,6 @@ module Decidim
     end
 
     private
-
-    def detect_current_participatory_process(params)
-      @organization.participatory_processes.find_by_id(params["participatory_process_id"])
-    end
 
     def detect_current_feature(params)
       @participatory_process.features.find do |feature|
