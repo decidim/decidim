@@ -14,8 +14,7 @@ module Decidim
     # Public: Matches the request against a feature and injects it into the
     #         environment.
     #
-    # request - The request that holds the current feature relevant
-    #           information.
+    # request - The request that holds the current feature relevant information.
     #
     # Returns a true if the request matched, false otherwise
     def matches?(request)
