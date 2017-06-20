@@ -28,6 +28,8 @@ module Decidim
 
       env["decidim.current_participatory_process"] ||= @participatory_process
 
+      return false unless @participatory_process
+
       feature = detect_current_feature(params)
 
       return false unless feature

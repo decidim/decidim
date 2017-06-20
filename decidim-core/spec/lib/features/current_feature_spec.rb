@@ -60,6 +60,28 @@ module Decidim
         end
       end
 
+      context "when the params contain a non existing participatory process id" do
+        before do
+          params["participatory_process_id"] = "99999999"
+        end
+
+        context "when there's no feature" do
+          it "doesn't match" do
+            expect(subject.matches?(request)).to eq(false)
+          end
+        end
+
+        context "when there's feature" do
+          before do
+            params["feature_id"] = "1"
+          end
+
+          it "doesn't match" do
+            expect(subject.matches?(request)).to eq(false)
+          end
+        end
+      end
+
       context "when the params doesn't contain a participatory process id" do
         it "doesn't match" do
           expect(subject.matches?(request)).to eq(false)
