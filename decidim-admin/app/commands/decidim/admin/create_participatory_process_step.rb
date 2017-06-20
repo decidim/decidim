@@ -38,7 +38,8 @@ module Decidim
           description: form.description,
           start_date: form.start_date,
           end_date: form.end_date,
-          participatory_process: @participatory_process
+          participatory_process: @participatory_process,
+          active: @participatory_process.steps.empty?
         )
       end
     end
