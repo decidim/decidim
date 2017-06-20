@@ -9,7 +9,7 @@ module Decidim
         let!(:survey) { create(:survey) }
         let!(:position) { 0 }
         let!(:question_type) { SurveyQuestion::TYPES.first }
-        let!(:survey_question) { create(:survey_question, survey: survey, position: position, question_type: question_type) }
+        let!(:survey_question) { build(:survey_question, survey: survey, position: position, question_type: question_type) }
 
         subject do
           described_class.from_model(survey_question).with_context(current_feature: survey.feature)
