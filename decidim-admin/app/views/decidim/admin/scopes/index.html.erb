@@ -19,7 +19,7 @@
                 <%= link_to translated_attribute(scope.name), scope_scopes_path(scope) %>
               </td>
               <td>
-                <%= translated_attribute(scope.scope_type.name) %>
+                <%= scope.scope_type ? translated_attribute(scope.scope_type.name) : "-" %>
               </td>
               <td class="table-list__actions">
 

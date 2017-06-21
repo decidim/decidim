@@ -287,7 +287,7 @@ FactoryGirl.define do
   end
 
   factory :scope_type, class: Decidim::ScopeType do
-    name Decidim::Faker::Localized.word
+    name { Decidim::Faker::Localized.word }
     plural { Decidim::Faker::Localized.literal(name.values.first.pluralize) }
     organization
   end
@@ -296,9 +296,7 @@ FactoryGirl.define do
     name { Decidim::Faker::Localized.literal(generate(:scope_name)) }
     code { generate(:scope_code) }
     scope_type
-    metadata { {} }
-    deprecated { false }
-    organization
+    organization { parent ? parent.organization : build(:organization) }
   end
 
   factory :subscope, parent: :scope do

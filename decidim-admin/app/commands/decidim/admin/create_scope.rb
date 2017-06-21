@@ -7,6 +7,7 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
+      # parent_scope - A parent scope for the scope to be created
       def initialize(form, parent_scope = nil)
         @form = form
         @parent_scope = parent_scope
@@ -34,8 +35,7 @@ module Decidim
           name: form.name,
           organization: form.organization,
           code: form.code,
-          scope_type_id: form.scope_type_id,
-          deprecated: form.deprecated,
+          scope_type: form.scope_type,
           parent: @parent_scope
         )
       end

@@ -38,8 +38,6 @@ if !Rails.env.production? || ENV["SEED"]
       name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
       code: Faker::Address.unique.country_code,
       scope_type: province,
-      metadata: {},
-      deprecated: false,
       organization: organization
     )
 
@@ -48,8 +46,6 @@ if !Rails.env.production? || ENV["SEED"]
         name: Decidim::Faker::Localized.literal(Faker::Address.unique.city),
         code: parent.code + "-" + Faker::Address.unique.state_abbr,
         scope_type: municipality,
-        metadata: {},
-        deprecated: Faker::Boolean.boolean(0.1),
         organization: organization,
         parent: parent
       )

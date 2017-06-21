@@ -2,24 +2,22 @@
 
 require "spec_helper"
 
-describe Decidim::Admin::UpdateScope do
+describe Decidim::Admin::UpdateScopeType do
   let(:organization) { create :organization }
-  let(:scope) { create :scope, organization: organization }
-  let(:name) { Decidim::Faker::Localized.literal("New name") }
-  let(:code) { "NEWCODE" }
   let(:scope_type) { create :scope_type, organization: organization }
+  let(:name) { Decidim::Faker::Localized.literal("new name") }
+  let(:plural) { Decidim::Faker::Localized.literal("new names") }
 
   let(:form) do
     double(
       invalid?: invalid,
       name: name,
-      code: code,
-      scope_type: scope_type
+      plural: plural
     )
   end
   let(:invalid) { false }
 
-  subject { described_class.new(scope, form) }
+  subject { described_class.new(scope_type, form) }
 
   context "when the form is not valid" do
     let(:invalid) { true }
@@ -32,19 +30,15 @@ describe Decidim::Admin::UpdateScope do
   context "when the form is valid" do
     before do
       subject.call
-      scope.reload
+      scope_type.reload
     end
 
     it "updates the name of the scope" do
-      expect(translated(scope.name)).to eq("New name")
+      expect(translated(scope_type.name)).to eq("new name")
     end
 
-    it "updates the name of the scope" do
-      expect(scope.code).to eq("NEWCODE")
-    end
-
-    it "updates the name of the scope" do
-      expect(scope.scope_type).to eq(scope_type)
+    it "updates the plural of the scope" do
+      expect(translated(scope_type.plural)).to eq("new names")
     end
   end
 end

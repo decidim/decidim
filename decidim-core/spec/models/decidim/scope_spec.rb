@@ -4,21 +4,24 @@ require "spec_helper"
 
 module Decidim
   describe Scope do
-    let(:scope) { create(:scope) }
+    let(:parent) { nil }
+    let(:scope) { build(:scope, parent: parent) }
     subject { scope }
 
-    it { is_expected.to be_valid }
+    context "it is valid" do
+      it { is_expected.to be_valid }
+    end
 
     context "two scopes with the same code and organization" do
-      let(:invalid_scope) { build(:scope, code: scope.code, organization: scope.organization) }
+      let!(:existing_scope) { create(:scope, code: scope.code, organization: scope.organization) }
 
-      it { expect(invalid_scope).to be_invalid }
+      it { is_expected.to be_invalid }
     end
 
     context "two scopes with the same code in different organizations" do
-      let(:other_scope) { build(:scope, code: scope.code) }
+      let!(:existing_scope) { create(:scope, code: scope.code) }
 
-      it { expect(other_scope).to be_valid }
+      it { is_expected.to be_valid }
     end
 
     context "without name" do
@@ -45,22 +48,40 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
-    let(:subscope) { create(:subscope, parent: scope) }
-    let(:subsubscope) { create(:subscope, parent: subscope) }
-    context "a simple cycle of two scopes" do
-      before do
+    context "cycles validation" do
+      let(:scope) { create(:scope) }
+      let(:subscope) { create(:subscope, parent: scope) }
+      let(:subsubscope) { create(:subscope, parent: subscope) }
+
+      it "don't allows two scopes cycles" do
         scope.parent = subscope
+        is_expected.to be_invalid
       end
 
-      it { is_expected.to be_invalid }
+      it "don't allows three scopes cycles" do
+        scope.parent = subsubscope
+        is_expected.to be_invalid
+      end
     end
 
-    context "a cycle of three scopes" do
-      before do
-        scope.parent = subsubscope
+    context "part_of for top level scopes" do
+      it "is empty before save" do
+        expect(subject.part_of).to be_empty
       end
 
-      it { is_expected.to be_invalid }
+      it "is updated after save" do
+        subject.save
+        expect(subject.part_of).to eq([subject.id])
+      end
+    end
+
+    context "part_of for top level scopes" do
+      let(:parent) { create(:scope) }
+
+      it "is updated after save" do
+        subject.save
+        expect(subject.part_of).to eq([subject.id, parent.id])
+      end
     end
   end
 end

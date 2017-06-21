@@ -23,7 +23,7 @@ module Decidim
         authorize! :new, ScopeType
         @form = form(ScopeTypeForm).from_params(params)
 
-        CreateScope.call(@form) do
+        CreateScopeType.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("scope_types.create.success", scope: "decidim.admin")
             redirect_to scope_types_path
@@ -46,7 +46,7 @@ module Decidim
         authorize! :update, scope_type
         @form = form(ScopeTypeForm).from_params(params)
 
-        UpdateScope.call(scope_type, @form) do
+        UpdateScopeType.call(scope_type, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("scope_types.update.success", scope: "decidim.admin")
             redirect_to scope_types_path

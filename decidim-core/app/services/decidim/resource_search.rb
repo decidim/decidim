@@ -46,9 +46,8 @@ module Decidim
       clean_scope_ids = [scope_id].flatten
 
       conditions = []
-      if clean_scope_ids.delete("global")
-        conditions << "decidim_scope_id IS NULL"
-      end
+      conditions << "decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
+
       if clean_scope_ids.any?
         self.query = query.joins("LEFT JOIN decidim_scopes ON decidim_scope_id=decidim_scopes.id")
         conditions.concat ["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count

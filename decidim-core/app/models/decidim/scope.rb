@@ -10,26 +10,30 @@ module Decidim
                class_name: "Decidim::Organization",
                inverse_of: :scopes
 
-    belongs_to  :scope_type,
-                foreign_key: "scope_type_id",
-                class_name: "Decidim::ScopeType",
-                inverse_of: :scopes
+    belongs_to :scope_type,
+               foreign_key: "scope_type_id",
+               class_name: "Decidim::ScopeType",
+               inverse_of: :scopes,
+               optional: true
 
-    belongs_to  :parent,
-                foreign_key: "parent_id",
-                class_name: "Decidim::Scope",
-                inverse_of: :children
+    belongs_to :parent,
+               foreign_key: "parent_id",
+               class_name: "Decidim::Scope",
+               inverse_of: :children,
+               optional: true
 
-    has_many    :children,
-                foreign_key: "parent_id",
-                class_name: "Decidim::Scope",
-                inverse_of: :parent
+    has_many :children,
+             foreign_key: "parent_id",
+             class_name: "Decidim::Scope",
+             inverse_of: :parent
+
+    before_validation :update_part_of, on: :update
 
     validates :name, :code, :organization, presence: true
     validates :code, uniqueness: { scope: :organization }
     validate :forbid_cycles
+
     after_create_commit :create_part_of
-    before_validation :update_part_of, on: :update
 
     # Scope to return only the top level scopes.
     #
@@ -38,14 +42,9 @@ module Decidim
       where(parent_id: nil)
     end
 
-    def siblings
-      if parent
-        parent.children
-      else
-        organization.scopes.top_level
-      end
-    end
-
+    # Gets the scopes from the part_of list
+    #
+    # Returns an ActiveRecord::Relation.
     def part_of_scopes
       Decidim::Scope.where(id: part_of)
     end
@@ -53,9 +52,7 @@ module Decidim
     private
 
     def forbid_cycles
-      if parent && parent.part_of.include?(id)
-        errors.add(:parent_id, :cycle_detected)
-      end
+      errors.add(:parent_id, :cycle_detected) if parent && parent.part_of.include?(id)
     end
 
     def create_part_of

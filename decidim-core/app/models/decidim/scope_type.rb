@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Scopes are used in some entities through Decidim to help users know which is
-  # the scope of a participatory process.
-  # (i.e. does it affect the whole city or just a district?)
+  # Scope types allows to use different types of scopes in participatory process
+  # (municipalities, provinces, states, countries, etc.)
   class ScopeType < ApplicationRecord
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

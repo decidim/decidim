@@ -71,7 +71,6 @@ en:
         role: Role
       scope:
         code: Code
-        deprecated: Deprecated
         name: Name
         organization: Organization
         scope_type: Scope type

@@ -71,13 +71,13 @@ module Decidim
 
       def search
         authorize! :search, Scope
-        @scopes = if params[:term].present?
-                    FreetextScopes.for(current_organization, I18n.locale, params[:term])
-                  else
-                    current_organization.top_scopes
-                  end
+        scopes = if params[:term].present?
+                   FreetextScopes.for(current_organization, I18n.locale, params[:term])
+                 else
+                   current_organization.top_scopes
+                 end
 
-        render "search_results", formats: :json
+        render json: { results: scopes.map { |scope| { id: scope.id, text: scope.name[I18n.locale.to_s] } } }
       end
 
       private
@@ -87,7 +87,7 @@ module Decidim
       end
 
       def parent_scope
-        @parent_scope ||= collection.find_by_id(params[:scope_id] || params[:id])
+        @parent_scope ||= @scope ? @scope.parent : collection.find_by_id(params[:scope_id])
       end
 
       def collection

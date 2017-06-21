@@ -22,8 +22,11 @@ module Decidim
     mount_uploader :logo, Decidim::OrganizationLogoUploader
     mount_uploader :favicon, Decidim::OrganizationFaviconUploader
 
+    # Returns top level scopes for this organization.
+    #
+    # Returns an ActiveRecord::Relation.
     def top_scopes
-      scopes.top_level
+      @top_scopes ||= scopes.top_level
     end
 
     def homepage_big_url

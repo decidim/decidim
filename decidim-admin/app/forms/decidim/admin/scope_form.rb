@@ -11,7 +11,6 @@ module Decidim
       attribute :code, String
       attribute :parent_id, Integer
       attribute :scope_type_id, Integer
-      attribute :deprecated, Boolean
 
       mimic :scope
 
@@ -20,6 +19,10 @@ module Decidim
       validate :code, :code_uniqueness
 
       alias organization current_organization
+
+      def scope_type
+        Decidim::ScopeType.find_by_id(scope_type_id) if scope_type_id
+      end
 
       private
 

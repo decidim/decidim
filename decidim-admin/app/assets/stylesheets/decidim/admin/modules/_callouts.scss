@@ -23,8 +23,8 @@
   }
 }
 
-
-.has-process-title .callout-wrapper{
+.has-process-title .callout-wrapper,
+.has-scope-title .callout-wrapper{
   @include breakpoint(large){
     padding-top: $process-title-height;
     margin-bottom: -$process-title-height;

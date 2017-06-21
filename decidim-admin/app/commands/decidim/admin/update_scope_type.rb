@@ -2,14 +2,14 @@
 
 module Decidim
   module Admin
-    # A command with all the business logic when updating a scope.
-    class UpdateScope < Rectify::Command
+    # A command with all the business logic when updating a scope type.
+    class UpdateScopeType < Rectify::Command
       # Public: Initializes the command.
       #
-      # scope - The Scope to update
+      # scope_type - The ScopeType to update
       # form - A form object with the params.
-      def initialize(scope, form)
-        @scope = scope
+      def initialize(scope_type, form)
+        @scope_type = scope_type
         @form = form
       end
 
@@ -22,7 +22,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        update_scope
+        update_scope_type
         broadcast(:ok)
       end
 
@@ -30,16 +30,14 @@ module Decidim
 
       attr_reader :form
 
-      def update_scope
-        @scope.update_attributes!(attributes)
+      def update_scope_type
+        @scope_type.update_attributes!(attributes)
       end
 
       def attributes
         {
           name: form.name,
-          code: form.code,
-          scope_type: form.scope_type,
-          parent: @parent_scope
+          plural: form.plural
         }
       end
     end
