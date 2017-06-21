@@ -85,6 +85,32 @@ describe "Organization scopes", type: :feature do
           expect(page).not_to have_content(translated(scope.name))
         end
       end
+
+      it "can create a new subcope" do
+        within find("tr", text: translated(scope.name)) do
+          page.find("td:first-child a").click
+        end
+
+        click_link "Add"
+
+        within ".new_scope" do
+          fill_in_i18n :scope_name, "#scope-name-tabs", en: "My nice subdistrict",
+                                                        es: "Mi lindo subdistrito",
+                                                        ca: "El meu bonic subbarri"
+          fill_in "Code", with: "MY-SUBDISTRICT"
+          select scope_type.name["en"], from: :scope_scope_type_id
+
+          find("*[type=submit]").click
+        end
+
+        within ".callout-wrapper" do
+          expect(page).to have_content("successfully")
+        end
+
+        within "table" do
+          expect(page).to have_content("My nice subdistrict")
+        end
+      end
     end
   end
 end
