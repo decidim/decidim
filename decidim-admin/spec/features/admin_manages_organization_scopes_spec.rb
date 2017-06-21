@@ -67,8 +67,8 @@ describe "Organization scopes", type: :feature do
           expect(page).to have_content("successfully")
         end
 
-        within ".scope-title-content" do
-          expect(page).to have_content("Another district".upcase)
+        within "table" do
+          expect(page).to have_content("Another district")
         end
       end
 
