@@ -206,6 +206,30 @@ en:
         participatory_structure: Participatory structure
         scope: Scope
         target: Target
+      statistics:
+        headline: Current state of %{participatory_process}
+        global:
+          comments_count: Comments
+        proposals:
+          proposals_count: Proposals
+          votes_count: Proposals votes
+          comments_count: Proposals comments
+        results:
+          results_count: Results
+          comments_count: Results comments
+        pages:
+          comments_count: Pages comments
+        meetings:
+          meetings_count: Meetings
+        budgets:
+          projects_count: Projects
+          comments_count: Proposals comments
+          orders_count: Orders
+        pages:
+          pages_count: Pages
+        surveys:
+          surveys_count: Surveys
+          answers_count: Answers
     reported_mailer:
       hide:
         hello: Hello %{name},
