@@ -11,36 +11,29 @@ module Decidim
       @manifest = manifest
     end
 
-    # Public: Injects the current feature into the environment.
+    # Public: Matches the request against a feature and injects it into the
+    #         environment.
     #
-    # request - The request that holds the current feature relevant
-    #           information.
+    # request - The request that holds the current feature relevant information.
     #
-    # Returns nothing.
+    # Returns a true if the request matched, false otherwise
     def matches?(request)
       env = request.env
-      params = request.params
 
-      organization = env["decidim.current_organization"]
+      return false unless CurrentParticipatoryProcess.new.matches?(request)
 
-      @participatory_process = request.env["decidim.current_participatory_process"] ||
-                               organization.participatory_processes.find_by_id(params["participatory_process_id"])
+      @participatory_process = env["decidim.current_participatory_process"]
 
-      env["decidim.current_participatory_process"] ||= @participatory_process
-
-      feature = detect_current_feature(params)
-
-      return false unless feature
-
-      env["decidim.current_feature"] ||= feature
-      true
+      current_feature(env, request.params) ? true : false
     end
 
     private
 
-    def detect_current_feature(params)
-      return nil unless params["feature_id"]
+    def current_feature(env, params)
+      env["decidim.current_feature"] ||= detect_current_feature(params)
+    end
 
+    def detect_current_feature(params)
       @participatory_process.features.find do |feature|
         params["feature_id"] == feature.id.to_s && feature.manifest_name == @manifest.name.to_s
       end
