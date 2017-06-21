@@ -27,6 +27,12 @@ describe "Participatory Processes", type: :feature do
     end
   end
 
+  context "when the process does not exist" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim.participatory_process_path(99_999_999) }
+    end
+  end
+
   context "when there are some processes" do
     let!(:participatory_process) { base_process }
     let!(:promoted_process) { create(:participatory_process, :promoted, organization: organization) }

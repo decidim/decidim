@@ -28,8 +28,6 @@ module Decidim
 
     layout "layouts/decidim/application"
 
-    rescue_from ActiveRecord::RecordNotFound, with: :redirect_to_404
-
     private
 
     def store_current_location
@@ -45,10 +43,6 @@ module Decidim
     # displays the JS response instead of the HTML one.
     def add_vary_header
       response.headers["Vary"] = "Accept"
-    end
-
-    def redirect_to_404
-      raise ActionController::RoutingError, "Not Found"
     end
   end
 end
