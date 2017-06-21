@@ -104,6 +104,14 @@ eu:
       shared:
         omniauth_buttons:
           or: Edo
+    errors:
+      internal_server_error:
+        title: Arazo bat izan da gure zerbitzariarekin
+        try_later: Mesedez, berriz saiatu geroago.
+      not_found:
+        back_home: Itzuli hasierara
+        content_doesnt_exist: Helbide okerra da edo ezabatu da.
+        title: Ez dugu aurkitu bilatzen duzun orria!
     export_mailer:
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
@@ -323,13 +331,6 @@ eu:
   locale:
     name: Euskera
   pages:
-    '404':
-      back_home: Itzuli hasierara
-      content_doesnt_exist: Helbide okerra da edo ezabatu da.
-      title: Ez dugu aurkitu bilatzen duzun orria!
-    '500':
-      title: Arazo bat izan da gure zerbitzariarekin
-      try_later: Mesedez, berriz saiatu geroago.
     home:
       extended:
         debates: Eztabaidak

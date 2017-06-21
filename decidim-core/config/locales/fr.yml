@@ -104,6 +104,14 @@ fr:
       shared:
         omniauth_buttons:
           or: Ou
+    errors:
+      internal_server_error:
+        title: Il y a eu un problème avec notre serveur
+        try_later: Veuillez réessayer plus tard.
+      not_found:
+        back_home: Retour à l'accueil
+        content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
+        title: La page que vous recherchez ne peut être trouvée
     export_mailer:
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -323,13 +331,6 @@ fr:
   locale:
     name: Français
   pages:
-    '404':
-      back_home: Retour à l'accueil
-      content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
-      title: La page que vous recherchez ne peut être trouvée
-    '500':
-      title: Il y a eu un problème avec notre serveur
-      try_later: Veuillez réessayer plus tard.
     home:
       extended:
         debates: Débats

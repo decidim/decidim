@@ -37,7 +37,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
 
-    get "/", to: redirect("/404"), as: :feature
+    get "/", to: "errors#not_found", as: :feature
   end
 
   authenticate(:user) do
@@ -60,8 +60,8 @@ Decidim::Core::Engine.routes.draw do
   get "/static_map", to: "static_map#show", as: :static_map
   get "/cookies/accept", to: "cookie_policy#accept", as: :accept_cookies
 
-  match "/404", to: "pages#show", id: "404", via: :all
-  match "/500", to: "pages#show", id: "500", via: :all
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
 
   if Rails.env.development? && defined?(LetterOpenerWeb::Engine)
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
