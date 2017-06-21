@@ -52,8 +52,8 @@ describe Decidim::Admin::DestroyParticipatoryProcessStep, class: true do
   end
 
   context "when trying to destroy the last step" do
-    it "broadcasts invalid" do
-      expect { subject.call(active_step) }.to broadcast(:invalid, :last_step)
+    it "broadcasts ok" do
+      expect { subject.call(active_step) }.to broadcast(:ok)
     end
   end
 end

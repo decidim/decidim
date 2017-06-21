@@ -202,6 +202,7 @@ en:
           title: Edit feature
           update: Update
         form:
+          default_step_settings: Default step settings
           global_settings: Global settings
           step_settings: Step settings
         index:

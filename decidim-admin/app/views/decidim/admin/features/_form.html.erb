@@ -55,6 +55,24 @@
             </div>
           </div>
         </fieldset>
+      <% elsif form.object.default_step_settings? %>
+        <fieldset class="default-step-settings">
+          <div class="card">
+            <div class="card-divider">
+              <legend><%= t ".default_step_settings" %></legend>
+            </div>
+            <div class="card-section">
+              <%= form.fields_for :default_step_settings, form.object.default_step_settings do |settings_fields| %>
+                <%= render partial: "decidim/admin/features/settings_fields",
+                          locals: {
+                            form: settings_fields,
+                            feature: @feature,
+                            settings_name: "step"
+                          } %>
+              <% end %>
+            </div>
+          </div>
+        </fieldset>
       <% end %>
     </div>
   </div>
