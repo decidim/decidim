@@ -25,6 +25,12 @@ module Decidim
             dummy_global_attribute_1: true,
             dummy_global_attribute_2: false
           },
+          default_step_settings: {
+            step.id.to_s => {
+              dummy_step_attribute_1: true,
+              dummy_step_attribute_2: false
+            }
+          },
           step_settings: {
             step.id.to_s => {
               dummy_step_attribute_1: true,
