@@ -146,8 +146,10 @@ en:
         proposal: Proposals
         result: Results
     forms:
+      current_image: Current image
       errors:
         error: There's an error in this field.
+      url: URL
     menu:
       home: Home
       more_information: More information

@@ -180,6 +180,24 @@ module Decidim
       template.html_safe
     end
 
+    # Public: Generates a file upload field
+    def upload(attribute, options = {})
+      self.multipart = true
+      file = object.send attribute
+      template = ""
+      template += label(attribute, label_for(attribute))
+      template += @template.file_field @object_name, attribute
+      if file.present?
+        if file.content_type.start_with? "image"
+          template += @template.label_tag I18n.t('current_image', scope: "decidim.forms")
+          template += @template.image_tag file.url
+        end
+        template += @template.label_tag I18n.t('url', scope: "decidim.forms")
+        template += @template.link_to file.file.filename, file.url, target: "_blank"
+      end
+      template.html_safe
+    end
+
     private
 
     # Private: Override from FoundationRailsHelper in order to render

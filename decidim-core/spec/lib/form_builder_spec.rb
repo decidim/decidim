@@ -25,6 +25,7 @@ module Decidim
         attribute :max_number, Integer
         attribute :min_number, Integer
         attribute :conditional_presence, String
+        attribute :image
 
         translatable_attribute :name, String
         translatable_attribute :short_description, String
@@ -374,6 +375,55 @@ module Decidim
 
           it "injects the validations" do
             expect(parsed.css("input[pattern='^(.|[\n\r]){0,50}$']").first).to be
+          end
+        end
+      end
+    end
+
+    describe "upload" do
+      let(:present?) { false }
+      let(:content_type) { "text/json" }
+      let(:url) { "/some/image/path" }
+      let(:filename) { "my_image.jpg" }
+      let(:file) {
+        double(
+          url: url,
+          present?: present?,
+          content_type: content_type,
+          file: double(
+            filename: filename
+          )
+        )
+      }
+      let(:output) do
+        builder.upload :image
+      end
+
+      before do
+        allow(resource).to receive(:image).and_return(file)
+      end
+
+      it "sets the form as multipart" do
+        output
+        expect(builder.multipart).to be_truthy
+      end
+
+      it "renders a file_field" do
+        expect(parsed.css('input[type="file"]').first).to be
+      end
+
+      context "when the file is present" do
+        let(:present?) { true }
+
+        it "renders a link to the current file url" do
+          expect(parsed.css('a[href="' + url + '"]').first).to be
+        end
+
+        context "and it's a photo" do
+          let(:content_type) { "image/jpeg" }
+
+          it "renders an image with the current file url" do
+            expect(parsed.css('img[src="' + url + '"]').first).to be
           end
         end
       end
