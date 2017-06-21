@@ -47,7 +47,6 @@ module Decidim
       def ability_context
         super.merge(
           current_manifest: current_manifest,
-          current_participatory_process: current_participatory_process,
           current_settings: current_settings,
           feature_settings: feature_settings
         )

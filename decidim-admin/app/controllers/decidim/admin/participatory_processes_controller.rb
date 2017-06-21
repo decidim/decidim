@@ -75,14 +75,18 @@ module Decidim
         authorize! :create, Decidim::ParticipatoryProcess
       end
 
+      private
+
       def current_participatory_process
         @current_participatory_process ||= collection.find(params[:id]) if params[:id]
       end
 
-      private
-
       def collection
         @collection ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user)
+      end
+
+      def ability_context
+        super.merge(current_participatory_process: current_participatory_process)
       end
 
       def participatory_process_params
