@@ -207,7 +207,7 @@ en:
         scope: Scope
         target: Target
       statistics:
-        headline: Current state of %{participatory_process}
+        headline: Current state of "%{participatory_process}"
         global:
           comments_count: Comments
         proposals:

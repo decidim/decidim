@@ -13,7 +13,7 @@ module Decidim
 
       safe_join(
         highlighted_stats.in_groups_of(2, false).map do |stats|
-          content_tag :div, class: "home-pam__highlight" do
+          content_tag :div, class: "column small-3" do
             safe_join(
               stats.map do |scope, name, data|
                 render_stats_data(scope, name, data)
@@ -46,10 +46,10 @@ module Decidim
     end
 
     def render_stats_data(scope, name, data)
-      content_tag :div, "", class: "home-pam__data" do
+      content_tag :div, "", class: "card" do
         safe_join([
-                    content_tag(:h4, I18n.t("#{scope}.#{name}", scope: "decidim.participatory_processes.statistics"), class: "home-pam__title"),
-                    content_tag(:span, " #{number_with_delimiter(data)}", class: "home-pam__number #{scope} #{name}")
+                    content_tag(:h1, "#{number_with_delimiter(data)} ", class: "#{scope} #{name} text-center"),
+                    content_tag(:p, I18n.t("#{scope}.#{name}", scope: "decidim.participatory_processes.statistics"), class: "text-center card-divider")
                   ])
       end
     end
