@@ -6,11 +6,9 @@ module Decidim
   # A controller that holds the logic to show ParticipatoryProcesses in a
   # public layout.
   class ParticipatoryProcessesController < ApplicationController
-    include NeedsParticipatoryProcess
-
     layout "layouts/decidim/participatory_process", only: [:show]
 
-    skip_after_action :verify_participatory_process, only: [:index]
+    before_action -> { extend(NeedsParticipatoryProcess) }, only: [:show]
 
     helper Decidim::AttachmentsHelper
     helper Decidim::ParticipatoryProcessHelper
