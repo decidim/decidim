@@ -8,7 +8,7 @@ module Decidim
     #
     class ScopeTypesController < ApplicationController
       layout "decidim/admin/settings"
-      helper_method :collection
+      helper_method :scope_types
 
       def index
         authorize! :index, ScopeType
@@ -70,10 +70,10 @@ module Decidim
       private
 
       def scope_type
-        @scope_type ||= collection.find(params[:id])
+        @scope_type ||= scope_types.find(params[:id])
       end
 
-      def collection
+      def scope_types
         current_organization.scope_types
       end
     end
