@@ -63,7 +63,7 @@ describe "Participatory Processes", type: :feature do
       end
     end
 
-    it "links to the individial process page" do
+    it "links to the individual process page" do
       click_link(translated(participatory_process.title, locale: :en))
 
       expect(current_path).to eq decidim.participatory_process_path(participatory_process)
