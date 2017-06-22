@@ -180,7 +180,14 @@ module Decidim
       template.html_safe
     end
 
-    # Public: Generates a file upload field
+    # Public: Generates a file upload field and sets the form as multipart.
+    # If the file is an image it displays the default image if present or the current one.
+    # By default it also generates a checkbox to delete the file. This checkbox can
+    # be hidden if `options[:optional]` is passed as `false`.
+    #
+    # attribute    - The String name of the attribute to buidl the field.
+    # options      - A Hash with options to build the field.
+    #              * optional: Whether the file can be optional or not.
     def upload(attribute, options = {})
       self.multipart = true
       options[:optional] = options[:optional].nil? ? true : options[:optional]
