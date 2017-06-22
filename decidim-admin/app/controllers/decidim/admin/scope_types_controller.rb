@@ -8,10 +8,10 @@ module Decidim
     #
     class ScopeTypesController < ApplicationController
       layout "decidim/admin/settings"
+      helper_method :collection
 
       def index
         authorize! :index, ScopeType
-        @scope_types = collection
       end
 
       def new
@@ -42,7 +42,6 @@ module Decidim
       end
 
       def update
-        @scope_type = collection.find(params[:id])
         authorize! :update, scope_type
         @form = form(ScopeTypeForm).from_params(params)
 

@@ -8,7 +8,7 @@
 // = require foundation-datepicker
 // = require form_datepicker
 // = require moment.min
-// = require select2
+// = require ./select2
 // = require ./scopes
 // = require_self
 

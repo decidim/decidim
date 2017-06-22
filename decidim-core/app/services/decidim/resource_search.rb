@@ -49,7 +49,7 @@ module Decidim
       conditions << "decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
 
       if clean_scope_ids.any?
-        self.query = query.joins("LEFT JOIN decidim_scopes ON decidim_scope_id=decidim_scopes.id")
+        self.query = query.left_outer_joins(:scope)
         conditions.concat ["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count
       end
 
