@@ -1,6 +1,6 @@
 <tr class="feature-<%= feature.id %>">
   <td>
-    <%= link_to decidim.feature_path(participatory_process, feature), target: "_blank" do %>
+    <%= link_to feature_path(feature), target: "_blank" do %>
       <%= translated_attribute feature.name %>
     <% end %>
   </td>
@@ -9,7 +9,7 @@
   </td>
   <td class="table-list__actions">
     <% if feature.manifest.admin_engine %>
-      <%= icon_link_to "pencil", manage_feature_path(participatory_process, feature), t("actions.manage", scope: "decidim.admin"), class: "action-icon--manage" %>
+      <%= icon_link_to "pencil", manage_feature_path(feature), t("actions.manage", scope: "decidim.admin"), class: "action-icon--manage" %>
     <% end %>
 
     <% if can?(:update, feature) %>

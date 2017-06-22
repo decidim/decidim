@@ -36,8 +36,6 @@ Decidim::Core::Engine.routes.draw do
         mount manifest.engine, at: "/", as: "decidim_#{manifest.name}"
       end
     end
-
-    get "/", to: "errors#not_found", as: :feature
   end
 
   authenticate(:user) do

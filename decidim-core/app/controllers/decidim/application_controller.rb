@@ -16,6 +16,7 @@ module Decidim
     helper Decidim::CookiesHelper
     helper Decidim::AriaSelectedLinkToHelper
     helper Decidim::MenuHelper
+    helper Decidim::FeaturePathHelper
 
     # Saves the location before loading each page so we can return to the
     # right page. If we're on a devise page, we don't want to store that as the

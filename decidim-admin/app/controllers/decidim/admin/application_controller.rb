@@ -21,6 +21,7 @@ module Decidim
       helper Decidim::OrganizationScopesHelper
       helper Decidim::TranslationsHelper
       helper Decidim::LanguageChooserHelper
+      helper Decidim::FeaturePathHelper
 
       protect_from_forgery with: :exception, prepend: true
 
