@@ -41,7 +41,7 @@ module Decidim
           logo: current_organization.logo,
           favicon: current_organization.favicon,
           official_img_header: current_organization.official_img_header,
-          official_img_footer: current_organization.official_img_footer,
+          official_img_footer: current_organization.official_img_footer
         }.merge(params[:organization].to_unsafe_h)
       end
     end

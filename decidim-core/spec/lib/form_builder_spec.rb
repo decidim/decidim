@@ -385,7 +385,7 @@ module Decidim
       let(:content_type) { nil }
       let(:filename) { "my_image.jpg" }
       let(:url) { "/some/file/path/#{filename}" }
-      let(:file) {
+      let(:file) do
         double(
           url: url,
           present?: present?,
@@ -394,13 +394,13 @@ module Decidim
             filename: filename
           )
         )
-      }
+      end
       let(:optional) { true }
-      let(:attributes) {
+      let(:attributes) do
         {
           optional: optional
         }
-      }
+      end
       let(:output) do
         builder.upload :image, attributes
       end

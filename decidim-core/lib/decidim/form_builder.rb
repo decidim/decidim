@@ -198,22 +198,24 @@ module Decidim
       template += @template.file_field @object_name, attribute
 
       if file_is_image?(file)
-        template += @template.label_tag file.present? ?
-          I18n.t('current_image', scope: "decidim.forms") :
-          I18n.t('default_image', scope: "decidim.forms")
+        template += if file.present?
+                      @template.label_tag I18n.t("current_image", scope: "decidim.forms")
+                    else
+                      @template.label_tag I18n.t("default_image", scope: "decidim.forms")
+                    end
         template += @template.image_tag file.url
       end
 
       if file.present?
-        template += @template.label_tag I18n.t('url', scope: "decidim.forms")
+        template += @template.label_tag I18n.t("url", scope: "decidim.forms")
         template += @template.link_to file.file.filename, file.url, target: "_blank"
 
         if options[:optional]
           template += content_tag :div, class: "field" do
             safe_join([
-              @template.check_box(@object_name, "remove_#{attribute}"),
-              label("remove_#{attribute}", label_for("remove_#{attribute}"))
-            ])
+                        @template.check_box(@object_name, "remove_#{attribute}"),
+                        label("remove_#{attribute}", label_for("remove_#{attribute}"))
+                      ])
           end
         end
       end

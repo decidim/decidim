@@ -83,8 +83,7 @@ module Decidim
         @collection ||= current_user.organization.participatory_process_groups
       end
 
-      def participatory_process_group_params
-      end
+      def participatory_process_group_params; end
     end
   end
 end
