@@ -6,6 +6,8 @@ module Decidim
   class ParticipatoryProcessGroupsController < ApplicationController
     helper_method :participatory_processes, :group, :collection
 
+    before_action :set_group
+
     def show
       authorize! :read, ParticipatoryProcessGroup
     end
@@ -17,8 +19,10 @@ module Decidim
     end
     alias collection participatory_processes
 
-    def group
-      Decidim::ParticipatoryProcessGroup.find(params[:id])
+    def set_group
+      @group = Decidim::ParticipatoryProcessGroup.find(params[:id])
     end
+
+    attr_reader :group
   end
 end

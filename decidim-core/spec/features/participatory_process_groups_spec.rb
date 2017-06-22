@@ -40,6 +40,12 @@ describe "Participatory Process Groups", type: :feature do
     end
   end
 
+  context "when the group does not exist" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim.participatory_process_group_path(99_999_999) }
+    end
+  end
+
   describe "show" do
     let!(:participatory_process_group) { create(:participatory_process_group, organization: organization) }
     let!(:group_processes) { create_list(:participatory_process, 2, :published, organization: organization, participatory_process_group: participatory_process_group) }
