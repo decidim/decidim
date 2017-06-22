@@ -1,6 +1,7 @@
+---
 es:
   actions:
-    confirm_destroy: '¿Estás seguro?'
+    confirm_destroy: "¿Estás seguro?"
   activemodel:
     attributes:
       attachment:
@@ -48,7 +49,7 @@ es:
         short_description: Breve descripción
         slug: Texto corto de URL
         subtitle: Subtítulo
-        target: '¿A quién va dirigido?'
+        target: "¿A quién va dirigido?"
         title: Título
       participatory_process_group:
         description: Descripción
@@ -95,7 +96,7 @@ es:
         short_description: Descripción breve
         slug: Texto corto de URL
         subtitle: Subtítulo
-        target: '¿A quién va dirigido?'
+        target: "¿A quién va dirigido?"
         title: Título
       decidim/participatory_process_step:
         end_date: Fecha de finalización
@@ -113,7 +114,7 @@ es:
         activate: Activar
         add: Añadir
         configure: Configurar
-        confirm_destroy: '¿Seguro que lo quieres eliminar?'
+        confirm_destroy: "¿Seguro que lo quieres eliminar?"
         destroy: Eliminar
         duplicate: Duplicar
         edit: Editar
@@ -136,9 +137,6 @@ es:
         edit:
           title: Editar archivo adjunto
           update: Actualizar
-        form:
-          current_file: Archivo actual
-          url: URL
         new:
           create: Crear archivo adjunto
           title: Nuevo archivo adjunto
@@ -325,13 +323,13 @@ es:
         form:
           interpolations_hint: 'Sugerencia: Puede utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
-          confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
+          confirm_delete: "¿Estás seguro de que quieres eliminar este boletín?"
           title: Boletines
         new:
           save: Guardar
           title: Nuevo boletín
         show:
-          confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
+          confirm_deliver: "¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer."
           deliver: Enviar boletín
           preview: Previsualizar
           subject: Asunto
@@ -427,9 +425,7 @@ es:
         edit:
           update: Actualizar
         form:
-          current_image: Imagen actual
           title: Información general
-          url: URL
         index:
           not_published: No publicado
           published: Publicado

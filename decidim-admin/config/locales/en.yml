@@ -137,9 +137,6 @@ en:
         edit:
           title: Edit attachment
           update: Update
-        form:
-          current_file: Current file
-          url: Url
         new:
           create: Create attachment
           title: New attachment
@@ -429,9 +426,7 @@ en:
         edit:
           update: Update
         form:
-          current_image: Current image
           title: General Information
-          url: Url
         index:
           not_published: Not published
           published: Published

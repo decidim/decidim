@@ -206,7 +206,7 @@ module Decidim
         template += @template.image_tag file.url
       end
 
-      if file.present?
+      if file_is_present?(file)
         template += @template.label_tag I18n.t("url", scope: "decidim.forms")
         template += @template.link_to file.file.filename, file.url, target: "_blank"
 
@@ -426,10 +426,17 @@ module Decidim
       label(attribute, (text || "").html_safe, options)
     end
 
-    # Private: Returns whether the file is an image or not
+    # Private: Returns whether the file is an image or not.
     def file_is_image?(file)
+      return unless file && file.respond_to?(:url)
       return file.content_type.start_with? "image" if file.content_type.present?
       Mime::Type.lookup_by_extension(File.extname(file.url)[1..-1]).to_s.start_with? "image" if file.url.present?
+    end
+
+    # Private: Returns whether the file exists or not.
+    def file_is_present?(file)
+      return unless file && file.respond_to?(:url)
+      file.present?
     end
   end
 end
