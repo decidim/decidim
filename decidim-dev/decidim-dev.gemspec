@@ -9,8 +9,8 @@ require_relative "../decidim-core/lib/decidim/core/version"
 Gem::Specification.new do |s|
   Decidim.add_default_gemspec_properties(s)
 
-  s.name        = "decidim-dev"
-  s.summary     = "Decidim Dev tools"
+  s.name = "decidim-dev"
+  s.summary = "Decidim Dev tools"
   s.description = "Utilities and tools we need to develop Decidim"
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]

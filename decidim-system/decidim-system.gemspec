@@ -9,8 +9,8 @@ require_relative "../decidim-core/lib/decidim/core/version"
 Gem::Specification.new do |s|
   Decidim.add_default_gemspec_properties(s)
 
-  s.name        = "decidim-system"
-  s.summary     = "System administration"
+  s.name = "decidim-system"
+  s.summary = "System administration"
   s.description = "System administration to create new organization in an installation."
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
