@@ -207,28 +207,17 @@ en:
         scope: Scope
         target: Target
       statistics:
-        headline: Current state of "%{participatory_process}"
-        global:
-          comments_count: Comments
-        proposals:
-          proposals_count: Proposals
-          votes_count: Proposals votes
-          comments_count: Proposals comments
-        results:
-          results_count: Results
-          comments_count: Results comments
-        meetings:
-          meetings_count: Meetings
-        budgets:
-          projects_count: Projects
           comments_count: Proposals comments
           orders_count: Orders
-        pages:
+          projects_count: Projects
+          headline: Activity
+          meetings_count: Meetings
           pages_count: Pages
-          comments_count: Pages comments
-        surveys:
-          surveys_count: Surveys
+          proposals_count: Proposals
+          votes_count: Votes
+          results_count: Results
           answers_count: Answers
+          surveys_count: Surveys
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -406,12 +395,17 @@ en:
         active_step: Active step
         see_all_processes: See all processes
       statistics:
+        answers_count: Answers
         comments_count: Comments
         headline: Current state of %{organization}
         meetings_count: Meetings
+        orders_count: Orders
+        pages_count: Pages
         processes_count: Processes
+        projects_count: Projects
         proposals_count: Proposals
         results_count: Results
+        surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
       sub_hero:

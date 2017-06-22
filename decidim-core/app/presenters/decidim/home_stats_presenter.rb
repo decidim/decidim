@@ -32,7 +32,7 @@ module Decidim
       not_highlighted_stats = not_highlighted_stats.reject(&:empty?)
 
       safe_join(
-        not_highlighted_stats.in_groups_of(3, false).map do |stats|
+        not_highlighted_stats.in_groups_of(3, [:empty]).map do |stats|
           content_tag :div, class: "home-pam__lowlight" do
             safe_join(
               stats.map do |name, data|
@@ -61,10 +61,14 @@ module Decidim
 
     def render_stats_data(name, data)
       content_tag :div, "", class: "home-pam__data" do
-        safe_join([
-                    content_tag(:h4, I18n.t(name, scope: "pages.home.statistics"), class: "home-pam__title"),
-                    content_tag(:span, " #{number_with_delimiter(data)}", class: "home-pam__number #{name}")
-                  ])
+        if name == :empty
+          "&nbsp;".html_safe
+        else
+          safe_join([
+                      content_tag(:h4, I18n.t(name, scope: "pages.home.statistics"), class: "home-pam__title"),
+                      content_tag(:span, " #{number_with_delimiter(data)}", class: "home-pam__number #{name}")
+                    ])
+        end
       end
     end
 

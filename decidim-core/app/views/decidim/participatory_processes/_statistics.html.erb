@@ -1,11 +1,10 @@
-<section class="extended" id="statistics">
+<section class="extended" id="participatory_process-statistics statistics">
   <div class="row column">
     <h4 class="section-heading"><%= t(".headline", participatory_process: translated_attribute(current_participatory_process.title)) %></h3>
   </div>
-  <br>
   <div class="row">
-    <%= stats.highlighted %>
-    <%= stats.not_highlighted %>
-
+    <div class="columns small-centered mediumlarge-12 large-12 process_stats">
+      <%= stats.highlighted %>
+    </div>
   </div>
 </section>

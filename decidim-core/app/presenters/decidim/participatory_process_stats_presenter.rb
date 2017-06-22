@@ -4,36 +4,22 @@ module Decidim
   # A presenter to render statistics in the homepage.
   class ParticipatoryProcessStatsPresenter < Rectify::Presenter
     attribute :participatory_process, Decidim::ParticipatoryProcess
+    include Decidim::ParticipatoryProcessHelper
 
     # Public: Render a collection of primary stats.
     def highlighted
-      highlighted_stats = Decidim.stats.only([:comments_count]).with_context(published_features).map { |name, data| [:global, name, data] }
-      highlighted_stats = highlighted_stats.concat(feature_stats(feature_stats_list))
+      highlighted_stats = feature_stats(priority: StatsRegistry::HIGH_PRIORITY)
+      highlighted_stats = highlighted_stats.concat(feature_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
       highlighted_stats = highlighted_stats.reject(&:empty?)
 
-      safe_join(
-        highlighted_stats.in_groups_of(4, false).map do |stats|
-          content_tag :div, class: "home-pam__highlight" do
-            safe_join(
-              stats.map do |scope, name, data|
-                render_stats_data(scope, name, data)
-              end
-            )
-          end
-        end
-      )
-    end
-
-    def not_highlighted
-      not_highlighted_stats = feature_stats(stats_list)
-      not_highlighted_stats = not_highlighted_stats.reject(&:empty?)
+      grouped_highlighted_stats = highlighted_stats.group_by { |stats| stats.first.name } # hash
 
       safe_join(
-        not_highlighted_stats.in_groups_of(4, false).map do |stats|
-          content_tag :div, class: "home-pam__lowlight" do
+        grouped_highlighted_stats.map do |manifest_name, stats|
+          content_tag :div, class: "process_stats-item" do
             safe_join(
-              stats.map do |scope, name, data|
-                render_stats_data(scope, name, data)
+              stats.each_with_index.map do |stat, index|
+                render_stats_data(stat[0], stat[1], stat[2], index)
               end
             )
           end
@@ -43,39 +29,17 @@ module Decidim
 
     private
 
-    def feature_stats_list
-      {
-        :proposals => [:proposals_count],
-        :meetings => [:meetings_count],
-        :budgets => [:projects_count, :orders_count],
-        :pages => [:pages_count],
-        :surveys => [:surveys_count, :answers_count]
-      }
+    def feature_stats(conditions)
+      Decidim.feature_manifests.map do |feature_manifest|
+        feature_manifest.stats.filter(conditions).with_context(published_features).map { |name, data| [feature_manifest, name, data] }.flatten
+      end
     end
 
-    def stats_list
-      {
-        :proposals => [:comments_count],
-        :meetings => [:comments_count],
-        :pages => [:comments_count],
-        :results => [:comments_count]
-      }
-    end
-
-    def feature_stats(list)
-      Decidim.feature_manifests.to_a.select { |feature| list.keys.include? feature.name }.map do |feature|
-        feature.stats
-          .only(list[feature.name])
-          .with_context(published_features)
-          .map { |name, data| [feature.name, name, data] }
-      end.flatten(1)
-    end
-
-    def render_stats_data(scope, name, data)
-      content_tag :div, "", class: "home-pam__data" do
+    def render_stats_data(feature_manifest, name, data, index)
+      content_tag :span, "", class: "" do
         safe_join([
-                    content_tag(:h4, I18n.t("#{scope}.#{name}", scope: "decidim.participatory_processes.statistics"), class: "text-center home-pam__title"),
-                    content_tag(:span, " #{number_with_delimiter(data)} ", class: "#{scope} #{name} home-pam__number")
+                    index == 0 ? feature_manifest_icon(feature_manifest) : " /&nbsp".html_safe,
+                    content_tag(:span, "#{number_with_delimiter(data)} " + I18n.t("#{name}", scope: "decidim.participatory_processes.statistics"), class: "#{name} process_stats-text")
                   ])
       end
     end
