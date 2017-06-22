@@ -147,6 +147,7 @@ en:
         result: Results
     forms:
       current_image: Current image
+      default_image: Default image
       errors:
         error: There's an error in this field.
       url: URL

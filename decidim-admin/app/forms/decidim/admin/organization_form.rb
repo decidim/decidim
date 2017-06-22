@@ -19,11 +19,16 @@ module Decidim
       attribute :github_handler, String
       attribute :default_locale, String
       attribute :homepage_image
+      attribute :remove_homepage_image
       attribute :logo
+      attribute :remove_logo
       attribute :favicon
+      attribute :remove_favicon
       attribute :official_url
       attribute :official_img_header
+      attribute :remove_official_img_header
       attribute :official_img_footer
+      attribute :remove_official_img_footer
       attribute :show_statistics
 
       translatable_attribute :description, String

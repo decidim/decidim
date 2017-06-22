@@ -183,18 +183,34 @@ module Decidim
     # Public: Generates a file upload field
     def upload(attribute, options = {})
       self.multipart = true
+      options[:optional] = options[:optional].nil? ? true : options[:optional]
+
       file = object.send attribute
       template = ""
       template += label(attribute, label_for(attribute))
       template += @template.file_field @object_name, attribute
+
+      if file_is_image?(file)
+        template += @template.label_tag file.present? ?
+          I18n.t('current_image', scope: "decidim.forms") :
+          I18n.t('default_image', scope: "decidim.forms")
+        template += @template.image_tag file.url
+      end
+
       if file.present?
-        if file.content_type.start_with? "image"
-          template += @template.label_tag I18n.t('current_image', scope: "decidim.forms")
-          template += @template.image_tag file.url
-        end
         template += @template.label_tag I18n.t('url', scope: "decidim.forms")
         template += @template.link_to file.file.filename, file.url, target: "_blank"
+
+        if options[:optional]
+          template += content_tag :div, class: "field" do
+            safe_join([
+              @template.check_box(@object_name, "remove_#{attribute}"),
+              label("remove_#{attribute}", label_for("remove_#{attribute}"))
+            ])
+          end
+        end
       end
+
       template.html_safe
     end
 
@@ -399,6 +415,12 @@ module Decidim
       end
 
       label(attribute, (text || "").html_safe, options)
+    end
+
+    # Private: Returns whether the file is an image or not
+    def file_is_image?(file)
+      return file.content_type.start_with? "image" if file.content_type.present?
+      Mime::Type.lookup_by_extension(File.extname(file.url)[1..-1]).to_s.start_with? "image" if file.url.present?
     end
   end
 end

@@ -15,25 +15,25 @@ module Decidim
 
     def update
       authorize! :update, current_user
-      @account = form(AccountForm).from_params(params)
+      @account = form(AccountForm).from_params(account_params)
 
       UpdateAccount.call(current_user, @account) do
         on(:ok) do |email_is_unconfirmed|
-          flash.now[:notice] = if email_is_unconfirmed
-                                 t("account.update.success_with_email_confirmation", scope: "decidim")
-                               else
-                                 t("account.update.success", scope: "decidim")
-                               end
+          flash[:notice] = if email_is_unconfirmed
+                                t("account.update.success_with_email_confirmation", scope: "decidim")
+                              else
+                                t("account.update.success", scope: "decidim")
+                              end
 
           bypass_sign_in(current_user)
+          redirect_to account_path
         end
 
         on(:invalid) do
-          flash.now[:alert] = t("account.update.error", scope: "decidim")
+          flash[:alert] = t("account.update.error", scope: "decidim")
+          render action: :show
         end
       end
-
-      render action: :show
     end
 
     def delete
@@ -63,6 +63,10 @@ module Decidim
 
     def authorizations
       @authorizations ||= current_user.authorizations
+    end
+
+    def account_params
+      { avatar: current_user.avatar }.merge(params[:user].to_unsafe_h)
     end
   end
 end

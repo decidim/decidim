@@ -382,9 +382,9 @@ module Decidim
 
     describe "upload" do
       let(:present?) { false }
-      let(:content_type) { "text/json" }
-      let(:url) { "/some/image/path" }
+      let(:content_type) { nil }
       let(:filename) { "my_image.jpg" }
+      let(:url) { "/some/file/path/#{filename}" }
       let(:file) {
         double(
           url: url,
@@ -395,8 +395,14 @@ module Decidim
           )
         )
       }
+      let(:optional) { true }
+      let(:attributes) {
+        {
+          optional: optional
+        }
+      }
       let(:output) do
-        builder.upload :image
+        builder.upload :image, attributes
       end
 
       before do
@@ -412,18 +418,46 @@ module Decidim
         expect(parsed.css('input[type="file"]').first).to be
       end
 
+      context "when it is an image" do
+        it "renders an image with the current file url" do
+          expect(parsed.css('img[src="' + url + '"]').first).to be
+        end
+      end
+
+      context "when it is not an image" do
+        let(:filename) { "my_file.pdf" }
+
+        it "doesn't render an image tag" do
+          expect(parsed.css('img[src="' + url + '"]').first).not_to be
+        end
+      end
+
+      context "when the file is not present" do
+        it "renders the 'Default image' label" do
+          expect(output).to include("Default image")
+        end
+      end
+
       context "when the file is present" do
         let(:present?) { true }
+
+        it "renders the 'Current image' label" do
+          expect(output).to include("Current image")
+        end
 
         it "renders a link to the current file url" do
           expect(parsed.css('a[href="' + url + '"]').first).to be
         end
 
-        context "and it's a photo" do
-          let(:content_type) { "image/jpeg" }
+        it "renders the delete checkbox" do
+          expect(parsed.css('input[type="checkbox"]').first).to be
+        end
 
-          it "renders an image with the current file url" do
-            expect(parsed.css('img[src="' + url + '"]').first).to be
+        context "and the optional argument is false" do
+          let(:optional) { false }
+
+          it "doesn't render the delete checkbox" do
+            expect(parsed.css('input[type="checkbox"]').first).not_to be
           end
         end
       end

@@ -21,7 +21,6 @@ module Decidim
 
       if @user.valid?
         @user.save!
-        @form.remove_avatar = false
         broadcast(:ok, @user.unconfirmed_email.present?)
       else
         if @user.errors.has_key? :avatar
@@ -39,11 +38,8 @@ module Decidim
     end
 
     def update_avatar
-      if @form.avatar
-        @user.avatar = @form.avatar
-      elsif @form.remove_avatar
-        @user.remove_avatar = true
-      end
+      @user.avatar = @form.avatar
+      @user.remove_avatar = @form.remove_avatar
     end
 
     def update_password
