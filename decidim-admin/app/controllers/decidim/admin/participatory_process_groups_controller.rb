@@ -48,7 +48,7 @@ module Decidim
       def update
         @participatory_process_group = collection.find(params[:id])
         authorize! :update, @participatory_process_group
-        @form = form(ParticipatoryProcessGroupForm).from_params(participatory_process_group_params)
+        @form = form(ParticipatoryProcessGroupForm).from_params(params)
 
         UpdateParticipatoryProcessGroup.call(@participatory_process_group, @form) do
           on(:ok) do |participatory_process_group|
@@ -82,8 +82,6 @@ module Decidim
       def collection
         @collection ||= current_user.organization.participatory_process_groups
       end
-
-      def participatory_process_group_params; end
     end
   end
 end
