@@ -70,7 +70,7 @@ if !Rails.env.production? || ENV["SEED"]
   )
 
   3.times do
-    Decidim::User.all.each do |user|
+    Decidim::User.find_each do |user|
       user_group = Decidim::UserGroup.create!(
         name: Faker::Company.name,
         document_number: Faker::Number.number(10),

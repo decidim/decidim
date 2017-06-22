@@ -72,7 +72,7 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.seeds do
-    Decidim::ParticipatoryProcess.all.each do |process|
+    Decidim::ParticipatoryProcess.find_each do |process|
       next unless process.steps.any?
 
       feature = Decidim::Feature.create!(
