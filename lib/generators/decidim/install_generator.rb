@@ -96,7 +96,7 @@ module Decidim
 
       def letter_opener_web
         inject_into_file "config/environments/development.rb",
-                        before: "Rails.application.configure" do
+                         before: "Rails.application.configure" do
           %(require 'letter_opener_web'
 
 )
