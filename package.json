@@ -29,6 +29,7 @@
     "@types/jquery": "^2.0.41",
     "@types/react": "^15.0.12",
     "@types/react-dom": "^15.5.0",
+    "@types/recompose": "^0.23.0",
     "@types/uuid": "^2.0.29",
     "awesome-typescript-loader": "^3.0.4",
     "babel-core": "^6.24.1",
@@ -80,6 +81,7 @@
     "react-dom": "^15.5.4",
     "react-i18nify": "^1.8.7",
     "react-test-renderer": "^15.5.4",
+    "recompose": "^0.23.5",
     "uuid": "^3.0.1"
   },
   "jest": {

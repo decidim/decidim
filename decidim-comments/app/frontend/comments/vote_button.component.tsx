@@ -1,4 +1,5 @@
 import * as React from "react";
+import { compose, withHandlers } from "recompose";
 import Icon from "../application/icon.component";
 
 interface VoteButtonProps {
@@ -11,22 +12,22 @@ interface VoteButtonProps {
   userLoggedIn: boolean;
 }
 
-const preventDefault = (event: any) => {
-  event.preventDefault();
-};
+interface EnhancedVoteButtonProps {
+  onClick: (event: any) => void;
+}
 
-const VoteButton: React.SFC<VoteButtonProps> = ({
+const VoteButton: React.SFC<VoteButtonProps & EnhancedVoteButtonProps> = ({
   buttonClassName,
   iconName,
   votes,
-  voteAction,
   disabled,
   selectedClass,
   userLoggedIn,
+  onClick,
 }) => (
   <button
     className={`${buttonClassName} ${selectedClass}`}
-    onClick={userLoggedIn ? voteAction : preventDefault}
+    onClick={onClick}
     disabled={disabled}
     data-open={userLoggedIn ? null : "loginModal"}
   >
@@ -40,4 +41,12 @@ VoteButton.defaultProps = {
   disabled: false,
 };
 
-export default VoteButton;
+const enhance = compose<VoteButtonProps, VoteButtonProps>(
+  withHandlers<VoteButtonProps, VoteButtonProps>({
+    onClick: ({ userLoggedIn, voteAction }) => (event: any) => (
+      userLoggedIn ? voteAction : event.preventDefault()
+    ),
+  }),
+);
+
+export default enhance(VoteButton);
