@@ -28,7 +28,7 @@ module Decidim
 
     # Public: Get the dummy application path and raises an error if it is not set.
     def self.dummy_app_path
-      raise StandardError, "You need to define the `dummy_app_path` first." unless @dummy_app_path
+      raise StandardError, "Please, add Decidim::Dev::dummy_app_path = File.expand_path(File.join(\"..\", \"spec\", \"decidim_dummy_app\")) to your spec helper with the path to the generated dummy app" unless @dummy_app_path
       @dummy_app_path
     end
   end
