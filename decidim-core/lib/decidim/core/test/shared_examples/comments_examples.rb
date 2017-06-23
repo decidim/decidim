@@ -10,7 +10,7 @@ RSpec.shared_examples "comments" do
     switch_to_host(organization.host)
   end
 
-  it "user should see a list of comments" do
+  it "shows the list of comments for the resorce" do
     visit resource_path
 
     expect(page).to have_selector("#comments")
@@ -24,7 +24,7 @@ RSpec.shared_examples "comments" do
     end
   end
 
-  it "user should be able to sort the comments" do
+  it "allows user to sort the comments" do
     comment = create(:comment, commentable: commentable, body: "Most Rated Comment")
     create(:comment_vote, comment: comment, author: user, weight: 1)
 
@@ -42,7 +42,7 @@ RSpec.shared_examples "comments" do
   end
 
   context "when not authenticated" do
-    it "user should not see the form to add comments" do
+    it "does not show form to add comments to user" do
       visit resource_path
       expect(page).not_to have_selector(".add-comment form")
     end
@@ -53,7 +53,7 @@ RSpec.shared_examples "comments" do
       login_as user, scope: :user
     end
 
-    it "user sees the form to add comments" do
+    it "shows form to add comments to user" do
       visit resource_path
 
       expect(page).to have_selector(".add-comment form")
@@ -71,14 +71,14 @@ RSpec.shared_examples "comments" do
         end
       end
 
-      it "user visualize the comment" do
+      it "shows comment to the user" do
         within "#comments" do
           expect(page).to have_content user.name
           expect(page).to have_content "This is a new comment"
         end
       end
 
-      it "commentable's author receives notifications" do
+      it "sends notifications received by commentable's author" do
         if commentable.respond_to? :author
           wait_for_email subject: "new comment"
           login_as commentable.author, scope: :user
@@ -103,7 +103,7 @@ RSpec.shared_examples "comments" do
         create(:user_group_membership, user: user, user_group: user_group)
       end
 
-      it "user can add a new comment as a user group" do
+      it "adds new comment as a user group" do
         visit resource_path
 
         expect(page).to have_selector(".add-comment form")
@@ -121,7 +121,7 @@ RSpec.shared_examples "comments" do
       end
     end
 
-    context "when a user replies a coment" do
+    context "when a user replies to a comment" do
       let!(:comment_author) { create(:user, :confirmed, organization: organization) }
       let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
 
@@ -137,13 +137,13 @@ RSpec.shared_examples "comments" do
         end
       end
 
-      it "user visualize the reply" do
+      it "shows reply to the user" do
         within "#comments #comment_#{comment.id}" do
           expect(page).to have_content "This is a reply"
         end
       end
 
-      it "comment's author receives notification" do
+      it "sends notifications received by commentable's author" do
         wait_for_email subject: "new reply"
         login_as comment.author, scope: :user
         visit last_email_first_link
@@ -159,7 +159,7 @@ RSpec.shared_examples "comments" do
         expect_any_instance_of(commentable.class).to receive(:comments_have_alignment?).and_return(true)
       end
 
-      it "user can comment in favor" do
+      it "allows user to comment in favor" do
         visit resource_path
 
         expect(page).to have_selector(".add-comment form")
@@ -182,7 +182,7 @@ RSpec.shared_examples "comments" do
         expect_any_instance_of(commentable.class).to receive(:comments_have_votes?).and_return(true)
       end
 
-      it "user can upvote a comment" do
+      it "allows user to upvote a comment" do
         visit resource_path
 
         within "#comment_#{comments[0].id}" do
@@ -192,7 +192,7 @@ RSpec.shared_examples "comments" do
         end
       end
 
-      it "user can downvote a comment" do
+      it "allows user to downvote a comment" do
         visit resource_path
 
         within "#comment_#{comments[0].id}" do
