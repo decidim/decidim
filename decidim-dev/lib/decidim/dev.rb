@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "letter_opener_web"
-require "decidim/dev/railtie"
+# require "letter_opener_web"
+# require "decidim/dev/railtie"
 
 module Decidim
   # Decidim::Dev holds all the convenience logic and libraries to be able to
@@ -13,6 +13,26 @@ module Decidim
     # Returns a String with the path for a particular asset.
     def self.asset(name)
       File.expand_path(File.join(__dir__, "dev", "assets", name))
+    end
+
+    # Public: add rake tasks
+    def self.install_tasks
+      Dir[File.join(__dir__, "../tasks/*.rake")].each do |file|
+        load file
+      end
+    end
+
+    # Public: Sets the dummy application path for testing.
+    #
+    # path - A string value defining the path.
+    def self.dummy_app_path=(path)
+      @dummy_app_path = path
+    end
+
+    # Public: Get the dummy application path and raises an error if it is not set.
+    def self.dummy_app_path
+      raise StandardError, "You need to define the `dummy_app_path` first." unless @dummy_app_path
+      @dummy_app_path
     end
   end
 end

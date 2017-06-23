@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
+require 'decidim/dev'
+
 ENV["RAILS_ENV"] ||= "test"
 
 root_path = File.expand_path("..", Dir.pwd)
 engine_spec_dir = File.join(Dir.pwd, "spec")
-dummy_app_path = File.expand_path(File.join(root_path, "spec", "decidim_dummy_app"))
 
 if ENV["SIMPLECOV"]
   require "simplecov"
@@ -35,10 +36,10 @@ require "decidim/core/test"
 require "#{__dir__}/rspec_support/feature.rb"
 
 begin
-  require "#{dummy_app_path}/config/environment"
+  require "#{Decidim::Dev.dummy_app_path}/config/environment"
 rescue LoadError
   puts "Could not load dummy application. Please ensure you have run `bundle exec rake decidim:generate_test_app`"
-  puts "Tried to load it from #{dummy_app_path}"
+  puts "Tried to load it from #{Decidim::Dev.dummy_app_path}"
   exit(-1)
 end
 
