@@ -60,8 +60,6 @@ RSpec.shared_examples "comments" do
 
     context "when user adds a new comment" do
       before do
-        expect(page).to have_selector(".add-comment form")
-
         within ".add-comment form" do
           fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "This is a new comment"
           click_button "Send"
