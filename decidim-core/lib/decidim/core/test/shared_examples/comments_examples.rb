@@ -51,18 +51,15 @@ RSpec.shared_examples "comments" do
   context "when authenticated" do
     before do
       login_as user, scope: :user
+      visit resource_path
     end
 
     it "shows form to add comments to user" do
-      visit resource_path
-
       expect(page).to have_selector(".add-comment form")
     end
 
     context "when user adds a new comment" do
       before do
-        visit resource_path
-
         expect(page).to have_selector(".add-comment form")
 
         within ".add-comment form" do
