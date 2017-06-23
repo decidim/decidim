@@ -9,19 +9,13 @@ RSpec.shared_examples "comments" do
       create(:comment, commentable: commentable)
     end
   end
-  let(:authenticated) { false }
-
-  def visit_commentable_path
-    login_as user, scope: :user if authenticated
-    visit resource_path
-  end
 
   before do
     switch_to_host(organization.host)
   end
 
   it "user should see a list of comments" do
-    visit_commentable_path
+    visit resource_path
 
     expect(page).to have_selector("#comments")
     expect(page).to have_selector("article.comment", count: comments.length)
@@ -38,7 +32,7 @@ RSpec.shared_examples "comments" do
     comment = create(:comment, commentable: commentable, body: "Most Rated Comment")
     create(:comment_vote, comment: comment, author: user, weight: 1)
 
-    visit_commentable_path
+    visit resource_path
 
     within ".order-by" do
       page.find(".dropdown.menu .is-dropdown-submenu-parent").hover
@@ -53,23 +47,25 @@ RSpec.shared_examples "comments" do
 
   context "when not authenticated" do
     it "user should not see the form to add comments" do
-      visit_commentable_path
+      visit resource_path
       expect(page).not_to have_selector(".add-comment form")
     end
   end
 
   context "when authenticated" do
-    let(:authenticated) { true }
+    before do
+      login_as user, scope: :user
+    end
 
     it "user sees the form to add comments" do
-      visit_commentable_path
+      visit resource_path
 
       expect(page).to have_selector(".add-comment form")
     end
 
     context "when user adds a new comment" do
       before do
-        visit_commentable_path
+        visit resource_path
 
         expect(page).to have_selector(".add-comment form")
 
@@ -112,7 +108,7 @@ RSpec.shared_examples "comments" do
       end
 
       it "user can add a new comment as a user group" do
-        visit_commentable_path
+        visit resource_path
 
         expect(page).to have_selector(".add-comment form")
 
@@ -134,7 +130,7 @@ RSpec.shared_examples "comments" do
       let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
 
       before do
-        visit_commentable_path
+        visit resource_path
 
         expect(page).to have_selector(".comment__reply")
 
@@ -168,7 +164,7 @@ RSpec.shared_examples "comments" do
       end
 
       it "user can comment in favor" do
-        visit_commentable_path
+        visit resource_path
 
         expect(page).to have_selector(".add-comment form")
 
@@ -191,7 +187,7 @@ RSpec.shared_examples "comments" do
       end
 
       it "user can upvote a comment" do
-        visit_commentable_path
+        visit resource_path
 
         within "#comment_#{comments[0].id}" do
           expect(page).to have_selector(".comment__votes--up", text: /0/)
@@ -201,7 +197,7 @@ RSpec.shared_examples "comments" do
       end
 
       it "user can downvote a comment" do
-        visit_commentable_path
+        visit resource_path
 
         within "#comment_#{comments[0].id}" do
           expect(page).to have_selector(".comment__votes--down", text: /0/)
