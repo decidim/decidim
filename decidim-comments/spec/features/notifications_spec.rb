@@ -30,7 +30,7 @@ describe "Comment notifications", type: :feature do
 
     wait_for_email subject: "a new comment"
 
-    login_as commentable.author, scope: :user
+    relogin_as commentable.author, scope: :user
 
     visit last_email_first_link
 

@@ -76,7 +76,7 @@ RSpec.shared_examples "comments" do
       it "sends notifications received by commentable's author" do
         if commentable.respond_to? :author
           wait_for_email subject: "new comment"
-          login_as commentable.author, scope: :user
+          relogin_as commentable.author, scope: :user
           visit last_email_first_link
 
           within "#comments" do
@@ -140,7 +140,7 @@ RSpec.shared_examples "comments" do
 
       it "sends notifications received by commentable's author" do
         wait_for_email subject: "new reply"
-        login_as comment.author, scope: :user
+        relogin_as comment.author, scope: :user
         visit last_email_first_link
 
         within "#comments #comment_#{comment.id}" do
