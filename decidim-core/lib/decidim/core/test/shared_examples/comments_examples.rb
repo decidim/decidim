@@ -82,7 +82,7 @@ RSpec.shared_examples "comments" do
         end
       end
 
-      it "commentable's author receives notificatione" do
+      it "commentable's author receives notifications" do
         if commentable.respond_to? :author
           wait_for_email subject: "new comment"
           login_as commentable.author, scope: :user
