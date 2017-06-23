@@ -7,11 +7,7 @@ describe "Comment notifications", type: :feature do
   let!(:feature) { create(:feature, manifest_name: :dummy, organization: organization) }
   let!(:user) { create(:user, :confirmed, organization: organization) }
   let!(:commentable) { create(:dummy_resource, feature: feature) }
-  let!(:comments) do
-    Array.new(3) do
-      create(:comment, commentable: commentable)
-    end
-  end
+  let!(:comments) { create_list(:comment, 3, commentable: commentable) }
 
   before do
     switch_to_host(organization.host)

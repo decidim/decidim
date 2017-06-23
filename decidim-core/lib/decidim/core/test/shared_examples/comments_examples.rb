@@ -4,11 +4,7 @@
 RSpec.shared_examples "comments" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, organization: organization) }
-  let!(:comments) do
-    Array.new(3) do
-      create(:comment, commentable: commentable)
-    end
-  end
+  let!(:comments) { create_list(:comment, 3, commentable: commentable) }
 
   before do
     switch_to_host(organization.host)
