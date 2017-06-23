@@ -154,51 +154,67 @@ RSpec.shared_examples "comments" do
       end
     end
 
-    context "when arguable option is enabled" do
-      before do
-        expect_any_instance_of(commentable.class).to receive(:comments_have_alignment?).and_return(true)
-      end
+    describe "arguable option" do
+      context "commenting with alignment" do
+        before do
+          visit resource_path
 
-      it "allows user to comment in favor" do
-        visit resource_path
-
-        expect(page).to have_selector(".add-comment form")
-
-        page.find(".opinion-toggle--ok").click
-
-        within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "I am in favor about this!"
-          click_button "Send"
+          expect(page).to have_selector(".add-comment form")
         end
 
-        within "#comments" do
-          expect(page).to have_selector "span.success.label", text: "In favor"
+        it "works according to the setting in the commentable" do
+          if commentable.comments_have_alignment?
+            page.find(".opinion-toggle--ok").click
+
+            within ".add-comment form" do
+              fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "I am in favor about this!"
+              click_button "Send"
+            end
+
+            within "#comments" do
+              expect(page).to have_selector "span.success.label", text: "In favor"
+            end
+          else
+            expect(page).not_to have_selector(".opinion-toggle--ok")
+          end
         end
       end
     end
 
-    context "when votable option is enabled" do
+    describe "votable option" do
       before do
-        expect_any_instance_of(commentable.class).to receive(:comments_have_votes?).and_return(true)
+        visit resource_path
       end
 
-      it "allows user to upvote a comment" do
-        visit resource_path
-
-        within "#comment_#{comments[0].id}" do
-          expect(page).to have_selector(".comment__votes--up", text: /0/)
-          page.find(".comment__votes--up").click
-          expect(page).to have_selector(".comment__votes--up", text: /1/)
+      context "upvoting a comment" do
+        it "works according to the setting in the commentable" do
+          within "#comment_#{comments[0].id}" do
+            if commentable.comments_have_votes?
+              expect(page).to have_selector(".comment__votes--up", text: /0/)
+              page.find(".comment__votes--up").click
+              expect(page).to have_selector(".comment__votes--up", text: /1/)
+            else
+              expect(page).to_not have_selector(".comment__votes--up", text: /0/)
+            end
+          end
         end
       end
 
-      it "allows user to downvote a comment" do
-        visit resource_path
+      context "downvoting a comment" do
+        before do
+          visit resource_path
+        end
 
-        within "#comment_#{comments[0].id}" do
-          expect(page).to have_selector(".comment__votes--down", text: /0/)
-          page.find(".comment__votes--down").click
-          expect(page).to have_selector(".comment__votes--down", text: /1/)
+        it "works according to the setting in the commentable" do
+          within "#comment_#{comments[0].id}" do
+            if commentable.comments_have_votes?
+              expect(page).to have_selector(".comment__votes--down", text: /0/)
+              page.find(".comment__votes--down").click
+              expect(page).to have_selector(".comment__votes--down", text: /1/)
+            else
+              expect(page).to_not have_selector(".comment__votes--down", text: /0/)
+            end
+          end
         end
       end
     end
