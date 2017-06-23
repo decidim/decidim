@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'decidim/dev'
+require "decidim/dev"
 
 ENV["RAILS_ENV"] ||= "test"
 
