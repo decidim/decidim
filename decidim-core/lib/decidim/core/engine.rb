@@ -32,7 +32,6 @@ require "invisible_captcha"
 require "premailer/rails"
 require "nokogiri"
 require "geocoder"
-require "letter_opener_web"
 
 require "decidim/api"
 

@@ -96,6 +96,13 @@ module Decidim
 
       def letter_opener_web
         inject_into_file "config/environments/development.rb",
+                        before: "Rails.application.configure" do
+          %(require 'letter_opener_web'
+
+)
+        end
+
+        inject_into_file "config/environments/development.rb",
                          after: "config.action_mailer.raise_delivery_errors = false" do
           %(
 
