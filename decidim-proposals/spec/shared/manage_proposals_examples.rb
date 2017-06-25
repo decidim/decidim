@@ -29,8 +29,7 @@ RSpec.shared_examples "manage proposals" do
   context "creation" do
     context "when official_proposals setting is enabled" do
       before do
-        current_feature.settings[:official_proposals_enabled] = true
-        current_feature.save
+        current_feature.update_attributes!(settings: { official_proposals_enabled: true })
       end
 
       context "when creation is enabled" do
