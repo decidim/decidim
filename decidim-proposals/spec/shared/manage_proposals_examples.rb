@@ -47,19 +47,17 @@ RSpec.shared_examples "manage proposals" do
         context "when process is not related to any scope" do
           before do
             participatory_process.update_attributes!(scope: nil)
+
+            find(".card-title a.button").click
           end
 
           it "can be related to a scope" do
-            find(".card-title a.button").click
-
             within "form" do
               expect(page).to have_content(/Scope/i)
             end
           end
 
           it "creates a new proposal" do
-            find(".card-title a.button").click
-
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
               fill_in :proposal_body, with: "Decidim is great but it can be better"
