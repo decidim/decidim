@@ -47,7 +47,7 @@ RSpec.shared_examples "manage proposals" do
           before do
             participatory_process.update_attributes!(scope: nil)
 
-            find(".card-title a.button").click
+            click_link "New"
           end
 
           it "can be related to a scope" do
