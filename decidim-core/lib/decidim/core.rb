@@ -84,10 +84,13 @@ module Decidim
     []
   end
 
-  # Exposes a configuration option: The application name String.
+  # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
     %w(en ca es eu it fi fr nl)
   end
+
+  # Exposes a configuration option: The application default locale.
+  config_accessor :default_locale { :en }
 
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
