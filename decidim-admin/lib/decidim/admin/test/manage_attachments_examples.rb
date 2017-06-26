@@ -25,7 +25,6 @@ RSpec.shared_examples "manage attachments examples" do
 
     expect(page).to have_selector("input#attachment_title_en[value='#{translated(attachment.title, locale: :en)}']")
     expect(page).to have_selector("input#attachment_description_en[value='#{translated(attachment.description, locale: :en)}']")
-    expect(page).to have_content(attachment.file.filename)
     expect(page).to have_css("img[src~='#{attachment.url}']")
   end
 
