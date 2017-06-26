@@ -21,12 +21,12 @@ fr:
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
             official_proposals_enabled: Propositions officielles activées
-            proposal_answering_enabled: Réponse aux propositions acceptées
+            proposal_answering_enabled: Réponses aux propositions activées
             vote_limit: Limite de vote
           step:
             comments_blocked: Commentaires bloqués
             creation_enabled: Module propositions activé
-            proposal_answering_enabled: Réponse aux propositions acceptées
+            proposal_answering_enabled: Réponses aux propositions activées
             votes_blocked: Votes bloqués
             votes_enabled: Votes activés
             votes_hidden: Cacher les votes (si les votes sont activés, le compte des votes sera caché)
@@ -43,7 +43,7 @@ fr:
             name: Proposition
         proposal_answers:
           edit:
-            accepted: Publié
+            accepted: Acceptée
             answer_proposal: Répondre
             rejected: Refusée
             title: Réponse à la proposition %{title}
@@ -62,7 +62,7 @@ fr:
             create: Créer
             title: Créer une proposition
       answers:
-        accepted: Publié
+        accepted: Acceptée
         not_answered: Resté sans réponse
         rejected: Refusée
       create:
