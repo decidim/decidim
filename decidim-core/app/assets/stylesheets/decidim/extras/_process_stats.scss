@@ -5,7 +5,16 @@
 .process_stats{
   padding: 0;
   .process_stats-item{
-    width: 33%;
+    width: 33.3%;
+    @include breakpoint(large down){
+      width: 33.3%;
+    }
+    @include breakpoint(medium down){
+      width: 49.9%;
+    }
+    @include breakpoint(smallmedium down){
+      width: 100%;
+    }
     display: inline-block;
     padding: 1em;
     border: $border;
