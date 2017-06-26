@@ -4,7 +4,7 @@ fr:
       proposal:
         body: Corps de texte
         category_id: Catégorie
-        scope_id: Domaine d'application
+        scope_id: Zone d'application
         title: Titre
         user_group_id: Créer une proposition en tant que
       proposal_answer:
@@ -21,12 +21,12 @@ fr:
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
             official_proposals_enabled: Propositions officielles activées
-            proposal_answering_enabled: Réponse aux propositions activée
+            proposal_answering_enabled: Réponse aux propositions acceptées
             vote_limit: Limite de vote
           step:
             comments_blocked: Commentaires bloqués
             creation_enabled: Module propositions activé
-            proposal_answering_enabled: Réponse aux propositions activée
+            proposal_answering_enabled: Réponse aux propositions acceptées
             votes_blocked: Votes bloqués
             votes_enabled: Votes activés
             votes_hidden: Cacher les votes (si les votes sont activés, le compte des votes sera caché)
@@ -73,7 +73,7 @@ fr:
           fields:
             category: Catégorie
             official_proposal: Proposition officielle
-            scope: Domaine d'application
+            scope: Zone d'application
             state: Etat
             title: Titre
       proposals:
@@ -92,7 +92,7 @@ fr:
           origin: Retour à l'original
           rejected: Refusée
           related_to: Liée à
-          scopes: Domaines d'application
+          scopes: Zones d'application
           search: Rechercher
           state: État
           voted: Voté
