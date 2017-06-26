@@ -207,17 +207,17 @@ en:
         scope: Scope
         target: Target
       statistics:
-          comments_count: Proposals comments
-          orders_count: Orders
-          projects_count: Projects
-          headline: Activity
-          meetings_count: Meetings
-          pages_count: Pages
-          proposals_count: Proposals
-          votes_count: Votes
-          results_count: Results
-          answers_count: Answers
-          surveys_count: Surveys
+        answers_count: Answers
+        comments_count: Proposals comments
+        headline: Activity
+        meetings_count: Meetings
+        orders_count: Orders
+        pages_count: Pages
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        surveys_count: Surveys
+        votes_count: Votes
     reported_mailer:
       hide:
         hello: Hello %{name},
