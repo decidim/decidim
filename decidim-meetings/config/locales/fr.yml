@@ -24,7 +24,7 @@ fr:
     meetings:
       actions:
         attachments: Documents liés
-        close: Fermer
+        close: Clore
         confirm_destroy: Êtes-vous sûr de vouloir supprimer cette rencontre?
         destroy: Supprimer
         edit: Modifier
@@ -34,7 +34,7 @@ fr:
       admin:
         meeting_closes:
           edit:
-            close: Fermer
+            close: Clore
             title: Clore la rencontre
         meetings:
           close:
@@ -95,5 +95,5 @@ fr:
         meeting_results: 'Résultats associés :'
         result_meetings: 'Rencontres connexes :'
       proposals_from_meeting:
-        meeting_proposals: 'Propositions connexes :'
+        meeting_proposals: 'Propositions créées à cette rencontre :'
         proposal_meetings: 'Rencontre connexes :'
