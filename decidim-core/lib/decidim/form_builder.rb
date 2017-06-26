@@ -204,6 +204,9 @@ module Decidim
                       @template.label_tag I18n.t("default_image", scope: "decidim.forms")
                     end
         template += @template.link_to @template.image_tag(file.url), file.url, target: "_blank"
+      elsif file_is_present?(file)
+        template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
+        template += @template.link_to file.file.filename, file.url, target: "_blank"
       end
 
       if file_is_present?(file)

@@ -441,11 +441,22 @@ module Decidim
       context "when it is not an image" do
         let(:filename) { "my_file.pdf" }
 
-        it "doesn't render an image tag" do
-          expect(parsed.css('img[src="' + url + '"]').first).not_to be
+        context "and it is present" do
+          let(:present?) { true }
+
+          it "renders the 'Current file' label" do
+            expect(output).to include("Current file")
+          end
+
+          it "doesn't render an image tag" do
+            expect(parsed.css('img[src="' + url + '"]').first).not_to be
+          end
+
+          it "renders a link to the current file url" do
+            expect(parsed.css('a[href="' + url + '"]').first).to be
+          end
         end
       end
-
 
       context "when the file is present" do
         let(:present?) { true }
