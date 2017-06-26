@@ -53,7 +53,7 @@ module Decidim
       #
       # Returns a String with the default locale.
       def default_locale
-        @default_locale ||= current_organization.default_locale
+        @default_locale ||= (current_organization || Decidim).public_send(:default_locale)
       end
     end
   end

@@ -22,9 +22,8 @@ module Decidim
 
       private
 
-      # Raises a 404 if no organization is present.
       def verify_organization
-        raise ActionController::RoutingError, "Not Found" unless current_organization
+        redirect_to decidim_system.root_path unless current_organization
       end
     end
   end

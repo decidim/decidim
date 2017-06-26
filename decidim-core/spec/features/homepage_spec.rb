@@ -4,6 +4,16 @@
 require "spec_helper"
 
 describe "Homepage", type: :feature do
+  context "when there's no organization" do
+    before do
+      visit decidim.root_path
+    end
+
+    it "redirects to system UI" do
+      expect(page.current_path).to eq(decidim_system.new_admin_session_path)
+    end
+  end
+
   context "when there's an organization" do
     let(:official_url) { "http://mytesturl.me" }
     let(:organization) { create(:organization, official_url: official_url) }
