@@ -70,7 +70,7 @@ if !Rails.env.production? || ENV["SEED"]
   )
 
   3.times do
-    Decidim::User.all.each do |user|
+    Decidim::User.find_each do |user|
       user_group = Decidim::UserGroup.create!(
         name: Faker::Company.name,
         document_number: Faker::Number.number(10),
@@ -85,7 +85,7 @@ if !Rails.env.production? || ENV["SEED"]
       )
 
       user_group = Decidim::UserGroup.create!(
-        name: Faker::Company.name,
+        name: Faker::Company.unique.name,
         document_number: Faker::Number.number(10),
         phone: Faker::PhoneNumber.phone_number,
         decidim_organization_id: user.organization.id

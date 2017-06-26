@@ -21,8 +21,8 @@ module Decidim
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.feature.organization.host } }
 
-      scope :accepted,   -> { where(state: "accepted") }
-      scope :rejected,   -> { where(state: "rejected") }
+      scope :accepted, -> { where(state: "accepted") }
+      scope :rejected, -> { where(state: "rejected") }
 
       def self.order_randomly(seed)
         transaction do

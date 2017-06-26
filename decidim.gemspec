@@ -9,14 +9,14 @@ require_relative "decidim-core/lib/decidim/core/version"
 Gem::Specification.new do |spec|
   Decidim.add_default_gemspec_properties(spec)
 
-  spec.name          = "decidim"
+  spec.name = "decidim"
 
-  spec.summary       = "Citizen participation framework for Ruby on Rails."
-  spec.description   = "Citizen participation framework for Ruby on Rails."
+  spec.summary = "Citizen participation framework for Ruby on Rails."
+  spec.description = "Citizen participation framework for Ruby on Rails."
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|decidim-core)/}) }
-  spec.bindir        = "bin"
-  spec.executables   = ["decidim"]
+  spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|decidim-core)/}) }
+  spec.bindir = "bin"
+  spec.executables = ["decidim"]
   spec.require_paths = ["lib"]
 
   spec.add_dependency "decidim-core", Decidim.version

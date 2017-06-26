@@ -7,7 +7,7 @@ class MigrateProposalReportsDataToReports < ActiveRecord::Migration[5.0]
   end
 
   def change
-    Decidim::Proposals::ProposalReport.all.each do |proposal_report|
+    Decidim::Proposals::ProposalReport.find_each do |proposal_report|
       moderation = Decidim::Moderation.find_or_create_by!(reportable: proposal_report.proposal,
                                                           participatory_process: proposal_report.proposal.feature.participatory_process)
       Decidim::Report.create!(moderation: moderation,

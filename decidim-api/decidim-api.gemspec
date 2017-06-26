@@ -9,8 +9,8 @@ require_relative "../decidim-core/lib/decidim/core/version"
 Gem::Specification.new do |s|
   Decidim.add_default_gemspec_properties(s)
 
-  s.name        = "decidim-api"
-  s.summary     = "API engine for decidim"
+  s.name = "decidim-api"
+  s.summary = "API engine for decidim"
   s.description = "API engine for decidim"
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]

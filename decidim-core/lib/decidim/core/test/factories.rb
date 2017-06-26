@@ -126,14 +126,14 @@ FactoryGirl.define do
   end
 
   factory :user, class: Decidim::User do
-    email                 { generate(:email) }
-    password              "password1234"
+    email { generate(:email) }
+    password "password1234"
     password_confirmation "password1234"
-    name                  { generate(:name) }
+    name { generate(:name) }
     organization
-    locale                { organization.default_locale }
-    tos_agreement         "1"
-    avatar                { test_file("avatar.jpg", "image/jpeg") }
+    locale { organization.default_locale }
+    tos_agreement "1"
+    avatar { test_file("avatar.jpg", "image/jpeg") }
     comments_notifications true
     replies_notifications true
 

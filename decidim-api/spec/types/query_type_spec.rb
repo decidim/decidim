@@ -16,8 +16,8 @@ module Decidim
         let(:query) { %({ processes { id }}) }
 
         it "returns all the processes" do
-          expect(response["processes"]).to     include("id" => process1.id.to_s)
-          expect(response["processes"]).to     include("id" => process2.id.to_s)
+          expect(response["processes"]).to include("id" => process1.id.to_s)
+          expect(response["processes"]).to include("id" => process2.id.to_s)
           expect(response["processes"]).not_to include("id" => process3.id.to_s)
         end
       end
