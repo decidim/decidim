@@ -150,7 +150,6 @@ en:
       default_image: Default image
       errors:
         error: There's an error in this field.
-      url: URL
     menu:
       home: Home
       more_information: More information

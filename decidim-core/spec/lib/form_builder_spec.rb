@@ -419,8 +419,22 @@ module Decidim
       end
 
       context "when it is an image" do
-        it "renders an image with the current file url" do
-          expect(parsed.css('img[src="' + url + '"]').first).to be
+        context "and it is not present" do
+          it "renders the 'Default image' label" do
+            expect(output).to include("Default image")
+          end
+        end
+
+        context "and it is present" do
+          let(:present?) { true }
+
+          it "renders the 'Current image' label" do
+            expect(output).to include("Current image")
+          end
+
+          it "renders an image with the current file url" do
+            expect(parsed.css('img[src="' + url + '"]').first).to be
+          end
         end
       end
 
@@ -432,28 +446,15 @@ module Decidim
         end
       end
 
-      context "when the file is not present" do
-        it "renders the 'Default image' label" do
-          expect(output).to include("Default image")
-        end
-      end
 
       context "when the file is present" do
         let(:present?) { true }
-
-        it "renders the 'Current image' label" do
-          expect(output).to include("Current image")
-        end
-
-        it "renders a link to the current file url" do
-          expect(parsed.css('a[href="' + url + '"]').first).to be
-        end
 
         it "renders the delete checkbox" do
           expect(parsed.css('input[type="checkbox"]').first).to be
         end
 
-        context "and the optional argument is false" do
+        context "when the optional argument is false" do
           let(:optional) { false }
 
           it "doesn't render the delete checkbox" do

@@ -203,13 +203,10 @@ module Decidim
                     else
                       @template.label_tag I18n.t("default_image", scope: "decidim.forms")
                     end
-        template += @template.image_tag file.url
+        template += @template.link_to @template.image_tag(file.url), file.url, target: "_blank"
       end
 
       if file_is_present?(file)
-        template += @template.label_tag I18n.t("url", scope: "decidim.forms")
-        template += @template.link_to file.file.filename, file.url, target: "_blank"
-
         if options[:optional]
           template += content_tag :div, class: "field" do
             safe_join([
