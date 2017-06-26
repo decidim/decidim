@@ -22,6 +22,7 @@ module Decidim
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::LayoutHelper
       helper Decidim::MenuHelper
+      helper Decidim::OmniauthHelper
 
       layout "layouts/decidim/application"
     end

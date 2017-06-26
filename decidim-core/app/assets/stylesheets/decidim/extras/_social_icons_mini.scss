@@ -1,0 +1,10 @@
+.button--social--mini {
+  padding: 0;
+  display: inline-block;
+  min-width: 0;
+  .button--social__icon {
+    border: 0;
+    padding: 0.85em 0;
+    margin-right: 0;
+  }
+}

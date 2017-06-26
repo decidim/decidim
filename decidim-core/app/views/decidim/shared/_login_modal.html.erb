@@ -24,6 +24,10 @@
       <p class="text-center">
         <%= link_to t('.sign_up'), decidim.new_user_registration_path, class: "sign-up-link" %>
       </p>
+      <p class="text-center">
+        <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(:user) %>
+      </p>
     </div>
+    <%= render "decidim/devise/shared/omniauth_buttons_mini" %>
   </div>
 </div>
