@@ -30,7 +30,7 @@ module Decidim
         }
       )
 
-      allow(Decidim).to receive(:feature_manifests).and_return([feature.manifest,feature2.manifest,feature3.manifest])
+      allow(Decidim).to receive(:feature_manifests).and_return([feature.manifest, feature2.manifest, feature3.manifest])
     end
 
     describe "#highlighted" do

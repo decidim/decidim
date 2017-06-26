@@ -14,7 +14,7 @@ module Decidim
       grouped_highlighted_stats = highlighted_stats.group_by { |stats| stats.first.name }
 
       safe_join(
-        grouped_highlighted_stats.map do |manifest_name, stats|
+        grouped_highlighted_stats.map do |_manifest_name, stats|
           content_tag :div, class: "process_stats-item" do
             safe_join(
               stats.each_with_index.map do |stat, index|
@@ -35,10 +35,10 @@ module Decidim
     end
 
     def render_stats_data(feature_manifest, name, data, index)
-        safe_join([
-                    index == 0 ? feature_manifest_icon(feature_manifest) : " /&nbsp".html_safe,
-                    content_tag(:span, "#{number_with_delimiter(data)} " + I18n.t("#{name}", scope: "decidim.participatory_processes.statistics"), class: "#{name} process_stats-text")
-                  ])
+      safe_join([
+                  index == 0 ? feature_manifest_icon(feature_manifest) : " /&nbsp".html_safe,
+                  content_tag(:span, "#{number_with_delimiter(data)} " + I18n.t(name.to_s, scope: "decidim.participatory_processes.statistics"), class: "#{name} process_stats-text")
+                ])
     end
 
     def published_features
