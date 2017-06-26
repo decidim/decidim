@@ -486,9 +486,9 @@ fr:
           success: Email d'invitation envoyé avec succès.
     moderations:
       actions:
-        hidden: Masqué
+        hidden: Masqués
         hide: Masquer
-        not_hidden: Non masqué
+        not_hidden: Non masqués
         title: Actions
         unreport: Annuler le signalement
       admin:
