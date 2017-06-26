@@ -2,11 +2,12 @@
 
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
-require_relative "lib/generators/decidim/app_generator"
-require_relative "lib/generators/decidim/docker_generator"
+require "generators/decidim/app_generator"
+require "generators/decidim/docker_generator"
+require "decidim/dev"
 
 load "decidim-core/lib/tasks/decidim_tasks.rake"
-load "decidim-dev/lib/tasks/test_app.rake"
+Decidim::Dev.install_tasks
 
 DECIDIM_GEMS = %w(core system admin api pages meetings proposals comments results budgets surveys dev).freeze
 

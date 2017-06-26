@@ -6,9 +6,7 @@ module Decidim
       railtie_name :decidim_dev
 
       rake_tasks do
-        Dir[File.join(__dir__, "../../tasks/*.rake")].each do |file|
-          load file
-        end
+        Decidim::Dev.install_tasks
       end
     end
   end
