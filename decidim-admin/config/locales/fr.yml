@@ -191,7 +191,7 @@ fr:
           success: Fonctionnalité supprimée avec succès.
         edit:
           title: Editer la fonctionnalité
-          update: Mise à jour
+          update: Mettre à jour
         form:
           global_settings: Paramètres généraux
           step_settings: Définition des étapes
