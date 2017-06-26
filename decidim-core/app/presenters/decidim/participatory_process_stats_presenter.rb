@@ -36,8 +36,9 @@ module Decidim
 
     def render_stats_data(feature_manifest, name, data, index)
       safe_join([
-                  index == 0 ? feature_manifest_icon(feature_manifest) : " /&nbsp".html_safe,
-                  content_tag(:span, "#{number_with_delimiter(data)} " + I18n.t(name.to_s, scope: "decidim.participatory_processes.statistics"), class: "#{name} process_stats-text")
+                  index.zero? feature_manifest_icon(feature_manifest) : " /&nbsp".html_safe,
+                  content_tag(:span, "#{number_with_delimiter(data)} " + I18n.t(name.to_s, scope: "decidim.participatory_processes.statistics"),
+                  class: "#{name} process_stats-text")
                 ])
     end
 
