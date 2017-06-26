@@ -11,8 +11,7 @@ module Decidim
       highlighted_stats = feature_stats(priority: StatsRegistry::HIGH_PRIORITY)
       highlighted_stats = highlighted_stats.concat(feature_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
       highlighted_stats = highlighted_stats.reject(&:empty?)
-
-      grouped_highlighted_stats = highlighted_stats.group_by { |stats| stats.first.name } # hash
+      grouped_highlighted_stats = highlighted_stats.group_by { |stats| stats.first.name }
 
       safe_join(
         grouped_highlighted_stats.map do |manifest_name, stats|
@@ -36,12 +35,10 @@ module Decidim
     end
 
     def render_stats_data(feature_manifest, name, data, index)
-      content_tag :span, "", class: "" do
         safe_join([
                     index == 0 ? feature_manifest_icon(feature_manifest) : " /&nbsp".html_safe,
                     content_tag(:span, "#{number_with_delimiter(data)} " + I18n.t("#{name}", scope: "decidim.participatory_processes.statistics"), class: "#{name} process_stats-text")
                   ])
-      end
     end
 
     def published_features

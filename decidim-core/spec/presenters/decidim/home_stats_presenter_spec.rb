@@ -66,6 +66,9 @@ module Decidim
               "<h4 class=\"home-pam__title\">Bar</h4>" \
               "<span class=\"home-pam__number bar\"> 20</span>" \
             "</div>" \
+            "<div class=\"home-pam__data\">" \
+              "&nbsp;" \
+            "</div>" \
           "</div>"
         )
       end
