@@ -8,8 +8,8 @@ module Decidim
     # Utility method to login in the middle of a test as a different user from
     # the current one.
     #
-    def relogin_as(user, scope:)
-      logout :user
+    def relogin_as(user, scope: :user)
+      logout scope
 
       login_as user, scope: scope
     end
