@@ -21,12 +21,12 @@ fr:
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
             official_proposals_enabled: Propositions officielles activées
-            proposal_answering_enabled: Réponses aux propositions activées
+            proposal_answering_enabled: '"Réponses aux propositions" activé'
             vote_limit: Limite de vote
           step:
             comments_blocked: Commentaires bloqués
             creation_enabled: Module propositions activé
-            proposal_answering_enabled: Réponses aux propositions activées
+            proposal_answering_enabled: '"Réponses aux propositions" activé'
             votes_blocked: Votes bloqués
             votes_enabled: Votes activés
             votes_hidden: Cacher les votes (si les votes sont activés, le compte des votes sera caché)
