@@ -43,7 +43,7 @@ fr:
             name: Proposition
         proposal_answers:
           edit:
-            accepted: Acceptée
+            accepted: Retenue
             answer_proposal: Répondre
             rejected: Refusée
             title: Réponse à la proposition %{title}
@@ -62,7 +62,7 @@ fr:
             create: Créer
             title: Créer une proposition
       answers:
-        accepted: Acceptée
+        accepted: Retenues
         not_answered: Resté sans réponse
         rejected: Refusée
       create:
@@ -82,7 +82,7 @@ fr:
             one: 1 proposition
             other: "%{count} propositions"
         filters:
-          accepted: Publié
+          accepted: Retenues
           activity: Activité
           all: Toutes
           category: Catégorie
@@ -95,7 +95,7 @@ fr:
           scopes: Zones d'application
           search: Rechercher
           state: État
-          voted: Voté
+          voted: Votées
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
@@ -111,7 +111,7 @@ fr:
         new:
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
-          send: Envoyer
+          send: Publier
           title: Nouvelle proposition
         orders:
           label: 'Classement des propositions par:'
@@ -119,7 +119,7 @@ fr:
           random: Aléatoire
           recent: Les plus récents
         show:
-          proposal_accepted_reason: 'Cette proposition a été acceptée parce que :'
+          proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
           report: Signaler
         vote_button:
