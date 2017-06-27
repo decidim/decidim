@@ -308,6 +308,11 @@ en:
       moderations:
         index:
           title: Moderations
+        report:
+          reasons:
+            does_not_belong: Does not belong
+            offensive: Offensive
+            spam: Spam
       newsletters:
         create:
           error: There's been an error creating this newsletter.
