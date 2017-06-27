@@ -16,7 +16,7 @@ import {
   GetCommentsQuery,
 } from "../support/schema";
 
-interface AddCommentFormProps {
+export interface AddCommentFormProps {
   session: AddCommentFormSessionFragment & {
     user: any;
   } | null;
