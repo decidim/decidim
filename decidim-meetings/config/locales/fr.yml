@@ -10,7 +10,7 @@ fr:
       meeting:
         address: Adresse
         decidim_category_id: Catégorie
-        decidim_scope_id: Domaine d'application
+        decidim_scope_id: Zone d'application
         description: Description
         end_time: Heure de fin
         location: Lieu
@@ -24,7 +24,7 @@ fr:
     meetings:
       actions:
         attachments: Documents liés
-        close: Fermer
+        close: Clore
         confirm_destroy: Êtes-vous sûr de vouloir supprimer cette rencontre?
         destroy: Supprimer
         edit: Modifier
@@ -34,7 +34,7 @@ fr:
       admin:
         meeting_closes:
           edit:
-            close: Fermer
+            close: Clore
             title: Clore la rencontre
         meetings:
           close:
@@ -64,7 +64,7 @@ fr:
           category_prompt: Sélectionner une catégorie
           date: Date
           past: Passées
-          scopes: Domaines d'application
+          scopes: Zone d'application
           search: Rechercher
           upcoming: À venir
         filters_small_view:
@@ -95,5 +95,5 @@ fr:
         meeting_results: 'Résultats associés :'
         result_meetings: 'Rencontres connexes :'
       proposals_from_meeting:
-        meeting_proposals: 'Propositions connexes :'
+        meeting_proposals: 'Propositions créées à cette rencontre :'
         proposal_meetings: 'Rencontre connexes :'

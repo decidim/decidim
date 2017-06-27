@@ -176,8 +176,8 @@ fr:
         local_area: Localisation
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
-        scope: Domaine d'application
-        target: Public
+        scope: Zone d'application
+        target: Public visé
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -188,7 +188,7 @@ fr:
     reports:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
-        success: Le rapport a été créé avec succès, il sera examiné par un administrateur.
+        success: Le contenu a été signalé, il sera examiné par un administrateur.
     shared:
       action_authorization_modal:
         incomplete:
@@ -214,7 +214,7 @@ fr:
         close: Fermer
         description: Ce contenu est-il inapproprié?
         does_not_belong: Contient des activités illégales, des menaces suicidaires, des informations personnelles, ou autre chose que vous pensez ne pas être approprié à %{organization_name}.
-        offensive: Contient des propos racisme, sexiste, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
+        offensive: Contient des propos racistes, sexistes, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
         report: Signaler
         spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
         title: Signaler un problème

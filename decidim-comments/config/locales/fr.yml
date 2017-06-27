@@ -27,7 +27,7 @@ fr:
             label: Commentaire
             placeholder: Que pensez-vous de cela?
           form_error: Le texte est requis et ne peut pas dépasser %{length} caractères.
-          submit: Envoyer
+          submit: Publier
           user_group_id:
             label: Commenter en tant que
         opinion:
@@ -46,7 +46,7 @@ fr:
           details: Commentaires additionnels
           reasons:
             does_not_belong: Contient des activités illégales, des menaces suicidaires, des informations personnelles, ou autre chose que vous pensez ne pas être approprié à %{organization_name}.
-            offensive: Contient des propos racisme, sexiste, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
+            offensive: Contient des propos racistes, sexistes, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
             spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
           title: Signaler un problème
       comment_order_selector:

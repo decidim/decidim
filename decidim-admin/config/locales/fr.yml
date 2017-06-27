@@ -48,7 +48,7 @@ fr:
         short_description: Résumé
         slug: Identifiant
         subtitle: Sous-titre
-        target: Objectif
+        target: Public visé
         title: Titre
       participatory_process_group:
         description: Description
@@ -95,7 +95,7 @@ fr:
         short_description: Résumé
         slug: Identifiant
         subtitle: Sous-titre
-        target: Objectif
+        target: Public visé
         title: Titre
       decidim/participatory_process_step:
         end_date: Date de fin
@@ -191,7 +191,7 @@ fr:
           success: Fonctionnalité supprimée avec succès.
         edit:
           title: Editer la fonctionnalité
-          update: Mise à jour
+          update: Mettre à jour
         form:
           global_settings: Paramètres généraux
           step_settings: Définition des étapes
@@ -431,18 +431,18 @@ fr:
       scopes:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d’application.
-          success: Domaine d'application créée avec succès.
+          success: Zone d'application créée avec succès.
         destroy:
-          success: Domaine d'application détruit avec succès
+          success: Zone d'application supprimée avec succès
         edit:
-          title: Editer le domaine d'application
+          title: Editer la zone d'application
           update: Mettre à jour
         new:
-          create: Créer un domaine d'application
-          title: Nouveau domaine d'application
+          create: Créer une zone d'application
+          title: Nouvelle zone d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce domaine d'application.
-          success: Domaine d'application mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
+          success: Zone d'applicaiton mise à jour avec succès
       static_pages:
         actions:
           view: Voir la page publique
@@ -464,7 +464,7 @@ fr:
         dashboard: Tableau de bord
         participatory_process_groups: Groupes de processus participatifs
         participatory_processes: Processus participatifs
-        scopes: Domaines d'application
+        scopes: Zones d'application
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
@@ -486,9 +486,9 @@ fr:
           success: Email d'invitation envoyé avec succès.
     moderations:
       actions:
-        hidden: Masqué
+        hidden: Masqués
         hide: Masquer
-        not_hidden: Non masqué
+        not_hidden: Non masqués
         title: Actions
         unreport: Annuler le signalement
       admin:
