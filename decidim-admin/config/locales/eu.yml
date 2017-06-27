@@ -1,4 +1,3 @@
----
 eu:
   actions:
     confirm_destroy: Ziur zaude?
@@ -114,7 +113,7 @@ eu:
         activate: Aktibatu
         add: Gehitu
         configure: Konfiguratu
-        confirm_destroy: "‘Ziur zaude ezabatu nahi duzula?’"
+        confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
         destroy: Kendu
         duplicate: Kopia egin
         edit: Editatu
@@ -245,8 +244,8 @@ eu:
         newsletter:
           fields:
             created_at: Sortze-data
-            progress: " Aurrerapena "
-            sent_at: " Bidalketa-data: "
+            progress: ' Aurrerapena '
+            sent_at: ' Bidalketa-data: '
             subject: Gaia
           name: Buletina
         participatory_process:
@@ -271,7 +270,7 @@ eu:
             email: Posta elektronikoa
             name: Izena
             role: Rola
-          name: " Erabiltzailearen prozesu partizipatiboa "
+          name: ' Erabiltzailearen prozesu partizipatiboa '
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
@@ -301,10 +300,10 @@ eu:
             users_count: Erabiltzaile kopurua
       moderations:
         index:
-          title: " Moderazioak "
+          title: ' Moderazioak '
       newsletters:
         create:
-          error: " Errorea gertatu da buletin hau sortzean."
+          error: ' Errorea gertatu da buletin hau sortzean.'
           success: Buletina ongi sortu da. Mesedez, berrikusi bidali baino lehen.
         deliver:
           error: Errorea gertatu da buletin hau entregatzean.
@@ -496,7 +495,7 @@ eu:
           success: Gonbita ongi bidali da.
     moderations:
       actions:
-        hidden: " Ezkutatuta"
+        hidden: ' Ezkutatuta'
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
         title: Ekintzak
