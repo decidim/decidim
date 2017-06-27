@@ -76,7 +76,9 @@ const enhance = compose<CommentOrderSelectorProps, CommentOrderSelectorProps>(
   }),
   lifecycle({
     componentDidMount: () => {
-      window.$(dropdown).foundation();
+      if (window.$) {
+        window.$(dropdown).foundation();
+      }
     },
   }),
 );
