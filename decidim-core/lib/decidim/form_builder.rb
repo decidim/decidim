@@ -180,6 +180,49 @@ module Decidim
       template.html_safe
     end
 
+    # Public: Generates a file upload field and sets the form as multipart.
+    # If the file is an image it displays the default image if present or the current one.
+    # By default it also generates a checkbox to delete the file. This checkbox can
+    # be hidden if `options[:optional]` is passed as `false`.
+    #
+    # attribute    - The String name of the attribute to buidl the field.
+    # options      - A Hash with options to build the field.
+    #              * optional: Whether the file can be optional or not.
+    def upload(attribute, options = {})
+      self.multipart = true
+      options[:optional] = options[:optional].nil? ? true : options[:optional]
+
+      file = object.send attribute
+      template = ""
+      template += label(attribute, label_for(attribute))
+      template += @template.file_field @object_name, attribute
+
+      if file_is_image?(file)
+        template += if file.present?
+                      @template.label_tag I18n.t("current_image", scope: "decidim.forms")
+                    else
+                      @template.label_tag I18n.t("default_image", scope: "decidim.forms")
+                    end
+        template += @template.link_to @template.image_tag(file.url), file.url, target: "_blank"
+      elsif file_is_present?(file)
+        template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
+        template += @template.link_to file.file.filename, file.url, target: "_blank"
+      end
+
+      if file_is_present?(file)
+        if options[:optional]
+          template += content_tag :div, class: "field" do
+            safe_join([
+                        @template.check_box(@object_name, "remove_#{attribute}"),
+                        label("remove_#{attribute}", label_for("remove_#{attribute}"))
+                      ])
+          end
+        end
+      end
+
+      template.html_safe
+    end
+
     private
 
     # Private: Override from FoundationRailsHelper in order to render
@@ -381,6 +424,19 @@ module Decidim
       end
 
       label(attribute, (text || "").html_safe, options)
+    end
+
+    # Private: Returns whether the file is an image or not.
+    def file_is_image?(file)
+      return unless file && file.respond_to?(:url)
+      return file.content_type.start_with? "image" if file.content_type.present?
+      Mime::Type.lookup_by_extension(File.extname(file.url)[1..-1]).to_s.start_with? "image" if file.url.present?
+    end
+
+    # Private: Returns whether the file exists or not.
+    def file_is_present?(file)
+      return unless file && file.respond_to?(:url)
+      file.present?
     end
   end
 end

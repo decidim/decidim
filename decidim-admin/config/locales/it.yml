@@ -1,3 +1,4 @@
+---
 it:
   actions:
     confirm_destroy: Conferma eliminazione
@@ -111,9 +112,6 @@ it:
         edit:
           title: Modifica allegato
           update: Aggiorna
-        form:
-          current_file: File corrente
-          url: URL
         new:
           create: Crea allegato
           title: Nuovo allegato
@@ -381,9 +379,7 @@ it:
         edit:
           update: Aggiorna
         form:
-          current_image: Immagine corrente
           title: Informazioni generali
-          url: URL
         index:
           not_published: Non pubblicato
           published: Pubblicato

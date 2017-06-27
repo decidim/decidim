@@ -1,3 +1,4 @@
+---
 fr:
   actions:
     confirm_destroy: Confirmer la suppression
@@ -133,9 +134,6 @@ fr:
         edit:
           title: Modifier le document lié
           update: Mettre à jour
-        form:
-          current_file: Fichier actuel
-          url: Url
         new:
           create: Lier un document
           title: Nouveau document lié
@@ -412,9 +410,7 @@ fr:
         edit:
           update: Mettre à jour
         form:
-          current_image: Image actuelle
           title: Informations générales
-          url: Url
         index:
           not_published: Non publié
           published: Publié

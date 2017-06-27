@@ -1,3 +1,4 @@
+---
 ca:
   actions:
     confirm_destroy: N'estàs segur?
@@ -136,9 +137,6 @@ ca:
         edit:
           title: Edita arxiu adjunt
           update: Actualitzar
-        form:
-          current_file: Fitxer actual
-          url: URL
         new:
           create: Crea arxiu adjunt
           title: Nou arxiu adjunt
@@ -427,9 +425,7 @@ ca:
         edit:
           update: Actualitzar
         form:
-          current_image: imatge actual
           title: Informació general
-          url: URL
         index:
           not_published: No publicat
           published: Publicat

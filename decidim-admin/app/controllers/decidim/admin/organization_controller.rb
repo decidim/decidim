@@ -16,7 +16,7 @@ module Decidim
 
       def update
         authorize! :update, current_organization
-        @form = form(OrganizationForm).from_params(form_params)
+        @form = form(OrganizationForm).from_params(organization_params)
 
         UpdateOrganization.call(current_organization, @form) do
           on(:ok) do
@@ -33,10 +33,16 @@ module Decidim
 
       private
 
-      def form_params
+      def organization_params
         params[:organization] ||= {}
         params[:organization][:id] ||= current_organization.id
-        params
+        {
+          homepage_image: current_organization.homepage_image,
+          logo: current_organization.logo,
+          favicon: current_organization.favicon,
+          official_img_header: current_organization.official_img_header,
+          official_img_footer: current_organization.official_img_footer
+        }.merge(params[:organization].to_unsafe_h)
       end
     end
   end

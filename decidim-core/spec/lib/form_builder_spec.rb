@@ -25,6 +25,7 @@ module Decidim
         attribute :max_number, Integer
         attribute :min_number, Integer
         attribute :conditional_presence, String
+        attribute :image
 
         translatable_attribute :name, String
         translatable_attribute :short_description, String
@@ -374,6 +375,101 @@ module Decidim
 
           it "injects the validations" do
             expect(parsed.css("input[pattern='^(.|[\n\r]){0,50}$']").first).to be
+          end
+        end
+      end
+    end
+
+    describe "upload" do
+      let(:present?) { false }
+      let(:content_type) { nil }
+      let(:filename) { "my_image.jpg" }
+      let(:url) { "/some/file/path/#{filename}" }
+      let(:file) do
+        double(
+          url: url,
+          present?: present?,
+          content_type: content_type,
+          file: double(
+            filename: filename
+          )
+        )
+      end
+      let(:optional) { true }
+      let(:attributes) do
+        {
+          optional: optional
+        }
+      end
+      let(:output) do
+        builder.upload :image, attributes
+      end
+
+      before do
+        allow(resource).to receive(:image).and_return(file)
+      end
+
+      it "sets the form as multipart" do
+        output
+        expect(builder.multipart).to be_truthy
+      end
+
+      it "renders a file_field" do
+        expect(parsed.css('input[type="file"]').first).to be
+      end
+
+      context "when it is an image" do
+        context "and it is not present" do
+          it "renders the 'Default image' label" do
+            expect(output).to include("Default image")
+          end
+        end
+
+        context "and it is present" do
+          let(:present?) { true }
+
+          it "renders the 'Current image' label" do
+            expect(output).to include("Current image")
+          end
+
+          it "renders an image with the current file url" do
+            expect(parsed.css('img[src="' + url + '"]').first).to be
+          end
+        end
+      end
+
+      context "when it is not an image" do
+        let(:filename) { "my_file.pdf" }
+
+        context "and it is present" do
+          let(:present?) { true }
+
+          it "renders the 'Current file' label" do
+            expect(output).to include("Current file")
+          end
+
+          it "doesn't render an image tag" do
+            expect(parsed.css('img[src="' + url + '"]').first).not_to be
+          end
+
+          it "renders a link to the current file url" do
+            expect(parsed.css('a[href="' + url + '"]').first).to be
+          end
+        end
+      end
+
+      context "when the file is present" do
+        let(:present?) { true }
+
+        it "renders the delete checkbox" do
+          expect(parsed.css('input[type="checkbox"]').first).to be
+        end
+
+        context "when the optional argument is false" do
+          let(:optional) { false }
+
+          it "doesn't render the delete checkbox" do
+            expect(parsed.css('input[type="checkbox"]').first).not_to be
           end
         end
       end

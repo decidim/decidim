@@ -36,23 +36,11 @@
 
     <div class="row">
       <div class="columns xlarge-6">
-        <%= form.file_field :hero_image %>
-        <% if @participatory_process && @participatory_process.hero_image.present? %>
-          <label><%= t('.current_image') %></label>
-          <%= image_tag @participatory_process.hero_image.url %>
-          <label><%= t('.url') %></label>
-          <%= link_to @participatory_process.hero_image.url, @participatory_process.hero_image.url, target: "_blank" %>
-        <% end %>
+        <%= form.upload :hero_image %>
       </div>
 
       <div class="columns xlarge-6">
-        <%= form.file_field :banner_image %>
-        <% if @participatory_process && @participatory_process.banner_image.present? %>
-          <label><%= t('.current_image') %></label>
-          <%= image_tag @participatory_process.banner_image.url %>
-          <label><%= t('.url') %></label>
-          <%= link_to @participatory_process.banner_image.url, @participatory_process.banner_image.url, target: "_blank" %>
-        <% end %>
+        <%= form.upload :banner_image %>
       </div>
     </div>
 

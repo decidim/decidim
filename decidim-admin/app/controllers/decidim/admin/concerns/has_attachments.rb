@@ -54,7 +54,7 @@ module Decidim
           def update
             @attachment = collection.find(params[:id])
             authorize! :update, authorization_object
-            @form = form(AttachmentForm).from_params(params)
+            @form = form(AttachmentForm).from_params(attachment_params)
 
             UpdateAttachment.call(@attachment, @form) do
               on(:ok) do
@@ -109,6 +109,15 @@ module Decidim
 
           def collection
             @collection ||= attached_to.attachments
+          end
+
+          private
+
+          def attachment_params
+            {
+              id: params[:id],
+              file: @attachment.file
+            }.merge(params[:attachment].to_unsafe_h)
           end
         end
       end

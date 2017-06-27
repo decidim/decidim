@@ -27,7 +27,9 @@ module Decidim
       attribute :promoted, Boolean
       attribute :scope_id, Integer
       attribute :hero_image
+      attribute :remove_hero_image
       attribute :banner_image
+      attribute :remove_banner_image
       attribute :participatory_process_group_id, Integer
 
       validates :slug, presence: true
