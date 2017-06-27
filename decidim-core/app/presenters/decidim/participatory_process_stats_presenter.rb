@@ -11,7 +11,7 @@ module Decidim
       highlighted_stats = feature_stats(priority: StatsRegistry::HIGH_PRIORITY)
       highlighted_stats = highlighted_stats.concat(feature_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
       highlighted_stats = highlighted_stats.reject(&:empty?)
-      highlighted_stats = highlighted_stats.reject { |manifest, name, data| data.zero? }
+      highlighted_stats = highlighted_stats.reject { |_manifest, _name, data| data.zero? }
       grouped_highlighted_stats = highlighted_stats.group_by { |stats| stats.first.name }
 
       safe_join(
@@ -39,7 +39,7 @@ module Decidim
       safe_join([
                   index.zero? ? feature_manifest_icon(feature_manifest) : " /&nbsp".html_safe,
                   content_tag(:span, "#{number_with_delimiter(data)} " + I18n.t(name, scope: "decidim.participatory_processes.statistics"),
-                  class: "#{name} process_stats-text")
+                              class: "#{name} process_stats-text")
                 ])
     end
 

@@ -11,7 +11,7 @@ module Decidim
       highlighted_stats = highlighted_stats.concat(global_stats(priority: StatsRegistry::HIGH_PRIORITY))
       highlighted_stats = highlighted_stats.concat(feature_stats(priority: StatsRegistry::HIGH_PRIORITY))
       highlighted_stats = highlighted_stats.reject(&:empty?)
-      highlighted_stats = highlighted_stats.reject { |name, data| data.zero? }
+      highlighted_stats = highlighted_stats.reject { |_name, data| data.zero? }
 
       safe_join(
         highlighted_stats.in_groups_of(2, false).map do |stats|
@@ -31,7 +31,7 @@ module Decidim
       not_highlighted_stats = global_stats(priority: StatsRegistry::MEDIUM_PRIORITY)
       not_highlighted_stats = not_highlighted_stats.concat(feature_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
       not_highlighted_stats = not_highlighted_stats.reject(&:empty?)
-      not_highlighted_stats = not_highlighted_stats.reject { |name, data| data.zero? }
+      not_highlighted_stats = not_highlighted_stats.reject { |_name, data| data.zero? }
 
       safe_join(
         not_highlighted_stats.in_groups_of(3, [:empty]).map do |stats|
