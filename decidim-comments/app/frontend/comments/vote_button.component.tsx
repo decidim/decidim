@@ -1,51 +1,57 @@
 import * as React from "react";
-import { compose, withHandlers } from "recompose";
+import { compose, defaultProps, withHandlers, withProps } from "recompose";
 import Icon from "../application/icon.component";
 
-interface VoteButtonProps {
+export interface VoteButtonProps {
   buttonClassName: string;
   iconName: string;
   votes: number;
-  voteAction?: () => void;
+  voteAction: () => void;
   disabled?: boolean;
   selectedClass?: string;
   userLoggedIn: boolean;
 }
 
-interface EnhancedVoteButtonProps {
+interface WithProps {
+  className: string;
+  openModal: string | null;
+}
+
+interface WithHandlersProps {
   onClick: (event: any) => void;
 }
 
-const VoteButton: React.SFC<VoteButtonProps & EnhancedVoteButtonProps> = ({
-  buttonClassName,
+type EnhancedProps = VoteButtonProps & WithProps & WithHandlersProps;
+
+const VoteButton: React.SFC<EnhancedProps> = ({
+  className,
+  onClick,
+  disabled,
+  openModal,
   iconName,
   votes,
-  disabled,
-  selectedClass,
-  userLoggedIn,
-  onClick,
 }) => (
-  <button
-    className={`${buttonClassName} ${selectedClass}`}
-    onClick={onClick}
-    disabled={disabled}
-    data-open={userLoggedIn ? null : "loginModal"}
-  >
+  <button className={className} onClick={onClick} disabled={disabled} data-open={openModal}>
     <Icon name={iconName} iconExtraClassName="icon--small" />
     {` ${votes}`}
   </button>
 );
 
-VoteButton.defaultProps = {
-  selectedClass: "selected",
-  disabled: false,
-};
-
 const enhance = compose<VoteButtonProps, VoteButtonProps>(
+  defaultProps({
+    selectedClass: "selected",
+    disabled: false,
+  }),
+  withProps<WithProps, VoteButtonProps>(
+    ({ buttonClassName, selectedClass, userLoggedIn }) => ({
+      className: `${buttonClassName} ${selectedClass}`,
+      openModal: userLoggedIn ? null : "loginModal",
+    }),
+  ),
   withHandlers<VoteButtonProps, VoteButtonProps>({
-    onClick: ({ userLoggedIn, voteAction }) => (event: any) => (
-      userLoggedIn ? voteAction : event.preventDefault()
-    ),
+    onClick: ({ userLoggedIn, voteAction }) => (event: any) => {
+      userLoggedIn ? voteAction() : event.preventDefault();
+    },
   }),
 );
 
