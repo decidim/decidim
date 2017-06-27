@@ -89,7 +89,7 @@ module Decidim
 
       content_tag(:div, class: "editor") do
         template = ""
-        template += label(name, options[:label] || name) if options[:label] != false
+        template += label(name, options[:label].to_s || name) if options[:label] != false
         template += hidden_field(name, options)
         template += content_tag(:div, nil, class: "editor-container", data: {
                                   toolbar: options[:toolbar]
