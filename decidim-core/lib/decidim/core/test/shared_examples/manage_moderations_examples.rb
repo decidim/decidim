@@ -13,7 +13,7 @@ RSpec.shared_examples "manage moderations" do
   let!(:hidden_moderations) do
     reportables.last(1).map do |reportable|
       moderation = create(:moderation, reportable: reportable, report_count: 3, hidden_at: Time.current)
-      create_list(:report, 3, moderation: moderation)
+      create_list(:report, 3, moderation: moderation, reason: :spam)
       moderation
     end
   end
@@ -30,7 +30,7 @@ RSpec.shared_examples "manage moderations" do
       moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
           expect(page).to have_content moderation.reportable.reported_content_url
-          expect(page).to have_content moderation.reports.first.reason
+          expect(page).to have_content "Spam"
         end
       end
     end
