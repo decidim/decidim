@@ -11,7 +11,6 @@ module Decidim
         can :read, ParticipatoryProcessGroup
         can :read, ParticipatoryProcess, &:published?
         can :read, :public_pages
-        can :read, :error_pages
         can :manage, :locales
 
         can :read, Feature, &:published?

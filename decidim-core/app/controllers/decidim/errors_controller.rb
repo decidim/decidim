@@ -2,7 +2,7 @@
 
 module Decidim
   class ErrorsController < ApplicationController
-    authorize_resource :error_pages, class: false
+    skip_authorization_check
 
     def not_found
       render status: :not_found
