@@ -141,6 +141,11 @@ FactoryGirl.define do
       confirmed_at { Time.current }
     end
 
+    trait :deleted do
+      email ""
+      deleted_at { Time.current }
+    end
+
     trait :admin do
       roles ["admin"]
     end
