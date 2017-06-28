@@ -30,7 +30,7 @@ interface WithProps {
 
 type EnhancedProps = CommentsProps & ApolloProps & WithProps;
 
-const hideIf = branch<{ condition: boolean }>(
+const hideIf = branch<any>(
   ({ condition }) => condition,
   renderNothing,
 );
@@ -41,11 +41,11 @@ const CommentsBlockedWarningIfCondition = hideIf(() => (
   </div>
 ));
 
-const AddCommentFormIfCondition = hideIf(({ session, commentable, commentsHaveAlignment }) => (
+const AddCommentFormIfCondition = hideIf(({ session, commentable }) => (
   <AddCommentForm
     session={session}
     commentable={commentable}
-    arguable={commentsHaveAlignment}
+    arguable={commentable.commentsHaveAlignment}
   />
 ));
 
@@ -56,7 +56,7 @@ const hifeIfCommentsEmpty: any = branch(
 
 const CommentsList = hifeIfCommentsEmpty(
   ({ commentable: { comments, commentsHaveVotes }, session }: any) => (
-    <div>
+    <div className="comments-list">
       {
         comments.map((comment: any) => (
           <CommentThread
@@ -90,12 +90,12 @@ const Comments: React.SFC<EnhancedProps> = ({
           defaultOrderBy={orderBy}
         />
       </div>
+      <CommentsBlockedWarningIfCondition condition={commentable.acceptsNewComments} />
       <CommentsList commentable={commentable} session={session} />
+      <AddCommentFormIfCondition condition={!commentable.acceptsNewComments} session={session} commentable={commentable}  />
     </section>
   </div>
 );
-      // <CommentsBlockedWarningIfCondition condition={!commentable.acceptsNewComments} />
-      // <AddCommentFormIfCondition condition={commentable.acceptsNewComments} />
 const enhance = compose<CommentsProps, CommentsProps>(
   graphql(commentsQuery, {
     options: {

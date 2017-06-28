@@ -8,15 +8,17 @@ import { CommentFragment } from "../support/schema";
  * @returns {Object[]} - An array of objects representing comments data
  */
 const generateCommentsData = (num = 1) => {
-  const commentsData: CommentFragment[] = [];
+  const commentsData: any[] = [];
 
   for (let idx = 0; idx < num; idx += 1) {
     commentsData.push({
+      __typename: "CommentType",
       id: random.uuid(),
       type: "Decidim::Comments::Comment",
       body: lorem.words(),
       createdAt: date.past().toISOString(),
       author: {
+        __typename: "AuthorType",
         name: name.findName(),
         avatarUrl: image.imageUrl(),
         isVerified: Math.random() >= 0.5,
