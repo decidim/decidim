@@ -9,8 +9,9 @@ describe "Homepage", type: :feature do
       visit decidim.root_path
     end
 
-    it "redirects to system UI" do
+    it "redirects to system UI and shows a warning" do
       expect(page.current_path).to eq(decidim_system.new_admin_session_path)
+      expect(page).to have_content("You must create an organization to get started")
     end
   end
 

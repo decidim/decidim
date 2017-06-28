@@ -65,5 +65,9 @@ en:
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
+      shared:
+        notices:
+          no_organization_warning_html: You must create an organization to get started. Make sure you read %{guide} before proceeding.
+          our_getting_started_guide: our getting started guide
       titles:
         dashboard: Dashboard
