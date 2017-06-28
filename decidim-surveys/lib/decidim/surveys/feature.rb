@@ -20,14 +20,14 @@ Decidim.register_feature(:surveys) do |feature|
     end
   end
 
-  feature.register_stat :surveys_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
-    surveys = Decidim::Surveys::Survey.where(feature: features)
+  feature.register_stat :surveys_count do |features, start_at, end_at|
+  surveys = Decidim::Surveys::Survey.where(feature: featuresa)
     surveys = surveys.where("created_at >= ?", start_at) if start_at.present?
     surveys = surveys.where("created_at <= ?", end_at) if end_at.present?
     surveys.count
   end
 
-  feature.register_stat :answers_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|
+  feature.register_stat :answers_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
     surveys = Decidim::Surveys::Survey.where(feature: features)
     answers = Decidim::Surveys::SurveyAnswer.where(survey: surveys)
     answers = answers.where("created_at >= ?", start_at) if start_at.present?

@@ -23,7 +23,7 @@ Decidim.register_feature(:budgets) do |feature|
     Decidim::Budgets::FilteredProjects.for(features, start_at, end_at).count
   end
 
-  feature.register_stat :orders_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|
+  feature.register_stat :orders_count do |features, start_at, end_at|
     orders = Decidim::Budgets::Order.where(feature: features)
     orders = orders.where("created_at >= ?", start_at) if start_at.present?
     orders = orders.where("created_at <= ?", end_at) if end_at.present?
