@@ -28,6 +28,8 @@ module Decidim
     validate :all_roles_are_valid
     mount_uploader :avatar, Decidim::AvatarUploader
 
+    scope :not_deleted, -> { where(deleted_at: nil) }
+
     # Public: Allows customizing the invitation instruction email content when
     # inviting a user.
     #
