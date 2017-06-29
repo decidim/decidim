@@ -87,7 +87,7 @@ describe "Proposals", type: :feature do
           expect(page).to have_content(user.name)
         end
 
-        context "when geocoding is enabled" do
+        context "when geocoding is enabled", :serves_map do
           let!(:feature) do
             create(:proposal_feature,
                    :with_creation_enabled,
@@ -149,7 +149,7 @@ describe "Proposals", type: :feature do
             expect(page).to have_content(user_group.name)
           end
 
-          context "when geocoding is enabled" do
+          context "when geocoding is enabled", :serves_map do
             let!(:feature) do
               create(:proposal_feature,
                      :with_creation_enabled,

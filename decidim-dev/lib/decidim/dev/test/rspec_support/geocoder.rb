@@ -10,4 +10,9 @@ RSpec.configure do |config|
     }
     Geocoder.configure(lookup: :test)
   end
+
+  config.before(:each, :serves_map) do
+    stub_request(:get, %r{https://www\.example\.org/my_static_map})
+      .to_return(body: "map_data")
+  end
 end
