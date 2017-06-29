@@ -38,7 +38,7 @@ module Decidim
       end
 
       # Public: Overrides the `notifiable?` Notifiable concern method.
-      def notifiable?(context)
+      def notifiable?(_context)
         false
       end
     end

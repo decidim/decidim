@@ -9,7 +9,7 @@ module Decidim
 
     included do
       # Public: Whether the object's comments are visible or not.
-      def notifiable?(context)
+      def notifiable?(_context)
         true
       end
 

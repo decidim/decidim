@@ -37,7 +37,7 @@ module Decidim
       ResourceLocatorPresenter.new(self).url
     end
 
-    def notifiable?(context)
+    def notifiable?(_context)
       false
     end
   end
