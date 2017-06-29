@@ -11,12 +11,13 @@ module Decidim
       let(:feature) { create(:feature, participatory_process: participatory_process) }
       let(:commentable_author) { create(:user, organization: organization) }
       let(:commentable) { create(:dummy_resource, author: commentable_author, feature: feature) }
+      let(:user) { create(:user, organization: organization) }
       let(:author) { create(:user, organization: organization) }
       let(:comment) { create(:comment, author: author, commentable: commentable) }
       let(:reply) { create(:comment, author: author, commentable: comment) }
 
       describe "comment_created" do
-        let(:mail) { described_class.comment_created(comment, commentable) }
+        let(:mail) { described_class.comment_created(user, comment, commentable) }
 
         let(:subject) { "Tens un nou comentari" }
         let(:default_subject) { "You have a new comment" }
@@ -28,7 +29,7 @@ module Decidim
       end
 
       describe "reply_created" do
-        let(:mail) { described_class.reply_created(reply, comment, commentable) }
+        let(:mail) { described_class.reply_created(user, reply, comment, commentable) }
 
         let(:subject) { "Tens una nova resposta del teu comentari" }
         let(:default_subject) { "You have a new reply of your comment" }
