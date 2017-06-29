@@ -6,8 +6,9 @@ module Decidim
     # comment on them. The will be able to create conversations between users
     # to discuss or share their thoughts about the resource.
     class Comment < ApplicationRecord
-      include Reportable
+      include Decidim::Reportable
       include Decidim::Authorable
+      include Decidim::Notifiable
       include Decidim::Comments::Commentable
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
@@ -57,6 +58,18 @@ module Decidim
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(root_commentable).url(anchor: "comment_#{id}")
+      end
+
+      # Public: Overrides the `notifiable?` Notifiable concern method.
+      # When a comment is commented the comment's author is notified if it is not the same
+      # who has replied the comment and if the comment's author has replied notifiations enabled.
+      def notifiable?(context)
+        context[:author] != author && author.replies_notifications?
+      end
+
+      # Public: Overrides the `users_to_notify` Notifiable concern method.
+      def users_to_notify
+        [author]
       end
 
       private

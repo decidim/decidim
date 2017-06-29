@@ -28,12 +28,17 @@ module Decidim
     include Reportable
     include Authorable
     include HasCategory
+    include Notifiable
     include Decidim::Comments::Commentable
 
     feature_manifest_name "dummy"
 
     def reported_content_url
       ResourceLocatorPresenter.new(self).url
+    end
+
+    def notifiable?(context)
+      false
     end
   end
 

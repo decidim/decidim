@@ -10,6 +10,7 @@ module Decidim
       include Decidim::HasScope
       include Decidim::HasCategory
       include Decidim::HasReference
+      include Decidim::Notifiable
       include Decidim::Comments::Commentable
 
       feature_manifest_name "results"
@@ -32,6 +33,16 @@ module Decidim
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
       def comments_have_votes?
         true
+      end
+
+      # Public: Overrides the `notifiable?` Notifiable concern method.
+      def notifiable?(context)
+        true
+      end
+
+      # Public: Overrides the `users_to_notify` Notifiable concern method.
+      def users_to_notify
+        Decidim::Admin::ProcessAdmins.for(participatory_process)
       end
     end
   end

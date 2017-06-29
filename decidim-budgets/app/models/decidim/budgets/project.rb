@@ -11,6 +11,7 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::HasAttachments
       include Decidim::HasReference
+      include Decidim::Notifiable
       include Decidim::Comments::Commentable
 
       feature_manifest_name "budgets"
@@ -35,6 +36,11 @@ module Decidim
       # Public: Returns the number of times an specific project have been checked out.
       def confirmed_orders_count
         orders.finished.count
+      end
+
+      # Public: Overrides the `notifiable?` Notifiable concern method.
+      def notifiable?(context)
+        false
       end
     end
   end

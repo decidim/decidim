@@ -7,6 +7,7 @@ module Decidim
     class Page < Pages::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasFeature
+      include Decidim::Notifiable
       include Decidim::Comments::Commentable
 
       feature_manifest_name "pages"
@@ -34,6 +35,11 @@ module Decidim
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
       def comments_have_votes?
         true
+      end
+
+      # Public: Overrides the `notifiable?` Notifiable concern method.
+      def notifiable?(context)
+        false
       end
     end
   end
