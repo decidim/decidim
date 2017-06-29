@@ -6,7 +6,9 @@ module Decidim
   module Comments
     describe Comment do
       let!(:commentable) { create(:dummy_resource) }
-      let!(:comment) { create(:comment, commentable: commentable) }
+      let!(:replies_notifications) { true }
+      let!(:author) { create(:user, organization: commentable.organization, replies_notifications: replies_notifications) }
+      let!(:comment) { create(:comment, commentable: commentable, author: author) }
       let!(:replies) { create_list(:comment, 3, commentable: comment, root_commentable: commentable) }
       let!(:up_vote) { create(:comment_vote, :up_vote, comment: comment) }
       let!(:down_vote) { create(:comment_vote, :down_vote, comment: comment) }
@@ -86,6 +88,34 @@ module Decidim
 
         it "should return false if the given user has not downvoted the comment" do
           expect(subject.down_voted_by?(user)).to be_falsy
+        end
+      end
+
+      describe "#notifiable?" do
+        let(:context_author) { create(:user, organization: subject.author.organization) }
+
+        context "when the context author is the same as the comment's author" do
+          let(:context_author) { subject.author }
+
+          it "is not notifiable" do
+            expect(subject.notifiable?(author: context_author)).to be_falsy
+          end
+        end
+
+        context "when the context author is not the same as the comment's author" do
+          context "when the comment's author has not replies notifications enabled" do
+            let(:replies_notifications) { false }
+
+            it "is not notifiable" do
+              expect(subject.notifiable?(author: context_author)).to be_falsy
+            end
+          end
+
+          context "when the comment's author has replies notifications enabled" do
+            it "is not notifiable" do
+              expect(subject.notifiable?(author: context_author)).to be_truthy
+            end
+          end
         end
       end
     end

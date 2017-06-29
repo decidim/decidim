@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe Proposal do
+      let(:comments_notifications) { true }
       let(:proposal) { build(:proposal) }
       subject { proposal }
 
@@ -46,6 +47,40 @@ module Decidim
 
         it { is_expected.to be_answered }
         it { is_expected.to be_rejected }
+      end
+
+      describe "#notifiable?" do
+        let(:context_author) { create(:user, organization: subject.author.organization) }
+
+        context "when the context author is the same as the proposal's author" do
+          let(:context_author) { subject.author }
+
+          it "is not notifiable" do
+            expect(subject.notifiable?(author: context_author)).to be_falsy
+          end
+        end
+
+        context "when the context author is not the same as the proposal's author" do
+          context "when the comment's author has not comments notifications enabled" do
+            before do
+              expect(subject.author).to receive(:comments_notifications?).and_return(false)
+            end
+
+            it "is not notifiable" do
+              expect(subject.notifiable?(author: context_author)).to be_falsy
+            end
+          end
+
+          context "when the comment's author has comments notifications enabled" do
+            before do
+              expect(subject.author).to receive(:comments_notifications?).and_return(true)
+            end
+
+            it "is not notifiable" do
+              expect(subject.notifiable?(author: context_author)).to be_truthy
+            end
+          end
+        end
       end
     end
   end
