@@ -17,6 +17,7 @@ module Decidim
   autoload :Resourceable, "decidim/resourceable"
   autoload :Reportable, "decidim/reportable"
   autoload :Authorable, "decidim/authorable"
+  autoload :Notifiable, "decidim/notifiable"
   autoload :Features, "decidim/features"
   autoload :HasAttachments, "decidim/has_attachments"
   autoload :FeatureValidator, "decidim/feature_validator"

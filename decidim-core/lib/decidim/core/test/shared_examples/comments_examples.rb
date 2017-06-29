@@ -73,7 +73,7 @@ RSpec.shared_examples "comments" do
         end
       end
 
-      it "sends notifications received by commentable's author" do
+      it "send notifications" do
         if commentable.notifiable?
           wait_for_email subject: "new comment"
           relogin_as commentable.users_to_notify.first, scope: :user
