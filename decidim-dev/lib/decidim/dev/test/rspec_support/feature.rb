@@ -38,7 +38,11 @@ module Decidim
     end
 
     def notifiable?(_context)
-      false
+      true
+    end
+
+    def users_to_notify
+      [author]
     end
   end
 

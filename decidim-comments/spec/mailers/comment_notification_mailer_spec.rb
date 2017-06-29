@@ -25,7 +25,7 @@ module Decidim
         let(:body) { "Hi ha un nou comentari d" }
         let(:default_body) { "There is a new comment" }
 
-        include_examples "author localised email"
+        include_examples "user localised email"
       end
 
       describe "reply_created" do
@@ -37,7 +37,7 @@ module Decidim
         let(:body) { "Hi ha una nova resposta de" }
         let(:default_body) { "There is a new reply of your comment" }
 
-        include_examples "author localised email"
+        include_examples "user localised email"
       end
     end
   end
