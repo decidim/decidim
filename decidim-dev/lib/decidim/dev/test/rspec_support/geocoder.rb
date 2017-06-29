@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.configure do |config|
-  config.before(:each) do
+  config.before(:suite) do
     # Set geocoder configuration in test mode
     Decidim.geocoder = {
       static_map_url: "http://www.example.org",
