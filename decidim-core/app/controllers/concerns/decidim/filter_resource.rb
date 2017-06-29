@@ -11,8 +11,11 @@ module Decidim
     # this way we can use Rails' form helpers and have automatically checked checkboxes and
     # radio buttons in the view, for example.
     class Filter
-      def initialize(filter)
+      attr_reader :filter
+
+      def initialize(filter, default_filter_params)
         @filter = filter
+        @default_filter_params = default_filter_params
       end
 
       def method_missing(method_name, *_arguments)
@@ -21,6 +24,19 @@ module Decidim
 
       def respond_to_missing?(method_name, include_private = false)
         @filter.present? && @filter.has_key?(method_name) || super
+      end
+
+      def to_tags
+        @filter.reject do |k, v|
+          v.blank? || @default_filter_params[k] == v || v.is_a?(Array) && v.reject(&:blank?).empty?
+        end.inject([]) do |acc, (k,v)|
+          if v.is_a? Array
+            acc.concat(v.reject(&:empty?).map { |v| { name: k, value: v } })
+          else
+            acc << { name: k, value: v }
+          end
+          acc
+        end
       end
     end
 
@@ -38,7 +54,7 @@ module Decidim
       end
 
       def filter
-        @filter ||= Filter.new(filter_params)
+        @filter ||= Filter.new(filter_params, default_filter_params)
       end
 
       def search_params

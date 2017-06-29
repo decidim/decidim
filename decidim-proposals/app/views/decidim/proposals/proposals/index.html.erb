@@ -52,16 +52,7 @@
     </div>
   </div>
   <div id="proposals" class="columns mediumlarge-8 large-9">
-    <div class="row collapse filter-tags">
-      <strong class="filter-tags__title">Filtres actius:</strong>
-
-      <span class="filter-tag">
-        <span class="filter-tag__label">Fase 2</span>
-        <a href="#" class="filter-tag__close">
-          <%= icon "x", aria_label: "Treure", class: "icon--small" %>
-        </a>
-      </span>
-    </div>
+    <%= render partial: "decidim/shared/filter_tags" %>
     <%= render partial: "proposals" %>
   </div>
 </div>
