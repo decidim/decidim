@@ -1,12 +1,14 @@
-<div class="row collapse filter-tags">
-  <strong class="filter-tags__title">Filtres actius:</strong>
+<% if filter.to_tags.any? %>
+  <div class="row collapse filter-tags">
+    <strong class="filter-tags__title">Filtres actius:</strong>
 
-  <% filter.to_tags.each do |tag| %>
-    <span class="filter-tag">
-      <span class="filter-tag__label"><%= tag[:value] %></span>
-      <a href="#" class="filter-tag__close">
-        <%= icon "x", aria_label: "Treure", class: "icon--small" %>
-      </a>
-    </span>
-  <% end %>
-</div>
+    <% filter.to_tags.each do |tag| %>
+      <span class="filter-tag #{tag.name}">
+        <span class="filter-tag__label"><%= tag.label %></span>
+        <%= link_to decidim_proposals.proposals_path(filter: filter.remove_tag(tag).to_params), class: "filter-tag__close" do %>
+          <%= icon "x", aria_label: "Treure", class: "icon--small" %>
+        <% end %>
+      </span>
+    <% end %>
+  </div>
+<% end %>

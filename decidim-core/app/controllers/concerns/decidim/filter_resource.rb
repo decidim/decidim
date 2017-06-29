@@ -11,8 +11,6 @@ module Decidim
     # this way we can use Rails' form helpers and have automatically checked checkboxes and
     # radio buttons in the view, for example.
     class Filter
-      attr_reader :filter
-
       def initialize(filter, default_filter_params)
         @filter = filter
         @default_filter_params = default_filter_params
@@ -31,11 +29,46 @@ module Decidim
           v.blank? || @default_filter_params[k] == v || v.is_a?(Array) && v.reject(&:blank?).empty?
         end.inject([]) do |acc, (k,v)|
           if v.is_a? Array
-            acc.concat(v.reject(&:empty?).map { |v| { name: k, value: v } })
+            acc.concat(v.reject(&:empty?).map { |v| FilterTag.new(k, v) })
           else
-            acc << { name: k, value: v }
+            acc << FilterTag.new(k, v)
           end
           acc
+        end
+      end
+
+      def remove_tag(tag)
+        new_filter = @filter.dup
+        if new_filter[tag.name].is_a? Array
+          new_filter[tag.name].delete(tag.value)
+        else
+          new_filter.delete tag.name
+        end
+        Filter.new(new_filter, @default_filter_params)
+      end
+
+      def to_params
+        @filter
+      end
+    end
+
+    class FilterTag
+      attr_reader :name, :value
+
+      def initialize(name, value)
+        @name = name
+        @value = value
+      end
+
+      def label
+        case @name
+        when :category_id
+          Decidim::Category.find(@value).name[I18n.locale.to_s]
+        when :scope_id
+          return Decidim::Scope.find(@value).name if @value != "global"
+          @value.capitalize # TODO
+        else
+          @value.capitalize # TODO
         end
       end
     end

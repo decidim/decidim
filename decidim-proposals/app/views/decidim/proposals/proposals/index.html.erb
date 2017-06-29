@@ -51,9 +51,13 @@
       <%= render partial: "filters" %>
     </div>
   </div>
-  <div id="proposals" class="columns mediumlarge-8 large-9">
-    <%= render partial: "decidim/shared/filter_tags" %>
-    <%= render partial: "proposals" %>
+  <div class="columns mediumlarge-8 large-9">
+    <div id="filter-tags">
+      <%= render partial: "decidim/shared/filter_tags" %>
+    </div>
+    <div id="proposals">
+      <%= render partial: "proposals" %>
+    </div>
   </div>
 </div>
 
