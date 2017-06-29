@@ -364,7 +364,7 @@ ca:
         proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
       footer_sub_hero:
         footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
-        footer_sub_hero_headline: Benvingut a la plataforma participativa %{organization}.
+        footer_sub_hero_headline: Benvinguda i benvingut a la plataforma participativa %{organization}.
         register: Registra't
       hero:
         participate: Participa
