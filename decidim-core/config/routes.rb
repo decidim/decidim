@@ -63,10 +63,6 @@ Decidim::Core::Engine.routes.draw do
   match "/404", to: "pages#show", id: "404", via: :all
   match "/500", to: "pages#show", id: "500", via: :all
 
-  if Rails.env.development? && defined?(LetterOpenerWeb::Engine)
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
-
   resource :report, only: [:create]
 
   root to: "pages#show", id: "home"

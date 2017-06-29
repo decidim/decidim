@@ -95,13 +95,12 @@ module Decidim
       end
 
       def letter_opener_web
-        inject_into_file "config/environments/development.rb",
-                         before: "Rails.application.configure" do
-          <<~RUBY.gsub(/^ *\|/, "")
-            |require 'letter_opener_web'
-            |
-          RUBY
-        end
+        route <<~RUBY.gsub(/^ *\|/, "")
+          |
+          |  if Rails.env.development?
+          |   mount LetterOpenerWeb::Engine, at: "/letter_opener"
+          |  end
+        RUBY
 
         inject_into_file "config/environments/development.rb",
                          after: "config.action_mailer.raise_delivery_errors = false" do
