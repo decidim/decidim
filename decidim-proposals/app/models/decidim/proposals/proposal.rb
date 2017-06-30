@@ -11,7 +11,6 @@ module Decidim
       include Decidim::HasReference
       include Decidim::HasCategory
       include Decidim::Reportable
-      include Decidim::Notifiable
       include Decidim::Comments::Commentable
 
       feature_manifest_name "proposals"
@@ -95,7 +94,7 @@ module Decidim
 
       # Public: Overrides the `notifiable?` Notifiable concern method.
       # When a proposal is commented the proposal's author is notified if it is not the same
-      # who has commented the proposal and if the proposal's author has comment notifiations enabled.
+      # who has commented the proposal and if the proposal's author has comment notifications enabled.
       def notifiable?(context)
         context[:author] != author && author.comments_notifications?
       end

@@ -8,7 +8,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      # Public: Whether the object's comments are visible or not.
+      # Public: Whether the object is notifiable or not.
       def notifiable?(_context)
         true
       end

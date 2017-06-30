@@ -8,7 +8,6 @@ module Decidim
     class Comment < ApplicationRecord
       include Decidim::Reportable
       include Decidim::Authorable
-      include Decidim::Notifiable
       include Decidim::Comments::Commentable
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:

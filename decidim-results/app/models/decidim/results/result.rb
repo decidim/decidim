@@ -10,7 +10,6 @@ module Decidim
       include Decidim::HasScope
       include Decidim::HasCategory
       include Decidim::HasReference
-      include Decidim::Notifiable
       include Decidim::Comments::Commentable
 
       feature_manifest_name "results"
@@ -42,7 +41,7 @@ module Decidim
 
       # Public: Overrides the `users_to_notify` Notifiable concern method.
       def users_to_notify
-        Decidim::Admin::ProcessAdmins.for(participatory_process)
+        Decidim::Admin::ProcessAdmins.for(feature.participatory_process)
       end
     end
   end

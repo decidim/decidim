@@ -7,7 +7,6 @@ module Decidim
     class Page < Pages::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasFeature
-      include Decidim::Notifiable
       include Decidim::Comments::Commentable
 
       feature_manifest_name "pages"
