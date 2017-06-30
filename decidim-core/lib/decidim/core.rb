@@ -96,6 +96,9 @@ module Decidim
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
 
+  # Exposes a configuration option: a custom method to generate references
+  config_accessor :calculate_reference_method
+
   # Exposes a configuration option: the currency unit
   config_accessor :currency_unit { "€" }
 
