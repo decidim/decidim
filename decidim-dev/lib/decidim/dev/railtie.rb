@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "rails"
+
 module Decidim
   module Dev
     class Railtie < Rails::Railtie
