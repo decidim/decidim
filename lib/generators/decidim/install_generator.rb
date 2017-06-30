@@ -67,46 +67,47 @@ module Decidim
       def smtp_environment
         inject_into_file "config/environments/production.rb",
                          after: "config.log_formatter = ::Logger::Formatter.new" do
-          %(
-
-  config.action_mailer.smtp_settings = {
-    :address        => Rails.application.secrets.smtp_address,
-    :port           => Rails.application.secrets.smtp_port,
-    :authentication => Rails.application.secrets.smtp_authentication,
-    :user_name      => Rails.application.secrets.smtp_username,
-    :password       => Rails.application.secrets.smtp_password,
-    :domain         => Rails.application.secrets.smtp_domain,
-    :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
-    :openssl_verify_mode => 'none'
-  }
-
-  if Rails.application.secrets.sendgrid
-    config.action_mailer.default_options = {
-      "X-SMTPAPI" => {
-        filters:  {
-          clicktrack: { settings: { enable: 0 } },
-          opentrack:  { settings: { enable: 0 } }
-        }
-      }.to_json
-    }
-  end
-          )
+          <<~RUBY.gsub(/^ *\|/, "")
+            |
+            |  config.action_mailer.smtp_settings = {
+            |    :address        => Rails.application.secrets.smtp_address,
+            |    :port           => Rails.application.secrets.smtp_port,
+            |    :authentication => Rails.application.secrets.smtp_authentication,
+            |    :user_name      => Rails.application.secrets.smtp_username,
+            |    :password       => Rails.application.secrets.smtp_password,
+            |    :domain         => Rails.application.secrets.smtp_domain,
+            |    :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
+            |    :openssl_verify_mode => 'none'
+            |  }
+            |
+            |  if Rails.application.secrets.sendgrid
+            |    config.action_mailer.default_options = {
+            |      "X-SMTPAPI" => {
+            |        filters:  {
+            |          clicktrack: { settings: { enable: 0 } },
+            |          opentrack:  { settings: { enable: 0 } }
+            |        }
+            |      }.to_json
+            |    }
+            |  end
+          RUBY
         end
       end
 
       def letter_opener_web
-        inject_into_file "config/environments/development.rb",
-                         before: "Rails.application.configure" do
-          %(require 'letter_opener_web'
-
-)
-        end
+        route <<~RUBY.gsub(/^ *\|/, "")
+          |
+          |  if Rails.env.development?
+          |   mount LetterOpenerWeb::Engine, at: "/letter_opener"
+          |  end
+        RUBY
 
         inject_into_file "config/environments/development.rb",
                          after: "config.action_mailer.raise_delivery_errors = false" do
-          %(
-
-  config.action_mailer.delivery_method = :letter_opener_web)
+          <<~RUBY.gsub(/^ *\|/, "")
+            |
+            |  config.action_mailer.delivery_method = :letter_opener_web
+          RUBY
         end
       end
 
