@@ -142,4 +142,4 @@ $ bin/rails decidim:check_locales
 ```
 
 Be aware that this task might not be able to detect everything, so make sure you
-also manually check your application before uprading.
+also manually check your application before upgrading.
