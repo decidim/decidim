@@ -18,7 +18,7 @@ shared_examples_for "has reference" do
 
     context "when there is a custom calculate reference method present" do
       before do
-        allow(Decidim).to receive(:calculate_reference_method).and_return(lambda { |resource| "1234-#{resource.id}" })
+        allow(Decidim).to receive(:calculate_reference_method).and_return(->(resource) { "1234-#{resource.id}" })
       end
 
       it "generates a valid reference" do
