@@ -101,7 +101,7 @@ describe "Explore meetings", type: :feature do
     end
   end
 
-  context "show" do
+  context "show", :serves_map do
     let(:meetings_count) { 1 }
     let(:meeting) { meetings.first }
     let(:date) { 10.days.from_now }

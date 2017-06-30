@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Process admin manages meetings", type: :feature do
+describe "Process admin manages meetings", type: :feature, serves_map: true do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create :meeting, scope: scope, feature: current_feature }
 
