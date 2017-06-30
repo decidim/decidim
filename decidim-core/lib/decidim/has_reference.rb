@@ -32,6 +32,7 @@ module Decidim
       # Returns a String.
       def calculate_reference
         return unless feature
+        return Decidim.calculate_reference.call(self) if Decidim.calculate_reference.defined?
 
         ref = feature.participatory_process.organization.reference_prefix
         class_identifier = self.class.name.demodulize[0..3].upcase
