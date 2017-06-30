@@ -7,7 +7,7 @@ require "generators/decidim/docker_generator"
 require "decidim/dev"
 
 load "decidim-core/lib/tasks/decidim_tasks.rake"
-Decidim::Dev.install_tasks
+load "decidim-dev/lib/tasks/test_app.rake"
 
 DECIDIM_GEMS = %w(core system admin api pages meetings proposals comments results budgets surveys dev).freeze
 
