@@ -15,21 +15,21 @@ module Decidim
       scope :hidden, -> { left_outer_joins(:moderation).where.not(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
       scope :not_hidden, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
 
-      # Public: Check if the user has reported the proposal.
+      # Public: Check if the user has reported the reportable.
       #
       # Returns Boolean.
       def reported_by?(user)
         reports.where(user: user).any?
       end
 
-      # Public: Checks if the proposal is hidden or not.
+      # Public: Checks if the reportable is hidden or not.
       #
       # Returns Boolean.
       def hidden?
         moderation&.hidden_at&.present?
       end
 
-      # Public: Checks if the proposal has been reported or not.
+      # Public: Checks if the reportable has been reported or not.
       #
       # Returns Boolean.
       def reported?
