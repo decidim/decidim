@@ -44,7 +44,7 @@
     ENGINE_PATH = File.expand_path("..lib/decidim/<engine_name>/engine", __dir__)
 
     # Set up gems listed in the Gemfile.
-    ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
+    ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile", __dir__)
     require "bundler/setup" if File.exist?(ENV["BUNDLE_GEMFILE"])
 
     require "rails/all"
