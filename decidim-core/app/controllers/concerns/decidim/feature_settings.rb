@@ -9,8 +9,6 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      include NeedsParticipatoryProcess
-
       helper_method :feature_settings, :current_settings
 
       def feature_settings
