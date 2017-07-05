@@ -7,17 +7,19 @@ module Decidim
     describe "#translated_attribute" do
       it "translates the attribute against the current locale" do
         attribute = { "ca" => "Hola", "zh-CN" => "你好" }
-        I18n.locale = :'zh-CN'
 
-        expect(helper.translated_attribute(attribute)).to eq("你好")
+        I18n.with_locale(:'zh-CN') do
+          expect(helper.translated_attribute(attribute)).to eq("你好")
+        end
       end
 
       context "when therte is no translation for the given locale" do
         it "returns an empty string" do
           attribute = { "ca" => "Hola" }
-          I18n.locale = :'zh-CN'
 
-          expect(helper.translated_attribute(attribute)).to eq("")
+          I18n.with_locale(:'zh-CN') do
+            expect(helper.translated_attribute(attribute)).to eq("")
+          end
         end
       end
     end
