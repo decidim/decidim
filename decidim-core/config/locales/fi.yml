@@ -307,13 +307,6 @@ fi:
   locale:
     name: Suomi
   pages:
-    '404':
-      back_home: Takaisin kotisivulle
-      content_doesnt_exist: Tämä osoite on virheellinen tai sivun osoite on muuttunut.
-      title: Etsimääsi sivua ei löydy
-    '500':
-      title: Palvelimellamme tapahtui virhe
-      try_later: Yritä myöhemmin uudestaan.
     home:
       extended:
         debates: Väittelyt
