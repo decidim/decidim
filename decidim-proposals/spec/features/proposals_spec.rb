@@ -709,11 +709,15 @@ describe "Proposals", type: :feature do
                  participatory_process: participatory_process)
         end
 
-        it "lists the proposals ordered by votes" do
-          most_voted_proposal = create(:proposal, feature: feature)
-          create_list(:proposal_vote, 3, proposal: most_voted_proposal)
-          less_voted_proposal = create(:proposal, feature: feature)
+        let!(:most_voted_proposal) do
+          proposal = create(:proposal, feature: feature)
+          create_list(:proposal_vote, 3, proposal: proposal)
+          proposal
+        end
 
+        let!(:less_voted_proposal) { create(:proposal, feature: feature) }
+
+        it "lists the proposals ordered by votes" do
           visit_feature
 
           within ".order-by" do
@@ -728,10 +732,10 @@ describe "Proposals", type: :feature do
       end
 
       context "by 'recent'" do
-        it "lists the proposals ordered by created at" do
-          older_proposal = create(:proposal, feature: feature, created_at: 1.month.ago)
-          recent_proposal = create(:proposal, feature: feature)
+        let!(:older_proposal) { create(:proposal, feature: feature, created_at: 1.month.ago) }
+        let!(:recent_proposal) { create(:proposal, feature: feature) }
 
+        it "lists the proposals ordered by created at" do
           visit_feature
 
           within ".order-by" do
