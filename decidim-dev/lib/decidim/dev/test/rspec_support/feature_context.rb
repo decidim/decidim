@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.shared_context "feature" do
+  include Decidim::FeaturePathHelper
+
   let(:manifest) { Decidim.find_feature_manifest(manifest_name) }
 
   let(:user) { create :user, :confirmed, organization: organization }
@@ -26,7 +28,7 @@ RSpec.shared_context "feature" do
   end
 
   def visit_feature
-    page.visit decidim.feature_path(participatory_process, feature)
+    page.visit feature_path(feature)
   end
 end
 
@@ -48,7 +50,7 @@ RSpec.shared_context "feature admin" do
   end
 
   def visit_feature_admin
-    visit decidim_admin.manage_feature_path(participatory_process, feature)
+    visit manage_feature_path(feature)
   end
 end
 

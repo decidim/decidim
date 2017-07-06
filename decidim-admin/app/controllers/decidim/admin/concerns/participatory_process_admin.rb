@@ -11,7 +11,6 @@ module Decidim
 
         included do
           helper_method :participatory_process
-          before_action :ensure_participatory_process
 
           layout "decidim/admin/participatory_process"
         end
@@ -21,10 +20,6 @@ module Decidim
         def participatory_process
           @participatory_process ||=
             current_organization.participatory_processes.find(params[:participatory_process_id])
-        end
-
-        def ensure_participatory_process
-          raise ActionController::RoutingError, "Not Found" unless participatory_process
         end
       end
     end

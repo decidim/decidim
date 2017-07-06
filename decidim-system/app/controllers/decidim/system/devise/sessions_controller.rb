@@ -7,6 +7,7 @@ module Decidim
       # and views.
       class SessionsController < ::Devise::SessionsController
         helper Decidim::DecidimFormHelper
+
         layout "decidim/system/login"
       end
     end

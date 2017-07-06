@@ -238,7 +238,7 @@ RSpec.shared_examples "manage proposals" do
           answered_at: Time.current
         )
 
-        visit decidim_admin.manage_feature_path(participatory_process_id: participatory_process, feature_id: current_feature)
+        visit manage_feature_path(current_feature)
 
         within find("tr", text: proposal.title) do
           within find("td:nth-child(4)") do

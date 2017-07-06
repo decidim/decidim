@@ -9,6 +9,16 @@ module Decidim
     let(:params) { {} }
     let(:manifest) { Decidim.find_feature_manifest("dummy") }
 
+    context "when the env does not contain a current organization" do
+      let(:env) do
+        {}
+      end
+
+      it "matches" do
+        expect(subject.matches?(request)).to eq(false)
+      end
+    end
+
     context "when the env contains a current organization" do
       let(:organization) do
         create(:organization)

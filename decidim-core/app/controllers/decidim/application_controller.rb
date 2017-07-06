@@ -3,8 +3,8 @@
 module Decidim
   # The main application controller that inherits from Rails.
   class ApplicationController < ::DecidimController
-    include Decidim::NeedsOrganization
-    include Decidim::LocaleSwitcher
+    include NeedsOrganization
+    include LocaleSwitcher
     include NeedsAuthorization
     include PayloadInfo
 
@@ -16,6 +16,7 @@ module Decidim
     helper Decidim::CookiesHelper
     helper Decidim::AriaSelectedLinkToHelper
     helper Decidim::MenuHelper
+    helper Decidim::FeaturePathHelper
 
     # Saves the location before loading each page so we can return to the
     # right page. If we're on a devise page, we don't want to store that as the
@@ -27,8 +28,6 @@ module Decidim
     after_action :add_vary_header
 
     layout "layouts/decidim/application"
-
-    rescue_from ActiveRecord::RecordNotFound, with: :redirect_to_404
 
     private
 
@@ -45,10 +44,6 @@ module Decidim
     # displays the JS response instead of the HTML one.
     def add_vary_header
       response.headers["Vary"] = "Accept"
-    end
-
-    def redirect_to_404
-      raise ActionController::RoutingError, "Not Found"
     end
   end
 end

@@ -33,10 +33,16 @@ describe "Participatory Process Groups", type: :feature do
       end
     end
 
-    it "links to the individial group page" do
+    it "links to the individual group page" do
       click_link(translated(participatory_process_group.name, locale: :en))
 
       expect(current_path).to eq decidim.participatory_process_group_path(participatory_process_group)
+    end
+  end
+
+  context "when the group does not exist" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim.participatory_process_group_path(99_999_999) }
     end
   end
 
@@ -65,7 +71,7 @@ describe "Participatory Process Groups", type: :feature do
       end
     end
 
-    it "links to the individial process page" do
+    it "links to the individual process page" do
       click_link(translated(group_processes.first.title, locale: :en))
 
       expect(current_path).to eq decidim.participatory_process_path(group_processes.first)
