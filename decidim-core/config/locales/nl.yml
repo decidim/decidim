@@ -307,13 +307,6 @@ nl:
   locale:
     name: Nederlands
   pages:
-    '404':
-      back_home: Terug naar huis
-      content_doesnt_exist: Dit adres is onjuist of is verwijderd.
-      title: De pagina die u zoekt is niet gevonden
-    '500':
-      title: Er was een probleem met de server
-      try_later: Probeer het later opnieuw.
     home:
       extended:
         debates: Debatten
