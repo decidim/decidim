@@ -323,13 +323,6 @@ eu:
   locale:
     name: Euskera
   pages:
-    '404':
-      back_home: Itzuli hasierara
-      content_doesnt_exist: Helbide okerra da edo ezabatu da.
-      title: Ez dugu aurkitu bilatzen duzun orria!
-    '500':
-      title: Arazo bat izan da gure zerbitzariarekin
-      try_later: Mesedez, berriz saiatu geroago.
     home:
       extended:
         debates: Eztabaidak
