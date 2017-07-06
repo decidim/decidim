@@ -719,7 +719,7 @@ describe "Proposals", type: :feature do
         end
       end
 
-      context "by 'recent'" do
+      context "by 'most_recent'" do
         let!(:older_proposal) { create(:proposal, feature: feature, created_at: 1.month.ago) }
         let!(:recent_proposal) { create(:proposal, feature: feature) }
 
