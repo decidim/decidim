@@ -29,7 +29,7 @@ module Decidim
 
         def default_order
           if order_by_votes?
-            detect_order("most_voted")
+            "most_voted"
           else
             "random"
           end
