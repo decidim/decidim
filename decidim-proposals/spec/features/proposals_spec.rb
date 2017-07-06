@@ -709,11 +709,11 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within ".order-by" do
-            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-            page.find("a", text: "Random").click
+            page.find("ul[data-dropdown-menu$=dropdown-menu] a").click
             click_link "Most voted"
           end
 
+          expect(page).to have_selector("a", text: "Most voted")
           expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
           expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
         end
@@ -727,11 +727,11 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within ".order-by" do
-            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-            page.find("a", text: "Random").click
+            page.find("ul[data-dropdown-menu$=dropdown-menu] a").click
             click_link "Recent"
           end
 
+          expect(page).to have_selector("a", text: "Recent")
           expect(page).to have_selector("#proposals .card-grid .column:first-child", text: recent_proposal.title)
           expect(page).to have_selector("#proposals .card-grid .column:last-child", text: older_proposal.title)
         end
