@@ -708,10 +708,7 @@ describe "Proposals", type: :feature do
         it "lists the proposals ordered by votes" do
           visit_feature
 
-          within ".order-by" do
-            page.find("ul[data-dropdown-menu$=dropdown-menu] a").click
-            click_link "Most voted"
-          end
+          order_proposals_by("Most voted")
 
           expect(page).to have_selector("a", text: "Most voted")
           expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
@@ -726,15 +723,21 @@ describe "Proposals", type: :feature do
         it "lists the proposals ordered by created at" do
           visit_feature
 
-          within ".order-by" do
-            page.find("ul[data-dropdown-menu$=dropdown-menu] a").click
-            click_link "Recent"
-          end
+          order_proposals_by("Recent")
 
           expect(page).to have_selector("a", text: "Recent")
           expect(page).to have_selector("#proposals .card-grid .column:first-child", text: recent_proposal.title)
           expect(page).to have_selector("#proposals .card-grid .column:last-child", text: older_proposal.title)
         end
+      end
+    end
+
+    private
+
+    def order_proposals_by(criteria)
+      within ".order-by" do
+        page.find("ul[data-dropdown-menu$=dropdown-menu] a").click
+        click_link criteria
       end
     end
   end
