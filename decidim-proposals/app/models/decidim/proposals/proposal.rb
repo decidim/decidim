@@ -91,6 +91,18 @@ module Decidim
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
       end
+
+      # Public: Overrides the `notifiable?` Notifiable concern method.
+      # When a proposal is commented the proposal's author is notified if it is not the same
+      # who has commented the proposal and if the proposal's author has comment notifications enabled.
+      def notifiable?(context)
+        context[:author] != author && author.comments_notifications?
+      end
+
+      # Public: Overrides the `users_to_notify` Notifiable concern method.
+      def users_to_notify
+        [author]
+      end
     end
   end
 end

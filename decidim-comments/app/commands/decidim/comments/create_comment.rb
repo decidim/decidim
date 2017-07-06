@@ -23,7 +23,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         create_comment
-        send_notification_to_author if has_author? && !same_author?
+        send_notification if @commentable.notifiable?(author: @author)
 
         broadcast(:ok, @comment)
       end
@@ -41,20 +41,16 @@ module Decidim
                                    decidim_user_group_id: form.user_group_id)
       end
 
-      def send_notification_to_author
-        if @comment.depth.positive? && @commentable.author.replies_notifications?
-          CommentNotificationMailer.reply_created(@comment, @commentable, @comment.root_commentable).deliver_later
-        elsif @comment.depth.zero? && @commentable.author.comments_notifications?
-          CommentNotificationMailer.comment_created(@comment, @commentable).deliver_later
+      def send_notification
+        if @comment.depth.positive?
+          @commentable.users_to_notify.each do |user|
+            CommentNotificationMailer.reply_created(user, @comment, @commentable, @comment.root_commentable).deliver_later
+          end
+        elsif @comment.depth.zero?
+          @commentable.users_to_notify.each do |user|
+            CommentNotificationMailer.comment_created(user, @comment, @commentable).deliver_later
+          end
         end
-      end
-
-      def has_author?
-        @commentable.respond_to?(:author) && @commentable.author.present?
-      end
-
-      def same_author?
-        @author == @commentable.author
       end
 
       def root_commentable(commentable)

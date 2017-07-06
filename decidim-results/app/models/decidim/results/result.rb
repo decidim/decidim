@@ -33,6 +33,16 @@ module Decidim
       def comments_have_votes?
         true
       end
+
+      # Public: Overrides the `notifiable?` Notifiable concern method.
+      def notifiable?(_context)
+        true
+      end
+
+      # Public: Overrides the `users_to_notify` Notifiable concern method.
+      def users_to_notify
+        Decidim::Admin::ProcessAdmins.for(feature.participatory_process)
+      end
     end
   end
 end
