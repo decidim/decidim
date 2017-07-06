@@ -397,20 +397,6 @@ describe "Proposals", type: :feature do
   end
 
   context "listing proposals in a participatory process" do
-    shared_examples_for "a random proposal ordering" do
-      let!(:lucky_proposal) { create(:proposal, feature: feature) }
-      let!(:unlucky_proposal) { create(:proposal, feature: feature) }
-
-      it "lists the proposals ordered randomly" do
-        visit_feature
-
-        expect(page).to have_selector("a", text: "Random")
-        expect(page).to have_selector("#proposals .card-grid .column", count: 2)
-        expect(page).to have_selector("#proposals .card-grid .column", text: lucky_proposal.title)
-        expect(page).to have_selector("#proposals .card-grid .column", text: unlucky_proposal.title)
-      end
-    end
-
     it "lists all the proposals" do
       create(:proposal_feature,
              manifest: manifest,
@@ -420,10 +406,6 @@ describe "Proposals", type: :feature do
 
       visit_feature
       expect(page).to have_css(".card--proposal", count: 3)
-    end
-
-    describe "default ordering" do
-      it_behaves_like "a random proposal ordering"
     end
 
     context "when voting phase is over" do
@@ -465,7 +447,17 @@ describe "Proposals", type: :feature do
       end
 
       describe "order" do
-        it_behaves_like "a random proposal ordering"
+        let!(:lucky_proposal) { create(:proposal, feature: feature) }
+        let!(:unlucky_proposal) { create(:proposal, feature: feature) }
+
+        it "lists the proposals ordered randomly" do
+          visit_feature
+
+          expect(page).to have_selector("a", text: "Random")
+          expect(page).to have_selector("#proposals .card-grid .column", count: 2)
+          expect(page).to have_selector("#proposals .card-grid .column", text: lucky_proposal.title)
+          expect(page).to have_selector("#proposals .card-grid .column", text: unlucky_proposal.title)
+        end
       end
 
       it "shows only links to full proposals" do
