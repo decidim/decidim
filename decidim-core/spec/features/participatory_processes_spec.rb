@@ -22,7 +22,7 @@ describe "Participatory Processes", type: :feature do
       visit decidim.participatory_processes_path
     end
 
-    it "shows a messages about the lack of processes" do
+    it "shows a message about the lack of processes" do
       expect(page).to have_content("No participatory processes yet!")
     end
   end

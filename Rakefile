@@ -16,7 +16,7 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 desc "Runs all tests in all Decidim engines"
-task test_all: ["decidim:generate_test_app"] do
+task :test_all do
   DECIDIM_GEMS.each do |gem_name|
     next if gem_name == "dev"
 
