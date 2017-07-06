@@ -118,6 +118,14 @@ ca:
       shared:
         omniauth_buttons:
           or: O
+    errors:
+      internal_server_error:
+        title: Hi ha hagut un problema amb el nostre servidor
+        try_later: Si us plau, torna-ho a intentar més tard.
+      not_found:
+        back_home: Tornar a l'inici
+        content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
+        title: No s'ha trobat la pàgina que busques
     export_mailer:
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
@@ -145,6 +153,9 @@ ca:
         proposal: propostes
         result: Resultats
     forms:
+      current_file: Fitxer actual
+      current_image: Imatge actual
+      default_image: Imatge predeterminada
       errors:
         error: Hi ha un error en aquest camp.
     menu:
@@ -345,13 +356,6 @@ ca:
   locale:
     name: Català
   pages:
-    '404':
-      back_home: Tornar a l'inici
-      content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
-      title: No s'ha trobat la pàgina que busques!
-    '500':
-      title: Hi ha hagut un problema amb el nostre servidor
-      try_later: Si us plau, torna-ho a intentar més tard.
     home:
       extended:
         debates: Debats
