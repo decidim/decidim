@@ -32,6 +32,9 @@ ca:
         welcome_text: Text de benvinguda
       participatory_process:
         banner_image: Imatge de bandera
+        copy_categories: Copiar categories
+        copy_features: Copiar funcionalitats
+        copy_steps: Copiar fases
         description: Descripció
         developer_group: Grup promotor
         domain: Àrees municipals
@@ -198,6 +201,7 @@ ca:
           title: Editar funcionalitat
           update: Actualitza
         form:
+          default_step_settings: Configuració per defecte
           global_settings: Configuració global
           step_settings: Configuració de fase
         index:
@@ -306,6 +310,11 @@ ca:
       moderations:
         index:
           title: Moderacions
+        report:
+          reasons:
+            does_not_belong: No pertany
+            offensive: Ofensiu
+            spam: Contingut brossa
       newsletters:
         create:
           error: S'ha produït un error en crear aquest butlletí.
