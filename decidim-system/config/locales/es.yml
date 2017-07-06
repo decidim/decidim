@@ -64,5 +64,9 @@ es:
         update:
           error: Se ha producido un error al actualizar esta organización.
           success: Organización actualizada correctamente.
+      shared:
+        notices:
+          no_organization_warning_html: Debes crear una organización para comenzar. Asegúrate de leer %{guide} antes de continuar.
+          our_getting_started_guide: nuestra guía de inicio
       titles:
         dashboard: Panel de control
