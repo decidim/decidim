@@ -303,13 +303,6 @@ it:
   locale:
     name: Italiano
   pages:
-    '404':
-      back_home: Torna alla home page
-      content_doesnt_exist: Questo indirizzo non è corretto oppure è stato rimosso.
-      title: La pagina che stai cercando non esiste oppure non è disponibile
-    '500':
-      title: Si è verificato un problema da parte del server
-      try_later: Per cortesia riprova più tardi.
     home:
       extended:
         debates: Dibattiti
