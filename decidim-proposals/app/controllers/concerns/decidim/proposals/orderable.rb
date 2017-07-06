@@ -30,8 +30,10 @@ module Decidim
         def default_order
           if order_by_votes?
             "most_voted"
-          else
+          elsif order_randomly?
             "random"
+          else
+            "recent"
           end
         end
 
@@ -41,6 +43,10 @@ module Decidim
 
         def order_by_votes?
           most_voted_order_available? && current_settings.votes_blocked?
+        end
+
+        def order_randomly?
+          most_voted_order_available? && !current_settings.votes_blocked?
         end
 
         # Returns: A random float number between -1 and 1 to be used as a random seed at the database.

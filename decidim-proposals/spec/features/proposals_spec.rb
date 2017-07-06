@@ -446,16 +446,15 @@ describe "Proposals", type: :feature do
                participatory_process: participatory_process)
       end
 
-      let!(:lucky_proposal) { create(:proposal, feature: feature) }
-      let!(:unlucky_proposal) { create(:proposal, feature: feature) }
+      let!(:older_proposal) { create(:proposal, feature: feature, created_at: 1.month.ago) }
+      let!(:recent_proposal) { create(:proposal, feature: feature) }
 
-      it "lists the proposals ordered randomly" do
+      it "lists the proposals ordered by created at" do
         visit_feature
 
-        expect(page).to have_selector("a", text: "Random")
-        expect(page).to have_selector("#proposals .card-grid .column", count: 2)
-        expect(page).to have_selector("#proposals .card-grid .column", text: lucky_proposal.title)
-        expect(page).to have_selector("#proposals .card-grid .column", text: unlucky_proposal.title)
+        expect(page).to have_selector("a", text: "Recent")
+        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: recent_proposal.title)
+        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: older_proposal.title)
       end
 
       it "shows only links to full proposals" do
