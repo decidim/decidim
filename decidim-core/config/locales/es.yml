@@ -118,6 +118,14 @@ es:
       shared:
         omniauth_buttons:
           or: O
+    errors:
+      internal_server_error:
+        title: Ha habido un problema con nuestro servidor
+        try_later: Por favor, vuelve a intentarlo más tarde.
+      not_found:
+        back_home: Volver al inicio
+        content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
+        title: No se ha encontrado la página que buscas
     export_mailer:
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
@@ -145,6 +153,9 @@ es:
         proposal: Propuestas
         result: Resultados
     forms:
+      current_file: Archivo actual
+      current_image: Imagen actual
+      default_image: Imagen predeterminada
       errors:
         error: Hay un error en este campo.
     menu:
@@ -345,13 +356,6 @@ es:
   locale:
     name: Castellano
   pages:
-    '404':
-      back_home: Volver al inicio
-      content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
-      title: '¡No se ha encontrado la página que buscas!'
-    '500':
-      title: Ha habido un problema con nuestro servidor
-      try_later: Por favor, vuelve a intentarlo más tarde.
     home:
       extended:
         debates: Debates
