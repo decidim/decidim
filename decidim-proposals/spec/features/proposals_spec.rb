@@ -401,7 +401,7 @@ describe "Proposals", type: :feature do
       let!(:lucky_proposal) { create(:proposal, feature: feature) }
       let!(:unlucky_proposal) { create(:proposal, feature: feature) }
 
-      it "lists the proposals ordered randomly by default" do
+      it "lists the proposals ordered randomly" do
         visit_feature
 
         expect(page).to have_selector("a", text: "Random")
