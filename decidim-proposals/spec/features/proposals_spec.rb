@@ -731,8 +731,8 @@ describe "Proposals", type: :feature do
       end
 
       context "randomly" do
-        let!(:lucky_proposal) { create(:proposal, feature: feature) }
-        let!(:unlucky_proposal) { create(:proposal, feature: feature) }
+        let!(:one_proposal) { create(:proposal, feature: feature) }
+        let!(:another_proposal) { create(:proposal, feature: feature) }
 
         it "lists the proposals ordered randomly" do
           visit_feature
@@ -741,8 +741,8 @@ describe "Proposals", type: :feature do
 
           expect(page).to have_selector("a", text: "Random")
           expect(page).to have_selector("#proposals .card-grid .column", count: 2)
-          expect(page).to have_selector("#proposals .card-grid .column", text: lucky_proposal.title)
-          expect(page).to have_selector("#proposals .card-grid .column", text: unlucky_proposal.title)
+          expect(page).to have_selector("#proposals .card-grid .column", text: one_proposal.title)
+          expect(page).to have_selector("#proposals .card-grid .column", text: another_proposal.title)
         end
       end
     end
