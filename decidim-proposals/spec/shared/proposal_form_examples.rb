@@ -21,7 +21,8 @@ RSpec.shared_examples "a proposal form" do
       author: author,
       category_id: category_id,
       scope_id: scope_id,
-      address: address
+      address: address,
+      has_address: has_address
     }
   end
 

@@ -24,7 +24,8 @@ RSpec.shared_examples "create a proposal" do |with_author|
       {
         title: "A reasonable proposal title",
         body: "A reasonable proposal body",
-        address: address
+        address: address,
+        has_address: has_address
       }
     end
 
@@ -76,7 +77,7 @@ RSpec.shared_examples "create a proposal" do |with_author|
         let(:feature) { create(:proposal_feature, :with_geocoding_enabled) }
 
         context "when the has address checkbox is checked" do
-        let(:has_address) { true }
+          let(:has_address) { true }
 
           context "when the address is present" do
             let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
