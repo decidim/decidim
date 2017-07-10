@@ -21,7 +21,7 @@ Decidim.register_feature(:surveys) do |feature|
   end
 
   feature.register_stat :surveys_count do |features, start_at, end_at|
-  surveys = Decidim::Surveys::Survey.where(feature: featuresa)
+    surveys = Decidim::Surveys::Survey.where(feature: features)
     surveys = surveys.where("created_at >= ?", start_at) if start_at.present?
     surveys = surveys.where("created_at <= ?", end_at) if end_at.present?
     surveys.count
