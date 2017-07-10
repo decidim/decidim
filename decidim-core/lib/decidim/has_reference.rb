@@ -19,26 +19,12 @@ module Decidim
 
       private
 
-      # Public: Calculates a unique reference for the model in
-      # the following format:
-      #
-      # "BCN-DPP-2017-02-6589" which in this example translates to:
-      #
-      # BCN: A setting configured at the organization to be prepended to each reference.
-      # PROP: Unique name identifier for a resource: Decidim::Proposals::Proposal (MEET for meetings or PROJ for projects).
-      # 2017-02: Year-Month of the resource creation date
-      # 6589: ID of the resource
+      # Public: Calculates a unique reference for the model using the function
+      # provided by configuration
       #
       # Returns a String.
       def calculate_reference
-        return unless feature
-        return Decidim.calculate_reference_method.call(self) if Decidim.calculate_reference_method.present?
-
-        ref = feature.participatory_process.organization.reference_prefix
-        class_identifier = self.class.name.demodulize[0..3].upcase
-        year_month = (created_at || Time.current).strftime("%Y-%m")
-
-        [ref, class_identifier, year_month, id].join("-")
+        return Decidim.calculate_reference_method.call(self)
       end
 
       # Internal: Sets the unique reference to the model.
