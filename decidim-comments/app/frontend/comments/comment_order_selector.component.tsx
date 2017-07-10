@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import { compose, lifecycle, withHandlers, withState } from "recompose";
 const { I18n } = require("react-i18nify");
 
 interface CommentOrderSelectorProps {
@@ -7,81 +7,80 @@ interface CommentOrderSelectorProps {
   reorderComments: (orderBy: string) => void;
 }
 
-interface CommentOrderSelectorState {
+interface WithStateProps {
   orderBy: string;
+  setOrderBy: (orderBy: string) => void;
+  setRef: (ref: HTMLUListElement) => void;
 }
 
-/**
- * A simple static component with the comment's order selector markup
- * @class
- * @augments Component
- * @todo Needs a proper implementation
- */
-class CommentOrderSelector extends React.Component<CommentOrderSelectorProps, CommentOrderSelectorState> {
-  private dropdown: HTMLUListElement;
+interface WithHandlersProps {
+  updateOrder: (orderBy: string) => (event: any) => void;
+}
 
-  constructor(props: CommentOrderSelectorProps) {
-    super(props);
+type EnhancedProps = CommentOrderSelectorProps & WithStateProps & WithHandlersProps;
 
-    this.state = {
-      orderBy: this.props.defaultOrderBy,
-    };
-  }
+let dropdown: HTMLUListElement;
 
-  public setDropdown = (dropdown: HTMLUListElement) => this.dropdown = dropdown;
-
-  public componentDidMount() {
-    window.$(this.dropdown).foundation();
-  }
-
-  public render() {
-    const { orderBy } =  this.state;
-
-    return (
-      <div className="order-by__dropdown order-by__dropdown--right">
-        <span className="order-by__text">{I18n.t("components.comment_order_selector.title")}</span>
-        <ul
-          className="dropdown menu"
-          data-dropdown-menu="data-dropdown-menu"
-          ref={this.setDropdown}
-        >
+const CommentOrderSelector: React.SFC<EnhancedProps> = ({
+  orderBy,
+  setRef,
+  updateOrder,
+}) => (
+  <div className="order-by__dropdown order-by__dropdown--right">
+    <span className="order-by__text">{I18n.t("components.comment_order_selector.title")}</span>
+    <ul
+      className="dropdown menu"
+      data-dropdown-menu="data-dropdown-menu"
+      ref={setRef}
+    >
+      <li>
+        <a>{I18n.t(`components.comment_order_selector.order.${orderBy}`)}</a>
+        <ul className="menu">
           <li>
-            <a>{I18n.t(`components.comment_order_selector.order.${orderBy}`)}</a>
-            <ul className="menu">
-              <li>
-                <a href="" className="test" onClick={this.updateOrder("best_rated")} >
-                  {I18n.t("components.comment_order_selector.order.best_rated")}
-                </a>
-              </li>
-              <li>
-                <a href="" onClick={this.updateOrder("recent")} >
-                  {I18n.t("components.comment_order_selector.order.recent")}
-                </a>
-              </li>
-              <li>
-                <a href="" onClick={this.updateOrder("older")} >
-                  {I18n.t("components.comment_order_selector.order.older")}
-                </a>
-              </li>
-              <li>
-                <a href="" onClick={this.updateOrder("most_discussed")} >
-                  {I18n.t("components.comment_order_selector.order.most_discussed")}
-                </a>
-              </li>
-            </ul>
+            <a href="" className="test" onClick={updateOrder("best_rated")} >
+              {I18n.t("components.comment_order_selector.order.best_rated")}
+            </a>
+          </li>
+          <li>
+            <a href="" onClick={updateOrder("recent")} >
+              {I18n.t("components.comment_order_selector.order.recent")}
+            </a>
+          </li>
+          <li>
+            <a href="" onClick={updateOrder("older")} >
+              {I18n.t("components.comment_order_selector.order.older")}
+            </a>
+          </li>
+          <li>
+            <a href="" onClick={updateOrder("most_discussed")} >
+              {I18n.t("components.comment_order_selector.order.most_discussed")}
+            </a>
           </li>
         </ul>
-      </div>
-    );
-  }
+      </li>
+    </ul>
+  </div>
+);
 
-  private updateOrder = (orderBy: string) => {
-    return (event: React.MouseEvent<HTMLAnchorElement>) => {
+const enhance = compose<CommentOrderSelectorProps, CommentOrderSelectorProps>(
+  withState("orderBy", "setOrderBy", (ownProps: CommentOrderSelectorProps) => ownProps.defaultOrderBy),
+  withHandlers({
+    updateOrder: (props: CommentOrderSelectorProps & WithStateProps) => (orderBy: string) => (event: any) => {
       event.preventDefault();
-      this.setState({ orderBy });
-      this.props.reorderComments(orderBy);
-    };
-  }
-}
+      props.setOrderBy(orderBy);
+      props.reorderComments(orderBy);
+    },
+    setRef: () => (ref: HTMLUListElement) => {
+      dropdown = ref;
+    },
+  }),
+  lifecycle({
+    componentDidMount: () => {
+      if (window.$) {
+        window.$(dropdown).foundation();
+      }
+    },
+  }),
+);
 
-export default CommentOrderSelector;
+export default enhance(CommentOrderSelector);
