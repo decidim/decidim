@@ -33,6 +33,9 @@ en:
         welcome_text: Welcome text
       participatory_process:
         banner_image: Banner image
+        copy_categories: Copy categories
+        copy_features: Copy features
+        copy_steps: Copy steps
         description: Description
         developer_group: Developer group
         domain: Domain
@@ -308,6 +311,11 @@ en:
       moderations:
         index:
           title: Moderations
+        report:
+          reasons:
+            does_not_belong: Does not belong
+            offensive: Offensive
+            spam: Spam
       newsletters:
         create:
           error: There's been an error creating this newsletter.

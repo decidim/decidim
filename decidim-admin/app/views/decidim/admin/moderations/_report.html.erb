@@ -1,11 +1,11 @@
 <% if report.details.blank? %>
-  <%= report.reason %>
+  <%= t(".reasons.#{report.reason}") %>
 <% else %>
   <span
     data-tooltip
     aria-haspopup="true"
     class="has-tip"
     title="<%= report.details %>">
-      <%= report.reason %>
+      <%= t(".reasons.#{report.reason}") %>
   </span>
 <% end %>

@@ -6,12 +6,12 @@ module Decidim
     class ApplicationController < ActionController::Base
       include FormFactory
       include PayloadInfo
+
       protect_from_forgery with: :exception, prepend: true
 
       helper Decidim::TranslationsHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
-
       helper Decidim::System::MenuHelper
     end
   end

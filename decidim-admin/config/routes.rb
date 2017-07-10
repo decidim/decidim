@@ -44,8 +44,6 @@ Decidim::Admin::Engine.routes.draw do
           mount manifest.admin_engine, at: "/", as: "decidim_admin_#{manifest.name}"
         end
       end
-
-      get "/", to: redirect("/404"), as: :manage_feature
     end
 
     resources :static_pages

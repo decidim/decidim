@@ -25,13 +25,13 @@ describe "Admin copy participatory process", type: :feature do
 
       within ".copy_participatory_process" do
         fill_in_i18n(
-          :participatory_process_copy_title,
-          "#participatory_process_copy-title-tabs",
+          :participatory_process_title,
+          "#participatory_process-title-tabs",
           en: "Copy participatory process",
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
         )
-        fill_in :participatory_process_copy_slug, with: "pp-copy"
+        fill_in :participatory_process_slug, with: "pp-copy"
         click_button "Copy"
       end
 
@@ -47,18 +47,18 @@ describe "Admin copy participatory process", type: :feature do
 
       within ".copy_participatory_process" do
         fill_in_i18n(
-          :participatory_process_copy_title,
-          "#participatory_process_copy-title-tabs",
+          :participatory_process_title,
+          "#participatory_process-title-tabs",
           en: "Copy participatory process",
           es: "Copia del proceso participativo",
           ca: "Còpia del procés participatiu"
         )
-        fill_in :participatory_process_copy_slug, with: "pp-copy-with-steps"
+        fill_in :participatory_process_slug, with: "pp-copy-with-steps"
       end
     end
 
     it "copies the process with steps" do
-      page.check("participatory_process_copy[copy_steps]")
+      page.check("participatory_process[copy_steps]")
       click_button "Copy"
 
       expect(page).to have_content("successfully")
@@ -74,7 +74,7 @@ describe "Admin copy participatory process", type: :feature do
     end
 
     it "copies the process with categories" do
-      page.check("participatory_process_copy[copy_categories]")
+      page.check("participatory_process[copy_categories]")
       click_button "Copy"
 
       expect(page).to have_content("successfully")
@@ -90,7 +90,7 @@ describe "Admin copy participatory process", type: :feature do
     end
 
     it "copies the process with features" do
-      page.check("participatory_process_copy[copy_features]")
+      page.check("participatory_process[copy_features]")
       click_button "Copy"
 
       expect(page).to have_content("successfully")

@@ -1,4 +1,4 @@
-<img src="https://decidim.github.io/images/logo.svg" alt="Decidim Logo">
+<img src="https://cdn.rawgit.com/decidim/decidim/master/logo.svg" alt="Decidim Logo">
 
 The participatory democracy framework.
 

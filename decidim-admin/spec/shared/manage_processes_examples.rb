@@ -29,6 +29,12 @@ RSpec.shared_examples "manage processes examples" do
     end
   end
 
+  context "viewing a missing process" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_admin.participatory_process_path(99_999_999) }
+    end
+  end
+
   it "updates a participatory_process" do
     click_link translated(participatory_process.title)
 

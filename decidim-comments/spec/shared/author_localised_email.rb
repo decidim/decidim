@@ -2,9 +2,8 @@
 
 require "spec_helper"
 
-shared_examples "author localised email" do
-  let(:author) { create(:user, locale: locale, organization: organization) }
-  let(:commentable_author) { create(:user, locale: locale, organization: organization) }
+shared_examples "user localised email" do
+  let(:user) { create(:user, locale: locale, organization: organization) }
 
   context "when the user has a custom locale" do
     let(:locale) { "ca" }

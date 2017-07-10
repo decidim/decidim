@@ -22,8 +22,14 @@ describe "Participatory Processes", type: :feature do
       visit decidim.participatory_processes_path
     end
 
-    it "shows a messages about the lack of processes" do
+    it "shows a message about the lack of processes" do
       expect(page).to have_content("No participatory processes yet!")
+    end
+  end
+
+  context "when the process does not exist" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim.participatory_process_path(99_999_999) }
     end
   end
 
@@ -57,7 +63,7 @@ describe "Participatory Processes", type: :feature do
       end
     end
 
-    it "links to the individial process page" do
+    it "links to the individual process page" do
       click_link(translated(participatory_process.title, locale: :en))
 
       expect(current_path).to eq decidim.participatory_process_path(participatory_process)

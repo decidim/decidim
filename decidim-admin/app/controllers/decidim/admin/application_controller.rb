@@ -9,6 +9,7 @@ module Decidim
       include FormFactory
       include LocaleSwitcher
       include PayloadInfo
+
       helper Decidim::Admin::ApplicationHelper
       helper Decidim::Admin::AttributesDisplayHelper
       helper Decidim::Admin::FeatureSettingsHelper
@@ -21,6 +22,7 @@ module Decidim
       helper Decidim::OrganizationScopesHelper
       helper Decidim::TranslationsHelper
       helper Decidim::LanguageChooserHelper
+      helper Decidim::FeaturePathHelper
 
       protect_from_forgery with: :exception, prepend: true
 

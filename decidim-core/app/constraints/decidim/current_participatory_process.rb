@@ -16,6 +16,7 @@ module Decidim
       env = request.env
 
       @organization = env["decidim.current_organization"]
+      return false unless @organization
 
       current_participatory_process(env, request.params) ? true : false
     end

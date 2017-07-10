@@ -16,6 +16,7 @@ module Decidim
       helper Decidim::FeatureReferenceHelper
       helper Decidim::TranslationsHelper
       helper Decidim::ParticipatoryProcessHelper
+      helper Decidim::IconHelper
       helper Decidim::ResourceHelper
       helper Decidim::OrganizationScopesHelper
       helper Decidim::ActionAuthorizationHelper

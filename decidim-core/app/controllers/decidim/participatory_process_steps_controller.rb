@@ -11,6 +11,7 @@ module Decidim
     include NeedsParticipatoryProcess
 
     helper Decidim::ParticipatoryProcessHelper
+    helper Decidim::IconHelper
 
     def index
       authorize! :read, ParticipatoryProcess

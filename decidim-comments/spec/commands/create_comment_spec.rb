@@ -9,6 +9,7 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: organization) }
         let(:feature) { create(:feature, participatory_process: participatory_process) }
+        let(:user) { create(:user, organization: organization) }
         let(:author) { create(:user, organization: organization) }
         let(:dummy_resource) { create :dummy_resource, feature: feature }
         let(:commentable) { dummy_resource }
@@ -67,9 +68,9 @@ module Decidim
             end.to change { Comment.count }.by(1)
           end
 
-          context "and the commentable doesn't have an author" do
+          context "and the commentable is not notifiable" do
             before do
-              commentable.author = nil
+              expect(commentable).to receive(:notifiable?).and_return(false)
             end
 
             it "doesn't send an email" do
@@ -78,70 +79,37 @@ module Decidim
             end
           end
 
-          context "and the comment is a root comment" do
-            it "sends an email to the author of the commentable" do
-              expect(CommentNotificationMailer)
-                .to receive(:comment_created)
-                .with(an_instance_of(Comment), commentable)
-                .and_call_original
-
-              command.call
+          context "and the commentable is notifiable" do
+            before do
+              expect(commentable).to receive(:notifiable?).and_return(true)
+              expect(commentable).to receive(:users_to_notify).and_return([user])
             end
 
-            context "and I am the author of the commentable" do
-              let(:dummy_resource) { create :dummy_resource, feature: feature, author: author }
+            context "and the comment is a root comment" do
+              it "sends an email to the author of the commentable" do
+                expect(CommentNotificationMailer)
+                  .to receive(:comment_created)
+                  .with(user, an_instance_of(Comment), commentable)
+                  .and_call_original
 
-              it "doesn't send an email" do
-                expect(CommentNotificationMailer).not_to receive(:comment_created)
                 command.call
               end
             end
 
-            context "and the author has comment notifications disabled" do
-              before do
-                commentable.author.update_attributes!(comments_notifications: false)
-              end
+            context "and the comment is a reply" do
+              let(:commentable) { create(:comment, commentable: dummy_resource) }
 
-              it "doesn't send an email" do
-                expect(CommentNotificationMailer).not_to receive(:comment_created)
+              it "stores the root commentable" do
                 command.call
-              end
-            end
-          end
-
-          context "and the comment is a reply" do
-            let(:commentable) { create(:comment, commentable: dummy_resource) }
-
-            it "stores the root commentable" do
-              command.call
-              expect(Comment.last.root_commentable).to eq(dummy_resource)
-            end
-
-            it "sends an email to the author of the parent comment" do
-              expect(CommentNotificationMailer)
-                .to receive(:reply_created)
-                .with(an_instance_of(Comment), commentable, commentable.root_commentable)
-                .and_call_original
-
-              command.call
-            end
-
-            context "and I am the author of the parent comment" do
-              let(:commentable) { create(:comment, author: author, commentable: dummy_resource) }
-
-              it "doesn't send an email" do
-                expect(CommentNotificationMailer).not_to receive(:reply_created)
-                command.call
-              end
-            end
-
-            context "and the author has reply notifications disabled" do
-              before do
-                commentable.author.update_attribute(:replies_notifications, false)
+                expect(Comment.last.root_commentable).to eq(dummy_resource)
               end
 
-              it "doesn't send an email" do
-                expect(CommentNotificationMailer).not_to receive(:reply_created)
+              it "sends an email to the author of the parent comment" do
+                expect(CommentNotificationMailer)
+                  .to receive(:reply_created)
+                  .with(user, an_instance_of(Comment), commentable, commentable.root_commentable)
+                  .and_call_original
+
                 command.call
               end
             end

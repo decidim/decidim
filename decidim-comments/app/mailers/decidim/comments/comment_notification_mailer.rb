@@ -9,26 +9,28 @@ module Decidim
 
       helper_method :commentable_title
 
-      def comment_created(comment, commentable)
-        with_user(commentable.author) do
+      def comment_created(user, comment, commentable)
+        with_user(user) do
+          @user = user
           @comment = comment
           @commentable = commentable
           @locator = Decidim::ResourceLocatorPresenter.new(@commentable)
           @organization = commentable.organization
           subject = I18n.t("comment_created.subject", scope: "decidim.comments.mailer.comment_notification")
-          mail(to: commentable.author.email, subject: subject)
+          mail(to: user.email, subject: subject)
         end
       end
 
-      def reply_created(reply, comment, commentable)
-        with_user(comment.author) do
+      def reply_created(user, reply, comment, commentable)
+        with_user(user) do
+          @user = user
           @reply = reply
           @comment = comment
           @commentable = commentable
           @locator = Decidim::ResourceLocatorPresenter.new(@commentable)
           @organization = commentable.organization
           subject = I18n.t("reply_created.subject", scope: "decidim.comments.mailer.comment_notification")
-          mail(to: comment.author.email, subject: subject)
+          mail(to: user.email, subject: subject)
         end
       end
 

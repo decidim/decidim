@@ -37,7 +37,6 @@ Gem::Specification.new do |s|
   s.add_dependency "codecov", "~> 0.1.9"
   s.add_dependency "rubocop", "~> 0.48.1"
   s.add_dependency "db-query-matchers", "~> 0.9.0"
-  s.add_dependency "letter_opener_web", "~> 1.3.0"
   s.add_dependency "rspec-html-matchers", "~> 0.9.1"
   s.add_dependency "webmock", "~> 3.0.1"
   s.add_dependency "puma", "~> 3.9.1"

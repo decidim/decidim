@@ -5,7 +5,7 @@ module Decidim
   # public view.
   class HighlightedParticipatoryProcesses < Rectify::Query
     def query
-      Decidim::ParticipatoryProcess.order("promoted DESC").includes(:active_step).order("decidim_participatory_process_steps.end_date ASC").limit(8)
+      PrioritizedParticipatoryProcesses.new.query.limit(8)
     end
   end
 end

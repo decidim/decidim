@@ -29,13 +29,12 @@ RSpec.shared_examples "manage proposals" do
   context "creation" do
     context "when official_proposals setting is enabled" do
       before do
-        current_feature.settings[:official_proposals_enabled] = true
-        current_feature.save
+        current_feature.update_attributes!(settings: { official_proposals_enabled: true })
       end
 
       context "when creation is enabled" do
         before do
-          current_feature.update_attributes(
+          current_feature.update_attributes!(
             step_settings: {
               current_feature.participatory_process.active_step.id => {
                 creation_enabled: true
@@ -46,20 +45,18 @@ RSpec.shared_examples "manage proposals" do
 
         context "when process is not related to any scope" do
           before do
-            participatory_process.update_attributes(scope: nil)
+            participatory_process.update_attributes!(scope: nil)
+
+            click_link "New"
           end
 
           it "can be related to a scope" do
-            find(".card-title a.button").click
-
             within "form" do
               expect(page).to have_content(/Scope/i)
             end
           end
 
           it "creates a new proposal" do
-            find(".card-title a.button").click
-
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
               fill_in :proposal_body, with: "Decidim is great but it can be better"
@@ -86,7 +83,7 @@ RSpec.shared_examples "manage proposals" do
 
         context "when process is related to a scope" do
           before do
-            participatory_process.update_attributes(scope: scope)
+            participatory_process.update_attributes!(scope: scope)
           end
 
           it "cannot be related to a scope" do
@@ -123,7 +120,7 @@ RSpec.shared_examples "manage proposals" do
 
           context "when geocoding is enabled" do
             before do
-              current_feature.update_attributes(settings: { geocoding_enabled: true })
+              current_feature.update_attributes!(settings: { geocoding_enabled: true })
             end
 
             it "creates a new proposal related to the process scope" do
@@ -157,7 +154,7 @@ RSpec.shared_examples "manage proposals" do
 
     context "when official_proposals setting is disabled" do
       before do
-        current_feature.update_attributes(settings: { official_proposals_enabled: false })
+        current_feature.update_attributes!(settings: { official_proposals_enabled: false })
       end
 
       it "cannot create a new proposal" do
@@ -169,12 +166,12 @@ RSpec.shared_examples "manage proposals" do
 
   context "when the proposal_answering feature setting is enabled" do
     before do
-      current_feature.update_attributes(settings: { proposal_answering_enabled: true })
+      current_feature.update_attributes!(settings: { proposal_answering_enabled: true })
     end
 
     context "when the proposal_answering step setting is enabled" do
       before do
-        current_feature.update_attributes(
+        current_feature.update_attributes!(
           step_settings: {
             current_feature.participatory_process.active_step.id => {
               proposal_answering_enabled: true
@@ -241,7 +238,7 @@ RSpec.shared_examples "manage proposals" do
           answered_at: Time.current
         )
 
-        visit decidim_admin.manage_feature_path(participatory_process_id: participatory_process, feature_id: current_feature)
+        visit manage_feature_path(current_feature)
 
         within find("tr", text: proposal.title) do
           within find("td:nth-child(4)") do
@@ -269,7 +266,7 @@ RSpec.shared_examples "manage proposals" do
 
     context "when the proposal_answering step setting is disabled" do
       before do
-        current_feature.update_attributes(
+        current_feature.update_attributes!(
           step_settings: {
             current_feature.participatory_process.active_step.id => {
               proposal_answering_enabled: false
@@ -290,7 +287,7 @@ RSpec.shared_examples "manage proposals" do
 
   context "when the proposal_answering feature setting is disabled" do
     before do
-      current_feature.update_attributes(settings: { proposal_answering_enabled: false })
+      current_feature.update_attributes!(settings: { proposal_answering_enabled: false })
     end
 
     it "cannot answer a proposal" do

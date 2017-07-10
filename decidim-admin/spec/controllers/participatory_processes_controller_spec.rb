@@ -6,19 +6,16 @@ module Decidim
   module Admin
     describe ParticipatoryProcessesController, type: :controller do
       let(:organization) { create(:organization) }
-      let!(:external_process) { create :participatory_process }
+      let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
       before do
         @request.env["decidim.current_organization"] = organization
+        sign_in user, scope: :user
       end
 
       describe "GET show" do
         context "process in another organization" do
-          let(:user) { create(:user, :admin, :confirmed, organization: organization) }
-
-          before do
-            sign_in user, scope: :user
-          end
+          let!(:external_process) { create :participatory_process }
 
           it "is not visible to the user" do
             expect do
