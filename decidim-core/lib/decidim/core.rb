@@ -111,9 +111,9 @@ module Decidim
       return unless resource.feature
       ref = resource.feature.participatory_process.organization.reference_prefix
       class_identifier = resource.class.name.demodulize[0..3].upcase
-      year_month = (created_at || Time.current).strftime("%Y-%m")
+      year_month = (resource.created_at || Time.current).strftime("%Y-%m")
 
-      [ref, class_identifier, year_month, id].join("-")
+      [ref, class_identifier, year_month, resource.id].join("-")
     end
   end
 

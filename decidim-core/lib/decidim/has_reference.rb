@@ -24,7 +24,7 @@ module Decidim
       #
       # Returns a String.
       def calculate_reference
-        return Decidim.calculate_reference_method.call(self)
+        return Decidim.resource_reference_generator.call(self)
       end
 
       # Internal: Sets the unique reference to the model.

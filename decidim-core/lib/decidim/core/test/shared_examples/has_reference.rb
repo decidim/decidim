@@ -10,15 +10,15 @@ shared_examples_for "has reference" do
       subject[:reference] = nil
     end
 
-    context "when there is not a custom calculate reference method present" do
+    context "when there is not a custom resource reference generator present" do
       it "generates a valid reference" do
         expect(subject.reference).to match(/[A-z]+/)
       end
     end
 
-    context "when there is a custom calculate reference method present" do
+    context "when there is a custom resource reference generator present" do
       before do
-        allow(Decidim).to receive(:calculate_reference_method).and_return(->(resource) { "1234-#{resource.id}" })
+        allow(Decidim).to receive(:resource_reference_generator).and_return(->(resource) { "1234-#{resource.id}" })
       end
 
       it "generates a valid reference" do
