@@ -64,5 +64,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
           success: L'organització s'ha actualitzat correctament.
+      shared:
+        notices:
+          no_organization_warning_html: Has de crear una organització per començar. Assegura't de llegir %{guide} abans.
+          our_getting_started_guide: la guia d'introducció
       titles:
         dashboard: Tauler de control

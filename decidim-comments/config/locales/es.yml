@@ -35,6 +35,8 @@ es:
             label: Comentar como
         opinion:
           neutral: Neutral
+        remaining_characters: "Quedan %{count} caracteres"
+        remaining_characters_1: "Queda %{count} carácter"
         title: Deje su comentario
       comment:
         alignment:

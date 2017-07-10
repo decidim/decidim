@@ -125,7 +125,7 @@ ca:
       not_found:
         back_home: Tornar a l'inici
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
-        title: No s'ha trobat la pàgina que busques!
+        title: No s'ha trobat la pàgina que busques
     export_mailer:
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
@@ -153,6 +153,9 @@ ca:
         proposal: propostes
         result: Resultats
     forms:
+      current_file: Fitxer actual
+      current_image: Imatge actual
+      default_image: Imatge predeterminada
       errors:
         error: Hi ha un error en aquest camp.
     menu:
@@ -365,7 +368,7 @@ ca:
         proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
       footer_sub_hero:
         footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
-        footer_sub_hero_headline: Benvingut a la plataforma participativa %{organization}.
+        footer_sub_hero_headline: Bienvenida y bienvenido a la plataforma participativa %{organization}.
         register: Registra't
       hero:
         participate: Participa
