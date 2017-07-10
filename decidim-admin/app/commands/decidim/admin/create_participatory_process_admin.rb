@@ -24,9 +24,12 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
-        return broadcast(:invalid) unless user
 
-        create_role
+        ActiveRecord::Base.transaction do
+          create_or_invite_user
+          create_role
+        end
+
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid
         form.errors.add(:email, :taken)
@@ -35,21 +38,37 @@ module Decidim
 
       private
 
-      attr_reader :form, :participatory_process, :current_user
+      attr_reader :form, :participatory_process, :current_user, :user
 
       def create_role
-        ParticipatoryProcessUserRole.create!(
+        ParticipatoryProcessUserRole.find_or_create_by!(
           role: form.role.to_sym,
           user: user,
           participatory_process: @participatory_process
         )
       end
 
-      def user
-        @user ||= User.where(
+      def create_or_invite_user
+        @user ||= (existing_user || new_user)
+      end
+
+      def existing_user
+        return @existing_user if defined?(@existing_user)
+
+        @existing_user = User.where(
           email: form.email,
           organization: participatory_process.organization
-        ).first || InviteUser.call(user_form) do
+        ).first
+
+        unless @existing_user.invitation_accepted?
+          InviteUserAgain.call(@existing_user, invitation_instructions)
+        end
+
+        @existing_user
+      end
+
+      def new_user
+        @new_user ||= InviteUser.call(user_form) do
           on(:ok) do |user|
             return user
           end
