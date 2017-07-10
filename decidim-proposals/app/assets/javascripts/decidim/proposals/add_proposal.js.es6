@@ -1,25 +1,23 @@
 $(() => {
   window.DecidimProposals = window.DecidimProposals || {};
 
-  window.DecidimProposals.foo = () => {
-    const $checkbox = $('#toggle_address');
+  window.DecidimProposals.bindProposalAddress = () => {
+    const $checkbox = $('#proposal_has_address');
     const $addressInput = $('#address_input');
 
-    const toggleInput = () => {
-      if ($checkbox[0].checked) {
-        $addressInput.show();
-      } else {
-        $addressInput.hide();
+    if ($checkbox.length > 0) {
+      const toggleInput = () => {
+        if ($checkbox[0].checked) {
+          $addressInput.show();
+        } else {
+          $addressInput.hide();
+        }
       }
-    }
-
-    toggleInput();
-
-    $checkbox.on('change', () => {
       toggleInput();
-    });
+      $checkbox.on('change', toggleInput);
+    }
   };
 
-  window.DecidimProposals.foo();
+  window.DecidimProposals.bindProposalAddress();
 });
 

@@ -103,6 +103,9 @@ describe "Proposals", type: :feature do
             within ".new_proposal" do
               fill_in :proposal_title, with: "Oriol for president"
               fill_in :proposal_body, with: "He will solve everything"
+
+              check :proposal_has_address
+
               fill_in :proposal_address, with: address
               select category.name["en"], from: :proposal_category_id
               select scope.name, from: :proposal_scope_id
@@ -165,6 +168,9 @@ describe "Proposals", type: :feature do
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Oriol for president"
                 fill_in :proposal_body, with: "He will solve everything"
+
+                check :proposal_has_address
+
                 fill_in :proposal_address, with: address
                 select category.name["en"], from: :proposal_category_id
                 select scope.name, from: :proposal_scope_id
