@@ -20,6 +20,9 @@
 
           <% if feature_settings.geocoding_enabled? %>
             <div class="field">
+              <%= form.check_box :has_address %>
+            </div>
+            <div class="field" id="address_input">
               <%= form.text_field :address %>
             </div>
           <% end %>
@@ -50,3 +53,5 @@
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag "decidim/proposals/add_proposal" %>

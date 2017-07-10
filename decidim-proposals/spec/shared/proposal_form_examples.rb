@@ -12,6 +12,7 @@ RSpec.shared_examples "a proposal form" do
   let(:scope_id) { scope.try(:id) }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
+  let(:has_address) { false }
   let(:address) { nil }
   let(:params) do
     {
@@ -20,7 +21,8 @@ RSpec.shared_examples "a proposal form" do
       author: author,
       category_id: category_id,
       scope_id: scope_id,
-      address: address
+      address: address,
+      has_address: has_address
     }
   end
 
@@ -70,24 +72,28 @@ RSpec.shared_examples "a proposal form" do
   context "when geocoding is enabled" do
     let(:feature) { create(:proposal_feature, :with_geocoding_enabled) }
 
-    context "when the address is not present" do
-      it { is_expected.to be_invalid }
-    end
+    context "when the has address checkbox is checked" do
+      let(:has_address) { true }
 
-    context "when the address is present" do
-      let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
-
-      before do
-        Geocoder::Lookup::Test.add_stub(
-          address,
-          [{ "latitude" => latitude, "longitude" => longitude }]
-        )
+      context "when the address is not present" do
+        it { is_expected.to be_invalid }
       end
 
-      it "validates the address and store its coordinates" do
-        expect(subject).to be_valid
-        expect(subject.latitude).to eq(latitude)
-        expect(subject.longitude).to eq(longitude)
+      context "when the address is present" do
+        let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
+
+        before do
+          Geocoder::Lookup::Test.add_stub(
+            address,
+            [{ "latitude" => latitude, "longitude" => longitude }]
+          )
+        end
+
+        it "validates the address and store its coordinates" do
+          expect(subject).to be_valid
+          expect(subject.latitude).to eq(latitude)
+          expect(subject.longitude).to eq(longitude)
+        end
       end
     end
   end
