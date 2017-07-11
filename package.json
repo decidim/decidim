@@ -27,7 +27,7 @@
     "@types/faker": "^4.1.0",
     "@types/jest": "^20.0.2",
     "@types/jquery": "^3.2.6",
-    "@types/react": "^15.0.35",
+    "@types/react": "^15.0.36",
     "@types/react-dom": "^15.5.1",
     "@types/uuid": "^3.0.0",
     "awesome-typescript-loader": "^3.2.1",
@@ -52,7 +52,7 @@
     "faker": "^4.1.0",
     "jest": "^20.0.4",
     "json-loader": "~0.5.4",
-    "progress-bar-webpack-plugin": "~1.9.0",
+    "progress-bar-webpack-plugin": "^1.10.0",
     "react-addons-test-utils": "^15.6.0",
     "source-map-loader": "^0.2.1",
     "ts-jest": "^20.0.7",
@@ -67,7 +67,7 @@
     "yaml-loader": "^0.5.0"
   },
   "dependencies": {
-    "apollo-client": "^1.7.0",
+    "apollo-client": "^1.8.0",
     "apollo-codegen": "^0.14.3",
     "classnames": "~2.2.5",
     "graphql-anywhere": "^3.1.0",
