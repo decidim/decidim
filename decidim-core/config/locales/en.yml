@@ -356,6 +356,7 @@ en:
         see_more: See more
   locale:
     name: English
+    required: Required
   pages:
     home:
       extended:
