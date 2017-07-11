@@ -32,6 +32,7 @@ module Decidim
   autoload :Menu, "decidim/menu"
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
+  autoload :ManifestRegistry, "decidim/manifest_registry"
   autoload :Abilities, "decidim/abilities"
 
   include ActiveSupport::Configurable
@@ -138,11 +139,8 @@ module Decidim
   # name - A Symbol with the feature's unique name.
   #
   # Returns nothing.
-  def self.register_feature(name)
-    manifest = FeatureManifest.new(name: name.to_sym)
-    yield(manifest)
-    manifest.validate!
-    feature_manifests << manifest
+  def self.register_feature(name, &block)
+    feature_registry.register(name, &block)
   end
 
   # Public: Finds all the registered feature manifest's via the
@@ -150,7 +148,7 @@ module Decidim
   #
   # Returns an Array[FeatureManifest].
   def self.feature_manifests
-    @feature_manifests ||= Set.new
+    feature_registry.manifests
   end
 
   # Public: Finds a feature manifest by the feature's name.
@@ -159,15 +157,14 @@ module Decidim
   #
   # Returns a FeatureManifest if found, nil otherwise.
   def self.find_feature_manifest(name)
-    name = name.to_sym
-    feature_manifests.find { |manifest| manifest.name == name }
+    feature_registry.find(name.to_sym)
   end
 
   # Public: Stores all the resource manifest across all feature manifest.
   #
   # Returns an Array[ResourceManifest]
   def self.resource_manifests
-    @resource_manifests ||= feature_manifests.flat_map(&:resource_manifests)
+    feature_registry.resource_manifests
   end
 
   # Public: Finds a resource manifest by the resource's name.
@@ -177,9 +174,12 @@ module Decidim
   #
   # Returns a ResourceManifest if found, nil otherwise.
   def self.find_resource_manifest(resource_name_or_klass)
-    resource_manifests.find do |manifest|
-      manifest.model_class == resource_name_or_klass || manifest.name.to_s == resource_name_or_klass.to_s
-    end
+    feature_registry.find_resource_manifest(resource_name_or_klass)
+  end
+
+  # Public: Stores the registry of features
+  def self.feature_registry
+    @feature_registry ||= ManifestRegistry.new(:features)
   end
 
   # Public: Stores an instance of StatsRegistry
