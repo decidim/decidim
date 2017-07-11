@@ -96,6 +96,26 @@ module Decidim
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
 
+  # Exposes a configuration option: a custom method to generate references
+  # Default: Calculates a unique reference for the model in
+  # the following format:
+  #
+  # "BCN-DPP-2017-02-6589" which in this example translates to:
+  #
+  # BCN: A setting configured at the organization to be prepended to each reference.
+  # PROP: Unique name identifier for a resource: Decidim::Proposals::Proposal (MEET for meetings or PROJ for projects).
+  # 2017-02: Year-Month of the resource creation date
+  # 6589: ID of the resource
+  config_accessor :resource_reference_generator do
+    lambda do |resource, feature|
+      ref = feature.participatory_process.organization.reference_prefix
+      class_identifier = resource.class.name.demodulize[0..3].upcase
+      year_month = (resource.created_at || Time.current).strftime("%Y-%m")
+
+      [ref, class_identifier, year_month, resource.id].join("-")
+    end
+  end
+
   # Exposes a configuration option: the currency unit
   config_accessor :currency_unit { "€" }
 

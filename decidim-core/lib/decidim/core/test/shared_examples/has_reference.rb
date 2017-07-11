@@ -1,13 +1,29 @@
 # frozen_string_literal: true
 
 shared_examples_for "has reference" do
+  before do
+    allow(Decidim).to receive(:calculate_reference_method).and_return(nil)
+  end
+
   context "when the reference is nil" do
     before do
       subject[:reference] = nil
     end
 
-    it "generates a valid reference" do
-      expect(subject.reference).to match(/[A-z]+/)
+    context "when there is not a custom resource reference generator present" do
+      it "generates a valid reference" do
+        expect(subject.reference).to match(/[A-z]+/)
+      end
+    end
+
+    context "when there is a custom resource reference generator present" do
+      before do
+        allow(Decidim).to receive(:resource_reference_generator).and_return(->(resource, _feature) { "1234-#{resource.id}" })
+      end
+
+      it "generates a valid reference" do
+        expect(subject.reference).to eq("1234-#{subject.id}")
+      end
     end
   end
 

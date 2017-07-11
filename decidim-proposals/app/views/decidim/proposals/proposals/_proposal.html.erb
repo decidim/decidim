@@ -8,6 +8,7 @@
         <div class="card__author author-data author-data--small">
           <%= render partial: "author", locals: { proposal: proposal } %>
         </div>
+        <%= feature_reference(proposal, class: "reference--text-left") %>
       </div>
       <%= render partial: "proposal_badge", locals: { proposal: proposal } %>
       <p><%= truncate(proposal.body, length: 100) %></p>
