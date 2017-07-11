@@ -49,7 +49,7 @@ module Decidim
       end
 
       def create_or_invite_user
-        @user ||= (existing_user || new_user)
+        @user ||= existing_user || new_user
       end
 
       def existing_user
@@ -60,7 +60,7 @@ module Decidim
           organization: participatory_process.organization
         ).first
 
-        unless @existing_user.invitation_accepted?
+        if @existing_user && !@existing_user.invitation_accepted?
           InviteUserAgain.call(@existing_user, invitation_instructions)
         end
 
