@@ -163,6 +163,13 @@ module Decidim
     feature_manifests.find { |manifest| manifest.name == name }
   end
 
+  # Public: Stores all the resource manifest across all feature manifest.
+  #
+  # Returns an Array[ResourceManifest]
+  def self.resource_manifests
+    @resource_manifests ||= feature_manifests.flat_map(&:resource_manifests)
+  end
+
   # Public: Finds a resource manifest by the resource's name.
   #
   # resource_name_or_class - The String of the ResourceManifest name or the class of
@@ -173,13 +180,6 @@ module Decidim
     resource_manifests.find do |manifest|
       manifest.model_class == resource_name_or_klass || manifest.name.to_s == resource_name_or_klass.to_s
     end
-  end
-
-  # Public: Stores all the resource manifest across all feature manifest.
-  #
-  # Returns an Array[ResourceManifest]
-  def self.resource_manifests
-    @resource_manifests ||= feature_manifests.flat_map(&:resource_manifests)
   end
 
   # Public: Stores an instance of StatsRegistry
