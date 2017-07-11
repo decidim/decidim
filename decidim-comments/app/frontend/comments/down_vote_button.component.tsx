@@ -4,6 +4,7 @@ import { graphql } from "react-apollo";
 import VoteButton from "./vote_button.component";
 
 import {
+  AddCommentFormCommentableFragment,
   AddCommentFormSessionFragment,
   CommentFragment,
   DownVoteButtonFragment,
@@ -17,6 +18,8 @@ interface DownVoteButtonProps {
   } | null;
   comment: DownVoteButtonFragment;
   downVote?: () => void;
+  rootCommentable: AddCommentFormCommentableFragment;
+  orderBy: string;
 }
 
 export const DownVoteButton: React.SFC<DownVoteButtonProps> = ({
@@ -49,49 +52,65 @@ export const DownVoteButton: React.SFC<DownVoteButtonProps> = ({
 };
 
 const downVoteMutation = require("../mutations/down_vote.mutation.graphql");
+const getCommentsQuery = require("../queries/comments.query.graphql");
 
-const DownVoteButtonWithMutation = graphql(downVoteMutation, {
+const DownVoteButtonWithMutation = graphql<DownVoteMutation, DownVoteButtonProps>(downVoteMutation, {
   props: ({ ownProps, mutate }) => ({
-    downVote: () => mutate({
-      variables: {
-        id: ownProps.comment.id,
-      },
-      optimisticResponse: {
-        __typename: "Mutation",
-        comment: {
-          __typename: "CommentMutation",
-          downVote: {
-            __typename: "Comment",
-            ...ownProps.comment,
-            downVotes: ownProps.comment.downVotes + 1,
-            downVoted: true,
+    downVote() {
+      if (mutate) {
+        mutate({
+          variables: {
+            id: ownProps.comment.id,
           },
-        },
-      },
-      updateQueries: {
-        GetComments: (prev: GetCommentsQuery, { mutationResult: { data } }: { mutationResult: { data: DownVoteMutation }}) => {
-          const commentReducer = (comment: CommentFragment): CommentFragment => {
-            const replies = comment.comments || [];
-
-            if (comment.id === ownProps.comment.id && data.comment) {
-              return data.comment.downVote;
-            }
-            return {
-              ...comment,
-              comments: replies.map(commentReducer),
-            };
-          };
-
-          return {
-            ...prev,
-            commentable: {
-              ...prev.commentable,
-              comments: prev.commentable.comments.map(commentReducer),
+          optimisticResponse: {
+            __typename: "Mutation",
+            comment: {
+              __typename: "CommentMutation",
+              downVote: {
+                __typename: "Comment",
+                ...ownProps.comment,
+                downVotes: ownProps.comment.downVotes + 1,
+                downVoted: true,
+              },
             },
-          };
-        },
-      },
-    }),
+          },
+          update: (store, result: DownVoteMutation) => {
+            const variables = {
+              commentableId: ownProps.rootCommentable.id,
+              commentableType: ownProps.rootCommentable.type,
+              orderBy: ownProps.orderBy,
+            };
+
+            const commentReducer = (comment: CommentFragment): CommentFragment => {
+              const replies = comment.comments || [];
+
+              if (comment.id === ownProps.comment.id && result.comment) {
+                return result.comment.downVote;
+              }
+
+              return {
+                ...comment,
+                comments: replies.map(commentReducer),
+              };
+            };
+
+            const prev = store.readQuery<GetCommentsQuery>({ query: getCommentsQuery, variables });
+
+            store.writeQuery({
+              query: getCommentsQuery,
+              data: {
+                ...prev,
+                commentable: {
+                  ...prev.commentable,
+                  comments: prev.commentable.comments.map(commentReducer),
+                },
+              },
+              variables,
+            });
+          },
+        });
+      }
+    },
   }),
 })(DownVoteButton);
 

@@ -28,6 +28,9 @@ capybara_options = {
     ),
     File.expand_path(
       File.join(__dir__, "phantomjs_polyfills", "phantomjs-shim.js")
+    ),
+    File.expand_path(
+      File.join(__dir__, "phantomjs_polyfills", "phantomjs-getOwnPropertyNames.js")
     )
   ],
   js_errors: true,

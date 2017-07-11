@@ -3,6 +3,7 @@ import * as React from "react";
 import Comment from "./comment.component";
 
 import {
+  AddCommentFormCommentableFragment,
   AddCommentFormSessionFragment,
   CommentFragment,
 } from "../support/schema";
@@ -15,6 +16,8 @@ interface CommentThreadProps {
     user: any;
   } | null;
   votable?: boolean;
+  rootCommentable: AddCommentFormCommentableFragment;
+  orderBy: string;
 }
 
 /**
@@ -23,14 +26,14 @@ interface CommentThreadProps {
  * @augments Component
  * @todo It doesn't handle multiple comments yet
  */
-class CommentThread extends React.Component<CommentThreadProps, undefined> {
+class CommentThread extends React.Component<CommentThreadProps> {
   public static defaultProps: any = {
     session: null,
     votable: false,
   };
 
   public render() {
-    const { comment, session, votable } = this.props;
+    const { comment, session, votable, rootCommentable, orderBy } = this.props;
 
     return (
       <div>
@@ -41,6 +44,8 @@ class CommentThread extends React.Component<CommentThreadProps, undefined> {
             session={session}
             votable={votable}
             isRootComment={true}
+            rootCommentable={rootCommentable}
+            orderBy={orderBy}
           />
         </div>
       </div>

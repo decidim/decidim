@@ -36,6 +36,9 @@ const VoteButton: React.SFC<VoteButtonProps> = ({
 );
 
 VoteButton.defaultProps = {
+  buttonClassName: "",
+  iconName: "",
+  votes: 0,
   selectedClass: "selected",
   disabled: false,
 };

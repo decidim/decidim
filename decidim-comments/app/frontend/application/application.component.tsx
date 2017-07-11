@@ -15,7 +15,7 @@ interface ApplicationProps {
  * @class
  * @augments Component
  */
-export default class Application extends React.Component<ApplicationProps, undefined> {
+export default class Application extends React.Component<ApplicationProps> {
   constructor(props: ApplicationProps) {
     const { locale } = props;
 

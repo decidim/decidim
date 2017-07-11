@@ -10,6 +10,11 @@ import generateUserData from "../support/generate_user_data";
 import { DownVoteButtonFragment } from "../support/schema";
 
 describe("<DownVoteButton />", () => {
+  const orderBy = "older";
+  const rootCommentable = {
+    id: "1",
+    type: "Decidim::DummyResource",
+  };
   let comment: DownVoteButtonFragment;
   let session: any = null;
   const downVote = jasmine.createSpy("downVote");
@@ -23,7 +28,7 @@ describe("<DownVoteButton />", () => {
   });
 
   it("should render a VoteButton component with the correct props", () => {
-    const wrapper = shallow(<DownVoteButton session={session} comment={comment} downVote={downVote} />);
+    const wrapper = shallow(<DownVoteButton session={session} comment={comment} downVote={downVote} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find(VoteButton).prop("buttonClassName")).toEqual("comment__votes--down");
     expect(wrapper.find(VoteButton).prop("iconName")).toEqual("icon-chevron-bottom");
     expect(wrapper.find(VoteButton).prop("votes")).toEqual(comment.downVotes);
@@ -31,13 +36,13 @@ describe("<DownVoteButton />", () => {
 
   it("should pass disabled prop as true if comment downVoted is true", () => {
     comment.downVoted = true;
-    const wrapper = shallow(<DownVoteButton session={session} comment={comment} downVote={downVote} />);
+    const wrapper = shallow(<DownVoteButton session={session} comment={comment} downVote={downVote} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find(VoteButton).prop("disabled")).toBeTruthy();
   });
 
   it("should pass disabled prop as true if comment downVoted is true", () => {
     comment.downVoted = true;
-    const wrapper = shallow(<DownVoteButton session={session} comment={comment} downVote={downVote} />);
+    const wrapper = shallow(<DownVoteButton session={session} comment={comment} downVote={downVote} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find(VoteButton).prop("disabled")).toBeTruthy();
   });
 
@@ -47,7 +52,7 @@ describe("<DownVoteButton />", () => {
     });
 
     it("should pass userLoggedIn as false", () => {
-      const wrapper = shallow(<DownVoteButton session={session} comment={comment} downVote={downVote} />);
+      const wrapper = shallow(<DownVoteButton session={session} comment={comment} downVote={downVote} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find(VoteButton).prop("userLoggedIn")).toBeFalsy();
     });
   });

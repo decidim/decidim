@@ -21,12 +21,14 @@ interface AddCommentFormProps {
     user: any;
   } | null;
   commentable: AddCommentFormCommentableFragment;
+  rootCommentable: AddCommentFormCommentableFragment;
   showTitle?: boolean;
   submitButtonClassName?: string;
   autoFocus?: boolean;
   arguable?: boolean;
   addComment?: (data: { body: string, alignment: number, userGroupId?: string }) => void;
   onCommentAdded?: () => void;
+  orderBy: string;
 }
 
 interface AddCommentFormState {
@@ -340,89 +342,107 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
 }
 
 const addCommentMutation = require("../mutations/add_comment.mutation.graphql");
+const getCommentsQuery = require("../queries/comments.query.graphql");
 
-const AddCommentFormWithMutation = graphql(addCommentMutation, {
+const AddCommentFormWithMutation = graphql<AddCommentMutation, AddCommentFormProps>(addCommentMutation, {
   props: ({ ownProps, mutate }) => ({
-    addComment: ({ body, alignment, userGroupId }: { body: string, alignment: number, userGroupId: string }) => mutate({
-      variables: {
-        commentableId: ownProps.commentable.id,
-        commentableType: ownProps.commentable.type,
-        body,
-        alignment,
-        userGroupId,
-      },
-      optimisticResponse: {
-        commentable: {
-          __typename: "CommentableMutation",
-          addComment: {
-            __typename: "Comment",
-            id: uuid(),
-            sgid: uuid(),
-            type: "Decidim::Comments::Comment",
-            createdAt: new Date().toISOString(),
+    addComment: ({ body, alignment, userGroupId }: { body: string, alignment: number, userGroupId: string }) => {
+      if (mutate) {
+        mutate({
+          variables: {
+            commentableId: ownProps.commentable.id,
+            commentableType: ownProps.commentable.type,
             body,
             alignment,
-            author: {
-              __typename: "User",
-              name: ownProps.session.user.name,
-              avatarUrl: ownProps.session.user.avatarUrl,
-              deleted: false,
-            },
-            comments: [],
-            hasComments: false,
-            acceptsNewComments: false,
-            upVotes: 0,
-            upVoted: false,
-            downVotes: 0,
-            downVoted: false,
-            alreadyReported: false,
+            userGroupId,
           },
-        },
-      },
-      updateQueries: {
-        GetComments: (prev: GetCommentsQuery, { mutationResult: { data } }: { mutationResult: { data: AddCommentMutation }}) => {
-          const { id, type } = ownProps.commentable;
-          const newComment = data.commentable && data.commentable.addComment;
-          let comments = [];
+          optimisticResponse: {
+            commentable: {
+              __typename: "CommentableMutation",
+              addComment: {
+                __typename: "Comment",
+                id: uuid(),
+                sgid: uuid(),
+                type: "Decidim::Comments::Comment",
+                createdAt: new Date().toISOString(),
+                body,
+                alignment,
+                author: {
+                  __typename: "User",
+                  name: ownProps.session && ownProps.session.user.name,
+                  avatarUrl: ownProps.session && ownProps.session.user.avatarUrl,
+                  deleted: false,
+                  isVerified: true,
+                  isUser: true,
+                },
+                comments: [],
+                hasComments: false,
+                acceptsNewComments: false,
+                upVotes: 0,
+                upVoted: false,
+                downVotes: 0,
+                downVoted: false,
+                alreadyReported: false,
+              },
+            },
+          },
+          update: (store, { data }: { data: AddCommentMutation }) => {
+            const variables = {
+              commentableId: ownProps.rootCommentable.id,
+              commentableType: ownProps.rootCommentable.type,
+              orderBy: ownProps.orderBy,
+            };
+            const prev = store.readQuery<GetCommentsQuery>({
+              query: getCommentsQuery,
+              variables,
+             });
+            const { id, type } = ownProps.commentable;
+            const newComment = data.commentable && data.commentable.addComment;
+            let comments = [];
 
-          const commentReducer = (comment: CommentFragment): CommentFragment => {
-            const replies = comment.comments || [];
+            const commentReducer = (comment: CommentFragment): CommentFragment => {
+              const replies = comment.comments || [];
 
-            if (newComment && comment.id === id) {
+              if (newComment && comment.id === id) {
+                return {
+                  ...comment,
+                  hasComments: true,
+                  comments: [
+                    ...replies,
+                    newComment,
+                  ],
+                };
+              }
               return {
                 ...comment,
-                hasComments: true,
-                comments: [
-                  ...replies,
-                  newComment,
-                ],
+                comments: replies.map(commentReducer),
               };
-            }
-            return {
-              ...comment,
-              comments: replies.map(commentReducer),
             };
-          };
 
-          if (type === "Decidim::Comments::Comment") {
-            comments = prev.commentable.comments.map(commentReducer);
-          } else {
-            comments = [
-              ...prev.commentable.comments,
-              newComment,
-            ];
-          }
+            if (type === "Decidim::Comments::Comment") {
+                comments = prev.commentable.comments.map(commentReducer);
+              } else {
+                comments = [
+                  ...prev.commentable.comments,
+                  newComment,
+                ];
+              }
 
-          return {
-            ...prev,
-            commentable: {
-              ...prev.commentable,
-              comments,
-            },
-          };
-        },
-      },
-    }),
+            store.writeQuery({
+              query: getCommentsQuery,
+              data: {
+                ...prev,
+                commentable: {
+                  ...prev.commentable,
+                  comments,
+                },
+              },
+              variables,
+            });
+          },
+        });
+      }
+    },
   }),
 })(AddCommentForm);
 
