@@ -175,7 +175,7 @@ module Decidim
     end
   end
 
-  # Private: Stores all the resource manifest across all feature manifest.
+  # Public: Stores all the resource manifest across all feature manifest.
   #
   # Returns an Array[ResourceManifest]
   def self.resource_manifests
