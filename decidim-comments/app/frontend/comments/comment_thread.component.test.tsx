@@ -10,6 +10,11 @@ import generateCUserData from "../support/generate_user_data";
 import { loadLocaleTranslations } from "../support/load_translations";
 
 describe("<CommentThread />", () => {
+  const orderBy = "older";
+  const rootCommentable = {
+    id: "1",
+    type: "Decidim::DummyResource",
+  };
   let comment: CommentFragment;
   let session: any = null;
 
@@ -25,7 +30,7 @@ describe("<CommentThread />", () => {
 
   describe("when comment doesn't have comments", () => {
     it("should not render a title with author name", () => {
-      const wrapper = shallow(<CommentThread comment={comment} session={session} />);
+      const wrapper = shallow(<CommentThread comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find("h6.comment-thread__title").exists()).toBeFalsy();
     });
   });
@@ -36,7 +41,7 @@ describe("<CommentThread />", () => {
     });
 
     it("should render a h6 comment-thread__title with author name", () => {
-      const wrapper = shallow(<CommentThread comment={comment} session={session} />);
+      const wrapper = shallow(<CommentThread comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find("h6.comment-thread__title").text()).toContain(`Conversation with ${comment.author.name}`);
     });
 
@@ -46,7 +51,7 @@ describe("<CommentThread />", () => {
       });
 
       it("should render a h6 comment-thread__title with 'Deleted user'", () => {
-        const wrapper = shallow(<CommentThread comment={comment} session={session} />);
+        const wrapper = shallow(<CommentThread comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
         expect(wrapper.find("h6.comment-thread__title").text()).toContain("Conversation with Deleted user");
       });
     });
@@ -54,22 +59,22 @@ describe("<CommentThread />", () => {
 
   describe("should render a Comment", () => {
     it("and pass the session as a prop to it", () => {
-      const wrapper = shallow(<CommentThread comment={comment} session={session} />);
+      const wrapper = shallow(<CommentThread comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find(Comment).first().props()).toHaveProperty("session", session);
     });
 
     it("and pass comment data as a prop to it", () => {
-      const wrapper = shallow(<CommentThread comment={comment} session={session} />);
+      const wrapper = shallow(<CommentThread comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find(Comment).first().props()).toHaveProperty("comment", comment);
     });
 
     it("and pass the votable as a prop to it", () => {
-      const wrapper = shallow(<CommentThread comment={comment} session={session} votable={true} />);
+      const wrapper = shallow(<CommentThread comment={comment} session={session} votable={true} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find(Comment).first().props()).toHaveProperty("votable", true);
     });
 
     it("and pass the isRootComment equal true", () => {
-      const wrapper = shallow(<CommentThread comment={comment} session={session} votable={true} />);
+      const wrapper = shallow(<CommentThread comment={comment} session={session} votable={true} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find(Comment).first().props()).toHaveProperty("isRootComment", true);
     });
   });

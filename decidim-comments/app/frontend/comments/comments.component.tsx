@@ -27,7 +27,7 @@ interface CommentsProps extends GetCommentsQuery {
  * @class
  * @augments Component
  */
-export class Comments extends React.Component<CommentsProps, undefined> {
+export class Comments extends React.Component<CommentsProps> {
   public static defaultProps: any = {
     loading: false,
     session: null,
@@ -91,7 +91,8 @@ export class Comments extends React.Component<CommentsProps, undefined> {
    * @returns {ReactComponent[]} - A collection of CommentThread components
    */
   private _renderCommentThreads() {
-    const { session, commentable: { comments, commentsHaveVotes } } = this.props;
+    const { session, commentable, orderBy } = this.props;
+    const { comments, commentsHaveVotes } = commentable;
 
     return comments.map((comment) => (
       <CommentThread
@@ -99,6 +100,8 @@ export class Comments extends React.Component<CommentsProps, undefined> {
         comment={comment}
         session={session}
         votable={commentsHaveVotes}
+        rootCommentable={commentable}
+        orderBy={orderBy}
       />
     ));
   }
@@ -109,7 +112,7 @@ export class Comments extends React.Component<CommentsProps, undefined> {
    * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
    */
   private _renderAddCommentForm() {
-    const { session, commentable } = this.props;
+    const { session, commentable, orderBy } = this.props;
     const { acceptsNewComments, commentsHaveAlignment } = commentable;
 
     if (acceptsNewComments) {
@@ -118,6 +121,8 @@ export class Comments extends React.Component<CommentsProps, undefined> {
           session={session}
           commentable={commentable}
           arguable={commentsHaveAlignment}
+          rootCommentable={commentable}
+          orderBy={orderBy}
         />
       );
     }
@@ -135,21 +140,27 @@ window.Comments = Comments;
 
 export const commentsQuery = require("../queries/comments.query.graphql");
 
-const CommentsWithData: any = graphql(commentsQuery, {
+const CommentsWithData: any = graphql<GetCommentsQuery, CommentsProps>(commentsQuery, {
   options: {
     pollInterval: 15000,
   },
-  props: ({ ownProps, data: { loading, session, commentable, refetch }}) => ({
-    loading,
-    session,
-    commentable,
-    orderBy: ownProps.orderBy,
-    reorderComments: (orderBy: string) => {
-      return refetch({
-        orderBy,
-      });
-    },
-  }),
+  props: ({ ownProps, data }) => {
+    if (data) {
+      const { loading, session, commentable, refetch } = data;
+
+      return {
+        loading,
+        session,
+        commentable,
+        orderBy: ownProps.orderBy,
+        reorderComments: (orderBy: string) => {
+          return refetch({
+            orderBy,
+          });
+        },
+      };
+    }
+  },
 })(Comments);
 
 export interface CommentsApplicationProps extends GetCommentsQueryVariables {

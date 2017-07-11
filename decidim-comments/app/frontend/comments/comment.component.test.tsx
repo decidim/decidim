@@ -14,6 +14,11 @@ import generateUserData from "../support/generate_user_data";
 import { loadLocaleTranslations } from "../support/load_translations";
 
 describe("<Comment />", () => {
+  const orderBy = "older";
+  const rootCommentable = {
+    id: "1",
+    type: "Decidim::DummyResource",
+  };
   let comment: CommentFragment;
   let session: any = null;
 
@@ -31,17 +36,17 @@ describe("<Comment />", () => {
   });
 
   it("should render an article with class comment", () => {
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find("article.comment").exists()).toBeTruthy();
   });
 
   it("should render a time tag with comment's created at", () => {
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find("time").prop("dateTime")).toEqual(comment.createdAt);
   });
 
   it("should render author's name in a link with class author__name", () => {
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find("a.author__name").text()).toEqual(comment.author.name);
   });
 
@@ -51,28 +56,28 @@ describe("<Comment />", () => {
     });
 
     it("should render 'Deleted user' inside a badge", () => {
-      const wrapper = shallow(<Comment comment={comment} session={session} />);
+      const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find("span.label.label--small.label--basic").text()).toEqual("Deleted user");
     });
   });
 
   it("should render author's avatar as a image tag", () => {
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find("a.author__avatar img").prop("src")).toEqual(comment.author.avatarUrl);
   });
 
   it("should render comment's body on a div with class comment__content", () => {
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find("div.comment__content").text()).toEqual(comment.body);
   });
 
   it("should initialize with a state property showReplyForm as false", () => {
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.state()).toHaveProperty("showReplyForm", false);
   });
 
   it("should render a AddCommentForm component with the correct props when clicking the reply button", () => {
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find(AddCommentForm).exists()).toBeFalsy();
     wrapper.find("button.comment__reply").simulate("click");
     expect(wrapper.find(AddCommentForm).prop("session")).toEqual(session);
@@ -83,24 +88,24 @@ describe("<Comment />", () => {
 
   it("should not render the additional reply button if the parent comment has no comments and isRootcomment", () => {
     comment.hasComments = false;
-    const wrapper = shallow(<Comment comment={comment} session={session} isRootComment={true} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} isRootComment={true} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find("div.comment__additionalreply").exists()).toBeFalsy();
   });
 
   it("should not render the additional reply button if the parent comment has comments and not isRootcomment", () => {
     comment.hasComments = true;
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find("div.comment__additionalreply").exists()).toBeFalsy();
   });
 
   it("should render the additional reply button if the parent comment has comments and isRootcomment", () => {
     comment.hasComments = true;
-    const wrapper = shallow(<Comment comment={comment} session={session} isRootComment={true} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} isRootComment={true} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find("div.comment__additionalreply").exists()).toBeTruthy();
   });
 
   it("should render comment's comments as a separate Comment components", () => {
-    const wrapper = shallow(<Comment comment={comment} session={session} votable={true} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} votable={true} rootCommentable={rootCommentable} orderBy={orderBy} />);
     wrapper.find(Comment).forEach((node, idx) => {
       expect(node.prop("comment")).toEqual(comment.comments[idx]);
       expect(node.prop("session")).toEqual(session);
@@ -110,19 +115,19 @@ describe("<Comment />", () => {
   });
 
   it("should render comment's comments with articleClassName as 'comment comment--nested comment--nested--alt' when articleClassName is 'comment comment--nested'", () => {
-    const wrapper = shallow(<Comment comment={comment} session={session} articleClassName="comment comment--nested" />);
+    const wrapper = shallow(<Comment comment={comment} session={session} articleClassName="comment comment--nested" rootCommentable={rootCommentable} orderBy={orderBy} />);
     wrapper.find(Comment).forEach((node) => {
       expect(node.prop("articleClassName")).toEqual("comment comment--nested comment--nested--alt");
     });
   });
 
   it("should have a default prop articleClassName with value 'comment'", () => {
-    const wrapper = mount(<Comment comment={comment} session={session} />);
+    const wrapper = mount(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.prop("articleClassName")).toEqual("comment");
   });
 
   it("should have a default prop isRootComment with value false", () => {
-    const wrapper = mount(<Comment comment={comment} session={session} />);
+    const wrapper = mount(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.prop("isRootComment")).toBeFalsy();
   });
 
@@ -132,7 +137,7 @@ describe("<Comment />", () => {
     });
 
     it("should not render the reply button", () => {
-      const wrapper = shallow(<Comment comment={comment} session={session} />);
+      const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find("button.comment__reply").exists()).toBeFalsy();
     });
   });
@@ -143,49 +148,49 @@ describe("<Comment />", () => {
     });
 
     it("should not render reply button", () => {
-      const wrapper = shallow(<Comment comment={comment} session={session} />);
+      const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find("button.comment__reply").exists()).toBeFalsy();
     });
 
     it("should not render the flag modal", () => {
-      const wrapper = shallow(<Comment comment={comment} session={session} />);
+      const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find(".flag-modal").exists()).toBeFalsy();
     });
   });
 
   it("should render a 'in favor' badge if comment's alignment is 1", () => {
     comment.alignment = 1;
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find("span.alignment.label").text()).toEqual("In favor");
   });
 
   it("should render a 'against' badge if comment's alignment is -1", () => {
     comment.alignment = -1;
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find("span.alert.label").text()).toEqual("Against");
   });
 
   it("should render the flag modal", () => {
-    const wrapper = shallow(<Comment comment={comment} session={session} />);
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
     expect(wrapper.find(".flag-modal").exists()).toBeTruthy();
   });
 
   describe("when user has already reported the comment", () => {
     it("should not render the flag form", () => {
       comment.alreadyReported = true;
-      const wrapper = shallow(<Comment comment={comment} session= {session} />);
+      const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find(".flag-modal form").exists()).toBeFalsy();
     });
   });
 
   describe("when the comment is votable", () => {
     it("should render an UpVoteButton component", () => {
-      const wrapper = shallow(<Comment comment={comment} session={session} votable={true} />);
+      const wrapper = shallow(<Comment comment={comment} session={session} votable={true} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find(UpVoteButton).prop("comment")).toEqual(comment);
     });
 
     it("should render an DownVoteButton component", () => {
-      const wrapper = shallow(<Comment comment={comment} session={session} votable={true} />);
+      const wrapper = shallow(<Comment comment={comment} session={session} votable={true} rootCommentable={rootCommentable} orderBy={orderBy} />);
       expect(wrapper.find(DownVoteButton).prop("comment")).toEqual(comment);
     });
   });

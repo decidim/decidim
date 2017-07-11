@@ -9,6 +9,7 @@ import DownVoteButton from "./down_vote_button.component";
 import UpVoteButton from "./up_vote_button.component";
 
 import {
+  AddCommentFormCommentableFragment,
   AddCommentFormSessionFragment,
   CommentFragment,
 } from "../support/schema";
@@ -23,6 +24,8 @@ interface CommentProps {
   articleClassName?: string;
   isRootComment?: boolean;
   votable?: boolean;
+  rootCommentable: AddCommentFormCommentableFragment;
+  orderBy: string;
 }
 
 interface CommentState {
@@ -202,13 +205,13 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DOMElement} - Render the upVote and downVote buttons or not
    */
   private _renderVoteButtons() {
-    const { session, comment, votable } = this.props;
+    const { session, comment, votable, rootCommentable, orderBy } = this.props;
 
     if (votable) {
       return (
         <div className="comment__votes">
-          <UpVoteButton session={session} comment={comment} />
-          <DownVoteButton session={session} comment={comment} />
+          <UpVoteButton session={session} comment={comment} rootCommentable={rootCommentable} orderBy={orderBy} />
+          <DownVoteButton session={session} comment={comment} rootCommentable={rootCommentable} orderBy={orderBy} />
         </div>
       );
     }
@@ -222,7 +225,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DomElement} - A wrapper element with comment's comments inside
    */
   private _renderReplies() {
-    const { comment: { id, hasComments, comments }, session, votable, articleClassName } = this.props;
+    const { comment: { id, hasComments, comments }, session, votable, articleClassName, rootCommentable, orderBy } = this.props;
     let replyArticleClassName = "comment comment--nested";
 
     if (articleClassName === "comment comment--nested") {
@@ -240,6 +243,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
                 session={session}
                 votable={votable}
                 articleClassName={replyArticleClassName}
+                rootCommentable={rootCommentable}
+                orderBy={orderBy}
               />
             ))
           }
@@ -256,7 +261,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|ReactElement} - Render the AddCommentForm component or not
    */
   private _renderReplyForm() {
-    const { session, comment } = this.props;
+    const { session, comment, rootCommentable, orderBy } = this.props;
     const { showReplyForm } = this.state;
 
     if (session && showReplyForm) {
@@ -268,6 +273,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
           submitButtonClassName="button small hollow"
           onCommentAdded={this.toggleReplyForm}
           autoFocus={true}
+          rootCommentable={rootCommentable}
+          orderBy={orderBy}
         />
       );
     }

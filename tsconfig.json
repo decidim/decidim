@@ -13,5 +13,8 @@
         "decidim-comments/app/frontend/**/*.tsx",
         "decidim-comments/app/frontend/**/*.ts",
         "webpack.d.ts"
+    ],
+    "exclude": [
+        "node_modules"
     ]
 }

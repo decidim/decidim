@@ -4,6 +4,7 @@ import { graphql, MutationFunc } from "react-apollo";
 import VoteButton from "./vote_button.component";
 
 import {
+  AddCommentFormCommentableFragment,
   AddCommentFormSessionFragment,
   CommentFragment,
   GetCommentsQuery,
@@ -17,6 +18,8 @@ interface UpVoteButtonProps {
   } | null;
   comment: UpVoteButtonFragment;
   upVote?: () => void;
+  rootCommentable: AddCommentFormCommentableFragment;
+  orderBy: string;
 }
 
 export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
@@ -49,6 +52,7 @@ export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
 };
 
 const upVoteMutation = require("../mutations/up_vote.mutation.graphql");
+const getCommentsQuery = require("../queries/comments.query.graphql");
 
 const UpVoteButtonWithMutation = graphql(upVoteMutation, {
   props: ({ ownProps, mutate }: { ownProps: UpVoteButtonProps, mutate: MutationFunc<UpVoteMutation> }) => ({
@@ -68,29 +72,40 @@ const UpVoteButtonWithMutation = graphql(upVoteMutation, {
           },
         },
       },
-      // updateQueries: {
-      //   GetComments: (prev: GetCommentsQuery, { mutationResult: { data } }: { mutationResult: { data: UpVoteMutation}}) => {
-      //     const commentReducer = (comment: CommentFragment): CommentFragment => {
-      //       const replies = comment.comments || [];
+      update: (store, result: UpVoteMutation) => {
+        const variables = {
+          commentableId: ownProps.rootCommentable.id,
+          commentableType: ownProps.rootCommentable.type,
+          orderBy: ownProps.orderBy,
+        };
 
-      //       if (comment.id === ownProps.comment.id && data.comment) {
-      //         return data.comment.upVote;
-      //       }
-      //       return {
-      //         ...comment,
-      //         comments: replies.map(commentReducer),
-      //       };
-      //     };
+        const commentReducer = (comment: CommentFragment): CommentFragment => {
+          const replies = comment.comments || [];
 
-      //     return {
-      //       ...prev,
-      //       commentable: {
-      //         ...prev.commentable,
-      //         comments: prev.commentable.comments.map(commentReducer),
-      //       },
-      //     };
-      //   },
-      // },
+          if (comment.id === ownProps.comment.id && result.comment) {
+            return result.comment.upVote;
+          }
+
+          return {
+            ...comment,
+            comments: replies.map(commentReducer),
+          };
+        };
+
+        const prev = store.readQuery<GetCommentsQuery>({ query: getCommentsQuery, variables });
+
+        store.writeQuery({
+          query: getCommentsQuery,
+          data: {
+            ...prev,
+            commentable: {
+              ...prev.commentable,
+              comments: prev.commentable.comments.map(commentReducer),
+            },
+          },
+          variables,
+        });
+      },
     }),
   }),
 })(UpVoteButton);
