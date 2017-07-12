@@ -54,6 +54,7 @@ module Decidim
           expect(html).to eq(
             '<label for="authorization_handler_document_number">' \
               "Document number" \
+              '<abbr title="Required" data-tooltip="true" data-disable-hover="false" aria-haspopup="true" class="label-required">*</abbr>' \
               '<input required="required" type="email" name="authorization_handler[document_number]" id="authorization_handler_document_number" />' \
               '<span class="form-error">There&#39;s an error in this field.</span>' \
             "</label>"
