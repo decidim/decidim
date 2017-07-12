@@ -144,7 +144,7 @@ module Decidim
       iso_value = value.present? ? value.strftime("%Y-%m-%d") : ""
 
       template = ""
-      template += label(attribute,  label_for(attribute) + required_for_attribute(attribute))
+      template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.text_field(
         @object_name,
         attribute,
@@ -295,7 +295,7 @@ module Decidim
     # Returns Boolean.
     def attribute_required?(attribute)
       validator = find_validator(attribute, ActiveModel::Validations::PresenceValidator) ||
-        find_validator(attribute, TranslatablePresenceValidator)
+                  find_validator(attribute, TranslatablePresenceValidator)
 
       return unless validator
 
@@ -449,9 +449,9 @@ module Decidim
 
     def required_for_attribute(attribute)
       if attribute_required?(attribute)
-        return content_tag(:abbr, "*", title: I18n.t("required", scope: "locale"), data: { tooltip: true, disable_hover: false }, :'aria-haspopup' => true, title: I18n.t("required", scope: "locale"),class: "label-required").html_safe
+        return content_tag(:abbr, "*", title: I18n.t("required", scope: "locale"), data: { tooltip: true, disable_hover: false }, 'aria-haspopup': true, title: I18n.t("required", scope: "locale"), class: "label-required").html_safe
       end
-      return "".html_safe
+      "".html_safe
     end
   end
 end
