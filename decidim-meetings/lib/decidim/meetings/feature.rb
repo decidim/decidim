@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/features/namer"
+require "decidim/features/namer"
 
 Decidim.register_feature(:meetings) do |feature|
   feature.engine = Decidim::Meetings::Engine

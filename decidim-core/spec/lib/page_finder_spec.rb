@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require_dependency "decidim/page_finder"
+require "decidim/page_finder"
 
 module Decidim
   describe PageFinder do
