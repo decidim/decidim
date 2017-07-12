@@ -12,7 +12,11 @@ module Decidim
       #
       def scope_breadcrumbs(current_scope)
         current_scope.part_of_scopes.map do |scope|
-          link_to translated_attribute(scope.name), scope_scopes_path(scope)
+          if scope == current_scope
+            translated_attribute(scope.name)
+          else
+            link_to translated_attribute(scope.name), scope_scopes_path(scope)
+          end
         end
       end
 

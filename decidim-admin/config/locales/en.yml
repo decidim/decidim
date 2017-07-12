@@ -488,6 +488,7 @@ en:
         update:
           error: There was an error when updating this scope.
           success: Scope updated successfully
+        no_scopes: No scopes at this level.
       static_pages:
         actions:
           view: View public page

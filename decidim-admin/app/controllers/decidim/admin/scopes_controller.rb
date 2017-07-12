@@ -5,8 +5,8 @@ module Decidim
     # Controller that allows managing all scopes at the admin panel.
     #
     class ScopesController < Decidim::Admin::ApplicationController
+      layout "decidim/admin/settings"
       helper_method :scope, :parent_scope, :add_scope_path, :current_scopes_path
-      layout :scope_layout
 
       def index
         authorize! :index, Scope
@@ -93,19 +93,7 @@ module Decidim
       def collection
         current_organization.scopes
       end
-
-      def scope_layout
-        "decidim/admin/#{parent_scope ? "scope" : "settings"}"
-      end
-
-      def add_scope_path
-        if parent_scope
-          new_scope_scope_path(parent_scope)
-        else
-          new_scope_path
-        end
-      end
-
+      
       def current_scopes_path
         if parent_scope
           scope_scopes_path(parent_scope)
