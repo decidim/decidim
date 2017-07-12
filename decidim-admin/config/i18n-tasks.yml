@@ -98,6 +98,7 @@ ignore_unused:
  - actions.confirm_destroy
  - time.formats.*
  - date.formats.*
+ - forms.*
 
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
