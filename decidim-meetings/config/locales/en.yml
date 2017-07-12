@@ -51,7 +51,7 @@ en:
           index:
             title: Meetings
           new:
-            create: Create 
+            create: Create
             title: Create meeting
           update:
             invalid: There's been a problem updating this meeting
@@ -93,6 +93,7 @@ en:
             map: Map
             start_time: Start date
             title: Title
+      read_more: "(read more)"
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Related results:'
