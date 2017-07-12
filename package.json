@@ -18,7 +18,8 @@
     "graphql:download_schema": "apollo-codegen download-schema http://localhost:3000/api --output schema.json",
     "pregraphql:generate_schema_types": "yarn run graphql:download_schema",
     "graphql:generate_schema_types": "apollo-codegen generate decidim-comments/**/*.graphql --schema schema.json --target typescript --output decidim-comments/app/frontend/support/schema.ts",
-    "postgraphql:generate_schema_types": "rm schema.json"
+    "postgraphql:generate_schema_types": "rm schema.json",
+    "precommit": "bundle exec rubocop -a `git diff --name-only master` && git commit -a --amend --no-edit --no-verify"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.0",
@@ -50,6 +51,7 @@
     "eslint-plugin-react": "^7.1.0",
     "expose-loader": "~0.7.1",
     "faker": "^4.1.0",
+    "husky": "^0.14.3",
     "jest": "^20.0.4",
     "json-loader": "~0.5.4",
     "progress-bar-webpack-plugin": "^1.10.0",
