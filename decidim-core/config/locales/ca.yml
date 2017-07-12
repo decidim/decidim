@@ -295,6 +295,8 @@ ca:
       too_many_marks: Està utilitzant massa símbols d'exclamació o interrogació
       too_much_caps: Està utilitzant massa majúscules
       too_short: És massa curt
+  forms:
+    required: Obligatori
   invisible_captcha:
     sentence_for_humans: Si ets un humà, pots ignorar aquest camp
     timestamp_error_message: Ho sentim, has estat massa ràpid! Torna a enviar-ho.
