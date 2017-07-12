@@ -104,14 +104,6 @@ fi:
       shared:
         omniauth_buttons:
           or: Tai
-    errors:
-      internal_server_error:
-        title: Palvelimellamme tapahtui virhe
-        try_later: Yritä myöhemmin uudestaan.
-      not_found:
-        back_home: Takaisin kotisivulle
-        content_doesnt_exist: Tämä osoite on virheellinen tai sivun osoite on muuttunut.
-        title: Etsimääsi sivua ei löydy
     features:
       dummy:
         actions:

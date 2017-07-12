@@ -295,6 +295,8 @@ es:
       too_many_marks: Está utilizando demasiados símbolos de interrogación o exclamación
       too_much_caps: Está usando demasiadas mayúsculas
       too_short: Es demasiado corto
+  forms:
+    required: Obligatorio
   invisible_captcha:
     sentence_for_humans: Si eres humano, ignora este campo
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelva a enviar.

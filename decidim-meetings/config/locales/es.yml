@@ -90,6 +90,7 @@ es:
             map: Mapa
             start_time: Fecha de inicio
             title: Título
+      read_more: "(leer más)"
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultados relacionados:'

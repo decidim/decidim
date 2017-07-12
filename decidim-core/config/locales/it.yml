@@ -93,14 +93,6 @@ it:
       shared:
         omniauth_buttons:
           or: oppure
-    errors:
-      internal_server_error:
-        title: Si è verificato un problema da parte del server
-        try_later: Per cortesia riprova più tardi.
-      not_found:
-        back_home: Torna alla home page
-        content_doesnt_exist: Questo indirizzo non è corretto oppure è stato rimosso.
-        title: La pagina che stai cercando non esiste oppure non è disponibile
     export_mailer:
       export:
         ready: Trovi in allegato una versione compressa (ZIP) dei dati esportati .

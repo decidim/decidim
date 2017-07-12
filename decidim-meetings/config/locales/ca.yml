@@ -90,6 +90,7 @@ ca:
             map: Mapa
             start_time: Data d'inici
             title: Títol
+      read_more: "(Llegeix més)"
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultats relacionats:'
