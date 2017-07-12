@@ -554,6 +554,8 @@ en:
     participatory_processes:
       participatory_process_groups:
         none: None
+  forms:
+    required: Required
   layouts:
     decidim:
       admin:

@@ -144,7 +144,7 @@ module Decidim
       iso_value = value.present? ? value.strftime("%Y-%m-%d") : ""
 
       template = ""
-      template += label(attribute, label_for(attribute))
+      template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.text_field(
         @object_name,
         attribute,
@@ -166,7 +166,7 @@ module Decidim
         formatted_value = I18n.localize(value, format: :timepicker)
       end
       template = ""
-      template += label(attribute, label_for(attribute))
+      template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.text_field(
         @object_name,
         attribute,
@@ -194,7 +194,7 @@ module Decidim
 
       file = object.send attribute
       template = ""
-      template += label(attribute, label_for(attribute))
+      template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
       template += @template.file_field @object_name, attribute
 
       if file_is_image?(file)
@@ -294,9 +294,26 @@ module Decidim
     #
     # Returns Boolean.
     def attribute_required?(attribute)
-      validator = find_validator(attribute, ActiveModel::Validations::PresenceValidator)
+      validator = find_validator(attribute, ActiveModel::Validations::PresenceValidator) ||
+                  find_validator(attribute, TranslatablePresenceValidator)
 
-      validator && validator.options.blank?
+      return unless validator
+
+      # Check if the if condition is present and it evaluates to true
+      if_condition = validator.options[:if]
+      validator_if_condition = if_condition.nil? ||
+                               (string_or_symbol?(if_condition) ? object.send(if_condition) : if_condition.call(object))
+
+      # Check if the unless condition is present and it evaluates to false
+      unless_condition = validator.options[:unless]
+      validator_unless_condition = unless_condition.nil? ||
+                                   (string_or_symbol?(unless_condition) ? !object.send(unless_condition) : !unless_condition.call(object))
+
+      validator_if_condition && validator_unless_condition
+    end
+
+    def string_or_symbol?(obj)
+      obj.is_a?(String) || obj.is_a?(Symbol)
     end
 
     # Private: Tries to find a length validator in the form object.
@@ -336,6 +353,7 @@ module Decidim
 
       text = default_label_text(object, attribute) if text.nil? || text == true
 
+      text += required_for_attribute(attribute)
       text = if field_before_label && block_given?
                safe_join([yield, text.html_safe])
              elsif block_given?
@@ -422,6 +440,7 @@ module Decidim
         options[:class] ||= ""
         options[:class] += " is-invalid-label"
       end
+      text += required_for_attribute(attribute)
 
       label(attribute, (text || "").html_safe, options)
     end
@@ -437,6 +456,15 @@ module Decidim
     def file_is_present?(file)
       return unless file && file.respond_to?(:url)
       file.present?
+    end
+
+    def required_for_attribute(attribute)
+      if attribute_required?(attribute)
+        return content_tag(:abbr, "*", title: I18n.t("required", scope: "forms"),
+                                       data: { tooltip: true, disable_hover: false }, 'aria-haspopup': true,
+                                       class: "label-required").html_safe
+      end
+      "".html_safe
     end
   end
 end
