@@ -4,6 +4,8 @@ require "spec_helper"
 
 describe Decidim do
   describe "seed!" do
+    let!(:participatory_process) { create(:participatory_process) }
+
     around do |example|
       Decidim::AttachmentUploader.enable_processing = true
       example.run
@@ -32,7 +34,7 @@ describe Decidim do
       expect(Decidim).to receive(:feature_manifests).and_return(manifests)
 
       manifests.each do |manifest|
-        expect(manifest).to receive(:seed!).once
+        expect(manifest).to receive(:seed!).with(participatory_process).once
       end
 
       application = double(railties: (decidim_railties + other_railties))

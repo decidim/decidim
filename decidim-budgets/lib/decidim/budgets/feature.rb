@@ -47,40 +47,38 @@ Decidim.register_feature(:budgets) do |feature|
     settings.attribute :show_votes, type: :boolean, default: false
   end
 
-  feature.seeds do
-    Decidim::ParticipatoryProcess.find_each do |process|
-      feature = Decidim::Feature.create!(
-        name: Decidim::Features::Namer.new(process.organization.available_locales, :budgets).i18n_name,
-        manifest_name: :budgets,
-        published_at: Time.current,
-        participatory_process: process
-      )
+  feature.seeds do |process|
+    feature = Decidim::Feature.create!(
+      name: Decidim::Features::Namer.new(process.organization.available_locales, :budgets).i18n_name,
+      manifest_name: :budgets,
+      published_at: Time.current,
+      participatory_process: process
+    )
 
-      3.times do
-        project = Decidim::Budgets::Project.create!(
-          feature: feature,
-          scope: process.organization.scopes.sample,
-          category: process.categories.sample,
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
-          end,
-          budget: Faker::Number.number(8)
-        )
-        Decidim::Attachment.create!(
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
-          attached_to: project
-        )
-        Decidim::Attachment.create!(
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
-          attached_to: project
-        )
-        Decidim::Comments::Seed.comments_for(project)
-      end
+    3.times do
+      project = Decidim::Budgets::Project.create!(
+        feature: feature,
+        scope: process.organization.scopes.sample,
+        category: process.categories.sample,
+        title: Decidim::Faker::Localized.sentence(2),
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        budget: Faker::Number.number(8)
+      )
+      Decidim::Attachment.create!(
+        title: Decidim::Faker::Localized.sentence(2),
+        description: Decidim::Faker::Localized.sentence(5),
+        file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
+        attached_to: project
+      )
+      Decidim::Attachment.create!(
+        title: Decidim::Faker::Localized.sentence(2),
+        description: Decidim::Faker::Localized.sentence(5),
+        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+        attached_to: project
+      )
+      Decidim::Comments::Seed.comments_for(project)
     end
   end
 end

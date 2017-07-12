@@ -33,28 +33,26 @@ Decidim.register_feature(:results) do |feature|
     settings.attribute :comments_blocked, type: :boolean, default: false
   end
 
-  feature.seeds do
-    Decidim::ParticipatoryProcess.find_each do |process|
-      feature = Decidim::Feature.create!(
-        name: Decidim::Features::Namer.new(process.organization.available_locales, :results).i18n_name,
-        manifest_name: :results,
-        published_at: Time.current,
-        participatory_process: process
+  feature.seeds do |process|
+    feature = Decidim::Feature.create!(
+      name: Decidim::Features::Namer.new(process.organization.available_locales, :results).i18n_name,
+      manifest_name: :results,
+      published_at: Time.current,
+      participatory_process: process
+    )
+
+    3.times do
+      result = Decidim::Results::Result.create!(
+        feature: feature,
+        scope: process.organization.scopes.sample,
+        category: process.categories.sample,
+        title: Decidim::Faker::Localized.sentence(2),
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end
       )
 
-      3.times do
-        result = Decidim::Results::Result.create!(
-          feature: feature,
-          scope: process.organization.scopes.sample,
-          category: process.categories.sample,
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
-          end
-        )
-
-        Decidim::Comments::Seed.comments_for(result)
-      end
+      Decidim::Comments::Seed.comments_for(result)
     end
   end
 end

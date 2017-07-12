@@ -71,72 +71,70 @@ Decidim.register_feature(:proposals) do |feature|
     exports.serializer Decidim::Comments::CommentSerializer
   end
 
-  feature.seeds do
-    Decidim::ParticipatoryProcess.find_each do |process|
-      feature = Decidim::Feature.create!(
-        name: Decidim::Features::Namer.new(process.organization.available_locales, :proposals).i18n_name,
-        manifest_name: :proposals,
-        published_at: Time.current,
-        participatory_process: process,
-        settings: {
-          vote_limit: 0
-        },
-        step_settings: {
-          process.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
-        }
+  feature.seeds do |process|
+    feature = Decidim::Feature.create!(
+      name: Decidim::Features::Namer.new(process.organization.available_locales, :proposals).i18n_name,
+      manifest_name: :proposals,
+      published_at: Time.current,
+      participatory_process: process,
+      settings: {
+        vote_limit: 0
+      },
+      step_settings: {
+        process.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
+      }
+    )
+    # So that we have some with global scope
+    scopes = feature.organization.scopes + [nil]
+
+    20.times do |n|
+      author = Decidim::User.where(organization: feature.organization).all.sample
+      user_group = [true, false].sample ? author.user_groups.verified.sample : nil
+
+      proposal = Decidim::Proposals::Proposal.create!(
+        feature: feature,
+        category: process.categories.sample,
+        scope: scopes.sample,
+        title: Faker::Lorem.sentence(2),
+        body: Faker::Lorem.paragraphs(2).join("\n"),
+        author: author,
+        user_group: user_group
       )
-      # So that we have some with global scope
-      scopes = feature.organization.scopes + [nil]
 
-      20.times do |n|
-        author = Decidim::User.where(organization: feature.organization).all.sample
-        user_group = [true, false].sample ? author.user_groups.verified.sample : nil
-
-        proposal = Decidim::Proposals::Proposal.create!(
-          feature: feature,
-          category: process.categories.sample,
-          scope: scopes.sample,
-          title: Faker::Lorem.sentence(2),
-          body: Faker::Lorem.paragraphs(2).join("\n"),
-          author: author,
-          user_group: user_group
-        )
-
-        if n > 15
-          proposal.state = "accepted"
-          proposal.answered_at = Time.current
-          proposal.save!
-        elsif n > 9
-          proposal.state = "rejected"
-          proposal.answered_at = Time.current
-          proposal.answer = Decidim::Faker::Localized.sentence(10)
-          proposal.save!
-        elsif n > 6
-          proposal.state = "evaluating"
-          proposal.answered_at = Time.current
-          proposal.save!
-        end
-
-        rand(3).times do |m|
-          email = "vote-author-#{process.id}-#{n}-#{m}@example.org"
-          name = "#{Faker::Name.name} #{process.id} #{n} #{m}"
-
-          author = Decidim::User.create!(email: email,
-                                         password: "password1234",
-                                         password_confirmation: "password1234",
-                                         name: name,
-                                         organization: feature.organization,
-                                         tos_agreement: "1",
-                                         confirmed_at: Time.current,
-                                         comments_notifications: true,
-                                         replies_notifications: true)
-
-          Decidim::Proposals::ProposalVote.create!(proposal: proposal,
-                                                   author: author)
-        end
-
-        Decidim::Comments::Seed.comments_for(proposal)
+      if n > 15
+        proposal.state = "accepted"
+        proposal.answered_at = Time.current
+        proposal.save!
+      elsif n > 9
+        proposal.state = "rejected"
+        proposal.answered_at = Time.current
+        proposal.answer = Decidim::Faker::Localized.sentence(10)
+        proposal.save!
+      elsif n > 6
+        proposal.state = "evaluating"
+        proposal.answered_at = Time.current
+        proposal.save!
       end
+
+      rand(3).times do |m|
+        email = "vote-author-#{process.id}-#{n}-#{m}@example.org"
+        name = "#{Faker::Name.name} #{process.id} #{n} #{m}"
+
+        author = Decidim::User.create!(email: email,
+                                       password: "password1234",
+                                       password_confirmation: "password1234",
+                                       name: name,
+                                       organization: feature.organization,
+                                       tos_agreement: "1",
+                                       confirmed_at: Time.current,
+                                       comments_notifications: true,
+                                       replies_notifications: true)
+
+        Decidim::Proposals::ProposalVote.create!(proposal: proposal,
+                                                 author: author)
+      end
+
+      Decidim::Comments::Seed.comments_for(proposal)
     end
   end
 end

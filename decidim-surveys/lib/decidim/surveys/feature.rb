@@ -67,33 +67,31 @@ Decidim.register_feature(:surveys) do |feature|
     exports.serializer Decidim::Surveys::SurveyUserAnswersSerializer
   end
 
-  feature.seeds do
-    Decidim::ParticipatoryProcess.find_each do |process|
-      feature = Decidim::Feature.create!(
-        name: Decidim::Features::Namer.new(process.organization.available_locales, :surveys).i18n_name,
-        manifest_name: :surveys,
-        published_at: Time.current,
-        participatory_process: process
-      )
+  feature.seeds do |process|
+    feature = Decidim::Feature.create!(
+      name: Decidim::Features::Namer.new(process.organization.available_locales, :surveys).i18n_name,
+      manifest_name: :surveys,
+      published_at: Time.current,
+      participatory_process: process
+    )
 
-      survey = Decidim::Surveys::Survey.create!(
-        feature: feature,
-        title: Decidim::Faker::Localized.paragraph,
-        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
-        end,
-        tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(2)
-        end
-      )
-
-      3.times do
-        Decidim::Surveys::SurveyQuestion.create!(
-          survey: survey,
-          body: Decidim::Faker::Localized.paragraph,
-          question_type: "short_answer"
-        )
+    survey = Decidim::Surveys::Survey.create!(
+      feature: feature,
+      title: Decidim::Faker::Localized.paragraph,
+      description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        Decidim::Faker::Localized.paragraph(3)
+      end,
+      tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        Decidim::Faker::Localized.paragraph(2)
       end
+    )
+
+    3.times do
+      Decidim::Surveys::SurveyQuestion.create!(
+        survey: survey,
+        body: Decidim::Faker::Localized.paragraph,
+        question_type: "short_answer"
+      )
     end
   end
 end
