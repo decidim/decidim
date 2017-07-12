@@ -27,7 +27,6 @@
       s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
       s.add_dependency "decidim-core", Decidim.version
-      s.add_dependency "rails", *Decidim.rails_version
 
       s.add_development_dependency "decidim-dev", Decidim.version
     end
