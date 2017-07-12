@@ -47,15 +47,9 @@ module Decidim
       railtie.respond_to?(:load_seed) && railtie.class.name.include?("Decidim::")
     end
 
-    railties.each do |railtie|
-      puts "Creating #{railtie.class.name} seeds..."
-      railtie.load_seed
-    end
+    railties.each(&:load_seed)
 
-    Decidim.feature_manifests.each do |feature|
-      puts "Creating Feature (#{feature.name}) seeds..."
-      feature.seed!
-    end
+    Decidim.feature_manifests.each(&:seed!)
 
     I18n.available_locales = original_locale
   end
