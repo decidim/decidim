@@ -153,21 +153,21 @@ if !Rails.env.production? || ENV["SEED"]
 
       Decidim::ParticipatoryProcessUserRole.create!(user: user, participatory_process: process, role: role)
     end
-  end
 
-  Decidim::ParticipatoryProcess.find_each do |process|
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
       file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
       attached_to: process
     )
+
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
       file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
       attached_to: process
     )
+
     2.times do
       Decidim::Category.create!(
         name: Decidim::Faker::Localized.sentence(5),
