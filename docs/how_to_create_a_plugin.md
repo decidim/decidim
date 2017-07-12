@@ -92,8 +92,6 @@
     ```ruby
     # frozen_string_literal: true
 
-    require_dependency "decidim/features/namer"
-
     Decidim.register_feature(:<engine_name>) do |feature|
       feature.engine = Decidim::<EngineName>::Engine
       feature.icon = "decidim/<engine_name>/icon.svg"
