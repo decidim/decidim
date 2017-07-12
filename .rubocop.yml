@@ -1259,5 +1259,6 @@ Metrics/BlockLength:
     - 'decidim-*/**/*/types/**/*'
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'
+    - 'decidim-*/db/seeds.rb'
     - 'decidim-*/spec/**/*.rb'
     - '**/*.gemspec'
