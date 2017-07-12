@@ -356,6 +356,7 @@ en:
         see_more: See more
   locale:
     name: English
+    required: Required
   pages:
     home:
       extended:
@@ -416,5 +417,3 @@ en:
       next: Next &rsaquo;
       previous: "&lsaquo; Prev"
       truncate: "&hellip;"
-  forms:
-    required: Required
