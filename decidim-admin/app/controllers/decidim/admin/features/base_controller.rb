@@ -8,7 +8,7 @@ module Decidim
       class BaseController < Admin::ApplicationController
         skip_authorize_resource
         include Concerns::ParticipatoryProcessAdmin
-        include FeatureSettings
+        include Settings
 
         helper Decidim::Admin::ExportsHelper
 

@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # This class contains helpers needed in order for feature settings to
     # properly render.
-    module FeatureSettingsHelper
+    module SettingsHelper
       TYPES = {
         boolean: :check_box,
         integer: :number_field,
@@ -16,7 +16,7 @@ module Decidim
       # type.
       #
       # form      - The form in which to render the field.
-      # attribute - The FeatureSettings::Attribute instance with the
+      # attribute - The Settings::Attribute instance with the
       #             description of the attribute.
       # name      - The name of the field.
       # options   - Extra options to be passed to the field helper.
