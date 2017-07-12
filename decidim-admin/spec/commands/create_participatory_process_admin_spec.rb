@@ -21,7 +21,7 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
 
   subject { described_class.new(form, current_user, my_process) }
 
-  context "when to form is not valid" do
+  context "when the form is not valid" do
     let(:invalid) { true }
 
     it "is not valid" do
@@ -38,25 +38,6 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
     end
   end
 
-  context "when a user and a role already exist" do
-    before do
-      create(
-        :participatory_process_user_role,
-        user: user,
-        role: :admin,
-        participatory_process: my_process
-      )
-    end
-
-    it "is not valid" do
-      form_errors = double
-      expect(form_errors).to receive(:add).with(:email, :taken)
-      expect(form).to receive(:errors).and_return(form_errors)
-
-      expect { subject.call }.to broadcast(:invalid)
-    end
-  end
-
   context "when everything is ok" do
     it "creates the user role" do
       subject.call
@@ -64,6 +45,31 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
 
       expect(roles.count).to eq 1
       expect(roles.first.role).to eq "admin"
+    end
+  end
+
+  context "when a user and a role already exist" do
+    before do
+      subject.call
+    end
+
+    it "doesn't get created twice" do
+      expect { subject.call }.to broadcast(:ok)
+
+      roles = Decidim::Admin::ParticipatoryProcessUserRole.where(user: user)
+
+      expect(roles.count).to eq 1
+      expect(roles.first.role).to eq "admin"
+    end
+  end
+
+  context "when the user hasn't accepted the invitation" do
+    before do
+      user.invite!
+    end
+
+    it "gets the invitation resent" do
+      expect { subject.call }.to have_enqueued_job(ActionMailer::DeliveryJob)
     end
   end
 end
