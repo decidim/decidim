@@ -553,6 +553,8 @@ ca:
     participatory_processes:
       participatory_process_groups:
         none: Cap
+  forms:
+    required: Obligatori
   layouts:
     decidim:
       admin:
