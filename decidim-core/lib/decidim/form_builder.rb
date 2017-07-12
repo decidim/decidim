@@ -302,18 +302,18 @@ module Decidim
       # Check if the if condition is present and it evaluates to true
       if_condition = validator.options[:if]
       validator_if_condition = if_condition.nil? ||
-        (is_string_or_symbol?(if_condition) ? object.send(if_condition) : if_condition.call(object))
+                               (is_string_or_symbol?(if_condition) ? object.send(if_condition) : if_condition.call(object))
 
       # Check if the unless condition is present and it evaluates to false
       unless_condition = validator.options[:unless]
       validator_unless_condition = unless_condition.nil? ||
-        (is_string_or_symbol?(unless_condition) ? !object.send(unless_condition) : !unless_condition.call(object))
+                                   (is_string_or_symbol?(unless_condition) ? !object.send(unless_condition) : !unless_condition.call(object))
 
       validator_if_condition && validator_unless_condition
     end
 
     def is_string_or_symbol?(obj)
-      obj.kind_of?(String) || obj.kind_of?(Symbol)
+      obj.is_a?(String) || obj.is_a?(Symbol)
     end
 
     # Private: Tries to find a length validator in the form object.
