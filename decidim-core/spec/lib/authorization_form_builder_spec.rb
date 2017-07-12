@@ -40,25 +40,22 @@ module Decidim
 
     describe "input" do
       it "renders a single field for an attribute" do
-        html = builder.input(:birthday)
-        expect(html).to eq(
-          '<label for="authorization_handler_birthday">Birthday</label>' \
-          '<input id="date_field_authorization_handler_birthday" data-datepicker="" type="text" />' \
-          '<input value="" type="hidden" name="authorization_handler[birthday]" id="authorization_handler_birthday" />'
-        )
+        html = Nokogiri::HTML(builder.input(:birthday))
+
+        expect(html.css("label[for='authorization_handler_birthday']").length).to eq(1)
+        expect(html.css("#date_field_authorization_handler_birthday").length).to eq(1)
+        expect(html.css("input[type='text']").length).to eq(1)
+        expect(html.css("#authorization_handler_birthday").length).to eq(1)
       end
 
       context "specifying the input type" do
         it "renders it" do
-          html = builder.input(:document_number, as: :email_field)
-          expect(html).to eq(
-            '<label for="authorization_handler_document_number">' \
-              "Document number" \
-              '<abbr title="Required" data-tooltip="true" data-disable-hover="false" aria-haspopup="true" class="label-required">*</abbr>' \
-              '<input required="required" type="email" name="authorization_handler[document_number]" id="authorization_handler_document_number" />' \
-              '<span class="form-error">There&#39;s an error in this field.</span>' \
-            "</label>"
-          )
+          html = Nokogiri::HTML(builder.input(:document_number, as: :email_field))
+
+          expect(html.css("label[for='authorization_handler_document_number']").length).to eq(1)
+          expect(html.css(".label-required").length).to eq(1)
+          expect(html.css("input[type='email']").length).to eq(1)
+          expect(html.css(".form-error").length).to eq(1)
         end
       end
     end
