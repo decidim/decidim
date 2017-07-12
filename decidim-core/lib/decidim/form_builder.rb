@@ -450,8 +450,8 @@ module Decidim
     def required_for_attribute(attribute)
       if attribute_required?(attribute)
         return content_tag(:abbr, "*", title: I18n.t("required", scope: "forms"),
-        data: { tooltip: true, disable_hover: false }, 'aria-haspopup': true,
-        class: "label-required").html_safe
+          data: { tooltip: true, disable_hover: false }, 'aria-haspopup': true,
+          class: "label-required").html_safe
       end
       "".html_safe
     end
