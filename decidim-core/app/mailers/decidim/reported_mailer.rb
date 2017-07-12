@@ -36,7 +36,7 @@ module Decidim
     end
 
     def manage_moderations_url
-      @manage_moderations_url ||= decidim_admin.moderations_url(@featurable.id, host: @organization.host)
+      @manage_moderations_url ||= EngineRouter.admin_proxy(@featurable).moderations_url(host: @organization.host)
     end
   end
 end

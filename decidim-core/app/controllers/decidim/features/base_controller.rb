@@ -6,8 +6,6 @@ module Decidim
     # setting the appropiate layout, including necessary helpers, and overall
     # fooling the engine into thinking it's isolated.
     class BaseController < Decidim::ApplicationController
-      layout "layouts/decidim/participatory_process"
-      include NeedsParticipatoryProcess
       include Settings
       include ActionAuthorization
 
@@ -15,7 +13,6 @@ module Decidim
       helper Decidim::OrdersHelper
       helper Decidim::FeatureReferenceHelper
       helper Decidim::TranslationsHelper
-      helper Decidim::ParticipatoryProcessHelper
       helper Decidim::IconHelper
       helper Decidim::ResourceHelper
       helper Decidim::OrganizationScopesHelper
@@ -23,12 +20,14 @@ module Decidim
       helper Decidim::AttachmentsHelper
 
       helper_method :current_feature,
+                    :current_featurable,
                     :current_manifest
 
       skip_authorize_resource
 
       before_action do
-        authorize! :read, current_participatory_process
+        extend current_featurable.extension_module
+
         authorize! :read, current_feature
       end
 
@@ -40,8 +39,8 @@ module Decidim
         @current_manifest ||= current_feature.manifest
       end
 
-      def current_participatory_process
-        request.env["decidim.current_participatory_process"]
+      def current_featurable
+        current_feature.featurable
       end
 
       def ability_context

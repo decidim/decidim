@@ -16,14 +16,14 @@
       <%= form.number_field :budget %>
     </div>
 
-    <% if !current_participatory_process.scope %>
+    <% if !current_featurable.scope %>
       <div class="row column" >
         <%= form.collection_select :decidim_scope_id, organization_scopes, :id, :name %>
       </div>
     <% end %>
 
     <div class="row column" >
-      <%= form.categories_select :decidim_category_id, current_participatory_process.categories, include_blank: true, disable_parents: false %>
+      <%= form.categories_select :decidim_category_id, current_featurable.categories, include_blank: true, disable_parents: false %>
     </div>
 
     <div class="row column">

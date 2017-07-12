@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+require "decidim/participatory_processes/admin"
+require "decidim/participatory_processes/engine"
+require "decidim/participatory_processes/admin_engine"
+require "decidim/participatory_processes/featurable"
+
+module Decidim
+  # Base module for the participatory processes engine.
+  module ParticipatoryProcesses
+  end
+end

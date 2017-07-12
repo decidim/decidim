@@ -3,7 +3,7 @@
     <% if project.category.present? %>
       <li><%= link_to translated_attribute(project.category.name), resource_locator(project).index(filter: { category_id: project.category.id }) %></li>
     <% end %>
-    <% if project.scope.present? && !current_participatory_process.scope %>
+    <% if project.scope.present? && !current_featurable.scope %>
       <li><%= link_to project.scope.name, resource_locator(project).index(filter: { scope_id: [project.scope.id] }) %></li>
     <% end %>
   </ul>

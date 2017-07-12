@@ -94,7 +94,6 @@ ignore_missing:
 ignore_unused:
  - activerecord.attributes.*
  - activemodel.attributes.*
- - decidim.admin.participatory_process_steps.default_title
  - activemodel.errors.messages.*
  - actions.confirm_destroy
  - time.formats.*

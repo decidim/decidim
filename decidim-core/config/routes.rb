@@ -22,20 +22,8 @@ Decidim::Core::Engine.routes.draw do
 
   resource :locale, only: [:create]
 
-  resources :participatory_process_groups, only: :show, path: "processes_groups"
-  resources :participatory_processes, only: [:index, :show], path: "processes" do
-    resources :participatory_process_steps, only: [:index], path: "steps"
-    resource :participatory_process_widget, only: :show, path: "embed"
-  end
-
-  scope "/processes/:participatory_process_id/f/:feature_id" do
-    Decidim.feature_manifests.each do |manifest|
-      next unless manifest.engine
-
-      constraints Decidim::CurrentFeature.new(manifest) do
-        mount manifest.engine, at: "/", as: "decidim_#{manifest.name}"
-      end
-    end
+  Decidim.featurable_manifests.each do |manifest|
+    mount manifest.engine, at: "/", as: "decidim_#{manifest.name}"
   end
 
   authenticate(:user) do

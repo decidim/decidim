@@ -13,6 +13,10 @@ module Decidim
       def export_dropdown(feature = current_feature)
         render partial: "decidim/admin/exports/dropdown", locals: { feature: feature }
       end
+
+      def exports_path(feature, options)
+        EngineRouter.admin_proxy(feature.featurable).feature_exports_path(options.merge(feature_id: feature))
+      end
     end
   end
 end

@@ -13,12 +13,14 @@ module Decidim
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
   autoload :DeviseFailureApp, "decidim/devise_failure_app"
   autoload :FeatureManifest, "decidim/feature_manifest"
+  autoload :FeaturableManifest, "decidim/featurable_manifest"
   autoload :ResourceManifest, "decidim/resource_manifest"
   autoload :Resourceable, "decidim/resourceable"
   autoload :Reportable, "decidim/reportable"
   autoload :Authorable, "decidim/authorable"
   autoload :Notifiable, "decidim/notifiable"
   autoload :Publicable, "decidim/publicable"
+  autoload :Featurable, "decidim/featurable"
   autoload :Features, "decidim/features"
   autoload :HasAttachments, "decidim/has_attachments"
   autoload :FeatureValidator, "decidim/feature_validator"
@@ -36,6 +38,7 @@ module Decidim
   autoload :MenuRegistry, "decidim/menu_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
   autoload :Abilities, "decidim/abilities"
+  autoload :EngineRouter, "decidim/engine_router"
 
   include ActiveSupport::Configurable
 
@@ -52,11 +55,7 @@ module Decidim
       railtie.load_seed
     end
 
-    Decidim::ParticipatoryProcess.find_each do |process|
-      Decidim.feature_manifests.each do |feature|
-        feature.seed!(process)
-      end
-    end
+    Decidim.featurable_manifests.each(&:seed!)
 
     I18n.available_locales = original_locale
   end
@@ -150,12 +149,35 @@ module Decidim
     feature_registry.register(name, &block)
   end
 
+  # Public: Registers a featurable, usually held in an external library or in a
+  # separate folder in the main repository. Exposes a DSL defined by
+  # `Decidim::FeaturableManifest`.
+  #
+  # Featurable manifests are held in a global registry and are used in all kinds
+  # of places to figure out what new components or functionalities the featurable
+  # provides.
+  #
+  # name - A Symbol with the featurable's unique name.
+  #
+  # Returns nothing.
+  def self.register_featurable(name, &block)
+    featurable_registry.register(name, &block)
+  end
+
   # Public: Finds all registered feature manifest's via the `register_feature`
   # method.
   #
   # Returns an Array[FeatureManifest].
   def self.feature_manifests
     feature_registry.manifests
+  end
+
+  # Public: Finds all registered featurable manifest's via the
+  # `register_featurable` method.
+  #
+  # Returns an Array[FeaturableManifest].
+  def self.featurable_manifests
+    featurable_registry.manifests
   end
 
   # Public: Finds a feature manifest by the feature's name.
@@ -165,6 +187,15 @@ module Decidim
   # Returns a FeatureManifest if found, nil otherwise.
   def self.find_feature_manifest(name)
     feature_registry.find(name.to_sym)
+  end
+
+  # Public: Finds a featurable manifest by the featurable's name.
+  #
+  # name - The name of the FeaturableManifest to find.
+  #
+  # Returns a FeaturableManifest if found, nil otherwise.
+  def self.find_featurable_manifest(name)
+    featurable_registry.find(name.to_sym)
   end
 
   # Public: Finds a resource manifest by the resource's name.
@@ -180,6 +211,11 @@ module Decidim
   # Public: Stores the registry of features
   def self.feature_registry
     @feature_registry ||= ManifestRegistry.new(:features)
+  end
+
+  # Public: Stores the registry of featurables
+  def self.featurable_registry
+    @featurable_registry ||= ManifestRegistry.new(:featurables)
   end
 
   # Public: Stores an instance of StatsRegistry

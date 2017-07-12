@@ -40,7 +40,7 @@ module Decidim
         described_class.from_params(
           attributes
         ).with_context(
-          current_process: participatory_process,
+          current_featurable: participatory_process,
           current_organization: organization
         )
       end

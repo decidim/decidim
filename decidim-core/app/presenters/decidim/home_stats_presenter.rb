@@ -75,7 +75,7 @@ module Decidim
     end
 
     def published_features
-      @published_features ||= Feature.where(featurable: OrganizationPublishedParticipatoryProcesses.new(organization).query).published
+      @published_features ||= Feature.where(featurable: ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(organization).query).published
     end
   end
 end

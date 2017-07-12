@@ -23,7 +23,7 @@ module Decidim
         let(:form) do
           CategoryForm.from_params(
             form_params,
-            current_process: participatory_process
+            current_featurable: participatory_process
           ).with_context(
             current_organization: organization
           )

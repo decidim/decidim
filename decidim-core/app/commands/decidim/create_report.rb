@@ -44,7 +44,7 @@ module Decidim
     attr_reader :form, :report
 
     def find_or_create_moderation!
-      @moderation = Moderation.find_or_create_by!(reportable: @reportable, featurable: participatory_process)
+      @moderation = Moderation.find_or_create_by!(reportable: @reportable, featurable: featurable)
     end
 
     def create_report!
@@ -61,7 +61,7 @@ module Decidim
     end
 
     def participatory_process_admins
-      @participatory_process_admins ||= Decidim::Admin::ProcessAdmins.for(participatory_process)
+      @participatory_process_admins ||= Decidim::ParticipatoryProcesses::Admin::ProcessAdmins.for(featurable)
     end
 
     def send_report_notification_to_admins
@@ -84,8 +84,8 @@ module Decidim
       end
     end
 
-    def participatory_process
-      @participatory_process ||= @reportable.feature.featurable
+    def featurable
+      @featurable ||= @reportable.feature.featurable
     end
   end
 end

@@ -110,7 +110,8 @@ After you create a development app (`bundle exec rake development_app`):
 | [API](https://github.com/decidim/decidim/tree/master/decidim-api)      | This library exposes a GraphQL API to programatically interact with the Decidim platform via HTTP      |
 | [Budgets](https://github.com/decidim/decidim/tree/master/decidim-budgets) | Adds a participatory budgets system to any participatory process. |
 | [Comments](https://github.com/decidim/decidim/tree/master/decidim-comments) | The Comments module adds the ability to include comments to any resource which can be commentable by users.      |
-| [Core](https://github.com/decidim/decidim/tree/master/decidim-core) | The basics of Decidim: users, participatory processes, etc. This is the only required engine to run Decidim, all the others are optional. |
+| [Core](https://github.com/decidim/decidim/tree/master/decidim-core) | The basics of Decidim: users, organizations, etc. This is the only required engine to run Decidim, all the others are optional. |
+| [Participatory Processes](https://github.com/decidim/decidim/tree/master/decidim-processes) | The main concept of a Decidim installation: participatory processes. |
 | [Dev](https://github.com/decidim/decidim/tree/master/decidim-dev) | This gem aids the local development of Decidim's features. |
 | [Meeting](https://github.com/decidim/decidim/tree/master/decidim-meetings) | The Meeting module adds meeting to any participatory process. It adds a CRUD engine to the admin and public view scoped inside the participatory process. |
 | [Pages](https://github.com/decidim/decidim/tree/master/decidim-pages) | The Pages module adds static page capabilities to any participatory process. It basically provides an interface to include arbitrary HTML content to any step. |

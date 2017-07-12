@@ -19,7 +19,7 @@
     <% end %>
 
     <div class="row column">
-      <%= form.categories_select :decidim_category_id, current_participatory_process.categories, include_blank: true, disable_parents: false %>
+      <%= form.categories_select :decidim_category_id, current_featurable.categories, include_blank: true, disable_parents: false %>
     </div>
     <div class="row column">
       <% if @form.proposals %>

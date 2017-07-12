@@ -39,6 +39,7 @@ module Decidim
     def manifest_class
       case @entity
       when :features then FeatureManifest
+      when :featurables then FeaturableManifest
       end
     end
   end

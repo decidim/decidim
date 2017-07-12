@@ -28,7 +28,7 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def query
       # Admin users have all role privileges for all organization processes
-      return OrganizationParticipatoryProcesses.new(user.organization).query if user.admin?
+      return ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(user.organization).query if user.admin?
 
       ParticipatoryProcess.where(id: process_ids)
     end

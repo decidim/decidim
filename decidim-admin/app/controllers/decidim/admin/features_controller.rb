@@ -6,14 +6,12 @@ module Decidim
     # admin panel.
     #
     class FeaturesController < Decidim::Admin::ApplicationController
-      include Concerns::ParticipatoryProcessAdmin
-
-      helper_method :manifest
+      helper_method :manifest, :current_featurable
 
       def index
         authorize! :read, Feature
         @manifests = Decidim.feature_manifests
-        @features = current_participatory_process.features
+        @features = current_featurable.features
       end
 
       def new
@@ -22,7 +20,7 @@ module Decidim
         @feature = Feature.new(
           name: default_name(manifest),
           manifest_name: params[:type],
-          featurable: current_participatory_process
+          featurable: current_featurable
         )
 
         @form = form(FeatureForm).from_model(@feature)
@@ -32,7 +30,7 @@ module Decidim
         @form = form(FeatureForm).from_params(params)
         authorize! :create, Feature
 
-        CreateFeature.call(manifest, @form, current_participatory_process) do
+        CreateFeature.call(manifest, @form, current_featurable) do
           on(:ok) do
             flash[:notice] = I18n.t("features.create.success", scope: "decidim.admin")
             redirect_to action: :index
@@ -110,7 +108,7 @@ module Decidim
       private
 
       def query_scope
-        current_participatory_process.features
+        current_featurable.features
       end
 
       def manifest

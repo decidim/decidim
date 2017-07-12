@@ -20,7 +20,7 @@ module Decidim
     def matches?(request)
       env = request.env
 
-      return false unless CurrentParticipatoryProcess.new.matches?(request)
+      return false unless ParticipatoryProcesses::CurrentParticipatoryProcess.new.matches?(request)
 
       @participatory_process = env["decidim.current_participatory_process"]
 

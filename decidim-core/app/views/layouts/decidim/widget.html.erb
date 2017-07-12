@@ -13,15 +13,15 @@
       <%= content_for(:header) %>
     <% else %>
       <div class="participatory-process">
-        <%= link_to translated_attribute(current_participatory_process.title), decidim.participatory_process_path(current_participatory_process), target: "_blank" %>
+        <%= link_to translated_attribute(current_featurable.title), polymorphic_path(current_featurable), target: "_blank" %>
       </div>
     <% end %>
     <div class="row collapse">
       <div class="column">
 
         <article class="card">
-          <% if current_participatory_process.banner_image %>
-            <div class="card__image-top" style="background-image: url(<%= current_participatory_process.banner_image.url %>)"></div>
+          <% if current_featurable.banner_image %>
+            <div class="card__image-top" style="background-image: url(<%= current_featurable.banner_image.url %>)"></div>
           <% end %>
 
           <div class="card__content">

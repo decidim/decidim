@@ -9,6 +9,7 @@ module Decidim
   class ParticipatoryProcess < ApplicationRecord
     include Decidim::HasAttachments
     include Decidim::Publicable
+    include Decidim::Featurable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
