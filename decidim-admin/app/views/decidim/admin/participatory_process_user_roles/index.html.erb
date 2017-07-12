@@ -15,6 +15,8 @@
           <tr>
             <th><%= t("models.participatory_process_user_role.fields.name", scope: "decidim.admin") %></th>
             <th><%= t("models.participatory_process_user_role.fields.email", scope: "decidim.admin") %></th>
+            <th><%= t("models.user.fields.invitation_sent_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.user.fields.invitation_accepted_at", scope: "decidim.admin") %></th>
             <th><%= t("models.participatory_process_user_role.fields.role", scope: "decidim.admin") %></th>
             <th class="actions"></th>
           </tr>
@@ -29,9 +31,23 @@
                 <%= role.user.email %><br />
               </td>
               <td>
+                <% if role.user.invitation_sent_at %>
+                  <%= l role.user.invitation_sent_at, format: :short %>
+                <% end %>
+              </td>
+              <td>
+                <% if role.user.invitation_accepted_at %>
+                  <%= l role.user.invitation_accepted_at, format: :short %>
+                <% end %>
+              </td>
+              <td>
                 <%= t("#{role.role}", scope: "decidim.admin.models.participatory_process_user_role.roles") %><br />
               </td>
               <td class="table-list__actions">
+                <% if can?(:invite, role) && role.user.invited_to_sign_up? %>
+                  <%= icon_link_to "reload", resend_invitation_participatory_process_user_role_path(participatory_process, role), t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
+                <% end %>
+
                 <% if can? :update, role %>
                   <%= icon_link_to "pencil", edit_participatory_process_user_role_path(participatory_process, role), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
                 <% end %>

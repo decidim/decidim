@@ -78,5 +78,29 @@ RSpec.shared_examples "manage process admins examples" do
         expect(page).not_to have_content(other_user.email)
       end
     end
+
+    context "when the user has not accepted the invitation" do
+      before do
+        form = Decidim::Admin::ParticipatoryProcessUserRoleForm.from_params({
+          name: "test",
+          email: "test@example.org",
+          role: "admin"
+        })
+        Decidim::Admin::CreateParticipatoryProcessAdmin.call(form, user, participatory_process)
+        visit current_path
+      end
+
+      it "resends the invitation to the user" do
+        within "#process_admins" do
+          within find("#process_admins tr", text: "test@example.org") do
+            page.find(".action-icon.resend-invitation").click
+          end
+        end
+
+        within ".callout-wrapper" do
+          expect(page).to have_content("successfully")
+        end
+      end
+    end
   end
 end

@@ -16,7 +16,11 @@ Decidim::Admin::Engine.routes.draw do
           post :ordering, to: "participatory_process_step_ordering#create"
         end
       end
-      resources :user_roles, controller: "participatory_process_user_roles"
+      resources :user_roles, controller: "participatory_process_user_roles" do
+        member do
+          post :resend_invitation, to: "participatory_process_user_roles#resend_invitation"
+        end
+      end
       resources :attachments, controller: "participatory_process_attachments"
 
       resources :features do

@@ -36,7 +36,7 @@ module Decidim
     end
 
     def invite_user
-      @user = Decidim::User.create(
+      @user = Decidim::User.new(
         name: form.name,
         email: form.email.downcase,
         organization: form.organization,

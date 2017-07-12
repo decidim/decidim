@@ -70,6 +70,23 @@ module Decidim
         redirect_to participatory_process_user_roles_path(@participatory_process_user_role.participatory_process)
       end
 
+      def resend_invitation
+        @user_role = collection.find(params[:id])
+        authorize! :invite, @user_role
+
+        InviteUserAgain.call(@user_role.user, "invite_admin") do
+          on(:ok) do
+            flash[:notice] = I18n.t("users.resend_invitation.success", scope: "decidim.admin")
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("users.resend_invitation.error", scope: "decidim.admin")
+          end
+        end
+
+        redirect_to participatory_process_user_roles_path(participatory_process)
+      end
+
       private
 
       def collection

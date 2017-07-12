@@ -29,15 +29,6 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
     end
   end
 
-  context "when there is no user with the given email" do
-    let(:email) { "does_not_exist@example.com" }
-
-    it "creates a new user with said email" do
-      subject.call
-      expect(Decidim::User.last.email).to eq(email)
-    end
-  end
-
   context "when everything is ok" do
     it "creates the user role" do
       subject.call
@@ -46,30 +37,49 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
       expect(roles.count).to eq 1
       expect(roles.first.role).to eq "admin"
     end
-  end
 
-  context "when a user and a role already exist" do
-    before do
+    it "creates a new user with no application admin privileges" do
       subject.call
+      expect(Decidim::User.last.roles).not_to include("admin")
     end
 
-    it "doesn't get created twice" do
-      expect { subject.call }.to broadcast(:ok)
+    context "when there is no user with the given email" do
+      let(:email) { "does_not_exist@example.com" }
 
-      roles = Decidim::Admin::ParticipatoryProcessUserRole.where(user: user)
+      it "creates a new user with said email" do
+        subject.call
+        expect(Decidim::User.last.email).to eq(email)
+      end
 
-      expect(roles.count).to eq 1
-      expect(roles.first.role).to eq "admin"
+      it "creates a new user with no application admin privileges" do
+        subject.call
+        expect(Decidim::User.last.roles).not_to include("admin")
+      end
     end
-  end
 
-  context "when the user hasn't accepted the invitation" do
-    before do
-      user.invite!
+    context "when a user and a role already exist" do
+      before do
+        subject.call
+      end
+
+      it "doesn't get created twice" do
+        expect { subject.call }.to broadcast(:ok)
+
+        roles = Decidim::Admin::ParticipatoryProcessUserRole.where(user: user)
+
+        expect(roles.count).to eq 1
+        expect(roles.first.role).to eq "admin"
+      end
     end
 
-    it "gets the invitation resent" do
-      expect { subject.call }.to have_enqueued_job(ActionMailer::DeliveryJob)
+    context "when the user hasn't accepted the invitation" do
+      before do
+        user.invite!
+      end
+
+      it "gets the invitation resent" do
+        expect { subject.call }.to have_enqueued_job(ActionMailer::DeliveryJob)
+      end
     end
   end
 end
