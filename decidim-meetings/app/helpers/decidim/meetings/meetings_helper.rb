@@ -16,7 +16,7 @@ module Decidim
       def meeting_description(meeting, max_length = 120)
         link = decidim_meetings.meeting_path(meeting, feature_id: meeting.feature, participatory_process_id: meeting.feature.participatory_process)
         description = translated_attribute(meeting.description)
-        tail = "... #{link_to(t('read_more', scope: "decidim.meetings"), link)}".html_safe
+        tail = "... #{link_to(t("read_more", scope: "decidim.meetings"), link)}".html_safe
         CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)
       end
     end
