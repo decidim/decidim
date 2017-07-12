@@ -12,6 +12,7 @@
 
     ```ruby
     # frozen_string_literal: true
+
     $LOAD_PATH.push File.expand_path("lib", __dir__)
 
     require_relative "../decidim-core/lib/decidim/core/version"
@@ -19,8 +20,8 @@
     Gem::Specification.new do |s|
       Decidim.add_default_gemspec_properties(s)
 
-      s.name        = "decidim-<engine_name>"
-      s.summary     = "<engine_description>"
+      s.name = "decidim-<engine_name>"
+      s.summary = "<engine_description>"
       s.description = s.summary
 
       s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
@@ -32,16 +33,17 @@
     end
     ```
 
-1. Remove `bin/test` and add `bin/rails` with this content:
+1. Remove `bin/test` and add an executable `bin/rails` with this content:
 
     ```ruby
     #!/usr/bin/env ruby
     # frozen_string_literal: true
+
     # This command will automatically be run when you run "rails" with Rails gems
     # installed from the root of your application.
 
     ENGINE_ROOT = File.expand_path("..", __dir__)
-    ENGINE_PATH = File.expand_path("..lib/decidim/<engine_name>/engine", __dir__)
+    ENGINE_PATH = File.expand_path("../lib/decidim/<engine_name>/engine", __dir__)
 
     # Set up gems listed in the Gemfile.
     ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile", __dir__)
@@ -55,6 +57,7 @@
 
     ```ruby
     # frozen_string_literal: true
+
     require "decidim/<engine_name>/engine"
     require "decidim/<engine_name>/feature"
     ```
@@ -65,6 +68,7 @@
 
     ```ruby
     # frozen_string_literal: true
+
     require "rails"
     require "active_support/all"
 
@@ -132,6 +136,7 @@
 
     ```ruby
     # frozen_string_literal: true
+
     require "decidim/common_rake"
     ```
 
@@ -141,8 +146,14 @@
 
     ```ruby
     # frozen_string_literal: true
+
+    require "decidim/dev"
+
     ENV["ENGINE_NAME"] = File.dirname(__dir__).split("/").last
-    require "decidim/test/base_spec_helper"
+
+    Decidim::Dev.dummy_app_path = File.expand_path(File.join("..", "spec", "decidim_dummy_app"))
+
+    require "decidim/dev/test/base_spec_helper"
     ```
 
 ## Experimental way
