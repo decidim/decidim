@@ -6,7 +6,7 @@ module Decidim
   class ParticipatoryProcessesController < Decidim::ApplicationController
     layout "layouts/decidim/participatory_process", only: [:show]
 
-    before_action -> { extend(NeedsParticipatoryProcess) }, only: [:show]
+    before_action -> { extend NeedsParticipatoryProcess }, only: [:show]
 
     helper Decidim::AttachmentsHelper
     helper Decidim::ParticipatoryProcessHelper
