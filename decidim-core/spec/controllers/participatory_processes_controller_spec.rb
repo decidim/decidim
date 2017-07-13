@@ -99,8 +99,8 @@ module Decidim
           organization: other_organization
         )
 
-        expect(controller.helpers.collection).to \
-          match_array([*published, *organization_groups])
+        expect(controller.helpers.collection)
+          .to match_array([*published, *organization_groups])
       end
     end
 
