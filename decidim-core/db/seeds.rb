@@ -36,25 +36,26 @@ if !Rails.env.production? || ENV["SEED"]
     organization: organization,
     confirmed_at: Time.current,
     locale: I18n.default_locale,
-    roles: ["admin"],
+    admin: true,
     tos_agreement: true,
     comments_notifications: true,
     replies_notifications: true
   )
 
-  Decidim::User.create!(
-    name: Faker::Name.name,
-    email: "collaborator@example.org",
-    password: "decidim123456",
-    password_confirmation: "decidim123456",
-    organization: organization,
-    confirmed_at: Time.current,
-    locale: I18n.default_locale,
-    roles: ["collaborator"],
-    tos_agreement: true,
-    comments_notifications: true,
-    replies_notifications: true
-  )
+  # TODO: it doesn't make any sense right now
+  # Decidim::User.create!(
+  #   name: Faker::Name.name,
+  #   email: "collaborator@example.org",
+  #   password: "decidim123456",
+  #   password_confirmation: "decidim123456",
+  #   organization: organization,
+  #   confirmed_at: Time.current,
+  #   locale: I18n.default_locale,
+  #   roles: ["collaborator"],
+  #   tos_agreement: true,
+  #   comments_notifications: true,
+  #   replies_notifications: true
+  # )
 
   Decidim::User.create!(
     name: Faker::Name.name,

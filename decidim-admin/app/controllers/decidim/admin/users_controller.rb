@@ -23,7 +23,7 @@ module Decidim
         default_params = {
           organization: current_organization,
           invitation_instructions: "invite_admin",
-          roles: %w(admin),
+          admin: true,
           invited_by: current_user,
           comments_notifications: true,
           replies_notifications: true

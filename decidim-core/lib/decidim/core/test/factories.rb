@@ -147,7 +147,7 @@ FactoryGirl.define do
     end
 
     trait :admin do
-      roles ["admin"]
+      admin { true }
     end
 
     trait :process_admin do
@@ -160,17 +160,18 @@ FactoryGirl.define do
       end
     end
 
-    trait :moderator do
-      roles ["moderator"]
-    end
+    # TODO: it doesn't make any sense right now
+    # trait :moderator do
+    #   roles ["moderator"]
+    # end
 
-    trait :official do
-      roles ["official"]
-    end
+    # trait :official do
+    #   roles ["official"]
+    # end
 
-    trait :collaborator do
-      roles ["collaborator"]
-    end
+    # trait :collaborator do
+    #   roles ["collaborator"]
+    # end
   end
 
   factory :user_group, class: Decidim::UserGroup do

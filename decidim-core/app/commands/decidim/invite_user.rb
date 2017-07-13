@@ -31,7 +31,7 @@ module Decidim
     end
 
     def set_user_roles
-      user.roles += form.roles
+      user.admin = form.roles.include?("admin")
       user.save!
     end
 
@@ -40,7 +40,7 @@ module Decidim
         name: form.name,
         email: form.email.downcase,
         organization: form.organization,
-        roles: form.roles,
+        admin: form.roles.include?("admin"),
         comments_notifications: true,
         replies_notifications: true
       )
