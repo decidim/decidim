@@ -61,7 +61,7 @@
     require "decidim/<engine_name>/feature"
     ```
 
-1. Remove `lib/decidim/<engine_name>/version.rb`
+1. Remove `lib/decidim/<engine_name>/version.rb`.
 
 1. Add `lib/decidim/<engine_name>/engine.rb` with this:
 
@@ -137,7 +137,7 @@
     require "decidim/common_rake"
     ```
 
-1. Remove `MIT-LICENSE` and change `README`
+1. Remove `MIT-LICENSE` and change `README`.
 
 1. Add `spec/spec_helper.rb` with:
 
