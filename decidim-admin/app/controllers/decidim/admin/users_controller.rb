@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Admin
     # Controller that allows managing all admins at the admin panel.
     #
-    class UsersController < Admin::ApplicationController
+    class UsersController < Decidim::Admin::ApplicationController
       def index
         authorize! :index, :admin_users
         @users = collection.page(params[:page]).per(15)

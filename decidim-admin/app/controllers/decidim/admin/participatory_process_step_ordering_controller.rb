@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Admin
     # Controller that allows managing participatory process step ordering.
     #
-    class ParticipatoryProcessStepOrderingController < ApplicationController
+    class ParticipatoryProcessStepOrderingController < Decidim::Admin::ApplicationController
       include Concerns::ParticipatoryProcessAdmin
 
       def create

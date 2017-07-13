@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/application_controller"
-
 module Decidim
-  class ParticipatoryProcessGroupsController < ApplicationController
+  class ParticipatoryProcessGroupsController < Decidim::ApplicationController
     helper_method :participatory_processes, :group, :collection
 
     before_action :set_group

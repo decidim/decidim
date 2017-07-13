@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Admin
     # Controller that allows managing participatory processes.
     #
-    class ParticipatoryProcessesController < ApplicationController
+    class ParticipatoryProcessesController < Decidim::Admin::ApplicationController
       helper Decidim::OrganizationScopesHelper
       helper_method :current_participatory_process
 

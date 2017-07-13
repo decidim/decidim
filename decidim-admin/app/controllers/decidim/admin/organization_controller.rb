@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Admin
     # Controller that allows managing the user organization.
     #
-    class OrganizationController < ApplicationController
+    class OrganizationController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
 
       def edit

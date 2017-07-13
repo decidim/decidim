@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/application_controller"
-
 module Decidim
   # The controller to handle the user's notifications settings page.
-  class NotificationsSettingsController < ApplicationController
+  class NotificationsSettingsController < Decidim::ApplicationController
     include Decidim::UserProfile
 
     def show
