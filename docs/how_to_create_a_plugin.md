@@ -63,6 +63,8 @@
 
 1. Remove `lib/decidim/<engine_name>/version.rb`.
 
+1. Remove `lib/tasks/decidim/<engine_name>_tasks.rb`.
+
 1. Add `lib/decidim/<engine_name>/engine.rb` with this:
 
     ```ruby
