@@ -553,8 +553,6 @@ es:
     participatory_processes:
       participatory_process_groups:
         none: Ninguno
-  forms:
-    required: Obligatorio
   layouts:
     decidim:
       admin:
