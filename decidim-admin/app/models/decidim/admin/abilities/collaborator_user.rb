@@ -9,7 +9,9 @@ module Decidim
         include CanCan::Ability
 
         def initialize(user, _context)
-          return unless user && user.role?(:collaborator)
+          # TODO: Fix collaborators
+          # return unless user && user.role?(:collaborator)
+          return unless user
 
           can :manage, :admin_dashboard
           can :preview, ParticipatoryProcess

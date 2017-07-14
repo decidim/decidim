@@ -11,7 +11,7 @@ module Decidim
         attr_reader :user, :context
 
         def initialize(user, context)
-          return unless user && !user.role?(:admin)
+          return unless user && !user.admin?
 
           @user = user
           @context = context
