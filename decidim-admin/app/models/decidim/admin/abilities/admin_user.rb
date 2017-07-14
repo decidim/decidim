@@ -9,7 +9,7 @@ module Decidim
         include CanCan::Ability
 
         def initialize(user, _context)
-          return unless user && user.admin?
+          return if !user || !user.admin?
 
           can :manage, ParticipatoryProcess
           can :manage, ParticipatoryProcessGroup

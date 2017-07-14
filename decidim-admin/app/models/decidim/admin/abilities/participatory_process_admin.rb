@@ -27,11 +27,10 @@ module Decidim
 
           cannot :create, ParticipatoryProcess
           cannot :destroy, ParticipatoryProcess
-
           cannot :manage, :admin_users
 
           can :manage, ParticipatoryProcessUserRole do |role|
-            role.user != user
+            participatory_processes.include?(role.participatory_process) && role.user != user
           end
 
           can :manage, Moderation do |moderation|

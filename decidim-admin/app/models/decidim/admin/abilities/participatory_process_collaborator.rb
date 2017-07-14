@@ -9,16 +9,19 @@ module Decidim
         include CanCan::Ability
 
         def initialize(user, _context)
-          # TODO: Fix collaborators
-          # return unless user && user.role?(:collaborator)
+          @user = user
+
           return unless user && !user.admin?
 
           can :manage, :admin_dashboard
-          can :preview, ParticipatoryProcess
+
+          can :preview, ParticipatoryProcess do |process|
+            participatory_processes.include?(process)
+          end
         end
 
         def participatory_processes
-          @participatory_processes ||= Decidim::ParticipatoryProcessesWithUserRole.for(@user, :admin)
+          @participatory_processes ||= Decidim::ParticipatoryProcessesWithUserRole.for(@user, :collaborator)
         end
       end
     end

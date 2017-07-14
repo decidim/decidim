@@ -12,17 +12,17 @@ module Decidim
       helper_method :participatory_process
 
       def index
-        authorize! :read, Decidim::ParticipatoryProcessUserRole
+        authorize! :read, collection
         @participatory_process_user_roles = collection
       end
 
       def new
-        authorize! :create, Decidim::ParticipatoryProcessUserRole
+        authorize! :create, collection
         @form = form(ParticipatoryProcessUserRoleForm).instance
       end
 
       def create
-        authorize! :create, Decidim::ParticipatoryProcessUserRole
+        authorize! :create, collection
         @form = form(ParticipatoryProcessUserRoleForm).from_params(params)
 
         CreateParticipatoryProcessAdmin.call(@form, current_user, participatory_process) do

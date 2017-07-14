@@ -7,21 +7,23 @@ module Decidim
     # Syntactic sugar to initialize the class and return the queried objects.
     #
     # user - a User that needs to find which processes can manage
-    # role - a Symbol to specify the role privilege
-    def self.for(user, role)
+    # role - (optional) a Symbol to specify the role privilege
+    def self.for(user, role = :any)
       new(user, role).query
     end
 
     # Initializes the class.
     #
     # user - a User that needs to find which processes can manage
-    # role - a Symbol to specify the role privilege
-    def initialize(user, role)
+    # role - (optional) a Symbol to specify the role privilege
+    def initialize(user, role = :any)
       @user = user
       @role = role
     end
 
     # Finds the ParticipatoryProcesses that the given user has role privileges.
+    # If the special role ':any' is provided it returns all processes where
+    # the user has some kind of role privilege.
     #
     # Returns an ActiveRecord::Relation.
     def query
@@ -36,9 +38,9 @@ module Decidim
     attr_reader :user, :role
 
     def process_ids
-      ParticipatoryProcessUserRole
-        .where(user: user, role: role)
-        .pluck(:decidim_participatory_process_id)
+      user_roles = ParticipatoryProcessUserRole.where(user: user) if role == :any
+      user_roles = ParticipatoryProcessUserRole.where(user: user, role: role) if role != :any
+      user_roles.pluck(:decidim_participatory_process_id)
     end
   end
 end

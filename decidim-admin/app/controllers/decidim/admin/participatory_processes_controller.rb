@@ -86,7 +86,7 @@ module Decidim
       attr_reader :participatory_process
 
       def collection
-        @collection ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user, :admin)
+        @collection ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user)
       end
 
       def participatory_process_params
