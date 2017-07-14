@@ -91,7 +91,10 @@ module Decidim
       private
 
       def collection
-        @collection ||= Decidim::ParticipatoryProcessUserRole.where(participatory_process: participatory_process)
+        @collection ||= Decidim::ParticipatoryProcessUserRole
+          .includes(:user)
+          .where(participatory_process: participatory_process)
+          .order(:role, "decidim_users.name")
       end
     end
   end
