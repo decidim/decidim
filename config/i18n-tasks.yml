@@ -14,12 +14,7 @@ data:
 
   # Locale files or `File.find` patterns where translations are read from:
   read:
-    ## Default:
-    # - config/locales/%{locale}.yml
-    ## More files:
-    # - config/locales/**/*.%{locale}.yml
-    ## Another gem (replace %#= with %=):
-    # - "<%#= %x[bundle show vagrant].chomp %>/templates/locales/%{locale}.yml"
+    - decidim-*/config/locales/%{locale}.yml
 
   # Locale files to write new keys to, based on a list of key pattern => file rules. Matched from top to bottom:
   # `i18n-tasks normalize -p` will force move the keys according to these rules
@@ -47,24 +42,29 @@ data:
 
 # Find translate calls
 search:
-  # Paths or `File.find` patterns to search in:
+  ## Paths or `File.find` patterns to search in:
   paths:
-   - app/
-   - lib/
+    <% Dir.glob("decidim-*").each do |path| -%>
+      <%= "- #{path}/app\n" %>
+      <%= "- #{path}/lib\n" %>
+    <% end -%>
 
-  ## Root directories for relative keys resolution.
-  # relative_roots:
-  #   - app/controllers
-  #   - app/helpers
-  #   - app/mailers
-  #   - app/presenters
-  #   - app/views
+  # Root directories for relative keys resolution.
+  relative_roots:
+    <% Dir.glob("decidim-*").each do |path| -%>
+      <%= "- #{path}/app/controllers\n" %>
+      <%= "- #{path}/app/helpers\n" %>
+      <%= "- #{path}/app/mailers\n" %>
+      <%= "- #{path}/app/presenters\n" %>
+      <%= "- #{path}/app/views\n" %>
+    <% end -%>
 
   ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:
   ##   %w(*.jpg *.png *.gif *.svg *.ico *.eot *.otf *.ttf *.woff *.woff2 *.pdf *.css *.sass *.scss *.less *.yml *.json)
   exclude:
-    - app/assets/images
-    - app/assets/fonts
+    - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
+    - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+    - "*.jpeg"
 
   ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
   ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
@@ -84,26 +84,29 @@ search:
 
 ## Do not consider these keys missing:
 ignore_missing:
-# - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
-# - '{devise,simple_form}.*'
- - decidim.scopes.global
- - locale.name
- - forms.required
+- '{devise,components}.*'
 
 ## Consider these keys used:
 ignore_unused:
- - activerecord.attributes.*
- - activemodel.attributes.*
- - decidim.admin.participatory_process_steps.default_title
- - activemodel.errors.messages.*
- - time.formats.*
- - date.formats.*
- - forms.*
-
-# - '{devise,kaminari,will_paginate}.*'
-# - 'simple_form.{yes,no}'
-# - 'simple_form.{placeholders,hints,labels}.*'
-# - 'simple_form.{error_notification,required}.:'
+  - activemodel.attributes.*
+  - activemodel.errors.messages.*
+  - activerecord.errors.messages.*
+  - activerecord.attributes.*
+  - booleans.*
+  - '{date,time.formats}.*'
+  - decidim.admin.participatory_process_steps.default_title
+  - decidim.components.*
+  - decidim.filters.linked_classes.*
+  - decidim.forms.errors.*
+  - decidim.participatory_processes.statistics.*
+  - decidim.proposals.answers.*
+  - decidim.proposals.proposals.orders.*
+  - decidim.resource_links.*
+  - decidim.system.default_pages.placeholders.*
+  - errors.messages.*
+  - invisible_captcha.*
+  - pages.home.statistics.*
+  - social_share_button.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
