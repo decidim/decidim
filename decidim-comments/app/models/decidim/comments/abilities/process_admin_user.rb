@@ -26,7 +26,7 @@ module Decidim
         private
 
         def participatory_processes
-          @participatory_processes ||= Decidim::Admin::ManageableParticipatoryProcessesForUser.for(@user)
+          @participatory_processes ||= Decidim::ParticipatoryProcessesWithUserRole.for(@user, :admin)
         end
       end
     end

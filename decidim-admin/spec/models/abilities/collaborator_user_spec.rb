@@ -2,7 +2,8 @@
 
 require "spec_helper"
 
-describe Decidim::Admin::Abilities::CollaboratorUser do
+#TODO: this is all wrong
+describe Decidim::Admin::Abilities::ParticipatoryProcessCollaborator do
   let(:user) { build(:user, :collaborator) }
 
   subject { described_class.new(user, {}) }

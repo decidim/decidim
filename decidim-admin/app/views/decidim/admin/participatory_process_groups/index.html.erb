@@ -18,7 +18,11 @@
           <% collection.each do |group| %>
             <tr>
               <td>
-                <%= link_to translated_attribute(group.name), ['edit', group] %><br />
+                <% if can? :update, group %>
+                  <%= link_to translated_attribute(group.name), ['edit', group] %><br />
+                <% else %>
+                  <%= translated_attribute(group.name) %>
+                <% end %>
               </td>
               <td class="table-list__actions">
                 <% if can? :update, group %>

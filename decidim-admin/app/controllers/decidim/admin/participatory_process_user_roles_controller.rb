@@ -9,10 +9,11 @@ module Decidim
     class ParticipatoryProcessUserRolesController < ApplicationController
       include Concerns::ParticipatoryProcessAdmin
 
-      helper_method :participatory_process, :process_admin_roles
+      helper_method :participatory_process
 
       def index
         authorize! :read, Decidim::ParticipatoryProcessUserRole
+        @participatory_process_user_roles = collection
       end
 
       def new
@@ -90,11 +91,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= ProcessAdminRolesForProcess.for(participatory_process)
-      end
-
-      def process_admin_roles
-        @process_admin_roles ||= ProcessAdminRolesForProcess.for(@participatory_process)
+        @collection ||= Decidim::ParticipatoryProcessUserRole.where(participatory_process: participatory_process)
       end
     end
   end

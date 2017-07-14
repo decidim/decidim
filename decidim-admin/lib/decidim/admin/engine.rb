@@ -35,7 +35,7 @@ module Decidim
         Decidim.configure do |config|
           config.abilities += ["Decidim::Admin::Abilities::AdminUser"]
           config.abilities += ["Decidim::Admin::Abilities::ParticipatoryProcessAdmin"]
-          config.abilities += ["Decidim::Admin::Abilities::CollaboratorUser"]
+          config.abilities += ["Decidim::Admin::Abilities::ParticipatoryProcessCollaborator"]
         end
       end
 
@@ -57,7 +57,8 @@ module Decidim
                     decidim_admin.participatory_process_groups_path,
                     icon_name: "layers",
                     position: 3,
-                    active: :inclusive
+                    active: :inclusive,
+                    if: can?(:read, Decidim::ParticipatoryProcessGroup)
 
           menu.item I18n.t("menu.static_pages", scope: "decidim.admin"),
                     decidim_admin.static_pages_path,

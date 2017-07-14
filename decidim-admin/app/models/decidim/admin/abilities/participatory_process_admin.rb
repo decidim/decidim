@@ -15,8 +15,6 @@ module Decidim
         def initialize(user, _context)
           @user = user
 
-          # TODO: Fix collaborators
-          # return unless user && !user.role?(:admin) && !user.role?(:collaborator)
           return unless user && !user.admin?
 
           can :read, :admin_dashboard do
@@ -58,7 +56,7 @@ module Decidim
         end
 
         def participatory_processes
-          @participatory_processes ||= ManageableParticipatoryProcessesForUser.for(@user)
+          @participatory_processes ||= Decidim::ParticipatoryProcessesWithUserRole.for(@user, :admin)
         end
       end
     end

@@ -2,22 +2,14 @@
 
 require "spec_helper"
 
-describe Decidim::Admin::ManageableParticipatoryProcessesForUser do
+describe Decidim::ParticipatoryProcessesWithUserRole do
   let!(:organization_process) { create :participatory_process, organization: user.organization }
   let!(:external_process) { create :participatory_process }
 
-  subject { described_class.new(user) }
+  subject { described_class.new(user, :admin) }
 
   context "when the user is an admin" do
     let(:user) { create :user, :admin }
-
-    it "returns only the organization processes" do
-      expect(subject.query).to eq [organization_process]
-    end
-  end
-
-  context "when the user is a collaborator" do
-    let(:user) { create :user, :collaborator }
 
     it "returns only the organization processes" do
       expect(subject.query).to eq [organization_process]
