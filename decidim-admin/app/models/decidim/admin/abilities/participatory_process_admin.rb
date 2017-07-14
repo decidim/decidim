@@ -12,52 +12,64 @@ module Decidim
       class ParticipatoryProcessAdmin
         include CanCan::Ability
 
-        def initialize(user, _context)
+        def initialize(user, context)
           @user = user
+          @context = context
 
-          return unless user && !user.admin?
+          define_abilities if @user && !@user.admin?
+        end
 
-          can :read, :admin_dashboard do
-            participatory_processes.any?
-          end
+        def define_abilities
+          can :read, :admin_dashboard
 
           can :manage, ParticipatoryProcess do |process|
-            participatory_processes.include?(process)
+            can_manage_process?(process)
           end
 
           cannot :create, ParticipatoryProcess
           cannot :destroy, ParticipatoryProcess
-          cannot :manage, :admin_users
+
+          define_participatory_process_abilities if current_participatory_process && can_manage_process?(current_participatory_process)
+        end
+
+        def define_participatory_process_abilities
+          can :manage, Feature do |feature|
+            can_manage_process?(feature.participatory_process)
+          end
 
           can :manage, ParticipatoryProcessUserRole do |role|
-            participatory_processes.include?(role.participatory_process) && role.user != user
-          end
-
-          can :manage, Moderation do |moderation|
-            participatory_processes.include?(moderation.participatory_process)
-          end
-
-          can :manage, Attachment do |attachment|
-            participatory_processes.include?(attachment.attached_to)
-          end
-
-          can :manage, ParticipatoryProcessStep do |step|
-            participatory_processes.include?(step.participatory_process)
-          end
-
-          can :manage, Feature do |feature|
-            participatory_processes.include?(feature.participatory_process)
-          end
-
-          can :manage, Category do |category|
-            participatory_processes.include?(category.participatory_process)
+            can_manage_process?(role.participatory_process) && role.user != @user
           end
         end
 
-        def participatory_processes
+        def current_participatory_process
+          @current_participatory_process ||= @context[:current_participatory_process]
+        end
+
+        def participatory_processes_with_admin_role
           @participatory_processes ||= Decidim::ParticipatoryProcessesWithUserRole.for(@user, :admin)
+        end
+
+        def can_manage_process?(process)
+          participatory_processes_with_admin_role.include? process
         end
       end
     end
   end
 end
+
+          # can :manage, Moderation do |moderation|
+          #   participatory_processes.include?(moderation.participatory_process)
+          # end
+
+          # can :manage, Attachment do |attachment|
+          #   participatory_processes.include?(attachment.attached_to)
+          # end
+
+          # can :manage, ParticipatoryProcessStep do |step|
+          #   participatory_processes.include?(step.participatory_process)
+          # end
+
+          # can :manage, Category do |category|
+          #   participatory_processes.include?(category.participatory_process)
+          # end

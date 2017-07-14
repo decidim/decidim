@@ -11,9 +11,6 @@ module Decidim
         include CanCan::Ability
 
         def initialize(user, context)
-          merge ::Decidim::Ability.new(user, context)
-          merge ParticipatoryProcessAdmin.new(user, context)
-
           Decidim.admin_abilities.each do |ability|
             merge ability.constantize.new(user, context)
           end

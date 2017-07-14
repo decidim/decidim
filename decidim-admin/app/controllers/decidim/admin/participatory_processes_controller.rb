@@ -7,8 +7,8 @@ module Decidim
     # Controller that allows managing participatory processes.
     #
     class ParticipatoryProcessesController < ApplicationController
-      helper_method :participatory_process
       helper Decidim::OrganizationScopesHelper
+      helper_method :current_participatory_process
 
       def index
         authorize! :index, Decidim::ParticipatoryProcess
@@ -38,18 +38,16 @@ module Decidim
       end
 
       def edit
-        @participatory_process = collection.find(params[:id])
-        authorize! :update, @participatory_process
-        @form = form(ParticipatoryProcessForm).from_model(@participatory_process)
+        authorize! :update, current_participatory_process
+        @form = form(ParticipatoryProcessForm).from_model(current_participatory_process)
         render layout: "decidim/admin/participatory_process"
       end
 
       def update
-        @participatory_process = collection.find(params[:id])
-        authorize! :update, @participatory_process
+        authorize! :update, current_participatory_process
         @form = form(ParticipatoryProcessForm).from_params(participatory_process_params)
 
-        UpdateParticipatoryProcess.call(@participatory_process, @form) do
+        UpdateParticipatoryProcess.call(current_participatory_process, @form) do
           on(:ok) do |participatory_process|
             flash[:notice] = I18n.t("participatory_processes.update.success", scope: "decidim.admin")
             redirect_to edit_participatory_process_path(participatory_process)
@@ -63,14 +61,12 @@ module Decidim
       end
 
       def show
-        @participatory_process = collection.find(params[:id])
-        authorize! :read, @participatory_process
+        authorize! :read, current_participatory_process
       end
 
       def destroy
-        @participatory_process = collection.find(params[:id])
-        authorize! :destroy, @participatory_process
-        @participatory_process.destroy!
+        authorize! :destroy, current_participatory_process
+        current_participatory_process.destroy!
 
         flash[:notice] = I18n.t("participatory_processes.destroy.success", scope: "decidim.admin")
 
@@ -78,12 +74,14 @@ module Decidim
       end
 
       def copy
-        @participatory_process ||= collection.find(params[:id])
+        authorize! :create, Decidim::ParticipatoryProcess
+      end
+
+      def current_participatory_process
+        @current_participatory_process ||= collection.find(params[:id]) if params[:id]
       end
 
       private
-
-      attr_reader :participatory_process
 
       def collection
         @collection ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user)
@@ -92,8 +90,8 @@ module Decidim
       def participatory_process_params
         {
           id: params[:id],
-          hero_image: @participatory_process.hero_image,
-          banner_image: @participatory_process.banner_image
+          hero_image: current_participatory_process.hero_image,
+          banner_image: current_participatory_process.banner_image
         }.merge(params[:participatory_process].to_unsafe_h)
       end
     end

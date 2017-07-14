@@ -9,7 +9,13 @@ module Decidim
         include CanCan::Ability
 
         def initialize(user, _context)
-          return if !user || !user.admin?
+          @user = user
+
+          define_abilities if @user && @user.admin?
+        end
+
+        def define_abilities
+          can :read, :admin_dashboard
 
           can :manage, ParticipatoryProcess
           can :manage, ParticipatoryProcessGroup
@@ -23,11 +29,10 @@ module Decidim
           end
 
           can [:read, :update], Decidim::Organization do |organization|
-            organization == user.organization
+            organization == @user.organization
           end
 
           can :manage, Feature
-          can :read, :admin_dashboard
           can :manage, :admin_users
           can :manage, Moderation
           can :manage, Attachment
@@ -36,7 +41,7 @@ module Decidim
           can [:create, :index, :new, :read, :invite], User
 
           can [:destroy], [User] do |user_to_destroy|
-            user != user_to_destroy
+            @user != user_to_destroy
           end
 
           can [:index, :verify, :reject], UserGroup

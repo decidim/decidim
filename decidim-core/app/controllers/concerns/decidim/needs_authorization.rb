@@ -30,7 +30,8 @@ module Decidim
           current_settings: try(:current_settings),
           feature_settings: try(:feature_settings),
           current_organization: try(:current_organization),
-          current_feature: try(:current_feature)
+          current_feature: try(:current_feature),
+          current_participatory_process: try(:current_participatory_process)
         }
       end
 

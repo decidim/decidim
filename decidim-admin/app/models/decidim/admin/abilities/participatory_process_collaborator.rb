@@ -9,20 +9,20 @@ module Decidim
         include CanCan::Ability
 
         def initialize(user, _context)
-          @user = user
+        #   @user = user
 
-          return unless user && !user.admin?
+        #   return unless user && !user.admin?
 
-          can :manage, :admin_dashboard
+        #   can :manage, :admin_dashboard
 
-          can :preview, ParticipatoryProcess do |process|
-            participatory_processes.include?(process)
-          end
+        #   can :preview, ParticipatoryProcess do |process|
+        #     participatory_processes.include?(process)
+        #   end
         end
 
-        def participatory_processes
-          @participatory_processes ||= Decidim::ParticipatoryProcessesWithUserRole.for(@user, :collaborator)
-        end
+        # def participatory_processes
+        #   @participatory_processes ||= Decidim::ParticipatoryProcessesWithUserRole.for(@user, :collaborator)
+        # end
       end
     end
   end

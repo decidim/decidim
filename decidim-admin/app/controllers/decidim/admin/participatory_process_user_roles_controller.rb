@@ -9,23 +9,21 @@ module Decidim
     class ParticipatoryProcessUserRolesController < ApplicationController
       include Concerns::ParticipatoryProcessAdmin
 
-      helper_method :participatory_process
-
       def index
-        authorize! :read, collection
+        authorize! :read, Decidim::ParticipatoryProcessUserRole
         @participatory_process_user_roles = collection
       end
 
       def new
-        authorize! :create, collection
+        authorize! :create, Decidim::ParticipatoryProcessUserRole
         @form = form(ParticipatoryProcessUserRoleForm).instance
       end
 
       def create
-        authorize! :create, collection
+        authorize! :create, Decidim::ParticipatoryProcessUserRole
         @form = form(ParticipatoryProcessUserRoleForm).from_params(params)
 
-        CreateParticipatoryProcessAdmin.call(@form, current_user, participatory_process) do
+        CreateParticipatoryProcessAdmin.call(@form, current_user, current_participatory_process) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_process_user_roles.create.success", scope: "decidim.admin")
           end
@@ -33,14 +31,14 @@ module Decidim
           on(:invalid) do
             flash[:alert] = I18n.t("participatory_process_user_roles.create.error", scope: "decidim.admin")
           end
-          redirect_to participatory_process_user_roles_path(participatory_process)
+          redirect_to participatory_process_user_roles_path(current_participatory_process)
         end
       end
 
       def edit
         @user_role = collection.find(params[:id])
         authorize! :update, @user_role
-        @form = form(ParticipatoryProcessUserRoleForm).from_model(@user_role.user, current_process: participatory_process)
+        @form = form(ParticipatoryProcessUserRoleForm).from_model(@user_role.user, current_process: current_participatory_process)
       end
 
       def update
@@ -51,7 +49,7 @@ module Decidim
         UpdateParticipatoryProcessAdmin.call(@form, @user_role) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_process_user_roles.update.success", scope: "decidim.admin")
-            redirect_to participatory_process_user_roles_path(participatory_process)
+            redirect_to participatory_process_user_roles_path(current_participatory_process)
           end
 
           on(:invalid) do
@@ -85,7 +83,7 @@ module Decidim
           end
         end
 
-        redirect_to participatory_process_user_roles_path(participatory_process)
+        redirect_to participatory_process_user_roles_path(current_participatory_process)
       end
 
       private
@@ -93,7 +91,7 @@ module Decidim
       def collection
         @collection ||= Decidim::ParticipatoryProcessUserRole
           .includes(:user)
-          .where(participatory_process: participatory_process)
+          .where(participatory_process: current_participatory_process)
           .order(:role, "decidim_users.name")
       end
     end

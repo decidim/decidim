@@ -13,10 +13,9 @@ module Decidim
         helper Decidim::Admin::ExportsHelper
 
         helper_method :current_feature,
-                      :current_participatory_process,
                       :parent_path
 
-        delegate :active_step, to: :current_participatory_process, prefix: false
+        delegate :active_step, to: :participatory_process, prefix: false
 
         before_action except: [:index, :show] do
           authorize! :manage, current_feature
@@ -30,12 +29,8 @@ module Decidim
           request.env["decidim.current_feature"]
         end
 
-        def current_participatory_process
-          request.env["decidim.current_participatory_process"]
-        end
-
         def parent_path
-          decidim_admin.participatory_process_features_path(current_participatory_process)
+          decidim_admin.participatory_process_features_path(participatory_process)
         end
       end
     end
