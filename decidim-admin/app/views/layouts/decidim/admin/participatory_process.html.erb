@@ -40,7 +40,7 @@
           <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_attachments_path(participatory_process.id) %>
         </li>
       <% end %>
-      <% if can? :read, Decidim::Admin::ParticipatoryProcessUserRole %>
+      <% if can? :read, Decidim::ParticipatoryProcessUserRole %>
         <li <% if is_active_link?(decidim_admin.participatory_process_user_roles_path(participatory_process)) %> class="is-active" <% end %>>
           <%= aria_selected_link_to t("process_admins", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_user_roles_path(participatory_process) %>
         </li>

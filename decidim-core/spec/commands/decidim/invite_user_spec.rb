@@ -69,7 +69,7 @@ module Decidim
     it "adds the roles for the user" do
       command.call
 
-      expect(invited_user.role?("admin")).to be
+      expect(invited_user).to be_admin
     end
 
     context "when a user does not exist for the given email" do

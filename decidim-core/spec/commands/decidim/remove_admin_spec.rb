@@ -3,13 +3,13 @@
 require "spec_helper"
 
 module Decidim
-  describe RemoveUserRole do
+  describe RemoveAdmin do
     let(:user) { create(:user, :admin) }
-    let(:command) { described_class.new(user, "admin") }
+    let(:command) { described_class.new(user) }
 
-    it "removes the role from the user" do
+    it "removes the admin privilege to the user" do
       command.call
-      expect(user.role?("admin")).to be_falsey
+      expect(user).not_to be_admin
     end
 
     it "broadcasts ok" do

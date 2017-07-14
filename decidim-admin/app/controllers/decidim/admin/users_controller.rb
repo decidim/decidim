@@ -63,7 +63,7 @@ module Decidim
       def destroy
         authorize! :destroy, :admin_users
 
-        RemoveUserRole.call(user, "admin") do
+        RemoveAdmin.call(user) do
           on(:ok) do
             flash[:notice] = I18n.t("users.destroy.success", scope: "decidim.admin")
           end

@@ -40,16 +40,7 @@ module Decidim
       @ability ||= Ability.new(self)
     end
 
-    # Checks if the user has the given `role` or not.
-    #
-    # role - a String or a Symbol that represents the role that is being
-    #   checked
-    #
-    # Returns a boolean.
-    def role?(role)
-      raise "Needs new implementation"
-    end
-
+    # Public: returns the user's name or the default one
     def name
       super || I18n.t("decidim.anonymous_user")
     end

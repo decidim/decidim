@@ -16,7 +16,7 @@ if !Rails.env.production? || ENV["SEED"]
     replies_notifications: true
   )
 
-  Decidim::Admin::ParticipatoryProcessUserRole.create!(
+  Decidim::ParticipatoryProcessUserRole.create!(
     user: process_admin,
     participatory_process: Decidim::ParticipatoryProcess.order(id: :asc).first,
     role: "admin"

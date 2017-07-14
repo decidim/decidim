@@ -41,7 +41,7 @@ module Decidim
       attr_reader :form, :participatory_process, :current_user, :user
 
       def create_role
-        ParticipatoryProcessUserRole.find_or_create_by!(
+        Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
           role: form.role.to_sym,
           user: user,
           participatory_process: @participatory_process
