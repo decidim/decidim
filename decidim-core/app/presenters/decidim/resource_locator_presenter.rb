@@ -14,7 +14,7 @@ module Decidim
     #
     # Returns a String.
     def path(options = {})
-      _route(@resource, "path", options)
+      _route("path", options)
     end
 
     # Builds the url to a resource. Useful when linking to a resource from
@@ -24,7 +24,7 @@ module Decidim
     #
     # Returns a String.
     def url(options = {})
-      _route(@resource, "url", options.merge(host: @resource.organization.host))
+      _route("url", options.merge(host: @resource.organization.host))
     end
 
     private
@@ -32,14 +32,14 @@ module Decidim
     # Private: Build the route to a given resource.
     #
     # Returns a String.
-    def _route(resource, route_type, options)
-      manifest = resource.class.resource_manifest
+    def _route(route_type, options)
+      manifest = @resource.class.resource_manifest
       engine = manifest.feature_manifest.engine
 
       url_params = {
-        id: resource.id,
-        feature_id: resource.feature.id,
-        participatory_process_id: resource.feature.participatory_process.id
+        id: @resource.id,
+        feature_id: @resource.feature.id,
+        participatory_process_id: @resource.feature.participatory_process.id
       }
 
       engine.routes.url_helpers.send("#{manifest.route_name}_#{route_type}", url_params.merge(options))
