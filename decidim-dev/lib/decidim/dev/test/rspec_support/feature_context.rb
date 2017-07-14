@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.shared_context "feature" do
-  include Decidim::FeaturePathHelper
-
   let(:manifest) { Decidim.find_feature_manifest(manifest_name) }
 
   let(:user) { create :user, :confirmed, organization: organization }
