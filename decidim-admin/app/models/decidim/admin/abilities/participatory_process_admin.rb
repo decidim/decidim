@@ -16,7 +16,7 @@ module Decidim
           @user = user
           @context = context
 
-          define_abilities if @user && !@user.admin?
+          define_abilities if @user && !@user.admin? && has_manageable_processes?
         end
 
         def define_abilities
@@ -52,6 +52,10 @@ module Decidim
 
         def can_manage_process?(process)
           participatory_processes_with_admin_role.include? process
+        end
+
+        def has_manageable_processes?
+          participatory_processes_with_admin_role.any?
         end
       end
     end
