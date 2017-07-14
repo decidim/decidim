@@ -2,7 +2,7 @@
 
 module Decidim
   # A presenter to get the url or path from a resource.
-  class ResourceLocatorPresenter < Rectify::Presenter
+  class ResourceLocatorPresenter
     def initialize(resource)
       @resource = resource
     end
