@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Api
     describe QueriesController, type: :controller do
+      routes { Decidim::Api::Engine.routes }
+
       let!(:participatory_process) { create(:participatory_process) }
       let!(:other_participatory_process) { create(:participatory_process) }
 

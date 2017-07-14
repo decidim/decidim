@@ -5,12 +5,10 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe ProposalVotesController, type: :controller do
+      routes { Decidim::Proposals::Engine.routes }
+
       let(:proposal) { create(:proposal, feature: feature) }
       let(:user) { create(:user, :confirmed, organization: feature.organization) }
-
-      routes do
-        Decidim::Proposals::Engine.routes
-      end
 
       before do
         @request.env["decidim.current_organization"] = feature.organization

@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe ParticipatoryProcessesController, type: :controller do
+    routes { Decidim::Core::Engine.routes }
+
     let(:organization) { create(:organization) }
     let!(:unpublished_process) do
       create(
