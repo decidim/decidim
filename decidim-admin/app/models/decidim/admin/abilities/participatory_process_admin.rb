@@ -37,8 +37,24 @@ module Decidim
             can_manage_process?(feature.participatory_process)
           end
 
+          can :manage, Category do |category|
+            can_manage_process?(category.participatory_process)
+          end
+
+          can :manage, Attachment do |attachment|
+            can_manage_process?(attachment.attached_to)
+          end
+
           can :manage, ParticipatoryProcessUserRole do |role|
             can_manage_process?(role.participatory_process) && role.user != @user
+          end
+
+          can :manage, Moderation do |moderation|
+            can_manage_process?(moderation.participatory_process)
+          end
+
+          can :manage, ParticipatoryProcessStep do |step|
+            can_manage_process?(step.participatory_process)
           end
         end
 
@@ -61,19 +77,3 @@ module Decidim
     end
   end
 end
-
-          # can :manage, Moderation do |moderation|
-          #   participatory_processes.include?(moderation.participatory_process)
-          # end
-
-          # can :manage, Attachment do |attachment|
-          #   participatory_processes.include?(attachment.attached_to)
-          # end
-
-          # can :manage, ParticipatoryProcessStep do |step|
-          #   participatory_processes.include?(step.participatory_process)
-          # end
-
-          # can :manage, Category do |category|
-          #   participatory_processes.include?(category.participatory_process)
-          # end
