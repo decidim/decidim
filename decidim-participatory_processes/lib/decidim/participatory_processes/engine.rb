@@ -22,7 +22,7 @@ module Decidim
           Decidim.feature_manifests.each do |manifest|
             next unless manifest.engine
 
-            constraints Decidim::CurrentFeature.new(manifest) do
+            constraints CurrentFeature.new(manifest) do
               mount manifest.engine, at: "/", as: "decidim_participatory_process_#{manifest.name}"
             end
           end

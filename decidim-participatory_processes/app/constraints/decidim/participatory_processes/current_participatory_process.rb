@@ -25,7 +25,7 @@ module Decidim
     private
 
     def current_participatory_process(env, params)
-      env["decidim.current_participatory_process"] ||=
+      env["decidim.current_featurable"] ||=
         detect_current_participatory_process(params)
     end
 

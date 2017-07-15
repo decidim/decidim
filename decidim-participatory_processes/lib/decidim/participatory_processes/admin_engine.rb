@@ -55,7 +55,7 @@ module Decidim
           Decidim.feature_manifests.each do |manifest|
             next unless manifest.admin_engine
 
-            constraints Decidim::CurrentFeature.new(manifest) do
+            constraints CurrentFeature.new(manifest) do
               mount manifest.admin_engine, at: "/", as: "decidim_admin_participatory_process_#{manifest.name}"
             end
           end
