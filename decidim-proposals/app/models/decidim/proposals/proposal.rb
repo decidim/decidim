@@ -116,7 +116,7 @@ module Decidim
 
       # Public: Overrides the `users_to_notify` Notifiable concern method.
       def users_to_notify
-        return Decidim::ParticipatoryProcesses::Admin::ProcessAdmins.for(feature.featurable) if official?
+        return feature.featurable.admins if official?
         [author]
       end
     end

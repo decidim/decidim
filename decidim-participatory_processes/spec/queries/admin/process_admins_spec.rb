@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::ParticipatoryProcesses::Admin::ProcessAdmins do
+describe Decidim::ParticipatoryProcesses::Admin::AdminUsers do
   let(:organization) { create :organization }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }

@@ -17,6 +17,10 @@ module Decidim
       "Decidim::#{demodulized_name.pluralize}"
     end
 
+    def admin_module_name
+      "#{module_name}::Admin"
+    end
+
     def underscored_name
       demodulized_name.underscore
     end
@@ -38,7 +42,15 @@ module Decidim
     end
 
     def admin_extension_module
-      "#{module_name}::Admin::#{demodulized_name}Context".constantize
+      "#{admin_module_name}::#{demodulized_name}Context".constantize
+    end
+
+    def admins_query
+      "#{admin_module_name}::AdminUsers".constantize
+    end
+
+    def admins
+      admins_query.for(self)
     end
   end
 end

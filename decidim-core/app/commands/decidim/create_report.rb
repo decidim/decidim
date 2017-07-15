@@ -60,12 +60,12 @@ module Decidim
       @moderation.update_attributes!(report_count: @moderation.report_count + 1)
     end
 
-    def participatory_process_admins
-      @participatory_process_admins ||= Decidim::ParticipatoryProcesses::Admin::ProcessAdmins.for(featurable)
+    def featurable_admins
+      @featurable_admins ||= featurable.admins
     end
 
     def send_report_notification_to_admins
-      participatory_process_admins.each do |admin|
+      featurable_admins.each do |admin|
         ReportedMailer.report(admin, @report).deliver_later
       end
     end
@@ -79,7 +79,7 @@ module Decidim
     end
 
     def send_hide_notification_to_admins
-      participatory_process_admins.each do |admin|
+      featurable_admins.each do |admin|
         ReportedMailer.hide(admin, @report).deliver_later
       end
     end
