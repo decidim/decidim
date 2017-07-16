@@ -89,10 +89,10 @@ describe Decidim::Admin::CopyParticipatoryProcess do
     end
   end
 
-  context "when copy_steps exists" do
+  context "when copy_categories exists" do
     let(:copy_categories) { true }
 
-    it "duplicates a participatory process and the steps" do
+    it "duplicates a participatory process and the categories" do
       expect { subject.call }.to change { Decidim::Category.count }.by(1)
       expect(Decidim::Category.pluck(:decidim_participatory_process_id).uniq.count).to eq 2
 
@@ -105,10 +105,10 @@ describe Decidim::Admin::CopyParticipatoryProcess do
     end
   end
 
-  context "when copy_steps exists" do
+  context "when copy_features exists" do
     let(:copy_features) { true }
 
-    it "duplicates a participatory process and the steps" do
+    it "duplicates a participatory process and the features" do
       dummy_hook = proc {}
       feature.manifest.on :copy, &dummy_hook
       expect(dummy_hook).to receive(:call).with(new_feature: an_instance_of(Decidim::Feature), old_feature: feature)

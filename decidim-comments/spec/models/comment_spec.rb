@@ -26,7 +26,7 @@ module Decidim
         expect(subject.commentable).to eq(commentable)
       end
 
-      it "has an associated commentable" do
+      it "has an associated root commentable" do
         expect(subject.root_commentable).to eq(commentable)
       end
 
