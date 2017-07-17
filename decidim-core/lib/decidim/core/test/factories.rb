@@ -4,7 +4,7 @@ require "decidim/faker/localized"
 require "decidim/dev"
 
 FactoryGirl.define do
-  sequence :name do |n|
+  sequence(:name) do |n|
     "#{Faker::Name.name} #{n}"
   end
 
