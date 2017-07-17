@@ -24,9 +24,9 @@ module Decidim
       # Handle the date filter
       def search_date
         if options[:date] == "upcoming"
-          query.where("start_time >= ? ", Time.current).order("start_time ASC")
+          query.where("start_time >= ? ", Time.current).order(start_time: :asc)
         elsif options[:date] == "past"
-          query.where("start_time <= ? ", Time.current).order("start_time DESC")
+          query.where("start_time <= ? ", Time.current).order(start_time: :desc)
         end
       end
 
