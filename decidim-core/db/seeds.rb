@@ -151,11 +151,7 @@ if !Rails.env.production? || ENV["SEED"]
         replies_notifications: true
       )
 
-      Decidim::ParticipatoryProcessUserRole.create!(
-        user: user,
-        participatory_process: process,
-        role: role
-      )
+      Decidim::ParticipatoryProcessUserRole.create!(user: user, participatory_process: process, role: role)
     end
   end
 

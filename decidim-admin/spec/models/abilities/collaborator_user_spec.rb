@@ -2,7 +2,6 @@
 
 require "spec_helper"
 
-# TODO: this is all wrong
 describe Decidim::Admin::Abilities::ParticipatoryProcessCollaborator do
   let(:user) { build(:user, :collaborator) }
 
