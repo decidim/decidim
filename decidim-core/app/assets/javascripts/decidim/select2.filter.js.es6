@@ -2,16 +2,13 @@
  * Select2 filter component.
  */
 
-// included to past tests
-const jQuery = require('jquery');
-
 ((exports) => {
   class Select2Filter {
     constructor(element) {
 
-      let selectedLang = jQuery("html").attr('lang') || 'en';
+      let selectedLang = $("html").attr('lang') || 'en';
       
-      let $element = jQuery(element);
+      let $element = $(element);
       let options = {
         language: selectedLang,
         multiple: $element.attr("multiple")==="multiple",

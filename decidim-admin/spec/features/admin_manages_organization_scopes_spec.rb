@@ -81,7 +81,7 @@ describe "Organization scopes", type: :feature do
           expect(page).to have_content("successfully")
         end
 
-        within "table" do
+        within ".card-section" do
           expect(page).not_to have_content(translated(scope.name))
         end
       end

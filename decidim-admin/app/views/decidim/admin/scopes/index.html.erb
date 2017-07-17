@@ -9,42 +9,42 @@
     </h2>
   </div>
   <div class="card-section">
-    <div class="table-scroll">
-        <% if @scopes.any? %>
-          <table class="table-list">
-          <thead>
+    <% if @scopes.any? %>
+      <div class="table-scroll">
+        <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.scope.fields.name", scope: "decidim.admin") %></th>
+            <th><%= t("models.scope.fields.scope_type", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @scopes.each do |scope| %>
             <tr>
-              <th><%= t("models.scope.fields.name", scope: "decidim.admin") %></th>
-              <th><%= t("models.scope.fields.scope_type", scope: "decidim.admin") %></th>
-              <th></th>
+              <td>
+                <%= link_to translated_attribute(scope.name), scope_scopes_path(scope) %>
+              </td>
+              <td>
+                <%= scope.scope_type ? translated_attribute(scope.scope_type.name) : "-" %>
+              </td>
+              <td class="table-list__actions">
+
+                <% if can? :update, scope %>
+                  <%= icon_link_to "pencil", ['edit', scope], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
+                <% end %>
+
+                <% if can? :destroy, scope %>
+                  <%= icon_link_to "circle-x", scope, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <% end %>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            <% @scopes.each do |scope| %>
-              <tr>
-                <td>
-                  <%= link_to translated_attribute(scope.name), scope_scopes_path(scope) %>
-                </td>
-                <td>
-                  <%= scope.scope_type ? translated_attribute(scope.scope_type.name) : "-" %>
-                </td>
-                <td class="table-list__actions">
-
-                  <% if can? :update, scope %>
-                    <%= icon_link_to "pencil", ['edit', scope], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
-                  <% end %>
-
-                  <% if can? :destroy, scope %>
-                    <%= icon_link_to "circle-x", scope, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
+          <% end %>
+        </tbody>
         </table>
-      <% else %>
-        <p><%= t("decidim.admin.scopes.no_scopes") %></p>
-      <% end %>
-    </div>
+      </div>
+    <% else %>
+      <p><%= t("decidim.admin.scopes.no_scopes") %></p>
+    <% end %>
   </div>
 </div>

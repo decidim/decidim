@@ -33,6 +33,7 @@ describe('FormFilterComponent', () => {
       </form>
     `;
     $('body').append(form);
+
     subject = new FormFilterComponent($(document).find('form'));
   });
 
