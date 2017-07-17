@@ -14,6 +14,13 @@
 
       this._onFormChange = this._onFormChange.bind(this);
       this._onPopState = this._onPopState.bind(this);
+
+      if (window.Decidim.PopStateHandler) {
+        this.popStateSubmiter = false;
+      } else {
+        this.popStateSubmiter = true;
+        window.Decidim.PopStateHandler = this.id;
+      }
     }
 
     /**
@@ -165,7 +172,10 @@
         });
       }
 
-      this.$form.submit();
+      // Only one instance should submit the form on browser history navigation
+      if (this.popStateSubmiter) {
+        Rails.fire(this.$form[0], 'submit');
+      }
     }
 
     /**
@@ -176,9 +186,10 @@
     _onFormChange() {
       const formAction = this.$form.attr('action');
       const params = this.$form.serialize();
+
       let newUrl = '';
 
-      this.$form.submit();
+      Rails.fire(this.$form[0], 'submit');
 
       if (formAction.indexOf('?') < 0) {
         newUrl = `${formAction}?${params}`;
