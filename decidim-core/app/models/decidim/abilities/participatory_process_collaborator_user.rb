@@ -2,13 +2,13 @@
 
 module Decidim
   module Abilities
-    # Defines the abilities for a participatory process admin. Intended to be
+    # Defines the abilities for a participatory process collaborator. Intended to be
     # used with `cancancan`.
     # This ability will not apply to organization admins.
-    class ParticipatoryProcessAdmin < ParticipatoryProcessUserRole
+    class ParticipatoryProcessCollaboratorUser < ParticipatoryProcessUserRole
       # Overrides ParticipatoryProcessUserRole role method
       def role
-        :admin
+        :collaborator
       end
     end
   end

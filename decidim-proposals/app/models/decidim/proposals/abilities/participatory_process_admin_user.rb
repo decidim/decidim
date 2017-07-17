@@ -5,22 +5,14 @@ module Decidim
     module Abilities
       # Defines the abilities related to proposals for a logged in process admin user.
       # Intended to be used with `cancancan`.
-      class ProcessAdminUser
-        include CanCan::Ability
+      class ParticipatoryProcessAdminUser < Decidim::Abilities::ParticipatoryProcessAdminUser
+        def define_participatory_process_abilities
+          super
 
-        attr_reader :user, :context
-
-        def initialize(user, context)
-          return unless user && !user.admin?
-
-          @user = user
-          @context = context
-
-          can :manage, Proposal do |proposal|
-            participatory_processes.include?(proposal.feature.participatory_process)
+          can [:manage, :unreport, :hide], Proposal do |proposal|
+            can_manage_process?(proposal.feature.participatory_process)
           end
-          can :unreport, Proposal
-          can :hide, Proposal
+
           cannot :create, Proposal unless can_create_proposal?
           cannot :update, Proposal unless can_update_proposal?
         end
@@ -28,15 +20,15 @@ module Decidim
         private
 
         def current_settings
-          context.fetch(:current_settings, nil)
+          @context.fetch(:current_settings, nil)
         end
 
         def feature_settings
-          context.fetch(:feature_settings, nil)
+          @context.fetch(:feature_settings, nil)
         end
 
         def current_feature
-          context.fetch(:current_feature, nil)
+          @context.fetch(:current_feature, nil)
         end
 
         def can_create_proposal?
@@ -48,10 +40,6 @@ module Decidim
         def can_update_proposal?
           current_settings.try(:proposal_answering_enabled) &&
             feature_settings.try(:proposal_answering_enabled)
-        end
-
-        def participatory_processes
-          @participatory_processes ||= Decidim::ParticipatoryProcessesWithUserRole.for(@user, :admin)
         end
       end
     end

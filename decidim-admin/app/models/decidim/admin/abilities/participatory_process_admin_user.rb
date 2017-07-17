@@ -9,7 +9,7 @@ module Decidim
       # Admin engine.
       #
       # This ability will not apply to organization admins.
-      class ParticipatoryProcessAdmin < Decidim::Abilities::ParticipatoryProcessAdmin
+      class ParticipatoryProcessAdminUser < Decidim::Abilities::ParticipatoryProcessAdminUser
         def define_abilities
           super
 

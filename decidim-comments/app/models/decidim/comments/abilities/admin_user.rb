@@ -5,16 +5,9 @@ module Decidim
     module Abilities
       # Defines the abilities related to comments for a logged in admin user.
       # Intended to be used with `cancancan`.
-      class AdminUser
-        include CanCan::Ability
-
-        attr_reader :user, :context
-
-        def initialize(user, context)
-          return unless user && user.admin?
-
-          @user = user
-          @context = context
+      class AdminUser < Decidim::Abilities::AdminUser
+        def define_abilities
+          super
 
           can :manage, Comment
           can :unreport, Comment

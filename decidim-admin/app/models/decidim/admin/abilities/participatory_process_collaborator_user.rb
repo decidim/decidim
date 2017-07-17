@@ -5,7 +5,7 @@ module Decidim
     module Abilities
       # Defines the abilities for a collaborator user in the admin
       # section. Intended to be used with `cancancan`.
-      class ParticipatoryProcessCollaborator < Decidim::Abilities::ParticipatoryProcessCollaborator
+      class ParticipatoryProcessCollaboratorUser < Decidim::Abilities::ParticipatoryProcessCollaboratorUser
         def define_abilities
           super
 

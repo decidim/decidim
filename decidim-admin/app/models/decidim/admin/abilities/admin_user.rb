@@ -5,17 +5,9 @@ module Decidim
     module Abilities
       # Defines the abilities for a user in the admin section. Intended to be
       # used with `cancancan`.
-      class AdminUser
-        include CanCan::Ability
-
-        def initialize(user, _context)
-          @user = user
-
-          define_abilities if @user && @user.admin?
-        end
-
+      class AdminUser < Decidim::Abilities::AdminUser
         def define_abilities
-          can :read, :admin_dashboard
+          super
 
           can :manage, ParticipatoryProcess
           can :manage, ParticipatoryProcessGroup

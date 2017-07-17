@@ -9,11 +9,15 @@ module Decidim
       def initialize(user, _context)
         @user = user
 
-        define_abilities if @user && @user.admin?
+        define_abilities if admin?
       end
 
       def define_abilities
         can :read, :admin_dashboard
+      end
+
+      def admin?
+        @user && @user.admin?
       end
     end
   end
