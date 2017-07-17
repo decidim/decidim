@@ -1,6 +1,6 @@
 /* global spyOn */
 /* eslint-disable id-length */
-global.window.$ = require('jquery');
+window.$ = require('jquery');
 require('select2');
 
 require('./history.js.es6');
