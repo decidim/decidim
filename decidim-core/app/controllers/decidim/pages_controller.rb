@@ -30,7 +30,7 @@ module Decidim
 
     def highlighted_participatory_processes
       @highlighted_participatory_processes ||=
-        OrganizationParticipatoryProcesses.new(current_organization) | HighlightedParticipatoryProcesses.new
+        OrganizationPublishedParticipatoryProcesses.new(current_organization) | HighlightedParticipatoryProcesses.new
     end
 
     private

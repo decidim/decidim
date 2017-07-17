@@ -9,7 +9,7 @@ module Decidim
     end
 
     def query
-      ParticipatoryProcess.where(organization: @organization).published
+      ParticipatoryProcess.where(organization: @organization)
     end
   end
 end

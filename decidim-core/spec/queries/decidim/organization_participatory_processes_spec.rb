@@ -7,36 +7,20 @@ module Decidim
     subject { described_class.new(organization) }
 
     let!(:organization) { create(:organization) }
-    let!(:published_participatory_processes) do
-      create_list(:participatory_process,
-                  3,
-                  :published,
-                  organization: organization)
-    end
-
-    let!(:unpublished_participatory_processes) do
-      create_list(:participatory_process,
-                  3,
-                  :unpublished,
-                  organization: organization)
+    let!(:local_participatory_processes) do
+      create_list(:participatory_process, 3, organization: organization)
     end
 
     let!(:foreign_participatory_processes) do
-      create_list(:participatory_process,
-                  3,
-                  :published)
+      create_list(:participatory_process, 3)
     end
 
     describe "query" do
-      it "includes the organization's published processes" do
-        expect(subject).to include(*published_participatory_processes)
+      it "includes the organization's processes" do
+        expect(subject).to include(*local_participatory_processes)
       end
 
-      it "excludes the organization's unpublished processes" do
-        expect(subject).not_to include(*unpublished_participatory_processes)
-      end
-
-      it "excludes other organization's published processes" do
+      it "excludes the external processes" do
         expect(subject).not_to include(*foreign_participatory_processes)
       end
     end
