@@ -35,7 +35,7 @@ module Decidim
         }
       end
       let(:slug) { "slug" }
-      let(:attachment) { test_file("city.jpeg", "image/jpeg") }
+      let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
       let(:attributes) do
         {
           "participatory_process" => {
@@ -86,7 +86,7 @@ module Decidim
       end
 
       context "when images are not the expected type" do
-        let(:attachment) { test_file("Exampledocument.pdf", "application/pdf") }
+        let(:attachment) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
 
         it { is_expected.not_to be_valid }
       end
