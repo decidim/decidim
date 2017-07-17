@@ -5,7 +5,6 @@
 ((exports) => {
   class Select2Filter {
     constructor(element) {
-
       let selectedLang = $("html").attr('lang') || 'en';
       
       let $element = $(element);
