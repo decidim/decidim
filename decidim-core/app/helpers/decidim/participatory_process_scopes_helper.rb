@@ -45,14 +45,5 @@ module Decidim
           Option.new(scope.id, translated_attribute(scope.name))
         end
     end
-
-    def selected_scopes(selected)
-      ids = selected.present? && selected.map(&:to_i)
-      if ids && ids.any?
-        Scope.where(id: ids).map do |scope|
-          Option.new(scope.id, translated_attribute(scope.name))
-        end
-      end
-    end
   end
 end
