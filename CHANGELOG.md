@@ -4,17 +4,42 @@
 
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.0...HEAD)
 
-**Closed issues:**
+**Added**
 
-- French seed [\#1588](https://github.com/decidim/decidim/issues/1588)
-- Add administration users page in users section \(admin panel\) [\#1582](https://github.com/decidim/decidim/issues/1582)
-- Ugly margin under flash message [\#1550](https://github.com/decidim/decidim/issues/1550)
+_Added for new features._
 
-**Merged pull requests:**
+- **decidim-admin:**ß Added `Moderator` role to `ParticipatoryProcessUserRole`. A `Moderator` can manage the participatory process moderations. [\#1605](https://github.com/decidim/decidim/pull/1605)
+- **decidim-core:** Added `admin` field to `Decidim::User` to replace the old `admin` role at user level. [\#1605](https://github.com/decidim/decidim/pull/1605)
+- **decidim-core:** Added new users to seeds so every participatory process has a user for every role (i.e. `participatory_process_1_admin@example.org`). [\#1605](https://github.com/decidim/decidim/pull/1605)
 
-- Add extra class for flash message [\#1603](https://github.com/decidim/decidim/pull/1603) ([lastpotion](https://github.com/lastpotion))
-- New Crowdin translations [\#1599](https://github.com/decidim/decidim/pull/1599) ([decidim-bot](https://github.com/decidim-bot))
-- Truncate meetings widget description [\#1594](https://github.com/decidim/decidim/pull/1594) ([beagleknight](https://github.com/beagleknight))
+**Changed**
+
+_Changed for changes in existing functionality._
+
+- **decidim-admin:** The module `ParticipatoryProcessAdmin` exposes the process via the `current_participatory_process` method. [\#1605](https://github.com/decidim/decidim/pull/1605)
+
+
+**Deprecated**
+
+_Deprecated for soon-to-be removed features._
+
+**Removed**
+
+_Removed for now removed features._
+
+- **decidim-core:** Removed `roles` field from `Decidim::User`. The roles management belongs to a participatory process now. [\#1605](https://github.com/decidim/decidim/pull/1605)
+
+**Fixed**
+
+_Fixed for any bug fixes._
+
+- **decidim-core:** Fixed ugly margin under callout messages. [\#1603](https://github.com/decidim/decidim/pull/1603)
+
+**Security**
+
+_Security in case of vulnerabilities._
+
+- **decidim-admin:** All roles permissions have been reviewed so every role has limited access to the admin. [\#1605](https://github.com/decidim/decidim/pull/1605)
 
 ## [v0.4.0](https://github.com/decidim/decidim/tree/v0.4.0) (2017-07-12)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.3.2...v0.4.0)
