@@ -28,28 +28,16 @@ module Decidim
     end
 
     describe "query" do
-      context "with an organization" do
-        it "includes the organization's published processes" do
-          expect(subject).to include(*published_participatory_processes)
-        end
-
-        it "excludes the organization's unpublished processes" do
-          expect(subject).not_to include(*unpublished_participatory_processes)
-        end
-
-        it "excludes other organization's published processes" do
-          expect(subject).not_to include(*foreign_participatory_processes)
-        end
+      it "includes the organization's published processes" do
+        expect(subject).to include(*published_participatory_processes)
       end
 
-      context "without an organization" do
-        subject { described_class.new(nil) }
+      it "excludes the organization's unpublished processes" do
+        expect(subject).not_to include(*unpublished_participatory_processes)
+      end
 
-        it "raises an exception" do
-          expect do
-            subject.to_a
-          end.to raise_error(OrganizationParticipatoryProcesses::MandatoryOrganization)
-        end
+      it "excludes other organization's published processes" do
+        expect(subject).not_to include(*foreign_participatory_processes)
       end
     end
   end
