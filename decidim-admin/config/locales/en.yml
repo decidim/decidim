@@ -122,7 +122,6 @@ en:
       actions:
         activate: Activate
         add: Add
-        browse: Browse
         configure: Configure
         confirm_destroy: Are you sure you want to delete this?
         destroy: Destroy

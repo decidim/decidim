@@ -1,5 +1,7 @@
 /* eslint-disable no-div-regex, no-useless-escape, no-param-reassign, id-length */
 
+// = require ./select2.filter
+
 /**
  * A plain Javascript component that handles the form filter.
  * @class
@@ -11,6 +13,7 @@
       this.$form = $form;
       this.id = this.$form.attr('id') || this._getUID();
       this.mounted = false;
+      this.select2Filters = [];
 
       this._onFormChange = this._onFormChange.bind(this);
       this._onPopState = this._onPopState.bind(this);
@@ -31,7 +34,11 @@
     unmountComponent() {
       if (this.mounted) {
         this.mounted = false;
-        this.$form.off('change', 'input, select', this._onFormChange);
+        this.$form.off('change', 'input:not(.select2-search__field), select', this._onFormChange);
+        this.select2Filters.forEach((select) => {
+          select.destroy();
+        });
+
         exports.Decidim.History.unregisterCallback(`filters-${this.id}`)
       }
     }
@@ -44,7 +51,12 @@
     mountComponent() {
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
-        this.$form.on('change', 'input, select', this._onFormChange);
+        let select2Filters = this.select2Filters;
+        this.$form.find('select.select2').each(function(index, select) {
+          select2Filters.push(new window.Decidim.Select2Filter(select));
+        });
+        this.$form.on('change', 'input:not(.select2-search__field), select', this._onFormChange);
+
         exports.Decidim.History.registerCallback(`filters-${this.id}`, () => {
           this._onPopState();
         });
@@ -88,8 +100,15 @@
       // The RegExp g flag returns null or an array of coincidences. It doesn't return the match groups
       if (regexpResult) {
         const filterParams = regexpResult.reduce((acc, result) => {
-          const [, key, value] = result.match(/filter\[([^\]]*)\](?:\[\])?=([^&]*)/);
-          acc[key] = value;
+          const [, key, array, value] = result.match(/filter\[([^\]]*)\](\[\])?=([^&]*)/);
+          if (array) {
+            if (!acc[key]) {
+              acc[key]=[];
+            }
+            acc[key].push(value);
+          } else {
+            acc[key] = value;
+          }
           return acc;
         }, {});
 
@@ -125,6 +144,7 @@
     _clearForm() {
       this.$form.find('input[type=checkbox]').attr('checked', false);
       this.$form.find('input[type=radio]').attr('checked', false);
+      this.$form.find('select.select2').val(null).trigger('change.select2');
 
       // This ensure the form is reset in a valid state where a fieldset of
       // radio buttons has the first selected.
@@ -166,7 +186,11 @@
             field = this.$form.find(`input#filter_${fieldId},select#filter_${fieldId}`);
 
             if (field.length > 0) {
-              field.val(filterParams[fieldId]);
+              if (field.hasClass("select2")) {
+                field.val(filterParams[fieldId]).trigger('change.select2');
+              } else {
+                field.val(filterParams[fieldId]);
+              }
             }
           }
         });

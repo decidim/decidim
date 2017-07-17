@@ -64,6 +64,7 @@ en:
           category: Category
           category_prompt: Select a category
           scopes: Scopes
+          scope_prompt: Select a scope
           search: Search
         filters_small_view:
           close_modal: Close modal

@@ -122,8 +122,7 @@ if !Rails.env.production? || ENV["SEED"]
       end,
       hero_image: File.new(File.join(seeds_root, "city.jpeg")),
       banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
-      promoted: true,
-      published_at: 2.weeks.ago,
+      promoted: true, published_at: 2.weeks.ago,
       organization: organization,
       meta_scope: Decidim::Faker::Localized.word,
       developer_group: Decidim::Faker::Localized.sentence(1),
@@ -132,7 +131,8 @@ if !Rails.env.production? || ENV["SEED"]
       participatory_scope: Decidim::Faker::Localized.sentence(1),
       participatory_structure: Decidim::Faker::Localized.sentence(2),
       end_date: 2.month.from_now.at_midnight,
-      participatory_process_group: process_groups.sample
+      participatory_process_group: process_groups.sample,
+      scope: Faker::Boolean.boolean(0.5) ? nil : Decidim::Scope.reorder("RANDOM()").first
     )
   end
 

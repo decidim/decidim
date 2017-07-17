@@ -11,11 +11,11 @@
       </div>
     </div>
   </div>
-
-  <% if current_participatory_process.subscopes.any? %>
-    <%= form.collection_check_boxes :scope_id, search_participatory_process_subscopes(current_participatory_process), lambda {|scope| scope.id.to_s}, :name, legend_title: t('.scopes') %>
-  <% end %>
   
+  <% if current_participatory_process.subscopes.any? %>
+    <%= form.scopes_select :scope_id, legend_title: t(".scopes"), label: false, prompt: t('.scope_prompt'), remote_path: decidim.scopes_search_path(include_root: true), multiple: true %>
+  <% end %>
+    
   <% if current_feature.categories.any? %>
     <%= form.categories_select :category_id, current_feature.categories, legend_title: t('.category'), disable_parents: false, label: false, prompt: t('.category_prompt') %>
   <% end %>

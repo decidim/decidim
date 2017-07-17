@@ -107,6 +107,7 @@ en:
           rejected: Rejected
           related_to: Related to
           scopes: Scopes
+          scope_prompt: Select a scope
           search: Search
           state: State
           voted: Voted

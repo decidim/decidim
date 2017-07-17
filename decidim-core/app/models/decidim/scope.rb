@@ -39,14 +39,18 @@ module Decidim
     #
     # Returns an ActiveRecord::Relation.
     def self.top_level
-      where(parent_id: nil)
+      where parent_id: nil
+    end
+
+    def descendants
+      organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
     end
 
     # Gets the scopes from the part_of list
     #
     # Returns an ActiveRecord::Relation.
     def part_of_scopes
-      Decidim::Scope.where(id: part_of)
+      organization.scopes.where(id: part_of)
     end
 
     private

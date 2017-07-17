@@ -56,9 +56,6 @@ Decidim::Admin::Engine.routes.draw do
     resources :scope_types, except: [:show]
     resources :scopes, except: [:show] do
       resources :scopes, except: [:show]
-      collection do
-        get :search
-      end
     end
 
     resources :users, except: [:edit, :update], controller: "users" do

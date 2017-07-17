@@ -69,17 +69,6 @@ module Decidim
         redirect_to current_scopes_path
       end
 
-      def search
-        authorize! :search, Scope
-        scopes = if params[:term].present?
-                   FreetextScopes.for(current_organization, I18n.locale, params[:term])
-                 else
-                   current_organization.top_scopes
-                 end
-
-        render json: { results: scopes.map { |scope| { id: scope.id, text: scope.name[I18n.locale.to_s] } } }
-      end
-
       private
 
       def scope
@@ -93,7 +82,7 @@ module Decidim
       def collection
         current_organization.scopes
       end
-      
+
       def current_scopes_path
         if parent_scope
           scope_scopes_path(parent_scope)

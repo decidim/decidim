@@ -17,7 +17,7 @@
   <% end %>
 
   <% if current_participatory_process.subscopes.any? %>
-    <%= form.collection_check_boxes :scope_id, search_participatory_process_subscopes(current_participatory_process), lambda {|scope| scope.id.to_s}, :name, legend_title: t('.scopes') %>
+    <%= form.scopes_select :scope_id, legend_title: t(".scopes"), label: false, prompt: t('.scope_prompt'), remote_path: decidim.scopes_search_path(root: current_participatory_process.scope, include_root: true), multiple: true %>
   <% end %>
   
   <% if current_feature.categories.any? %>

@@ -1,8 +1,8 @@
 $(() => {
-  var selectedLang = $("html").attr('lang') || 'ca';
-  $(".scope_freetext").select2({
+  const selectedLang = $("html").attr('lang') || 'en';
+  $(".select2").select2({
     ajax: {
-      url: "/admin/scopes/search.json",
+      url: "/scopes/search.json",
       language: selectedLang,
       cache: true
     },

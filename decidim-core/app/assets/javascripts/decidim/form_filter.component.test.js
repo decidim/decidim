@@ -1,8 +1,10 @@
 /* global spyOn */
 /* eslint-disable id-length */
 const $ = require('jquery');
+require('select2');
 
 require('./history.js.es6');
+require('./select2.filter.js.es6');
 require('./form_filter.component.js.es6');
 
 const { Decidim: { FormFilterComponent } } = window;
@@ -15,9 +17,11 @@ describe('FormFilterComponent', () => {
     let form = `
       <form id="new_filter" action="/filters" method="get">
         <fieldset>
-          <input id="filter_scope_id_1" value="1" type="checkbox" name="filter[scope_id][]" />
-          <input id="filter_scope_id_2" value="2" type="checkbox" name="filter[scope_id][]" />
-          <input id="filter_scope_id_3" value="3" type="checkbox" name="filter[scope_id][]" />
+          <select id="filter_scope_id" name="filter[scope_id]" class="select2" multiple>
+            <option value="1">Scope 1</option>
+            <option value="2">Scope 2</option>
+            <option value="3">Scope 3</option>
+          </select>
         </fieldset>
 
         <fieldset>
@@ -59,7 +63,7 @@ describe('FormFilterComponent', () => {
     });
 
     it('binds the form change event', () => {
-      expect(subject.$form.on).toHaveBeenCalledWith('change', 'input, select', subject._onFormChange);
+      expect(subject.$form.on).toHaveBeenCalledWith('change', 'input:not(.select2-search__field), select', subject._onFormChange);
     });
 
     describe('onpopstate event', () => {
@@ -79,10 +83,8 @@ describe('FormFilterComponent', () => {
         spyOn(subject, '_getLocation').and.returnValue('/filters?filter[scope_id][]=1&scope_id[]=2&filter[category_id]=2');
         window.onpopstate({ isTrusted: true });
 
-        expect($(selector).find('select').val()).toEqual('2');
-        expect($(selector).find('input[name="filter[scope_id][]"][value="1"]')[0].checked).toBeTruthy();
-        expect($(selector).find('input[name="filter[scope_id][]"][value="2"]')[0].checked).toBeFalsy();
-        expect($(selector).find('input[name="filter[scope_id][]"][value="3"]')[0].checked).toBeFalsy();
+        expect($(selector).find('select#filter_category_id').val()).toEqual('2');
+        expect($(selector).find('select#filter_scope_id').val()).toEqual(['1']);
       });
     });
   });
@@ -99,7 +101,7 @@ describe('FormFilterComponent', () => {
     });
 
     it('unbinds the form change event', () => {
-      expect(subject.$form.off).toHaveBeenCalledWith('change', 'input, select', subject._onFormChange);
+      expect(subject.$form.off).toHaveBeenCalledWith('change', 'input:not(.select2-search__field), select', subject._onFormChange);
     });
   });
 

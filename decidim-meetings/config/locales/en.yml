@@ -66,6 +66,7 @@ en:
           date: Date
           past: Past
           scopes: Scopes
+          scope_prompt: Select a scope
           search: Search
           upcoming: Upcoming
         filters_small_view:
