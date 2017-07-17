@@ -8,7 +8,7 @@
 
 _Added for new features._
 
-- **decidim-admin:**ß Added `Moderator` role to `ParticipatoryProcessUserRole`. A `Moderator` can manage the participatory process moderations. [\#1605](https://github.com/decidim/decidim/pull/1605)
+- **decidim-admin:** Added `Moderator` role to `ParticipatoryProcessUserRole`. A `Moderator` can manage the participatory process moderations. [\#1605](https://github.com/decidim/decidim/pull/1605)
 - **decidim-core:** Added `admin` field to `Decidim::User` to replace the old `admin` role at user level. [\#1605](https://github.com/decidim/decidim/pull/1605)
 - **decidim-core:** Added new users to seeds so every participatory process has a user for every role (i.e. `participatory_process_1_admin@example.org`). [\#1605](https://github.com/decidim/decidim/pull/1605)
 

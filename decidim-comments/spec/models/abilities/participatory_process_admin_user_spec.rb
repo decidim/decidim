@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Comments::Abilities::ParticipatoryProcessAdminUser do
   let(:user) { build(:user) }
   let(:user_process) { create :participatory_process, organization: user.organization }
-  let!(:user_role) { create :participatory_process_user_role, user: user, participatory_process: user_process, role: :admin}
+  let!(:user_role) { create :participatory_process_user_role, user: user, participatory_process: user_process, role: :admin }
   let(:context) { { current_participatory_process: user_process } }
 
   subject { described_class.new(user, context) }
