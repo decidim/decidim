@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe InviteAdminForm do
+  describe InviteUserForm do
     let(:current_organization) { create(:organization) }
     let(:current_user) { create(:user, organization: current_organization) }
     let(:form_organization) { current_organization }
@@ -23,7 +23,7 @@ module Decidim
         email: "NewAdmin@example.org",
         name: "New Admin",
         invitation_instructions: "invite_admin",
-        roles: %w(admin),
+        admin: true,
         organization: form_organization,
         invited_by: form_user
       }

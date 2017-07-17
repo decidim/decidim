@@ -68,9 +68,7 @@ module Decidim
       end
 
       def new_user
-        new_user_form = user_form.dup
-        new_user_form.roles = []
-        @new_user ||= InviteUser.call(new_user_form) do
+        @new_user ||= InviteUser.call(user_form) do
           on(:ok) do |user|
             return user
           end

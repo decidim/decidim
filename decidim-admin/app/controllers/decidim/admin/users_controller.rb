@@ -14,7 +14,7 @@ module Decidim
 
       def new
         authorize! :new, :admin_users
-        @form = form(InviteAdminForm).instance
+        @form = form(InviteUserForm).instance
       end
 
       def create
@@ -29,7 +29,7 @@ module Decidim
           replies_notifications: true
         }
 
-        @form = form(InviteAdminForm).from_params(params.merge(default_params))
+        @form = form(InviteUserForm).from_params(params.merge(default_params))
 
         InviteUser.call(@form) do
           on(:ok) do

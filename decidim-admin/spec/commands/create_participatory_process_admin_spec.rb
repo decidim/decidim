@@ -40,7 +40,7 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
 
     it "creates a new user with no application admin privileges" do
       subject.call
-      expect(Decidim::User.last.roles).not_to include("admin")
+      expect(Decidim::User.last).not_to be_admin
     end
 
     context "when there is no user with the given email" do
@@ -53,7 +53,7 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
 
       it "creates a new user with no application admin privileges" do
         subject.call
-        expect(Decidim::User.last.roles).not_to include("admin")
+        expect(Decidim::User.last).not_to be_admin
       end
     end
 

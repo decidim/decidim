@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A form object used to invite admins to an organization.
+  # A form object used to invite users to an organization.
   #
-  class InviteAdminForm < Form
+  class InviteUserForm < Form
     mimic :user
 
     attribute :email, String
     attribute :name, String
     attribute :invitation_instructions, String
-    attribute :roles, Array[String]
     attribute :organization, Decidim::Organization
     attribute :invited_by, Decidim::User
+    attribute :admin, Boolean
 
-    validates :email, :name, :organization, :invitation_instructions, :roles, presence: true
+    validates :email, :name, :organization, :invitation_instructions, presence: true
     validate :admin_uniqueness
 
     def email
