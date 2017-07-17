@@ -2,10 +2,14 @@
 
 require "spec_helper"
 
-describe Decidim::Proposals::Abilities::ProcessAdminUser do
+describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminUser do
   let(:user) { build(:user) }
   let(:user_process) { create :participatory_process, organization: user.organization }
-  let(:context) { {} }
+  let!(:user_process_role) { create :participatory_process_user_role, user: user, participatory_process: user_process, role: :admin }
+  let(:feature) { create :proposal_feature, participatory_process: user_process }
+  let(:proposals) { create_list :proposal, 3, feature: feature }
+  let(:other_proposals) { create_list :proposal, 3 }
+  let(:context) { { current_participatory_process: user_process } }
 
   subject { described_class.new(user, context) }
 
@@ -23,6 +27,7 @@ describe Decidim::Proposals::Abilities::ProcessAdminUser do
   context "when creation is disabled" do
     let(:context) do
       {
+        current_participatory_process: user_process,
         current_settings: double(creation_enabled?: false),
         feature_settings: double(official_proposals_enabled: true)
       }
@@ -34,6 +39,7 @@ describe Decidim::Proposals::Abilities::ProcessAdminUser do
   context "when official proposals are disabled" do
     let(:context) do
       {
+        current_participatory_process: user_process,
         current_settings: double(creation_enabled?: true),
         feature_settings: double(official_proposals_enabled: false)
       }
@@ -45,6 +51,7 @@ describe Decidim::Proposals::Abilities::ProcessAdminUser do
   context "when proposal_answering is disabled in step level" do
     let(:context) do
       {
+        current_participatory_process: user_process,
         current_settings: double(proposal_answering_enabled: false)
       }
     end
@@ -55,6 +62,7 @@ describe Decidim::Proposals::Abilities::ProcessAdminUser do
   context "when proposal_answering is disabled in feature level" do
     let(:context) do
       {
+        current_participatory_process: user_process,
         feature_settings: double(proposal_answering_enabled: false)
       }
     end

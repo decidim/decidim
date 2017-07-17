@@ -13,7 +13,7 @@ module Decidim
     def call
       return broadcast(:invalid) unless user
 
-      user.update_attribute!(:admin, false)
+      user.update_attributes!(admin: false)
 
       broadcast(:ok)
     end

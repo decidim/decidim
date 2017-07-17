@@ -6,8 +6,9 @@ module Decidim
     class AdminUser
       include CanCan::Ability
 
-      def initialize(user, _context)
+      def initialize(user, context)
         @user = user
+        @context = context
 
         define_abilities if admin?
       end
