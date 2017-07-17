@@ -21,7 +21,7 @@ module Decidim
           ca: "Descripció"
         }
       end
-      let(:attachment) { test_file("city.jpeg", "image/jpeg") }
+      let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
 
       let(:attributes) do
         {
@@ -56,7 +56,7 @@ module Decidim
       end
 
       context "when images are not the expected type" do
-        let(:attachment) { test_file("Exampledocument.pdf", "application/pdf") }
+        let(:attachment) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
 
         it { is_expected.not_to be_valid }
       end
