@@ -29,7 +29,7 @@ module Decidim
     end
 
     def detect_current_participatory_process(params)
-      @organization.participatory_processes.find_by_id(params["participatory_process_id"])
+      OrganizationParticipatoryProcesses.new(@organization).query.find_by_id(params["participatory_process_id"])
     end
   end
 end

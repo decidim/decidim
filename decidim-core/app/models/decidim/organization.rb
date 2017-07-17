@@ -8,7 +8,6 @@ module Decidim
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
 
     has_many :participatory_process_groups, foreign_key: "decidim_organization_id", class_name: "Decidim::ParticipatoryProcessGroup", inverse_of: :organization
-    has_many :participatory_processes, foreign_key: "decidim_organization_id", class_name: "Decidim::ParticipatoryProcess", inverse_of: :organization
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: "Decidim::StaticPage", inverse_of: :organization
     has_many :scopes, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::Scope", inverse_of: :organization
     has_many :admins, -> { where(admin: true) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
