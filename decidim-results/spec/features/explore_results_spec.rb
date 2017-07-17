@@ -64,7 +64,7 @@ describe "Explore results", type: :feature do
           visit_feature
 
           within ".filters" do
-            check translated(scope.name)
+            select2(translated(scope.name), xpath: '//select[@id="filter_scope_id"]/..', search: true)
           end
 
           expect(page).to have_css(".card--result", count: 1)
@@ -164,7 +164,7 @@ describe "Explore results", type: :feature do
         within "ul.tags.tags--result" do
           click_link translated(result.scope.name)
         end
-        expect(page).to have_checked_field(translated(result.scope.name))
+        expect(page).to have_select("filter_scope_id", selected: translated(result.scope.name))
       end
     end
 
