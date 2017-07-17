@@ -65,8 +65,8 @@ en:
           category_prompt: Select a category
           date: Date
           past: Past
-          scopes: Scopes
           scope_prompt: Select a scope
+          scopes: Scopes
           search: Search
           upcoming: Upcoming
         filters_small_view:
