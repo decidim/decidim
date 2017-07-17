@@ -1,4 +1,4 @@
-<%= decidim_form_for([current_participatory_process, @form], url: participatory_process_feature_path(participatory_process, @feature), method: "put", html: { class: "form edit_feature" }) do |form| %>
+<%= decidim_form_for([current_participatory_process, @form], url: participatory_process_feature_path(current_participatory_process, @feature), method: "put", html: { class: "form edit_feature" }) do |form| %>
   <%= render partial: 'form', object: form, locals: { feature: @feature, title: t(".title", name: t("#{@feature.manifest.name}.name", scope: "decidim.features"))} %>
 
   <div class="button--double form-general-submit">

@@ -79,7 +79,7 @@ module Decidim
         OpenStruct.new(name: form.name,
                        email: form.email.downcase,
                        organization: participatory_process.organization,
-                       roles: [form.role.to_sym],
+                       admin: false,
                        invited_by: current_user,
                        invitation_instructions: invitation_instructions)
       end

@@ -10,6 +10,15 @@ module Decidim
       def role
         :collaborator
       end
+
+      # Overrides ParticipatoryProcessUserRole define_participatory_process_abilities method
+      def define_participatory_process_abilities
+        super
+
+        can :read, ParticipatoryProcess do |process|
+          can_manage_process?(process)
+        end
+      end
     end
   end
 end

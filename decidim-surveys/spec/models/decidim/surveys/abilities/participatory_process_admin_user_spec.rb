@@ -2,10 +2,10 @@
 
 require "spec_helper"
 
-describe Decidim::Surveys::Abilities::ProcessAdminUser do
+describe Decidim::Surveys::Abilities::ParticipatoryProcessAdminUser do
   let(:user) { build(:user) }
   let(:user_process) { create :participatory_process, organization: user.organization }
-  let(:context) { {} }
+  let(:context) { { current_participatory_process: user_process } }
 
   subject { described_class.new(user, context) }
 
