@@ -3,7 +3,7 @@
 module Decidim
   module Abilities
     # TODO
-    class ParticipatoryProcessUserRole
+    class ParticipatoryProcessRoleUser
       include CanCan::Ability
 
       def initialize(user, context)

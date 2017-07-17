@@ -32,6 +32,7 @@ module Decidim
   autoload :Menu, "decidim/menu"
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
+  autoload :Abilities, "decidim/abilities"  
 
   include ActiveSupport::Configurable
 

@@ -22,7 +22,7 @@ module Decidim
       initializer "decidim_surveys.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
           config.admin_abilities += ["Decidim::Surveys::Abilities::AdminUser"]
-          config.admin_abilities += ["Decidim::Surveys::Abilities::ProcessAdminUser"]
+          config.admin_abilities += ["Decidim::Surveys::Abilities::ParticipatoryProcessAdminUser"]
         end
       end
 

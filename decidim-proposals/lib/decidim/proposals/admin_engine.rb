@@ -19,7 +19,7 @@ module Decidim
       initializer "decidim_proposals.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
           config.admin_abilities += ["Decidim::Proposals::Abilities::AdminUser"]
-          config.admin_abilities += ["Decidim::Proposals::Abilities::ProcessAdminUser"]
+          config.admin_abilities += ["Decidim::Proposals::Abilities::ParticipatoryProcessAdminUser"]
         end
       end
 
