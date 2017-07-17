@@ -20,6 +20,7 @@ module Decidim
         Decidim.configure do |config|
           config.admin_abilities += ["Decidim::Proposals::Abilities::AdminUser"]
           config.admin_abilities += ["Decidim::Proposals::Abilities::ParticipatoryProcessAdminUser"]
+          config.admin_abilities += ["Decidim::Proposals::Abilities::ParticipatoryProcessModeratorUser"]
         end
       end
 

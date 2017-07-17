@@ -12,6 +12,7 @@ module Decidim
         Decidim.configure do |config|
           config.admin_abilities += ["Decidim::Comments::Abilities::AdminUser"]
           config.admin_abilities += ["Decidim::Comments::Abilities::ParticipatoryProcessAdminUser"]
+          config.admin_abilities += ["Decidim::Comments::Abilities::ParticipatoryProcessModeratorUser"]
         end
       end
 

@@ -6,5 +6,6 @@ module Decidim
     autoload :ParticipatoryProcessRoleUser, "decidim/abilities/participatory_process_role_user"
     autoload :ParticipatoryProcessAdminUser, "decidim/abilities/participatory_process_admin_user"
     autoload :ParticipatoryProcessCollaboratorUser, "decidim/abilities/participatory_process_collaborator_user"
+    autoload :ParticipatoryProcessModeratorUser, "decidim/abilities/participatory_process_moderator_user"
   end
 end

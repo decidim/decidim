@@ -83,6 +83,7 @@ module Decidim
           config.abilities << "Decidim::Abilities::AdminUser"
           config.abilities << "Decidim::Abilities::ParticipatoryProcessAdminUser"
           config.abilities << "Decidim::Abilities::ParticipatoryProcessCollaboratorUser"
+          config.abilities << "Decidim::Abilities::ParticipatoryProcessModeratorUser"
         end
       end
 

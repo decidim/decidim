@@ -10,8 +10,10 @@ module Decidim
         @user = user
         @context = context
 
-        define_abilities if not_admin? && has_manageable_processes?
-        define_participatory_process_abilities if current_participatory_process && can_manage_process?(current_participatory_process)
+        if not_admin? && has_manageable_processes?
+          define_abilities
+          define_participatory_process_abilities if current_participatory_process && can_manage_process?(current_participatory_process)
+        end
       end
 
       def define_abilities

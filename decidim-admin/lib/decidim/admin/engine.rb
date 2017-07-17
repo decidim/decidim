@@ -36,6 +36,7 @@ module Decidim
           config.admin_abilities += ["Decidim::Admin::Abilities::AdminUser"]
           config.admin_abilities += ["Decidim::Admin::Abilities::ParticipatoryProcessAdminUser"]
           config.admin_abilities += ["Decidim::Admin::Abilities::ParticipatoryProcessCollaboratorUser"]
+          config.admin_abilities += ["Decidim::Admin::Abilities::ParticipatoryProcessModeratorUser"]
         end
       end
 
