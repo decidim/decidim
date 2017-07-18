@@ -101,6 +101,10 @@ describe "Explore meetings", type: :feature do
     end
 
     context "when paginating" do
+      before do
+        Decidim::Meetings::Meeting.destroy_all
+      end
+
       let!(:collection) { create_list :meeting, collection_size, feature: feature }
       let!(:resource_selector) { ".card--meeting" }
 
