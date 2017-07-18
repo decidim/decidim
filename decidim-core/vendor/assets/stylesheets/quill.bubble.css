@@ -1,5 +1,5 @@
 /*!
- * Quill Editor v1.2.2
+ * Quill Editor v1.2.6
  * https://quilljs.com/
  * Copyright (c) 2014, Jason Chen
  * Copyright (c) 2013, salesforce.com
@@ -73,6 +73,10 @@
 .ql-editor ul[data-checked=false] {
   pointer-events: none;
 }
+.ql-editor ul[data-checked=true] > li *,
+.ql-editor ul[data-checked=false] > li * {
+  pointer-events: all;
+}
 .ql-editor ul[data-checked=true] > li::before,
 .ql-editor ul[data-checked=false] > li::before {
   color: #777;
@@ -87,13 +91,15 @@
 }
 .ql-editor li::before {
   display: inline-block;
-  margin-right: 0.3em;
-  text-align: right;
   white-space: nowrap;
   width: 1.2em;
-}
-.ql-editor li:not(.ql-direction-rtl)::before {
+  text-align: right;
+  margin-right: 0.3em;
   margin-left: -1.5em;
+}
+.ql-editor li.ql-direction-rtl::before {
+  text-align: left;
+  margin-left: 0.3em;
 }
 .ql-editor ol li,
 .ql-editor ul li {
@@ -474,6 +480,24 @@
 .ql-bubble.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
 .ql-bubble .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
   stroke: #fff;
+}
+@media (pointer: coarse) {
+  .ql-bubble.ql-toolbar button:hover:not(.ql-active),
+  .ql-bubble .ql-toolbar button:hover:not(.ql-active) {
+    color: #ccc;
+  }
+  .ql-bubble.ql-toolbar button:hover:not(.ql-active) .ql-fill,
+  .ql-bubble .ql-toolbar button:hover:not(.ql-active) .ql-fill,
+  .ql-bubble.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill,
+  .ql-bubble .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill {
+    fill: #ccc;
+  }
+  .ql-bubble.ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+  .ql-bubble .ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+  .ql-bubble.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,
+  .ql-bubble .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter {
+    stroke: #ccc;
+  }
 }
 .ql-bubble {
   box-sizing: border-box;
