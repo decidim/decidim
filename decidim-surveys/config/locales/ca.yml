@@ -58,7 +58,7 @@ ca:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Entra amb el teu compte</a> o <a href="%{sign_up_link}">dona't d'alta</a> per contestar l'enquesta.
             title: Respon a l'enquesta
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les respostes. N'estàs segur?
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les respostes. Segur que vols seguir?
           submit: Enviar
           survey_answered:
             body: Ja ha respost a aquesta enquesta.

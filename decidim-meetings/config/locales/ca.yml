@@ -25,7 +25,7 @@ ca:
       actions:
         attachments: Adjunts
         close: Tancar
-        confirm_destroy: Esteu segur de que voleu suprimir aquesta trobada?
+        confirm_destroy: Segur que vols suprimir aquesta trobada?
         destroy: Esborra
         edit: Edita
         new: Nova
