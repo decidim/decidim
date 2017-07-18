@@ -77,17 +77,13 @@ it:
           subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Effettuando la registrazione automaticamente accetti le seguenti condizioni %{link}.
-          username_help: Nome "pubblico" che comparirà per i tuoi post.  Usa un nome di fantasia se vuoi garantirti un certo grado di anonimato.
       sessions:
         new:
-          are_you_new?: Non conosci bene questa piattaforma?  Sei un neofita?
+          are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
-      shared:
-        omniauth_buttons:
-          or: oppure
     export_mailer:
       export:
-        ready: Trovi in allegato una versione compressa (ZIP) dei dati esportati .
+        ready: In allegato una versione compressa (Zip) dei dati esportati.
       subject: Ecco i dati che hai chiesto di esportare per "%{name}"
     features:
       dummy:
