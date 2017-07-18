@@ -150,7 +150,7 @@ ca:
           error: S'ha produït un error en crear aquesta categoria.
           success: Categoria creada correctament.
         destroy:
-          error: S'ha produït un error en eliminar aquesta categoria. Si us plau, elimini qualsevol subcategoria en primer lloc, assegureu-vos que cap altra entitat pertany a aquesta categoria i torni a intentar-ho.
+          error: S'ha produït un error en eliminar aquesta categoria. Si us plau, elimina qualsevol subcategoria en primer lloc, assegura't que cap altra entitat pertany a aquesta categoria i torna a intentar-ho.
           success: Categoria eliminada correctament.
         edit:
           title: Edita categoria
@@ -331,13 +331,13 @@ ca:
         form:
           interpolations_hint: 'Consell: Podeu utilitzar "%{name}" en qualsevol part del cos o assumpte i serà reemplaçat pel nom del destinatari.'
         index:
-          confirm_delete: Esteu segur que voleu suprimir aquest butlletí?
+          confirm_delete: Segur que vols suprimir aquest butlletí?
           title: Butlletins
         new:
           save: Desar
           title: Nou butlletí
         show:
-          confirm_deliver: Estàs segur de que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
+          confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
           preview: Previsualitzar
           subject: Assumpte

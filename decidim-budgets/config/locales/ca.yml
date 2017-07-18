@@ -12,7 +12,7 @@ ca:
     budgets:
       actions:
         attachments: Adjunts
-        confirm_destroy: Estàs segur que vols eliminar aquest projecte?
+        confirm_destroy: Segur que vols eliminar aquest projecte?
         destroy: Esborrar
         edit: Editar
         new: Nou
@@ -58,7 +58,7 @@ ca:
           ok: D'acord
           title: Pressupost superat
         budget_summary:
-          are_you_sure: Estàs segur de que vols cancel·lar el teu vot?
+          are_you_sure: Segur que vols cancel·lar el teu vot?
           assigned: 'Assignat:'
           cancel_order: eliminar el teu vot i començar de nou
           checked_out:
