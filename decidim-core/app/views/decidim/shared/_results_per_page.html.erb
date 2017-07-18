@@ -1,0 +1,18 @@
+<div class="results-per-page">
+  <div class="results-per-page__dropdown">
+    <span class="results-per-page__text"><%= t(".label") %></span>
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="is-dropdown-submenu-parent">
+        <a><%= per_page %></a>
+
+        <ul class="menu">
+          <% Decidim::Paginable::OPTIONS.each do |per_page_option| %>
+            <li>
+              <%= link_to per_page_option, url_for(params.to_unsafe_h.merge(page: nil, per_page: per_page_option)), data: { per_page_option: per_page_option } %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
