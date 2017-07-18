@@ -33,7 +33,7 @@ it:
         update_account: Aggiorna l'account
       update:
         error: Si è verificato un errore durante l'aggiornamento del tuo account.
-        success: OK, il tuo account è stato aggiornato.
+        success: Il tuo account è stato aggiornato correttamente.
     application:
       documents:
         related_documents: Documenti correlati
