@@ -21,6 +21,7 @@ module Decidim
   autoload :Features, "decidim/features"
   autoload :HasAttachments, "decidim/has_attachments"
   autoload :FeatureValidator, "decidim/feature_validator"
+  autoload :HasSettings, "decidim/has_settings"
   autoload :HasFeature, "decidim/has_feature"
   autoload :HasScope, "decidim/has_scope"
   autoload :HasCategory, "decidim/has_category"
