@@ -39,7 +39,7 @@ ca:
         confirm:
           close: Tanca la finestra
           ok: Sí, vull eliminar el meu compte
-          question: Estàs segur que vols eliminar el teu compte?
+          question: Segur que vols eliminar el teu compte?
           title: Eliminar el meu compte
         explanation: Si us plau, omple la raó per la qual vols eliminar el teu compte (opcional).
       destroy:
@@ -370,7 +370,7 @@ ca:
         proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
       footer_sub_hero:
         footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
-        footer_sub_hero_headline: Bienvenida y bienvenido a la plataforma participativa %{organization}.
+        footer_sub_hero_headline: Benvingut/da a la plataforma participativa %{organization}.
         register: Registra't
       hero:
         participate: Participa
