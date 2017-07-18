@@ -73,6 +73,10 @@ describe "Explore results", type: :feature do
     end
 
     context "when paginating" do
+      before do
+        Decidim::Results::Result.destroy_all
+      end
+
       let!(:collection) { create_list :result, collection_size, feature: feature }
       let!(:resource_selector) { ".card--result" }
 

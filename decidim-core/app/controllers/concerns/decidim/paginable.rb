@@ -7,7 +7,7 @@ module Decidim
   module Paginable
     extend ActiveSupport::Concern
 
-    OPTIONS = %w(20 50 100).freeze
+    OPTIONS = [20, 50, 100].freeze
 
     included do
       helper_method :per_page

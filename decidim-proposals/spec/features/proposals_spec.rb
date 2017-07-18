@@ -411,9 +411,9 @@ describe "Proposals", type: :feature do
         visit_feature
 
         expect(page).to have_selector("a", text: "Random")
-        expect(page).to have_selector("#proposals .card-grid .column", count: 2)
-        expect(page).to have_selector("#proposals .card-grid .column", text: lucky_proposal.title)
-        expect(page).to have_selector("#proposals .card-grid .column", text: unlucky_proposal.title)
+        expect(page).to have_selector(".card--proposal", count: 2)
+        expect(page).to have_selector(".card--proposal", text: lucky_proposal.title)
+        expect(page).to have_selector(".card--proposal", text: unlucky_proposal.title)
       end
     end
 
@@ -487,13 +487,13 @@ describe "Proposals", type: :feature do
 
     context "when there are a lot of proposals" do
       before do
-        create_list(:proposal, 17, feature: feature)
+        create_list(:proposal, Decidim::Paginable::OPTIONS.first + 5, feature: feature)
       end
 
       it "paginates them" do
         visit_feature
 
-        expect(page).to have_css(".card--proposal", count: 12)
+        expect(page).to have_css(".card--proposal", count: Decidim::Paginable::OPTIONS.first)
 
         click_link "Next"
 
