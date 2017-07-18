@@ -21,6 +21,10 @@ module Decidim
             id: @proposal.category.try(:id),
             name: @proposal.category.try(:name)
           },
+          scope: {
+            id: @proposal.scope.try(:id),
+            name: @proposal.scope.try(:name)
+          },
           title: @proposal.title,
           body: @proposal.body,
           votes: @proposal.proposal_votes_count,

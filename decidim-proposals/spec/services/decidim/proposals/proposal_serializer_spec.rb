@@ -7,6 +7,7 @@ module Decidim
     describe ProposalSerializer do
       let!(:proposal) { create(:proposal) }
       let!(:category) { create(:category, participatory_process: feature.participatory_process) }
+      let!(:scope) { create(:scope, organization: feature.participatory_process.organization) }
       let(:participatory_process) { feature.participatory_process }
       let(:feature) { proposal.feature }
 
@@ -15,6 +16,7 @@ module Decidim
 
       before do
         proposal.update_attribute(:category, category)
+        proposal.update_attribute(:scope, scope)
         proposal.link_resources(meetings, "proposals_from_meeting")
       end
 
@@ -32,6 +34,11 @@ module Decidim
         it "serializes the category" do
           expect(serialized[:category]).to include(id: category.id)
           expect(serialized[:category]).to include(name: category.name)
+        end
+
+        it "serializes the scope" do
+          expect(serialized[:scope]).to include(id: scope.id)
+          expect(serialized[:scope]).to include(name: scope.name)
         end
 
         it "serializes the title" do
