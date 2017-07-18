@@ -273,7 +273,6 @@ FactoryGirl.define do
     title { generate(:name) }
     feature { create(:feature, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: feature.organization) }
-    category { create(:category, participatory_process: feature.participatory_process) }
   end
 
   factory :resource_link, class: Decidim::ResourceLink do
