@@ -11,6 +11,8 @@ module Decidim
     class AdminEngine < ::Rails::Engine
       isolate_namespace Decidim::ParticipatoryProcesses::Admin
 
+      paths["db/migrate"] = nil
+
       routes do
         resources :participatory_process_groups
         resources :participatory_processes do
