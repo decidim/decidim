@@ -38,11 +38,11 @@ it:
     authorization_handlers:
       decidim/dummy_authorization_handler:
         fields:
-          document_number: Documento n.
+          document_number: Numero di documento
           postal_code: C.A.P.
         name: Esempio di autorizzazione
       errors:
-        duplicate_authorization: Esiste già un utente autorizzato con questi dati.
+        duplicate_authorization: Esiste già un utente registrato con gli stessi dati.
     authorizations:
       create:
         error: Siè verificato un errore durante la fase di creazione dell'autenticazione.
