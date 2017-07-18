@@ -751,5 +751,12 @@ describe "Proposals", type: :feature do
         end
       end
     end
+
+    context "when paginating" do
+      let!(:collection) { create_list :proposal, collection_size, feature: feature }
+      let!(:resource_selector) { ".card--proposal" }
+
+      it_behaves_like "a paginated resource"
+    end
   end
 end

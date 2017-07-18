@@ -99,6 +99,13 @@ describe "Explore meetings", type: :feature do
         end
       end
     end
+
+    context "when paginating" do
+      let!(:collection) { create_list :result, collection_size, feature: feature }
+      let!(:resource_selector) { ".card--result" }
+
+      it_behaves_like "a paginated resource"
+    end
   end
 
   context "show", :serves_map do

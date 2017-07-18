@@ -259,6 +259,8 @@ en:
         close_window: Close window
         share: Share
         share_link: Share link
+      results_per_page:
+        label: "Results per page:"
   devise:
     invitations:
       edit:
