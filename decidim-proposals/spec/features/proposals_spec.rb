@@ -403,20 +403,6 @@ describe "Proposals", type: :feature do
   end
 
   context "listing proposals in a participatory process" do
-    shared_examples_for "a random proposal ordering" do
-      let!(:lucky_proposal) { create(:proposal, feature: feature) }
-      let!(:unlucky_proposal) { create(:proposal, feature: feature) }
-
-      it "lists the proposals ordered randomly by default" do
-        visit_feature
-
-        expect(page).to have_selector("a", text: "Random")
-        expect(page).to have_selector("#proposals .card-grid .column", count: 2)
-        expect(page).to have_selector("#proposals .card-grid .column", text: lucky_proposal.title)
-        expect(page).to have_selector("#proposals .card-grid .column", text: unlucky_proposal.title)
-      end
-    end
-
     it "lists all the proposals" do
       create(:proposal_feature,
              manifest: manifest,
@@ -426,10 +412,6 @@ describe "Proposals", type: :feature do
 
       visit_feature
       expect(page).to have_css(".card--proposal", count: 3)
-    end
-
-    describe "default ordering" do
-      it_behaves_like "a random proposal ordering"
     end
 
     context "when voting phase is over" do
@@ -470,13 +452,18 @@ describe "Proposals", type: :feature do
                participatory_process: participatory_process)
       end
 
-      describe "order" do
-        it_behaves_like "a random proposal ordering"
+      let!(:older_proposal) { create(:proposal, feature: feature, created_at: 1.month.ago) }
+      let!(:recent_proposal) { create(:proposal, feature: feature) }
+
+      it "lists the proposals ordered by created at" do
+        visit_feature
+
+        expect(page).to have_selector("a", text: "Recent")
+        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: recent_proposal.title)
+        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: older_proposal.title)
       end
 
       it "shows only links to full proposals" do
-        create_list(:proposal, 2, feature: feature)
-
         visit_feature
 
         expect(page).to have_no_button("Voting disabled", disabled: true)
@@ -715,40 +702,63 @@ describe "Proposals", type: :feature do
                  participatory_process: participatory_process)
         end
 
-        it "lists the proposals ordered by votes" do
-          most_voted_proposal = create(:proposal, feature: feature)
-          create_list(:proposal_vote, 3, proposal: most_voted_proposal)
-          less_voted_proposal = create(:proposal, feature: feature)
+        let!(:most_voted_proposal) do
+          proposal = create(:proposal, feature: feature)
+          create_list(:proposal_vote, 3, proposal: proposal)
+          proposal
+        end
 
+        let!(:less_voted_proposal) { create(:proposal, feature: feature) }
+
+        it "lists the proposals ordered by votes" do
           visit_feature
 
-          within ".order-by" do
-            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-            page.find("a", text: "Random").click
-            click_link "Most voted"
-          end
+          order_proposals_by("Most voted")
 
+          expect(page).to have_selector("a", text: "Most voted")
           expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
           expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
         end
       end
 
-      context "by 'recent'" do
-        it "lists the proposals ordered by created at" do
-          older_proposal = create(:proposal, feature: feature, created_at: 1.month.ago)
-          recent_proposal = create(:proposal, feature: feature)
+      context "by 'most_recent'" do
+        let!(:older_proposal) { create(:proposal, feature: feature, created_at: 1.month.ago) }
+        let!(:recent_proposal) { create(:proposal, feature: feature) }
 
+        it "lists the proposals ordered by created at" do
           visit_feature
 
-          within ".order-by" do
-            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-            page.find("a", text: "Random").click
-            click_link "Recent"
-          end
+          order_proposals_by("Recent")
 
+          expect(page).to have_selector("a", text: "Recent")
           expect(page).to have_selector("#proposals .card-grid .column:first-child", text: recent_proposal.title)
           expect(page).to have_selector("#proposals .card-grid .column:last-child", text: older_proposal.title)
         end
+      end
+
+      context "randomly" do
+        let!(:one_proposal) { create(:proposal, feature: feature) }
+        let!(:another_proposal) { create(:proposal, feature: feature) }
+
+        it "lists the proposals ordered randomly" do
+          visit_feature
+
+          order_proposals_by("Random")
+
+          expect(page).to have_selector("a", text: "Random")
+          expect(page).to have_selector("#proposals .card-grid .column", count: 2)
+          expect(page).to have_selector("#proposals .card-grid .column", text: one_proposal.title)
+          expect(page).to have_selector("#proposals .card-grid .column", text: another_proposal.title)
+        end
+      end
+    end
+
+    private
+
+    def order_proposals_by(criteria)
+      within ".order-by" do
+        page.find("ul[data-dropdown-menu$=dropdown-menu] a").click
+        click_link criteria
       end
     end
   end
