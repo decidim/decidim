@@ -33,7 +33,7 @@ module Decidim
           end
 
           can :manage, Attachment do |attachment|
-            can_manage_process?(attachment.attached_to)
+            attachment.attached_to.is_a?(Decidim::ParticipatoryProcess) && can_manage_process?(attachment.attached_to)
           end
 
           can :manage, ParticipatoryProcessUserRole do |role|

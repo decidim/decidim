@@ -10,9 +10,11 @@ module Decidim
 
       initializer "decidim_comments.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
-          config.admin_abilities += ["Decidim::Comments::Abilities::AdminUser"]
-          config.admin_abilities += ["Decidim::Comments::Abilities::ParticipatoryProcessAdminUser"]
-          config.admin_abilities += ["Decidim::Comments::Abilities::ParticipatoryProcessModeratorUser"]
+          config.admin_abilities += [
+            "Decidim::Comments::Abilities::AdminUser",
+            "Decidim::Comments::Abilities::ParticipatoryProcessAdminUser",
+            "Decidim::Comments::Abilities::ParticipatoryProcessModeratorUser"
+          ]
         end
       end
 

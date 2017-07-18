@@ -6,6 +6,8 @@ module Decidim
     class AdminUser
       include CanCan::Ability
 
+      attr_reader :user
+
       def initialize(user, context)
         @user = user
         @context = context

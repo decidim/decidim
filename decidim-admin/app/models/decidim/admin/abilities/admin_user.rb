@@ -21,7 +21,7 @@ module Decidim
           end
 
           can [:read, :update], Decidim::Organization do |organization|
-            organization == @user.organization
+            organization == user.organization
           end
 
           can :manage, Feature
@@ -33,7 +33,7 @@ module Decidim
           can [:create, :index, :new, :read, :invite], User
 
           can [:destroy], [User] do |user_to_destroy|
-            @user != user_to_destroy
+            user != user_to_destroy
           end
 
           can [:index, :verify, :reject], UserGroup
