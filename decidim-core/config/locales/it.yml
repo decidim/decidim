@@ -45,9 +45,9 @@ it:
         duplicate_authorization: Esiste già un utente registrato con gli stessi dati.
     authorizations:
       create:
-        error: Siè verificato un errore durante la fase di creazione dell'autenticazione.
-        success: OK, la fase di autorizzazione si è conclusa positivamente.
-      current_participatory_processes: Guarda il processo corrente.
+        error: Si è verificato un errore nella creazione dell'autorizzazione.
+        success: Sei stato autorizzato con successo.
+      current_participatory_processes: dai un'occhiata ai processi attuali
       first_login:
         actions:
           decidim/dummy_authorization_handler: Verifica rispetto all'autorizzazione blanda
@@ -161,7 +161,7 @@ it:
     reported_mailer:
       hide:
         hello: Ciao %{name},
-        report_html: <p>Il seguente <a href="%{url}">contenunto</a> è stato nascosto automaticamente.</p>
+        report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato nascosto automaticamente.</p>
         subject: Una risorsa è stata cancellata automaticamente
       report:
         hello: Ciao %{name},
