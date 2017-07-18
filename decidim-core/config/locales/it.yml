@@ -161,6 +161,7 @@ it:
     reported_mailer:
       hide:
         hello: Ciao %{name},
+        report_html: <p>Il seguente <a href="%{url}">contenunto</a> è stato nascosto automaticamente.</p>
         subject: Una risorsa è stata cancellata automaticamente
       report:
         hello: Ciao %{name},
