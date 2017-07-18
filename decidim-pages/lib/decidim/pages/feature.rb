@@ -53,8 +53,6 @@ Decidim.register_feature(:pages) do |feature|
 
   feature.seeds do
     Decidim::ParticipatoryProcess.find_each do |process|
-      next unless process.steps.any?
-
       feature = Decidim::Feature.create!(
         name: Decidim::Features::Namer.new(process.organization.available_locales, :pages).i18n_name,
         manifest_name: :pages,

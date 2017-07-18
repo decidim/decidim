@@ -25,8 +25,6 @@ Decidim.register_feature(:meetings) do |feature|
 
   feature.seeds do
     Decidim::ParticipatoryProcess.find_each do |process|
-      next unless process.steps.any?
-
       feature = Decidim::Feature.create!(
         name: Decidim::Features::Namer.new(process.organization.available_locales, :meetings).i18n_name,
         published_at: Time.current,

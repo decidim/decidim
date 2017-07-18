@@ -69,8 +69,6 @@ Decidim.register_feature(:surveys) do |feature|
 
   feature.seeds do
     Decidim::ParticipatoryProcess.find_each do |process|
-      next unless process.steps.any?
-
       feature = Decidim::Feature.create!(
         name: Decidim::Features::Namer.new(process.organization.available_locales, :surveys).i18n_name,
         manifest_name: :surveys,
