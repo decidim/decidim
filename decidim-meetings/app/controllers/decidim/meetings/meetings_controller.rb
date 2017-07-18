@@ -5,7 +5,7 @@ module Decidim
     # Exposes the meeting resource so users can view them
     class MeetingsController < Decidim::Meetings::ApplicationController
       include FilterResource
-
+      include Paginable
       helper Decidim::WidgetUrlsHelper
 
       helper_method :meetings, :geocoded_meetings, :meeting
@@ -29,7 +29,7 @@ module Decidim
       end
 
       def meetings
-        @meetings ||= search.results.page(params[:page]).per(12)
+        @meetings ||= paginate(search.results)
       end
 
       def geocoded_meetings

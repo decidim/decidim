@@ -255,6 +255,8 @@ en:
         sign_up: Sign up
       reference:
         reference: 'Reference: %{reference}'
+      results_per_page:
+        label: 'Results per page:'
       share_modal:
         close_window: Close window
         share: Share

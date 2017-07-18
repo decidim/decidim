@@ -8,6 +8,7 @@ module Decidim
       include FormFactory
       include FilterResource
       include Orderable
+      include Paginable
 
       helper_method :geocoded_proposals
 
@@ -30,7 +31,7 @@ module Decidim
                              []
                            end
 
-        @proposals = @proposals.page(params[:page]).per(12)
+        @proposals = paginate(@proposals)
         @proposals = reorder(@proposals)
       end
 
