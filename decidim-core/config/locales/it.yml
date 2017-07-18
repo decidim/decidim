@@ -50,8 +50,8 @@ it:
       current_participatory_processes: dai un'occhiata ai processi attuali
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Verifica rispetto all'autorizzazione blanda
-        title: Verifica della tua identità
+          decidim/dummy_authorization_handler: Verifica rispetto all'autorizzazione esempio
+        title: Verifica la tua identità
         verify_with_these_options: 'Opzioni per la verifica dell''autorizzazione:'
       new:
         authorize: Invia
@@ -59,14 +59,12 @@ it:
       skip_verification: Se preferisci puoi saltare questa verifica per il momento e %{link}
     core:
       actions:
-        unauthorized: Non hai permessi sufficienti per effetuare questa azione
+        unauthorized: Non sei autorizzato a eseguire questa azione
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          sign_up: Per cortesia completa il tuo profilo utente
+          sign_up: Per favore, completa il tuo profilo
           subtitle: Per cortesia riempi i campi del seguente modulo al fine di completare la registrazione
           username_help: Nome "pubblico" che comparirà per i tuoi post.  Usa un nome di fantasia se vuoi garantirti un certo grado di anonimato.
       registrations:
