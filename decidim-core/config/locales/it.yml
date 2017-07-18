@@ -2,35 +2,31 @@ it:
   activemodel:
     attributes:
       report:
-        details: Commenti aggiuntivi
+        details: Ulteriori commenti
       user:
         email: La tua email
         name: Il tuo nome
         password: Nuova password
-        password_confirmation: Conferma la nuova password
-        user_group_document_number: Numero del documento dell'organizzazione
+        password_confirmation: Conferma la tua nuova password
+        user_group_document_number: Codice fiscale dell'organizzazione
         user_group_name: Nome dell'organizzazione
-        user_group_phone: Numero di telefono dell'organizzazione
+        user_group_phone: Telefono dell'organizzazione
   activerecord:
     attributes:
       decidim/user:
         current_password: Password attuale
         name: Nome Utente
-        password_confirmation: Conferma della password
-        remember_me: Ricordami (rimani collegato)
-        user_group_document_number: Numero del documento dell'organizzazione
+        password_confirmation: Conferma password
+        remember_me: Ricordami su questo computer (rimani collegato)
+        user_group_document_number: Codice fiscale dell'organizzazione
         user_group_name: Nome dell'organizzazione
-        user_group_phone: Numero di telefono dell'organizzazione
   booleans:
     'true': 'Si'
-  carrierwave:
-    errors:
-      image_too_big: La dimensione dell'immagine è troppo grande
   decidim:
     account:
       show:
-        change_password: Cambio della password
-        update_account: Aggiorna l'account
+        change_password: Cambia password
+        update_account: Aggiorna Account
       update:
         error: Si è verificato un errore durante l'aggiornamento del tuo account.
         success: Il tuo account è stato aggiornato correttamente.
