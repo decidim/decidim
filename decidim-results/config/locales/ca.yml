@@ -23,7 +23,7 @@ ca:
         result_meetings: Trobades relacionades
     results:
       actions:
-        confirm_destroy: Esteu segur que voleu suprimir aquest resultat?
+        confirm_destroy: Segur que vols suprimir aquest resultat?
         destroy: Esborra
         edit: Edita
         new: Nou
