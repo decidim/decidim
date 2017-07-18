@@ -48,19 +48,6 @@ module Decidim
                     position: 1,
                     active: ["decidim/admin/dashboard" => :show]
 
-          menu.item I18n.t("menu.participatory_processes", scope: "decidim.admin"),
-                    decidim_admin_participatory_processes.participatory_processes_path,
-                    icon_name: "target",
-                    position: 2,
-                    active: :inclusive
-
-          menu.item I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
-                    decidim_admin_participatory_processes.participatory_process_groups_path,
-                    icon_name: "layers",
-                    position: 3,
-                    active: :inclusive,
-                    if: can?(:read, Decidim::ParticipatoryProcessGroup)
-
           menu.item I18n.t("menu.static_pages", scope: "decidim.admin"),
                     decidim_admin.static_pages_path,
                     icon_name: "book",

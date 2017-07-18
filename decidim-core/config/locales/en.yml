@@ -162,7 +162,6 @@ en:
     menu:
       home: Home
       more_information: More information
-      processes: Processes
     newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.

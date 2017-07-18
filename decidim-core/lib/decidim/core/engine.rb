@@ -144,11 +144,6 @@ module Decidim
                     position: 1,
                     active: :exact
 
-          menu.item I18n.t("menu.processes", scope: "decidim"),
-                    decidim_participatory_processes.participatory_processes_path,
-                    position: 2,
-                    active: :inclusive
-
           menu.item I18n.t("menu.more_information", scope: "decidim"),
                     decidim.pages_path,
                     position: 3,

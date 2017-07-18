@@ -32,6 +32,15 @@ module Decidim
       initializer "decidim_participatory_processes.assets" do |app|
         app.config.assets.precompile += %w(decidim_participatory_processes_manifest.js)
       end
+
+      initializer "decidim_participatory_processes.menu" do
+        Decidim.menu :menu do |menu|
+          menu.item I18n.t("menu.processes", scope: "decidim"),
+                    decidim_participatory_processes.participatory_processes_path,
+                    position: 2,
+                    active: :inclusive
+        end
+      end
     end
   end
 end

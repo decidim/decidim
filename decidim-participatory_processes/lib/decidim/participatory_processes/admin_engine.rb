@@ -67,6 +67,23 @@ module Decidim
       initializer "decidim_participatory_processes.assets" do |app|
         app.config.assets.precompile += %w(decidim_participatory_processes_manifest.js)
       end
+
+      initializer "decidim_participatory_processes.admin_menu" do
+        Decidim.menu :admin_menu do |menu|
+          menu.item I18n.t("menu.participatory_processes", scope: "decidim.admin"),
+                    decidim_admin_participatory_processes.participatory_processes_path,
+                    icon_name: "target",
+                    position: 2,
+                    active: :inclusive
+
+          menu.item I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
+                    decidim_admin_participatory_processes.participatory_process_groups_path,
+                    icon_name: "layers",
+                    position: 3,
+                    active: :inclusive,
+                    if: can?(:read, Decidim::ParticipatoryProcessGroup)
+        end
+      end
     end
   end
 end
