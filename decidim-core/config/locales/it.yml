@@ -2,38 +2,34 @@ it:
   activemodel:
     attributes:
       report:
-        details: Commenti aggiuntivi
+        details: Ulteriori commenti
       user:
         email: La tua email
         name: Il tuo nome
         password: Nuova password
-        password_confirmation: Conferma la nuova password
-        user_group_document_number: Numero del documento dell'organizzazione
+        password_confirmation: Conferma la tua nuova password
+        user_group_document_number: Codice fiscale dell'organizzazione
         user_group_name: Nome dell'organizzazione
-        user_group_phone: Numero di telefono dell'organizzazione
+        user_group_phone: Telefono dell'organizzazione
   activerecord:
     attributes:
       decidim/user:
         current_password: Password attuale
         name: Nome Utente
-        password_confirmation: Conferma della password
-        remember_me: Ricordami (rimani collegato)
-        user_group_document_number: Numero del documento dell'organizzazione
+        password_confirmation: Conferma password
+        remember_me: Ricordami su questo computer (rimani collegato)
+        user_group_document_number: Codice fiscale dell'organizzazione
         user_group_name: Nome dell'organizzazione
-        user_group_phone: Numero di telefono dell'organizzazione
   booleans:
     'true': 'Si'
-  carrierwave:
-    errors:
-      image_too_big: La dimensione dell'immagine è troppo grande
   decidim:
     account:
       show:
-        change_password: Cambio della password
-        update_account: Aggiorna l'account
+        change_password: Cambia password
+        update_account: Aggiorna Account
       update:
         error: Si è verificato un errore durante l'aggiornamento del tuo account.
-        success: OK, il tuo account è stato aggiornato.
+        success: Il tuo account è stato aggiornato correttamente.
     application:
       documents:
         related_documents: Documenti correlati
@@ -42,20 +38,20 @@ it:
     authorization_handlers:
       decidim/dummy_authorization_handler:
         fields:
-          document_number: Documento n.
+          document_number: Numero di documento
           postal_code: C.A.P.
         name: Esempio di autorizzazione
       errors:
-        duplicate_authorization: Esiste già un utente autorizzato con questi dati.
+        duplicate_authorization: Esiste già un utente registrato con gli stessi dati.
     authorizations:
       create:
-        error: Siè verificato un errore durante la fase di creazione dell'autenticazione.
-        success: OK, la fase di autorizzazione si è conclusa positivamente.
-      current_participatory_processes: Guarda il processo corrente.
+        error: Si è verificato un errore nella creazione dell'autorizzazione.
+        success: Sei stato autorizzato con successo.
+      current_participatory_processes: dai un'occhiata ai processi attuali
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Verifica rispetto all'autorizzazione blanda
-        title: Verifica della tua identità
+          decidim/dummy_authorization_handler: Verifica rispetto all'autorizzazione esempio
+        title: Verifica la tua identità
         verify_with_these_options: 'Opzioni per la verifica dell''autorizzazione:'
       new:
         authorize: Invia
@@ -63,59 +59,49 @@ it:
       skip_verification: Se preferisci puoi saltare questa verifica per il momento e %{link}
     core:
       actions:
-        unauthorized: Non hai permessi sufficienti per effetuare questa azione
+        unauthorized: Non sei autorizzato a eseguire questa azione
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          sign_up: Per cortesia completa il tuo profilo utente
-          subtitle: Per cortesia riempi i campi del seguente modulo al fine di completare la registrazione
-          username_help: Nome "pubblico" che comparirà per i tuoi post.  Usa un nome di fantasia se vuoi garantirti un certo grado di anonimato.
+          sign_up: Per favore, completa il tuo profilo
+          subtitle: Per favore, compila il seguente modulo per completare la registrazione
       registrations:
         new:
           already_have_an_account?: Hai già un account?
-          newsletter_notifications: Ricevi informazioni su attività rilevanti effettuate con il tuo account
+          newsletter_notifications: Ricevi informazioni sulle attività rilevanti
           sign_up: Registrazione
           sign_up_as:
             legend: Registrati come
             user: Individuo
-            user_group: Organizzazione/Gruppo di persone
-          subtitle: Registrati per partecipare alle discussioni e per votare le proposte.
+          subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Effettuando la registrazione automaticamente accetti le seguenti condizioni %{link}.
-          username_help: Nome "pubblico" che comparirà per i tuoi post.  Usa un nome di fantasia se vuoi garantirti un certo grado di anonimato.
       sessions:
         new:
-          are_you_new?: Non conosci bene questa piattaforma?  Sei un neofita?
+          are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
-      shared:
-        omniauth_buttons:
-          or: oppure
     export_mailer:
       export:
-        ready: Trovi in allegato una versione compressa (ZIP) dei dati esportati .
-      subject: Ecco i dati che hai chiesto di esportare per "%{name}"
+        ready: In allegato una versione zippata (Zip) dei dati esportati.
     features:
       dummy:
-        name: Funzionalità fittizia
+        name: Funzionalità di prova
         settings:
           global:
             comments_enabled: Commenti abilitati
-            dummy_global_attribute_1: Attributo fittizio 1
-            dummy_global_attribute_2: Attributo fittizio 2
+            dummy_global_attribute_1: Attributo di prova 1
+            dummy_global_attribute_2: Attributo di prova 2
           step:
             comments_blocked: Commenti bloccati
-            dummy_step_attribute_1: Attributo 1 della fase fittizia
-            dummy_step_attribute_2: Attributo 2 della fase fittizia
+            dummy_step_attribute_1: Attributo 1 della fase di prova
+            dummy_step_attribute_2: Attributo 2 della fase di prova
     filters:
       linked_classes:
         all: Tutto
         meeting: Incontri
         project: Progetti
         proposal: Proposte
-        result: Votazioni
     forms:
       errors:
         error: Si è verificato un errore in questo campo.
@@ -124,16 +110,15 @@ it:
       processes: Processi
     newsletter_mailer:
       newsletter:
-        note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni di ricezione delle notifiche sulla tua <a href="%{link}">pagina delle notifiche</a>.
+        note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
     notifications_settings:
       show:
         comments_notifications: Desidero ricevere un'email di notifica quando qualcuno mi scrive un commento.
         newsletter_notifications: Desidero ricevere informazioni sulle attività rilevanti.
-        replies_notifications: Desidero ricevere notifiche tramite email quando qualcuno risponde ai miei commenti.
+        replies_notifications: Desidero ricevere un'email di notifica quando qualcuno risponde i miei commenti.
         update_notifications_settings: Salva le modifiche
       update:
         error: Si è verificato un errore durante l'aggiornamento delle impostazioni di notifica.
-        success: OK, le impostazioni per le notifiche sono state modificate.
     own_user_groups:
       index:
         verified: Verificato
@@ -165,6 +150,7 @@ it:
     reported_mailer:
       hide:
         hello: Ciao %{name},
+        report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato nascosto automaticamente.</p>
         subject: Una risorsa è stata cancellata automaticamente
       report:
         hello: Ciao %{name},
