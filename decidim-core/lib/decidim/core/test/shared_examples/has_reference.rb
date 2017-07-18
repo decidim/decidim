@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples_for "has reference" do
-  before do
-    allow(Decidim).to receive(:resource_reference_generator).and_return(nil)
-  end
-
   context "when the reference is nil" do
     before do
       subject[:reference] = nil
