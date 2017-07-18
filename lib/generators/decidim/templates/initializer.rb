@@ -16,8 +16,8 @@ Decidim.configure do |config|
   #   here_app_code: Rails.application.secrets.geocoder[:here_app_code]
   # }
 
-  # Custom calculate reference method
-  # config.calculate_reference_method = lambda do |resource|
+  # Custom resource reference generator method
+  # config.resource_reference_generator = lambda do |resource|
   #   # Implement your custom method to generate resources references
   #   "1234-#{resource.id}"
   # end

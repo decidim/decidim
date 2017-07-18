@@ -2,7 +2,7 @@
 
 shared_examples_for "has reference" do
   before do
-    allow(Decidim).to receive(:calculate_reference_method).and_return(nil)
+    allow(Decidim).to receive(:resource_reference_generator).and_return(nil)
   end
 
   context "when the reference is nil" do
