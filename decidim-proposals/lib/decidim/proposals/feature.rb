@@ -114,6 +114,10 @@ Decidim.register_feature(:proposals) do |feature|
           proposal.answered_at = Time.current
           proposal.answer = Decidim::Faker::Localized.sentence(10)
           proposal.save!
+        elsif n > 6
+          proposal.state = "evaluating"
+          proposal.answered_at = Time.current
+          proposal.save!
         end
 
         rand(3).times do |m|

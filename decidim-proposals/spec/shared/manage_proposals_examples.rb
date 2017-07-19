@@ -229,6 +229,27 @@ RSpec.shared_examples "manage proposals" do
         end
       end
 
+      it "can mark a proposal as evaluating" do
+        within find("tr", text: proposal.title) do
+          find("a.action-icon--edit-answer").click
+        end
+
+        within ".edit_proposal_answer" do
+          choose "Evaluating"
+          click_button "Answer"
+        end
+
+        within ".callout-wrapper" do
+          expect(page).to have_content("Proposal successfully answered")
+        end
+
+        within find("tr", text: proposal.title) do
+          within find("td:nth-child(4)") do
+            expect(page).to have_content("Evaluating")
+          end
+        end
+      end
+
       it "can edit a proposal answer" do
         proposal.update_attributes!(
           state: "rejected",
