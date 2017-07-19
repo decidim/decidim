@@ -96,12 +96,12 @@ en:
             other: "%{count} proposals"
         filters:
           accepted: Accepted
-          evaluating: Evaluating
           activity: Activity
           all: All
           category: Category
           category_prompt: Select a category
           citizenship: Citizenship
+          evaluating: Evaluating
           official: Official
           origin: Origin
           rejected: Rejected
