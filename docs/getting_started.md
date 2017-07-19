@@ -99,7 +99,7 @@ Once you've successfully deployed your app to your favorite platform, you'll nee
 ```ruby
 email = <your email>
 password = <a secure password>
-user = Decidim::System::Admin.new(email: my_email, password: my_password, password_confirmation: my_password)
+user = Decidim::System::Admin.new(email: email, password: password, password_confirmation: password)
 user.save!
 ```
 
