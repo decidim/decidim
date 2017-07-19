@@ -147,7 +147,7 @@ FactoryGirl.define do
     end
 
     trait :admin do
-      roles ["admin"]
+      admin { true }
     end
 
     trait :process_admin do
@@ -156,20 +156,31 @@ FactoryGirl.define do
       after(:create) do |user, evaluator|
         create :participatory_process_user_role,
                user: user,
-               participatory_process: evaluator.participatory_process
+               participatory_process: evaluator.participatory_process,
+               role: :admin
       end
     end
 
-    trait :moderator do
-      roles ["moderator"]
+    trait :process_collaborator do
+      transient { participatory_process nil }
+
+      after(:create) do |user, evaluator|
+        create :participatory_process_user_role,
+               user: user,
+               participatory_process: evaluator.participatory_process,
+               role: :collaborator
+      end
     end
 
-    trait :official do
-      roles ["official"]
-    end
+    trait :process_moderator do
+      transient { participatory_process nil }
 
-    trait :collaborator do
-      roles ["collaborator"]
+      after(:create) do |user, evaluator|
+        create :participatory_process_user_role,
+               user: user,
+               participatory_process: evaluator.participatory_process,
+               role: :moderator
+      end
     end
   end
 

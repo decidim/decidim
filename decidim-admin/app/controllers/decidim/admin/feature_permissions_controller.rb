@@ -24,7 +24,7 @@ module Decidim
         UpdateFeaturePermissions.call(@permissions_form, feature) do
           on(:ok) do
             flash[:notice] = t("feature_permissions.update.success", scope: "decidim.admin")
-            redirect_to participatory_process_features_path(participatory_process)
+            redirect_to participatory_process_features_path(current_participatory_process)
           end
 
           on(:invalid) do
@@ -53,7 +53,7 @@ module Decidim
       end
 
       def feature
-        @feature ||= participatory_process.features.find(params[:feature_id])
+        @feature ||= current_participatory_process.features.find(params[:feature_id])
       end
     end
   end

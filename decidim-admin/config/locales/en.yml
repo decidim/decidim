@@ -282,6 +282,7 @@ en:
           roles:
             admin: Administrator
             collaborator: Collaborator
+            moderator: Moderator
         scope:
           fields:
             created_at: Created at

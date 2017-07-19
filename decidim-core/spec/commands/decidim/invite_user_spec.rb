@@ -7,11 +7,11 @@ module Decidim
     let(:organization) { create(:organization) }
     let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
     let(:form) do
-      Decidim::InviteAdminForm.from_params(
+      Decidim::InviteUserForm.from_params(
         name: "Old man",
         email: "oldman@email.com",
         organization: organization,
-        roles: %w(admin),
+        admin: true,
         invited_by: admin,
         invitation_instructions: "invite_admin"
       )
@@ -69,7 +69,7 @@ module Decidim
     it "adds the roles for the user" do
       command.call
 
-      expect(invited_user.role?("admin")).to be
+      expect(invited_user).to be_admin
     end
 
     context "when a user does not exist for the given email" do

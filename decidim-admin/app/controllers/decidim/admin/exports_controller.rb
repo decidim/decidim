@@ -23,7 +23,7 @@ module Decidim
         send(
           "decidim_admin_#{feature.manifest.name}_path",
           feature_id: feature.id,
-          participatory_process_id: participatory_process.id
+          participatory_process_id: current_participatory_process.id
         )
       end
 
@@ -32,7 +32,7 @@ module Decidim
       end
 
       def feature
-        @feature ||= participatory_process.features.find(params[:feature_id])
+        @feature ||= current_participatory_process.features.find(params[:feature_id])
       end
     end
   end

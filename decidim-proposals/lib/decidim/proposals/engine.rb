@@ -25,7 +25,7 @@ module Decidim
 
       initializer "decidim_proposals.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
-          config.abilities += ["Decidim::Proposals::Abilities::CurrentUser"]
+          config.abilities += ["Decidim::Proposals::Abilities::CurrentUserAbility"]
         end
       end
     end

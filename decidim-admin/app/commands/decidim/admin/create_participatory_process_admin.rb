@@ -41,7 +41,7 @@ module Decidim
       attr_reader :form, :participatory_process, :current_user, :user
 
       def create_role
-        ParticipatoryProcessUserRole.find_or_create_by!(
+        Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
           role: form.role.to_sym,
           user: user,
           participatory_process: @participatory_process
@@ -68,9 +68,7 @@ module Decidim
       end
 
       def new_user
-        new_user_form = user_form.dup
-        new_user_form.roles = []
-        @new_user ||= InviteUser.call(new_user_form) do
+        @new_user ||= InviteUser.call(user_form) do
           on(:ok) do |user|
             return user
           end
@@ -81,7 +79,7 @@ module Decidim
         OpenStruct.new(name: form.name,
                        email: form.email.downcase,
                        organization: participatory_process.organization,
-                       roles: [form.role.to_sym],
+                       admin: false,
                        invited_by: current_user,
                        invitation_instructions: invitation_instructions)
       end

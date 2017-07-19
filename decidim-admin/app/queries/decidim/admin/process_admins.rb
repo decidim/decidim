@@ -35,7 +35,7 @@ module Decidim
       end
 
       def process_admins
-        Decidim::Admin::ParticipatoryProcessUserRole
+        Decidim::ParticipatoryProcessUserRole
           .where(participatory_process: process, role: :admin)
           .pluck(:decidim_user_id)
       end

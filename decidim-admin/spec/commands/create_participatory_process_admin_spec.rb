@@ -32,7 +32,7 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
   context "when everything is ok" do
     it "creates the user role" do
       subject.call
-      roles = Decidim::Admin::ParticipatoryProcessUserRole.where(user: user)
+      roles = Decidim::ParticipatoryProcessUserRole.where(user: user)
 
       expect(roles.count).to eq 1
       expect(roles.first.role).to eq "admin"
@@ -40,7 +40,7 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
 
     it "creates a new user with no application admin privileges" do
       subject.call
-      expect(Decidim::User.last.roles).not_to include("admin")
+      expect(Decidim::User.last).not_to be_admin
     end
 
     context "when there is no user with the given email" do
@@ -53,7 +53,7 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
 
       it "creates a new user with no application admin privileges" do
         subject.call
-        expect(Decidim::User.last.roles).not_to include("admin")
+        expect(Decidim::User.last).not_to be_admin
       end
     end
 
@@ -65,7 +65,7 @@ describe Decidim::Admin::CreateParticipatoryProcessAdmin do
       it "doesn't get created twice" do
         expect { subject.call }.to broadcast(:ok)
 
-        roles = Decidim::Admin::ParticipatoryProcessUserRole.where(user: user)
+        roles = Decidim::ParticipatoryProcessUserRole.where(user: user)
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
