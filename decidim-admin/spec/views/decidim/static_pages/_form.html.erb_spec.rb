@@ -15,7 +15,7 @@ module Decidim
       )
     end
     let(:ability) do
-      Decidim::Admin::Abilities::AdminUser.new(build(:user, :admin), {})
+      Decidim::Admin::Abilities::AdminAbility.new(build(:user, :admin), {})
     end
 
     before do
