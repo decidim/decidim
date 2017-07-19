@@ -47,10 +47,13 @@ module Decidim
 
       # Handle the state filter
       def search_state
-        if state == "accepted"
+        case state
+        when "accepted"
           query.accepted
-        elsif state == "rejected"
+        when "rejected"
           query.rejected
+        when "evaluating"
+          query.evaluating
         else # Assume 'all'
           query
         end

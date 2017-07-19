@@ -17,15 +17,7 @@ module Decidim
       #
       # Returns a String.
       def humanize_proposal_state(state)
-        value = if state == "accepted"
-                  "accepted"
-                elsif state == "rejected"
-                  "rejected"
-                else
-                  "not_answered"
-                end
-
-        I18n.t(value, scope: "decidim.proposals.answers")
+        I18n.t(state, scope: "decidim.proposals.answers", default: :not_answered)
       end
 
       # Public: The css class applied based on the proposal state.
@@ -34,12 +26,32 @@ module Decidim
       #
       # Returns a String.
       def proposal_state_css_class(state)
-        if state == "accepted"
+        case state
+        when "accepted"
           "text-success"
-        elsif state == "rejected"
+        when "rejected"
           "text-alert"
+        when "evaluating"
+          "text-info"
         else
           "text-warning"
+        end
+      end
+
+      # Public: The css class applied based on the proposal state to
+      #         the proposal badge.
+      #
+      # state - The String state of the proposal.
+      #
+      # Returns a String.
+      def proposal_state_badge_css_class(state)
+        case state
+        when "accepted"
+          "success"
+        when "rejected"
+          "warning"
+        when "evaluating"
+          "secondary"
         end
       end
     end

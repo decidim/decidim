@@ -23,6 +23,7 @@ module Decidim
 
       scope :accepted, -> { where(state: "accepted") }
       scope :rejected, -> { where(state: "rejected") }
+      scope :evaluating, -> { where(state: "evaluating") }
 
       def self.order_randomly(seed)
         transaction do
@@ -65,6 +66,13 @@ module Decidim
       # Returns Boolean.
       def rejected?
         state == "rejected"
+      end
+
+      # Public: Checks if the organization has marked the proposal as evaluating it.
+      #
+      # Returns Boolean.
+      def evaluating?
+        state == "evaluating"
       end
 
       # Public: Overrides the `commentable?` Commentable concern method.
