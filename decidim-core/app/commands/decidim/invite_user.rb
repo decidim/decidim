@@ -14,7 +14,7 @@ module Decidim
       return broadcast(:invalid) if form.invalid?
 
       if user.present?
-        set_user_roles
+        update_user
       else
         invite_user
       end
@@ -30,8 +30,8 @@ module Decidim
       @user ||= Decidim::User.where(organization: form.organization).where(email: form.email.downcase).first
     end
 
-    def set_user_roles
-      user.roles += form.roles
+    def update_user
+      user.admin = form.admin
       user.save!
     end
 
@@ -40,7 +40,7 @@ module Decidim
         name: form.name,
         email: form.email.downcase,
         organization: form.organization,
-        roles: form.roles,
+        admin: form.admin,
         comments_notifications: true,
         replies_notifications: true
       )

@@ -14,7 +14,7 @@ module Decidim
 
       def new
         authorize! :new, :admin_users
-        @form = form(InviteAdminForm).instance
+        @form = form(InviteUserForm).instance
       end
 
       def create
@@ -23,13 +23,13 @@ module Decidim
         default_params = {
           organization: current_organization,
           invitation_instructions: "invite_admin",
-          roles: %w(admin),
+          admin: true,
           invited_by: current_user,
           comments_notifications: true,
           replies_notifications: true
         }
 
-        @form = form(InviteAdminForm).from_params(params.merge(default_params))
+        @form = form(InviteUserForm).from_params(params.merge(default_params))
 
         InviteUser.call(@form) do
           on(:ok) do
@@ -63,7 +63,7 @@ module Decidim
       def destroy
         authorize! :destroy, :admin_users
 
-        RemoveUserRole.call(user, "admin") do
+        RemoveAdmin.call(user) do
           on(:ok) do
             flash[:notice] = I18n.t("users.destroy.success", scope: "decidim.admin")
           end

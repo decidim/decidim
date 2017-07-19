@@ -10,16 +10,9 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
-          helper_method :participatory_process
+          include Decidim::NeedsParticipatoryProcess
 
           layout "decidim/admin/participatory_process"
-        end
-
-        private
-
-        def participatory_process
-          @participatory_process ||=
-            current_organization.participatory_processes.find(params[:participatory_process_id])
         end
       end
     end

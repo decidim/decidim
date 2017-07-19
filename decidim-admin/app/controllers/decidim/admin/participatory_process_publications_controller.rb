@@ -10,9 +10,9 @@ module Decidim
       include Concerns::ParticipatoryProcessAdmin
 
       def create
-        authorize! :publish, participatory_process
+        authorize! :publish, current_participatory_process
 
-        PublishParticipatoryProcess.call(participatory_process) do
+        PublishParticipatoryProcess.call(current_participatory_process) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_process_publications.create.success", scope: "decidim.admin")
           end
@@ -26,9 +26,9 @@ module Decidim
       end
 
       def destroy
-        authorize! :publish, participatory_process
+        authorize! :publish, current_participatory_process
 
-        UnpublishParticipatoryProcess.call(participatory_process) do
+        UnpublishParticipatoryProcess.call(current_participatory_process) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_process_publications.destroy.success", scope: "decidim.admin")
           end

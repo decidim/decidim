@@ -18,14 +18,11 @@ module Decidim
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_id
     has_many :user_groups, through: :memberships, class_name: "Decidim::UserGroup", foreign_key: :decidim_user_group_id
 
-    ROLES = %w(admin moderator collaborator official).freeze
-
     validates :name, presence: true, unless: -> { deleted? }
     validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :avatar, file_size: { less_than_or_equal_to: MAXIMUM_AVATAR_FILE_SIZE }
     validates :email, uniqueness: { scope: :organization }, unless: -> { deleted? }
-    validate :all_roles_are_valid
     mount_uploader :avatar, Decidim::AvatarUploader
 
     scope :not_deleted, -> { where(deleted_at: nil) }
@@ -43,16 +40,7 @@ module Decidim
       @ability ||= Ability.new(self)
     end
 
-    # Checks if the user has the given `role` or not.
-    #
-    # role - a String or a Symbol that represents the role that is being
-    #   checked
-    #
-    # Returns a boolean.
-    def role?(role)
-      roles.include?(role.to_s)
-    end
-
+    # Public: returns the user's name or the default one
     def name
       super || I18n.t("decidim.anonymous_user")
     end
@@ -85,10 +73,6 @@ module Decidim
     end
 
     private
-
-    def all_roles_are_valid
-      errors.add(:roles, :invalid) unless roles.all? { |role| ROLES.include?(role) }
-    end
 
     # Changes default Devise behaviour to use ActiveJob to send async emails.
     def send_devise_notification(notification, *args)

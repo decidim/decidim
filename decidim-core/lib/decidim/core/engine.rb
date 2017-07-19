@@ -79,7 +79,11 @@ module Decidim
 
       initializer "decidim.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
-          config.abilities << "Decidim::Abilities::Everyone"
+          config.abilities << "Decidim::Abilities::EveryoneAbility"
+          config.abilities << "Decidim::Abilities::AdminAbility"
+          config.abilities << "Decidim::Abilities::ParticipatoryProcessAdminAbility"
+          config.abilities << "Decidim::Abilities::ParticipatoryProcessCollaboratorAbility"
+          config.abilities << "Decidim::Abilities::ParticipatoryProcessModeratorAbility"
         end
       end
 

@@ -13,7 +13,6 @@ module Decidim
         helper Decidim::Admin::ExportsHelper
 
         helper_method :current_feature,
-                      :current_participatory_process,
                       :parent_path
 
         delegate :active_step, to: :current_participatory_process, prefix: false
@@ -28,10 +27,6 @@ module Decidim
 
         def current_feature
           request.env["decidim.current_feature"]
-        end
-
-        def current_participatory_process
-          request.env["decidim.current_participatory_process"]
         end
 
         def parent_path

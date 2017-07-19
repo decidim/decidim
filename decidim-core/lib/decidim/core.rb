@@ -32,6 +32,7 @@ module Decidim
   autoload :Menu, "decidim/menu"
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
+  autoload :Abilities, "decidim/abilities"
 
   include ActiveSupport::Configurable
 
@@ -73,7 +74,7 @@ module Decidim
   end
 
   # Exposes a configuration option: an Array of `cancancan`'s Ability classes
-  # that will be automatically included to the `Decidim::Admin::Abilities::Base`
+  # that will be automatically included to the `Decidim::Admin::Abilities::BaseAbility`
   # class.
   config_accessor :admin_abilities do
     []

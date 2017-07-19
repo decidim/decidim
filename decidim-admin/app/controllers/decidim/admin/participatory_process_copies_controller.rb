@@ -9,18 +9,16 @@ module Decidim
     class ParticipatoryProcessCopiesController < ApplicationController
       include Concerns::ParticipatoryProcessAdmin
 
-      helper_method :participatory_process
-
       def new
         authorize! :new, Decidim::ParticipatoryProcess
-        @form = form(ParticipatoryProcessCopyForm).from_model(participatory_process)
+        @form = form(ParticipatoryProcessCopyForm).from_model(current_participatory_process)
       end
 
       def create
         authorize! :create, Decidim::ParticipatoryProcess
         @form = form(ParticipatoryProcessCopyForm).from_params(params)
 
-        CopyParticipatoryProcess.call(@form, participatory_process) do
+        CopyParticipatoryProcess.call(@form, current_participatory_process) do
           on(:ok) do
             flash[:notice] = I18n.t("participatory_processes_copies.create.success", scope: "decidim.admin")
             redirect_to participatory_processes_path
@@ -36,11 +34,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= ManageableParticipatoryProcessesForUser.for(current_user)
-      end
-
-      def participatory_process
-        @participatory_process ||= collection.find(params[:participatory_process_id])
+        @collection ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user, :admin)
       end
     end
   end

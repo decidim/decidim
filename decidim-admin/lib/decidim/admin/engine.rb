@@ -13,8 +13,6 @@ require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "rectify"
 
-require_dependency File.join(__dir__, "..", "..", "..", "app/models/decidim/admin/abilities/admin_user")
-
 module Decidim
   module Admin
     # Decidim's core Rails Engine.
@@ -33,9 +31,12 @@ module Decidim
 
       initializer "decidim_admin.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
-          config.abilities += ["Decidim::Admin::Abilities::AdminUser"]
-          config.abilities += ["Decidim::Admin::Abilities::ParticipatoryProcessAdmin"]
-          config.abilities += ["Decidim::Admin::Abilities::CollaboratorUser"]
+          config.admin_abilities += [
+            "Decidim::Admin::Abilities::AdminAbility",
+            "Decidim::Admin::Abilities::ParticipatoryProcessAdminAbility",
+            "Decidim::Admin::Abilities::ParticipatoryProcessCollaboratorAbility",
+            "Decidim::Admin::Abilities::ParticipatoryProcessModeratorAbility"
+          ]
         end
       end
 
@@ -57,7 +58,8 @@ module Decidim
                     decidim_admin.participatory_process_groups_path,
                     icon_name: "layers",
                     position: 3,
-                    active: :inclusive
+                    active: :inclusive,
+                    if: can?(:read, Decidim::ParticipatoryProcessGroup)
 
           menu.item I18n.t("menu.static_pages", scope: "decidim.admin"),
                     decidim_admin.static_pages_path,

@@ -7,7 +7,7 @@ describe "Comments", type: :feature, perform_enqueued: true do
   let!(:participatory_process) { feature.participatory_process }
   let!(:participatory_process_admin) do
     user = create(:user, :confirmed, organization: organization)
-    Decidim::Admin::ParticipatoryProcessUserRole.create!(
+    Decidim::ParticipatoryProcessUserRole.create!(
       role: :admin,
       user: user,
       participatory_process: participatory_process

@@ -12,11 +12,11 @@ module Decidim
       include Concerns::HasAttachments
 
       def after_destroy_path
-        participatory_process_attachments_path(participatory_process.id)
+        participatory_process_attachments_path(current_participatory_process.id)
       end
 
       def attached_to
-        participatory_process
+        current_participatory_process
       end
 
       def authorization_object

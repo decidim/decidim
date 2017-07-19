@@ -52,10 +52,10 @@ module Decidim
       end
 
       def invite_user_form(organization)
-        Decidim::InviteAdminForm.from_params(
+        Decidim::InviteUserForm.from_params(
           name: form.organization_admin_name,
           email: form.organization_admin_email,
-          roles: %w(admin),
+          admin: true,
           invitation_instructions: "organization_admin_invitation_instructions"
         ).with_context(
           current_user: form.current_user,

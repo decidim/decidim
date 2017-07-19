@@ -21,18 +21,6 @@ module Decidim
       expect(subject.user_groups).to eq([user_group])
     end
 
-    context "with roles" do
-      let(:user) { build(:user, :admin) }
-
-      it { is_expected.to be_valid }
-
-      context "with an invalid role" do
-        let(:user) { build(:user, roles: ["foo"]) }
-
-        it { is_expected.not_to be_valid }
-      end
-    end
-
     describe "name" do
       context "when it has a name" do
         let(:user) { build(:user, name: "Oriol") }
