@@ -34,10 +34,10 @@ module Decidim
       initializer "decidim_admin.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
           config.admin_abilities += [
-            "Decidim::Admin::Abilities::AdminUser",
-            "Decidim::Admin::Abilities::ParticipatoryProcessAdminUser",
-            "Decidim::Admin::Abilities::ParticipatoryProcessCollaboratorUser",
-            "Decidim::Admin::Abilities::ParticipatoryProcessModeratorUser"
+            "Decidim::Admin::Abilities::AdminAbility",
+            "Decidim::Admin::Abilities::ParticipatoryProcessAdminAbility",
+            "Decidim::Admin::Abilities::ParticipatoryProcessCollaboratorAbility",
+            "Decidim::Admin::Abilities::ParticipatoryProcessModeratorAbility"
           ]
         end
       end

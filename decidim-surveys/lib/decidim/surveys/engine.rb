@@ -17,7 +17,7 @@ module Decidim
 
       initializer "decidim_surveys.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
-          config.abilities += ["Decidim::Surveys::Abilities::CurrentUser"]
+          config.abilities += ["Decidim::Surveys::Abilities::CurrentUserAbility"]
         end
       end
     end
