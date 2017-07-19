@@ -96,6 +96,7 @@ en:
             other: "%{count} proposals"
         filters:
           accepted: Accepted
+          evaluating: Evaluating
           activity: Activity
           all: All
           category: Category
