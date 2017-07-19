@@ -10,9 +10,9 @@ module Decidim
       create(:feature, id: 21, participatory_process: participatory_process)
     end
 
-    describe "feature_path" do
+    describe "main_feature_path" do
       it "resolves the root path for the feature" do
-        expect(helper.feature_path(feature)).to eq("/processes/42/f/21/")
+        expect(helper.main_feature_path(feature)).to eq("/processes/42/f/21/")
       end
     end
 

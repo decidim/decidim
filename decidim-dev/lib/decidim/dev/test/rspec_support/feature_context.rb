@@ -26,7 +26,7 @@ RSpec.shared_context "feature" do
   end
 
   def visit_feature
-    page.visit feature_path(feature)
+    page.visit main_feature_path(feature)
   end
 end
 

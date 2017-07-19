@@ -1,6 +1,6 @@
 <tr class="feature-<%= feature.id %>">
   <td>
-    <%= link_to feature_path(feature), target: "_blank" do %>
+    <%= link_to main_feature_path(feature), target: "_blank" do %>
       <%= translated_attribute feature.name %>
     <% end %>
   </td>
@@ -28,7 +28,7 @@
       <% if feature.manifest.actions.empty? %>
         <%= icon "key", class: "action-icon action-icon--disabled" %>
       <% else %>
-        <%= icon_link_to "key", edit_participatory_process_feature_permissions_path(feature_id: feature), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
+        <%= icon_link_to "key", edit_feature_permissions_path(feature_id: feature), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
       <% end %>
     <% end %>
 

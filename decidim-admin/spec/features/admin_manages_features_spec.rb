@@ -17,7 +17,7 @@ describe "Admin manages features", type: :feature do
 
   describe "add a feature" do
     before do
-      visit decidim_admin.participatory_process_features_path(participatory_process)
+      visit decidim_admin.features_path(participatory_process)
     end
 
     it "adds a feature" do
@@ -81,7 +81,7 @@ describe "Admin manages features", type: :feature do
     end
 
     before do
-      visit decidim_admin.participatory_process_features_path(participatory_process)
+      visit decidim_admin.features_path(participatory_process)
     end
 
     it "updates the feature" do
@@ -175,7 +175,7 @@ describe "Admin manages features", type: :feature do
     end
 
     before do
-      visit decidim_admin.participatory_process_features_path(participatory_process)
+      visit decidim_admin.features_path(participatory_process)
     end
 
     it "removes the feature" do
@@ -195,7 +195,7 @@ describe "Admin manages features", type: :feature do
     let(:published_at) { nil }
 
     before do
-      visit decidim_admin.participatory_process_features_path(participatory_process)
+      visit decidim_admin.features_path(participatory_process)
     end
 
     context "when the feature is unpublished" do

@@ -23,6 +23,15 @@ Decidim::Admin::Engine.routes.draw do
       end
       resources :attachments, controller: "participatory_process_attachments"
 
+      resources :moderations do
+        member do
+          put :unreport
+          put :hide
+        end
+      end
+    end
+
+    scope "/participatory_processes/:participatory_process_id" do
       resources :features do
         resource :permissions, controller: "feature_permissions"
         member do
@@ -30,13 +39,6 @@ Decidim::Admin::Engine.routes.draw do
           put :unpublish
         end
         resources :exports, only: :create
-      end
-
-      resources :moderations do
-        member do
-          put :unreport
-          put :hide
-        end
       end
     end
 
