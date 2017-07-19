@@ -50,6 +50,7 @@ en:
           edit:
             accepted: Accepted
             answer_proposal: Answer
+            evaluating: Evaluating
             rejected: Rejected
             title: Answer for proposal %{title}
         proposals:
@@ -68,6 +69,7 @@ en:
             title: Create proposal
       answers:
         accepted: Accepted
+        evaluating: Evaluating
         not_answered: Not answered
         rejected: Rejected
       create:
