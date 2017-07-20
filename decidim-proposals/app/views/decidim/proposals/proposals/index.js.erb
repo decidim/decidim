@@ -6,5 +6,5 @@ $proposals.html('<%= j(render partial: "proposals") %>');
 $proposalsCount.html('<%= j(render partial: "count") %>');
 $orderFilterInput.val('<%= order %>');
 
-var $dropdownMenu = $('.dropdown.menu:last');
+var $dropdownMenu = $('.dropdown.menu', $proposals);
 $dropdownMenu.foundation();
