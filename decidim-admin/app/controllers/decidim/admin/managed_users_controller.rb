@@ -15,6 +15,7 @@ module Decidim
 
       def new
         authorize! :new, :managed_users
+        @form = form(ManagedUserForm).instance
       end
     end
   end

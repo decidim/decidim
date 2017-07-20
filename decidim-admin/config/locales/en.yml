@@ -223,8 +223,13 @@ en:
           error: There has been an error updating this feature.
           success: The feature was updated successfully.
       managed_users:
+        form:
+          name: Name
         index:
           needs_authoriation_warning: You need at least one authorization enabled for this organization.
+        new:
+          create: Create
+          title: Title
       menu:
         admins: Admins
         dashboard: Dashboard

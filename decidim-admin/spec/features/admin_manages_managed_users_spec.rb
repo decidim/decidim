@@ -27,4 +27,27 @@ describe "Admin manages managed users", type: :feature do
       expect(page).to have_content("You need at least one authorization enabled for this organization.")
     end
   end
+
+  context "when the organization has one authorization available" do
+    let(:available_authorizations) { ["Decidim::DummyAuthorizationHandler"] }
+
+    it "creates a managed user filling in the authorization info" do
+      navigate_to_managed_users_page
+
+      click_link "New"
+
+      within "form.new_managed_user" do
+        fill_in :managed_user_name, with: "Foo"
+        fill_in :managed_user_authorization_handler_document_number, with: "123456789X"
+        fill_in :managed_user_authorization_handler_postal_code, with: "08224"
+        page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
+        page.find(".datepicker-dropdown .day", text: "12").click
+      end
+
+      click_button "Create"
+
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Foo")
+    end
+  end
 end
