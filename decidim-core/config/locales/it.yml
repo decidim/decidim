@@ -127,23 +127,23 @@ it:
         title: Informazione
     participatory_process_groups:
       show:
-        group_participatory_processes: Processi per il gruppo %{group}
+        group_participatory_processes: Processi per %{group}
         title: Titolo
     participatory_process_steps:
       index:
         process_steps: Fasi del processo
-        title: Fasi del processo participatorio
+        title: Fasi del processo partecipativo
     participatory_processes:
       index:
-        title: Processo participatorio
+        title: Processi partecipativi
       participatory_process_groups:
         none: Nessuno
       scopes:
         global: Ambito globale
       show:
-        developer_group: Gruppo di sviluppo
+        developer_group: Gruppo promotore
         end_date: Data di fine
-        local_area: Area locale
+        local_area: Municipi
         participatory_scope: Ambito partecipativo
         participatory_structure: Struttura partecipativa
         scope: Ambito
@@ -151,7 +151,7 @@ it:
       hide:
         hello: Ciao %{name},
         report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato nascosto automaticamente.</p>
-        subject: Una risorsa è stata cancellata automaticamente
+        subject: Un contenuto è stato cancellato automaticamente
       report:
         hello: Ciao %{name},
         subject: Una risorsa è stata riportata
