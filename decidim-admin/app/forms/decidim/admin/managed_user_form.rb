@@ -8,6 +8,15 @@ module Decidim
       attribute :name, String
 
       validates :name, presence: true
+      validates :authorization, presence: true
+
+      def initialize(attributes)
+        extend(Virtus.model)
+
+        attribute(:authorization, attributes.dig(:authorization, :handler).constantize)
+
+        super
+      end
     end
   end
 end

@@ -9,7 +9,11 @@ module Decidim
       let(:name) { "Foo" }
       let(:attributes) do
         {
-          name: name
+          name: name,
+          authorization: {
+            handler: "Decidim::DummyAuthorizationHandler",
+            document_number: "12345678X"
+          }
         }
       end
       subject do
