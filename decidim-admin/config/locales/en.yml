@@ -211,9 +211,13 @@ en:
         update:
           error: There has been an error updating this feature.
           success: The feature was updated successfully.
+      managed_users:
+        index:
+          needs_authoriation_warning: You need at least one authorization enabled for this organization.
       menu:
         admins: Admins
         dashboard: Dashboard
+        managed_users: Managed users
         newsletters: Newsletters
         participatory_process_groups: Process groups
         participatory_processes: Processes
@@ -238,6 +242,8 @@ en:
           name: Attachment
         category:
           name: Category
+        managed_user:
+          name: Managed user
         newsletter:
           fields:
             created_at: Created at
@@ -480,6 +486,7 @@ en:
           success: Page updated successfully
       titles:
         dashboard: Dashboard
+        managed_users: Managed users
         participatory_process_groups: Participatory process groups
         participatory_processes: Participatory processes
         scopes: Scopes

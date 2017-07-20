@@ -12,6 +12,9 @@
           <%= link_to t("menu.user_groups", scope: "decidim.admin"), decidim_admin.user_groups_path %>
         </li>
       <% end %>
+      <li <% if is_active_link?(decidim_admin.managed_users_path) %> class="is-active" <% end %>>
+        <%= link_to t("menu.managed_users", scope: "decidim.admin"), decidim_admin.managed_users_path %>
+      </li>
     </ul>
   </div>
 <% end %>
