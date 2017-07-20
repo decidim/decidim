@@ -48,6 +48,7 @@ es:
           edit:
             accepted: Aceptada
             answer_proposal: Respuesta
+            evaluating: En evaluación
             rejected: Rechazada
             title: Responder a la propuesta %{title}
         proposals:
@@ -66,6 +67,7 @@ es:
             title: Crear propuesta
       answers:
         accepted: Aceptadas
+        evaluating: En evaluación
         not_answered: No contestada
         rejected: Rechazada
       create:
@@ -97,6 +99,7 @@ es:
           category: Categoría
           category_prompt: Selecciona una categoría
           citizenship: Ciudadanía
+          evaluating: En evaluación
           official: Oficial
           origin: Origen
           rejected: Rechazadas
