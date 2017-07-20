@@ -236,9 +236,9 @@ it:
         link_label: qui
         ok: OK, accetto
       footer:
-        made_with_open_source: 'Questo sito è su GitHub <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.'
+        made_with_open_source: 'Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.'
       header:
-        close_menu: Chiudi questo menu
+        close_menu: Chiudere menu
         navigation: Navigazione
         sign_in: Accedi
         sign_up: Registrati
@@ -253,18 +253,18 @@ it:
         index:
           promoted_processes: Processi evidenziati
         no_processes_yet:
-          no_processes_yet: Non ci sono ancora dei processi partecipativi!
+          no_processes_yet: Non ci sono ancora processi partecipativi!
         order_by_processes:
           processes:
             one: "%{count} processo"
             other: "%{count} processi"
         participatory_process:
           active_step: 'Fase attuale:'
-          take_part: Unisciti
+          take_part: Partecipa
         promoted_process:
           active_step: 'Fase attuale:'
           more_info: Più informazioni
-          take_part: Unisciti
+          take_part: Partecipa
       process_header:
         process_menu_item: Il processo
         unfold: Espandi
