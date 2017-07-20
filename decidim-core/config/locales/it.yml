@@ -224,7 +224,7 @@ it:
       must_start_with_caps: Deve iniziare in maiuscola
       nesting_too_deep: Non può stare all'interno di una subcategoria
       too_many_marks: Sta utilizzando troppi segni di punteggiatura
-      too_much_caps: Utilizza troppe MAIUSCOLE
+      too_much_caps: Sta utilizzando troppe maiuscole
       too_short: Il contenuto è troppo breve
   invisible_captcha:
     sentence_for_humans: Se sei una persona e non un computer, ignora questo campo
