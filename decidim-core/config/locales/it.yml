@@ -191,7 +191,7 @@ it:
       share_modal:
         close_window: Chiudi questa finestra
         share: Condividi
-        share_link: Condividi questo link
+        share_link: Condividi link
   devise:
     invitations:
       edit:
@@ -200,22 +200,19 @@ it:
     mailer:
       invitation_instructions:
         accept: Accetta l'invito
-        accept_until: Questo invito sarà valido fino al %{due_date}.
+        accept_until: Questo invito scade il %{due_date}.
         hello: Ciao %{email},
         ignore: |-
-          Se non hai intenzione di accettare l'invito, per cortesia ignora questa email.<br />
-          Non verrà un account relativo al tuo profilo fino a che non effettuerai l'accesso al link precedente ed imposterai la tua password.
+          Se non desideri accettare l'invito, ignora questa email.<br /> Il tuo account non verrà creato finché non accedi al link precedente e imposti la tua password.
         invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}, puoi accettare l'invito tramite il seguente link."
-        someone_invited_you: Sei stato invitato per %{application}, puoi accettare l'invito tramite il seguente link.
-      invite_admin:
-        subject: Sei stato invitato per la gestione della sezione relativa all'organizzazione %{organization}
+        someone_invited_you: Sei stato invitato a %{application}, puoi accettare l'invito tramite il seguente link.
       invite_collaborator:
-        subject: Sei stato invitato a collaborare per la sezione relativa all'organizzazione %{organization}
+        subject: Sei stato invitato a collaborare nella %{organization}
       organization_admin_invitation_instructions:
-        subject: Sei stato invitato a gestire la sezione relativa all'organizzazione %{organization}
+        subject: Sei stato invitato a gestire %{organization}
       password_change:
         greeting: Ciao %{recipient}!
-        message: ti contattiamo per informarti che la tua password è stata modificata.
+        message: Ti contattiamo per informarti che la tua password è stata modificata.
         subject: Password modificata
   errors:
     messages:
