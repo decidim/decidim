@@ -11,6 +11,7 @@
       let options = {
         language: selectedLang,
         multiple: $element.attr("multiple")==="multiple",
+        width: "100%",
         allowClear: true
       };
       if ($element.data("remote")) {
