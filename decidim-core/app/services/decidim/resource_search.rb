@@ -47,13 +47,9 @@ module Decidim
 
       conditions = []
       conditions << "decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
+      conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
 
-      if clean_scope_ids.any?
-        self.query = query.left_outer_joins(:scope)
-        conditions.concat ["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count
-      end
-
-      query.where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
+      query.includes(:scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
     end
 
     private
