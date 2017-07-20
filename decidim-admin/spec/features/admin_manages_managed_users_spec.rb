@@ -38,12 +38,12 @@ describe "Admin manages managed users", type: :feature do
 
       within "form.new_managed_user" do
         fill_in :managed_user_name, with: "Foo"
-        fill_in :managed_user_authorization_handler_document_number, with: "123456789X"
-        fill_in :managed_user_authorization_handler_postal_code, with: "08224"
-        page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
-        page.find(".datepicker-dropdown .day", text: "12").click
+        fill_in :managed_user_authorization_document_number, with: "123456789X"
+        fill_in :managed_user_authorization_postal_code, with: "08224"
+        page.execute_script("$('#managed_user_authorization_birthday').siblings('input:first').focus()")
       end
 
+      page.find(".datepicker-dropdown .day", text: "12").click
       click_button "Create"
 
       expect(page).to have_content("successfully")

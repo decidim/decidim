@@ -15,7 +15,11 @@ module Decidim
 
       def new
         authorize! :new, :managed_users
-        @form = form(ManagedUserForm).instance
+        @form = form(ManagedUserForm).from_params(
+          authorization: {
+            handler: current_organization.available_authorizations.first # TODO: choose between all authorizations
+          }
+        )
       end
     end
   end
