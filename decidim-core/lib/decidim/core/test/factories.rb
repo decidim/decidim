@@ -160,28 +160,6 @@ FactoryGirl.define do
                role: :admin
       end
     end
-
-    trait :process_collaborator do
-      transient { participatory_process nil }
-
-      after(:create) do |user, evaluator|
-        create :participatory_process_user_role,
-               user: user,
-               participatory_process: evaluator.participatory_process,
-               role: :collaborator
-      end
-    end
-
-    trait :process_moderator do
-      transient { participatory_process nil }
-
-      after(:create) do |user, evaluator|
-        create :participatory_process_user_role,
-               user: user,
-               participatory_process: evaluator.participatory_process,
-               role: :moderator
-      end
-    end
   end
 
   factory :user_group, class: Decidim::UserGroup do
