@@ -11,7 +11,7 @@ module Decidim
         {
           name: name,
           authorization: {
-            handler: "Decidim::DummyAuthorizationHandler",
+            handler_name: "Decidim::DummyAuthorizationHandler",
             document_number: "12345678X"
           }
         }

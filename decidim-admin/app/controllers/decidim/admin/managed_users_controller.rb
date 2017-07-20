@@ -11,6 +11,7 @@ module Decidim
 
       def index
         authorize! :index, :managed_users
+        @managed_users = collection.page(params[:page]).per(15)
       end
 
       def new
@@ -39,6 +40,12 @@ module Decidim
             render :new
           end
         end
+      end
+
+      private
+
+      def collection
+        @collection ||= current_organization.users.managed
       end
     end
   end

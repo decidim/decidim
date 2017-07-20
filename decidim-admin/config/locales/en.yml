@@ -223,6 +223,9 @@ en:
           error: There has been an error updating this feature.
           success: The feature was updated successfully.
       managed_users:
+        create:
+          error: There has been an error creating the managed user.
+          success: The managed user has been successfully created.
         form:
           name: Name
         index:
