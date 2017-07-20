@@ -124,7 +124,7 @@ it:
         verified: Verificato
     pages:
       index:
-        title: Ulteriori informazioni
+        title: Informazione
     participatory_process_groups:
       show:
         group_participatory_processes: Processi per il gruppo %{group}
