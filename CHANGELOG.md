@@ -2,42 +2,34 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.0...HEAD)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.1...HEAD)
+
+## [v0.4.1](https://github.com/decidim/decidim/tree/v0.4.1) (2017-07-20)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.0...v0.4.1)
 
 **Added**
-
-_Added for new features._
 
 - **decidim-admin:** Added `Moderator` role to `ParticipatoryProcessUserRole`. A `Moderator` can manage the participatory process moderations. [\#1605](https://github.com/decidim/decidim/pull/1605)
 - **decidim-core:** Added `admin` field to `Decidim::User` to replace the old `admin` role at user level. [\#1605](https://github.com/decidim/decidim/pull/1605)
 - **decidim-core:** Added new users to seeds so every participatory process has a user for every role (i.e. `participatory_process_1_admin@example.org`). [\#1605](https://github.com/decidim/decidim/pull/1605)
+- **decidim-core:** Added results per page selector for `Meetings`, `Proposals` and `Results` pages. Users can select 20, 50 or 100 elements per page. [\#1614](https://github.com/decidim/decidim/pull/1614)
+- **decidim-proposals:** Added `evaluating` state to proposal answers. [\#1619](https://github.com/decidim/decidim/pull/1619)
+- **decidim-proposals:** Added `scope` to the proposals export. It includes the `id` and the `name` of the related scope. [\#1616](https://github.com/decidim/decidim/pull/1616)
 
 **Changed**
 
-_Changed for changes in existing functionality._
-
 - **decidim-admin:** The module `ParticipatoryProcessAdmin` exposes the process via the `current_participatory_process` method. [\#1605](https://github.com/decidim/decidim/pull/1605)
 
-
-**Deprecated**
-
-_Deprecated for soon-to-be removed features._
-
 **Removed**
-
-_Removed for now removed features._
 
 - **decidim-core:** Removed `roles` field from `Decidim::User`. The roles management belongs to a participatory process now. [\#1605](https://github.com/decidim/decidim/pull/1605)
 
 **Fixed**
 
-_Fixed for any bug fixes._
-
 - **decidim-core:** Fixed ugly margin under callout messages. [\#1603](https://github.com/decidim/decidim/pull/1603)
+- **decidim-core:** Fixed Quill link popup visibility when it was opened from the left side of the page. [\#1604](https://github.com/decidim/decidim/pull/1604)
 
 **Security**
-
-_Security in case of vulnerabilities._
 
 - **decidim-admin:** All roles permissions have been reviewed so every role has limited access to the admin. [\#1605](https://github.com/decidim/decidim/pull/1605)
 
