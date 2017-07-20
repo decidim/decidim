@@ -30,12 +30,6 @@ module Decidim
           end
         end
       end
-
-      private
-
-      def collection
-        @collection ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user, :admin)
-      end
     end
   end
 end
