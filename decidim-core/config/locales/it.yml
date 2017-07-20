@@ -217,13 +217,13 @@ it:
   errors:
     messages:
       content_type_whitelist_error: Il tipo di file non è valido.
-      file_size_is_less_than_or_equal_to: La dimensione del file deve essere minore o uguale a %{count}
+      file_size_is_less_than_or_equal_to: la dimensione del file deve essere inferiore o uguale a %{count}
       invalid_manifest: Manifesto non valido
       invalid_participatory_process: Processo partecipativo non valido
       long_words: Contiene parole troppo lunghe
-      must_start_with_caps: Deve iniziare in maiuscolo
-      nesting_too_deep: Non può essere all'interno di una categoria (annidamento eccessivo)
-      too_many_marks: Uilizza troppi segni
+      must_start_with_caps: Deve iniziare in maiuscola
+      nesting_too_deep: Non può stare all'interno di una subcategoria
+      too_many_marks: Sta utilizzando troppi segni di punteggiatura
       too_much_caps: Utilizza troppe MAIUSCOLE
       too_short: Il contenuto è troppo breve
   invisible_captcha:
