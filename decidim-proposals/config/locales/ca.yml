@@ -48,6 +48,7 @@ ca:
           edit:
             accepted: Acceptada
             answer_proposal: Resposta
+            evaluating: En avaluació
             rejected: Rebutjada
             title: Respondre a la proposta %{title}
         proposals:
@@ -66,6 +67,7 @@ ca:
             title: Crear proposta
       answers:
         accepted: Acceptada
+        evaluating: En avaluació
         not_answered: No resposta
         rejected: Rebutjada
       create:
@@ -97,6 +99,7 @@ ca:
           category: Categoria
           category_prompt: Selecciona una categoria
           citizenship: Ciutadania
+          evaluating: En avaluació
           official: Oficial
           origin: Origen
           rejected: Rebutjades
