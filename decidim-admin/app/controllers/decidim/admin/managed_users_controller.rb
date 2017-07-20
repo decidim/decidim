@@ -7,6 +7,8 @@ module Decidim
     # Controller that allows managing managed users at the admin panel.
     #
     class ManagedUsersController < Admin::ApplicationController
+      layout "decidim/admin/users"
+
       def index
         authorize! :index, :managed_users
       end
