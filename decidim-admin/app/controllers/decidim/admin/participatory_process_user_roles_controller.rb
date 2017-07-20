@@ -38,7 +38,7 @@ module Decidim
       def edit
         @user_role = collection.find(params[:id])
         authorize! :update, @user_role
-        @form = form(ParticipatoryProcessUserRoleForm).from_model(@user_role.user, current_process: current_participatory_process)
+        @form = form(ParticipatoryProcessUserRoleForm).from_model(@user_role.user)
       end
 
       def update
