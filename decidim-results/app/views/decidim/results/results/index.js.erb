@@ -1,2 +1,5 @@
 var $results = $('#results');
 $results.html('<%= j(render partial: "results") %>');
+
+var $dropdownMenu = $('.dropdown.menu', $results);
+$dropdownMenu.foundation();
