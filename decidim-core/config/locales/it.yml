@@ -176,18 +176,17 @@ it:
           title: Non autorizzato
       embed_modal:
         close_window: Chiudi la finestra
-        embed: Per cortesia incolla questo codice nella tua pagina
+        embed: Per favore, incolla questo codice nella tua pagina
         embed_link: Incorpora
       flag_modal:
-        already_reported: Questo contenuto è già stato riportato e sarà revisionato da parte di un amministratore.
+        already_reported: Questo contenuto è già stato riportato e sarà revisionato da un amministratore.
         close: Chiudi
         description: Questo contenuto è inappropriato?
-        does_not_belong: Contiene attività illegati, istigazione al suicidio, informazioni personali o riservate, minacce o altro che tu pensi che non sia appropriato per %{organization_name}.
+        does_not_belong: Contiene attività illegali, istigazione al suicidio, informazioni personali o riservate, o altre cose che tu credi che non sono appropriato per %{organization_name}.
         offensive: Contiene contenuti razzisti, diffamatori, sessisti, insulti o attacchi personali, minacce di morte, istigazioni al suicidio o altre forme di odio verbale.
-        spam: Contiene pubblicità, truffe, spam oppure ha come intento di attirare traffico internet e "click".
+        spam: Contiene clickbait, pubblicità, truffe o script bots.
         title: Segnala un problema
       login_modal:
-        please_sign_in: Per cortesia effettua l'accesso.
         sign_up: Registrazione
       share_modal:
         close_window: Chiudi questa finestra
