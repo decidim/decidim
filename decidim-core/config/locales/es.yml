@@ -254,6 +254,8 @@ es:
         sign_up: Regístrate
       reference:
         reference: 'Referencia: %{reference}'
+      results_per_page:
+        label: 'Resultados por página:'
       share_modal:
         close_window: Cerrar ventana
         share: Compartir

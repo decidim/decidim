@@ -254,6 +254,8 @@ ca:
         sign_up: Donar-se d'alta
       reference:
         reference: 'Referència: %{reference}'
+      results_per_page:
+        label: 'Resultats per pàgina:'
       share_modal:
         close_window: Tanca la finestra
         share: Compartir
