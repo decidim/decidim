@@ -154,11 +154,11 @@ it:
         subject: Un contenuto è stato cancellato automaticamente
       report:
         hello: Ciao %{name},
-        subject: Una risorsa è stata riportata
+        subject: Un contenuto è stato denunciato
     reports:
       create:
-        error: Si è verificato un errore durante la creazione del report. Per cortesia, prova ad effettuare nuovamente l'operazione.
-        success: OK, il report è stato creato e sarà revisionato da un amministratore.
+        error: Si è verificato un un errore. Ti preghiamo di riprovare.
+        success: Il report è stato creato e sarà rivisto da un amministratore.
     shared:
       action_authorization_modal:
         incomplete:
