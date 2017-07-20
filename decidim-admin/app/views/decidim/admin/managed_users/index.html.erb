@@ -1,0 +1,27 @@
+ <% if current_organization.available_authorizations.empty? %>
+  <div class="section">
+    <div class="callout warning">
+      <p><%= t('.needs_authoriation_warning') %></p>
+    </div>
+  </div>
+<% end %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.managed_users" %>
+      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.managed_user.name", scope: "decidim.admin")), ['new', 'managed_user'], class: "button tiny button--title #{'disabled' if current_organization.available_authorizations.empty?}" %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

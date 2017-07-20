@@ -58,6 +58,8 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
+    resources :managed_users, controller: "managed_users", except: [:edit, :update]
+
     resources :newsletters do
       member do
         get :preview

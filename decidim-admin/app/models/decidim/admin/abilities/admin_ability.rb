@@ -26,6 +26,10 @@ module Decidim
 
           can :manage, Feature
           can :manage, :admin_users
+
+          can :manage, :managed_users
+          cannot [:new, :create], :managed_users if @context[:current_organization].available_authorizations.empty?
+
           can :manage, Moderation
           can :manage, Attachment
           can :manage, Scope
