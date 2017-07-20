@@ -31,8 +31,7 @@
         "SVGInjector": false,
         "require": false,
         "DecidimAdmin": false,
-        "L": false,
-        "Rails": false
+        "L": false
     },
     "rules": {
         "accessor-pairs": "error",

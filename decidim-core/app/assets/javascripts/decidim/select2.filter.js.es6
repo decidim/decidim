@@ -14,9 +14,9 @@
         width: "100%",
         allowClear: true
       };
-      if ($element.data("remote")) {
+      if ($element.data("remote-path")) {
         options.ajax = {
-          url: $element.data("remote"),
+          url: $element.data("remote-path"),
           delay: 250,
           cache: true
         };
