@@ -15,11 +15,30 @@ module Decidim
 
       def new
         authorize! :new, :managed_users
+
         @form = form(ManagedUserForm).from_params(
           authorization: {
-            handler: current_organization.available_authorizations.first # TODO: choose between all authorizations
+            handler_name: current_organization.available_authorizations.first # TODO: choose between all authorizations
           }
         )
+      end
+
+      def create
+        authorize! :create, :managed_users
+
+        @form = form(ManagedUserForm).from_params(params)
+
+        CreateManagedUser.call(@form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("managed_users.create.success", scope: "decidim.admin")
+            redirect_to managed_users_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("managed_users.create.error", scope: "decidim.admin")
+            render :new
+          end
+        end
       end
     end
   end

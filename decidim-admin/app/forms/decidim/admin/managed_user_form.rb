@@ -13,7 +13,7 @@ module Decidim
       def initialize(attributes)
         extend(Virtus.model)
 
-        attribute(:authorization, attributes.dig(:authorization, :handler).constantize)
+        attribute(:authorization, attributes.dig(:authorization, :handler_name).classify.constantize)
 
         super
       end
