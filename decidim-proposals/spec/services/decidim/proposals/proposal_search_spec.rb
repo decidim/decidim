@@ -8,6 +8,7 @@ module Decidim
       let(:feature) { create(:feature, manifest_name: "proposals") }
       let(:scope1) { create :scope, organization: feature.organization }
       let(:scope2) { create :scope, organization: feature.organization }
+      let(:subscope1) { create :scope, organization: feature.organization, parent: scope1 }
       let(:participatory_process) { feature.participatory_process }
       let(:user) { create(:user, organization: feature.organization) }
       let!(:proposal) { create(:proposal, feature: feature, scope: scope1) }
@@ -118,20 +119,29 @@ module Decidim
 
         context "scope_id" do
           let!(:proposal2) { create(:proposal, feature: feature, scope: scope2) }
+          let!(:proposal3) { create(:proposal, feature: feature, scope: subscope1) }
 
-          context "when a single id is being sent" do
+          context "when a parent scope id is being sent" do
             let(:scope_id) { scope1.id }
 
-            it "filters meetings by scope" do
-              expect(subject).to eq [proposal]
+            it "filters proposals by scope" do
+              expect(subject).to match_array [proposal, proposal3]
+            end
+          end
+
+          context "when a subscope id is being sent" do
+            let(:scope_id) { subscope1.id }
+
+            it "filters proposals by scope" do
+              expect(subject).to eq [proposal3]
             end
           end
 
           context "when multiple ids are sent" do
             let(:scope_id) { [scope2.id, scope1.id] }
 
-            it "filters meetings by scope" do
-              expect(subject).to match_array [proposal, proposal2]
+            it "filters proposals by scope" do
+              expect(subject).to match_array [proposal, proposal2, proposal3]
             end
           end
 
@@ -139,8 +149,17 @@ module Decidim
             let!(:resource_without_scope) { create(:proposal, feature: feature, scope: nil) }
             let(:scope_id) { ["global"] }
 
-            it "returns resources without a scope" do
+            it "returns proposals without a scope" do
               expect(subject).to eq [resource_without_scope]
+            end
+          end
+
+          context "when `global` and some ids is being sent" do
+            let!(:resource_without_scope) { create(:proposal, feature: feature, scope: nil) }
+            let(:scope_id) { ["global", scope2.id, scope1.id] }
+
+            it "returns proposals without a scope and with selected scopes" do
+              expect(subject).to match_array [resource_without_scope, proposal, proposal2, proposal3]
             end
           end
         end
