@@ -249,10 +249,6 @@ FactoryGirl.define do
     manifest_name "dummy"
     published_at { Time.now }
 
-    after(:create) do |feature, _evaluator|
-      feature.participatory_process.steps.reload
-    end
-
     trait :unpublished do
       published_at { nil }
     end
