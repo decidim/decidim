@@ -7,13 +7,16 @@ module Decidim
     describe ManagedUserForm do
       let(:organization) { create :organization }
       let(:name) { "Foo" }
+      let(:authorization) do
+        {
+          handler_name: "decidim/dummy_authorization_handler",
+          document_number: "12345678X"
+        }
+      end
       let(:attributes) do
         {
           name: name,
-          authorization: {
-            handler_name: "Decidim::DummyAuthorizationHandler",
-            document_number: "12345678X"
-          }
+          authorization: authorization
         }
       end
       subject do
@@ -30,6 +33,18 @@ module Decidim
 
       context "when the name is not present" do
         let(:name) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when the authorization already exists for another user" do
+        before do
+          Authorization.create!(
+            user: create(:user, organization: organization),
+            name: authorization[:handler_name],
+            unique_id: authorization[:document_number]
+          )
+        end
 
         it { is_expected.not_to be_valid }
       end
