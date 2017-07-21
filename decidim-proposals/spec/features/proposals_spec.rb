@@ -571,7 +571,7 @@ describe "Proposals", type: :feature do
           create(:proposal, feature: feature, scope: nil)
           visit_feature
         end
-        
+
         it "can be filtered by scope" do
           within "form.new_filter" do
             expect(page).to have_content(/Scopes/i)
