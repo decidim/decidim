@@ -2,7 +2,14 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.1...HEAD)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.2...HEAD)
+
+## [v0.4.2](https://github.com/decidim/decidim/tree/v0.4.2) (2017-07-21)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.1...v0.4.2)
+
+**Fixed**
+
+- **decidim-admin**: Fixed `MigrateUserRolesToParticipatoryProcessRoles` migration using raw sql to prevent some errors caused by the order of the migrations.
 
 ## [v0.4.1](https://github.com/decidim/decidim/tree/v0.4.1) (2017-07-20)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.0...v0.4.1)
