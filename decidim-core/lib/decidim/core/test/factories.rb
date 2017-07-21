@@ -162,6 +162,12 @@ FactoryGirl.define do
     end
   end
 
+  factory :participatory_process_user_role, class: Decidim::ParticipatoryProcessUserRole do
+    user
+    participatory_process
+    role "admin"
+  end
+
   factory :user_group, class: Decidim::UserGroup do
     name { Faker::Educator.course }
     document_number { Faker::Number.number(8) + "X" }
