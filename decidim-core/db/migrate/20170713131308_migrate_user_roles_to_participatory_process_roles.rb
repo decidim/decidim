@@ -8,7 +8,7 @@ class MigrateUserRolesToParticipatoryProcessRoles < ActiveRecord::Migration[5.1]
       processes = participatory_processes.select { |process| process.organization == user.organization }
       processes.each do |process|
         user.roles.each do |role|
-          Decidim::ParticipatoryProcessUserRole.find_or_create_by(user: user, process: process, role: role)
+          Decidim::ParticipatoryProcessUserRole.find_or_create_by(user: user, participatory_process: process, role: role)
         end
       end
     end
