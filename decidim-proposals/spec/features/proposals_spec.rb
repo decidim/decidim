@@ -562,16 +562,53 @@ describe "Proposals", type: :feature do
         end
       end
 
-      context "when scoped_proposals setting is enabled" do
+      context "by scope" do
+        let!(:scope2) { create :scope, organization: participatory_process.organization }
+
         before do
-          feature.update_attributes(settings: { scoped_proposals_enabled: true })
-        end
-
-        it "cannot be filtered by scope" do
+          create_list(:proposal, 2, feature: feature, scope: scope)
+          create(:proposal, feature: feature, scope: scope2)
+          create(:proposal, feature: feature, scope: nil)
           visit_feature
-
+        end
+        
+        it "can be filtered by scope" do
           within "form.new_filter" do
             expect(page).to have_content(/Scopes/i)
+          end
+        end
+
+        context "selecting the global scope" do
+          it "lists the filtered proposals" do
+            within ".filters" do
+              select2(I18n.t("decidim.participatory_processes.scopes.global"), xpath: '//select[@id="filter_scope_id"]/..', search: true)
+            end
+
+            expect(page).to have_css(".card--proposal", count: 1)
+            expect(page).to have_content("1 PROPOSAL")
+          end
+        end
+
+        context "selecting one scope" do
+          it "lists the filtered proposals" do
+            within ".filters" do
+              select2(translated(scope.name), xpath: '//select[@id="filter_scope_id"]/..', search: true)
+            end
+
+            expect(page).to have_css(".card--proposal", count: 2)
+            expect(page).to have_content("2 PROPOSALS")
+          end
+        end
+
+        context "selecting the global scope and another scope" do
+          it "lists the filtered proposals" do
+            within ".filters" do
+              select2(translated(scope.name), xpath: '//select[@id="filter_scope_id"]/..', search: true)
+              select2(I18n.t("decidim.participatory_processes.scopes.global"), xpath: '//select[@id="filter_scope_id"]/..', search: true)
+            end
+
+            expect(page).to have_css(".card--proposal", count: 3)
+            expect(page).to have_content("3 PROPOSALS")
           end
         end
       end
