@@ -1,0 +1,54 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav secondary-nav--subnav">
+    <ul>
+      <% if can? :update, current_assembly %>
+        <li <% if is_active_link?(decidim_admin_assemblies.edit_assembly_path(current_assembly)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("info", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.edit_assembly_path(current_assembly) %>
+        </li>
+      <% end %>
+      <% if can? :read, Decidim::Feature %>
+        <li <% if is_active_link?(decidim_admin_assemblies.features_path(current_assembly)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("features", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.features_path(current_assembly) %>
+          <ul>
+            <% current_assembly.features.each do |feature| %>
+              <% if feature.manifest.admin_engine %>
+                <li <% if is_active_link?(manage_feature_path(feature)) %> class="is-active" <% end %>>
+                  <%= link_to manage_feature_path(feature) do %>
+                    <%= translated_attribute feature.name %>
+                    <% if feature.primary_stat.present? %>
+                      <span class="component-counter <%= "component-counter--off" if feature.primary_stat.zero? %>"><%= feature.primary_stat %></span>
+                    <% end %>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+      <% if can? :read, Decidim::Category %>
+        <li <% if is_active_link?(decidim_admin_assemblies.categories_path(current_assembly)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("categories", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.categories_path(current_assembly) %>
+        </li>
+      <% end %>
+      <% if can? :read, Decidim::Attachment %>
+        <li <% if is_active_link?(decidim_admin_assemblies.assembly_attachments_path(current_assembly.id)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.assembly_attachments_path(current_assembly.id) %>
+        </li>
+      <% end %>
+      <% if can? :read, Decidim::Moderation %>
+        <li <% if is_active_link?(decidim_admin_assemblies.moderations_path(current_assembly.id)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.moderations_path(current_assembly.id) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= translated_attribute(current_assembly.title) %>
+    </div>
+  </div>
+  <%= yield %>
+<% end %>

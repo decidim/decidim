@@ -7,6 +7,12 @@ require "decidim/api"
 
 require "decidim/participatory_processes"
 
+begin
+  require "decidim/assemblies"
+rescue
+  nil
+end
+
 require "decidim/pages"
 require "decidim/comments"
 require "decidim/meetings"
