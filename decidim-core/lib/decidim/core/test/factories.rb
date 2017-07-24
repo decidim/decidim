@@ -162,12 +162,35 @@ FactoryGirl.define do
                role: :admin
       end
     end
-  end
 
-  factory :participatory_process_user_role, class: Decidim::ParticipatoryProcessUserRole do
-    user
-    participatory_process
-    role "admin"
+    trait :process_collaborator do
+      transient { participatory_process nil }
+
+      after(:create) do |user, evaluator|
+        create :participatory_process_user_role,
+               user: user,
+               participatory_process: evaluator.participatory_process,
+               role: :collaborator
+      end
+    end
+
+    trait :process_moderator do
+      transient { participatory_process nil }
+
+      after(:create) do |user, evaluator|
+        create :participatory_process_user_role,
+               user: user,
+               participatory_process: evaluator.participatory_process,
+               role: :moderator
+      end
+    end
+
+    trait :managed do
+      email { "" }
+      password { "" }
+      password_confirmation { "" }
+      managed { true }
+    end
   end
 
   factory :user_group, class: Decidim::UserGroup do

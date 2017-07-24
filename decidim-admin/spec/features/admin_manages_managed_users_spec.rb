@@ -76,4 +76,21 @@ describe "Admin manages managed users", type: :feature do
       expect(page).to have_content("Foo")
     end
   end
+
+  context "when a manager user already exists" do
+    let(:available_authorizations) { ["Decidim::DummyAuthorizationHandler"] }
+    let!(:managed_user) { create(:user, :managed, organization: organization) }
+    let!(:authorization) { create(:authorization, user: managed_user, name: "decidim/dummy_authorization_handler", unique_id: "12345678X") }
+
+    it "can impersonate the user filling in the correct authorization" do
+      navigate_to_managed_users_page
+
+      within find("tr", text: managed_user.name) do
+        page.find("a.action-icon--impersonate").click
+      end
+
+      expect(page).to have_content("You are impersonating the user #{managed_user.name}")
+      expect(page.current_url).to eq(decidim.root_url)
+    end
+  end
 end
