@@ -67,8 +67,8 @@
     "yaml-loader": "^0.5.0"
   },
   "dependencies": {
-    "apollo-client": "^1.8.1",
-    "apollo-codegen": "^0.14.3",
+    "apollo-client": "^1.9.0-1",
+    "apollo-codegen": "^0.15.2",
     "classnames": "^2.2.5",
     "graphql-anywhere": "^3.1.0",
     "graphql-tag": "^2.4.2",
