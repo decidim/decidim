@@ -2,9 +2,9 @@
 set -ev
 
 if [ "$GEM" == "." ]; then
-  yarn lint
+  npm run lint
   bundle exec rspec spec
 else
-  yarn test -- $GEM
+  npm test -- $GEM
   cd $GEM && bundle exec rake
 fi

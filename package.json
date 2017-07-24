@@ -13,10 +13,10 @@
     "prelint": "tslint decidim-*/**/*.ts decidim-*/**/*.tsx",
     "lint": "eslint -c .eslintrc.json --ext .js,.js.es6,.jsx .",
     "test": "jest",
-    "test:watch": "yarn test -- --watch",
-    "test:ci": "yarn run lint && yarn test",
+    "test:watch": "npm test -- --watch",
+    "test:ci": "npm run lint && npm test",
     "graphql:download_schema": "apollo-codegen download-schema http://localhost:3000/api --output schema.json",
-    "pregraphql:generate_schema_types": "yarn run graphql:download_schema",
+    "pregraphql:generate_schema_types": "npm run graphql:download_schema",
     "graphql:generate_schema_types": "apollo-codegen generate decidim-comments/**/*.graphql --schema schema.json --target typescript --output decidim-comments/app/frontend/support/schema.ts",
     "postgraphql:generate_schema_types": "rm schema.json"
   },
