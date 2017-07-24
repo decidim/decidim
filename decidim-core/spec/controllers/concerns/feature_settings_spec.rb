@@ -9,9 +9,6 @@ module Decidim
 
     before do
       allow(controller).to receive(:current_feature).and_return(feature)
-
-      allow(controller).to receive(:current_participatory_process)
-        .and_return(participatory_process)
     end
 
     controller do
