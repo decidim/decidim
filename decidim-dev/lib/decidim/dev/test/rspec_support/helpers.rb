@@ -2,6 +2,12 @@
 
 # Helpers that get automatically included in feature specs.
 module Decidim::FeatureTestHelpers
+  def click_submenu_link(text)
+    within ".secondary-nav--subnav" do
+      click_link text
+    end
+  end
+
   def within_user_menu
     within ".topbar__user__logged" do
       find("a", text: user.name).hover
