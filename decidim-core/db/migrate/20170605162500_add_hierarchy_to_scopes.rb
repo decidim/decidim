@@ -10,7 +10,7 @@ class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
     end
 
     # retrieve current data
-    current_data = Decidim::Scope.select(:id, :name).as_json
+    current_data = Decidim::Scope.select(:id, :name, :decidim_organization_id).as_json
 
     change_table :decidim_scopes do |t|
       t.remove_index :name
@@ -22,12 +22,15 @@ class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
       t.integer :part_of, array: true, default: [], null: false
       t.index :part_of, using: "gin"
     end
-    Decidim::Scope.reset_column_information
 
     current_data.each do |s|
-      Decidim::Scope.update(s["id"],
-                            name: Hash[organization.available_locales.map { |lo| [lo, s["name"]] }],
-                            code: s["id"].to_s)
+      locales = Decidim::Organization.find(s["decidim_organization_id"]).available_locales
+      execute("
+        UPDATE decidim_scopes
+        SET name = '#{Hash[locales.map { |locale| [locale, s["name"]] }].to_json}',
+            code = '#{s["id"]}'
+        WHERE id = #{s["id"]}
+      ")
     end
 
     change_column_null :decidim_scopes, :name, false
@@ -38,17 +41,21 @@ class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
   def self.down
     # schema migration
     change_table :decidim_scopes do |t|
-      t.remove_index [:organization, :code], unique: true
-      t.change :name, :string, null: false
-      t.remove :scope_type, :parent, :code, :part_of
+      t.remove_index [:decidim_organization_id, :code]
+      t.change :name, :string, null: false, index: :uniqueness
+      t.remove :scope_type_id, :parent_id, :code, :part_of
     end
-    remove_table :decidim_scope_types
+    add_index :decidim_scopes, :name, unique: true
+    drop_table :decidim_scope_types
 
     # post migration data fixes
-    Decidim::Scope.reset_column_information
-    Decidim::Scope.all.find_each do |s|
-      s.name = JSON.parse(s.name).values.first
-      s.save!
+    Decidim::Scope.select(:id, :name).as_json.each do |s|
+      name = JSON.parse(s["name"]).values.first
+      execute("
+        UPDATE decidim_scopes
+        SET name = '#{name}'
+        WHERE id = #{s["id"]}
+      ")
     end
   end
 end
