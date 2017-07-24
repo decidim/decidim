@@ -55,22 +55,20 @@ if !Rails.env.production? || ENV["SEED"]
     replies_notifications: true
   )
 
-  3.times do
-    Decidim::User.find_each do |user|
-      [nil, Time.current].each do |verified_at|
-        user_group = Decidim::UserGroup.create!(
-          name: Faker::Company.unique.name,
-          document_number: Faker::Number.number(10),
-          phone: Faker::PhoneNumber.phone_number,
-          verified_at: verified_at,
-          decidim_organization_id: user.organization.id
-        )
+  Decidim::User.find_each do |user|
+    [nil, Time.current].each do |verified_at|
+      user_group = Decidim::UserGroup.create!(
+        name: Faker::Company.unique.name,
+        document_number: Faker::Number.number(10),
+        phone: Faker::PhoneNumber.phone_number,
+        verified_at: verified_at,
+        decidim_organization_id: user.organization.id
+      )
 
-        Decidim::UserGroupMembership.create!(
-          user: user,
-          user_group: user_group
-        )
-      end
+      Decidim::UserGroupMembership.create!(
+        user: user,
+        user_group: user_group
+      )
     end
   end
 
