@@ -70,13 +70,15 @@ module Decidim
     # Overrides devise email required validation.
     # If the user has been deleted or it is managed the email field is not required anymore.
     def email_required?
-      !deleted? && !managed?
+      return false if deleted? || managed?
+      super
     end
 
     # Overrides devise password required validation.
     # If the user is managed the password field is not required anymore.
     def password_required?
-      !managed?
+      return false if managed?
+      super
     end
 
     private
