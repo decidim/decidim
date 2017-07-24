@@ -232,7 +232,9 @@ en:
           needs_authoriation_warning: You need at least one authorization enabled for this organization.
         new:
           create: Create
-          title: Title
+          new_managed_user: New managed user
+          select_authorization_method: Select an authorization method
+          step: Step %{current} of %{total}
       menu:
         admins: Admins
         dashboard: Dashboard

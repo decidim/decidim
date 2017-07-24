@@ -17,6 +17,18 @@ describe "Admin manages managed users", type: :feature do
     click_link "Managed users"
   end
 
+  def fill_in_the_managed_user_form
+    within "form.new_managed_user" do
+      fill_in :managed_user_name, with: "Foo"
+      fill_in :managed_user_authorization_document_number, with: "123456789X"
+      fill_in :managed_user_authorization_postal_code, with: "08224"
+      page.execute_script("$('#managed_user_authorization_birthday').siblings('input:first').focus()")
+    end
+
+    page.find(".datepicker-dropdown .day", text: "12").click
+    click_button "Create"
+  end
+
   context "when the organization doesn't have any authorization available" do
     let(:available_authorizations) { [] }
 
@@ -36,15 +48,29 @@ describe "Admin manages managed users", type: :feature do
 
       click_link "New"
 
-      within "form.new_managed_user" do
-        fill_in :managed_user_name, with: "Foo"
-        fill_in :managed_user_authorization_document_number, with: "123456789X"
-        fill_in :managed_user_authorization_postal_code, with: "08224"
-        page.execute_script("$('#managed_user_authorization_birthday').siblings('input:first').focus()")
-      end
+      fill_in_the_managed_user_form
 
-      page.find(".datepicker-dropdown .day", text: "12").click
-      click_button "Create"
+      expect(page).to have_content("successfully")
+      expect(page).to have_content("Foo")
+    end
+  end
+
+  context "when the organization has more than one authorization available" do
+    let(:available_authorizations) { ["Decidim::DummyAuthorizationHandler", "Decidim::DummyAuthorizationHandler"] }
+
+    it "selects an authorization method and creates a managed user filling in the authorization info" do
+      navigate_to_managed_users_page
+
+      click_link "New"
+
+      expect(page).to have_content(/Select an authorization method/i)
+      expect(page).to have_content(/Step 1 of 2/i)
+
+      click_link "Example authorization", match: :first
+
+      expect(page).to have_content(/Step 2 of 2/i)
+
+      fill_in_the_managed_user_form
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Foo")

@@ -9,6 +9,8 @@ module Decidim
     class ManagedUsersController < Admin::ApplicationController
       layout "decidim/admin/users"
 
+      helper_method :available_authorizations, :more_than_one_authorization?
+
       def index
         authorize! :index, :managed_users
         @managed_users = collection.page(params[:page]).per(15)
@@ -17,11 +19,13 @@ module Decidim
       def new
         authorize! :new, :managed_users
 
-        @form = form(ManagedUserForm).from_params(
-          authorization: {
-            handler_name: current_organization.available_authorizations.first # TODO: choose between all authorizations
-          }
-        )
+        if handler_name.present?
+          @form = form(ManagedUserForm).from_params(
+            authorization: {
+              handler_name: handler_name
+            }
+          )
+        end
       end
 
       def create
@@ -46,6 +50,19 @@ module Decidim
 
       def collection
         @collection ||= current_organization.users.managed
+      end
+
+      def handler_name
+        return params[:handler_name] if more_than_one_authorization?
+        available_authorizations.first
+      end
+
+      def available_authorizations
+        current_organization.available_authorizations.map(&:underscore)
+      end
+
+      def more_than_one_authorization?
+        available_authorizations.length > 1
       end
     end
   end
