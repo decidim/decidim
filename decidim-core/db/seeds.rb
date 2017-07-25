@@ -55,25 +55,13 @@ if !Rails.env.production? || ENV["SEED"]
     replies_notifications: true
   )
 
-  3.times do
-    Decidim::User.find_each do |user|
-      user_group = Decidim::UserGroup.create!(
-        name: Faker::Company.name,
-        document_number: Faker::Number.number(10),
-        phone: Faker::PhoneNumber.phone_number,
-        verified_at: Time.current,
-        decidim_organization_id: user.organization.id
-      )
-
-      Decidim::UserGroupMembership.create!(
-        user: user,
-        user_group: user_group
-      )
-
+  Decidim::User.find_each do |user|
+    [nil, Time.current].each do |verified_at|
       user_group = Decidim::UserGroup.create!(
         name: Faker::Company.unique.name,
         document_number: Faker::Number.number(10),
         phone: Faker::PhoneNumber.phone_number,
+        verified_at: verified_at,
         decidim_organization_id: user.organization.id
       )
 
@@ -153,21 +141,21 @@ if !Rails.env.production? || ENV["SEED"]
 
       Decidim::ParticipatoryProcessUserRole.create!(user: user, participatory_process: process, role: role)
     end
-  end
 
-  Decidim::ParticipatoryProcess.find_each do |process|
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
       file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
       attached_to: process
     )
+
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
       file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
       attached_to: process
     )
+
     2.times do
       Decidim::Category.create!(
         name: Decidim::Faker::Localized.sentence(5),
