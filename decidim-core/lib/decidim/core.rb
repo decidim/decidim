@@ -43,19 +43,13 @@ module Decidim
     original_locale = I18n.available_locales
     I18n.available_locales = original_locale + [:en] unless original_locale.include?(:en)
 
-    railties = Rails.application.railties.to_a.uniq.select do |railtie|
-      railtie.respond_to?(:load_seed) && railtie.class.name.include?("Decidim::")
-    end
+    Rails.application.railties.to_a.uniq.each do |railtie|
+      next unless railtie.respond_to?(:load_seed) && railtie.class.name.include?("Decidim::")
 
-    railties.each do |railtie|
-      puts "Creating #{railtie.class.name} seeds..."
       railtie.load_seed
     end
 
-    Decidim.feature_manifests.each do |feature|
-      puts "Creating Feature (#{feature.name}) seeds..."
-      feature.seed!
-    end
+    Decidim.feature_manifests.each(&:seed!)
 
     I18n.available_locales = original_locale
   end
