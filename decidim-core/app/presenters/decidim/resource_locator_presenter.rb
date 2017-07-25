@@ -37,8 +37,8 @@ module Decidim
 
       url_params = {
         id: @resource.id,
-        feature_id: @resource.feature.id,
-        participatory_process_id: @resource.feature.participatory_process.id
+        feature_id: feature.id,
+        participatory_process_id: feature.participatory_process.id
       }
 
       engine.routes.url_helpers.send("#{manifest.route_name}_#{route_type}", url_params.merge(options))
@@ -46,6 +46,10 @@ module Decidim
 
     def manifest
       @resource.class.resource_manifest
+    end
+
+    def feature
+      @resource.feature
     end
   end
 end
