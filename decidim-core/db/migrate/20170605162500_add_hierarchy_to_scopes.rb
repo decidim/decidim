@@ -25,9 +25,10 @@ class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
 
     current_data.each do |s|
       locales = Decidim::Organization.find(s["decidim_organization_id"]).available_locales
+      name = s["name"].gsub("'", "''")
       execute("
         UPDATE decidim_scopes
-        SET name = '#{Hash[locales.map { |locale| [locale, s["name"]] }].to_json}',
+        SET name = '#{Hash[locales.map { |locale| [locale, name] }].to_json}',
             code = '#{s["id"]}'
         WHERE id = #{s["id"]}
       ")
@@ -50,7 +51,7 @@ class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
 
     # post migration data fixes
     Decidim::Scope.select(:id, :name).as_json.each do |s|
-      name = JSON.parse(s["name"]).values.first
+      name = JSON.parse(s["name"]).values.first.gsub("'", "''")
       execute("
         UPDATE decidim_scopes
         SET name = '#{name}'
