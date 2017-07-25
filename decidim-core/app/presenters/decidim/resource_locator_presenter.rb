@@ -84,7 +84,7 @@ module Decidim
     end
 
     def route_proxy
-      engine.routes.url_helpers
+      @route_proxy ||= engine.routes.url_helpers
     end
   end
 end
