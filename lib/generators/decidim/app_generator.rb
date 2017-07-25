@@ -44,9 +44,6 @@ module Decidim
       class_option :recreate_db, type: :boolean, default: false,
                                  desc: "Recreate test database"
 
-      class_option :migrate, type: :boolean, default: false,
-                             desc: "Run migrations after installing decidim"
-
       class_option :app_const_base, type: :string,
                                     desc: "The application constant name"
 
@@ -79,7 +76,6 @@ module Decidim
       def install
         Decidim::Generators::InstallGenerator.start [
           "--recreate_db=#{options[:recreate_db]}",
-          "--migrate=#{options[:migrate]}",
           "--app_name=#{app_name}"
         ]
       end

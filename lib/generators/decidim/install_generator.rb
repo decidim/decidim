@@ -16,8 +16,6 @@ module Decidim
 
       class_option :app_name, type: :string, default: nil,
                               desc: "The name of the app"
-      class_option :migrate, type: :boolean, default: false,
-                             desc: "Run migrations after installing decidim"
       class_option :recreate_db, type: :boolean, default: false,
                                  desc: "Recreate db after installing decidim"
 
@@ -28,7 +26,6 @@ module Decidim
       def copy_migrations
         rake "railties:install:migrations"
         recreate_db if options[:recreate_db]
-        rake "db:migrate" if options[:migrate]
       end
 
       def add_seeds
