@@ -80,11 +80,11 @@ task :docker_development_app do
 end
 
 desc "Build webpack bundle files"
-task webpack: ["yarn:install"] do
-  sh "yarn build:prod"
+task webpack: ["npm:install"] do
+  sh "npm run build:prod"
 end
 
-desc "Install yarn dependencies"
-task "yarn:install" do
-  sh "yarn"
+desc "Install npm dependencies"
+task "npm:install" do
+  sh "npm i"
 end

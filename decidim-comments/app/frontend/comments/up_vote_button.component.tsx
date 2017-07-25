@@ -72,7 +72,7 @@ const UpVoteButtonWithMutation = graphql(upVoteMutation, {
           },
         },
       },
-      update: (store, result: UpVoteMutation) => {
+      update: (store, { data }: { data: UpVoteMutation }) => {
         const variables = {
           commentableId: ownProps.rootCommentable.id,
           commentableType: ownProps.rootCommentable.type,
@@ -82,8 +82,8 @@ const UpVoteButtonWithMutation = graphql(upVoteMutation, {
         const commentReducer = (comment: CommentFragment): CommentFragment => {
           const replies = comment.comments || [];
 
-          if (comment.id === ownProps.comment.id && result.comment) {
-            return result.comment.upVote;
+          if (comment.id === ownProps.comment.id && data.comment) {
+            return data.comment.upVote;
           }
 
           return {
