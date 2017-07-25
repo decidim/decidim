@@ -74,7 +74,7 @@ const DownVoteButtonWithMutation = graphql<DownVoteMutation, DownVoteButtonProps
               },
             },
           },
-          update: (store, result: DownVoteMutation) => {
+          update: (store, { data }: { data: DownVoteMutation }) => {
             const variables = {
               commentableId: ownProps.rootCommentable.id,
               commentableType: ownProps.rootCommentable.type,
@@ -84,8 +84,8 @@ const DownVoteButtonWithMutation = graphql<DownVoteMutation, DownVoteButtonProps
             const commentReducer = (comment: CommentFragment): CommentFragment => {
               const replies = comment.comments || [];
 
-              if (comment.id === ownProps.comment.id && result.comment) {
-                return result.comment.downVote;
+              if (comment.id === ownProps.comment.id && data.comment) {
+                return data.comment.downVote;
               }
 
               return {
