@@ -72,6 +72,8 @@ if !Rails.env.production? || ENV["SEED"]
     end
   end
 
+  seeds_root = File.join(__dir__, "seeds")
+
   process_groups = []
   3.times do
     process_groups << Decidim::ParticipatoryProcessGroup.create!(
@@ -79,7 +81,7 @@ if !Rails.env.production? || ENV["SEED"]
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(3)
       end,
-      hero_image: File.new(File.join(__dir__, "seeds", "city.jpeg")),
+      hero_image: File.new(File.join(seeds_root, "city.jpeg")),
       organization: organization
     )
   end
@@ -96,8 +98,8 @@ if !Rails.env.production? || ENV["SEED"]
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(3)
       end,
-      hero_image: File.new(File.join(__dir__, "seeds", "city.jpeg")),
-      banner_image: File.new(File.join(__dir__, "seeds", "city2.jpeg")),
+      hero_image: File.new(File.join(seeds_root, "city.jpeg")),
+      banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
       promoted: true,
       published_at: 2.weeks.ago,
       organization: organization,
@@ -145,14 +147,14 @@ if !Rails.env.production? || ENV["SEED"]
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
-      file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
+      file: File.new(File.join(seeds_root, "city.jpeg")),
       attached_to: process
     )
 
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
-      file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
+      file: File.new(File.join(seeds_root, "Exampledocument.pdf")),
       attached_to: process
     )
 

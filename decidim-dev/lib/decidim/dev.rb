@@ -14,6 +14,11 @@ module Decidim
       File.expand_path(File.join(__dir__, "dev", "assets", name))
     end
 
+    # Public: Returns a file for testing, just like file fields expect it
+    def self.test_file(filename, content_type)
+      Rack::Test::UploadedFile.new(asset(filename), content_type)
+    end
+
     # Public: add rake tasks
     def self.install_tasks
       Dir[File.join(__dir__, "../tasks/*.rake")].each do |file|
