@@ -67,7 +67,7 @@ module Decidim
 
     # Returns an instance of ResourceLocatorPresenter with the given resource
     def resource_locator(resource)
-      ResourceLocatorPresenter.new(resource)
+      ::Decidim::ResourceLocatorPresenter.new(resource)
     end
   end
 end

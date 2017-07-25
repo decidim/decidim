@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/application_controller"
-
 module Decidim
   # This controller allows users to create and destroy their authorizations. It
   # shouldn't be necessary to expand it to add new authorization schemes.
-  class AuthorizationsController < ApplicationController
+  class AuthorizationsController < Decidim::ApplicationController
     helper_method :handler, :handlers, :stored_location
     before_action :valid_handler, only: [:new, :create]
 

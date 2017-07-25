@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/system/application_controller"
-
 module Decidim
   module System
     # Controller to manage Organizations (tenants).
     #
-    class OrganizationsController < ApplicationController
+    class OrganizationsController < Decidim::System::ApplicationController
       def new
         @form = form(RegisterOrganizationForm).instance
       end

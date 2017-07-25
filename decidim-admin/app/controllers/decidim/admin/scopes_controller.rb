@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Admin
     # Controller that allows managing all scopes at the admin panel.
     #
-    class ScopesController < ApplicationController
+    class ScopesController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
 
       def index

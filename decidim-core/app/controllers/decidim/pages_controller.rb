@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/application_controller"
 require_dependency "decidim/page_finder"
 
 module Decidim
   # This controller serves static pages using HighVoltage.
-  class PagesController < ApplicationController
+  class PagesController < Decidim::ApplicationController
     include HighVoltage::StaticPage
 
     layout "layouts/decidim/application"

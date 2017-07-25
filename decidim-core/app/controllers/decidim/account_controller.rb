@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/application_controller"
-
 module Decidim
   # The controller to handle the user's account page.
-  class AccountController < ApplicationController
+  class AccountController < Decidim::ApplicationController
     helper_method :authorizations
     include Decidim::UserProfile
 

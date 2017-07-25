@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/system/application_controller"
-
 module Decidim
   module System
     # Controller that allows managing all the Admins.
     #
-    class AdminsController < ApplicationController
+    class AdminsController < Decidim::System::ApplicationController
       def index
         @admins = Admin.all
       end

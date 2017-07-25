@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/application_controller"
-
 module Decidim
-  class StaticMapController < ApplicationController
+  class StaticMapController < Decidim::ApplicationController
     skip_authorization_check
 
     def show
