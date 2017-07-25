@@ -7,7 +7,7 @@ module Decidim
       @resource = resource
     end
 
-    # Builds the path to a resource. Useful when linking to a resource from
+    # Builds the path to the resource. Useful when linking to a resource from
     # another engine.
     #
     # options - An optional hash of options to pass to the Rails router
@@ -17,7 +17,7 @@ module Decidim
       _route("path", options)
     end
 
-    # Builds the url to a resource. Useful when linking to a resource from
+    # Builds the url to the resource. Useful when linking to a resource from
     # another engine.
     #
     # options - An optional hash of options to pass to the Rails router
@@ -29,7 +29,7 @@ module Decidim
 
     private
 
-    # Private: Build the route to a given resource.
+    # Private: Build the route to the resource.
     #
     # Returns a String.
     def _route(route_type, options)
