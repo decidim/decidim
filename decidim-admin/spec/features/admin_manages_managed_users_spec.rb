@@ -89,6 +89,15 @@ describe "Admin manages managed users", type: :feature do
         page.find("a.action-icon--impersonate").click
       end
 
+      within "form.new_managed_user_impersonation" do
+        fill_in :impersonate_managed_user_authorization_document_number, with: "123456789X"
+        fill_in :impersonate_managed_user_authorization_postal_code, with: "08224"
+        page.execute_script("$('#impersonate_managed_user_authorization_birthday').siblings('input:first').focus()")
+      end
+
+      page.find(".datepicker-dropdown .day", text: "12").click
+      click_button "Impersonate"
+
       expect(page).to have_content("You are impersonating the user #{managed_user.name}")
       expect(page.current_url).to eq(decidim.root_url)
     end

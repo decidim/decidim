@@ -217,7 +217,16 @@ en:
           success: The managed user has been successfully created.
         form:
           name: Name
+        impersonate:
+          error: There has been an error impersonating the managed user.
+        impersonations:
+          new:
+            impersonate: Impersonate
+            new_managed_user_impersonation: New managed user impersonation
+            select_authorization_method: Select authorization method
+            step: Step
         index:
+          impersonate: Impersonate
           needs_authoriation_warning: You need at least one authorization enabled for this organization.
         new:
           create: Create

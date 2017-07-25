@@ -18,11 +18,17 @@
         <thead>
           <tr>
             <th><%= t("models.user.fields.name", scope: "decidim.admin") %></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <% @managed_users.each do |user| %>
             <td><%= user.name %></td>
+            <td class="table-list__actions">
+              <% if can? :impersonate, user %>
+                <%= icon_link_to "account-login", new_managed_user_impersonation_path(user), t(".impersonate"), class: "action-icon--impersonate" %>
+              <% end %>
+            </td>
           <% end %>
         </tbody>
       </table>

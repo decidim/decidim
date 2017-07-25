@@ -60,7 +60,9 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
-    resources :managed_users, controller: "managed_users", except: [:edit, :update]
+    resources :managed_users, controller: "managed_users", except: [:edit, :update] do
+      resources :impersonations, controller: "managed_users/impersonations", only: [:new, :create]
+    end
 
     resources :newsletters do
       member do
