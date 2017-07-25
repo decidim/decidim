@@ -51,7 +51,7 @@ describe "Menu", type: :feature do
         click_link page.title["en"]
       end
 
-      it "switches the active option" do
+      it "preserves the active option" do
         expect(page).to have_selected_option("More information")
       end
     end
