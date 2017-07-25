@@ -290,7 +290,7 @@ GEM
       activesupport (>= 4.2.0)
     graphiql-rails (1.4.2)
       rails
-    graphql (1.6.4)
+    graphql (1.6.6)
     hashdiff (0.3.4)
     hashie (3.5.5)
     high_voltage (3.0.0)
