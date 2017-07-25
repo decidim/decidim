@@ -10,6 +10,7 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
         include FeatureSettings
 
+        helper Decidim::ResourceHelper
         helper Decidim::Admin::ExportsHelper
 
         helper_method :current_feature,

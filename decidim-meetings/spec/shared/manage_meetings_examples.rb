@@ -47,7 +47,7 @@ RSpec.shared_examples "manage meetings" do
       end
 
       within_window @new_window do
-        expect(current_path).to eq decidim_meetings.meeting_path(id: meeting.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
+        expect(current_path).to eq resource_locator(meeting).path
         expect(page).to have_content(translated(meeting.title))
       end
     end

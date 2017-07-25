@@ -219,11 +219,7 @@ describe "Orders", type: :feature do
     let!(:project) { create(:project, feature: feature, budget: 25_000_000) }
 
     before do
-      visit decidim_budgets.project_path(
-        id: project.id,
-        participatory_process_id: participatory_process,
-        feature_id: feature
-      )
+      visit resource_locator(project).path
     end
 
     let(:attached_to) { project }
