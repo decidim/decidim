@@ -14,7 +14,7 @@ module Decidim
     #
     # Returns a String.
     def path(options = {})
-      _route("path", options)
+      member_route("path", options)
     end
 
     # Builds the url to the resource. Useful when linking to a resource from
@@ -24,7 +24,16 @@ module Decidim
     #
     # Returns a String.
     def url(options = {})
-      _route("url", options.merge(host: @resource.organization.host))
+      member_route("url", options.merge(host: @resource.organization.host))
+    end
+
+    # Builds the index path to the associated collection of resources.
+    #
+    # options - An optional hash of options to pass to the Rails router
+    #
+    # Returns a String.
+    def index(options = {})
+      collection_route("path", options)
     end
 
     private
@@ -32,8 +41,15 @@ module Decidim
     # Private: Build the route to the resource.
     #
     # Returns a String.
-    def _route(route_type, options)
+    def member_route(route_type, options)
       route_proxy.send("#{member_route_name}_#{route_type}", member_params.merge(options))
+    end
+
+    # Private: Build the route to the associated collection of resources.
+    #
+    # Returns a String.
+    def collection_route(route_type, options)
+      route_proxy.send("#{collection_route_name}_#{route_type}", collection_params.merge(options))
     end
 
     def manifest
@@ -49,8 +65,11 @@ module Decidim
     end
 
     def member_params
+      collection_params.merge(id: @resource.id)
+    end
+
+    def collection_params
       {
-        id: @resource.id,
         feature_id: feature.id,
         participatory_process_id: feature.participatory_process.id
       }
@@ -58,6 +77,10 @@ module Decidim
 
     def member_route_name
       manifest.route_name
+    end
+
+    def collection_route_name
+      member_route_name.pluralize
     end
 
     def route_proxy
