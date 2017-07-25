@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.2...HEAD)
 
+**Changed**
+
+- **decidim**: Replaced `yarn` with `npm` (v5) to handle js dependencies. [\#1628](https://github.com/decidim/decidim/pull/1628)
+
 **Fixed**
 
 - **decidim-core**: Fixed active option in main menu being incorrect sometimes [\#1638](https://githu.com/decidim/decidim/pull/1638).
