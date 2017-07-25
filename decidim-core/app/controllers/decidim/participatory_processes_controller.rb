@@ -13,7 +13,7 @@ module Decidim
     helper Decidim::IconHelper
     helper Decidim::WidgetUrlsHelper
 
-    helper_method :collection, :promoted_participatory_processes, :participatory_processes
+    helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats
 
     def index
       authorize! :read, ParticipatoryProcess
@@ -40,6 +40,10 @@ module Decidim
 
     def participatory_process_groups
       @process_groups ||= Decidim::ParticipatoryProcessGroup.where(organization: current_organization)
+    end
+
+    def stats
+      @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_process)
     end
   end
 end

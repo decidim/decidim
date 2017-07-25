@@ -1,0 +1,38 @@
+#participatory_process-statistics{
+  margin-bottom: 1.5rem;
+}
+
+.process_stats{
+  padding: 0;
+  .process_stats-item{
+    width: 33.3%;
+    @include breakpoint(large down){
+      width: 33.3%;
+    }
+    @include breakpoint(medium down){
+      width: 49.9%;
+    }
+    @include breakpoint(smallmedium down){
+      width: 100%;
+    }
+    display: inline-block;
+    padding: 1em;
+    border: $border;
+    background: $white;
+    .icon {
+      width: 1.5em;
+      height: 1.5em;
+      color: #599aa6;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+    .process_stats-text{
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-size: 90%;
+      color: #3D393C;
+      font-weight: 600;
+      line-height: 1;
+    }
+  }
+}

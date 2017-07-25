@@ -31,6 +31,7 @@ module Decidim
       attribute :banner_image
       attribute :remove_banner_image
       attribute :participatory_process_group_id, Integer
+      attribute :show_statistics, Boolean
 
       validates :slug, presence: true
       validates :title, :subtitle, :description, :short_description, translatable_presence: true

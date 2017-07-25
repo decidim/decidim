@@ -91,7 +91,7 @@
 .subhero{
   padding: 4rem 0;
   text-align: center;
-  
+
   .heading3{
     @include breakpoint(medium down){
       font-size: 1.3em;
@@ -202,7 +202,7 @@
       border-bottom: $border;
       border-right: $border;
     }
-    
+
     &:last-child{
       border-right: none;
     }
