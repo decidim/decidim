@@ -63,7 +63,8 @@ module Decidim
           participatory_structure: form.participatory_structure,
           meta_scope: form.meta_scope,
           end_date: form.end_date,
-          participatory_process_group: form.participatory_process_group
+          participatory_process_group: form.participatory_process_group,
+          show_statistics: form.show_statistics
         }
       end
     end

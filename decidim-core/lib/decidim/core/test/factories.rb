@@ -67,6 +67,8 @@ FactoryGirl.define do
     participatory_scope { Decidim::Faker::Localized.sentence(1) }
     participatory_structure { Decidim::Faker::Localized.sentence(2) }
     end_date 2.month.from_now.at_midnight
+    show_statistics true
+
     trait :promoted do
       promoted true
     end

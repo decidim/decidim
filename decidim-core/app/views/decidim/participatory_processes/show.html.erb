@@ -72,7 +72,9 @@
       <%= embed_modal_for participatory_process_participatory_process_widget_url(current_participatory_process, format: :js) %>
     </div>
   </div>
-  <%= render partial: 'statistics' %>
+  <% if current_participatory_process.show_statistics? %>
+    <%= render partial: 'statistics' %>
+  <% end %>
 </div>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>

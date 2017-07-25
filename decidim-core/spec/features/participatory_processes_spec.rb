@@ -4,12 +4,14 @@ require "spec_helper"
 
 describe "Participatory Processes", type: :feature do
   let(:organization) { create(:organization) }
+  let(:show_statistics) { true }
   let(:base_process) do
     create(
       :participatory_process,
       organization: organization,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
+      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+      show_statistics: show_statistics
     )
   end
 
@@ -134,6 +136,14 @@ describe "Participatory Processes", type: :feature do
         within ".process_stats" do
           expect(page).to have_content("3 PROPOSALS")
           expect(page).to_not have_content("0 MEETINGS")
+        end
+      end
+
+      context "when the process stats are not enabled" do
+        let(:show_statistics) { false }
+
+        it "the stats for those features are not visible" do
+          expect(page).not_to have_content("3 PROPOSALS")
         end
       end
     end

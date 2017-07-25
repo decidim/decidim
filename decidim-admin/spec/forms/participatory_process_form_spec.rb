@@ -36,6 +36,7 @@ module Decidim
       end
       let(:slug) { "slug" }
       let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+      let(:show_statistics) { true }
       let(:attributes) do
         {
           "participatory_process" => {
@@ -53,7 +54,8 @@ module Decidim
             "short_description_ca" => short_description[:ca],
             "hero_image" => attachment,
             "banner_image" => attachment,
-            "slug" => slug
+            "slug" => slug,
+            "show_statistics" => show_statistics
           }
         }
       end
