@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Admin
     # Controller that allows managing all pages at the admin panel.
     #
-    class StaticPagesController < ApplicationController
+    class StaticPagesController < Decidim::Admin::ApplicationController
       layout "decidim/admin/pages"
 
       def index

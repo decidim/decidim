@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/application_controller"
-
 module Decidim
   # This controller allows the user to accept the cookie policy.
-  class CookiePolicyController < ApplicationController
+  class CookiePolicyController < Decidim::ApplicationController
     skip_authorization_check
 
     def accept

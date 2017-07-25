@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Admin
     # Controller that allows managing feature permissions.
     #
-    class FeaturePermissionsController < ApplicationController
+    class FeaturePermissionsController < Decidim::Admin::ApplicationController
       include Concerns::ParticipatoryProcessAdmin
       helper_method :authorizations, :feature
 

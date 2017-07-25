@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/application_controller"
-
 module Decidim
   # A controller to allow users switching their locale.
-  class LocalesController < ApplicationController
+  class LocalesController < Decidim::ApplicationController
     authorize_resource :locales, class: false
 
     def create

@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/application_controller"
-
 module Decidim
   # A controller that holds the logic to show ParticipatoryProcesses in a
   # public layout.
-  class ParticipatoryProcessesController < ApplicationController
+  class ParticipatoryProcessesController < Decidim::ApplicationController
     layout "layouts/decidim/participatory_process", only: [:show]
 
-    before_action -> { extend(NeedsParticipatoryProcess) }, only: [:show]
+    before_action -> { extend NeedsParticipatoryProcess }, only: [:show]
 
     helper Decidim::AttachmentsHelper
     helper Decidim::ParticipatoryProcessHelper

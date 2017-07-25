@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/features/settings_manifest"
-require_dependency "decidim/features/export_manifest"
+require "decidim/features/settings_manifest"
+require "decidim/features/export_manifest"
 
 module Decidim
   # This class handles all the logic associated to configuring a feature
