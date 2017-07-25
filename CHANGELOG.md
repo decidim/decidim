@@ -6,6 +6,10 @@
 ## [v0.4.3](https://github.com/decidim/decidim/tree/v0.4.3) (2017-07-25)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.2...v0.4.3)
 
+**Added**
+
+- **decidim-core**: Added `show_statistics` flag to participatory processes. This flag enable/disable statistics per participatory process in the participatory public page. [\#1526](https://github.com/decidim/decidim/pull/1526)
+
 **Changed**
 
 - **decidim**: Replaced `yarn` with `npm` (v5) to handle js dependencies. [\#1628](https://github.com/decidim/decidim/pull/1628)
