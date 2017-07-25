@@ -33,8 +33,6 @@ module Decidim
     #
     # Returns a String.
     def _route(route_type, options)
-      engine = manifest.feature_manifest.engine
-
       url_params = {
         id: @resource.id,
         feature_id: feature.id,
@@ -50,6 +48,10 @@ module Decidim
 
     def feature
       @resource.feature
+    end
+
+    def engine
+      manifest.feature_manifest.engine
     end
   end
 end
