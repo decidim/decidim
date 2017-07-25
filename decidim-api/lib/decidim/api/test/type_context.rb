@@ -19,7 +19,7 @@ RSpec.shared_context "graphql type" do
 
     GraphQL::Schema.define do
       query query_type
-      resolve_type ->(obj, ctx) {}
+      resolve_type ->(_obj, _ctx) {}
     end
   end
 
