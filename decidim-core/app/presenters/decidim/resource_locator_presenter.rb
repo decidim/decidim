@@ -39,7 +39,7 @@ module Decidim
         participatory_process_id: feature.participatory_process.id
       }
 
-      engine.routes.url_helpers.send("#{manifest.route_name}_#{route_type}", url_params.merge(options))
+      route_proxy.send("#{manifest.route_name}_#{route_type}", url_params.merge(options))
     end
 
     def manifest
@@ -52,6 +52,10 @@ module Decidim
 
     def engine
       manifest.feature_manifest.engine
+    end
+
+    def route_proxy
+      engine.routes.url_helpers
     end
   end
 end
