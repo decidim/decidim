@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/core/test/factories"
-require "decidim/admin/test/factories"
-
 FactoryGirl.define do
   factory :surveys_feature, parent: :feature do
     name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :surveys).i18n_name }

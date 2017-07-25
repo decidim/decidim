@@ -1,12 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/core/test/factories"
-require "decidim/admin/test/factories"
-require "decidim/comments/test/factories"
-require "decidim/meetings/test/factories"
-require "decidim/results/test/factories"
-require "decidim/budgets/test/factories"
-
 FactoryGirl.define do
   factory :proposal_feature, parent: :feature do
     name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :proposals).i18n_name }
