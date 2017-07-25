@@ -33,7 +33,6 @@ module Decidim
     #
     # Returns a String.
     def _route(route_type, options)
-      manifest = @resource.class.resource_manifest
       engine = manifest.feature_manifest.engine
 
       url_params = {
@@ -43,6 +42,10 @@ module Decidim
       }
 
       engine.routes.url_helpers.send("#{manifest.route_name}_#{route_type}", url_params.merge(options))
+    end
+
+    def manifest
+      @resource.class.resource_manifest
     end
   end
 end
