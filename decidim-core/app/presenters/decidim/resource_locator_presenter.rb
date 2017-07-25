@@ -33,7 +33,7 @@ module Decidim
     #
     # Returns a String.
     def _route(route_type, options)
-      route_proxy.send("#{manifest.route_name}_#{route_type}", member_params.merge(options))
+      route_proxy.send("#{member_route_name}_#{route_type}", member_params.merge(options))
     end
 
     def manifest
@@ -54,6 +54,10 @@ module Decidim
         feature_id: feature.id,
         participatory_process_id: feature.participatory_process.id
       }
+    end
+
+    def member_route_name
+      manifest.route_name
     end
 
     def route_proxy
