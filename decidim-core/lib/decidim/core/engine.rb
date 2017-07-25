@@ -142,7 +142,7 @@ module Decidim
           menu.item I18n.t("menu.home", scope: "decidim"),
                     decidim.root_path,
                     position: 1,
-                    active: ["decidim/pages" => :show]
+                    active: :exact
 
           menu.item I18n.t("menu.processes", scope: "decidim"),
                     decidim.participatory_processes_path,
