@@ -11,6 +11,7 @@ module Decidim
       highlighted_stats = highlighted_stats.concat(global_stats(priority: StatsRegistry::HIGH_PRIORITY))
       highlighted_stats = highlighted_stats.concat(feature_stats(priority: StatsRegistry::HIGH_PRIORITY))
       highlighted_stats = highlighted_stats.reject(&:empty?)
+      highlighted_stats = highlighted_stats.reject { |_name, data| data.zero? }
 
       safe_join(
         highlighted_stats.in_groups_of(2, false).map do |stats|
@@ -30,9 +31,10 @@ module Decidim
       not_highlighted_stats = global_stats(priority: StatsRegistry::MEDIUM_PRIORITY)
       not_highlighted_stats = not_highlighted_stats.concat(feature_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
       not_highlighted_stats = not_highlighted_stats.reject(&:empty?)
+      not_highlighted_stats = not_highlighted_stats.reject { |_name, data| data.zero? }
 
       safe_join(
-        not_highlighted_stats.in_groups_of(3, false).map do |stats|
+        not_highlighted_stats.in_groups_of(3, [:empty]).map do |stats|
           content_tag :div, class: "home-pam__lowlight" do
             safe_join(
               stats.map do |name, data|
@@ -61,15 +63,19 @@ module Decidim
 
     def render_stats_data(name, data)
       content_tag :div, "", class: "home-pam__data" do
-        safe_join([
-                    content_tag(:h4, I18n.t(name, scope: "pages.home.statistics"), class: "home-pam__title"),
-                    content_tag(:span, " #{number_with_delimiter(data)}", class: "home-pam__number #{name}")
-                  ])
+        if name == :empty
+          "&nbsp;".html_safe
+        else
+          safe_join([
+                      content_tag(:h4, I18n.t(name, scope: "pages.home.statistics"), class: "home-pam__title"),
+                      content_tag(:span, " #{number_with_delimiter(data)}", class: "home-pam__number #{name}")
+                    ])
+        end
       end
     end
 
     def published_features
-      @published_features ||= Feature.where(participatory_process: organization.participatory_processes.published)
+      @published_features ||= Feature.where(participatory_process: organization.participatory_processes.published).published
     end
   end
 end

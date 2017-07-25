@@ -33,7 +33,8 @@ module Decidim
               current_organization: my_process.organization,
               scope: my_process.scope,
               errors: my_process.errors,
-              participatory_process_group: my_process.participatory_process_group
+              participatory_process_group: my_process.participatory_process_group,
+              show_statistics: my_process.show_statistics
             }
           }
         end

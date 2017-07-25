@@ -19,8 +19,15 @@ Decidim.register_feature(:budgets) do |feature|
     resource.template = "decidim/budgets/projects/linked_projects"
   end
 
-  feature.register_stat :projects_count, primary: true do |features, start_at, end_at|
+  feature.register_stat :projects_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
     Decidim::Budgets::FilteredProjects.for(features, start_at, end_at).count
+  end
+
+  feature.register_stat :orders_count do |features, start_at, end_at|
+    orders = Decidim::Budgets::Order.where(feature: features)
+    orders = orders.where("created_at >= ?", start_at) if start_at.present?
+    orders = orders.where("created_at <= ?", end_at) if end_at.present?
+    orders.count
   end
 
   feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
