@@ -10,7 +10,6 @@ namespace :decidim do
     Decidim::Generators::DummyGenerator.start(
       [
         "--dummy_app_path=#{dummy_app_path}",
-        "--migrate=true",
         "--quiet"
       ]
     )

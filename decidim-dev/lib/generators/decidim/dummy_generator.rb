@@ -36,7 +36,7 @@ module Decidim
         Decidim::Generators::AppGenerator.start [
           dummy_app_path,
           "--app_const_base=DummyApplication",
-          "--skip_gemfile",
+          "--skip-gemfile",
           "--skip-bundle",
           "--skip-git",
           "--skip-keeps",

@@ -53,13 +53,12 @@ task :development_app do
   end
 
   Decidim::Generators::AppGenerator.start(
-    ["development_app", "--path", ".."]
+    ["development_app", "--path", "..", "--recreate_db"]
   )
 
   Dir.chdir("#{__dir__}/development_app") do
     Bundler.with_clean_env do
       sh "bundle exec spring stop"
-      sh "bundle exec rake db:drop db:create db:migrate"
       sh "bundle exec rake db:seed"
       sh "bundle exec rails generate decidim:demo"
     end
