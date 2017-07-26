@@ -136,20 +136,6 @@ it:
       dashboard:
         show:
           welcome: Benvenuto nel nuovo pannello di amministarzione.
-      decidim:
-        admin:
-          attachments:
-            index:
-              attachments_title: Allegati
-          categories:
-            index:
-              categories_title: Categorie
-          participatory_process_steps:
-            index:
-              steps_title: Fasi
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Utenti del processo partecipativo.
       exports:
         export_as: "%{name} esporta come %{export_format}"
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
