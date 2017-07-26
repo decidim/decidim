@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Admin::ImpersonateManagedUser do
+  include ActiveSupport::Testing::TimeHelpers
+
   let(:organization) { create :organization }
   let(:current_user) { create :user, :admin, organization: organization }
   let(:document_number) { "12345678X" }
@@ -46,6 +48,12 @@ describe Decidim::Admin::ImpersonateManagedUser do
       expect do
         subject.call
       end.to change { Decidim::ImpersonationLog.count }.by(1)
+    end
+
+    it "expires the impersonation session automatically", perform_enqueued: true do
+      subject.call
+      travel Decidim::ImpersonationLog::SESSION_TIME
+      expect(Decidim::ImpersonationLog.active).to be_empty
     end
   end
 
