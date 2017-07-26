@@ -160,20 +160,6 @@ eu:
       dashboard:
         show:
           welcome: Ongi etorri Decidim administrazio-panel berrira.
-      decidim:
-        admin:
-          attachments:
-            index:
-              attachments_title: Fitxategi erantsiak
-          categories:
-            index:
-              categories_title: Kategoriak
-          participatory_process_steps:
-            index:
-              steps_title: Faseak
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Prozesu partizipatiboko erabiltzaileak
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
         notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
