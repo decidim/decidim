@@ -140,6 +140,8 @@ en:
         edit:
           title: Edit attachment
           update: Update
+        index:
+          attachments_title: Attachments
         new:
           create: Create attachment
           title: New attachment
@@ -157,6 +159,7 @@ en:
           title: Edit category
           update: Update
         index:
+          categories_title: Categories
           category_used: This category cannot be removed because it is in use.
         new:
           create: Create category
@@ -167,20 +170,6 @@ en:
       dashboard:
         show:
           welcome: Welcome to the new Decidim Panel Admin.
-      decidim:
-        admin:
-          attachments:
-            index:
-              attachments_title: Attachments
-          categories:
-            index:
-              categories_title: Categories
-          participatory_process_steps:
-            index:
-              steps_title: Steps
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Participatory process users
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
@@ -403,6 +392,8 @@ en:
         edit:
           title: Edit participatory process step
           update: Update
+        index:
+          steps_title: Steps
         new:
           create: Create
           title: New participatory process step
@@ -420,6 +411,8 @@ en:
         edit:
           title: Update participatory process user.
           update: Update
+        index:
+          process_admins_title: Participatory process users
         new:
           create: Create
           title: New participatory process user.

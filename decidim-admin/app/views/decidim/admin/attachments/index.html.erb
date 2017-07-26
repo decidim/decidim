@@ -1,7 +1,7 @@
 <div class='card' id="attachments">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t(".attachments_title", scope: "decidim.admin") %>
+      <%= t(".attachments_title") %>
       <% if can? :create, authorization_object %>
         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.attachment.name", scope: "decidim.admin")), url_for(action: :new), class: 'button tiny button--title new' %>
       <% end %>
