@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "decidim/features/settings_manifest"
+require "decidim/settings_manifest"
 require "decidim/features/export_manifest"
 
 module Decidim
@@ -97,10 +97,10 @@ module Decidim
     end
 
     # Public: Adds configurable attributes for this feature, scoped to a name. It
-    # uses the DSL specified under `Decidim::FeatureSettingsManifest`.
+    # uses the DSL specified under `Decidim::SettingsManifest`.
     #
     # name - Either `global` or `step`
-    # &block - The DSL present on `Decidim::FeatureSettingsManifest`
+    # &block - The DSL present on `Decidim::SettingsManifest`
     #
     # Examples:
     #
@@ -112,7 +112,7 @@ module Decidim
     def settings(name = :global, &block)
       @settings ||= {}
       name = name.to_sym
-      settings = (@settings[name] ||= FeatureSettingsManifest.new)
+      settings = (@settings[name] ||= SettingsManifest.new)
       yield(settings) if block
       settings
     end

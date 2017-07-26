@@ -12,7 +12,7 @@ module Decidim
     end
 
     controller do
-      include Decidim::FeatureSettings
+      include Decidim::Settings
     end
 
     describe "#feature_settings" do

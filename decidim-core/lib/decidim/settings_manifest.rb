@@ -4,15 +4,15 @@ module Decidim
   # This class serves as a DSL that enables specifying an arbitrary settings
   # to a feature, so the admin panel can show a standarized UI to configure them.
   #
-  class FeatureSettingsManifest
+  class SettingsManifest
     attr_reader :attributes
 
-    # Initializes a FeatureSettingsManifest.
+    # Initializes a SettingsManifest.
     def initialize
       @attributes = {}
     end
 
-    # Public: Adds a new attribute field to the FeatureSettingsManifest.
+    # Public: Adds a new attribute field to the SettingsManifest.
     #
     # name - The name of the attribute to inject.
     # options - A set of options to configure the attribute.
@@ -44,7 +44,7 @@ module Decidim
         cattr_accessor :manifest
 
         def self.model_name
-          ActiveModel::Name.new(self, nil, "FeatureSettings")
+          ActiveModel::Name.new(self, nil, "Settings")
         end
 
         def manifest
@@ -65,7 +65,7 @@ module Decidim
       @schema
     end
 
-    # Semi-private: Attributes are an abstraction used by FeatureSettingsManifest
+    # Semi-private: Attributes are an abstraction used by SettingsManifest
     # to encapsulate behavior related to each individual settings field. Shouldn't
     # be used from the outside.
     class Attribute
