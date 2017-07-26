@@ -10,24 +10,24 @@ module Decidim
     included do
       alias_method :real_user, :current_user
 
-      # TODO
+      # Returns a manager user if the real user has an active impersonation
       def current_user
         managed_user || real_user
       end
 
       private
 
-      # TODO
+      # Returns the managed user impersonated by an admin if exists
       def managed_user
         return if !real_user || !real_user.can?(:impersonate, :managed_users)
 
         impersonation = Decidim::ImpersonationLog
                         .order("start_at DESC")
                         .where(admin: real_user)
+                        .active
                         .first
 
-        return if !impersonation || impersonation.expired?
-        impersonation.user
+        impersonation&.user
       end
     end
   end

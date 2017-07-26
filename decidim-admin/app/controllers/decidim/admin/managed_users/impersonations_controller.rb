@@ -70,16 +70,11 @@ module Decidim
         end
 
         def handler_name
-          return params[:handler_name] if more_than_one_authorization?
-          available_authorizations.first
+          authorization.name
         end
 
-        def available_authorizations
-          current_organization.available_authorizations.map(&:underscore)
-        end
-
-        def more_than_one_authorization?
-          available_authorizations.length > 1
+        def authorization
+          @authorization ||= Authorization.where(user: user).first
         end
       end
     end

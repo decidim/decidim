@@ -327,7 +327,7 @@ FactoryGirl.define do
 
   factory :impersonation_log, class: Decidim::ImpersonationLog do
     admin { build(:user, :admin) }
-    user { build(:user, :managed) }
+    user { build(:user, :managed, organization: admin.organization) }
     start_at Time.current
   end
 end
