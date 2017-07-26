@@ -139,6 +139,8 @@ ca:
         edit:
           title: Edita arxiu adjunt
           update: Actualitzar
+        index:
+          attachments_title: Adjunts
         new:
           create: Crea arxiu adjunt
           title: Nou arxiu adjunt
@@ -156,6 +158,7 @@ ca:
           title: Edita categoria
           update: Actualitzar
         index:
+          categories_title: Categories
           category_used: Aquesta categoria no es pot suprimir perquè és en ús.
         new:
           create: Crea una categoria
@@ -166,20 +169,6 @@ ca:
       dashboard:
         show:
           welcome: Benvingut al nou panell d'administració de Decidim.
-      decidim:
-        admin:
-          attachments:
-            index:
-              attachments_title: Adjunts
-          categories:
-            index:
-              categories_title: Categories
-          participatory_process_steps:
-            index:
-              steps_title: Fases
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Usuaris del procés participatiu
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
@@ -402,6 +391,8 @@ ca:
         edit:
           title: Editar fase de procés participatiu
           update: Actualitzar
+        index:
+          steps_title: Fases
         new:
           create: Crear
           title: Nova fase de procés participatiu
@@ -419,6 +410,8 @@ ca:
         edit:
           title: Editar usuari de procés participatiu.
           update: Actualitzar
+        index:
+          process_admins_title: Usuaris del procés participatiu
         new:
           create: Crear
           title: Nou usuari de procés participatiu.

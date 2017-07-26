@@ -111,6 +111,8 @@ fi:
           success: Liite tuhottu onnistuneesti.
         edit:
           title: Muokkaa liitettä
+        index:
+          attachments_title: Liitteet
         new:
           create: Luo liite
           title: Uusi liite
@@ -126,23 +128,14 @@ fi:
           success: Kategoria poistettu onnistuneesti.
         edit:
           title: Muokkaa kategoriaa
+        index:
+          categories_title: Kategoriat
         new:
           create: Luo kategoria
           title: Uusi kategoria
         update:
           error: Tämän kategorian luonnissa tapahtui virhe.
           success: Kategoria päivitetty onnistuneesti.
-      decidim:
-        admin:
-          attachments:
-            index:
-              attachments_title: Liitteet
-          categories:
-            index:
-              categories_title: Kategoriat
-          participatory_process_steps:
-            index:
-              steps_title: Vaihe
       feature_permissions:
         edit:
           everyone: Kaikki
@@ -320,6 +313,8 @@ fi:
           success: Osallistumisprosessin vaihe tuhottu onnistuneesti.
         edit:
           title: Muokkaa osallistumisprosessin vaihetta
+        index:
+          steps_title: Vaihe
         new:
           title: Uusi osallistumisprosessin vaihe
         ordering:

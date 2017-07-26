@@ -1,7 +1,7 @@
 <div class="card" id="categories">
   <div class="card-divider">
     <h2 class='card-title'>
-      <%= t(".categories_title", scope: "decidim.admin") %>
+      <%= t(".categories_title") %>
       <% if can? :create, Decidim::Category %>
         <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.category.name", scope: "decidim.admin")), new_participatory_process_category_path(current_participatory_process), class: 'button tiny button--title new' %>
       <% end %>

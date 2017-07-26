@@ -1,7 +1,7 @@
 <div class='card' id="process_admins">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t(".process_admins_title", scope: "decidim.admin") %>
+      <%= t(".process_admins_title") %>
       <% if can? :create, Decidim::ParticipatoryProcessUserRole %>
          <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_user_role.name", scope: "decidim.admin")), new_participatory_process_user_role_path(current_participatory_process), class: 'button tiny button--title new' %>
       <% end %>
