@@ -80,7 +80,7 @@ describe "Admin manages managed users", type: :feature do
   context "when a manager user already exists" do
     let(:available_authorizations) { ["Decidim::DummyAuthorizationHandler"] }
     let!(:managed_user) { create(:user, :managed, organization: organization) }
-    let!(:authorization) { create(:authorization, user: managed_user, name: "decidim/dummy_authorization_handler", unique_id: "12345678X") }
+    let!(:authorization) { create(:authorization, user: managed_user, name: "decidim/dummy_authorization_handler", unique_id: "123456789X") }
 
     it "can impersonate the user filling in the correct authorization" do
       navigate_to_managed_users_page

@@ -31,7 +31,7 @@ module Decidim
 
           ImpersonateManagedUser.call(@form, user, current_user) do
             on(:ok) do
-              redirect_to root_path
+              redirect_to decidim.root_path
             end
 
             on(:invalid) do
