@@ -87,7 +87,6 @@ Decidim.register_feature(:proposals) do |feature|
           process.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
         }
       )
-      categories = feature.participatory_process.categories
       # So that we have some with global scope
       scopes = feature.organization.scopes + [nil]
 
@@ -97,7 +96,7 @@ Decidim.register_feature(:proposals) do |feature|
 
         proposal = Decidim::Proposals::Proposal.create!(
           feature: feature,
-          category: categories.sample,
+          category: process.categories.sample,
           scope: scopes.sample,
           title: Faker::Lorem.sentence(2),
           body: Faker::Lorem.paragraphs(2).join("\n"),
