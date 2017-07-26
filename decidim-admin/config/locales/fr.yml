@@ -158,20 +158,6 @@ fr:
       dashboard:
         show:
           welcome: Bienvenue dans le nouveau panneau d’administration Decidim.
-      decidim:
-        admin:
-          attachments:
-            index:
-              attachments_title: Pièces jointes
-          categories:
-            index:
-              categories_title: Catégories
-          participatory_process_steps:
-            index:
-              steps_title: Etapes
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Administrateurs du processus participatifs
       feature_permissions:
         edit:
           everyone: Tout le monde
