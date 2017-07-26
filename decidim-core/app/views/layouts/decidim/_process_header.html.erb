@@ -48,8 +48,8 @@
 
             <% current_participatory_process.features.each do |feature| %>
               <% if feature.published? || feature == self.try(:current_feature) %>
-                <li class="<%= "is-active" if is_active_link?(feature_path(feature), :inclusive) %>">
-                  <%= active_link_to feature_path(feature), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
+                <li class="<%= "is-active" if is_active_link?(main_feature_path(feature), :inclusive) %>">
+                  <%= active_link_to main_feature_path(feature), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>
                     <%= feature_icon(feature) %>
 
                     <%= translated_attribute(feature.name) %>

@@ -16,6 +16,6 @@ describe "Comments", type: :feature, perform_enqueued: true do
   end
   let!(:commentable) { create(:result, feature: feature) }
 
-  let(:resource_path) { decidim_results.result_path(commentable, feature_id: feature, participatory_process_id: feature.participatory_process) }
+  let(:resource_path) { resource_locator(commentable).path }
   include_examples "comments"
 end

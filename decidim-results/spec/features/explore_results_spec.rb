@@ -85,7 +85,7 @@ describe "Explore results", type: :feature do
   end
 
   context "show" do
-    let(:path) { decidim_results.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: feature.id) }
+    let(:path) { resource_locator(result).path }
     let(:results_count) { 1 }
     let(:result) { results.first }
 

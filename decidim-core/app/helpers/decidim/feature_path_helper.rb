@@ -8,7 +8,7 @@ module Decidim
     # feature - the Feature we want to find the root path for.
     #
     # Returns a url.
-    def feature_path(feature)
+    def main_feature_path(feature)
       feature_root_path_for(feature.manifest.engine, feature)
     end
 
