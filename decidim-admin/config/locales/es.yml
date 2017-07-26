@@ -166,20 +166,6 @@ es:
       dashboard:
         show:
           welcome: Bienvenido al nuevo panel de administración de Decidim.
-      decidim:
-        admin:
-          attachments:
-            index:
-              attachments_title: Archivos adjuntos
-          categories:
-            index:
-              categories_title: Categorías
-          participatory_process_steps:
-            index:
-              steps_title: Fases
-          participatory_process_user_roles:
-            index:
-              process_admins_title: Usuarios del proceso
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
