@@ -35,10 +35,10 @@ module Decidim
             dependent: :destroy,
             inverse_of: :participatory_process
     has_many :categories,
-             foreign_key: "decidim_participatory_process_id",
-             class_name: "Decidim::Category",
+             foreign_key: "decidim_featurable_id",
+             foreign_type: "decidim_featurable_type",
              dependent: :destroy,
-             inverse_of: :participatory_process
+             as: :featurable
 
     has_many :features, as: :featurable
 

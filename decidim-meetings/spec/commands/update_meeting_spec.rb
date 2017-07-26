@@ -6,7 +6,7 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
   let(:meeting) { create(:meeting) }
   let(:organization) { meeting.feature.organization }
   let(:scope) { create :scope, organization: organization }
-  let(:category) { create :category, participatory_process: meeting.feature.featurable }
+  let(:category) { create :category, featurable: meeting.feature.featurable }
   let(:address) { meeting.address }
   let(:invalid) { false }
   let(:latitude) { 40.1234 }

@@ -29,7 +29,7 @@ module Decidim
           end
 
           can :manage, Category do |category|
-            can_manage_process?(category.participatory_process)
+            can_manage_process?(category.featurable)
           end
 
           can :manage, Attachment do |attachment|

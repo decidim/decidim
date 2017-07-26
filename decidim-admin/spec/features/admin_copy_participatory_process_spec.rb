@@ -7,12 +7,7 @@ describe "Admin copies participatory process", type: :feature do
 
   let!(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
   let!(:feature) { create :feature, manifest_name: :dummy, featurable: participatory_process }
-  let!(:category) do
-    create(
-      :category,
-      participatory_process: participatory_process
-    )
-  end
+  let!(:category) { create(:category, featurable: participatory_process) }
 
   before do
     switch_to_host(organization.host)

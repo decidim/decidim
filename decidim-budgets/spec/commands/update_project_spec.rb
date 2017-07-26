@@ -6,7 +6,7 @@ describe Decidim::Budgets::Admin::UpdateProject do
   let(:project) { create :project }
   let(:organization) { project.feature.organization }
   let(:scope) { create :scope, organization: organization }
-  let(:category) { create :category, participatory_process: project.feature.featurable }
+  let(:category) { create :category, featurable: project.feature.featurable }
   let(:participatory_process) { project.feature.featurable }
   let(:proposal_feature) do
     create(:feature, manifest_name: :proposals, featurable: participatory_process)

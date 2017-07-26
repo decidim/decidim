@@ -6,7 +6,7 @@ describe Decidim::Meetings::MeetingSearch do
   let(:current_feature) { create :feature, manifest_name: "meetings" }
   let(:scope1) { create :scope, organization: current_feature.organization }
   let(:scope2) { create :scope, organization: current_feature.organization }
-  let(:parent_category) { create :category, participatory_process: current_feature.featurable }
+  let(:parent_category) { create :category, featurable: current_feature.featurable }
   let(:subcategory) { create :subcategory, parent: parent_category }
   let!(:meeting1) do
     create(

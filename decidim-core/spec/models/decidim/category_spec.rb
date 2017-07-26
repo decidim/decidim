@@ -29,11 +29,11 @@ module Decidim
 
     context "before saving a subcategory" do
       let(:parent) { create(:category) }
-      let(:category) { create(:subcategory, parent: parent, participatory_process: nil) }
+      let(:category) { create(:subcategory, parent: parent, featurable: nil) }
 
       it "sets its process to its parent's" do
         subject.save
-        expect(subject.participatory_process).to eq parent.participatory_process
+        expect(subject.featurable).to eq parent.featurable
       end
     end
   end

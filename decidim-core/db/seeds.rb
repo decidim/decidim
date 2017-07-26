@@ -164,7 +164,7 @@ if !Rails.env.production? || ENV["SEED"]
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        participatory_process: process
+        featurable: process
       )
     end
   end

@@ -117,7 +117,7 @@ describe "Explore results", type: :feature do
     context "with a category" do
       let(:result) do
         result = results.first
-        result.category = create :category, participatory_process: participatory_process
+        result.category = create :category, featurable: participatory_process
         result.save
         result
       end
