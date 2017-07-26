@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe FeatureSettingsManifest do
+  describe SettingsManifest do
     subject { described_class.new }
 
     describe "attribute" do
@@ -25,25 +25,25 @@ module Decidim
 
       describe "supported types" do
         it "supports booleans" do
-          attribute = FeatureSettingsManifest::Attribute.new(type: :boolean)
+          attribute = SettingsManifest::Attribute.new(type: :boolean)
           expect(attribute.type_class).to eq(Virtus::Attribute::Boolean)
           expect(attribute.default_value).to eq(false)
         end
 
         it "supports integers" do
-          attribute = FeatureSettingsManifest::Attribute.new(type: :integer)
+          attribute = SettingsManifest::Attribute.new(type: :integer)
           expect(attribute.type_class).to eq(Integer)
           expect(attribute.default_value).to eq(0)
         end
 
         it "supports strings" do
-          attribute = FeatureSettingsManifest::Attribute.new(type: :string)
+          attribute = SettingsManifest::Attribute.new(type: :string)
           expect(attribute.type_class).to eq(String)
           expect(attribute.default_value).to eq(nil)
         end
 
         it "supports texts" do
-          attribute = FeatureSettingsManifest::Attribute.new(type: :text)
+          attribute = SettingsManifest::Attribute.new(type: :text)
           expect(attribute.type_class).to eq(String)
           expect(attribute.default_value).to eq(nil)
         end

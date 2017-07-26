@@ -8,7 +8,7 @@ module Decidim
     class BaseController < Decidim::ApplicationController
       layout "layouts/decidim/participatory_process"
       include NeedsParticipatoryProcess
-      include FeatureSettings
+      include Settings
       include ActionAuthorization
 
       helper Decidim::FiltersHelper

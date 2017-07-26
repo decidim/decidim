@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe FeatureSettingsHelper do
+    describe SettingsHelper do
       let(:options) { double }
       let(:attribute) { double(type: type) }
       let(:type) { :boolean }
