@@ -6,6 +6,7 @@ module Decidim
     class ApplicationController < ::DecidimController
       skip_before_action :verify_authenticity_token
       include NeedsOrganization
+      include ImpersonateUsers
     end
   end
 end

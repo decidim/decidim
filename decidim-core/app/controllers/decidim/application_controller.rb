@@ -7,6 +7,7 @@ module Decidim
     include LocaleSwitcher
     include NeedsAuthorization
     include PayloadInfo
+    include ImpersonateUsers
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
@@ -29,13 +30,6 @@ module Decidim
 
     layout "layouts/decidim/application"
 
-    alias real_user current_user
-
-    # TODO
-    def current_user
-      managed_user || real_user
-    end
-
     private
 
     def store_current_location
@@ -51,19 +45,6 @@ module Decidim
     # displays the JS response instead of the HTML one.
     def add_vary_header
       response.headers["Vary"] = "Accept"
-    end
-
-    # TODO
-    def managed_user
-      return unless real_user.can? :impersonate, :managed_users
-
-      impersonation = Decidim::Admin::ImpersonationLog
-                      .order(:start_at)
-                      .where(admin: real_user)
-                      .last
-
-      return if impersonation.expired?
-      impersonation.user
     end
   end
 end
