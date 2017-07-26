@@ -17,7 +17,7 @@ describe "manage a feature's permissions", type: :feature do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim_admin.participatory_process_features_path(participatory_process)
+    visit decidim_admin.features_path(participatory_process)
 
     within ".feature-#{feature.id}" do
       page.find(".action-icon--permissions").click

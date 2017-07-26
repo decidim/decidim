@@ -35,7 +35,7 @@ RSpec.shared_examples "manage results" do
       end
 
       within_window @new_window do
-        expect(current_path).to eq decidim_results.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: current_feature.id)
+        expect(current_path).to eq resource_locator(result).path
         expect(page).to have_content(translated(result.title))
       end
     end

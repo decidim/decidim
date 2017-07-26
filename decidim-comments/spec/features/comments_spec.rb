@@ -7,6 +7,6 @@ describe "Comments", type: :feature, perform_enqueued: true do
   let!(:author) { create(:user, :confirmed, organization: organization) }
   let!(:commentable) { create(:dummy_resource, feature: feature, author: author) }
 
-  let(:resource_path) { decidim_dummy.dummy_resource_path(commentable, feature_id: commentable.feature, participatory_process_id: commentable.feature.participatory_process) }
+  let(:resource_path) { resource_locator(commentable).path }
   include_examples "comments"
 end

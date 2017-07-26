@@ -5,6 +5,7 @@ module Decidim
     # This controller allows admins to manage proposals in a participatory process.
     class ExportsController < ApplicationController
       include Concerns::ParticipatoryProcessAdmin
+      include Decidim::FeaturePathHelper
 
       def create
         authorize! :manage, feature
@@ -14,18 +15,10 @@ module Decidim
 
         flash[:notice] = t("decidim.admin.exports.notice")
 
-        redirect_back(fallback_location: fallback_location)
+        redirect_back(fallback_location: manage_feature_path(feature))
       end
 
       private
-
-      def fallback_location
-        send(
-          "decidim_admin_#{feature.manifest.name}_path",
-          feature_id: feature.id,
-          participatory_process_id: current_participatory_process.id
-        )
-      end
 
       def default_format
         "json"

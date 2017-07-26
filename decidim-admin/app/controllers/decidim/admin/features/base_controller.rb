@@ -10,6 +10,7 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
         include FeatureSettings
 
+        helper Decidim::ResourceHelper
         helper Decidim::Admin::ExportsHelper
 
         helper_method :current_feature,
@@ -30,7 +31,7 @@ module Decidim
         end
 
         def parent_path
-          decidim_admin.participatory_process_features_path(current_participatory_process)
+          decidim_admin.features_path(current_participatory_process)
         end
       end
     end

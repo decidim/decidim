@@ -123,7 +123,7 @@ describe "Explore meetings", type: :feature do
         end_time: date.end_of_day
       )
 
-      visit decidim_meetings.meeting_path(participatory_process_id: participatory_process.id, feature_id: feature.id, id: meeting.id)
+      visit resource_locator(meeting).path
     end
 
     it "shows all meeting info" do

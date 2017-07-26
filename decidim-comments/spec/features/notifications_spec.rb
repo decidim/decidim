@@ -15,7 +15,7 @@ describe "Comment notifications", type: :feature do
   end
 
   it "commentable author receives an email with a link to the comment", perform_enqueued: true do
-    visit decidim_dummy.dummy_resource_path(commentable, feature_id: commentable.feature, participatory_process_id: commentable.feature.participatory_process)
+    visit resource_locator(commentable).path
     expect(page).to have_selector(".add-comment form")
 
     within ".add-comment form" do
