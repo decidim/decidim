@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-tmpl-rails", "~> 1.1.0"
 
   s.add_development_dependency "decidim-dev", Decidim.version
-  s.add_development_dependency "decidim-proposals", Decidim.version
   s.add_development_dependency "decidim-admin", Decidim.version
+  s.add_development_dependency "decidim-proposals", Decidim.version
   s.add_development_dependency "decidim-results", Decidim.version
 end
