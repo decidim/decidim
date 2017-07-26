@@ -212,6 +212,9 @@ en:
           error: There has been an error updating this feature.
           success: The feature was updated successfully.
       managed_users:
+        close_session:
+          error: There has been an error closing the current impersonation session.
+          success: The current impersonation session has been successfully ended.
         create:
           error: There has been an error creating the managed user.
           success: The managed user has been successfully created.
@@ -228,6 +231,7 @@ en:
         index:
           impersonate: Impersonate
           needs_authoriation_warning: You need at least one authorization enabled for this organization.
+          view_logs: View logs
         new:
           create: Create
           new_managed_user: New managed user
@@ -261,6 +265,12 @@ en:
           name: Attachment
         category:
           name: Category
+        impersonation_log:
+          fields:
+            admin: Admin
+            end_at: End at
+            start_at: Start at
+            user: User
         managed_user:
           name: Managed user
         newsletter:
@@ -505,6 +515,7 @@ en:
           success: Page updated successfully
       titles:
         dashboard: Dashboard
+        impersonations: Impersonations
         managed_users: Managed users
         participatory_process_groups: Participatory process groups
         participatory_processes: Participatory processes

@@ -12,6 +12,12 @@ module Decidim
 
         helper_method :more_than_one_authorization?
 
+        def index
+          authorize! :impersonate, user
+
+          @impersonation_logs = Decidim::ImpersonationLog.where(user: user).order("start_at DESC").page(params[:page]).per(15)
+        end
+
         def new
           authorize! :impersonate, user
 
@@ -37,6 +43,22 @@ module Decidim
             on(:invalid) do
               flash.now[:alert] = I18n.t("managed_users.impersonate.error", scope: "decidim.admin")
               render :new
+            end
+          end
+        end
+
+        def close_session
+          authorize! :impersonate, user
+
+          CloseSessionManagedUser.call(user, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("managed_users.close_session.success", scope: "decidim.admin")
+              redirect_to managed_users_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("managed_users.close_session.error", scope: "decidim.admin")
+              redirect_to decidim.root_path
             end
           end
         end

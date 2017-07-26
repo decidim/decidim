@@ -45,7 +45,7 @@ describe Decidim::Admin::ImpersonateManagedUser do
     it "creates a impersonation log" do
       expect do
         subject.call
-      end.to change { Decidim::Admin::ImpersonationLog.count }.by(1)
+      end.to change { Decidim::ImpersonationLog.count }.by(1)
     end
   end
 

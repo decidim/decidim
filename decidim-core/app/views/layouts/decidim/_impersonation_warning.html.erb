@@ -1,8 +1,8 @@
-<% if current_user.managed? %>
+<% if current_user&.managed? %>
   <div class="impersonation-warning">
     <%= t('.description_html', user_name: current_user.name) %>
     <div class="impersonation-warning__action">
-      <%= button_to t('.close_session'), '#', class: "button tiny impersonation-bar__button" %>
+      <%= button_to t('.close_session'), decidim_admin.close_session_managed_user_impersonations_path(current_user), class: "button tiny impersonation-bar__button" %>
     </div>
   </div>
 <% end %>

@@ -1,6 +1,6 @@
 class CreateImpersonationLogs < ActiveRecord::Migration[5.1]
   def change
-    create_table :decidim_admin_impersonation_logs do |t|
+    create_table :decidim_impersonation_logs do |t|
       t.references :decidim_admin, index: true
       t.references :decidim_user, index: true
       t.datetime :start_at

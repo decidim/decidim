@@ -53,6 +53,50 @@ describe "Admin manages managed users", type: :feature do
       expect(page).to have_content("successfully")
       expect(page).to have_content("Foo")
     end
+
+    context "when a manager user already exists" do
+      let!(:managed_user) { create(:user, :managed, organization: organization) }
+      let!(:authorization) { create(:authorization, user: managed_user, name: "decidim/dummy_authorization_handler", unique_id: "123456789X") }
+
+      it "can impersonate the user filling in the correct authorization" do
+        navigate_to_managed_users_page
+
+        within find("tr", text: managed_user.name) do
+          page.find("a.action-icon--impersonate").click
+        end
+
+        within "form.new_managed_user_impersonation" do
+          fill_in :impersonate_managed_user_authorization_document_number, with: "123456789X"
+          fill_in :impersonate_managed_user_authorization_postal_code, with: "08224"
+          page.execute_script("$('#impersonate_managed_user_authorization_birthday').siblings('input:first').focus()")
+        end
+
+        page.find(".datepicker-dropdown .day", text: "12").click
+        click_button "Impersonate"
+
+        expect(page).to have_content("You are impersonating the user #{managed_user.name}")
+      end
+
+      context "when the admin is impersonating that user" do
+        before do
+          create(:impersonation_log, admin: user, user: managed_user)
+        end
+
+        it "closes the current session and check the logs" do
+          visit decidim.root_path
+
+          click_button "Close session"
+
+          expect(page).to have_content("successfully")
+
+          within find("tr", text: managed_user.name) do
+            page.find("a.action-icon--view-logs").click
+          end
+
+          expect(page).to have_selector("tbody tr", count: 1)
+        end
+      end
+    end
   end
 
   context "when the organization has more than one authorization available" do
@@ -74,32 +118,6 @@ describe "Admin manages managed users", type: :feature do
 
       expect(page).to have_content("successfully")
       expect(page).to have_content("Foo")
-    end
-  end
-
-  context "when a manager user already exists" do
-    let(:available_authorizations) { ["Decidim::DummyAuthorizationHandler"] }
-    let!(:managed_user) { create(:user, :managed, organization: organization) }
-    let!(:authorization) { create(:authorization, user: managed_user, name: "decidim/dummy_authorization_handler", unique_id: "123456789X") }
-
-    it "can impersonate the user filling in the correct authorization" do
-      navigate_to_managed_users_page
-
-      within find("tr", text: managed_user.name) do
-        page.find("a.action-icon--impersonate").click
-      end
-
-      within "form.new_managed_user_impersonation" do
-        fill_in :impersonate_managed_user_authorization_document_number, with: "123456789X"
-        fill_in :impersonate_managed_user_authorization_postal_code, with: "08224"
-        page.execute_script("$('#impersonate_managed_user_authorization_birthday').siblings('input:first').focus()")
-      end
-
-      page.find(".datepicker-dropdown .day", text: "12").click
-      click_button "Impersonate"
-
-      expect(page).to have_content("You are impersonating the user #{managed_user.name}")
-      expect(page.current_url).to eq(decidim.root_url)
     end
   end
 end

@@ -324,4 +324,10 @@ FactoryGirl.define do
     user { build(:user, organization: moderation.reportable.organization) }
     reason "spam"
   end
+
+  factory :impersonation_log, class: Decidim::ImpersonationLog do
+    admin { build(:user, :admin) }
+    user { build(:user, :managed) }
+    start_at Time.current
+  end
 end

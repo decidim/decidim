@@ -1,4 +1,4 @@
- <% if current_organization.available_authorizations.empty? %>
+<% if current_organization.available_authorizations.empty? %>
   <div class="section">
     <div class="callout warning">
       <p><%= t('.needs_authoriation_warning') %></p>
@@ -27,11 +27,13 @@
             <td class="table-list__actions">
               <% if can? :impersonate, user %>
                 <%= icon_link_to "account-login", new_managed_user_impersonation_path(user), t(".impersonate"), class: "action-icon--impersonate" %>
+                <%= icon_link_to "clock", managed_user_impersonations_path(user), t(".view_logs"), class: "action-icon--view-logs" %>
               <% end %>
             </td>
           <% end %>
         </tbody>
       </table>
+      <%= paginate @managed_users, theme: "decidim" %>
     </div>
   </div>
 </div>

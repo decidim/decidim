@@ -19,14 +19,14 @@ module Decidim
 
       # TODO
       def managed_user
-        return unless real_user.can? :impersonate, :managed_users
+        return if !real_user || !real_user.can?(:impersonate, :managed_users)
 
-        impersonation = Decidim::Admin::ImpersonationLog
-                        .order(:start_at)
+        impersonation = Decidim::ImpersonationLog
+                        .order("start_at DESC")
                         .where(admin: real_user)
-                        .last
+                        .first
 
-        return if impersonation.expired?
+        return if !impersonation || impersonation.expired?
         impersonation.user
       end
     end

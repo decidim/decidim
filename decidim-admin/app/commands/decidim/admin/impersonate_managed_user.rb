@@ -35,7 +35,7 @@ module Decidim
 
       def authorization_valid?
         return false unless form.valid?
-        Authorization.where(
+        Decidim::Authorization.where(
           user: user,
           name: form.authorization.handler_name,
           unique_id: form.authorization.unique_id
@@ -43,7 +43,7 @@ module Decidim
       end
 
       def create_impersonation_log
-        ImpersonationLog.create!(
+        Decidim::ImpersonationLog.create!(
           admin: current_user,
           user: user,
           start_at: Time.current
