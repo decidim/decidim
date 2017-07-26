@@ -1,0 +1,47 @@
+<h2 class="process-title-summary">
+  <%= t('.new_managed_user') %>
+  <% if more_than_one_authorization? %>
+    <span class="text-muted float-right"><%= t('.step', current: params[:handler_name].present? ? 2 : 1, total: 2) %></span>
+  <% end %>
+</h2>
+
+<% if more_than_one_authorization? && params[:handler_name].nil? %>
+  <div class="card card--list">
+    <div class="card-divider">
+      <h2 class="card-title"><%= t ".select_authorization_method" %></h2>
+    </div>
+    <div class="card-section">
+      <% available_authorizations.each do |handler_name| %>
+        <div class="card--list__item">
+          <div class="card--list__text">
+            <a href="#">
+              <%= icon "lock-locked", class: "card--list__icon" %>
+            </a>
+            <div>
+              <h5 class="card--list__heading">
+                <%= link_to t("#{handler_name}.name", scope: "decidim.authorization_handlers"), new_managed_user_path(handler_name: handler_name) %>
+              </h5>
+            </div>
+          </div>
+          <div class="card--list__data">
+            <%= link_to new_managed_user_path(handler_name: handler_name), class: "card--list__data__icon" do %>
+              <%= icon "chevron-right" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <%= decidim_form_for(@form, html: { class: "form new_managed_user" }) do |f| %>
+    <div class="card">
+      <div class="card-section">
+        <%= render partial: 'form', object: f %>
+      </div>
+    </div>
+
+    <div class="button--double form-general-submit">
+      <%= f.submit t(".create") %>
+    </div>
+  <% end %>
+<% end %>

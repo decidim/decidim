@@ -28,8 +28,7 @@ module Decidim
           can :manage, :admin_users
 
           can :manage, :managed_users
-          cannot [:new, :create], :managed_users if @context[:current_organization].available_authorizations.empty?
-
+          cannot [:new, :create], :managed_users if empty_available_authorizations?
           can :manage, Moderation
           can :manage, Attachment
           can :manage, Scope
@@ -42,6 +41,12 @@ module Decidim
           end
 
           can [:index, :verify, :reject], UserGroup
+        end
+
+        private
+
+        def empty_available_authorizations?
+          @context[:current_organization] && @context[:current_organization].available_authorizations.empty?
         end
       end
     end

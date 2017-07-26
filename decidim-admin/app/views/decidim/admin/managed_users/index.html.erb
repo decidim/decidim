@@ -17,9 +17,13 @@
       <table class="table-list">
         <thead>
           <tr>
+            <th><%= t("models.user.fields.name", scope: "decidim.admin") %></th>
           </tr>
         </thead>
         <tbody>
+          <% @managed_users.each do |user| %>
+            <td><%= user.name %></td>
+          <% end %>
         </tbody>
       </table>
     </div>
