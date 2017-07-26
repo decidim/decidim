@@ -132,17 +132,6 @@ fi:
         update:
           error: Tämän kategorian luonnissa tapahtui virhe.
           success: Kategoria päivitetty onnistuneesti.
-      decidim:
-        admin:
-          attachments:
-            index:
-              attachments_title: Liitteet
-          categories:
-            index:
-              categories_title: Kategoriat
-          participatory_process_steps:
-            index:
-              steps_title: Vaihe
       feature_permissions:
         edit:
           everyone: Kaikki
