@@ -22,10 +22,11 @@ module Decidim
     validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :avatar, file_size: { less_than_or_equal_to: MAXIMUM_AVATAR_FILE_SIZE }
-    validates :email, uniqueness: { scope: :organization }, unless: -> { deleted? }
+    validates :email, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? }
     mount_uploader :avatar, Decidim::AvatarUploader
 
     scope :not_deleted, -> { where(deleted_at: nil) }
+    scope :managed, -> { where(managed: true) }
 
     # Public: Allows customizing the invitation instruction email content when
     # inviting a user.
@@ -67,9 +68,17 @@ module Decidim
     protected
 
     # Overrides devise email required validation.
-    # If the user has been deleted the email field is not required anymore.
+    # If the user has been deleted or it is managed the email field is not required anymore.
     def email_required?
-      !deleted?
+      return false if deleted? || managed?
+      super
+    end
+
+    # Overrides devise password required validation.
+    # If the user is managed the password field is not required anymore.
+    def password_required?
+      return false if managed?
+      super
     end
 
     private

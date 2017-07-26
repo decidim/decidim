@@ -1,3 +1,5 @@
+$card-padding-small: 1rem;
+
 .card-title{
   @include smallcaps;
   font-size: 1rem;
@@ -26,4 +28,49 @@
   .card__icon-open{
     display: block;
   }
+}
+
+.card--list__item{
+  display: flex;
+  align-items: center;
+  padding-left: $card-padding-small;
+  .card--list--mini &{
+    padding-left: $card-padding-small;
+  }
+  @include breakpoint(medium){
+    padding-left: $card-padding;
+  }
+}
+
+.card--list__icon{
+  display: none;
+  fill: $anchor-color;
+  @include breakpoint(medium){
+    margin-right: 1rem;
+    display: block;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+}
+
+.card--list__text{
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: inline-flex;
+  overflow: hidden;
+  align-items: center;
+  padding: 1rem 1rem 1rem 0;
+  .card--list--mini &{
+    padding: .5rem .5rem .5rem 0;
+  }
+  .author{
+    margin-top: .3rem;
+    margin-right: 1rem;
+  }
+}
+
+.card--list__heading{
+  margin-bottom: 0;
+  display: block;
 }
