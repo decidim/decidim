@@ -42,7 +42,7 @@ module Decidim
         if impersonation_log.expired?
           impersonation_log.ended_at = Time.current
           impersonation_log.save!
-          flash[:alert] = I18n.t("managed_users.expired_session", scope: "decidim.admin")
+          flash[:alert] = I18n.t("managed_users.expired_session", scope: "decidim")
           redirect_to decidim_admin.managed_users_path
         end
       end

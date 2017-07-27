@@ -159,6 +159,8 @@ en:
       default_image: Default image
       errors:
         error: There's an error in this field.
+    managed_users:
+      expired_session: The current impersonation session has been expired.
     menu:
       home: Home
       more_information: More information
@@ -332,8 +334,8 @@ en:
         sign_up: Sign Up
       impersonation_warning:
         close_session: Close session
-        description: "You are impersonating the user %{user_name}."
-        expire_time_html: "Your session will expire in <span class=\"minutes\">%{minutes}</span> minutes."
+        description: You are impersonating the user %{user_name}.
+        expire_time_html: Your session will expire in <span class="minutes">%{minutes}</span> minutes.
       participatory_process_groups:
         participatory_process_group:
           browse: Browse
