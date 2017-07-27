@@ -5,12 +5,10 @@ require_dependency "decidim/admin/application_controller"
 module Decidim
   module Admin
     module ManagedUsers
-      # Controller that allows managing managed users at the admin panel.
+      # Controller that allows impersonating managed users at the admin panel.
       #
       class ImpersonationsController < Admin::ApplicationController
         layout "decidim/admin/users"
-
-        helper_method :more_than_one_authorization?
 
         skip_authorization_check only: [:index, :close_session]
 

@@ -141,5 +141,35 @@ describe "Admin manages managed users", type: :feature do
         check_impersonation_logs
       end
     end
+
+    it "can promote the user inviting them to the application", perform_enqueued: true do
+      navigate_to_managed_users_page
+
+      within find("tr", text: managed_user.name) do
+        page.find("a.action-icon--promote").click
+      end
+
+      within "form.new_managed_user_promotion" do
+        fill_in :managed_user_promotion_email, with: "foo@example.org"
+      end
+
+      click_button "Promote"
+
+      expect(page).to have_content("successfully")
+      expect(page).not_to have_content("Foo")
+
+      logout :user
+
+      visit last_email_link
+
+      within "form.new_user" do
+        fill_in :user_password, with: "123456"
+        fill_in :user_password_confirmation, with: "123456"
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("successfully")
+      expect(page).to have_content(managed_user.name)
+    end
   end
 end
