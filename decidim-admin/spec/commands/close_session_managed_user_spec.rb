@@ -17,13 +17,13 @@ describe Decidim::Admin::CloseSessionManagedUser do
 
     it "ends the impersonation log" do
       subject.call
-      expect(impersonation_log.reload.end_at).not_to be_nil
+      expect(impersonation_log.reload).to be_ended
     end
   end
 
   context "when there is no active session for this admin and user" do
     before do
-      impersonation_log.update_attributes(end_at: Time.current)
+      impersonation_log.update_attributes(ended_at: Time.current)
     end
 
     it "broadcasts invalid" do
