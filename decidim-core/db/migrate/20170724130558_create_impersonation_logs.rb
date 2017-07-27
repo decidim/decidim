@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateImpersonationLogs < ActiveRecord::Migration[5.1]
   def change
     create_table :decidim_impersonation_logs do |t|
