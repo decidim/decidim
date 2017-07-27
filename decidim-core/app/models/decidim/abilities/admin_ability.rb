@@ -17,7 +17,6 @@ module Decidim
 
       def define_abilities
         can :read, :admin_dashboard
-        can :read, ParticipatoryProcess
         can :read, Feature
       end
 

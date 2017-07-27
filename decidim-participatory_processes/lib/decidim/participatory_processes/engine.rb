@@ -33,6 +33,15 @@ module Decidim
         app.config.assets.precompile += %w(decidim_participatory_processes_manifest.js)
       end
 
+      initializer "decidim_participatory_processes.inject_abilities_to_user" do |_app|
+        Decidim.configure do |config|
+          config.abilities += [
+            "Decidim::ParticipatoryProcesses::Abilities::EveryoneAbility",
+            "Decidim::ParticipatoryProcesses::Abilities::AdminAbility"
+          ]
+        end
+      end
+
       initializer "decidim_participatory_processes.menu" do
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.processes", scope: "decidim"),
