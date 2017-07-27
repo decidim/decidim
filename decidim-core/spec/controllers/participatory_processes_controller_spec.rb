@@ -100,7 +100,7 @@ module Decidim
         )
 
         expect(controller.helpers.collection).to \
-          contain_exactly(*published, *organization_groups)
+          match_array([*published, *organization_groups])
       end
     end
 
