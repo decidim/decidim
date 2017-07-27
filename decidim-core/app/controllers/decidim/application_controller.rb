@@ -7,6 +7,7 @@ module Decidim
     include LocaleSwitcher
     include NeedsAuthorization
     include PayloadInfo
+    include ImpersonateUsers
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
