@@ -12,9 +12,9 @@ module Decidim
 
         helper_method :more_than_one_authorization?
 
-        def index
-          authorize! :impersonate, user
+        skip_authorization_check only: [:index, :close_session]
 
+        def index
           @impersonation_logs = Decidim::ImpersonationLog.where(user: user).order("started_at DESC").page(params[:page]).per(15)
         end
 
@@ -48,8 +48,6 @@ module Decidim
         end
 
         def close_session
-          authorize! :impersonate, user
-
           CloseSessionManagedUser.call(user, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("managed_users.close_session.success", scope: "decidim.admin")

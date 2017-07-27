@@ -4,10 +4,11 @@
     const endsAt = exports.moment($impersonationWarning.data('session-ends-at'));
 
     setInterval(() => {
-      const diffInMinutes = Math.round((endsAt - exports.moment()) / 60000);
+      const diff = (endsAt - exports.moment()) / 60000;
+      const diffInMinutes = Math.round(diff);
       $impersonationWarning.find('.minutes').html(diffInMinutes);
 
-      if (diffInMinutes <= 0) {
+      if (diff <= 0) {
         window.location.reload();
       }
     }, 1000);
