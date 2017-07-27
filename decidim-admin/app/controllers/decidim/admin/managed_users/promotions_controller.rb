@@ -19,10 +19,10 @@ module Decidim
           authorize! :promote, user
           @form = form(ManagedUserPromotionForm).from_params(params)
 
-          PromoteManagedUser.call(@form, user) do
+          PromoteManagedUser.call(@form, user, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("managed_users.promotion.success", scope: "decidim.admin")
-              redirect_to decidim.managed_users_path
+              redirect_to managed_users_path
             end
 
             on(:invalid) do
