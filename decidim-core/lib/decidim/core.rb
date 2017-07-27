@@ -144,8 +144,8 @@ module Decidim
     feature_registry.register(name, &block)
   end
 
-  # Public: Finds all the registered feature manifest's via the
-  # `register_feature` method.
+  # Public: Finds all registered feature manifest's via the `register_feature`
+  # method.
   #
   # Returns an Array[FeatureManifest].
   def self.feature_manifests
