@@ -11,7 +11,15 @@ module Decidim
 
     validate :same_organization, :non_active_impersonation
 
-    scope :active, -> { where(end_at: nil) }
+    scope :active, -> { where(ended_at: nil) }
+
+    def ended?
+      ended_at.present?
+    end
+
+    def expired?
+      expired_at.present?
+    end
 
     private
 
@@ -21,7 +29,7 @@ module Decidim
     end
 
     def non_active_impersonation
-      return if end_at.present?
+      return if ended? || expired?
       errors.add(:admin, :invalid) if Decidim::ImpersonationLog.where(admin: admin).active.any?
     end
   end

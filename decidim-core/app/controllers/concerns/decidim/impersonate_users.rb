@@ -22,7 +22,7 @@ module Decidim
         return if !real_user || !real_user.can?(:impersonate, :managed_users)
 
         impersonation = Decidim::ImpersonationLog
-                        .order("start_at DESC")
+                        .order("started_at DESC")
                         .where(admin: real_user)
                         .active
                         .first

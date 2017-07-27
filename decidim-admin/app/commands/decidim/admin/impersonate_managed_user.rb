@@ -47,7 +47,7 @@ module Decidim
         Decidim::ImpersonationLog.create!(
           admin: current_user,
           user: user,
-          start_at: Time.current
+          started_at: Time.current
         )
       end
 

@@ -36,7 +36,7 @@ module Decidim
       end
 
       def close_session
-        impersonation_log.end_at = Time.current
+        impersonation_log.ended_at = Time.current
         impersonation_log.save!
       end
     end

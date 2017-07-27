@@ -15,7 +15,7 @@ module Decidim
         def index
           authorize! :impersonate, user
 
-          @impersonation_logs = Decidim::ImpersonationLog.where(user: user).order("start_at DESC").page(params[:page]).per(15)
+          @impersonation_logs = Decidim::ImpersonationLog.where(user: user).order("started_at DESC").page(params[:page]).per(15)
         end
 
         def new

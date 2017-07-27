@@ -9,9 +9,20 @@ module Decidim
       let(:current_user) { create(:user, :admin, organization: user.organization) }
       let!(:impersonation_log) { create(:impersonation_log, admin: current_user, user: user) }
 
-      it "closes impersonation session" do
+      it "marks the impersonation as expired" do
         ExpireImpersonationJob.perform_now(user, current_user)
-        expect(impersonation_log.reload.end_at).not_to be_nil
+        expect(impersonation_log.reload).to be_expired
+      end
+
+      context "when the impersonation is already ended" do
+        before do
+          impersonation_log.update_attribute(:ended_at, Time.current)
+        end
+
+        it "doesn't expires it" do
+          ExpireImpersonationJob.perform_now(user, current_user)
+          expect(impersonation_log.reload).not_to be_expired
+        end
       end
     end
   end
