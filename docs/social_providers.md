@@ -19,7 +19,7 @@ If you want to enable sign up through social providers like Facebook you will ne
 1. Navigate to [Twitter Developers Page](https://dev.twitter.com/)
 2. Follow the "My apps" link.
 3. Click the "Create New App" button.
-4. Fill in the `Name`, `Description` fields. 
+4. Fill in the `Name`, `Description` fields.
 5. Fill in the `Website` and `Callback URL` fields with the same value. If you are working on a development app you need to use `http://127.0.0.1:3000/` instead of `http://localhost:3000/`.
 5. Check the 'Developer Agreement' checkbox and click the 'Create your Twitter application' button.
 6. Navigate to the "Keys and Access Tokens" tab and copy the API_KEY and API_SECRET.

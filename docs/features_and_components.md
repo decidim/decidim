@@ -18,17 +18,17 @@ There's a DSL available to describe all this:
 # :my_feature is the unique name of the feature that will be globally registered.
 Decidim.register_feature(:my_feature) do |feature|
   # The user will be redirected to the feature's engine when accessing it through
-  # the public page of a participatory process. A feature's engine is isolated 
-  # from the outside so it can deal with its own dependencies without having to 
+  # the public page of a participatory process. A feature's engine is isolated
+  # from the outside so it can deal with its own dependencies without having to
   # know its render path or its parent resources.
   feature.engine = MyFeature::Engine
 
   # A component's admin engine will get rendered on the admin panel and follows
-  # the same principles as the engine. It's isolated from the outside and 
+  # the same principles as the engine. It's isolated from the outside and
   # doesn't care about external dependencies. It only needs to care about its
   # underlying `feature`.
   feature.admin_engine = MyFeature::AdminEngine
-    
+
   # Feature hooks get called whenever relevant lifecycle events happen, like
   # adding a new feature o destroying it. You always get passed the instance
   # so you can act on it. Creating or destroying a comoponent is transactional
@@ -41,7 +41,7 @@ Decidim.register_feature(:my_feature) do |feature|
   end
 
   # Export definitions allow features to declare any number of exportable files.
-  # 
+  #
   # An export definition needs a unique name, a collection, and a Serializer. If
   # no serializer is provided, a default, naive one will be used.
   #
@@ -57,4 +57,4 @@ Decidim.register_feature(:my_feature) do |feature|
 end
 ```
 
-Every model in a feature doesn't have to (and should not) know about its parent participatory process, but instead should be scoped to the features. 
+Every model in a feature doesn't have to (and should not) know about its parent participatory process, but instead should be scoped to the features.
