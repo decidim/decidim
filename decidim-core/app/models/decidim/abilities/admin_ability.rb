@@ -19,6 +19,7 @@ module Decidim
         can :read, :admin_dashboard
         can :read, ParticipatoryProcess
         can :read, Feature
+        can :impersonate, :managed_users
       end
 
       def admin?

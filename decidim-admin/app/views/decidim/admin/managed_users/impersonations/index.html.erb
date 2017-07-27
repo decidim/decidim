@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.impersonations" %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.impersonation_log.fields.admin", scope: "decidim.admin") %></th>
+            <th><%= t("models.impersonation_log.fields.user", scope: "decidim.admin") %></th>
+            <th><%= t("models.impersonation_log.fields.start_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.impersonation_log.fields.end_at", scope: "decidim.admin") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @impersonation_logs.each do |impersonation_log| %>
+            <tr>
+              <td><%= impersonation_log.admin.name %></td>
+              <td><%= impersonation_log.user.name %></td>
+              <td><%= l impersonation_log.start_at %></td>
+              <td><%= l impersonation_log.end_at %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @impersonation_logs, theme: "decidim" %>
+    </div>
+  </div>
+</div>

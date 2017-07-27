@@ -29,6 +29,8 @@ module Decidim
 
           can :manage, :managed_users
           cannot [:new, :create], :managed_users if empty_available_authorizations?
+          can :impersonate, Decidim::User, &:managed?
+
           can :manage, Moderation
           can :manage, Attachment
           can :manage, Scope

@@ -8,8 +8,6 @@ module Decidim
       attribute :name, String
 
       validates :name, presence: true
-      validates :authorization, presence: true
-
       validate :authorization_uniqueness
 
       def initialize(attributes)

@@ -182,6 +182,28 @@ FactoryGirl.define do
                role: :collaborator
       end
     end
+
+    trait :process_moderator do
+      transient do
+        participatory_process { create(:participatory_process) }
+      end
+
+      organization { participatory_process.organization }
+
+      after(:create) do |user, evaluator|
+        create :participatory_process_user_role,
+               user: user,
+               participatory_process: evaluator.participatory_process,
+               role: :moderator
+      end
+    end
+
+    trait :managed do
+      email { "" }
+      password { "" }
+      password_confirmation { "" }
+      managed { true }
+    end
   end
 
   factory :participatory_process_user_role, class: Decidim::ParticipatoryProcessUserRole do
@@ -336,5 +358,11 @@ FactoryGirl.define do
     moderation
     user { build(:user, organization: moderation.reportable.organization) }
     reason "spam"
+  end
+
+  factory :impersonation_log, class: Decidim::ImpersonationLog do
+    admin { build(:user, :admin) }
+    user { build(:user, :managed, organization: admin.organization) }
+    start_at Time.current
   end
 end
