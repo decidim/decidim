@@ -8,6 +8,8 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
+      before_action :check_impersonation_log_expired
+
       alias_method :real_user, :current_user
 
       # Returns a manager user if the real user has an active impersonation
@@ -19,15 +21,31 @@ module Decidim
 
       # Returns the managed user impersonated by an admin if exists
       def managed_user
-        return if !real_user || !real_user.can?(:impersonate, :managed_users)
+        return unless can_impersonate_users?
+        impersonation_log&.user
+      end
 
-        impersonation = Decidim::ImpersonationLog
-                        .order("started_at DESC")
-                        .where(admin: real_user)
-                        .active
-                        .first
+      # Check if the active impersonation session has expired or not.
+      def check_impersonation_log_expired
+        return unless can_impersonate_users? && impersonation_log
 
-        impersonation&.user
+        if impersonation_log.expired?
+          impersonation_log.ended_at = Time.current
+          impersonation_log.save!
+          flash[:alert] = I18n.t("managed_users.expired_session", scope: "decidim.admin")
+          redirect_to decidim_admin.managed_users_path
+        end
+      end
+
+      def can_impersonate_users?
+        real_user && real_user.can?(:impersonate, :managed_users)
+      end
+
+      def impersonation_log
+        @impersonation_log ||= Decidim::ImpersonationLog
+                               .where(admin: real_user)
+                               .active
+                               .first
       end
     end
   end

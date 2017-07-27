@@ -218,6 +218,7 @@ en:
         create:
           error: There has been an error creating the managed user.
           success: The managed user has been successfully created.
+        expired_session: The current impersonation session has been expired.
         form:
           name: Name
         impersonate:
@@ -267,6 +268,7 @@ en:
           fields:
             admin: Admin
             ended_at: Ended at
+            expired_at: Expired at
             started_at: Started at
             user: User
         managed_user:

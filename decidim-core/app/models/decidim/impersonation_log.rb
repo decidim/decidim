@@ -3,8 +3,7 @@
 module Decidim
   # ImpersonationLogs are created whenever an admin impersonate a managed user
   class ImpersonationLog < ApplicationRecord
-    # SESSION_TIME = 30.minutes
-    SESSION_TIME = 1.minutes
+    SESSION_TIME = 30.minutes
 
     belongs_to :admin, foreign_key: "decidim_admin_id", class_name: "Decidim::User"
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
