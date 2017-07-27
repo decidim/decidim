@@ -53,7 +53,7 @@ module Decidim
 
       def enque_expire_job
         Decidim::Admin::ExpireImpersonationJob
-          .set(wait: Decidim::ImpersonationLog::SESSION_TIME)
+          .set(wait: Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes)
           .perform_later(user, current_user)
       end
     end

@@ -115,6 +115,7 @@ describe "Admin manages managed users", type: :feature do
       impersonate_the_managed_user
 
       expect(page).to have_content("You are impersonating the user #{managed_user.name}")
+      expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
     end
 
     context "when the admin is impersonating that user" do
@@ -133,7 +134,7 @@ describe "Admin manages managed users", type: :feature do
       end
 
       it "spends all the session time and is redirected automatically", perform_enqueued: true do
-        travel Decidim::ImpersonationLog::SESSION_TIME
+        travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
 
         expect(page).to have_content("expired")
 
