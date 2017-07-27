@@ -266,8 +266,9 @@ en:
         impersonation_log:
           fields:
             admin: Admin
-            end_at: End at
-            start_at: Start at
+            ended_at: Ended at
+            expired_at: Expired at
+            started_at: Started at
             user: User
         managed_user:
           name: Managed user

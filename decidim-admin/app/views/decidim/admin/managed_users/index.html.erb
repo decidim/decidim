@@ -28,8 +28,8 @@
               <td class="table-list__actions">
                 <% if can? :impersonate, user %>
                   <%= icon_link_to "account-login", new_managed_user_impersonation_path(user), t(".impersonate"), class: "action-icon--impersonate" %>
-                  <%= icon_link_to "clock", managed_user_impersonations_path(user), t(".view_logs"), class: "action-icon--view-logs" %>
                 <% end %>
+                <%= icon_link_to "clock", managed_user_impersonations_path(user), t(".view_logs"), class: "action-icon--view-logs" %>
               </td
             </tr>
           <% end %>

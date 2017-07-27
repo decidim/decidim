@@ -25,6 +25,7 @@ module Decidim
         return broadcast(:invalid) if !user.managed? || !authorization_valid?
 
         create_impersonation_log
+        enque_expire_job
 
         broadcast(:ok)
       end
@@ -46,8 +47,14 @@ module Decidim
         Decidim::ImpersonationLog.create!(
           admin: current_user,
           user: user,
-          start_at: Time.current
+          started_at: Time.current
         )
+      end
+
+      def enque_expire_job
+        Decidim::Admin::ExpireImpersonationJob
+          .set(wait: Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes)
+          .perform_later(user, current_user)
       end
     end
   end

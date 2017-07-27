@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe "Admin manages managed users", type: :feature do
+  include ActiveSupport::Testing::TimeHelpers
+
   let(:organization) { create(:organization, available_authorizations: available_authorizations) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
   let(:available_authorizations) { ["Decidim::DummyAuthorizationHandler"] }
@@ -39,6 +41,24 @@ describe "Admin manages managed users", type: :feature do
 
     page.find(".datepicker-dropdown .day", text: "12").click
     click_button "Impersonate"
+  end
+
+  def impersonate_the_managed_user
+    navigate_to_managed_users_page
+
+    within find("tr", text: managed_user.name) do
+      page.find("a.action-icon--impersonate").click
+    end
+
+    fill_in_the_impersonation_form
+  end
+
+  def check_impersonation_logs
+    within find("tr", text: managed_user.name) do
+      page.find("a.action-icon--view-logs").click
+    end
+
+    expect(page).to have_selector("tbody tr", count: 1)
   end
 
   context "when the organization doesn't have any authorization available" do
@@ -92,20 +112,15 @@ describe "Admin manages managed users", type: :feature do
     let!(:authorization) { create(:authorization, user: managed_user, name: "decidim/dummy_authorization_handler", unique_id: "123456789X") }
 
     it "can impersonate the user filling in the correct authorization" do
-      navigate_to_managed_users_page
-
-      within find("tr", text: managed_user.name) do
-        page.find("a.action-icon--impersonate").click
-      end
-
-      fill_in_the_impersonation_form
+      impersonate_the_managed_user
 
       expect(page).to have_content("You are impersonating the user #{managed_user.name}")
+      expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
     end
 
     context "when the admin is impersonating that user" do
       before do
-        create(:impersonation_log, admin: user, user: managed_user)
+        impersonate_the_managed_user
       end
 
       it "closes the current session and check the logs" do
@@ -115,11 +130,15 @@ describe "Admin manages managed users", type: :feature do
 
         expect(page).to have_content("successfully")
 
-        within find("tr", text: managed_user.name) do
-          page.find("a.action-icon--view-logs").click
-        end
+        check_impersonation_logs
+      end
 
-        expect(page).to have_selector("tbody tr", count: 1)
+      it "spends all the session time and is redirected automatically", perform_enqueued: true do
+        travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
+
+        expect(page).to have_content("expired")
+
+        check_impersonation_logs
       end
     end
   end
