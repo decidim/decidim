@@ -29,6 +29,8 @@ engines:
     enabled: false
   fixme:
     enabled: true
+    exclude_paths:
+     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
   rubocop:
     enabled: true
     channel: rubocop-0-48
