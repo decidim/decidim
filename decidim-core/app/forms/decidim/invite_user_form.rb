@@ -11,9 +11,11 @@ module Decidim
     attribute :invitation_instructions, String
     attribute :organization, Decidim::Organization
     attribute :invited_by, Decidim::User
-    attribute :admin, Boolean
+    attribute :role, String
 
     validates :email, :name, :organization, :invitation_instructions, presence: true
+    validates :role, inclusion: { in: Decidim::User::ROLES }
+
     validate :admin_uniqueness
 
     def email
@@ -26,6 +28,17 @@ module Decidim
 
     def invited_by
       super || current_user
+    end
+
+    def available_roles_for_select
+      [[I18n.t("decidim.admin.models.user.fields.admin"), "admin"]].concat(
+        Decidim::User::ROLES.map do |role|
+          [
+            I18n.t(role, scope: "decidim.admin.models.user.fields.roles"),
+            role
+          ]
+        end
+      )
     end
 
     private

@@ -41,6 +41,29 @@ describe "Organization admins", type: :feature do
       end
     end
 
+    it "can invite a user with a specific role" do
+      within ".card-title" do
+        find(".button--title").click
+      end
+
+      within ".new_user" do
+        fill_in :user_name, with: "New user manager"
+        fill_in :user_email, with: "newusermanager@example.org"
+        select "User manager", from: :user_role
+
+        find("*[type=submit]").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      within "table" do
+        expect(page).to have_content("New user manager")
+        expect(page).to have_content("User manager")
+      end
+    end
+
     context "with existing users" do
       let!(:user) do
         user = build(:user, :confirmed, :admin, organization: organization)
