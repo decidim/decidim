@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe Decidim::Admin::PromoteManagedUser do
   let(:organization) { create :organization }
-  let!(:current_user) { create :user, :admin, organization: organization}
+  let!(:current_user) { create :user, :admin, organization: organization }
   let(:email) { "foo@example.org" }
   let(:form_params) do
     {
