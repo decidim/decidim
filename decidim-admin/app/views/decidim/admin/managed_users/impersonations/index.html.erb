@@ -21,9 +21,9 @@
             <tr>
               <td><%= impersonation_log.admin.name %></td>
               <td><%= impersonation_log.user.name %></td>
-              <td><%= impersonation_log.started_at ? l(impersonation_log.started_at) : nil %></td>
-              <td><%= impersonation_log.ended_at ? l(impersonation_log.ended_at) : nil %></td>
-              <td><%= impersonation_log.expired_at ? l(impersonation_log.expired_at) : nil%></td>
+              <td><%= impersonation_log.started_at ? l(impersonation_log.started_at, format: :long) : nil %></td>
+              <td><%= impersonation_log.ended_at ? l(impersonation_log.ended_at, format: :long) : nil %></td>
+              <td><%= impersonation_log.expired_at ? l(impersonation_log.expired_at, format: :long) : nil %></td>
             </tr>
           <% end %>
         </tbody>

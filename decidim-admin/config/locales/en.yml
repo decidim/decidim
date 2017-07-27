@@ -235,12 +235,20 @@ en:
         index:
           impersonate: Impersonate
           needs_authoriation_warning: You need at least one authorization enabled for this organization.
+          promote: Promote
           view_logs: View logs
         new:
           create: Create
           new_managed_user: New managed user
           select_authorization_method: Select an authorization method
           step: Step %{current} of %{total}
+        promotion:
+          error: There has been an error promoting the managed user.
+          success: The managed user has been successfully promoted.
+        promotions:
+          new:
+            new_managed_user_promotion: New managed user promotion
+            promote: Promote
       menu:
         admins: Admins
         dashboard: Dashboard

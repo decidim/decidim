@@ -335,8 +335,8 @@ en:
         sign_up: Sign Up
       impersonation_warning:
         close_session: Close session
-        description: You are impersonating the user %{user_name}.
-        expire_time_html: Your session will expire in <span class="minutes">%{minutes}</span> minutes.
+        description_html: You are impersonating the user <b>%{user_name}</b>.
+        expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       participatory_process_groups:
         participatory_process_group:
           browse: Browse

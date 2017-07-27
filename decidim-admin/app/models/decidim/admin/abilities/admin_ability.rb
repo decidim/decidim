@@ -32,6 +32,9 @@ module Decidim
           can :impersonate, Decidim::User do |user_to_impersonate|
             user_to_impersonate.managed? && Decidim::ImpersonationLog.where(admin: user).active.empty?
           end
+          can :promote, Decidim::User do |user_to_promote|
+            user_to_promote.managed? && Decidim::ImpersonationLog.where(admin: user).active.empty?
+          end
 
           can :manage, Moderation
           can :manage, Attachment

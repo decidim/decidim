@@ -30,6 +30,9 @@
                   <%= icon_link_to "account-login", new_managed_user_impersonation_path(user), t(".impersonate"), class: "action-icon--impersonate" %>
                 <% end %>
                 <%= icon_link_to "clock", managed_user_impersonations_path(user), t(".view_logs"), class: "action-icon--view-logs" %>
+                <% if can? :promote, user %>
+                  <%= icon_link_to "badge", new_managed_user_promotion_path(user), t(".promote"), class: "action-icon--promote" %>
+                <% end %>
               </td
             </tr>
           <% end %>
