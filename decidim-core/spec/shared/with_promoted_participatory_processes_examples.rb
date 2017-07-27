@@ -7,7 +7,7 @@ RSpec.shared_examples "with promoted participatory processes" do
 
   describe "promoted_participatory_processes" do
     it "orders them by active_step end_date" do
-      unpublished = create(
+      create(
         :participatory_process,
         :with_steps,
         :unpublished,
@@ -15,7 +15,7 @@ RSpec.shared_examples "with promoted participatory processes" do
         organization: organization
       )
 
-      _unpromoted = create(
+      create(
         :participatory_process,
         :with_steps,
         :unpublished,
@@ -51,11 +51,8 @@ RSpec.shared_examples "with promoted participatory processes" do
       )
       second.active_step.update_attribute(:end_date, Time.current.advance(days: 4))
 
-      expect(controller.helpers.promoted_participatory_processes.count).to eq(3)
-      expect(controller.helpers.promoted_participatory_processes).not_to include(unpublished)
-      expect(controller.helpers.promoted_participatory_processes.first).to eq(first)
-      expect(controller.helpers.promoted_participatory_processes.to_a[1]).to eq(second)
-      expect(controller.helpers.promoted_participatory_processes.to_a.last).to eq(last)
+      expect(controller.helpers.promoted_participatory_processes)
+        .to match_array([first, second, last])
     end
   end
 end
