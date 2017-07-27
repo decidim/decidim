@@ -65,7 +65,7 @@
 
 - Sharing Link Option [\#1589](https://github.com/decidim/decidim/issues/1589)
 - Frontend url from backend [\#1587](https://github.com/decidim/decidim/issues/1587)
-- Impossible to used rake db:seed [\#1586](https://github.com/decidim/decidim/issues/1586)
+- Impossible to use rake db:seed [\#1586](https://github.com/decidim/decidim/issues/1586)
 - Limit max characters allowed in meeting cards view [\#1578](https://github.com/decidim/decidim/issues/1578)
 - Proposals Answers not working  [\#1576](https://github.com/decidim/decidim/issues/1576)
 - Invitation link isn't being regenerated while re-inviting admins [\#1573](https://github.com/decidim/decidim/issues/1573)
