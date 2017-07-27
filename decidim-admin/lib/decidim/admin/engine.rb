@@ -33,6 +33,7 @@ module Decidim
         Decidim.configure do |config|
           config.admin_abilities += [
             "Decidim::Admin::Abilities::AdminAbility",
+            "Decidim::Admin::Abilities::UserManagerAbility",
             "Decidim::Admin::Abilities::ParticipatoryProcessAdminAbility",
             "Decidim::Admin::Abilities::ParticipatoryProcessCollaboratorAbility",
             "Decidim::Admin::Abilities::ParticipatoryProcessModeratorAbility"
@@ -52,7 +53,8 @@ module Decidim
                     decidim_admin.participatory_processes_path,
                     icon_name: "target",
                     position: 2,
-                    active: :inclusive
+                    active: :inclusive,
+                    if: can?(:manage, Decidim::ParticipatoryProcess)
 
           menu.item I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
                     decidim_admin.participatory_process_groups_path,
@@ -69,11 +71,11 @@ module Decidim
                     if: can?(:read, Decidim::StaticPage)
 
           menu.item I18n.t("menu.users", scope: "decidim.admin"),
-                    decidim_admin.users_path,
+                    can?(:read, :admin_users) ? decidim_admin.users_path : decidim_admin.managed_users_path,
                     icon_name: "person",
                     position: 5,
                     active: [%w(decidim/admin/user_groups decidim/admin/users), []],
-                    if: can?(:read, :admin_users)
+                    if: can?(:read, :admin_users) || can?(:read, :managed_users)
 
           menu.item I18n.t("menu.newsletters", scope: "decidim.admin"),
                     decidim_admin.newsletters_path,
