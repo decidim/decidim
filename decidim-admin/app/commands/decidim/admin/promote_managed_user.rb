@@ -24,10 +24,8 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid? || !user.managed?
 
-        transaction do
-          set_user_email
-          promote_user
-        end
+        promote_user
+        invite_user
 
         broadcast(:ok)
       end
@@ -36,14 +34,14 @@ module Decidim
 
       private
 
-      def set_user_email
+      def promote_user
         user.email = form.email.downcase
         user.skip_reconfirmation!
+        user.managed = false
         user.save(validate: false)
       end
 
-      def promote_user
-        user.managed = false
+      def invite_user
         user.invite!(promoted_by)
       end
     end
