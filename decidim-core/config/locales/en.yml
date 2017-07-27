@@ -333,7 +333,7 @@ en:
       impersonation_warning:
         close_session: Close session
         description: "You are impersonating the user %{user_name}."
-        expire_time: "Your session will expire in %{minutes} minutes."
+        expire_time_html: "Your session will expire in <span class=\"minutes\">%{minutes}</span> minutes."
       participatory_process_groups:
         participatory_process_group:
           browse: Browse

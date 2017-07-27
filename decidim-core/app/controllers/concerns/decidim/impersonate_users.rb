@@ -10,7 +10,7 @@ module Decidim
     included do
       before_action :check_impersonation_log_expired
 
-      helper_method :impersonation_session_remaining_duration_in_minutes
+      helper_method :impersonation_session_ends_at, :impersonation_session_remaining_duration_in_minutes
 
       alias_method :real_user, :current_user
 
@@ -19,9 +19,12 @@ module Decidim
         managed_user || real_user
       end
 
+      def impersonation_session_ends_at
+        @impersonation_session_ends_at ||= impersonation_log.started_at + Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
+      end
+
       def impersonation_session_remaining_duration_in_minutes
-        ended_at = impersonation_log.started_at + Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
-        ((ended_at - Time.current) / 60).round
+        ((impersonation_session_ends_at - Time.current) / 60).round
       end
 
       private
