@@ -18,7 +18,7 @@ describe Decidim::ParticipatoryProcessesWithUserRole do
 
   context "when the user is not an admin" do
     let(:user) { create :user }
-    let!(:organization_process2) { create :participatory_process, organization: user.organization }
+    let!(:unmanageable_process) { create :participatory_process, organization: user.organization }
 
     before do
       create :participatory_process_user_role, user: user, participatory_process: organization_process

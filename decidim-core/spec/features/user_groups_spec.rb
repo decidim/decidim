@@ -5,7 +5,6 @@ require "spec_helper"
 describe "User groups", type: :feature, perform_enqueued: true do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization: organization) }
-  let(:user_group) { create(:user_group) }
 
   before do
     switch_to_host(organization.host)
@@ -14,6 +13,8 @@ describe "User groups", type: :feature, perform_enqueued: true do
   end
 
   context "when the user group is pending" do
+    let(:user_group) { create(:user_group) }
+
     it "the user can check its status on his account page" do
       visit decidim.own_user_groups_path
 

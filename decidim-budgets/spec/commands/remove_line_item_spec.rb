@@ -4,11 +4,13 @@ require "spec_helper"
 
 describe Decidim::Budgets::RemoveLineItem do
   let(:user) { create(:user) }
+
   let(:feature) do
     create(:budget_feature,
            organization: user.organization,
            settings: { "total_budget" => 100_000, "vote_threshold_percent": 50 })
   end
+
   let(:project) { create(:project, feature: feature, budget: 100) }
 
   let(:order) do

@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe StaticMapController, type: :controller do
+    routes { Decidim::Core::Engine.routes }
+
     let(:organization) { create(:organization) }
     let(:feature) { create(:feature, organization: organization) }
     let(:resource) { create(:dummy_resource, feature: feature) }
