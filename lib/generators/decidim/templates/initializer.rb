@@ -7,7 +7,7 @@ Decidim.configure do |config|
   config.authorization_handlers = [ExampleAuthorizationHandler]
 
   # Uncomment this lines to set your preferred locales
-  # config.available_locales = %i{en ca es}
+  # config.available_locales = [:en, :ca, :es]
 
   # Geocoder configuration
   # config.geocoder = {
@@ -28,3 +28,6 @@ Decidim.configure do |config|
   # The number of reports which an object can receive before hiding it
   # config.max_reports_before_hiding = 3
 end
+
+Rails.application.config.i18n.available_locales = Decidim.available_locales
+Rails.application.config.i18n.default_locale = Decidim.default_locale
