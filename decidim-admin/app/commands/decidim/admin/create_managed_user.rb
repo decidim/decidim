@@ -23,7 +23,7 @@ module Decidim
 
         transaction do
           create_managed_user
-          raise ActiveRecord::Rollback unless authorize_user
+          raise ActiveRecord::Rollback unless authorized_user?
         end
 
         broadcast(:ok)
@@ -45,7 +45,7 @@ module Decidim
         )
       end
 
-      def authorize_user
+      def authorized_user?
         form.authorization.user = @user
         AuthorizeUser.call(form.authorization) do
           on(:ok) do

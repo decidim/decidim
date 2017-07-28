@@ -3,6 +3,10 @@
 module Decidim
   module Admin
     # A command with all the business logic to promote a managed user.
+    #
+    # Managed users can be promoted to standard users. It means they
+    # will be invited to the application and will lose the managed flag
+    # so the user cannot be impersonated anymore.
     class PromoteManagedUser < Rectify::Command
       # Public: Initializes the command.
       #

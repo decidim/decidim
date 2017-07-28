@@ -13,7 +13,7 @@ module Decidim
         skip_authorization_check only: [:index, :close_session]
 
         def index
-          @impersonation_logs = Decidim::ImpersonationLog.where(user: user).order("started_at DESC").page(params[:page]).per(15)
+          @impersonation_logs = Decidim::ImpersonationLog.where(user: user).order(started_at: :desc).page(params[:page]).per(15)
         end
 
         def new

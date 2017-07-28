@@ -247,6 +247,7 @@ en:
           success: The managed user has been successfully promoted.
         promotions:
           new:
+            explanation: Managed users can be promoted to standard users. It means they will be invited to the application and you will not be able to impersonate them again. The invited user will receive an email to accept your invitation.
             new_managed_user_promotion: New managed user promotion
             promote: Promote
       menu:

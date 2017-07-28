@@ -2,6 +2,12 @@
   <%= t('.new_managed_user_promotion') %>
 </h2>
 
+<div class="section">
+  <div class="callout warning">
+    <p><%= t('.explanation') %></p>
+  </div>
+</div>
+
 <%= decidim_form_for(@form, url: managed_user_promotions_path, html: { class: "form new_managed_user_promotion" }) do |f| %>
   <div class="card">
     <div class="card-section">
