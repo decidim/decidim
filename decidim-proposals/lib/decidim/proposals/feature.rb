@@ -90,6 +90,15 @@ Decidim.register_feature(:proposals) do |feature|
     20.times do |n|
       author = Decidim::User.where(organization: feature.organization).all.sample
       user_group = [true, false].sample ? author.user_groups.verified.sample : nil
+      state, answer = if n > 15
+                        ["accepted", Decidim::Faker::Localized.sentence(10)]
+                      elsif n > 9
+                        ["rejected", nil]
+                      elsif n > 6
+                        ["evaluating", nil]
+                      else
+                        [nil, nil]
+                      end
 
       proposal = Decidim::Proposals::Proposal.create!(
         feature: feature,
@@ -98,23 +107,11 @@ Decidim.register_feature(:proposals) do |feature|
         title: Faker::Lorem.sentence(2),
         body: Faker::Lorem.paragraphs(2).join("\n"),
         author: author,
-        user_group: user_group
+        user_group: user_group,
+        state: state,
+        answer: answer,
+        answered_at: Time.current
       )
-
-      if n > 15
-        proposal.state = "accepted"
-        proposal.answered_at = Time.current
-        proposal.save!
-      elsif n > 9
-        proposal.state = "rejected"
-        proposal.answered_at = Time.current
-        proposal.answer = Decidim::Faker::Localized.sentence(10)
-        proposal.save!
-      elsif n > 6
-        proposal.state = "evaluating"
-        proposal.answered_at = Time.current
-        proposal.save!
-      end
 
       rand(3).times do |m|
         email = "vote-author-#{process.id}-#{n}-#{m}@example.org"
