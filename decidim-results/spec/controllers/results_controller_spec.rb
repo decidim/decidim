@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Results
     describe ResultsController, type: :controller do
+      routes { Decidim::Results::Engine.routes }
+
       before do
         @request.env["decidim.current_organization"] = feature.organization
         @request.env["decidim.current_participatory_process"] = feature.participatory_process

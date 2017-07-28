@@ -14,7 +14,7 @@ describe "Admin manage participatory processes", type: :feature do
     visit decidim_admin.participatory_processes_path
   end
 
-  it "creates a new participatory_process" do
+  it "creates a new participatory process" do
     within ".secondary-nav__actions" do
       page.find("a.button").click
     end

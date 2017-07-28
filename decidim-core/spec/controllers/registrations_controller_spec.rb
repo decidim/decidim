@@ -4,9 +4,12 @@ require "spec_helper"
 
 module Decidim
   describe Decidim::Devise::RegistrationsController, type: :controller do
+    routes { Decidim::Core::Engine.routes }
+
     let(:organization) { create(:organization) }
 
     before do
+      @request.env["devise.mapping"] = ::Devise.mappings[:user]
       @request.env["decidim.current_organization"] = organization
     end
 

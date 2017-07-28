@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Admin
     describe ExportsController, type: :controller do
+      routes { Decidim::Admin::Engine.routes }
+
       let!(:organization) { create(:organization) }
       let!(:participatory_process) { create :participatory_process, organization: organization }
       let!(:user) { create(:user, :admin, :confirmed, organization: organization) }

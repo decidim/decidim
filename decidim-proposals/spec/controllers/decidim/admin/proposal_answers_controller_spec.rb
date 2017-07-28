@@ -6,13 +6,11 @@ module Decidim
   module Proposals
     module Admin
       describe ProposalAnswersController, type: :controller do
+        routes { Decidim::Proposals::AdminEngine.routes }
+
         let(:feature) { proposal.feature }
         let(:proposal) { create(:proposal) }
         let(:user) { create(:user, :confirmed, :admin, organization: feature.organization) }
-
-        routes do
-          Decidim::Proposals::AdminEngine.routes
-        end
 
         before do
           @request.env["decidim.current_organization"] = feature.organization

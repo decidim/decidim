@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Devise
     describe PagesController, type: :controller do
+      routes { Decidim::Core::Engine.routes }
+
       let(:organization) { create :organization }
 
       include_examples "with promoted participatory processes"
