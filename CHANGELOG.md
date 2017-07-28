@@ -3,6 +3,10 @@
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.3...HEAD)
 
+**Fixed**
+
+- **decidim-core**: Fixed crash when running migrations & seeding DB in the same ruby process. [\#1649](https://github.com/decidim/decidim/pull/1649).
+
 ## [v0.4.3](https://github.com/decidim/decidim/tree/v0.4.3) (2017-07-25)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.2...v0.4.3)
 

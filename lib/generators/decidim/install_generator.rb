@@ -24,7 +24,7 @@ module Decidim
       end
 
       def copy_migrations
-        rake "railties:install:migrations"
+        rails_command "railties:install:migrations"
         recreate_db if options[:recreate_db]
       end
 
@@ -111,10 +111,10 @@ module Decidim
       private
 
       def recreate_db
-        rake "db:environment:set db:drop" unless ENV["CI"]
-        rake "db:create"
-        rake "db:migrate"
-        rake "db:test:prepare"
+        rails_command "db:environment:set db:drop" unless ENV["CI"]
+        rails_command "db:create"
+        rails_command "db:migrate"
+        rails_command "db:test:prepare"
       end
 
       def scss_variables
