@@ -31,14 +31,12 @@ module Decidim
     end
 
     def available_roles_for_select
-      [[I18n.t("decidim.admin.models.user.fields.admin"), "admin"]].concat(
-        Decidim::User::ROLES.map do |role|
-          [
-            I18n.t(role, scope: "decidim.admin.models.user.fields.roles"),
-            role
-          ]
-        end
-      )
+      Decidim::User::ROLES.map do |role|
+        [
+          I18n.t(role, scope: "decidim.admin.models.user.fields.roles"),
+          role
+        ]
+      end
     end
 
     private

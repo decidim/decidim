@@ -6,7 +6,7 @@ module Decidim
   # A User is a citizen that wants to join the platform to participate.
   class User < ApplicationRecord
     MAXIMUM_AVATAR_FILE_SIZE = 5.megabytes
-    ROLES = %w(user_manager).freeze
+    ROLES = %w(admin user_manager).freeze
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
@@ -52,6 +52,11 @@ module Decidim
     # Returns a boolean.
     def role?(role)
       roles.include?(role.to_s)
+    end
+
+    # Public: Returns the active role of the user
+    def active_role
+      admin ? "admin" : roles.first
     end
 
     # Public: returns the user's name or the default one

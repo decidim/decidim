@@ -324,7 +324,6 @@ en:
             title: Title
         user:
           fields:
-            admin: Admin
             created_at: Creation date
             email: Email
             invitation_accepted_at: Invitation accepted date
@@ -333,6 +332,7 @@ en:
             name: Name
             role: Role
             roles:
+              admin: Admin
               user_manager: User manager
           name: User
         user_group:

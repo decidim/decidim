@@ -11,7 +11,7 @@ module Decidim
         name: "Old man",
         email: "oldman@email.com",
         organization: organization,
-        admin: true,
+        role: "admin",
         invited_by: admin,
         invitation_instructions: "invite_admin"
       )

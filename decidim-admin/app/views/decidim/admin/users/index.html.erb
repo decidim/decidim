@@ -23,7 +23,7 @@
         <tbody>
           <% @users.each do |user| %>
             <tr data-user-id="<%= user.id %>">
-              <td><%= user.admin? ? t("decidim.admin.models.user.fields.admin") : t(user.roles.first, scope: "decidim.admin.models.user.fields.roles") %></td>
+              <td><%= t(user.active_role, scope: "decidim.admin.models.user.fields.roles") %></td>
               <td><%= user.name %></td>
               <td><%= user.email %></td>
               <td>
