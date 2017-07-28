@@ -38,7 +38,7 @@ module Decidim
 
           run "rails generate decidim:demo"
           run "docker-compose build"
-          run "docker-compose run --rm app rake db:drop db:create db:migrate db:setup"
+          run "docker-compose run --rm app rails db:drop db:create db:migrate db:setup"
         end
       end
 
