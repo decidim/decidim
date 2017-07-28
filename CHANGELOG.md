@@ -6,6 +6,10 @@
 ## [v0.4.4](https://github.com/decidim/decidim/tree/v0.4.4) (2017-08-02)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.3...v0.4.4)
 
+**Added**
+
+- **decidim-admin**: Added `Managed Users` section. User admins and users with `user_manager` role will be able to create `managed` users using one of the organization available authorizations. These users can be impersonated while interacting with the whole application. Finally, these users can be promoted to standard users inviting them to the application. [\#1621](https://github.com/decidim/decidim/pull/1621)
+
 **Fixed**
 
 - **decidim-budgets**: Fixed bug where current projects's category wouldn't appear in form. [\#1667](https://github.com/decidim/decidim/pull/1667).
