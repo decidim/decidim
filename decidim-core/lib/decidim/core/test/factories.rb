@@ -153,6 +153,10 @@ FactoryGirl.define do
       admin { true }
     end
 
+    trait :user_manager do
+      roles { ["user_manager"] }
+    end
+
     trait :process_admin do
       transient do
         participatory_process { create(:participatory_process) }

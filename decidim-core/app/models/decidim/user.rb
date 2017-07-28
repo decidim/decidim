@@ -6,6 +6,7 @@ module Decidim
   # A User is a citizen that wants to join the platform to participate.
   class User < ApplicationRecord
     MAXIMUM_AVATAR_FILE_SIZE = 5.megabytes
+    ROLES = %w(admin user_manager).freeze
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
@@ -23,6 +24,8 @@ module Decidim
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :avatar, file_size: { less_than_or_equal_to: MAXIMUM_AVATAR_FILE_SIZE }
     validates :email, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? }
+    validate :all_roles_are_valid
+
     mount_uploader :avatar, Decidim::AvatarUploader
 
     scope :not_deleted, -> { where(deleted_at: nil) }
@@ -33,6 +36,21 @@ module Decidim
     #
     # Returns a String.
     attr_accessor :invitation_instructions
+
+    # Checks if the user has the given `role` or not.
+    #
+    # role - a String or a Symbol that represents the role that is being
+    #   checked
+    #
+    # Returns a boolean.
+    def role?(role)
+      roles.include?(role.to_s)
+    end
+
+    # Public: Returns the active role of the user
+    def active_role
+      admin ? "admin" : roles.first
+    end
 
     # Public: returns the user's name or the default one
     def name
@@ -79,6 +97,10 @@ module Decidim
     # Changes default Devise behaviour to use ActiveJob to send async emails.
     def send_devise_notification(notification, *args)
       devise_mailer.send(notification, self, *args).deliver_later
+    end
+
+    def all_roles_are_valid
+      errors.add(:roles, :invalid) unless roles.all? { |role| ROLES.include?(role) }
     end
   end
 end

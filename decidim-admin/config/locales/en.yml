@@ -341,6 +341,10 @@ en:
             invitation_sent_at: Invitation sent date
             last_sign_in_at: Last sign in date
             name: Name
+            role: Role
+            roles:
+              admin: Admin
+              user_manager: User manager
           name: User
         user_group:
           fields:
@@ -588,6 +592,7 @@ en:
         form:
           email: Email
           name: Name
+          role: Role
         new:
           create: Invite
           title: Invite user as administrator

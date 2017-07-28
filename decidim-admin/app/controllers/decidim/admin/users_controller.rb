@@ -21,7 +21,6 @@ module Decidim
         default_params = {
           organization: current_organization,
           invitation_instructions: "invite_admin",
-          admin: true,
           invited_by: current_user,
           comments_notifications: true,
           replies_notifications: true
@@ -81,7 +80,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= current_organization.admins
+        @collection ||= current_organization.admins.or(current_organization.users_with_any_role)
       end
     end
   end
