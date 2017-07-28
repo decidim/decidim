@@ -78,7 +78,8 @@ module Decidim
       end
 
       def collection
-        @collection ||= current_user.organization.participatory_process_groups
+        @collection ||=
+          Decidim::OrganizationParticipatoryProcessGroups.new(current_user.organization).query
       end
     end
   end
