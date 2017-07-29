@@ -95,7 +95,7 @@ module Decidim
           new_feature = Feature.create!(
             manifest_name: feature.manifest_name,
             name: feature.name,
-            participatory_process: @copied_process,
+            featurable: @copied_process,
             settings: feature.settings,
             step_settings: copied_step_settings
           )

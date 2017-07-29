@@ -9,13 +9,8 @@ describe Decidim::Abilities::ParticipatoryProcessCollaboratorAbility do
 
   let(:user_process) { create :participatory_process }
 
-  let(:published_feature) do
-    create(:feature, participatory_process: user_process)
-  end
-
-  let(:unpublished_feature) do
-    create(:feature, participatory_process: user_process)
-  end
+  let(:published_feature) { create(:feature, featurable: user_process) }
+  let(:unpublished_feature) { create(:feature, featurable: user_process) }
 
   subject { described_class.new(user, current_participatory_process: user_process) }
 

@@ -8,7 +8,7 @@ module Decidim
       describe "call" do
         let(:organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: organization) }
-        let(:feature) { create(:feature, participatory_process: participatory_process) }
+        let(:feature) { create(:feature, featurable: participatory_process) }
         let(:user) { create(:user, organization: organization) }
         let(:author) { create(:user, organization: organization) }
         let(:dummy_resource) { create :dummy_resource, feature: feature }

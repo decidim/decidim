@@ -85,7 +85,7 @@ module Decidim
     end
 
     def participatory_process
-      @participatory_process ||= @reportable.feature.participatory_process
+      @participatory_process ||= @reportable.feature.featurable
     end
   end
 end

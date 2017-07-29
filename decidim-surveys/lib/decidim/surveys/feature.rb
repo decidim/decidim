@@ -67,12 +67,12 @@ Decidim.register_feature(:surveys) do |feature|
     exports.serializer Decidim::Surveys::SurveyUserAnswersSerializer
   end
 
-  feature.seeds do |process|
+  feature.seeds do |featurable|
     feature = Decidim::Feature.create!(
-      name: Decidim::Features::Namer.new(process.organization.available_locales, :surveys).i18n_name,
+      name: Decidim::Features::Namer.new(featurable.organization.available_locales, :surveys).i18n_name,
       manifest_name: :surveys,
       published_at: Time.current,
-      participatory_process: process
+      featurable: featurable
     )
 
     survey = Decidim::Surveys::Survey.create!(

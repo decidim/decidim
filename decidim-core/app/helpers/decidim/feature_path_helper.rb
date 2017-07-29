@@ -24,9 +24,11 @@ module Decidim
     private
 
     def feature_root_path_for(engine, feature)
+      featurable = feature.featurable
+
       url_params = {
         feature_id: feature.id,
-        participatory_process_id: feature.participatory_process.id
+        featurable.class.name.foreign_key.to_sym => featurable.id
       }
 
       engine.routes.url_helpers.root_path(url_params)

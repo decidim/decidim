@@ -17,7 +17,7 @@ describe "Report Comment", type: :feature do
     create(
       :feature,
       manifest: manifest,
-      participatory_process: participatory_process
+      featurable: participatory_process
     )
   end
 end

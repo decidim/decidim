@@ -6,7 +6,7 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
   let(:user) { build(:user) }
   let(:user_process) { create :participatory_process, organization: user.organization }
   let!(:user_process_role) { create :participatory_process_user_role, user: user, participatory_process: user_process, role: :admin }
-  let(:feature) { create :proposal_feature, participatory_process: user_process }
+  let(:feature) { create :proposal_feature, featurable: user_process }
   let(:proposals) { create_list :proposal, 3, feature: feature }
   let(:other_proposals) { create_list :proposal, 3 }
   let(:context) { { current_participatory_process: user_process } }

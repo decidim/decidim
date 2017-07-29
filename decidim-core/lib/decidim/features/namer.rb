@@ -11,7 +11,7 @@ module Decidim
     # Examples:
     #
     #   Decidim::Feature.create!(
-    #     participatory_process: process,
+    #     featurable: process,
     #     name: Decidim::Feature::Namer.new(organization.available_locales, :my_feature_name).i18n_name
     #     manifest_name: :my_feature_name
     #   )

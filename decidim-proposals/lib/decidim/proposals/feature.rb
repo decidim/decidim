@@ -55,7 +55,7 @@ Decidim.register_feature(:proposals) do |feature|
     exports.collection do |feature_instance|
       Decidim::Proposals::Proposal
         .where(feature: feature_instance)
-        .includes(:category, feature: { participatory_process: :organization })
+        .includes(:category, feature: { featurable: :organization })
     end
 
     exports.serializer Decidim::Proposals::ProposalSerializer
@@ -71,17 +71,17 @@ Decidim.register_feature(:proposals) do |feature|
     exports.serializer Decidim::Comments::CommentSerializer
   end
 
-  feature.seeds do |process|
+  feature.seeds do |featurable|
     feature = Decidim::Feature.create!(
-      name: Decidim::Features::Namer.new(process.organization.available_locales, :proposals).i18n_name,
+      name: Decidim::Features::Namer.new(featurable.organization.available_locales, :proposals).i18n_name,
       manifest_name: :proposals,
       published_at: Time.current,
-      participatory_process: process,
+      featurable: featurable,
       settings: {
         vote_limit: 0
       },
       step_settings: {
-        process.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
+        featurable.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
       }
     )
     # So that we have some with global scope
@@ -102,7 +102,7 @@ Decidim.register_feature(:proposals) do |feature|
 
       proposal = Decidim::Proposals::Proposal.create!(
         feature: feature,
-        category: process.categories.sample,
+        category: featurable.categories.sample,
         scope: scopes.sample,
         title: Faker::Lorem.sentence(2),
         body: Faker::Lorem.paragraphs(2).join("\n"),
@@ -114,8 +114,8 @@ Decidim.register_feature(:proposals) do |feature|
       )
 
       rand(3).times do |m|
-        email = "vote-author-#{process.id}-#{n}-#{m}@example.org"
-        name = "#{Faker::Name.name} #{process.id} #{n} #{m}"
+        email = "vote-author-#{featurable.id}-#{n}-#{m}@example.org"
+        name = "#{Faker::Name.name} #{featurable.id} #{n} #{m}"
 
         author = Decidim::User.find_or_initialize_by(email: email)
         author.update!(

@@ -62,7 +62,7 @@ module Decidim
             params["feature_id"] = feature.id.to_s
           end
 
-          let(:feature) { create(:feature, participatory_process: current_participatory_process) }
+          let(:feature) { create(:feature, featurable: current_participatory_process) }
 
           it "matches" do
             expect(subject.matches?(request)).to eq(true)

@@ -22,7 +22,7 @@ describe "Vote Proposal", type: :feature do
       create(:proposal_feature,
              :with_votes_blocked,
              manifest: manifest,
-             participatory_process: participatory_process)
+             featurable: participatory_process)
     end
 
     it "shows the vote count and the vote button is disabled" do
@@ -37,7 +37,7 @@ describe "Vote Proposal", type: :feature do
       create(:proposal_feature,
              :with_votes_enabled,
              manifest: manifest,
-             participatory_process: participatory_process)
+             featurable: participatory_process)
     end
 
     context "when the user is not logged in" do
@@ -112,7 +112,7 @@ describe "Vote Proposal", type: :feature do
                  :with_vote_limit,
                  vote_limit: vote_limit,
                  manifest: manifest,
-                 participatory_process: participatory_process)
+                 featurable: participatory_process)
         end
 
         context "when the proposal is not voted yet" do
@@ -189,7 +189,7 @@ describe "Vote Proposal", type: :feature do
               create(:proposal_feature,
                      :with_votes_blocked,
                      manifest: manifest,
-                     participatory_process: participatory_process)
+                     featurable: participatory_process)
             end
 
             it "shows the vote count but not the vote button" do

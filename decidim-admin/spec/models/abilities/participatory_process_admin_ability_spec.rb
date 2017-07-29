@@ -24,7 +24,7 @@ describe Decidim::Admin::Abilities::ParticipatoryProcessAdminAbility do
       Decidim::AttachmentUploader.enable_processing = true
       create :attachment, attached_to: unmanaged_process
     end
-    let(:feature) { create(:feature, participatory_process: user_process) }
+    let(:feature) { create(:feature, featurable: user_process) }
     let(:dummy_resource) { create(:dummy_resource, feature: feature) }
     let(:user_process_moderation) { create(:moderation, reportable: dummy_resource) }
     let(:unmanaged_process_moderation) { create(:moderation) }

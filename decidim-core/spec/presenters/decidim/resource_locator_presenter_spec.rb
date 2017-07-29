@@ -11,7 +11,7 @@ module Decidim
     end
 
     let(:feature) do
-      create(:feature, id: 1, participatory_process: participatory_process)
+      create(:feature, id: 1, featurable: participatory_process)
     end
 
     let(:resource) do

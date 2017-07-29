@@ -87,7 +87,7 @@ module Decidim
           let!(:admin) { create :user, :admin, organization: organization }
           let!(:participatory_process) { create :participatory_process, organization: organization }
           let!(:process_admin) { create :user, :process_admin, organization: organization, participatory_process: participatory_process }
-          let!(:feature) { create :proposal_feature, participatory_process: participatory_process }
+          let!(:feature) { create :proposal_feature, featurable: participatory_process }
           let!(:context_author) { create(:user, organization: organization) }
           let!(:proposal) { build(:proposal, :official, feature: feature) }
 
