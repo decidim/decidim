@@ -110,7 +110,7 @@ module Decidim
   # 6589: ID of the resource
   config_accessor :resource_reference_generator do
     lambda do |resource, feature|
-      ref = feature.participatory_process.organization.reference_prefix
+      ref = feature.featurable.organization.reference_prefix
       class_identifier = resource.class.name.demodulize[0..3].upcase
       year_month = (resource.created_at || Time.current).strftime("%Y-%m")
 

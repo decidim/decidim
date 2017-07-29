@@ -39,7 +39,7 @@ module Decidim
              dependent: :destroy,
              inverse_of: :participatory_process
 
-    has_many :features, foreign_key: "decidim_participatory_process_id"
+    has_many :features, as: :featurable
 
     attr_readonly :active_step
 

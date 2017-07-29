@@ -33,7 +33,7 @@ module Decidim
         end
 
         def process_scope
-          current_feature.participatory_process.scope
+          current_feature.featurable.scope
         end
 
         def scope

@@ -32,7 +32,7 @@ module Decidim
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
         def process_scope
-          current_feature.participatory_process.scope
+          current_feature.featurable.scope
         end
 
         def scope

@@ -10,7 +10,7 @@ module Decidim
           super
 
           can [:manage, :unreport, :hide], Proposal do |proposal|
-            can_manage_process?(proposal.feature.participatory_process)
+            can_manage_process?(proposal.feature.featurable)
           end
 
           cannot :create, Proposal unless can_create_proposal?
@@ -34,7 +34,7 @@ module Decidim
         def can_create_proposal?
           current_settings.try(:creation_enabled?) &&
             feature_settings.try(:official_proposals_enabled) &&
-            can_manage_process?(current_feature.try(:participatory_process))
+            can_manage_process?(current_feature.try(:featurable))
         end
 
         def can_update_proposal?

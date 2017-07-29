@@ -125,8 +125,8 @@
         # Register some stat number to the application
       end
 
-      feature.seeds do |process|
-        # Define seeds for a specific participatory process
+      feature.seeds do |featurable|
+        # Define seeds for a specific featurable object
       end
     end
     ```

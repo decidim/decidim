@@ -6,12 +6,12 @@ module Decidim
   module Proposals
     describe ProposalSerializer do
       let!(:proposal) { create(:proposal) }
-      let!(:category) { create(:category, participatory_process: feature.participatory_process) }
-      let!(:scope) { create(:scope, organization: feature.participatory_process.organization) }
-      let(:participatory_process) { feature.participatory_process }
+      let!(:category) { create(:category, participatory_process: participatory_process) }
+      let!(:scope) { create(:scope, organization: feature.featurable.organization) }
+      let(:participatory_process) { feature.featurable }
       let(:feature) { proposal.feature }
 
-      let!(:meetings_feature) { create(:feature, manifest_name: "meetings", participatory_process: participatory_process) }
+      let!(:meetings_feature) { create(:feature, manifest_name: "meetings", featurable: participatory_process) }
       let(:meetings) { create_list(:meeting, 2, feature: meetings_feature) }
 
       before do

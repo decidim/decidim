@@ -13,7 +13,7 @@ describe Decidim::Meetings::Admin::MeetingForm do
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "meetings" }
+  let(:current_feature) { create :feature, featurable: participatory_process, manifest_name: "meetings" }
   let(:title) do
     Decidim::Faker::Localized.sentence(3)
   end

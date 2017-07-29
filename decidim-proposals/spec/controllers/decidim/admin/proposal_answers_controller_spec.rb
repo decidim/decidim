@@ -14,7 +14,7 @@ module Decidim
 
         before do
           @request.env["decidim.current_organization"] = feature.organization
-          @request.env["decidim.current_participatory_process"] = feature.participatory_process
+          @request.env["decidim.current_participatory_process"] = feature.featurable
           @request.env["decidim.current_feature"] = feature
           sign_in user
         end
@@ -24,7 +24,7 @@ module Decidim
             id: proposal.id,
             proposal_id: proposal.id,
             feature_id: feature.id,
-            participatory_process_id: feature.participatory_process.id,
+            participatory_process_id: feature.featurable.id,
             state: "rejected"
           }
         end
