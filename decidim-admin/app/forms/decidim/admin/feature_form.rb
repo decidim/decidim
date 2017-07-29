@@ -36,7 +36,7 @@ module Decidim
       end
 
       def step_settings?
-        return false unless participatory_space.steps.any?
+        return false unless participatory_space.has_steps?
 
         step_settings
           .values
