@@ -15,6 +15,6 @@ describe "Report Proposal", type: :feature do
   let!(:feature) do
     create(:proposal_feature,
            manifest: manifest,
-           participatory_process: participatory_process)
+           featurable: participatory_process)
   end
 end

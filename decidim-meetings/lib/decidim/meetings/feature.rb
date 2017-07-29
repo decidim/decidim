@@ -23,19 +23,19 @@ Decidim.register_feature(:meetings) do |feature|
     meetings.count
   end
 
-  feature.seeds do |process|
+  feature.seeds do |featurable|
     feature = Decidim::Feature.create!(
-      name: Decidim::Features::Namer.new(process.organization.available_locales, :meetings).i18n_name,
+      name: Decidim::Features::Namer.new(featurable.organization.available_locales, :meetings).i18n_name,
       published_at: Time.current,
       manifest_name: :meetings,
-      participatory_process: process
+      featurable: featurable
     )
 
     3.times do
       meeting = Decidim::Meetings::Meeting.create!(
         feature: feature,
-        scope: process.organization.scopes.sample,
-        category: process.categories.sample,
+        scope: featurable.organization.scopes.sample,
+        category: featurable.categories.sample,
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)

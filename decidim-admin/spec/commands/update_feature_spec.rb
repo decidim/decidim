@@ -7,7 +7,7 @@ module Decidim
     describe UpdateFeature do
       let!(:participatory_process) { create(:participatory_process, :with_steps) }
       let(:step) { participatory_process.steps.first }
-      let!(:feature) { create(:feature, participatory_process: participatory_process) }
+      let!(:feature) { create(:feature, featurable: participatory_process) }
       let(:manifest) { feature.manifest }
 
       let(:form) do

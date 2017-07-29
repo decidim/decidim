@@ -14,7 +14,7 @@ describe "Orders", type: :feature do
     create(:budget_feature,
            :with_total_budget_and_vote_threshold_percent,
            manifest: manifest,
-           participatory_process: participatory_process)
+           featurable: participatory_process)
   end
 
   context "when the user is not logged in" do
@@ -178,7 +178,7 @@ describe "Orders", type: :feature do
         create(:budget_feature,
                :with_votes_disabled,
                manifest: manifest,
-               participatory_process: participatory_process)
+               featurable: participatory_process)
       end
 
       it "cannot create new orders" do
@@ -194,7 +194,7 @@ describe "Orders", type: :feature do
         create(:budget_feature,
                :with_show_votes_enabled,
                manifest: manifest,
-               participatory_process: participatory_process)
+               featurable: participatory_process)
       end
 
       let!(:order) do
@@ -232,7 +232,7 @@ describe "Orders", type: :feature do
 
     context "with linked proposals" do
       let(:proposal_feature) do
-        create(:feature, manifest_name: :proposals, participatory_process: project.feature.participatory_process)
+        create(:feature, manifest_name: :proposals, featurable: project.feature.featurable)
       end
       let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
 

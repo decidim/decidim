@@ -43,7 +43,7 @@ module Decidim
     #
     # Returns an ActiveRecord::Relation.
     def resource_scope(feature)
-      feature_ids = Decidim::Feature.where(participatory_process: feature.participatory_process, manifest_name: feature_manifest.name).pluck(:id)
+      feature_ids = Decidim::Feature.where(featurable: feature.featurable, manifest_name: feature_manifest.name).pluck(:id)
       return model_class.none if feature_ids.empty?
 
       model_class.where(feature: feature_ids)

@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Budgets::AddLineItem do
   let(:user) { create(:user) }
   let(:participatory_process) { create :participatory_process, :with_steps, organization: user.organization }
-  let(:feature) { create(:budget_feature, participatory_process: participatory_process, settings: settings) }
+  let(:feature) { create(:budget_feature, featurable: participatory_process, settings: settings) }
   let(:project) { create(:project, feature: feature, budget: 60_000) }
   let(:settings) { { "total_budget" => 100_000, vote_threshold_percent: 50 } }
   let(:order) { nil }
@@ -59,7 +59,7 @@ describe Decidim::Budgets::AddLineItem do
   end
 
   context "when the votes are not enabled" do
-    let(:feature) { create(:budget_feature, :with_votes_disabled, participatory_process: participatory_process, settings: settings) }
+    let(:feature) { create(:budget_feature, :with_votes_disabled, featurable: participatory_process, settings: settings) }
 
     it "broadcasts invalid" do
       expect { subject.call }.to broadcast(:invalid)

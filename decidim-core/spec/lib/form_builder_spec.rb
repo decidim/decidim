@@ -134,9 +134,9 @@ module Decidim
 
     describe "categories_for_select" do
       let!(:feature) { create(:feature) }
-      let!(:category) { create(:category, name: { "en" => "Nice category" }, participatory_process: feature.participatory_process) }
-      let!(:other_category) { create(:category, name: { "en" => "A better category" }, participatory_process: feature.participatory_process) }
-      let!(:subcategory) { create(:category, name: { "en" => "Subcategory" }, parent: category, participatory_process: feature.participatory_process) }
+      let!(:category) { create(:category, name: { "en" => "Nice category" }, participatory_process: feature.featurable) }
+      let!(:other_category) { create(:category, name: { "en" => "A better category" }, participatory_process: feature.featurable) }
+      let!(:subcategory) { create(:category, name: { "en" => "Subcategory" }, parent: category, participatory_process: feature.featurable) }
       let(:scope) { feature.categories }
 
       let(:options) { {} }
@@ -174,7 +174,7 @@ module Decidim
       end
 
       it "sorts subcategories by name" do
-        subcategory2 = create(:category, name: { "en" => "First subcategory" }, parent: category, participatory_process: feature.participatory_process)
+        subcategory2 = create(:category, name: { "en" => "First subcategory" }, parent: category, participatory_process: feature.featurable)
 
         expect(subject.css("option")[2].text).to eq("- #{subcategory2.name["en"]}")
         expect(subject.css("option")[3].text).to eq("- #{subcategory.name["en"]}")

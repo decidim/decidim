@@ -2,14 +2,14 @@
 
 FactoryGirl.define do
   factory :proposal_feature, parent: :feature do
-    name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :proposals).i18n_name }
+    name { Decidim::Features::Namer.new(featurable.organization.available_locales, :proposals).i18n_name }
     manifest_name :proposals
-    participatory_process { create(:participatory_process, :with_steps) }
+    featurable { create(:participatory_process, :with_steps, organization: organization) }
 
     trait :with_votes_enabled do
       step_settings do
         {
-          participatory_process.active_step.id => { votes_enabled: true }
+          featurable.active_step.id => { votes_enabled: true }
         }
       end
     end
@@ -17,7 +17,7 @@ FactoryGirl.define do
     trait :with_votes_disabled do
       step_settings do
         {
-          participatory_process.active_step.id => { votes_enabled: false }
+          featurable.active_step.id => { votes_enabled: false }
         }
       end
     end
@@ -37,7 +37,7 @@ FactoryGirl.define do
     trait :with_votes_blocked do
       step_settings do
         {
-          participatory_process.active_step.id => {
+          featurable.active_step.id => {
             votes_enabled: true,
             votes_blocked: true
           }
@@ -48,7 +48,7 @@ FactoryGirl.define do
     trait :with_creation_enabled do
       step_settings do
         {
-          participatory_process.active_step.id => { creation_enabled: true }
+          featurable.active_step.id => { creation_enabled: true }
         }
       end
     end

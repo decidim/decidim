@@ -8,7 +8,7 @@ describe Decidim::Admin::CopyParticipatoryProcess do
   let(:scope) { create :scope, organization: organization }
   let(:errors) { double.as_null_object }
   let!(:participatory_process) { create :participatory_process, :with_steps }
-  let!(:feature) { create :feature, manifest_name: :dummy, participatory_process: participatory_process }
+  let!(:feature) { create :feature, manifest_name: :dummy, featurable: participatory_process }
   let(:form) do
     instance_double(
       Decidim::Admin::ParticipatoryProcessCopyForm,
@@ -118,7 +118,7 @@ describe Decidim::Admin::CopyParticipatoryProcess do
       last_participatory_process = Decidim::ParticipatoryProcess.last
       last_feature = Decidim::Feature.all.reorder(:id).last
 
-      expect(last_feature.participatory_process).to eq(last_participatory_process)
+      expect(last_feature.featurable).to eq(last_participatory_process)
       expect(last_feature.name).to eq(feature.name)
       expect(last_feature.settings).to eq(feature.settings)
       expect(last_feature.step_settings.keys).to_not eq(feature.step_settings.keys)

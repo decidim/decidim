@@ -8,12 +8,12 @@ module Decidim
     include HasSettings
     include Publicable
 
-    belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id"
-    has_one :organization, through: :participatory_process
-    has_many :categories, through: :participatory_process
-    has_many :scopes, through: :organization
+    belongs_to :featurable, polymorphic: true
 
     default_scope { order(arel_table[:weight].asc) }
+
+    delegate :organization, :categories, to: :featurable
+    delegate :scopes, to: :organization
 
     # Public: Finds the manifest this feature is associated to.
     #

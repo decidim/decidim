@@ -77,7 +77,7 @@ describe "Admin manages features", type: :feature do
     end
 
     let!(:feature) do
-      create(:feature, name: feature_name, participatory_process: participatory_process)
+      create(:feature, name: feature_name, featurable: participatory_process)
     end
 
     before do
@@ -171,7 +171,7 @@ describe "Admin manages features", type: :feature do
     end
 
     let!(:feature) do
-      create(:feature, name: feature_name, participatory_process: participatory_process)
+      create(:feature, name: feature_name, featurable: participatory_process)
     end
 
     before do
@@ -189,7 +189,7 @@ describe "Admin manages features", type: :feature do
 
   describe "publish and unpublish a feature" do
     let!(:feature) do
-      create(:feature, participatory_process: participatory_process, published_at: published_at)
+      create(:feature, featurable: participatory_process, published_at: published_at)
     end
 
     let(:published_at) { nil }

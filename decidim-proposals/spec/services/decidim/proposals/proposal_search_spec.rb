@@ -8,7 +8,7 @@ module Decidim
       let(:feature) { create(:feature, manifest_name: "proposals") }
       let(:scope1) { create :scope, organization: feature.organization }
       let(:scope2) { create :scope, organization: feature.organization }
-      let(:participatory_process) { feature.participatory_process }
+      let(:participatory_process) { feature.featurable }
       let(:user) { create(:user, organization: feature.organization) }
       let!(:proposal) { create(:proposal, feature: feature, scope: scope1) }
 
@@ -148,7 +148,7 @@ module Decidim
         describe "when the filter includes related_to" do
           context "when filtering by related to meetings" do
             let(:related_to) { "Decidim::Meetings::Meeting".underscore }
-            let(:meetings_feature) { create(:feature, manifest_name: "meetings", participatory_process: participatory_process) }
+            let(:meetings_feature) { create(:feature, manifest_name: "meetings", featurable: participatory_process) }
             let(:meeting) { create :meeting, feature: meetings_feature }
 
             it "returns only proposals related to meetings" do
@@ -164,7 +164,7 @@ module Decidim
 
           context "when filtering by related to results" do
             let(:related_to) { "Decidim::Results::Result".underscore }
-            let(:results_feature) { create(:feature, manifest_name: "results", participatory_process: participatory_process) }
+            let(:results_feature) { create(:feature, manifest_name: "results", featurable: participatory_process) }
             let(:result) { create :result, feature: results_feature }
 
             it "returns only proposals related to results" do
