@@ -125,8 +125,8 @@
         # Register some stat number to the application
       end
 
-      feature.seeds do |process|
-        # Define seeds for a specific participatory process
+      feature.seeds do |participatory_space|
+        # Define seeds for a specific participatory_space object
       end
     end
     ```

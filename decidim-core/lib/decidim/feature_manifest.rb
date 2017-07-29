@@ -92,8 +92,8 @@ module Decidim
     # Public: Creates the seeds for this features in order to populate the database.
     #
     # Returns nothing.
-    def seed!(process)
-      @seeds&.call(process)
+    def seed!(participatory_space)
+      @seeds&.call(participatory_space)
     end
 
     # Public: Adds configurable attributes for this feature, scoped to a name. It

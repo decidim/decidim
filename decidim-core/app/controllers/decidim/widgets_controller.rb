@@ -20,7 +20,7 @@ module Decidim
     private
 
     def current_participatory_process
-      @current_participatory_process ||= model.feature.participatory_process
+      @current_participatory_process ||= model.feature.participatory_space
     end
 
     def iframe_url

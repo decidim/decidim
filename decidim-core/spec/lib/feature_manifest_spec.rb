@@ -9,7 +9,7 @@ module Decidim
     describe "seed" do
       it "registers a block of seeds to be run on development" do
         data = {}
-        subject.seeds do |_process|
+        subject.seeds do |_participatory_space|
           data[:foo] = :bar
         end
 

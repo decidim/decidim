@@ -27,7 +27,7 @@ module Decidim
     end
 
     def step_settings
-      participatory_process.steps.each_with_object({}) do |step, result|
+      participatory_space.steps.each_with_object({}) do |step, result|
         result[step.id.to_s] = settings_schema(:step).new(self[:settings].dig("steps", step.id.to_s))
       end
     end
@@ -39,7 +39,7 @@ module Decidim
     end
 
     def active_step_settings
-      active_step = participatory_process.active_step
+      active_step = participatory_space.active_step
       return default_step_settings unless active_step
 
       step_settings.fetch(active_step.id.to_s)

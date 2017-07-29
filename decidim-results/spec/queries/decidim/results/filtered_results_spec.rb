@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::Results::FilteredResults do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization: organization) }
-  let(:feature) { create(:result_feature, participatory_process: participatory_process) }
-  let(:another_feature) { create(:result_feature, participatory_process: participatory_process) }
+  let(:feature) { create(:result_feature, participatory_space: participatory_process) }
+  let(:another_feature) { create(:result_feature, participatory_space: participatory_process) }
 
   let(:results) { create_list(:result, 3, feature: feature) }
   let(:old_results) { create_list(:result, 3, feature: feature, created_at: 10.days.ago) }
