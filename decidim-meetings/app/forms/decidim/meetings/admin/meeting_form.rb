@@ -38,7 +38,7 @@ module Decidim
         end
 
         def process_scope
-          current_feature.participatory_process.scope
+          current_feature.participatory_space.scope
         end
 
         alias feature current_feature

@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe Decidim::Results::ResultStatsCalculator do
   let(:participatory_process) { create(:participatory_process, :with_steps) }
-  let(:current_feature) { create :feature, manifest_name: :results, participatory_process: participatory_process }
+  let(:current_feature) { create :feature, manifest_name: :results, participatory_space: participatory_process }
   let(:scope) { create :scope, organization: current_feature.organization }
-  let(:parent_category) { create :category, participatory_process: current_feature.participatory_process }
+  let(:parent_category) { create :category, participatory_process: current_feature.participatory_space }
   let!(:result) do
     create(
       :result,
@@ -16,7 +16,7 @@ describe Decidim::Results::ResultStatsCalculator do
     )
   end
   let(:meetings_feature) do
-    create(:feature, manifest_name: :meetings, participatory_process: participatory_process)
+    create(:feature, manifest_name: :meetings, participatory_space: participatory_process)
   end
   let(:meetings) do
     create_list(
@@ -28,7 +28,7 @@ describe Decidim::Results::ResultStatsCalculator do
     )
   end
   let(:proposals_feature) do
-    create(:feature, manifest_name: :proposals, participatory_process: participatory_process)
+    create(:feature, manifest_name: :proposals, participatory_space: participatory_process)
   end
   let(:proposals) do
     create_list(

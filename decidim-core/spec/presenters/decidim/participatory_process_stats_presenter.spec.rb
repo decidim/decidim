@@ -7,9 +7,9 @@ module Decidim
     let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization: organization) }
     let!(:process) { create(:participatory_process, organization: organization) }
-    let!(:feature) { create(:feature, participatory_process: process) }
-    let!(:feature2) { create(:feature, participatory_process: process) }
-    let!(:feature3) { create(:feature, participatory_process: process) }
+    let!(:feature) { create(:feature, participatory_space: process) }
+    let!(:feature2) { create(:feature, participatory_space: process) }
+    let!(:feature3) { create(:feature, participatory_space: process) }
 
     subject { described_class.new(participatory_process: process) }
 

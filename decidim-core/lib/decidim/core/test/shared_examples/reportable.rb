@@ -4,7 +4,7 @@ require "spec_helper"
 
 shared_examples_for "reportable" do
   let(:user) { create(:user, organization: subject.organization) }
-  let(:participatory_process) { subject.feature.participatory_process }
+  let(:participatory_process) { subject.feature.participatory_space }
   let(:moderation) { create(:moderation, reportable: subject, participatory_process: participatory_process, report_count: 1) }
   let!(:report) { create(:report, moderation: moderation, user: user) }
 

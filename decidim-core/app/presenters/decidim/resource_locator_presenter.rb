@@ -60,6 +60,10 @@ module Decidim
       @resource.feature
     end
 
+    def participatory_space
+      feature.participatory_space
+    end
+
     def engine
       manifest.feature_manifest.engine
     end
@@ -71,7 +75,7 @@ module Decidim
     def collection_params
       {
         feature_id: feature.id,
-        participatory_process_id: feature.participatory_process.id
+        participatory_space.class.name.foreign_key.to_sym => participatory_space.id
       }
     end
 

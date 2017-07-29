@@ -9,7 +9,7 @@ module Decidim
       include_context "graphql type"
 
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-      let(:feature) { create(:feature, participatory_process: participatory_process) }
+      let(:feature) { create(:feature, participatory_space: participatory_process) }
       let(:model) { create(:dummy_resource, feature: feature) }
       let(:body) { "test" }
       let(:alignment) { 1 }

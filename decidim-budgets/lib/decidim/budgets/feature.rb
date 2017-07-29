@@ -49,19 +49,19 @@ Decidim.register_feature(:budgets) do |feature|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  feature.seeds do |process|
+  feature.seeds do |participatory_space|
     feature = Decidim::Feature.create!(
-      name: Decidim::Features::Namer.new(process.organization.available_locales, :budgets).i18n_name,
+      name: Decidim::Features::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,
       manifest_name: :budgets,
       published_at: Time.current,
-      participatory_process: process
+      participatory_space: participatory_space
     )
 
     3.times do
       project = Decidim::Budgets::Project.create!(
         feature: feature,
-        scope: process.organization.scopes.sample,
-        category: process.categories.sample,
+        scope: participatory_space.organization.scopes.sample,
+        category: participatory_space.categories.sample,
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)

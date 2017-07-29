@@ -48,7 +48,7 @@ module Decidim
       end
 
       context "#answered_by?" do
-        let!(:user) { create(:user, organization: survey.feature.participatory_process.organization) }
+        let!(:user) { create(:user, organization: survey.feature.participatory_space.organization) }
         let!(:question) { create(:survey_question, survey: survey) }
 
         it "returns false if the given user has not answered the survey" do

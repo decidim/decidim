@@ -4,7 +4,7 @@ shared_examples "manage proposals help texts" do
   before do
     current_feature.update_attributes(
       step_settings: {
-        current_feature.participatory_process.active_step.id => {
+        current_feature.participatory_space.active_step.id => {
           creation_enabled: true
         }
       }
@@ -24,7 +24,7 @@ shared_examples "manage proposals help texts" do
 
     click_button "Update"
 
-    visit decidim_proposals.new_proposal_path(feature_id: current_feature.id, participatory_process_id: current_feature.participatory_process.id)
+    visit decidim_proposals.new_proposal_path(feature_id: current_feature.id, participatory_process_id: current_feature.participatory_space.id)
 
     within ".callout.secondary" do
       expect(page).to have_content("Create a proposal following our guidelines.")

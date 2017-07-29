@@ -11,7 +11,7 @@ describe "manage a feature's permissions", type: :feature do
   end
 
   let!(:feature) do
-    create(:feature, participatory_process: participatory_process)
+    create(:feature, participatory_space: participatory_process)
   end
 
   before do

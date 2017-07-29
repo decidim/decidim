@@ -35,7 +35,7 @@ shared_examples "manage proposals" do
         before do
           current_feature.update_attributes!(
             step_settings: {
-              current_feature.participatory_process.active_step.id => {
+              current_feature.participatory_space.active_step.id => {
                 creation_enabled: true
               }
             }
@@ -204,7 +204,7 @@ shared_examples "manage proposals" do
       before do
         current_feature.update_attributes!(
           step_settings: {
-            current_feature.participatory_process.active_step.id => {
+            current_feature.participatory_space.active_step.id => {
               proposal_answering_enabled: true
             }
           }
@@ -320,7 +320,7 @@ shared_examples "manage proposals" do
       before do
         current_feature.update_attributes!(
           step_settings: {
-            current_feature.participatory_process.active_step.id => {
+            current_feature.participatory_space.active_step.id => {
               proposal_answering_enabled: false
             }
           }

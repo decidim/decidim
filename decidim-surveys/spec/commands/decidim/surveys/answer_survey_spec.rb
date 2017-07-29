@@ -8,7 +8,7 @@ module Decidim
       let(:current_organization) { create(:organization) }
       let(:current_user) { create(:user, organization: current_organization) }
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-      let(:feature) { create(:feature, manifest_name: "surveys", participatory_process: participatory_process) }
+      let(:feature) { create(:feature, manifest_name: "surveys", participatory_space: participatory_process) }
       let(:survey) { create(:survey, feature: feature) }
       let(:survey_question_1) { create(:survey_question, survey: survey) }
       let(:survey_question_2) { create(:survey_question, survey: survey) }

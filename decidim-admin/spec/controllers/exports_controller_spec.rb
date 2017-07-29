@@ -10,7 +10,7 @@ module Decidim
       let!(:organization) { create(:organization) }
       let!(:participatory_process) { create :participatory_process, organization: organization }
       let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
-      let!(:feature) { create(:feature, participatory_process: participatory_process, manifest_name: "dummy") }
+      let!(:feature) { create(:feature, participatory_space: participatory_process, manifest_name: "dummy") }
 
       before do
         @request.env["decidim.current_organization"] = organization

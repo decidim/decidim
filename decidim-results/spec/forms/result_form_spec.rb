@@ -13,7 +13,7 @@ describe Decidim::Results::Admin::ResultForm do
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "results" }
+  let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "results" }
   let(:title) do
     Decidim::Faker::Localized.sentence(3)
   end
@@ -68,7 +68,7 @@ describe Decidim::Results::Admin::ResultForm do
   end
 
   context "with proposals" do
-    let(:proposals_feature) { create :feature, manifest_name: :proposals, participatory_process: participatory_process }
+    let(:proposals_feature) { create :feature, manifest_name: :proposals, participatory_space: participatory_process }
     let!(:proposal) { create :proposal, feature: proposals_feature }
 
     describe "#proposals" do

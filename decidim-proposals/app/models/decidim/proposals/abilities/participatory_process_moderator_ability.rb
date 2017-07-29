@@ -10,7 +10,7 @@ module Decidim
           super
 
           can [:unreport, :hide], Proposal do |proposal|
-            can_manage_process?(proposal.feature.participatory_process)
+            can_manage_process?(proposal.feature.participatory_space)
           end
         end
       end

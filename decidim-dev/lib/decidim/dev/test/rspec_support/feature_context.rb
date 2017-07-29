@@ -14,7 +14,7 @@ shared_context "feature" do
   let!(:feature) do
     create(:feature,
            manifest: manifest,
-           participatory_process: participatory_process)
+           participatory_space: participatory_process)
   end
 
   let!(:category) { create :category, participatory_process: participatory_process }
@@ -57,7 +57,7 @@ shared_context "feature admin" do
   #
   # Returns a url.
   def edit_feature_path(feature)
-    decidim_admin.edit_feature_path(id: feature.id, participatory_process_id: feature.participatory_process.id)
+    decidim_admin.edit_feature_path(id: feature.id, participatory_process_id: feature.participatory_space.id)
   end
 end
 

@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe ActionController::Base, type: :controller do
     let(:feature) { create(:feature) }
-    let(:participatory_process) { feature.participatory_process }
+    let(:participatory_process) { feature.participatory_space }
 
     before do
       allow(controller).to receive(:current_feature).and_return(feature)

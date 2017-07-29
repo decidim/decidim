@@ -25,7 +25,7 @@ module Decidim
           super
 
           can :manage, Feature do |feature|
-            can_manage_process?(feature.participatory_process)
+            can_manage_process?(feature.participatory_space)
           end
 
           can :manage, Category do |category|
