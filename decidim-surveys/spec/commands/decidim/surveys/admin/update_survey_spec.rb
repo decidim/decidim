@@ -8,7 +8,7 @@ module Decidim
       describe UpdateSurvey, :db do
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-        let(:feature) { create(:feature, manifest_name: "surveys", participatory_process: participatory_process) }
+        let(:feature) { create(:feature, manifest_name: "surveys", participatory_space: participatory_process) }
         let(:survey) { create(:survey, feature: feature) }
         let(:published_at) { nil }
         let(:form_params) do

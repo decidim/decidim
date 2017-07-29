@@ -94,8 +94,8 @@ describe "Participatory Processes", type: :feature do
 
   describe "when going to the participatory process page" do
     let!(:participatory_process) { base_process }
-    let!(:proposals_feature) { create(:feature, :published, participatory_process: participatory_process, manifest_name: :proposals) }
-    let!(:meetings_feature) { create(:feature, :unpublished, participatory_process: participatory_process, manifest_name: :meetings) }
+    let!(:proposals_feature) { create(:feature, :published, participatory_space: participatory_process, manifest_name: :proposals) }
+    let!(:meetings_feature) { create(:feature, :unpublished, participatory_space: participatory_process, manifest_name: :meetings) }
 
     before do
       create_list(:proposal, 3, feature: proposals_feature)

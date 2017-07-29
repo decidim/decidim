@@ -23,19 +23,19 @@ Decidim.register_feature(:meetings) do |feature|
     meetings.count
   end
 
-  feature.seeds do |process|
+  feature.seeds do |participatory_space|
     feature = Decidim::Feature.create!(
-      name: Decidim::Features::Namer.new(process.organization.available_locales, :meetings).i18n_name,
+      name: Decidim::Features::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name,
       published_at: Time.current,
       manifest_name: :meetings,
-      participatory_process: process
+      participatory_space: participatory_space
     )
 
-    if process.scope
-      scopes = process.scope.descendants
-      global = process.scope
+    if participatory_space.scope
+      scopes = participatory_space.scope.descendants
+      global = participatory_space.scope
     else
-      scopes = process.organization.scopes
+      scopes = participatory_space.organization.scopes
       global = nil
     end
 
@@ -43,7 +43,7 @@ Decidim.register_feature(:meetings) do |feature|
       meeting = Decidim::Meetings::Meeting.create!(
         feature: feature,
         scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
-        category: process.categories.sample,
+        category: participatory_space.categories.sample,
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)

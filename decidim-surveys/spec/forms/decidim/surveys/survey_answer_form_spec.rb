@@ -6,7 +6,7 @@ module Decidim
   module Surveys
     describe SurveyAnswerForm do
       let!(:survey) { create(:survey) }
-      let!(:user) { create(:user, organization: survey.feature.participatory_process.organization) }
+      let!(:user) { create(:user, organization: survey.feature.participatory_space.organization) }
       let!(:survey_question) { create(:survey_question, survey: survey) }
       let!(:survey_answer) { create(:survey_answer, user: user, survey: survey, question: survey_question) }
 

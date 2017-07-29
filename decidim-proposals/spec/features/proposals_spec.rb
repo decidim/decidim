@@ -32,7 +32,7 @@ describe "Proposals", type: :feature do
           create(:proposal_feature,
                  :with_creation_enabled,
                  manifest: manifest,
-                 participatory_process: participatory_process)
+                 participatory_space: participatory_process)
         end
 
         context "when process is not related to any scope" do
@@ -93,7 +93,7 @@ describe "Proposals", type: :feature do
                    :with_creation_enabled,
                    :with_geocoding_enabled,
                    manifest: manifest,
-                   participatory_process: participatory_process)
+                   participatory_space: participatory_process)
           end
 
           it "creates a new proposal" do
@@ -158,7 +158,7 @@ describe "Proposals", type: :feature do
                      :with_creation_enabled,
                      :with_geocoding_enabled,
                      manifest: manifest,
-                     participatory_process: participatory_process)
+                     participatory_space: participatory_process)
             end
 
             it "creates a new proposal as a user group" do
@@ -216,7 +216,7 @@ describe "Proposals", type: :feature do
     let!(:feature) do
       create(:proposal_feature,
              manifest: manifest,
-             participatory_process: participatory_process)
+             participatory_space: participatory_process)
     end
 
     let!(:proposals) { create_list(:proposal, 3, feature: feature) }
@@ -290,7 +290,7 @@ describe "Proposals", type: :feature do
     context "when a proposal has been linked in a meeting" do
       let(:proposal) { create(:proposal, feature: feature) }
       let(:meeting_feature) do
-        create(:feature, manifest_name: :meetings, participatory_process: proposal.feature.participatory_process)
+        create(:feature, manifest_name: :meetings, participatory_space: proposal.feature.participatory_space)
       end
       let(:meeting) { create(:meeting, feature: meeting_feature) }
 
@@ -309,7 +309,7 @@ describe "Proposals", type: :feature do
     context "when a proposal has been linked in a result" do
       let(:proposal) { create(:proposal, feature: feature) }
       let(:result_feature) do
-        create(:feature, manifest_name: :results, participatory_process: proposal.feature.participatory_process)
+        create(:feature, manifest_name: :results, participatory_space: proposal.feature.participatory_space)
       end
       let(:result) { create(:result, feature: result_feature) }
 
@@ -382,11 +382,11 @@ describe "Proposals", type: :feature do
     let(:feature) do
       create(:proposal_feature,
              manifest: manifest,
-             participatory_process: participatory_process)
+             participatory_space: participatory_process)
     end
     let(:proposal) { create(:proposal, feature: feature) }
     let(:budget_feature) do
-      create(:feature, manifest_name: :budgets, participatory_process: proposal.feature.participatory_process)
+      create(:feature, manifest_name: :budgets, participatory_space: proposal.feature.participatory_space)
     end
     let(:project) { create(:project, feature: budget_feature) }
 
@@ -420,7 +420,7 @@ describe "Proposals", type: :feature do
     it "lists all the proposals" do
       create(:proposal_feature,
              manifest: manifest,
-             participatory_process: participatory_process)
+             participatory_space: participatory_process)
 
       create_list(:proposal, 3, feature: feature)
 
@@ -437,7 +437,7 @@ describe "Proposals", type: :feature do
         create(:proposal_feature,
                :with_votes_blocked,
                manifest: manifest,
-               participatory_process: participatory_process)
+               participatory_space: participatory_process)
       end
 
       let!(:most_voted_proposal) do
@@ -467,7 +467,7 @@ describe "Proposals", type: :feature do
         create(:proposal_feature,
                :with_votes_disabled,
                manifest: manifest,
-               participatory_process: participatory_process)
+               participatory_space: participatory_process)
       end
 
       describe "order" do
@@ -636,7 +636,7 @@ describe "Proposals", type: :feature do
           before do
             feature.update_attributes(
               step_settings: {
-                feature.participatory_process.active_step.id => {
+                feature.participatory_space.active_step.id => {
                   proposal_answering_enabled: true
                 }
               }
@@ -692,7 +692,7 @@ describe "Proposals", type: :feature do
           before do
             feature.update_attributes(
               step_settings: {
-                feature.participatory_process.active_step.id => {
+                feature.participatory_space.active_step.id => {
                   proposal_answering_enabled: false
                 }
               }
@@ -749,7 +749,7 @@ describe "Proposals", type: :feature do
           create(:proposal_feature,
                  :with_votes_enabled,
                  manifest: manifest,
-                 participatory_process: participatory_process)
+                 participatory_space: participatory_process)
         end
 
         it "lists the proposals ordered by votes" do

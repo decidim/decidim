@@ -184,7 +184,7 @@ describe "Explore results", type: :feature do
 
     context "with linked proposals" do
       let(:proposal_feature) do
-        create(:feature, manifest_name: :proposals, participatory_process: result.feature.participatory_process)
+        create(:feature, manifest_name: :proposals, participatory_space: result.feature.participatory_space)
       end
       let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
 
@@ -205,7 +205,7 @@ describe "Explore results", type: :feature do
 
     context "with linked proposals" do
       let(:meeting_feature) do
-        create(:feature, manifest_name: :meetings, participatory_process: result.feature.participatory_process)
+        create(:feature, manifest_name: :meetings, participatory_space: result.feature.participatory_space)
       end
       let(:meetings) { create_list(:meeting, 3, feature: meeting_feature) }
 

@@ -5,9 +5,9 @@ require "decidim/dev"
 
 FactoryGirl.define do
   factory :budget_feature, parent: :feature do
-    name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :budgets).i18n_name }
+    name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name }
     manifest_name :budgets
-    participatory_process { create(:participatory_process, :with_steps) }
+    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
     trait :with_total_budget_and_vote_threshold_percent do
       transient do
@@ -26,7 +26,7 @@ FactoryGirl.define do
     trait :with_votes_disabled do
       step_settings do
         {
-          participatory_process.active_step.id => {
+          participatory_space.active_step.id => {
             votes_enabled: false
           }
         }
@@ -36,7 +36,7 @@ FactoryGirl.define do
     trait :with_show_votes_enabled do
       step_settings do
         {
-          participatory_process.active_step.id => {
+          participatory_space.active_step.id => {
             show_votes: true
           }
         }

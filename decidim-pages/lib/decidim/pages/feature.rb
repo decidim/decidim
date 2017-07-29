@@ -51,12 +51,12 @@ Decidim.register_feature(:pages) do |feature|
     resource.model_class_name = "Decidim::Pages::Page"
   end
 
-  feature.seeds do |process|
+  feature.seeds do |participatory_space|
     feature = Decidim::Feature.create!(
-      name: Decidim::Features::Namer.new(process.organization.available_locales, :pages).i18n_name,
+      name: Decidim::Features::Namer.new(participatory_space.organization.available_locales, :pages).i18n_name,
       manifest_name: :pages,
       published_at: Time.current,
-      participatory_process: process
+      participatory_space: participatory_space
     )
 
     page = Decidim::Pages::Page.create!(

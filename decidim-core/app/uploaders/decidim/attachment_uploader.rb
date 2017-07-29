@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This class deals with uploading attachments to a ParticipatoryProcess.
+  # This class deals with uploading attachments to a participatory space.
   class AttachmentUploader < ApplicationUploader
     include CarrierWave::MiniMagick
 

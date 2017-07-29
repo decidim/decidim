@@ -55,7 +55,7 @@ Decidim.register_feature(:proposals) do |feature|
     exports.collection do |feature_instance|
       Decidim::Proposals::Proposal
         .where(feature: feature_instance)
-        .includes(:category, feature: { participatory_process: :organization })
+        .includes(:category, feature: { participatory_space: :organization })
     end
 
     exports.serializer Decidim::Proposals::ProposalSerializer
@@ -71,25 +71,25 @@ Decidim.register_feature(:proposals) do |feature|
     exports.serializer Decidim::Comments::CommentSerializer
   end
 
-  feature.seeds do |process|
+  feature.seeds do |participatory_space|
     feature = Decidim::Feature.create!(
-      name: Decidim::Features::Namer.new(process.organization.available_locales, :proposals).i18n_name,
+      name: Decidim::Features::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name,
       manifest_name: :proposals,
       published_at: Time.current,
-      participatory_process: process,
+      participatory_space: participatory_space,
       settings: {
         vote_limit: 0
       },
       step_settings: {
-        process.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
+        participatory_space.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
       }
     )
 
-    if process.scope
-      scopes = process.scope.descendants
-      global = process.scope
+    if participatory_space.scope
+      scopes = participatory_space.scope.descendants
+      global = participatory_space.scope
     else
-      scopes = process.organization.scopes
+      scopes = participatory_space.organization.scopes
       global = nil
     end
 
@@ -108,7 +108,7 @@ Decidim.register_feature(:proposals) do |feature|
 
       proposal = Decidim::Proposals::Proposal.create!(
         feature: feature,
-        category: process.categories.sample,
+        category: participatory_space.categories.sample,
         scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
         title: Faker::Lorem.sentence(2),
         body: Faker::Lorem.paragraphs(2).join("\n"),
@@ -120,8 +120,8 @@ Decidim.register_feature(:proposals) do |feature|
       )
 
       rand(3).times do |m|
-        email = "vote-author-#{process.id}-#{n}-#{m}@example.org"
-        name = "#{Faker::Name.name} #{process.id} #{n} #{m}"
+        email = "vote-author-#{participatory_space.id}-#{n}-#{m}@example.org"
+        name = "#{Faker::Name.name} #{participatory_space.id} #{n} #{m}"
 
         author = Decidim::User.find_or_initialize_by(email: email)
         author.update!(

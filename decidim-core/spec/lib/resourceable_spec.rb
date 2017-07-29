@@ -11,8 +11,8 @@ module Decidim
     describe "linked_resources" do
       let(:participatory_process) { create(:participatory_process) }
 
-      let!(:target_feature) { create(:feature, manifest_name: :dummy, participatory_process: participatory_process) }
-      let!(:current_feature) { create(:feature, manifest_name: :dummy, participatory_process: participatory_process) }
+      let!(:target_feature) { create(:feature, manifest_name: :dummy, participatory_space: participatory_process) }
+      let!(:current_feature) { create(:feature, manifest_name: :dummy, participatory_space: participatory_process) }
 
       let!(:resource) { create(:dummy_resource, feature: current_feature) }
       let!(:target_resource) { create(:dummy_resource, feature: target_feature) }
@@ -50,8 +50,8 @@ module Decidim
           let(:participatory_process) { create(:participatory_process) }
 
           let!(:other_feature) { create(:feature, manifest_name: :dummy) }
-          let!(:target_feature) { create(:feature, manifest_name: :dummy, participatory_process: participatory_process) }
-          let!(:current_feature) { create(:feature, manifest_name: :dummy, participatory_process: participatory_process) }
+          let!(:target_feature) { create(:feature, manifest_name: :dummy, participatory_space: participatory_process) }
+          let!(:current_feature) { create(:feature, manifest_name: :dummy, participatory_space: participatory_process) }
 
           let!(:resource) { create(:dummy_resource, feature: current_feature) }
           let!(:target_resource) { create(:dummy_resource, feature: target_feature) }
@@ -83,8 +83,8 @@ module Decidim
     describe "#linked_classes_for" do
       let(:proposals_feature_1) { create :feature, manifest_name: "proposals" }
       let(:proposals_feature_2) { create :feature, manifest_name: "proposals" }
-      let(:meetings_feature) { create :feature, manifest_name: "meetings", participatory_process: proposals_feature_1.participatory_process }
-      let(:results_feature) { create :feature, manifest_name: "results", participatory_process: proposals_feature_2.participatory_process }
+      let(:meetings_feature) { create :feature, manifest_name: "meetings", participatory_space: proposals_feature_1.participatory_space }
+      let(:results_feature) { create :feature, manifest_name: "results", participatory_space: proposals_feature_2.participatory_space }
       let(:proposal_1) { create :proposal, feature: proposals_feature_1 }
       let(:proposal_2) { create :proposal, feature: proposals_feature_2 }
       let(:meeting) { create :meeting, feature: meetings_feature }

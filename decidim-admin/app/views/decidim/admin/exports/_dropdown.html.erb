@@ -3,7 +3,7 @@
   <ul class="vertical menu add-features">
     <% feature.manifest.export_manifests.each do |manifest| %>
       <% %w{csv json}.each do |format| %>
-        <li class="exports--format--<%= format %> exports--<%= manifest.name %>"><%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{feature.manifest.name}.admin.exports.#{manifest.name}"), export_format: format.upcase), decidim_admin.feature_exports_path(feature_id: feature, participatory_process_id: feature.participatory_process, format: format, id: manifest.name), method: :post %></li>
+        <li class="exports--format--<%= format %> exports--<%= manifest.name %>"><%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{feature.manifest.name}.admin.exports.#{manifest.name}"), export_format: format.upcase), decidim_admin.feature_exports_path(feature_id: feature, participatory_process_id: feature.participatory_space, format: format, id: manifest.name), method: :post %></li>
       <% end %>
     <% end %>
   </ul>

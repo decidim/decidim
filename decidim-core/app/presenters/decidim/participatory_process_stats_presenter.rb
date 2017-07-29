@@ -44,7 +44,7 @@ module Decidim
     end
 
     def published_features
-      @published_features ||= Feature.where(participatory_process: participatory_process).published
+      @published_features ||= Feature.where(participatory_space: participatory_process).published
     end
   end
 end

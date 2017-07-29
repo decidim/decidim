@@ -14,7 +14,7 @@ RSpec.shared_context "feature" do
   let!(:feature) do
     create(:feature,
            manifest: manifest,
-           participatory_process: participatory_process)
+           participatory_space: participatory_process)
   end
 
   let!(:category) { create :category, participatory_process: participatory_process }

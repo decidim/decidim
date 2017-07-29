@@ -116,7 +116,7 @@ RSpec.shared_examples "manage process categories examples" do
     end
 
     context "when the category has associated content" do
-      let!(:feature) { create(:feature, participatory_process: participatory_process) }
+      let!(:feature) { create(:feature, participatory_space: participatory_process) }
       let!(:dummy_resource) { create(:dummy_resource, feature: feature, category: category) }
 
       it "cannot delete it" do
