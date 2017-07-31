@@ -166,7 +166,7 @@ FactoryGirl.define do
 
   factory :participatory_process_user_role, class: Decidim::ParticipatoryProcessUserRole do
     user
-    participatory_process
+    participatory_process { create :participatory_process, organization: user.organization }
     role "admin"
   end
 
