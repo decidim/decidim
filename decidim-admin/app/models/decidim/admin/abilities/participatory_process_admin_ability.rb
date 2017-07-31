@@ -5,8 +5,8 @@ module Decidim
     module Abilities
       # Defines the abilities for a participatory process admin in the admin
       # section. Intended to be used with `cancancan`. This is not intended to
-      # extend the base `Decidim::Ability` class, it should only be used in the
-      # Admin engine.
+      # extend the base `Decidim::Abilities::BaseAbility` class, it should only
+      # be used in the Admin engine.
       #
       # This ability will not apply to organization admins.
       class ParticipatoryProcessAdminAbility < Decidim::Abilities::ParticipatoryProcessAdminAbility

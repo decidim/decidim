@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-module Decidim
-  describe Ability do
+module Decidim::Abilities
+  describe BaseAbility do
     let(:user) { build(:user) }
     subject { described_class.new(user, {}) }
 
@@ -16,7 +16,7 @@ module Decidim
         end
       end
 
-      let(:abilities) { ["Decidim::FakeAbility"] }
+      let(:abilities) { ["Decidim::Abilities::FakeAbility"] }
 
       before do
         allow(Decidim)
