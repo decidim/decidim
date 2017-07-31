@@ -4,7 +4,8 @@
 require "spec_helper"
 
 describe "Admin manages user groups", type: :feature do
-  include_context "participatory process admin"
+  include_context "participatory process administration by admin"
+
   let!(:user_groups) { create_list(:user_group, 10, users: [create(:user, organization: organization)]) }
 
   before do

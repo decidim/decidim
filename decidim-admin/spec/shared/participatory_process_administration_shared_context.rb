@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-RSpec.shared_context "participatory process admin" do
+RSpec.shared_context "participatory process administration" do
   let(:organization) { create(:organization) }
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
-  let!(:process_admin) { create :user, :process_admin, :confirmed, organization: organization, participatory_process: participatory_process }
+  let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
   let(:image1_filename) { "city.jpeg" }
   let(:image1_path) { Decidim::Dev.asset(image1_filename) }
