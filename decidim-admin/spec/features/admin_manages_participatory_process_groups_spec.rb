@@ -3,7 +3,7 @@
 
 require "spec_helper"
 
-describe "Admin manage participatory process groups", type: :feature do
+describe "Admin manages participatory process groups", type: :feature do
   include_context "participatory process admin"
 
   before do

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory process categories", type: :feature do
+describe "Participatory process admin manages participatory process categories", type: :feature do
   include_context "participatory process admin"
 
   let(:user) { process_admin }
