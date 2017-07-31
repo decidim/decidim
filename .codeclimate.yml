@@ -29,6 +29,17 @@ engines:
     enabled: false
   fixme:
     enabled: true
+    exclude_paths:
+     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+  grep:
+    enabled: true
+    config:
+      patterns:
+        no-trailing-whitespace:
+          pattern: \s*$
+          annotation: "Don't leave trailing whitespace"
+          severity: minor
+          categories: Style
   rubocop:
     enabled: true
     channel: rubocop-0-48
