@@ -24,7 +24,7 @@
     <div class="row column">
       <% if @form.proposals %>
         <%= form.select :proposal_ids,
-                        @form.proposals.order("title ASC").pluck(:title, :id),
+                        @form.proposals.order(title: :asc).pluck(:title, :id),
                         { include_blank: true },
                         { multiple: true, class: "chosen-select" }
         %>

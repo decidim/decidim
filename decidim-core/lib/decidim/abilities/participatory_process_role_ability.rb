@@ -13,7 +13,10 @@ module Decidim
         # Define abilities if the user is not an admin and has at least one process to manage.
         if not_admin? && has_manageable_processes?
           define_abilities
-          define_participatory_process_abilities if current_participatory_process && can_manage_process?(current_participatory_process)
+
+          if current_participatory_process && can_manage_process?(current_participatory_process)
+            define_participatory_process_abilities
+          end
         end
       end
 
