@@ -161,7 +161,7 @@ module Decidim
     # datepicker library
     def datetime_field(attribute, options = {})
       value = object.send(attribute)
-      if value
+      if value.present?
         iso_value = value.strftime("%Y-%m-%dT%H:%M:%S")
         formatted_value = I18n.localize(value, format: :timepicker)
       end
