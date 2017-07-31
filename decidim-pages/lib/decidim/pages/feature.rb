@@ -51,25 +51,21 @@ Decidim.register_feature(:pages) do |feature|
     resource.model_class_name = "Decidim::Pages::Page"
   end
 
-  feature.seeds do
-    Decidim::ParticipatoryProcess.find_each do |process|
-      next unless process.steps.any?
+  feature.seeds do |process|
+    feature = Decidim::Feature.create!(
+      name: Decidim::Features::Namer.new(process.organization.available_locales, :pages).i18n_name,
+      manifest_name: :pages,
+      published_at: Time.current,
+      participatory_process: process
+    )
 
-      feature = Decidim::Feature.create!(
-        name: Decidim::Features::Namer.new(process.organization.available_locales, :pages).i18n_name,
-        manifest_name: :pages,
-        published_at: Time.current,
-        participatory_process: process
-      )
+    page = Decidim::Pages::Page.create!(
+      feature: feature,
+      body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        Decidim::Faker::Localized.paragraph(3)
+      end
+    )
 
-      page = Decidim::Pages::Page.create!(
-        feature: feature,
-        body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
-        end
-      )
-
-      Decidim::Comments::Seed.comments_for(page)
-    end
+    Decidim::Comments::Seed.comments_for(page)
   end
 end

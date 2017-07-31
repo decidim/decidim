@@ -51,7 +51,11 @@ module Decidim
       railtie.load_seed
     end
 
-    Decidim.feature_manifests.each(&:seed!)
+    Decidim::ParticipatoryProcess.find_each do |process|
+      Decidim.feature_manifests.each do |feature|
+        feature.seed!(process)
+      end
+    end
 
     I18n.available_locales = original_locale
   end
