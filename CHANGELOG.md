@@ -11,6 +11,7 @@
 - **decidim-core**: Fixed preview permissions for unpublished features. [\#1670](https://github.com/decidim/decidim/pull/1670).
 - **decidim-meetings**: Fixed bug where current meeting's category wouldn't appear in form. [\#1666](https://github.com/decidim/decidim/pull/1666).
 - **decidim-proposals**: Fixed bug where current proposal's category wouldn't appear in form. [\#1666](https://github.com/decidim/decidim/pull/1666).
+- **decidim-proposals**: Fixed error when official proposals where commented and could not be notified. [\#1663](https://github.com/decidim/decidim/pull/1663).
 - **decidim-results**: Fixed bug where current result's category wouldn't appear in form. [\#1666](https://github.com/decidim/decidim/pull/1666).
 
 ## [v0.4.3](https://github.com/decidim/decidim/tree/v0.4.3) (2017-07-25)
