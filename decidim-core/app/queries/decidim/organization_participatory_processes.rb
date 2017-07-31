@@ -9,10 +9,7 @@ module Decidim
     end
 
     def query
-      raise MandatoryOrganization unless @organization
-      ParticipatoryProcess.where(organization: @organization).published
+      ParticipatoryProcess.where(organization: @organization)
     end
-
-    class MandatoryOrganization < StandardError; end
   end
 end

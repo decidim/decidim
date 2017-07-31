@@ -11,8 +11,7 @@ module Decidim
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
-               class_name: "Decidim::Organization",
-               inverse_of: :participatory_processes
+               class_name: "Decidim::Organization"
     belongs_to :participatory_process_group,
                foreign_key: "decidim_participatory_process_group_id",
                class_name: "Decidim::ParticipatoryProcessGroup",
