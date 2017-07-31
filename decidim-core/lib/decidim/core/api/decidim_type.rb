@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This type represents a ParticipatoryProcess.
+  # This type represents a Decidim's global property.
   DecidimType = GraphQL::ObjectType.define do
     name "Decidim"
     description "Decidim's framework-related properties."
