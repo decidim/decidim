@@ -13,7 +13,7 @@ An opinionated guide to deploy this app to Heroku can be found at [https://githu
 You will need to do some steps before having the app working properly once you've deployed it:
 
 1. Open a Rails console in the server: `bundle exec rails console`
-2. Create a System Admin user: 
+2. Create a System Admin user:
 ```ruby
 user = Decidim::System::Admin.new(email: <email>, password: <password>, password_confirmation: <password>)
 user.save!
