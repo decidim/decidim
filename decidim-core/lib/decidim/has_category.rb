@@ -3,7 +3,7 @@
 require "active_support/concern"
 
 module Decidim
-  # A concern with the features needed when you want a model to be have a category.
+  # A concern with the features needed when you want a model to have a category.
   module HasCategory
     extend ActiveSupport::Concern
 
