@@ -9,11 +9,11 @@ module Decidim
     describe "seed" do
       it "registers a block of seeds to be run on development" do
         data = {}
-        subject.seeds do
+        subject.seeds do |_process|
           data[:foo] = :bar
         end
 
-        subject.seed!
+        subject.seed!(nil)
 
         expect(data[:foo]).to eq(:bar)
       end
