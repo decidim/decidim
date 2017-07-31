@@ -133,4 +133,10 @@ RSpec.shared_examples "a proposal form" do
       it { is_expected.to eq(nil) }
     end
   end
+
+  it "properly maps category id from model" do
+    proposal = create(:proposal, feature: feature, category: category)
+
+    expect(described_class.from_model(proposal).category_id).to eq(category_id)
+  end
 end

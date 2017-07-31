@@ -141,4 +141,10 @@ describe Decidim::Meetings::Admin::MeetingForm do
     expect(subject.latitude).to eq(latitude)
     expect(subject.longitude).to eq(longitude)
   end
+
+  it "properly maps category id from model" do
+    meeting = create(:meeting, feature: current_feature, category: category)
+
+    expect(described_class.from_model(meeting).decidim_category_id).to eq(category_id)
+  end
 end
