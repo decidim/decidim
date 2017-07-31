@@ -5,7 +5,6 @@ module Decidim
     # This class serializes a Proposal so can be exported to CSV, JSON or other
     # formats.
     class ProposalSerializer < Decidim::Exporters::Serializer
-      include Rails.application.routes.url_helpers
       include Decidim::ResourceHelper
 
       # Public: Initializes the serializer with a proposal.
@@ -44,27 +43,14 @@ module Decidim
         proposal.feature
       end
 
-      def organization
-        feature.organization
-      end
-
       def meetings
         @proposal.linked_resources(:meetings, "proposals_from_meeting").map do |meeting|
           Decidim::ResourceLocatorPresenter.new(meeting).url
         end
       end
 
-      def participatory_process
-        feature.participatory_process
-      end
-
       def url
-        Decidim::Proposals::Engine.routes.url_helpers.proposal_url(
-          proposal,
-          feature_id: feature,
-          participatory_process_id: participatory_process,
-          host: organization.host
-        )
+        Decidim::ResourceLocatorPresenter.new(proposal).url
       end
     end
   end

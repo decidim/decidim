@@ -16,7 +16,7 @@ module Decidim
           description "Lists all processes."
 
           resolve lambda { |_obj, _args, ctx|
-            OrganizationParticipatoryProcesses.new(ctx[:current_organization])
+            OrganizationPublishedParticipatoryProcesses.new(ctx[:current_organization])
           }
         end
 

@@ -58,7 +58,7 @@ module Decidim
       private
 
       def slug_uniqueness
-        return unless current_organization.participatory_processes.where(slug: slug).where.not(id: id).any?
+        return unless OrganizationParticipatoryProcesses.new(current_organization).query.where(slug: slug).where.not(id: id).any?
 
         errors.add(:slug, :taken)
       end
