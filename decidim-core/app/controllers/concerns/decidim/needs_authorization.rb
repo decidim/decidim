@@ -22,7 +22,7 @@ module Decidim
       end
 
       def current_ability_klass
-        Decidim::Ability
+        Decidim::Abilities::BaseAbility
       end
 
       def ability_context
