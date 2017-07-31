@@ -10,7 +10,7 @@ RSpec.shared_examples "manage process admins examples" do
     click_link "Process users"
   end
 
-  it "process admins" do
+  it "shows process admin list" do
     within "#process_admins table" do
       expect(page).to have_content(process_admin.email)
     end
