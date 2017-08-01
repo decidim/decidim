@@ -25,7 +25,7 @@ module Decidim
       attribute :slug, String
       attribute :hashtag, String
       attribute :promoted, Boolean
-      attribute :scope_id, String
+      attribute :scope_id, Integer
       attribute :hero_image
       attribute :remove_hero_image
       attribute :banner_image
@@ -48,7 +48,7 @@ module Decidim
       end
 
       def scope
-        @scope ||= current_organization.scopes.where(id: scope_id.to_i).first
+        @scope ||= current_organization.scopes.where(id: scope_id).first
       end
 
       def participatory_process_group
