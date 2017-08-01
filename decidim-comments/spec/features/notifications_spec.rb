@@ -23,10 +23,7 @@ describe "Comment notifications", type: :feature do
       click_button "Send"
     end
 
-    within "#comments" do
-      expect(page).to have_content user.name
-      expect(page).to have_content "This is a new comment"
-    end
+    expect(page).to have_comment_from(user, "This is a new comment")
 
     wait_for_email subject: "a new comment"
 
@@ -34,9 +31,6 @@ describe "Comment notifications", type: :feature do
 
     visit last_email_first_link
 
-    within "#comments" do
-      expect(page).to have_content user.name
-      expect(page).to have_content "This is a new comment"
-    end
+    expect(page).to have_comment_from(user, "This is a new comment")
   end
 end
