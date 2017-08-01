@@ -120,7 +120,7 @@ RSpec.shared_examples "comments" do
 
         within "#comments #comment_#{comment.id}" do
           click_button "Reply"
-          find("textarea").set("This is a reply")
+          fill_in "add-comment-Decidim::Comments::Comment-#{comment.id}", with: "This is a reply"
           click_button "Send"
         end
       end
