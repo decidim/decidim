@@ -61,6 +61,12 @@ describe Decidim::Results::Admin::ResultForm do
     it { is_expected.not_to be_valid }
   end
 
+  it "properly maps category id from model" do
+    result = create(:result, feature: current_feature, category: category)
+
+    expect(described_class.from_model(result).decidim_category_id).to eq(category_id)
+  end
+
   context "with proposals" do
     let(:proposals_feature) { create :feature, manifest_name: :proposals, participatory_process: participatory_process }
     let!(:proposal) { create :proposal, feature: proposals_feature }
