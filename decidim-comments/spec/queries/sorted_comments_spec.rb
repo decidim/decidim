@@ -34,7 +34,7 @@ describe Decidim::Comments::SortedComments do
 
   context "when the comment is hidden" do
     before do
-      moderation = create(:moderation, reportable: comment, participatory_process: comment.feature.participatory_space, report_count: 1, hidden_at: Time.current)
+      moderation = create(:moderation, reportable: comment, participatory_space: comment.feature.participatory_space, report_count: 1, hidden_at: Time.current)
       create(:report, moderation: moderation)
     end
 
