@@ -18,6 +18,10 @@ module Decidim
         can :read, ParticipatoryProcess do |process|
           can_manage_process?(process)
         end
+
+        can :read, Feature do |feature|
+          can_manage_process?(feature.participatory_process)
+        end
       end
     end
   end

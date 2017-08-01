@@ -17,6 +17,31 @@ module Decidim
       it { is_expected.not_to be_valid }
     end
 
+    context "when the process and user belong to different organizations" do
+      let(:participatory_process_organization) { create(:organization) }
+      let(:user_organization) { create(:organization) }
+
+      let(:participatory_process) do
+        build(
+          :participatory_process,
+          organization: participatory_process_organization
+        )
+      end
+
+      let(:user) { create(:user, organization: user_organization) }
+
+      let(:participatory_process_user_role) do
+        build(
+          :participatory_process_user_role,
+          user: user,
+          participatory_process: participatory_process,
+          role: "admin"
+        )
+      end
+
+      it { is_expected.not_to be_valid }
+    end
+
     context "when a role already exists" do
       let(:participatory_process_user_role) do
         build(

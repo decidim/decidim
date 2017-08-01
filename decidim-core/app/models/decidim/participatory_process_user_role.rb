@@ -9,5 +9,14 @@ module Decidim
 
     ROLES = %w(admin collaborator moderator).freeze
     validates :role, inclusion: { in: ROLES }, uniqueness: { scope: [:user, :participatory_process] }
+    validate :user_and_participatory_process_same_organization
+
+    private
+
+    # Private: check if the process and the user have the same organization
+    def user_and_participatory_process_same_organization
+      return if !participatory_process || !user
+      errors.add(:participatory_process, :invalid) unless user.organization == participatory_process.organization
+    end
   end
 end
