@@ -71,6 +71,8 @@ RSpec.shared_examples "comments" do
       end
 
       it "send notifications" do
+        expect(page).to have_comment_from(user, "This is a new comment")
+
         if commentable.notifiable?(author: user)
           wait_for_email subject: "new comment"
           relogin_as commentable.users_to_notify.first, scope: :user
@@ -128,6 +130,8 @@ RSpec.shared_examples "comments" do
       end
 
       it "sends notifications received by commentable's author" do
+        expect(page).to have_reply_to(comment, "This is a reply")
+
         wait_for_email subject: "new reply"
         relogin_as comment.author, scope: :user
         visit last_email_first_link
