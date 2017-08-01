@@ -4,7 +4,7 @@ module Decidim
   # A presenter to render statistics in the homepage.
   class ParticipatoryProcessStatsPresenter < Rectify::Presenter
     attribute :participatory_process, Decidim::ParticipatoryProcess
-    include Decidim::ParticipatoryProcessHelper
+    include Decidim::IconHelper
 
     # Public: Render a collection of primary stats.
     def highlighted
