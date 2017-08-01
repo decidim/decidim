@@ -10,7 +10,7 @@ module Decidim
     def report(user, report)
       with_user(user) do
         @report = report
-        @participatory_process = @report.moderation.participatory_process
+        @featurable = @report.moderation.featurable
         @organization = user.organization
         @user = user
         subject = I18n.t("report.subject", scope: "decidim.reported_mailer")
@@ -21,7 +21,7 @@ module Decidim
     def hide(user, report)
       with_user(user) do
         @report = report
-        @participatory_process = @report.moderation.participatory_process
+        @featurable = @report.moderation.featurable
         @organization = user.organization
         @user = user
         subject = I18n.t("hide.subject", scope: "decidim.reported_mailer")
@@ -36,7 +36,7 @@ module Decidim
     end
 
     def manage_moderations_url
-      @manage_moderations_url ||= decidim_admin.moderations_url(@participatory_process.id, host: @organization.host)
+      @manage_moderations_url ||= decidim_admin.moderations_url(@featurable.id, host: @organization.host)
     end
   end
 end
