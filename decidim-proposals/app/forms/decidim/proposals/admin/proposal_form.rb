@@ -22,6 +22,12 @@ module Decidim
 
         delegate :categories, to: :current_feature, prefix: false
 
+        def map_model(model)
+          return unless model.categorization
+
+          self.category_id = model.categorization.decidim_category_id
+        end
+
         def organization_scopes
           current_organization.scopes
         end

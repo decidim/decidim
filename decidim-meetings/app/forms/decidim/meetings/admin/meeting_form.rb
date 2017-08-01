@@ -31,6 +31,12 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
+        def map_model(model)
+          return unless model.categorization
+
+          self.decidim_category_id = model.categorization.decidim_category_id
+        end
+
         def process_scope
           current_feature.participatory_process.scope
         end
