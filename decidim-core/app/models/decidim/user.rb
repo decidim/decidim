@@ -33,13 +33,6 @@ module Decidim
     # Returns a String.
     attr_accessor :invitation_instructions
 
-    delegate :can?, to: :ability
-
-    # Gets the ability instance for the given user.
-    def ability
-      @ability ||= Ability.new(self)
-    end
-
     # Public: returns the user's name or the default one
     def name
       super || I18n.t("decidim.anonymous_user")

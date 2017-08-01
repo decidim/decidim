@@ -12,7 +12,7 @@ module Decidim::Abilities
         include CanCan::Ability
 
         def initialize(_user, _context)
-          can :read, Decidim::ParticipatoryProcess
+          can :read, Decidim::Feature
         end
       end
 
@@ -24,7 +24,7 @@ module Decidim::Abilities
           .and_return(abilities)
       end
 
-      it { is_expected.to be_able_to(:read, Decidim::ParticipatoryProcess) }
+      it { is_expected.to be_able_to(:read, Decidim::Feature) }
     end
 
     context "abilities" do
