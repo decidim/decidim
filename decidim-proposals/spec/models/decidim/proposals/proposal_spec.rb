@@ -81,6 +81,24 @@ module Decidim
             end
           end
         end
+
+        context "when the proposal is official" do
+          let!(:organization) { create :organization }
+          let!(:admin) { create :user, :admin, organization: organization }
+          let!(:participatory_process) { create :participatory_process, organization: organization }
+          let!(:process_admin) { create :user, :process_admin, organization: organization, participatory_process: participatory_process }
+          let!(:feature) { create :proposal_feature, participatory_process: participatory_process }
+          let!(:context_author) { create(:user, organization: organization) }
+          let!(:proposal) { build(:proposal, :official, feature: feature) }
+
+          it "is notifiable" do
+            expect(subject.notifiable?(author: context_author)).to be_truthy
+          end
+
+          it "notifies admins and process admins" do
+            expect(subject.users_to_notify).to match_array([admin, process_admin])
+          end
+        end
       end
     end
   end
