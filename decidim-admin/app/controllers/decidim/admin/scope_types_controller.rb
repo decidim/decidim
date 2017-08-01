@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-require_dependency "decidim/admin/application_controller"
-
 module Decidim
   module Admin
-    # Controller that allows managing all scopes at the admin panel.
+    # Controller that allows managing scopes types at the admin panel.
     #
-    class ScopeTypesController < ApplicationController
+    class ScopeTypesController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
       helper_method :scope_types
 
