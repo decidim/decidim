@@ -23,15 +23,9 @@ end
 
 capybara_options = {
   extensions: [
-    File.expand_path(
-      File.join(__dir__, "phantomjs_polyfills", "promise.js")
-    ),
-    File.expand_path(
-      File.join(__dir__, "phantomjs_polyfills", "phantomjs-shim.js")
-    ),
-    File.expand_path(
-      File.join(__dir__, "phantomjs_polyfills", "phantomjs-getOwnPropertyNames.js")
-    )
+    File.join(__dir__, "phantomjs_polyfills", "promise.js"),
+    File.join(__dir__, "phantomjs_polyfills", "phantomjs-shim.js"),
+    File.join(__dir__, "phantomjs_polyfills", "phantomjs-getOwnPropertyNames.js")
   ],
   js_errors: true,
   url_whitelist: ["http://*.lvh.me", "localhost", "127.0.0.1"],
