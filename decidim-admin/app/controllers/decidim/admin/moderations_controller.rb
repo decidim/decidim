@@ -61,7 +61,7 @@ module Decidim
       end
 
       def participatory_process_moderations
-        @participatory_process_moderations ||= Decidim::Moderation.where(participatory_process: current_participatory_process)
+        @participatory_process_moderations ||= Decidim::Moderation.where(participatory_space: current_participatory_process)
       end
     end
   end

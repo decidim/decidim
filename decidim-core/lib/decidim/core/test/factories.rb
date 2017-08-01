@@ -359,7 +359,7 @@ FactoryGirl.define do
 
   factory :moderation, class: Decidim::Moderation do
     reportable { build(:dummy_resource) }
-    participatory_process { reportable.feature.participatory_space }
+    participatory_space { reportable.feature.participatory_space }
   end
 
   factory :report, class: Decidim::Report do
