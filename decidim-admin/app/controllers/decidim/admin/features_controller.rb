@@ -91,7 +91,7 @@ module Decidim
         @feature = query_scope.find(params[:id])
         authorize! :update, @feature
 
-        @feature.update_attribute(:published_at, Time.current)
+        @feature.publish!
 
         flash[:notice] = I18n.t("features.publish.success", scope: "decidim.admin")
         redirect_to action: :index
@@ -101,7 +101,7 @@ module Decidim
         @feature = query_scope.find(params[:id])
         authorize! :update, @feature
 
-        @feature.update_attribute(:published_at, nil)
+        @feature.unpublish!
 
         flash[:notice] = I18n.t("features.unpublish.success", scope: "decidim.admin")
         redirect_to action: :index
