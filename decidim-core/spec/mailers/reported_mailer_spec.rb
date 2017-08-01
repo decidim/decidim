@@ -8,7 +8,7 @@ module Decidim
     let(:user) { create(:user, :admin, organization: organization) }
     let(:feature) { create(:feature, organization: organization) }
     let(:reportable) { create(:dummy_resource, feature: feature) }
-    let(:moderation) { create(:moderation, reportable: reportable, participatory_process: feature.participatory_space, report_count: 1) }
+    let(:moderation) { create(:moderation, reportable: reportable, participatory_space: feature.participatory_space, report_count: 1) }
     let!(:report) { create(:report, moderation: moderation) }
 
     describe "#report" do
