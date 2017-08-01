@@ -3,8 +3,8 @@
 
 require "spec_helper"
 
-describe "Admin manage participatory process groups", type: :feature do
-  include_context "participatory process admin"
+describe "Admin manages participatory process groups", type: :feature do
+  include_context "participatory process administration by admin"
 
   before do
     switch_to_host(organization.host)
