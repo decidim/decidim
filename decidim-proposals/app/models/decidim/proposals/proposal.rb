@@ -34,7 +34,7 @@ module Decidim
 
       def author_name
         return I18n.t("decidim.proposals.models.proposal.fields.official_proposal") if official?
-        user_group&.name || author&.name
+        user_group&.name || author.name
       end
 
       def author_avatar_url
