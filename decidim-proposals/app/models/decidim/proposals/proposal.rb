@@ -33,7 +33,8 @@ module Decidim
       end
 
       def author_name
-        user_group&.name || author&.name || I18n.t("decidim.proposals.models.proposal.fields.official_proposal")
+        return I18n.t("decidim.proposals.models.proposal.fields.official_proposal") if official?
+        user_group&.name || author.name
       end
 
       def author_avatar_url
@@ -100,15 +101,22 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+      # Public: Whether the proposal is official or not.
+      def official?
+        author.nil?
+      end
+
       # Public: Overrides the `notifiable?` Notifiable concern method.
       # When a proposal is commented the proposal's author is notified if it is not the same
       # who has commented the proposal and if the proposal's author has comment notifications enabled.
       def notifiable?(context)
+        return true if official?
         context[:author] != author && author.comments_notifications?
       end
 
       # Public: Overrides the `users_to_notify` Notifiable concern method.
       def users_to_notify
+        return Decidim::Admin::ProcessAdmins.for(feature.participatory_process) if official?
         [author]
       end
     end
