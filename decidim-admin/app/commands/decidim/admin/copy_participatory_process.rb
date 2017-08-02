@@ -84,7 +84,7 @@ module Decidim
             name: category.name,
             description: category.description,
             parent_id: category.parent_id,
-            participatory_process: @copied_process
+            featurable: @copied_process
           )
         end
       end

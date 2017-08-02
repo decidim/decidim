@@ -22,7 +22,7 @@ describe Decidim::Results::Admin::ResultForm do
   end
   let(:scope) { create :scope, organization: organization }
   let(:scope_id) { scope.id }
-  let(:category) { create :category, participatory_process: participatory_process }
+  let(:category) { create :category, featurable: participatory_process }
   let(:category_id) { category.id }
   let(:attributes) do
     {

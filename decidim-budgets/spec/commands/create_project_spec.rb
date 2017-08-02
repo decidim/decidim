@@ -7,7 +7,7 @@ describe Decidim::Budgets::Admin::CreateProject do
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, manifest_name: :budgets, featurable: participatory_process }
   let(:scope) { create :scope, organization: organization }
-  let(:category) { create :category, participatory_process: participatory_process }
+  let(:category) { create :category, featurable: participatory_process }
   let(:proposal_feature) do
     create(:feature, manifest_name: :proposals, featurable: participatory_process)
   end

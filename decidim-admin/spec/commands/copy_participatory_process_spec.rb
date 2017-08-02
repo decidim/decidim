@@ -20,12 +20,7 @@ describe Decidim::Admin::CopyParticipatoryProcess do
       copy_features?: copy_features
     )
   end
-  let!(:category) do
-    create(
-      :category,
-      participatory_process: participatory_process
-    )
-  end
+  let!(:category) { create(:category, featurable: participatory_process) }
 
   let(:invalid) { false }
   let(:copy_steps) { false }
@@ -94,7 +89,7 @@ describe Decidim::Admin::CopyParticipatoryProcess do
 
     it "duplicates a participatory process and the categories" do
       expect { subject.call }.to change { Decidim::Category.count }.by(1)
-      expect(Decidim::Category.pluck(:decidim_participatory_process_id).uniq.count).to eq 2
+      expect(Decidim::Category.pluck(:decidim_featurable_id).uniq.count).to eq 2
 
       old_participatory_process_category = Decidim::Category.first
       new_participatory_process_category = Decidim::Category.last

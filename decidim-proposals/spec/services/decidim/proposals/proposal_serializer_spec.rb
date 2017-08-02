@@ -6,7 +6,7 @@ module Decidim
   module Proposals
     describe ProposalSerializer do
       let!(:proposal) { create(:proposal) }
-      let!(:category) { create(:category, participatory_process: participatory_process) }
+      let!(:category) { create(:category, featurable: participatory_process) }
       let!(:scope) { create(:scope, organization: feature.featurable.organization) }
       let(:participatory_process) { feature.featurable }
       let(:feature) { proposal.feature }

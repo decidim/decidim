@@ -8,7 +8,7 @@ module Decidim
       describe "call" do
         let(:organization) { create(:organization) }
         let(:participatory_process) { create :participatory_process, organization: organization }
-        let(:category) { create(:category, participatory_process: participatory_process) }
+        let(:category) { create(:category, featurable: participatory_process) }
         let(:command) { described_class.new(category) }
 
         describe "when the category is not present" do

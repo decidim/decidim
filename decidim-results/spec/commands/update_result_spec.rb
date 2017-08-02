@@ -6,7 +6,7 @@ describe Decidim::Results::Admin::UpdateResult do
   let(:result) { create :result }
   let(:organization) { result.feature.organization }
   let(:scope) { create :scope, organization: organization }
-  let(:category) { create :category, participatory_process: result.feature.featurable }
+  let(:category) { create :category, featurable: result.feature.featurable }
   let(:participatory_process) { result.feature.featurable }
   let(:meeting_feature) do
     create(:feature, manifest_name: :meetings, featurable: participatory_process)

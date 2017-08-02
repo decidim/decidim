@@ -17,7 +17,7 @@ RSpec.shared_context "feature" do
            featurable: participatory_process)
   end
 
-  let!(:category) { create :category, participatory_process: participatory_process }
+  let!(:category) { create :category, featurable: participatory_process }
 
   let!(:scope) { create :scope, organization: organization }
 
