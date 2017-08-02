@@ -18,12 +18,12 @@ module Decidim
         Admin::UnreportResource.call(reportable) do
           on(:ok) do
             flash[:notice] = I18n.t("reportable.unreport.success", scope: "decidim.moderations.admin")
-            redirect_to decidim_admin.participatory_process_moderations_path
+            redirect_to decidim_admin.moderations_path
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("reportable.unreport.invalid", scope: "decidim.moderations.admin")
-            redirect_to decidim_admin.participatory_process_moderations_path
+            redirect_to decidim_admin.moderations_path
           end
         end
       end
@@ -34,12 +34,12 @@ module Decidim
         Admin::HideResource.call(reportable) do
           on(:ok) do
             flash[:notice] = I18n.t("reportable.hide.success", scope: "decidim.moderations.admin")
-            redirect_to decidim_admin.participatory_process_moderations_path
+            redirect_to decidim_admin.moderations_path
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("reportable.hide.invalid", scope: "decidim.moderations.admin")
-            redirect_to decidim_admin.participatory_process_moderations_path
+            redirect_to decidim_admin.moderations_path
           end
         end
       end
