@@ -37,6 +37,13 @@ module Decidim
     # Returns a String.
     attr_accessor :invitation_instructions
 
+    delegate :can?, to: :ability
+
+    # Gets the ability instance for the given user.
+    def ability
+      @ability ||= Ability.new(self)
+    end
+
     # Checks if the user has the given `role` or not.
     #
     # role - a String or a Symbol that represents the role that is being
