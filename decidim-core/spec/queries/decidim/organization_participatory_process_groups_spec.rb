@@ -2,28 +2,26 @@
 
 require "spec_helper"
 
-module Decidim
-  describe OrganizationParticipatoryProcessGroups do
-    subject { described_class.new(organization) }
+describe Decidim::OrganizationParticipatoryProcessGroups do
+  subject { described_class.new(organization) }
 
-    let!(:organization) { create(:organization) }
+  let!(:organization) { create(:organization) }
 
-    let!(:local_participatory_process_groups) do
-      create_list(:participatory_process_group, 3, organization: organization)
+  let!(:local_participatory_process_groups) do
+    create_list(:participatory_process_group, 3, organization: organization)
+  end
+
+  let!(:foreign_participatory_process_groups) do
+    create_list(:participatory_process_group, 3)
+  end
+
+  describe "query" do
+    it "includes the organization's processes" do
+      expect(subject).to include(*local_participatory_process_groups)
     end
 
-    let!(:foreign_participatory_process_groups) do
-      create_list(:participatory_process_group, 3)
-    end
-
-    describe "query" do
-      it "includes the organization's processes" do
-        expect(subject).to include(*local_participatory_process_groups)
-      end
-
-      it "excludes the external processes" do
-        expect(subject).not_to include(*foreign_participatory_process_groups)
-      end
+    it "excludes the external processes" do
+      expect(subject).not_to include(*foreign_participatory_process_groups)
     end
   end
 end
