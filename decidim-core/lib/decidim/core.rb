@@ -167,13 +167,6 @@ module Decidim
     feature_registry.find(name.to_sym)
   end
 
-  # Public: Stores all the resource manifest across all feature manifest.
-  #
-  # Returns an Array[ResourceManifest]
-  def self.resource_manifests
-    feature_registry.resource_manifests
-  end
-
   # Public: Finds a resource manifest by the resource's name.
   #
   # resource_name_or_class - The String of the ResourceManifest name or the class of
