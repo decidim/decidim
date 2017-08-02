@@ -28,7 +28,7 @@
       <% if feature.manifest.actions.empty? %>
         <%= icon "key", class: "action-icon action-icon--disabled" %>
       <% else %>
-        <%= icon_link_to "key", edit_feature_permissions_path(feature_id: feature), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
+        <%= icon_link_to "key", url_for(action: :edit, feature_id: feature, controller: "feature_permissions"), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
       <% end %>
     <% end %>
 
