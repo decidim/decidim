@@ -205,6 +205,20 @@ ca:
         participatory_structure: Estructura participativa
         scope: Àmbit
         target: A qui va dirigit?
+      statistics:
+        answers_count: Respostes
+        comments_count: Comentaris
+        headline: Activitat
+        meetings_count: Trobades
+        orders_count: Vots
+        pages_count: Pàgines
+        processes_count: Processos
+        projects_count: Projectes
+        proposals_count: Propostes
+        results_count: Resultats
+        surveys_count: Enquestes
+        users_count: Participants
+        votes_count: Suports
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -382,12 +396,17 @@ ca:
         active_step: Fase activa
         see_all_processes: Veure tots els processos
       statistics:
+        answers_count: Respostes
         comments_count: Comentaris
         headline: Estat actual de %{organization}
         meetings_count: Trobades
+        orders_count: Vots
+        pages_count: Pàgines
         processes_count: Processos
+        projects_count: Projectes
         proposals_count: Propostes
         results_count: Resultats
+        surveys_count: Enquestes
         users_count: Participants
         votes_count: Suports
       sub_hero:
