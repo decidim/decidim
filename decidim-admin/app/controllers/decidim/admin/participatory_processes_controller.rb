@@ -5,7 +5,6 @@ module Decidim
     # Controller that allows managing participatory processes.
     #
     class ParticipatoryProcessesController < Decidim::Admin::ApplicationController
-      helper Decidim::OrganizationScopesHelper
       helper_method :current_participatory_process
 
       def index
