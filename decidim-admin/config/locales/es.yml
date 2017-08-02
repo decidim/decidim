@@ -159,7 +159,6 @@ es:
           update: Actualizar
         index:
           categories_title: Categorías
-        index:
           category_used: Esta categoría no se puede eliminar porque está en uso.
         new:
           create: Crear categoría
@@ -393,7 +392,7 @@ es:
           title: Editar fase de proceso participativo
           update: Actualizar
         index:
-          steps_title: Fases
+          steps_title: Fases del proceso
         new:
           create: Crear
           title: Nuevo fase de proceso participativo

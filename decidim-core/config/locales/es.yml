@@ -205,6 +205,20 @@ es:
         participatory_structure: Estructura participativa
         scope: Ámbito
         target: '¿A quién va dirigido?'
+      statistics:
+        answers_count: Respuestas
+        comments_count: Comentarios
+        headline: Actividad
+        meetings_count: Encuentros
+        orders_count: Votos
+        pages_count: Páginas
+        processes_count: Procesos
+        projects_count: Proyectos
+        proposals_count: Propuestas
+        results_count: Resultados
+        surveys_count: Encuestas
+        users_count: Participantes
+        votes_count: Soportes
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -382,12 +396,17 @@ es:
         active_step: Fase activa
         see_all_processes: Ver todos los procesos
       statistics:
+        answers_count: Respuestas
         comments_count: Comentarios
         headline: Estado actual de %{organization}
         meetings_count: Encuentros
+        orders_count: Votos
+        pages_count: Páginas
         processes_count: Procesos
+        projects_count: Proyectos
         proposals_count: Propuestas
         results_count: Resultados
+        surveys_count: Encuestas
         users_count: Participantes
         votes_count: Votos
       sub_hero:
