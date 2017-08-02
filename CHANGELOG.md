@@ -1,18 +1,21 @@
 # Change Log
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
-[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.3...HEAD)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.4...HEAD)
+
+## [v0.4.4](https://github.com/decidim/decidim/tree/v0.4.4) (2017-08-02)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.3...v0.4.4)
 
 **Fixed**
 
-- **decidim-budgets**: Fixed bug where current projects's category wouldn't appear in form. [\#1666](https://github.com/decidim/decidim/pull/1666).
+- **decidim-budgets**: Fixed bug where current projects's category wouldn't appear in form. [\#1667](https://github.com/decidim/decidim/pull/1667).
 - **decidim-core**: Fixed crash when running migrations & seeding DB in the same ruby process. [\#1649](https://github.com/decidim/decidim/pull/1649).
 - **decidim-core**: Fixed bug when blank values were used in a `datetime` field. [\#1661](https://github.com/decidim/decidim/pull/1661)
 - **decidim-core**: Fixed preview permissions for unpublished features. [\#1670](https://github.com/decidim/decidim/pull/1670).
-- **decidim-meetings**: Fixed bug where current meeting's category wouldn't appear in form. [\#1666](https://github.com/decidim/decidim/pull/1666).
-- **decidim-proposals**: Fixed bug where current proposal's category wouldn't appear in form. [\#1666](https://github.com/decidim/decidim/pull/1666).
+- **decidim-meetings**: Fixed bug where current meeting's category wouldn't appear in form. [\#1667](https://github.com/decidim/decidim/pull/1667).
+- **decidim-proposals**: Fixed bug where current proposal's category wouldn't appear in form. [\#1667](https://github.com/decidim/decidim/pull/1667).
 - **decidim-proposals**: Fixed error when official proposals where commented and could not be notified. [\#1663](https://github.com/decidim/decidim/pull/1663).
-- **decidim-results**: Fixed bug where current result's category wouldn't appear in form. [\#1666](https://github.com/decidim/decidim/pull/1666).
+- **decidim-results**: Fixed bug where current result's category wouldn't appear in form. [\#1667](https://github.com/decidim/decidim/pull/1667).
 
 ## [v0.4.3](https://github.com/decidim/decidim/tree/v0.4.3) (2017-07-25)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.2...v0.4.3)
