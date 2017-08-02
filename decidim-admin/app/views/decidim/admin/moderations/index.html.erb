@@ -4,9 +4,9 @@
       <%= t(".title") %>
 
       <div class="card__filter">
-        <%= link_to t("actions.not_hidden", scope: "decidim.moderations"), decidim_admin.moderations_path %>
+        <%= link_to t("actions.not_hidden", scope: "decidim.moderations"), moderations_path %>
         |
-        <%= link_to t("actions.hidden", scope: "decidim.moderations"), decidim_admin.moderations_path(hidden: true) %>
+        <%= link_to t("actions.hidden", scope: "decidim.moderations"), moderations_path(hidden: true) %>
       </div>
     </h2>
   </div>
