@@ -3,8 +3,6 @@
 module Decidim
   module Results
     class ResultWidgetsController < Decidim::WidgetsController
-      helper_method :model
-
       private
 
       def model

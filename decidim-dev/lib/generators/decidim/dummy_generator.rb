@@ -48,8 +48,6 @@ module Decidim
       end
 
       def decidim_dev
-        template "decidim_dev.rb", "#{dummy_app_path}/config/initializers/decidim_dev.rb"
-
         # TODO: Remove these after PhantomJS updates WebKit version (see YML and
         #       initializer comments)
         template "autoprefixer.yml", "#{dummy_app_path}/config/autoprefixer.yml"
