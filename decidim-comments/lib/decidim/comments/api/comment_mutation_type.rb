@@ -8,11 +8,11 @@ module Decidim
 
       field :id, !types.ID, "The Comment's unique ID"
 
-      field :upVote, Decidim::Comments::CommentType do
+      field :upVote, !Decidim::Comments::CommentType do
         resolve VoteCommentResolver.new(weight: 1)
       end
 
-      field :downVote, Decidim::Comments::CommentType do
+      field :downVote, !Decidim::Comments::CommentType do
         resolve VoteCommentResolver.new(weight: -1)
       end
     end

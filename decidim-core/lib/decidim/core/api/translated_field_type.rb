@@ -7,17 +7,17 @@ module Decidim
     description "A translated field"
 
     field :locales do
-      type types[types.String]
+      type types[!types.String]
       description "Lists all the locales in which this translation is available"
       resolve ->(obj, _args, _ctx) { obj.keys }
     end
 
     field :translations do
-      type !types[LocalizedStringType]
+      type !types[!LocalizedStringType]
       description "All the localized strings for this translation."
 
       argument :locales do
-        type types[types.String]
+        type types[!types.String]
         description "A list of locales to scope the translations to."
       end
 
@@ -30,7 +30,7 @@ module Decidim
     end
 
     field :translation do
-      type types.String
+      type !types.String
       description "Returns a single translation given a locale."
       argument :locale, !types.String, "A locale to search for"
 
