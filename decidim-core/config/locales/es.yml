@@ -205,6 +205,11 @@ es:
         participatory_structure: Estructura participativa
         scope: Ámbito
         target: '¿A quién va dirigido?'
+      statistics:
+        answers_count: Respuestas
+        comments_count: Comentarios
+        headline: Actividad
+        meetings_count: Encuentros
     reported_mailer:
       hide:
         hello: Hola %{name},
