@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This query class returns the public Participatory Processes given an
-  # Organization in a meaningful order.
+  # This query class filters public processes given an organization in a
+  # meaningful prioritized order.
   class OrganizationPrioritizedParticipatoryProcesses < Rectify::Query
     def initialize(organization)
       @organization = organization
