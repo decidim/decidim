@@ -6,7 +6,7 @@ describe "Proposals", type: :feature do
   include_context "feature"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create :category, participatory_process: participatory_process }
+  let!(:category) { create :category, participatory_space: participatory_process }
   let!(:scope) { create :scope, organization: participatory_process.organization }
   let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
 

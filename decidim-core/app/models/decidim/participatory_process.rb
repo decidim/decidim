@@ -32,10 +32,10 @@ module Decidim
             dependent: :destroy,
             inverse_of: :participatory_process
     has_many :categories,
-             foreign_key: "decidim_participatory_process_id",
-             class_name: "Decidim::Category",
+             foreign_key: "decidim_participatory_space_id",
+             foreign_type: "decidim_participatory_space_type",
              dependent: :destroy,
-             inverse_of: :participatory_process
+             as: :participatory_space
 
     has_many :features, as: :participatory_space
 

@@ -17,7 +17,7 @@ shared_context "feature" do
            participatory_space: participatory_process)
   end
 
-  let!(:category) { create :category, participatory_process: participatory_process }
+  let!(:category) { create :category, participatory_space: participatory_process }
 
   let!(:scope) { create :scope, organization: organization }
 

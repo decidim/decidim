@@ -8,11 +8,11 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # participatory_process - The ParticipatoryProcess that will hold the
+      # participatory_space - The participatory space that will hold the
       #   category
-      def initialize(form, participatory_process)
+      def initialize(form, participatory_space)
         @form = form
-        @participatory_process = participatory_process
+        @participatory_space = participatory_space
       end
 
       # Executes the command. Broadcasts these events:
@@ -37,7 +37,7 @@ module Decidim
           name: form.name,
           description: form.description,
           parent_id: form.parent_id,
-          participatory_process: @participatory_process
+          participatory_space: @participatory_space
         )
       end
     end

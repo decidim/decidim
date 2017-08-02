@@ -6,7 +6,7 @@ describe Decidim::Budgets::ProjectSearch do
   let(:current_feature) { create :budget_feature }
   let(:scope1) { create :scope, organization: current_feature.organization }
   let(:scope2) { create :scope, organization: current_feature.organization }
-  let(:parent_category) { create :category, participatory_process: current_feature.participatory_space }
+  let(:parent_category) { create :category, participatory_space: current_feature.participatory_space }
   let(:subcategory) { create :subcategory, parent: parent_category }
   let!(:project1) do
     create(
