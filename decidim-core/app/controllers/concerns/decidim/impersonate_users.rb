@@ -47,8 +47,13 @@ module Decidim
         end
       end
 
+      # Gets the ability instance for the real user logged in.
+      def real_ability
+        @real_ability ||= Ability.new(real_user)
+      end
+
       def can_impersonate_users?
-        real_user && real_user.can?(:impersonate, :managed_users)
+        real_user && real_ability.can?(:impersonate, :managed_users)
       end
 
       def impersonation_log
