@@ -8,7 +8,7 @@ describe "Participatory process admin manages participatory process categories",
   let!(:category) do
     create(
       :category,
-      participatory_process: participatory_process
+      participatory_space: participatory_process
     )
   end
 

@@ -69,7 +69,7 @@ RSpec.shared_examples "manage process categories examples" do
   end
 
   context "deleting a category" do
-    let!(:category2) { create(:category, participatory_process: participatory_process) }
+    let!(:category2) { create(:category, participatory_space: participatory_process) }
 
     context "when the category has no associated content" do
       context "when the category has no subcategories" do

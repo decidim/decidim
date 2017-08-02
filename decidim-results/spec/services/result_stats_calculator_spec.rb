@@ -6,7 +6,7 @@ describe Decidim::Results::ResultStatsCalculator do
   let(:participatory_process) { create(:participatory_process, :with_steps) }
   let(:current_feature) { create :feature, manifest_name: :results, participatory_space: participatory_process }
   let(:scope) { create :scope, organization: current_feature.organization }
-  let(:parent_category) { create :category, participatory_process: current_feature.participatory_space }
+  let(:parent_category) { create :category, participatory_space: current_feature.participatory_space }
   let!(:result) do
     create(
       :result,

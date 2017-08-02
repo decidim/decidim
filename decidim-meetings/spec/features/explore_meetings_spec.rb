@@ -149,7 +149,7 @@ describe "Explore meetings", type: :feature do
     context "with a category" do
       let(:meeting) do
         meeting = meetings.first
-        meeting.category = create(:category, participatory_process: participatory_process)
+        meeting.category = create(:category, participatory_space: participatory_process)
         meeting.save
         meeting
       end

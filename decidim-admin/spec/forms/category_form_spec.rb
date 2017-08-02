@@ -72,7 +72,7 @@ module Decidim
 
       context "when the parent_id is set" do
         context "to the ID of a first-class category" do
-          let!(:category) { create :category, participatory_process: participatory_process }
+          let!(:category) { create :category, participatory_space: participatory_process }
           let(:parent_id) { category.id }
 
           it { is_expected.to be_valid }

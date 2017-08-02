@@ -6,7 +6,7 @@ RSpec.shared_examples "a proposal form" do
   let(:title) { "Oriol for president!" }
   let(:body) { "Everything would be better" }
   let(:author) { create(:user, organization: feature.organization) }
-  let(:category) { create(:category, participatory_process: feature.participatory_space) }
+  let(:category) { create(:category, participatory_space: feature.participatory_space) }
   let(:scope) { create(:scope, organization: feature.organization) }
   let(:category_id) { category.try(:id) }
   let(:scope_id) { scope.try(:id) }

@@ -27,7 +27,8 @@ FactoryGirl.define do
   factory :category, class: Decidim::Category do
     name { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    participatory_process
+
+    association :participatory_space, factory: :participatory_process
   end
 
   factory :subcategory, parent: :category do

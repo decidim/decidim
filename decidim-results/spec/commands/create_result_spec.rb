@@ -7,7 +7,7 @@ describe Decidim::Results::Admin::CreateResult do
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, manifest_name: "results", participatory_space: participatory_process }
   let(:scope) { create :scope, organization: organization }
-  let(:category) { create :category, participatory_process: participatory_process }
+  let(:category) { create :category, participatory_space: participatory_process }
   let(:meeting_feature) do
     create(:feature, manifest_name: "meetings", participatory_space: participatory_process)
   end
