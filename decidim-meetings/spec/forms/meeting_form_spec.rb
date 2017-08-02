@@ -36,7 +36,7 @@ describe Decidim::Meetings::Admin::MeetingForm do
   let(:end_time) { 2.days.from_now + 4.hours }
   let(:scope) { create :scope, organization: organization }
   let(:scope_id) { scope.id }
-  let(:category) { create :category, participatory_process: participatory_process }
+  let(:category) { create :category, participatory_space: participatory_process }
   let(:category_id) { category.id }
   let(:attributes) do
     {
