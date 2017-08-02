@@ -2,8 +2,6 @@
 
 module Decidim
   class ParticipatoryProcessWidgetsController < Decidim::WidgetsController
-    helper_method :model
-
     private
 
     def model

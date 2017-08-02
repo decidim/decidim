@@ -4,7 +4,7 @@ module Decidim
   module Meetings
     class MeetingWidgetsController < Decidim::WidgetsController
       helper MeetingsHelper
-      helper_method :model, :current_participatory_process
+      helper_method :current_participatory_process
 
       private
 
