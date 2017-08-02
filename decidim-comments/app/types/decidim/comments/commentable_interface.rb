@@ -26,7 +26,7 @@ module Decidim
       end
 
       field :comments do
-        type !types[CommentType]
+        type !types[!CommentType]
 
         argument :orderBy, types.String, "Order the comments"
 
