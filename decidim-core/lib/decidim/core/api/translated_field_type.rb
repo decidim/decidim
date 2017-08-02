@@ -30,7 +30,7 @@ module Decidim
     end
 
     field :translation do
-      type !types.String
+      type types.String
       description "Returns a single translation given a locale."
       argument :locale, !types.String, "A locale to search for"
 
