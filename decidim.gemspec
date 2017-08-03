@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Citizen participation framework for Ruby on Rails."
   spec.description = "Citizen participation framework for Ruby on Rails."
 
-  spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|decidim-core)/}) }
+  spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(spec|decidim-core)/}) }
   spec.bindir = "bin"
   spec.executables = ["decidim"]
   spec.require_paths = ["lib"]
