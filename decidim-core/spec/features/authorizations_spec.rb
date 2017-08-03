@@ -3,14 +3,14 @@
 require "spec_helper"
 
 describe "Authorizations", type: :feature, perform_enqueued: true do
-  let(:organization) { create :organization, available_authorizations: authorizations }
-  let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
-
   before do
     switch_to_host(organization.host)
   end
 
   context "a new user" do
+    let(:organization) { create :organization, available_authorizations: authorizations }
+    let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
+
     let(:user) { create(:user, :confirmed, organization: organization) }
 
     context "when one authorization has been configured" do
@@ -62,6 +62,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
   end
 
   context "user account" do
+    let(:organization) { create :organization, available_authorizations: authorizations }
     let(:user) { create(:user, :confirmed) }
 
     before do
@@ -69,32 +70,38 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
       visit decidim.root_path
     end
 
-    it "allows the user to authorize against available authorizations" do
-      within_user_menu do
-        click_link "My account"
-      end
+    context "when user has not already been authorized" do
+      let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
 
-      click_link "Authorizations"
-      click_link "Example authorization"
+      it "allows the user to authorize against available authorizations" do
+        within_user_menu do
+          click_link "My account"
+        end
 
-      fill_in "Document number", with: "123456789X"
-      page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
-      click_button "Send"
-
-      expect(page).to have_content("You've been successfully authorized")
-
-      within "#user-settings-tabs" do
         click_link "Authorizations"
-      end
+        click_link "Example authorization"
 
-      within ".authorizations-list" do
-        expect(page).to have_content("Example authorization")
-        expect(page).not_to have_link("Example authorization")
+        fill_in "Document number", with: "123456789X"
+        page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
+        page.find(".datepicker-dropdown .day", text: "12").click
+        click_button "Send"
+
+        expect(page).to have_content("You've been successfully authorized")
+
+        within "#user-settings-tabs" do
+          click_link "Authorizations"
+        end
+
+        within ".authorizations-list" do
+          expect(page).to have_content("Example authorization")
+          expect(page).not_to have_link("Example authorization")
+        end
       end
     end
 
     context "when the user has already been authorised" do
+      let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
+
       let!(:authorization) do
         create(:authorization,
                name: Decidim::DummyAuthorizationHandler.handler_name,
@@ -117,6 +124,8 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
     end
 
     context "when no authorizations are configured" do
+      let(:authorizations) { [] }
+
       before do
         Decidim.authorization_handlers = []
       end

@@ -67,22 +67,18 @@ RSpec.shared_examples "comments" do
       end
 
       it "shows comment to the user" do
-        within "#comments" do
-          expect(page).to have_content user.name
-          expect(page).to have_content "This is a new comment"
-        end
+        expect(page).to have_comment_from(user, "This is a new comment")
       end
 
       it "send notifications" do
+        expect(page).to have_comment_from(user, "This is a new comment")
+
         if commentable.notifiable?(author: user)
           wait_for_email subject: "new comment"
           relogin_as commentable.users_to_notify.first, scope: :user
           visit last_email_first_link
 
-          within "#comments" do
-            expect(page).to have_content user.name
-            expect(page).to have_content "This is a new comment"
-          end
+          expect(page).to have_comment_from(user, "This is a new comment")
         else
           expect do
             wait_for_email subject: "new comment"
@@ -109,10 +105,7 @@ RSpec.shared_examples "comments" do
           click_button "Send"
         end
 
-        within "#comments" do
-          expect(page).to have_content user_group.name
-          expect(page).to have_content "This is a new comment"
-        end
+        expect(page).to have_comment_from(user_group, "This is a new comment")
       end
     end
 
@@ -127,25 +120,23 @@ RSpec.shared_examples "comments" do
 
         within "#comments #comment_#{comment.id}" do
           click_button "Reply"
-          find("textarea").set("This is a reply")
+          fill_in "add-comment-Decidim::Comments::Comment-#{comment.id}", with: "This is a reply"
           click_button "Send"
         end
       end
 
       it "shows reply to the user" do
-        within "#comments #comment_#{comment.id}" do
-          expect(page).to have_content "This is a reply"
-        end
+        expect(page).to have_reply_to(comment, "This is a reply")
       end
 
       it "sends notifications received by commentable's author" do
+        expect(page).to have_reply_to(comment, "This is a reply")
+
         wait_for_email subject: "new reply"
         relogin_as comment.author, scope: :user
         visit last_email_first_link
 
-        within "#comments #comment_#{comment.id}" do
-          expect(page).to have_content "This is a reply"
-        end
+        expect(page).to have_reply_to(comment, "This is a reply")
       end
     end
 
@@ -196,10 +187,6 @@ RSpec.shared_examples "comments" do
       end
 
       context "downvoting a comment" do
-        before do
-          visit resource_path
-        end
-
         it "works according to the setting in the commentable" do
           within "#comment_#{comments[0].id}" do
             if commentable.comments_have_votes?
