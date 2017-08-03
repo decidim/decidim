@@ -29,7 +29,7 @@
                 <% elsif can? :preview, process %>
                   <%= link_to translated_attribute(process.title), decidim.participatory_process_path(process) %><br />
                 <% elsif can? :read, Decidim::Moderation %>
-                  <%= link_to translated_attribute(process.title), decidim_admin.participatory_process_moderations_path(process) %><br />
+                  <%= link_to translated_attribute(process.title), moderations_path(process) %><br />
                 <% else %>
                   <%= translated_attribute(process.title) %>
                 <% end %>

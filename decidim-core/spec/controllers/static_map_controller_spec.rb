@@ -12,7 +12,6 @@ module Decidim
 
     before do
       @request.env["decidim.current_organization"] = organization
-      @request.env["decidim.current_participatory_process"] = feature.participatory_process
       @request.env["decidim.current_feature"] = feature
     end
 

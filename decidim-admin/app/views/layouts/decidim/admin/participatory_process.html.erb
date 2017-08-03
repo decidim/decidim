@@ -31,8 +31,8 @@
         </li>
       <% end %>
       <% if can? :read, Decidim::Category %>
-        <li <% if is_active_link?(decidim_admin.participatory_process_categories_path(current_participatory_process)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_categories_path(current_participatory_process) %>
+        <li <% if is_active_link?(decidim_admin.categories_path(current_participatory_process)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.categories_path(current_participatory_process) %>
         </li>
       <% end %>
       <% if can? :read, Decidim::Attachment %>
@@ -46,8 +46,8 @@
         </li>
       <% end %>
       <% if can? :read, Decidim::Moderation %>
-        <li <% if is_active_link?(decidim_admin.participatory_process_moderations_path(current_participatory_process.id)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.participatory_process_moderations_path(current_participatory_process.id) %>
+        <li <% if is_active_link?(decidim_admin.moderations_path(current_participatory_process.id)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin.moderations_path(current_participatory_process.id) %>
         </li>
       <% end %>
     </ul>

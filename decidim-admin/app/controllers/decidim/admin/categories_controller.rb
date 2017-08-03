@@ -23,7 +23,7 @@ module Decidim
         CreateCategory.call(@form, current_participatory_process) do
           on(:ok) do
             flash[:notice] = I18n.t("categories.create.success", scope: "decidim.admin")
-            redirect_to participatory_process_categories_path(current_participatory_process)
+            redirect_to categories_path(current_participatory_process)
           end
 
           on(:invalid) do
@@ -47,7 +47,7 @@ module Decidim
         UpdateCategory.call(@category, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("categories.update.success", scope: "decidim.admin")
-            redirect_to participatory_process_categories_path(current_participatory_process)
+            redirect_to categories_path(current_participatory_process)
           end
 
           on(:invalid) do
@@ -75,7 +75,7 @@ module Decidim
             flash[:alert] = I18n.t("categories.destroy.error", scope: "decidim.admin")
           end
 
-          redirect_back(fallback_location: participatory_process_categories_path(current_participatory_process))
+          redirect_back(fallback_location: categories_path(current_participatory_process))
         end
       end
 
