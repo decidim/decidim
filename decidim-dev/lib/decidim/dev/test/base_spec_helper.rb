@@ -14,14 +14,9 @@ if ENV["SIMPLECOV"]
   SimpleCov.command_name File.basename(Dir.pwd)
 
   SimpleCov.start do
-    filters.clear
     add_filter "/spec/decidim_dummy_app/"
     add_filter "bundle.js"
     add_filter "/vendor/"
-
-    add_filter do |src|
-      src.filename !~ /^#{root_path}/
-    end
   end
 
   if ENV["CI"]
