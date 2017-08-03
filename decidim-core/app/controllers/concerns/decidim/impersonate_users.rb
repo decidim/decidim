@@ -49,7 +49,7 @@ module Decidim
 
       # Gets the ability instance for the real user logged in.
       def real_ability
-        @real_ability ||= Decidim::Abilities::BaseAbility.new(real_user, ability_context)
+        @real_ability ||= current_ability_klass.new(real_user, ability_context)
       end
 
       def can_impersonate_users?

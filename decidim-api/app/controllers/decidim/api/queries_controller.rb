@@ -5,6 +5,8 @@ module Decidim
     # This controller takes queries from an HTTP endpoint and sends them out to
     # the Schema to be executed, later returning the response as JSON.
     class QueriesController < Api::ApplicationController
+      skip_authorization_check
+
       def create
         query_string = params[:query]
         query_variables = ensure_hash(params[:variables])
