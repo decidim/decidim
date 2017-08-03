@@ -11,6 +11,8 @@ if ENV["SIMPLECOV"]
   require "simplecov"
   SimpleCov.root(root_path)
 
+  SimpleCov.command_name File.basename(Dir.pwd)
+
   SimpleCov.start do
     filters.clear
     add_filter "/spec/decidim_dummy_app/"
