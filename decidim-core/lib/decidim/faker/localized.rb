@@ -123,7 +123,7 @@ module Decidim
       def self.literal(text)
         Decidim.available_locales.inject({}) do |result, locale|
           result.update(locale => text)
-        end
+        end.with_indifferent_access
       end
 
       # Wrapps a text build by the block with some other text.o
@@ -154,7 +154,7 @@ module Decidim
           end
 
           result.update(locale => text)
-        end
+        end.with_indifferent_access
       end
 
       private_class_method :localized
