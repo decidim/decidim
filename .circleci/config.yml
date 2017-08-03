@@ -34,7 +34,7 @@ jobs:
           command: |
             case $CIRCLE_NODE_INDEX in
               0)
-                (cd /code && npm run lint && bundle exec rspec spec) &&
+                (cd /code && npm run lint) &&
                 (cd /code && npm test -- decidim-api) &&
                 (cd /code/decidim-api && bundle exec rake) &&
                 (cd /code && npm test -- decidim-core) &&
