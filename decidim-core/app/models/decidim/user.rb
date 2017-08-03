@@ -19,7 +19,7 @@ module Decidim
     has_many :user_groups, through: :memberships, class_name: "Decidim::UserGroup", foreign_key: :decidim_user_group_id
 
     validates :name, presence: true, unless: -> { deleted? }
-    validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
+    validates :locale, inclusion: { in: Decidim.available_locales.map(&:to_s) }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :avatar, file_size: { less_than_or_equal_to: MAXIMUM_AVATAR_FILE_SIZE }
     validates :email, uniqueness: { scope: :organization }, unless: -> { deleted? }

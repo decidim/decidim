@@ -121,7 +121,7 @@ module Decidim
       #
       # Returns a Hash with a value for each locale.
       def self.literal(text)
-        I18n.available_locales.inject({}) do |result, locale|
+        Decidim.available_locales.inject({}) do |result, locale|
           result.update(locale => text)
         end
       end
@@ -148,7 +148,7 @@ module Decidim
 
       # nodoc
       def self.localized
-        I18n.available_locales.inject({}) do |result, locale|
+        Decidim.available_locales.inject({}) do |result, locale|
           text = ::Faker::Base.with_locale(locale) do
             yield
           end
