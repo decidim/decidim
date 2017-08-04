@@ -8,25 +8,12 @@ root_path = File.expand_path("..", Dir.pwd)
 engine_spec_dir = File.join(Dir.pwd, "spec")
 
 if ENV["SIMPLECOV"]
-  require "simplecov"
+  require "simplecov/no_defaults"
+
   SimpleCov.root(root_path)
+  require "simplecov/defaults"
 
-  SimpleCov.start do
-    filters.clear
-    add_filter "/test/"
-    add_filter "/spec/"
-    add_filter "bundle.js"
-    add_filter "/vendor/"
-
-    add_filter do |src|
-      src.filename !~ /^#{root_path}/
-    end
-  end
-
-  if ENV["CI"]
-    require "codecov"
-    SimpleCov.formatter = SimpleCov::Formatter::Codecov
-  end
+  SimpleCov.command_name File.basename(Dir.pwd)
 end
 
 require "rails"

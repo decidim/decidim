@@ -81,13 +81,6 @@ FactoryGirl.define do
       published_at { Time.current }
     end
 
-    trait :with_scope do
-      after(:create) do |participatory_process, _evaluator|
-        create(:scope,
-               organization: participatory_process.organization)
-      end
-    end
-
     trait :with_steps do
       transient { current_step_ends 1.month.from_now }
 
