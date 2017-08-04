@@ -4,6 +4,8 @@ engines:
     enabled: true
   csslint:
     enabled: true
+    exclude_paths:
+      - "decidim-core/app/assets/stylesheets/decidim/email.css"
   duplication:
     enabled: true
     config:
@@ -31,6 +33,7 @@ engines:
     enabled: true
     exclude_paths:
      - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+     - .rubocop.yml
   grep:
     enabled: true
     config:
@@ -53,8 +56,6 @@ ratings:
 exclude_paths:
 - "**/vendor/**/*"
 - "**/*.test.js"
-- "decidim-core/app/assets/stylesheets/decidim/email.css"
-- .rubocop.yml
 - "docs/how_to_create_a_plugin.md"
 - "bundle.js"
 - "node_modules/**/*"
