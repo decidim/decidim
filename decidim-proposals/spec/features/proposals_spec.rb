@@ -223,19 +223,15 @@ describe "Proposals", type: :feature do
             within ".new_proposal" do
               fill_in :proposal_title, with: "Proposal with attachments"
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
-              attach_file "proposal_attachment_0_file", Decidim::Dev.asset("city.jpeg")
-              attach_file "proposal_attachment_1_file", Decidim::Dev.asset("Exampledocument.pdf")
+              fill_in :proposal_attachment_title, with: "My attachment"
+              attach_file :proposal_attachment_file, Decidim::Dev.asset("city.jpeg")
               check :proposal_attachment_terms
               find("*[type=submit]").click
             end
 
             expect(page).to have_content("successfully")
 
-            within "section.documents" do
-              expect(page).to have_content("ExampleDocument.pdf")
-            end
-
-            within "section.images" do
+            within ".section.images" do
               expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
             end
           end

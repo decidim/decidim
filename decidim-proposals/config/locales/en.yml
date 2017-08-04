@@ -20,6 +20,7 @@ en:
         settings:
           global:
             announcement: Announcement
+            attachments_allowed: Allow attachments
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
             new_proposal_help_text: New proposal help text

@@ -22,7 +22,10 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_proposal
+        transaction do
+          create_proposal
+          create_attachment if attachments_allowed?
+        end
         broadcast(:ok, proposal)
       end
 
@@ -43,6 +46,18 @@ module Decidim
           latitude: form.latitude,
           longitude: form.longitude
         )
+      end
+
+      def create_attachment
+        Attachment.create!(
+          title: form.attachment.title,
+          file: form.attachment.file,
+          attached_to: @proposal
+        )
+      end
+
+      def attachments_allowed?
+        current_feature.settings.attachments_allowed?
       end
     end
   end
