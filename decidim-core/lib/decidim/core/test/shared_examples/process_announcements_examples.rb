@@ -22,7 +22,7 @@ shared_examples "manage processes announcements" do
       expect(page).to have_content("successfully")
     end
 
-    visit decidim_admin.participatory_processes_path
+    visit decidim_admin_participatory_processes.participatory_processes_path
 
     within "tr", text: translated(participatory_process.title) do
       page.find("a.action-icon--preview").click

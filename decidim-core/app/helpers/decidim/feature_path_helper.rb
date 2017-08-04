@@ -9,7 +9,7 @@ module Decidim
     #
     # Returns a url.
     def main_feature_path(feature)
-      feature_root_path_for(feature.manifest.engine, feature)
+      EngineRouter.main_proxy(feature).root_path
     end
 
     # Returns the defined admin root path for a given feature.
@@ -18,20 +18,7 @@ module Decidim
     #
     # Returns a url.
     def manage_feature_path(feature)
-      feature_root_path_for(feature.manifest.admin_engine, feature)
-    end
-
-    private
-
-    def feature_root_path_for(engine, feature)
-      participatory_space = feature.participatory_space
-
-      url_params = {
-        feature_id: feature.id,
-        participatory_space.class.name.foreign_key.to_sym => participatory_space.id
-      }
-
-      engine.routes.url_helpers.root_path(url_params)
+      EngineRouter.admin_proxy(feature).root_path
     end
   end
 end

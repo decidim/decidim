@@ -8,8 +8,6 @@ module Decidim
       include CanCan::Ability
 
       def initialize(user, _context)
-        can :read, ParticipatoryProcessGroup
-        can :read, ParticipatoryProcess, &:published?
         can :read, :public_pages
         can :manage, :locales
 

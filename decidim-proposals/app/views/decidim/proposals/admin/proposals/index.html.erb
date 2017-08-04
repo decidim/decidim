@@ -21,7 +21,7 @@
           <tr>
             <th><%= t("models.proposal.fields.title", scope: "decidim.proposals") %></th>
             <th><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></th>
-            <% if scopes_enabled?(current_participatory_process) %>
+            <% if scopes_enabled?(current_participatory_space) %>
               <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
             <% end %>
             <th><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></th>
@@ -39,7 +39,7 @@
                   <%= translated_attribute proposal.category.name %>
                 <% end %>
               </td>
-              <% if scopes_enabled?(current_participatory_process) %>
+              <% if scopes_enabled?(current_participatory_space) %>
                 <td>
                   <% if proposal.scope %>
                     <%= translated_attribute proposal.scope.name %>

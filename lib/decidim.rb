@@ -4,6 +4,9 @@ require "decidim/core"
 require "decidim/system"
 require "decidim/admin"
 require "decidim/api"
+
+require "decidim/participatory_processes"
+
 require "decidim/pages"
 require "decidim/comments"
 require "decidim/meetings"

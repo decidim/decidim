@@ -21,13 +21,6 @@ $ bundle
 
 ## Features
 
-### Participatory process
-
-Here you can manage participatory processes.
-
-TODO: Elaborate on this.
-
-
 ### Static pages
 
 This feature allows an admin to create pages to serve static content. Some

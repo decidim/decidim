@@ -31,9 +31,34 @@ module Decidim
       self.manifest_name = manifest.name
     end
 
+    # Public: The name of the engine the feature is mounted to.
+    def mounted_engine
+      "decidim_#{participatory_space_name}_#{manifest_name}"
+    end
+
+    # Public: The name of the admin engine the feature is mounted to.
+    def mounted_admin_engine
+      "decidim_admin_#{participatory_space_name}_#{manifest_name}"
+    end
+
+    # Public: The hash of contextual params when the feature is mounted.
+    def mounted_params
+      {
+        host: organization.host,
+        feature_id: id,
+        participatory_space.foreign_key.to_sym => participatory_space.id
+      }
+    end
+
     # Public: Returns the value of the registered primary stat.
     def primary_stat
       @primary_stat ||= manifest.stats.filter(primary: true).with_context([self]).map { |name, value| [name, value] }.first&.last
+    end
+
+    private
+
+    def participatory_space_name
+      participatory_space.underscored_name
     end
   end
 end

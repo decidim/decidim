@@ -9,7 +9,7 @@ module Decidim
     #
     # Returns boolean.
     def has_visible_scopes?(resource)
-      current_participatory_process.scopes_enabled? && !current_participatory_process.scope.present? && resource.scope.present?
+      current_participatory_space.scopes_enabled? && !current_participatory_space.scope.present? && resource.scope.present?
     end
   end
 end

@@ -33,6 +33,8 @@ FactoryGirl.define do
 
   factory :subcategory, parent: :category do
     parent { build(:category) }
+
+    participatory_space { parent.participatory_space }
   end
 
   factory :organization, class: Decidim::Organization do
@@ -53,76 +55,6 @@ FactoryGirl.define do
     official_img_header { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }
-  end
-
-  factory :participatory_process, class: Decidim::ParticipatoryProcess do
-    title { Decidim::Faker::Localized.sentence(3) }
-    slug { generate(:slug) }
-    subtitle { Decidim::Faker::Localized.sentence(1) }
-    short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
-    published_at { Time.current }
-    organization
-    meta_scope { Decidim::Faker::Localized.word }
-    developer_group { Decidim::Faker::Localized.sentence(1) }
-    local_area { Decidim::Faker::Localized.sentence(2) }
-    target { Decidim::Faker::Localized.sentence(3) }
-    participatory_scope { Decidim::Faker::Localized.sentence(1) }
-    participatory_structure { Decidim::Faker::Localized.sentence(2) }
-    end_date 2.month.from_now.at_midnight
-    show_statistics true
-
-    trait :promoted do
-      promoted true
-    end
-
-    trait :unpublished do
-      published_at nil
-    end
-
-    trait :published do
-      published_at { Time.current }
-    end
-
-    trait :with_steps do
-      transient { current_step_ends 1.month.from_now }
-
-      after(:create) do |participatory_process, evaluator|
-        create(:participatory_process_step,
-               active: true,
-               end_date: evaluator.current_step_ends,
-               participatory_process: participatory_process)
-        participatory_process.reload
-        participatory_process.steps.reload
-      end
-    end
-  end
-
-  factory :participatory_process_group, class: Decidim::ParticipatoryProcessGroup do
-    name { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-    organization
-  end
-
-  factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do
-    title { Decidim::Faker::Localized.sentence(3) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    start_date 1.month.ago.at_midnight
-    end_date 2.month.from_now.at_midnight
-    position nil
-    participatory_process
-
-    after(:create) do |step, _evaluator|
-      step.participatory_process.reload
-      step.participatory_process.steps.reload
-    end
-
-    trait :active do
-      active true
-    end
   end
 
   factory :user, class: Decidim::User do
