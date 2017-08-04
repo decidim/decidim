@@ -38,7 +38,7 @@ Decidim.register_feature(:meetings) do |feature|
       scopes = process.organization.scopes
       global = nil
     end
-    
+
     3.times do
       meeting = Decidim::Meetings::Meeting.create!(
         feature: feature,
