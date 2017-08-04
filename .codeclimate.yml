@@ -61,3 +61,4 @@ exclude_paths:
 - "development_app/**/*"
 - "docker_development_app/**/*"
 - "spec/decidim_dummy_app/**/*"
+- "coverage/**/*"
