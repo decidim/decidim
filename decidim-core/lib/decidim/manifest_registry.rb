@@ -37,9 +37,7 @@ module Decidim
     private
 
     def manifest_class
-      case @entity
-      when :features then FeatureManifest
-      end
+      "Decidim::#{@entity.to_s.classify}Manifest".constantize
     end
   end
 end

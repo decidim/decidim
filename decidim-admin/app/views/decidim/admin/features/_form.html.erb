@@ -35,7 +35,7 @@
               <legend><%= t ".step_settings" %></legend>
             </div>
             <div class="card-section">
-              <% current_participatory_process.steps.each do |step| %>
+              <% current_participatory_space.steps.each do |step| %>
                 <fieldset class="step-settings-<%= step.id %>">
                   <legend><%= step.position + 1 %>. <%= translated_attribute step.title %></legend>
                   <% step_settings = form.object.step_settings[step.id.to_s] %>

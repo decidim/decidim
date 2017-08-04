@@ -120,12 +120,10 @@ en:
   decidim:
     admin:
       actions:
-        activate: Activate
         add: Add
         configure: Configure
         confirm_destroy: Are you sure you want to delete this?
         destroy: Destroy
-        duplicate: Duplicate
         edit: Edit
         export: Export
         manage: Manage
@@ -255,16 +253,6 @@ en:
         dashboard: Dashboard
         managed_users: Managed users
         newsletters: Newsletters
-        participatory_process_groups: Process groups
-        participatory_processes: Processes
-        participatory_processes_submenu:
-          attachments: Attachments
-          categories: Categories
-          features: Features
-          info: Info
-          moderations: Moderations
-          process_admins: Process users
-          steps: Steps
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -295,33 +283,6 @@ en:
             sent_at: Sent at
             subject: Subject
           name: Newsletter
-        participatory_process:
-          fields:
-            created_at: Created at
-            promoted: Highlighted
-            published: Published
-            title: Title
-          name: Participatory process
-        participatory_process_group:
-          fields:
-            name: Name
-          name: Process group
-        participatory_process_step:
-          fields:
-            end_date: End date
-            start_date: Start date
-            title: Title
-          name: Participatory process step
-        participatory_process_user_role:
-          fields:
-            email: Email
-            name: Name
-            role: Role
-          name: Participatory Process User
-          roles:
-            admin: Administrator
-            collaborator: Collaborator
-            moderator: Moderator
         scope:
           fields:
             name: Name
@@ -409,101 +370,6 @@ en:
         update:
           error: There was an error when updating this organization.
           success: Organization updated successfully.
-      participatory_process_copies:
-        new:
-          copy: Copy
-          select: Select which data you would like to duplicate
-          title: Duplicate participatory processs
-      participatory_process_groups:
-        destroy:
-          success: Participatory process group destroyed successfully.
-        edit:
-          title: Edit process group
-          update: Update
-        new:
-          create: Create
-          title: New process group
-        update:
-          error: There was en error updating this participatory process group.
-          success: Participatory process group updated successfully.
-      participatory_process_publications:
-        create:
-          error: There was an error publishing this participatory process.
-          success: Participatory process published successfully.
-        destroy:
-          error: There was an error unpublishing this participatory process.
-          success: Participatory process unpublished successfully.
-      participatory_process_step_activations:
-        create:
-          error: There was an error activating this participatory process step.
-          success: Participatory process step activated successfully.
-      participatory_process_steps:
-        create:
-          error: There was an error creating a new participatory process step.
-          success: Participatory process step created successfully.
-        default_title: Introduction
-        destroy:
-          error:
-            active_step: Can't delete the active step.
-            last_step: Can't delete the last step of a process.
-          success: Participatory process step destroyed successfully.
-        edit:
-          title: Edit participatory process step
-          update: Update
-        index:
-          steps_title: Steps
-        new:
-          create: Create
-          title: New participatory process step
-        ordering:
-          error: There was an error when reordering this participatory process steps.
-        update:
-          error: There was an error when updating this participatory process step.
-          success: Participatory process step updated successfully.
-      participatory_process_user_roles:
-        create:
-          error: There was an error adding an user for this participatory process.
-          success: User created successfully for this participatory process.
-        destroy:
-          success: User destroyed successfully for this participatory process.
-        edit:
-          title: Update participatory process user.
-          update: Update
-        index:
-          process_admins_title: Participatory process users
-        new:
-          create: Create
-          title: New participatory process user.
-        update:
-          error: There was an error updated an user for this participatory process.
-          success: User updated successfully for this participatory process.
-      participatory_processes:
-        create:
-          error: There was an error creating a new participatory process.
-          success: Participatory process created successfully. Configure now its steps.
-        destroy:
-          success: Participatory process destroyed successfully.
-        edit:
-          update: Update
-        form:
-          title: General Information
-        index:
-          not_published: Not published
-          published: Published
-        new:
-          create: Create
-          title: New participatory process
-        update:
-          error: There was an error when updating this participatory process.
-          success: Participatory process updated successfully.
-      participatory_processes_copies:
-        create:
-          error: There was an error when duplicating this participatory process.
-          success: Participatory process duplicated successfully.
-      participatory_processes_group:
-        create:
-          error: There was an error creating a new participatory process group.
-          success: Participatory process group created successfully.
       scope_types:
         create:
           error: There was an error creating a new scope type.
@@ -556,8 +422,6 @@ en:
         dashboard: Dashboard
         impersonations: Impersonations
         managed_users: Managed users
-        participatory_process_groups: Participatory process groups
-        participatory_processes: Participatory processes
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
@@ -623,9 +487,6 @@ en:
             reportable: Reportable
             reported_content_url: Reported content URL
             reports: Reports
-    participatory_processes:
-      participatory_process_groups:
-        none: None
   layouts:
     decidim:
       admin:

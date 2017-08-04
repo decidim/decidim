@@ -19,7 +19,7 @@ RSpec.shared_examples "manage moderations" do
   end
 
   before do
-    visit decidim_admin.edit_participatory_process_path(participatory_process)
+    visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
     click_link "Moderations"
   end
 

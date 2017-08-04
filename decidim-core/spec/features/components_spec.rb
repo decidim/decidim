@@ -9,7 +9,7 @@ describe "Features can be navigated", type: :feature do
 
   describe "navigate to a component" do
     before do
-      visit decidim.participatory_process_path(participatory_process)
+      visit decidim_participatory_processes.participatory_process_path(participatory_process)
     end
 
     it "renders the content of the page" do

@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "decidim-core", Decidim.version
+  spec.add_dependency "decidim-participatory_processes", Decidim.version
   spec.add_dependency "decidim-system", Decidim.version
   spec.add_dependency "decidim-admin", Decidim.version
   spec.add_dependency "decidim-api", Decidim.version

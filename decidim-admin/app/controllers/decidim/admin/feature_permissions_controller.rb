@@ -5,7 +5,6 @@ module Decidim
     # Controller that allows managing feature permissions.
     #
     class FeaturePermissionsController < Decidim::Admin::ApplicationController
-      include Concerns::ParticipatoryProcessAdmin
       helper_method :authorizations, :feature
 
       def edit
@@ -22,7 +21,7 @@ module Decidim
         UpdateFeaturePermissions.call(@permissions_form, feature) do
           on(:ok) do
             flash[:notice] = t("feature_permissions.update.success", scope: "decidim.admin")
-            redirect_to features_path(current_participatory_process)
+            redirect_to features_path(current_participatory_space)
           end
 
           on(:invalid) do
@@ -51,7 +50,7 @@ module Decidim
       end
 
       def feature
-        @feature ||= current_participatory_process.features.find(params[:feature_id])
+        @feature ||= current_participatory_space.features.find(params[:feature_id])
       end
     end
   end

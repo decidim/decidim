@@ -20,9 +20,8 @@ module Decidim
     def matches?(request)
       env = request.env
 
-      return false unless CurrentParticipatoryProcess.new.matches?(request)
-
-      @participatory_process = env["decidim.current_participatory_process"]
+      @participatory_space = env["decidim.current_participatory_space"]
+      return false unless @participatory_space
 
       current_feature(env, request.params) ? true : false
     end
@@ -34,7 +33,7 @@ module Decidim
     end
 
     def detect_current_feature(params)
-      @participatory_process.features.find do |feature|
+      @participatory_space.features.find do |feature|
         params["feature_id"] == feature.id.to_s && feature.manifest_name == @manifest.name.to_s
       end
     end

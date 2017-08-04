@@ -28,8 +28,8 @@
     <%= form.collection_check_boxes :activity, [["voted", t('.voted')]], :first, :last, legend_title: t('.activity') %>
   <% end %>
 
-  <% if current_participatory_process.subscopes.any? %>
-    <%= form.scopes_select :scope_id, legend_title: t(".scopes"), label: false, prompt: t('.scope_prompt'), remote_path: decidim.scopes_search_path(root: current_participatory_process.scope, include_root: true), multiple: true %>
+  <% if current_participatory_space.subscopes.any? %>
+    <%= form.scopes_select :scope_id, legend_title: t(".scopes"), label: false, prompt: t('.scope_prompt'), remote_path: decidim.scopes_search_path(root: current_participatory_space.scope, include_root: true), multiple: true %>
   <% end %>
 
   <% if current_feature.categories.any? %>
