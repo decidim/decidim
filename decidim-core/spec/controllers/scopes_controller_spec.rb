@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe ScopesController, type: :controller do
+    routes { Decidim::Core::Engine.routes }
+
     let(:organization) { create(:organization) }
     let!(:scopes) do
       %w(Aaaa Aabb Bbbb).map { |name| create(:scope, name: Decidim::Faker::Localized.literal(name), organization: organization) }
