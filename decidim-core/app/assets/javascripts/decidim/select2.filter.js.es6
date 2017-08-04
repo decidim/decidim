@@ -6,7 +6,7 @@
   class Select2Filter {
     constructor(element) {
       const selectedLang = $("html").attr('lang') || 'en';
-      
+
       let $element = $(element);
       let options = {
         language: selectedLang,

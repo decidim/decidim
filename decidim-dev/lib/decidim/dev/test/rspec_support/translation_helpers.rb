@@ -17,8 +17,6 @@ module TranslationHelpers
   # field - the field that holds the translations
   # locale - the ID of the locale to check
   # upcase - a boolean to indicate whether the string must be checked upcased or not.
-  #
-  # rubocop:disable Style/PredicateName
   def have_i18n_content(field, locale: I18n.locale, upcase: false)
     content = stripped(translated(field, locale: locale))
     content = content.upcase if upcase
