@@ -1,9 +1,0 @@
-{
-  "maxReviewers": 2,
-  "findPotentialReviewers": true,
-  "userBlacklist": ["decidim-bot"],
-  "actions": ["labeled"],
-  "skipAlreadyMentionedPR": true,
-  "withLabel": "in-review",
-  "createReviewRequest": true
-}
