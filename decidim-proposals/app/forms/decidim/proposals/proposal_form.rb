@@ -25,6 +25,7 @@ module Decidim
       validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
+      validates :attachment_terms, acceptance: true, if: ->(form) { form.attachment && form.attachment.file.present? }
 
       delegate :categories, to: :current_feature
 

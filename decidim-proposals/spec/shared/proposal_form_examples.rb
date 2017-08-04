@@ -13,6 +13,8 @@ shared_examples "a proposal form" do
   let(:longitude) { 2.1234 }
   let(:has_address) { false }
   let(:address) { nil }
+  let(:attachment_params) { nil }
+  let(:attachment_terms) { nil }
   let(:params) do
     {
       title: title,
@@ -21,7 +23,9 @@ shared_examples "a proposal form" do
       category_id: category_id,
       scope_id: scope_id,
       address: address,
-      has_address: has_address
+      has_address: has_address,
+      attachment: attachment_params,
+      attachment_terms: attachment_terms
     }
   end
 
@@ -137,5 +141,20 @@ shared_examples "a proposal form" do
     proposal = create(:proposal, feature: feature, category: category)
 
     expect(described_class.from_model(proposal).category_id).to eq(category_id)
+  end
+
+  context "when the attachment is present" do
+    let(:attachment_params) do
+      {
+        title: "My attachment",
+        file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+      }
+    end
+
+    context "and the attachment_terms are not accepted" do
+      let(:attachment_terms) { false }
+
+      it { is_expected.not_to be_valid }
+    end
   end
 end
