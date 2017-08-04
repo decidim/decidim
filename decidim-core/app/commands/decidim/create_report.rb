@@ -44,7 +44,7 @@ module Decidim
     attr_reader :form, :report
 
     def find_or_create_moderation!
-      @moderation = Moderation.find_or_create_by!(reportable: @reportable, participatory_space: participatory_process)
+      @moderation = Moderation.find_or_create_by!(reportable: @reportable, participatory_space: participatory_space)
     end
 
     def create_report!
@@ -60,12 +60,12 @@ module Decidim
       @moderation.update_attributes!(report_count: @moderation.report_count + 1)
     end
 
-    def participatory_process_admins
-      @participatory_process_admins ||= Decidim::Admin::ProcessAdmins.for(participatory_process)
+    def participatory_space_admins
+      @participatory_space_admins ||= participatory_space.admins
     end
 
     def send_report_notification_to_admins
-      participatory_process_admins.each do |admin|
+      participatory_space_admins.each do |admin|
         ReportedMailer.report(admin, @report).deliver_later
       end
     end
@@ -79,13 +79,13 @@ module Decidim
     end
 
     def send_hide_notification_to_admins
-      participatory_process_admins.each do |admin|
+      participatory_space_admins.each do |admin|
         ReportedMailer.hide(admin, @report).deliver_later
       end
     end
 
-    def participatory_process
-      @participatory_process ||= @reportable.feature.participatory_space
+    def participatory_space
+      @participatory_space ||= @reportable.feature.participatory_space
     end
   end
 end

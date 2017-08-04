@@ -16,14 +16,14 @@
       <%= form.number_field :budget %>
     </div>
 
-    <% if current_participatory_process.has_subscopes? %>
+    <% if current_participatory_space.has_subscopes? %>
       <div class="row column" >
-        <%= form.scopes_select :decidim_scope_id, prompt: I18n.t("decidim.scopes.global"), remote_path: decidim.scopes_search_path(root: current_participatory_process.scope) %>
+        <%= form.scopes_select :decidim_scope_id, prompt: I18n.t("decidim.scopes.global"), remote_path: decidim.scopes_search_path(root: current_participatory_space.scope) %>
       </div>
     <% end %>
 
     <div class="row column" >
-      <%= form.categories_select :decidim_category_id, current_participatory_process.categories, include_blank: true, disable_parents: false %>
+      <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: true, disable_parents: false %>
     </div>
 
     <div class="row column">

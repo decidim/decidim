@@ -1,4 +1,4 @@
-<%= decidim_form_for(@form, url: url_for([attached_to, @form]), html: { class: "form new_participatory_process_attachment" }) do |f| %>
+<%= decidim_form_for(@form, url: url_for([attached_to, @form]), html: { class: "form new_attachment" }) do |f| %>
   <%= render partial: 'decidim/admin/attachments/form', object: f, locals: { title: t(".title") } %>
 
   <div class="button--double form-general-submit">

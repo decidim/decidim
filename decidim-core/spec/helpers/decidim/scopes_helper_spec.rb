@@ -7,14 +7,14 @@ describe Decidim::ScopesHelper do
   let(:scopes_enabled) { true }
   let(:process_scope) { nil }
   let(:participatory_process) { create(:participatory_process, organization: organization, scopes_enabled: scopes_enabled, scope: process_scope) }
-  let(:feature) { create(:feature, manifest_name: "dummy", participatory_process: participatory_process) }
+  let(:feature) { create(:feature, manifest_name: "dummy", participatory_space: participatory_process) }
   let(:scope) { create(:scope, organization: organization) }
   let(:resource) { create(:dummy_resource, feature: feature, scope: scope) }
 
   subject { helper.has_visible_scopes?(resource) }
 
   before do
-    allow(helper).to receive(:current_participatory_process).and_return(participatory_process)
+    allow(helper).to receive(:current_participatory_space).and_return(participatory_process)
   end
 
   describe "has_visible_scopes?" do

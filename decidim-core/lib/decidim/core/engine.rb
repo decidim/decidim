@@ -131,7 +131,7 @@ module Decidim
         end
 
         Decidim.stats.register :processes_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
-          processes = OrganizationPrioritizedParticipatoryProcesses.new(organization)
+          processes = ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(organization)
           processes = processes.where("created_at >= ?", start_at) if start_at.present?
           processes = processes.where("created_at <= ?", end_at) if end_at.present?
           processes.count
@@ -144,11 +144,6 @@ module Decidim
                     decidim.root_path,
                     position: 1,
                     active: :exact
-
-          menu.item I18n.t("menu.processes", scope: "decidim"),
-                    decidim.participatory_processes_path,
-                    position: 2,
-                    active: :inclusive
 
           menu.item I18n.t("menu.more_information", scope: "decidim"),
                     decidim.pages_path,

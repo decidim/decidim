@@ -34,14 +34,14 @@
       </div>
     </div>
     <div class="row" >
-      <% if current_participatory_process.has_subscopes? %>
+      <% if current_participatory_space.has_subscopes? %>
         <div class="columns xlarge-6" >
-          <%= form.scopes_select :decidim_scope_id, prompt: I18n.t("decidim.scopes.global"), remote_path: decidim.scopes_search_path(root: current_participatory_process.scope) %>
+          <%= form.scopes_select :decidim_scope_id, prompt: I18n.t("decidim.scopes.global"), remote_path: decidim.scopes_search_path(root: current_participatory_space.scope) %>
         </div>
       <% end %>
 
       <div class="columns xlarge-6" >
-        <%= form.categories_select :decidim_category_id, current_participatory_process.categories, prompt: "", disable_parents: false %>
+        <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: "", disable_parents: false %>
       </div>
     </div>
   </div>

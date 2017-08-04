@@ -4,7 +4,6 @@ module Decidim
   module Admin
     # This controller allows admins to manage proposals in a participatory process.
     class ExportsController < ApplicationController
-      include Concerns::ParticipatoryProcessAdmin
       include Decidim::FeaturePathHelper
 
       def create
@@ -25,7 +24,7 @@ module Decidim
       end
 
       def feature
-        @feature ||= current_participatory_process.features.find(params[:feature_id])
+        @feature ||= current_participatory_space.features.find(params[:feature_id])
       end
     end
   end

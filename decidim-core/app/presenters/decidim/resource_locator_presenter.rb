@@ -42,14 +42,14 @@ module Decidim
     #
     # Returns a String.
     def member_route(route_type, options)
-      route_proxy.send("#{member_route_name}_#{route_type}", member_params.merge(options))
+      route_proxy.send("#{member_route_name}_#{route_type}", @resource, options)
     end
 
     # Private: Build the route to the associated collection of resources.
     #
     # Returns a String.
     def collection_route(route_type, options)
-      route_proxy.send("#{collection_route_name}_#{route_type}", collection_params.merge(options))
+      route_proxy.send("#{collection_route_name}_#{route_type}", options)
     end
 
     def manifest
@@ -58,25 +58,6 @@ module Decidim
 
     def feature
       @resource.feature
-    end
-
-    def participatory_space
-      feature.participatory_space
-    end
-
-    def engine
-      manifest.feature_manifest.engine
-    end
-
-    def member_params
-      collection_params.merge(id: @resource.id)
-    end
-
-    def collection_params
-      {
-        feature_id: feature.id,
-        participatory_space.class.name.foreign_key.to_sym => participatory_space.id
-      }
     end
 
     def member_route_name
@@ -88,7 +69,7 @@ module Decidim
     end
 
     def route_proxy
-      @route_proxy ||= engine.routes.url_helpers
+      @route_proxy ||= EngineRouter.main_proxy(feature)
     end
   end
 end

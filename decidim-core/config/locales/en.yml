@@ -164,7 +164,6 @@ en:
     menu:
       home: Home
       more_information: More information
-      processes: Processes
     newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
@@ -185,43 +184,6 @@ en:
     pages:
       index:
         title: More information
-    participatory_process_groups:
-      show:
-        group_participatory_processes: Processes for %{group}
-        title: Title
-    participatory_process_steps:
-      index:
-        process_steps: Process steps
-        title: Participatory process steps
-    participatory_processes:
-      index:
-        title: Participatory processes
-      participatory_process_groups:
-        none: None
-      scopes:
-        global: Global scope
-      show:
-        developer_group: Developer group
-        end_date: End date
-        local_area: Local area
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
-        scope: Scope
-        target: Target
-      statistics:
-        answers_count: Answers
-        comments_count: Comments
-        headline: Activity
-        meetings_count: Meetings
-        orders_count: Orders
-        pages_count: Pages
-        processes_count: Processes
-        projects_count: Projects
-        proposals_count: Proposals
-        results_count: Results
-        surveys_count: Surveys
-        users_count: Participants
-        votes_count: Votes
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -339,35 +301,6 @@ en:
         close_session: Close session
         description_html: You are impersonating the user <b>%{user_name}</b>.
         expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
-      participatory_process_groups:
-        participatory_process_group:
-          browse: Browse
-      participatory_process_widgets:
-        show:
-          active_step: Active step
-          take_part: Take part
-      participatory_processes:
-        index:
-          promoted_processes: Highlighted processes
-        no_processes_yet:
-          no_processes_yet: No participatory processes yet!
-        order_by_processes:
-          processes:
-            one: "%{count} process"
-            other: "%{count} processes"
-        participatory_process:
-          active_step: 'Current step:'
-          take_part: Take part
-        promoted_process:
-          active_step: 'Current step:'
-          more_info: More info
-          take_part: Take part
-      process_header:
-        process_menu_item: The process
-        unfold: Unfold
-      process_header_steps:
-        step: Step %{current} of %{total}
-        view_steps: View steps
       user_menu:
         admin_dashboard: Admin dashboard
         profile: My account

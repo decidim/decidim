@@ -57,7 +57,7 @@ shared_context "feature admin" do
   #
   # Returns a url.
   def edit_feature_path(feature)
-    decidim_admin.edit_feature_path(id: feature.id, participatory_process_id: feature.participatory_space.id)
+    Decidim::EngineRouter.admin_proxy(feature.participatory_space).edit_feature_path(feature.id)
   end
 end
 
