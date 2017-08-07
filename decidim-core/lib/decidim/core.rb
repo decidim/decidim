@@ -18,6 +18,7 @@ module Decidim
   autoload :Authorable, "decidim/authorable"
   autoload :Notifiable, "decidim/notifiable"
   autoload :Publicable, "decidim/publicable"
+  autoload :Scopable, "decidim/scopable"
   autoload :Features, "decidim/features"
   autoload :HasAttachments, "decidim/has_attachments"
   autoload :FeatureValidator, "decidim/feature_validator"
