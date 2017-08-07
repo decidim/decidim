@@ -1,3 +1,11 @@
+<% if translated_attribute(feature_settings.announcement).present? %>
+  <div class="row column">
+    <div class="callout secondary">
+      <%== translated_attribute feature_settings.announcement %>
+    </div>
+  </div>
+<% end %>
+
 <% if feature_settings.geocoding_enabled? %>
   <%= dynamic_map_for proposals_data_for_map(geocoded_proposals) do %>
     <template id="marker-popup">

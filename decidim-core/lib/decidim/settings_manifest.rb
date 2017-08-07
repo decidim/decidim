@@ -40,6 +40,7 @@ module Decidim
       @schema = Class.new do
         include Virtus.model
         include ActiveModel::Validations
+        include TranslatableAttributes
 
         cattr_accessor :manifest
 
@@ -56,8 +57,13 @@ module Decidim
         end
 
         manifest.attributes.each do |name, attribute|
-          attribute name, attribute.type_class, default: attribute.default_value
-          validates name, presence: true
+          if attribute.translated?
+            translatable_attribute name, attribute.type_class, default: attribute.default_value
+            validates name, translatable_presence: true
+          else
+            attribute name, attribute.type_class, default: attribute.default_value
+            validates name, presence: true
+          end
         end
       end
 
@@ -81,6 +87,8 @@ module Decidim
 
       attribute :type, Symbol, default: :boolean
       attribute :default
+      attribute :translated, Boolean, default: false
+      attribute :editor, Boolean, default: false
 
       validates :type, inclusion: { in: TYPES.keys }
 
