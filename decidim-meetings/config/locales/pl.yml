@@ -1,0 +1,50 @@
+pl:
+  activemodel:
+    attributes:
+      meeting:
+        address: Adres
+        decidim_category_id: Kategoria
+        decidim_scope_id: Zakres
+        description: Opis
+        start_time: Czas rozpoczęcia
+        title: Tytuł
+  decidim:
+    features:
+      meetings:
+        name: Spotkania
+    meetings:
+      actions:
+        attachments: Załączniki
+        confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
+      admin:
+        meeting_closes:
+          edit:
+            title: Zamknij spotkanie
+        meetings:
+          close:
+            invalid: Wystąpił problem podczas zamykania tego spotkania
+            success: Spotkanie zostało pomyślnie zamknięte
+          create:
+            invalid: Podczas tworzenia tego spotkania wystąpił problem
+            success: Spotkanie zostało pomyślnie utworzone
+          destroy:
+            success: Spotkanie zostało pomyślnie usunięte
+          index:
+            title: Spotkania
+          new:
+            title: Utwórz spotkanie
+          update:
+            invalid: Podczas aktualizowania tego spotkania wystąpił problem
+        models:
+          meeting:
+            name: Spotkanie
+      meetings:
+        filters:
+          category: Kategoria
+          category_prompt: Wybierz kategorię
+          date: Data
+          scope_prompt: Wybierz zakres
+          scopes: Zakresy
+          upcoming: Nadchodzące
+        filters_small_view:
+          filter_by: Filtruj według
