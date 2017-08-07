@@ -10,7 +10,9 @@ module Decidim
 
         def new
           authorize! :create, Proposal
-          @form = form(Admin::ProposalForm).from_params({})
+          @form = form(Admin::ProposalForm).from_params(
+            attachment: form(AttachmentForm).from_params({})
+          )
         end
 
         def create

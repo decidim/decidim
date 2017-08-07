@@ -29,5 +29,20 @@
         <%= form.collection_select :scope_id, subscopes_for(current_participatory_process), :id, :name %>
       </div>
     <% end %>
+
+    <% if feature_settings.attachments_allowed? %>
+      <fieldset>
+        <legend><%= t('.attachment_legend') %></legend>
+        <%= form.fields_for :attachment, @form.attachment do |form| %>
+          <div class="field">
+            <%= form.text_field :title %>
+          </div>
+
+          <div class="field">
+            <%= form.upload :file, optional: false %>
+          </div>
+        <% end %>
+      </fieldset>
+    <% end %>
   </div>
 </div>
