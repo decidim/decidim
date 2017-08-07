@@ -133,8 +133,6 @@ fr:
         edit:
           title: Modifier le document lié
           update: Mettre à jour
-        index:
-          attachments_title: Pièces jointes
         new:
           create: Lier un document
           title: Nouveau document lié
@@ -151,8 +149,6 @@ fr:
         edit:
           title: Modifier la catégorie
           update: Mettre à jour
-        index:
-          categories_title: Catégories
         new:
           create: Créer une catégorie
           title: Nouvelle catégorie
@@ -261,7 +257,6 @@ fr:
             collaborator: Rédacteur
         scope:
           fields:
-            created_at: Crée le
             name: Nom
         static_page:
           fields:
@@ -367,8 +362,6 @@ fr:
         edit:
           title: Modifier l'étape du processus participatif
           update: Mettre à jour
-        index:
-          steps_title: Etapes
         new:
           create: Créer
           title: Nouvelle étape du processus participatif
@@ -386,8 +379,6 @@ fr:
         edit:
           title: Mettre à jour l'utilisateur du processus participatif.
           update: Mettre à jour
-        index:
-          process_admins_title: Administrateurs du processus participatifs
         new:
           create: Créer
           title: Nouvel utilisateur de processus participatif.
