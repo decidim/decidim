@@ -3,7 +3,7 @@
     <% if meeting.category.present? %>
       <li><%= link_to translated_attribute(meeting.category.name), resource_locator(meeting).index(filter: { category_id: meeting.category.id }) %></li>
     <% end %>
-    <% if !current_participatory_process.scope && meeting.scope.present? %>
+    <% if meeting.scope.present? && !current_participatory_process.scope %>
       <li><%= link_to translated_attribute(meeting.scope.name), resource_locator(meeting).index(filter: { scope_id: [meeting.scope.id] }) %></li>
     <% end %>
   </ul>
