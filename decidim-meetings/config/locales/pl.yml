@@ -48,3 +48,13 @@ pl:
           upcoming: Nadchodzące
         filters_small_view:
           filter_by: Filtruj według
+      models:
+        meeting:
+          fields:
+            title: Tytuł
+    resource_links:
+      meetings_through_proposals:
+        meeting_results: 'Powiązane wyniki:'
+        result_meetings: 'Powiązane spotkania:'
+      proposals_from_meeting:
+        proposal_meetings: 'Powiązane spotkania:'
