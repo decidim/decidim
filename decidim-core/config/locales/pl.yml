@@ -1,0 +1,35 @@
+pl:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Powód usunięcia konta
+      user:
+        email: Twój email
+        name: Twoje imię
+        password: Nowe hasło
+        user_group_name: Nazwa organizacji
+  activerecord:
+    attributes:
+      decidim/user:
+        password: Hasło
+        password_confirmation: Potwierdzenie hasła
+        remember_me: Zapamiętaj mnie
+  carrierwave:
+    errors:
+      image_too_big: Obraz jest zbyt duży
+  decidim:
+    account:
+      delete:
+        confirm:
+          close: Zamknij okno
+          ok: Tak, chcę usunąć moje konto
+          question: Czy na pewno chcesz usunąć swoje konto?
+          title: Usuń moje konto
+        explanation: Proszę podać przyczynę, dla której chcesz usunąć swoje konto (opcjonalne).
+      destroy:
+        error: Podczas usuwania Twojego konta wystąpił błąd.
+      show:
+        change_password: Zmień hasło
+        update_account: Zaktualizuj konto
+      update:
+        error: Podczas aktualizowania konta wystąpił błąd.
