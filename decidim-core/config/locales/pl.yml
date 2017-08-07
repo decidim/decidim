@@ -33,3 +33,19 @@ pl:
         update_account: Zaktualizuj konto
       update:
         error: Podczas aktualizowania konta wystąpił błąd.
+    application:
+      documents:
+        related_documents: Powiązane dokumenty
+    authorization_handlers:
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Numer dokumentu
+          postal_code: Kod pocztowy
+        name: Przykładowa autoryzacja
+      foo_authorization:
+        fields:
+          bar: Bar
+        name: Autoryzacja Foo
+    authorizations:
+      create:
+        error: Podczas tworzenia autoryzacji wystąpił błąd.
