@@ -49,3 +49,8 @@ pl:
     authorizations:
       create:
         error: Podczas tworzenia autoryzacji wystąpił błąd.
+    errors:
+      internal_server_error:
+        try_later: Spróbuj ponownie później.
+      not_found:
+        content_doesnt_exist: Ten adres jest nieprawidłowy lub został usunięty.
