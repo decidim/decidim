@@ -51,19 +51,22 @@
           <% end %>
 
           <% if feature_settings.attachments_allowed? %>
-            <%= form.fields_for :attachment, @form.attachment do |form| %>
-              <div class="field">
-                <%= form.text_field :title %>
-              </div>
+            <fieldset>
+              <legend><%= t('.attachment_legend') %></legend>
+              <%= form.fields_for :attachment, @form.attachment do |form| %>
+                <div class="field">
+                  <%= form.text_field :title %>
+                </div>
+
+                <div class="field">
+                  <%= form.upload :file, optional: false %>
+                </div>
+              <% end %>
 
               <div class="field">
-                <%= form.upload :file, optional: false %>
+                <%= form.check_box :attachment_terms %>
               </div>
-            <% end %>
-
-            <div class="field">
-              <%= form.check_box :attachment_terms %>
-            </div>
+            </fieldset>
           <% end %>
 
           <div class="actions">

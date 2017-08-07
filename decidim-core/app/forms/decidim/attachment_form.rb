@@ -8,5 +8,7 @@ module Decidim
     attribute :file
 
     mimic :attachment
+
+    validates :title, presence: true, if: ->(form) { form.file.present? }
   end
 end

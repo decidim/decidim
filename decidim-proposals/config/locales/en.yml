@@ -8,6 +8,7 @@ en:
         scope_id: Scope
         title: Title
         user_group_id: Create proposal as
+        attachment_terms: 
       proposal_answer:
         answer: Answer
   decidim:
@@ -128,6 +129,7 @@ en:
             one: <span class="card--list__data__number">1</span>vote
             other: <span class="card--list__data__number">%{count}</span>votes
         new:
+          attachment_legend: (Optional) Add an attachment
           back: Back
           select_a_category: Please select a category
           send: Send

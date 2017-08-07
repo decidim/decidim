@@ -22,14 +22,14 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        if attachments_allowed? && attachment_present?
+        if process_attachments?
           build_attachment
           return broadcast(:invalid) if attachment_invalid?
         end
 
         transaction do
           create_proposal
-          create_attachment if attachments_allowed? && attachment_present?
+          create_attachment if process_attachments?
         end
 
         broadcast(:ok, proposal)
@@ -80,6 +80,10 @@ module Decidim
 
       def attachments_allowed?
         form.current_feature.settings.attachments_allowed?
+      end
+
+      def process_attachments?
+        attachments_allowed? && attachment_present?
       end
     end
   end
