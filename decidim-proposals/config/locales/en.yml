@@ -33,6 +33,7 @@ en:
             votes_enabled: Votes enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide
               the number of votes)
+            announcement: Announcement
     proposals:
       actions:
         answer: Answer

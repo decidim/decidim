@@ -24,7 +24,7 @@ module Decidim
       # Returns a rendered form field.
       def settings_attribute_input(form, attribute, name, options = {})
         if attribute.translated?
-          form.send(:translated, form_method_for_attribute(attribute), name, options.merge(tabs_id: "feature-settings-#{name}-tabs"))
+          form.send(:translated, form_method_for_attribute(attribute), name, options.merge(tabs_id: "#{options[:tabs_prefix]}-#{name}-tabs"))
         else
           form.send(form_method_for_attribute(attribute), name, options)
         end
