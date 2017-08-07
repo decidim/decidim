@@ -22,6 +22,9 @@ module Decidim
     end
   end
 
+  class DummyResourceEvent < Events::BaseEvent
+  end
+
   class DummyResource < ActiveRecord::Base
     include HasFeature
     include Resourceable

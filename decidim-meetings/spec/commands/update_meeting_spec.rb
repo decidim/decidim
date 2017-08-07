@@ -59,5 +59,13 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
       expect(meeting.latitude).to eq(latitude)
       expect(meeting.longitude).to eq(longitude)
     end
+
+    it "notifies the change" do
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .with(event: "decidim.events.meetings.meeting_updated", followable: meeting)
+
+      subject.call
+    end
   end
 end

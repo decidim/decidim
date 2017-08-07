@@ -41,6 +41,10 @@ module Decidim
             location: @form.location,
             location_hints: @form.location_hints
           )
+          Decidim::EventsManager.publish(
+            event: "decidim.events.meetings.meeting_updated",
+            followable: @meeting
+          )
         end
 
         def geocode_meeting
