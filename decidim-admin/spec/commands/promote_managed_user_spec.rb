@@ -31,11 +31,6 @@ describe Decidim::Admin::PromoteManagedUser do
       expect { subject.call }.to broadcast(:ok)
     end
 
-    it "user is no longer managed" do
-      subject.call
-      expect(user.reload).not_to be_managed
-    end
-
     it "user is invited to the application" do
       subject.call
       expect(user.reload.email).to eq(form.email)
@@ -55,6 +50,14 @@ describe Decidim::Admin::PromoteManagedUser do
 
   context "when the user is not managed" do
     let(:user) { create :user, organization: organization }
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+  end
+
+  context "when the email address already exists" do
+    let!(:other_user) { create(:user, email: email, organization: organization) }
 
     it "broadcasts invalid" do
       expect { subject.call }.to broadcast(:invalid)

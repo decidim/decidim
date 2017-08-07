@@ -26,7 +26,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if form.invalid? || !user.managed?
+        return broadcast(:invalid) if form.invalid? || !user.managed? || email_already_exists?
 
         promote_user
         invite_user
@@ -41,12 +41,15 @@ module Decidim
       def promote_user
         user.email = form.email.downcase
         user.skip_reconfirmation!
-        user.managed = false
         user.save(validate: false)
       end
 
       def invite_user
         user.invite!(promoted_by)
+      end
+
+      def email_already_exists?
+        Decidim::User.where(email: form.email.downcase).any?
       end
     end
   end

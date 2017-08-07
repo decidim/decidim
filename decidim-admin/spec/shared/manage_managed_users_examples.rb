@@ -147,7 +147,7 @@ RSpec.shared_examples "manage managed users examples" do
       click_button "Promote"
 
       expect(page).to have_content("successfully")
-      expect(page).not_to have_content("Foo")
+      expect(page).to have_content(managed_user.name)
 
       logout :user
 
@@ -161,6 +161,13 @@ RSpec.shared_examples "manage managed users examples" do
 
       expect(page).to have_content("successfully")
       expect(page).to have_content(managed_user.name)
+
+      logout :user
+
+      login_as user, scope: :user
+
+      navigate_to_managed_users_page
+      expect(page).not_to have_content(managed_user.name)
     end
   end
 end
