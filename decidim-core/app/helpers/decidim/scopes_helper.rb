@@ -2,7 +2,7 @@
 
 module Decidim
   # A Helper to render scopes, including a global scope, for forms.
-  module ParticipatoryProcessScopesHelper
+  module ScopesHelper
     Option = Struct.new(:id, :name)
 
     # Public: Returns a collection of the given participatory process scopes,
@@ -13,8 +13,8 @@ module Decidim
     # participatory_process - a Decidim::ParticipatoryProcess.
     #
     # Returns an Array.
-    def participatory_process_subscopes(participatory_process)
-      [Option.new("", I18n.t("decidim.participatory_processes.scopes.global"))] +
+    def subscopes_for(participatory_process)
+      [Option.new("", I18n.t("decidim.scopes.global"))] +
         participatory_process.subscopes.map do |scope|
           Option.new(scope.id, translated_attribute(scope.name))
         end

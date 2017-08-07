@@ -20,7 +20,7 @@ module Decidim
       helper Decidim::Admin::ScopesHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
-      helper Decidim::ParticipatoryProcessScopesHelper
+      helper Decidim::ScopesHelper
       helper Decidim::TranslationsHelper
       helper Decidim::LanguageChooserHelper
       helper Decidim::FeaturePathHelper
