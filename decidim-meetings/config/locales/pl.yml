@@ -51,6 +51,9 @@ pl:
       models:
         meeting:
           fields:
+            closed: Zamknięte
+            map: Mapa
+            start_time: Data rozpoczęcia
             title: Tytuł
     resource_links:
       meetings_through_proposals:
