@@ -54,3 +54,23 @@ pl:
         try_later: Spróbuj ponownie później.
       not_found:
         content_doesnt_exist: Ten adres jest nieprawidłowy lub został usunięty.
+    features:
+      dummy:
+        actions:
+          bar: Bar
+        settings:
+          global:
+            comments_enabled: Włączone komentarze
+          step:
+            comments_blocked: Komentarze zablokowane
+    filters:
+      linked_classes:
+        meeting: Spotkania
+        proposal: Propozycje
+    forms:
+      default_image: Domyślny obraz
+      errors:
+        error: W tym polu wystąpił błąd.
+    menu:
+      more_information: Więcej informacji
+      processes: Procesy
