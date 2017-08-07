@@ -60,5 +60,13 @@ module Decidim
     def hashtag
       attributes["hashtag"].to_s.delete("#")
     end
+
+    # Gets the children scopes for the participatory process.
+    # If it is a global process, returns the organization's top scopes.
+    #
+    # Returns an ActiveRecord::Relation.
+    def subscopes
+      scope ? scope.children : organization.top_scopes
+    end
   end
 end

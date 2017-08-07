@@ -16,6 +16,14 @@ FactoryGirl.define do
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
   end
 
+  sequence(:scope_name) do |n|
+    "#{Faker::Lorem.sentence(1, true, 3)} #{n}"
+  end
+
+  sequence(:scope_code) do |n|
+    "#{Faker::Lorem.characters(4).upcase}-#{n}"
+  end
+
   factory :category, class: Decidim::Category do
     name { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
@@ -278,9 +286,25 @@ FactoryGirl.define do
     end
   end
 
-  factory :scope, class: Decidim::Scope do
-    name { generate(:name) }
+  factory :scope_type, class: Decidim::ScopeType do
+    name { Decidim::Faker::Localized.word }
+    plural { Decidim::Faker::Localized.literal(name.values.first.pluralize) }
     organization
+  end
+
+  factory :scope, class: Decidim::Scope do
+    name { Decidim::Faker::Localized.literal(generate(:scope_name)) }
+    code { generate(:scope_code) }
+    scope_type
+    organization { parent ? parent.organization : build(:organization) }
+  end
+
+  factory :subscope, parent: :scope do
+    parent { build(:scope) }
+
+    before(:create) do |object|
+      object.parent.save unless object.parent.persisted?
+    end
   end
 
   factory :dummy_resource, class: Decidim::DummyResource do

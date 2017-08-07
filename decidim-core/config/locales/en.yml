@@ -303,6 +303,7 @@ en:
   errors:
     messages:
       content_type_whitelist_error: The file type is not valid
+      cycle_detected: a scope's parent can't be one of its descendants
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
       invalid_manifest: Invalid manifest
       invalid_participatory_process: Invalid participatory process

@@ -6,10 +6,15 @@ module Decidim
     #
     class ScopesController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
+      helper_method :scope, :parent_scope, :add_scope_path, :current_scopes_path
 
       def index
         authorize! :index, Scope
-        @scopes = collection
+        @scopes = if parent_scope
+                    parent_scope.children
+                  else
+                    collection.top_level
+                  end
       end
 
       def new
@@ -20,11 +25,10 @@ module Decidim
       def create
         authorize! :new, Scope
         @form = form(ScopeForm).from_params(params)
-
-        CreateScope.call(@form) do
+        CreateScope.call(@form, parent_scope) do
           on(:ok) do
             flash[:notice] = I18n.t("scopes.create.success", scope: "decidim.admin")
-            redirect_to scopes_path
+            redirect_to current_scopes_path
           end
 
           on(:invalid) do
@@ -40,14 +44,13 @@ module Decidim
       end
 
       def update
-        @scope = collection.find(params[:id])
         authorize! :update, scope
         @form = form(ScopeForm).from_params(params)
 
         UpdateScope.call(scope, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("scopes.update.success", scope: "decidim.admin")
-            redirect_to scopes_path
+            redirect_to current_scopes_path
           end
 
           on(:invalid) do
@@ -63,7 +66,7 @@ module Decidim
 
         flash[:notice] = I18n.t("scopes.destroy.success", scope: "decidim.admin")
 
-        redirect_to scopes_path
+        redirect_to current_scopes_path
       end
 
       private
@@ -72,8 +75,20 @@ module Decidim
         @scope ||= collection.find(params[:id])
       end
 
+      def parent_scope
+        @parent_scope ||= @scope ? @scope.parent : collection.find_by_id(params[:scope_id])
+      end
+
       def collection
         current_organization.scopes
+      end
+
+      def current_scopes_path
+        if parent_scope
+          scope_scopes_path(parent_scope)
+        else
+          scopes_path
+        end
       end
     end
   end

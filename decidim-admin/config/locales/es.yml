@@ -273,7 +273,6 @@ es:
             moderator: Moderador
         scope:
           fields:
-            created_at: Fecha de creación
             name: Nombre
         static_page:
           fields:

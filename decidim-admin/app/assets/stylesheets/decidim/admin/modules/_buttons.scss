@@ -23,6 +23,9 @@
   @include breakpoint(mediumlarge){
     float: right;
   }
+  &:not(:first-child){
+    margin-right: 1rem;
+  }
 }
 
 

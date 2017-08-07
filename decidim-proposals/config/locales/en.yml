@@ -106,6 +106,7 @@ en:
           origin: Origin
           rejected: Rejected
           related_to: Related to
+          scope_prompt: Select a scope
           scopes: Scopes
           search: Search
           state: State

@@ -273,7 +273,6 @@ ca:
             moderator: Moderador
         scope:
           fields:
-            created_at: Data de creació
             name: Nom
         static_page:
           fields:

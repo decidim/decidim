@@ -4,7 +4,7 @@
       <li><%= link_to translated_attribute(result.category.name), resource_locator(result).index(filter: { category_id: result.category.id }) %></li>
     <% end %>
     <% if !current_participatory_process.scope && result.scope.present? %>
-      <li><%= link_to result.scope.name, resource_locator(result).index(filter: { scope_id: [result.scope.id] }) %></li>
+      <li><%= link_to translated_attribute(result.scope.name), resource_locator(result).index(filter: { scope_id: [result.scope.id] }) %></li>
     <% end %>
   </ul>
 <% end %>

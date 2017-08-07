@@ -36,7 +36,10 @@ module Decidim
 
       def attributes
         {
-          name: form.name
+          name: form.name,
+          code: form.code,
+          scope_type: form.scope_type,
+          parent: @parent_scope
         }
       end
     end

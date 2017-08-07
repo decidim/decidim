@@ -5,11 +5,16 @@ require "spec_helper"
 describe Decidim::Admin::UpdateScope do
   let(:organization) { create :organization }
   let(:scope) { create :scope, organization: organization }
-  let(:name) { "My scope" }
+  let(:name) { Decidim::Faker::Localized.literal("New name") }
+  let(:code) { "NEWCODE" }
+  let(:scope_type) { create :scope_type, organization: organization }
+
   let(:form) do
     double(
       invalid?: invalid,
-      name: name
+      name: name,
+      code: code,
+      scope_type: scope_type
     )
   end
   let(:invalid) { false }
@@ -21,6 +26,25 @@ describe Decidim::Admin::UpdateScope do
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)
+    end
+  end
+
+  context "when the form is valid" do
+    before do
+      subject.call
+      scope.reload
+    end
+
+    it "updates the name of the scope" do
+      expect(translated(scope.name)).to eq("New name")
+    end
+
+    it "updates the name of the scope" do
+      expect(scope.code).to eq("NEWCODE")
+    end
+
+    it "updates the name of the scope" do
+      expect(scope.scope_type).to eq(scope_type)
     end
   end
 end

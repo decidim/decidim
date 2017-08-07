@@ -55,6 +55,7 @@
     "json-loader": "~0.5.4",
     "progress-bar-webpack-plugin": "^1.10.0",
     "react-addons-test-utils": "^15.6.0",
+    "select2": "^4.0.3",
     "source-map-loader": "^0.2.1",
     "ts-jest": "^20.0.7",
     "tslint": "^5.5.0",

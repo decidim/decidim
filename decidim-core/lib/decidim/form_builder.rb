@@ -122,8 +122,33 @@ module Decidim
                  else
                    []
                  end
+      html_options = {}
 
-      select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options)
+      select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options, html_options)
+    end
+
+    # Public: Generates a select field with the scopes.
+    #
+    # name       - The name of the field (usually scope_id)
+    # collection - A collection of scopes.
+    # options    - An optional Hash with options:
+    # - prompt   - An optional String with the text to display as prompt.
+    #
+    # Returns a String.
+    def scopes_select(name, options = {})
+      selected = object.send(name)
+      if selected.present?
+        selected = [selected] unless selected.is_a?(Array)
+        scopes = Decidim::Scope.where(id: selected.map(&:to_i)).map { |scope| [scope.name[I18n.locale.to_s], scope.id] }
+      else
+        scopes = []
+      end
+      prompt = options.delete(:prompt)
+      remote_path = options.delete(:remote_path) || false
+      multiple = options.delete(:multiple) || false
+      html_options = { multiple: multiple, class: "select2", "data-remote-path" => remote_path, "data-placeholder" => prompt }
+
+      select(name, @template.options_for_select(scopes, selected: selected), options, html_options)
     end
 
     # Public: Override so checkboxes are rendered before the label.

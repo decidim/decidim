@@ -60,7 +60,7 @@ RSpec.shared_examples "manage results" do
         ca: "Descripció més llarga"
       )
 
-      select scope.name, from: :result_decidim_scope_id
+      select translated(scope.name), from: :result_decidim_scope_id
       select translated(category.name), from: :result_decidim_category_id
 
       find("*[type=submit]").click
