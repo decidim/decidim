@@ -94,7 +94,9 @@ module Decidim
   end
 
   # Exposes a configuration option: The application default locale.
-  config_accessor :default_locale { :en }
+  config_accessor :default_locale do
+    :en
+  end
 
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
@@ -120,7 +122,9 @@ module Decidim
   end
 
   # Exposes a configuration option: the currency unit
-  config_accessor :currency_unit { "€" }
+  config_accessor :currency_unit do
+    "€"
+  end
 
   # Exposes a configuration option: The maximum file size of an attachment.
   config_accessor :maximum_attachment_size do
@@ -128,13 +132,15 @@ module Decidim
   end
 
   # The number of reports which an object can receive before hiding it
-  config_accessor :max_reports_before_hiding { 3 }
+  config_accessor :max_reports_before_hiding do
+    3
+  end
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
   # environments, but in different folders.
-  config_accessor :base_uploads_path { nil }
+  config_accessor :base_uploads_path
 
   # Public: Registers a feature, usually held in an external library or in a
   # separate folder in the main repository. Exposes a DSL defined by
