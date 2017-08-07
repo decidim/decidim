@@ -24,7 +24,7 @@ module Decidim
       let(:available_locales) { [:en, :ca] }
 
       before do
-        allow(I18n).to receive(:available_locales).and_return available_locales
+        allow(Decidim).to receive(:available_locales).and_return available_locales
       end
 
       it_behaves_like "a localized Faker method", :name

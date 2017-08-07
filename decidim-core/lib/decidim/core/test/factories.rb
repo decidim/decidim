@@ -43,7 +43,7 @@ FactoryGirl.define do
     welcome_text { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     homepage_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     favicon { Decidim::Dev.test_file("icon.png", "image/png") }
-    default_locale { I18n.default_locale }
+    default_locale { Decidim.default_locale }
     available_locales { Decidim.available_locales }
     official_img_header { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }

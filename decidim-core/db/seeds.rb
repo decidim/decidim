@@ -16,8 +16,8 @@ if !Rails.env.production? || ENV["SEED"]
       Decidim::Faker::Localized.sentence(15)
     end,
     homepage_image: File.new(File.join(__dir__, "seeds", "homepage_image.jpg")),
-    default_locale: I18n.default_locale,
-    available_locales: [:en, :ca, :es],
+    default_locale: Decidim.default_locale,
+    available_locales: Decidim.available_locales,
     reference_prefix: Faker::Name.suffix
   )
 
