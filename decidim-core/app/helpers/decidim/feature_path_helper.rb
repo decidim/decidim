@@ -21,6 +21,11 @@ module Decidim
       feature_root_path_for(feature.manifest.admin_engine, feature)
     end
 
+    # TODO: docs
+    def edit_feature_path(feature)
+      decidim_admin.edit_feature_path(id: feature.id, participatory_process_id: feature.participatory_process.id)
+    end
+
     private
 
     def feature_root_path_for(engine, feature)
