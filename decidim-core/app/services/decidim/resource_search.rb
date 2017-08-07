@@ -38,10 +38,6 @@ module Decidim
     # in order to select those elements that do not have a scope_id set we use
     # `"global"` as parameter, and in the method we do the needed changes to search
     # properly.
-    #
-    # You can use the `search_participatory_process_subscopes` helper method, defined in
-    # `Decidim::ParticipatoryProcessScopesHelper`, to render the collection needed for the
-    # `collection_check_boxes` form method.
     def search_scope_id
       clean_scope_ids = [scope_id].flatten
 
