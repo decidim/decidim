@@ -304,4 +304,15 @@ FactoryGirl.define do
     end
     followable { build(:dummy_resource) }
   end
+
+  factory :notification, class: "Decidim::Notification" do
+    user do
+      build(
+        :user,
+        organization: followable.try(:organization) || build(:organization)
+      )
+    end
+    followable { build(:dummy_resource) }
+    notification_type { followable.class.name.underscore.tr("/", ".") }
+  end
 end

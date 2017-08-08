@@ -19,6 +19,7 @@ module Decidim
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_id
     has_many :user_groups, through: :memberships, class_name: "Decidim::UserGroup", foreign_key: :decidim_user_group_id
     has_many :follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow"
+    has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification"
 
     validates :name, presence: true, unless: -> { deleted? }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
