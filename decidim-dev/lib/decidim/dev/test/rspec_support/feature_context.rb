@@ -50,6 +50,15 @@ RSpec.shared_context "feature admin" do
   def visit_feature_admin
     visit manage_feature_path(feature)
   end
+
+  # Returns the config path for a given feature.
+  #
+  # feature - the Feature we want to find the root path for.
+  #
+  # Returns a url.
+  def edit_feature_path(feature)
+    decidim_admin.edit_feature_path(id: feature.id, participatory_process_id: feature.participatory_process.id)
+  end
 end
 
 RSpec.shared_context "feature process admin" do
