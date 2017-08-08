@@ -126,7 +126,7 @@ PATH
       db-query-matchers (~> 0.9.0)
       decidim (= 0.5.0.pre.pre)
       factory_girl_rails
-      faker (~> 1.7.3)
+      faker (~> 1.8.4)
       i18n-tasks (= 0.9.15)
       launchy
       listen (~> 3.1.0)
@@ -269,7 +269,7 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    faker (1.7.3)
+    faker (1.8.4)
       i18n (~> 0.5)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
@@ -293,7 +293,7 @@ GEM
     graphiql-rails (1.4.2)
       rails
     graphql (1.6.6)
-    hashdiff (0.3.4)
+    hashdiff (0.3.5)
     hashie (3.5.6)
     high_voltage (3.0.0)
     highline (1.7.8)

@@ -11,7 +11,7 @@ module Decidim
   end
 
   def self.faker_version
-    "~> 1.7.3"
+    "~> 1.8.4"
   end
 
   def self.add_default_gemspec_properties(spec)
