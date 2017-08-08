@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="row" >
-      <% if !@form.process_scope %>
+      <% if current_participatory_process.subscopes.any? %>
         <div class="columns xlarge-6" >
           <%= form.collection_select :decidim_scope_id, subscopes_for(current_participatory_process), :id, :name %>
         </div>
