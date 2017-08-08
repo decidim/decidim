@@ -22,6 +22,11 @@ en:
     features:
       meetings:
         name: Meetings
+        settings:
+          global:
+            announcement: Announcement
+          step:
+            announcement: Announcement
     meetings:
       actions:
         attachments: Attachments

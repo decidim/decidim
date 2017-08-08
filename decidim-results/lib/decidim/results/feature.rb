@@ -27,10 +27,12 @@ Decidim.register_feature(:results) do |feature|
 
   feature.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
   feature.settings(:step) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
+    settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
   feature.seeds do |process|

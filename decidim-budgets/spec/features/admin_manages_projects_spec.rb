@@ -9,4 +9,5 @@ describe "Admin manages projects", type: :feature do
   include_context "feature admin"
 
   it_behaves_like "manage projects"
+  it_behaves_like "manage announcements"
 end

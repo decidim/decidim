@@ -14,8 +14,10 @@ en:
         name: Results
         settings:
           global:
+            announcement: Announcement
             comments_enabled: Comments enabled
           step:
+            announcement: Announcement
             comments_blocked: Comments blocked
     resource_links:
       included_proposals:

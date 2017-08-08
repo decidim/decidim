@@ -9,4 +9,5 @@ describe "Process admin manages projects", type: :feature do
   include_context "feature process admin"
 
   it_behaves_like "manage projects"
+  it_behaves_like "manage announcements"
 end

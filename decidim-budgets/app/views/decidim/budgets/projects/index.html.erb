@@ -1,3 +1,5 @@
+<%= render partial: "decidim/shared/announcement" %>
+
 <% if current_user.present? && current_settings.votes_enabled? %>
   <div class="row column">
     <%= render partial: "budget_summary", locals: { include_heading: true } %>

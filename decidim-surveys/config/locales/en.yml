@@ -14,8 +14,11 @@ en:
           answer: Answer
         name: Survey
         settings:
+          global:
+            announcement: Announcement
           step:
             allow_answers: Allow answers
+            announcement: Announcement            
     surveys:
       admin:
         application_helper:

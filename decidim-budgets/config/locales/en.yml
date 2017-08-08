@@ -115,10 +115,12 @@ en:
         name: Budgets
         settings:
           global:
+            announcement: Announcement
             comments_enabled: Comments enabled
             total_budget: Total budget
             vote_threshold_percent: Vote threshold percent
           step:
+            announcement: Announcement
             comments_blocked: Comments blocked
             show_votes: Show votes
             votes_enabled: Votes enabled

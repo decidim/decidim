@@ -42,4 +42,12 @@ describe "Edit a page", type: :feature do
       expect(page).to have_content("New body")
     end
   end
+
+  describe "announcements" do
+    before do
+      create(:page, feature: feature, body: body)
+      visit_feature_admin
+    end
+    it_behaves_like "manage announcements"
+  end
 end
