@@ -1,3 +1,7 @@
+<% if translated_attribute(feature_settings.new_proposal_help_text).present? %>
+  <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.new_proposal_help_text } %>
+<% end %>
+
 <div class="row columns">
   <%= link_to :back, class: "muted-link" do %>
     <%= icon "chevron-left", class: "icon--small" %>

@@ -22,6 +22,7 @@ en:
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
             official_proposals_enabled: Official proposals enabled
+            new_proposal_help_text: New proposal help text
             proposal_answering_enabled: Proposal answering enabled
             vote_limit: Vote limit
             announcement: Announcement

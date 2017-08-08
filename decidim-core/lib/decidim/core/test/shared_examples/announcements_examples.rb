@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples "manage announcements" do
-  it "customize an general announcement for the feature" do
+  it "customize a general announcement for the feature" do
     visit edit_feature_path(current_feature)
 
     fill_in_i18n_editor(
