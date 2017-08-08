@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Pages
     module Admin
-      describe UpdatePage, :db do
+      describe UpdatePage do
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
         let(:feature) { create(:feature, manifest_name: "pages", participatory_process: participatory_process) }

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe CreateManagedUser, :db do
+    describe CreateManagedUser do
       describe "call" do
         let(:available_authorizations) { ["Decidim::DummyAuthorizationHandler"] }
         let(:organization) { create(:organization, available_authorizations: available_authorizations) }
