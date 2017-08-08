@@ -9,7 +9,7 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
           step:
-            announcement: Announcement          
+            announcement: Announcement
             comments_blocked: Comments blocked
     pages:
       admin:

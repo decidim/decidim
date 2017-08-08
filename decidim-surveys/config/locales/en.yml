@@ -18,7 +18,7 @@ en:
             announcement: Announcement
           step:
             allow_answers: Allow answers
-            announcement: Announcement            
+            announcement: Announcement
     surveys:
       admin:
         application_helper:
