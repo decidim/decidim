@@ -31,7 +31,9 @@ module Decidim
     end
 
     def update_user
-      user.admin = form.admin
+      user.admin = form.role == "admin"
+      user.roles << form.role if form.role != "admin"
+      user.roles = user.roles.uniq
       user.save!
     end
 
@@ -40,7 +42,8 @@ module Decidim
         name: form.name,
         email: form.email.downcase,
         organization: form.organization,
-        admin: form.admin,
+        admin: form.role == "admin",
+        roles: form.role == "admin" ? [] : [form.role],
         comments_notifications: true,
         replies_notifications: true
       )

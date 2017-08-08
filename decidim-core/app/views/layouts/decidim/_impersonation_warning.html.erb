@@ -1,0 +1,10 @@
+<% if current_user&.managed? %>
+  <div class="impersonation-warning" data-session-ends-at="<%= impersonation_session_ends_at.iso8601 %>">
+    <%= t('.description_html', user_name: current_user.name) %>
+    <%= t('.expire_time_html', minutes: impersonation_session_remaining_duration_in_minutes) %>
+    <div class="impersonation-warning__action">
+      <%= button_to t('.close_session'), decidim_admin.close_session_managed_user_impersonations_path(current_user), class: "button tiny impersonation-bar__button" %>
+    </div>
+  </div>
+  <%= javascript_include_tag "decidim/impersonation" %>
+<% end %>

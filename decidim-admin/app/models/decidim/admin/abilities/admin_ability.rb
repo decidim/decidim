@@ -26,6 +26,16 @@ module Decidim
 
           can :manage, Feature
           can :manage, :admin_users
+
+          can :manage, :managed_users
+          cannot [:new, :create], :managed_users if empty_available_authorizations?
+          can :impersonate, Decidim::User do |user_to_impersonate|
+            user_to_impersonate.managed? && Decidim::ImpersonationLog.active.empty?
+          end
+          can :promote, Decidim::User do |user_to_promote|
+            user_to_promote.managed? && Decidim::ImpersonationLog.active.empty?
+          end
+
           can :manage, Moderation
           can :manage, Attachment
           can :manage, Scope
@@ -38,6 +48,12 @@ module Decidim
           end
 
           can [:index, :verify, :reject], UserGroup
+        end
+
+        private
+
+        def empty_available_authorizations?
+          @context[:current_organization] && @context[:current_organization].available_authorizations.empty?
         end
       end
     end
