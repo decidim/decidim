@@ -1,13 +1,5 @@
-<% if translated_attribute(current_settings.announcement).present? %>
-  <div class="row column">
-    <div class="callout secondary">
-      <%== translated_attribute current_settings.announcement %>
-    </div>
+<div class="row column">
+  <div class="callout secondary">
+    <%== translated_attribute announcement %>
   </div>
-<% elsif translated_attribute(feature_settings.announcement).present? %>
-  <div class="row column">
-    <div class="callout secondary">
-      <%== translated_attribute feature_settings.announcement %>
-    </div>
-  </div>
-<% end %>
+</div>

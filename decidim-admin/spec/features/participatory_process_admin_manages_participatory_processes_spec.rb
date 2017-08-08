@@ -6,6 +6,7 @@ describe "Participatory process admin manages participatory processes", type: :f
   include_context "participatory process administration by process admin"
 
   it_behaves_like "manage processes examples"
+  it_behaves_like "manage processes announcements"
 
   before do
     switch_to_host(organization.host)

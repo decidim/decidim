@@ -46,7 +46,7 @@ Decidim.register_feature(:pages) do |feature|
 
   feature.settings(:step) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
-    settings.attribute :announcement, type: :text, translated: true, editor: true    
+    settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
   feature.register_resource do |resource|

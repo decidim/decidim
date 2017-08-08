@@ -6,6 +6,10 @@
   twitter_handler: current_organization.twitter_handler
 }) %>
 
+<% if translated_attribute(current_participatory_process.announcement).present? %>
+  <%= render partial: "decidim/shared/announcement", locals: { announcement: current_participatory_process.announcement } %>
+<% end %>
+
 <div class="row column">
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">

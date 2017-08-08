@@ -1,0 +1,5 @@
+<% if translated_attribute(current_settings.announcement).present? %>
+  <%= render partial: "decidim/shared/announcement", locals: { announcement: current_settings.announcement } %>
+<% elsif translated_attribute(feature_settings.announcement).present? %>
+  <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.announcement } %>
+<% end %>
