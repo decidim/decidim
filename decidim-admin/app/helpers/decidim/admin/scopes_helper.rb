@@ -20,26 +20,6 @@ module Decidim
         end
       end
 
-      # Public: A formatted collection of subscopes for a given participatory process to be used
-      # in forms.
-      #
-      # participatory_process - Participatory process object
-      #
-      # Returns an Array.
-      def process_scopes_for_select(participatory_process)
-        @process_scopes_for_select ||=
-          if participatory_process
-            participatory_process.top_scopes.map do |scope|
-              [
-                translated_attribute(scope.name),
-                scope.id
-              ]
-            end
-          else
-            []
-          end
-      end
-
       # Public: A formatted collection of scopes for a given organization to be used
       # in forms.
       #
