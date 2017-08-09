@@ -10,6 +10,10 @@ module Decidim
     ["~> 5.1.3"]
   end
 
+  def self.faker_version
+    "~> 1.8.4"
+  end
+
   def self.add_default_gemspec_properties(spec)
     spec.version = Decidim.version
     spec.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
