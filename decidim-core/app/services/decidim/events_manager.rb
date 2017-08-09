@@ -19,9 +19,19 @@ module Decidim
     def self.publish(event:, event_class: Decidim::Events::BaseEvent, followable:)
       ActiveSupport::Notifications.publish(
         event,
-        event_class: event_class.name.underscore,
+        event_class: event_class.name,
         followable: followable
       )
+    end
+
+    # Subscribes to the given event, and runs the block every time that event
+    # is received.
+    #
+    # event_name - a String or a RegExp to match against event names.
+    #
+    # Returns nothing.
+    def self.subscribe(event_name, &block)
+      ActiveSupport::Notifications.subscribe(event_name, &block)
     end
   end
 end
