@@ -69,8 +69,14 @@ es:
         name: Nombre
         role: Rol
       scope:
+        code: Código
         name: Nombre
         organization: Organización
+        scope_type: Tipo de ámbito
+      scope_type:
+        name: Nombre
+        organization: Organización
+        plural: Plural
       static_page:
         content: Contenido
         organization: Organización
@@ -210,9 +216,43 @@ es:
         update:
           error: Se ha producido un error al actualizar esta funcionalidad.
           success: La funcionalidad se ha actualizado correctamente.
+      managed_users:
+        close_session:
+          error: Se ha producido un error al cerrar la sesión de suplantación actual.
+          success: Se ha finalizado con éxito la sesión de suplantación actual.
+        create:
+          error: Se ha producido un error al crear el usuario gestionado.
+          success: El usuario gestionado se ha creado correctamente.
+        form:
+          name: Nombre
+        impersonate:
+          error: Se ha producido un error al representar al usuario gestionado.
+        impersonations:
+          new:
+            impersonate: Suplantar
+            new_managed_user_impersonation: Nueva suplantación de usuario gesionado
+        index:
+          impersonate: Suplantar
+          needs_authoriation_warning: Necesita al menos una autorización habilitada para esta organización.
+          promote: Promocionar
+          view_logs: Ver los registros
+        new:
+          create: Crear
+          new_managed_user: Nuevo usuario gestionado
+          select_authorization_method: Seleccione un método de autorización
+          step: Fase %{current} de %{total}
+        promotion:
+          error: Se ha producido un error al promocionar el usuario gestionado.
+          success: El usuario gestionado se ha promocionado correctamente.
+        promotions:
+          new:
+            explanation: Los usuarios gestionados pueden ser promovidos a usuarios estándar. Esto significa que serán invitados a la aplicación y no será capaz de suplantarlos de nuevo. El usuario invitado recibirá un correo electrónico para aceptar su invitación.
+            new_managed_user_promotion: Nueva promoción de usuarios gestionados
+            promote: Promocionar
       menu:
         admins: Administradores
         dashboard: Panel de control
+        managed_users: Usuarios gestionados
         newsletters: Boletines
         participatory_process_groups: Grupos de procesos
         participatory_processes: Procesos
@@ -224,6 +264,7 @@ es:
           moderations: Denuncias
           process_admins: Usuarios del proceso
           steps: Fases del proceso
+        scope_types: Tipos de ámbito
         scopes: Ámbitos
         settings: Configuración
         static_pages: Páginas
@@ -237,6 +278,15 @@ es:
           name: Archivo adjunto
         category:
           name: Categoría
+        impersonation_log:
+          fields:
+            admin: Administrador
+            ended_at: Terminó el
+            expired_at: Caduca el
+            started_at: Empezó a las
+            user: Usuario
+        managed_user:
+          name: Usuario gestionado
         newsletter:
           fields:
             created_at: Fecha de creación
@@ -274,6 +324,11 @@ es:
         scope:
           fields:
             name: Nombre
+            scope_type: Tipo de ámbito
+        scope_type:
+          fields:
+            name: Nombre
+            plural: Plural
         static_page:
           fields:
             created_at: Fecha de creación
@@ -286,6 +341,10 @@ es:
             invitation_sent_at: Fecha de envío de la invitación
             last_sign_in_at: Última fecha de identificación
             name: Nombre
+            role: Rol
+            roles:
+              admin: Administrador
+              user_manager: Administrador de usuarios
           name: Usuario
         user_group:
           fields:
@@ -444,6 +503,21 @@ es:
         create:
           error: Se ha producido un error al crear este grupo.
           success: Grupo creado correctamente.
+      scope_types:
+        create:
+          error: Se ha producido un error al crear un nuevo tipo de ámbito.
+          success: Tipo de ámbito creado correctamente.
+        destroy:
+          success: Tipo de ámbito destruido correctamente
+        edit:
+          title: Editar tipo de ámbito
+          update: Actualizar
+        new:
+          create: Crear tipo de ámbito
+          title: Nuevo ámbito
+        update:
+          error: Se ha producido un error al actualizar este tipo de ámbito.
+          success: Tipo de ámbito actualizado con éxito
       scopes:
         create:
           error: Se ha producido un error al crear un nuevo ámbito.
@@ -456,6 +530,7 @@ es:
         new:
           create: Crear ámbito
           title: Nuevo ámbito
+        no_scopes: No hay ámbitos en este nivel.
         update:
           error: Se produjo un error en la actualización de este ámbito.
           success: Ámbito actualizado correctamente
@@ -478,8 +553,11 @@ es:
           success: La página se ha actualizado correctamente.
       titles:
         dashboard: Panel de control
+        impersonations: Suplantaciones
+        managed_users: Usuarios gestionados
         participatory_process_groups: Grupos de procesos participativos
         participatory_processes: Procesos participativos
+        scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas
         user_groups: Grupos de usuarios
@@ -514,6 +592,7 @@ es:
         form:
           email: Correo electrónico
           name: Nombre
+          role: Rol
         new:
           create: Invitar
           title: Invitar a un usuario como administrador
