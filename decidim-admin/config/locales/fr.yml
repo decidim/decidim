@@ -196,6 +196,7 @@ fr:
           title: Editer la fonctionnalité
           update: Mettre à jour
         form:
+          default_step_settings: Paramètres d'étape par défaut
           global_settings: Paramètres généraux
           step_settings: Définition des étapes
         index:
@@ -215,6 +216,9 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
           success: La fonctionnalité a été mise à jour avec succès.
+      managed_users:
+        form:
+          name: Nom
       menu:
         admins: Administrateurs
         dashboard: Tableau de bord
