@@ -47,3 +47,14 @@ fr:
         multiple_option: Options multiples
         short_answer: Réponse courte
         single_option: Option unique
+      surveys:
+        answer:
+          success: Votre réponse à l'enquête a bien été enregistrée.
+        show:
+          answer_survey:
+            anonymous_user_message: Pour répondre à l'enquête<a href="%{sign_in_link}"> identifiez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous.</a> .
+            title: Participer à l'enquête
+          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?
+          submit: Envoyer
+          survey_answered:
+            body: Vous avez déjà participé à cette enquête.
