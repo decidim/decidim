@@ -16,7 +16,7 @@ module Decidim
       end
 
       def current_settings
-        @current_settings ||= current_feature.active_step_settings
+        @current_settings ||= current_feature.current_settings
       end
     end
   end

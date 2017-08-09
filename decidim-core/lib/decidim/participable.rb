@@ -52,5 +52,13 @@ module Decidim
     def admins
       admins_query.for(self)
     end
+
+    def allows_steps?
+      respond_to?(:steps)
+    end
+
+    def has_steps?
+      allows_steps? && steps.any?
+    end
   end
 end

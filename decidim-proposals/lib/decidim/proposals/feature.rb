@@ -76,6 +76,12 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.seeds do |participatory_space|
+    step_settings = if participatory_space.allows_steps?
+                      { participatory_space.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true } }
+                    else
+                      {}
+                    end
+
     feature = Decidim::Feature.create!(
       name: Decidim::Features::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name,
       manifest_name: :proposals,
@@ -84,9 +90,7 @@ Decidim.register_feature(:proposals) do |feature|
       settings: {
         vote_limit: 0
       },
-      step_settings: {
-        participatory_space.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
-      }
+      step_settings: step_settings
     )
 
     if participatory_space.scope
@@ -124,7 +128,7 @@ Decidim.register_feature(:proposals) do |feature|
       )
 
       rand(3).times do |m|
-        email = "vote-author-#{participatory_space.id}-#{n}-#{m}@example.org"
+        email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"
         name = "#{Faker::Name.name} #{participatory_space.id} #{n} #{m}"
 
         author = Decidim::User.find_or_initialize_by(email: email)

@@ -47,7 +47,7 @@ module Decidim
       end
 
       def votes_disabled?
-        !feature.active_step_settings.votes_enabled?
+        !feature.current_settings.votes_enabled?
       end
     end
   end
