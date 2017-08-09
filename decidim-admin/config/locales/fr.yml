@@ -32,6 +32,9 @@ fr:
         welcome_text: Texte de bienvenue
       participatory_process:
         banner_image: Image d'en-tête
+        copy_categories: Copier les catégories
+        copy_features: Copier les fonctionnalités
+        copy_steps: Copier les étapes
         description: Description
         developer_group: Groupe promoteur
         domain: Domaine
@@ -66,8 +69,14 @@ fr:
         name: Nom
         role: Rôle
       scope:
+        code: Code
         name: Nom
         organization: Organisation
+        scope_type: Type de portée
+      scope_type:
+        name: Nom
+        organization: Organisation
+        plural: Pluriel
       static_page:
         content: Contenu
         organization: Organisation
@@ -115,12 +124,15 @@ fr:
         configure: Configurer
         confirm_destroy: Confirmez-vous la suppression ?
         destroy: Supprimer
+        duplicate: Dupliquer
         edit: Modifier
+        export: Exporter
         manage: Gérer
         new: Nouveau
         permissions: Autorisations
         preview: Aperçu
         publish: Publier
+        reject: Rejeter
         resend_invitation: Renvoyer l'invitation
         unpublish: Dépublier
         verify: Vérifier
@@ -133,6 +145,8 @@ fr:
         edit:
           title: Modifier le document lié
           update: Mettre à jour
+        index:
+          attachments_title: Documents liés
         new:
           create: Lier un document
           title: Nouveau document lié
@@ -149,6 +163,9 @@ fr:
         edit:
           title: Modifier la catégorie
           update: Mettre à jour
+        index:
+          categories_title: Catégories
+          category_used: Cette catégorie ne peut pas être supprimée car elle est utilisée.
         new:
           create: Créer une catégorie
           title: Nouvelle catégorie
@@ -158,6 +175,9 @@ fr:
       dashboard:
         show:
           welcome: Bienvenue dans le nouveau panneau d’administration Decidim.
+      exports:
+        export_as: "%{name} comme %{export_format}"
+        notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
       feature_permissions:
         edit:
           everyone: Tout le monde
