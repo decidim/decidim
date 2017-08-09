@@ -1,6 +1,8 @@
 fr:
   activemodel:
     attributes:
+      account:
+        delete_reason: Pour quelle raison de supprimez-vous votre compte ?
       report:
         details: Commentaires additionnels
       user:
@@ -8,6 +10,7 @@ fr:
         name: Votre nom
         password: Nouveau mot de passe
         password_confirmation: Confirmez votre nouveau mot de passe
+        remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro de document de l'organisation
         user_group_name: Nom de l'organisation
         user_group_phone: Téléphone de l'organisation
@@ -31,6 +34,17 @@ fr:
       image_too_big: L'image est trop grande
   decidim:
     account:
+      delete:
+        alert: Cette action ne peut pas être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter.
+        confirm:
+          close: Fermer la fenêtre
+          ok: Oui, je souhaite supprimer mon compte
+          question: Êtes-vous sûr de vouloir supprimer votre compte?
+          title: Supprimer mon compte
+        explanation: Veuillez indiquer la raison pour laquelle vous souhaitez supprimer votre compte (facultatif).
+      destroy:
+        error: Une erreur s'est produite lors de la suppression de votre compte.
+        success: Votre compte a été supprimé avec succès.
       show:
         change_password: Changer de mot de passe
         update_account: Mettre à jour votre compte
@@ -104,6 +118,14 @@ fr:
       shared:
         omniauth_buttons:
           or: Ou
+    errors:
+      internal_server_error:
+        title: Il y a eu un problème avec notre serveur
+        try_later: Veuillez réessayer plus tard.
+      not_found:
+        back_home: Retour à l'accueil
+        content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
+        title: La page que vous recherchez ne peut être trouvée
     export_mailer:
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -131,6 +153,9 @@ fr:
         proposal: Propositions
         result: Résultats
     forms:
+      current_file: Fichier actuel
+      current_image: Image actuelle
+      default_image: Image par défaut
       errors:
         error: Ce champ contient une erreur.
     menu:
