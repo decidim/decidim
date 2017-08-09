@@ -19,12 +19,15 @@ en:
         name: Proposals
         settings:
           global:
+            announcement: Announcement
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
+            new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
             vote_limit: Vote limit
           step:
+            announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
             proposal_answering_enabled: Proposal answering enabled

@@ -39,12 +39,14 @@ Decidim.register_feature(:budgets) do |feature|
     settings.attribute :total_budget, type: :integer, default: 100_000_000
     settings.attribute :vote_threshold_percent, type: :integer, default: 70
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
   feature.settings(:step) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :votes_enabled, type: :boolean, default: true
     settings.attribute :show_votes, type: :boolean, default: false
+    settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
   feature.seeds do |process|

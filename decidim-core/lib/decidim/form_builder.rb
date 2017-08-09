@@ -42,18 +42,21 @@ module Decidim
         )
       end
 
+      tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
+
       label_tabs = content_tag(:div, class: "label--tabs") do
         field_label = label_i18n(name, options[:label] || label_for(name))
 
         tabs_panels = "".html_safe
         if options[:label] != false
-          tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: "#{@object_name}-#{name}-tabs", data: { tabs: true }) do
+          tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
             locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
               string + content_tag(:li, class: tab_element_class_for("title", index)) do
                 title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
                 element_class = nil
                 element_class = "is-tab-error" if error?(name_with_locale(name, locale))
-                content_tag(:a, title, href: "##{name}-panel-#{index}", class: element_class)
+                tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+                content_tag(:a, title, href: "##{tab_content_id}", class: element_class)
               end
             end
           end
@@ -62,9 +65,10 @@ module Decidim
         safe_join [field_label, tabs_panels]
       end
 
-      tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: "#{@object_name}-#{name}-tabs" }) do
+      tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-          string + content_tag(:div, class: tab_element_class_for("panel", index), id: "#{name}-panel-#{index}") do
+          tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
+          string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
             send(type, name_with_locale(name, locale), options.merge(label: false))
           end
         end

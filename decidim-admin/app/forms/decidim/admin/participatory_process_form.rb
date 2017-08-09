@@ -18,6 +18,7 @@ module Decidim
       translatable_attribute :target, String
       translatable_attribute :participatory_scope, String
       translatable_attribute :participatory_structure, String
+      translatable_attribute :announcement, String
 
       mimic :participatory_process
 

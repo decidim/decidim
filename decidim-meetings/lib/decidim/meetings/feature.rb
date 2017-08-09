@@ -23,6 +23,14 @@ Decidim.register_feature(:meetings) do |feature|
     meetings.count
   end
 
+  feature.settings(:global) do |settings|
+    settings.attribute :announcement, type: :text, translated: true, editor: true
+  end
+
+  feature.settings(:step) do |settings|
+    settings.attribute :announcement, type: :text, translated: true, editor: true
+  end
+
   feature.seeds do |process|
     feature = Decidim::Feature.create!(
       name: Decidim::Features::Namer.new(process.organization.available_locales, :meetings).i18n_name,

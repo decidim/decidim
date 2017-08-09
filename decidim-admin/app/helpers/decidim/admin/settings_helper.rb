@@ -23,7 +23,18 @@ module Decidim
       #
       # Returns a rendered form field.
       def settings_attribute_input(form, attribute, name, options = {})
-        form.send(TYPES[attribute.type.to_sym], name, options)
+        if attribute.translated?
+          form.send(:translated, form_method_for_attribute(attribute), name, options.merge(tabs_id: "#{options[:tabs_prefix]}-#{name}-tabs"))
+        else
+          form.send(form_method_for_attribute(attribute), name, options)
+        end
+      end
+
+      private
+
+      def form_method_for_attribute(attribute)
+        return :editor if attribute.type.to_sym == :text && attribute.editor?
+        TYPES[attribute.type.to_sym]
       end
     end
   end

@@ -20,7 +20,8 @@
                           locals: {
                             form: settings_fields,
                             feature: @feature,
-                            settings_name: "global"
+                            settings_name: "global",
+                            tabs_prefix: "global-settings"
                           } %>
               <% end %>
             </div>
@@ -46,7 +47,8 @@
                       locals: {
                         form: settings_fields,
                         feature: feature,
-                        settings_name: "step"
+                        settings_name: "step",
+                        tabs_prefix: "step-#{step.id}-settings"
                       } %>
                     <% end %>
                   <% end %>
@@ -67,7 +69,8 @@
                           locals: {
                             form: settings_fields,
                             feature: @feature,
-                            settings_name: "step"
+                            settings_name: "step",
+                            tabs_prefix: "default-step-settings"
                           } %>
               <% end %>
             </div>

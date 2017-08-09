@@ -38,14 +38,13 @@ Decidim.register_feature(:surveys) do |feature|
   # These actions permissions can be configured in the admin panel
   feature.actions = %w(answer)
 
-  # feature.settings(:global) do |settings|
-  #   # Add your global settings
-  #   # Available types: :integer, :boolean
-  #   # settings.attribute :vote_limit, type: :integer, default: 0
-  # end
+  feature.settings(:global) do |settings|
+    settings.attribute :announcement, type: :text, translated: true, editor: true
+  end
 
   feature.settings(:step) do |settings|
     settings.attribute :allow_answers, type: :boolean, default: false
+    settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
   # feature.register_resource do |resource|

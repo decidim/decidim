@@ -1,3 +1,5 @@
+<%= render partial: "decidim/shared/feature_announcement" %>
+
 <%= dynamic_map_for meetings_data_for_map(geocoded_meetings) do %>
   <template id="marker-popup">
     <div class="map-info__content">

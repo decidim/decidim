@@ -5,9 +5,14 @@
   <% end %>
   <h2 class="section-heading"><%= t(".title") %></h2>
 </div>
+
 <div class="row">
   <div class="columns large-6 medium-centered">
     <div class="card">
+      <% if translated_attribute(feature_settings.new_proposal_help_text).present? %>
+        <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.new_proposal_help_text } %>
+      <% end %>
+
       <div class="card__content">
         <%= decidim_form_for(@form) do |form| %>
           <div class="field">

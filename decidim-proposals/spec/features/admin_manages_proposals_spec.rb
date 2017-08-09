@@ -12,4 +12,6 @@ describe "Admin manages proposals", type: :feature do
   it_behaves_like "manage proposals"
   it_behaves_like "manage moderations"
   it_behaves_like "export proposals"
+  it_behaves_like "manage announcements"
+  it_behaves_like "manage proposals help texts"
 end

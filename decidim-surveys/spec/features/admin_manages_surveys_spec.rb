@@ -10,4 +10,5 @@ describe "Admin manages surveys", type: :feature do
 
   it_behaves_like "edit surveys"
   it_behaves_like "export survey user answers"
+  it_behaves_like "manage announcements"
 end
