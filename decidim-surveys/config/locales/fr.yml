@@ -58,3 +58,4 @@ fr:
           submit: Envoyer
           survey_answered:
             body: Vous avez déjà participé à cette enquête.
+            title: Enquête terminée
