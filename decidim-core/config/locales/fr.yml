@@ -176,6 +176,8 @@ fr:
         success: Vos paramètres de notifications ont été mis à jour avec succès.
     own_user_groups:
       index:
+        pending: En attente
+        rejected: Refusée
         verified: Vérifié
     pages:
       index:
@@ -203,9 +205,24 @@ fr:
         participatory_structure: Organisations concernées
         scope: Zone d'application
         target: Public visé
+      statistics:
+        answers_count: Réponses
+        comments_count: Commentaires
+        headline: Activité
+        meetings_count: Rencontres
+        pages_count: Pages
+        processes_count: Processus participatifs
+        projects_count: Projets
+        proposals_count: Propositions
+        results_count: Résultats
+        surveys_count: Enquêtes
+        users_count: Participants
+        votes_count: Votes
     reported_mailer:
       hide:
         hello: Bonjour %{name},
+        manage_moderations: Gérer les modérations
+        report_html: <p>Le <a href="%{url}">contenu suivant</a> a été masqué automatiquement.</p>
         subject: Une ressource a été cachée automatiquement
       report:
         hello: Bonjour %{name},
