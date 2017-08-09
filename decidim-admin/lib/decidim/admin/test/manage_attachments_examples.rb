@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage attachments examples" do
+shared_examples "manage attachments examples" do
   let!(:attachment) do
     Decidim::AttachmentUploader.enable_processing = true
     create(:attachment, attached_to: attached_to)

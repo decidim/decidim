@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage processes examples" do
+shared_examples "manage processes examples" do
   context "previewing processes" do
     context "when the process is unpublished" do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }

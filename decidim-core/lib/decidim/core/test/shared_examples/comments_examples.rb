@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "comments" do
+shared_examples "comments" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, organization: organization) }
   let!(:comments) { create_list(:comment, 3, commentable: commentable) }

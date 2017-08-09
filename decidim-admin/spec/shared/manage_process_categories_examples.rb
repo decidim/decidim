@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage process categories examples" do
+shared_examples "manage process categories examples" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user

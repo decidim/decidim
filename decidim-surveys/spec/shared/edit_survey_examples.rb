@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "edit surveys" do
+shared_examples "edit surveys" do
   let(:body) do
     {
       en: "This is the first question",

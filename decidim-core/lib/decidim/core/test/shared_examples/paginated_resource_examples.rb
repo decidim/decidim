@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "a paginated resource" do
+shared_examples "a paginated resource" do
   let(:collection_size) { 30 }
 
   before do

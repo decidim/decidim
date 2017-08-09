@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "a proposal form" do
+shared_examples "a proposal form" do
   let(:feature) { create(:proposal_feature) }
   let(:title) { "Oriol for president!" }
   let(:body) { "Everything would be better" }

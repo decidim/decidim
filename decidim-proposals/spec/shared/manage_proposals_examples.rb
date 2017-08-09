@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage proposals" do
+shared_examples "manage proposals" do
   let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }

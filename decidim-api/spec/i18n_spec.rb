@@ -2,6 +2,6 @@
 
 require "decidim/dev/test/i18n_shared_examples"
 
-RSpec.describe "I18n sanity" do
+describe "I18n sanity" do
   include_examples "I18n sanity"
 end

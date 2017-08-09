@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage projects" do
+shared_examples "manage projects" do
   it "updates a project" do
     within find("tr", text: translated(project.title)) do
       find("a.action-icon--edit").click
