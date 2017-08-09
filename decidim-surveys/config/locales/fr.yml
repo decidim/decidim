@@ -3,6 +3,8 @@ fr:
     attributes:
       survey_answer:
         body: Répondre
+      survey_question:
+        mandatory: Requis
   decidim:
     features:
       surveys:
