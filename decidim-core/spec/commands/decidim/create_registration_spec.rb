@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Comments
-    describe CreateRegistration, :db do
+    describe CreateRegistration do
       describe "call" do
         let(:organization) { create(:organization) }
 

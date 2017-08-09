@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Surveys
-    describe CreateSurvey, :db do
+    describe CreateSurvey do
       describe "call" do
         let(:feature) { create(:feature, manifest_name: "surveys") }
         let(:command) { described_class.new(feature) }

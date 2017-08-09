@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage process steps examples" do
+shared_examples "manage process steps examples" do
   let(:active) { false }
   let!(:process_step) do
     create(

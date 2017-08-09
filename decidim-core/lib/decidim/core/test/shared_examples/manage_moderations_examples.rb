@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage moderations" do
+shared_examples "manage moderations" do
   let!(:moderations) do
     reportables.first(reportables.length - 1).map do |reportable|
       moderation = create(:moderation, reportable: reportable, report_count: 1)

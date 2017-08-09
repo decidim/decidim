@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe User, :db do
+  describe User do
     let(:organization) { build(:organization) }
     let(:user) { build(:user, organization: organization) }
 

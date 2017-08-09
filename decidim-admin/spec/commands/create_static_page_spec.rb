@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe CreateStaticPage, :db do
+    describe CreateStaticPage do
       describe "call" do
         let(:organization) { create(:organization) }
         let(:form) { StaticPageForm.from_model(build(:static_page)).with_context(current_organization: organization) }

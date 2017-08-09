@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Pages
-    describe CreatePage, :db do
+    describe CreatePage do
       describe "call" do
         let(:feature) { create(:feature, manifest_name: "pages") }
         let(:command) { described_class.new(feature) }

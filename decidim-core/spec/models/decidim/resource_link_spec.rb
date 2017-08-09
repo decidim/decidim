@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ResourceLink, :db do
+  describe ResourceLink do
     let(:link) { build(:resource_link) }
     subject { link }
 

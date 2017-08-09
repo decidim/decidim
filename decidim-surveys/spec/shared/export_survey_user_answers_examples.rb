@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-RSpec.shared_examples "export survey user answers" do
+shared_examples "export survey user answers" do
   let!(:survey_questions) { create_list :survey_question, 3, survey: survey }
   let!(:survey_answers) do
     survey_questions.map do |question|

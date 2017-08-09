@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples "an authorization handler" do
+shared_examples "an authorization handler" do
   describe "to_partial_path" do
     subject { handler.to_partial_path }
     it { is_expected.to be_kind_of(String) }

@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 require "spec_helper"
 
 module Decidim
   module Admin
-    describe UpdateOrganization, :db do
+    describe UpdateOrganization do
       describe "call" do
         let(:organization) { create(:organization) }
         let(:params) do

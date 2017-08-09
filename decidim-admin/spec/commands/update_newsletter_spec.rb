@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe UpdateNewsletter, :db do
+    describe UpdateNewsletter do
       describe "call" do
         let(:user) { create(:user, organization: organization) }
         let(:organization) { create(:organization) }

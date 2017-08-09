@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Surveys
     module Admin
-      describe UpdateSurvey, :db do
+      describe UpdateSurvey do
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
         let(:feature) { create(:feature, manifest_name: "surveys", participatory_process: participatory_process) }

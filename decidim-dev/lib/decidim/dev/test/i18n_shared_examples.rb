@@ -2,7 +2,7 @@
 
 require "i18n/tasks"
 
-RSpec.shared_examples_for "I18n sanity" do
+shared_examples_for "I18n sanity" do
   let(:locales) do
     ENV["ENFORCED_LOCALES"].present? ? ENV["ENFORCED_LOCALES"].split(",") : [:en]
   end
