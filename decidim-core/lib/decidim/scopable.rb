@@ -22,5 +22,12 @@ module Decidim
     def subscopes
       scope ? scope.children : organization.top_scopes
     end
+
+    # Whether the resource has subscopes or not.
+    #
+    # Returns a boolean.
+    def has_subscopes?
+      scope_enabled && subscopes.any?
+    end
   end
 end
