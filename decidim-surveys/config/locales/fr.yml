@@ -1,4 +1,8 @@
 fr:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Répondre
   decidim:
     features:
       surveys:
