@@ -69,8 +69,14 @@ ca:
         name: Nom
         role: Rol
       scope:
+        code: Codi
         name: Nom
         organization: Organització
+        scope_type: Tipus d'àmbit
+      scope_type:
+        name: Nom
+        organization: Organització
+        plural: Plural
       static_page:
         content: Contingut
         organization: Organització
@@ -210,9 +216,43 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta funcionalitat.
           success: La funcionalitat s'ha actualitzat correctament.
+      managed_users:
+        close_session:
+          error: S'ha produït un error en tancar la sessió de suplantació actual.
+          success: La sessió de suplantació actual s'ha finalitzat amb èxit.
+        create:
+          error: S'ha produït un error en crear l'usuari gestionat.
+          success: L'usuari gestionat s'ha creat correctament.
+        form:
+          name: Nom
+        impersonate:
+          error: S'ha produït un error en suplantar l'usuari gestionat.
+        impersonations:
+          new:
+            impersonate: Suplantar
+            new_managed_user_impersonation: Nova suplantació d'usuaris gestionats
+        index:
+          impersonate: Suplantar
+          needs_authoriation_warning: Necessiteu almenys una autorització habilitada per a aquesta organització.
+          promote: Promocionar
+          view_logs: Veure registres
+        new:
+          create: Crear
+          new_managed_user: Nou usuari gestionat
+          select_authorization_method: Seleccioneu un mètode d'autorització
+          step: Fase %{current} de %{total}
+        promotion:
+          error: S'ha produït un error en promoure l'usuari gestionat.
+          success: S'ha promogut amb èxit l'usuari gestionat.
+        promotions:
+          new:
+            explanation: Els usuaris gestionats es poden promocionar a usuaris estàndard. Significa que seran convidats al sistema i no podreu tornar a suplantar-los. L'usuari convidat rebrà un correu electrònic per acceptar la vostra invitació.
+            new_managed_user_promotion: Nova promoció d'usuari gestionat
+            promote: Promocionar
       menu:
         admins: Administradors
         dashboard: Tauler de control
+        managed_users: Usuaris gestionats
         newsletters: Butlletins
         participatory_process_groups: Grups de processos
         participatory_processes: Processos
@@ -224,6 +264,7 @@ ca:
           moderations: Moderacions
           process_admins: Usuaris del procés
           steps: Fases del procés
+        scope_types: Tipus d'àmbit
         scopes: Àmbits
         settings: Configuració
         static_pages: Pàgines
@@ -237,6 +278,9 @@ ca:
           name: Arxiu adjunt
         category:
           name: Categoria
+        impersonation_log:
+          fields:
+            admin: Administrador
         newsletter:
           fields:
             created_at: Data de creació
