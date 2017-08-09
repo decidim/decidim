@@ -5,7 +5,24 @@ fr:
         body: Répondre
       survey_question:
         mandatory: Requis
+        question_type: Type de question
   decidim:
     features:
       surveys:
+        actions:
+          answer: Répondre
         name: Enquête
+        settings:
+          step:
+            allow_answers: Autoriser les réponses
+    surveys:
+      admin:
+        application_helper:
+          label_for_question:
+            question: Question
+        exports:
+          survey_user_answers: Réponses des participants à l'enquête
+        models:
+          components:
+            description: Description
+            tos: Conditions d'utilisation
