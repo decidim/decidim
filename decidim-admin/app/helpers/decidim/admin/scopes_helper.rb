@@ -38,8 +38,8 @@ module Decidim
       # scopable - A scopable object.
       #
       # Returns a Boolean.
-      def scope_enabled?(scopable)
-        scopable.scope_enabled?
+      def scopes_enabled?(scopable)
+        scopable.scopes_enabled?
       end
     end
   end

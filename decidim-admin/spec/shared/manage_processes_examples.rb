@@ -122,7 +122,7 @@ shared_examples "manage processes examples" do
       participatory_process.update_attributes!(scope_enabled: true, scope: scope)
     end
 
-    it "disable the scope for a participatory process" do
+    it "disables the scope for a participatory process" do
       click_link translated(participatory_process.title)
 
       uncheck :participatory_process_scope_enabled

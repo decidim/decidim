@@ -23,8 +23,8 @@ module Decidim
     # Check whether the resource has a visible scope or not.
     #
     # Returns boolean.
-    def has_visible_scope?(resource)
-      current_participatory_process.scope_enabled? && !current_participatory_process.scope && resource.scope.present?
+    def has_visible_scopes?(resource)
+      current_participatory_process.scopes_enabled? && !current_participatory_process.scope.present? && resource.scope.present?
     end
   end
 end
