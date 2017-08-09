@@ -226,11 +226,15 @@ fr:
         subject: Une ressource a été cachée automatiquement
       report:
         hello: Bonjour %{name},
+        manage_moderations: Gérer les modérations
+        report_html: <p>Le <a href="%{url}">contenu</a> suivant a été signalé.</p>
         subject: Une ressource a été signalée
     reports:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
+    scopes:
+      global: Portée globale
     shared:
       action_authorization_modal:
         incomplete:
@@ -265,6 +269,8 @@ fr:
         sign_up: S'inscrire
       reference:
         reference: 'Référence: %{reference}'
+      results_per_page:
+        label: 'Résultats par page :'
       share_modal:
         close_window: Fermer la fenêtre
         share: Partager
@@ -305,6 +311,8 @@ fr:
       too_many_marks: Utilise trop de signes de ponctuations
       too_much_caps: Utilise trop de majuscule
       too_short: Est trop court
+  forms:
+    required: Champs obligatoires
   invisible_captcha:
     sentence_for_humans: Si vous êtes humain, ignorez ce champ
     timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
@@ -321,6 +329,8 @@ fr:
         navigation: Navigation
         sign_in: Se connecter
         sign_up: S'inscrire
+      impersonation_warning:
+        close_session: Fermer la session
       participatory_process_groups:
         participatory_process_group:
           browse: Naviguer
