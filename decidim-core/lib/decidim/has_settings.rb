@@ -18,6 +18,14 @@ module Decidim
       self[:settings]["global"] = serialize_settings(settings_schema(:global), data)
     end
 
+    def current_settings
+      if participatory_space.allows_steps?
+        active_step_settings
+      else
+        default_step_settings
+      end
+    end
+
     def default_step_settings
       settings_schema(:step).new(self[:settings]["default_step"])
     end
@@ -27,6 +35,8 @@ module Decidim
     end
 
     def step_settings
+      return {} unless participatory_space.allows_steps?
+
       participatory_space.steps.each_with_object({}) do |step, result|
         result[step.id.to_s] = settings_schema(:step).new(self[:settings].dig("steps", step.id.to_s))
       end
@@ -38,14 +48,16 @@ module Decidim
       end
     end
 
+    private
+
     def active_step_settings
+      return unless participatory_space.allows_steps?
+
       active_step = participatory_space.active_step
       return default_step_settings unless active_step
 
       step_settings.fetch(active_step.id.to_s)
     end
-
-    private
 
     def serialize_settings(schema, value)
       if value.respond_to?(:attributes)
