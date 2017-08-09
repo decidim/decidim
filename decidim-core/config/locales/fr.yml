@@ -331,6 +331,8 @@ fr:
         sign_up: S'inscrire
       impersonation_warning:
         close_session: Fermer la session
+        description_html: Vous agissez en tant que l'utilisateur <b>%{user_name}</b>.
+        expire_time_html: Votre session expirera dans <b><span class="minutes">%{minutes}</span> minutes</b>.
       participatory_process_groups:
         participatory_process_group:
           browse: Naviguer
@@ -367,6 +369,7 @@ fr:
       user_profile:
         account: Compte
         authorizations: Autorisations
+        delete_my_account: Supprimer mon compte
         notifications_settings: Paramètres des notifications
         title: Paramètres utilisateur
         user_groups: Organisations
@@ -397,12 +400,17 @@ fr:
         active_step: Etape en cours
         see_all_processes: Voir tous les processus participatifs
       statistics:
+        answers_count: Réponses
         comments_count: Commentaires
         headline: État actuel de %{organization}
         meetings_count: Rencontres
+        pages_count: Pages
         processes_count: Processus participatifs
+        projects_count: Projets
         proposals_count: Propositions
         results_count: Résultats
+        surveys_count: Enquêtes
+        users_count: Participants
         votes_count: Votes
       sub_hero:
         register: S'inscrire
