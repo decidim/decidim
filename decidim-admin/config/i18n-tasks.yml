@@ -86,7 +86,7 @@ search:
 ignore_missing:
 # - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
 # - '{devise,simple_form}.*'
- - decidim.participatory_processes.scopes.global
+ - decidim.scopes.global
  - locale.name
  - forms.required
 

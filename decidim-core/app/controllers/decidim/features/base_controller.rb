@@ -18,7 +18,7 @@ module Decidim
       helper Decidim::ParticipatoryProcessHelper
       helper Decidim::IconHelper
       helper Decidim::ResourceHelper
-      helper Decidim::ParticipatoryProcessScopesHelper
+      helper Decidim::ScopesHelper
       helper Decidim::ActionAuthorizationHelper
       helper Decidim::AttachmentsHelper
 

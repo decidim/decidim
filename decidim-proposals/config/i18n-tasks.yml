@@ -10,6 +10,6 @@ ignore_unused:
 - "decidim.proposals.admin.exports.proposals"
 - "decidim.proposals.admin.exports.comments"
 ignore_missing:
-  - decidim.participatory_processes.scopes.global
+  - decidim.scopes.global
 search:
   strict: false

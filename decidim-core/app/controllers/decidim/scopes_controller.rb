@@ -17,7 +17,7 @@ module Decidim
                       if root
                         [{ id: root.id.to_s, text: root.name[I18n.locale.to_s] }]
                       else
-                        [{ id: "global", text: I18n.t("decidim.participatory_processes.scopes.global") }]
+                        [{ id: "global", text: I18n.t("decidim.scopes.global") }]
                       end
                     else
                       []
