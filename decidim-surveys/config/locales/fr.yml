@@ -42,3 +42,8 @@ fr:
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.
+      question_types:
+        long_answer: Réponse longue
+        multiple_option: Options multiples
+        short_answer: Réponse courte
+        single_option: Option unique
