@@ -281,6 +281,12 @@ ca:
         impersonation_log:
           fields:
             admin: Administrador
+            ended_at: Va acabar el
+            expired_at: Vençut el
+            started_at: Va començar el
+            user: Usuari
+        managed_user:
+          name: Usuari gestionat
         newsletter:
           fields:
             created_at: Data de creació
@@ -318,6 +324,11 @@ ca:
         scope:
           fields:
             name: Nom
+            scope_type: Tipus d'àmbit
+        scope_type:
+          fields:
+            name: Nom
+            plural: Plural
         static_page:
           fields:
             created_at: Data de creació
@@ -330,6 +341,10 @@ ca:
             invitation_sent_at: Data d'enviament de la invitació
             last_sign_in_at: Darrera data d'identificació
             name: Nom
+            role: Rol
+            roles:
+              admin: Administrador
+              user_manager: Administrador d'usuaris
           name: Usuari
         user_group:
           fields:
@@ -488,6 +503,21 @@ ca:
         create:
           error: S'ha produït un error creant aquest grup de processos participatius.
           success: Grup de processos participatius creat correctament.
+      scope_types:
+        create:
+          error: S'ha produït un error en crear un nou tipus d'àmbit.
+          success: Tipus d'àmbit creat amb èxit.
+        destroy:
+          success: Tipus d'àmbit destruït amb èxit
+        edit:
+          title: Editar tipus d'àmbit
+          update: Actualitzar
+        new:
+          create: Crea tipus d'àmbit
+          title: Nou àmbit
+        update:
+          error: S'ha produït un error en actualitzar aquest tipus d'àmbit.
+          success: Tipus d'àmbit actualitzat amb èxit
       scopes:
         create:
           error: S'ha produït un error en crear un nou àmbit.
@@ -500,6 +530,7 @@ ca:
         new:
           create: Crea àmbit
           title: Nou àmbit
+        no_scopes: No hi ha àmbits a aquest nivell.
         update:
           error: S'ha produït un error en l'actualització d'aquest àmbit.
           success: Àmbit actualitzat correctament
@@ -522,8 +553,11 @@ ca:
           success: La pàgina s'ha actualitzat correctament.
       titles:
         dashboard: Tauler de control
+        impersonations: Suplantacions
+        managed_users: Usuaris gestionats
         participatory_process_groups: Grups de processos participatius
         participatory_processes: Processos participatius
+        scope_types: Tipus d'àmbit
         scopes: Àmbits
         static_pages: Pàgines
         user_groups: Grups d'usuaris
@@ -558,6 +592,7 @@ ca:
         form:
           email: Correu electrònic
           name: Nom
+          role: Rol
         new:
           create: Convidar
           title: Convidar un usuari com a administrador

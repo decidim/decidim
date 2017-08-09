@@ -35,10 +35,12 @@ fr:
             title: Titre
           form:
             add_question: Ajouter une question
+            already_answered_warning: Votre enquête a déjà reçu des réponses, vous ne pouvez donc pas modifier ses questions.
           question:
             add_answer_option: Ajouter une option de réponse
             question: Question
             remove_question: Supprimer la question
+            statement: Déclaration
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.
@@ -47,3 +49,20 @@ fr:
         multiple_option: Options multiples
         short_answer: Réponse courte
         single_option: Option unique
+      surveys:
+        answer:
+          invalid: Votre réponse à l'enquête comporte des erreurs.
+          success: Votre réponse à l'enquête a bien été enregistrée.
+        show:
+          answer_survey:
+            anonymous_user_message: Pour répondre à l'enquête<a href="%{sign_in_link}"> identifiez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous.</a> .
+            title: Participer à l'enquête
+          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?
+          submit: Envoyer
+          survey_answered:
+            body: Vous avez déjà participé à cette enquête.
+            title: Enquête complétée
+          survey_closed:
+            body: L'enquête est fermée et n'accepte plus de réponse.
+            title: Enquête fermée
+          tos_agreement: En participant à ce sondage, vous acceptez ses conditions d'utilisation
