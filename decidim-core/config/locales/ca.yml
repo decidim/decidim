@@ -158,6 +158,8 @@ ca:
       default_image: Imatge predeterminada
       errors:
         error: Hi ha un error en aquest camp.
+    managed_users:
+      expired_session: La sessió de suplantació actual ha caducat.
     menu:
       home: Inici
       more_information: Més informació
@@ -302,6 +304,7 @@ ca:
   errors:
     messages:
       content_type_whitelist_error: El tipus de fitxer no és vàlid
+      cycle_detected: Un dels pares de l'àmbit d'aplicació no pot ser un dels seus descendents
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
       invalid_manifest: Arxiu de manifest invàlid
       invalid_participatory_process: Procés participatiu invàlid
@@ -329,6 +332,10 @@ ca:
         navigation: Navegació
         sign_in: Entra
         sign_up: Registra't
+      impersonation_warning:
+        close_session: Tanca la sessió
+        description_html: Esteu suplantant l'usuari <b>%{user_name}</b>.
+        expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
       participatory_process_groups:
         participatory_process_group:
           browse: Explorar
