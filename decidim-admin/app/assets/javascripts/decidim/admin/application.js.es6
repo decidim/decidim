@@ -36,11 +36,15 @@ const pageLoad = () => {
     }
   })
 
+  const $participatoryProcessScopeEnabled = $('#participatory_process_scope_enabled');
+  const $participatoryProcessScopeId = $("#participatory_process_scope_id");
+
   if ($('.edit_participatory_process').length > 0) {
-    $('#participatory_process_scope_enabled').on('change', (event) => {
+    $participatoryProcessScopeEnabled.on('change', (event) => {
       const checked = event.target.checked;
-      $("#participatory_process_scope_id").attr("disabled", !checked);
+      $participatoryProcessScopeId.attr("disabled", !checked);
     })
+    $participatoryProcessScopeId.attr("disabled", !$participatoryProcessScopeEnabled.prop('checked'));
   }
 };
 

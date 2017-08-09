@@ -53,7 +53,7 @@
     <div class="section">
       <p><%== translated_attribute meeting.description %></p>
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
-      <%= render partial: "tags", locals: { meeting: meeting } %>
+      <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>
     <% if meeting.closed? %>
       <div class="section">
