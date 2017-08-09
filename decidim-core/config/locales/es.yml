@@ -158,6 +158,8 @@ es:
       default_image: Imagen predeterminada
       errors:
         error: Hay un error en este campo.
+    managed_users:
+      expired_session: La sesión de suplantación actual ha caducado.
     menu:
       home: Inicio
       more_information: Más información
@@ -234,6 +236,8 @@ es:
       create:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
+    scopes:
+      global: Ámbito global
     shared:
       action_authorization_modal:
         incomplete:
@@ -302,7 +306,7 @@ es:
   errors:
     messages:
       content_type_whitelist_error: El tipo de archivo no es válido
-      cycle_detected: un descendiente del ámbito no puede ser su padre
+      cycle_detected: el padre de un ámbito no puede ser uno de sus descendientes
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
       invalid_manifest: Manifiesto inválido
       invalid_participatory_process: Proceso participativo inválido
@@ -330,6 +334,10 @@ es:
         navigation: Navegación
         sign_in: Entra
         sign_up: Regístrate
+      impersonation_warning:
+        close_session: Cerrar la sesión
+        description_html: Te estás haciendo pasar por el usuario <b>%{user_name}</b>.
+        expire_time_html: Su sesión expirará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       participatory_process_groups:
         participatory_process_group:
           browse: Explorar
