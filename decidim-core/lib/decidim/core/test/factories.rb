@@ -32,10 +32,6 @@ FactoryGirl.define do
 
   factory :subcategory, parent: :category do
     parent { build(:category) }
-
-    before(:create) do |object|
-      object.parent.save unless object.parent.persisted?
-    end
   end
 
   factory :organization, class: Decidim::Organization do
