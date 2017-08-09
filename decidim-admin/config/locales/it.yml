@@ -111,8 +111,6 @@ it:
         edit:
           title: Modifica allegato
           update: Aggiorna
-        index:
-          attachments_title: Allegati
         new:
           create: Crea allegato
           title: Nuovo allegato
@@ -129,8 +127,6 @@ it:
         edit:
           title: Modifica categoria
           update: Aggiorna
-        index:
-          categories_title: Categorie
         new:
           create: Crea nuova categoria
           title: Nuova categoria
@@ -239,7 +235,6 @@ it:
             collaborator: Collaboratore
         scope:
           fields:
-            created_at: Creato il
             name: Nome
         static_page:
           fields:
@@ -337,8 +332,6 @@ it:
         edit:
           title: Modifica una fase del processo partecipativo.
           update: Aggiorna
-        index:
-          steps_title: Fasi
         new:
           create: Crea
           title: Nuova fase del processo partecipativo.
@@ -356,8 +349,6 @@ it:
         edit:
           title: Aggiornamento utente di un processo partecipativo.
           update: Aggiorna
-        index:
-          process_admins_title: Utenti del processo partecipativo.
         new:
           create: Crea
           title: Nuovo utente per un processo partecipativo.

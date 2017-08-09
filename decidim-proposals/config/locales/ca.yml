@@ -104,6 +104,7 @@ ca:
           origin: Origen
           rejected: Rebutjades
           related_to: Relacionat amb
+          scope_prompt: Seleccioneu un àmbit
           scopes: Àmbits
           search: Cerca
           state: Estat

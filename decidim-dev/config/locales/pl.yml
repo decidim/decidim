@@ -1,0 +1,6 @@
+pl:
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: "Manekiny"

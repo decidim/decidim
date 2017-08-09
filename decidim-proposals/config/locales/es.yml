@@ -104,6 +104,7 @@ es:
           origin: Origen
           rejected: Rechazadas
           related_to: Relacionado con
+          scope_prompt: Seleccione un ámbito
           scopes: Ámbitos
           search: Buscar
           state: Estado

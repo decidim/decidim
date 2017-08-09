@@ -111,8 +111,6 @@ fi:
           success: Liite tuhottu onnistuneesti.
         edit:
           title: Muokkaa liitettä
-        index:
-          attachments_title: Liitteet
         new:
           create: Luo liite
           title: Uusi liite
@@ -128,8 +126,6 @@ fi:
           success: Kategoria poistettu onnistuneesti.
         edit:
           title: Muokkaa kategoriaa
-        index:
-          categories_title: Kategoriat
         new:
           create: Luo kategoria
           title: Uusi kategoria
@@ -223,7 +219,6 @@ fi:
             email: Sähköposti
         scope:
           fields:
-            created_at: Luonnin ajankohta
             name: Nimi
         static_page:
           fields:
@@ -313,8 +308,6 @@ fi:
           success: Osallistumisprosessin vaihe tuhottu onnistuneesti.
         edit:
           title: Muokkaa osallistumisprosessin vaihetta
-        index:
-          steps_title: Vaihe
         new:
           title: Uusi osallistumisprosessin vaihe
         ordering:

@@ -135,8 +135,6 @@ eu:
         edit:
           title: Editatu fitxategi erantsia
           update: Eguneratu
-        index:
-          attachments_title: Fitxategi erantsiak
         new:
           create: Sortu fitxategi erantsia
           title: Fitxategi erantsi berria
@@ -153,8 +151,6 @@ eu:
         edit:
           title: Editatu kategoria
           update: Eguneratu
-        index:
-          categories_title: Kategoriak
         new:
           create: Sortu kategoria
           title: Kategoria berria
@@ -266,7 +262,6 @@ eu:
             collaborator: Kolaboratzailea
         scope:
           fields:
-            created_at: Sortze-data
             name: Izena
         static_page:
           fields:
@@ -377,8 +372,6 @@ eu:
         edit:
           title: Editatu prozesu partizipatiboaren fasea
           update: Eguneratu
-        index:
-          steps_title: Faseak
         new:
           create: Sortu
           title: Prozesu partizipatiboaren fase berria
@@ -396,8 +389,6 @@ eu:
         edit:
           title: Prozesu partizipatiboko erabiltzailea eguneratzea.
           update: Eguneratu
-        index:
-          process_admins_title: Prozesu partizipatiboko erabiltzaileak
         new:
           create: Sortu
           title: Partaidetza-prozesu berriko erabiltzailea.

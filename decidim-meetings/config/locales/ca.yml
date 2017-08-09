@@ -64,6 +64,7 @@ ca:
           category_prompt: Selecciona una categoria
           date: Data
           past: Passades
+          scope_prompt: Seleccioneu un àmbit
           scopes: Àmbits
           search: Cerca
           upcoming: Properes
