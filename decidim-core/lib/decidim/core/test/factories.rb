@@ -16,6 +16,14 @@ FactoryGirl.define do
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
   end
 
+  sequence(:scope_name) do |n|
+    "#{Faker::Lorem.sentence(1, true, 3)} #{n}"
+  end
+
+  sequence(:scope_code) do |n|
+    "#{Faker::Lorem.characters(4).upcase}-#{n}"
+  end
+
   factory :category, class: Decidim::Category do
     name { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
@@ -43,7 +51,7 @@ FactoryGirl.define do
     welcome_text { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     homepage_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     favicon { Decidim::Dev.test_file("icon.png", "image/png") }
-    default_locale { I18n.default_locale }
+    default_locale { Decidim.default_locale }
     available_locales { Decidim.available_locales }
     official_img_header { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
@@ -79,13 +87,6 @@ FactoryGirl.define do
 
     trait :published do
       published_at { Time.current }
-    end
-
-    trait :with_scope do
-      after(:create) do |participatory_process, _evaluator|
-        create(:scope,
-               organization: participatory_process.organization)
-      end
     end
 
     trait :with_steps do
@@ -152,6 +153,10 @@ FactoryGirl.define do
       admin { true }
     end
 
+    trait :user_manager do
+      roles { ["user_manager"] }
+    end
+
     trait :process_admin do
       transient do
         participatory_process { create(:participatory_process) }
@@ -180,6 +185,28 @@ FactoryGirl.define do
                participatory_process: evaluator.participatory_process,
                role: :collaborator
       end
+    end
+
+    trait :process_moderator do
+      transient do
+        participatory_process { create(:participatory_process) }
+      end
+
+      organization { participatory_process.organization }
+
+      after(:create) do |user, evaluator|
+        create :participatory_process_user_role,
+               user: user,
+               participatory_process: evaluator.participatory_process,
+               role: :moderator
+      end
+    end
+
+    trait :managed do
+      email { "" }
+      password { "" }
+      password_confirmation { "" }
+      managed { true }
     end
   end
 
@@ -285,9 +312,25 @@ FactoryGirl.define do
     end
   end
 
-  factory :scope, class: Decidim::Scope do
-    name { generate(:name) }
+  factory :scope_type, class: Decidim::ScopeType do
+    name { Decidim::Faker::Localized.word }
+    plural { Decidim::Faker::Localized.literal(name.values.first.pluralize) }
     organization
+  end
+
+  factory :scope, class: Decidim::Scope do
+    name { Decidim::Faker::Localized.literal(generate(:scope_name)) }
+    code { generate(:scope_code) }
+    scope_type
+    organization { parent ? parent.organization : build(:organization) }
+  end
+
+  factory :subscope, parent: :scope do
+    parent { build(:scope) }
+
+    before(:create) do |object|
+      object.parent.save unless object.parent.persisted?
+    end
   end
 
   factory :dummy_resource, class: Decidim::DummyResource do
@@ -319,5 +362,11 @@ FactoryGirl.define do
     moderation
     user { build(:user, organization: moderation.reportable.organization) }
     reason "spam"
+  end
+
+  factory :impersonation_log, class: Decidim::ImpersonationLog do
+    admin { build(:user, :admin) }
+    user { build(:user, :managed, organization: admin.organization) }
+    started_at Time.current
   end
 end

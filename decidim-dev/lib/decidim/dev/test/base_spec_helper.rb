@@ -8,25 +8,12 @@ root_path = File.expand_path("..", Dir.pwd)
 engine_spec_dir = File.join(Dir.pwd, "spec")
 
 if ENV["SIMPLECOV"]
-  require "simplecov"
+  require "simplecov/no_defaults"
+
   SimpleCov.root(root_path)
+  require "simplecov/defaults"
 
-  SimpleCov.start do
-    filters.clear
-    add_filter "/test/"
-    add_filter "/spec/"
-    add_filter "bundle.js"
-    add_filter "/vendor/"
-
-    add_filter do |src|
-      src.filename !~ /^#{root_path}/
-    end
-  end
-
-  if ENV["CI"]
-    require "codecov"
-    SimpleCov.formatter = SimpleCov::Formatter::Codecov
-  end
+  SimpleCov.command_name File.basename(Dir.pwd)
 end
 
 require "rails"
@@ -36,13 +23,7 @@ require "decidim/core/test"
 
 require_relative "rspec_support/feature.rb"
 
-begin
-  require "#{Decidim::Dev.dummy_app_path}/config/environment"
-rescue LoadError
-  puts "Could not load dummy application. Please ensure you have run `bundle exec rake decidim:generate_test_app`"
-  puts "Tried to load it from #{Decidim::Dev.dummy_app_path}"
-  exit(-1)
-end
+require "#{Decidim::Dev.dummy_app_path}/config/environment"
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.

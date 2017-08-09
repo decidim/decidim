@@ -16,9 +16,9 @@
       <%= form.number_field :budget %>
     </div>
 
-    <% if !current_participatory_process.scope %>
+    <% if current_participatory_process.subscopes.any? %>
       <div class="row column" >
-        <%= form.collection_select :decidim_scope_id, organization_scopes, :id, :name %>
+        <%= form.collection_select :decidim_scope_id, subscopes_for(current_participatory_process), :id, :name %>
       </div>
     <% end %>
 

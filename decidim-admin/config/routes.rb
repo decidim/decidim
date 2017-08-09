@@ -8,8 +8,6 @@ Decidim::Admin::Engine.routes.draw do
       resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
       resources :copies, controller: "participatory_process_copies", only: [:new, :create]
 
-      resources :categories
-
       resources :steps, controller: "participatory_process_steps" do
         resource :activate, controller: "participatory_process_step_activations", only: [:create, :destroy]
         collection do
@@ -22,16 +20,11 @@ Decidim::Admin::Engine.routes.draw do
         end
       end
       resources :attachments, controller: "participatory_process_attachments"
-
-      resources :moderations do
-        member do
-          put :unreport
-          put :hide
-        end
-      end
     end
 
     scope "/participatory_processes/:participatory_process_id" do
+      resources :categories
+
       resources :features do
         resource :permissions, controller: "feature_permissions"
         member do
@@ -39,6 +32,13 @@ Decidim::Admin::Engine.routes.draw do
           put :unpublish
         end
         resources :exports, only: :create
+      end
+
+      resources :moderations do
+        member do
+          put :unreport
+          put :hide
+        end
       end
     end
 
@@ -53,10 +53,23 @@ Decidim::Admin::Engine.routes.draw do
     end
 
     resources :static_pages
-    resources :scopes, except: [:show]
+    resources :scope_types, except: [:show]
+    resources :scopes, except: [:show] do
+      resources :scopes, except: [:show]
+    end
+
     resources :users, except: [:edit, :update], controller: "users" do
       member do
         post :resend_invitation, to: "users#resend_invitation"
+      end
+    end
+
+    resources :managed_users, controller: "managed_users", except: [:edit, :update] do
+      resources :promotions, controller: "managed_users/promotions", only: [:new, :create]
+      resources :impersonations, controller: "managed_users/impersonations", only: [:index, :new, :create] do
+        collection do
+          post :close_session
+        end
       end
     end
 

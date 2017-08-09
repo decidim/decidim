@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage proposals" do
+shared_examples "manage proposals" do
   let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
@@ -60,8 +59,8 @@ RSpec.shared_examples "manage proposals" do
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
               fill_in :proposal_body, with: "Decidim is great but it can be better"
-              select category.name["en"], from: :proposal_category_id
-              select scope.name, from: :proposal_scope_id
+              select translated(category.name), from: :proposal_category_id
+              select translated(scope.name), from: :proposal_scope_id
 
               find("*[type=submit]").click
             end

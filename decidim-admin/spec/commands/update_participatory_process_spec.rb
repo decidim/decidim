@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 require "spec_helper"
 
 module Decidim
   module Admin
-    describe UpdateParticipatoryProcess, :db do
+    describe UpdateParticipatoryProcess do
       describe "call" do
         let(:my_process) { create :participatory_process }
         let(:params) do

@@ -36,7 +36,7 @@ module Decidim
     end
 
     def manage_moderations_url
-      @manage_moderations_url ||= decidim_admin.participatory_process_moderations_url(@participatory_process.id, host: @organization.host)
+      @manage_moderations_url ||= decidim_admin.moderations_url(@participatory_process.id, host: @organization.host)
     end
   end
 end

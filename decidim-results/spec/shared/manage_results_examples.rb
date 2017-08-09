@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage results" do
+shared_examples "manage results" do
   it "updates a result" do
     within find("tr", text: translated(result.title)) do
       find("a.action-icon--edit").click
@@ -60,7 +59,7 @@ RSpec.shared_examples "manage results" do
         ca: "Descripció més llarga"
       )
 
-      select scope.name, from: :result_decidim_scope_id
+      select translated(scope.name), from: :result_decidim_scope_id
       select translated(category.name), from: :result_decidim_category_id
 
       find("*[type=submit]").click

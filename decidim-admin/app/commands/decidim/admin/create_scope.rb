@@ -7,8 +7,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      def initialize(form)
+      # parent_scope - A parent scope for the scope to be created
+      def initialize(form, parent_scope = nil)
         @form = form
+        @parent_scope = parent_scope
       end
 
       # Executes the command. Broadcasts these events:
@@ -31,7 +33,10 @@ module Decidim
       def create_scope
         Scope.create!(
           name: form.name,
-          organization: form.organization
+          organization: form.organization,
+          code: form.code,
+          scope_type: form.scope_type,
+          parent: @parent_scope
         )
       end
     end

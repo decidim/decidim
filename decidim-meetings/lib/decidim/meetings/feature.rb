@@ -31,10 +31,18 @@ Decidim.register_feature(:meetings) do |feature|
       participatory_process: process
     )
 
+    if process.scope
+      scopes = process.scope.descendants
+      global = process.scope
+    else
+      scopes = process.organization.scopes
+      global = nil
+    end
+
     3.times do
       meeting = Decidim::Meetings::Meeting.create!(
         feature: feature,
-        scope: process.organization.scopes.sample,
+        scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
         category: process.categories.sample,
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do

@@ -10,6 +10,9 @@
       <li <% if is_active_link?(decidim_admin.scopes_path) %> class="is-active" <% end %>>
         <%= link_to t("menu.scopes", scope: "decidim.admin"), decidim_admin.scopes_path %>
       </li>
+      <li <% if is_active_link?(decidim_admin.scope_types_path) %> class="is-active" <% end %>>
+        <%= link_to t("menu.scope_types", scope: "decidim.admin"), decidim_admin.scope_types_path %>
+      </li>
     </ul>
   </div>
 <% end %>

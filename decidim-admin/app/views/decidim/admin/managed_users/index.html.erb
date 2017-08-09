@@ -1,0 +1,44 @@
+<% if current_organization.available_authorizations.empty? %>
+  <div class="section">
+    <div class="callout warning">
+      <p><%= t('.needs_authoriation_warning') %></p>
+    </div>
+  </div>
+<% end %>
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.managed_users" %>
+      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.managed_user.name", scope: "decidim.admin")), ['new', 'managed_user'], class: "button tiny button--title #{'disabled' if current_organization.available_authorizations.empty?}" %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.user.fields.name", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @managed_users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td class="table-list__actions">
+                <% if can? :impersonate, user %>
+                  <%= icon_link_to "account-login", new_managed_user_impersonation_path(user), t(".impersonate"), class: "action-icon--impersonate" %>
+                <% end %>
+                <%= icon_link_to "clock", managed_user_impersonations_path(user), t(".view_logs"), class: "action-icon--view-logs" %>
+                <% if can? :promote, user %>
+                  <%= icon_link_to "badge", new_managed_user_promotion_path(user), t(".promote"), class: "action-icon--promote" %>
+                <% end %>
+              </td
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @managed_users, theme: "decidim" %>
+    </div>
+  </div>
+</div>

@@ -791,6 +791,7 @@ Style/PredicateName:
   # helpers in the form of `have_something` or `be_something`.
   Exclude:
     - '**/spec/**/*'
+    - '**/test/**/*'
 
 Style/PreferredHashMethods:
   Enabled: true

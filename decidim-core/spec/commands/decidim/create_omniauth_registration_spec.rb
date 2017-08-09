@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Comments
-    describe CreateOmniauthRegistration, :db do
+    describe CreateOmniauthRegistration do
       describe "call" do
         let(:organization) { create(:organization) }
         let(:email) { "user@from-facebook.com" }

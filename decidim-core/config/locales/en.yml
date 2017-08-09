@@ -159,6 +159,8 @@ en:
       default_image: Default image
       errors:
         error: There's an error in this field.
+    managed_users:
+      expired_session: The current impersonation session has expired.
     menu:
       home: Home
       more_information: More information
@@ -235,6 +237,8 @@ en:
       create:
         error: An error ocurred while creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+    scopes:
+      global: Global scope
     shared:
       action_authorization_modal:
         incomplete:
@@ -303,6 +307,7 @@ en:
   errors:
     messages:
       content_type_whitelist_error: The file type is not valid
+      cycle_detected: a scope's parent can't be one of its descendants
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
       invalid_manifest: Invalid manifest
       invalid_participatory_process: Invalid participatory process
@@ -330,6 +335,10 @@ en:
         navigation: Navigation
         sign_in: Sign In
         sign_up: Sign Up
+      impersonation_warning:
+        close_session: Close session
+        description_html: You are impersonating the user <b>%{user_name}</b>.
+        expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       participatory_process_groups:
         participatory_process_group:
           browse: Browse

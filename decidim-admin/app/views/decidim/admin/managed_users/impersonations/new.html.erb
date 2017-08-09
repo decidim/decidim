@@ -1,0 +1,15 @@
+<h2 class="process-title-summary">
+  <%= t('.new_managed_user_impersonation') %>
+</h2>
+
+<%= decidim_form_for(@form, url: managed_user_impersonations_path, html: { class: "form new_managed_user_impersonation" }) do |f| %>
+  <div class="card">
+    <div class="card-section">
+      <%= render partial: 'form', object: f %>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".impersonate") %>
+  </div>
+<% end %>

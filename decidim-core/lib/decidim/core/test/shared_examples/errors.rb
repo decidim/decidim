@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_examples_for "a 404 page" do
+shared_examples_for "a 404 page" do
   before do
     allow(Rails.application).to \
       receive(:env_config).with(no_args).and_wrap_original do |m, *|

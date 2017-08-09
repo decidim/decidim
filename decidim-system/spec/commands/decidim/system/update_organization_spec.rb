@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module System
-    describe UpdateOrganization, :db do
+    describe UpdateOrganization do
       describe "call" do
         let(:form) do
           UpdateOrganizationForm.new(params)

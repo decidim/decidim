@@ -18,6 +18,13 @@ module Decidim
       def after_accept_path_for(resource)
         params[:invite_redirect] || after_sign_in_path_for(resource)
       end
+
+      # When a managed user accepts the invitation is promoted to non-managed user.
+      def accept_resource
+        resource = resource_class.accept_invitation!(update_resource_params)
+        resource.update_attribute(:managed, false) if resource.managed?
+        resource
+      end
     end
   end
 end

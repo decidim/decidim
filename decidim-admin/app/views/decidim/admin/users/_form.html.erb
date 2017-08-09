@@ -5,3 +5,7 @@
 <div class="row column">
   <%= form.email_field :email, label: t('.email') %>
 </div>
+
+<div class="row column">
+  <%= form.select :role, @form.available_roles_for_select, label: t('.role') %>
+</div>

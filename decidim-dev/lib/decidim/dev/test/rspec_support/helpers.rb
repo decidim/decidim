@@ -22,12 +22,6 @@ module Decidim::FeatureTestHelpers
     end
   end
 
-  def click_icon(name = nil)
-    classes = ["icon"]
-    classes << ["icon--#{name}"] if name
-    find(".#{classes.join(".")}").click
-  end
-
   def stripped(text)
     Nokogiri::HTML(text).text
   end
@@ -41,10 +35,6 @@ module Decidim::FeatureTestHelpers
   def expect_user_logged
     expect(page).to have_css(".topbar__user__logged")
   end
-end
-
-def stripped(text)
-  Nokogiri::HTML(text).text
 end
 
 RSpec.configure do |config|

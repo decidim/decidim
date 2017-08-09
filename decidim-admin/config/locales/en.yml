@@ -70,8 +70,14 @@ en:
         name: Name
         role: Role
       scope:
+        code: Code
         name: Name
         organization: Organization
+        scope_type: Scope type
+      scope_type:
+        name: Name
+        organization: Organization
+        plural: Plural
       static_page:
         content: Content
         organization: Organization
@@ -211,9 +217,43 @@ en:
         update:
           error: There has been an error updating this feature.
           success: The feature was updated successfully.
+      managed_users:
+        close_session:
+          error: There has been an error closing the current impersonation session.
+          success: The current impersonation session has been successfully ended.
+        create:
+          error: There has been an error creating the managed user.
+          success: The managed user has been successfully created.
+        form:
+          name: Name
+        impersonate:
+          error: There has been an error impersonating the managed user.
+        impersonations:
+          new:
+            impersonate: Impersonate
+            new_managed_user_impersonation: New managed user impersonation
+        index:
+          impersonate: Impersonate
+          needs_authoriation_warning: You need at least one authorization enabled for this organization.
+          promote: Promote
+          view_logs: View logs
+        new:
+          create: Create
+          new_managed_user: New managed user
+          select_authorization_method: Select an authorization method
+          step: Step %{current} of %{total}
+        promotion:
+          error: There has been an error promoting the managed user.
+          success: The managed user has been successfully promoted.
+        promotions:
+          new:
+            explanation: Managed users can be promoted to standard users. It means they will be invited to the application and you will not be able to impersonate them again. The invited user will receive an email to accept your invitation.
+            new_managed_user_promotion: New managed user promotion
+            promote: Promote
       menu:
         admins: Admins
         dashboard: Dashboard
+        managed_users: Managed users
         newsletters: Newsletters
         participatory_process_groups: Process groups
         participatory_processes: Processes
@@ -225,6 +265,7 @@ en:
           moderations: Moderations
           process_admins: Process users
           steps: Steps
+        scope_types: Scope types
         scopes: Scopes
         settings: Settings
         static_pages: Pages
@@ -238,6 +279,15 @@ en:
           name: Attachment
         category:
           name: Category
+        impersonation_log:
+          fields:
+            admin: Admin
+            ended_at: Ended at
+            expired_at: Expired at
+            started_at: Started at
+            user: User
+        managed_user:
+          name: Managed user
         newsletter:
           fields:
             created_at: Created at
@@ -274,8 +324,12 @@ en:
             moderator: Moderator
         scope:
           fields:
-            created_at: Created at
             name: Name
+            scope_type: Scope type
+        scope_type:
+          fields:
+            name: Name
+            plural: Plural
         static_page:
           fields:
             created_at: Created at
@@ -288,6 +342,10 @@ en:
             invitation_sent_at: Invitation sent date
             last_sign_in_at: Last sign in date
             name: Name
+            role: Role
+            roles:
+              admin: Admin
+              user_manager: User manager
           name: User
         user_group:
           fields:
@@ -446,6 +504,21 @@ en:
         create:
           error: There was an error creating a new participatory process group.
           success: Participatory process group created successfully.
+      scope_types:
+        create:
+          error: There was an error creating a new scope type.
+          success: Scope type created successfully.
+        destroy:
+          success: Scope type successfully destroyed
+        edit:
+          title: Edit scope type
+          update: Update
+        new:
+          create: Create scope type
+          title: New scope
+        update:
+          error: There was an error when updating this scope type.
+          success: Scope type updated successfully
       scopes:
         create:
           error: There was an error creating a new scope.
@@ -458,6 +531,7 @@ en:
         new:
           create: Create scope
           title: New scope
+        no_scopes: No scopes at this level.
         update:
           error: There was an error when updating this scope.
           success: Scope updated successfully
@@ -480,8 +554,11 @@ en:
           success: Page updated successfully
       titles:
         dashboard: Dashboard
+        impersonations: Impersonations
+        managed_users: Managed users
         participatory_process_groups: Participatory process groups
         participatory_processes: Participatory processes
+        scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
         user_groups: User groups
@@ -516,6 +593,7 @@ en:
         form:
           email: Email
           name: Name
+          role: Role
         new:
           create: Invite
           title: Invite user as administrator

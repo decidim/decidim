@@ -81,6 +81,7 @@ module Decidim
         Decidim.configure do |config|
           config.abilities << "Decidim::Abilities::EveryoneAbility"
           config.abilities << "Decidim::Abilities::AdminAbility"
+          config.abilities << "Decidim::Abilities::UserManagerAbility"
           config.abilities << "Decidim::Abilities::ParticipatoryProcessAdminAbility"
           config.abilities << "Decidim::Abilities::ParticipatoryProcessCollaboratorAbility"
           config.abilities << "Decidim::Abilities::ParticipatoryProcessModeratorAbility"

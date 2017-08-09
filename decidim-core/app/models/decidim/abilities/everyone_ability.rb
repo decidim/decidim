@@ -15,6 +15,8 @@ module Decidim
 
         can :read, Feature, &:published?
 
+        can :search, Scope
+
         can :manage, User do |other|
           other == user
         end

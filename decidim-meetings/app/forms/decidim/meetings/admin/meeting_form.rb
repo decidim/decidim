@@ -41,6 +41,8 @@ module Decidim
           current_feature.participatory_process.scope
         end
 
+        alias feature current_feature
+
         def scope
           return unless current_feature
           @scope ||= process_scope || current_feature.scopes.where(id: decidim_scope_id).first
@@ -49,10 +51,6 @@ module Decidim
         def category
           return unless current_feature
           @category ||= current_feature.categories.where(id: decidim_category_id).first
-        end
-
-        def feature
-          current_feature
         end
       end
     end

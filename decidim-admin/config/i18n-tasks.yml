@@ -86,7 +86,7 @@ search:
 ignore_missing:
 # - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
 # - '{devise,simple_form}.*'
- - decidim.participatory_processes.scopes.global
+ - decidim.scopes.global
  - locale.name
  - forms.required
 
@@ -95,6 +95,7 @@ ignore_unused:
  - activerecord.attributes.*
  - activemodel.attributes.*
  - decidim.admin.participatory_process_steps.default_title
+ - decidim.admin.models.user.fields.roles.*
  - activemodel.errors.messages.*
  - actions.confirm_destroy
  - time.formats.*

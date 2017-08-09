@@ -35,4 +35,5 @@ RSpec.configure do |config|
 
   config.include TranslationHelpers
   config.include Rectify::RSpec::Helpers
+  config.include Capybara::Select2
 end

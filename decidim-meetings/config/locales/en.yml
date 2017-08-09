@@ -65,6 +65,7 @@ en:
           category_prompt: Select a category
           date: Date
           past: Past
+          scope_prompt: Select a scope
           scopes: Scopes
           search: Search
           upcoming: Upcoming

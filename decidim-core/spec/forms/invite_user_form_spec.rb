@@ -23,7 +23,7 @@ module Decidim
         email: "NewAdmin@example.org",
         name: "New Admin",
         invitation_instructions: "invite_admin",
-        admin: true,
+        role: "admin",
         organization: form_organization,
         invited_by: form_user
       }

@@ -74,13 +74,13 @@ $process-title-height: 3rem;
 }
 
 
-.process-title{
+.process-title {
   @include breakpoint(large){
     margin-bottom: $process-title-height;
   }
 }
 
-.process-title-content{
+.process-title-content {
   @include breakpoint(large){
     position: absolute;
     left: 120px;

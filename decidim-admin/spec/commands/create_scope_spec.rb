@@ -4,12 +4,17 @@ require "spec_helper"
 
 describe Decidim::Admin::CreateScope do
   let(:organization) { create :organization }
-  let(:name) { "My scope" }
+  let(:name) { Decidim::Faker::Localized.literal(Faker::Address.unique.state) }
+  let(:code) { Faker::Address.unique.state_abbr }
+  let(:scope_type) { create :scope_type }
+
   let(:form) do
     double(
       invalid?: invalid,
       name: name,
-      organization: organization
+      organization: organization,
+      code: code,
+      scope_type: scope_type
     )
   end
   let(:invalid) { false }
@@ -21,6 +26,34 @@ describe Decidim::Admin::CreateScope do
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)
+    end
+  end
+
+  context "when the form is valid" do
+    it "broadcasts ok" do
+      expect { subject.call }.to broadcast(:ok)
+    end
+
+    it "creates a new scope for the organization" do
+      expect { subject.call }.to change { organization.scopes.count }.by(1)
+    end
+  end
+
+  context "when its a child scope" do
+    let!(:parent_scope) { create :scope, organization: organization }
+
+    subject { described_class.new(form, parent_scope) }
+
+    it "broadcasts ok" do
+      expect { subject.call }.to broadcast(:ok)
+    end
+
+    it "creates a new scope for the organization" do
+      expect { subject.call }.to change { organization.scopes.count }.by(1)
+    end
+
+    it "creates a child scope for the parent scope" do
+      expect { subject.call }.to change { parent_scope.children.count }.by(1)
     end
   end
 end

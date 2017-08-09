@@ -38,13 +38,14 @@ module Decidim
     # in order to select those elements that do not have a scope_id set we use
     # `"global"` as parameter, and in the method we do the needed changes to search
     # properly.
-    #
-    # You can use the `search_organization_scopes` helper method, defined in
-    # `Decidim::OrganizationScopesHelper`, to render the collection needed for the
-    # `collection_check_boxes` form method.
     def search_scope_id
-      clean_scope_ids = [scope_id].flatten.map { |id| id == "global" ? nil : id }
-      query.where(decidim_scope_id: clean_scope_ids)
+      clean_scope_ids = [scope_id].flatten
+
+      conditions = []
+      conditions << "decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
+      conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
+
+      query.includes(:scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
     end
 
     private

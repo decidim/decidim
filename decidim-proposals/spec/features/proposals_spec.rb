@@ -7,8 +7,8 @@ describe "Proposals", type: :feature do
   let(:manifest_name) { "proposals" }
 
   let!(:category) { create :category, participatory_process: participatory_process }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:scope) { create :scope, organization: participatory_process.organization }
+  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
 
   let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
   let(:latitude) { 40.1234 }
@@ -73,8 +73,8 @@ describe "Proposals", type: :feature do
           within ".new_proposal" do
             fill_in :proposal_title, with: "Oriol for president"
             fill_in :proposal_body, with: "He will solve everything"
-            select category.name["en"], from: :proposal_category_id
-            select scope.name, from: :proposal_scope_id
+            select translated(category.name), from: :proposal_category_id
+            select translated(scope.name), from: :proposal_scope_id
 
             find("*[type=submit]").click
           end
@@ -82,8 +82,8 @@ describe "Proposals", type: :feature do
           expect(page).to have_content("successfully")
           expect(page).to have_content("Oriol for president")
           expect(page).to have_content("He will solve everything")
-          expect(page).to have_content(category.name["en"])
-          expect(page).to have_content(scope.name)
+          expect(page).to have_content(translated(category.name))
+          expect(page).to have_content(translated(scope.name))
           expect(page).to have_content(user.name)
         end
 
@@ -107,8 +107,8 @@ describe "Proposals", type: :feature do
               check :proposal_has_address
 
               fill_in :proposal_address, with: address
-              select category.name["en"], from: :proposal_category_id
-              select scope.name, from: :proposal_scope_id
+              select translated(category.name), from: :proposal_category_id
+              select translated(scope.name), from: :proposal_scope_id
 
               find("*[type=submit]").click
             end
@@ -117,8 +117,8 @@ describe "Proposals", type: :feature do
             expect(page).to have_content("Oriol for president")
             expect(page).to have_content("He will solve everything")
             expect(page).to have_content(address)
-            expect(page).to have_content(category.name["en"])
-            expect(page).to have_content(scope.name)
+            expect(page).to have_content(translated(category.name))
+            expect(page).to have_content(translated(scope.name))
             expect(page).to have_content(user.name)
           end
         end
@@ -137,8 +137,8 @@ describe "Proposals", type: :feature do
             within ".new_proposal" do
               fill_in :proposal_title, with: "Oriol for president"
               fill_in :proposal_body, with: "He will solve everything"
-              select category.name["en"], from: :proposal_category_id
-              select scope.name, from: :proposal_scope_id
+              select translated(category.name), from: :proposal_category_id
+              select translated(scope.name), from: :proposal_scope_id
               select user_group.name, from: :proposal_user_group_id
 
               find("*[type=submit]").click
@@ -147,8 +147,8 @@ describe "Proposals", type: :feature do
             expect(page).to have_content("successfully")
             expect(page).to have_content("Oriol for president")
             expect(page).to have_content("He will solve everything")
-            expect(page).to have_content(category.name["en"])
-            expect(page).to have_content(scope.name)
+            expect(page).to have_content(translated(category.name))
+            expect(page).to have_content(translated(scope.name))
             expect(page).to have_content(user_group.name)
           end
 
@@ -172,8 +172,8 @@ describe "Proposals", type: :feature do
                 check :proposal_has_address
 
                 fill_in :proposal_address, with: address
-                select category.name["en"], from: :proposal_category_id
-                select scope.name, from: :proposal_scope_id
+                select translated(category.name), from: :proposal_category_id
+                select translated(scope.name), from: :proposal_scope_id
                 select user_group.name, from: :proposal_user_group_id
 
                 find("*[type=submit]").click
@@ -183,8 +183,8 @@ describe "Proposals", type: :feature do
               expect(page).to have_content("Oriol for president")
               expect(page).to have_content("He will solve everything")
               expect(page).to have_content(address)
-              expect(page).to have_content(category.name["en"])
-              expect(page).to have_content(scope.name)
+              expect(page).to have_content(translated(category.name))
+              expect(page).to have_content(translated(scope.name))
               expect(page).to have_content(user_group.name)
             end
           end
@@ -244,7 +244,7 @@ describe "Proposals", type: :feature do
       it "can be filtered by scope" do
         visit_feature
         click_link proposal.title
-        expect(page).to have_content(scope.name)
+        expect(page).to have_content(translated(scope.name))
       end
     end
 
@@ -258,7 +258,7 @@ describe "Proposals", type: :feature do
       it "does not show the scope name" do
         visit_feature
         click_link proposal.title
-        expect(page).not_to have_content(scope.name)
+        expect(page).not_to have_content(translated(scope.name))
       end
     end
 
@@ -562,16 +562,53 @@ describe "Proposals", type: :feature do
         end
       end
 
-      context "when scoped_proposals setting is enabled" do
+      context "by scope" do
+        let!(:scope2) { create :scope, organization: participatory_process.organization }
+
         before do
-          feature.update_attributes(settings: { scoped_proposals_enabled: true })
+          create_list(:proposal, 2, feature: feature, scope: scope)
+          create(:proposal, feature: feature, scope: scope2)
+          create(:proposal, feature: feature, scope: nil)
+          visit_feature
         end
 
-        it "cannot be filtered by scope" do
-          visit_feature
-
+        it "can be filtered by scope" do
           within "form.new_filter" do
             expect(page).to have_content(/Scopes/i)
+          end
+        end
+
+        context "selecting the global scope" do
+          it "lists the filtered proposals" do
+            within ".filters" do
+              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: true)
+            end
+
+            expect(page).to have_css(".card--proposal", count: 1)
+            expect(page).to have_content("1 PROPOSAL")
+          end
+        end
+
+        context "selecting one scope" do
+          it "lists the filtered proposals" do
+            within ".filters" do
+              select2(translated(scope.name), xpath: '//select[@id="filter_scope_id"]/..', search: true)
+            end
+
+            expect(page).to have_css(".card--proposal", count: 2)
+            expect(page).to have_content("2 PROPOSALS")
+          end
+        end
+
+        context "selecting the global scope and another scope" do
+          it "lists the filtered proposals" do
+            within ".filters" do
+              select2(translated(scope.name), xpath: '//select[@id="filter_scope_id"]/..', search: true)
+              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: true)
+            end
+
+            expect(page).to have_css(".card--proposal", count: 3)
+            expect(page).to have_content("3 PROPOSALS")
           end
         end
       end

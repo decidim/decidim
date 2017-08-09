@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage moderations" do
+shared_examples "manage moderations" do
   let!(:moderations) do
     reportables.first(reportables.length - 1).map do |reportable|
       moderation = create(:moderation, reportable: reportable, report_count: 1)
@@ -25,8 +24,6 @@ RSpec.shared_examples "manage moderations" do
 
   context "listing moderations" do
     it "user can review them" do
-      click_link "Moderations"
-
       moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
           expect(page).to have_content moderation.reportable.reported_content_url
@@ -36,8 +33,6 @@ RSpec.shared_examples "manage moderations" do
     end
 
     it "user can un-report a resource" do
-      click_link "Moderations"
-
       within "tr[data-id=\"#{moderation.id}\"]" do
         find("a.action-icon--unreport").click
       end
@@ -48,8 +43,6 @@ RSpec.shared_examples "manage moderations" do
     end
 
     it "user can hide a resource" do
-      click_link "Moderations"
-
       within "tr[data-id=\"#{moderation.id}\"]" do
         find("a.action-icon--hide").click
       end

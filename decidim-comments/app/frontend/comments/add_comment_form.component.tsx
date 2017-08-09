@@ -11,7 +11,7 @@ const { I18n, Translate } = require("react-i18nify");
 import {
   AddCommentFormCommentableFragment,
   AddCommentFormSessionFragment,
-  AddCommentMutation,
+  addCommentMutation,
   CommentFragment,
   GetCommentsQuery,
 } from "../support/schema";
@@ -344,7 +344,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
 const addCommentMutation = require("../mutations/add_comment.mutation.graphql");
 const getCommentsQuery = require("../queries/comments.query.graphql");
 
-const AddCommentFormWithMutation = graphql<AddCommentMutation, AddCommentFormProps>(addCommentMutation, {
+const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormProps>(addCommentMutation, {
   props: ({ ownProps, mutate }) => ({
     addComment: ({ body, alignment, userGroupId }: { body: string, alignment: number, userGroupId: string }) => {
       if (mutate) {
@@ -386,7 +386,7 @@ const AddCommentFormWithMutation = graphql<AddCommentMutation, AddCommentFormPro
               },
             },
           },
-          update: (store, { data }: { data: AddCommentMutation }) => {
+          update: (store, { data }: { data: addCommentMutation }) => {
             const variables = {
               commentableId: ownProps.rootCommentable.id,
               commentableType: ownProps.rootCommentable.type,

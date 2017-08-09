@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage meetings" do
+shared_examples "manage meetings" do
   let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
@@ -97,7 +96,7 @@ RSpec.shared_examples "manage meetings" do
     page.find(".datepicker-dropdown .hour", text: "12:00").click
     page.find(".datepicker-dropdown .minute", text: "12:50").click
 
-    select scope.name, from: :meeting_decidim_scope_id
+    select translated(scope.name), from: :meeting_decidim_scope_id
     select translated(category.name), from: :meeting_decidim_category_id
 
     within ".new_meeting" do
@@ -210,7 +209,7 @@ RSpec.shared_examples "manage meetings" do
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
 
-      select scope.name, from: :meeting_decidim_scope_id
+      select translated(scope.name), from: :meeting_decidim_scope_id
       select translated(category.name), from: :meeting_decidim_category_id
 
       within ".new_meeting" do

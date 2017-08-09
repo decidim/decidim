@@ -1,0 +1,27 @@
+.select2-container {
+  width: 100%;
+  &.select2 {
+    margin-bottom: 1.5rem;
+  }
+  .select2-dropdown {
+    box-shadow: inset 0 -1px 2px rgba(26, 24, 29, 0.1);
+    border-color: #eee;
+  }
+  .select2-selection {
+    box-shadow: inset 0 1px 2px rgba(26, 24, 29, 0.1);
+    border-color: #eee;
+  }
+  .select2-selection--single {
+    margin-top: 5px;
+    height: 48px;
+    .select2-selection__rendered {
+      line-height: 46px;
+      padding-right: 23px;
+      font-weight: normal;
+    }
+    .select2-selection__arrow {
+      height: 54px;
+      right: 4px;
+    }
+  }
+}

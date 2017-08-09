@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module System
-    describe Admin, :db do
+    describe Admin do
       let(:admin) { build(:admin) }
 
       it "is valid" do

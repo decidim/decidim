@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage projects" do
+shared_examples "manage projects" do
   it "updates a project" do
     within find("tr", text: translated(project.title)) do
       find("a.action-icon--edit").click
@@ -83,7 +82,7 @@ RSpec.shared_examples "manage projects" do
       )
       fill_in :project_budget, with: 22_000_000
 
-      select scope.name, from: :project_decidim_scope_id
+      select translated(scope.name), from: :project_decidim_scope_id
       select translated(category.name), from: :project_decidim_category_id
 
       find("*[type=submit]").click

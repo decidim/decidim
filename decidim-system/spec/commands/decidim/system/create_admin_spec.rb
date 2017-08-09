@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module System
-    describe CreateAdmin, :db do
+    describe CreateAdmin do
       describe "call" do
         let(:form) { AdminForm.new(params) }
         let(:command) { described_class.new(form) }

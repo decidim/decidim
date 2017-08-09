@@ -10,7 +10,7 @@ module Decidim
       resolve ->(obj, _args, _ctx) { obj }
     end
 
-    field :verifiedUserGroups, !types[UserGroupType], "The current user verified user groups" do
+    field :verifiedUserGroups, !types[!UserGroupType], "The current user verified user groups" do
       resolve ->(obj, _args, _ctx) { obj.user_groups.verified }
     end
   end

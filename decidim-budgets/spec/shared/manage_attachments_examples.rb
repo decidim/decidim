@@ -2,7 +2,7 @@
 
 require "decidim/admin/test/manage_attachments_examples"
 
-RSpec.shared_examples "manage project attachments" do
+shared_examples "manage project attachments" do
   let(:attached_to) { project }
 
   before do

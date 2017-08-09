@@ -1,18 +1,35 @@
 # Change Log
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
-[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.3...HEAD)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.4...HEAD)
+
+**Added**
+
+- **decidim-admin**: Added `Managed Users` section. User admins and users with `user_manager` role will be able to create `managed` users using one of the organization available authorizations. These users can be impersonated while interacting with the whole application. Finally, these users can be promoted to standard users inviting them to the application. [\#1621](https://github.com/decidim/decidim/pull/1621)
+- **decidim-core**: Scopes system prepared for bigger organizations. Scopes can be hierarchical: each scope can have a parent scope and a scope type that describe it (country, province, district, etc). Scope names can be translated. Each scope must have a string unique identifier that could be used to relate it with external systems. [\#1500](https://github.com/decidim/decidim/pull/1500)
+- **decidim-core**: Added a new endpoint to support scope selection through AJAX searches. [\#1500](https://github.com/decidim/decidim/pull/1500)
+- **decidim-admin**: Added `Scope types` subsection on `Settings` section. Improved `Scopes` subsection on `Settings` section to adapt to changes. [\#1500](https://github.com/decidim/decidim/pull/1500)
+
+**Changed**
+- **decidim-admin**: Scope selection in participatory process creation/edition using AJAX select (based on Select2) instead of a standard select. [\#1500](https://github.com/decidim/decidim/pull/1500)
+- **decidim-budgets**: Resources filter by scope using AJAX multi-select (based on Select2) instead of a list of checkboxes. [\#1500](https://github.com/decidim/decidim/pull/1500)
+- **decidim-meetings**: Resources filter by scope using AJAX multi-select (based on Select2) instead of a list of checkboxes. [\#1500](https://github.com/decidim/decidim/pull/1500)
+- **decidim-results**: Resources filter by scope using AJAX multi-select (based on Select2) instead of a list of checkboxes. [\#1500](https://github.com/decidim/decidim/pull/1500)
+- **decidim-proposals**: Resources filter by scope using AJAX multi-select (based on Select2) instead of a list of checkboxes. [\#1500](https://github.com/decidim/decidim/pull/1500)
+
+## [v0.4.4](https://github.com/decidim/decidim/tree/v0.4.4) (2017-08-02)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.3...v0.4.4)
 
 **Fixed**
 
-- **decidim-budgets**: Fixed bug where current projects's category wouldn't appear in form. [\#1666](https://github.com/decidim/decidim/pull/1666).
+- **decidim-budgets**: Fixed bug where current projects's category wouldn't appear in form. [\#1667](https://github.com/decidim/decidim/pull/1667).
 - **decidim-core**: Fixed crash when running migrations & seeding DB in the same ruby process. [\#1649](https://github.com/decidim/decidim/pull/1649).
 - **decidim-core**: Fixed bug when blank values were used in a `datetime` field. [\#1661](https://github.com/decidim/decidim/pull/1661)
 - **decidim-core**: Fixed preview permissions for unpublished features. [\#1670](https://github.com/decidim/decidim/pull/1670).
-- **decidim-meetings**: Fixed bug where current meeting's category wouldn't appear in form. [\#1666](https://github.com/decidim/decidim/pull/1666).
-- **decidim-proposals**: Fixed bug where current proposal's category wouldn't appear in form. [\#1666](https://github.com/decidim/decidim/pull/1666).
+- **decidim-meetings**: Fixed bug where current meeting's category wouldn't appear in form. [\#1667](https://github.com/decidim/decidim/pull/1667).
+- **decidim-proposals**: Fixed bug where current proposal's category wouldn't appear in form. [\#1667](https://github.com/decidim/decidim/pull/1667).
 - **decidim-proposals**: Fixed error when official proposals where commented and could not be notified. [\#1663](https://github.com/decidim/decidim/pull/1663).
-- **decidim-results**: Fixed bug where current result's category wouldn't appear in form. [\#1666](https://github.com/decidim/decidim/pull/1666).
+- **decidim-results**: Fixed bug where current result's category wouldn't appear in form. [\#1667](https://github.com/decidim/decidim/pull/1667).
 
 ## [v0.4.3](https://github.com/decidim/decidim/tree/v0.4.3) (2017-07-25)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.2...v0.4.3)

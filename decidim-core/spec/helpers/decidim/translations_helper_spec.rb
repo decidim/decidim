@@ -5,6 +5,10 @@ require "spec_helper"
 module Decidim
   describe TranslationsHelper do
     describe "#translated_attribute" do
+      before do
+        allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
+      end
+
       it "translates the attribute against the current locale" do
         attribute = { "ca" => "Hola", "zh-CN" => "你好" }
 
@@ -35,7 +39,6 @@ module Decidim
 
       context "when given only a key" do
         it "returns a hash scoped to the available list of locales" do
-          allow(I18n).to receive(:available_locales).and_return [:en, :ca, :es]
           result = TranslationsHelper.multi_translation("booleans.true")
           expect(result.keys.length).to eq(3)
           expect(result).to include(en: "Yes", ca: "Sí", es: "Sí")

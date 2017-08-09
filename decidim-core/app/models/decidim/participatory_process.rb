@@ -9,6 +9,7 @@ module Decidim
   class ParticipatoryProcess < ApplicationRecord
     include Decidim::HasAttachments
     include Decidim::Publicable
+    include Decidim::Scopable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -17,10 +18,6 @@ module Decidim
                foreign_key: "decidim_participatory_process_group_id",
                class_name: "Decidim::ParticipatoryProcessGroup",
                inverse_of: :participatory_processes,
-               optional: true
-    belongs_to :scope,
-               foreign_key: "decidim_scope_id",
-               class_name: "Decidim::Scope",
                optional: true
     has_many :steps,
              -> { order(position: :asc) },

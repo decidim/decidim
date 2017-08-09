@@ -12,7 +12,7 @@ gem "decidim", "<%= Gem::Specification.find_by_name("decidim").version %>"
 <% end %>
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'faker', '~> <%= Gem::Specification.find_by_name("faker").version %>'
+gem 'faker', "<%= Decidim.faker_version %>"
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe Identity, :db do
+  describe Identity do
     let(:user) { create(:user) }
     let(:organization) { user&.organization }
     let(:provider) { "facebook" }

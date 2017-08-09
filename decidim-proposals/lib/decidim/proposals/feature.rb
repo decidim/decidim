@@ -84,8 +84,14 @@ Decidim.register_feature(:proposals) do |feature|
         process.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true }
       }
     )
-    # So that we have some with global scope
-    scopes = feature.organization.scopes + [nil]
+
+    if process.scope
+      scopes = process.scope.descendants
+      global = process.scope
+    else
+      scopes = process.organization.scopes
+      global = nil
+    end
 
     20.times do |n|
       author = Decidim::User.where(organization: feature.organization).all.sample
@@ -103,7 +109,7 @@ Decidim.register_feature(:proposals) do |feature|
       proposal = Decidim::Proposals::Proposal.create!(
         feature: feature,
         category: process.categories.sample,
-        scope: scopes.sample,
+        scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
         title: Faker::Lorem.sentence(2),
         body: Faker::Lorem.paragraphs(2).join("\n"),
         author: author,
@@ -117,15 +123,17 @@ Decidim.register_feature(:proposals) do |feature|
         email = "vote-author-#{process.id}-#{n}-#{m}@example.org"
         name = "#{Faker::Name.name} #{process.id} #{n} #{m}"
 
-        author = Decidim::User.create!(email: email,
-                                       password: "password1234",
-                                       password_confirmation: "password1234",
-                                       name: name,
-                                       organization: feature.organization,
-                                       tos_agreement: "1",
-                                       confirmed_at: Time.current,
-                                       comments_notifications: true,
-                                       replies_notifications: true)
+        author = Decidim::User.find_or_initialize_by(email: email)
+        author.update!(
+          password: "password1234",
+          password_confirmation: "password1234",
+          name: name,
+          organization: feature.organization,
+          tos_agreement: "1",
+          confirmed_at: Time.current,
+          comments_notifications: true,
+          replies_notifications: true
+        )
 
         Decidim::Proposals::ProposalVote.create!(proposal: proposal,
                                                  author: author)

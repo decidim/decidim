@@ -48,17 +48,27 @@ module Decidim
       end
 
       def decidim_dev
-        template "decidim_dev.rb", "#{dummy_app_path}/config/initializers/decidim_dev.rb"
-
         # TODO: Remove these after PhantomJS updates WebKit version (see YML and
         #       initializer comments)
         template "autoprefixer.yml", "#{dummy_app_path}/config/autoprefixer.yml"
         template "autoprefixer_initializer.rb", "#{dummy_app_path}/config/initializers/autoprefixer.rb"
+
+        template "no_animations.rb", "#{dummy_app_path}/app/middleware/no_animations.rb"
       end
 
       def test_env
         gsub_file "#{dummy_app_path}/config/environments/test.rb",
                   /allow_forgery_protection = (.*)/, "allow_forgery_protection = true"
+
+        inject_into_file "#{dummy_app_path}/config/environments/test.rb",
+                         after: "allow_forgery_protection = true\n" do
+          <<~RUBY.gsub(/^ *\|/, "")
+            |
+            |  # Inject middleware to disable CSS animations
+            |  config.middleware.use NoAnimations
+            |
+          RUBY
+        end
       end
 
       private

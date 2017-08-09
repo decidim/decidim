@@ -80,6 +80,7 @@ en:
         filters:
           category: Category
           category_prompt: Select a category
+          scope_prompt: Select a scope
           scopes: Scopes
           search: Search
         filters_small_view:
