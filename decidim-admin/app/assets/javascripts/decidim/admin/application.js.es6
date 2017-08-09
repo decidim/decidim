@@ -35,6 +35,13 @@ const pageLoad = () => {
       );
     }
   })
+
+  if ($('.edit_participatory_process').length > 0) {
+    $('#participatory_process_scope_enabled').on('change', (event) => {
+      const checked = event.target.checked;
+      $("#participatory_process_scope_id").attr("disabled", !checked);
+    })
+  }
 };
 
 $(() => {
