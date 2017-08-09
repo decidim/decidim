@@ -1,0 +1,7 @@
+pl:
+  activemodel:
+    attributes:
+      category:
+        name: Nazwa
+      feature:
+        name: Nazwa
