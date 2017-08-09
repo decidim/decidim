@@ -32,6 +32,15 @@ module Decidim
             Option.new(scope_type.id, translated_attribute(scope_type.name))
           end
       end
+
+      # Public: Check if the given scopable object has the scope enabled or not.
+      #
+      # scopable - A scopable object.
+      #
+      # Returns a Boolean.
+      def scope_enabled?(scopable)
+        scopable.scope_enabled?
+      end
     end
   end
 end
