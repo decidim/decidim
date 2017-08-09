@@ -6,7 +6,7 @@
           <%= translated_attribute project.title %>
         </h5>
       <% end %>
-      <%= render partial: "decidim/budgets/projects/tags", locals: { project: project } %>
+      <%= render partial: "decidim/shared/tags", locals: { resource: project, tags_class_extra: "tags--project" } %>
     </div>
   </div>
   <% if current_user.present? %>
