@@ -85,7 +85,7 @@
             <% if current_organization.static_pages.any? %>
               <ul class="footer-nav">
                 <% current_organization.static_pages.each do |page| %>
-                  <li><%= link_to translated_attribute(page.title), decidim.page_path(page) %></a></li>
+                  <li><%= link_to translated_attribute(page.title), decidim.page_path(page) %></li>
                 <% end %>
               </ul>
             <% end %>
