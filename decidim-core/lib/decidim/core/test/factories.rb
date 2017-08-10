@@ -283,14 +283,6 @@ FactoryGirl.define do
     trait :with_pdf do
       file { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
     end
-
-    trait :with_doc do
-      file { Decidim::Dev.test_file("Exampledocument.doc", "application/msword") }
-    end
-
-    trait :with_odt do
-      file { Decidim::Dev.test_file("Exampledocument.odt", "application/vnd.oasis.opendocument") }
-    end
   end
 
   factory :feature, class: Decidim::Feature do
