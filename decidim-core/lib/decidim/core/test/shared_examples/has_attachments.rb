@@ -3,15 +3,10 @@
 require "spec_helper"
 
 shared_examples_for "has attachments" do
-  context "when it has attachments" do
-    let!(:document) do
-      Decidim::AttachmentUploader.enable_processing = true
-      create(:attachment, :with_pdf, attached_to: attached_to)
-    end
-    let!(:image) do
-      Decidim::AttachmentUploader.enable_processing = true
-      create(:attachment, attached_to: attached_to)
-    end
+  context "when it has attachments", processing_uploads_for: Decidim::AttachmentUploader do
+    let!(:document) { create(:attachment, :with_pdf, attached_to: attached_to) }
+
+    let!(:image) { create(:attachment, attached_to: attached_to) }
 
     before do
       visit current_path

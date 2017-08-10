@@ -149,10 +149,9 @@ shared_examples "manage proposals" do
           end
         end
 
-        context "when attachments are allowed" do
+        context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
           before do
             current_feature.update_attributes!(settings: { attachments_allowed: true })
-            Decidim::AttachmentUploader.enable_processing = true
           end
 
           it "creates a new proposal with attachments" do

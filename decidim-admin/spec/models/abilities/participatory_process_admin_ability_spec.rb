@@ -12,18 +12,12 @@ describe Decidim::Admin::Abilities::ParticipatoryProcessAdminAbility do
     it { is_expected.not_to be_able_to(:read, :admin_dashboard) }
   end
 
-  context "when the user is an admin for some process" do
+  context "when the user is an admin for some process", processing_uploads_for: Decidim::AttachmentUploader do
     let(:unmanaged_process) { create :participatory_process, organization: user.organization }
     let(:user_process_step) { create :participatory_process_step, participatory_process: user_process }
     let(:unmanaged_process_step) { create :participatory_process_step, participatory_process: unmanaged_process }
-    let(:user_process_attachment) do
-      Decidim::AttachmentUploader.enable_processing = true
-      create :attachment, attached_to: user_process
-    end
-    let(:unmanaged_process_attachment) do
-      Decidim::AttachmentUploader.enable_processing = true
-      create :attachment, attached_to: unmanaged_process
-    end
+    let(:user_process_attachment) { create :attachment, attached_to: user_process }
+    let(:unmanaged_process_attachment) { create :attachment, attached_to: unmanaged_process }
     let(:feature) { create(:feature, participatory_process: user_process) }
     let(:dummy_resource) { create(:dummy_resource, feature: feature) }
     let(:user_process_moderation) { create(:moderation, reportable: dummy_resource) }

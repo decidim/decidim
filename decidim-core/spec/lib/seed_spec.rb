@@ -3,14 +3,8 @@
 require "spec_helper"
 
 describe Decidim do
-  describe "seed!" do
+  describe "seed!", processing_uploads_for: Decidim::AttachmentUploader do
     let!(:participatory_process) { create(:participatory_process) }
-
-    around do |example|
-      Decidim::AttachmentUploader.enable_processing = true
-      example.run
-      Decidim::AttachmentUploader.enable_processing = false
-    end
 
     it "actually seeds" do
       expect { described_class.seed! }.not_to raise_error

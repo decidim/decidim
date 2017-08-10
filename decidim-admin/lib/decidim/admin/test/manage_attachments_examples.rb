@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "manage attachments examples" do
-  context "processing attachments" do
-    let!(:attachment) do
-      Decidim::AttachmentUploader.enable_processing = true
-      create(:attachment, attached_to: attached_to)
-    end
+  context "processing attachments", processing_uploads_for: Decidim::AttachmentUploader do
+    let!(:attachment) { create(:attachment, attached_to: attached_to) }
 
     before do
       visit current_path

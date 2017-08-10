@@ -202,17 +202,13 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "when attachments are allowed" do
+        context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
           let!(:feature) do
             create(:proposal_feature,
                    :with_creation_enabled,
                    :with_attachments_allowed,
                    manifest: manifest,
                    participatory_process: participatory_process)
-          end
-
-          before do
-            Decidim::AttachmentUploader.enable_processing = true
           end
 
           it "creates a new proposal with attachments" do

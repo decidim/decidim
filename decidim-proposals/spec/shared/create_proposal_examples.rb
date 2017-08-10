@@ -101,17 +101,13 @@ shared_examples "create a proposal" do |with_author|
         end
       end
 
-      context "when attachments are allowed" do
+      context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
         let(:feature) { create(:proposal_feature, :with_attachments_allowed) }
         let(:attachment_params) do
           {
             title: "My attachment",
             file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
           }
-        end
-
-        before do
-          Decidim::AttachmentUploader.enable_processing = true
         end
 
         it "creates an atachment for the proposal" do

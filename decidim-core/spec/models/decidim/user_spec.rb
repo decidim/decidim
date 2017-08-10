@@ -39,11 +39,7 @@ module Decidim
       end
     end
 
-    describe "validations" do
-      before do
-        Decidim::AvatarUploader.enable_processing = true
-      end
-
+    describe "validations", processing_uploads_for: Decidim::AvatarUploader do
       context "when the file is too big" do
         before do
           expect(subject.avatar).to receive(:size).and_return(11.megabytes)
