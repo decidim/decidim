@@ -1,5 +1,5 @@
 $(() => {
-  const $participatoryProcessScopeEnabled = $('#participatory_process_scope_enabled');
+  const $participatoryProcessScopeEnabled = $('#participatory_process_scopes_enabled');
   const $participatoryProcessScopeId = $("#participatory_process_scope_id");
 
   if ($('.edit_participatory_process').length > 0) {

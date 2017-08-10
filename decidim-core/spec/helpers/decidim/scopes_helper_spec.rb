@@ -4,9 +4,9 @@ require "spec_helper"
 
 describe Decidim::ScopesHelper do
   let(:organization) { create(:organization) }
-  let(:scope_enabled) { true }
+  let(:scopes_enabled) { true }
   let(:process_scope) { nil }
-  let(:participatory_process) { create(:participatory_process, organization: organization, scope_enabled: scope_enabled, scope: process_scope) }
+  let(:participatory_process) { create(:participatory_process, organization: organization, scopes_enabled: scopes_enabled, scope: process_scope) }
   let(:feature) { create(:feature, manifest_name: "dummy", participatory_process: participatory_process) }
   let(:scope) { create(:scope, organization: organization) }
   let(:resource) { create(:dummy_resource, feature: feature, scope: scope) }
@@ -23,7 +23,7 @@ describe Decidim::ScopesHelper do
     end
 
     context "when the process has not scope enabled" do
-      let(:scope_enabled) { false }
+      let(:scopes_enabled) { false }
       it { is_expected.to be_falsey }
     end
 

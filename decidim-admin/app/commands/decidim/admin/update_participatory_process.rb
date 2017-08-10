@@ -55,7 +55,7 @@ module Decidim
           promoted: form.promoted,
           description: form.description,
           short_description: form.short_description,
-          scope_enabled: form.scope_enabled,
+          scopes_enabled: form.scopes_enabled,
           scope: form.scope,
           developer_group: form.developer_group,
           local_area: form.local_area,

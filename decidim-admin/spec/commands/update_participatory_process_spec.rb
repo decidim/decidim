@@ -30,7 +30,7 @@ module Decidim
               short_description_ca: my_process.short_description,
               short_description_es: my_process.short_description,
               current_organization: my_process.organization,
-              scope_enabled: my_process.scope_enabled,
+              scopes_enabled: my_process.scopes_enabled,
               scope: my_process.scope,
               errors: my_process.errors,
               participatory_process_group: my_process.participatory_process_group,

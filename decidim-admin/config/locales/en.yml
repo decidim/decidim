@@ -48,7 +48,7 @@ en:
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
-        scope_enabled: Scope enabled
+        scopes_enabled: Scopes enabled
         scope_id: Scope
         short_description: Short description
         slug: URL slug

@@ -119,13 +119,13 @@ shared_examples "manage processes examples" do
     let(:scope) { create(:scope, organization: organization) }
 
     before do
-      participatory_process.update_attributes!(scope_enabled: true, scope: scope)
+      participatory_process.update_attributes!(scopes_enabled: true, scope: scope)
     end
 
     it "disables the scope for a participatory process" do
       click_link translated(participatory_process.title)
 
-      uncheck :participatory_process_scope_enabled
+      uncheck :participatory_process_scopes_enabled
 
       expect(page).to have_selector("select#participatory_process_scope_id[disabled]")
 

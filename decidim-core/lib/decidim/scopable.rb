@@ -27,7 +27,7 @@ module Decidim
     #
     # Returns a boolean.
     def has_subscopes?
-      scope_enabled && subscopes.any?
+      scopes_enabled && subscopes.any?
     end
   end
 end
