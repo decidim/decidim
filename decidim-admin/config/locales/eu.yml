@@ -370,7 +370,6 @@ eu:
         new:
           copy: Copy
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
-          title: Egin prozesu partizipatiboaren kopia
       participatory_process_groups:
         destroy:
           success: Multzoa zuzen deuseztatu da.
