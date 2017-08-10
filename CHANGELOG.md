@@ -5,6 +5,7 @@
 
 **Fixed**
 
+- **decidim**: Fixed `decidim` generator erroring when the target system had no `faker` installed, or had an incompatible version of it. [\#1714](https://github.com/decidim/decidim/pull/1714).
 - **decidim-admin**: Fixed default step settings for a feature not being properly saved when the feature doesn't have steps yet. [\#1724](https://github.com/decidim/decidim/pull/1724)
 
 **Added**
