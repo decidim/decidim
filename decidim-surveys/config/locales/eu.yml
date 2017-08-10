@@ -57,6 +57,9 @@ eu:
           invalid: Inkesta erantzutean erroreak gertatu dira.
           success: Inkesta ondo bete da.
         show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Sartu zure kontuarekin</a> edo <a href="%{sign_up_link}">kontua sortu</a> inkesta erantzuteko.
+            title: Inkesta erantzun
           are_you_sure: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
           submit: Bidali
           survey_answered:
