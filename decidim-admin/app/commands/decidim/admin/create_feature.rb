@@ -39,6 +39,7 @@ module Decidim
           name: form.name,
           participatory_process: participatory_process,
           settings: @form.settings,
+          default_step_settings: form.default_step_settings,
           step_settings: form.step_settings
         )
       end

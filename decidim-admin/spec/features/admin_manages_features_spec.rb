@@ -65,6 +65,58 @@ describe "Admin manages features", type: :feature do
         expect(all("input[type=checkbox]").first).to be_checked
       end
     end
+
+    context "when the process doesn't have active steps" do
+      let!(:participatory_process) do
+        create(:participatory_process, organization: organization)
+      end
+
+      it "saves the default step settings" do
+        find("button[data-toggle=add-feature-dropdown]").click
+
+        within "#add-feature-dropdown" do
+          find(".dummy").click
+        end
+
+        within ".new_feature" do
+          fill_in_i18n(
+            :feature_name,
+            "#feature-name-tabs",
+            en: "My feature",
+            ca: "La meva funcionalitat",
+            es: "Mi funcionalitat"
+          )
+
+          within ".global-settings" do
+            all("input[type=checkbox]").last.click
+          end
+
+          within ".default-step-settings" do
+            all("input[type=checkbox]").first.click
+          end
+
+          find("*[type=submit]").click
+        end
+
+        within ".callout-wrapper" do
+          expect(page).to have_content("successfully")
+        end
+
+        expect(page).to have_content("My feature")
+
+        within find("tr", text: "My feature") do
+          page.find(".action-icon--configure").click
+        end
+
+        within ".global-settings" do
+          expect(all("input[type=checkbox]").last).to be_checked
+        end
+
+        within ".default-step-settings" do
+          expect(all("input[type=checkbox]").first).to be_checked
+        end
+      end
+    end
   end
 
   describe "edit a feature" do
