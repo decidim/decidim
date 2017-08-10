@@ -412,7 +412,6 @@ es:
         new:
           copy: Copiar
           select: Seleccione los datos que desea duplicar
-          title: Duplicar proceso participativo
       participatory_process_groups:
         destroy:
           success: Grupo destruido correctamente.
