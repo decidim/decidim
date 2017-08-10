@@ -41,7 +41,7 @@ module Decidim
     #
     # Returns a Boolean.
     def image?(new_file)
-      content_type = model.try(:content_type) || new_file.content_type
+      content_type = model.content_type || new_file.content_type
       content_type.to_s.start_with? "image"
     end
 
