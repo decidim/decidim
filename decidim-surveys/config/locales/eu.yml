@@ -50,3 +50,19 @@ eu:
       question_types:
         long_answer: Erantzun luzea
         multiple_option: Aukera anitz
+        short_answer: Erantzun laburra
+        single_option: Aukera bakarra
+      surveys:
+        answer:
+          invalid: Inkesta erantzutean erroreak gertatu dira.
+          success: Inkesta ondo bete da.
+        show:
+          are_you_sure: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
+          submit: Bidali
+          survey_answered:
+            body: Dagoeneko inkesta hau erantzun duzu.
+            title: Inkesta jadanik erantzuna
+          survey_closed:
+            body: Inkesta itxita dago eta ezin da erantzun.
+            title: Inkesta itxia
+          tos_agreement: Inkestan parte hartuz, Zerbitzu-baldintzak onartzen dituzu
