@@ -289,6 +289,10 @@ eu:
         scope:
           fields:
             name: Izena
+        scope_type:
+          fields:
+            name: Izena
+            plural: plural
         static_page:
           fields:
             created_at: Sortze-data
@@ -301,9 +305,14 @@ eu:
             invitation_sent_at: Gonbitaren bidalketa-data
             last_sign_in_at: Identifikazioaren azken-data
             name: Izena
+            role: Rola
+            roles:
+              admin: Administratzailea
+              user_manager: Erabiltzailearen kudeatzailea
           name: Erabiltzailea
         user_group:
           fields:
+            actions: Ekintzak
             created_at: Sortze-data
             document_number: Agiri-zenbakia
             name: Izena
@@ -488,6 +497,17 @@ eu:
         static_pages: Erlaitzak
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
+      user_groups:
+        index:
+          filter:
+            pending: Zain
+            rejected: Ukatua
+            verified: Egiaztatuta
+          search: Bilatu
+          state:
+            pending: Zain
+            rejected: Ukatua
+            verified: Egiaztatuta
       users:
         create:
           error: Errorea gertatu da erabiltzaile honi gonbit egitean.
@@ -498,6 +518,7 @@ eu:
         form:
           email: Helbide elektronikoa
           name: Izena
+          role: Rola
         new:
           create: Gonbit egin
           title: Gonbit egin erabiltzaile bati administratzaile gisa
