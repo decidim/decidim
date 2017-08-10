@@ -148,6 +148,39 @@ shared_examples "manage proposals" do
             end
           end
         end
+
+        context "when attachments are allowed" do
+          before do
+            current_feature.update_attributes!(settings: { attachments_allowed: true })
+            Decidim::AttachmentUploader.enable_processing = true
+          end
+
+          it "creates a new proposal with attachments" do
+            click_link "New"
+
+            within ".new_proposal" do
+              fill_in :proposal_title, with: "Proposal with attachments"
+              fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
+              fill_in :proposal_attachment_title, with: "My attachment"
+              attach_file :proposal_attachment_file, Decidim::Dev.asset("city.jpeg")
+              find("*[type=submit]").click
+            end
+
+            within ".callout-wrapper" do
+              expect(page).to have_content("successfully")
+            end
+
+            within find("tr", text: "Proposal with attachments") do
+              @new_window = window_opened_by { find("a.action-icon--preview").click }
+            end
+
+            within_window @new_window do
+              within ".section.images" do
+                expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
+              end
+            end
+          end
+        end
       end
     end
 

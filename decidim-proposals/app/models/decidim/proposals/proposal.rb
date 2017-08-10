@@ -11,6 +11,7 @@ module Decidim
       include Decidim::HasReference
       include Decidim::HasCategory
       include Decidim::Reportable
+      include Decidim::HasAttachments
       include Decidim::Comments::Commentable
 
       feature_manifest_name "proposals"

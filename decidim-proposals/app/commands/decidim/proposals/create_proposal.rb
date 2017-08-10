@@ -22,13 +22,22 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_proposal
+        if process_attachments?
+          build_attachment
+          return broadcast(:invalid) if attachment_invalid?
+        end
+
+        transaction do
+          create_proposal
+          create_attachment if process_attachments?
+        end
+
         broadcast(:ok, proposal)
       end
 
       private
 
-      attr_reader :form, :proposal
+      attr_reader :form, :proposal, :attachment
 
       def create_proposal
         @proposal = Proposal.create!(
@@ -43,6 +52,38 @@ module Decidim
           latitude: form.latitude,
           longitude: form.longitude
         )
+      end
+
+      def build_attachment
+        @attachment = Attachment.new(
+          title: form.attachment.title,
+          file: form.attachment.file,
+          attached_to: @proposal
+        )
+      end
+
+      def attachment_invalid?
+        if attachment.invalid? && attachment.errors.has_key?(:file)
+          form.attachment.errors.add :file, attachment.errors[:file]
+          true
+        end
+      end
+
+      def attachment_present?
+        form.attachment.file.present?
+      end
+
+      def create_attachment
+        attachment.attached_to = proposal
+        attachment.save!
+      end
+
+      def attachments_allowed?
+        form.current_feature.settings.attachments_allowed?
+      end
+
+      def process_attachments?
+        attachments_allowed? && attachment_present?
       end
     end
   end

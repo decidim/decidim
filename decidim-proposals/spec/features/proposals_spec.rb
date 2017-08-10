@@ -201,6 +201,40 @@ describe "Proposals", type: :feature do
             expect(page).to have_content("Authorization required")
           end
         end
+
+        context "when attachments are allowed" do
+          let!(:feature) do
+            create(:proposal_feature,
+                   :with_creation_enabled,
+                   :with_attachments_allowed,
+                   manifest: manifest,
+                   participatory_process: participatory_process)
+          end
+
+          before do
+            Decidim::AttachmentUploader.enable_processing = true
+          end
+
+          it "creates a new proposal with attachments" do
+            visit_feature
+
+            click_link "New proposal"
+
+            within ".new_proposal" do
+              fill_in :proposal_title, with: "Proposal with attachments"
+              fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
+              fill_in :proposal_attachment_title, with: "My attachment"
+              attach_file :proposal_attachment_file, Decidim::Dev.asset("city.jpeg")
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_content("successfully")
+
+            within ".section.images" do
+              expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
+            end
+          end
+        end
       end
 
       context "when creation is not enabled" do

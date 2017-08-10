@@ -50,6 +50,21 @@
             </div>
           <% end %>
 
+          <% if feature_settings.attachments_allowed? %>
+            <fieldset>
+              <legend><%= t('.attachment_legend') %></legend>
+              <%= form.fields_for :attachment, @form.attachment do |form| %>
+                <div class="field">
+                  <%= form.text_field :title %>
+                </div>
+
+                <div class="field">
+                  <%= form.upload :file, optional: false %>
+                </div>
+              <% end %>
+            </fieldset>
+          <% end %>
+
           <div class="actions">
             <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
           </div>

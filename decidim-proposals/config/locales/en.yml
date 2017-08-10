@@ -20,6 +20,7 @@ en:
         settings:
           global:
             announcement: Announcement
+            attachments_allowed: Allow attachments
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
             new_proposal_help_text: New proposal help text
@@ -64,6 +65,7 @@ en:
             invalid: There's been a problem creating this proposal
             success: Proposal successfully created
           form:
+            attachment_legend: "(Optional) Add an attachment"
             select_a_category: Select a category
           index:
             title: Proposals
@@ -127,6 +129,7 @@ en:
             one: <span class="card--list__data__number">1</span>vote
             other: <span class="card--list__data__number">%{count}</span>votes
         new:
+          attachment_legend: "(Optional) Add an attachment"
           back: Back
           select_a_category: Please select a category
           send: Send

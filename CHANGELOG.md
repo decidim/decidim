@@ -22,8 +22,9 @@
 - **decidim-admin**: Scope selection in participatory process creation/edition using AJAX select (based on Select2) instead of a standard select. [\#1500](https://github.com/decidim/decidim/pull/1500)
 - **decidim-budgets**: Resources filter by scope using AJAX multi-select (based on Select2) instead of a list of checkboxes. [\#1500](https://github.com/decidim/decidim/pull/1500)
 - **decidim-meetings**: Resources filter by scope using AJAX multi-select (based on Select2) instead of a list of checkboxes. [\#1500](https://github.com/decidim/decidim/pull/1500)
-- **decidim-results**: Resources filter by scope using AJAX multi-select (based on Select2) instead of a list of checkboxes. [\#1500](https://github.com/decidim/decidim/pull/1500)
 - **decidim-proposals**: Resources filter by scope using AJAX multi-select (based on Select2) instead of a list of checkboxes. [\#1500](https://github.com/decidim/decidim/pull/1500)
+- **decidim-proposals**: Added feature setting `attachments_allowed`. When it is enabled users can upload an attachment when creating a new proposal. The attachment should be an image or a pdf file and users must fill in a title. [\#1688](https://github.com/decidim/decidim/pull/1688)
+- **decidim-results**: Resources filter by scope using AJAX multi-select (based on Select2) instead of a list of checkboxes. [\#1500](https://github.com/decidim/decidim/pull/1500)
 
 
 ## [v0.4.4](https://github.com/decidim/decidim/tree/v0.4.4) (2017-08-02)
