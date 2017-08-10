@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_context "graphql type" do
+shared_context "graphql type" do
   let!(:current_organization) { create(:organization) }
   let!(:current_user) { create(:user, organization: current_organization) }
   let(:model) { OpenStruct.new({}) }

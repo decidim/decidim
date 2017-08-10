@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_context "participatory process administration" do
+shared_context "participatory process administration" do
   let(:organization) { create(:organization) }
 
   let!(:participatory_process) { create(:participatory_process, organization: organization) }

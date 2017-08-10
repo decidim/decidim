@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage proposals help texts" do
+shared_examples "manage proposals help texts" do
   before do
     current_feature.update_attributes(
       step_settings: {
