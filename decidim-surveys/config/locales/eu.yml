@@ -3,3 +3,50 @@ eu:
     attributes:
       survey_answer:
         body: Erantzuna
+      survey_question:
+        mandatory: Derrigorrezkoa
+        question_type: Mota
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Erantzuna
+        name: Inkesta
+        settings:
+          global:
+            announcement: Oharra
+          step:
+            allow_answers: Baimendu erantzunak
+    surveys:
+      admin:
+        application_helper:
+          label_for_question:
+            question: Galdera
+        exports:
+          survey_user_answers: Inkesta erabiltzaile erantzunak
+        models:
+          components:
+            description: Deskribapena
+            tos: Zerbitzu-baldintzak
+        surveys:
+          answer_option:
+            answer_option: Erantzuna aukera
+            remove_answer_option: Kendu erantzun aukera
+            statement: Adierazpena
+          edit:
+            save: Gorde
+            title: Titulua
+          form:
+            add_question: Galdera gehitu
+            already_answered_warning: Inkesta dagoeneko erabiltzaile batzuek erantzun dute, beraz, ezin dituzu bere galderak aldatu.
+          question:
+            add_answer_option: Gehitu erantzun aukera
+            question: Galdera
+            remove_question: Galdera kendu
+            statement: Adierazpena
+          update:
+            invalid: Inkesta gordetzean erroreak gertatu dira.
+            success: Inkesta ondo gorde da.
+      question_types:
+        long_answer: Erantzun luzea
+        multiple_option: Aukera anitz
