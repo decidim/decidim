@@ -71,6 +71,10 @@ en:
         models:
           meeting:
             name: Meeting
+      inscriptions:
+        create:
+          invalid: Invalid
+          success: Success
       meetings:
         filters:
           category: Category
@@ -88,14 +92,23 @@ en:
           unfold: Unfold
         index:
           view_meeting: View meeting
+        inscription_confirm:
+          cancel: Cancel
+          confirm: Confirm
         meetings:
           no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
         show:
           attendees: Attendees count
           contributions: Contributions count
+          join: I am going
           meeting_report: Meeting report
+          no_slots_available: No slots available
           organizations: Attending organizations
+          remaining_slots:
+            one: 1 slot remaining
+            other: "%{count} slots remaining"
+            zero: No slots remaining
       models:
         meeting:
           fields:

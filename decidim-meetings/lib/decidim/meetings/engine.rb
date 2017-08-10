@@ -14,9 +14,16 @@ module Decidim
 
       routes do
         resources :meetings, only: [:index, :show] do
+          resources :inscriptions, only: [:create, :destroy]
           resource :meeting_widget, only: :show, path: "embed"
         end
         root to: "meetings#index"
+      end
+
+      initializer "decidim_meetings.inject_abilities_to_user" do |_app|
+        Decidim.configure do |config|
+          config.abilities += ["Decidim::Meetings::Abilities::CurrentUserAbility"]
+        end
       end
     end
   end

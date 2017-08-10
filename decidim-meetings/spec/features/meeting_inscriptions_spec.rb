@@ -48,7 +48,7 @@ describe "Explore meetings", type: :feature do
     end
   end
 
-  context "when meeting inscriptions are not enabled" do
+  context "when meeting inscriptions are enabled" do
     context "and the meeting has not a slot available" do
       let(:available_slots) { 1 }
 
@@ -60,8 +60,8 @@ describe "Explore meetings", type: :feature do
         visit_meeting
 
         within ".card.extra" do
-          expect(page).to have_css(".button[disabled]", text: "No slots available")
-          expect(page).to have_text("0 slots remaining")
+          expect(page).to have_css("button[disabled]", text: "No slots available")
+          expect(page).to have_text("No slots remaining")
         end
       end
     end
@@ -87,7 +87,7 @@ describe "Explore meetings", type: :feature do
         it "they can join the meeting" do
           visit_meeting
 
-          within ".card__support", match: :first do
+          within ".card.extra" do
             click_button "I am going"
           end
 

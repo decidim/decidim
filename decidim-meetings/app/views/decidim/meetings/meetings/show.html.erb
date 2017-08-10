@@ -20,7 +20,12 @@
         <div class="extra__time">
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
         </div>
-      </div>
+        <% if !meeting.closed? && meeting.inscriptions_enabled? %>
+          <%= action_authorized_button_to :join, meeting.has_available_slots? ? t('.join') : t('.no_slots_available'), "", class: "button expanded button--sc", disabled: !meeting.has_available_slots?, data: { toggle: "meeting-inscription-confirm" } %>
+          <% if meeting.available_slots.positive? %>
+            <span><%= t(".remaining_slots", count: meeting.remaining_slots) %></span>
+          <% end %>
+        <% end %>
       </div>
       <% if meeting.closed? %>
         <div class="card card--secondary extra definition-data">
@@ -45,6 +50,7 @@
           </div>
         </div>
       <% end %>
+    </div>
     <%= feature_reference(meeting) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for meeting_meeting_widget_url(meeting, format: :js) %>
@@ -66,6 +72,7 @@
   </div>
 </div>
 <%= attachments_for meeting %>
+<%= render partial: "inscription_confirm" %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>

@@ -21,4 +21,9 @@ FactoryGirl.define do
       closed_at { Time.current }
     end
   end
+
+  factory :inscription, class: Decidim::Meetings::Inscription do
+    meeting
+    user
+  end
 end
