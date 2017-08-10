@@ -14,7 +14,6 @@ shared_examples "a proposal form" do
   let(:has_address) { false }
   let(:address) { nil }
   let(:attachment_params) { nil }
-  let(:attachment_terms) { nil }
   let(:params) do
     {
       title: title,
@@ -24,8 +23,7 @@ shared_examples "a proposal form" do
       scope_id: scope_id,
       address: address,
       has_address: has_address,
-      attachment: attachment_params,
-      attachment_terms: attachment_terms
+      attachment: attachment_params
     }
   end
 
@@ -149,12 +147,6 @@ shared_examples "a proposal form" do
         title: "My attachment",
         file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
       }
-    end
-
-    context "and the attachment_terms are not accepted" do
-      let(:attachment_terms) { false }
-
-      it { is_expected.not_to be_valid }
     end
   end
 end

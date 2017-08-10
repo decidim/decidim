@@ -18,7 +18,6 @@ shared_examples "create a proposal" do |with_author|
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:attachment_params) { nil }
-  let(:attachment_terms) { true }
 
   describe "call" do
     let(:form_params) do
@@ -27,8 +26,7 @@ shared_examples "create a proposal" do |with_author|
         body: "A reasonable proposal body",
         address: address,
         has_address: has_address,
-        attachment: attachment_params,
-        attachment_terms: attachment_terms
+        attachment: attachment_params
       }
     end
 

@@ -15,13 +15,11 @@ module Decidim
         attribute :category_id, Integer
         attribute :scope_id, Integer
         attribute :attachment, AttachmentForm
-        attribute :attachment_terms, Boolean, default: true
 
         validates :title, :body, presence: true
         validates :address, geocoding: true, if: -> { current_feature.settings.geocoding_enabled? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-        validates :attachment_terms, acceptance: true, if: ->(form) { form.attachment && form.attachment.file.present? }
 
         delegate :categories, to: :current_feature, prefix: false
 
