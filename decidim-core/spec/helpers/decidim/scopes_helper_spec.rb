@@ -11,13 +11,13 @@ describe Decidim::ScopesHelper do
   let(:scope) { create(:scope, organization: organization) }
   let(:resource) { create(:dummy_resource, feature: feature, scope: scope) }
 
-  subject { helper.has_visible_scope?(resource) }
+  subject { helper.has_visible_scopes?(resource) }
 
   before do
     allow(helper).to receive(:current_participatory_process).and_return(participatory_process)
   end
 
-  describe "has_visible_scope?" do
+  describe "has_visible_scopes?" do
     context "when all conditions are met" do
       it { is_expected.to be_truthy }
     end
