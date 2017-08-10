@@ -414,7 +414,7 @@ en:
         new:
           copy: Copy
           select: Select which data you would like to duplicate
-          title: Duplicate participatory processs
+          title: Duplicate participatory process
       participatory_process_groups:
         destroy:
           success: Participatory process group destroyed successfully.

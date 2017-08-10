@@ -35,33 +35,37 @@ shared_examples "manage processes examples" do
     end
   end
 
-  it "updates a participatory_process" do
-    click_link translated(participatory_process.title)
-
-    fill_in_i18n(
-      :participatory_process_title,
-      "#participatory_process-title-tabs",
-      en: "My new title",
-      es: "Mi nuevo título",
-      ca: "El meu nou títol"
-    )
-    attach_file :participatory_process_banner_image, image3_path
-
-    page.execute_script("$('#date_field_participatory_process_end_date').focus()")
-    page.find(".datepicker-dropdown .day", text: "22").click
-
-    within ".edit_participatory_process" do
-      find("*[type=submit]").click
+  context "updating a participatory process" do
+    before do
+      click_link translated(participatory_process.title)
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    it "updates a participatory_process" do
+      fill_in_i18n(
+        :participatory_process_title,
+        "#participatory_process-title-tabs",
+        en: "My new title",
+        es: "Mi nuevo título",
+        ca: "El meu nou títol"
+      )
+      attach_file :participatory_process_banner_image, image3_path
 
-    within ".container" do
-      expect(page).to have_selector("input[value='My new title']")
-      expect(page).not_to have_css("img[src*='#{image2_filename}']")
-      expect(page).to have_css("img[src*='#{image3_filename}']")
+      page.execute_script("$('#date_field_participatory_process_end_date').focus()")
+      page.find(".datepicker-dropdown .day", text: "22").click
+
+      within ".edit_participatory_process" do
+        find("*[type=submit]").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      within ".container" do
+        expect(page).to have_selector("input[value='My new title']")
+        expect(page).not_to have_css("img[src*='#{image2_filename}']")
+        expect(page).to have_css("img[src*='#{image3_filename}']")
+      end
     end
   end
 
