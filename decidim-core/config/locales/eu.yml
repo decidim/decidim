@@ -1,6 +1,8 @@
 eu:
   activemodel:
     attributes:
+      account:
+        delete_reason: Zure kontua ezabatzeko arrazoia
       report:
         details: Iruzkin gehigarriak
       user:
@@ -8,6 +10,7 @@ eu:
         name: Zure izena
         password: Pasahitza
         password_confirmation: Baieztatu zure pasahitz berria
+        remove_avatar: Kendu avatar-a
         user_group_document_number: Egiaztagiri-zenbakia
         user_group_name: Erakundearen izena
         user_group_phone: Erakundearen telefonoa
@@ -31,6 +34,17 @@ eu:
       image_too_big: Irudia pisuegia da
   decidim:
     account:
+      delete:
+        alert: Ekintza hau ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi.
+        confirm:
+          close: Itxi leihoa
+          ok: Bai, nire kontua ezabatu nahi dut
+          question: Ziur zure kontua ezabatu nahi duzula?
+          title: Ezabatu nire kontua
+        explanation: Mesedez, zure kontu ezabatu nahi izateko arrazoia azaldu (aukerakoa).
+      destroy:
+        error: Errore bat gertatu da zure kontua ezabatzean.
+        success: Zure kontua ezabatu egin da.
       show:
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
@@ -104,6 +118,13 @@ eu:
       shared:
         omniauth_buttons:
           or: Edo
+    errors:
+      internal_server_error:
+        title: Arazo bat izan da gure zerbitzariarekin
+        try_later: Mesedez beranduago saiatu.
+      not_found:
+        back_home: Itzuli hasierara
+        content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
     export_mailer:
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
