@@ -36,10 +36,6 @@ module Decidim
         }
       end
 
-      before do
-        Decidim::AttachmentUploader.enable_processing = true
-      end
-
       subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
       context "when everything is OK" do
