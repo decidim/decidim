@@ -3,6 +3,10 @@
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.4...HEAD)
 
+**Fixed**
+
+- **decidim**: Fixed `decidim` generator erroring when the target system had no `faker` installed, or had an incompatible version of it. [\#1714](https://github.com/decidim/decidim/pull/1714).
+
 **Added**
 
 - **decidim**: Added `announcement` global and step setting to all features. As an admin you can configure a visible callout in the public page of a feature. [\#1696](https://github.com/decidim/decidim/pull/1696)
