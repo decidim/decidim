@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_context "feature" do
+shared_context "feature" do
   let(:manifest) { Decidim.find_feature_manifest(manifest_name) }
 
   let(:user) { create :user, :confirmed, organization: organization }
@@ -30,7 +30,7 @@ RSpec.shared_context "feature" do
   end
 end
 
-RSpec.shared_context "feature admin" do
+shared_context "feature admin" do
   include_context "feature"
 
   let(:current_feature) { feature }
@@ -61,7 +61,7 @@ RSpec.shared_context "feature admin" do
   end
 end
 
-RSpec.shared_context "feature process admin" do
+shared_context "feature process admin" do
   include_context "feature admin"
 
   let(:user) do

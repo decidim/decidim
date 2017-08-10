@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage processes announcements" do
+shared_examples "manage processes announcements" do
   let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
   it "customize an general announcement for the process" do

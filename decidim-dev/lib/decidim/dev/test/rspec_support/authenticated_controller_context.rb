@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_context "authenticated user" do
+shared_context "authenticated user" do
   let(:user) { create(:user, :confirmed) }
 
   before do
