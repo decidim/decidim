@@ -8,9 +8,11 @@
             <div>
               <a href="<%= document.url %>" class="card__link">
                 <h6 class="card--list__heading heading6">
-                  <%= translated_attribute(document.title) %> <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
+                  <%= attachment_title(document) %> <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
                 </h6>
-                <span class="text-small"><%= translated_attribute(document.description) %></span>
+                <% if document.description.present? %>
+                  <span class="text-small"><%= translated_attribute(document.description) %></span>
+                <% end %>
               </a>
             </div>
           </div>

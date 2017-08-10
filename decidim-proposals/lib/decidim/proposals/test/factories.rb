@@ -60,6 +60,14 @@ FactoryGirl.define do
         }
       end
     end
+
+    trait :with_attachments_allowed do
+      settings do
+        {
+          attachments_allowed: true
+        }
+      end
+    end
   end
 
   factory :proposal, class: Decidim::Proposals::Proposal do

@@ -17,6 +17,7 @@ shared_examples "create a proposal" do |with_author|
   let(:address) { nil }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
+  let(:attachment_params) { nil }
 
   describe "call" do
     let(:form_params) do
@@ -24,7 +25,8 @@ shared_examples "create a proposal" do |with_author|
         title: "A reasonable proposal title",
         body: "A reasonable proposal body",
         address: address,
-        has_address: has_address
+        has_address: has_address,
+        attachment: attachment_params
       }
     end
 
@@ -95,6 +97,41 @@ shared_examples "create a proposal" do |with_author|
               expect(proposal.latitude).to eq(latitude)
               expect(proposal.longitude).to eq(longitude)
             end
+          end
+        end
+      end
+
+      context "when attachments are allowed" do
+        let(:feature) { create(:proposal_feature, :with_attachments_allowed) }
+        let(:attachment_params) do
+          {
+            title: "My attachment",
+            file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+          }
+        end
+
+        before do
+          Decidim::AttachmentUploader.enable_processing = true
+        end
+
+        it "creates an atachment for the proposal" do
+          expect do
+            command.call
+          end.to change { Decidim::Attachment.count }.by(1)
+          last_proposal = Decidim::Proposals::Proposal.last
+          last_attachment = Decidim::Attachment.last
+          expect(last_attachment.attached_to).to eq(last_proposal)
+        end
+
+        context "when attachment is left blank" do
+          let(:attachment_params) do
+            {
+              title: ""
+            }
+          end
+
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
           end
         end
       end

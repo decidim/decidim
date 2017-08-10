@@ -15,6 +15,7 @@ module Decidim
       attribute :scope_id, Integer
       attribute :user_group_id, Integer
       attribute :has_address, Boolean
+      attribute :attachment, AttachmentForm
 
       validates :title, :body, presence: true, etiquette: true
       validates :title, length: { maximum: 150 }

@@ -32,6 +32,9 @@ eu:
         welcome_text: Ongietorri-testua
       participatory_process:
         banner_image: Iragarki-bandako irudia
+        copy_categories: Kategoriak kopiatu
+        copy_features: Ezaugarriak kopiatu
+        copy_steps: Urratsak kopiatu
         description: Deskribapena
         developer_group: Talde sustatzailea
         domain: Domeinua
@@ -68,6 +71,11 @@ eu:
       scope:
         name: Izena
         organization: Erakundea
+        scope_type: Esparru mota
+      scope_type:
+        name: Izena
+        organization: Erakundea
+        plural: Anitza
       static_page:
         content: Contenido
         organization: Erakundea
@@ -123,6 +131,7 @@ eu:
         permissions: Baimenak
         preview: Aurreikusi
         publish: Argitaratu
+        reject: Ukatu
         resend_invitation: Birbidali gonbita
         unpublish: Desargitaratu
         verify: Egiaztatu
@@ -135,6 +144,8 @@ eu:
         edit:
           title: Editatu fitxategi erantsia
           update: Eguneratu
+        index:
+          attachments_title: Eranskinak
         new:
           create: Sortu fitxategi erantsia
           title: Fitxategi erantsi berria
@@ -151,6 +162,9 @@ eu:
         edit:
           title: Editatu kategoria
           update: Eguneratu
+        index:
+          categories_title: Kategoriak
+          category_used: Kategoria hau ezin da ezabatu erabiltzen ari delako.
         new:
           create: Sortu kategoria
           title: Kategoria berria
@@ -181,6 +195,7 @@ eu:
           title: Editatu funtzionalitatea
           update: Eguneratu
         form:
+          default_step_settings: Urrats ezarpen lehenetsiak
           global_settings: Ezarpen orokorrak
           step_settings: Fase-konfigurazioa
         index:
@@ -200,6 +215,17 @@ eu:
         update:
           error: Errorea gertatu da funtzionalitate hau eguneratzean.
           success: Funtzionalitatea zuzen eguneratu da.
+      managed_users:
+        close_session:
+          error: Errore bat gertatu da egungo suplifikaziorako saioa ixtean.
+          success: Uneko sinplifikazioa saioa amaitu da.
+        create:
+          error: Errore bat gertatu da kudeatutako erabiltzailea sortzean.
+          success: Erabiltzaile kudeatua arrakastaz sortu da.
+        form:
+          name: Izena
+        impersonate:
+          error: Errore bat gertatu da kudeatutako erabiltzailea ordezkatzean.
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
@@ -263,6 +289,10 @@ eu:
         scope:
           fields:
             name: Izena
+        scope_type:
+          fields:
+            name: Izena
+            plural: plural
         static_page:
           fields:
             created_at: Sortze-data
@@ -275,9 +305,14 @@ eu:
             invitation_sent_at: Gonbitaren bidalketa-data
             last_sign_in_at: Identifikazioaren azken-data
             name: Izena
+            role: Rola
+            roles:
+              admin: Administratzailea
+              user_manager: Erabiltzailearen kudeatzailea
           name: Erabiltzailea
         user_group:
           fields:
+            actions: Ekintzak
             created_at: Sortze-data
             document_number: Agiri-zenbakia
             name: Izena
@@ -462,6 +497,17 @@ eu:
         static_pages: Erlaitzak
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
+      user_groups:
+        index:
+          filter:
+            pending: Zain
+            rejected: Ukatua
+            verified: Egiaztatuta
+          search: Bilatu
+          state:
+            pending: Zain
+            rejected: Ukatua
+            verified: Egiaztatuta
       users:
         create:
           error: Errorea gertatu da erabiltzaile honi gonbit egitean.
@@ -472,6 +518,7 @@ eu:
         form:
           email: Helbide elektronikoa
           name: Izena
+          role: Rola
         new:
           create: Gonbit egin
           title: Gonbit egin erabiltzaile bati administratzaile gisa

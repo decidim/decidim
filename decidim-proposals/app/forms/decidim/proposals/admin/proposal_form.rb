@@ -14,6 +14,7 @@ module Decidim
         attribute :longitude, Float
         attribute :category_id, Integer
         attribute :scope_id, Integer
+        attribute :attachment, AttachmentForm
 
         validates :title, :body, presence: true
         validates :address, geocoding: true, if: -> { current_feature.settings.geocoding_enabled? }
