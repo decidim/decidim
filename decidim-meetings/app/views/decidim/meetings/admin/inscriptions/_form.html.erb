@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.check_box :inscriptions_enabled %>
+    </div>
+
+    <div class="row column">
+      <%= form.number_field :available_slots %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :editor, :inscription_terms %>
+    </div>
+  </div>
+</div>

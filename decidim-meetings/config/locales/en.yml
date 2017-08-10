@@ -34,10 +34,17 @@ en:
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
         edit: Edit
+        inscriptions: Inscriptions
         new: New
         preview: Preview
         title: Actions
       admin:
+        inscriptions:
+          edit:
+            save: Save
+          update:
+            invalid: There's been a problem saving the inscription settings.
+            success: Meeting inscriptions settings successfully saved.
         meeting_closes:
           edit:
             close: Close
