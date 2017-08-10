@@ -3,6 +3,10 @@
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.4...HEAD)
 
+**Fixed**
+
+- **decidim-admin**: Fixed default step settings for a feature not being properly saved when the feature doesn't have steps yet. [\#1724](https://github.com/decidim/decidim/pull/1724)
+
 **Added**
 
 - **decidim**: Added `announcement` global and step setting to all features. As an admin you can configure a visible callout in the public page of a feature. [\#1696](https://github.com/decidim/decidim/pull/1696)
