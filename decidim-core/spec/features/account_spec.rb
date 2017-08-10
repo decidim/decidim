@@ -151,8 +151,8 @@ describe "Account", type: :feature, perform_enqueued: true do
           find("*[type=submit]").click
         end
 
-        expect(page).not_to have_content("Signed in successfully")
-        expect(page).not_to have_content(user.name)
+        expect(page).to have_no_content("Signed in successfully")
+        expect(page).to have_no_content(user.name)
       end
     end
   end

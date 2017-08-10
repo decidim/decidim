@@ -50,7 +50,7 @@ shared_examples "manage announcements" do
       visit main_feature_path(current_feature)
 
       within ".callout.secondary" do
-        expect(page).not_to have_content("An important announcement")
+        expect(page).to have_no_content("An important announcement")
         expect(page).to have_content("An announcement for this step")
       end
     end

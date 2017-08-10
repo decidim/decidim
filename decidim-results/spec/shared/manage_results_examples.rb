@@ -91,7 +91,7 @@ shared_examples "manage results" do
       end
 
       within "table" do
-        expect(page).not_to have_content(translated(result2.title))
+        expect(page).to have_no_content(translated(result2.title))
       end
     end
   end

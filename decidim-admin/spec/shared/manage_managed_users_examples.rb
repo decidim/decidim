@@ -167,7 +167,7 @@ shared_examples "manage managed users examples" do
       login_as user, scope: :user
 
       navigate_to_managed_users_page
-      expect(page).not_to have_content(managed_user.name)
+      expect(page).to have_no_content(managed_user.name)
     end
   end
 end

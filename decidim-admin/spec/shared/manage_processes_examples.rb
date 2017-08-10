@@ -63,7 +63,7 @@ shared_examples "manage processes examples" do
 
       within ".container" do
         expect(page).to have_selector("input[value='My new title']")
-        expect(page).not_to have_css("img[src*='#{image2_filename}']")
+        expect(page).to have_no_css("img[src*='#{image2_filename}']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end
     end
@@ -114,7 +114,7 @@ shared_examples "manage processes examples" do
 
     it "doesn't let the admin manage processes form other organizations" do
       within "table" do
-        expect(page).not_to have_content(external_participatory_process.title["en"])
+        expect(page).to have_no_content(external_participatory_process.title["en"])
       end
     end
   end

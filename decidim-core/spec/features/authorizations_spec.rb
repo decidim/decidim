@@ -94,7 +94,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
 
         within ".authorizations-list" do
           expect(page).to have_content("Example authorization")
-          expect(page).not_to have_link("Example authorization")
+          expect(page).to have_no_link("Example authorization")
         end
       end
     end
@@ -117,7 +117,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
 
         within ".authorizations-list" do
           expect(page).to have_content("Example authorization")
-          expect(page).not_to have_link("Example authorization")
+          expect(page).to have_no_link("Example authorization")
           expect(page).to have_content(I18n.localize(authorization.created_at, format: :long))
         end
       end
@@ -132,7 +132,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
 
       it "doesn't list authorizations" do
         click_link user.name
-        expect(page).not_to have_content("Authorizations")
+        expect(page).to have_no_content("Authorizations")
       end
     end
   end

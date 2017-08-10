@@ -29,7 +29,7 @@ describe "Participatory Process Groups", type: :feature do
         expect(page).to have_content(translated(participatory_process_group.name, locale: :en))
         expect(page).to have_selector("article.card", count: 1)
 
-        expect(page).not_to have_content(translated(other_group.name, locale: :en))
+        expect(page).to have_no_content(translated(other_group.name, locale: :en))
       end
     end
 
@@ -67,7 +67,7 @@ describe "Participatory Process Groups", type: :feature do
         expect(page).to have_content(translated(group_processes.first.title, locale: :en))
         expect(page).to have_selector("article.card", count: 2)
 
-        expect(page).not_to have_content(translated(unpublished_group_processes.first.title, locale: :en))
+        expect(page).to have_no_content(translated(unpublished_group_processes.first.title, locale: :en))
       end
     end
 

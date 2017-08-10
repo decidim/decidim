@@ -21,6 +21,6 @@ shared_examples "a paginated resource" do
     end
 
     expect(page).to have_css(resource_selector, count: collection_size)
-    expect(page).not_to have_css(".pagination")
+    expect(page).to have_no_css(".pagination")
   end
 end

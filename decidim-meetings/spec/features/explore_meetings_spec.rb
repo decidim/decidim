@@ -142,7 +142,7 @@ describe "Explore meetings", type: :feature do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).not_to have_selector("ul.tags.tags--meeting")
+        expect(page).to have_no_selector("ul.tags.tags--meeting")
       end
     end
 

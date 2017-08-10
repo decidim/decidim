@@ -82,7 +82,7 @@ describe "Organization scopes", type: :feature do
         end
 
         within ".card-section" do
-          expect(page).not_to have_content(translated(scope.name))
+          expect(page).to have_no_content(translated(scope.name))
         end
       end
 

@@ -43,7 +43,7 @@ shared_examples "comments" do
   context "when not authenticated" do
     it "does not show form to add comments to user" do
       visit resource_path
-      expect(page).not_to have_selector(".add-comment form")
+      expect(page).to have_no_selector(".add-comment form")
     end
   end
 
@@ -160,7 +160,7 @@ shared_examples "comments" do
               expect(page).to have_selector "span.success.label", text: "In favor"
             end
           else
-            expect(page).not_to have_selector(".opinion-toggle--ok")
+            expect(page).to have_no_selector(".opinion-toggle--ok")
           end
         end
       end
@@ -179,7 +179,7 @@ shared_examples "comments" do
               page.find(".comment__votes--up").click
               expect(page).to have_selector(".comment__votes--up", text: /1/)
             else
-              expect(page).to_not have_selector(".comment__votes--up", text: /0/)
+              expect(page).to have_no_selector(".comment__votes--up", text: /0/)
             end
           end
         end
@@ -193,7 +193,7 @@ shared_examples "comments" do
               page.find(".comment__votes--down").click
               expect(page).to have_selector(".comment__votes--down", text: /1/)
             else
-              expect(page).to_not have_selector(".comment__votes--down", text: /0/)
+              expect(page).to have_no_selector(".comment__votes--down", text: /0/)
             end
           end
         end

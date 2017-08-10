@@ -61,7 +61,7 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_content(translated(promoted_process.title, locale: :en))
         expect(page).to have_selector("article.card", count: 2)
 
-        expect(page).not_to have_content(translated(unpublished_process.title, locale: :en))
+        expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
       end
     end
 
@@ -135,7 +135,7 @@ describe "Participatory Processes", type: :feature do
       it "shows the stats for those features" do
         within ".process_stats" do
           expect(page).to have_content("3 PROPOSALS")
-          expect(page).to_not have_content("0 MEETINGS")
+          expect(page).to have_no_content("0 MEETINGS")
         end
       end
 
@@ -143,7 +143,7 @@ describe "Participatory Processes", type: :feature do
         let(:show_statistics) { false }
 
         it "the stats for those features are not visible" do
-          expect(page).not_to have_content("3 PROPOSALS")
+          expect(page).to have_no_content("3 PROPOSALS")
         end
       end
     end

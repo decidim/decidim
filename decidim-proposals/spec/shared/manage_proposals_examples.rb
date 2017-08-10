@@ -89,7 +89,7 @@ shared_examples "manage proposals" do
             find(".card-title a.button").click
 
             within "form" do
-              expect(page).not_to have_content(/Scope/i)
+              expect(page).to have_no_content(/Scope/i)
             end
           end
 
@@ -190,7 +190,7 @@ shared_examples "manage proposals" do
 
       it "cannot create a new proposal" do
         visit_feature
-        expect(page).not_to have_content("New Proposal")
+        expect(page).to have_no_content("New Proposal")
       end
     end
   end

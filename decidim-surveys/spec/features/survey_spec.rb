@@ -33,8 +33,8 @@ describe "Answer a survey", type: :feature do
       expect(page).to have_i18n_content(survey.title, upcase: true)
       expect(page).to have_i18n_content(survey.description)
 
-      expect(page).not_to have_i18n_content(survey_question_1.body)
-      expect(page).not_to have_i18n_content(survey_question_2.body)
+      expect(page).to have_no_i18n_content(survey_question_1.body)
+      expect(page).to have_no_i18n_content(survey_question_2.body)
 
       expect(page).to have_content("The survey is closed and cannot be answered.")
     end
@@ -58,8 +58,8 @@ describe "Answer a survey", type: :feature do
         expect(page).to have_i18n_content(survey.title, upcase: true)
         expect(page).to have_i18n_content(survey.description)
 
-        expect(page).not_to have_i18n_content(survey_question_1.body)
-        expect(page).not_to have_i18n_content(survey_question_2.body)
+        expect(page).to have_no_i18n_content(survey_question_1.body)
+        expect(page).to have_no_i18n_content(survey_question_2.body)
 
         expect(page).to have_content("Sign in with your account or sign up to answer the survey.")
       end
@@ -88,8 +88,8 @@ describe "Answer a survey", type: :feature do
         end
 
         expect(page).to have_content("You have already answered this survey.")
-        expect(page).not_to have_i18n_content(survey_question_1.body)
-        expect(page).not_to have_i18n_content(survey_question_2.body)
+        expect(page).to have_no_i18n_content(survey_question_1.body)
+        expect(page).to have_no_i18n_content(survey_question_2.body)
       end
 
       it "the questions are ordered by position" do
@@ -158,8 +158,8 @@ describe "Answer a survey", type: :feature do
           end
 
           expect(page).to have_content("You have already answered this survey.")
-          expect(page).not_to have_i18n_content(survey_question_1.body)
-          expect(page).not_to have_i18n_content(survey_question_2.body)
+          expect(page).to have_no_i18n_content(survey_question_1.body)
+          expect(page).to have_no_i18n_content(survey_question_2.body)
         end
       end
 
@@ -192,8 +192,8 @@ describe "Answer a survey", type: :feature do
           end
 
           expect(page).to have_content("You have already answered this survey.")
-          expect(page).not_to have_i18n_content(survey_question_1.body)
-          expect(page).not_to have_i18n_content(survey_question_2.body)
+          expect(page).to have_no_i18n_content(survey_question_1.body)
+          expect(page).to have_no_i18n_content(survey_question_2.body)
         end
       end
 
@@ -226,8 +226,8 @@ describe "Answer a survey", type: :feature do
           end
 
           expect(page).to have_content("You have already answered this survey.")
-          expect(page).not_to have_i18n_content(survey_question_1.body)
-          expect(page).not_to have_i18n_content(survey_question_2.body)
+          expect(page).to have_no_i18n_content(survey_question_1.body)
+          expect(page).to have_no_i18n_content(survey_question_2.body)
         end
       end
     end
