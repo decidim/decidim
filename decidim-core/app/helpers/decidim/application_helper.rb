@@ -4,6 +4,7 @@ module Decidim
   # Main module to add application-wide helpers.
   module ApplicationHelper
     include Decidim::OmniauthHelper
+    include Decidim::ScopesHelper
 
     # Truncates a given text respecting its HTML tags.
     #

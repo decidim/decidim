@@ -24,7 +24,7 @@
       </div>
     <% end %>
 
-    <% if current_participatory_process.subscopes.any? %>
+    <% if current_participatory_process.has_subscopes? %>
       <div class="row column">
         <%= form.collection_select :scope_id, subscopes_for(current_participatory_process), :id, :name %>
       </div>

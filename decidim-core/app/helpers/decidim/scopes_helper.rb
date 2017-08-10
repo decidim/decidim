@@ -19,5 +19,12 @@ module Decidim
           Option.new(scope.id, translated_attribute(scope.name))
         end
     end
+
+    # Check whether the resource has a visible scope or not.
+    #
+    # Returns boolean.
+    def has_visible_scopes?(resource)
+      current_participatory_process.scopes_enabled? && !current_participatory_process.scope.present? && resource.scope.present?
+    end
   end
 end

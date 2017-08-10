@@ -20,7 +20,7 @@
           <% end %>
           <%= render partial: "datetime", locals: { meeting: meeting } %>
           <%== meeting_description(meeting) %>
-          <%= render partial: "tags", locals: { meeting: meeting } %>
+          <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
           <div class="address card__extra">
             <div class="address__icon">
               <%= icon "meetings", remove_icon_class: true, width: 40, height: 70 %>
