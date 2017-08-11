@@ -19,8 +19,6 @@ eu:
     resource_links:
       included_proposals:
         result_proposals: Emaitza honetan jasotako proposamenak
-      meetings_through_proposals:
-        result_meetings: Proposamenarekin lotutako topaketak
     results:
       actions:
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?

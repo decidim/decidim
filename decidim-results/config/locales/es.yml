@@ -19,8 +19,6 @@ es:
     resource_links:
       included_proposals:
         result_proposals: Propuestas incluidas en este resultado
-      meetings_through_proposals:
-        result_meetings: Encuentros relacionados
     results:
       actions:
         confirm_destroy: '¿Está seguro de que quiere eliminar este resultado?'

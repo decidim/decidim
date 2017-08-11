@@ -165,5 +165,3 @@ en:
       included_proposals:
         proposal_projects: 'Proposal appearing in these projects:'
         proposal_results: 'Proposal appearing in these results:'
-      proposals_from_meeting:
-        proposal_meetings: Related meetings
