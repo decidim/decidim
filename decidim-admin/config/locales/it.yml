@@ -297,7 +297,6 @@ it:
         new:
           copy: Copia
           select: Scegli quale quale dato vuoi duplicare
-          title: Duplicazione di un processo partecipativo.
       participatory_process_groups:
         edit:
           title: Aggiorna un gruppo di processi
