@@ -33,7 +33,7 @@ module Decidim
     def available_roles_for_select
       Decidim::User::ROLES.map do |role|
         [
-          I18n.t(role, scope: "decidim.admin.models.user.fields.roles"),
+          I18n.t("models.user.fields.roles.#{role}", scope: "decidim.admin"),
           role
         ]
       end
