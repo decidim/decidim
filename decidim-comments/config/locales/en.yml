@@ -25,7 +25,7 @@ en:
           error: There's been errors when voting the comment.
     components:
       add_comment_form:
-        account_message: '<a href="%{sign_in_url}">Sign in with your account</a> or <a href="%{sign_up_url}">sign up</a> to add your comment.'
+        account_message: <a href="%{sign_in_url}">Sign in with your account</a> or <a href="%{sign_up_url}">sign up</a> to add your comment.
         form:
           body:
             label: Comment

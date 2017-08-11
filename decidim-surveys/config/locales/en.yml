@@ -37,8 +37,7 @@ en:
             title: Title
           form:
             add_question: Add question
-            already_answered_warning: The survey is already answered by some users
-              so you cannot modify its questions.
+            already_answered_warning: The survey is already answered by some users so you cannot modify its questions.
           question:
             add_answer_option: Add answer option
             question: Question
@@ -58,11 +57,9 @@ en:
           success: Survey answered successfully.
         show:
           answer_survey:
-            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a>
-              or <a href="%{sign_up_link}">sign up</a> to answer the survey.
+            anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the survey.
             title: Answer the survey
-          are_you_sure: This action cannot be undone and you will not be able to edit
-            your answers. Are you sure?
+          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
           submit: Submit
           survey_answered:
             body: You have already answered this survey.
