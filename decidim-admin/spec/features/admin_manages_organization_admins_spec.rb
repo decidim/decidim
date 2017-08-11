@@ -91,7 +91,7 @@ describe "Organization admins", type: :feature do
           page.find(".action-icon.action-icon--remove").click
         end
 
-        expect(page).not_to have_content(other_admin.name)
+        expect(page).to have_no_content(other_admin.name)
       end
     end
   end

@@ -17,9 +17,9 @@ describe "Cookies", type: :feature do
 
   it "user accept the cookie policy and he doesn't see it anymore'" do
     page.find(".cookie-warning *[type='submit']").click
-    expect(page).not_to have_selector ".cookie-warning"
+    expect(page).to have_no_selector ".cookie-warning"
 
     visit decidim.root_path
-    expect(page).not_to have_selector ".cookie-warning"
+    expect(page).to have_no_selector ".cookie-warning"
   end
 end

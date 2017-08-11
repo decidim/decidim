@@ -118,7 +118,7 @@ describe "Homepage", type: :feature do
         let(:organization) { create(:organization, show_statistics: false) }
 
         it "should not show the statistics block" do
-          expect(page).not_to have_content("Current state of #{organization.name}")
+          expect(page).to have_no_content("Current state of #{organization.name}")
         end
       end
 

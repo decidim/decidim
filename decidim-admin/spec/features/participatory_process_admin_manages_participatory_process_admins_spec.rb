@@ -17,7 +17,7 @@ describe "Participatory process admin manages participatory process admins", typ
 
     it "cannot remove himself" do
       within find("#process_admins tr", text: user.email) do
-        expect(page).not_to have_content("Destroy")
+        expect(page).to have_no_content("Destroy")
       end
     end
   end

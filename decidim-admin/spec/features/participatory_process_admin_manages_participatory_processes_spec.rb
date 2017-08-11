@@ -15,7 +15,7 @@ describe "Participatory process admin manages participatory processes", type: :f
   end
 
   it "cannot create a new participatory_process" do
-    expect(page).not_to have_selector(".actions .new")
+    expect(page).to have_no_selector(".actions .new")
   end
 
   context "deleting a participatory process" do
@@ -28,7 +28,7 @@ describe "Participatory process admin manages participatory processes", type: :f
 
     it "cannot delete a participatory_process" do
       within find("tr", text: translated(participatory_process2.title)) do
-        expect(page).not_to have_content("Destroy")
+        expect(page).to have_no_content("Destroy")
       end
     end
   end

@@ -303,7 +303,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         end
 
         expect(page).to have_content("Signed out successfully.")
-        expect(page).not_to have_content(user.name)
+        expect(page).to have_no_content(user.name)
       end
     end
   end

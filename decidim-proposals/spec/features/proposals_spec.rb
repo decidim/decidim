@@ -60,7 +60,7 @@ describe "Proposals", type: :feature do
             click_link "New proposal"
 
             within "form.new_proposal" do
-              expect(page).not_to have_content("Scope")
+              expect(page).to have_no_content("Scope")
             end
           end
         end
@@ -202,17 +202,13 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "when attachments are allowed" do
+        context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
           let!(:feature) do
             create(:proposal_feature,
                    :with_creation_enabled,
                    :with_attachments_allowed,
                    manifest: manifest,
                    participatory_process: participatory_process)
-          end
-
-          before do
-            Decidim::AttachmentUploader.enable_processing = true
           end
 
           it "creates a new proposal with attachments" do
@@ -292,7 +288,7 @@ describe "Proposals", type: :feature do
       it "does not show the scope name" do
         visit_feature
         click_link proposal.title
-        expect(page).not_to have_content(translated(scope.name))
+        expect(page).to have_no_content(translated(scope.name))
       end
     end
 
@@ -591,7 +587,7 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within "form.new_filter" do
-            expect(page).not_to have_content(/Origin/i)
+            expect(page).to have_no_content(/Origin/i)
           end
         end
       end
@@ -656,7 +652,7 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within "form.new_filter" do
-            expect(page).not_to have_content(/Scopes/i)
+            expect(page).to have_no_content(/Scopes/i)
           end
         end
       end
@@ -737,7 +733,7 @@ describe "Proposals", type: :feature do
             visit_feature
 
             within "form.new_filter" do
-              expect(page).not_to have_content(/State/i)
+              expect(page).to have_no_content(/State/i)
             end
           end
         end
@@ -752,7 +748,7 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within "form.new_filter" do
-            expect(page).not_to have_content(/State/i)
+            expect(page).to have_no_content(/State/i)
           end
         end
       end

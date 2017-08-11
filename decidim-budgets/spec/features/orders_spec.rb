@@ -90,14 +90,14 @@ describe "Orders", type: :feature do
         end
 
         expect(page).to have_content "ASSIGNED: €0"
-        expect(page).not_to have_content "1 project selected"
-        expect(page).not_to have_selector ".budget-summary__selected"
+        expect(page).to have_no_content "1 project selected"
+        expect(page).to have_no_selector ".budget-summary__selected"
 
         within "#order-progress .budget-summary__progressbox" do
           expect(page).to have_content "0%"
         end
 
-        expect(page).not_to have_selector ".budget-list__data--added"
+        expect(page).to have_no_selector ".budget-list__data--added"
       end
 
       context "and try to vote a project that exceed the total budget" do
@@ -139,7 +139,7 @@ describe "Orders", type: :feature do
           expect(page).to have_content("successfully")
 
           within "#order-progress .budget-summary__progressbox" do
-            expect(page).not_to have_selector("button.small")
+            expect(page).to have_no_selector("button.small")
           end
         end
       end
@@ -168,7 +168,7 @@ describe "Orders", type: :feature do
         end
 
         within ".budget-summary" do
-          expect(page).not_to have_selector(".cancel-order")
+          expect(page).to have_no_selector(".cancel-order")
         end
       end
     end

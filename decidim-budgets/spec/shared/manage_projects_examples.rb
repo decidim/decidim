@@ -114,7 +114,7 @@ shared_examples "manage projects" do
       end
 
       within "table" do
-        expect(page).to_not have_content(translated(project2.title))
+        expect(page).to have_no_content(translated(project2.title))
       end
     end
   end

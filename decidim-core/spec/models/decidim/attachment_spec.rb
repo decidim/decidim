@@ -3,12 +3,8 @@
 require "spec_helper"
 
 module Decidim
-  describe Attachment do
+  describe Attachment, processing_uploads_for: Decidim::AttachmentUploader do
     subject { build(:attachment) }
-
-    before do
-      Decidim::AttachmentUploader.enable_processing = true
-    end
 
     it { is_expected.to be_valid }
 

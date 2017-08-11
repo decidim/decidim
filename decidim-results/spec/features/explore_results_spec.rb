@@ -40,7 +40,7 @@ describe "Explore results", type: :feature do
           visit_feature
 
           within ".filters" do
-            expect(page).not_to have_content(/Scopes/i)
+            expect(page).to have_no_content(/Scopes/i)
           end
         end
       end
@@ -110,7 +110,7 @@ describe "Explore results", type: :feature do
       it "does not show any tag" do
         visit path
 
-        expect(page).not_to have_selector("ul.tags.tags--result")
+        expect(page).to have_no_selector("ul.tags.tags--result")
       end
     end
 

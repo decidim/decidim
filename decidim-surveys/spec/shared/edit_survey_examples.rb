@@ -110,7 +110,7 @@ shared_examples "edit surveys" do
           end
         end
 
-        expect(page).not_to have_content "Add answer option"
+        expect(page).to have_no_content "Add answer option"
 
         select "Single option", from: "Type"
 
@@ -166,7 +166,7 @@ shared_examples "edit surveys" do
         visit_feature_admin
 
         expect(page).to have_selector("input[value='Modified question']")
-        expect(page).not_to have_selector("input[value='This is the first question']")
+        expect(page).to have_no_selector("input[value='This is the first question']")
         expect(page).to have_selector("input#survey_questions_#{survey_question.id}_mandatory[checked]")
         expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='long_answer'][selected]")
       end
@@ -204,8 +204,8 @@ shared_examples "edit surveys" do
     it "cannot modify survey questions" do
       visit_feature_admin
 
-      expect(page).not_to have_content("Add question")
-      expect(page).not_to have_content("Remove question")
+      expect(page).to have_no_content("Add question")
+      expect(page).to have_no_content("Remove question")
       expect(page).to have_selector("input[value='This is the first question'][disabled]")
     end
   end

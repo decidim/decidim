@@ -83,7 +83,7 @@ shared_examples "manage process admins examples" do
       end
 
       within "#process_admins table" do
-        expect(page).not_to have_content(other_user.email)
+        expect(page).to have_no_content(other_user.email)
       end
     end
 

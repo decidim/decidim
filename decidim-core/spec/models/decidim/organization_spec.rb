@@ -3,14 +3,10 @@
 require "spec_helper"
 
 module Decidim
-  describe Organization do
+  describe Organization, processing_uploads_for: Decidim::HomepageImageUploader do
     let(:organization) { build(:organization) }
 
     subject { organization }
-
-    before do
-      Decidim::HomepageImageUploader.enable_processing = true
-    end
 
     it { is_expected.to be_valid }
 

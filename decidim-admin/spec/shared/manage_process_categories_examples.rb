@@ -86,7 +86,7 @@ shared_examples "manage process categories examples" do
           end
 
           within "#categories table" do
-            expect(page).not_to have_content(translated(category2.name))
+            expect(page).to have_no_content(translated(category2.name))
           end
         end
       end
@@ -122,7 +122,7 @@ shared_examples "manage process categories examples" do
         visit current_path
 
         within find("tr", text: translated(category.name)) do
-          expect(page).not_to have_selector("a.action-icon--remove")
+          expect(page).to have_no_selector("a.action-icon--remove")
         end
       end
     end
