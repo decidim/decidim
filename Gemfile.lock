@@ -127,7 +127,7 @@ PATH
       decidim (= 0.6.0.pre.pre)
       factory_girl_rails
       faker (~> 1.8.4)
-      i18n-tasks (= 0.9.15)
+      i18n-tasks (= 0.9.18)
       launchy
       listen (~> 3.1.0)
       poltergeist (~> 1.15.0)
@@ -262,7 +262,6 @@ GEM
       thread_safe
     equalizer (0.0.11)
     erubi (1.6.1)
-    erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
@@ -301,11 +300,11 @@ GEM
     httparty (0.15.6)
       multi_xml (>= 0.5.2)
     i18n (0.8.6)
-    i18n-tasks (0.9.15)
+    i18n-tasks (0.9.18)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
       easy_translate (>= 0.5.0)
-      erubis
+      erubi
       highline (>= 1.7.3)
       i18n
       parser (>= 2.2.3.0)
