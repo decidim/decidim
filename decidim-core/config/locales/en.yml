@@ -290,6 +290,7 @@ en:
           Your account won't be created until you access the link above and set your password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}, you can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}, you can accept it through the link below.
+        you_are_now_admin: You are now an admin
       invite_admin:
         subject: You've been invited to manage %{organization}
       invite_collaborator:
