@@ -84,7 +84,7 @@ search:
 
 ## Do not consider these keys missing:
 ignore_missing:
-- '{devise,components}.*'
+  - '{devise,components}.*'
 
 ## Consider these keys used:
 ignore_unused:
@@ -117,7 +117,7 @@ ignore_unused:
 
 ## Ignore these keys completely:
 # ignore:
-#  - kaminari.*
+#   - kaminari.*
 
 ## Sometimes, it isn't possible for i18n-tasks to match the key correctly,
 ## e.g. in case of a relative key defined in a helper method.
