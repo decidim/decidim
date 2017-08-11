@@ -162,8 +162,6 @@ fi:
     participatory_processes:
       index:
         title: Osallistumisprosessit
-      participatory_process_groups:
-        none: Ei ryhmää
       scopes:
         global: Yleinen konteksti
       show:

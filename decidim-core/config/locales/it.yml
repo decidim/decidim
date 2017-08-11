@@ -136,8 +136,6 @@ it:
     participatory_processes:
       index:
         title: Processi partecipativi
-      participatory_process_groups:
-        none: Nessuno
       scopes:
         global: Ambito globale
       show:

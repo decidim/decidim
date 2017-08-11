@@ -196,8 +196,6 @@ en:
     participatory_processes:
       index:
         title: Participatory processes
-      participatory_process_groups:
-        none: None
       scopes:
         global: Global scope
       show:

@@ -193,8 +193,6 @@ fr:
     participatory_processes:
       index:
         title: Processus participatifs
-      participatory_process_groups:
-        none: Aucun
       scopes:
         global: Portée globale
       show:
