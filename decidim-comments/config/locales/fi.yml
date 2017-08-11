@@ -21,7 +21,7 @@ fi:
             subject: Kommenttiisi on vastattu
     components:
       add_comment_form:
-        account_message: "<a href=\"%{sign_in_url}\">Kirjaudu sisään käyttäjätililläsi</a> tai <a href=\"%{sign_up_url}\">luo käyttäjätili</a> kommentoidaksesi.\n"
+        account_message: '<a href="%{sign_in_url}">Kirjaudu sisään käyttäjätililläsi</a> tai <a href="%{sign_up_url}">luo käyttäjätili</a> kommentoidaksesi.'
         form:
           body:
             label: Kommentti
