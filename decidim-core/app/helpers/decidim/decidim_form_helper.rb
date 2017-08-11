@@ -57,10 +57,6 @@ module Decidim
     def translated_field_tag(type, object_name, name, value = {}, options = {})
       locales = available_locales
 
-      tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
-      enabled_tabs = options[:enable_tabs].nil? ? true : options[:enable_tabs]
-      tabs_panels_data = enabled_tabs ? { tabs: true } : {}
-
       field_label = label_tag(name, options[:label])
 
       if locales.count == 1
@@ -71,6 +67,10 @@ module Decidim
 
         return safe_join [field_label, field_input]
       end
+
+      tabs_id = options[:tabs_id] || "#{object_name}-#{name}-tabs"
+      enabled_tabs = options[:enable_tabs].nil? ? true : options[:enable_tabs]
+      tabs_panels_data = enabled_tabs ? { tabs: true } : {}
 
       label_tabs = content_tag(:div, class: "label--tabs") do
         tabs_panels = "".html_safe
