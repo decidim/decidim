@@ -25,9 +25,6 @@ require_relative "rspec_support/feature.rb"
 
 require "#{Decidim::Dev.dummy_app_path}/config/environment"
 
-# Requires supporting files with custom matchers and macros, etc,
-# in ./support/ and its subdirectories.
-Dir["#{engine_spec_dir}/support/**/*.rb"].each { |f| require f }
 Dir["#{engine_spec_dir}/shared/**/*.rb"].each { |f| require f }
 
 require_relative "spec_helper"
