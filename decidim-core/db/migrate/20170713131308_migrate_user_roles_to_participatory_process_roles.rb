@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
 class MigrateUserRolesToParticipatoryProcessRoles < ActiveRecord::Migration[5.1]
+  class User < ApplicationRecord
+    self.table_name = :decidim_users
+  end
+
   def up
     participatory_processes = Decidim::ParticipatoryProcess.includes(:organization).all
-    Decidim::User.find_each do |user|
+    User.find_each do |user|
       next if user.roles.empty? || user.roles.include?("admin")
 
       processes = participatory_processes.select { |process| process.organization == user.organization }
