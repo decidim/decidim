@@ -88,21 +88,21 @@ ignore_missing:
 
 ## Consider these keys used:
 ignore_unused:
-  - '{time.formats}.*'
-  - activerecord.attributes.decidim/user.*
-  - activerecord.models.decidim/user
   - activemodel.attributes.user.*
   - activemodel.attributes.report.*
+  - activerecord.attributes.decidim/user.*
+  - activerecord.models.decidim/user
   - booleans.*
-  - errors.messages.*
-  - social_share_button.*
+  - forms.*
   - decidim.filters.linked_classes.*
   - decidim.forms.errors.*
   - decidim.features.dummy.*
+  - decidim.participatory_processes.statistics.*
+  - errors.messages.*
   - invisible_captcha.*
   - pages.home.statistics.*
-  - decidim.participatory_processes.statistics.*
-  - forms.*
+  - social_share_button.*
+  - '{time.formats}.*'
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
