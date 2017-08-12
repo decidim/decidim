@@ -14,8 +14,8 @@ module Decidim
     # all the flags passed to the `AppGenerator` class, which is the one that
     # actually generates the Rails app.
     #
-    # Remember that, for how generators work, actions are executed based on the
-    # definition order of the public methods.
+    # Remember that, because of how generators work, actions are executed based
+    # on the definition order of the public methods.
     class DummyGenerator < Rails::Generators::Base
       desc "Generate dummy app for testing purposes"
 
