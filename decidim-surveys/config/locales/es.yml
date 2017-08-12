@@ -17,9 +17,6 @@ es:
             allow_answers: Permitir respuestas
     surveys:
       admin:
-        application_helper:
-          label_for_question:
-            question: Pregunta
         exports:
           survey_user_answers: Respuestas de los usuarios de la encuesta
         models:

@@ -16,10 +16,6 @@ module Decidim
           "${tabsId}"
         end
 
-        def label_for_question(survey, _question)
-          survey.questions_editable? ? "#{icon("move")} #{t(".question")}".html_safe : t(".question")
-        end
-
         def mandatory_id_for_question(question)
           return "survey_questions_#{question.id}_mandatory" if question.persisted?
           "${tabsId}_mandatory"

@@ -21,9 +21,6 @@ en:
             announcement: Announcement
     surveys:
       admin:
-        application_helper:
-          label_for_question:
-            question: Question
         exports:
           survey_user_answers: Survey user answers
         models:

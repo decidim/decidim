@@ -19,9 +19,6 @@ eu:
             allow_answers: Baimendu erantzunak
     surveys:
       admin:
-        application_helper:
-          label_for_question:
-            question: Galdera
         exports:
           survey_user_answers: Inkesta erabiltzaile erantzunak
         models:
