@@ -193,8 +193,6 @@ fr:
     participatory_processes:
       index:
         title: Processus participatifs
-      scopes:
-        global: Portée globale
       show:
         developer_group: Groupe d'initiateurs
         end_date: Date de fin

@@ -1,6 +1,4 @@
 eu:
-  actions:
-    confirm_destroy: Ziur zaude?
   activemodel:
     attributes:
       attachment:

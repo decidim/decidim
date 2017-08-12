@@ -162,8 +162,6 @@ nl:
     participatory_processes:
       index:
         title: Participatieve processen
-      scopes:
-        global: Globaal bereik
       show:
         developer_group: Ontwikkelaarsgroep
         end_date: Einddatum

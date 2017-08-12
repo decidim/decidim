@@ -1,6 +1,4 @@
 fr:
-  actions:
-    confirm_destroy: Confirmer la suppression
   activemodel:
     attributes:
       attachment:

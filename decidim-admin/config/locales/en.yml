@@ -1,7 +1,5 @@
 ---
 en:
-  actions:
-    confirm_destroy: Confirm destroy
   activemodel:
     attributes:
       attachment:

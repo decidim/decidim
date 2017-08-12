@@ -1,6 +1,4 @@
 es:
-  actions:
-    confirm_destroy: '¿Estás seguro?'
   activemodel:
     attributes:
       attachment:

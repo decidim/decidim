@@ -1,6 +1,4 @@
 ca:
-  actions:
-    confirm_destroy: N'estàs segur?
   activemodel:
     attributes:
       attachment:

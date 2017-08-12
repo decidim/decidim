@@ -187,8 +187,6 @@ eu:
     participatory_processes:
       index:
         title: Prozesu partizipatiboak
-      scopes:
-        global: Esparrua orokorrak
       show:
         developer_group: Talde sustatzailea
         end_date: Bukaera-data

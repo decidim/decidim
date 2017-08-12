@@ -162,8 +162,6 @@ fi:
     participatory_processes:
       index:
         title: Osallistumisprosessit
-      scopes:
-        global: Yleinen konteksti
       show:
         developer_group: Kehittäjäryhmä
         end_date: Lopetusaika

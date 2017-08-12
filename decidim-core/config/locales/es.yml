@@ -195,8 +195,6 @@ es:
     participatory_processes:
       index:
         title: Procesos participativos
-      scopes:
-        global: Ámbito global
       show:
         developer_group: Grupo promotor
         end_date: Fecha de finalización

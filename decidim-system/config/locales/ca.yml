@@ -48,8 +48,6 @@ ca:
             created_at: Data de creació
             name: Nom
           name: Organització
-        page:
-          name: pàgina
       organizations:
         create:
           error: S'ha produït un error en crear una nova organització.

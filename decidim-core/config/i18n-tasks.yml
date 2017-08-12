@@ -102,7 +102,6 @@ ignore_unused:
   - decidim.authorizations.first_login.actions.*
   - decidim.features.dummy.*
   - invisible_captcha.*
-  - decidim.participatory_processes.scopes.global
   - pages.home.statistics.*
   - decidim.participatory_processes.statistics.*
   - forms.*

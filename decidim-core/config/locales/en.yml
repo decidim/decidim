@@ -196,8 +196,6 @@ en:
     participatory_processes:
       index:
         title: Participatory processes
-      scopes:
-        global: Global scope
       show:
         developer_group: Developer group
         end_date: End date
