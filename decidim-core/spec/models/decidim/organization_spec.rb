@@ -23,11 +23,8 @@ module Decidim
       end
 
       context "when the homepage image is a malicious image" do
-        let(:homepage_image_path) do
-          File.expand_path(
-            File.join(__dir__, "..", "..", "..", "..", "decidim-dev", "spec", "support", "malicious.jpg")
-          )
-        end
+        let(:homepage_image_path) { Decidim::Dev.asset("malicious.jpg") }
+
         subject do
           build(
             :organization,

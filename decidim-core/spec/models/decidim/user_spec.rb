@@ -49,11 +49,7 @@ module Decidim
       end
 
       context "when the file is a malicious image" do
-        let(:avatar_path) do
-          File.expand_path(
-            File.join(__dir__, "..", "..", "..", "..", "decidim-dev", "spec", "support", "malicious.jpg")
-          )
-        end
+        let(:avatar_path) { Decidim::Dev.asset("malicious.jpg") }
         let(:user) do
           build(
             :user,

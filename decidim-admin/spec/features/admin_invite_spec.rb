@@ -8,9 +8,7 @@ describe "Admin invite", type: :feature do
   end
 
   let(:homepage_image_path) do
-    File.expand_path(
-      File.join(__dir__, "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg")
-    )
+    Decidim::Dev.asset("city.jpeg")
   end
 
   let(:params) do
