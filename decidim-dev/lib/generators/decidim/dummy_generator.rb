@@ -75,10 +75,6 @@ module Decidim
       def remove_directory_if_exists(path)
         remove_dir(path) if File.directory?(path)
       end
-
-      def dir_name
-        dummy_app_path.split("/").last
-      end
     end
   end
 end
