@@ -18,7 +18,7 @@ require "wisper/rspec/stub_wisper_publisher"
 require "db-query-matchers"
 
 # Requires supporting files with custom matchers and macros, etc,
-# in ./support/ and its subdirectories.
+# in ./rspec_support/ and its subdirectories.
 Dir["#{__dir__}/rspec_support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
