@@ -3,6 +3,8 @@
 if !Rails.env.production? || ENV["SEED"]
   require "decidim/faker/localized"
 
+  seeds_root = File.join(__dir__, "seeds")
+
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
     twitter_handler: Faker::Hipster.word,
@@ -15,7 +17,7 @@ if !Rails.env.production? || ENV["SEED"]
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(15)
     end,
-    homepage_image: File.new(File.join(__dir__, "seeds", "homepage_image.jpg")),
+    homepage_image: File.new(File.join(seeds_root, "homepage_image.jpg")),
     default_locale: Decidim.default_locale,
     available_locales: Decidim.available_locales,
     reference_prefix: Faker::Name.suffix
@@ -93,8 +95,6 @@ if !Rails.env.production? || ENV["SEED"]
       )
     end
   end
-
-  seeds_root = File.join(__dir__, "seeds")
 
   process_groups = []
   3.times do
