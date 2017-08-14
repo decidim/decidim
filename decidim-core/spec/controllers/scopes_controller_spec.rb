@@ -17,6 +17,8 @@ module Decidim
     let(:params) { { term: query } }
     let(:results) { JSON.parse(response.body) }
 
+    subject { results["results"] }
+
     before do
       @request.env["decidim.current_organization"] = organization
       sign_in user, scope: :user
@@ -25,7 +27,7 @@ module Decidim
 
     matcher :have_scopes do |expected|
       match do |results|
-        result_texts = results["results"].map { |r| r["text"] }
+        result_texts = results.map { |r| r["text"] }
 
         RSpec::Matchers::BuiltIn::ContainExactly.new(result_texts).matches?(expected)
       end
@@ -37,58 +39,58 @@ module Decidim
       end
 
       it "result has id" do
-        expect(results["results"].first).to have_key("id")
+        expect(subject.first).to have_key("id")
       end
 
       it "result has text" do
-        expect(results["results"].first).to have_key("text")
+        expect(subject.first).to have_key("text")
       end
     end
 
     context "search top scopes" do
-      it { expect(results).to have_scopes %w(Aaaa Aabb Bbbb) }
+      it { is_expected.to have_scopes %w(Aaaa Aabb Bbbb) }
     end
 
     context "find one result" do
       let(:query) { "Bb" }
-      it { expect(results).to have_scopes %w(Bbbb) }
+      it { is_expected.to have_scopes %w(Bbbb) }
     end
 
     context "find several results" do
       let(:query) { "Aa" }
-      it { expect(results).to have_scopes %w(Aaaa Aabb) }
+      it { is_expected.to have_scopes %w(Aaaa Aabb) }
     end
 
     context "find subscopes" do
       let(:query) { "Cc" }
-      it { expect(results).to have_scopes %w(Cccc) }
+      it { is_expected.to have_scopes %w(Cccc) }
     end
 
     context "don't find results" do
       let(:query) { "Dd" }
-      it { expect(results["results"]).to be_empty }
+      it { is_expected.to be_empty }
     end
 
     context "with root filter" do
       let(:params) { { term: query, root: scopes.first } }
 
       context "search top scopes" do
-        it { expect(results).to have_scopes %w(Cccc) }
+        it { is_expected.to have_scopes %w(Cccc) }
       end
 
       context "find one result" do
         let(:query) { "Cc" }
-        it { expect(results).to have_scopes %w(Cccc) }
+        it { is_expected.to have_scopes %w(Cccc) }
       end
 
       context "don't find results outside the root scope" do
         let(:query) { "Bb" }
-        it { expect(results["results"]).to be_empty }
+        it { is_expected.to be_empty }
       end
 
       context "include root" do
         let(:params) { { term: query, root: scopes.first, include_root: true } }
-        it { expect(results).to have_scopes %w(Aaaa Cccc) }
+        it { is_expected.to have_scopes %w(Aaaa Cccc) }
       end
     end
   end
