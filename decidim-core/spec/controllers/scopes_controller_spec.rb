@@ -23,6 +23,14 @@ module Decidim
       get :search, format: :json, params: params
     end
 
+    matcher :have_scopes do |expected|
+      match do |results|
+        result_texts = results["results"].map { |r| r["text"] }
+
+        RSpec::Matchers::BuiltIn::ContainExactly.new(result_texts).matches?(expected)
+      end
+    end
+
     context "basic search works" do
       it "request returns OK" do
         expect(response).to be_success
@@ -38,22 +46,22 @@ module Decidim
     end
 
     context "search top scopes" do
-      it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Aaaa Aabb Bbbb) }
+      it { expect(results).to have_scopes %w(Aaaa Aabb Bbbb) }
     end
 
     context "find one result" do
       let(:query) { "Bb" }
-      it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Bbbb) }
+      it { expect(results).to have_scopes %w(Bbbb) }
     end
 
     context "find several results" do
       let(:query) { "Aa" }
-      it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Aaaa Aabb) }
+      it { expect(results).to have_scopes %w(Aaaa Aabb) }
     end
 
     context "find subscopes" do
       let(:query) { "Cc" }
-      it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Cccc) }
+      it { expect(results).to have_scopes %w(Cccc) }
     end
 
     context "don't find results" do
@@ -65,12 +73,12 @@ module Decidim
       let(:params) { { term: query, root: scopes.first } }
 
       context "search top scopes" do
-        it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Cccc) }
+        it { expect(results).to have_scopes %w(Cccc) }
       end
 
       context "find one result" do
         let(:query) { "Cc" }
-        it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Cccc) }
+        it { expect(results).to have_scopes %w(Cccc) }
       end
 
       context "don't find results outside the root scope" do
