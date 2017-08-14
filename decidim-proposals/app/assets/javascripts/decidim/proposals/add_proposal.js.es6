@@ -17,7 +17,7 @@ $(() => {
       $checkbox.on('change', toggleInput);
     }
 
-    new window.Decidim.Select2Field($('#proposal_scope_id'));
+    const proposalScope = new window.Decidim.Select2Field($('#proposal_scope_id'));
   };
 
   window.DecidimProposals.bindProposalAddress();
