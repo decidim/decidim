@@ -5,5 +5,7 @@ ignore_unused:
 - "decidim.resource_links.*"
 - activerecord.attributes.*
 - activemodel.attributes.*
+ignore_missing:
+  - decidim.scopes.global
 search:
   strict: false

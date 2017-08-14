@@ -4,5 +4,7 @@ ignore_unused:
 - "decidim.features.meetings.settings.*"
 - "activemodel.attributes.*"
 - "decidim.resource_links.*"
+ignore_missing:
+  - decidim.scopes.global
 search:
   strict: false
