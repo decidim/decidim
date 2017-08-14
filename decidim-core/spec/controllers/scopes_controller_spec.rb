@@ -38,22 +38,22 @@ module Decidim
     end
 
     context "search top scopes" do
-      it { expect(results["results"].map {|r| r["text"] }).to match_array %w(Aaaa Aabb Bbbb) }
+      it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Aaaa Aabb Bbbb) }
     end
 
     context "find one result" do
       let(:query) { "Bb" }
-      it { expect(results["results"].map {|r| r["text"] }).to match_array %w(Bbbb) }
+      it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Bbbb) }
     end
 
     context "find several results" do
       let(:query) { "Aa" }
-      it { expect(results["results"].map {|r| r["text"] }).to match_array %w(Aaaa Aabb) }
+      it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Aaaa Aabb) }
     end
 
     context "find subscopes" do
       let(:query) { "Cc" }
-      it { expect(results["results"].map {|r| r["text"] }).to match_array %w(Cccc) }
+      it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Cccc) }
     end
 
     context "don't find results" do
@@ -65,12 +65,12 @@ module Decidim
       let(:params) { { term: query, root: scopes.first } }
 
       context "search top scopes" do
-        it { expect(results["results"].map {|r| r["text"] }).to match_array %w(Cccc) }
+        it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Cccc) }
       end
 
       context "find one result" do
         let(:query) { "Cc" }
-        it { expect(results["results"].map {|r| r["text"] }).to match_array %w(Cccc) }
+        it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Cccc) }
       end
 
       context "don't find results outside the root scope" do
@@ -80,7 +80,7 @@ module Decidim
 
       context "include root" do
         let(:params) { { term: query, root: scopes.first, include_root: true } }
-        it { expect(results["results"].map {|r| r["text"] }).to match_array %w(Aaaa Cccc) }
+        it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Aaaa Cccc) }
       end
     end
   end

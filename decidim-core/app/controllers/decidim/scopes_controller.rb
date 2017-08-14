@@ -13,7 +13,7 @@ module Decidim
                else
                  current_organization.top_scopes
                end
-      root_option = if params[:include_root] && params[:include_root]!="false" && !params[:term].present?
+      root_option = if params[:include_root] && params[:include_root] != "false" && !params[:term].present?
                       if root
                         [{ id: root.id.to_s, text: root.name[I18n.locale.to_s] }]
                       else
