@@ -29,6 +29,7 @@
                 <%= scope.scope_type ? translated_attribute(scope.scope_type.name) : "-" %>
               </td>
               <td class="table-list__actions">
+                <%= icon_link_to "zoom-in", scope_scopes_path(scope), t("actions.browse", scope: "decidim.admin"), class: "action-icon--browse", method: :get, data: {} %>
 
                 <% if can? :update, scope %>
                   <%= icon_link_to "pencil", ['edit', scope], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
