@@ -88,7 +88,7 @@ module Decidim
 
       context "include root" do
         let(:params) { { term: query, root: scopes.first, include_root: true } }
-        it { expect(results["results"].map { |r| r["text"] }).to match_array %w(Aaaa Cccc) }
+        it { expect(results).to have_scopes %w(Aaaa Cccc) }
       end
     end
   end
