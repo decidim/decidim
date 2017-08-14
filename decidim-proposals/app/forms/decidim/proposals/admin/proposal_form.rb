@@ -50,7 +50,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= process_scope || organization_scopes.where(id: scope_id).first
+          @scope ||= organization_scopes.where(id: scope_id).first || process_scope
         end
       end
     end
