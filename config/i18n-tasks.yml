@@ -82,11 +82,11 @@ search:
 #   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
 #   api_key: "AbC-dEf5"
 
-## Do not consider these keys missing:
+# Do not consider these keys missing:
 ignore_missing:
   - '{devise,components}.*'
 
-## Consider these keys used:
+# Consider these keys used:
 ignore_unused:
   - activemodel.attributes.*
   - activemodel.errors.messages.*
