@@ -1,8 +1,4 @@
 fr:
-  activerecord:
-    errors:
-      messages:
-        cannot_have_comments: ne peut pas être commenté
   decidim:
     comments:
       comment_notification_mailer:
@@ -64,3 +60,6 @@ fr:
         title: "%{count} commentaires"
       featured_comment:
         title: Commentaire vedette
+  errors:
+    messages:
+      cannot_have_comments: ne peut pas être commenté

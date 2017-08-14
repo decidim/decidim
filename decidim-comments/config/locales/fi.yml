@@ -1,8 +1,4 @@
 fi:
-  activerecord:
-    errors:
-      messages:
-        cannot_have_comments: ei voi poistaa kommentteja
   decidim:
     comments:
       comment_notification_mailer:
@@ -64,3 +60,6 @@ fi:
         title: "%{count} kommenttia"
       featured_comment:
         title: Esille nostettu kommentti
+  errors:
+    messages:
+      cannot_have_comments: ei voi poistaa kommentteja

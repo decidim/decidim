@@ -1,8 +1,4 @@
 ca:
-  activerecord:
-    errors:
-      messages:
-        cannot_have_comments: no pot tenir comentaris
   decidim:
     comments:
       comment_notification_mailer:
@@ -71,3 +67,6 @@ ca:
         title: "%{count} comentaris"
       featured_comment:
         title: Comentari destacat
+  errors:
+    messages:
+      cannot_have_comments: no pot tenir comentaris

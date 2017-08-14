@@ -80,9 +80,6 @@ fr:
         organization: Organisation
         slug: Identifiant
         title: Titre
-    errors:
-      messages:
-        invalid_json: JSON non valide
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -511,6 +508,9 @@ fr:
     participatory_processes:
       participatory_process_groups:
         none: Aucun
+  errors:
+    messages:
+      invalid_json: JSON non valide
   layouts:
     decidim:
       admin:

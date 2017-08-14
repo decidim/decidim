@@ -1,8 +1,4 @@
 eu:
-  activerecord:
-    errors:
-      messages:
-        cannot_have_comments: ezin zaio iruzkinik egin
   decidim:
     comments:
       comment_notification_mailer:
@@ -64,3 +60,6 @@ eu:
         title: "%{count} iruzkin"
       featured_comment:
         title: Iruzkin nabarmendua
+  errors:
+    messages:
+      cannot_have_comments: ezin zaio iruzkinik egin

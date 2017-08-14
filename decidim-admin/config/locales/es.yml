@@ -80,9 +80,6 @@ es:
         organization: Organización
         slug: Texto corto de URL
         title: Título
-    errors:
-      messages:
-        invalid_json: JSON no válido
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -622,6 +619,9 @@ es:
     participatory_processes:
       participatory_process_groups:
         none: Ninguno
+  errors:
+    messages:
+      invalid_json: JSON no válido
   layouts:
     decidim:
       admin:

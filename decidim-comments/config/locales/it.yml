@@ -1,8 +1,4 @@
 it:
-  activerecord:
-    errors:
-      messages:
-        cannot_have_comments: non si possono fare commenti
   decidim:
     comments:
       comment_notification_mailer:
@@ -63,3 +59,6 @@ it:
         title: "%{count} commenti"
       featured_comment:
         title: Commento in primo piano
+  errors:
+    messages:
+      cannot_have_comments: non si possono fare commenti

@@ -89,8 +89,6 @@ ignore_missing:
 # Consider these keys used:
 ignore_unused:
   - activemodel.attributes.*
-  - activemodel.errors.messages.*
-  - activerecord.errors.messages.*
   - activerecord.attributes.*
   - booleans.*
   - '{date,time.formats}.*'

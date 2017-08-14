@@ -79,9 +79,6 @@ eu:
         organization: Erakundea
         slug: URL testu laburra
         title: Izenburua
-    errors:
-      messages:
-        invalid_json: JSON baliogabea
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -547,6 +544,9 @@ eu:
     participatory_processes:
       participatory_process_groups:
         none: Bat ere ez
+  errors:
+    messages:
+      invalid_json: JSON baliogabea
   layouts:
     decidim:
       admin:
