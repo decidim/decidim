@@ -1,7 +1,5 @@
 /* eslint-disable no-div-regex, no-useless-escape, no-param-reassign, id-length */
 
-// = require ./select2.filter
-
 /**
  * A plain Javascript component that handles the form filter.
  * @class
@@ -53,7 +51,7 @@
         this.mounted = true;
         let select2Filters = this.select2Filters;
         this.$form.find('select.select2').each(function(index, select) {
-          select2Filters.push(new window.Decidim.Select2Filter(select));
+          select2Filters.push(new window.Decidim.Select2Field(select));
         });
         this.$form.on('change', 'input:not(.select2-search__field), select', this._onFormChange);
 
