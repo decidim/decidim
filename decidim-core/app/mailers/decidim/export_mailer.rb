@@ -16,14 +16,13 @@ module Decidim
       @user = user
       @organization = user.organization
 
-      original_file_name = export_data.filename(export_name)
+      filename = export_data.filename(export_name)
+      filename_without_extension = export_data.filename(export_name, extension: false)
 
-      attachments["#{export_name}.zip"] = FileZipper.new(
-        original_file_name, export_data.read
-      ).zip
+      attachments["#{filename_without_extension}.zip"] = FileZipper.new(filename, export_data.read).zip
 
       with_user(user) do
-        mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: original_file_name))
+        mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: filename))
       end
     end
   end

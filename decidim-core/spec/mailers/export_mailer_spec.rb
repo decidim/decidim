@@ -7,7 +7,7 @@ module Decidim
   describe ExportMailer, type: :mailer do
     let(:user) { create(:user, name: "Sarah Connor", organization: organization) }
     let!(:organization) { create(:organization) }
-    let(:export_data) { double(read: "content", extension: "txt") }
+    let(:export_data) { Decidim::Exporters::ExportData.new("content", "txt") }
 
     describe "export" do
       let(:mail) { described_class.export(user, "dummy", export_data) }
@@ -20,7 +20,7 @@ module Decidim
         expect(mail.attachments.length).to eq(1)
 
         attachment = mail.attachments.first
-        expect(attachment.filename).to eq("dummy.zip")
+        expect(attachment.filename).to match(/^dummy-[0-9]+-[0-9]+-[0-9]+-[0-9]+\.zip$/)
 
         entries = []
         Zip::InputStream.open(StringIO.new(attachment.read)) do |io|
@@ -32,7 +32,7 @@ module Decidim
         expect(entries.length).to eq(1)
 
         entry = entries.first
-        expect(entry[:name]).to eq("dummy.txt")
+        expect(entry[:name]).to match(/^dummy-[0-9]+-[0-9]+-[0-9]+-[0-9]+\.txt$/)
         expect(entry[:content]).to eq("content")
       end
     end
