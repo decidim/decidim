@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
+  class Scope < ApplicationRecord
+    self.table_name = :decidim_scopes
+  end
+
+  class Organization < ApplicationRecord
+    self.table_name = :decidim_organizations
+  end
+
   def self.up
     # schema migration
     create_table :decidim_scope_types do |t|
@@ -10,7 +18,7 @@ class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
     end
 
     # retrieve current data
-    current_data = Decidim::Scope.select(:id, :name, :decidim_organization_id).as_json
+    current_data = Scope.select(:id, :name, :decidim_organization_id).as_json
 
     change_table :decidim_scopes do |t|
       t.remove_index :name
@@ -24,7 +32,7 @@ class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
     end
 
     current_data.each do |s|
-      locales = Decidim::Organization.find(s["decidim_organization_id"]).available_locales
+      locales = Organization.find(s["decidim_organization_id"]).available_locales
       name = s["name"].gsub(/'/, "''")
       execute("
         UPDATE decidim_scopes
@@ -50,7 +58,7 @@ class AddHierarchyToScopes < ActiveRecord::Migration[5.0]
     drop_table :decidim_scope_types
 
     # post migration data fixes
-    Decidim::Scope.select(:id, :name).as_json.each do |s|
+    Scope.select(:id, :name).as_json.each do |s|
       name = quote(JSON.parse(s["name"]).values.first)
       execute("
         UPDATE decidim_scopes
