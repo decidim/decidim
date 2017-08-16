@@ -57,10 +57,6 @@ module Decidim
         end
       end
 
-      def show
-        authorize! :read, current_participatory_process
-      end
-
       def destroy
         authorize! :destroy, current_participatory_process
         current_participatory_process.destroy!
