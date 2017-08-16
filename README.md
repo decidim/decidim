@@ -110,6 +110,7 @@ After you create a development app (`bundle exec rake development_app`):
 | ------------- |-------------|
 | [Admin](https://github.com/decidim/decidim/tree/master/decidim-admin)      | This library adds an administration dashboard so users can manage their organization and all other entities. |
 | [API](https://github.com/decidim/decidim/tree/master/decidim-api)      | This library exposes a GraphQL API to programatically interact with the Decidim platform via HTTP      |
+| [Assemblies](https://github.com/decidim/decidim/tree/master/decidim-assemblies) | Permanent participatory spaces. Currently in beta as an optional feature, can be included by explicitly adding `decidim-assemblies` to the Gemfile. |
 | [Budgets](https://github.com/decidim/decidim/tree/master/decidim-budgets) | Adds a participatory budgets system to any participatory space. |
 | [Comments](https://github.com/decidim/decidim/tree/master/decidim-comments) | The Comments module adds the ability to include comments to any resource which can be commentable by users.      |
 | [Core](https://github.com/decidim/decidim/tree/master/decidim-core) | The basics of Decidim: users, organizations, etc. This is the only required engine to run Decidim, all the others are optional. |
