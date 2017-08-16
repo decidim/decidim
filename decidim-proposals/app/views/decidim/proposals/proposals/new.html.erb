@@ -40,7 +40,7 @@
 
           <% if current_participatory_process.has_subscopes? %>
             <div class="field">
-              <%= form.collection_select :scope_id, subscopes_for(current_participatory_process), :id, :name %>
+              <%= form.scopes_select :scope_id, prompt: I18n.t("decidim.scopes.global"), remote_path: decidim.scopes_search_path(root: current_participatory_process.scope) %>
             </div>
           <% end %>
 

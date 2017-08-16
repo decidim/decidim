@@ -3,11 +3,12 @@
  */
 
 ((exports) => {
-  class Select2Filter {
+  class Select2Field {
     constructor(element) {
       const selectedLang = $("html").attr('lang') || 'en';
 
       let $element = $(element);
+
       let options = {
         language: selectedLang,
         multiple: $element.attr("multiple")==="multiple",
@@ -42,5 +43,5 @@
   }
 
   exports.Decidim = exports.Decidim || {};
-  exports.Decidim.Select2Filter = Select2Filter;
+  exports.Decidim.Select2Field = Select2Field;
 })(window);

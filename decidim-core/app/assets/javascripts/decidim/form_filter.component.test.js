@@ -4,7 +4,7 @@ window.$ = require('jquery');
 require('select2');
 
 require('./history.js.es6');
-require('./select2.filter.js.es6');
+require('./select2.field.js.es6');
 require('./form_filter.component.js.es6');
 
 const { Decidim: { FormFilterComponent } } = window;

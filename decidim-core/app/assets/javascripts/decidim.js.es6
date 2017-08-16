@@ -12,6 +12,7 @@
 // = require decidim/user_registrations
 // = require decidim/account_form
 // = require decidim/select2
+// = require decidim/select2.field
 
 /* globals svg4everybody */
 

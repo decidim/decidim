@@ -23,12 +23,14 @@
       line-height: 46px;
       padding-right: 23px;
       font-weight: normal;
+      color: #1a181d;
     }
     .select2-selection__arrow {
       height: 54px;
       right: 5px;
       b {
         border-width: 6px 5px 0 5px;
+        border-top-color: #121014;
       }
     }
   }
@@ -57,4 +59,5 @@
 }
 .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
   border-width: 0 5px 6px 5px;
+  border-bottom-color: #121014;
 }

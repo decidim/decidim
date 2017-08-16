@@ -6,6 +6,7 @@ ignore_unused:
 - "decidim.features.budgets.actions.*"
 - "activemodel.attributes.project.*"
 - "decidim.resource_links.*"
-
+ignore_missing:
+  - decidim.scopes.global
 search:
   strict: false

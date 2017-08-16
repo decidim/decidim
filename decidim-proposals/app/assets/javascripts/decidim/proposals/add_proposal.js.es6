@@ -16,6 +16,8 @@ $(() => {
       toggleInput();
       $checkbox.on('change', toggleInput);
     }
+
+    new window.Decidim.Select2Field($('#proposal_scope_id')); // eslint-disable-line no-new
   };
 
   window.DecidimProposals.bindProposalAddress();

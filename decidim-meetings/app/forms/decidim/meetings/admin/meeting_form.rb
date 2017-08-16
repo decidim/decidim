@@ -45,7 +45,7 @@ module Decidim
 
         def scope
           return unless current_feature
-          @scope ||= process_scope || current_feature.scopes.where(id: decidim_scope_id).first
+          @scope ||= current_feature.scopes.where(id: decidim_scope_id).first || process_scope
         end
 
         def category

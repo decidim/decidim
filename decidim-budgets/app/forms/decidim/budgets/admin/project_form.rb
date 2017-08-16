@@ -40,7 +40,7 @@ module Decidim
         end
 
         def scope
-          @scope ||= process_scope || current_organization.scopes.where(id: decidim_scope_id).first
+          @scope ||= current_organization.scopes.where(id: decidim_scope_id).first || process_scope
         end
 
         def category

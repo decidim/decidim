@@ -60,7 +60,7 @@ shared_examples "manage proposals" do
               fill_in :proposal_title, with: "Make decidim great again"
               fill_in :proposal_body, with: "Decidim is great but it can be better"
               select translated(category.name), from: :proposal_category_id
-              select translated(scope.name), from: :proposal_scope_id
+              select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
 
               find("*[type=submit]").click
             end

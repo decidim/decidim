@@ -74,7 +74,7 @@ describe "Proposals", type: :feature do
             fill_in :proposal_title, with: "Oriol for president"
             fill_in :proposal_body, with: "He will solve everything"
             select translated(category.name), from: :proposal_category_id
-            select translated(scope.name), from: :proposal_scope_id
+            select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
 
             find("*[type=submit]").click
           end
@@ -108,7 +108,7 @@ describe "Proposals", type: :feature do
 
               fill_in :proposal_address, with: address
               select translated(category.name), from: :proposal_category_id
-              select translated(scope.name), from: :proposal_scope_id
+              select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
 
               find("*[type=submit]").click
             end
@@ -138,7 +138,7 @@ describe "Proposals", type: :feature do
               fill_in :proposal_title, with: "Oriol for president"
               fill_in :proposal_body, with: "He will solve everything"
               select translated(category.name), from: :proposal_category_id
-              select translated(scope.name), from: :proposal_scope_id
+              select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
               select user_group.name, from: :proposal_user_group_id
 
               find("*[type=submit]").click
@@ -173,7 +173,7 @@ describe "Proposals", type: :feature do
 
                 fill_in :proposal_address, with: address
                 select translated(category.name), from: :proposal_category_id
-                select translated(scope.name), from: :proposal_scope_id
+                select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
                 select user_group.name, from: :proposal_user_group_id
 
                 find("*[type=submit]").click
