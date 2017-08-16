@@ -12,9 +12,7 @@ module Decidim
       collection = export_manifest.collection.call(feature)
       serializer = export_manifest.serializer
 
-      export_data = Decidim::Exporters.const_get(format.upcase).new(collection, serializer).export
-
-      name = "#{name}-#{I18n.localize(Date.today, format: :default)}-#{Time.now.seconds_since_midnight.to_i}"
+      export_data = Decidim::Exporters.find_exporter(format).new(collection, serializer).export
 
       ExportMailer.export(user, name, export_data).deliver_now
     end

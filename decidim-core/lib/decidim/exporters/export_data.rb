@@ -18,6 +18,13 @@ module Decidim
       def read
         @data
       end
+
+      # Generates a filename based on the export creation date.
+      #
+      # Returns a String with the filename of the export.
+      def filename(prefix = "export")
+        "#{prefix}-#{I18n.localize(Date.today, format: :default)}-#{Time.now.seconds_since_midnight.to_i}.#{extension}"
+      end
     end
   end
 end

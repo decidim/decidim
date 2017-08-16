@@ -23,7 +23,7 @@ Decidim.register_feature(:meetings) do |feature|
     meetings.count
   end
 
-  feature.actions = %w(join)  
+  feature.actions = %w(join)
 
   feature.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true

@@ -38,4 +38,36 @@ shared_examples "manage inscriptions" do
       end
     end
   end
+
+  # frozen_string_literal: true
+
+  context "export inscriptions" do
+    let!(:inscriptions) { create_list :inscription, 10, meeting: meeting }
+
+    it "exports a CSV" do
+      within find("tr", text: translated(meeting.title)) do
+        page.find("a.action-icon--inscriptions").click
+      end
+
+      find(".exports.dropdown").click
+
+      click_link "Inscriptions as CSV"
+
+      expect(page.response_headers["Content-Type"]).to eq("text/csv")
+      expect(page.response_headers["Content-Disposition"]).to match(/attachment; filename=.*\.csv/)
+    end
+
+    it "exports a JSON" do
+      within find("tr", text: translated(meeting.title)) do
+        page.find("a.action-icon--inscriptions").click
+      end
+
+      find(".exports.dropdown").click
+
+      click_link "Inscriptions as JSON"
+
+      expect(page.response_headers["Content-Type"]).to eq("text/json")
+      expect(page.response_headers["Content-Disposition"]).to match(/attachment; filename=.*\.json/)
+    end
+  end
 end

@@ -1,8 +1,8 @@
 <%=  decidim_form_for(@form, url: meeting_inscriptions_path, html: { class: "form edit_meeting_inscriptions" })  do |f| %>
   <%= render partial: 'form', object: f %>
 
-    <div class="button--double form-general-submit">
-      <%= f.submit t(".save") %>
-    </div>
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".save") %>
+  </div>
 <% end %>
 

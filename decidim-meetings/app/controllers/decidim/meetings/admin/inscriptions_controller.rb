@@ -25,6 +25,13 @@ module Decidim
           end
         end
 
+        def export
+          format = params[:format]
+          export_data = Decidim::Exporters.find_exporter(format).new(meeting.inscriptions, Decidim::Meetings::InscriptionSerializer).export
+
+          send_data export_data.read, type: "text/#{format}", filename: export_data.filename("inscriptions")
+        end
+
         private
 
         def meeting
