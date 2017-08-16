@@ -18,16 +18,16 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        destroy_inscription
+        @meeting.with_lock do
+          destroy_inscription
+        end
         broadcast(:ok)
       end
-
-      attr_reader :meeting, :user
 
       private
 
       def inscription
-        @inscription ||= Decidim::Meetings::Inscription.where(meeting: meeting, user: user).first
+        @inscription ||= Decidim::Meetings::Inscription.where(meeting: @meeting, user: @user).first
       end
 
       def destroy_inscription

@@ -23,4 +23,19 @@ shared_examples "manage inscriptions" do
       expect(page).to have_content("Meeting inscriptions settings successfully saved")
     end
   end
+
+  context "when inscriptions are enabled" do
+    let!(:meeting) { create :meeting, scope: scope, feature: current_feature, inscriptions_enabled: true }
+    let!(:inscriptions) { create_list :inscription, 10, meeting: meeting }
+
+    context "and a few inscriptions have been created" do
+      it "can verify the number of inscriptions" do
+        within find("tr", text: translated(meeting.title)) do
+          page.find("a.action-icon--inscriptions").click
+        end
+
+        expect(page).to have_content("#{inscriptions.length} inscriptions")
+      end
+    end
+  end
 end

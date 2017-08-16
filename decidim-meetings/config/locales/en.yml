@@ -42,6 +42,11 @@ en:
         inscriptions:
           edit:
             save: Save
+          form:
+            inscriptions_count:
+              zero: There has not been inscriptions yet.
+              one: There has been 1 inscription.
+              other: "There has been %{count} inscriptions."
           update:
             invalid: There's been a problem saving the inscription settings.
             success: Meeting inscriptions settings successfully saved.
@@ -105,7 +110,7 @@ en:
           attendees: Attendees count
           contributions: Contributions count
           going: Going
-          join: I am going
+          join: Join meeting
           meeting_report: Meeting report
           no_slots_available: No slots available
           organizations: Attending organizations

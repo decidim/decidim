@@ -42,7 +42,7 @@ describe "Explore meetings", type: :feature do
       visit_meeting
 
       within ".card.extra" do
-        expect(page).not_to have_button("I am going")
+        expect(page).not_to have_button("JOIN MEETING")
         expect(page).not_to have_text("20 slots remaining")
       end
     end
@@ -72,7 +72,7 @@ describe "Explore meetings", type: :feature do
           visit_meeting
 
           within ".card.extra" do
-            click_button "I am going"
+            click_button "Join meeting"
           end
 
           expect(page).to have_css("#loginModal", visible: true)
@@ -88,7 +88,7 @@ describe "Explore meetings", type: :feature do
           visit_meeting
 
           within ".card.extra" do
-            click_button "I am going"
+            click_button "Join meeting"
           end
 
           within "#meeting-inscription-confirm" do
@@ -122,7 +122,7 @@ describe "Explore meetings", type: :feature do
         expect(page).to have_content("successfully")
 
         within ".card.extra" do
-          expect(page).to have_css(".button", text: "I AM GOING")
+          expect(page).to have_css(".button", text: "JOIN MEETING")
           expect(page).to have_text("20 slots remaining")
         end
       end

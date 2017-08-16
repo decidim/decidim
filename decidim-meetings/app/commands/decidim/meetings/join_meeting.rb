@@ -18,16 +18,16 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        create_inscription
+        @meeting.with_lock do
+          create_inscription
+        end
         broadcast(:ok)
       end
-
-      attr_reader :meeting, :user
 
       private
 
       def create_inscription
-        Decidim::Meetings::Inscription.create!(meeting: meeting, user: user)
+        Decidim::Meetings::Inscription.create!(meeting: @meeting, user: @user)
       end
     end
   end

@@ -20,7 +20,9 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          update_meeting_inscriptions
+          @meeting.with_lock do
+            update_meeting_inscriptions
+          end
 
           broadcast(:ok)
         end

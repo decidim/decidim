@@ -10,7 +10,7 @@ module Decidim
         end
 
         def update
-          @form = MeetingInscriptionsForm.from_params(params)
+          @form = MeetingInscriptionsForm.from_params(params).with_context(current_organization: meeting.organization, meeting: meeting)
 
           UpdateInscriptions.call(@form, meeting) do
             on(:ok) do

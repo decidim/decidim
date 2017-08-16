@@ -9,6 +9,7 @@
     </div>
 
     <div class="row column">
+      <p><%= t(".inscriptions_count", count: meeting.inscriptions.count) %></p>
       <%= form.number_field :available_slots %>
     </div>
 
