@@ -14,9 +14,8 @@ module Decidim
         translatable_attribute :inscription_terms, String
 
         validates :inscription_terms, translatable_presence: true, if: ->(form) { form.inscriptions_enabled? }
-        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }
-
-        validate :available_slots_greater_than_or_equal_to_inscriptions_count, if: ->(form) { form.available_slots.positive? }
+        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.inscriptions_enabled? }
+        validate :available_slots_greater_than_or_equal_to_inscriptions_count, if: ->(form) { form.inscriptions_enabled? && form.available_slots.positive? }
 
         private
 

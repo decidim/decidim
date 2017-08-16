@@ -11,6 +11,7 @@
     <div class="row column">
       <p><%= t(".inscriptions_count", count: meeting.inscriptions.count) %></p>
       <%= form.number_field :available_slots %>
+      <p class="help-text"><%= t(".available_slots_help") %></p>
     </div>
 
     <div class="row column">
@@ -18,3 +19,5 @@
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag "decidim/meetings/admin/inscriptions_form" %>

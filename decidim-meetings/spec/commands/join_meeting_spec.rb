@@ -21,4 +21,24 @@ describe Decidim::Meetings::JoinMeeting do
       expect(last_inscription.meeting).to eq(meeting)
     end
   end
+
+  context "when the meeting has not inscriptions enabled" do
+    let(:inscriptions_enabled) { false }
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+  end
+
+  context "when the meeting has not enough available slots" do
+    let(:available_slots) { 1 }
+
+    before do
+      create(:inscription, meeting: meeting)
+    end
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+  end
 end

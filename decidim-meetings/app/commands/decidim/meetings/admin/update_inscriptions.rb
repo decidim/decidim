@@ -18,9 +18,8 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid) if @form.invalid?
-
           @meeting.with_lock do
+            return broadcast(:invalid) if @form.invalid?
             update_meeting_inscriptions
           end
 
@@ -30,11 +29,14 @@ module Decidim
         private
 
         def update_meeting_inscriptions
-          @meeting.update_attributes!(
-            inscriptions_enabled: @form.inscriptions_enabled,
-            available_slots: @form.available_slots,
-            inscription_terms: @form.inscription_terms
-          )
+          @meeting.inscriptions_enabled = @form.inscriptions_enabled
+
+          if @form.inscriptions_enabled
+            @meeting.available_slots = @form.available_slots
+            @meeting.inscription_terms = @form.inscription_terms
+          end
+
+          @meeting.save!
         end
       end
     end
