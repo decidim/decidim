@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  class ErrorsController < ApplicationController
+  class ErrorsController < Decidim::ApplicationController
     skip_authorization_check
 
     def not_found
