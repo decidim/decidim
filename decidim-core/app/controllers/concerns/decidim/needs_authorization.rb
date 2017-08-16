@@ -21,10 +21,6 @@ module Decidim
         @current_ability ||= current_ability_klass.new(current_user, ability_context)
       end
 
-      def current_ability_klass
-        Decidim::Abilities::BaseAbility
-      end
-
       def ability_context
         {
           current_settings: try(:current_settings),
