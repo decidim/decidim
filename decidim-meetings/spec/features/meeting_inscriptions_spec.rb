@@ -60,7 +60,7 @@ describe "Explore meetings", type: :feature do
         visit_meeting
 
         within ".card.extra" do
-          expect(page).to have_css("button[disabled]", text: "No slots available")
+          expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE")
           expect(page).to have_text("No slots remaining")
         end
       end
@@ -92,13 +92,14 @@ describe "Explore meetings", type: :feature do
           end
 
           within "#meeting-inscription-confirm" do
+            expect(page).to have_content "A legal text"
             page.find(".button.expanded").click
           end
 
           expect(page).to have_content("successfully")
 
           within ".card.extra" do
-            expect(page).to have_css(".button[disabled]", text: "Going")
+            expect(page).to have_css(".button", text: "GOING")
             expect(page).to have_text("19 slots remaining")
           end
         end

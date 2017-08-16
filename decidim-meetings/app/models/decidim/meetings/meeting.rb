@@ -32,6 +32,10 @@ module Decidim
       def remaining_slots
         available_slots - inscriptions.count
       end
+
+      def has_inscription_for?(user)
+        inscriptions.where(user: user).any?
+      end
     end
   end
 end

@@ -73,8 +73,8 @@ en:
             name: Meeting
       inscriptions:
         create:
-          invalid: Invalid
-          success: Success
+          invalid: There's been a problem joining this meeting.
+          success: You have joined the meeting successfully.
       meetings:
         filters:
           category: Category
@@ -101,6 +101,7 @@ en:
         show:
           attendees: Attendees count
           contributions: Contributions count
+          going: Going
           join: I am going
           meeting_report: Meeting report
           no_slots_available: No slots available
