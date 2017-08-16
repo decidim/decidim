@@ -11,6 +11,7 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
   let(:invalid) { false }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
+  let(:user) { create :user, :admin }
   let(:form) do
     double(
       invalid?: invalid,
@@ -24,7 +25,8 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
       category: category,
       address: address,
       latitude: latitude,
-      longitude: longitude
+      longitude: longitude,
+      current_user: user
     )
   end
 
@@ -63,7 +65,7 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
     it "notifies the change" do
       expect(Decidim::EventsManager)
         .to receive(:publish)
-        .with(event: "decidim.events.meetings.meeting_updated", followable: meeting)
+        .with(event: "decidim.events.meetings.meeting_updated", resource: meeting, user: user)
 
       subject.call
     end
