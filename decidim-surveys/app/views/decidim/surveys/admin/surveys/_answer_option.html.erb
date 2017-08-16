@@ -11,12 +11,16 @@
   <div class="card-section">
     <div class="row column">
       <%=
-        translated_field_tag :text_field_tag, "survey[questions][][answer_options][]", "body", answer_option.body, {
+        translated_field_tag(
+          :text_field_tag,
+          "survey[questions][][answer_options][]",
+          "body",
+          answer_option.body,
           tabs_id: tabs_id_for_question_answer_option(question, idx),
           label: t('.statement'),
           disabled: question.nil? || disabled_for_question(survey, question),
           enable_tabs: question.present?
-        }
+        )
       %>
     </div>
   </div>
