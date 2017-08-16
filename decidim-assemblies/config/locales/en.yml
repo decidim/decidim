@@ -1,0 +1,105 @@
+---
+en:
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: There was an error creating a new assembly.
+          success: Assembly created successfully.
+        destroy:
+          success: Assembly destroyed successfully.
+        edit:
+          update: Update
+        form:
+          title: General Information
+        index:
+          not_published: Not published
+          published: Published
+        new:
+          create: Create
+          title: New assembly
+        update:
+          error: There was an error when updating this assembly.
+          success: Assembly updated successfully.
+      assemblies_copies:
+        create:
+          error: There was an error when duplicating this assembly.
+          success: Assembly duplicated successfully.
+      assembly_copies:
+        new:
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate assembly
+      assembly_publications:
+        create:
+          error: There was an error publishing this assembly.
+          success: Assembly published successfully.
+        destroy:
+          error: There was an error unpublishing this assembly.
+          success: Assembly unpublished successfully.
+      menu:
+        assemblies: Assemblies
+        assemblies_submenu:
+          attachments: Attachments
+          categories: Categories
+          features: Features
+          info: Info
+          moderations: Moderations
+      models:
+        assembly:
+          fields:
+            created_at: Created at
+            promoted: Highlighted
+            published: Published
+            title: Title
+          name: Assembly
+      titles:
+        assemblies: Assemblies
+    assemblies:
+      index:
+        title: Assemblies
+      show:
+        developer_group: Developer group
+        local_area: Local area
+        participatory_scope: Participatory scope
+        participatory_structure: Participatory structure
+        scope: Scope
+        target: Target
+      statistics:
+        answers_count: Answers
+        assemblies_count: Assemblies
+        comments_count: Comments
+        headline: Activity
+        meetings_count: Meetings
+        orders_count: Orders
+        pages_count: Pages
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        surveys_count: Surveys
+        users_count: Participants
+        votes_count: Votes
+    menu:
+      assemblies: Assemblies
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Take part
+        index:
+          promoted_assemblies: Highlighted assemblies
+        no_assemblies_yet:
+          no_assemblies_yet: No assemblies yet!
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} assembly"
+            other: "%{count} assemblies"
+        promoted_assembly:
+          more_info: More info
+          take_part: Take part
+      assembly_header:
+        assembly_menu_item: The assembly
+        unfold: Unfold
+      assembly_widgets:
+        show:
+          take_part: Take part

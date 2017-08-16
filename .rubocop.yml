@@ -1257,6 +1257,7 @@ Metrics/BlockLength:
     - 'decidim-comments/lib/decidim/comments/api/comment_type.rb'
     - 'decidim-*/app/controllers/concerns/**/*'
     - 'decidim-*/**/routes.rb'
+    - 'decidim-*/db/migrate/*.rb'
     - 'decidim-*/**/*/types/**/*'
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'

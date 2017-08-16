@@ -40,7 +40,9 @@ jobs:
                 (cd /code && npm test -- decidim-core) &&
                 (cd /code/decidim-core && bundle exec rake) &&
                 (cd /code && npm test -- decidim-participatory_processes) &&
-                (cd /code/decidim-participatory_processes && bundle exec rake)
+                (cd /code/decidim-participatory_processes && bundle exec rake) &&
+                (cd /code && npm test -- decidim-assemblies) &&
+                (cd /code/decidim-assemblies && bundle exec rake)
                 ;;
               1)
                 (cd /code && bundle exec rspec) &&
