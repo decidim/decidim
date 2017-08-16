@@ -8,7 +8,8 @@ module Decidim
         {
           id: resource.id,
           user: {
-            name: resource.user.name
+            name: resource.user.name,
+            email: resource.user.email
           }
         }
       end
