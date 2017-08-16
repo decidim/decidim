@@ -27,11 +27,7 @@ module Decidim
         }
       end
       let(:organization) { create(:organization) }
-      let(:homepage_image_path) do
-        File.expand_path(
-          File.join(__dir__, "..", "..", "..", "decidim-dev", "spec", "support", "city.jpeg")
-        )
-      end
+      let(:homepage_image_path) { Decidim::Dev.asset("city.jpeg") }
       let(:attributes) do
         {
           "organization" => {
