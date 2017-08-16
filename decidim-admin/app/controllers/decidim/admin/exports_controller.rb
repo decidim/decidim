@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     # This controller allows admins to manage proposals in a participatory process.
-    class ExportsController < ApplicationController
+    class ExportsController < Decidim::Admin::ApplicationController
       include Concerns::ParticipatoryProcessAdmin
       include Decidim::FeaturePathHelper
 
