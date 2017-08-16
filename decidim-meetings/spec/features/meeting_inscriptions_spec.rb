@@ -105,5 +105,27 @@ describe "Explore meetings", type: :feature do
         end
       end
     end
+
+    context "and the user is going to the meeting" do
+      before do
+        create(:inscription, meeting: meeting, user: user)
+        login_as user, scope: :user
+      end
+
+      it "they can leave the meeting" do
+        visit_meeting
+
+        within ".card.extra" do
+          click_button "Going"
+        end
+
+        expect(page).to have_content("successfully")
+
+        within ".card.extra" do
+          expect(page).to have_css(".button", text: "I AM GOING")
+          expect(page).to have_text("20 slots remaining")
+        end
+      end
+    end
   end
 end

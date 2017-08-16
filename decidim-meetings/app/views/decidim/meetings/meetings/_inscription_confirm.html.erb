@@ -1,8 +1,8 @@
 <div class="reveal" data-reveal id="meeting-inscription-confirm">
   <div class="row">
     <div class="columns medium-8 medium-offset-2">
-      <%== meeting.inscription_terms %>
-      <%= button_to t('.confirm'), meeting_inscriptions_path(meeting), class: "button expanded" %>
+      <%== translated_attribute meeting.inscription_terms %>
+      <%= button_to t('.confirm'), meeting_inscription_path(meeting), class: "button expanded" %>
     </div>
   </div>
   <div class="text-center">

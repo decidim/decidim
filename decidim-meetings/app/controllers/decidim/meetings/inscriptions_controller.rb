@@ -20,6 +20,22 @@ module Decidim
         end
       end
 
+      def destroy
+        authorize! :leave, meeting
+
+        LeaveMeeting.call(meeting, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("inscriptions.destroy.success", scope: "decidim.meetings")
+            redirect_to meeting_path(meeting)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("inscriptions.destroy.invalid", scope: "decidim.meetings")
+            redirect_to meeting_path(meeting)
+          end
+        end
+      end
+
       private
 
       def meeting

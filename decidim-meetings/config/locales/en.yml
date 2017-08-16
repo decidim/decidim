@@ -75,6 +75,9 @@ en:
         create:
           invalid: There's been a problem joining this meeting.
           success: You have joined the meeting successfully.
+        destroy:
+          invalid: There's been a problem leaving this meeting.
+          success: You have left the meeting successfully.
       meetings:
         filters:
           category: Category
