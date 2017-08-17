@@ -61,3 +61,12 @@ fi:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi kyselyyn.
             title: Vastaa kyselyyn
+          are_you_sure: Tätä toimintoa ei voi peruuttaa eikä vastauksia voi muokata tämän jälkeen. Oletko varma?
+          submit: Lähetä
+          survey_answered:
+            body: Olet jo vastannut tähän kyselyyn.
+            title: Kyselyyn vastattu
+          survey_closed:
+            body: Kysely on suljettu ja siihen ei voi vastata.
+            title: Kysely suljettu
+          tos_agreement: Osallistumalla tähän kyselyyn hyväksyt sen käyttöehdot
