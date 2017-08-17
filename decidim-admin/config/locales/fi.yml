@@ -46,7 +46,7 @@ fi:
         participatory_process_group_id: Prosessien ryhmä
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
-        promoted: Korostettu
+        promoted: Oikeudet korotettu
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
@@ -100,7 +100,7 @@ fi:
         meta_scope: Kontekstin metadata
         participatory_scope: Osallistumisprosessi
         participatory_structure: Osallistumisprosessin rakenne
-        promoted: Korostettu
+        promoted: Oikeudet korotettu
         scope: Konteksti
         short_description: Lyhyt kuvaus
         slug: URL-tunniste
@@ -236,21 +236,42 @@ fi:
         index:
           impersonate: Esiinny käyttäjänä
           needs_authoriation_warning: Tällä organisaatiolla tulee olla vähintään yksi tunnistautumisväylä käytössä.
-          promote: Korosta
+          promote: Korota oikeudet
+          view_logs: Näytä lokitiedot
+        new:
+          create: Luo
+          new_managed_user: Uusi hallittu käyttäjä
+          select_authorization_method: Valitse tunnistautumistapa
+          step: Vaihe %{current} / %{total}
+        promotion:
+          error: Hallitun käyttäjän oikeuksien korotuksessa tapahtui virhe.
+          success: Hallitun käyttäjän taso on onnistuneesti korotettu.
+        promotions:
+          new:
+            explanation: Hallituille käyttäjille voidaan myöntää normaalien käyttäjien oikeudet. Tämä tarkoittaa, että heille lähetetään kutsu hakemusprosessiin ja tämän jälkeen kyseisinä tileinä ei voi enää esiintyä. Kutsutulle käyttäjälle lähetetään sähköposti, jonka avulla hän voi hyväksyä kutsusi.
+            new_managed_user_promotion: Uusi käyttäjätason korotus hallinnoidulle käyttäjälle
+            promote: Korota oikeudet
       menu:
+        admins: Ylläpitäjät
         dashboard: Hallintapaneeli
+        managed_users: Hallinnoitavat käyttäjät
         newsletters: Uutiskirjeet
+        participatory_process_groups: Prosessiryhmät
+        participatory_processes: Prosessit
         participatory_processes_submenu:
           attachments: Liitteet
           categories: Kategoriat
           features: Ominaisuudet
           info: Tiedot
           moderations: Moderointi
+          process_admins: Prosessin käyttäjät
           steps: Vaiheet
+        scope_types: Kontekstityypit
         scopes: Kontekstit
         settings: Asetukset
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
+        users: Käyttäjät
       models:
         attachment:
           fields:
@@ -259,6 +280,15 @@ fi:
           name: Liite
         category:
           name: Kategoria
+        impersonation_log:
+          fields:
+            admin: Ylläpitäjä
+            ended_at: Päättynyt
+            expired_at: Vanhentunut
+            started_at: Aloitettu
+            user: Käyttäjä
+        managed_user:
+          name: Hallittu käyttäjä
         newsletter:
           fields:
             created_at: Luonnin ajankohta
@@ -276,6 +306,7 @@ fi:
         participatory_process_group:
           fields:
             name: Nimi
+          name: Prosessiryhmä
         participatory_process_step:
           fields:
             end_date: Lopetusaika
@@ -285,6 +316,11 @@ fi:
         participatory_process_user_role:
           fields:
             email: Sähköposti
+            name: Nimi
+            role: Rooli
+          name: Osallistuvan prosessin käyttäjä
+          roles:
+            admin: Järjestelmänvalvoja
         scope:
           fields:
             name: Nimi
