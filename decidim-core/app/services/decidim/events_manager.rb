@@ -15,14 +15,16 @@ module Decidim
     #   the different subscribers in the system.
     # resource - an instance of a class that received the event.
     # user - the User that performed the event.
+    # recipient_ids - an Array of IDs of the users that will receive the event
     #
     # Returns nothing.
-    def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, user:)
+    def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, user:, recipient_ids:)
       ActiveSupport::Notifications.publish(
         event,
         event_class: event_class.name,
         resource: resource,
-        user: user
+        user: user,
+        recipient_ids: recipient_ids
       )
     end
 

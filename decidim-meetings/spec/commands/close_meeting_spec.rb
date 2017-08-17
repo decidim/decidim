@@ -79,12 +79,21 @@ describe Decidim::Meetings::Admin::CloseMeeting do
       expect(meeting.linked_resources(:proposals, "proposals_from_meeting")).to match_array(proposals)
     end
 
-    it "notifies the change" do
-      expect(Decidim::EventsManager)
-        .to receive(:publish)
-        .with(event: "decidim.events.meetings.meeting_closed", resource: meeting, user: user)
+    context "events" do
+      let!(:follow) { create :follow, followable: meeting, user: user }
 
-      subject.call
+      it "notifies the change" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.meetings.meeting_closed",
+            resource: meeting,
+            user: user,
+            recipient_ids: [user.id]
+          )
+
+        subject.call
+      end
     end
   end
 end
