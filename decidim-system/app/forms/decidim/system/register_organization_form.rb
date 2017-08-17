@@ -15,7 +15,7 @@ module Decidim
       attribute :default_locale, String
       attribute :reference_prefix
 
-      validates :organization_admin_email, :organization_admin_name, :name, :host, presence: true
+      validates :organization_admin_email, :organization_admin_name, :name, :host, :reference_prefix, presence: true
       validates :available_locales, presence: true
       validates :default_locale, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
