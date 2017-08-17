@@ -42,8 +42,8 @@ fi:
         hashtag: Hashtag
         hero_image: Kotisivun kuva
         local_area: Paikallisalue
-        meta_scope: Kontekstin metadata
-        participatory_process_group_id: Prosessien ryhmä
+        meta_scope: Kontekstin metatiedot
+        participatory_process_group_id: Prosessiryhmä
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
         promoted: Oikeudet korotettu
@@ -97,7 +97,7 @@ fi:
         hashtag: Hashtag
         hero_image: Etusivun kuva
         local_area: Paikallisalue
-        meta_scope: Kontekstin metadata
+        meta_scope: Kontekstin metatiedot
         participatory_scope: Osallistumisprosessi
         participatory_structure: Osallistumisprosessin rakenne
         promoted: Oikeudet korotettu
@@ -318,7 +318,7 @@ fi:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Osallistuvan prosessin käyttäjä
+          name: Osallistumisprosessin käyttäjä
           roles:
             admin: Järjestelmänvalvoja
             collaborator: Kollaboraattori
@@ -414,7 +414,7 @@ fi:
         new:
           copy: Kopio
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi osallistuva prosessi
+          title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
           success: Osallistumisprosessien ryhmä poistettu onnistuneesti.
@@ -463,21 +463,21 @@ fi:
           success: Osallistumisprosessin vaihe päivitetty onnistuneesti.
       participatory_process_user_roles:
         create:
-          error: Käyttäjän lisäyksessä osallistuvaan prosessiin tapahtui virhe.
-          success: Käyttäjä luotu onnistuneesti tähän osallistuvan prosessiin.
+          error: Käyttäjän lisäyksessä osallistumisprosessiin tapahtui virhe.
+          success: Käyttäjä luotu onnistuneesti tähän osallistumisprosessiin.
         destroy:
-          success: Käyttäjä poistettu onnistuneesti tästä osallistuvasta prosessista.
+          success: Käyttäjä poistettu onnistuneesti tästä osallistumisprosessista.
         edit:
-          title: Päivitä osallistuvan prosessin käyttäjä.
+          title: Päivitä osallistumisprosessin käyttäjä.
           update: Päivitä
         index:
-          process_admins_title: Osallistuvan prosessin käyttäjät
+          process_admins_title: Osallistumisprosessin käyttäjät
         new:
           create: Luo
-          title: Uusi osallistuvan prosessin käyttäjä.
+          title: Uusi osallistumisprosessin käyttäjä.
         update:
-          error: Tämän osallistuvan prosessin käyttäjän päivityksessä tapahtui virhe.
-          success: Tämän osallistuvan prosessin käyttäjä päivitetty onnistuneesti.
+          error: Tämän osallistumisprosessin käyttäjän päivityksessä tapahtui virhe.
+          success: Tämän osallistumisprosessin käyttäjä päivitetty onnistuneesti.
       participatory_processes:
         create:
           error: Uuden osallistumisprosessin luonnissa tapahtui virhe.
@@ -493,18 +493,18 @@ fi:
           published: Julkaistu
         new:
           create: Luo
-          title: Uusi osallistuva prosessi
+          title: Uusi osallistumisprosessi
         update:
           error: Tämän osallistumisprosessin päivityksessä tapahtui virhe.
           success: Osallistumisprosessi päivitetty onnistuneesti.
       participatory_processes_copies:
         create:
-          error: Tämän osallistuvan prosessin kopioinnissa tapahtui virhe.
-          success: Osallistuva prosessi kopioitu onnistuneesti.
+          error: Tämän osallistumisprosessin kopioinnissa tapahtui virhe.
+          success: Osallistumisprosessi kopioitu onnistuneesti.
       participatory_processes_group:
         create:
-          error: Uuden osallistumisprosessien ryhmän luonnissa tapahtui virhe.
-          success: Osallistumisprosessien ryhmä luotu onnistuneesti.
+          error: Uuden osallistumisprosessiryhmän luonnissa tapahtui virhe.
+          success: Osallistumisprosessiryhmä luotu onnistuneesti.
       scope_types:
         create:
           error: Uuden kontekstityypin luomisessa tapahtui virhe.
@@ -557,7 +557,7 @@ fi:
         dashboard: Hallintapaneeli
         impersonations: Esiintymiset käyttäjinä
         managed_users: Hallinnoitavat käyttäjät
-        participatory_process_groups: Osallistumisprosessien ryhmät
+        participatory_process_groups: Osallistumisprosessiryhmät
         participatory_processes: Osallistumisprosessit
         scope_types: Kontekstityypit
         scopes: Kontekstit
