@@ -475,19 +475,51 @@ fi:
         new:
           create: Luo
           title: Uusi osallistuvan prosessin käyttäjä.
+        update:
+          error: Tämän osallistuvan prosessin käyttäjän päivityksessä tapahtui virhe.
+          success: Tämän osallistuvan prosessin käyttäjä päivitetty onnistuneesti.
       participatory_processes:
         create:
           error: Uuden osallistumisprosessin luonnissa tapahtui virhe.
           success: Osallistumisprosessi luotu onnistuneesti. Määritä nyt sen vaiheet.
         destroy:
           success: Osallistumisprosessi tuhottu onnistuneesti.
+        edit:
+          update: Päivitä
+        form:
+          title: Yleistä tietoa
+        index:
+          not_published: Ei julkaistu
+          published: Julkaistu
+        new:
+          create: Luo
+          title: Uusi osallistuva prosessi
         update:
           error: Tämän osallistumisprosessin päivityksessä tapahtui virhe.
           success: Osallistumisprosessi päivitetty onnistuneesti.
+      participatory_processes_copies:
+        create:
+          error: Tämän osallistuvan prosessin kopioinnissa tapahtui virhe.
+          success: Osallistuva prosessi kopioitu onnistuneesti.
       participatory_processes_group:
         create:
           error: Uuden osallistumisprosessien ryhmän luonnissa tapahtui virhe.
           success: Osallistumisprosessien ryhmä luotu onnistuneesti.
+      scope_types:
+        create:
+          error: Uuden kontekstityypin luomisessa tapahtui virhe.
+          success: Kontekstin tyyppi luotu onnistuneesti.
+        destroy:
+          success: Kontekstin tyyppi tuhottu onnistuneesti
+        edit:
+          title: Muokkaa kontekstityyppiä
+          update: Päivitä
+        new:
+          create: Luo kontekstityyppi
+          title: Uusi konteksti
+        update:
+          error: Kontekstityypin päivityksessä tapahtui virhe.
+          success: Kontekstityyppi päivitetty onnistuneesti
       scopes:
         create:
           error: Uuden kontekstin luonnissa tapahtui virhe.
@@ -496,9 +528,11 @@ fi:
           success: Konteksti tuhottu onnistuneesti
         edit:
           title: Muokkaa kontekstia
+          update: Päivitä
         new:
           create: Luo konteksti
           title: Uusi konteksti
+        no_scopes: Tällä tasolla ei ole konteksteja.
         update:
           error: Tämän kontekstin päivityksessä tapahtui virhe.
           success: Konteksti päivitetty onnistuneesti
@@ -512,19 +546,44 @@ fi:
           success: Sivu tuhottu onnistuneesti
         edit:
           title: Muokkaa sivua
+          update: Päivitä
         new:
+          create: Uusi
           title: Uusi sivu
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
           success: Sivu päivitetty onnistuneesti
       titles:
         dashboard: Hallintapaneeli
+        impersonations: Esiintymiset käyttäjinä
+        managed_users: Hallinnoitavat käyttäjät
         participatory_process_groups: Osallistumisprosessien ryhmät
         participatory_processes: Osallistumisprosessit
+        scope_types: Kontekstityypit
         scopes: Kontekstit
         static_pages: Sivut
         user_groups: Käyttäjäryhmät
         users: Käyttäjät
+      user_group:
+        reject:
+          invalid: Käyttäjäryhmän hylkäämisessä tapahtui virhe.
+          success: Käyttäjäryhmä hylätty onnistuneesti
+        verify:
+          invalid: Käyttäjäryhmän vahvistuksessa tapahtui virhe.
+          success: Käyttäjäryhmä vahvistaminen onnistui
+      user_groups:
+        index:
+          filter:
+            all: Kaikki
+            pending: Odottaa
+            rejected: Hylätty
+            verified: Vahvistettu
+          filter_by: Suodata
+          search: Etsi
+          state:
+            pending: Odottaa
+            rejected: Hylätty
+            verified: Vahvistettu
       users:
         create:
           error: Tämän käyttäjän kutsumisessa tapahtui virhe.
@@ -532,6 +591,10 @@ fi:
         destroy:
           error: Tämän käyttäjän poistamisessa tapahtui virhe.
           success: Käyttäjä ei ole enää hallinnoija.
+        form:
+          email: Sähköposti
+          name: Nimi
+          role: Rooli
         new:
           create: Kutsu
           title: Kutsu käyttäjä hallinnoijaksi
