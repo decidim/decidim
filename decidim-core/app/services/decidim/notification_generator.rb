@@ -25,6 +25,7 @@ module Decidim
     # Returns a Decidim::Notification.
     def generate
       return unless resource
+      return unless event_class.types.include?(:notification)
 
       recipient_ids.each do |recipient_id|
         generate_notification_for(recipient_id)
