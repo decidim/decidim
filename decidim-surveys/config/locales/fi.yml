@@ -44,3 +44,20 @@ fi:
             add_answer_option: Lisää vastausvaihtoehto
             question: Kysymys
             remove_question: Poista kysymys
+            statement: Kysymysasettelu
+          update:
+            invalid: Kyselyn tallennus epäonnistui.
+            success: Kysely tallennettu onnistuneesti.
+      question_types:
+        long_answer: Pitkä vastaus
+        multiple_option: Useita vaihtoehtoja
+        short_answer: Lyhyt vastaus
+        single_option: Yksi vaihtoehto
+      surveys:
+        answer:
+          invalid: Kyselyyn vastaaminen epäonnistui.
+          success: Kyselyyn vastattu onnistuneesti.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi kyselyyn.
+            title: Vastaa kyselyyn
