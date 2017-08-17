@@ -33,3 +33,14 @@ fi:
           answer_option:
             answer_option: Vastausvaihtoehto
             remove_answer_option: Poista vastausvaihtoehto
+            statement: Kysymysasettelu
+          edit:
+            save: Tallenna
+            title: Otsikko
+          form:
+            add_question: Lisää kysymys
+            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet tähän kyselyyn, minkä takia et voi muokata sen kysymyksiä.
+          question:
+            add_answer_option: Lisää vastausvaihtoehto
+            question: Kysymys
+            remove_question: Poista kysymys
