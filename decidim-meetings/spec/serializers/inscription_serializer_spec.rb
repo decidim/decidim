@@ -16,7 +16,7 @@ describe Decidim::Meetings::InscriptionSerializer do
         include(name: inscription.user.name)
       )
       expect(subject.serialize[:user]).to(
-        include(name: inscription.user.email)
+        include(email: inscription.user.email)
       )
     end
   end
