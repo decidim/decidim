@@ -1,5 +1,35 @@
 fi:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Vastaa
+      survey_question:
+        mandatory: Pakollinen
+        question_type: Tyyppi
   decidim:
     features:
       surveys:
+        actions:
+          answer: Vastaa
         name: Tutkimus
+        settings:
+          global:
+            announcement: Ilmoitus
+          step:
+            allow_answers: Salli vastaukset
+            announcement: Ilmoitus
+    surveys:
+      admin:
+        application_helper:
+          label_for_question:
+            question: Kysymys
+        exports:
+          survey_user_answers: Kyselyn vastaukset
+        models:
+          components:
+            description: Kuvaus
+            tos: Käyttöehdot
+        surveys:
+          answer_option:
+            answer_option: Vastausvaihtoehto
+            remove_answer_option: Poista vastausvaihtoehto
