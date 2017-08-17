@@ -3,7 +3,7 @@
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.5.0...HEAD)
 
-## [v0.5.0](https://github.com/decidim/decidim/tree/HEAD)
+## [v0.5.0](https://github.com/decidim/decidim/tree/HEAD) (2017-08-17)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.4...v0.5.0)
 
 **Fixed**
