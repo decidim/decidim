@@ -60,19 +60,19 @@ module Decidim
     end
 
     def create_part_of
-      self[:part_of] = calculate_part_of
+      recalculate_part_of
       save if changed?
     end
 
     def update_part_of
-      self[:part_of] = calculate_part_of
+      recalculate_part_of
     end
 
-    def calculate_part_of
+    def recalculate_part_of
       if parent
-        [id] + parent.part_of
+        part_of.clear.append(id).concat(parent.reload.part_of)
       else
-        [id]
+        part_of.clear.append(id)
       end
     end
   end
