@@ -1,4 +1,6 @@
 fi:
+  actions:
+    confirm_destroy: Vahvista poisto
   activemodel:
     attributes:
       attachment:
@@ -8,6 +10,7 @@ fi:
       category:
         description: Kuvaus
         name: Nimi
+        parent_id: Isäntä
       feature:
         name: Nimi
         weight: Painoarvo
@@ -24,10 +27,14 @@ fi:
         official_img_footer: Virallinen alapalkin logo
         official_img_header: Virallinen yläpalkin logo
         official_url: Virallinen organisaation URL-osoite
+        reference_prefix: Viitteen etuliite
         show_statistics: Näytä tilastot
         welcome_text: Tervetuloa-teksti
       participatory_process:
         banner_image: Bannerikuva
+        copy_categories: Kopioi kategoriat
+        copy_features: Kopioi toiminnot
+        copy_steps: Kopioi vaiheet
         description: Kuvaus
         developer_group: Kehitysryhmä
         domain: Toimintaympäristö
@@ -36,14 +43,22 @@ fi:
         hero_image: Kotisivun kuva
         local_area: Paikallisalue
         meta_scope: Kontekstin metadata
+        participatory_process_group_id: Prosessien ryhmä
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
         promoted: Korostettu
+        scope_id: Konteksti
+        scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
         slug: URL-tunniste
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
+      participatory_process_group:
+        description: Kuvaus
+        hero_image: Kuva
+        name: Nimi
+        participatory_process_ids: Liittyvät prosessit
       participatory_process_step:
         description: Kuvaus
         end_date: Lopetusaika
@@ -52,9 +67,17 @@ fi:
         title: Otsikko
       participatory_process_user_role:
         email: Sähköposti
+        name: Nimi
+        role: Rooli
       scope:
+        code: Koodi
         name: Nimi
         organization: Organisaatio
+        scope_type: Kontekstin tyyppi
+      scope_type:
+        name: Nimi
+        organization: Organisaatio
+        plural: Monikko
       static_page:
         content: Sisältö
         organization: Organisaatio
@@ -84,22 +107,34 @@ fi:
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
+      decidim/participatory_process_step:
+        end_date: Päättymisaika
+        start_date: Aloitusaika
       decidim/static_page:
         content: Sisältö
         slug: URL-tunniste
         title: Otsikko
+  date:
+    formats:
+      datepicker: "%d. %m. %Y"
   decidim:
     admin:
       actions:
         activate: Aktivoi
+        add: Lisää
+        browse: Selaa
         configure: Asetukset
         confirm_destroy: Haluatko varmasti poistaa tämän?
         destroy: Tuhoa
+        duplicate: Kopioi
         edit: Muokkaa
+        export: Vie
         manage: Hallitse
+        new: Uusi
         permissions: Oikeudet
         preview: Esikatsele
         publish: Julkaise
+        reject: Hylkää
         resend_invitation: Lähetä kutsu uudelleen
         unpublish: Lopeta julkaisu
         verify: Vahvista
@@ -111,6 +146,9 @@ fi:
           success: Liite tuhottu onnistuneesti.
         edit:
           title: Muokkaa liitettä
+          update: Päivitä
+        index:
+          attachments_title: Liitteet
         new:
           create: Luo liite
           title: Uusi liite
@@ -126,12 +164,22 @@ fi:
           success: Kategoria poistettu onnistuneesti.
         edit:
           title: Muokkaa kategoriaa
+          update: Päivitä
+        index:
+          categories_title: Kategoriat
+          category_used: Tätä kategoriaa ei voida poistaa, koska se on käytössä.
         new:
           create: Luo kategoria
           title: Uusi kategoria
         update:
           error: Tämän kategorian luonnissa tapahtui virhe.
           success: Kategoria päivitetty onnistuneesti.
+      dashboard:
+        show:
+          welcome: Tervetuloa Decidimin uuteen hallintapaneeliin.
+      exports:
+        export_as: "%{name} muodossa %{export_format}"
+        notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       feature_permissions:
         edit:
           everyone: Kaikki
@@ -150,6 +198,7 @@ fi:
           title: Muokkaa ominaisuutta
           update: Päivitä
         form:
+          default_step_settings: Oletusvaiheen asetukset
           global_settings: Globaalit asetukset
           step_settings: Vaiheen asetukset
         index:
@@ -169,6 +218,25 @@ fi:
         update:
           error: Tämän ominaisuuden päivityksessä tapahtui virhe.
           success: Ominaisuus päivitetty onnistuneesti.
+      managed_users:
+        close_session:
+          error: Toisena käyttäjänä esiintymisen istunnon sulkemisessa tapahtui virhe.
+          success: Toisena käyttäjänä esiintymisen istunto on onnistuneesti päätetty.
+        create:
+          error: Hallitun käyttäjän luonnissa tapahtui virhe.
+          success: Hallittu käyttäjä on luotu onnistuneesti.
+        form:
+          name: Nimi
+        impersonate:
+          error: Hallittuna käyttäjänä esiintymisessä tapahtui virhe.
+        impersonations:
+          new:
+            impersonate: Esiinny käyttäjänä
+            new_managed_user_impersonation: Uusi hallittuna käyttäjänä esiintyminen
+        index:
+          impersonate: Esiinny käyttäjänä
+          needs_authoriation_warning: Tällä organisaatiolla tulee olla vähintään yksi tunnistautumisväylä käytössä.
+          promote: Korosta
       menu:
         dashboard: Hallintapaneeli
         newsletters: Uutiskirjeet
