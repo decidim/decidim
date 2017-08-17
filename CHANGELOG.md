@@ -1,7 +1,10 @@
 # Change Log
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
-[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.4...HEAD)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.5.0...HEAD)
+
+## [v0.5.0](https://github.com/decidim/decidim/tree/HEAD)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.4.4...v0.5.0)
 
 **Fixed**
 

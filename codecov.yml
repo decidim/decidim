@@ -19,3 +19,6 @@ coverage:
 comment:
   layout: "header, diff"
   behavior: default
+
+ignore:
+  - package-lock.json
