@@ -8,13 +8,20 @@ describe Decidim::EventsManager do
     let(:event_class) { Decidim::Events::BaseEvent }
     let(:resource) { double }
     let(:user) { double }
+    let(:recipient_ids) { [1, 2, 3] }
 
     it "delegates the params to ActiveSupport::Notifications" do
       expect(ActiveSupport::Notifications)
         .to receive(:publish)
-        .with(event, event_class: "Decidim::Events::BaseEvent", resource: resource, user: user)
+        .with(event, event_class: "Decidim::Events::BaseEvent", resource: resource, user: user, recipient_ids: recipient_ids)
 
-      described_class.publish(event: event, event_class: event_class, resource: resource, user: user)
+      described_class.publish(
+        event: event,
+        event_class: event_class,
+        resource: resource,
+        user: user,
+        recipient_ids: recipient_ids
+      )
     end
   end
 

@@ -62,12 +62,21 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
       expect(meeting.longitude).to eq(longitude)
     end
 
-    it "notifies the change" do
-      expect(Decidim::EventsManager)
-        .to receive(:publish)
-        .with(event: "decidim.events.meetings.meeting_updated", resource: meeting, user: user)
+    context "events" do
+      let!(:follow) { create :follow, followable: meeting, user: user }
 
-      subject.call
+      it "notifies the change" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.meetings.meeting_updated",
+            resource: meeting,
+            user: user,
+            recipient_ids: [user.id]
+          )
+
+        subject.call
+      end
     end
   end
 end

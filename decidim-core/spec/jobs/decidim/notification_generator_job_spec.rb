@@ -17,16 +17,17 @@ describe Decidim::NotificationGeneratorJob do
     let(:event_class_name) { "Decidim::Events::BaseEvent" }
     let(:followable) { double :followable }
     let(:generator) { double :generator }
+    let(:recipient_ids) { [1, 2, 3] }
 
     it "delegates the work to the class" do
       expect(Decidim::NotificationGenerator)
         .to receive(:new)
-        .with(event, event_class, followable)
+        .with(event, event_class, followable, recipient_ids)
         .and_return(generator)
       expect(generator)
         .to receive(:generate)
 
-      subject.perform_now(event, event_class_name, followable)
+      subject.perform_now(event, event_class_name, followable, recipient_ids)
     end
   end
 end
