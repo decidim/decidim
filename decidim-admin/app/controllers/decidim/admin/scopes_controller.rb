@@ -14,7 +14,7 @@ module Decidim
                     parent_scope.children
                   else
                     collection.top_level
-                  end
+                  end .order "name->'#{I18n.locale}' ASC"
       end
 
       def new
