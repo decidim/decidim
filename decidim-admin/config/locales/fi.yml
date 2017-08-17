@@ -321,9 +321,16 @@ fi:
           name: Osallistuvan prosessin käyttäjä
           roles:
             admin: Järjestelmänvalvoja
+            collaborator: Kollaboraattori
+            moderator: Moderoija
         scope:
           fields:
             name: Nimi
+            scope_type: Kontekstin tyyppi
+        scope_type:
+          fields:
+            name: Nimi
+            plural: Monikko
         static_page:
           fields:
             created_at: Luonnin ajankohta
@@ -336,14 +343,28 @@ fi:
             invitation_sent_at: Kutsun lähetyspäivämäärä
             last_sign_in_at: Viimeisen kirjautumisen päivämäärä
             name: Nimi
+            role: Rooli
+            roles:
+              admin: Ylläpitäjä
+              user_manager: Käyttäjien hallinnoija
           name: Käyttäjä
         user_group:
           fields:
+            actions: Toiminnot
             created_at: Luonnin ajankohta
             document_number: Dokumentin numero
             name: Nimi
             phone: Puhelinnumero
+            state: Tila
             users_count: Käyttäjämäärä
+      moderations:
+        index:
+          title: Moderoinnit
+        report:
+          reasons:
+            does_not_belong: Ei kuulu
+            offensive: Loukkaava
+            spam: Roskaposti
       newsletters:
         create:
           error: Tämän uutiskirjeen luonnissa tapahtui virhe.
@@ -376,16 +397,33 @@ fi:
       organization:
         edit:
           title: Muokkaa organisaatiota
+          update: Päivitä
+        form:
+          current_image: Nykyinen kuva
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Sosiaalinen media
+          twitter: Twitter
+          url: URL
+          youtube: YouTube
         update:
           error: Tämän organisaation päivityksessä tapahtui virhe.
           success: Organisaatio päivitetty onnistuneesti.
+      participatory_process_copies:
+        new:
+          copy: Kopio
+          select: Valitse, mitkä tiedot haluat kopioida
+          title: Kopioi osallistuva prosessi
       participatory_process_groups:
         destroy:
           success: Osallistumisprosessien ryhmä poistettu onnistuneesti.
         edit:
+          title: Muokkaa prosessiryhmää
           update: Päivitä
         new:
           create: Luo
+          title: Uusi prosessiryhmä
         update:
           error: Tämän osallistumisprosessien ryhmän päivityksessä tapahtui virhe.
           success: Osallistumisprosessien ryhmä päivitetty onnistuneesti.
@@ -412,13 +450,31 @@ fi:
           success: Osallistumisprosessin vaihe tuhottu onnistuneesti.
         edit:
           title: Muokkaa osallistumisprosessin vaihetta
+          update: Päivitä
+        index:
+          steps_title: Vaiheet
         new:
+          create: Luo
           title: Uusi osallistumisprosessin vaihe
         ordering:
           error: Tämän osallistumisprosessin vaiheiden järjestämisessä tapahtui virhe.
         update:
           error: Tämän osallistumisprosessin vaiheen päivityksessä tapahtui virhe.
           success: Osallistumisprosessin vaihe päivitetty onnistuneesti.
+      participatory_process_user_roles:
+        create:
+          error: Käyttäjän lisäyksessä osallistuvaan prosessiin tapahtui virhe.
+          success: Käyttäjä luotu onnistuneesti tähän osallistuvan prosessiin.
+        destroy:
+          success: Käyttäjä poistettu onnistuneesti tästä osallistuvasta prosessista.
+        edit:
+          title: Päivitä osallistuvan prosessin käyttäjä.
+          update: Päivitä
+        index:
+          process_admins_title: Osallistuvan prosessin käyttäjät
+        new:
+          create: Luo
+          title: Uusi osallistuvan prosessin käyttäjä.
       participatory_processes:
         create:
           error: Uuden osallistumisprosessin luonnissa tapahtui virhe.
@@ -487,6 +543,7 @@ fi:
         hidden: Piilotettu
         hide: Piilota
         not_hidden: Näkyvillä
+        title: Toiminnot
         unreport: Poista raportointi
       admin:
         reportable:
@@ -500,11 +557,23 @@ fi:
         moderation:
           fields:
             hidden_at: Piilotuksen ajankohta
+            report_count: Määrä
             reportable: Raportoitava
+            reported_content_url: Raportoidun sisällön URL
             reports: Raportit
     participatory_processes:
       participatory_process_groups:
         none: Ei ryhmää
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Uutiskirjeet
+        settings:
+          title: Asetukset
+        users:
+          title: Käyttäjät
   time:
     formats:
+      datepicker: "%d. %m. %Y"
       timepicker: "%d/%m/%Y %H:%M"
