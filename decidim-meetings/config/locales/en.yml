@@ -36,25 +36,13 @@ en:
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
         edit: Edit
-        registrations: Registrations
         new: New
         preview: Preview
+        registrations: Registrations
         title: Actions
       admin:
         exports:
           registrations: Registrations
-        registrations:
-          edit:
-            save: Save
-          form:
-            available_slots_help: Leave it to 0 if you have unlimited slots available.
-            registrations_count:
-              one: There has been 1 registration.
-              other: There has been %{count} registrations.
-              zero: There has not been registrations yet.
-          update:
-            invalid: There's been a problem saving the registration settings.
-            success: Meeting registrations settings successfully saved.
         meeting_closes:
           edit:
             close: Close
@@ -81,13 +69,18 @@ en:
         models:
           meeting:
             name: Meeting
-      registrations:
-        create:
-          invalid: There's been a problem joining this meeting.
-          success: You have joined the meeting successfully.
-        destroy:
-          invalid: There's been a problem leaving this meeting.
-          success: You have left the meeting successfully.
+        registrations:
+          edit:
+            save: Save
+          form:
+            available_slots_help: Leave it to 0 if you have unlimited slots available.
+            registrations_count:
+              one: There has been 1 registration.
+              other: There has been %{count} registrations.
+              zero: There has not been registrations yet.
+          update:
+            invalid: There's been a problem saving the registration settings.
+            success: Meeting registrations settings successfully saved.
       meetings:
         filters:
           category: Category
@@ -105,12 +98,14 @@ en:
           unfold: Unfold
         index:
           view_meeting: View meeting
+        meetings:
+          no_meetings_warning: No meetings match your search criteria or there isn't
+            any meeting scheduled.
+          upcoming_meetings_warning: Currently, there are no scheduled meetings, but
+            here you can find all the past meetings listed.
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
-        meetings:
-          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
-          upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
         show:
           attendees: Attendees count
           contributions: Contributions count
@@ -132,6 +127,13 @@ en:
             start_time: Start date
             title: Title
       read_more: "(read more)"
+      registrations:
+        create:
+          invalid: There's been a problem joining this meeting.
+          success: You have joined the meeting successfully.
+        destroy:
+          invalid: There's been a problem leaving this meeting.
+          success: You have left the meeting successfully.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Related results:'
