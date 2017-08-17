@@ -13,26 +13,26 @@ module Decidim
         @user = user
       end
 
-      # Creates a meeting inscription if the meeting has inscriptions enabled
+      # Creates a meeting registration if the meeting has registrations enabled
       # and there are available slots.
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
         @meeting.with_lock do
           return broadcast(:invalid) unless can_join_meeting?
-          create_inscription
+          create_registration
         end
         broadcast(:ok)
       end
 
       private
 
-      def create_inscription
-        Decidim::Meetings::Inscription.create!(meeting: @meeting, user: @user)
+      def create_registration
+        Decidim::Meetings::Registration.create!(meeting: @meeting, user: @user)
       end
 
       def can_join_meeting?
-        @meeting.inscriptions_enabled? && @meeting.has_available_slots?
+        @meeting.registrations_enabled? && @meeting.has_available_slots?
       end
     end
   end

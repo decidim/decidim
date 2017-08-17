@@ -3,9 +3,9 @@
 module Decidim
   module Meetings
     module Admin
-      # This command is executed when the user updates the meeting inscriptions.
-      class UpdateInscriptions < Rectify::Command
-        # Initializes a UpdateInscriptions Command.
+      # This command is executed when the user updates the meeting registrations.
+      class UpdateRegistrations < Rectify::Command
+        # Initializes a UpdateRegistrations Command.
         #
         # form - The form from which to get the data.
         # meeting - The current instance of the meeting to be updated.
@@ -20,7 +20,7 @@ module Decidim
         def call
           @meeting.with_lock do
             return broadcast(:invalid) if @form.invalid?
-            update_meeting_inscriptions
+            update_meeting_registrations
           end
 
           broadcast(:ok)
@@ -28,12 +28,12 @@ module Decidim
 
         private
 
-        def update_meeting_inscriptions
-          @meeting.inscriptions_enabled = @form.inscriptions_enabled
+        def update_meeting_registrations
+          @meeting.registrations_enabled = @form.registrations_enabled
 
-          if @form.inscriptions_enabled
+          if @form.registrations_enabled
             @meeting.available_slots = @form.available_slots
-            @meeting.inscription_terms = @form.inscription_terms
+            @meeting.registration_terms = @form.registration_terms
           end
 
           @meeting.save!

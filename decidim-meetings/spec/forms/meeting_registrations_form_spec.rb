@@ -2,18 +2,18 @@
 
 require "spec_helper"
 
-describe Decidim::Meetings::Admin::MeetingInscriptionsForm do
+describe Decidim::Meetings::Admin::MeetingRegistrationsForm do
   let(:meeting) { create(:meeting) }
   let(:attributes) do
     {
-      inscriptions_enabled: inscriptions_enabled,
+      registrations_enabled: registrations_enabled,
       available_slots: available_slots,
-      inscription_terms: inscription_terms
+      registration_terms: registration_terms
     }
   end
-  let(:inscriptions_enabled) { true }
+  let(:registrations_enabled) { true }
   let(:available_slots) { 10 }
-  let(:inscription_terms) do
+  let(:registration_terms) do
     {
       en: "A legal text",
       es: "Un texto legal",
@@ -26,11 +26,11 @@ describe Decidim::Meetings::Admin::MeetingInscriptionsForm do
 
   it { is_expected.to be_valid }
 
-  context "when inscriptions are not enabled" do
-    let(:inscriptions_enabled) { false }
+  context "when registrations are not enabled" do
+    let(:registrations_enabled) { false }
 
-    context "and the inscription terms are blank" do
-      let(:inscription_terms) do
+    context "and the registration terms are blank" do
+      let(:registration_terms) do
         {
           en: "",
           es: "",
@@ -42,9 +42,9 @@ describe Decidim::Meetings::Admin::MeetingInscriptionsForm do
     end
   end
 
-  context "when inscriptions are enabled" do
-    context "and the inscription terms are blank" do
-      let(:inscription_terms) do
+  context "when registrations are enabled" do
+    context "and the registration terms are blank" do
+      let(:registration_terms) do
         {
           en: "",
           es: "",
@@ -61,12 +61,12 @@ describe Decidim::Meetings::Admin::MeetingInscriptionsForm do
     it { is_expected.not_to be_valid }
   end
 
-  context "when a few inscriptions have been created" do
+  context "when a few registrations have been created" do
     before do
-      create_list :inscription, 10, meeting: meeting
+      create_list :registration, 10, meeting: meeting
     end
 
-    context "and available slots is less than the number of inscriptions" do
+    context "and available slots is less than the number of registrations" do
       let(:available_slots) { 5 }
       it { is_expected.not_to be_valid }
     end

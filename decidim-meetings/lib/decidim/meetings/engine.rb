@@ -14,7 +14,7 @@ module Decidim
 
       routes do
         resources :meetings, only: [:index, :show] do
-          resource :inscription, only: [:create, :destroy]
+          resource :registration, only: [:create, :destroy]
           resource :meeting_widget, only: :show, path: "embed"
         end
         root to: "meetings#index"

@@ -22,7 +22,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :inscription, class: Decidim::Meetings::Inscription do
+  factory :registration, class: Decidim::Meetings::Registration do
     meeting
     user
   end

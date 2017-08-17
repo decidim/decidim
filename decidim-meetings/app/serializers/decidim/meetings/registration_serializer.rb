@@ -2,8 +2,8 @@
 
 module Decidim
   module Meetings
-    class InscriptionSerializer < Decidim::Exporters::Serializer
-      # Serializes a inscription
+    class RegistrationSerializer < Decidim::Exporters::Serializer
+      # Serializes a registration
       def serialize
         {
           id: resource.id,

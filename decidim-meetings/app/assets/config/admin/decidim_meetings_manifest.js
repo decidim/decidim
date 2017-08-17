@@ -1,1 +1,1 @@
-//= link decidim/meetings/admin/inscriptions_form.js
+//= link decidim/meetings/admin/registrations_form.js

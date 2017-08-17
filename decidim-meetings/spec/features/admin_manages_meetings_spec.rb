@@ -9,6 +9,6 @@ describe "Admin manages meetings", type: :feature, serves_map: true do
   include_context "feature admin"
 
   it_behaves_like "manage meetings"
-  it_behaves_like "manage inscriptions"
+  it_behaves_like "manage registrations"
   it_behaves_like "manage announcements"
 end

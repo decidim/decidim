@@ -20,11 +20,11 @@
         <div class="extra__time">
           <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
         </div>
-        <% if !meeting.closed? && meeting.inscriptions_enabled? %>
-          <% if meeting.has_inscription_for? current_user %>
-            <%= action_authorized_button_to :leave, t('.going'), meeting_inscription_path(meeting), method: :delete, class: "button expanded button--sc success" %>
+        <% if !meeting.closed? && meeting.registrations_enabled? %>
+          <% if meeting.has_registration_for? current_user %>
+            <%= action_authorized_button_to :leave, t('.going'), meeting_registration_path(meeting), method: :delete, class: "button expanded button--sc success" %>
           <% else %>
-            <%= action_authorized_button_to :join, meeting.has_available_slots? ? t('.join') : t('.no_slots_available'), "", class: "button expanded button--sc", disabled: !meeting.has_available_slots?, data: { toggle: current_user.present? ? "meeting-inscription-confirm" : "loginModal" } %>
+            <%= action_authorized_button_to :join, meeting.has_available_slots? ? t('.join') : t('.no_slots_available'), "", class: "button expanded button--sc", disabled: !meeting.has_available_slots?, data: { toggle: current_user.present? ? "meeting-registration-confirm" : "loginModal" } %>
           <% end %>
           <% if meeting.available_slots.positive? %>
             <span><%= t(".remaining_slots", count: meeting.remaining_slots) %></span>
@@ -76,7 +76,7 @@
   </div>
 </div>
 <%= attachments_for meeting %>
-<%= render partial: "inscription_confirm" %>
+<%= render partial: "registration_confirm" %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>

@@ -45,7 +45,7 @@
 - **decidim-core**: Scopes system prepared for bigger organizations. Scopes can be hierarchical: each scope can have a parent scope and a scope type that describe it (country, province, district, etc). Scope names can be translated. Each scope must have a string unique identifier that could be used to relate it with external systems. [\#1500](https://github.com/decidim/decidim/pull/1500)
 - **decidim-core**: Added a new endpoint to support scope selection through AJAX searches. [\#1500](https://github.com/decidim/decidim/pull/1500)
 - **decidim-core**: Added `announcement` attribute to `ParticipatoryProcess`. As an admin you can configure a visible callout in the public page of a process. [\#1696](https://github.com/decidim/decidim/pull/1696)
-- **decidim-meetings**: Added `Inscriptions`. As an admin I can enable inscriptions for any meeting and set the number of available slots. Users can join a meeting if there is an available slot. [\#1737](https://github.com/decidim/decidim/pull/1737)
+- **decidim-meetings**: Added `Registrations`. As an admin I can enable registrations for any meeting and set the number of available slots. Users can join a meeting if there is an available slot. [\#1737](https://github.com/decidim/decidim/pull/1737)
 - **decidim-proposals**: Added `new_proposal_help_text` global setting. As an admin you can configure a visible callout in the proposal creation page. [\#1696](https://github.com/decidim/decidim/pull/1696)
 
 **Changed**

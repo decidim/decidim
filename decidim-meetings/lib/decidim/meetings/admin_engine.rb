@@ -13,7 +13,7 @@ module Decidim
       routes do
         resources :meetings do
           resources :meeting_closes, only: [:edit, :update]
-          resource :inscriptions, only: [:edit, :update] do
+          resource :registrations, only: [:edit, :update] do
             collection do
               get :export
             end

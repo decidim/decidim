@@ -2,19 +2,19 @@
 
 module Decidim
   module Meetings
-    # Exposes the inscription resource so users can join and leave meetings.
-    class InscriptionsController < Decidim::Meetings::ApplicationController
+    # Exposes the registration resource so users can join and leave meetings.
+    class RegistrationsController < Decidim::Meetings::ApplicationController
       def create
         authorize! :join, meeting
 
         JoinMeeting.call(meeting, current_user) do
           on(:ok) do
-            flash[:notice] = I18n.t("inscriptions.create.success", scope: "decidim.meetings")
+            flash[:notice] = I18n.t("registration.create.success", scope: "decidim.meetings")
             redirect_to meeting_path(meeting)
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("inscriptions.create.invalid", scope: "decidim.meetings")
+            flash.now[:alert] = I18n.t("registration.create.invalid", scope: "decidim.meetings")
             redirect_to meeting_path(meeting)
           end
         end
@@ -25,12 +25,12 @@ module Decidim
 
         LeaveMeeting.call(meeting, current_user) do
           on(:ok) do
-            flash[:notice] = I18n.t("inscriptions.destroy.success", scope: "decidim.meetings")
+            flash[:notice] = I18n.t("registration.destroy.success", scope: "decidim.meetings")
             redirect_to meeting_path(meeting)
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("inscriptions.destroy.invalid", scope: "decidim.meetings")
+            flash.now[:alert] = I18n.t("registration.destroy.invalid", scope: "decidim.meetings")
             redirect_to meeting_path(meeting)
           end
         end

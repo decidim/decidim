@@ -1,12 +1,12 @@
 $(() => {
-  const $form = $('.edit_meeting_inscriptions');
+  const $form = $('.edit_meeting_registrations');
 
   if ($form.length > 0) {
-    const $inscriptionsEnabled = $form.find('#meeting_inscriptions_enabled');
+    const $registrationsEnabled = $form.find('#meeting_registrations_enabled');
     const $availableSlots = $form.find('#meeting_available_slots');
 
     const toggleDisabledFields = () => {
-      const enabled = $inscriptionsEnabled.prop('checked');
+      const enabled = $registrationsEnabled.prop('checked');
       $availableSlots.attr('disabled', !enabled);
 
       $form.find('.editor-container').each((idx, node) => {
@@ -15,7 +15,7 @@ $(() => {
       })
     };
 
-    $inscriptionsEnabled.on('change', toggleDisabledFields);
+    $registrationsEnabled.on('change', toggleDisabledFields);
     toggleDisabledFields();
   }
 });

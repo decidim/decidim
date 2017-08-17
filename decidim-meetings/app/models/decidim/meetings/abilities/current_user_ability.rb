@@ -17,10 +17,10 @@ module Decidim
           @context = context
 
           can :join, Meeting do |meeting|
-            authorized?(:join) && meeting.inscriptions_enabled?
+            authorized?(:join) && meeting.registrations_enabled?
           end
 
-          can :leave, Meeting, &:inscriptions_enabled?
+          can :leave, Meeting, &:registrations_enabled?
         end
 
         private

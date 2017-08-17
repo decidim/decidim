@@ -17,9 +17,9 @@ describe "Explore meetings", type: :feature do
     visit resource_locator(meeting).path
   end
 
-  let(:inscriptions_enabled) { true }
+  let(:registrations_enabled) { true }
   let(:available_slots) { 20 }
-  let(:inscription_terms) do
+  let(:registration_terms) do
     {
       en: "A legal text",
       es: "Un texto legal",
@@ -29,16 +29,16 @@ describe "Explore meetings", type: :feature do
 
   before do
     meeting.update_attributes!(
-      inscriptions_enabled: inscriptions_enabled,
+      registrations_enabled: registrations_enabled,
       available_slots: available_slots,
-      inscription_terms: inscription_terms
+      registration_terms: registration_terms
     )
   end
 
-  context "when meeting inscriptions are not enabled" do
-    let(:inscriptions_enabled) { false }
+  context "when meeting registrations are not enabled" do
+    let(:registrations_enabled) { false }
 
-    it "the inscription button is not visible" do
+    it "the registration button is not visible" do
       visit_meeting
 
       within ".card.extra" do
@@ -48,15 +48,15 @@ describe "Explore meetings", type: :feature do
     end
   end
 
-  context "when meeting inscriptions are enabled" do
+  context "when meeting registrations are enabled" do
     context "and the meeting has not a slot available" do
       let(:available_slots) { 1 }
 
       before do
-        create(:inscription, meeting: meeting, user: user)
+        create(:registration, meeting: meeting, user: user)
       end
 
-      it "the inscription button is disabled" do
+      it "the registration button is disabled" do
         visit_meeting
 
         within ".card.extra" do
@@ -91,7 +91,7 @@ describe "Explore meetings", type: :feature do
             click_button "Join meeting"
           end
 
-          within "#meeting-inscription-confirm" do
+          within "#meeting-registration-confirm" do
             expect(page).to have_content "A legal text"
             page.find(".button.expanded").click
           end
@@ -108,7 +108,7 @@ describe "Explore meetings", type: :feature do
 
     context "and the user is going to the meeting" do
       before do
-        create(:inscription, meeting: meeting, user: user)
+        create(:registration, meeting: meeting, user: user)
         login_as user, scope: :user
       end
 

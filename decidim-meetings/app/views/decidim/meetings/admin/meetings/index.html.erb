@@ -50,7 +50,7 @@
 
                 <% if can? :update, current_feature %>
                   <%= icon_link_to "pencil", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings"), class: "action-icon--edit" %>
-                  <%= icon_link_to "people", edit_meeting_inscriptions_path(meeting), t("actions.inscriptions", scope: "decidim.meetings"), class: "action-icon--inscriptions" %>
+                  <%= icon_link_to "people", edit_meeting_registrations_path(meeting), t("actions.registrations", scope: "decidim.meetings"), class: "action-icon--registrations" %>
                 <% end %>
 
                 <% if can? :update, current_feature %>

@@ -1,0 +1,11 @@
+<div class="reveal" data-reveal id="meeting-registration-confirm">
+  <div class="row">
+    <div class="columns medium-8 medium-offset-2">
+      <%== translated_attribute meeting.registration_terms %>
+      <%= button_to t('.confirm'), meeting_registration_path(meeting), class: "button expanded" %>
+    </div>
+  </div>
+  <div class="text-center">
+    <button class="link" data-close><%= t('.cancel') %></button>
+  </div>
+</div>

@@ -41,25 +41,25 @@ en:
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
         edit: Edit
-        inscriptions: Inscriptions
+        registrations: Registrations
         new: New
         preview: Preview
         title: Actions
       admin:
         exports:
-          inscriptions: Inscriptions
-        inscriptions:
+          registrations: Registrations
+        registrations:
           edit:
             save: Save
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
-            inscriptions_count:
-              one: There has been 1 inscription.
-              other: There has been %{count} inscriptions.
-              zero: There has not been inscriptions yet.
+            registrations_count:
+              one: There has been 1 registration.
+              other: There has been %{count} registrations.
+              zero: There has not been registrations yet.
           update:
-            invalid: There's been a problem saving the inscription settings.
-            success: Meeting inscriptions settings successfully saved.
+            invalid: There's been a problem saving the registration settings.
+            success: Meeting registrations settings successfully saved.
         meeting_closes:
           edit:
             close: Close
@@ -86,7 +86,7 @@ en:
         models:
           meeting:
             name: Meeting
-      inscriptions:
+      registrations:
         create:
           invalid: There's been a problem joining this meeting.
           success: You have joined the meeting successfully.
@@ -110,7 +110,7 @@ en:
           unfold: Unfold
         index:
           view_meeting: View meeting
-        inscription_confirm:
+        registration_confirm:
           cancel: Cancel
           confirm: Confirm
         meetings:

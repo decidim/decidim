@@ -13,26 +13,26 @@ module Decidim
         @user = user
       end
 
-      # Destroys a meeting inscription if the meeting has inscriptions enabled
-      # and the inscription exists.
+      # Destroys a meeting registration if the meeting has registrations enabled
+      # and the registration exists.
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
         @meeting.with_lock do
-          return broadcast(:invalid) unless inscription
-          destroy_inscription
+          return broadcast(:invalid) unless registration
+          destroy_registration
         end
         broadcast(:ok)
       end
 
       private
 
-      def inscription
-        @inscription ||= Decidim::Meetings::Inscription.where(meeting: @meeting, user: @user).first
+      def registration
+        @registration ||= Decidim::Meetings::Registration.where(meeting: @meeting, user: @user).first
       end
 
-      def destroy_inscription
-        inscription.destroy!
+      def destroy_registration
+        registration.destroy!
       end
     end
   end
