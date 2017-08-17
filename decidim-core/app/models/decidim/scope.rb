@@ -46,11 +46,12 @@ module Decidim
       organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
     end
 
-    # Gets the scopes from the part_of list
+    # Gets the scopes from the part_of list in descending order (first the top level scope, last itself)
     #
-    # Returns an ActiveRecord::Relation.
+    # Returns an array of Scope objects
     def part_of_scopes
-      organization.scopes.where(id: part_of)
+      scopes_by_id = organization.scopes.where(id: part_of).index_by(&:id)
+      part_of.reverse.collect { |id| scopes_by_id[id] }
     end
 
     private
