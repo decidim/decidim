@@ -12,12 +12,31 @@ describe Decidim::NotificationGenerator do
   subject { described_class.new(event, event_class, resource, recipient_ids) }
 
   describe "generate" do
-    it "schedules a job for each recipient" do
-      expect(Decidim::NotificationGeneratorForRecipientJob)
-        .to receive(:perform_later)
-        .with(event, event_class, resource, recipient.id)
+    context "when the event_class supports notifications" do
+      before do
+        allow(event_class).to receive(:types).and_return([:notification])
+      end
 
-      subject.generate
+      it "schedules a job for each recipient" do
+        expect(Decidim::NotificationGeneratorForRecipientJob)
+          .to receive(:perform_later)
+          .with(event, event_class, resource, recipient.id)
+
+        subject.generate
+      end
+    end
+
+    context "when the event_class supports notifications" do
+      before do
+        allow(event_class).to receive(:types).and_return([])
+      end
+
+      it "schedules a job for each recipient" do
+        expect(Decidim::NotificationGeneratorForRecipientJob)
+          .not_to receive(:perform_later)
+
+        subject.generate
+      end
     end
   end
 end
