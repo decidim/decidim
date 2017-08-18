@@ -16,6 +16,7 @@ module Decidim
 
     validates :name, :host, uniqueness: true
     validates :reference_prefix, presence: true
+    validates :default_locale, inclusion: { in: :available_locales }
 
     mount_uploader :homepage_image, Decidim::HomepageImageUploader
     mount_uploader :official_img_header, Decidim::OfficialImageHeaderUploader
