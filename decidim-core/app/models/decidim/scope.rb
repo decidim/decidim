@@ -50,8 +50,7 @@ module Decidim
     #
     # Returns an array of Scope objects
     def part_of_scopes
-      scopes_by_id = organization.scopes.where(id: part_of).index_by(&:id)
-      part_of.reverse.collect { |id| scopes_by_id[id] }
+      organization.scopes.where(id: part_of).sort { |s1, s2| part_of.index(s2.id) <=> part_of.index(s1.id) }
     end
 
     private
