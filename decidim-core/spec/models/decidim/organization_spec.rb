@@ -34,6 +34,12 @@ module Decidim
 
         it { is_expected.not_to be_valid }
       end
+
+      it "default locale should be included in available locales" do
+        subject.available_locales = [:ca, :es]
+        subject.default_locale = :en
+        expect(subject).not_to be_valid
+      end
     end
   end
 end
