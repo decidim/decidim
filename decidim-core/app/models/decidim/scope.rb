@@ -60,15 +60,15 @@ module Decidim
     end
 
     def create_part_of
-      recalculate_part_of
+      build_part_of
       save if changed?
     end
 
     def update_part_of
-      recalculate_part_of
+      build_part_of
     end
 
-    def recalculate_part_of
+    def build_part_of
       if parent
         part_of.clear.append(id).concat(parent.reload.part_of)
       else

@@ -10,7 +10,7 @@ module Decidim
 
       def index
         authorize! :index, Scope
-        @scopes = parent_scope_children.order("name->'#{I18n.locale}' ASC")
+        @scopes = children_scopes.order("name->'#{I18n.locale}' ASC")
       end
 
       def new
@@ -67,20 +67,20 @@ module Decidim
 
       private
 
-      def scope
-        @scope ||= collection.find(params[:id])
+      def organization_scopes
+        current_organization.scopes
       end
 
       def parent_scope
-        @parent_scope ||= @scope ? @scope.parent : collection.find_by_id(params[:scope_id])
+        @parent_scope ||= @scope ? @scope.parent : organization_scopes.find_by_id(params[:scope_id])
       end
 
-      def parent_scope_children
-        @parent_scope_children ||= parent_scope ? parent_scope.children : collection.top_level
+      def scope
+        @scope ||= organization_scopes.find(params[:id])
       end
 
-      def collection
-        current_organization.scopes
+      def children_scopes
+        @subscopes ||= parent_scope ? parent_scope.children : organization_scopes.top_level
       end
 
       def current_scopes_path
