@@ -10,7 +10,7 @@ module Decidim
 
       def index
         authorize! :index, Scope
-        @scopes = parent_scope_children.order "name->'#{I18n.locale}' ASC"
+        @scopes = parent_scope_children.order("name->'#{I18n.locale}' ASC")
       end
 
       def new
