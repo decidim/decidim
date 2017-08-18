@@ -70,6 +70,7 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
           .to receive(:publish)
           .with(
             event: "decidim.events.meetings.meeting_updated",
+            event_class: Decidim::Meetings::UpdateMeetingEvent,
             resource: meeting,
             user: user,
             recipient_ids: [user.id]
