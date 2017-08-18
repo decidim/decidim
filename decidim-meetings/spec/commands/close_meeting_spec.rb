@@ -87,6 +87,7 @@ describe Decidim::Meetings::Admin::CloseMeeting do
           .to receive(:publish)
           .with(
             event: "decidim.events.meetings.meeting_closed",
+            event_class: Decidim::Meetings::CloseMeetingEvent,
             resource: meeting,
             user: user,
             recipient_ids: [user.id]
