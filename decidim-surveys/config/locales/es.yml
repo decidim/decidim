@@ -13,8 +13,11 @@ es:
           answer: Respuesta
         name: Encuesta
         settings:
+          global:
+            announcement: Aviso
           step:
             allow_answers: Permitir respuestas
+            announcement: Aviso
     surveys:
       admin:
         application_helper:
