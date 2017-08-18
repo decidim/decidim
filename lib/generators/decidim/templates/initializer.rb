@@ -5,7 +5,8 @@ Decidim.configure do |config|
   config.mailer_sender = "change-me@domain.org"
   config.authorization_handlers = [ExampleAuthorizationHandler]
 
-  # Change this line to set your preferred locales
+  # Change these lines to set your preferred locales
+  config.default_locale = :en
   config.available_locales = [:en, :ca, :es]
 
   # Geocoder configuration
