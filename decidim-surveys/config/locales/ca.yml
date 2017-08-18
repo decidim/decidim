@@ -13,8 +13,11 @@ ca:
           answer: Resposta
         name: Enquesta
         settings:
+          global:
+            announcement: Avís
           step:
             allow_answers: Permetre respostes
+            announcement: Avís
     surveys:
       admin:
         application_helper:
