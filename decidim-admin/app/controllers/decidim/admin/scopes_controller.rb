@@ -10,11 +10,7 @@ module Decidim
 
       def index
         authorize! :index, Scope
-        @scopes = if parent_scope
-                    parent_scope.children
-                  else
-                    collection.top_level
-                  end .order "name->'#{I18n.locale}' ASC"
+        @scopes = parent_scope_children.order "name->'#{I18n.locale}' ASC"
       end
 
       def new
@@ -77,6 +73,10 @@ module Decidim
 
       def parent_scope
         @parent_scope ||= @scope ? @scope.parent : collection.find_by_id(params[:scope_id])
+      end
+
+      def parent_scope_children
+        @parent_scope_children ||= parent_scope ? parent_scope.children : collection.top_level
       end
 
       def collection
