@@ -2,7 +2,7 @@
 
 namespace :decidim do
   desc "Allows a decidim installation to check whether its locales are complete"
-  task :check_locales do
+  task check_locales: :environment do
     env = {
       "BUNDLE_GEMFILE" => File.expand_path("Gemfile"),
       "ENFORCED_LOCALES" => Decidim.available_locales.join(",")
