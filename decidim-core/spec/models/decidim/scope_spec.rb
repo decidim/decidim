@@ -108,11 +108,11 @@ module Decidim
 
       it "updates part_of lists" do
         {
+          0 => [0],
+          1 => [1, 0],
           2 => [2, 1, 0],
           3 => [3, 1, 0],
-          4 => [4, 2, 1, 0],
-          5 => [5, 2, 1, 0],
-          8 => [8, 4, 2, 1, 0]
+          4 => [4, 2, 1, 0]
         }.each do |s1, list|
           expect(scopes[s1].part_of).to eq(list.map { |i| scopes[i].id })
         end
