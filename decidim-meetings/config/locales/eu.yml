@@ -21,6 +21,11 @@ eu:
     features:
       meetings:
         name: Topaketa-zerrenda
+        settings:
+          global:
+            announcement: Oharra
+          step:
+            announcement: Oharra
     meetings:
       actions:
         attachments: Eranskinak
@@ -64,6 +69,7 @@ eu:
           category_prompt: Aukeratu kategoria bat
           date: Data
           past: Aurrekoak
+          scope_prompt: Hautatu esparrua
           scopes: Esparruak
           search: Bilatu
           upcoming: Hurrengoak
@@ -90,6 +96,7 @@ eu:
             map: Mapa
             start_time: Hasiera-data
             title: Izenburua
+      read_more: "(geihago irakurri)"
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Topaketaren emaitzak:'
