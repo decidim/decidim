@@ -48,6 +48,7 @@ es:
         participatory_structure: Estructura participativa
         promoted: Destacado
         scope_id: Ámbito
+        scopes_enabled: Ámbitos habilitados
         short_description: Breve descripción
         slug: Texto corto de URL
         subtitle: Subtítulo
@@ -121,6 +122,7 @@ es:
       actions:
         activate: Activar
         add: Añadir
+        browse: Explorar
         configure: Configurar
         confirm_destroy: '¿Seguro que lo quieres eliminar?'
         destroy: Eliminar
@@ -412,6 +414,7 @@ es:
         new:
           copy: Copiar
           select: Seleccione los datos que desea duplicar
+          title: Duplicar proceso participativo
       participatory_process_groups:
         destroy:
           success: Grupo destruido correctamente.
