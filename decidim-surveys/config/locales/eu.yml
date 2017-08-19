@@ -17,6 +17,7 @@ eu:
             announcement: Oharra
           step:
             allow_answers: Baimendu erantzunak
+            announcement: Oharra
     surveys:
       admin:
         application_helper:
