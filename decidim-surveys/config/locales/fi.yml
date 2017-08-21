@@ -20,9 +20,6 @@ fi:
             announcement: Ilmoitus
     surveys:
       admin:
-        application_helper:
-          label_for_question:
-            question: Kysymys
         exports:
           survey_user_answers: Kyselyn vastaukset
         models:
