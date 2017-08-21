@@ -21,8 +21,6 @@ fi:
     resource_links:
       included_proposals:
         result_proposals: Projektit, jotka sisältyvät tähän tulokseen
-      meetings_through_proposals:
-        result_meetings: Liittyvät tapaamiset
     results:
       actions:
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
