@@ -13,8 +13,10 @@ es:
         name: Resultados
         settings:
           global:
+            announcement: Aviso
             comments_enabled: Comentarios habilitados
           step:
+            announcement: Aviso
             comments_blocked: Comentarios bloqueados
     resource_links:
       included_proposals:
