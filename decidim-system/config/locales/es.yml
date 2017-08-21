@@ -48,8 +48,6 @@ es:
             created_at: Fecha de creación
             name: Nombre
           name: Organización
-        page:
-          name: página
       organizations:
         create:
           error: Se ha producido un error al crear una nueva organización.
