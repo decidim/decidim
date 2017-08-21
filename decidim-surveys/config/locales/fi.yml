@@ -1,5 +1,69 @@
 fi:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Vastaa
+      survey_question:
+        mandatory: Pakollinen
+        question_type: Tyyppi
   decidim:
     features:
       surveys:
+        actions:
+          answer: Vastaa
         name: Tutkimus
+        settings:
+          global:
+            announcement: Ilmoitus
+          step:
+            allow_answers: Salli vastaukset
+            announcement: Ilmoitus
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Kyselyn vastaukset
+        models:
+          components:
+            description: Kuvaus
+            tos: Käyttöehdot
+        surveys:
+          answer_option:
+            answer_option: Vastausvaihtoehto
+            remove_answer_option: Poista vastausvaihtoehto
+            statement: Kysymysasettelu
+          edit:
+            save: Tallenna
+            title: Otsikko
+          form:
+            add_question: Lisää kysymys
+            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet tähän kyselyyn, minkä takia et voi muokata sen kysymyksiä.
+          question:
+            add_answer_option: Lisää vastausvaihtoehto
+            question: Kysymys
+            remove_question: Poista kysymys
+            statement: Kysymysasettelu
+          update:
+            invalid: Kyselyn tallennus epäonnistui.
+            success: Kysely tallennettu onnistuneesti.
+      question_types:
+        long_answer: Pitkä vastaus
+        multiple_option: Useita vaihtoehtoja
+        short_answer: Lyhyt vastaus
+        single_option: Yksi vaihtoehto
+      surveys:
+        answer:
+          invalid: Kyselyyn vastaaminen epäonnistui.
+          success: Kyselyyn vastattu onnistuneesti.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi kyselyyn.
+            title: Vastaa kyselyyn
+          are_you_sure: Tätä toimintoa ei voi peruuttaa eikä vastauksia voi muokata tämän jälkeen. Oletko varma?
+          submit: Lähetä
+          survey_answered:
+            body: Olet jo vastannut tähän kyselyyn.
+            title: Kyselyyn vastattu
+          survey_closed:
+            body: Kysely on suljettu ja siihen ei voi vastata.
+            title: Kysely suljettu
+          tos_agreement: Osallistumalla tähän kyselyyn hyväksyt sen käyttöehdot
