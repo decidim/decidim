@@ -1,8 +1,4 @@
 it:
-  activerecord:
-    errors:
-      messages:
-        cannot_have_comments: non si possono fare commenti
   decidim:
     comments:
       comment_notification_mailer:
@@ -21,7 +17,6 @@ it:
             subject: Hai ricevuto una nuova risposta ad un tuo commento
     components:
       add_comment_form:
-        account_message: '<a href="%{sign_in_url}">Entra col tuo account</a> or <a href="%{sign_up_url}">Registrati</a> per poter commentare. '
         form:
           body:
             label: Commenta
