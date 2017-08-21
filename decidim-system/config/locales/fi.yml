@@ -5,6 +5,7 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän?
         destroy: Poista
         edit: Muokkaa
+        new: Uusi
         save: Tallenna
         title: Toiminnot
       admins:
@@ -15,9 +16,11 @@ fi:
           success: Hallinnoija poistettu onnistuneesti
         edit:
           title: Muokkaa hallinnoijaa
+          update: Päivitä
         index:
           title: Hallinnoijat
         new:
+          create: Luo
           title: Uusi hallinnoija
         update:
           error: Hallinnoijan päivityksessä tapahtui virhe.
@@ -59,5 +62,9 @@ fi:
         update:
           error: Organisaation päivityksessä tapahtui virhe.
           success: Organisaatio päivitetty onnistuneesti.
+      shared:
+        notices:
+          no_organization_warning_html: Sinun on luotava organisaatio päästäksesi alkuun. Muista lukea %{guide} ennen jatkamista.
+          our_getting_started_guide: aloitusoppaamme
       titles:
         dashboard: Hallintapaneeli
