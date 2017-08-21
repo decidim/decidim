@@ -21,8 +21,6 @@ ca:
     resource_links:
       included_proposals:
         result_proposals: Propostes incloses en aquest resultat
-      meetings_through_proposals:
-        result_meetings: Trobades relacionades
     results:
       actions:
         confirm_destroy: Segur que vols suprimir aquest resultat?
