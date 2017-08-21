@@ -7,5 +7,9 @@ describe Decidim::Meetings::UpdateMeetingEvent do
     it "supports notifications" do
       expect(subject.types).to include :notification
     end
+
+    it "supports notifications" do
+      expect(subject.types).to include :email
+    end
   end
 end
