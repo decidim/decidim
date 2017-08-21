@@ -1,6 +1,4 @@
 fi:
-  actions:
-    confirm_destroy: Vahvista poisto
   activemodel:
     attributes:
       attachment:
@@ -83,9 +81,6 @@ fi:
         organization: Organisaatio
         slug: URL-tunniste
         title: Otsikko
-    errors:
-      messages:
-        invalid_json: Virheellinen JSON
   activerecord:
     attributes:
       decidim/participatory_process:
