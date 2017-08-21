@@ -195,10 +195,6 @@ ca:
     participatory_processes:
       index:
         title: Processos participatius
-      participatory_process_groups:
-        none: cap
-      scopes:
-        global: Àmbit global
       show:
         developer_group: Grup promotor
         end_date: Data de finalització
