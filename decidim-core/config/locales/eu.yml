@@ -125,6 +125,7 @@ eu:
       not_found:
         back_home: Itzuli hasierara
         content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
+        title: Ez dugu aurkitu bilatzen duzun orria!
     export_mailer:
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
@@ -152,6 +153,9 @@ eu:
         proposal: Proposamenak
         result: Emaitzak
     forms:
+      current_file: Oraingo fitxategia
+      current_image: Oraingo irudia
+      default_image: Irudi lehenetsia
       errors:
         error: Errorea bat dago eremu honetan.
     menu:
@@ -172,6 +176,8 @@ eu:
         success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
     own_user_groups:
       index:
+        pending: Zain
+        rejected: Uko eginda
         verified: Egiaztatuta
     pages:
       index:
@@ -195,17 +201,35 @@ eu:
         participatory_structure: Egitura partizipatiboa
         scope: Esparrua
         target: Nori zuzentzen zaio?
+      statistics:
+        answers_count: Erantzunak
+        comments_count: Iruzkinak
+        meetings_count: Topaketak
+        pages_count: Orriak
+        processes_count: Prozesuak
+        projects_count: Proiektuak
+        proposals_count: Proposamenak
+        results_count: Emaitzak
+        surveys_count: Inkestak
+        users_count: Parte-hartzaileak
+        votes_count: Botoak
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
+        manage_moderations: Kudeatu moderazioak
+        report_html: <p>Hurrengo <a href="%{url}">edukia</a>automatikoki ezkutatu da</p>
         subject: Eduki bat automatikoki ezkutatu da
       report:
         hello: Kaixo, %{name},
+        manage_moderations: Kudeatu moderazioak
+        report_html: <p>Hurrengo <a href="%{url}">edukia</a>zalatua izan da.</p>
         subject: Eduki bat salatua izan da
     reports:
       create:
         error: Errorea gertatu da edukia salatzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
+    scopes:
+      global: Esparrua orokorra
     shared:
       action_authorization_modal:
         incomplete:
@@ -332,6 +356,7 @@ eu:
       user_profile:
         account: Kontua
         authorizations: Baimenak
+        delete_my_account: Ezabatu nire kontua
         notifications_settings: Jakinarazpen-konfigurazioa
         title: Erabiltzaile-ezarpenak
         user_groups: Erakundeak
@@ -362,12 +387,17 @@ eu:
         active_step: Fase aktiboa
         see_all_processes: Ikusi prozesu guztiak
       statistics:
+        answers_count: Erantzunak
         comments_count: Iruzkinak
         headline: '%{organization} erakundearen egungo egoera'
         meetings_count: Topaketak
+        pages_count: Erlaitzak
         processes_count: Prozesuak
+        projects_count: Proiektuak
         proposals_count: Proposamenak
         results_count: Emaitzak
+        surveys_count: Inkestak
+        users_count: Parte-hartzaileak
         votes_count: Botoak
       sub_hero:
         register: Erregistroa
