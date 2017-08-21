@@ -21,6 +21,11 @@ es:
     features:
       meetings:
         name: Lista de encuentros
+        settings:
+          global:
+            announcement: Aviso
+          step:
+            announcement: Aviso
     meetings:
       actions:
         attachments: Archivos adjuntos
