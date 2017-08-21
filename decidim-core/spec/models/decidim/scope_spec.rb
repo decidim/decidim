@@ -73,14 +73,49 @@ module Decidim
         subject.save
         expect(subject.part_of).to eq([subject.id])
       end
+
+      context "with parent scope" do
+        let(:parent) { create(:scope) }
+
+        it "is updated after save" do
+          subject.save
+          expect(subject.part_of).to eq([subject.id, parent.id])
+        end
+      end
     end
 
-    context "part_of for top level scopes" do
-      let(:parent) { create(:scope) }
+    context "#part_of_scopes" do
+      let(:grandparent) { create(:scope) }
+      let(:parent) { create(:scope, parent: grandparent) }
 
-      it "is updated after save" do
+      it "returns correct path" do
         subject.save
-        expect(subject.part_of).to eq([subject.id, parent.id])
+        expect(subject.part_of_scopes).to eq([grandparent, parent, scope])
+      end
+    end
+
+    context "creating several scopes on a transaction" do
+      let(:scopes) { build_list(:scope, 9) }
+
+      before do
+        Scope.transaction do
+          scopes.each_with_index do |scope, i|
+            scope.parent_id = scopes[i / 2].id if i.positive?
+            scope.save!
+          end
+        end
+      end
+
+      it "updates part_of lists" do
+        {
+          0 => [0],
+          1 => [1, 0],
+          2 => [2, 1, 0],
+          3 => [3, 1, 0],
+          4 => [4, 2, 1, 0]
+        }.each do |s1, list|
+          expect(scopes[s1].part_of).to eq(list.map { |i| scopes[i].id })
+        end
       end
     end
   end

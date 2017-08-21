@@ -46,11 +46,11 @@ module Decidim
       organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
     end
 
-    # Gets the scopes from the part_of list
+    # Gets the scopes from the part_of list in descending order (first the top level scope, last itself)
     #
-    # Returns an ActiveRecord::Relation.
+    # Returns an array of Scope objects
     def part_of_scopes
-      organization.scopes.where(id: part_of)
+      organization.scopes.where(id: part_of).sort { |s1, s2| part_of.index(s2.id) <=> part_of.index(s1.id) }
     end
 
     private
@@ -60,19 +60,19 @@ module Decidim
     end
 
     def create_part_of
-      self[:part_of] = calculate_part_of
+      build_part_of
       save if changed?
     end
 
     def update_part_of
-      self[:part_of] = calculate_part_of
+      build_part_of
     end
 
-    def calculate_part_of
+    def build_part_of
       if parent
-        [id] + parent.part_of
+        part_of.clear.append(id).concat(parent.reload.part_of)
       else
-        [id]
+        part_of.clear.append(id)
       end
     end
   end
