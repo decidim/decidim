@@ -296,6 +296,7 @@ fr:
             document_number: Numéro de document
             name: Nom
             phone: Téléphone
+            state: État
             users_count: Nombre d'utilisateurs
       moderations:
         index:
@@ -345,6 +346,9 @@ fr:
         update:
           error: Erreur lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
+      participatory_process_copies:
+        new:
+          title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
           success: Le groupe de processus participatif a été détruit avec succès.
@@ -423,6 +427,9 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce processus participatif.
           success: Processus participatif mis à jour avec succès.
+      participatory_processes_copies:
+        create:
+          success: Processus participatif dupliqué avec succès.
       participatory_processes_group:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus participatif.
@@ -467,6 +474,23 @@ fr:
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
+      user_group:
+        reject:
+          success: Groupe d'utilisateurs refusé avec succès
+        verify:
+          success: Groupe d'utilisateurs vérifié avec succès
+      user_groups:
+        index:
+          filter:
+            pending: En attente
+            rejected: Refusé
+            verified: Vérifié
+          filter_by: Filtrer par
+          search: Rechercher
+          state:
+            pending: En attente
+            rejected: Refusé
+            verified: Vérifié
       users:
         create:
           error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
