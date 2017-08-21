@@ -90,6 +90,7 @@ fr:
             map: Carte
             start_time: Date de début
             title: Titre
+      read_more: "(Lire la suite)"
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Résultats associés :'

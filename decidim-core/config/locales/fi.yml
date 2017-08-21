@@ -1,6 +1,8 @@
 fi:
   activemodel:
     attributes:
+      account:
+        delete_reason: Syytä tilisi poistoon
       report:
         details: Lisätiedot
       user:
@@ -8,6 +10,7 @@ fi:
         name: Nimesi
         password: Salasanasi
         password_confirmation: Vahvista salasanasi
+        remove_avatar: Poista profiilikuva
         user_group_document_number: Organisaation asiakirjanumero
         user_group_name: Organisaation nimi
         user_group_phone: Organisaation puhelinnumero
@@ -31,6 +34,17 @@ fi:
       image_too_big: Kuva on liian suuri
   decidim:
     account:
+      delete:
+        alert: Tätä toimintoa ei voi peruuttaa. Jos poistat käyttäjätilisi, et voi enää kirjautua sisään.
+        confirm:
+          close: Sulje ikkuna
+          ok: Kyllä, haluan poistaa tilini
+          question: Oletko varma, että haluat poistaa tilisi?
+          title: Poista tilini
+        explanation: Syy tilisi poistoon (valinnainen).
+      destroy:
+        error: Tilin poistossa tapahtui virhe.
+        success: Tilisi poistaminen onnistui.
       show:
         change_password: Vaihda salasana
         update_account: Päivitä tili
@@ -104,6 +118,18 @@ fi:
       shared:
         omniauth_buttons:
           or: Tai
+    errors:
+      internal_server_error:
+        title: Palvelimellamme tapahtui virhe
+        try_later: Yritä myöhemmin uudestaan.
+      not_found:
+        back_home: Takaisin kotisivulle
+        content_doesnt_exist: Tämä osoite on virheellinen tai käytöstä poistunut.
+        title: Etsimääsi sivua ei löydy
+    export_mailer:
+      export:
+        ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
+      subject: Tietojen vienti "%{name}" on valmis
     features:
       dummy:
         actions:
@@ -127,8 +153,13 @@ fi:
         proposal: Ehdotukset
         result: Tulokset
     forms:
+      current_file: Nykyinen tiedosto
+      current_image: Nykyinen kuva
+      default_image: Oletuskuva
       errors:
         error: Tässä kentässä on virhe.
+    managed_users:
+      expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
     menu:
       home: Etusivu
       more_information: Lisätietoja
@@ -147,6 +178,8 @@ fi:
         success: Ilmoitusasetuksesi päivitettiin onnistuneesti.
     own_user_groups:
       index:
+        pending: Odottaa
+        rejected: Hylätty
         verified: Varmennettu
     pages:
       index:
@@ -170,17 +203,37 @@ fi:
         participatory_structure: Osallistumisrakenne
         scope: Konteksti
         target: Kohde
+      statistics:
+        answers_count: Vastaukset
+        comments_count: Kommentit
+        headline: Tapahtumat
+        meetings_count: Tapaamiset
+        orders_count: Tilaukset
+        pages_count: Sivut
+        processes_count: Prosessit
+        projects_count: Projektit
+        proposals_count: Ehdotukset
+        results_count: Tulokset
+        surveys_count: Kyselyt
+        users_count: Osallistujat
+        votes_count: Äänet
     reported_mailer:
       hide:
         hello: Hei %{name},
+        manage_moderations: Hallitse moderointeja
+        report_html: <p>Tämä <a href="%{url}">sisältö</a> on piilotettu automaattisesti.</p>
         subject: Resurssi on piilotettu automaattisesti
       report:
         hello: Hei %{name},
+        manage_moderations: Hallitse moderointeja
+        report_html: <p>Tämä <a href="%{url}">sisältö</a> on raportoitu.</p>
         subject: Resurssi on raportoitu
     reports:
       create:
         error: Raportin luonnissa tapahtui virhe. Yritä uudestaan.
         success: Raportti on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+    scopes:
+      global: Yleinen konteksti
     shared:
       action_authorization_modal:
         incomplete:
@@ -197,6 +250,10 @@ fi:
           invalid: "%{field} on virheellinen."
           ok: Ok
           title: Ei varmennettu
+      embed_modal:
+        close_window: Sulje ikkuna
+        embed: Liitä tämä koodi sivullesi
+        embed_link: Upotta
       flag_modal:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
@@ -211,6 +268,8 @@ fi:
         sign_up: Rekisteröidy
       reference:
         reference: 'Viite: %{reference}'
+      results_per_page:
+        label: 'Tulosten määrä sivulla:'
       share_modal:
         close_window: Sulje ikkuna
         share: Jaa
@@ -242,6 +301,8 @@ fi:
         subject: Salasana vaihdettu
   errors:
     messages:
+      content_type_whitelist_error: Tiedostotyyppi on virheellinen
+      cycle_detected: kontekstin isäntä ei voi olla sen jälkeläinen
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
       invalid_manifest: Virheellinen manifesti
       invalid_participatory_process: Virheellinen osallistumisprosessi
@@ -251,6 +312,8 @@ fi:
       too_many_marks: Sisältää liian monta merkkiä
       too_much_caps: Sisältää liian paljon isoja kirjaimia
       too_short: On liian lyhyt
+  forms:
+    required: Vaadittu
   invisible_captcha:
     sentence_for_humans: Jos olet ihminen, jätä tämä kenttä huomiotta
     timestamp_error_message: Pahoittelut, olit liian nopea! Lähetä lomake uudestaan.
@@ -260,14 +323,24 @@ fi:
         description_html: Tämä sivusto käyttää evästeitä. Jatkamalla tämän sivuston käyttöä hyväksyt selaimeesi asettamamme evästeet. Lue lisää %{link}.
         link_label: täältä
         ok: Hyväksyn
+      footer:
+        made_with_open_source: 'Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.'
       header:
         close_menu: Sulje valikko
         navigation: Navigaatio
         sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
+      impersonation_warning:
+        close_session: Sulje istunto
+        description_html: Esiinnyt käyttäjänä <b>%{user_name}</b>.
+        expire_time_html: Istuntosi vanhenee <b><span class="minutes">%{minutes}</span> minuutin kuluttua</b>.
       participatory_process_groups:
         participatory_process_group:
           browse: Selaa
+      participatory_process_widgets:
+        show:
+          active_step: Aktiivinen vaihe
+          take_part: Osallistu
       participatory_processes:
         index:
           promoted_processes: Korostetut prosessit
@@ -297,9 +370,12 @@ fi:
       user_profile:
         account: Käyttäjätili
         authorizations: Varmennukset
+        delete_my_account: Poista tilini
         notifications_settings: Ilmoitusten asetukset
         title: Käyttäjätilin asetukset
         user_groups: Organisaatiot
+      widget:
+        see_more: Näytä lisää
   locale:
     name: Suomi
   pages:
@@ -325,7 +401,19 @@ fi:
         active_step: Aktiivinen vaihe
         see_all_processes: Näytä kaikki prosessit
       statistics:
+        answers_count: Vastaukset
+        comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}
+        meetings_count: Tapaamiset
+        orders_count: Tilaukset
+        pages_count: Sivut
+        processes_count: Prosessit
+        projects_count: Projektit
+        proposals_count: Ehdotukset
+        results_count: Tulokset
+        surveys_count: Kyselyt
+        users_count: Osallistujat
+        votes_count: Äänet
       sub_hero:
         register: Rekisteröidy
   social_share_button:

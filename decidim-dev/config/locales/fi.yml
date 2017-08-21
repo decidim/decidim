@@ -1,5 +1,9 @@
 fi:
   decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Esimerkkitiedot
     resource_links:
       test_link:
-        dummy_resource_dummy: Liittyvät dummy
+        dummy_resource_dummy: Liittyvät esimerkkitiedot

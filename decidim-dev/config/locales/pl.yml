@@ -3,4 +3,4 @@ pl:
     dummy:
       admin:
         exports:
-          dummies: "Manekiny"
+          dummies: Manekiny

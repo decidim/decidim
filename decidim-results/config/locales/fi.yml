@@ -13,8 +13,10 @@ fi:
         name: Tulokset
         settings:
           global:
+            announcement: Ilmoitus
             comments_enabled: Kommentointi sallittu
           step:
+            announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
     resource_links:
       included_proposals:
@@ -24,6 +26,8 @@ fi:
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa
+        new: Uusi
+        preview: Esikatsele
         title: Toiminnot
       admin:
         models:
@@ -37,9 +41,11 @@ fi:
             success: Tulos poistettu onnistuneesti
           edit:
             title: Muokkaa tulosta
+            update: Päivitä
           index:
             title: Tulokset
           new:
+            create: Luo
             title: Uusi tulos
           update:
             invalid: Tuloksen päivityksessä tapahtui virhe
@@ -55,6 +61,8 @@ fi:
             other: "%{count} tulosta"
         filters:
           category: Kategoria
+          category_prompt: Valitse kategoria
+          scope_prompt: Valitse konteksti
           scopes: Konteksti
           search: Haku
         filters_small_view:

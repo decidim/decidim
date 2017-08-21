@@ -46,6 +46,7 @@ ca:
         participatory_structure: Estructura participativa
         promoted: Destacat
         scope_id: Àmbit
+        scopes_enabled: Àmbit habilitat
         short_description: Descripció breu
         slug: Nom curt d'URL
         subtitle: Subtítol
@@ -116,6 +117,7 @@ ca:
       actions:
         activate: Activar
         add: Afegir
+        browse: Explorar
         configure: Configurar
         confirm_destroy: Segur que ho vols eliminar?
         destroy: Eliminar
@@ -407,6 +409,7 @@ ca:
         new:
           copy: Còpia
           select: Selecciona quines dades voleu duplicar
+          title: Duplicar procés participatiu
       participatory_process_groups:
         destroy:
           success: Grup eliminat correctament.
@@ -619,9 +622,6 @@ ca:
     participatory_processes:
       participatory_process_groups:
         none: Cap
-  errors:
-    messages:
-      invalid_json: JSON no vàlid
   layouts:
     decidim:
       admin:

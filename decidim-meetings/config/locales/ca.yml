@@ -21,6 +21,11 @@ ca:
     features:
       meetings:
         name: Trobades
+        settings:
+          global:
+            announcement: Avís
+          step:
+            announcement: Avís
     meetings:
       actions:
         attachments: Adjunts

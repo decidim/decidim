@@ -13,32 +13,46 @@ fi:
     features:
       proposals:
         actions:
+          create: Luo
           vote: Äänestä
         name: Ehdotukset
         settings:
           global:
+            announcement: Ilmoitus
+            attachments_allowed: Salli liitteet
             comments_enabled: Kommentointi sallittu
             geocoding_enabled: Geokoodaus päällä
+            new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset sallittu
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
             vote_limit: Äänestysrajoite
           step:
+            announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
             creation_enabled: Ehdotusten luonti sallittu
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
             votes_blocked: Äänestys estetty
             votes_enabled: Äänestys sallittu
+            votes_hidden: Äänten määrä piilotettu (jos äänestys on käytössä, äänten määrä piilotetaan valitsemalla tämä)
     proposals:
       actions:
         answer: Vastaa
+        new: Uusi
         title: Toiminnot
       admin:
+        actions:
+          preview: Esikatsele
+        exports:
+          comments: Kommentit
+          proposals: Ehdotukset
         models:
           proposal:
             name: Ehdotus
         proposal_answers:
           edit:
             accepted: Hyväksytty
+            answer_proposal: Vastaa
+            evaluating: Arvioitavana
             rejected: Hylätty
             title: 'Vastaa ehdotukseen: %{title}'
         proposals:
@@ -49,11 +63,16 @@ fi:
             invalid: Ehdotuksen luonnissa tapahtui virhe
             success: Ehdotus luotu onnistuneesti
           form:
+            attachment_legend: "(Valinnainen) Lisää liite"
             select_a_category: Valitse kategoria
           index:
             title: Ehdotukset
+          new:
+            create: Luo
+            title: Luo ehdotus
       answers:
         accepted: Hyväksytty
+        evaluating: Arvioitavana
         not_answered: Vastaamaton
         rejected: Hylätty
       create:
@@ -67,7 +86,13 @@ fi:
             scope: Konteksti
             state: Tila
             title: Otsikko
+      proposal_votes:
+        create:
+          error: Äänestettäessä ehdotusta tapahtui virhe.
       proposals:
+        author:
+          deleted: Poistettu käyttäjä
+          verified_user_group: Vahvistettu organisaatio
         count:
           proposals_count:
             one: 1 ehdotus
@@ -77,11 +102,14 @@ fi:
           activity: Aktiivisuus
           all: Kaikki
           category: Kategoria
+          category_prompt: Valitse kategoria
           citizenship: Kansalaisuus
+          evaluating: Arvioitavana
           official: Virallinen
           origin: Alkuperä
           rejected: Hylätty
           related_to: Liittyy aiheeseen
+          scope_prompt: Valitse konteksti
           scopes: Kontekstit
           search: Haku
           state: Tila
@@ -99,6 +127,7 @@ fi:
             one: <span class="card--list__data__number">1</span>ääni
             other: <span class="card--list__data__number">%{count}</span>ääntä
         new:
+          attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
           select_a_category: Valitse kategoria
           send: Lähetä
@@ -108,6 +137,8 @@ fi:
           most_voted: Eniten ääniä saaneet
           random: Satunnainen
           recent: Viimeisimmät
+        proposal:
+          view_proposal: Näytä ehdotus
         show:
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'

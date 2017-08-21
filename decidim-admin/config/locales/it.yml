@@ -455,9 +455,6 @@ it:
     participatory_processes:
       participatory_process_groups:
         none: Nessuno
-  errors:
-    messages:
-      invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)
   layouts:
     decidim:
       admin:

@@ -5,8 +5,10 @@ fi:
         name: Sivu
         settings:
           global:
+            announcement: Ilmoitus
             comments_enabled: Kommentointi sallittu
           step:
+            announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
     pages:
       admin:
@@ -15,6 +17,7 @@ fi:
             body: Runko
         pages:
           edit:
+            save: Päivitä
             title: Muokkaa sivua
           update:
             invalid: Sivun tallennuksessa oli virheitä.

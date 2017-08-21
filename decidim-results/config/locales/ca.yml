@@ -13,8 +13,10 @@ ca:
         name: Resultats
         settings:
           global:
+            announcement: Avís
             comments_enabled: Comentaris habilitats
           step:
+            announcement: Avís
             comments_blocked: Comentaris bloquejats
     resource_links:
       included_proposals:

@@ -13,8 +13,10 @@ eu:
         name: Emaitzak
         settings:
           global:
+            announcement: Oharra
             comments_enabled: Iruzkinak gaituta
           step:
+            announcement: Oharra
             comments_blocked: Iruzkinak blokeatuta
     resource_links:
       included_proposals:
@@ -60,6 +62,7 @@ eu:
         filters:
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
+          scope_prompt: Hautatu esparrua
           scopes: Esparruak
           search: Bilatu
         filters_small_view:
