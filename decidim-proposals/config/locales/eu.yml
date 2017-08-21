@@ -144,5 +144,3 @@ eu:
       included_proposals:
         proposal_projects: 'Proiektu hauetatik sortutako proposamena:'
         proposal_results: 'Emaitza hauetatik sortutako proposamena:'
-      proposals_from_meeting:
-        proposal_meetings: Proposamenarekin lotutako topaketak
