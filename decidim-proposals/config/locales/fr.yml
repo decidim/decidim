@@ -45,6 +45,7 @@ fr:
           edit:
             accepted: Retenue
             answer_proposal: Répondre
+            evaluating: En cours d'évaluation
             rejected: Refusée
             title: Réponse à la proposition %{title}
         proposals:
@@ -63,6 +64,7 @@ fr:
             title: Créer une proposition
       answers:
         accepted: Retenues
+        evaluating: En cours d'évaluation
         not_answered: Resté sans réponse
         rejected: Refusée
       create:
@@ -87,9 +89,10 @@ fr:
           all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          citizenship: Citoyenneté
-          official: Elu(e)
-          origin: Retour à l'original
+          citizenship: Citoyens
+          evaluating: En cours d'évaluation
+          official: Elu-e-s
+          origin: Auteurs
           rejected: Refusée
           related_to: Liée à
           scopes: Zones d'application
