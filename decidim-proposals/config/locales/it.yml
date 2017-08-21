@@ -143,5 +143,3 @@ it:
       included_proposals:
         proposal_projects: 'Le proposte compaiono nei seguenti progetti:'
         proposal_results: 'Le proposte compaiono nei seguenti risultati:'
-      proposals_from_meeting:
-        proposal_meetings: Meeting associati alla proposta
