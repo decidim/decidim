@@ -3,7 +3,7 @@ ca:
     dummy:
       admin:
         exports:
-          dummies: "Maniquins"
+          dummies: Maniquins
     resource_links:
       test_link:
         dummy_resource_dummy: Fictici relacionat
