@@ -1,8 +1,4 @@
 eu:
-  activerecord:
-    errors:
-      messages:
-        cannot_have_comments: ezin zaio iruzkinik egin
   decidim:
     comments:
       comment_notification_mailer:
@@ -24,7 +20,6 @@ eu:
           error: Erroreak gertatu dira iruzkina bozkatzean.
     components:
       add_comment_form:
-        account_message: '<a href="%{sign_in_url}">Sartu zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina egiteko. '
         form:
           body:
             label: Iruzkina
