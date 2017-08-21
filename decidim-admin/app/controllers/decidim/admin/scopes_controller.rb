@@ -72,7 +72,7 @@ module Decidim
       end
 
       def parent_scope
-        @parent_scope ||= @scope ? @scope.parent : organization_scopes.find_by_id(params[:scope_id])
+        @parent_scope ||= scope ? scope.parent : organization_scopes.find_by_id(params[:scope_id])
       end
 
       def scope
