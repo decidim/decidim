@@ -1,6 +1,4 @@
 ca:
-  actions:
-    confirm_destroy: N'estàs segur?
   activemodel:
     attributes:
       attachment:
@@ -83,9 +81,6 @@ ca:
         organization: Organització
         slug: Nom curt d'URL
         title: Títol
-    errors:
-      messages:
-        invalid_json: JSON no vàlid
   activerecord:
     attributes:
       decidim/participatory_process:
