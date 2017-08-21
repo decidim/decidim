@@ -3,7 +3,7 @@ fi:
     dummy:
       admin:
         exports:
-          dummies: "Esimerkkitiedot"
+          dummies: Esimerkkitiedot
     resource_links:
       test_link:
         dummy_resource_dummy: Liittyvät esimerkkitiedot
