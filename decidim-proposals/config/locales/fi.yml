@@ -162,5 +162,3 @@ fi:
       included_proposals:
         proposal_projects: 'Ehdotus esiintyy näissä projekteissa:'
         proposal_results: 'Ehdotus esiintyy näissä tuloksissa:'
-      proposals_from_meeting:
-        proposal_meetings: Liittyvät tapaamiset
