@@ -86,6 +86,3 @@ pl:
     participatory_process_steps:
       index:
         process_steps: Etapy procesu
-    participatory_processes:
-      scopes:
-        global: Zakres globalny

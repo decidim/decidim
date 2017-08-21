@@ -1,8 +1,4 @@
 fi:
-  activerecord:
-    errors:
-      messages:
-        cannot_have_comments: ei voi poistaa kommentteja
   decidim:
     comments:
       comment_notification_mailer:
@@ -21,7 +17,7 @@ fi:
             subject: Kommenttiisi on vastattu
     components:
       add_comment_form:
-        account_message: "<a href=\"%{sign_in_url}\">Kirjaudu sisään käyttäjätililläsi</a> tai <a href=\"%{sign_up_url}\">luo käyttäjätili</a> kommentoidaksesi.\n"
+        account_message: '<a href="%{sign_in_url}">Kirjaudu sisään käyttäjätililläsi</a> tai <a href="%{sign_up_url}">luo käyttäjätili</a> kommentoidaksesi.'
         form:
           body:
             label: Kommentti
@@ -64,3 +60,6 @@ fi:
         title: "%{count} kommenttia"
       featured_comment:
         title: Esille nostettu kommentti
+  errors:
+    messages:
+      cannot_have_comments: ei voi poistaa kommentteja

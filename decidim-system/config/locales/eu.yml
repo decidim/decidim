@@ -48,8 +48,6 @@ eu:
             created_at: Sortze-data
             name: Izena
           name: Erakundea
-        page:
-          name: Orria
       organizations:
         create:
           error: Errorea gertatu da erakunde berri bat sortzean.

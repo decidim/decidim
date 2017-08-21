@@ -41,6 +41,7 @@ jobs:
                 (cd /code/decidim-core && bundle exec rake)
                 ;;
               1)
+                (cd /code && bundle exec rspec) &&
                 (cd /code && npm test -- decidim-admin) &&
                 (cd /code/decidim-admin && bundle exec rake) &&
                 (cd /code && npm test -- decidim-meetings) &&

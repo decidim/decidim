@@ -46,8 +46,6 @@ it:
             created_at: Data/ora di creazione
             name: Nome
           name: Organizzazione
-        page:
-          name: Pagina
       organizations:
         create:
           error: C'è stato un errore durante la creazione di una nuova organizzazione.

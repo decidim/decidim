@@ -1,7 +1,5 @@
 ---
 en:
-  actions:
-    confirm_destroy: Confirm destroy
   activemodel:
     attributes:
       attachment:
@@ -84,9 +82,6 @@ en:
         organization: Organization
         slug: URL slug
         title: Title
-    errors:
-      messages:
-        invalid_json: Invalid JSON
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -628,6 +623,9 @@ en:
     participatory_processes:
       participatory_process_groups:
         none: None
+  errors:
+    messages:
+      invalid_json: Invalid JSON
   layouts:
     decidim:
       admin:

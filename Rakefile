@@ -15,7 +15,7 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 desc "Runs all tests in all Decidim engines"
-task :test_all do
+task test_all: :spec do
   DECIDIM_GEMS.each do |gem_name|
     next if gem_name == "dev"
 
@@ -39,11 +39,7 @@ end
 
 desc "Makes sure all official locales are complete and clean."
 task :check_locale_completeness do
-  DECIDIM_GEMS.each do |gem_name|
-    Dir.chdir("#{__dir__}/decidim-#{gem_name}") do
-      system({ "ENFORCED_LOCALES" => "en,ca,es" }, "rspec spec/i18n_spec.rb")
-    end
-  end
+  system({ "ENFORCED_LOCALES" => "en,ca,es" }, "rspec spec/i18n_spec.rb")
 end
 
 desc "Generates a development app."

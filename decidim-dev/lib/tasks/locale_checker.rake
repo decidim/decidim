@@ -2,19 +2,19 @@
 
 namespace :decidim do
   desc "Allows a decidim installation to check whether its locales are complete"
-  task :check_locales do
-    env = {
-      "BUNDLE_GEMFILE" => File.expand_path("Gemfile"),
-      "ENFORCED_LOCALES" => Decidim.available_locales.join(",")
-    }
+  task check_locales: :environment do
+    FileUtils.remove_dir("tmp/decidim_repo", true)
 
-    Bundler.definition.specs.each do |spec|
-      next unless spec.name.match?(/decidim-/)
+    branch = ENV["TARGET_BRANCH"] || "master"
+    status = system("git clone --depth=1 --single-branch --branch #{branch} https://github.com/decidim/decidim tmp/decidim_repo")
+    return unless status
 
-      Dir.chdir(spec.full_gem_path) do
-        Bundler.with_clean_env do
-          system(env, "bundle exec rspec spec/i18n_spec.rb")
-        end
+    Dir.chdir("tmp/decidim_repo") do
+      env = { "ENFORCED_LOCALES" => Decidim.available_locales.join(",") }
+
+      Bundler.with_clean_env do
+        system(env, "bundle install")
+        system(env, "bundle exec rspec spec/i18n_spec.rb")
       end
     end
   end

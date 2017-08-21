@@ -14,12 +14,7 @@ data:
 
   # Locale files or `File.find` patterns where translations are read from:
   read:
-    ## Default:
-    # - config/locales/%{locale}.yml
-    ## More files:
-    # - config/locales/**/*.%{locale}.yml
-    ## Another gem (replace %#= with %=):
-    # - "<%#= %x[bundle show vagrant].chomp %>/templates/locales/%{locale}.yml"
+    - decidim-*/config/locales/%{locale}.yml
 
   # Locale files to write new keys to, based on a list of key pattern => file rules. Matched from top to bottom:
   # `i18n-tasks normalize -p` will force move the keys according to these rules
@@ -49,22 +44,27 @@ data:
 search:
   ## Paths or `File.find` patterns to search in:
   paths:
-   - app/
-   - lib/
+    <% Dir.glob("decidim-*").each do |path| -%>
+      <%= "- #{path}/app\n" %>
+      <%= "- #{path}/lib\n" %>
+    <% end -%>
 
-  ## Root directories for relative keys resolution.
-  # relative_roots:
-  #   - app/controllers
-  #   - app/helpers
-  #   - app/mailers
-  #   - app/presenters
-  #   - app/views
+  # Root directories for relative keys resolution.
+  relative_roots:
+    <% Dir.glob("decidim-*").each do |path| -%>
+      <%= "- #{path}/app/controllers\n" %>
+      <%= "- #{path}/app/helpers\n" %>
+      <%= "- #{path}/app/mailers\n" %>
+      <%= "- #{path}/app/presenters\n" %>
+      <%= "- #{path}/app/views\n" %>
+    <% end -%>
 
   ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:
   ##   %w(*.jpg *.png *.gif *.svg *.ico *.eot *.otf *.ttf *.woff *.woff2 *.pdf *.css *.sass *.scss *.less *.yml *.json)
   exclude:
-    - app/assets/images
-    - app/assets/fonts
+    - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
+    - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+    - "*.jpeg"
 
   ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
   ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
@@ -82,36 +82,29 @@ search:
 #   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
 #   api_key: "AbC-dEf5"
 
-## Do not consider these keys missing:
+# Do not consider these keys missing:
 ignore_missing:
-- '{devise,simple_form}.*'
+  - '{devise,components}.*'
 
-## Consider these keys used:
+# Consider these keys used:
 ignore_unused:
-  - '{time.formats}.*'
-  - devise.mailer.password_change.subject
-  - activerecord.attributes.decidim/user.*
-  - activerecord.models.decidim/user
-  - activemodel.attributes.user.*
-  - activemodel.attributes.report.*
+  - activemodel.attributes.*
+  - activerecord.attributes.*
   - booleans.*
-  - errors.messages.*
-  - social_share_button.*
+  - '{date,time.formats}.*'
+  - decidim.admin.participatory_process_steps.default_title
+  - decidim.components.*
   - decidim.filters.linked_classes.*
   - decidim.forms.errors.*
-  - decidim.authorizations.first_login.actions.*
-  - decidim.features.dummy.*
-  - invisible_captcha.*
-  - decidim.participatory_processes.scopes.global
-  - decidim.participatory_processes.participatory_process_groups.none
-  - pages.home.statistics.*
   - decidim.participatory_processes.statistics.*
-  - forms.*
-# - 'activerecord.attributes.*'
-# - '{devise,kaminari,will_paginate}.*'
-# - 'simple_form.{yes,no}'
-# - 'simple_form.{placeholders,hints,labels}.*'
-# - 'simple_form.{error_notification,required}.:'
+  - decidim.proposals.answers.*
+  - decidim.proposals.proposals.orders.*
+  - decidim.resource_links.*
+  - decidim.system.default_pages.placeholders.*
+  - errors.messages.*
+  - invisible_captcha.*
+  - pages.home.statistics.*
+  - social_share_button.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
@@ -122,7 +115,7 @@ ignore_unused:
 
 ## Ignore these keys completely:
 # ignore:
-#  - kaminari.*
+#   - kaminari.*
 
 ## Sometimes, it isn't possible for i18n-tasks to match the key correctly,
 ## e.g. in case of a relative key defined in a helper method.

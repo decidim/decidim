@@ -141,5 +141,3 @@ fr:
       included_proposals:
         proposal_projects: 'Proposition figurant dans ces projets :'
         proposal_results: 'Proposition figurant dans ces résultats :'
-      proposals_from_meeting:
-        proposal_meetings: Rencontres connexes

@@ -2,7 +2,7 @@
 
 require "i18n/tasks"
 
-shared_examples_for "I18n sanity" do
+describe "I18n sanity" do
   let(:locales) do
     ENV["ENFORCED_LOCALES"].present? ? ENV["ENFORCED_LOCALES"].split(",") : [:en]
   end
@@ -29,7 +29,7 @@ shared_examples_for "I18n sanity" do
   end
 
   def locale_hashes
-    Dir.glob("config/locales/**/*.yml").inject({}) do |results, file|
+    Dir.glob("decidim-*/config/locales/**/*.yml").inject({}) do |results, file|
       md5 = Digest::MD5.file(file).hexdigest
       results.merge(file => md5)
     end

@@ -19,8 +19,6 @@ it:
     resource_links:
       included_proposals:
         result_proposals: Proposte incluse in questo risultato
-      meetings_through_proposals:
-        result_meetings: Meetin correlati
     results:
       actions:
         confirm_destroy: Sei sicuro di voler cancellare questo risultato?

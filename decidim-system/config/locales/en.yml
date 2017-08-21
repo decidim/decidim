@@ -49,8 +49,6 @@ en:
             created_at: Created at
             name: Name
           name: Organization
-        page:
-          name: Page
       organizations:
         create:
           error: There was an error when creating a new organization.

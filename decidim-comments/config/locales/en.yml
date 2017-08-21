@@ -1,9 +1,5 @@
 ---
 en:
-  activerecord:
-    errors:
-      messages:
-        cannot_have_comments: can't have comments
   decidim:
     comments:
       comment_notification_mailer:
@@ -25,7 +21,7 @@ en:
           error: There's been errors when voting the comment.
     components:
       add_comment_form:
-        account_message: '<a href="%{sign_in_url}">Sign in with your account</a> or <a href="%{sign_up_url}">sign up</a> to add your comment. '
+        account_message: <a href="%{sign_in_url}">Sign in with your account</a> or <a href="%{sign_up_url}">sign up</a> to add your comment.
         form:
           body:
             label: Comment
@@ -72,3 +68,6 @@ en:
         title: "%{count} comments"
       featured_comment:
         title: Featured comment
+  errors:
+    messages:
+      cannot_have_comments: can't have comments

@@ -1,8 +1,4 @@
 eu:
-  activerecord:
-    errors:
-      messages:
-        cannot_have_comments: ezin zaio iruzkinik egin
   decidim:
     comments:
       comment_notification_mailer:
@@ -21,7 +17,7 @@ eu:
             subject: Zure iruzkinetako bati erantzuna eman diote
     components:
       add_comment_form:
-        account_message: '<a href="%{sign_in_url}">Sartu zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina egiteko. '
+        account_message: '<a href="%{sign_in_url}">Sartu zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina egiteko.'
         form:
           body:
             label: Iruzkina
@@ -64,3 +60,6 @@ eu:
         title: "%{count} iruzkin"
       featured_comment:
         title: Iruzkin nabarmendua
+  errors:
+    messages:
+      cannot_have_comments: ezin zaio iruzkinik egin

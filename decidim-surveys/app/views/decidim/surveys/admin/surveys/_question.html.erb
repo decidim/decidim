@@ -1,7 +1,14 @@
 <div class="card survey-question" id="survey-question-<%= question.id %>-field">
   <div class="card-divider question-divider">
     <h2 class="card-title">
-    <span><%= label_for_question(survey, question) %></span>
+    <span>
+      <% if survey.questions_editable? %>
+        <%= "#{icon("move")} #{t(".question")}" %>
+      <% else %>
+        <%= t(".question") %>
+      <% end %>
+    </span>
+
     <% if survey.questions_editable? %>
       <button class="button small alert hollow remove-question button--title"><%= t('.remove_question') %></button>
     <% end %>
