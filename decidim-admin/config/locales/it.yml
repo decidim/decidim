@@ -1,6 +1,4 @@
 it:
-  actions:
-    confirm_destroy: Conferma eliminazione
   activemodel:
     attributes:
       attachment:
@@ -59,9 +57,6 @@ it:
         content: Contenuto
         organization: Organizzazione
         title: Titolo
-    errors:
-      messages:
-        invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)
   activerecord:
     attributes:
       decidim/participatory_process:
