@@ -1,9 +1,20 @@
 # Change Log
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
-[Full Changelog](https://github.com/decidim/decidim/compare/v0.5.0...HEAD)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.5.1...HEAD)
 
-## [v0.5.0](https://github.com/decidim/decidim/tree/HEAD)
+## [v0.5.1](https://github.com/decidim/decidim/tree/v0.5.1) (2017-08-21)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.5.0...v0.5.1)
+
+**Changed**
+
+- **decidim-core**: Prevent creation of a `Organization` with a `default_locale` not present in `available_locales`. [\#1754](https://github.com/decidim/decidim/pull/1754)
+
+**Fixed**
+
+- **decidim**: Fixed `decidim` generator to include the `Decidim.default_locale` in the decidim initializer file. [\#1754](https://github.com/decidim/decidim/pull/1754)
+
+## [v0.5.0](https://github.com/decidim/decidim/tree/v0.5.0) (2017-08-17)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.4.4...v0.5.0)
 
 **Fixed**
