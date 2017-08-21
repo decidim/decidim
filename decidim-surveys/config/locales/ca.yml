@@ -20,9 +20,6 @@ ca:
             announcement: Avís
     surveys:
       admin:
-        application_helper:
-          label_for_question:
-            question: Pregunta
         exports:
           survey_user_answers: Respostes dels usuaris
         models:
