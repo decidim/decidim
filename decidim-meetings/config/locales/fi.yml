@@ -8,6 +8,7 @@ fi:
         contributions_count: Kontribuutioiden määrä
         proposal_ids: Ehdotusta luotu tapaamisessa
       meeting:
+        address: Osoite
         decidim_category_id: Kategoria
         decidim_scope_id: Konteksti
         description: Kuvaus
@@ -20,6 +21,11 @@ fi:
     features:
       meetings:
         name: Tapaamiset
+        settings:
+          global:
+            announcement: Ilmoitus
+          step:
+            announcement: Ilmoitus
     meetings:
       actions:
         attachments: Liitteet
@@ -27,6 +33,8 @@ fi:
         confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
         destroy: Poista
         edit: Muokkaa
+        new: Uusi
+        preview: Esikatsele
         title: Toiminnot
       admin:
         meeting_closes:
@@ -42,8 +50,13 @@ fi:
             success: Tapaaminen onnistuneesti luotu
           destroy:
             success: Tapaaminen onnistuneesti poistettu
+          edit:
+            update: Päivitä
           index:
             title: Tapaamiset
+          new:
+            create: Luo
+            title: Luo tapaaminen
           update:
             invalid: Tapaamisen luonnissa tapahtui virhe
             success: Tapaaminen luotu onnistuneesti
@@ -53,8 +66,10 @@ fi:
       meetings:
         filters:
           category: Kategoria
+          category_prompt: Valitse kategoria
           date: Päivämäärä
           past: Menneet
+          scope_prompt: Valitse konteksti
           scopes: Kontekstit
           search: Etsi
           upcoming: Tulevat
@@ -81,6 +96,7 @@ fi:
             map: Kartta
             start_time: Aloitusaika
             title: Otsikko
+      read_more: "(lue lisää)"
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Liittyvät tulokset:'
