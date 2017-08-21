@@ -18,12 +18,16 @@ es:
         name: Propuestas
         settings:
           global:
+            announcement: Aviso
+            attachments_allowed: Permitir archivos adjuntos
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
+            new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
             proposal_answering_enabled: Respuesta oficial a propuestas habilitadas
             vote_limit: Límite de votos
           step:
+            announcement: Aviso
             comments_blocked: Comentarios bloqueados
             creation_enabled: Habilitar creación de propuestas
             proposal_answering_enabled: Respuesta a propuestas activadas
@@ -59,6 +63,7 @@ es:
             invalid: Ha habido un problema al crear esta propuesta
             success: Propuesta creada correctamente
           form:
+            attachment_legend: "(Opcional) Añadir un archivo adjunto"
             select_a_category: Seleccione una categoría
           index:
             title: Propuestas
@@ -122,6 +127,7 @@ es:
             one: <span class="card--list__data__number">1</span>vote
             other: <span class="card--list__data__number">%{count}</span>votos
         new:
+          attachment_legend: "(Opcional) Añadir un archivo adjunto"
           back: Atrás
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
