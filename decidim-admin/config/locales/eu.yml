@@ -1,6 +1,4 @@
 eu:
-  actions:
-    confirm_destroy: Ziur zaude?
   activemodel:
     attributes:
       attachment:
@@ -81,9 +79,6 @@ eu:
         organization: Erakundea
         slug: URL testu laburra
         title: Izenburua
-    errors:
-      messages:
-        invalid_json: JSON baliogabea
   activerecord:
     attributes:
       decidim/participatory_process:
