@@ -15,9 +15,11 @@ fi:
             subject: Sinulla on uusi kommentti
           reply_created:
             subject: Kommenttiisi on vastattu
+      votes:
+        create:
+          error: Äänestettäessä kommenttia tapahtui virhe.
     components:
       add_comment_form:
-        account_message: '<a href="%{sign_in_url}">Kirjaudu sisään käyttäjätililläsi</a> tai <a href="%{sign_up_url}">luo käyttäjätili</a> kommentoidaksesi.'
         form:
           body:
             label: Kommentti
@@ -28,11 +30,14 @@ fi:
             label: Kommentoi käyttäjänä
         opinion:
           neutral: Neutraali
+        remaining_characters: "%{count} merkkiä jäljellä"
+        remaining_characters_1: "%{count} merkki jäljellä"
         title: Lisää kommenttisi
       comment:
         alignment:
           against: Vastaan
           in_favor: Puolesta
+        deleted_user: Poistettu käyttäjä
         reply: Vastaa
         report:
           action: Raportoi
@@ -45,6 +50,7 @@ fi:
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Raportoi ongelmasta
+        verified_user_group: Vahvistettu organisaatio
       comment_order_selector:
         order:
           best_rated: Parhaiksi arvioidut
@@ -60,6 +66,3 @@ fi:
         title: "%{count} kommenttia"
       featured_comment:
         title: Esille nostettu kommentti
-  errors:
-    messages:
-      cannot_have_comments: ei voi poistaa kommentteja
