@@ -1,6 +1,4 @@
 es:
-  actions:
-    confirm_destroy: '¿Estás seguro?'
   activemodel:
     attributes:
       attachment:
@@ -83,9 +81,6 @@ es:
         organization: Organización
         slug: Texto corto de URL
         title: Título
-    errors:
-      messages:
-        invalid_json: JSON no válido
   activerecord:
     attributes:
       decidim/participatory_process:
