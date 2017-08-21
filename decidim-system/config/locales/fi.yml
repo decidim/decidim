@@ -48,8 +48,6 @@ fi:
             created_at: Luotu
             name: Nimi
           name: Organisaatio
-        page:
-          name: Sivu
       organizations:
         create:
           error: Uuden organisaation luonnissa tapahtui virhe.
