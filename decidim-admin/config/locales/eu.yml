@@ -46,6 +46,7 @@ eu:
         participatory_structure: Egitura partizipatiboa
         promoted: Nabarmendua
         scope_id: Esparrua
+        scopes_enabled: Esparruak gaituta
         short_description: Deskribapen laburra
         slug: URL testu laburra
         subtitle: Azpititulua
@@ -67,6 +68,7 @@ eu:
         name: Izena
         role: Rola
       scope:
+        code: Kodea
         name: Izena
         organization: Erakundea
         scope_type: Esparru mota
@@ -115,6 +117,7 @@ eu:
       actions:
         activate: Aktibatu
         add: Gehitu
+        browse: Arakatu
         configure: Konfiguratu
         confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
         destroy: Kendu
@@ -221,6 +224,14 @@ eu:
           name: Izena
         impersonate:
           error: Errore bat gertatu da kudeatutako erabiltzailea ordezkatzean.
+        index:
+          promote: Goratu
+          view_logs: Ikusi erregistroak
+        new:
+          create: Sortu
+          new_managed_user: Erabiltzaile kudeatu berria
+          select_authorization_method: Hautatu autorizazio metodoa
+          step: '%{total} fasetatik %{current}.a'
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
@@ -248,6 +259,12 @@ eu:
           name: Fitxategi erantsia
         category:
           name: Kategoria
+        impersonation_log:
+          fields:
+            admin: Administratzailea
+            user: Erabiltzailea
+        managed_user:
+          name: Erabiltzaile kudeatua
         newsletter:
           fields:
             created_at: Sortze-data
@@ -281,9 +298,11 @@ eu:
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
+            moderator: Moderatzailea
         scope:
           fields:
             name: Izena
+            scope_type: Esparru mota
         scope_type:
           fields:
             name: Izena
@@ -316,6 +335,11 @@ eu:
       moderations:
         index:
           title: ' Moderazioak '
+        report:
+          reasons:
+            does_not_belong: Ez du zer ikusirik
+            offensive: Iraingarria
+            spam: Spam
       newsletters:
         create:
           error: ' Errorea gertatu da buletin hau sortzean.'
@@ -365,6 +389,7 @@ eu:
         new:
           copy: Copy
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
+          title: Partehartze prozesua bikoiztu
       participatory_process_groups:
         destroy:
           success: Multzoa zuzen deuseztatu da.
@@ -401,6 +426,8 @@ eu:
         edit:
           title: Editatu prozesu partizipatiboaren fasea
           update: Eguneratu
+        index:
+          steps_title: Prozesuaren faseak
         new:
           create: Sortu
           title: Prozesu partizipatiboaren fase berria
@@ -418,6 +445,8 @@ eu:
         edit:
           title: Prozesu partizipatiboko erabiltzailea eguneratzea.
           update: Eguneratu
+        index:
+          process_admins_title: Prozesu partehartzailearen erabiltzaileak
         new:
           create: Sortu
           title: Partaidetza-prozesu berriko erabiltzailea.
@@ -451,6 +480,21 @@ eu:
         create:
           error: Errorea gertatu da multzo hau sortzean.
           success: Multzoa zuzen eguneratu da.
+      scope_types:
+        create:
+          error: Errore bat gertatu da esparru mota berri bat sortzean.
+          success: Esparru mota arrakastaz sortu da.
+        destroy:
+          success: Esparru mota arrakastaz suntsitu da
+        edit:
+          title: Editatu esparru mota
+          update: Eguneratu
+        new:
+          create: Sortu esparru mota
+          title: Esparru berria
+        update:
+          error: Errore bat gertatu da esparru mota hau eguneratzean.
+          success: Esparru mota arrakastaz eguneratu da
       scopes:
         create:
           error: Errorea gertatu da esparru berri bat sortzean.
@@ -463,6 +507,7 @@ eu:
         new:
           create: Sortu esparrua
           title: Esparru berria
+        no_scopes: Maila honetan ez dago esparrurik.
         update:
           error: Errorea gertatu da esparru hau eguneratzean.
           success: Esparrua zuzen eguneratu da
@@ -485,15 +530,22 @@ eu:
           success: Orria zuzen eguneratu da.
       titles:
         dashboard: Kontrol-panela
+        managed_users: Kudeatutako erabiltzaileak
         participatory_process_groups: Prozesu partizipatiboen multzoak
         participatory_processes: Prozesu partizipatiboak
+        scope_types: Esparru motak
         scopes: Esparruak
         static_pages: Erlaitzak
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
+      user_group:
+        reject:
+          invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.
+          success: Erabiltzaile taldea arrakastaz arbuiatua
       user_groups:
         index:
           filter:
+            all: Guztiak
             pending: Zain
             rejected: Ukatua
             verified: Egiaztatuta
