@@ -161,7 +161,6 @@ eu:
     menu:
       home: Hasiera
       more_information: Argibide gehiago
-      processes: Prozesuak
     newsletter_mailer:
       newsletter:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
@@ -182,37 +181,6 @@ eu:
     pages:
       index:
         title: Argibide gehiago
-    participatory_process_groups:
-      show:
-        group_participatory_processes: '%{group} talderako prozesuak'
-        title: Prozesu partizipatiboen multzoak
-    participatory_process_steps:
-      index:
-        process_steps: Prozesuaren faseak
-        title: Prozesu partizipatiboaren faseak
-    participatory_processes:
-      index:
-        title: Prozesu partizipatiboak
-      show:
-        developer_group: Talde sustatzailea
-        end_date: Bukaera-data
-        local_area: Udal-alorrak
-        participatory_scope: Esparru partizipatiboa
-        participatory_structure: Egitura partizipatiboa
-        scope: Esparrua
-        target: Nori zuzentzen zaio?
-      statistics:
-        answers_count: Erantzunak
-        comments_count: Iruzkinak
-        meetings_count: Topaketak
-        pages_count: Orriak
-        processes_count: Prozesuak
-        projects_count: Proiektuak
-        proposals_count: Proposamenak
-        results_count: Emaitzak
-        surveys_count: Inkestak
-        users_count: Parte-hartzaileak
-        votes_count: Botoak
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
@@ -320,35 +288,6 @@ eu:
         navigation: Nabigazioa
         sign_in: Sartu
         sign_up: Erregistratu
-      participatory_process_groups:
-        participatory_process_group:
-          browse: Arakatu
-      participatory_process_widgets:
-        show:
-          active_step: Fase gaitua
-          take_part: Parte hartu
-      participatory_processes:
-        index:
-          promoted_processes: Prozesu nabarmenduak
-        no_processes_yet:
-          no_processes_yet: Oraindik ez dago prozesu partizipatiborik!
-        order_by_processes:
-          processes:
-            one: "%{count} prozesu"
-            other: "%{count} prozesu"
-        participatory_process:
-          active_step: 'Oraingo fasea:'
-          take_part: Parte hartu
-        promoted_process:
-          active_step: 'Oraingo fasea:'
-          more_info: Argibide gehiago
-          take_part: Parte hartu
-      process_header:
-        process_menu_item: Prozesua
-        unfold: Zabaldu
-      process_header_steps:
-        step: '%{total} fasetatik %{current}.a'
-        view_steps: Ikusi faseak
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
         profile: Nire kontua
