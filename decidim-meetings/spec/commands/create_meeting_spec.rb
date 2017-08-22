@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::Meetings::Admin::CreateMeeting do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "meetings" }
+  let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "meetings" }
   let(:scope) { create :scope, organization: organization }
-  let(:category) { create :category, participatory_process: participatory_process }
+  let(:category) { create :category, participatory_space: participatory_process }
   let(:address) { "address" }
   let(:invalid) { false }
   let(:latitude) { 40.1234 }

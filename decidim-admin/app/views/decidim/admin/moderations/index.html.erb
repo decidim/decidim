@@ -55,14 +55,14 @@
 
                 <% if can? :unreport, moderation %>
                   <%= icon_link_to "action-undo",
-                                   decidim_admin.unreport_moderation_path(id: moderation),
+                                   unreport_moderation_path(id: moderation),
                                    t("actions.unreport", scope: "decidim.moderations"),
                                    class: "action-icon--unreport",
                                    method: :put %>
                 <% end %>
                 <% if !moderation.reportable.hidden? && can?(:hide, moderation) %>
                   <%= icon_link_to "eye",
-                                   decidim_admin.hide_moderation_path(id: moderation),
+                                   hide_moderation_path(id: moderation),
                                    t("actions.hide", scope: "decidim.moderations"),
                                    class: "action-icon--hide",
                                    method: :put %>

@@ -1,0 +1,74 @@
+<% add_decidim_meta_tags({
+  image_url: current_assembly.hero_image.url,
+  description: translated_attribute(current_assembly.short_description),
+  title: translated_attribute(current_assembly.title),
+  url: assembly_url(current_assembly),
+  twitter_handler: current_organization.twitter_handler
+}) %>
+
+<div class="row column">
+  <div class="row">
+    <div class="columns medium-7 mediumlarge-8">
+      <div class="section">
+        <div class="lead">
+          <%== translated_attribute(current_assembly.short_description) %>
+        </div>
+        <%== translated_attribute(current_assembly.description) %>
+      </div>
+      <%= attachments_for current_assembly %>
+    </div>
+    <div class="section columns medium-5 mediumlarge-4 large-3">
+      <div class="card extra definition-data">
+        <% if translated_attribute(current_assembly.meta_scope).present? %>
+          <div class="definition-data__item scope">
+            <span class="definition-data__title"><%= t("assemblies.show.scope", scope: "decidim") %></span>
+              <%== translated_attribute(current_assembly.meta_scope) %>
+          </div>
+        <% end %>
+
+        <% if translated_attribute(current_assembly.developer_group).present? %>
+          <div class="definition-data__item developer-group">
+            <span class="definition-data__title"><%= t("assemblies.show.developer_group", scope: "decidim") %></span>
+              <%== translated_attribute(current_assembly.developer_group) %>
+          </div>
+        <% end %>
+
+        <% if translated_attribute(current_assembly.local_area).present? %>
+          <div class="definition-data__item local_area">
+            <span class="definition-data__title"><%= t("assemblies.show.local_area", scope: "decidim") %></span>
+              <%== translated_attribute(current_assembly.local_area) %>
+          </div>
+        <% end %>
+
+         <% if translated_attribute(current_assembly.target).present? %>
+          <div class="definition-data__item target">
+            <span class="definition-data__title"><%= t("assemblies.show.target", scope: "decidim") %></span>
+              <%== translated_attribute(current_assembly.target) %>
+          </div>
+        <% end %>
+
+         <% if translated_attribute(current_assembly.participatory_scope).present? %>
+          <div class="definition-data__item participatory_scope">
+            <span class="definition-data__title"><%= t("assemblies.show.participatory_scope", scope: "decidim") %></span>
+              <%== translated_attribute(current_assembly.participatory_scope) %>
+          </div>
+        <% end %>
+
+        <% if translated_attribute(current_assembly.participatory_structure).present? %>
+          <div class="definition-data__item participatory_structure">
+            <span class="definition-data__title"><%= t("assemblies.show.participatory_structure", scope: "decidim") %></span>
+              <%== translated_attribute(current_assembly.participatory_structure) %>
+          </div>
+        <% end %>
+      </div>
+      <%= render partial: "decidim/shared/share_modal" %>
+      <%= embed_modal_for assembly_assembly_widget_url(current_assembly, format: :js) %>
+    </div>
+  </div>
+  <% if current_assembly.show_statistics? %>
+    <%= render partial: 'statistics' %>
+  <% end %>
+</div>
+
+<%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>

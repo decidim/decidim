@@ -3,6 +3,11 @@
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.5.1...HEAD)
 
+**Added**
+
+- **decidim**: Support for multiple participatory spaces via custom plugins. [\#1659](https://https://github.com/decidim/decidim/pull/1659)
+- **decidim-assemblies**: New optional beta plugin to manage participatory organs A.K.A. assemblies. [\#1659](https://https://github.com/decidim/decidim/pull/1659)
+
 ## [v0.5.1](https://github.com/decidim/decidim/tree/v0.5.1) (2017-08-21)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.5.0...v0.5.1)
 

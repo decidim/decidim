@@ -25,6 +25,8 @@ engines:
     - efea7ddea03adadd8177a72831e928a3
     - 92b3f6841512dd90c0f7bb79618fb351
     - efea7ddea03adadd8177a72831e928a3
+    - 3806e0c6847f506e683c8bc4133b22e5
+    - ae2cee64fca2a95102d03e03b9ffb54f
     exclude_paths:
     - "decidim-*/spec/**/*"
   eslint:

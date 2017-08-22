@@ -84,7 +84,7 @@ module Decidim
 
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
-        commentable? && !feature.active_step_settings.comments_blocked
+        commentable? && !feature.current_settings.comments_blocked
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -117,7 +117,7 @@ module Decidim
 
       # Public: Overrides the `users_to_notify` Notifiable concern method.
       def users_to_notify
-        return Decidim::Admin::ProcessAdmins.for(feature.participatory_process) if official?
+        return feature.participatory_space.admins if official?
         [author]
       end
     end

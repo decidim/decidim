@@ -5,7 +5,7 @@ module Decidim
     # Controller that allows managing categories.
     #
     class CategoriesController < Decidim::Admin::ApplicationController
-      include Concerns::ParticipatoryProcessAdmin
+      helper_method :current_participatory_space
 
       def index
         authorize! :read, Decidim::Category
@@ -13,17 +13,17 @@ module Decidim
 
       def new
         authorize! :create, Decidim::Category
-        @form = form(CategoryForm).from_params({}, current_process: current_participatory_process)
+        @form = form(CategoryForm).from_params({}, current_participatory_space: current_participatory_space)
       end
 
       def create
         authorize! :create, Decidim::Category
-        @form = form(CategoryForm).from_params(params, current_process: current_participatory_process)
+        @form = form(CategoryForm).from_params(params, current_participatory_space: current_participatory_space)
 
-        CreateCategory.call(@form, current_participatory_process) do
+        CreateCategory.call(@form, current_participatory_space) do
           on(:ok) do
             flash[:notice] = I18n.t("categories.create.success", scope: "decidim.admin")
-            redirect_to categories_path(current_participatory_process)
+            redirect_to categories_path(current_participatory_space)
           end
 
           on(:invalid) do
@@ -36,18 +36,18 @@ module Decidim
       def edit
         @category = collection.find(params[:id])
         authorize! :update, @category
-        @form = form(CategoryForm).from_model(@category, current_process: current_participatory_process)
+        @form = form(CategoryForm).from_model(@category, current_participatory_space: current_participatory_space)
       end
 
       def update
         @category = collection.find(params[:id])
         authorize! :update, @category
-        @form = form(CategoryForm).from_params(params, current_process: current_participatory_process)
+        @form = form(CategoryForm).from_params(params, current_participatory_space: current_participatory_space)
 
         UpdateCategory.call(@category, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("categories.update.success", scope: "decidim.admin")
-            redirect_to categories_path(current_participatory_process)
+            redirect_to categories_path(current_participatory_space)
           end
 
           on(:invalid) do
@@ -75,14 +75,14 @@ module Decidim
             flash[:alert] = I18n.t("categories.destroy.error", scope: "decidim.admin")
           end
 
-          redirect_back(fallback_location: categories_path(current_participatory_process))
+          redirect_back(fallback_location: categories_path(current_participatory_space))
         end
       end
 
       private
 
       def collection
-        @collection ||= current_participatory_process.categories.includes(:subcategories)
+        @collection ||= current_participatory_space.categories.includes(:subcategories)
       end
     end
   end

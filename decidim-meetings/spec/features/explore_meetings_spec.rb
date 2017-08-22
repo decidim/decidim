@@ -149,7 +149,7 @@ describe "Explore meetings", type: :feature do
     context "with a category" do
       let(:meeting) do
         meeting = meetings.first
-        meeting.category = create(:category, participatory_process: participatory_process)
+        meeting.category = create(:category, participatory_space: participatory_process)
         meeting.save
         meeting
       end
@@ -194,7 +194,7 @@ describe "Explore meetings", type: :feature do
 
     context "with linked proposals" do
       let(:proposal_feature) do
-        create(:feature, manifest_name: :proposals, participatory_process: meeting.feature.participatory_process)
+        create(:feature, manifest_name: :proposals, participatory_space: meeting.feature.participatory_space)
       end
       let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
 
@@ -215,7 +215,7 @@ describe "Explore meetings", type: :feature do
 
     context "with linked results" do
       let(:result_feature) do
-        create(:feature, manifest_name: :results, participatory_process: meeting.feature.participatory_process)
+        create(:feature, manifest_name: :results, participatory_space: meeting.feature.participatory_space)
       end
       let(:results) { create_list(:result, 3, feature: result_feature) }
 

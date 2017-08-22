@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Comments::SortedComments do
   let!(:organization) { create(:organization) }
   let!(:participatory_process) { create(:participatory_process, organization: organization) }
-  let!(:feature) { create(:feature, participatory_process: participatory_process) }
+  let!(:feature) { create(:feature, participatory_space: participatory_process) }
   let!(:author) { create(:user, organization: organization) }
   let!(:commentable) { create(:dummy_resource, feature: feature) }
   let!(:comment) { create(:comment, commentable: commentable, author: author) }
@@ -34,7 +34,7 @@ describe Decidim::Comments::SortedComments do
 
   context "when the comment is hidden" do
     before do
-      moderation = create(:moderation, reportable: comment, participatory_process: comment.feature.participatory_process, report_count: 1, hidden_at: Time.current)
+      moderation = create(:moderation, reportable: comment, participatory_space: comment.feature.participatory_space, report_count: 1, hidden_at: Time.current)
       create(:report, moderation: moderation)
     end
 

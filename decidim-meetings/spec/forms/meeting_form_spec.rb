@@ -13,7 +13,7 @@ describe Decidim::Meetings::Admin::MeetingForm do
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_process: participatory_process, manifest_name: "meetings" }
+  let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "meetings" }
   let(:title) do
     Decidim::Faker::Localized.sentence(3)
   end
@@ -36,7 +36,7 @@ describe Decidim::Meetings::Admin::MeetingForm do
   let(:end_time) { 2.days.from_now + 4.hours }
   let(:scope) { create :scope, organization: organization }
   let(:scope_id) { scope.id }
-  let(:category) { create :category, participatory_process: participatory_process }
+  let(:category) { create :category, participatory_space: participatory_process }
   let(:category_id) { category.id }
   let(:attributes) do
     {

@@ -18,7 +18,7 @@ describe Decidim::Admin::Abilities::ParticipatoryProcessAdminAbility do
     let(:unmanaged_process_step) { create :participatory_process_step, participatory_process: unmanaged_process }
     let(:user_process_attachment) { create :attachment, attached_to: user_process }
     let(:unmanaged_process_attachment) { create :attachment, attached_to: unmanaged_process }
-    let(:feature) { create(:feature, participatory_process: user_process) }
+    let(:feature) { create(:feature, participatory_space: user_process) }
     let(:dummy_resource) { create(:dummy_resource, feature: feature) }
     let(:user_process_moderation) { create(:moderation, reportable: dummy_resource) }
     let(:unmanaged_process_moderation) { create(:moderation) }

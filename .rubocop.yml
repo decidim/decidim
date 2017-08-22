@@ -1249,7 +1249,7 @@ Rails/Validation:
 Metrics/BlockLength:
   Exclude:
     - 'decidim-admin/app/controllers/decidim/admin/concerns/has_attachments.rb'
-    - 'decidim-admin/lib/decidim/admin/engine.rb'
+    - 'decidim-*/lib/**/*engine.rb'
     - 'decidim-api/lib/decidim/api/schema.rb'
     - 'decidim-core/config/initializers/devise.rb'
     - 'decidim-core/lib/decidim/core/api/translated_field_type.rb'
@@ -1257,9 +1257,10 @@ Metrics/BlockLength:
     - 'decidim-comments/lib/decidim/comments/api/comment_type.rb'
     - 'decidim-*/app/controllers/concerns/**/*'
     - 'decidim-*/**/routes.rb'
+    - 'decidim-*/db/migrate/*.rb'
     - 'decidim-*/**/*/types/**/*'
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'
-    - 'decidim-*/db/seeds.rb'
+    - 'decidim-*/lib/**/*/participatory_space.rb'
     - 'decidim-*/spec/**/*.rb'
     - '**/*.gemspec'

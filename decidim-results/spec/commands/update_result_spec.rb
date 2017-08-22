@@ -6,10 +6,10 @@ describe Decidim::Results::Admin::UpdateResult do
   let(:result) { create :result }
   let(:organization) { result.feature.organization }
   let(:scope) { create :scope, organization: organization }
-  let(:category) { create :category, participatory_process: result.feature.participatory_process }
-  let(:participatory_process) { result.feature.participatory_process }
+  let(:category) { create :category, participatory_space: result.feature.participatory_space }
+  let(:participatory_process) { result.feature.participatory_space }
   let(:meeting_feature) do
-    create(:feature, manifest_name: :meetings, participatory_process: participatory_process)
+    create(:feature, manifest_name: :meetings, participatory_space: participatory_process)
   end
   let(:meeting) do
     create(
@@ -18,7 +18,7 @@ describe Decidim::Results::Admin::UpdateResult do
     )
   end
   let(:proposal_feature) do
-    create(:feature, manifest_name: :proposals, participatory_process: participatory_process)
+    create(:feature, manifest_name: :proposals, participatory_space: participatory_process)
   end
   let(:proposals) do
     create_list(

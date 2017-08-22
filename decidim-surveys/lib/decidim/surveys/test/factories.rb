@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :surveys_feature, parent: :feature do
-    name { Decidim::Features::Namer.new(participatory_process.organization.available_locales, :surveys).i18n_name }
+    name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name }
     manifest_name :surveys
-    participatory_process { create(:participatory_process, :with_steps) }
+    participatory_space { create(:participatory_process, :with_steps) }
   end
 
   factory :survey, class: Decidim::Surveys::Survey do

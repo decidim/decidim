@@ -8,7 +8,7 @@ module Decidim
 
     layout "decidim/widget"
 
-    helper_method :model, :iframe_url, :current_participatory_process
+    helper_method :model, :iframe_url, :current_participatory_space
 
     def show
       respond_to do |format|
@@ -19,8 +19,8 @@ module Decidim
 
     private
 
-    def current_participatory_process
-      @current_participatory_process ||= model.feature.participatory_process
+    def current_participatory_space
+      @current_participatory_space ||= model.feature.participatory_space
     end
 
     def iframe_url

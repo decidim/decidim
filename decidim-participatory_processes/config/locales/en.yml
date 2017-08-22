@@ -1,0 +1,250 @@
+---
+en:
+  activemodel:
+    attributes:
+      participatory_process:
+        banner_image: Banner image
+        copy_categories: Copy categories
+        copy_features: Copy features
+        copy_steps: Copy steps
+        description: Description
+        developer_group: Developer group
+        domain: Domain
+        end_date: End date
+        hashtag: Hashtag
+        hero_image: Home image
+        local_area: Local area
+        meta_scope: Scope metadata
+        participatory_process_group_id: Processes group
+        participatory_scope: Participatory scope
+        participatory_structure: Participatory structure
+        promoted: Promoted
+        scope_id: Scope
+        scopes_enabled: Scopes enabled
+        short_description: Short description
+        slug: URL slug
+        subtitle: Subtitle
+        target: Target
+        title: Title
+      participatory_process_group:
+        description: Description
+        hero_image: Image
+        name: Name
+        participatory_process_ids: Related processes
+      participatory_process_step:
+        description: Description
+        end_date: End date
+        short_description: Short description
+        start_date: Start date
+        title: Title
+      participatory_process_user_role:
+        email: Email
+        name: Name
+        role: Role
+  decidim:
+    admin:
+      menu:
+        participatory_process_groups: Process groups
+        participatory_processes: Processes
+        participatory_processes_submenu:
+          attachments: Attachments
+          categories: Categories
+          features: Features
+          info: Info
+          moderations: Moderations
+          process_admins: Process users
+          steps: Steps
+      models:
+        participatory_process:
+          fields:
+            created_at: Created at
+            promoted: Highlighted
+            published: Published
+            title: Title
+          name: Participatory process
+        participatory_process_group:
+          fields:
+            name: Name
+          name: Process group
+        participatory_process_step:
+          fields:
+            end_date: End date
+            start_date: Start date
+            title: Title
+          name: Participatory process step
+        participatory_process_user_role:
+          fields:
+            email: Email
+            name: Name
+            role: Role
+          name: Participatory Process User
+          roles:
+            admin: Administrator
+            collaborator: Collaborator
+            moderator: Moderator
+      participatory_process_copies:
+        new:
+          copy: Copy
+          select: Select which data you would like to duplicate
+          title: Duplicate participatory processs
+      participatory_process_groups:
+        destroy:
+          success: Participatory process group destroyed successfully.
+        edit:
+          title: Edit process group
+          update: Update
+        new:
+          create: Create
+          title: New process group
+        update:
+          error: There was en error updating this participatory process group.
+          success: Participatory process group updated successfully.
+      participatory_process_publications:
+        create:
+          error: There was an error publishing this participatory process.
+          success: Participatory process published successfully.
+        destroy:
+          error: There was an error unpublishing this participatory process.
+          success: Participatory process unpublished successfully.
+      participatory_process_step_activations:
+        create:
+          error: There was an error activating this participatory process step.
+          success: Participatory process step activated successfully.
+      participatory_process_steps:
+        create:
+          error: There was an error creating a new participatory process step.
+          success: Participatory process step created successfully.
+        default_title: Introduction
+        destroy:
+          error:
+            active_step: Can't delete the active step.
+            last_step: Can't delete the last step of a process.
+          success: Participatory process step destroyed successfully.
+        edit:
+          title: Edit participatory process step
+          update: Update
+        index:
+          steps_title: Steps
+        new:
+          create: Create
+          title: New participatory process step
+        ordering:
+          error: There was an error when reordering this participatory process steps.
+        update:
+          error: There was an error when updating this participatory process step.
+          success: Participatory process step updated successfully.
+      participatory_process_user_roles:
+        create:
+          error: There was an error adding an user for this participatory process.
+          success: User created successfully for this participatory process.
+        destroy:
+          success: User destroyed successfully for this participatory process.
+        edit:
+          title: Update participatory process user.
+          update: Update
+        index:
+          process_admins_title: Participatory process users
+        new:
+          create: Create
+          title: New participatory process user.
+        update:
+          error: There was an error updated an user for this participatory process.
+          success: User updated successfully for this participatory process.
+      participatory_processes:
+        create:
+          error: There was an error creating a new participatory process.
+          success: Participatory process created successfully. Configure now its steps.
+        destroy:
+          success: Participatory process destroyed successfully.
+        edit:
+          update: Update
+        form:
+          title: General Information
+        index:
+          not_published: Not published
+          published: Published
+        new:
+          create: Create
+          title: New participatory process
+        update:
+          error: There was an error when updating this participatory process.
+          success: Participatory process updated successfully.
+      participatory_processes_copies:
+        create:
+          error: There was an error when duplicating this participatory process.
+          success: Participatory process duplicated successfully.
+      participatory_processes_group:
+        create:
+          error: There was an error creating a new participatory process group.
+          success: Participatory process group created successfully.
+      titles:
+        participatory_process_groups: Participatory process groups
+        participatory_processes: Participatory processes
+    menu:
+      processes: Processes
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Processes for %{group}
+        title: Title
+    participatory_process_steps:
+      index:
+        process_steps: Process steps
+        title: Participatory process steps
+    participatory_processes:
+      index:
+        title: Participatory processes
+      participatory_process_groups:
+        none: None
+      show:
+        developer_group: Developer group
+        end_date: End date
+        local_area: Local area
+        participatory_scope: Participatory scope
+        participatory_structure: Participatory structure
+        scope: Scope
+        target: Target
+      statistics:
+        answers_count: Answers
+        comments_count: Comments
+        headline: Activity
+        meetings_count: Meetings
+        orders_count: Orders
+        pages_count: Pages
+        processes_count: Processes
+        projects_count: Projects
+        proposals_count: Proposals
+        results_count: Results
+        surveys_count: Surveys
+        users_count: Participants
+        votes_count: Votes
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Browse
+      participatory_process_widgets:
+        show:
+          active_step: Active step
+          take_part: Take part
+      participatory_processes:
+        index:
+          promoted_processes: Highlighted processes
+        no_processes_yet:
+          no_processes_yet: No participatory processes yet!
+        order_by_processes:
+          processes:
+            one: "%{count} process"
+            other: "%{count} processes"
+        participatory_process:
+          active_step: 'Current step:'
+          take_part: Take part
+        promoted_process:
+          active_step: 'Current step:'
+          more_info: More info
+          take_part: Take part
+      process_header:
+        process_menu_item: The process
+        unfold: Unfold
+      process_header_steps:
+        step: Step %{current} of %{total}
+        view_steps: View steps

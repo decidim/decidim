@@ -34,9 +34,9 @@ module Decidim
         { "decidim.current_organization" => organization }
       end
 
-      context "when the params contain a participatory process id" do
-        before do
-          params["participatory_process_id"] = current_participatory_process.id.to_s
+      context "when the env contains a current participatory space" do
+        let(:env) do
+          super().merge("decidim.current_participatory_space" => current_participatory_process)
         end
 
         context "when there's no feature" do
@@ -45,7 +45,7 @@ module Decidim
           end
         end
 
-        context "when the feature doesn't belong to the participatory process" do
+        context "when the feature doesn't belong to the participatory space" do
           before do
             params["feature_id"] = feature.id.to_s
           end
@@ -57,12 +57,12 @@ module Decidim
           end
         end
 
-        context "when the feature belongs to the participatory process" do
+        context "when the feature belongs to the participatory space" do
           before do
             params["feature_id"] = feature.id.to_s
           end
 
-          let(:feature) { create(:feature, participatory_process: current_participatory_process) }
+          let(:feature) { create(:feature, participatory_space: current_participatory_process) }
 
           it "matches" do
             expect(subject.matches?(request)).to eq(true)
@@ -70,29 +70,7 @@ module Decidim
         end
       end
 
-      context "when the params contain a non existing participatory process id" do
-        before do
-          params["participatory_process_id"] = "99999999"
-        end
-
-        context "when there's no feature" do
-          it "doesn't match" do
-            expect(subject.matches?(request)).to eq(false)
-          end
-        end
-
-        context "when there's feature" do
-          before do
-            params["feature_id"] = "1"
-          end
-
-          it "doesn't match" do
-            expect(subject.matches?(request)).to eq(false)
-          end
-        end
-      end
-
-      context "when the params doesn't contain a participatory process id" do
+      context "when the env doesn't contain a current participatory space" do
         it "doesn't match" do
           expect(subject.matches?(request)).to eq(false)
         end

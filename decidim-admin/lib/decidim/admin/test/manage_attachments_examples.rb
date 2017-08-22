@@ -28,7 +28,7 @@ shared_examples "manage attachments examples" do
     it "can add attachments to a process" do
       find(".card-title a.new").click
 
-      within ".new_participatory_process_attachment" do
+      within ".new_attachment" do
         fill_in_i18n(
           :attachment_title,
           "#attachment-title-tabs",
@@ -77,7 +77,7 @@ shared_examples "manage attachments examples" do
         end
       end
 
-      within ".edit_participatory_process_attachment" do
+      within ".edit_attachment" do
         fill_in_i18n(
           :attachment_title,
           "#attachment-title-tabs",

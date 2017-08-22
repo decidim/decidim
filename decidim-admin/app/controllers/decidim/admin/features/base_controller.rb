@@ -7,16 +7,18 @@ module Decidim
       # controllers in their admin engines should inherit from.
       class BaseController < Admin::ApplicationController
         skip_authorize_resource
-        include Concerns::ParticipatoryProcessAdmin
         include Settings
 
         helper Decidim::ResourceHelper
         helper Decidim::Admin::ExportsHelper
 
         helper_method :current_feature,
+                      :current_participatory_space,
                       :parent_path
 
-        delegate :active_step, to: :current_participatory_process, prefix: false
+        before_action do
+          extend current_participatory_space.admin_extension_module
+        end
 
         before_action except: [:index, :show] do
           authorize! :manage, current_feature
@@ -30,8 +32,12 @@ module Decidim
           request.env["decidim.current_feature"]
         end
 
+        def current_participatory_space
+          current_feature.participatory_space
+        end
+
         def parent_path
-          decidim_admin.features_path(current_participatory_process)
+          @parent_path ||= EngineRouter.admin_proxy(current_participatory_space).features_path
         end
       end
     end

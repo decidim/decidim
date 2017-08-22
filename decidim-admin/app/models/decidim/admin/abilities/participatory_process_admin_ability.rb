@@ -25,11 +25,11 @@ module Decidim
           super
 
           can :manage, Feature do |feature|
-            can_manage_process?(feature.participatory_process)
+            can_manage_process?(feature.participatory_space)
           end
 
           can :manage, Category do |category|
-            can_manage_process?(category.participatory_process)
+            can_manage_process?(category.participatory_space)
           end
 
           can :manage, Attachment do |attachment|
@@ -41,7 +41,7 @@ module Decidim
           end
 
           can :manage, Moderation do |moderation|
-            can_manage_process?(moderation.participatory_process)
+            can_manage_process?(moderation.participatory_space)
           end
 
           can :manage, ParticipatoryProcessStep do |step|

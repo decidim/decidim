@@ -19,7 +19,7 @@ module Decidim
       attribute :weight, Integer, default: 0
 
       attribute :step_settings, Hash[String => Object]
-      attribute :participatory_process
+      attribute :participatory_space
 
       def map_model(model)
         self.attributes = model.attributes
@@ -36,7 +36,7 @@ module Decidim
       end
 
       def step_settings?
-        return false unless participatory_process.steps.any?
+        return false unless participatory_space.has_steps?
 
         step_settings
           .values

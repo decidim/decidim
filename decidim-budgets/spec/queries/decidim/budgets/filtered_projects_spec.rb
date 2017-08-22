@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::Budgets::FilteredProjects do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization: organization) }
-  let(:feature) { create(:budget_feature, participatory_process: participatory_process) }
-  let(:another_feature) { create(:budget_feature, participatory_process: participatory_process) }
+  let(:feature) { create(:budget_feature, participatory_space: participatory_process) }
+  let(:another_feature) { create(:budget_feature, participatory_space: participatory_process) }
 
   let(:projects) { create_list(:project, 3, feature: feature) }
   let(:old_projects) { create_list(:project, 3, feature: feature, created_at: 10.days.ago) }

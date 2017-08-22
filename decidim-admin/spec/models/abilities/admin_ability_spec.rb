@@ -16,8 +16,6 @@ describe Decidim::Admin::Abilities::AdminAbility do
     end
   end
 
-  it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcess) }
-  it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcessStep) }
   it { is_expected.to be_able_to(:manage, Decidim::Moderation) }
   it { is_expected.to be_able_to(:manage, Decidim::Attachment) }
   it { is_expected.to be_able_to(:manage, Decidim::Scope) }

@@ -20,7 +20,7 @@ module Decidim
         end
 
         can :read, Feature do |feature|
-          can_manage_process?(feature.participatory_process)
+          can_manage_process?(feature.participatory_space)
         end
       end
     end

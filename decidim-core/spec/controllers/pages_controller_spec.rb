@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/dev/test/promoted_participatory_processes_shared_examples"
 
 module Decidim
   module Devise

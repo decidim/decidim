@@ -7,7 +7,7 @@ module Decidim
     let(:participatory_process) { create(:participatory_process, id: 42) }
 
     let(:feature) do
-      create(:feature, id: 21, participatory_process: participatory_process)
+      create(:feature, id: 21, participatory_space: participatory_process)
     end
 
     describe "main_feature_path" do
