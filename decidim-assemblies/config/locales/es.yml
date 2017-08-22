@@ -1,0 +1,17 @@
+es:
+  decidim:
+    admin:
+      assemblies:
+        edit:
+          update: Actualizar
+        form:
+          title: Información general
+        index:
+          not_published: No publicado
+          published: Publicado
+        new:
+          create: Crear
+      menu:
+        assemblies_submenu:
+          attachments: Archivos adjuntos
+          categories: Categorías
