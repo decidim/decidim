@@ -48,6 +48,7 @@ module Decidim
             hero_image: form.hero_image,
             banner_image: form.banner_image,
             promoted: form.promoted,
+            scopes_enabled: form.scopes_enabled,
             scope: form.scope,
             developer_group: form.developer_group,
             local_area: form.local_area,

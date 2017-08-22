@@ -25,6 +25,7 @@ module Decidim
         attribute :slug, String
         attribute :hashtag, String
         attribute :promoted, Boolean
+        attribute :scopes_enabled, Boolean
         attribute :scope_id, Integer
         attribute :hero_image
         attribute :remove_hero_image

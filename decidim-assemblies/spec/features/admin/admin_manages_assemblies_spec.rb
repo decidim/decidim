@@ -224,4 +224,28 @@ describe "Admin manages assemblies", type: :feature do
       end
     end
   end
+
+  context "when the assembly has a scope" do
+    let(:scope) { create(:scope, organization: organization) }
+
+    before do
+      assembly.update_attributes!(scopes_enabled: true, scope: scope)
+    end
+
+    it "disables the scope for the assembly" do
+      click_link translated(assembly.title)
+
+      uncheck :assembly_scopes_enabled
+
+      expect(page).to have_selector("select#assembly_scope_id[disabled]")
+
+      within ".edit_assembly" do
+        find("*[type=submit]").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+    end
+  end
 end
