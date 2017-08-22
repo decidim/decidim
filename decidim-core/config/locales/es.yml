@@ -163,7 +163,6 @@ es:
     menu:
       home: Inicio
       more_information: Más información
-      processes: Procesos
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
@@ -184,39 +183,6 @@ es:
     pages:
       index:
         title: Más información
-    participatory_process_groups:
-      show:
-        group_participatory_processes: Procesos para %{group}
-        title: Grupo de procesos participativos
-    participatory_process_steps:
-      index:
-        process_steps: Las fases de proceso
-        title: Fases del proceso participativo
-    participatory_processes:
-      index:
-        title: Procesos participativos
-      show:
-        developer_group: Grupo promotor
-        end_date: Fecha de finalización
-        local_area: Áreas municipales
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
-        scope: Ámbito
-        target: '¿A quién va dirigido?'
-      statistics:
-        answers_count: Respuestas
-        comments_count: Comentarios
-        headline: Actividad
-        meetings_count: Encuentros
-        orders_count: Votos
-        pages_count: Páginas
-        processes_count: Procesos
-        projects_count: Proyectos
-        proposals_count: Propuestas
-        results_count: Resultados
-        surveys_count: Encuestas
-        users_count: Participantes
-        votes_count: Soportes
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -335,35 +301,6 @@ es:
         close_session: Cerrar la sesión
         description_html: Te estás haciendo pasar por el usuario <b>%{user_name}</b>.
         expire_time_html: Su sesión expirará en <b><span class="minutes">%{minutes}</span> minutos</b>.
-      participatory_process_groups:
-        participatory_process_group:
-          browse: Explorar
-      participatory_process_widgets:
-        show:
-          active_step: Fase activa
-          take_part: Participa
-      participatory_processes:
-        index:
-          promoted_processes: Procesos destacados
-        no_processes_yet:
-          no_processes_yet: No hay procesos participativos todavía!
-        order_by_processes:
-          processes:
-            one: "%{count} proceso"
-            other: "%{count} procesos"
-        participatory_process:
-          active_step: 'Fase actual:'
-          take_part: Participa
-        promoted_process:
-          active_step: 'Fase actual:'
-          more_info: Más información
-          take_part: Participa
-      process_header:
-        process_menu_item: El proceso
-        unfold: Desplegar
-      process_header_steps:
-        step: Fase %{current} de %{total}
-        view_steps: Ver las fases
       user_menu:
         admin_dashboard: Tablero de administración
         profile: Mi cuenta
