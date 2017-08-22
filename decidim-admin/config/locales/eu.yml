@@ -46,6 +46,7 @@ eu:
         participatory_structure: Egitura partizipatiboa
         promoted: Nabarmendua
         scope_id: Esparrua
+        scopes_enabled: Esparruak gaituta
         short_description: Deskribapen laburra
         slug: URL testu laburra
         subtitle: Azpititulua
@@ -67,6 +68,7 @@ eu:
         name: Izena
         role: Rola
       scope:
+        code: Kodea
         name: Izena
         organization: Erakundea
         scope_type: Esparru mota
@@ -115,6 +117,7 @@ eu:
       actions:
         activate: Aktibatu
         add: Gehitu
+        browse: Arakatu
         configure: Konfiguratu
         confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
         destroy: Kendu
@@ -221,6 +224,13 @@ eu:
           name: Izena
         impersonate:
           error: Errore bat gertatu da kudeatutako erabiltzailea ordezkatzean.
+        index:
+          promote: Goratu
+          view_logs: Ikusi erregistroak
+        new:
+          create: Sortu
+          new_managed_user: Erabiltzaile kudeatu berria
+          select_authorization_method: Hautatu autorizazio metodoa
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
@@ -248,6 +258,9 @@ eu:
           name: Fitxategi erantsia
         category:
           name: Kategoria
+        impersonation_log:
+          fields:
+            admin: Administratzailea
         newsletter:
           fields:
             created_at: Sortze-data
