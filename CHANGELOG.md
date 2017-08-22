@@ -1,6 +1,11 @@
 # Change Log
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+
+**Fixed**
+
+- **decidim-participatory_processes**: Scopes enabled checkbox being ignored in participatory process creation. [\#1762](https://https://github.com/decidim/decidim/pull/1762)
+
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.5.1...HEAD)
 
 **Added**
