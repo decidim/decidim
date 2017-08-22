@@ -231,6 +231,7 @@ eu:
           create: Sortu
           new_managed_user: Erabiltzaile kudeatu berria
           select_authorization_method: Hautatu autorizazio metodoa
+          step: '%{total} fasetatik %{current}.a'
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
@@ -482,6 +483,18 @@ eu:
       scope_types:
         create:
           error: Errore bat gertatu da esparru mota berri bat sortzean.
+          success: Esparru mota arrakastaz sortu da.
+        destroy:
+          success: Esparru mota arrakastaz suntsitu da
+        edit:
+          title: Editatu esparru mota
+          update: Eguneratu
+        new:
+          create: Sortu esparru mota
+          title: Esparru berria
+        update:
+          error: Errore bat gertatu da esparru mota hau eguneratzean.
+          success: Esparru mota arrakastaz eguneratu da
       scopes:
         create:
           error: Errorea gertatu da esparru berri bat sortzean.
@@ -494,6 +507,7 @@ eu:
         new:
           create: Sortu esparrua
           title: Esparru berria
+        no_scopes: Maila honetan ez dago esparrurik.
         update:
           error: Errorea gertatu da esparru hau eguneratzean.
           success: Esparrua zuzen eguneratu da
@@ -516,15 +530,22 @@ eu:
           success: Orria zuzen eguneratu da.
       titles:
         dashboard: Kontrol-panela
+        managed_users: Kudeatutako erabiltzaileak
         participatory_process_groups: Prozesu partizipatiboen multzoak
         participatory_processes: Prozesu partizipatiboak
+        scope_types: Esparru motak
         scopes: Esparruak
         static_pages: Erlaitzak
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
+      user_group:
+        reject:
+          invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.
+          success: Erabiltzaile taldea arrakastaz arbuiatua
       user_groups:
         index:
           filter:
+            all: Guztiak
             pending: Zain
             rejected: Ukatua
             verified: Egiaztatuta
