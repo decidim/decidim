@@ -64,7 +64,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_participatory_processes.assets" do |app|
+      initializer "decidim_participatory_processes.admin_assets" do |app|
         app.config.assets.precompile += %w(decidim_participatory_processes_manifest.js)
       end
 
