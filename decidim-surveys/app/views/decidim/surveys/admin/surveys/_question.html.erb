@@ -3,7 +3,7 @@
     <h2 class="card-title">
     <span>
       <% if survey.questions_editable? %>
-        <%= "#{icon("move")} #{t(".question")}" %>
+        <%== "#{icon("move")} #{t(".question")}" %>
       <% else %>
         <%= t(".question") %>
       <% end %>
