@@ -261,6 +261,9 @@ eu:
         impersonation_log:
           fields:
             admin: Administratzailea
+            user: Erabiltzailea
+        managed_user:
+          name: Erabiltzaile kudeatua
         newsletter:
           fields:
             created_at: Sortze-data
@@ -294,9 +297,11 @@ eu:
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
+            moderator: Moderatzailea
         scope:
           fields:
             name: Izena
+            scope_type: Esparru mota
         scope_type:
           fields:
             name: Izena
@@ -329,6 +334,11 @@ eu:
       moderations:
         index:
           title: ' Moderazioak '
+        report:
+          reasons:
+            does_not_belong: Ez du zer ikusirik
+            offensive: Iraingarria
+            spam: Spam
       newsletters:
         create:
           error: ' Errorea gertatu da buletin hau sortzean.'
@@ -378,6 +388,7 @@ eu:
         new:
           copy: Copy
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
+          title: Partehartze prozesua bikoiztu
       participatory_process_groups:
         destroy:
           success: Multzoa zuzen deuseztatu da.
@@ -414,6 +425,8 @@ eu:
         edit:
           title: Editatu prozesu partizipatiboaren fasea
           update: Eguneratu
+        index:
+          steps_title: Prozesuaren faseak
         new:
           create: Sortu
           title: Prozesu partizipatiboaren fase berria
@@ -431,6 +444,8 @@ eu:
         edit:
           title: Prozesu partizipatiboko erabiltzailea eguneratzea.
           update: Eguneratu
+        index:
+          process_admins_title: Prozesu partehartzailearen erabiltzaileak
         new:
           create: Sortu
           title: Partaidetza-prozesu berriko erabiltzailea.
@@ -464,6 +479,9 @@ eu:
         create:
           error: Errorea gertatu da multzo hau sortzean.
           success: Multzoa zuzen eguneratu da.
+      scope_types:
+        create:
+          error: Errore bat gertatu da esparru mota berri bat sortzean.
       scopes:
         create:
           error: Errorea gertatu da esparru berri bat sortzean.
