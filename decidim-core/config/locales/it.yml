@@ -107,7 +107,6 @@ it:
         error: Si è verificato un errore in questo campo.
     menu:
       more_information: Ulteriori informazioni
-      processes: Processi
     newsletter_mailer:
       newsletter:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
@@ -125,24 +124,6 @@ it:
     pages:
       index:
         title: Informazione
-    participatory_process_groups:
-      show:
-        group_participatory_processes: Processi per %{group}
-        title: Titolo
-    participatory_process_steps:
-      index:
-        process_steps: Fasi del processo
-        title: Fasi del processo partecipativo
-    participatory_processes:
-      index:
-        title: Processi partecipativi
-      show:
-        developer_group: Gruppo promotore
-        end_date: Data di fine
-        local_area: Municipi
-        participatory_scope: Ambito partecipativo
-        participatory_structure: Struttura partecipativa
-        scope: Ambito
     reported_mailer:
       hide:
         hello: Ciao %{name},
@@ -238,35 +219,6 @@ it:
         navigation: Navigazione
         sign_in: Accedi
         sign_up: Registrati
-      participatory_process_groups:
-        participatory_process_group:
-          browse: Naviga
-      participatory_process_widgets:
-        show:
-          active_step: Fasi attive
-          take_part: Unisciti
-      participatory_processes:
-        index:
-          promoted_processes: Processi evidenziati
-        no_processes_yet:
-          no_processes_yet: Non ci sono ancora processi partecipativi!
-        order_by_processes:
-          processes:
-            one: "%{count} processo"
-            other: "%{count} processi"
-        participatory_process:
-          active_step: 'Fase attuale:'
-          take_part: Partecipa
-        promoted_process:
-          active_step: 'Fase attuale:'
-          more_info: Più informazioni
-          take_part: Partecipa
-      process_header:
-        process_menu_item: Il processo
-        unfold: Espandi
-      process_header_steps:
-        step: Fase %{current} di %{total}
-        view_steps: Visualizza le fasi
       user_menu:
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
         profile: Il mio account
