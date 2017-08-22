@@ -24,32 +24,6 @@ it:
         reference_prefix: Prefisso
         show_statistics: Mostra statistiche
         welcome_text: Testo di benvenuto
-      participatory_process:
-        banner_image: Immagine Banner
-        description: Descrizione
-        developer_group: Gruppo di sviluppo
-        domain: Dominio
-        end_date: Data di fine
-        hero_image: Immagine per la Home
-        participatory_process_group_id: Gruppo di processi
-        participatory_structure: Struttura partecipativa
-        promoted: Promosso
-        short_description: Descrizione breve
-        subtitle: Sottotitolo
-        title: Titolo
-      participatory_process_group:
-        description: Descrizione
-        hero_image: Immagine
-        participatory_process_ids: Processi correlati
-      participatory_process_step:
-        description: Descrizione
-        end_date: Data di fine
-        short_description: Descrizione breve
-        start_date: Data di inizio
-        title: Titolo
-      participatory_process_user_role:
-        name: Nome
-        role: Ruolo
       scope:
         name: Nome
         organization: Organizzazione
@@ -174,16 +148,6 @@ it:
       menu:
         admins: Amministratori
         dashboard: Cruscotto (Dashboard)
-        participatory_process_groups: Gruppo di processi
-        participatory_processes: Processi
-        participatory_processes_submenu:
-          attachments: Allegati
-          categories: Categorie
-          features: Funzionalità (features)
-          info: Informazioni
-          moderations: Moderazioni
-          process_admins: Utenti
-          steps: Fasi (Steps)
         scopes: Visibilità/ambito (Scopes)
         settings: Impostazioni
         static_pages: Pagine
@@ -203,31 +167,6 @@ it:
             progress: Avanzamento
             sent_at: Inviato alle
             subject: Oggetto
-        participatory_process:
-          fields:
-            created_at: Creato il
-            promoted: Evidenziato
-            published: Pubblicato
-            title: Titolo
-          name: Processo partecipativo
-        participatory_process_group:
-          fields:
-            name: Nome
-          name: Gruppo di processi
-        participatory_process_step:
-          fields:
-            end_date: Data di fine
-            start_date: Data di inizio
-            title: Titolo
-          name: Fase del processo partecipativo
-        participatory_process_user_role:
-          fields:
-            name: Nome
-            role: Ruolo
-          name: Utente del processo partecipativo
-          roles:
-            admin: Amministratore
-            collaborator: Collaboratore
         scope:
           fields:
             name: Nome
@@ -288,93 +227,6 @@ it:
         update:
           error: Si è verificato un errore durante la modifica di questa organizzazione.
           success: OK, l'organizzazione è stata modificata.
-      participatory_process_copies:
-        new:
-          copy: Copia
-          select: Scegli quale quale dato vuoi duplicare
-      participatory_process_groups:
-        edit:
-          title: Aggiorna un gruppo di processi
-          update: Aggiorna
-        new:
-          create: Crea
-          title: Nuovo gruppo di processi
-        update:
-          error: Si è verificato un errore aggiornando questo gruppo di processi partecipativi.
-          success: OK, il gruppo di processi partecipativi è stato modificato.
-      participatory_process_publications:
-        create:
-          error: Si è verificato un errore durante la pubblicazione di questo processo partecipativo.
-          success: OK, il processo partecipativo è stato pubblicato.
-        destroy:
-          error: Si è verificato un errore cercando di togliere dalla pubblicazione questo processo partecipativo.
-          success: OK, il processo partecipativo è stato tolto dalla pubblicazione.
-      participatory_process_step_activations:
-        create:
-          error: Si è verificato un errore cercando di attivare questa fase del processo partecipativo.
-          success: OK, il processo partecipativo è stato attivato.
-      participatory_process_steps:
-        create:
-          error: Si è verificato un errore creando questa nuova fase (step) di processo partecipativo.
-          success: OK, è stato creato il nuovo processo partecipativo.
-        default_title: Introduzione
-        destroy:
-          error:
-            active_step: Non è possibile cancellare questa fase poiché è attiva.
-            last_step: Non è possibile cancellare l'ultima fase di un processo.
-          success: OK, il processo partecipativo è stato eliminato.
-        edit:
-          title: Modifica una fase del processo partecipativo.
-          update: Aggiorna
-        new:
-          create: Crea
-          title: Nuova fase del processo partecipativo.
-        ordering:
-          error: Si è verificato un errore cercando di ri-ordinare le fasi di questo processo partecipativo.
-        update:
-          error: Si è verificato un errore durante l'aggiornamento di questa fase del processo partecipativo.
-          success: OK, questa fase del processo partecipativo è stata aggiornata.
-      participatory_process_user_roles:
-        create:
-          error: Si è verificato un errore cercando di aggiungere un nuovo utente per questo processo partecipativo.
-          success: OK, è stato creato l'utente per questo processo partecipativo.
-        destroy:
-          success: L'utente per questo processo processo partecipativo è stato eliminato.
-        edit:
-          title: Aggiornamento utente di un processo partecipativo.
-          update: Aggiorna
-        new:
-          create: Crea
-          title: Nuovo utente per un processo partecipativo.
-        update:
-          error: Si è verificato un errore durante la fase di aggiornamento per questo processo partecipativo.
-          success: OK, è stato aggiornato l'utente per questo processo partecipativo.
-      participatory_processes:
-        create:
-          error: Si è verificato un errore durante la creazione del processo partecipativo.
-        destroy:
-          success: OK, il processo partecipativo è stato eliminato.
-        edit:
-          update: Aggiorna
-        form:
-          title: Informazioni generali
-        index:
-          not_published: Non pubblicato
-          published: Pubblicato
-        new:
-          create: Crea
-          title: Nuovo processo partecipativo.
-        update:
-          error: Si è verificato un errore durante l'aggiornamento di questo processo partecipativo.
-          success: OK, il processo partecipativo è stato aggiornato.
-      participatory_processes_copies:
-        create:
-          error: Si è verificato un errore cercando di duplicare questo processo partecipativo.
-          success: OK, il processo partecipativo è stato duplicato.
-      participatory_processes_group:
-        create:
-          error: Si è verificato un errore cercando di creare il nuovo gruppo di processi partecipativi.
-          success: OK, il gruppo di processi partecipativi è stato creato.
       scopes:
         create:
           error: Si è verificato un errore creando un nuovo ambito.
@@ -409,8 +261,6 @@ it:
           success: OK, la pagina è stata aggiornata.
       titles:
         dashboard: Cruscotto (Dashboard)
-        participatory_process_groups: Gruppo di processi partecipativi
-        participatory_processes: Processi partecipativi
         scopes: Ambiti
         static_pages: Pagine
         user_groups: Gruppi di utenti
@@ -452,9 +302,6 @@ it:
             report_count: Conteggio
             reportable: Inseribile
             reports: Report
-    participatory_processes:
-      participatory_process_groups:
-        none: Nessuno
   layouts:
     decidim:
       admin:
