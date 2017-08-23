@@ -28,6 +28,7 @@ describe Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess do
       description: { en: "description" },
       short_description: { en: "short_description" },
       current_organization: organization,
+      scopes_enabled: true,
       scope: scope,
       errors: errors,
       participatory_process_group: participatory_process_group
