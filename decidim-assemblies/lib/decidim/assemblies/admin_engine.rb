@@ -52,7 +52,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_assemblies.assets" do |app|
+      initializer "decidim_assemblies.admin_assets" do |app|
         app.config.assets.precompile += %w(decidim_assemblies_manifest.js)
       end
 
