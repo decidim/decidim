@@ -10,7 +10,6 @@
 // = require moment.min
 // = require ./select2
 // = require ./scopes
-// = require ./participatory_processes
 // = require_self
 
 window.Decidim = window.Decidim || {};

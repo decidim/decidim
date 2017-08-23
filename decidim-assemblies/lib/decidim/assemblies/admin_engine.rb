@@ -53,7 +53,7 @@ module Decidim
       end
 
       initializer "decidim_assemblies.admin_assets" do |app|
-        app.config.assets.precompile += %w(decidim_assemblies_manifest.js)
+        app.config.assets.precompile += %w(admin/decidim_assemblies_manifest.js)
       end
 
       initializer "decidim_assemblies.inject_abilities_to_user" do |_app|

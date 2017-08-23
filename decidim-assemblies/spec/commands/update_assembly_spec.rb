@@ -31,6 +31,7 @@ module Decidim
                 short_description_ca: my_assembly.short_description,
                 short_description_es: my_assembly.short_description,
                 current_organization: my_assembly.organization,
+                scopes_enabled: my_assembly.scopes_enabled,
                 scope: my_assembly.scope,
                 errors: my_assembly.errors,
                 show_statistics: my_assembly.show_statistics

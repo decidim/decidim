@@ -26,6 +26,7 @@ describe Decidim::Assemblies::Admin::CreateAssembly do
       description: { en: "description" },
       short_description: { en: "short_description" },
       current_organization: organization,
+      scopes_enabled: true,
       scope: scope,
       errors: errors
     )
