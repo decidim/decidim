@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim", Decidim.version
   s.add_dependency "factory_girl_rails"
   s.add_dependency "database_cleaner", "~> 1.6.0"
-  s.add_dependency "capybara", "~> 2.14.0"
+  s.add_dependency "capybara", "~> 2.15.0"
   s.add_dependency "capybara-screenshot", "~> 1.0.14"
 
   s.add_dependency "rspec-rails", "~> 3.6.1"
