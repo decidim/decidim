@@ -154,6 +154,12 @@ module Decidim
 
       initializer "decidim.notifications" do
         Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event, data|
+          EmailNotificationGeneratorJob.perform_later(
+            event,
+            data[:event_class],
+            data[:resource],
+            data[:recipient_ids]
+          )
           NotificationGeneratorJob.perform_later(
             event,
             data[:event_class],
