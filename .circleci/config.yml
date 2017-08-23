@@ -35,21 +35,21 @@ jobs:
             case $CIRCLE_NODE_INDEX in
               0)
                 (cd /code && time npm run lint) &&
-                (cd /code && time npm test -- decidim-api) &&
-                (cd /code/decidim-api && time bundle exec rake) &&
+                (cd /code && time bundle exec rspec) &&
                 (cd /code && time npm test -- decidim-core) &&
                 (cd /code/decidim-core && time bundle exec rake) &&
-                (cd /code && time npm test -- decidim-participatory_processes) &&
-                (cd /code/decidim-participatory_processes && time bundle exec rake) &&
                 (cd /code && time npm test -- decidim-assemblies) &&
                 (cd /code/decidim-assemblies && time bundle exec rake)
                 ;;
               1)
-                (cd /code && time bundle exec rspec) &&
+                (cd /code && time npm test -- decidim-api) &&
+                (cd /code/decidim-api && time bundle exec rake) &&
+                (cd /code && time npm test -- decidim-participatory_processes) &&
+                (cd /code/decidim-participatory_processes && time bundle exec rake) &&
                 (cd /code && time npm test -- decidim-admin) &&
                 (cd /code/decidim-admin && time bundle exec rake) &&
-                (cd /code && time npm test -- decidim-meetings) &&
-                (cd /code/decidim-meetings && time bundle exec rake)
+                (cd /code && time npm test -- decidim-system) &&
+                (cd /code/decidim-system && time bundle exec rake)
                 ;;
               2)
                 (cd /code && time npm test -- decidim-proposals) &&
@@ -58,10 +58,10 @@ jobs:
                 (cd /code/decidim-comments && time bundle exec rake)
                 ;;
               3)
+                (cd /code && time npm test -- decidim-meetings) &&
+                (cd /code/decidim-meetings && time bundle exec rake)
                 (cd /code && time npm test -- decidim-pages) &&
                 (cd /code/decidim-pages && time bundle exec rake) &&
-                (cd /code && time npm test -- decidim-system) &&
-                (cd /code/decidim-system && time bundle exec rake) &&
                 (cd /code && time npm test -- decidim-results) &&
                 (cd /code/decidim-results && time bundle exec rake) &&
                 (cd /code && time npm test -- decidim-budgets) &&
