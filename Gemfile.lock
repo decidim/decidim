@@ -204,7 +204,7 @@ GEM
       execjs (~> 2.0)
     bcrypt (3.1.11)
     builder (3.2.3)
-    byebug (9.0.6)
+    byebug (9.1.0)
     cancancan (2.0.0)
     capybara (2.14.4)
       addressable
