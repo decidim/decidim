@@ -5,6 +5,7 @@
 **Fixed**
 
 - **decidim-participatory_processes**: Scopes enabled checkbox being ignored in participatory process creation. [\#1762](https://https://github.com/decidim/decidim/pull/1762)
+- **decidim-surveys**: Drag & drop icon incorrectly rendered in form. [\#1761](https://https://github.com/decidim/decidim/pull/1761)
 
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.5.1...HEAD)
 
