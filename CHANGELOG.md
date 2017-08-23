@@ -1,6 +1,11 @@
 # Change Log
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+
+**Fixed**
+
+- **decidim-surveys**: Drag & drop icon incorrectly rendered in form. [\#1761](https://https://github.com/decidim/decidim/pull/1761)
+
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.5.1...HEAD)
 
 **Added**
