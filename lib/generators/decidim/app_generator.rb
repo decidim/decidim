@@ -21,11 +21,17 @@ module Decidim
       def source_paths
         [
           File.expand_path("templates", __dir__),
-          File.expand_path(File.join(Gem::Specification
-                                                  .find_by_name("railties").gem_dir,
-                                     "lib", "rails", "generators", "rails",
-                                     "app", "templates"))
-
+          File.expand_path(
+            File.join(
+              Gem::Specification.find_by_name("railties").gem_dir,
+              "lib",
+              "rails",
+              "generators",
+              "rails",
+              "app",
+              "templates"
+            )
+          )
         ]
       end
 
