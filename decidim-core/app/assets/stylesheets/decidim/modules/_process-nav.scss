@@ -83,6 +83,16 @@
     width: 25px;
     height: 25px;
     fill: $muted;
+
+    .stroked-shape{
+      fill: none;
+      fill-opacity: 1;
+      stroke-width: 2.01957917;
+      stroke-miterlimit: 4;
+      stroke-dasharray: none;
+      stroke-dashoffset: 0;
+      stroke: $muted;
+    }
   }
 }
 
@@ -92,6 +102,10 @@
     color: $primary;
     svg{
       fill: $primary;
+
+      .stroked-shape{
+        stroke: $primary;
+      }
     }
   }
 }
