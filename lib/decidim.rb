@@ -9,7 +9,7 @@ require "decidim/participatory_processes"
 
 begin
   require "decidim/assemblies"
-rescue
+rescue LoadError
   nil
 end
 
