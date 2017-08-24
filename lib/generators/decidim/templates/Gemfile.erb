@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 ruby '<%= RUBY_VERSION %>'
+
 <% if options[:path] %>
 gem "decidim", path: "<%= options[:path] %>"
 <% elsif options[:edge] %>
@@ -12,6 +13,7 @@ gem "decidim", "<%= Gem::Specification.find_by_name("decidim").version %>"
 <% end %>
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
+
 gem 'faker', "<%= Decidim.faker_version %>"
 
 group :development, :test do
