@@ -15,6 +15,10 @@ module Decidim
     describe "POST create" do
       let(:locale) { "ca" }
 
+      around do |example|
+        I18n.with_locale(I18n.locale) { example.run }
+      end
+
       context "when the user is signed in" do
         let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
 
