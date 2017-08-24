@@ -13,6 +13,9 @@ module Decidim
             abide: true,
             "live-validate" => true,
             "validate-on-blur" => true
+          },
+          html: {
+            novalidate: true
           }
         }
 

@@ -13,6 +13,10 @@ module Decidim
     def decidim_form_for(record, options = {}, &block)
       options[:data] ||= {}
       options[:data].update(abide: true, "live-validate" => true, "validate-on-blur" => true)
+
+      options[:html] ||= {}
+      options[:html].update(novalidate: true)
+
       form_for(record, options, &block)
     end
 
