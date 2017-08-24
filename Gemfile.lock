@@ -560,8 +560,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1.12)
   decidim!
   decidim-dev!
+  rake (~> 12.0.0)
+  rspec (~> 3.0)
 
 RUBY VERSION
    ruby 2.4.1p111
