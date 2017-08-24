@@ -9,7 +9,7 @@ ruby "<%= RUBY_VERSION %>"
                    elsif options[:branch]
                      "git: \"https://github.com/decidim/decidim.git\", branch: \"#{options[:branch]}\""
                    else
-                     "\"#{Gem::Specification.find_by_name("decidim").version}\""
+                     "\"#{Decidim.version}\""
                    end -%>
 
 gem "decidim", <%= gem_modifier %>
