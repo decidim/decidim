@@ -8,6 +8,7 @@ describe Decidim::EmailNotificationGenerator do
   let(:follow) { create(:follow, resource: resource, user: recipient) }
   let(:recipient) { resource.author }
   let(:event_class) { Decidim::Events::BaseEvent }
+  let(:event_class_name) { "Decidim::Events::BaseEvent" }
   let(:recipient_ids) { [recipient.id] }
   subject { described_class.new(event, event_class, resource, recipient_ids) }
 
@@ -22,7 +23,7 @@ describe Decidim::EmailNotificationGenerator do
       it "schedules a job for each recipient" do
         expect(Decidim::NotificationMailer)
           .to receive(:event_received)
-          .with(event, event_class, resource, recipient)
+          .with(event, event_class_name, resource, recipient)
           .and_return(mailer)
         expect(mailer).to receive(:deliver_later)
 
