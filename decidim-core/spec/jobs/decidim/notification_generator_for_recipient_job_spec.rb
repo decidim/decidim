@@ -14,6 +14,7 @@ describe Decidim::NotificationGeneratorForRecipientJob do
   describe "perform" do
     let(:event) { double :event }
     let(:event_class) { Decidim::Events::BaseEvent }
+    let(:event_class_name) { "Decidim::Events::BaseEvent" }
     let(:resource) { double :resource }
     let(:recipient) { double :recipient }
     let(:generator) { double :generator }
@@ -26,7 +27,7 @@ describe Decidim::NotificationGeneratorForRecipientJob do
       expect(generator)
         .to receive(:generate)
 
-      subject.perform_now(event, event_class, resource, recipient)
+      subject.perform_now(event, event_class_name, resource, recipient)
     end
   end
 end

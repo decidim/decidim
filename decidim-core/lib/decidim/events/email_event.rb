@@ -1,3 +1,5 @@
+# frozen-string_literal: true
+
 module Decidim
   module Events
     # This module is used to be included in event classes (those inheriting from
@@ -15,6 +17,28 @@ module Decidim
 
       included do
         types << :email
+
+        def email_subject
+          I18n.t("decidim.events.email_event.email_subject", resource_title: resource_title)
+        end
+
+        def email_greeting
+          I18n.t("decidim.events.email_event.email_greeting", user_name: user.name)
+        end
+
+        def email_intro
+          I18n.t("decidim.events.email_event.email_intro", resource_title: resource_title)
+        end
+
+        def email_outro
+          I18n.t("decidim.events.email_event.email_outro", resource_title: resource_title)
+        end
+
+        private
+
+        def resource_title
+          resource.title.is_a?(Hash) ? resource.title[I18n.locale.to_s] : resource.title
+        end
       end
     end
   end
