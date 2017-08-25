@@ -22,8 +22,8 @@ describe Decidim::EmailNotificationGeneratorJob do
     it "delegates the work to the class" do
       expect(Decidim::EmailNotificationGenerator)
         .to receive(:new)
-              .with(event, event_class, followable, recipient_ids)
-              .and_return(generator)
+        .with(event, event_class, followable, recipient_ids)
+        .and_return(generator)
       expect(generator)
         .to receive(:generate)
 
