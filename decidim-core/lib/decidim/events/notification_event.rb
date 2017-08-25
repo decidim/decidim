@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Decidim
   module Events
     # This module is used to be included in event classes (those inheriting from
