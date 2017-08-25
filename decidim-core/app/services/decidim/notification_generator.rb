@@ -39,7 +39,7 @@ module Decidim
     def generate_notification_for(recipient_id)
       NotificationGeneratorForRecipientJob.perform_later(
         event,
-        event_class,
+        event_class.name,
         resource,
         recipient_id
       )
