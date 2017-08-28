@@ -15,6 +15,14 @@ module Decidim
       where.not(read_at: nil)
     end
 
+    def unread?
+      !read?
+    end
+
+    def read?
+      read_at.present?
+    end
+
     def event_class_instance
       @event_class_instance ||= event_class.constantize.new(resource: resource, event_name: event_name, user: user)
     end
