@@ -1,0 +1,18 @@
+<div class="card--list__item">
+  <div class="card--list__text">
+    <%= link_to notification.event_class_instance.resource_path do %>
+      <%= resource_icon notification.followable, class: "icon--chat card--list__icon" %>
+    <% end %>
+    <div>
+      <h5 class="card--list__heading">
+        <%= notification.event_class_instance.notification_title %>
+      </h5>
+      <span class="text-small"><%= l notification.created_at.to_date, format: :long %></span>
+    </div>
+  </div>
+  <div class="card--list__data">
+    <a href="" class="card--list__data__icon">
+      <svg class="icon icon--chevron-right "> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/icons.svg#icon-chevron-right"></use> </svg>
+    </a>
+  </div>
+</div>

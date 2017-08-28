@@ -40,9 +40,29 @@ module Decidim
         @user = user
       end
 
+      # Caches the locator for the given resource, so that
+      # we can find the resource URL.
+      def resource_locator
+        @resource_locator ||= Decidim::ResourceLocatorPresenter.new(resource)
+      end
+
+      # Caches the path for the given resource.
+      def resource_path
+        @resource_url ||= resource_locator.path
+      end
+
+      # Caches the URL for the given resource.
+      def resource_url
+        @resource_url ||= resource_locator.url
+      end
+
       private
 
       attr_reader :event_name, :resource, :user
+
+      def resource_title
+        resource.title.is_a?(Hash) ? resource.title[I18n.locale.to_s] : resource.title
+      end
     end
   end
 end
