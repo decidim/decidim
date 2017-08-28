@@ -1,7 +1,11 @@
 <div class="reveal" data-reveal id="meeting-registration-confirm">
   <div class="row">
+    <div class="columns medium-10 medium-offset-1 help-text">
+      <%== translated_attribute(meeting.registration_terms) %>
+    </div>
+  </div>
+  <div class="row">
     <div class="columns medium-8 medium-offset-2">
-      <%== translated_attribute meeting.registration_terms %>
       <%= button_to t('.confirm'), meeting_registration_path(meeting), class: "button expanded" %>
     </div>
   </div>
