@@ -1,7 +1,7 @@
 <div class="card--list__item">
   <div class="card--list__text">
     <%= link_to notification.event_class_instance.resource_path do %>
-      <%= resource_icon notification.followable, class: "icon--chat card--list__icon" %>
+      <%= resource_icon notification.resource, class: "icon--chat card--list__icon" %>
     <% end %>
     <div>
       <h5 class="card--list__heading">
