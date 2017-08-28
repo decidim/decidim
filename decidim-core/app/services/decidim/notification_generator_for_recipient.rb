@@ -35,8 +35,8 @@ module Decidim
       Notification.create!(
         user: recipient,
         event_class: event_class,
-        followable: resource,
-        notification_type: event
+        resource: resource,
+        event_name: event
       )
     end
 
