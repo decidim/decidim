@@ -7,6 +7,7 @@ class CreateDecidimNotifications < ActiveRecord::Migration[5.1]
       t.references :decidim_resource, polymorphic: true, index: false, null: false
       t.string :event_name, null: false
       t.string :event_class, null: false
+      t.datetime :read_at
       t.timestamps
     end
   end

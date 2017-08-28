@@ -18,11 +18,11 @@ module Decidim
     end
 
     def unread_notifications
-      @unread_notifications ||= collection.limit(3)
+      @unread_notifications ||= collection.unread
     end
 
     def read_notifications
-      @read_notifications ||= collection.offset(3)
+      @read_notifications ||= collection.read
     end
   end
 end
