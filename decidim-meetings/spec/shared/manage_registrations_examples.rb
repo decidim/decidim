@@ -39,8 +39,6 @@ shared_examples "manage registrations" do
     end
   end
 
-  # frozen_string_literal: true
-
   context "export registrations" do
     let!(:registrations) { create_list :registration, 10, meeting: meeting }
 

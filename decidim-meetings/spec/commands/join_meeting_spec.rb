@@ -14,7 +14,7 @@ describe Decidim::Meetings::JoinMeeting do
       expect { subject.call }.to broadcast(:ok)
     end
 
-    it "creates an registration for the meeting and the user" do
+    it "creates a registration for the meeting and the user" do
       expect { subject.call }.to change { Decidim::Meetings::Registration.count }.by(1)
       last_registration = Decidim::Meetings::Registration.last
       expect(last_registration.user).to eq(user)
