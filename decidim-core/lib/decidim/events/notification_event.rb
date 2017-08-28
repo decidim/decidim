@@ -18,6 +18,10 @@ module Decidim
 
       included do
         types << :notification
+
+        def notification_title
+          "S'ha tancat la proposta <a href=\"#{resource_path}\">#{resource_title}</a>.".html_safe
+        end
       end
     end
   end

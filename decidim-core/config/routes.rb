@@ -37,6 +37,7 @@ Decidim::Core::Engine.routes.draw do
         get :delete
       end
     end
+    resources :notifications, only: [:index]
     resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     resources :own_user_groups, only: [:index]
   end
