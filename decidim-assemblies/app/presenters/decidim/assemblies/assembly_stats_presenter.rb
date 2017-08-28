@@ -38,7 +38,7 @@ module Decidim
 
       def render_stats_data(feature_manifest, name, data, index)
         safe_join([
-                    index.zero? ? feature_manifest_icon(feature_manifest) : " /&nbsp".html_safe,
+                    index.zero? ? manifest_icon(feature_manifest) : " /&nbsp".html_safe,
                     content_tag(:span, "#{number_with_delimiter(data)} " + I18n.t(name, scope: "decidim.assemblies.statistics"),
                                 class: "#{name} process_stats-text")
                   ])
