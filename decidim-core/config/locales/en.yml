@@ -133,6 +133,8 @@ en:
         email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
         email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
         email_subject: An update to %{resource_title}
+      notification_event:
+        notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: Please find attached a zipped version of your export.

@@ -20,7 +20,11 @@ module Decidim
         types << :notification
 
         def notification_title
-          "S'ha tancat la proposta <a href=\"#{resource_path}\">#{resource_title}</a>.".html_safe
+          I18n.t(
+            "decidim.events.notification_event.notification_title",
+            resource_title: resource_title,
+            resource_path: resource_path,
+          ).html_safe
         end
       end
     end
