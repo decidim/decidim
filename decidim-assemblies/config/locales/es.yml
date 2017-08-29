@@ -1,7 +1,35 @@
 es:
+  activemodel:
+    attributes:
+      assembly:
+        banner_image: Imagen de banner
+        copy_categories: Copiar categorías
+        copy_features: Copiar funcionalidades
+        description: Descripción
+        developer_group: Grupo promotor
+        domain: Dominio
+        hashtag: Hashtag
+        hero_image: Imagen de portada
+        local_area: Áreas municipales
+        meta_scope: 'Metadatos: ámbito'
+        participatory_scope: Ámbito participativo
+        participatory_structure: Estructura participativa
+        promoted: Destacado
+        scope_id: Ámbito
+        scopes_enabled: Ámbitos habilitados
+        short_description: Descripción breve
+        slug: Texto corto de URL
+        subtitle: Subtítulo
+        target: '¿A quién va dirigido?'
+        title: Grupo de procesos participativos
   decidim:
     admin:
       assemblies:
+        create:
+          error: Se produjo un error al crear una nueva asamblea.
+          success: Asamblea creada correctamente.
+        destroy:
+          success: Asamblea destruida correctamente.
         edit:
           update: Actualizar
         form:
@@ -11,7 +39,89 @@ es:
           published: Publicado
         new:
           create: Crear
+          title: Nueva asamblea
+        update:
+          error: Se ha producido un error al actualizar esta asamblea.
+          success: La asamblea se ha actualizado correctamente.
+      assemblies_copies:
+        create:
+          error: Se produjo un error al duplicar esta asamblea.
+          success: Asamblea duplicada correctamente.
+      assembly_copies:
+        new:
+          copy: Copiar
+          select: Seleccione los datos que desea duplicar
+          title: Duplicar asamblea
+      assembly_publications:
+        create:
+          error: Se produjo un error al publicar esta asamblea.
+          success: Asamblea publicada con éxito.
+        destroy:
+          error: Se produjo un error al despublicar esta asamblea.
+          success: Asamblea despublicada con éxito.
       menu:
+        assemblies: Asambleas
         assemblies_submenu:
           attachments: Archivos adjuntos
           categories: Categorías
+          features: Funcionalidades
+          info: Información
+          moderations: Moderaciones
+      models:
+        assembly:
+          fields:
+            created_at: Fecha de creación
+            promoted: Destacado
+            published: Publicada
+            title: Grupo de procesos participativos
+          name: Asamblea
+      titles:
+        assemblies: Asambleas
+    assemblies:
+      index:
+        title: Asambleas
+      show:
+        developer_group: Grupo promotor
+        local_area: Áreas municipales
+        participatory_scope: Ámbito participativo
+        participatory_structure: Estructura participativa
+        scope: Ámbito
+        target: '¿A quién va dirigida?'
+      statistics:
+        answers_count: Respuestas
+        assemblies_count: Asambleas
+        comments_count: Comentarios
+        headline: Actividad
+        meetings_count: Encuentros
+        orders_count: Votos
+        pages_count: Páginas
+        projects_count: Proyectos
+        proposals_count: Propuestas
+        results_count: Resultados
+        surveys_count: Encuestas
+        users_count: Participantes
+        votes_count: Soportes
+    menu:
+      assemblies: Asambleas
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Participa
+        index:
+          promoted_assemblies: Asambleas destacadas
+        no_assemblies_yet:
+          no_assemblies_yet: '¡Todavía no hay asambleas!'
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} asamblea"
+            other: "%{count} asambleas"
+        promoted_assembly:
+          more_info: Más información
+          take_part: Participa
+      assembly_header:
+        assembly_menu_item: La asamblea
+        unfold: Desplegar
+      assembly_widgets:
+        show:
+          take_part: Participa
