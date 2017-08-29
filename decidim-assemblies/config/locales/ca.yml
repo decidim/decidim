@@ -22,8 +22,3 @@ ca:
         subtitle: Subtítol
         target: A qui va dirigit?
         title: Grup de processos participatius
-  decidim:
-    admin:
-      assemblies:
-        create:
-          error: S'ha produït un error en crear un nou ensamblat.
