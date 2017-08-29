@@ -1,0 +1,29 @@
+ca:
+  activemodel:
+    attributes:
+      assembly:
+        banner_image: Imatge de bàner
+        copy_categories: Copiar categories
+        copy_features: Copiar funcionalitats
+        description: Descripció
+        developer_group: Grup promotor
+        domain: Àrees municipals
+        hashtag: Hashtag
+        hero_image: Imatge de portada
+        local_area: Àrea municipal
+        meta_scope: Metadades d'àmbit
+        participatory_scope: Àmbit participatiu
+        participatory_structure: Estructura participativa
+        promoted: Destacat
+        scope_id: Àmbit
+        scopes_enabled: Àmbit habilitat
+        short_description: Descripció breu
+        slug: Nom curt d'URL
+        subtitle: Subtítol
+        target: A qui va dirigit?
+        title: Grup de processos participatius
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: S'ha produït un error en crear un nou ensamblat.
