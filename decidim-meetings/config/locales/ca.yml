@@ -35,6 +35,7 @@ ca:
         edit: Edita
         new: Nova
         preview: Previsualitzar
+        registrations: Inscripcions
         title: Accions
       admin:
         meeting_closes:
