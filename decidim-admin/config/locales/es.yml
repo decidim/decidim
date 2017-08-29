@@ -446,6 +446,9 @@ es:
             reportable: Tipo
             reported_content_url: URL del contenido reportado
             reports: Denuncias
+  errors:
+    messages:
+      invalid_json: JSON no válido
   layouts:
     decidim:
       admin:
