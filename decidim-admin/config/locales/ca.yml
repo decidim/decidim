@@ -446,6 +446,9 @@ ca:
             reportable: Tipus
             reported_content_url: URL contingut del contingut reportat
             reports: Denúncies
+  errors:
+    messages:
+      invalid_json: JSON no vàlid
   layouts:
     decidim:
       admin:
