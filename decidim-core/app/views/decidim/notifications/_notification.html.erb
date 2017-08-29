@@ -12,9 +12,9 @@
   </div>
   <% if notification.unread? %>
     <div class="card--list__data">
-      <a href="" class="card--list__data__icon">
+      <%= link_to [:read, notification], class: "mark-as-read-button card--list__data__icon", remote: true, method: :put do %>
         <%= icon "check", class: "icon icon--chevron-right" %>
-      </a>
+      <% end %>
     </div>
   <% end %>
 </div>
