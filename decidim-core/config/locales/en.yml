@@ -310,6 +310,11 @@ en:
         close_session: Close session
         description_html: You are impersonating the user <b>%{user_name}</b>.
         expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
+      notifications_dashboard:
+        no_notifications: No notifications yet.
+        old_notifications: Old notifications
+        title: Notifications
+        unread_notifications: Unread notifications
       user_menu:
         admin_dashboard: Admin dashboard
         profile: My account
