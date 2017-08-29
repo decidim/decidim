@@ -12,6 +12,8 @@ module Decidim
       include Decidim::HasScope
       include Decidim::HasCategory
 
+      has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id"
+
       feature_manifest_name "meetings"
 
       validates :title, presence: true
@@ -20,6 +22,19 @@ module Decidim
 
       def closed?
         closed_at.present?
+      end
+
+      def has_available_slots?
+        return true if available_slots.zero?
+        available_slots > registrations.count
+      end
+
+      def remaining_slots
+        available_slots - registrations.count
+      end
+
+      def has_registration_for?(user)
+        registrations.where(user: user).any?
       end
     end
   end

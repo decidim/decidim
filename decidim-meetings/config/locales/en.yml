@@ -21,6 +21,8 @@ en:
   decidim:
     features:
       meetings:
+        actions:
+          join: Join
         name: Meetings
         settings:
           global:
@@ -36,8 +38,11 @@ en:
         edit: Edit
         new: New
         preview: Preview
+        registrations: Registrations
         title: Actions
       admin:
+        exports:
+          registrations: Registrations
         meeting_closes:
           edit:
             close: Close
@@ -64,6 +69,18 @@ en:
         models:
           meeting:
             name: Meeting
+        registrations:
+          edit:
+            save: Save
+          form:
+            available_slots_help: Leave it to 0 if you have unlimited slots available.
+            registrations_count:
+              one: There has been 1 registration.
+              other: There has been %{count} registrations.
+              zero: There has not been registrations yet.
+          update:
+            invalid: There's been a problem saving the registration settings.
+            success: Meeting registrations settings successfully saved.
       meetings:
         filters:
           category: Category
@@ -84,11 +101,21 @@ en:
         meetings:
           no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
+        registration_confirm:
+          cancel: Cancel
+          confirm: Confirm
         show:
           attendees: Attendees count
           contributions: Contributions count
+          going: Going
+          join: Join meeting
           meeting_report: Meeting report
+          no_slots_available: No slots available
           organizations: Attending organizations
+          remaining_slots:
+            one: 1 slot remaining
+            other: "%{count} slots remaining"
+            zero: No slots remaining
       models:
         meeting:
           fields:
@@ -98,6 +125,13 @@ en:
             start_time: Start date
             title: Title
       read_more: "(read more)"
+      registrations:
+        create:
+          invalid: There's been a problem joining this meeting.
+          success: You have joined the meeting successfully.
+        destroy:
+          invalid: There's been a problem leaving this meeting.
+          success: You have left the meeting successfully.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Related results:'

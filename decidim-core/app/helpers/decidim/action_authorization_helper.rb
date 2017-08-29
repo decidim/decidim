@@ -67,10 +67,11 @@ module Decidim
       end
 
       unless current_user_authorized?(action)
-        html_options["onclick"] = "event.preventDefault();"
         html_options["data-toggle"] = current_user ? "#{action.to_s.underscore}AuthorizationModal" : "loginModal"
         url = ""
       end
+
+      html_options["onclick"] = "event.preventDefault();" if url == ""
 
       if block_given?
         button_to(url, html_options, &body)

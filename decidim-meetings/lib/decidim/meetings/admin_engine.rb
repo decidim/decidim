@@ -13,6 +13,11 @@ module Decidim
       routes do
         resources :meetings do
           resources :meeting_closes, only: [:edit, :update]
+          resource :registrations, only: [:edit, :update] do
+            collection do
+              get :export
+            end
+          end
           resources :attachments
         end
         root to: "meetings#index"
@@ -20,6 +25,10 @@ module Decidim
 
       def load_seed
         nil
+      end
+
+      initializer "decidim_meetings.assets" do |app|
+        app.config.assets.precompile += %w(admin/decidim_meetings_manifest.js)
       end
     end
   end
