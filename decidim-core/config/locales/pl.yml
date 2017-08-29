@@ -73,16 +73,9 @@ pl:
         error: W tym polu wystąpił błąd.
     menu:
       more_information: Więcej informacji
-      processes: Procesy
     own_user_groups:
       index:
         rejected: Odrzucone
     pages:
       index:
         title: Więcej informacji
-    participatory_process_groups:
-      show:
-        title: Tytuł
-    participatory_process_steps:
-      index:
-        process_steps: Etapy procesu

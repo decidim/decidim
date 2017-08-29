@@ -20,6 +20,8 @@ es:
   decidim:
     features:
       meetings:
+        actions:
+          join: Unirse
         name: Lista de encuentros
         settings:
           global:
@@ -35,8 +37,11 @@ es:
         edit: Editar
         new: Nuevo
         preview: Previsualizar
+        registrations: Inscripciones
         title: Acciones
       admin:
+        exports:
+          registrations: Inscripciones
         meeting_closes:
           edit:
             close: Cerrar
@@ -63,6 +68,17 @@ es:
         models:
           meeting:
             name: Encuentro
+        registrations:
+          edit:
+            save: Guardar
+          form:
+            available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
+            registrations_count:
+              one: Ha habido 1 inscripción.
+              other: Ha habido %{count} inscripciones.
+          update:
+            invalid: Se ha producido un problema al guardar la configuración de la inscripción.
+            success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
       meetings:
         filters:
           category: Categoría
@@ -83,11 +99,20 @@ es:
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con el criterio de búsqueda o no hay ningún encuentro programado.
           upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los encuentros anteriores.
+        registration_confirm:
+          cancel: Cancelar
+          confirm: Confirmar
         show:
           attendees: Número de asistentes
           contributions: Número de contribuciones
+          going: Yendo
+          join: Inscribirse al encuentro
           meeting_report: Informe del encuentro
+          no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
+          remaining_slots:
+            one: 1 inscripción disponible
+            other: "%{count} inscripciones disponibles"
       models:
         meeting:
           fields:
@@ -97,6 +122,13 @@ es:
             start_time: Fecha de inicio
             title: Título
       read_more: "(leer más)"
+      registrations:
+        create:
+          invalid: Ha habido un problema al unirse a este encuentro.
+          success: Te has inscrito al encuentro con éxito.
+        destroy:
+          invalid: Ha habido un problema al salir de esta encuentro.
+          success: Has salido del encuentro con éxito.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultados relacionados:'

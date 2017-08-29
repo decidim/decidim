@@ -132,7 +132,6 @@ nl:
     menu:
       home: Home
       more_information: Meer informatie
-      processes: Processen
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
@@ -151,25 +150,6 @@ nl:
     pages:
       index:
         title: Meer informatie
-    participatory_process_groups:
-      show:
-        group_participatory_processes: Processen voor %{group}
-        title: Titel
-    participatory_process_steps:
-      index:
-        process_steps: Processtappen
-        title: Participatieve processtappen
-    participatory_processes:
-      index:
-        title: Participatieve processen
-      show:
-        developer_group: Ontwikkelaarsgroep
-        end_date: Einddatum
-        local_area: Lokale buurt
-        participatory_scope: Participatief toepassingsgebied
-        participatory_structure: Participatieve structuur
-        scope: Reikwijdte
-        target: Doel
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -265,31 +245,6 @@ nl:
         navigation: Navigatie
         sign_in: Aanmelden
         sign_up: Registreren
-      participatory_process_groups:
-        participatory_process_group:
-          browse: Browsen
-      participatory_processes:
-        index:
-          promoted_processes: Gemarkeerde processen
-        no_processes_yet:
-          no_processes_yet: Er zijn nog geen participatieve processen!
-        order_by_processes:
-          processes:
-            one: "%{count} proces"
-            other: "%{count} processen"
-        participatory_process:
-          active_step: 'Huidige stap:'
-          take_part: Deelnemen
-        promoted_process:
-          active_step: 'Huidige stap:'
-          more_info: Meer informatie
-          take_part: Deelnemen
-      process_header:
-        process_menu_item: Het proces
-        unfold: Ontvouwen
-      process_header_steps:
-        step: Stap %{current} van %{total}
-        view_steps: Bekijk stappen
       user_menu:
         admin_dashboard: Beheer dashboard
         profile: Mijn account

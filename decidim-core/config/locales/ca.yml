@@ -163,7 +163,6 @@ ca:
     menu:
       home: Inici
       more_information: Més informació
-      processes: Processos
     newsletter_mailer:
       newsletter:
         note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
@@ -184,39 +183,6 @@ ca:
     pages:
       index:
         title: Més informació
-    participatory_process_groups:
-      show:
-        group_participatory_processes: Processos per a %{group}
-        title: Grup de processos participatius
-    participatory_process_steps:
-      index:
-        process_steps: Fases del procés
-        title: Fases del procés participatiu
-    participatory_processes:
-      index:
-        title: Processos participatius
-      show:
-        developer_group: Grup promotor
-        end_date: Data de finalització
-        local_area: Àrees municipals
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
-        scope: Àmbit
-        target: A qui va dirigit?
-      statistics:
-        answers_count: Respostes
-        comments_count: Comentaris
-        headline: Activitat
-        meetings_count: Trobades
-        orders_count: Vots
-        pages_count: Pàgines
-        processes_count: Processos
-        projects_count: Projectes
-        proposals_count: Propostes
-        results_count: Resultats
-        surveys_count: Enquestes
-        users_count: Participants
-        votes_count: Suports
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -335,35 +301,6 @@ ca:
         close_session: Tanca la sessió
         description_html: Esteu suplantant l'usuari <b>%{user_name}</b>.
         expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
-      participatory_process_groups:
-        participatory_process_group:
-          browse: Explorar
-      participatory_process_widgets:
-        show:
-          active_step: Fase activa
-          take_part: Participa
-      participatory_processes:
-        index:
-          promoted_processes: Processos destacats
-        no_processes_yet:
-          no_processes_yet: Encara no hi ha cap procés participatiu!
-        order_by_processes:
-          processes:
-            one: "%{count} procés"
-            other: "%{count} processos"
-        participatory_process:
-          active_step: 'Fase actual:'
-          take_part: Participa
-        promoted_process:
-          active_step: 'Fase actual:'
-          more_info: Més informació
-          take_part: Participa
-      process_header:
-        process_menu_item: El procés
-        unfold: Desplegar
-      process_header_steps:
-        step: Fase %{current} de %{total}
-        view_steps: Veure les fases
       user_menu:
         admin_dashboard: Tauler d'administració
         profile: El meu compte

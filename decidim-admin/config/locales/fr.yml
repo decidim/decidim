@@ -28,44 +28,6 @@ fr:
         reference_prefix: Préfixe de référence
         show_statistics: Afficher les statistiques
         welcome_text: Texte de bienvenue
-      participatory_process:
-        banner_image: Image d'en-tête
-        copy_categories: Copier les catégories
-        copy_features: Copier les fonctionnalités
-        copy_steps: Copier les étapes
-        description: Description
-        developer_group: Groupe promoteur
-        domain: Domaine
-        end_date: Date de fin
-        hashtag: Hashtag
-        hero_image: Image de la page d'accueil
-        local_area: Quartier
-        meta_scope: Metadonnée du domaine d'application
-        participatory_process_group_id: Groupe de processus
-        participatory_scope: Objectif du processus participatif
-        participatory_structure: Organisations concernées
-        promoted: Mis en avant
-        scope_id: Zone d’application
-        short_description: Résumé
-        slug: Identifiant
-        subtitle: Sous-titre
-        target: Public visé
-        title: Titre
-      participatory_process_group:
-        description: Description
-        hero_image: Image
-        name: Nom
-        participatory_process_ids: Processus participatifs liés
-      participatory_process_step:
-        description: Description
-        end_date: Date de fin
-        short_description: Résumé
-        start_date: Date de commencement
-        title: Titre
-      participatory_process_user_role:
-        email: Courriel
-        name: Nom
-        role: Rôle
       scope:
         code: Code
         name: Nom
@@ -218,16 +180,6 @@ fr:
         admins: Administrateurs
         dashboard: Tableau de bord
         newsletters: Bulletins d'information (newsletter)
-        participatory_process_groups: Groupes de processus participatifs
-        participatory_processes: Processus participatifs
-        participatory_processes_submenu:
-          attachments: Documents liés
-          categories: Catégories
-          features: Fonctionnalités
-          info: Information
-          moderations: Modérations
-          process_admins: Administrateurs du processus participatifs
-          steps: Etapes
         scopes: Zones d’application
         settings: Paramètres
         static_pages: Pages
@@ -248,32 +200,6 @@ fr:
             sent_at: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
-        participatory_process:
-          fields:
-            created_at: Crée le
-            promoted: Mis en évidence
-            published: Publié
-            title: Titre
-          name: Processus participatif
-        participatory_process_group:
-          fields:
-            name: Nom
-          name: Groupes de processus participatifs
-        participatory_process_step:
-          fields:
-            end_date: Date de fin
-            start_date: Date de début
-            title: Titre
-          name: Etape du processus participatif
-        participatory_process_user_role:
-          fields:
-            email: Email
-            name: Nom
-            role: Rôle
-          name: Role utilisateur du processus participatif
-          roles:
-            admin: Administrateur
-            collaborator: Rédacteur
         scope:
           fields:
             name: Nom
@@ -346,94 +272,6 @@ fr:
         update:
           error: Erreur lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
-      participatory_process_copies:
-        new:
-          title: Dupliquer le processus participatif
-      participatory_process_groups:
-        destroy:
-          success: Le groupe de processus participatif a été détruit avec succès.
-        edit:
-          title: Modifier le groupe de processus
-          update: Mettre à jour
-        new:
-          create: Créer
-          title: Nouveau groupe de processus participatifs
-        update:
-          error: Il y a eu une erreur lors de la mise à jour de ce groupe de processus participatif.
-          success: Groupe de processus participatif mis à jour avec succès.
-      participatory_process_publications:
-        create:
-          error: Il y a eu une erreur lors de la publication de ce processus participatif.
-          success: Processus participatif publié avec succès.
-        destroy:
-          error: Il y a eu une erreur lors de la publication de ce processus participatif.
-          success: Processus participatif dépublié avec succès.
-      participatory_process_step_activations:
-        create:
-          error: Une erreur s'est produite lors de l'activation de cette étape du processus participatif.
-          success: Etape du processus participatif activée avec succès.
-      participatory_process_steps:
-        create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle étape du processus participatif.
-          success: Etape de processus participatif créée avec succès.
-        default_title: Introduction
-        destroy:
-          error:
-            active_step: Vous ne pouvez pas supprimer l'étape active du processus.
-            last_step: Vous ne pouvez pas supprimer la dernière étape d'un processus.
-          success: L'étape du processus participatif a été détruite avec succès.
-        edit:
-          title: Modifier l'étape du processus participatif
-          update: Mettre à jour
-        new:
-          create: Créer
-          title: Nouvelle étape du processus participatif
-        ordering:
-          error: Une erreur s'est produite lors de la réorganisation des étapes du processus participatif.
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de cette étape du processus participatif.
-          success: Etape du processus participatif mise à jour avec succès.
-      participatory_process_user_roles:
-        create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour ce processus participatif.
-          success: Utilisateur créé avec succès pour ce processus participatif.
-        destroy:
-          success: L'utilisateur a été détruit avec succès pour ce processus participatif.
-        edit:
-          title: Mettre à jour l'utilisateur du processus participatif.
-          update: Mettre à jour
-        new:
-          create: Créer
-          title: Nouvel utilisateur de processus participatif.
-        update:
-          error: Il y a eu une erreur lors de la mise à jour d'un utilisateur pour ce processus participatif.
-          success: L'utilisateur a été mis à jour avec succès pour ce processus participatif.
-      participatory_processes:
-        create:
-          error: Une erreur s'est produite lors de la création d'un nouveau processus participatif.
-          success: Processus participatif créé avec succès. Configurez maintenant ses étapes.
-        destroy:
-          success: Processus participatif détruit avec succès.
-        edit:
-          update: Mettre à jour
-        form:
-          title: Informations générales
-        index:
-          not_published: Non publié
-          published: Publié
-        new:
-          create: Créer
-          title: Nouveau processus participatif
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de ce processus participatif.
-          success: Processus participatif mis à jour avec succès.
-      participatory_processes_copies:
-        create:
-          success: Processus participatif dupliqué avec succès.
-      participatory_processes_group:
-        create:
-          error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus participatif.
-          success: Groupe de processus participatif créé avec succès.
       scopes:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d’application.
@@ -468,8 +306,6 @@ fr:
           success: Page mise à jour avec succès
       titles:
         dashboard: Tableau de bord
-        participatory_process_groups: Groupes de processus participatifs
-        participatory_processes: Processus participatifs
         scopes: Zones d'application
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -529,9 +365,6 @@ fr:
             report_count: Compter
             reportable: Signalable
             reports: Signalements
-    participatory_processes:
-      participatory_process_groups:
-        none: Aucun
   layouts:
     decidim:
       admin:

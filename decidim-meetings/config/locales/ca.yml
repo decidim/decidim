@@ -20,6 +20,8 @@ ca:
   decidim:
     features:
       meetings:
+        actions:
+          join: Inscriu-t'hi
         name: Trobades
         settings:
           global:
@@ -35,8 +37,11 @@ ca:
         edit: Edita
         new: Nova
         preview: Previsualitzar
+        registrations: Inscripcions
         title: Accions
       admin:
+        exports:
+          registrations: Inscripcions
         meeting_closes:
           edit:
             close: Tancar
@@ -63,6 +68,17 @@ ca:
         models:
           meeting:
             name: Trobada
+        registrations:
+          edit:
+            save: Desa
+          form:
+            available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
+            registrations_count:
+              one: Hi ha hagut 1 inscripció.
+              other: Hi ha hagut %{count} inscripcions.
+          update:
+            invalid: S'ha produït un problema en desar la configuració de la inscripció.
+            success: La configuració de les inscripcions de la trobada s'ha desat correctament.
       meetings:
         filters:
           category: Categoria
@@ -83,11 +99,20 @@ ca:
         meetings:
           no_meetings_warning: No hi ha trobades que coincideixin amb el criteri de cerca o no hi ha cap trobada programada.
           upcoming_meetings_warning: Actualment no hi ha trobades programades, però pots veure les anteriors trobades.
+        registration_confirm:
+          cancel: Cancel·lar
+          confirm: Confirmar
         show:
           attendees: Nombre d'assistents
           contributions: Nombre d'aportacions
+          going: Inscrit
+          join: Inscriu-te a la reunió
           meeting_report: Informe de la trobada
+          no_slots_available: No hi ha lloc disponible
           organizations: Llista d'organitzacions que han atès
+          remaining_slots:
+            one: 1 espai reservat restant
+            other: "%{count} inscripcions restants"
       models:
         meeting:
           fields:
@@ -97,6 +122,13 @@ ca:
             start_time: Data d'inici
             title: Títol
       read_more: "(Llegeix més)"
+      registrations:
+        create:
+          invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.
+          success: T'has inscrit a la reunió amb èxit.
+        destroy:
+          invalid: Hi ha hagut un problema en sortir d'aquesta trobada.
+          success: Heu deixat la trobada amb èxit.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultats relacionats:'

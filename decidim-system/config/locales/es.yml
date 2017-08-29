@@ -57,6 +57,7 @@ es:
         index:
           title: Organizaciones
         new:
+          reference_prefix_hint: El prefijo de referencia se utiliza para identificar de forma única los recursos de todas las organizaciones
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
           title: Nueva organización
         update:

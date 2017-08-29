@@ -57,6 +57,7 @@ ca:
         index:
           title: Organitzacions
         new:
+          reference_prefix_hint: El prefix de la referència s'utilitza per identificar de manera única recursos a totes les organitzacions
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
           title: Nova organització
         update:

@@ -20,6 +20,7 @@ ca:
           error: Hi ha hagut errors en votar el comentari.
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}">Inicia la sessió amb el teu compte</a> o <a href="%{sign_up_url}">registra't</a> per afegir el teu comentari.
         form:
           body:
             label: Comentari
@@ -66,3 +67,6 @@ ca:
         title: "%{count} comentaris"
       featured_comment:
         title: Comentari destacat
+  errors:
+    messages:
+      cannot_have_comments: no pot tenir comentaris

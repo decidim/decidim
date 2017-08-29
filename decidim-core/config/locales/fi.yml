@@ -163,7 +163,6 @@ fi:
     menu:
       home: Etusivu
       more_information: Lisätietoja
-      processes: Prosessit
     newsletter_mailer:
       newsletter:
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
@@ -184,39 +183,6 @@ fi:
     pages:
       index:
         title: Lisätietoa
-    participatory_process_groups:
-      show:
-        group_participatory_processes: Prosessit ryhmälle %{group}
-        title: Otsikko
-    participatory_process_steps:
-      index:
-        process_steps: Prosessin vaiheet
-        title: Osallistumisprosessin vaiheet
-    participatory_processes:
-      index:
-        title: Osallistumisprosessit
-      show:
-        developer_group: Kehittäjäryhmä
-        end_date: Lopetusaika
-        local_area: Paikallinen alue
-        participatory_scope: Osallistumiskonteksti
-        participatory_structure: Osallistumisrakenne
-        scope: Konteksti
-        target: Kohde
-      statistics:
-        answers_count: Vastaukset
-        comments_count: Kommentit
-        headline: Tapahtumat
-        meetings_count: Tapaamiset
-        orders_count: Tilaukset
-        pages_count: Sivut
-        processes_count: Prosessit
-        projects_count: Projektit
-        proposals_count: Ehdotukset
-        results_count: Tulokset
-        surveys_count: Kyselyt
-        users_count: Osallistujat
-        votes_count: Äänet
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -334,35 +300,6 @@ fi:
         close_session: Sulje istunto
         description_html: Esiinnyt käyttäjänä <b>%{user_name}</b>.
         expire_time_html: Istuntosi vanhenee <b><span class="minutes">%{minutes}</span> minuutin kuluttua</b>.
-      participatory_process_groups:
-        participatory_process_group:
-          browse: Selaa
-      participatory_process_widgets:
-        show:
-          active_step: Aktiivinen vaihe
-          take_part: Osallistu
-      participatory_processes:
-        index:
-          promoted_processes: Korostetut prosessit
-        no_processes_yet:
-          no_processes_yet: Ei vielä osallistumisprosesseja!
-        order_by_processes:
-          processes:
-            one: "%{count} prosessi"
-            other: "%{count} prosessia"
-        participatory_process:
-          active_step: 'Aktiivinen vaihe:'
-          take_part: Osallistu
-        promoted_process:
-          active_step: 'Aktiivinen vaihe:'
-          more_info: Lisätietoja
-          take_part: Osallistu
-      process_header:
-        process_menu_item: Prosessi
-        unfold: Avaa
-      process_header_steps:
-        step: Vaihe %{current} / %{total}
-        view_steps: Näytä vaiheet
       user_menu:
         admin_dashboard: Hallintapaneeli
         profile: Oma käyttäjätili
