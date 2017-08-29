@@ -26,10 +26,10 @@ ca:
     admin:
       assemblies:
         create:
-          error: S'ha produït un error en crear un nou òrgan.
-          success: Òrgan creat correctament.
+          error: S'ha produït un error en crear una nova assemblea.
+          success: Assemblea creada correctament.
         destroy:
-          success: L'òrgan s'ha eliminat amb èxit.
+          success: L'assemblea s'ha eliminat amb èxit.
         edit:
           update: Actualitzar
         form:
@@ -39,28 +39,28 @@ ca:
           published: Publicat
         new:
           create: Crear
-          title: Nou òrgan participatiu
+          title: Nova assemblea
         update:
-          error: S'ha produït un error en actualitzar aquest òrgan.
-          success: L'òrgan s'ha actualitzat correctament.
+          error: S'ha produït un error en actualitzar aquesta assemblea.
+          success: L'assemblea s'ha actualitzat correctament.
       assemblies_copies:
         create:
-          error: S'ha produït un error en duplicar aquest òrgan.
-          success: L'òrgan s'ha duplicat correctament.
+          error: S'ha produït un error en duplicar aquesta assemblea.
+          success: L'assemblea s'ha duplicat correctament.
       assembly_copies:
         new:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
-          title: Òrgan duplicat
+          title: Assemblea duplicada
       assembly_publications:
         create:
-          error: S'ha produït un error en publicar aquest òrgan.
-          success: Òrgan publicat amb èxit.
+          error: S'ha produït un error en publicar aquesta assemblea.
+          success: Assemblea publicada amb èxit.
         destroy:
-          error: S'ha produït un error en publicar aquest òrgan.
-          success: Òrgan despublicat amb èxit.
+          error: S'ha produït un error en despublicar aquesta assemblea.
+          success: Assemblea despublicada amb èxit.
       menu:
-        assemblies: Òrgans
+        assemblies: Assemblees
         assemblies_submenu:
           attachments: Adjunts
           categories: Categories
@@ -74,12 +74,12 @@ ca:
             promoted: Destacat
             published: Publicat
             title: Grup de processos participatius
-          name: Òrgan
+          name: Assemblea
       titles:
-        assemblies: Òrgans
+        assemblies: Assemblees
     assemblies:
       index:
-        title: Òrgans
+        title: Assemblees
       show:
         developer_group: Grup promotor
         local_area: Àrea municipal
@@ -89,7 +89,7 @@ ca:
         target: A qui va dirigit
       statistics:
         answers_count: Respostes
-        assemblies_count: Òrgans participatius
+        assemblies_count: Assemblees
         comments_count: Comentaris
         headline: Activitat
         meetings_count: Trobades presencials
@@ -102,25 +102,25 @@ ca:
         users_count: Participants
         votes_count: Suports
     menu:
-      assemblies: Òrgans
+      assemblies: Assemblees
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Participa
         index:
-          promoted_assemblies: Òrgans destacats
+          promoted_assemblies: Assemblees destacades
         no_assemblies_yet:
-          no_assemblies_yet: Encara no hi ha cap òrgan!
+          no_assemblies_yet: Encara no hi ha cap assemblea!
         order_by_assemblies:
           assemblies:
-            one: "%{count} òrgan"
-            other: "%{count} òrgans"
+            one: "%{count} assemblea"
+            other: "%{count} assemblees"
         promoted_assembly:
           more_info: Més informació
           take_part: Participa
       assembly_header:
-        assembly_menu_item: L'òrgan
+        assembly_menu_item: L'assemblea
         unfold: Desplega
       assembly_widgets:
         show:
