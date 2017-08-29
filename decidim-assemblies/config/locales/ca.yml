@@ -22,3 +22,106 @@ ca:
         subtitle: Subtítol
         target: A qui va dirigit?
         title: Grup de processos participatius
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: S'ha produït un error en crear un nou òrgan.
+          success: Òrgan creat correctament.
+        destroy:
+          success: L'òrgan s'ha eliminat amb èxit.
+        edit:
+          update: Actualitzar
+        form:
+          title: Informació general
+        index:
+          not_published: No publicada
+          published: Publicat
+        new:
+          create: Crear
+          title: Nou òrgan participatiu
+        update:
+          error: S'ha produït un error en actualitzar aquest òrgan.
+          success: L'òrgan s'ha actualitzat correctament.
+      assemblies_copies:
+        create:
+          error: S'ha produït un error en duplicar aquest òrgan.
+          success: L'òrgan s'ha duplicat correctament.
+      assembly_copies:
+        new:
+          copy: Còpia
+          select: Selecciona quines dades vols duplicar
+          title: Òrgan duplicat
+      assembly_publications:
+        create:
+          error: S'ha produït un error en publicar aquest òrgan.
+          success: Òrgan publicat amb èxit.
+        destroy:
+          error: S'ha produït un error en publicar aquest òrgan.
+          success: Òrgan despublicat amb èxit.
+      menu:
+        assemblies: Òrgans
+        assemblies_submenu:
+          attachments: Adjunts
+          categories: Categories
+          features: Funcionalitats
+          info: Informació
+          moderations: Moderacions
+      models:
+        assembly:
+          fields:
+            created_at: Data de creació
+            promoted: Destacat
+            published: Publicat
+            title: Grup de processos participatius
+          name: Òrgan
+      titles:
+        assemblies: Òrgans
+    assemblies:
+      index:
+        title: Òrgans
+      show:
+        developer_group: Grup promotor
+        local_area: Àrea municipal
+        participatory_scope: Àmbit participatiu
+        participatory_structure: Estructura participativa
+        scope: Àmbit
+        target: A qui va dirigit
+      statistics:
+        answers_count: Respostes
+        assemblies_count: Òrgans participatius
+        comments_count: Comentaris
+        headline: Activitat
+        meetings_count: Trobades presencials
+        orders_count: Vots
+        pages_count: Pàgines
+        projects_count: Projectes
+        proposals_count: Propostes
+        results_count: Resultats
+        surveys_count: Enquestes
+        users_count: Participants
+        votes_count: Suports
+    menu:
+      assemblies: Òrgans
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Participa
+        index:
+          promoted_assemblies: Òrgans destacats
+        no_assemblies_yet:
+          no_assemblies_yet: Encara no hi ha cap òrgan!
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} òrgan"
+            other: "%{count} òrgans"
+        promoted_assembly:
+          more_info: Més informació
+          take_part: Participa
+      assembly_header:
+        assembly_menu_item: L'òrgan
+        unfold: Desplega
+      assembly_widgets:
+        show:
+          take_part: Participa
