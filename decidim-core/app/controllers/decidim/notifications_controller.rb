@@ -11,6 +11,12 @@ module Decidim
       authorize! :read, Notification
     end
 
+    def read
+      authorize! :update, Notification
+      notification = collection.find(params[:id])
+      notification.update_attributes(read_at: Time.current)
+    end
+
     private
 
     def collection

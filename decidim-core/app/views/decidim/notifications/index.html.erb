@@ -7,14 +7,14 @@
   <div class="row">
     <div class="columns mediumlarge-12 large-12">
       <% if unread_notifications.any? %>
-        <section class="section">
+        <section class="section" id="unread-notifications">
           <h2 class="section-heading"><%= t("unread_notifications", scope: "layouts.decidim.notifications_dashboard") %></h2>
           <div class="card card--list">
             <%= render unread_notifications %>
           </div>
         </section>
       <% end %>
-      <section class="section">
+      <section class="section" id="read-notifications">
         <h2 class="section-heading"><%= t("old_notifications", scope: "layouts.decidim.notifications_dashboard") %></h2>
         <% if read_notifications.any? %>
           <div class="card card--list">
@@ -27,3 +27,5 @@
     </div>
   </div>
 </main>
+
+<%= javascript_include_tag "decidim/notifications" %>
