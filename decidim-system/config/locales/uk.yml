@@ -1,0 +1,71 @@
+uk:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Справді видалити це?
+        destroy: Знищити
+        edit: Редагувати
+        new: Нові
+        save: Зберегти
+        title: Дії
+      admins:
+        create:
+          error: Помилка під час створення нових адміністратора.
+          success: Admin успішно створено
+        destroy:
+          success: Admin успішно знищені
+        edit:
+          title: Редагувати admin
+          update: Оновлення
+        index:
+          title: Адміністратори
+        new:
+          create: Створити
+          title: Нові admin
+        update:
+          error: Помилка під час оновлення цього адміністратора.
+          success: Admin успішно оновлено
+      default_pages:
+        placeholders:
+          content: Будь ласка, додайте значущого змісту цієї сторінки на інформаційній панелі адміністратора.
+          title: За замовчуванням назва для %{page}
+      menu:
+        admins: Адміністратори
+        dashboard: Приладна дошка
+        organizations: Організацій
+      models:
+        admin:
+          fields:
+            created_at: Створений в
+            email: Електронна пошта
+          name: Адмін
+          validations:
+            email_uniqueness: іншого адміністратора з ж адресу електронної пошти вже існує
+        organization:
+          actions:
+            save_and_invite: Створення організації & запросити admin
+          fields:
+            created_at: Створений в
+            name: Ім'я
+          name: Організація
+      organizations:
+        create:
+          error: Помилка під час створення нової організації.
+          success: Організація успішно створено.
+        edit:
+          secondary_hosts_hint: Введіть кожен з них з них у новій лінії
+        index:
+          title: Організацій
+        new:
+          reference_prefix_hint: Посилання префікс, що використовується для однозначної ідентифікації ресурсів через всі організації
+          secondary_hosts_hint: Введіть кожен з них з них у новій лінії
+          title: Нова організація
+        update:
+          error: Виявлено помилку під час оновлення цієї організації.
+          success: Організація успішно оновлено.
+      shared:
+        notices:
+          no_organization_warning_html: Ви повинні створити організацію для початку роботи. Переконайтеся, що ви читали %{guide} перш ніж продовжити.
+          our_getting_started_guide: наш посібник із початку роботи
+      titles:
+        dashboard: Приладна дошка
