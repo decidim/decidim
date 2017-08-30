@@ -18,12 +18,16 @@ eu:
         name: Proposamenak
         settings:
           global:
+            announcement: Anuntzio
+            attachments_allowed: Onartu eranskinak
             comments_enabled: Iruzkinak gaituta
             geocoding_enabled: Geokodeketa gaituta
+            new_proposal_help_text: Proposamen berriaren laguntza testu
             official_proposals_enabled: Proposamen ofizialak gaituta
             proposal_answering_enabled: Erantzun ofiziala gaitutako proposamenei
             vote_limit: Boto-muga
           step:
+            announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Gaitu proposamenen sorrera
             proposal_answering_enabled: Erantzuna aktibatutako proposamenei
@@ -48,6 +52,7 @@ eu:
           edit:
             accepted: Onartuta
             answer_proposal: Erantzuna
+            evaluating: ebaluatzea
             rejected: Baztertuta
             title: 'Erantzun proposamen honi: %{title}'
         proposals:
@@ -58,6 +63,7 @@ eu:
             invalid: Arazo bat izan da proposamen hau sortzean.
             success: Proposamena zuzen sortu da.
           form:
+            attachment_legend: "(Aukerakoa) Gehitu eranskina"
             select_a_category: Aukeratu kategoria bat
           index:
             title: Proposamenak
@@ -66,6 +72,7 @@ eu:
             title: Sortu proposamena
       answers:
         accepted: Onartuta
+        evaluating: ebaluatzea
         not_answered: Erantzun gabe
         rejected: Baztertuta
       create:
@@ -79,7 +86,13 @@ eu:
             scope: Esparrua
             state: Egoera
             title: Izenburua
+      proposal_votes:
+        create:
+          error: Ez da izan, akats denean proposamena bozkatzea.
       proposals:
+        author:
+          deleted: Ezabatutako
+          verified_user_group: Egiaztatutako erakundearen
         count:
           proposals_count:
             one: 1 proposamen
@@ -91,10 +104,12 @@ eu:
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           citizenship: Herritarrak
+          evaluating: ebaluatzea
           official: Ofiziala
           origin: Jatorria
           rejected: Baztertuta
           related_to: Honekin lotuta
+          scope_prompt: Hautatu esparrua
           scopes: Esparruak
           search: Bilatu
           state: Egoera
@@ -112,6 +127,7 @@ eu:
             one: <span class="card--list__data__number">1</span>boto
             other: <span class="card--list__data__number">%{count}</span>boto
         new:
+          attachment_legend: "(Aukerakoa) Gehitu eranskina"
           back: Atzera
           select_a_category: Mesedez, aukeratu kategoria bat
           send: Bidali
@@ -121,6 +137,8 @@ eu:
           most_voted: Bozkatuenak
           random: Ausazkoa eran
           recent: Berrienak
+        proposal:
+          view_proposal: Ikusi proposamena
         show:
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
