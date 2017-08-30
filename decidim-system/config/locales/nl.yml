@@ -2,4 +2,70 @@ nl:
   decidim:
     system:
       actions:
+        confirm_destroy: Weet u zeker dat u dit wilt verwijderen?
         destroy: Vernietigen
+        edit: Bewerk
+        new: nieuwe
+        save: Opslaan
+        title: Acties
+      admins:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe admin.
+          success: Admin is succesvol gemaakt
+        destroy:
+          success: Admin succesvol vernietigd
+        edit:
+          title: Beheer admin
+          update: Bijwerken
+        index:
+          title: Admins
+        new:
+          create: Creëren
+          title: Nieuwe admin
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze admin.
+          success: Admin succesvol bijgewerkt
+      default_pages:
+        placeholders:
+          content: Voeg zinvolle inhoud toe aan deze pagina op het admin-dashboard.
+          title: Standaard titel voor %{page}
+      menu:
+        admins: Admins
+        dashboard: Dashboard
+        organizations: Organisaties
+      models:
+        admin:
+          fields:
+            created_at: Gemaakt bij
+            email: E-mail
+          name: beheerder
+          validations:
+            email_uniqueness: Een andere admin met dezelfde e-mail bestaat al
+        organization:
+          actions:
+            save_and_invite: Maak een organisatie en nodig admin uit
+          fields:
+            created_at: Gemaakt bij
+            name: Naam
+          name: Organisatie
+      organizations:
+        create:
+          error: Er is een fout opgetreden bij het aanmaken van een nieuwe organisatie.
+          success: Organisatie is succesvol gemaakt.
+        edit:
+          secondary_hosts_hint: Voer elk van hen in een nieuwe regel in
+        index:
+          title: Organisaties
+        new:
+          reference_prefix_hint: Het referentievoorvoegsel wordt gebruikt om middelen uniek in alle organisaties te identificeren
+          secondary_hosts_hint: Voer elk van hen in een nieuwe regel in
+          title: Nieuwe organisatie
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+          success: Organisatie is succesvol bijgewerkt.
+      shared:
+        notices:
+          no_organization_warning_html: U moet een organisatie aanmaken om te beginnen. Zorg ervoor dat u %{guide} leest voordat u verder gaat.
+          our_getting_started_guide: Onze begonnen gids
+      titles:
+        dashboard: Dashboard
