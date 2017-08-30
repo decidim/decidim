@@ -3,3 +3,22 @@ nl:
     features:
       pages:
         name: Pagina
+        settings:
+          global:
+            announcement: Aankondiging
+            comments_enabled: Reacties ingeschakeld
+          step:
+            announcement: Aankondiging
+            comments_blocked: Reacties geblokkeerd
+    pages:
+      admin:
+        models:
+          components:
+            body: Lichaam
+        pages:
+          edit:
+            save: Bijwerken
+            title: Pagina bewerken
+          update:
+            invalid: Er zijn fouten geweest bij het opslaan van de pagina.
+            success: Pagina is succesvol opgeslagen.
