@@ -18,10 +18,10 @@ uk:
     attributes:
       decidim/user:
         current_password: Поточний пароль
-        email: Електронна пошта
+        email: Адреса електронної пошти
         name: Ім'я користувача
         password: Пароль
-        password_confirmation: Підтвердження пароля
+        password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
         user_group_document_number: Номер документа організації
         user_group_name: Назва організації
