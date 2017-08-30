@@ -13,8 +13,10 @@ fr:
         name: Résultats
         settings:
           global:
+            announcement: Annonce
             comments_enabled: Commentaires activés
           step:
+            announcement: Annonce
             comments_blocked: Commentaires bloqués
     resource_links:
       included_proposals:
@@ -60,6 +62,7 @@ fr:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
+          scope_prompt: Sélectionnez une portée
           scopes: Zones d'application
           search: Rechercher
         filters_small_view:
