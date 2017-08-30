@@ -1,3 +1,10 @@
 <div class="row collapse order-by">
-  <h2 class="order-by__text section-heading"><%= t("participatory_processes.order_by_processes.processes", scope: "layouts.decidim", count: collection.count) %></h2>
+  <h2 class="order-by__text section-heading">
+    <%= t("participatory_processes.order_by_processes.processes", scope: "layouts.decidim", count: collection.count) %>
+    <span class="order-by__tabs">
+      <% %w(past active upcoming).each do |filter_name| %>
+        <%= link_to t(".#{filter_name}"), { filter: filter_name }, remote: true, class: "order-by__tab #{'is-active' if filter == filter_name }" %>
+      <% end %>
+    </span>
+  </h2>
 </div>

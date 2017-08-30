@@ -43,6 +43,18 @@ en:
         role: Role
   decidim:
     admin:
+      actions:
+        activate: Activate
+        configure: Configure
+        confirm_destroy: Confirm destroy
+        destroy: Destroy
+        duplicate: Duplicate
+        edit: Edit
+        new: New
+        preview: Preview
+        publish: Publish
+        resend_invitation: Resend invitation
+        unpublish: Unpublish
       menu:
         participatory_process_groups: Process groups
         participatory_processes: Processes
@@ -82,6 +94,10 @@ en:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
+        user:
+          fields:
+            invitation_accepted_at: Invitation accepted at
+            invitation_sent_at: Invitation sent at
       participatory_process_copies:
         new:
           copy: Copy
@@ -180,6 +196,10 @@ en:
       titles:
         participatory_process_groups: Participatory process groups
         participatory_processes: Participatory processes
+      users:
+        resend_invitation:
+          error: Error
+          success: Success
     menu:
       processes: Processes
     participatory_process_groups:
@@ -193,6 +213,10 @@ en:
     participatory_processes:
       index:
         title: Participatory processes
+      order_by_processes:
+        active: Active
+        past: Past
+        upcoming: Upcoming
       participatory_process_groups:
         none: None
       show:
@@ -217,6 +241,8 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
+    scopes:
+      global: Global
   layouts:
     decidim:
       participatory_process_groups:

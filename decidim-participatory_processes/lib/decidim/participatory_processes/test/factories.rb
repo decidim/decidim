@@ -26,6 +26,7 @@ FactoryGirl.define do
     participatory_structure { Decidim::Faker::Localized.sentence(2) }
     end_date 2.month.from_now.at_midnight
     show_statistics true
+    starts_at { Time.current }
 
     trait :promoted do
       promoted true
@@ -50,6 +51,16 @@ FactoryGirl.define do
         participatory_process.reload
         participatory_process.steps.reload
       end
+    end
+
+    trait :past do
+      starts_at { 2.weeks.ago }
+      ends_at { 1.week.ago }
+    end
+
+    trait :upcoming do
+      starts_at { 1.week.from_now }
+      ends_at { 2.weeks.from_now }
     end
   end
 

@@ -72,8 +72,8 @@ describe "Participatory Processes", type: :feature do
     end
 
     context "filtering processes" do
-      let(:past_process) { create :participatory_process, :past, organization: organization }
-      let(:upcoming_process) { create :participatory_process, :upcoming, organization: organization }
+      let!(:past_process) { create :participatory_process, :past, organization: organization }
+      let!(:upcoming_process) { create :participatory_process, :upcoming, organization: organization }
 
       it "list the active processes by default" do
         expect(page).to have_no_content(translated(past_process.title, locale: :en))
