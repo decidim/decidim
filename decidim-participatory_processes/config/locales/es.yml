@@ -1,0 +1,249 @@
+es:
+  activemodel:
+    attributes:
+      participatory_process:
+        banner_image: Imagen de banner
+        copy_categories: Copiar categorías
+        copy_features: Copiar funcionalidades
+        copy_steps: Copiar las fases
+        description: Descripción
+        developer_group: Grupo promotor
+        domain: Dominio
+        end_date: Fecha de finalización
+        hashtag: Hashtag
+        hero_image: Imagen de portada
+        local_area: Áreas municipales
+        meta_scope: 'Metadatos: ámbito'
+        participatory_process_group_id: Grupo de procesos
+        participatory_scope: Ámbito participativo
+        participatory_structure: Estructura participativa
+        promoted: Destacado
+        scope_id: Ámbito
+        scopes_enabled: Ámbitos habilitados
+        short_description: Descripción breve
+        slug: Texto corto de URL
+        subtitle: Subtítulo
+        target: '¿A quién va dirigida?'
+        title: Grupo de procesos participativos
+      participatory_process_group:
+        description: Descripción
+        hero_image: Imagen
+        name: Nombre
+        participatory_process_ids: Procesos relacionados
+      participatory_process_step:
+        description: Descripción
+        end_date: Fecha de finalización
+        short_description: Descripción breve
+        start_date: Fecha de inicio
+        title: Grupo de procesos participativos
+      participatory_process_user_role:
+        email: Correo electrónico
+        name: Nombre
+        role: Rol
+  decidim:
+    admin:
+      menu:
+        participatory_process_groups: Grupos de procesos
+        participatory_processes: Procesos
+        participatory_processes_submenu:
+          attachments: Archivos adjuntos
+          categories: Categorías
+          features: Funcionalidades
+          info: Información
+          moderations: Moderaciones
+          process_admins: Usuarios del proceso
+          steps: Fases del proceso
+      models:
+        participatory_process:
+          fields:
+            created_at: Fecha de creación
+            promoted: Destacado
+            published: Publicada
+            title: Grupo de procesos participativos
+          name: Proceso participativo
+        participatory_process_group:
+          fields:
+            name: Nombre
+          name: Grupo de procesos
+        participatory_process_step:
+          fields:
+            end_date: Fecha de finalización
+            start_date: Fecha de inicio
+            title: Grupo de procesos participativos
+          name: Fase de proceso participativo
+        participatory_process_user_role:
+          fields:
+            email: Correo electrónico
+            name: Nombre
+            role: Rol
+          name: Usuario del proceso
+          roles:
+            admin: Administrador
+            collaborator: Colaborador
+            moderator: Moderador
+      participatory_process_copies:
+        new:
+          copy: Copiar
+          select: Seleccione los datos que desea duplicar
+          title: Duplicar proceso participativo
+      participatory_process_groups:
+        destroy:
+          success: Grupo destruido correctamente.
+        edit:
+          title: Editar grupo de procesos
+          update: Actualizar
+        new:
+          create: Crear
+          title: Nuevo grupo de procesos
+        update:
+          error: Se ha producido un error actualizando este grupo.
+          success: Grupo actualizado correctamente.
+      participatory_process_publications:
+        create:
+          error: Se ha producido un error al publicar este proceso participativo.
+          success: El proceso participativo se ha publicado correctamente.
+        destroy:
+          error: Se ha producido un error al despublicar este proceso participativo.
+          success: El proceso participativo se ha despublicado correctamente.
+      participatory_process_step_activations:
+        create:
+          error: Se ha producido un error al activar esta fase de proceso participativo.
+          success: La fase de proceso participativo se ha activado correctamente.
+      participatory_process_steps:
+        create:
+          error: Se ha producido un error al crear una nueva fase de proceso participativo.
+          success: La fase de proceso participativo se ha creado correctamente.
+        default_title: Introducción
+        destroy:
+          error:
+            active_step: No se puede eliminar la fase activa.
+            last_step: No se puede eliminar la última fase de un proceso.
+          success: La fase de proceso participativo se ha eliminado correctamente.
+        edit:
+          title: Editar fase de proceso participativo
+          update: Actualizar
+        index:
+          steps_title: Fases del proceso
+        new:
+          create: Crear
+          title: Nuevo fase de proceso participativo
+        ordering:
+          error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
+        update:
+          error: Se ha producido un error en la actualización de esta fase de proceso participativo.
+          success: La fase de proceso participativo se ha actualizado correctamente.
+      participatory_process_user_roles:
+        create:
+          error: Se ha producido un error al crear el usuario para este proceso participativo.
+          success: Usuario creado con éxito para este proceso participativo.
+        destroy:
+          success: Usuario eliminado con éxito para este proceso participativo.
+        edit:
+          title: Editar usuario del proceso
+          update: Actualizar
+        index:
+          process_admins_title: Usuarios del proceso
+        new:
+          create: Crear
+          title: Nuevo usuario del proceso
+        update:
+          error: Se ha producido un error al crear el usuario para este proceso participativo.
+          success: Usuario actualizado correctamente para este proceso participativo.
+      participatory_processes:
+        create:
+          error: Se ha producido un error al crear un nuevo proceso participativo.
+          success: El proceso participativo se ha creado correctamente. Sigue ahora con la configuración de las fases.
+        destroy:
+          success: El proceso participativo se ha eliminado correctamente.
+        edit:
+          update: Actualizar
+        form:
+          title: Información general
+        index:
+          not_published: No publicado
+          published: Publicada
+        new:
+          create: Crear
+          title: Nuevo proceso participativo
+        update:
+          error: Se ha producido un error en la actualización de este proceso participativo.
+          success: El proceso participativo se ha actualizado correctamente.
+      participatory_processes_copies:
+        create:
+          error: Hubo un error al duplicar este proceso participativo.
+          success: El proceso participativo se duplicó con éxito.
+      participatory_processes_group:
+        create:
+          error: Se ha producido un error al crear este grupo.
+          success: Grupo creado correctamente.
+      titles:
+        participatory_process_groups: Grupos de procesos participativos
+        participatory_processes: Procesos participativos
+    menu:
+      processes: Procesos
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Procesos para %{group}
+        title: Grupo de procesos participativos
+    participatory_process_steps:
+      index:
+        process_steps: Las fases de proceso
+        title: Fases del proceso participativo
+    participatory_processes:
+      index:
+        title: Procesos participativos
+      participatory_process_groups:
+        none: Ninguna
+      show:
+        developer_group: Grupo promotor
+        end_date: Fecha de finalización
+        local_area: Áreas municipales
+        participatory_scope: Ámbito participativo
+        participatory_structure: Estructura participativa
+        scope: Ámbito
+        target: '¿A quién va dirigida?'
+      statistics:
+        answers_count: '¿A quién va dirigida?'
+        comments_count: Comentarios
+        headline: Actividad
+        meetings_count: Encuentros
+        orders_count: Votos
+        pages_count: Páginas
+        processes_count: Procesos
+        projects_count: Proyectos
+        proposals_count: Propuestas
+        results_count: Resultados
+        surveys_count: Encuestas
+        users_count: Participantes
+        votes_count: Soportes
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Explorar
+      participatory_process_widgets:
+        show:
+          active_step: Fase activa
+          take_part: Participa
+      participatory_processes:
+        index:
+          promoted_processes: Procesos destacados
+        no_processes_yet:
+          no_processes_yet: No hay procesos participativos todavía!
+        order_by_processes:
+          processes:
+            one: "%{count} proceso"
+            other: "%{count} procesos"
+        participatory_process:
+          active_step: 'Fase actual:'
+          take_part: Participa
+        promoted_process:
+          active_step: 'Fase actual:'
+          more_info: Más información
+          take_part: Participa
+      process_header:
+        process_menu_item: El proceso
+        unfold: Desplegar
+      process_header_steps:
+        step: Fase %{current} de %{total}
+        view_steps: Ver las fases
