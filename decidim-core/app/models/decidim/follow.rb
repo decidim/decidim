@@ -6,6 +6,5 @@ module Decidim
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
     validates :user, uniqueness: { scope: [:followable] }
-    validates :user, :followable, presence: true
   end
 end
