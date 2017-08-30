@@ -37,6 +37,8 @@ it:
         admin:
           fields:
             created_at: Data/ora di creazione
+            email: E-mail
+          name: Amministratore
           validations:
             email_uniqueness: Esiste già un utente Admin con l'email che hai indicato.
         organization:
@@ -55,10 +57,15 @@ it:
         index:
           title: Organizzazioni
         new:
+          reference_prefix_hint: Il prefisso di riferimento viene utilizzato per identificare in modo univoco le risorse in tutte le organizzazioni
           secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea
           title: Nuova Organizzazione
         update:
           error: C'è stato un errore durante l'aggiornamento di questa organizzazione.
           success: OK, l'Organizzazione è stata aggiornata.
+      shared:
+        notices:
+          no_organization_warning_html: È necessario creare un'organizzazione per iniziare. Assicurati di leggere %{guide} prima di procedere.
+          our_getting_started_guide: La nostra guida iniziale
       titles:
         dashboard: Cruscotto
