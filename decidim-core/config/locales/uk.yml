@@ -4,7 +4,7 @@ uk:
       account:
         delete_reason: Причина видалення вашого облікового запису
       report:
-        details: Додаткові примітки
+        details: Додаткові коментарі
       user:
         email: Адреса вашої електронної пошти
         name: Ваше ім’я
@@ -140,14 +140,14 @@ uk:
           global:
             comments_enabled: Коментарі дозволено
             dummy_global_attribute_1: Неробоча властивість 1
-            dummy_global_attribute_2: Фіктивний атрибут 2
+            dummy_global_attribute_2: Неробоча властивість 2
           step:
-            comments_blocked: Заблоковані коментарі
-            dummy_step_attribute_1: Атрибут манекен крок 1
-            dummy_step_attribute_2: Атрибут манекен крок 2
+            comments_blocked: Коментарі заблоковано
+            dummy_step_attribute_1: Неробоча 1 властивість кроку
+            dummy_step_attribute_2: Неробоча 2 властивість кроку
     filters:
       linked_classes:
-        all: Всі
+        all: Усі
         meeting: Зустрічі
         project: Проекти
         proposal: Пропозиції
@@ -155,21 +155,21 @@ uk:
     forms:
       current_file: Поточний файл
       current_image: Поточне зображення
-      default_image: Зображення за промовчанням
+      default_image: Зображення за замовчуванням
       errors:
-        error: Існує помилка в цій галузі.
+        error: У цьому полі є помилка.
     managed_users:
-      expired_session: Поточний уособлення сесії, минув.
+      expired_session: Скінчився поточний сеанс виставлення особистості.
     menu:
       home: Головна
-      more_information: Додаткові відомості
+      more_information: Більше інформації
     newsletter_mailer:
       newsletter:
-        note: Ви отримали цього листа тому що ти підписався на бюлетені на %{organization_name}. Ви можете змінити настройки на <a href="%{link}">notifications page</a>.
+        note: Ви отримали цей електронний лист, оскільки ви підписалися на інформаційні бюлетені щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
     notifications_settings:
       show:
-        comments_notifications: Я хочу отримувати емейл сповіщення, коли хтось коментарі в моєму публікацій.
-        newsletter_notifications: Я хочу, щоб отримувати інформацію про відповідні дії
+        comments_notifications: Я хочу отримати сповіщення електронною поштою, коли хтось коментує свої публікації.
+        newsletter_notifications: Я хочу отримати інформацію про відповідну діяльність
         replies_notifications: 'Я хочу отримувати емейл сповіщення, коли хтось відповіді: мої коментарі.'
         update_notifications_settings: Збереження змін
       update:
