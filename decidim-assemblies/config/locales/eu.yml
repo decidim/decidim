@@ -1,1 +1,127 @@
 eu:
+  activemodel:
+    attributes:
+      assembly:
+        banner_image: Bannerra
+        copy_categories: Kategoriak kopiatu
+        copy_features: Ezaugarriak kopiatu
+        description: Descripción
+        developer_group: Talde sustatzailea
+        domain: Domeinua
+        hashtag: Traola
+        hero_image: Orri nagusiko irudia
+        local_area: Udal-alorrak
+        meta_scope: 'Metadatuak: esparrua'
+        participatory_scope: Esparru partizipatiboa
+        participatory_structure: Egitura partizipatiboa
+        promoted: Nabarmendua
+        scope_id: Esparrua
+        scopes_enabled: Esparruak gaituta
+        short_description: Deskribapen laburra
+        slug: URL laburra
+        subtitle: Azpititulua
+        target: Nori zuzentzen zaio?
+        title: Titulua
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Errore bat gertatu da muntaia berri bat sortzean.
+          success: Batzarra ondo sortu da.
+        destroy:
+          success: Batzarak arrakastaz suntsitu zuen.
+        edit:
+          update: Eguneratu
+        form:
+          title: Informazio orokorra
+        index:
+          not_published: Argitaratu gabe
+          published: Argitaratua
+        new:
+          create: Sortu
+          title: Batzar berria
+        update:
+          error: Errore bat gertatu da muntaia hau eguneratzean.
+          success: Batzarra arrakastaz eguneratu da.
+      assemblies_copies:
+        create:
+          error: Errore bat gertatu da muntaia hau bikoizteko.
+          success: Batzar bikoiztu egin da.
+      assembly_copies:
+        new:
+          copy: Copy
+          select: Aukeratu itzazu kopiatu nahi dituzun datuak
+          title: Batzar bikoitza
+      assembly_publications:
+        create:
+          error: Errore bat gertatu da muntaia hau argitaratzean.
+          success: Batzar ondo argitaratua.
+        destroy:
+          error: Errore bat gertatu da muntatze hau argitaratzea.
+          success: Batzar ez da argitaratu.
+      menu:
+        assemblies: Batzar
+        assemblies_submenu:
+          attachments: Eranskinak
+          categories: Kategoriak
+          features: Funtzionalitateak
+          info: Informazioa
+          moderations: ' Salaketak'
+      models:
+        assembly:
+          fields:
+            created_at: Tan sortua
+            promoted: Nabarmendua
+            published: Argitaratua
+            title: Titulua
+          name: Batzar
+      titles:
+        assemblies: Batzar
+    assemblies:
+      index:
+        title: Batzar
+      show:
+        developer_group: Talde sustatzailea
+        local_area: Udal-alorrak
+        participatory_scope: Esparru partizipatiboa
+        participatory_structure: Egitura partizipatiboa
+        scope: Esparrua
+        target: Nori zuzentzen zaio?
+      statistics:
+        answers_count: Erantzunak
+        assemblies_count: Batzar
+        comments_count: Iruzkinak
+        headline: Jarduera
+        meetings_count: Topaketa-zerrenda
+        orders_count: Eskariak
+        pages_count: Orriak
+        projects_count: Proiektuak
+        proposals_count: Proposamenak
+        results_count: Emaitzak
+        surveys_count: Inkestak
+        users_count: Parte-hartzaileak
+        votes_count: Botoak
+    menu:
+      assemblies: Batzar
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Parte hartu
+        index:
+          promoted_assemblies: Agerraldi nabarmenak
+        no_assemblies_yet:
+          no_assemblies_yet: Ez dago batzurik oraindik!
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} muntaia"
+            other: "%{count} batzarrak"
+        promoted_assembly:
+          more_info: Argibide gehiago
+          take_part: Parte hartu
+      assembly_header:
+        assembly_menu_item: Biltzarra
+        unfold: Zabaldu
+      assembly_widgets:
+        show:
+          take_part: Parte hartu
