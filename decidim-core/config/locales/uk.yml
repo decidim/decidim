@@ -35,7 +35,7 @@ uk:
   decidim:
     account:
       delete:
-        alert: Цю дію не можна скасувати. Якщо ви видалите свій акаунт, ви не зможете ввійти в систему.
+        alert: Цю дію скасувати не можна. Якщо ви видалите свій акаунт, ви не зможете ввійти в систему.
         confirm:
           close: Закрити вікно
           ok: Так, я хочу видалити свій обліковий запис
@@ -65,7 +65,7 @@ uk:
           postal_code: Поштовий індекс
         name: Приклад авторизації
       errors:
-        duplicate_authorization: Інший користувач уже авторизувався з такими ж даними.
+        duplicate_authorization: Інший користувач вже авторизувався з такими ж даними.
       foo_authorization:
         fields:
           bar: Статусний рядок
@@ -75,16 +75,16 @@ uk:
       create:
         error: Під час створення авторизації сталася помилка.
         success: Ви успішно авторизовані.
-      current_participatory_processes: погляньте на поточні процеси
+      current_participatory_processes: поглянути на поточні процеси
       first_login:
         actions:
           decidim/dummy_authorization_handler: Перевірте, порівнявши з прикладом авторизації
         title: Підтвердьте свою особу
-        verify_with_these_options: 'Вони доступні параметри для підтвердження особи:'
+        verify_with_these_options: 'Наявні такі способи підтвердити вашу особу:'
       new:
         authorize: Надіслати
-        authorize_with: Перевірте, чи з %{authorizer}
-      skip_verification: Можна пропустити це зараз і %{link}
+        authorize_with: Підтвердити за допомогою %{authorizer}
+      skip_verification: Ви можете пропустити це зараз і %{link}
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії
