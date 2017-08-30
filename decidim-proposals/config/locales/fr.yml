@@ -18,12 +18,16 @@ fr:
         name: Propositions
         settings:
           global:
+            announcement: Annonce
+            attachments_allowed: Autoriser les pièces jointes
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
+            new_proposal_help_text: Nouveau texte d'aide à la proposition
             official_proposals_enabled: Propositions officielles activées
             proposal_answering_enabled: '"Réponses aux propositions" activé'
             vote_limit: Limite de vote
           step:
+            announcement: Annonce
             comments_blocked: Commentaires bloqués
             creation_enabled: Module propositions activé
             proposal_answering_enabled: '"Réponses aux propositions" activé'
@@ -38,6 +42,9 @@ fr:
       admin:
         actions:
           preview: Aperçu
+        exports:
+          comments: Commentaires
+          proposals: Propositions
         models:
           proposal:
             name: Proposition
@@ -56,6 +63,7 @@ fr:
             invalid: Il y a eu un problème lors de la création de cette proposition
             success: Proposition créée avec succès
           form:
+            attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             select_a_category: Sélectionner une catégorie
           index:
             title: Propositions
@@ -78,7 +86,13 @@ fr:
             scope: Zone d'application
             state: Etat
             title: Titre
+      proposal_votes:
+        create:
+          error: Il y a eu des erreurs lors du vote de la proposition.
       proposals:
+        author:
+          deleted: Utilisateur supprimé
+          verified_user_group: Organisation vérifiée
         count:
           proposals_count:
             one: 1 proposition
@@ -95,6 +109,7 @@ fr:
           origin: Auteurs
           rejected: Refusée
           related_to: Liée à
+          scope_prompt: Sélectionnez une portée
           scopes: Zones d'application
           search: Rechercher
           state: État
@@ -112,6 +127,7 @@ fr:
             one: <span class="card--list__data__number">1</span>vote
             other: <span class="card--list__data__number">%{count}</span>votes
         new:
+          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
           send: Publier
@@ -121,6 +137,8 @@ fr:
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récents
+        proposal:
+          view_proposal: Voir la proposition
         show:
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
