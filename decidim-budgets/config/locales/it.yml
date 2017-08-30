@@ -2,6 +2,7 @@ it:
   activemodel:
     attributes:
       project:
+        budget: Budget
         decidim_category_id: Categoria
         decidim_scope_id: Visibilità/ambito
         description: Descrizione
@@ -54,6 +55,7 @@ it:
         budget_excess:
           close: Chiudi
           description: Questo progetto supera il budget e non può essere aggiunto. Se vuoi puoi cancellare un progetto che hai già scelto di aggiungere, oppure votare in base alle tue preferenze.
+          ok: Ok
           title: Budget superato
         budget_summary:
           are_you_sure: Sei certo di voler cancellare il tuo voto?
@@ -71,6 +73,7 @@ it:
         filters:
           category: Categoria
           category_prompt: Scegli una categoria
+          scope_prompt: Selezionare un ambito
           scopes: Visibilità/ambito
           search: Cerca
         filters_small_view:
@@ -96,6 +99,7 @@ it:
           add: Aggiungi
           added: Aggiunto
         show:
+          budget: Budget
           view_all_projects: Visualizza tutti i progetti
     features:
       budgets:
@@ -104,10 +108,12 @@ it:
         name: Investimenti
         settings:
           global:
+            announcement: Annuncio
             comments_enabled: Commenti abilitati
             total_budget: Budget totale
             vote_threshold_percent: Soglia voti (percentuale)
           step:
+            announcement: Annuncio
             comments_blocked: Commenti bloccati
             show_votes: Visualizza voti
             votes_enabled: Voti abilitati
