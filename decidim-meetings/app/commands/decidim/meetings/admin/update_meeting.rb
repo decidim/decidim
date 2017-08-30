@@ -19,38 +19,45 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid) if @form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
           update_meeting!
-          broadcast(:ok, @meeting)
+          broadcast(:ok, meeting)
         end
 
         private
 
+        attr_reader :form, :meeting
+
         def update_meeting!
-          @meeting.update_attributes!(
-            scope: @form.scope,
-            category: @form.category,
-            title: @form.title,
-            description: @form.description,
-            end_time: @form.end_time,
-            start_time: @form.start_time,
-            address: @form.address,
-            latitude: @form.latitude,
-            longitude: @form.longitude,
-            location: @form.location,
-            location_hints: @form.location_hints
+          meeting.update_attributes!(
+            scope: form.scope,
+            category: form.category,
+            title: form.title,
+            description: form.description,
+            end_time: form.end_time,
+            start_time: form.start_time,
+            address: form.address,
+            latitude: form.latitude,
+            longitude: form.longitude,
+            location: form.location,
+            location_hints: form.location_hints
+          )
+          Decidim::EventsManager.publish(
+            event: "decidim.events.meetings.meeting_updated",
+            resource: meeting,
+            user: form.current_user
           )
         end
 
         def geocode_meeting
-          result = @meeting.geocode
-          @form.errors.add :address, :invalid unless result
+          result = meeting.geocode
+          form.errors.add :address, :invalid unless result
           result
         end
 
         def update_meeting
-          @meeting.save!
+          meeting.save!
         end
       end
     end

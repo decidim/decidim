@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 
 require "decidim/core/engine"
@@ -40,6 +41,7 @@ module Decidim
   autoload :ManifestRegistry, "decidim/manifest_registry"
   autoload :Abilities, "decidim/abilities"
   autoload :EngineRouter, "decidim/engine_router"
+  autoload :Events, "decidim/events"
 
   include ActiveSupport::Configurable
 
