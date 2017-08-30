@@ -1,0 +1,24 @@
+uk:
+  decidim:
+    features:
+      pages:
+        name: Сторінка
+        settings:
+          global:
+            announcement: Оголошення
+            comments_enabled: Коментарі дозволено
+          step:
+            announcement: Оголошення
+            comments_blocked: Заблоковані коментарі
+    pages:
+      admin:
+        models:
+          components:
+            body: Тіло
+        pages:
+          edit:
+            save: Оновлення
+            title: Редагувати сторінку
+          update:
+            invalid: Там були помилки під час збереження сторінки.
+            success: Сторінка успішно збережено.
