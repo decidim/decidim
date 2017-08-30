@@ -1,0 +1,250 @@
+uk:
+  activemodel:
+    attributes:
+      participatory_process:
+        banner_image: Банер зображення
+        copy_categories: Копія категорії
+        copy_features: Скопіювати функції
+        copy_steps: Копія кроки
+        description: Опис
+        developer_group: Група розробників
+        domain: Домен
+        end_date: Дата закінчення
+        hashtag: Хештегом
+        hero_image: Зображення будинку
+        local_area: Місцевість
+        meta_scope: Метадані сфери
+        participatory_process_group_id: Група процесів
+        participatory_scope: Участь рамки
+        participatory_structure: Участі структури
+        promoted: Сприяли
+        scope_id: Сфера
+        scopes_enabled: Приціли включений
+        short_description: Короткий опис
+        slug: Службове поле URL
+        subtitle: Субтитрів
+        target: Цільової
+        title: Назва
+      participatory_process_group:
+        description: Опис
+        hero_image: Зображення
+        name: Ім'я
+        participatory_process_ids: Схожі процеси
+      participatory_process_step:
+        description: Опис
+        end_date: Дата закінчення
+        short_description: Короткий опис
+        start_date: Дата початку
+        title: Назва
+      participatory_process_user_role:
+        email: Електронна пошта
+        name: Ім'я
+        role: Роль
+  decidim:
+    admin:
+      menu:
+        participatory_process_groups: Процес груп
+        participatory_processes: Процеси
+        participatory_processes_submenu:
+          attachments: Вкладення
+          categories: Категорії
+          features: Особливості
+          info: Інформація
+          moderations: Moderations
+          process_admins: Процес користувачів
+          steps: Кроки
+      models:
+        participatory_process:
+          fields:
+            created_at: Створений в
+            promoted: Виділені
+            published: Опубліковано
+            title: Назва
+          name: Умови проведення
+        participatory_process_group:
+          fields:
+            name: Ім'я
+          name: Процес Група
+        participatory_process_step:
+          fields:
+            end_date: Дата закінчення
+            start_date: Дата початку
+            title: Назва
+          name: Крок процесу проведення
+        participatory_process_user_role:
+          fields:
+            email: Електронна пошта
+            name: Ім'я
+            role: Роль
+          name: Умови проведення користувача
+          roles:
+            admin: Адміністратор
+            collaborator: Співавтора
+            moderator: Модератор
+      participatory_process_copies:
+        new:
+          copy: Копія
+          select: Оберіть які дані, які ви хотіли б створити дублікат
+          title: Повторюваних участі processs
+      participatory_process_groups:
+        destroy:
+          success: Умови проведення Група успішно знищені.
+        edit:
+          title: Редагування процес групи
+          update: Оновлення
+        new:
+          create: Створити
+          title: Новий процес Група
+        update:
+          error: Існував ан помилка оновлення цієї умови проведення групи.
+          success: Умови проведення Група успішно оновлено.
+      participatory_process_publications:
+        create:
+          error: Помилка під час публікації цього процесу проведення.
+          success: Умови проведення опубліковані успішно.
+        destroy:
+          error: Помилка під час скасування публікації цього процесу проведення.
+          success: Умови проведення неопубліковані успішно.
+      participatory_process_step_activations:
+        create:
+          error: Помилка під час активації цей крок процесу проведення.
+          success: Крок процесу проведення активована успішно.
+      participatory_process_steps:
+        create:
+          error: Помилка під час створення нового кроку процесу проведення.
+          success: Крок процесу проведення успішно створено.
+        default_title: Введення
+        destroy:
+          error:
+            active_step: Не вдалося видалити активну крок.
+            last_step: Неможливо видалити останній крок процесу.
+          success: Крок процесу проведення знищені успішно.
+        edit:
+          title: Змінити крок процесу проведення
+          update: Оновлення
+        index:
+          steps_title: Кроки
+        new:
+          create: Створити
+          title: Новий крок процесу проведення
+        ordering:
+          error: Виявлено помилку під час перепризначення цієї умови проведення кроки.
+        update:
+          error: Виявлено помилку при оновленні цього кроку процесу проведення.
+          success: Крок процесу проведення успішно оновлено.
+      participatory_process_user_roles:
+        create:
+          error: Помилка під час додавання користувача для цього процесу проведення.
+          success: Користувача успішно створено для цього процесу проведення.
+        destroy:
+          success: Користувач знищені успішно для цього процесу проведення.
+        edit:
+          title: Оновлення процесі участі користувача.
+          update: Оновлення
+        index:
+          process_admins_title: Умови проведення користувачів
+        new:
+          create: Створити
+          title: Нового користувача процес.
+        update:
+          error: Існував помилка оновлення користувача для цього процесу проведення.
+          success: Користувача успішно оновлено для цього процесу проведення.
+      participatory_processes:
+        create:
+          error: Помилка під час створення нового процесу проведення.
+          success: Умови проведення успішно створено. Тепер налаштувати свої кроки.
+        destroy:
+          success: Умови проведення знищені успішно.
+        edit:
+          update: Оновлення
+        form:
+          title: Загальна інформація
+        index:
+          not_published: Не Опубліковано
+          published: Опубліковано
+        new:
+          create: Створити
+          title: Нові умови проведення
+        update:
+          error: Виявлено помилку при оновленні цього процесу проведення.
+          success: Умови проведення успішно оновлено.
+      participatory_processes_copies:
+        create:
+          error: Виявлено помилку під час створення дублікату цей процес.
+          success: Умови проведення дублюється успішно.
+      participatory_processes_group:
+        create:
+          error: Помилка під час створення нової групи процесу проведення.
+          success: Умови проведення Група успішно створено.
+      titles:
+        participatory_process_groups: Умови проведення груп
+        participatory_processes: Участі процесів
+    menu:
+      processes: Процеси
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Процеси для %{group}
+        title: Назва
+    participatory_process_steps:
+      index:
+        process_steps: Процес дії.
+        title: Етапи процесу проведення
+    participatory_processes:
+      index:
+        title: Участі процесів
+      participatory_process_groups:
+        none: Жоден
+      show:
+        developer_group: Група розробників
+        end_date: Дата закінчення
+        local_area: Місцевість
+        participatory_scope: Участь рамки
+        participatory_structure: Участі структури
+        scope: Сфера
+        target: Цільової
+      statistics:
+        answers_count: Відповіді
+        comments_count: Коментарі
+        headline: Діяльність
+        meetings_count: Зустрічі
+        orders_count: Замовлення
+        pages_count: Сторінки
+        processes_count: Процеси
+        projects_count: Проекти
+        proposals_count: Пропозиції
+        results_count: Результати
+        surveys_count: Опитування
+        users_count: Учасники
+        votes_count: Голосів
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Огляд
+      participatory_process_widgets:
+        show:
+          active_step: Активні крок
+          take_part: Взяти участь
+      participatory_processes:
+        index:
+          promoted_processes: Підкреслив процесів
+        no_processes_yet:
+          no_processes_yet: Участі процесів, що ще!
+        order_by_processes:
+          processes:
+            one: "%{count} процес"
+            few: "%{count} процесів"
+            other: "%{count} процесів"
+        participatory_process:
+          active_step: 'Поточний крок:'
+          take_part: Взяти участь
+        promoted_process:
+          active_step: 'Поточний крок:'
+          more_info: Детальніше
+          take_part: Взяти участь
+      process_header:
+        process_menu_item: Процес
+        unfold: Розгортатися
+      process_header_steps:
+        step: Крок %{current} %{total}
+        view_steps: Перегляньте кроки
