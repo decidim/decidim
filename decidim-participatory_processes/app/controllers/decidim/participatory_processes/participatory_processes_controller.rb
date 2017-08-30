@@ -41,7 +41,7 @@ module Decidim
       end
 
       def participatory_process_groups
-        @process_groups ||= Decidim::ParticipatoryProcessGroup.where(organization: current_organization)
+        @process_groups ||= OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter)
       end
 
       def stats
