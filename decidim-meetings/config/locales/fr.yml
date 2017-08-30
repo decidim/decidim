@@ -20,7 +20,14 @@ fr:
   decidim:
     features:
       meetings:
+        actions:
+          join: Joindre
         name: Rencontres
+        settings:
+          global:
+            announcement: Annonce
+          step:
+            announcement: Annonce
     meetings:
       actions:
         attachments: Documents liés
@@ -30,8 +37,11 @@ fr:
         edit: Modifier
         new: Nouveau
         preview: Aperçu
+        registrations: Enregistrements
         title: Actions
       admin:
+        exports:
+          registrations: Enregistrements
         meeting_closes:
           edit:
             close: Clore
@@ -58,12 +68,24 @@ fr:
         models:
           meeting:
             name: Rencontre
+        registrations:
+          edit:
+            save: Sauvegarder
+          form:
+            available_slots_help: Laissez-le à 0 si vous avez des emplacements illimités disponibles.
+            registrations_count:
+              one: Il y a eu 1 enregistrement.
+              other: Il y a eu %{count} enregistrements.
+          update:
+            invalid: Il y a eu un problème pour enregistrer les paramètres d'enregistrement.
+            success: Réaliser les paramètres d'enregistrement enregistrés avec succès.
       meetings:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           date: Date
           past: Passées
+          scope_prompt: Sélectionnez une portée
           scopes: Zone d'application
           search: Rechercher
           upcoming: À venir
@@ -77,11 +99,20 @@ fr:
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
           upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontre planifiées, mais ici, vous trouverez une liste de toutes les réunions passées.
+        registration_confirm:
+          cancel: Annuler
+          confirm: Confirmer
         show:
           attendees: Nombre de participants
           contributions: Décompte des contributions
+          going: Aller
+          join: Rejoindre une réunion
           meeting_report: Compte rendu de la rencontre
+          no_slots_available: Pas de machines à sous disponibles
           organizations: Organisations participantes
+          remaining_slots:
+            one: 1 slot restant
+            other: "%{count} machines à sous restantes"
       models:
         meeting:
           fields:
@@ -91,6 +122,13 @@ fr:
             start_time: Date de début
             title: Titre
       read_more: "(Lire la suite)"
+      registrations:
+        create:
+          invalid: Il y a eu un problème pour rejoindre cette réunion.
+          success: Vous avez rejoint la réunion avec succès.
+        destroy:
+          invalid: Il y a eu un problème de sortir de cette réunion.
+          success: Vous avez quitté la réunion avec succès.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Résultats associés :'

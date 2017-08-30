@@ -1,0 +1,250 @@
+pl:
+  activemodel:
+    attributes:
+      participatory_process:
+        banner_image: Obraz baneru
+        copy_categories: Kopiuj kategorie
+        copy_features: Kopiuj funkcje
+        copy_steps: Skopiuj kolejne etapy
+        description: Opis
+        developer_group: Grupa programistyczna
+        domain: Domena
+        end_date: Data zakończenia
+        hashtag: Hasztag
+        hero_image: Obraz w domu
+        local_area: Okolica
+        meta_scope: Zakres metadanych
+        participatory_process_group_id: Grupa procesów
+        participatory_scope: Zakres partycypacji
+        participatory_structure: Struktura partycypacji
+        promoted: Lansowany
+        scope_id: Zakres
+        scopes_enabled: Zakresy włączone
+        short_description: Krótki opis
+        slug: Ślimak URL
+        subtitle: Podtytuł
+        target: Cel
+        title: Tytuł
+      participatory_process_group:
+        description: Opis
+        hero_image: Obraz
+        name: Nazwa
+        participatory_process_ids: Powiązane procesy
+      participatory_process_step:
+        description: Opis
+        end_date: Data zakończenia
+        short_description: Krótki opis
+        start_date: Data rozpoczęcia
+        title: Tytuł
+      participatory_process_user_role:
+        email: Adres e-mail
+        name: Nazwa
+        role: Rola
+  decidim:
+    admin:
+      menu:
+        participatory_process_groups: Grupy procesowe
+        participatory_processes: Procesy
+        participatory_processes_submenu:
+          attachments: Załączniki
+          categories: Kategorie
+          features: cechy
+          info: Informacje
+          moderations: Modernizacje
+          process_admins: Użytkownicy procesu
+          steps: Kroki
+      models:
+        participatory_process:
+          fields:
+            created_at: Utworzono w
+            promoted: Podświetlony
+            published: Opublikowany
+            title: Tytuł
+          name: Proces współuczestnictwa
+        participatory_process_group:
+          fields:
+            name: Nazwa
+          name: Grupa procesów
+        participatory_process_step:
+          fields:
+            end_date: Data zakończenia
+            start_date: Data rozpoczęcia
+            title: Tytuł
+          name: Udział w procesie uczestnictwa
+        participatory_process_user_role:
+          fields:
+            email: Adres e-mail
+            name: Nazwa
+            role: Rola
+          name: Uczestnik procesu
+          roles:
+            admin: Administrator
+            collaborator: Współpracownik
+            moderator: Moderator
+      participatory_process_copies:
+        new:
+          copy: Kopiuj
+          select: Wybierz dane, które chcesz zduplikować
+          title: Zduplikowane procesy uczestnictwa
+      participatory_process_groups:
+        destroy:
+          success: Uczestnicząca grupa procesowa została zniszczona.
+        edit:
+          title: Edytuj grupę procesów
+          update: Aktualizuj
+        new:
+          create: Utwórz
+          title: Nowa grupa procesów
+        update:
+          error: Podczas tej uczestniczącej grupy procesowej wystąpił błąd.
+          success: Uczestnicząca grupa procesowa została zaktualizowana.
+      participatory_process_publications:
+        create:
+          error: Wystąpił błąd podczas publikowania tego procesu partycypacyjnego.
+          success: Proces współuczestnictwa został opublikowany.
+        destroy:
+          error: Wystąpił błąd podczas publikowania tego procesu partycypacyjnego.
+          success: Proces uczestnictwa nie został pomyślnie opublikowany.
+      participatory_process_step_activations:
+        create:
+          error: Podczas aktywnego etapu procesu wystąpił błąd.
+          success: Uruchomiony został proces uczestnictwa.
+      participatory_process_steps:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowego etapu procesu partycypacyjnego.
+          success: Utworzono pomyślnie etap procesu uczestnictwa.
+        default_title: Wprowadzenie
+        destroy:
+          error:
+            active_step: Nie można usunąć aktywnego kroku.
+            last_step: Nie można usunąć ostatniego etapu procesu.
+          success: Udział w procesie uczestnictwa został pomyślnie zniszczony.
+        edit:
+          title: Edytuj krok procesu partycypacyjnego
+          update: Aktualizuj
+        index:
+          steps_title: Kroki
+        new:
+          create: Utwórz
+          title: Nowy krok procesu partycypacyjnego
+        ordering:
+          error: Wystąpił błąd podczas ponownego zamawiania tych uczestniczących etapów procesu.
+        update:
+          error: Podczas aktualizowania tego procesu uczestniczył błąd.
+          success: Uczęszczający krok procesu został pomyślnie zaktualizowany.
+      participatory_process_user_roles:
+        create:
+          error: Wystąpił błąd podczas dodawania użytkownika do tego procesu partycypacyjnego.
+          success: Użytkownik utworzony z powodzeniem dla tego procesu partycypacyjnego.
+        destroy:
+          success: Użytkownik z powodzeniem zniszczył ten proces uczestnictwa.
+        edit:
+          title: Zaktualizuj uczestniczącego użytkownika procesu.
+          update: Aktualizuj
+        index:
+          process_admins_title: Uczestniczący użytkownicy procesu
+        new:
+          create: Utwórz
+          title: Nowy użytkownik procesu partycypacyjnego.
+        update:
+          error: Podczas procesu uczestnictwa wystąpił błąd.
+          success: Użytkownik zaktualizował się pomyślnie dla tego procesu partycypacyjnego.
+      participatory_processes:
+        create:
+          error: Podczas tworzenia nowego procesu partycypacyjnego wystąpił błąd.
+          success: Proces współuczestnictwa został pomyślnie utworzony. Skonfiguruj teraz kroki.
+        destroy:
+          success: Proces współudziału został zniszczony.
+        edit:
+          update: Aktualizuj
+        form:
+          title: Informacje ogólne
+        index:
+          not_published: Nie opublikowane
+          published: Opublikowany
+        new:
+          create: Utwórz
+          title: Nowy proces partycypacji
+        update:
+          error: Wystąpił błąd podczas aktualizowania tego procesu partycypacyjnego.
+          success: Proces uczestnictwa został zaktualizowany.
+      participatory_processes_copies:
+        create:
+          error: Podczas duplikowania tego procesu partycypacyjnego wystąpił błąd.
+          success: Proces uczestnictwa został pomyślnie powielony.
+      participatory_processes_group:
+        create:
+          error: Podczas tworzenia nowej partycypacyjnej grupy procesów wystąpił błąd.
+          success: Uczestnicząca grupa procesowa została pomyślnie utworzona.
+      titles:
+        participatory_process_groups: Uczestniczące grupy procesowe
+        participatory_processes: Procesy partycypacyjne
+    menu:
+      processes: Procesy
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Procesy %{group}
+        title: Tytuł
+    participatory_process_steps:
+      index:
+        process_steps: Etapy procesu
+        title: Etapy procesu partycypacyjnego
+    participatory_processes:
+      index:
+        title: Procesy partycypacyjne
+      participatory_process_groups:
+        none: Brak
+      show:
+        developer_group: Grupa programistyczna
+        end_date: Data zakończenia
+        local_area: Okolica
+        participatory_scope: Zakres partycypacji
+        participatory_structure: Struktura partycypacji
+        scope: Zakres
+        target: Cel
+      statistics:
+        answers_count: Odpowiedzi
+        comments_count: Komentarze
+        headline: Czynność
+        meetings_count: Spotkania
+        orders_count: Święcenia
+        pages_count: Strony
+        processes_count: Procesy
+        projects_count: Projekty
+        proposals_count: Propozycje
+        results_count: Wyniki
+        surveys_count: Ankiety
+        users_count: Uczestnicy
+        votes_count: Głosowania
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Paść się
+      participatory_process_widgets:
+        show:
+          active_step: Aktywny krok
+          take_part: Wziąć udział
+      participatory_processes:
+        index:
+          promoted_processes: Podświetlone procesy
+        no_processes_yet:
+          no_processes_yet: Żadne procesy uczestniczące!
+        order_by_processes:
+          processes:
+            one: "%{count} proces"
+            few: "%{count} procesów"
+            other: "%{count} procesów"
+        participatory_process:
+          active_step: 'Aktualny krok:'
+          take_part: Wziąć udział
+        promoted_process:
+          active_step: 'Aktualny krok:'
+          more_info: Więcej informacji
+          take_part: Wziąć udział
+      process_header:
+        process_menu_item: Proces
+        unfold: Rozwiń
+      process_header_steps:
+        step: Krok %{current} z %{total}
+        view_steps: Wyświetl kroki

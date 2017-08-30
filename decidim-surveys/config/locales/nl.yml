@@ -3,3 +3,67 @@ nl:
     attributes:
       survey_answer:
         body: Antwoord
+      survey_question:
+        mandatory: Verplicht
+        question_type: Type
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Antwoord
+        name: Enquête
+        settings:
+          global:
+            announcement: Aankondiging
+          step:
+            allow_answers: Antwoorden toestaan
+            announcement: Aankondiging
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Survey gebruikers antwoorden
+        models:
+          components:
+            description: Beschrijving
+            tos: Servicevoorwaarden
+        surveys:
+          answer_option:
+            answer_option: Antwoord optie
+            remove_answer_option: Verwijder antwoord optie
+            statement: Uitspraak
+          edit:
+            save: Opslaan
+            title: Titel
+          form:
+            add_question: Voeg vraag toe
+            already_answered_warning: Het onderzoek is al door sommige gebruikers beantwoord, zodat u de vragen niet kunt wijzigen.
+          question:
+            add_answer_option: Voeg antwoord optie toe
+            question: Vraag
+            remove_question: Verwijder vraag
+            statement: Uitspraak
+          update:
+            invalid: Er zijn fouten geweest bij het opslaan van de enquête.
+            success: Survey is succesvol opgeslagen.
+      question_types:
+        long_answer: Lang antwoord
+        multiple_option: Meerdere optie
+        short_answer: Kort antwoord
+        single_option: Enkele optie
+      surveys:
+        answer:
+          invalid: Er zijn fouten geweest bij het beantwoorden van de enquête.
+          success: Survey beantwoord met succes.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Meld u aan bij uw account</a> of <a href="%{sign_up_link}">sign up</a> om de enquête te beantwoorden.
+            title: Beantwoord het onderzoek
+          are_you_sure: Deze actie kan niet ongedaan gemaakt worden en u kunt uw antwoorden niet wijzigen. Weet je het zeker?
+          submit: voorleggen
+          survey_answered:
+            body: U heeft deze enquête al beantwoord.
+            title: Survey beantwoordde
+          survey_closed:
+            body: Het onderzoek is gesloten en kan niet worden beantwoord.
+            title: Survey gesloten
+          tos_agreement: Door deel te nemen aan dit onderzoek accepteer je de gebruiksvoorwaarden

@@ -185,7 +185,13 @@ eu:
           name: Izena
         impersonate:
           error: Errore bat gertatu da kudeatutako erabiltzailea ordezkatzean.
+        impersonations:
+          new:
+            impersonate: itxurak
+            new_managed_user_impersonation: Erabiltzaile berrien ordezkapen berria
         index:
+          impersonate: itxurak
+          needs_authoriation_warning: Gutxienez erakunde honen baimenak gaitu behar dituzu.
           promote: Goratu
           view_logs: Ikusi erregistroak
         new:
@@ -193,10 +199,20 @@ eu:
           new_managed_user: Erabiltzaile kudeatu berria
           select_authorization_method: Hautatu autorizazio metodoa
           step: '%{total} fasetatik %{current}.a'
+        promotion:
+          error: Errore bat gertatu da kudeatutako erabiltzaileak sustatzean.
+          success: Erabiltzaile kudeatua arrakastaz sustatu da.
+        promotions:
+          new:
+            explanation: Erabiltzaile kudeatuak erabiltzaile estandarretara igo daitezke. Aplikazioari gonbidatuko zaitu eta ezingo dituzu berriz ordezkatu. Gonbidatutako erabiltzaileak zure gonbidapena onartu dezan mezu elektroniko bat jasoko du.
+            new_managed_user_promotion: Erabiltzaile kudeatuen promozio berria
+            promote: sustatu
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
+        managed_users: Kudeatutako erabiltzaileak
         newsletters: Buletinak
+        scope_types: Esparru motak
         scopes: Esparruak
         settings: Konfigurazioa
         static_pages: Erlaitzak
@@ -213,6 +229,9 @@ eu:
         impersonation_log:
           fields:
             admin: Administratzailea
+            ended_at: Amaitu da
+            expired_at: Iraungita dago
+            started_at: Hasi zen at
             user: Erabiltzailea
         managed_user:
           name: Erabiltzaile kudeatua
@@ -255,6 +274,7 @@ eu:
             document_number: Agiri-zenbakia
             name: Izena
             phone: Telefonoa
+            state: Egoera
             users_count: Erabiltzaile kopurua
       moderations:
         index:
@@ -359,6 +379,7 @@ eu:
           success: Orria zuzen eguneratu da.
       titles:
         dashboard: Kontrol-panela
+        impersonations: impersonations
         managed_users: Kudeatutako erabiltzaileak
         scope_types: Esparru motak
         scopes: Esparruak
@@ -369,6 +390,9 @@ eu:
         reject:
           invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.
           success: Erabiltzaile taldea arrakastaz arbuiatua
+        verify:
+          invalid: Errore bat gertatu da erabiltzaile talde hau egiaztatzeko.
+          success: Erabiltzaile taldeko egiaztatu arrakastaz
       user_groups:
         index:
           filter:
@@ -376,6 +400,7 @@ eu:
             pending: Zain
             rejected: Ukatua
             verified: Egiaztatuta
+          filter_by: 'Iragazi honen arabera:'
           search: Bilatu
           state:
             pending: Zain
@@ -419,7 +444,11 @@ eu:
             hidden_at: Ezkutatze-data
             report_count: Zenbaketa
             reportable: Mota
+            reported_content_url: Jakinarazi edukien URL
             reports: Salaketak
+  errors:
+    messages:
+      invalid_json: JSON baliogabea
   layouts:
     decidim:
       admin:

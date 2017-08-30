@@ -1,0 +1,72 @@
+uk:
+  decidim:
+    comments:
+      comment_notification_mailer:
+        comment_created:
+          new_comment_html: Існує новий коментар від <b>%{commenter}</b> в <b>%{commentable_link}</b>
+        hello: Привіт %{name},
+        manage_email_subscriptions_html: Ви можете зупинити отримую ці листи, змінивши налаштування в %{link}.
+        notifications_settings_link: сторінку параметрів сповіщень
+        reply_created:
+          new_reply_html: Існує новий відповідь ваш коментар від <b>%{commenter}</b> в <b>%{commentable_link}</b>
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: У вас є нові коментарі
+          reply_created:
+            subject: У вас є нові відповідь ваш коментар
+      votes:
+        create:
+          error: Там були помилки при голосуванні коментар.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Sign за допомогою вашого account</a> або <a href="%{sign_up_url}">sign up</a>, щоб додати ваш коментар.
+        form:
+          body:
+            label: Коментар
+            placeholder: Що ви думаєте з цього приводу?
+          form_error: Текст не потрібно, і воно не може бути більше %{length} символів.
+          submit: Надіслати
+          user_group_id:
+            label: Коментарі як
+        opinion:
+          neutral: Нейтральні
+        remaining_characters: "%{count} символи зліва"
+        remaining_characters_1: "%{count} символу ліворуч"
+        title: Додати свій коментар
+      comment:
+        alignment:
+          against: Проти
+          in_favor: На користь
+        deleted_user: Видаленим користувачем
+        reply: Відповідь
+        report:
+          action: Звіт
+          already_reported: Цей вміст вже повідомив, і вона буде розглядатися по адміністратора
+          close: Закрити
+          description: Не це зміст підходить?
+          details: Додаткові коментарі
+          reasons:
+            does_not_belong: Містить незаконної діяльності, загрози самогубства, особисту інформацію, або щось інше, що ви думаєте, що не належить на %{organization_name}.
+            offensive: Містить расизм, сексизм, образам, особисті випади, погрожували смертю, самогубство запити або будь-якій формі Ненависницькі висловлювання.
+            spam: Містить clickbait, рекламу, шахрайські або сценарію ботів.
+          title: Повідомити про проблему
+        verified_user_group: Перевірена організації
+      comment_order_selector:
+        order:
+          best_rated: Найвищі оцінки
+          most_discussed: Найчастіше обговорювані
+          older: Літні
+          recent: Останні
+        title: 'Замовити по:'
+      comment_thread:
+        title: Розмова з %{authorName}
+      comments:
+        blocked_comments_warning: Коментарі відключені у поточний крок, але ви можете прочитати коментарі від попередніх кроках.
+        loading: Завантаження коментарів...
+        title: "%{count} коментарів"
+      featured_comment:
+        title: Рекомендовані коментар
+  errors:
+    messages:
+      cannot_have_comments: не може мати коментарів

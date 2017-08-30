@@ -3,6 +3,462 @@ nl:
     attributes:
       attachment:
         description: Beschrijving
+        file: het dossier
+        title: Titel
+      category:
+        description: Beschrijving
+        name: Naam
+        parent_id: Ouder
+      feature:
+        name: Naam
+        weight: Gewicht
+      newsletter:
+        body: Lichaam
+        subject: Onderwerpen
+      organization:
+        default_locale: Standaard locale
+        description: Beschrijving
+        favicon: Icoon
+        homepage_image: Homepage afbeelding
+        logo: Logo
+        name: Naam
+        official_img_footer: Officiële logo footer
+        official_img_header: Officiële logo header
+        official_url: Officiële organisatie url
+        reference_prefix: Referentievoorvoegsel
+        show_statistics: Toon statistieken
+        welcome_text: Welkom tekst
+      scope:
+        code: Code
+        name: Naam
+        organization: Organisatie
+        scope_type: Scope type
+      scope_type:
+        name: Naam
+        organization: Organisatie
+        plural: Meervoud
+      static_page:
+        content: Inhoud
+        organization: Organisatie
+        slug: URL slak
+        title: Titel
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Banner afbeelding
+        description: Beschrijving
+        developer_group: Ontwikkelaarsgroep
+        domain: Domein
+        end_date: Einddatum
+        hashtag: Hashtag
+        hero_image: Home image
+        local_area: Lokale buurt
+        meta_scope: Omvang metadata
+        participatory_scope: Participatief toepassingsgebied
+        participatory_structure: Participatieve structuur
+        promoted: Bevorderd
+        scope: Reikwijdte
+        short_description: Korte beschrijving
+        slug: URL slak
+        subtitle: Ondertitel
+        target: Doel
+        title: Titel
+      decidim/participatory_process_step:
+        end_date: Einddatum
+        start_date: Begin datum
+      decidim/static_page:
+        content: Inhoud
+        slug: URL slak
+        title: Titel
+  date:
+    formats:
+      datepicker: "%m / %d / %Y"
+  decidim:
+    admin:
+      actions:
+        activate: Activeren
+        add: Toevoegen
+        browse: Browsen
+        configure: Configureer
+        confirm_destroy: Weet u zeker dat u dit wilt verwijderen?
+        destroy: Vernietigen
+        duplicate: Duplicaat
+        edit: Bewerk
+        export: Exporteren
+        manage: Beheer
+        new: nieuwe
+        permissions: Toelatingen
+        preview: Voorbeeld
+        publish: Publiceren
+        reject: afwijzen
+        resend_invitation: Verstuur de uitnodiging opnieuw
+        unpublish: Unpublish
+        verify: Verifiëren
+      attachments:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
+          success: Bijlage is succesvol gemaakt.
+        destroy:
+          success: Bijlage is succesvol vernietigd.
+        edit:
+          title: Bewerk bijlage
+          update: Bijwerken
+        index:
+          attachments_title: toebehoren
+        new:
+          create: Maak bijlage
+          title: Nieuwe bijlage
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze bijlage.
+          success: Bijlage is succesvol bijgewerkt.
+      categories:
+        create:
+          error: Er is een fout opgetreden bij het maken van deze categorie.
+          success: Categorie succesvol gemaakt.
+        destroy:
+          error: Er is een fout opgetreden bij het verwijderen van deze categorie. Verwijder eerst een subcategorie, zorg ervoor dat er geen andere entiteit in deze categorie hoort en probeer het opnieuw.
+          success: Categorie is succesvol verwijderd.
+        edit:
+          title: Categorie bewerken
+          update: Bijwerken
+        index:
+          categories_title: Categorieën
+          category_used: Deze categorie kan niet worden verwijderd omdat het in gebruik is.
+        new:
+          create: Categorie creëren
+          title: Nieuwe categorie
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze categorie.
+          success: Categorie is succesvol bijgewerkt.
+      dashboard:
+        show:
+          welcome: Welkom bij de nieuwe Decidim Panel Admin.
+      exports:
+        export_as: "%{name} als %{export_format}"
+        notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
+      feature_permissions:
+        edit:
+          everyone: Iedereen
+          submit: Bewaar machtigingen
+          title: Wijzig permissies
+        update:
+          success: Machtigingen succesvol bijgewerkt.
+      features:
+        create:
+          error: Er is een fout opgetreden bij het maken van deze functie.
+          success: Functie is succesvol gemaakt.
+        destroy:
+          error: Er is een fout gebroken die deze functie vernietigt.
+          success: Functie is succesvol verwijderd.
+        edit:
+          title: Bewerk functie
+          update: Bijwerken
+        form:
+          default_step_settings: Standaard stapinstellingen
+          global_settings: Algemene instellingen
+          step_settings: Stap instellingen
+        index:
+          add: Functie toevoegen
+          headers:
+            actions: Acties
+            name: Feature naam
+            type: Feature type
+        new:
+          add: Functie toevoegen
+          title: 'Functie toevoegen: %{name}'
+        publish:
+          success: De functie is succesvol gepubliceerd.
+        title: Kenmerken
+        unpublish:
+          success: De functie is succesvol ongepubliceerd.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze functie.
+          success: De functie is succesvol bijgewerkt.
+      managed_users:
+        close_session:
+          error: Er is een fout opgetreden die de huidige impersonatie sessie sluit.
+          success: De huidige impersonatie sessie is succesvol beëindigd.
+        create:
+          error: Er is een fout opgetreden bij het maken van de beheerde gebruiker.
+          success: De beheerde gebruiker is succesvol aangemaakt.
+        form:
+          name: Naam
+        impersonate:
+          error: Er is een fout opgetreden die de beheerde gebruiker verpersoonlijken.
+        impersonations:
+          new:
+            impersonate: verpersoonlijken
+            new_managed_user_impersonation: Nieuwe beheerde gebruikerspersoonstelling
+        index:
+          impersonate: verpersoonlijken
+          needs_authoriation_warning: U heeft minstens één autorisatie nodig voor deze organisatie.
+          promote: Promoten
+          view_logs: Bekijk logboeken
+        new:
+          create: creëren
+          new_managed_user: Nieuwe beheerde gebruiker
+          select_authorization_method: Selecteer een autorisatie methode
+          step: Stap %{current} van %{total}
+        promotion:
+          error: Er is een fout opgetreden bij het promoten van de beheerde gebruiker.
+          success: De beheerde gebruiker is succesvol gepromoveerd.
+        promotions:
+          new:
+            explanation: Beheerde gebruikers kunnen worden bevorderd tot standaardgebruikers. Het betekent dat ze worden uitgenodigd voor de aanvraag en u kunt ze niet opnieuw voorstellen. De uitgenodigde gebruiker ontvangt een email om uw uitnodiging te accepteren.
+            new_managed_user_promotion: Nieuwe beheerde gebruikersbevordering
+            promote: Promoten
+      menu:
+        admins: Admins
+        dashboard: Dashboard
+        managed_users: Beheerde gebruikers
+        newsletters: Nieuwsbrieven
+        scope_types: Scope types
+        scopes: Scopes
+        settings: Instellingen
+        static_pages: Pagina's
+        user_groups: Gebruikersgroepen
+        users: Gebruikers
+      models:
+        attachment:
+          fields:
+            content_type: Type
+            title: Titel
+          name: Bijlage
+        category:
+          name: Categorie
+        impersonation_log:
+          fields:
+            admin: beheerder
+            ended_at: Eindigde op
+            expired_at: Verlopen op
+            started_at: Gestart op
+            user: Gebruiker
+        managed_user:
+          name: Beheerde gebruiker
+        newsletter:
+          fields:
+            created_at: Gemaakt bij
+            progress: Vooruitgang
+            sent_at: Verzonden bij
+            subject: Onderwerpen
+          name: Nieuwsbrief
+        scope:
+          fields:
+            name: Naam
+            scope_type: Scope type
+        scope_type:
+          fields:
+            name: Naam
+            plural: Meervoud
+        static_page:
+          fields:
+            created_at: Gemaakt bij
+            title: Titel
+        user:
+          fields:
+            created_at: Aanmaakdatum
+            email: E-mail
+            invitation_accepted_at: Uitnodiging aanvaard datum
+            invitation_sent_at: Uitnodiging verzonden datum
+            last_sign_in_at: Laatste inloggen datum
+            name: Naam
+            role: Rol
+            roles:
+              admin: beheerder
+              user_manager: Gebruikersbeheerder
+          name: Gebruiker
+        user_group:
+          fields:
+            actions: acties
+            created_at: Gemaakt bij
+            document_number: Documentnummer
+            name: Naam
+            phone: Telefoon
+            state: Staat
+            users_count: Aantal gebruikers
+      moderations:
+        index:
+          title: Moderaties
+        report:
+          reasons:
+            does_not_belong: Hoort niet
+            offensive: Aanvallend
+            spam: Spam
+      newsletters:
+        create:
+          error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
+          success: Nieuwsbrief is succesvol gemaakt. Controleer het alstublieft voordat u verzendt.
+        deliver:
+          error: Er is een fout opgetreden bij het leveren van deze nieuwsbrief.
+          success: Nieuwsbrief is succesvol geleverd.
+        destroy:
+          error_already_sent: 'Kan de nieuwsbrief niet vernietigen: het is al verstuurd.'
+          success: Nieuwsbrief is succesvol vernietigd.
+        edit:
+          save_and_preview: Opslaan en previewen
+          title: Bewerk nieuwsbrief
+        form:
+          interpolations_hint: 'Hint: U kunt "%{name}" overal in het lichaam of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
+        index:
+          confirm_delete: Weet u zeker dat u deze nieuwsbrief wilt verwijderen?
+          title: Nieuwsbrieven
+        new:
+          save: Opslaan
+          title: Nieuwe nieuwsbrief
+        show:
+          confirm_deliver: Weet u zeker dat u deze nieuwsbrief wilt bezorgen? Deze actie kan niet ongedaan gemaakt worden.
+          deliver: Stuur nieuwsbrief
+          preview: Voorbeeld
+          subject: Onderwerpen
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
+          success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
+      organization:
+        edit:
+          title: Organisatie bewerken
+          update: Bijwerken
+        form:
+          current_image: Huidig ​​beeld
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Sociaal
+          twitter: Twitter
+          url: Url
+          youtube: YouTube
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
+          success: Organisatie is succesvol bijgewerkt.
+      scope_types:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+          success: Scope type is succesvol gemaakt.
+        destroy:
+          success: Omvangstype is succesvol vernietigd
+        edit:
+          title: Bewerk type type
+          update: Bijwerken
+        new:
+          create: Maak een draagstype aan
+          title: Nieuw bereik
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit scope type.
+          success: Scope type is succesvol bijgewerkt
+      scopes:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe reikwijdte.
+          success: Scope is succesvol gemaakt.
+        destroy:
+          success: Scope succesvol vernietigd
+        edit:
+          title: Bewerk de scope
+          update: Bijwerken
+        new:
+          create: Maak ruimte
+          title: Nieuw bereik
+        no_scopes: Geen scopes op dit niveau.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit bereik.
+          success: Scope is succesvol bijgewerkt
+      static_pages:
+        actions:
+          view: Bekijk de openbare pagina
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
+          success: Pagina is succesvol gemaakt.
+        destroy:
+          success: Pagina succesvol vernietigd
+        edit:
+          title: Pagina bewerken
+          update: Bijwerken
+        new:
+          create: nieuwe
+          title: Nieuwe pagina
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze pagina.
+          success: Pagina is succesvol bijgewerkt
+      titles:
+        dashboard: Dashboard
+        impersonations: imitaties
+        managed_users: Beheerde gebruikers
+        scope_types: Scope types
+        scopes: Scopes
+        static_pages: Pagina's
+        user_groups: Gebruikersgroepen
+        users: Gebruikers
+      user_group:
+        reject:
+          invalid: Er is een fout opgetreden bij het afwijzen van deze gebruikersgroep.
+          success: Gebruikersgroep is succesvol afgewezen
+        verify:
+          invalid: Er is een fout opgetreden bij het verifiëren van deze gebruikersgroep.
+          success: Gebruikersgroep is succesvol geverifieerd
+      user_groups:
+        index:
+          filter:
+            all: Alle
+            pending: In afwachting
+            rejected: Verworpen
+            verified: Geverifieerd
+          filter_by: Filteren op
+          search: Zoeken
+          state:
+            pending: In afwachting
+            rejected: Verworpen
+            verified: Geverifieerd
+      users:
+        create:
+          error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker.
+          success: Gebruiker heeft succesvol uitgenodigd.
+        destroy:
+          error: Er is een fout opgetreden bij het proberen om deze gebruiker te verwijderen.
+          success: Gebruiker is niet meer een beheerder.
+        form:
+          email: E-mail
+          name: Naam
+          role: Rol
+        new:
+          create: Nodig uit
+          title: Inviteer gebruiker als beheerder
+        resend_invitation:
+          error: Er is een fout opgetreden bij het verzenden van de uitnodigings-e-mail.
+          success: Uitnodigings-e-mail is succesvol verzonden.
+    moderations:
+      actions:
+        hidden: Verborgen
+        hide: Verbergen
+        not_hidden: niet verstopt
+        title: Acties
+        unreport: Onreporteren
+      admin:
+        reportable:
+          hide:
+            invalid: Er is een probleem geweest om de bron te verbergen.
+            success: Resource succesvol verborgen.
+          unreport:
+            invalid: Er is een probleem geweest om de bron niet te rapporteren.
+            success: Resource succesvol ongemeld.
+      models:
+        moderation:
+          fields:
+            hidden_at: Verborgen bij
+            report_count: tellen
+            reportable: Rapporterbaar
+            reported_content_url: Gerapporteerde inhouds-URL
+            reports: Rapporten
+  errors:
+    messages:
+      invalid_json: Ongeldige JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Nieuwsbrieven
+        settings:
+          title: Instellingen
+        users:
+          title: Gebruikers
   time:
     formats:
+      datepicker: "%m / %d / %Y"
       timepicker: "%d/%m/%Y %H:%M"

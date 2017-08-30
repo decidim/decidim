@@ -1,0 +1,464 @@
+uk:
+  activemodel:
+    attributes:
+      attachment:
+        description: Опис
+        file: Файл
+        title: Назва
+      category:
+        description: Опис
+        name: Ім'я
+        parent_id: Батьків
+      feature:
+        name: Ім'я
+        weight: Вага
+      newsletter:
+        body: Тіло
+        subject: Тема
+      organization:
+        default_locale: Мову за замовчуванням
+        description: Опис
+        favicon: Ікона
+        homepage_image: Домашня сторінка зображення
+        logo: Логотип
+        name: Ім'я
+        official_img_footer: Офіційний логотип нижній колонтитул
+        official_img_header: Офіційний логотип заголовка
+        official_url: Офіційні організації url
+        reference_prefix: Посилання префікс
+        show_statistics: Відображати статистику
+        welcome_text: Вітальний текст
+      scope:
+        code: Код
+        name: Ім'я
+        organization: Організація
+        scope_type: Сфера типу
+      scope_type:
+        name: Ім'я
+        organization: Організація
+        plural: XX століття
+      static_page:
+        content: Зміст
+        organization: Організація
+        slug: Службове поле URL
+        title: Назва
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Банер зображення
+        description: Опис
+        developer_group: Група розробників
+        domain: Домен
+        end_date: Дата закінчення
+        hashtag: Хештегом
+        hero_image: Зображення будинку
+        local_area: Місцевість
+        meta_scope: Метадані сфери
+        participatory_scope: Участь рамки
+        participatory_structure: Участі структури
+        promoted: Сприяли
+        scope: Сфера
+        short_description: Короткий опис
+        slug: Службове поле URL
+        subtitle: Субтитрів
+        target: Цільової
+        title: Назва
+      decidim/participatory_process_step:
+        end_date: Дата закінчення
+        start_date: Дата початку
+      decidim/static_page:
+        content: Зміст
+        slug: Службове поле URL
+        title: Назва
+  date:
+    formats:
+      datepicker: "%m,%d,%Y"
+  decidim:
+    admin:
+      actions:
+        activate: Активувати
+        add: Додати
+        browse: Огляд
+        configure: Настроювання
+        confirm_destroy: Справді видалити це?
+        destroy: Знищити
+        duplicate: Дублювати
+        edit: Редагувати
+        export: Експорт
+        manage: Керування
+        new: Нові
+        permissions: Дозволи
+        preview: Попередній перегляд
+        publish: Опублікувати
+        reject: Відхилити
+        resend_invitation: Повторно надіслати запрошення
+        unpublish: Скасування публікації
+        verify: Перевірте, чи
+      attachments:
+        create:
+          error: Помилка під час створення нового вкладення.
+          success: Вкладення успішно створено.
+        destroy:
+          success: Вкладення знищені успішно.
+        edit:
+          title: Редагувати вкладення
+          update: Оновлення
+        index:
+          attachments_title: Вкладення
+        new:
+          create: Створення вкладення
+          title: Нові вкладення
+        update:
+          error: Виявлено помилку під час оновлення це вкладення.
+          success: Вкладення успішно оновлено.
+      categories:
+        create:
+          error: Помилка під час створення цієї категорії.
+          success: Категорія успішно створено.
+        destroy:
+          error: Помилка під час видалення цієї категорії. Спочатку видалити будь-які підкатегорію, переконайтеся, що немає іншого суб'єкта належить до цієї категорії та повторіть спробу.
+          success: Категорія успішно видалено.
+        edit:
+          title: Змінити категорію
+          update: Оновлення
+        index:
+          categories_title: Категорії
+          category_used: Неможливо видалити цю категорію, оскільки вона вже використовується.
+        new:
+          create: Створити категорію
+          title: Нова Категорія
+        update:
+          error: Помилка під час оновлення цієї категорії.
+          success: Категорія успішно оновлено.
+      dashboard:
+        show:
+          welcome: Ласкаво просимо на новий Decidim панелі адміністратора.
+      exports:
+        export_as: "%{name} як %{export_format}"
+        notice: Ваш експорт наразі виконується. У відповідь надійде повідомлення електронної пошти після його завершення.
+      feature_permissions:
+        edit:
+          everyone: Кожна людина
+          submit: Зберегти дозволи
+          title: Редагувати дозволи
+        update:
+          success: Дозволи успішно оновлено.
+      features:
+        create:
+          error: Помилка під час створення цієї функції.
+          success: Функція успішно створено.
+        destroy:
+          error: Там було повідомлення про помилку, знищити цю функцію.
+          success: Функція успішно видалено.
+        edit:
+          title: Редагувати функція
+          update: Оновлення
+        form:
+          default_step_settings: Крок за замовчуванням
+          global_settings: Глобальні параметри
+          step_settings: Крок налаштування
+        index:
+          add: Додати функцію
+          headers:
+            actions: Дії
+            name: Ім'я функції
+            type: Типу компонента
+        new:
+          add: Додати функцію
+          title: 'Додати функцію: %{name}'
+        publish:
+          success: Функція була успішно опублікована.
+        title: Особливості
+        unpublish:
+          success: Ця функція була успішно неопублікованих.
+        update:
+          error: Там була помилка оновлення цієї функції.
+          success: Цю функцію було успішно оновлено.
+      managed_users:
+        close_session:
+          error: Там було повідомлення про помилку, закриття поточного сеансу уособлення.
+          success: Поточний сеанс уособлення успішно завершився.
+        create:
+          error: Там була помилка створення синхронізованого користувача.
+          success: Керовані користувача успішно створено.
+        form:
+          name: Ім'я
+        impersonate:
+          error: Там була помилка уособлення синхронізованого користувача.
+        impersonations:
+          new:
+            impersonate: Уособлення
+            new_managed_user_impersonation: Нові керовані користувача уособлення
+        index:
+          impersonate: Уособлення
+          needs_authoriation_warning: Вам потрібно принаймні одну авторизації ввімкнуто для цієї організації.
+          promote: Сприяння
+          view_logs: Перегляд журналів
+        new:
+          create: Створити
+          new_managed_user: Нові керовані користувача
+          select_authorization_method: Обрати спосіб авторизації
+          step: Крок %{current} %{total}
+        promotion:
+          error: Там було повідомлення про помилку, сприяння синхронізованого користувача.
+          success: Успішно завойовує синхронізованого користувача.
+        promotions:
+          new:
+            explanation: Керованих користувачів можна розвивати до стандартних користувачів. Це означає, що вони будуть запрошені до заяви, і ви не зможете видати себе за їх знову. Запрошені користувачі будуть отримувати повідомлення електронної пошти, щоб прийняти Ваше запрошення.
+            new_managed_user_promotion: Нова акція синхронізованого користувача
+            promote: Сприяння
+      menu:
+        admins: Адміністратори
+        dashboard: Приладна дошка
+        managed_users: Керованих користувачів
+        newsletters: Інформаційні бюлетені
+        scope_types: Сфера типів
+        scopes: Приціли
+        settings: Параметри
+        static_pages: Сторінки
+        user_groups: Групи користувачів
+        users: Користувачі
+      models:
+        attachment:
+          fields:
+            content_type: Тип
+            title: Назва
+          name: Вкладення
+        category:
+          name: Категорія
+        impersonation_log:
+          fields:
+            admin: Адмін
+            ended_at: Закінчився в
+            expired_at: Закінчився в
+            started_at: Почалася в
+            user: Користувач
+        managed_user:
+          name: Керовані користувача
+        newsletter:
+          fields:
+            created_at: Створений в
+            progress: Прогрес
+            sent_at: Надіслане о
+            subject: Тема
+          name: Інформаційний бюлетень
+        scope:
+          fields:
+            name: Ім'я
+            scope_type: Сфера типу
+        scope_type:
+          fields:
+            name: Ім'я
+            plural: XX століття
+        static_page:
+          fields:
+            created_at: Створений в
+            title: Назва
+        user:
+          fields:
+            created_at: Дата створення
+            email: Електронна пошта
+            invitation_accepted_at: Дати запрошення приймаються
+            invitation_sent_at: Запрошення послав дату
+            last_sign_in_at: Останній знак на дату
+            name: Ім'я
+            role: Роль
+            roles:
+              admin: Адмін
+              user_manager: Менеджер користувачів
+          name: Користувач
+        user_group:
+          fields:
+            actions: Дії
+            created_at: Створений в
+            document_number: Номер документа
+            name: Ім'я
+            phone: Телефон
+            state: Держава
+            users_count: Кількість користувачів
+      moderations:
+        index:
+          title: Moderations
+        report:
+          reasons:
+            does_not_belong: Не належить
+            offensive: Наступ
+            spam: Спам
+      newsletters:
+        create:
+          error: Там була помилка створення цього бюлетеня.
+          success: Бюлетень успішно створено. Будь ласка, розглянути його перед надсиланням.
+        deliver:
+          error: Там була помилка доставки цього бюлетеня.
+          success: Бюлетень доставляється успішно.
+        destroy:
+          error_already_sent: 'Не вдалося знищити бюлетень: це було вислано е.'
+          success: Бюлетень знищені успішно.
+        edit:
+          save_and_preview: Зберегти і попередній перегляд
+          title: Редагувати бюлетень
+        form:
+          interpolations_hint: 'Підказка: Ви можете використовувати "%{name}" будь-де у організму або питання і вона буде замінений на ім''я одержувача.'
+        index:
+          confirm_delete: Ви дійсно бажаєте видалити цей бюлетень?
+          title: Інформаційні бюлетені
+        new:
+          save: Зберегти
+          title: Новий інформаційний бюлетень
+        show:
+          confirm_deliver: Ви впевнені, що ви хочете, щоб доставити цей бюлетень? Цю дію скасувати не можна.
+          deliver: Доставити бюлетень
+          preview: Попередній перегляд
+          subject: Тема
+        update:
+          error: Там була помилка оновлення цього бюлетеня.
+          success: Бюлетень успішно оновлено. Будь ласка, ознайомтеся з його перед надсиланням.
+      organization:
+        edit:
+          title: Змінити організації
+          update: Оновлення
+        form:
+          current_image: Поточне зображення
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Соціальної
+          twitter: Twitter
+          url: URL-адреса
+          youtube: YouTube
+        update:
+          error: Виявлено помилку під час оновлення цієї організації.
+          success: Організація успішно оновлено.
+      scope_types:
+        create:
+          error: Помилка під час створення нового типу сферу.
+          success: Сфера типу успішно створено.
+        destroy:
+          success: Сфера типу успішно знищені
+        edit:
+          title: Змінити масштаб типу
+          update: Оновлення
+        new:
+          create: Створити тип "сфера"
+          title: Нові сфери
+        update:
+          error: Виявлено помилку при оновленні цього типу сферу.
+          success: Сфера типу успішно оновлено
+      scopes:
+        create:
+          error: Помилка під час створення нової сфери.
+          success: Сфера успішно створено.
+        destroy:
+          success: Сфера успішно знищені
+        edit:
+          title: Змінити масштаб
+          update: Оновлення
+        new:
+          create: Створити область
+          title: Нові сфери
+        no_scopes: Немає областей на цьому рівні.
+        update:
+          error: Виявлено помилку під час оновлення цієї сфери.
+          success: Сфера успішно оновлено
+      static_pages:
+        actions:
+          view: Видом на спільній сторінці
+        create:
+          error: Помилка під час створення нової сторінки.
+          success: Успішно створено сторінку.
+        destroy:
+          success: Сторінка успішно знищені
+        edit:
+          title: Редагувати сторінку
+          update: Оновлення
+        new:
+          create: Нові
+          title: Нова сторінка
+        update:
+          error: Виявлено помилку під час оновлення цієї сторінки.
+          success: Успішно оновлено сторінку
+      titles:
+        dashboard: Приладна дошка
+        impersonations: Impersonations
+        managed_users: Керованих користувачів
+        scope_types: Сфера типів
+        scopes: Приціли
+        static_pages: Сторінки
+        user_groups: Групи користувачів
+        users: Користувачі
+      user_group:
+        reject:
+          invalid: Виявлено помилку при скиданні ця група користувачів.
+          success: Група користувачів успішно відхилив
+        verify:
+          invalid: Помилка під час перевірки цього група користувачів.
+          success: Група користувачів успішно перевірено
+      user_groups:
+        index:
+          filter:
+            all: Всі
+            pending: Очікування
+            rejected: Відхилено
+            verified: Перевірено
+          filter_by: Фільтрувати за
+          search: Пошук
+          state:
+            pending: Очікування
+            rejected: Відхилено
+            verified: Перевірено
+      users:
+        create:
+          error: Помилка під час запрошень для цього користувача.
+          success: Користувач, запрошений успішно.
+        destroy:
+          error: Помилка під час спроби видалення цього користувача.
+          success: Користувач більше не є адміністратором.
+        form:
+          email: Електронна пошта
+          name: Ім'я
+          role: Роль
+        new:
+          create: Запросити
+          title: Запросити користувача адміністратора
+        resend_invitation:
+          error: Помилка під час спроби надіслати електронною поштою запрошення.
+          success: Запрошення повідомлення електронної пошти було відправлено.
+    moderations:
+      actions:
+        hidden: Приховані
+        hide: Приховати
+        not_hidden: Не приховано
+        title: Дії
+        unreport: Unreport
+      admin:
+        reportable:
+          hide:
+            invalid: Там були проблеми, приховуючи ресурсу.
+            success: Ресурс успішно приховано.
+          unreport:
+            invalid: Там були проблеми, unreporting ресурс.
+            success: Ресурс успішно повідомляється.
+      models:
+        moderation:
+          fields:
+            hidden_at: Приховані на
+            report_count: Граф
+            reportable: Звітного
+            reported_content_url: Агентство вмісту URL
+            reports: Звіти
+  errors:
+    messages:
+      invalid_json: Неприпустимий JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Інформаційні бюлетені
+        settings:
+          title: Параметри
+        users:
+          title: Користувачі
+  time:
+    formats:
+      datepicker: "%m,%d,%Y"
+      timepicker: "%m,%d,%Y %H:%M"

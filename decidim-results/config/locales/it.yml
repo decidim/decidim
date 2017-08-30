@@ -13,8 +13,10 @@ it:
         name: Risultati
         settings:
           global:
+            announcement: Annuncio
             comments_enabled: Commenti abilitati
           step:
+            announcement: Annuncio
             comments_blocked: Commenti bloccati
     resource_links:
       included_proposals:
@@ -60,6 +62,7 @@ it:
         filters:
           category: Categoria
           category_prompt: Scegli una categoria
+          scope_prompt: Selezionare un ambito
           scopes: Visibilità
           search: Cerca
         filters_small_view:
@@ -72,5 +75,6 @@ it:
             attendees: Partecipanti
             comments: Commenti
             contributions: Contributi
+            meetings: Riunioni
             proposals: Proposte
             votes: Voti

@@ -20,6 +20,7 @@ fi:
           error: Äänestettäessä kommenttia tapahtui virhe.
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}">Kirjaudu tilillesi</a> tai <a href="%{sign_up_url}">kirjaudu</a> lisätäksesi kommenttisi.
         form:
           body:
             label: Kommentti
@@ -66,3 +67,6 @@ fi:
         title: "%{count} kommenttia"
       featured_comment:
         title: Esille nostettu kommentti
+  errors:
+    messages:
+      cannot_have_comments: ei voi poistaa kommentteja

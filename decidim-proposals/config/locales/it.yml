@@ -18,12 +18,16 @@ it:
         name: Proposte
         settings:
           global:
+            announcement: Annuncio
+            attachments_allowed: Consenti gli allegati
             comments_enabled: Commenti abilitati
             geocoding_enabled: Geocoding abilitato
+            new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
             proposal_answering_enabled: Risposta Proposte abilitata
             vote_limit: Numero max di proposte votabili
           step:
+            announcement: Annuncio
             comments_blocked: Commenti bloccati
             creation_enabled: Creazione delle Proposte abilitata
             proposal_answering_enabled: Risposta Proposte abilitata
@@ -39,6 +43,7 @@ it:
         actions:
           preview: Anteprima
         exports:
+          comments: Commenti
           proposals: Proposte
         models:
           proposal:
@@ -47,6 +52,7 @@ it:
           edit:
             accepted: Accettata
             answer_proposal: Risposta
+            evaluating: Valutare
             rejected: Rifiutata
             title: Risposta per la proposta %{title}
         proposals:
@@ -57,6 +63,7 @@ it:
             invalid: Sono stati riscontrati dei problemi durante la creazione di questa proposta
             success: OK, proposta creata.
           form:
+            attachment_legend: "(Facoltativo) Aggiungere un allegato"
             select_a_category: Scegli una categoria
           index:
             title: Proposte
@@ -65,6 +72,7 @@ it:
             title: Crea una proposta
       answers:
         accepted: Accettata
+        evaluating: Valutare
         not_answered: Non risposto
         rejected: Rifiutata
       create:
@@ -78,7 +86,13 @@ it:
             scope: Visibilità
             state: Stato
             title: Titolo
+      proposal_votes:
+        create:
+          error: Ci sono stati errori durante la votazione della proposta.
       proposals:
+        author:
+          deleted: Utente cancellato
+          verified_user_group: Organizzazione verificata
         count:
           proposals_count:
             one: 1 proposta
@@ -86,13 +100,16 @@ it:
         filters:
           accepted: Accettata
           activity: Attività
+          all: Tutto
           category: Categoria
           category_prompt: Scegli una categoria
           citizenship: Cittadinanza
+          evaluating: Valutare
           official: Ufficiale
           origin: Origine
           rejected: Rifiutata
           related_to: Associata a
+          scope_prompt: Selezionare un ambito
           scopes: Visibilità
           search: Cerca
           state: Stato
@@ -110,6 +127,7 @@ it:
             one: <span class="card--list__data__number">1</span>voto
             other: <span class="card--list__data__number">%{count}</span>voti
         new:
+          attachment_legend: "(Facoltativo) Aggiungere un allegato"
           back: Indietro
           select_a_category: Scegli una categoria
           send: Invia
@@ -124,6 +142,7 @@ it:
         show:
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
+          report: Report
         vote_button:
           already_voted: Già votata
           no_votes_remaining: Sono finite le votazioni possibili

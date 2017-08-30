@@ -1,1 +1,127 @@
 fi:
+  activemodel:
+    attributes:
+      assembly:
+        banner_image: Bannerikuva
+        copy_categories: Kopioi kategoriat
+        copy_features: Kopioi toiminnot
+        description: Kuvaus
+        developer_group: Kehitysryhmä
+        domain: Toimintaympäristö
+        hashtag: Hashtah
+        hero_image: Etusivun kuva
+        local_area: Paikallisalue
+        meta_scope: Kontekstin metadata
+        participatory_scope: Osallistumisprosessi
+        participatory_structure: Osallistumisprosessin rakenne
+        promoted: Oikeudet korotettu
+        scope_id: Konteksti
+        scopes_enabled: Kontekstit käytössä
+        short_description: Lyhyt kuvaus
+        slug: URL-tunniste
+        subtitle: Alaotsikko
+        target: Kohde
+        title: Otsikko
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Virhe uuden kokoonpanon luomisessa.
+          success: Kokoonpano onnistui.
+        destroy:
+          success: Kokoonpano tuhoutui onnistuneesti
+        edit:
+          update: Päivitä
+        form:
+          title: Yleistä tietoa
+        index:
+          not_published: Ei julkaistu
+          published: Julkaistu
+        new:
+          create: Luo
+          title: Uusi kokoonpano
+        update:
+          error: Kokoonpanoa päivitettäessä tapahtui virhe.
+          success: Kokoonpano päivitettiin onnistuneesti.
+      assemblies_copies:
+        create:
+          error: Virhe kopioi kokoa.
+          success: Asennus kopioitiin onnistuneesti.
+      assembly_copies:
+        new:
+          copy: Kopio
+          select: Valitse, mitkä tiedot haluat kopioida
+          title: Kopioi kokoonpano
+      assembly_publications:
+        create:
+          error: Kokoonpanoa julkaistiin virhe.
+          success: Kokoonpano julkaistiin onnistuneesti.
+        destroy:
+          error: Kokoonpanon julkaisemisen epäonnistui virhe.
+          success: Kokoonpano julkaisemattomasti onnistuneesti.
+      menu:
+        assemblies: osat
+        assemblies_submenu:
+          attachments: Liitteet
+          categories: Kategoriat
+          features: Ominaisuudet
+          info: Tiedot
+          moderations: Moderoinnit
+      models:
+        assembly:
+          fields:
+            created_at: Luonnin ajankohta
+            promoted: Korostettu
+            published: Julkaistu
+            title: Otsikko
+          name: kokoonpano
+      titles:
+        assemblies: osat
+    assemblies:
+      index:
+        title: osat
+      show:
+        developer_group: Kehitysryhmä
+        local_area: Paikallisalue
+        participatory_scope: Osallistumisprosessi
+        participatory_structure: Osallistumisprosessin rakenne
+        scope: Konteksti
+        target: Kohde
+      statistics:
+        answers_count: Vastaukset
+        assemblies_count: osat
+        comments_count: Kommentit
+        headline: Tapahtumat
+        meetings_count: Tapaamiset
+        orders_count: Tilaukset
+        pages_count: Sivut
+        projects_count: Projektit
+        proposals_count: Ehdotukset
+        results_count: Tulokset
+        surveys_count: Kyselyt
+        users_count: Osallistujat
+        votes_count: Äänet
+    menu:
+      assemblies: osat
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Osallistu
+        index:
+          promoted_assemblies: Korostetut kokoonpanot
+        no_assemblies_yet:
+          no_assemblies_yet: Ei kokoonpanoja vielä!
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} kokoonpano"
+            other: "%{count} kokoonpanot"
+        promoted_assembly:
+          more_info: Lisätietoja
+          take_part: Osallistu
+      assembly_header:
+        assembly_menu_item: Kokoonpano
+        unfold: Avaa
+      assembly_widgets:
+        show:
+          take_part: Osallistu

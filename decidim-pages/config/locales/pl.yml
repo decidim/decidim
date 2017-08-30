@@ -3,3 +3,22 @@ pl:
     features:
       pages:
         name: Strona
+        settings:
+          global:
+            announcement: Ogłoszenie
+            comments_enabled: Włączone komentarze
+          step:
+            announcement: Ogłoszenie
+            comments_blocked: Komentarze zablokowane
+    pages:
+      admin:
+        models:
+          components:
+            body: Ciało
+        pages:
+          edit:
+            save: Aktualizacja
+            title: Edytuj stronę
+          update:
+            invalid: Podczas zapisywania strony wystąpiły błędy.
+            success: Strona została zapisana pomyślnie.

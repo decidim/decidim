@@ -1,5 +1,81 @@
 pl:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Kategoria
+        decidim_scope_id: Zakres
+        description: Opis
+        proposal_ids: Propozycje zawarte
+        title: Tytuł
   decidim:
+    features:
+      results:
+        name: wyniki
+        settings:
+          global:
+            announcement: Ogłoszenie
+            comments_enabled: Włączone komentarze
+          step:
+            announcement: Ogłoszenie
+            comments_blocked: Komentarze zablokowane
+    resource_links:
+      included_proposals:
+        result_proposals: Propozycje zawarte w tym wyniku
     results:
       actions:
+        confirm_destroy: Czy na pewno chcesz usunąć ten wynik?
+        destroy: Kasować
+        edit: Edytować
         new: Nowy
+        preview: Zapowiedź
+        title: działania
+      admin:
+        models:
+          result:
+            name: Wynik
+        results:
+          create:
+            invalid: Podczas tworzenia tego wyniku wystąpił problem
+            success: Wynik został pomyślnie utworzony
+          destroy:
+            success: Wynik został pomyślnie usunięty
+          edit:
+            title: Edytuj wynik
+            update: Aktualizacja
+          index:
+            title: wyniki
+          new:
+            create: Stwórz
+            title: Nowy wynik
+          update:
+            invalid: Podczas aktualizowania tego wyniku wystąpił problem
+            success: Wynik został zaktualizowany
+      models:
+        result:
+          fields:
+            title: Tytuł
+      results:
+        count:
+          results_count:
+            one: 1 wynik
+            few: "%{count} wyników"
+            other: "%{count} wyników"
+        filters:
+          category: Kategoria
+          category_prompt: Wybierz kategorię
+          scope_prompt: Wybierz zakres
+          scopes: Zakresy
+          search: Szukanie
+        filters_small_view:
+          close_modal: Zamknij modal
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwijać się
+        show:
+          stats:
+            attendees: Uczestnicy
+            comments: Komentarze
+            contributions: Składki
+            meetings: Spotkania
+            proposals: Propozycje
+            votes: Wspiera

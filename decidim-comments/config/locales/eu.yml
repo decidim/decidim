@@ -20,6 +20,7 @@ eu:
           error: Erroreak gertatu dira iruzkina bozkatzean.
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}">Igeratu zure kontuarekin</a> edo <a href="%{sign_up_url}">gehitzen sortu</a> zure iruzkina gehitzeko.
         form:
           body:
             label: Iruzkina
@@ -66,3 +67,6 @@ eu:
         title: "%{count} iruzkin"
       featured_comment:
         title: Iruzkin nabarmendua
+  errors:
+    messages:
+      cannot_have_comments: ezin zaio iruzkinik egin

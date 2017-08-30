@@ -1,6 +1,72 @@
 pl:
   decidim:
+    comments:
+      comment_notification_mailer:
+        comment_created:
+          new_comment_html: W <b>%{commentable_link}</b> jest nowy komentarz z <b>%{commenter}</b>
+        hello: Witaj %{name},
+        manage_email_subscriptions_html: Możesz przestać otrzymywać te e-maile, zmieniając ustawienia w %{link}.
+        notifications_settings_link: Strona ustawień powiadomień
+        reply_created:
+          new_reply_html: Nowa odpowiedź Twojego komentarza zawiera <b>%{commenter}</b> w <b>%{commentable_link}</b>
+      mailer:
+        comment_notification:
+          comment_created:
+            subject: Masz nowy komentarz
+          reply_created:
+            subject: Masz nową odpowiedź swojego komentarza
+      votes:
+        create:
+          error: Podczas głosowania komentarza wystąpiły błędy.
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_url}">zarejestruj się</a>, aby dodać komentarz.
         form:
+          body:
+            label: Komentarz
+            placeholder: Co o tym myślisz?
+          form_error: Tekst jest wymagany i nie może dłużej niż %{length} znaków.
           submit: Wysłać
+          user_group_id:
+            label: Komentarz jako
+        opinion:
+          neutral: Neutralny
+        remaining_characters: "Pozostało %{count} znaków"
+        remaining_characters_1: "Pozostało znaków %{count}"
+        title: Dodaj swój komentarz
+      comment:
+        alignment:
+          against: Przeciwko
+          in_favor: Na korzyść
+        deleted_user: Usunięty użytkownik
+        reply: Odpowiadać
+        report:
+          action: Raport
+          already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
+          close: Blisko
+          description: Czy ta treść jest nieodpowiednia?
+          details: Dodatkowe komentarze
+          reasons:
+            does_not_belong: Zawiera nielegalną działalność, zagrożenia samobójstwem, informacje osobiste lub coś innego, co według Ciebie nie należy do %{organization_name}.
+            offensive: Zawiera rasizm, seksizm, gniew, ataki osobiste, groźby śmierci, wnioski o samobójstwo lub jakąkolwiek formę mowy o nienawiści.
+            spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
+          title: Zgłoś problem
+        verified_user_group: Zweryfikowana organizacja
+      comment_order_selector:
+        order:
+          best_rated: Najlepsza ocena
+          most_discussed: Najbardziej dyskutowane
+          older: Starsze
+          recent: Niedawny
+        title: 'Zamów przez:'
+      comment_thread:
+        title: Rozmowa z %{authorName}
+      comments:
+        blocked_comments_warning: W bieżącym kroku komentarze są wyłączone, ale można przeczytać komentarze z poprzednich kroków.
+        loading: Ładowanie komentarzy ...
+        title: "%{count} komentarzy"
+      featured_comment:
+        title: Wyróżniony komentarz
+  errors:
+    messages:
+      cannot_have_comments: Nie może mieć komentarzy

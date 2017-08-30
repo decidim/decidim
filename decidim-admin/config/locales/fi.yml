@@ -446,6 +446,9 @@ fi:
             reportable: Raportoitava
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit
+  errors:
+    messages:
+      invalid_json: Virheellinen JSON
   layouts:
     decidim:
       admin:

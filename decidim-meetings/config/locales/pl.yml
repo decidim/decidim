@@ -1,24 +1,50 @@
 pl:
   activemodel:
     attributes:
+      close_meeting:
+        attendees_count: Liczba osób biorących udział
+        attending_organizations: Lista organizacji biorących udział
+        closing_report: Zgłoś
+        contributions_count: Liczba wkładów
+        proposal_ids: Propozycje stworzone na spotkaniu
       meeting:
         address: Adres
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
         description: Opis
+        end_time: Czas zakończenia
+        location: Miejsce
+        location_hints: Wskazówki co do miejsca
         start_time: Czas rozpoczęcia
         title: Tytuł
   decidim:
     features:
       meetings:
+        actions:
+          join: Przyłączyć się
         name: Spotkania
+        settings:
+          global:
+            announcement: Ogłoszenie
+          step:
+            announcement: Ogłoszenie
     meetings:
       actions:
         attachments: Załączniki
+        close: Zamknij
         confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
+        destroy: Usuń
+        edit: Edytuj
+        new: Nowe
+        preview: Podgląd
+        registrations: Rejestracje
+        title: Działania
       admin:
+        exports:
+          registrations: Rejestracje
         meeting_closes:
           edit:
+            close: Zamknij
             title: Zamknij spotkanie
         meetings:
           close:
@@ -29,35 +55,86 @@ pl:
             success: Spotkanie zostało pomyślnie utworzone
           destroy:
             success: Spotkanie zostało pomyślnie usunięte
+          edit:
+            update: Aktualizuj
           index:
             title: Spotkania
           new:
+            create: Utwórz
             title: Utwórz spotkanie
           update:
             invalid: Podczas aktualizowania tego spotkania wystąpił problem
+            success: Spotkanie zostało pomyślnie zaktualizowane
         models:
           meeting:
             name: Spotkanie
+        registrations:
+          edit:
+            save: Zapisać
+          form:
+            available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
+            registrations_count:
+              one: Została 1 rejestracja.
+              few: Rejestrowano %{count}.
+              other: Rejestrowano %{count}.
+          update:
+            invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
+            success: Dokonano pomyślnego zapisania ustawień rejestracji rejestracji.
       meetings:
         filters:
           category: Kategoria
           category_prompt: Wybierz kategorię
           date: Data
+          past: Przeszłe
           scope_prompt: Wybierz zakres
           scopes: Zakresy
+          search: Szukaj
           upcoming: Nadchodzące
         filters_small_view:
+          close_modal: Zamknij modal
+          filter: Filtruj
           filter_by: Filtruj według
+          unfold: Rozwiń
+        index:
+          view_meeting: Pokaż spotkanie
+        meetings:
+          no_meetings_warning: Brak spotkań spełniających kryteria wyszukiwania lub nie ma zaplanowanego spotkania.
+          upcoming_meetings_warning: Obecnie nie ma zaplanowanych spotkań, ale są tu wymienione wszystkie poprzednie spotkania.
+        registration_confirm:
+          cancel: Anuluj
+          confirm: Potwierdzać
+        show:
+          attendees: Liczba osób biorących udział
+          contributions: Liczba składek
+          going: Chodzenie
+          join: Dołącz do spotkania
+          meeting_report: Notatka ze spotkania
+          no_slots_available: Brak dostępnych miejsc
+          organizations: Organizacje biorące udział
+          remaining_slots:
+            one: Pozostało 1 gniazdo
+            few: "Pozostało %{count}"
+            other: "Pozostało %{count}"
       models:
         meeting:
           fields:
             closed: Zamknięte
+            end_time: Data zakończenia
             map: Mapa
             start_time: Data rozpoczęcia
             title: Tytuł
+      read_more: "(czytaj więcej)"
+      registrations:
+        create:
+          invalid: Wystąpił problem z dołączeniem tego spotkania.
+          success: Dołączyłeś do tego spotkanie.
+        destroy:
+          invalid: Wystąpił problem z tym spotkaniem.
+          success: Opuściłeś spotkanie pomyślnie.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Powiązane wyniki:'
         result_meetings: 'Powiązane spotkania:'
       proposals_from_meeting:
+        meeting_proposals: 'Powiązane propozycje:'
         proposal_meetings: 'Powiązane spotkania:'

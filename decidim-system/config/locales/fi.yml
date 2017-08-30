@@ -57,6 +57,7 @@ fi:
         index:
           title: Organisaatiot
         new:
+          reference_prefix_hint: Viitekoodin avulla tunnistetaan yksilöllisesti resursseja kaikissa organisaatioissa
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
           title: Uusi organisaatio
         update:

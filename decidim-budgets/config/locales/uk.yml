@@ -1,0 +1,135 @@
+uk:
+  activemodel:
+    attributes:
+      project:
+        budget: Бюджет
+        decidim_category_id: Категорія
+        decidim_scope_id: Сфера
+        description: Опис
+        proposal_ids: Супутні пропозиції
+        title: Назва
+  decidim:
+    budgets:
+      actions:
+        attachments: Вкладення
+        confirm_destroy: Ви дійсно бажаєте видалити цей проект?
+        destroy: Видалити
+        edit: Редагувати
+        new: Нові
+        preview: Попередній перегляд
+        title: Дії
+      admin:
+        models:
+          project:
+            name: Проект
+        projects:
+          create:
+            invalid: Там були проблеми, створюючи проект
+            success: Проект створення завершено
+          destroy:
+            success: Проект успішно знищені
+          edit:
+            title: Редагування проекту
+            update: Оновлення
+          index:
+            finished_orders: Готової замовлень
+            pending_orders: Невиконані замовлення
+            title: Проекти
+          new:
+            create: Створити
+            title: Нові результат
+          update:
+            invalid: Там були проблеми оновлення цього проекту
+            success: Проект успішно оновлено
+      models:
+        project:
+          fields:
+            title: Назва
+      projects:
+        budget_confirm:
+          are_you_sure: Ви згодні? Як тільки ви підтвердили свій голос, ви не в силах змінити.
+          cancel: '"Скасувати"'
+          confirm: Підтвердити
+          description: Вони проектів, які ви вибрали, щоб бути частиною бюджету.
+          title: Підтвердження голосування
+        budget_excess:
+          close: Закрити
+          description: Цей проект перевищує максимальний бюджет і не можуть бути додані. За бажанням можна видалити проекту вже вибрано для додавання або зробити ваш голос з ваших уподобань.
+          ok: Гаразд
+          title: Максимальний бюджет, перевищив
+        budget_summary:
+          are_you_sure: Ви дійсно бажаєте скасувати ваш голос?
+          assigned: 'Призначення:'
+          cancel_order: видалити ваш голос і почати все спочатку
+          checked_out:
+            description: Ви вже голосували у бюджеті. Якщо ви змінили свій розум, ви можете %{cancel_link}.
+            title: Бюджет голосування завершено
+          description: Які проекти ви думаєте, ми повинні виділити бюджет? Призначте принаймні %{minimum_budget} в проекти, ви хочете і голосувати з ваших уподобань для визначення бюджету.
+          title: Ви самі вирішуєте, бюджет
+        count:
+          projects_count:
+            one: 1 проект
+            few: "%{count} проекти"
+            other: "%{count} проекти"
+        filters:
+          category: Категорія
+          category_prompt: Вибрати категорію
+          scope_prompt: Виберіть сферу
+          scopes: Приціли
+          search: Пошук
+        filters_small_view:
+          close_modal: Закрити модальних
+          filter: Фільтр
+          filter_by: Фільтрувати за
+          unfold: Розгортатися
+        order_progress:
+          vote: Голосування
+        order_selected_projects:
+          remove: Видалити
+          selected_projects:
+            one: Вибраний проект
+            few: вибрані проекти
+            other: вибрані проекти
+          view: Подання
+        project:
+          add: Додати
+          count:
+            one: 1 підтримки
+            few: "%{count} підтримує"
+            other: "%{count} підтримує"
+          remove: Видалити
+        project_budget_button:
+          add: Додати
+          added: Додав
+        show:
+          budget: Бюджет
+          view_all_projects: Переглянути всi проекти практики
+    features:
+      budgets:
+        actions:
+          vote: Голосування
+        name: Бюджети
+        settings:
+          global:
+            announcement: Оголошення
+            comments_enabled: Коментарі дозволено
+            total_budget: Загальний бюджет
+            vote_threshold_percent: Поріг відсотків голосів
+          step:
+            announcement: Оголошення
+            comments_blocked: Заблоковані коментарі
+            show_votes: Показати голосів
+            votes_enabled: Голосів включений
+    orders:
+      checkout:
+        error: Сталася помилка під час обробки вашого голосу
+        success: Ваш голос був прийнятий успішно
+      destroy:
+        error: Сталася помилка під час скасування ваш голос
+        success: Ваш голос було скасовано, успішно
+    resource_links:
+      included_proposals:
+        project_proposals: 'Пропозиції, які входять в цьому проекті:'
+  index:
+    confirmed_orders_count: Кількість замовлень
+  total_budget: Загальний бюджет

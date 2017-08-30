@@ -3,3 +3,67 @@ pl:
     attributes:
       survey_answer:
         body: Odpowiedź
+      survey_question:
+        mandatory: Obowiązkowy
+        question_type: Rodzaj
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Odpowiedź
+        name: Ankieta
+        settings:
+          global:
+            announcement: Ogłoszenie
+          step:
+            allow_answers: Pozwól na odpowiedzi
+            announcement: Ogłoszenie
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Odpowiedzi na pytania użytkowników
+        models:
+          components:
+            description: Opis
+            tos: Warunki usługi
+        surveys:
+          answer_option:
+            answer_option: Odpowiedź
+            remove_answer_option: Usuń opcję odpowiedzi
+            statement: Komunikat
+          edit:
+            save: Zapisać
+            title: Tytuł
+          form:
+            add_question: Dodaj pytanie
+            already_answered_warning: Ankieta jest już udzielana przez niektórych użytkowników, więc nie można modyfikować jej pytań.
+          question:
+            add_answer_option: Dodaj odpowiedź
+            question: Pytanie
+            remove_question: Usuń pytanie
+            statement: Komunikat
+          update:
+            invalid: Podczas zapisywania ankiety wystąpiły błędy.
+            success: Ankieta została zapisana pomyślnie.
+      question_types:
+        long_answer: Długa odpowiedź
+        multiple_option: Wiele opcji
+        short_answer: Krótka odpowiedź
+        single_option: Pojedyncza opcja
+      surveys:
+        answer:
+          invalid: Podczas odpowiadania na ankiet pojawiły się błędy.
+          success: Ankieta odpowiedziała skutecznie.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a>, aby odpowiedzieć na ankietę.
+            title: Odbierz ankietę
+          are_you_sure: Ta czynność nie może zostać cofnięta i nie będzie można edytować odpowiedzi. Jesteś pewny?
+          submit: Zatwierdź
+          survey_answered:
+            body: Odpowiedziałeś już na to pytanie.
+            title: Ankieta odpowiedziała
+          survey_closed:
+            body: Ankieta jest zamknięta i nie można jej odpowiedzieć.
+            title: Ankieta zamknięta
+          tos_agreement: Uczestnicząc w tym ankiecie akceptujesz Warunki korzystania z usługi

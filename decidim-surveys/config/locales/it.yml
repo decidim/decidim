@@ -3,3 +3,67 @@ it:
     attributes:
       survey_answer:
         body: Risposta
+      survey_question:
+        mandatory: Obbligatorio
+        question_type: Tipo
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Risposta
+        name: Questionario
+        settings:
+          global:
+            announcement: Annuncio
+          step:
+            allow_answers: Consentire risposte
+            announcement: Annuncio
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Risposte degli utente al questionario
+        models:
+          components:
+            description: Descrizione
+            tos: Termini del servizio
+        surveys:
+          answer_option:
+            answer_option: Opzione di risposta
+            remove_answer_option: Rimuovere l'opzione di risposta
+            statement: Dichiarazione
+          edit:
+            save: Salva
+            title: Titolo
+          form:
+            add_question: Aggiungi domanda
+            already_answered_warning: Dato che alcuni utenti hanno già risposto al questionario, non è più possibile modificare le domande.
+          question:
+            add_answer_option: Aggiungre opzione di risposta
+            question: Domanda
+            remove_question: Rimuovere la domanda
+            statement: Dichiarazione
+          update:
+            invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
+            success: Il questionario è stato salvato correttamente.
+      question_types:
+        long_answer: Risposta lunga
+        multiple_option: Opzione multipla
+        short_answer: Risposta breve
+        single_option: Opzione unica
+      surveys:
+        answer:
+          invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
+          success: Il questionario è stato salvato correttamente.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Entra con il tuo account</a> or <a href="%{sign_up_link}">Registrati</a> per poter commentare.
+            title: Rispondere al questionario
+          are_you_sure: Questa azione non potrà essere cancellata e non sarà più possibile modificare le risposte. Sei sicuro?
+          submit: Invia
+          survey_answered:
+            body: Hai già risposto a questo sondaggio, grazie.
+            title: Questionario risposto
+          survey_closed:
+            body: L'indagine è chiusa e non è più possibile rispondere.
+            title: Questionario chiuso
+          tos_agreement: Partecipando a questo sondaggio, accetti le sue condizioni di servizio

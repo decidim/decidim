@@ -20,6 +20,8 @@ fi:
   decidim:
     features:
       meetings:
+        actions:
+          join: Liittyä seuraan
         name: Tapaamiset
         settings:
           global:
@@ -35,8 +37,11 @@ fi:
         edit: Muokkaa
         new: Uusi
         preview: Esikatsele
+        registrations: rekisteröinnit
         title: Toiminnot
       admin:
+        exports:
+          registrations: rekisteröinnit
         meeting_closes:
           edit:
             close: Lopeta
@@ -63,6 +68,17 @@ fi:
         models:
           meeting:
             name: Tapaaminen
+        registrations:
+          edit:
+            save: Tallenna
+          form:
+            available_slots_help: Jätä se arvoon 0, jos sinulla on rajoittamaton lähtö.
+            registrations_count:
+              one: Rekisteröityä on ollut 1.
+              other: On ollut %{count} rekisteröintiä.
+          update:
+            invalid: Rekisteröintiasetusten tallentamisessa on ollut ongelma.
+            success: Kokousrekisteröintiasetukset tallennettiin onnistuneesti.
       meetings:
         filters:
           category: Kategoria
@@ -83,11 +99,20 @@ fi:
         meetings:
           no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole määritelty
           upcoming_meetings_warning: Tällä hetkellä tapaamisia ei ole määritelty, mutta täältä löydät kaikki aikaisemmat tapaamiset.
+        registration_confirm:
+          cancel: Peruuta
+          confirm: Vahvista
         show:
           attendees: Osallistujamäärä
           contributions: Kontribuutioiden määrä
+          going: Going
+          join: Liity kokoukseen
           meeting_report: Tapaamisraportti
+          no_slots_available: Ei aikavälejä
           organizations: Osallistuneet organisaatiot
+          remaining_slots:
+            one: 1 jäljellä oleva paikka
+            other: "%{count} jäljellä olevat paikat"
       models:
         meeting:
           fields:
@@ -97,6 +122,13 @@ fi:
             start_time: Aloitusaika
             title: Otsikko
       read_more: "(lue lisää)"
+      registrations:
+        create:
+          invalid: On tapahtunut ongelma, joka liittyy tähän kokoukseen.
+          success: Olet liittynyt kokoukseen onnistuneesti.
+        destroy:
+          invalid: On tapahtunut ongelma, joka jättää tämän kokouksen.
+          success: Olet jättänyt kokouksen onnistuneesti.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Liittyvät tulokset:'

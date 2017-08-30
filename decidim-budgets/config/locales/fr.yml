@@ -73,6 +73,7 @@ fr:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
+          scope_prompt: Sélectionnez une portée
           scopes: Zones d'application
           search: Rechercher
         filters_small_view:
@@ -107,10 +108,12 @@ fr:
         name: Budgets
         settings:
           global:
+            announcement: Annonce
             comments_enabled: Commentaires activés
             total_budget: Budget total
             vote_threshold_percent: Pourcentage de seuil de vote
           step:
+            announcement: Annonce
             comments_blocked: Commentaires bloqués
             show_votes: Afficher les votes
             votes_enabled: Votes activés

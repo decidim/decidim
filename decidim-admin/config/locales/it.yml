@@ -3,12 +3,14 @@ it:
     attributes:
       attachment:
         description: Descrizione
+        file: File
         title: Titolo
       category:
         description: Descrizione
         name: Nome
         parent_id: Su
       feature:
+        name: Nome
         weight: Peso
       newsletter:
         body: Testo
@@ -18,6 +20,8 @@ it:
         description: Descrizione
         favicon: Icona
         homepage_image: immagine per la Homepage
+        logo: Logo
+        name: Nome
         official_img_footer: Logo ufficiale a piè pagina
         official_img_header: Logo ufficiale per l'intestazione
         official_url: URL ufficiale dell'organizzazione
@@ -25,11 +29,18 @@ it:
         show_statistics: Mostra statistiche
         welcome_text: Testo di benvenuto
       scope:
+        code: Codice
         name: Nome
         organization: Organizzazione
+        scope_type: Tipo di campo
+      scope_type:
+        name: Nome
+        organization: Organizzazione
+        plural: Plurale
       static_page:
         content: Contenuto
         organization: Organizzazione
+        slug: URL slug
         title: Titolo
   activerecord:
     attributes:
@@ -39,24 +50,35 @@ it:
         developer_group: Gruppo di sviluppo
         domain: Dominio
         end_date: Data di fine
+        hashtag: hashtag
         hero_image: Immagine sulla Home Page
+        local_area: Area locale
+        meta_scope: Metadati di ambito
         participatory_scope: Visibilità/ambito partecipativo
         participatory_structure: Struttura partecipativa
         promoted: Promossa
         scope: Visibilità/ambito
         short_description: Descrizione breve
+        slug: URL slug
         subtitle: Sottotitolo
+        target: Bersaglio
         title: Titolo
       decidim/participatory_process_step:
         end_date: Data di fine
         start_date: Date di inizio
       decidim/static_page:
         content: Contenuto
+        slug: URL slug
         title: Titolo
+  date:
+    formats:
+      datepicker: "%m / %d / %Y"
   decidim:
     admin:
       actions:
         activate: Attiva
+        add: Aggiungi
+        browse: Naviga
         configure: Configura
         confirm_destroy: Sei sicuro di volerlo cancellare?
         destroy: Elimina
@@ -68,6 +90,7 @@ it:
         permissions: Permessi
         preview: Anteprima
         publish: Pubblica
+        reject: Rifiutare
         resend_invitation: Manda di nuovo l'invito
         unpublish: Non pubblicarlo
         verify: Verifica
@@ -80,6 +103,8 @@ it:
         edit:
           title: Modifica allegato
           update: Aggiorna
+        index:
+          attachments_title: Allegati
         new:
           create: Crea allegato
           title: Nuovo allegato
@@ -96,6 +121,9 @@ it:
         edit:
           title: Modifica categoria
           update: Aggiorna
+        index:
+          categories_title: Categorie
+          category_used: Questa categoria non può essere rimossa perché è in uso.
         new:
           create: Crea nuova categoria
           title: Nuova categoria
@@ -126,6 +154,7 @@ it:
           title: Modifica feature
           update: Aggiorna
         form:
+          default_step_settings: Impostazioni del passo predefinite
           global_settings: Impostazioni globali
           step_settings: Imposta le fasi (Step)
         index:
@@ -145,9 +174,45 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa funzionalità (feature).
           success: OK, la funzionalità (feature) è stata aggiornata.
+      managed_users:
+        close_session:
+          error: Si è verificato un errore durante la chiusura della sessione di impersonazione corrente.
+          success: La sessione di impersonazione corrente è stata terminata con successo.
+        create:
+          error: Si è verificato un errore durante la creazione dell'utente gestito.
+          success: L'utente gestito è stato creato con successo.
+        form:
+          name: Nome
+        impersonate:
+          error: Si è verificato un errore che impersonava l'utente gestito.
+        impersonations:
+          new:
+            impersonate: Impersonare
+            new_managed_user_impersonation: Nuova rappresentazione utente gestita
+        index:
+          impersonate: Impersonare
+          needs_authoriation_warning: Hai bisogno di almeno un'autorizzazione abilitata per questa organizzazione.
+          promote: Promuovere
+          view_logs: Visualizza i registri
+        new:
+          create: Crea
+          new_managed_user: Nuovo utente gestito
+          select_authorization_method: Selezionare un metodo di autorizzazione
+          step: Fase %{current} di %{total}
+        promotion:
+          error: Si è verificato un errore che ha promosso l'utente gestito.
+          success: L'utente gestito è stato promosso con successo.
+        promotions:
+          new:
+            explanation: Gli utenti gestiti possono essere promossi agli utenti standard. Significa che saranno invitati all'applicazione e non sarete in grado di repersonarli nuovamente. L'utente invitato riceverà un'email per accettare l'invito.
+            new_managed_user_promotion: Nuova promozione degli utenti gestiti
+            promote: Promuovere
       menu:
         admins: Amministratori
         dashboard: Cruscotto (Dashboard)
+        managed_users: Utenti gestiti
+        newsletters: Newsletters
+        scope_types: Tipi di ambito
         scopes: Visibilità/ambito (Scopes)
         settings: Impostazioni
         static_pages: Pagine
@@ -161,15 +226,30 @@ it:
           name: Allegato
         category:
           name: Categorie
+        impersonation_log:
+          fields:
+            admin: Amministratore
+            ended_at: Terminato a
+            expired_at: Scaduto a
+            started_at: Ha iniziato a
+            user: Utente
+        managed_user:
+          name: Utente gestito
         newsletter:
           fields:
             created_at: Creato il
             progress: Avanzamento
             sent_at: Inviato alle
             subject: Oggetto
+          name: notiziario
         scope:
           fields:
             name: Nome
+            scope_type: Tipo di campo
+        scope_type:
+          fields:
+            name: Nome
+            plural: Plurale
         static_page:
           fields:
             created_at: Creato il
@@ -177,27 +257,40 @@ it:
         user:
           fields:
             created_at: Data di creazione
+            email: E-mail
             invitation_accepted_at: Data dell'invito di accettazione
             invitation_sent_at: Data di invio dell'invito
             last_sign_in_at: Data dell'ultimo accesso
             name: Nome
+            role: Ruolo
+            roles:
+              admin: Amministratore
+              user_manager: Gestore utente
           name: Utente
         user_group:
           fields:
+            actions: Azioni
             created_at: Creato il
             document_number: Numero del documento
             name: Nome
             phone: Telefono
+            state: Stato
             users_count: Conteggio degli utenti
       moderations:
         index:
           title: Moderazione
+        report:
+          reasons:
+            does_not_belong: Non appartiene
+            offensive: Offensivo
+            spam: Spam
       newsletters:
         create:
           error: Si è verificato un errore durante la creazione di questa newsletter.
           success: OK, la Newsletter è stata creata. Adesso è possibile controllarla ed eventualmente inviarla.
         deliver:
           error: Si è verificato un errore durante l'invio di questa newsletter.
+          success: La newsletter è stata inviata con successo.
         destroy:
           error_already_sent: 'Non è possibile eliminare questa newsletter: è già stata inviata.'
           success: OK, la Newsletter è stata eliminata.
@@ -208,6 +301,7 @@ it:
           interpolations_hint: 'Suggerimento: puoi utilizzare "%{name}" ovunque nel corpo del testo  o nell''oggetto e sarà sostituito con il nome del contenitore.'
         index:
           confirm_delete: Sei sicuro di voler cancellare questa newsletter?
+          title: Newsletters
         new:
           save: Salva
           title: Nuova newsletter
@@ -217,6 +311,7 @@ it:
           preview: Anteprima
           subject: Oggetto
         update:
+          error: Si è verificato un errore durante l'aggiornamento di questa newsletter.
           success: OK, la Newsletter è stata aggiornata. Conviene controllarla prima di inviarla.
       organization:
         edit:
@@ -224,9 +319,31 @@ it:
           update: Modifica
         form:
           current_image: immagine corrente
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Sociale
+          twitter: cinguettio
+          url: URL
+          youtube: Youtube
         update:
           error: Si è verificato un errore durante la modifica di questa organizzazione.
           success: OK, l'organizzazione è stata modificata.
+      scope_types:
+        create:
+          error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
+          success: Tipo di ambito creato con successo.
+        destroy:
+          success: Tipo di ambito distrutto con successo
+        edit:
+          title: Modifica del tipo di ambito
+          update: Modifica
+        new:
+          create: Crea tipo di ambito
+          title: Nuovo ambito
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo tipo di ambito.
+          success: Il tipo di ambito viene aggiornato correttamente
       scopes:
         create:
           error: Si è verificato un errore creando un nuovo ambito.
@@ -239,6 +356,7 @@ it:
         new:
           create: Crea un àmbito
           title: Nuovo ambito
+        no_scopes: Nessun ambito a questo livello.
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo àmbito.
           success: OK, l'àmbito è stato aggiornato.
@@ -261,10 +379,33 @@ it:
           success: OK, la pagina è stata aggiornata.
       titles:
         dashboard: Cruscotto (Dashboard)
+        impersonations: impersonations
+        managed_users: Utenti gestiti
+        scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine
         user_groups: Gruppi di utenti
         users: Utenti
+      user_group:
+        reject:
+          invalid: Si è verificato un errore quando rifiuta questo gruppo di utenti.
+          success: Gruppo utenti rifiutato correttamente
+        verify:
+          invalid: Si è verificato un errore durante la verifica di questo gruppo di utenti.
+          success: Il gruppo utenti è stato verificato correttamente
+      user_groups:
+        index:
+          filter:
+            all: Tutto
+            pending: in attesa di
+            rejected: Rifiutata
+            verified: Verificato
+          filter_by: Filtra per
+          search: Cerca
+          state:
+            pending: in attesa di
+            rejected: Rifiutata
+            verified: Verificato
       users:
         create:
           error: Si è verificato un errore cercando di mandare l'invito a questo utente.
@@ -273,7 +414,9 @@ it:
           error: Si è verificato un errore cercando di eliminare questo utente.
           success: Questo utente non è più un amministratore.
         form:
+          email: E-mail
           name: Nome
+          role: Ruolo
         new:
           create: Invita
           title: Invita l'utente in qualità di amministratore
@@ -301,11 +444,21 @@ it:
             hidden_at: Nascosto a
             report_count: Conteggio
             reportable: Inseribile
+            reported_content_url: URL del contenuto riportato
             reports: Report
+  errors:
+    messages:
+      invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)
   layouts:
     decidim:
       admin:
+        newsletters:
+          title: Newsletters
         settings:
           title: Impostazioni
         users:
           title: Utenti
+  time:
+    formats:
+      datepicker: "%m / %d / %Y"
+      timepicker: "%m / %d / %Y %H:%M"

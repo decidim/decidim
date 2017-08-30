@@ -78,6 +78,7 @@ fr:
       actions:
         activate: Activer
         add: Ajouter
+        browse: Parcourir
         configure: Configurer
         confirm_destroy: Confirmez-vous la suppression ?
         destroy: Supprimer
@@ -174,12 +175,44 @@ fr:
           error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
           success: La fonctionnalité a été mise à jour avec succès.
       managed_users:
+        close_session:
+          error: Une erreur s'est produite lors de la fermeture de la session d'usurpation d'état actuelle.
+          success: La session d'usurpation d'état actuelle a été terminée avec succès.
+        create:
+          error: Une erreur s'est produite lors de la création de l'utilisateur.
+          success: L'utilisateur a été créé avec succès.
         form:
           name: Nom
+        impersonate:
+          error: Une erreur s'est passée par l'utilisateur usé.
+        impersonations:
+          new:
+            impersonate: Imiter
+            new_managed_user_impersonation: Nouvelle identité d'utilisateur gérée
+        index:
+          impersonate: Imiter
+          needs_authoriation_warning: Vous avez besoin d'au moins une autorisation activée pour cette organisation.
+          promote: Promouvoir
+          view_logs: Consultez les logs
+        new:
+          create: Créer
+          new_managed_user: Nouvel utilisateur
+          select_authorization_method: Sélectionnez une méthode d'autorisation
+          step: Étape %{current} sur %{total}
+        promotion:
+          error: Une erreur s'est produite lors de la promotion de l'utilisateur géré.
+          success: L'utilisateur géré a été promu avec succès.
+        promotions:
+          new:
+            explanation: Les utilisateurs gérés peuvent être promus aux utilisateurs standard. Cela signifie qu'ils seront invités à l'application et vous ne pourrez pas les imiter. L'utilisateur invité recevra un courriel pour accepter votre invitation.
+            new_managed_user_promotion: Nouvelle promotion d'utilisateur géré
+            promote: Promouvoir
       menu:
         admins: Administrateurs
         dashboard: Tableau de bord
+        managed_users: Utilisateurs gérés
         newsletters: Bulletins d'information (newsletter)
+        scope_types: Types de portée
         scopes: Zones d’application
         settings: Paramètres
         static_pages: Pages
@@ -193,6 +226,15 @@ fr:
           name: Document lié
         category:
           name: Catégorie
+        impersonation_log:
+          fields:
+            admin: Administrateur
+            ended_at: Fini à
+            expired_at: Expirée à
+            started_at: Commencé à
+            user: Utilisateur
+        managed_user:
+          name: Utilisateur géré
         newsletter:
           fields:
             created_at: Crée le
@@ -203,6 +245,11 @@ fr:
         scope:
           fields:
             name: Nom
+            scope_type: Type de portée
+        scope_type:
+          fields:
+            name: Nom
+            plural: Pluriel
         static_page:
           fields:
             created_at: Crée le
@@ -215,9 +262,14 @@ fr:
             invitation_sent_at: Date d'envoi de l'invitation
             last_sign_in_at: Date de la dernière connexion
             name: Nom
+            role: Rôle
+            roles:
+              admin: Administrateur
+              user_manager: Gérant de l'utilisateur
           name: Utilisateur
         user_group:
           fields:
+            actions: Actions
             created_at: Crée le
             document_number: Numéro de document
             name: Nom
@@ -227,6 +279,11 @@ fr:
       moderations:
         index:
           title: Modérations
+        report:
+          reasons:
+            does_not_belong: N'appartient pas
+            offensive: Agressif
+            spam: Spam
       newsletters:
         create:
           error: Il y a eu une erreur lors de la création de ce bulletin d'information.
@@ -272,6 +329,21 @@ fr:
         update:
           error: Erreur lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
+      scope_types:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre.
+          success: Type de portée créé avec succès.
+        destroy:
+          success: Le type de portée a été détruit avec succès
+        edit:
+          title: Modifier le type de portée
+          update: Mettre à jour
+        new:
+          create: Créer un type de périmètre
+          title: Nouvelle zone d'application
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
+          success: Type de portée mis à jour avec succès
       scopes:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d’application.
@@ -284,6 +356,7 @@ fr:
         new:
           create: Créer une zone d'application
           title: Nouvelle zone d'application
+        no_scopes: Pas de zone d'application à ce niveau.
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
           success: Zone d'applicaiton mise à jour avec succès
@@ -306,18 +379,24 @@ fr:
           success: Page mise à jour avec succès
       titles:
         dashboard: Tableau de bord
+        impersonations: Imputations personnelles
+        managed_users: Utilisateurs gérés
+        scope_types: Types de portée
         scopes: Zones d'application
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
       user_group:
         reject:
+          invalid: Une erreur s'est produite lors du rejet de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs refusé avec succès
         verify:
+          invalid: Une erreur s'est produite lors de la vérification de ce groupe d'utilisateurs.
           success: Groupe d'utilisateurs vérifié avec succès
       user_groups:
         index:
           filter:
+            all: Tout
             pending: En attente
             rejected: Refusé
             verified: Vérifié
@@ -337,6 +416,7 @@ fr:
         form:
           email: Email
           name: Nom
+          role: Rôle
         new:
           create: Inviter
           title: Inviter l'utilisateur en tant qu'administrateur
@@ -364,7 +444,11 @@ fr:
             hidden_at: Masqué le
             report_count: Compter
             reportable: Signalable
+            reported_content_url: URL de contenu déclarée
             reports: Signalements
+  errors:
+    messages:
+      invalid_json: JSON non valide
   layouts:
     decidim:
       admin:

@@ -2,4 +2,166 @@ pl:
   activemodel:
     attributes:
       proposal:
+        body: Ciało
+        category_id: Kategoria
+        scope_id: Zakres
         title: Tytuł
+        user_group_id: Utwórz propozycję jako
+      proposal_answer:
+        answer: Odpowiedź
+  decidim:
+    features:
+      proposals:
+        actions:
+          create: Stwórz
+          vote: Głosować
+        name: Propozycje
+        settings:
+          global:
+            announcement: Ogłoszenie
+            attachments_allowed: Zezwalaj na załączniki
+            comments_enabled: Włączone komentarze
+            geocoding_enabled: Włączone kodowanie geograficzne
+            new_proposal_help_text: Nowy tekst pomocy propozycji
+            official_proposals_enabled: Oficjalne propozycje
+            proposal_answering_enabled: Włączona odpowiedź na pytania
+            vote_limit: Limit głosu
+          step:
+            announcement: Ogłoszenie
+            comments_blocked: Komentarze zablokowane
+            creation_enabled: Utworzono propozycję
+            proposal_answering_enabled: Włączona odpowiedź na pytania
+            votes_blocked: Głosy zablokowane
+            votes_enabled: Głosy włączone
+            votes_hidden: Głosy ukryte (jeśli głosy są włączone, zaznaczenie spowoduje ukrycie liczby głosów)
+    proposals:
+      actions:
+        answer: Odpowiedź
+        new: Nowy
+        title: działania
+      admin:
+        actions:
+          preview: Zapowiedź
+        exports:
+          comments: Komentarze
+          proposals: Propozycje
+        models:
+          proposal:
+            name: Wniosek
+        proposal_answers:
+          edit:
+            accepted: Przyjęty
+            answer_proposal: Odpowiedź
+            evaluating: Ocena
+            rejected: Odrzucone
+            title: Odpowiedź na wniosek %{title}
+        proposals:
+          answer:
+            invalid: Wystąpił problem z odpowiedzią na tę propozycję
+            success: Propozycja z powodzeniem odpowiedziała
+          create:
+            invalid: Podczas tworzenia tego wniosku wystąpił problem
+            success: Propozycja została pomyślnie utworzona
+          form:
+            attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+            select_a_category: Wybierz kategorię
+          index:
+            title: Propozycje
+          new:
+            create: Stwórz
+            title: Utwórz propozycję
+      answers:
+        accepted: Przyjęty
+        evaluating: Ocena
+        not_answered: Bez odpowiedzi
+        rejected: Odrzucone
+      create:
+        error: Podczas zapisywania propozycji wystąpiły błędy.
+        success: Propozycja została pomyślnie utworzona.
+      models:
+        proposal:
+          fields:
+            category: Kategoria
+            official_proposal: Oficjalny wniosek
+            scope: Zakres
+            state: Stan
+            title: Tytuł
+      proposal_votes:
+        create:
+          error: Podczas głosowania nad propozycją wystąpiły błędy.
+      proposals:
+        author:
+          deleted: Usunięty użytkownik
+          verified_user_group: Zweryfikowana organizacja
+        count:
+          proposals_count:
+            one: 1 propozycja
+            few: "%{count} propozycje"
+            other: "%{count} propozycje"
+        filters:
+          accepted: Przyjęty
+          activity: Czynność
+          all: Wszystko
+          category: Kategoria
+          category_prompt: Wybierz kategorię
+          citizenship: Obywatelstwo
+          evaluating: Ocena
+          official: Urzędnik
+          origin: Pochodzenie
+          rejected: Odrzucone
+          related_to: Związany z
+          scope_prompt: Wybierz zakres
+          scopes: Zakresy
+          search: Szukanie
+          state: Stan
+          voted: Głosował
+        filters_small_view:
+          close_modal: Zamknij modal
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwijać się
+        index:
+          new_proposal: Nowa propozycja
+          view_proposal: Wyświetl propozycję
+        linked_proposals:
+          proposal_votes:
+            one: <span class="card--list__data__number">1</span>vote
+            few: <span class="card--list__data__number">%{count}</span>votes
+            other: <span class="card--list__data__number">%{count}</span>votes
+        new:
+          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+          back: Plecy
+          select_a_category: Proszę wybrać kategorię
+          send: Wysłać
+          title: Nowa propozycja
+        orders:
+          label: 'Propozycje zamówień:'
+          most_voted: Większość głosów
+          random: Losowy
+          recent: Niedawny
+        proposal:
+          view_proposal: Wyświetl propozycję
+        show:
+          proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
+          proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
+          report: Raport
+        vote_button:
+          already_voted: Już głosował
+          no_votes_remaining: Brak głosów
+          vote: Głosować
+          votes_blocked: Głosowanie zostało wyłączone
+        votes_count:
+          count:
+            one: GŁOSOWAĆ
+            few: GŁOSOWANIA
+            other: GŁOSOWANIA
+        votes_limit:
+          vote_limit:
+            description: Zamiast głosować na wiele propozycji, możesz głosować tylko na %{limit} propozycjach.
+            left: Pozostały
+            title: Masz do dyspozycji %{limit} głosów
+            votes: Głosowania
+    resource_links:
+      included_proposals:
+        proposal_projects: 'Propozycja występująca w tych projektach:'
+        proposal_results: 'Propozycja pojawiająca się w tych wynikach:'

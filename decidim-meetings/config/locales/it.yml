@@ -4,17 +4,30 @@ it:
       close_meeting:
         attendees_count: Numero di partecipanti
         attending_organizations: Elenco delle organizzazioni partecipanti
+        closing_report: Report
+        contributions_count: Numero di contributi
+        proposal_ids: Proposte ricevute nell'incontro
       meeting:
         address: Indirizzo
         decidim_category_id: Categoria
         decidim_scope_id: Visibilità
         description: Descrizione
         end_time: Orario fine
+        location: Luogo
+        location_hints: Informazione sul luogo
         start_time: Orario inizio
+        title: Nome
   decidim:
     features:
       meetings:
+        actions:
+          join: Aderire
         name: Incontri
+        settings:
+          global:
+            announcement: Annuncio
+          step:
+            announcement: Annuncio
     meetings:
       actions:
         attachments: Allegati
@@ -24,8 +37,11 @@ it:
         edit: Modifica
         new: Nuovo
         preview: Anteprima
+        registrations: iscrizioni
         title: Azioni
       admin:
+        exports:
+          registrations: iscrizioni
         meeting_closes:
           edit:
             close: Chiudi
@@ -41,18 +57,35 @@ it:
             success: OK, il meeting è stato cancellato.
           edit:
             update: Modifica
+          index:
+            title: Incontri
           new:
             create: Crea
             title: Crea meeting
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
             success: OK, il meeting è stato aggiornato.
+        models:
+          meeting:
+            name: Incontro
+        registrations:
+          edit:
+            save: Salva
+          form:
+            available_slots_help: Lasciare a 0 se disponi di slot non illimitati.
+            registrations_count:
+              one: È stata registrata una registrazione.
+              other: Sono state registrate %{count}.
+          update:
+            invalid: Si è verificato un problema salvando le impostazioni di registrazione.
+            success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
       meetings:
         filters:
           category: Categoria
           category_prompt: Scegli una categoria
           date: Data
           past: Passato
+          scope_prompt: Selezionare un ambito
           scopes: Visibilità
           search: Cerca
           upcoming: Imminenti
@@ -66,10 +99,20 @@ it:
         meetings:
           no_meetings_warning: Nessun meeting corrisponde ai tuoi criteri di ricerca oppure non vi è nessun meeting in programma.
           upcoming_meetings_warning: Attualmente non vi sono meeting in programma, ma qui puoi trovare elencati tutti i meeting effettuati in passato.
+        registration_confirm:
+          cancel: Annulla
+          confirm: Conferma
         show:
           attendees: Conteggio dei partecipanti
           contributions: Conteggio dei contributi
+          going: Andando
+          join: Iscriviti alla riunione
+          meeting_report: Relazione sull'incontro
+          no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
+          remaining_slots:
+            one: 1 slot rimanente
+            other: "%{count} slot rimanenti"
       models:
         meeting:
           fields:
@@ -78,6 +121,14 @@ it:
             map: Mappa
             start_time: Data di inizio
             title: Titolo
+      read_more: "(leggi di più)"
+      registrations:
+        create:
+          invalid: C'è stato un problema a partecipare a questa riunione.
+          success: Hai partecipato alla riunione con successo.
+        destroy:
+          invalid: C'è stato un problema lasciare questa riunione.
+          success: Hai lasciato l'incontro con successo.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Risultati correlati:'

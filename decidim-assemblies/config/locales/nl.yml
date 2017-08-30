@@ -1,1 +1,127 @@
 nl:
+  activemodel:
+    attributes:
+      assembly:
+        banner_image: Banner afbeelding
+        copy_categories: Kopieercategorieën
+        copy_features: Kopieerfuncties
+        description: Beschrijving
+        developer_group: Ontwikkelaarsgroep
+        domain: Domein
+        hashtag: Hashtag
+        hero_image: Home image
+        local_area: Lokale buurt
+        meta_scope: Omvang metadata
+        participatory_scope: Participatief toepassingsgebied
+        participatory_structure: Participatieve structuur
+        promoted: gepromoveerd
+        scope_id: Reikwijdte
+        scopes_enabled: Scopes ingeschakeld
+        short_description: Korte beschrijving
+        slug: URL slak
+        subtitle: subtitel
+        target: Doel
+        title: Titel
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe assemblage.
+          success: Assemblage is succesvol gecreëerd.
+        destroy:
+          success: Assemblage is succesvol vernietigd.
+        edit:
+          update: Bijwerken
+        form:
+          title: Algemene informatie
+        index:
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
+        new:
+          create: creëren
+          title: Nieuwe montage
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze assemblage.
+          success: Assemblage is succesvol bijgewerkt.
+      assemblies_copies:
+        create:
+          error: Er was een fout bij het dupliceren van deze assemblage.
+          success: Assemblage is succesvol gedupliceerd.
+      assembly_copies:
+        new:
+          copy: Kopiëren
+          select: Selecteer welke gegevens u wilt dupliceren
+          title: Dupliceerde montage
+      assembly_publications:
+        create:
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Assemblage is succesvol gepubliceerd.
+        destroy:
+          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
+          success: Assemblage ongepubliceerd succesvol.
+      menu:
+        assemblies: Assemblies
+        assemblies_submenu:
+          attachments: toebehoren
+          categories: Categorieën
+          features: Kenmerken
+          info: info
+          moderations: matigingen
+      models:
+        assembly:
+          fields:
+            created_at: Gemaakt bij
+            promoted: Opvallende
+            published: Gepubliceerd
+            title: Titel
+          name: bijeenkomst
+      titles:
+        assemblies: Assemblies
+    assemblies:
+      index:
+        title: Assemblies
+      show:
+        developer_group: Ontwikkelaarsgroep
+        local_area: Lokale buurt
+        participatory_scope: Participatief toepassingsgebied
+        participatory_structure: Participatieve structuur
+        scope: Reikwijdte
+        target: Doel
+      statistics:
+        answers_count: antwoorden
+        assemblies_count: Assemblies
+        comments_count: Comments
+        headline: Activiteit
+        meetings_count: Vergaderingen
+        orders_count: bestellingen
+        pages_count: Pages
+        projects_count: Projecten
+        proposals_count: Voorstellen
+        results_count: Resultaten
+        surveys_count: onderzoeken
+        users_count: Deelnemers
+        votes_count: stemmen
+    menu:
+      assemblies: Assemblies
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Deelnemen
+        index:
+          promoted_assemblies: Uitgelichte samenstellingen
+        no_assemblies_yet:
+          no_assemblies_yet: Nog geen vergaderingen!
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} assemblage"
+            other: "%{count} gemeentes"
+        promoted_assembly:
+          more_info: Meer informatie
+          take_part: Deelnemen
+      assembly_header:
+        assembly_menu_item: De vergadering
+        unfold: Ontvouwen
+      assembly_widgets:
+        show:
+          take_part: Deelnemen

@@ -2,4 +2,131 @@ nl:
   activemodel:
     attributes:
       project:
+        budget: Begroting
+        decidim_category_id: Categorie
+        decidim_scope_id: Reikwijdte
         description: Beschrijving
+        proposal_ids: Verwante voorstellen
+        title: Titel
+  decidim:
+    budgets:
+      actions:
+        attachments: Bijlagen
+        confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
+        destroy: Verwijderen
+        edit: Bewerk
+        new: nieuwe
+        preview: Voorbeeld
+        title: Acties
+      admin:
+        models:
+          project:
+            name: Project
+        projects:
+          create:
+            invalid: Er is een probleem opgetreden met het creëren van dit project
+            success: Project succesvol gemaakt
+          destroy:
+            success: Project succesvol vernietigd
+          edit:
+            title: Bewerk project
+            update: Bijwerken
+          index:
+            finished_orders: Afgewerkte bestellingen
+            pending_orders: Openstaande bestellingen
+            title: Projecten
+          new:
+            create: Creëren
+            title: Nieuw resultaat
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van dit project
+            success: Project succesvol bijgewerkt
+      models:
+        project:
+          fields:
+            title: Titel
+      projects:
+        budget_confirm:
+          are_you_sure: Bent u het eens? Zodra u uw stem heeft bevestigd, kunt u het niet wijzigen.
+          cancel: Annuleer
+          confirm: Bevestigen
+          description: Dit zijn de projecten die u hebt gekozen om deel uit te maken van de begroting.
+          title: Bevestig de stem
+        budget_excess:
+          close: Sluit
+          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd om toe te voegen of uw stem te maken met uw voorkeuren.
+          ok: OK
+          title: Maximum budget overschreden
+        budget_summary:
+          are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
+          assigned: 'Toegewezen:'
+          cancel_order: Verwijder uw stem en begin opnieuw
+          checked_out:
+            description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
+            title: Begrotingsstemming voltooid
+          description: Welke projecten denk je dat we budget moeten voordelen? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
+          title: U bepaalt het budget
+        count:
+          projects_count:
+            one: 1 project
+            other: "%{count} projecten"
+        filters:
+          category: Categorie
+          category_prompt: Kies een categorie
+          scope_prompt: Selecteer een bereik
+          scopes: Scopes
+          search: Zoeken
+        filters_small_view:
+          close_modal: Dicht modaal
+          filter: Filter
+          filter_by: Filteren op
+          unfold: Ontvouwen
+        order_progress:
+          vote: Stemmen
+        order_selected_projects:
+          remove: Verwijderen
+          selected_projects:
+            one: Geselecteerd project
+            other: Geselecteerde projecten
+          view: Uitzicht
+        project:
+          add: Toevoegen
+          count:
+            one: 1 ondersteuning
+            other: "%{count} ondersteunt"
+          remove: Verwijderen
+        project_budget_button:
+          add: Toevoegen
+          added: Toegevoegd
+        show:
+          budget: Begroting
+          view_all_projects: Bekijk alle projecten
+    features:
+      budgets:
+        actions:
+          vote: Stemmen
+        name: Begrotingen
+        settings:
+          global:
+            announcement: Aankondiging
+            comments_enabled: Reacties ingeschakeld
+            total_budget: Totale budget
+            vote_threshold_percent: Stem drempel percentage
+          step:
+            announcement: Aankondiging
+            comments_blocked: Reacties geblokkeerd
+            show_votes: T
+            votes_enabled: Stemmen ingeschakeld
+    orders:
+      checkout:
+        error: Er is een fout opgetreden tijdens het verwerken van uw stem
+        success: Uw stem is succesvol geaccepteerd
+      destroy:
+        error: Er is een fout opgetreden tijdens het annuleren van uw stem
+        success: Uw stem is succesvol geannuleerd
+    resource_links:
+      included_proposals:
+        project_proposals: 'Voorstellen opgenomen in dit project:'
+  index:
+    confirmed_orders_count: Bestellingen tellen
+  total_budget: Totale budget

@@ -1,0 +1,81 @@
+uk:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Категорія
+        decidim_scope_id: Сфера
+        description: Опис
+        proposal_ids: Включено пропозиції
+        title: Назва
+  decidim:
+    features:
+      results:
+        name: Результати
+        settings:
+          global:
+            announcement: Оголошення
+            comments_enabled: Коментарі дозволено
+          step:
+            announcement: Оголошення
+            comments_blocked: Заблоковані коментарі
+    resource_links:
+      included_proposals:
+        result_proposals: Пропозиції, які входять в цей результат
+    results:
+      actions:
+        confirm_destroy: Ви дійсно бажаєте видалити цей результат?
+        destroy: Видалити
+        edit: Редагувати
+        new: Нові
+        preview: Попередній перегляд
+        title: Дії
+      admin:
+        models:
+          result:
+            name: Результат
+        results:
+          create:
+            invalid: Там була помилка створення цього результату
+            success: Результат успішно створено
+          destroy:
+            success: Результат успішно вилучено
+          edit:
+            title: Змінити результат
+            update: Оновлення
+          index:
+            title: Результати
+          new:
+            create: Створити
+            title: Нові результат
+          update:
+            invalid: Там були проблеми оновлення цього результату
+            success: Результат успішно оновлено
+      models:
+        result:
+          fields:
+            title: Назва
+      results:
+        count:
+          results_count:
+            one: Результат 1
+            few: "%{count} результати"
+            other: "%{count} результати"
+        filters:
+          category: Категорія
+          category_prompt: Вибрати категорію
+          scope_prompt: Виберіть сферу
+          scopes: Приціли
+          search: Пошук
+        filters_small_view:
+          close_modal: Закрити модальних
+          filter: Фільтр
+          filter_by: Фільтрувати за
+          unfold: Розгортатися
+        show:
+          stats:
+            attendees: Учасники
+            comments: Коментарі
+            contributions: Внески
+            meetings: Зустрічі
+            proposals: Пропозиції
+            votes: Підтримує

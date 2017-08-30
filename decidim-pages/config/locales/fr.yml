@@ -5,8 +5,10 @@ fr:
         name: Page
         settings:
           global:
+            announcement: Annonce
             comments_enabled: Commentaires activés
           step:
+            announcement: Annonce
             comments_blocked: Commentaires bloqués
     pages:
       admin:

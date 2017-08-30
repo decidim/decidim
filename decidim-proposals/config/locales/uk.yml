@@ -1,0 +1,167 @@
+uk:
+  activemodel:
+    attributes:
+      proposal:
+        body: Тіло
+        category_id: Категорія
+        scope_id: Сфера
+        title: Назва
+        user_group_id: Створити пропозицію як
+      proposal_answer:
+        answer: Відповідь
+  decidim:
+    features:
+      proposals:
+        actions:
+          create: Створити
+          vote: Голосування
+        name: Пропозиції
+        settings:
+          global:
+            announcement: Оголошення
+            attachments_allowed: Дозволити вкладення
+            comments_enabled: Коментарі дозволено
+            geocoding_enabled: Геокодування включений
+            new_proposal_help_text: Нова пропозиція текст довідки
+            official_proposals_enabled: Офіційний пропозиції включений
+            proposal_answering_enabled: Пропозиція відповіді ввімкнуто
+            vote_limit: Голосування межа
+          step:
+            announcement: Оголошення
+            comments_blocked: Заблоковані коментарі
+            creation_enabled: Пропозиція створення включений
+            proposal_answering_enabled: Пропозиція відповіді ввімкнуто
+            votes_blocked: Голосів заблоковано
+            votes_enabled: Голосів включений
+            votes_hidden: Голосів приховані (ввімкненої голосів, перевірки цього буду приховувати кількість голосів)
+    proposals:
+      actions:
+        answer: Відповідь
+        new: Нові
+        title: Дії
+      admin:
+        actions:
+          preview: Попередній перегляд
+        exports:
+          comments: Коментарі
+          proposals: Пропозиції
+        models:
+          proposal:
+            name: Пропозиція
+        proposal_answers:
+          edit:
+            accepted: Приймаються
+            answer_proposal: Відповідь
+            evaluating: Оцінки
+            rejected: Відхилено
+            title: Відповідь на пропозиції %{title}
+        proposals:
+          answer:
+            invalid: Там були проблеми, відповідаючи на цю пропозицію
+            success: Пропозицію успішно відповів
+          create:
+            invalid: Там була помилка створення цієї пропозиції
+            success: Пропозицію успішно створено
+          form:
+            attachment_legend: "(Необов'язково) Додати вкладення"
+            select_a_category: Вибрати категорію
+          index:
+            title: Пропозиції
+          new:
+            create: Створити
+            title: Створити пропозицію
+      answers:
+        accepted: Приймаються
+        evaluating: Оцінки
+        not_answered: Не відповіли
+        rejected: Відхилено
+      create:
+        error: Там були помилки при збереженні пропозицію.
+        success: Пропозицію успішно створено.
+      models:
+        proposal:
+          fields:
+            category: Категорія
+            official_proposal: Офіційна пропозиція України
+            scope: Сфера
+            state: Держава
+            title: Назва
+      proposal_votes:
+        create:
+          error: Там були помилки при голосуванні пропозицію.
+      proposals:
+        author:
+          deleted: Видаленим користувачем
+          verified_user_group: Перевірена організації
+        count:
+          proposals_count:
+            one: 1 пропозиція
+            few: "%{count} пропозиції"
+            other: "%{count} пропозиції"
+        filters:
+          accepted: Приймаються
+          activity: Діяльність
+          all: Всі
+          category: Категорія
+          category_prompt: Вибрати категорію
+          citizenship: Громадянство
+          evaluating: Оцінки
+          official: Офіційний
+          origin: Походження
+          rejected: Відхилено
+          related_to: Пов'язані
+          scope_prompt: Виберіть сферу
+          scopes: Приціли
+          search: Пошук
+          state: Держава
+          voted: Проголосували
+        filters_small_view:
+          close_modal: Закрити модальних
+          filter: Фільтр
+          filter_by: Фільтрувати за
+          unfold: Розгортатися
+        index:
+          new_proposal: Нова пропозиція
+          view_proposal: Подання пропозиції
+        linked_proposals:
+          proposal_votes:
+            one: <span class="card--list__data__number">1</span>vote
+            few: <span class="card--list__data__number">%{count}</span>votes
+            other: <span class="card--list__data__number">%{count}</span>votes
+        new:
+          attachment_legend: "(Необов'язково) Додати вкладення"
+          back: Назад
+          select_a_category: Будь ласка виберіть категорію
+          send: Надіслати
+          title: Нова пропозиція
+        orders:
+          label: 'Замовлення-економічної пропозицій:'
+          most_voted: Більшість проголосувала
+          random: Випадкові
+          recent: Останні
+        proposal:
+          view_proposal: Подання пропозиції
+        show:
+          proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
+          proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
+          report: Звіт
+        vote_button:
+          already_voted: Вже проголосували
+          no_votes_remaining: Немає голосів, що залишилися
+          vote: Голосування
+          votes_blocked: Голосування інвалідів
+        votes_count:
+          count:
+            one: ГОЛОСУВАННЯ
+            few: ГОЛОСІВ
+            other: ГОЛОСІВ
+        votes_limit:
+          vote_limit:
+            description: Замість того, щоб голосування якомога більше пропозицій, як ви хочете, ви можете проголосувати лише до %{limit} пропозиції.
+            left: Залишаючись
+            title: У вас є %{limit} голосів для розповсюдження
+            votes: Голосів
+    resource_links:
+      included_proposals:
+        proposal_projects: 'Пропозиції, що з''являються у цих проектах:'
+        proposal_results: 'Пропозиції, що з''являються у цих результатів:'

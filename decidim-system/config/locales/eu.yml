@@ -57,6 +57,7 @@ eu:
         index:
           title: Erakundeak
         new:
+          reference_prefix_hint: Erreferentziazko aurrizkia erakunde guztien gaineko baliabideak modu berezian identifikatzeko erabiltzen da
           secondary_hosts_hint: Sartu haietako bakoitza lerro batean
           title: Erakunde berria
         update:

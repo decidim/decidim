@@ -158,6 +158,8 @@ eu:
       default_image: Irudi lehenetsia
       errors:
         error: Errorea bat dago eremu honetan.
+    managed_users:
+      expired_session: Uneko indargabetze saioa iraungi da.
     menu:
       home: Hasiera
       more_information: Argibide gehiago
@@ -232,6 +234,8 @@ eu:
         sign_up: Erregistratu
       reference:
         reference: 'Erreferentzia: %{reference}'
+      results_per_page:
+        label: 'Orrialde bakoitzeko emaitzak:'
       share_modal:
         close_window: Itxi leihoa
         share: Partekatu
@@ -250,6 +254,7 @@ eu:
           Nahi ez baduzu onartu gonbit hau, ez egin kasu mezu honi.<br />Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
         invited_you_as_admin: "%{invited_by} izeneko batek gonbit egin dizu %{application} aplikazioaren administratzaile izateko; onartzeko, egin klik esteka honetan:"
         someone_invited_you: 'Orbaitek gonbit egin dizu aplikazio honetara: %{application}. Onartzeko, egin klik esteka honetan:'
+        you_are_now_admin: Orain kudeatzaile zara
       invite_admin:
         subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
       invite_collaborator:
@@ -263,6 +268,7 @@ eu:
   errors:
     messages:
       content_type_whitelist_error: fitxategi mota ez da zuzena
+      cycle_detected: Esparruko guraso bat ezin da bere ondorengoetako bat izan
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
       invalid_manifest: Manifestua ez da baliozkoa
       invalid_participatory_process: Prozesu partizipatiboa ez da baliozkoa
@@ -272,6 +278,8 @@ eu:
       too_many_marks: Galdera- eta harridura-ikur gehiegi erabiltzen ari zara
       too_much_caps: Letra larri gehiegi erabiltzen ari zara
       too_short: Laburregia da
+  forms:
+    required: Beharrezko
   invisible_captcha:
     sentence_for_humans: Gizaki bat bazara, ez egin kasu eremu honi
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, bidali.
@@ -288,6 +296,10 @@ eu:
         navigation: Nabigazioa
         sign_in: Sartu
         sign_up: Erregistratu
+      impersonation_warning:
+        close_session: Itxi saioa
+        description_html: Erabiltzailea <b>%{user_name}</b> ordezkatzen ari zara.
+        expire_time_html: Zure saioa <b><span class="minutes">%{minutes}</span> minutu</b> iraungiko da.
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
         profile: Nire kontua
@@ -330,6 +342,7 @@ eu:
         comments_count: Iruzkinak
         headline: '%{organization} erakundearen egungo egoera'
         meetings_count: Topaketak
+        orders_count: Eskariak
         pages_count: Erlaitzak
         processes_count: Prozesuak
         projects_count: Proiektuak
