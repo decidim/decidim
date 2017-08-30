@@ -13,8 +13,11 @@ fr:
           answer: Répondre
         name: Enquête
         settings:
+          global:
+            announcement: Annonce
           step:
             allow_answers: Autoriser les réponses
+            announcement: Annonce
     surveys:
       admin:
         exports:
@@ -27,6 +30,7 @@ fr:
           answer_option:
             answer_option: Option de réponse
             remove_answer_option: Supprimer l'option de réponse
+            statement: Déclaration
           edit:
             save: Sauvegarder
             title: Titre
