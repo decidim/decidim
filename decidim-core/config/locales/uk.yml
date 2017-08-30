@@ -169,15 +169,15 @@ uk:
     notifications_settings:
       show:
         comments_notifications: Я хочу отримати сповіщення електронною поштою, коли хтось коментує свої публікації.
-        newsletter_notifications: Я хочу отримати інформацію про відповідну діяльність
-        replies_notifications: 'Я хочу отримувати емейл сповіщення, коли хтось відповіді: мої коментарі.'
-        update_notifications_settings: Збереження змін
+        newsletter_notifications: Я хочу отримувати інформацію про пов'язані з цим події
+        replies_notifications: Я хочу отримувати сповіщення електронною поштою, коли хтось відповідає на мої коментарі.
+        update_notifications_settings: Зберегти зміни
       update:
-        error: Там була помилка оновлення настройок сповіщення.
-        success: Налаштування сповіщень успішно оновлено.
+        error: Під час оновлення налаштувань сповіщень виникла помилка.
+        success: Ваші налаштування сповіщень успішно оновлено.
     own_user_groups:
       index:
-        pending: Очікування
+        pending: Очікує на розгляд
         rejected: Відхилено
         verified: Перевірено
     pages:
