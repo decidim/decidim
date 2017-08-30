@@ -64,3 +64,186 @@ ca:
         participatory_process_group:
           fields:
             name: Nom
+          name: Grup de processos
+        participatory_process_step:
+          fields:
+            end_date: Data de finalització
+            start_date: Data d'inici
+            title: Grup de processos participatius
+          name: Name
+        participatory_process_user_role:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            role: Rol
+          name: Usuari del procés
+          roles:
+            admin: Administrador
+            collaborator: Col·laborador
+            moderator: Moderador
+      participatory_process_copies:
+        new:
+          copy: Còpia
+          select: Selecciona quines dades vols duplicar
+          title: Duplicar procés participatiu
+      participatory_process_groups:
+        destroy:
+          success: Grup eliminat correctament.
+        edit:
+          title: Editar grup de procés
+          update: Actualitzar
+        new:
+          create: Crear
+          title: Nou grup de processos
+        update:
+          error: Hi ha hagut un error actualitzant aquest grup de processos participatius.
+          success: Grup de procés participatiu actualitzat correctament.
+      participatory_process_publications:
+        create:
+          error: S'ha produït un error en publicar aquest procés participatiu.
+          success: El procés participatiu s'ha publicat correctament.
+        destroy:
+          error: S'ha produït un error en despublicar aquest procés participatiu.
+          success: El procés participatiu s'ha despublicat correctament.
+      participatory_process_step_activations:
+        create:
+          error: S'ha produït un error en activar aquesta fase de procés participatiu.
+          success: La fase de procés participatiu s'ha activat correctament.
+      participatory_process_steps:
+        create:
+          error: S'ha produït un error en crear una nova fase de procés participatiu.
+          success: La fase de procés participatiu s'ha creat correctament.
+        default_title: Introducció
+        destroy:
+          error:
+            active_step: No es pot eliminar la fase activa.
+            last_step: No es pot eliminar l'última fase d'un procés.
+          success: La fase de procés participatiu s'ha eliminat correctament.
+        edit:
+          title: Editar fase de procés participatiu
+          update: Actualitzar
+        index:
+          steps_title: Fases del procés
+        new:
+          create: Crear
+          title: Nova fase de procés participatiu
+        ordering:
+          error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
+        update:
+          error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
+          success: La fase de procés participatiu s'ha actualitzat correctament.
+      participatory_process_user_roles:
+        create:
+          error: Hi ha hagut un error en afegir un usuari a aquest procés participatiu.
+          success: Usuari creat amb èxit per a aquest procés participatiu.
+        destroy:
+          success: Usuari eliminat amb èxit per a aquest procés participatiu.
+        edit:
+          title: Editar usuari de procés participatiu.
+          update: Actualitzar
+        index:
+          process_admins_title: Usuaris del procés participatiu
+        new:
+          create: Crear
+          title: Nou usuari de procés participatiu.
+        update:
+          error: Hi ha hagut un error actualitzant l'usuari d'aquest procés participatiu.
+          success: Usuari actualitzat satisfactòriament per a aquest procés participatiu.
+      participatory_processes:
+        create:
+          error: S'ha produït un error en crear un nou procés participatiu.
+          success: El procés participatiu s'ha creat correctament. Continua ara amb la configuració de les fases.
+        destroy:
+          success: El procés participatiu s'ha eliminat correctament.
+        edit:
+          update: Actualitzar
+        form:
+          title: Informació general
+        index:
+          not_published: No publicada
+          published: Publicat
+        new:
+          create: Crear
+          title: Nou procés participatiu
+        update:
+          error: S'ha produït un error en l'actualització d'aquest procés participatiu.
+          success: El procés participatiu s'ha actualitzat correctament.
+      participatory_processes_copies:
+        create:
+          error: Hi ha hagut un error duplicant el procés participatiu.
+          success: El procés participatiu ha estat duplicat correctament.
+      participatory_processes_group:
+        create:
+          error: S'ha produït un error creant aquest grup de processos participatius.
+          success: Grup de processos participatius creat correctament.
+      titles:
+        participatory_process_groups: Grups de processos participatius
+        participatory_processes: Processos participatius
+    menu:
+      processes: Processos
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Processos per a %{group}
+        title: Grup de processos participatius
+    participatory_process_steps:
+      index:
+        process_steps: Fases del procés
+        title: Fases del procés participatiu
+    participatory_processes:
+      index:
+        title: Processos participatius
+      participatory_process_groups:
+        none: Cap
+      show:
+        developer_group: Grup promotor
+        end_date: Data de finalització
+        local_area: Àrea municipal
+        participatory_scope: Àmbit participatiu
+        participatory_structure: Estructura participativa
+        scope: Àmbit
+        target: A qui va dirigit
+      statistics:
+        answers_count: Respostes
+        comments_count: Comentaris
+        headline: Activitat
+        meetings_count: Trobades presencials
+        orders_count: Vots
+        pages_count: Pàgines
+        processes_count: Processos
+        projects_count: Projectes
+        proposals_count: propostes
+        results_count: Resultats
+        surveys_count: Enquestes
+        users_count: Participants
+        votes_count: Suports
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Explorar
+      participatory_process_widgets:
+        show:
+          active_step: Fase activa
+          take_part: Participa
+      participatory_processes:
+        index:
+          promoted_processes: Processos destacats
+        no_processes_yet:
+          no_processes_yet: Encara no hi ha cap procés participatiu!
+        order_by_processes:
+          processes:
+            one: "%{count} procés"
+            other: "%{count} processos"
+        participatory_process:
+          active_step: 'Fase actual:'
+          take_part: Participa
+        promoted_process:
+          active_step: 'Fase actual:'
+          more_info: Més informació
+          take_part: Participa
+      process_header:
+        process_menu_item: El procés
+        unfold: Desplega
+      process_header_steps:
+        step: Fase %{current} de %{total}
+        view_steps: Veure les fases
