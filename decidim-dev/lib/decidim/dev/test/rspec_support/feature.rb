@@ -30,6 +30,7 @@ module Decidim
     include HasCategory
     include HasScope
     include Decidim::Comments::Commentable
+    include Followable
 
     feature_manifest_name "dummy"
 
