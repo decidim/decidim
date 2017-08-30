@@ -1,0 +1,69 @@
+uk:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Відповідь
+      survey_question:
+        mandatory: Обов'язковий
+        question_type: Тип
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Відповідь
+        name: Опитування
+        settings:
+          global:
+            announcement: Оголошення
+          step:
+            allow_answers: Дозволити відповіді
+            announcement: Оголошення
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Відповіді користувача опитування
+        models:
+          components:
+            description: Опис
+            tos: Умови надання послуг
+        surveys:
+          answer_option:
+            answer_option: Відповідь варіант
+            remove_answer_option: Видалити варіантом відповіді
+            statement: Заява
+          edit:
+            save: Зберегти
+            title: Назва
+          form:
+            add_question: Задати питання
+            already_answered_warning: Опитування вже відповіли деяких користувачів, так що ви не можете змінювати його питання.
+          question:
+            add_answer_option: Додати параметр відповідь
+            question: Питання
+            remove_question: Видалити питання
+            statement: Заява
+          update:
+            invalid: Там були помилки при збереженні опитування.
+            success: Опитування успішно збережено.
+      question_types:
+        long_answer: Довгий відповідь
+        multiple_option: Кілька варіант
+        short_answer: Коротка відповідь
+        single_option: Єдиний варіант
+      surveys:
+        answer:
+          invalid: Там були помилки під час відповіді на опитування.
+          success: Обстеження відповів успішно.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Sign за допомогою вашого account</a> або <a href="%{sign_up_link}">sign up</a> відповісти на обстеження.
+            title: Відповідь на опитування
+          are_you_sure: Цю дію неможливо скасувати, і ви не зможете редагувати ваші відповіді. Ти впевнений?
+          submit: Представити
+          survey_answered:
+            body: Ви вже відповіли цього опитування.
+            title: Обстеження відповів
+          survey_closed:
+            body: Опитування закритий і не може бути вирішене.
+            title: Голосування закрито
+          tos_agreement: Беручи участь у цьому опитуванні ви приймаєте умови використання
