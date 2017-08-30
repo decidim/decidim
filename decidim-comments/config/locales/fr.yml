@@ -15,8 +15,12 @@ fr:
             subject: Vous avez un nouveau commentaire
           reply_created:
             subject: Vous avez une nouvelle réponse à votre commentaire
+      votes:
+        create:
+          error: Il y a eu des erreurs lors du vote du commentaire.
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}"> Entrez avec votre compte</a> ou <a href="%{sign_up_url}">sign up</a> pour ajouter votre commentaire.
         form:
           body:
             label: Commentaire
@@ -27,11 +31,14 @@ fr:
             label: Commenter en tant que
         opinion:
           neutral: Neutre
+        remaining_characters: "%{count} caractères restants"
+        remaining_characters_1: "%{count} personnage à gauche"
         title: Ajoutez votre commentaire
       comment:
         alignment:
           against: Contre
           in_favor: Pour
+        deleted_user: Utilisateur supprimé
         reply: Répondre
         report:
           action: Signaler
@@ -44,6 +51,7 @@ fr:
             offensive: Contient des propos racistes, sexistes, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
             spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
           title: Signaler un problème
+        verified_user_group: Organisation vérifiée
       comment_order_selector:
         order:
           best_rated: Les mieux notés
@@ -59,3 +67,6 @@ fr:
         title: "%{count} commentaires"
       featured_comment:
         title: Commentaire vedette
+  errors:
+    messages:
+      cannot_have_comments: ne peut pas être commenté
