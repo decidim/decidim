@@ -29,6 +29,10 @@ module Decidim
           authorization.user == user
         end
 
+        can :manage, Follow do |follow|
+          follow.user == user
+        end
+
         can :manage, Notification do |notification|
           notification.user == user
         end
