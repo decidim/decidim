@@ -314,5 +314,6 @@ FactoryGirl.define do
     end
     followable { build(:dummy_resource) }
     notification_type { followable.class.name.underscore.tr("/", ".") }
+    event_class { "Decidim::Events::BaseEvent" }
   end
 end
