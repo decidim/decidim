@@ -28,6 +28,7 @@ module Decidim
   autoload :HasFeature, "decidim/has_feature"
   autoload :HasScope, "decidim/has_scope"
   autoload :HasCategory, "decidim/has_category"
+  autoload :Followable, "decidim/followable"
   autoload :HasReference, "decidim/has_reference"
   autoload :Attributes, "decidim/attributes"
   autoload :StatsRegistry, "decidim/stats_registry"

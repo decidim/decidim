@@ -294,4 +294,25 @@ FactoryGirl.define do
     user { build(:user, :managed, organization: admin.organization) }
     started_at Time.current
   end
+
+  factory :follow, class: "Decidim::Follow" do
+    user do
+      build(
+        :user,
+        organization: followable.try(:organization) || build(:organization)
+      )
+    end
+    followable { build(:dummy_resource) }
+  end
+
+  factory :notification, class: "Decidim::Notification" do
+    user do
+      build(
+        :user,
+        organization: followable.try(:organization) || build(:organization)
+      )
+    end
+    followable { build(:dummy_resource) }
+    notification_type { followable.class.name.underscore.tr("/", ".") }
+  end
 end
