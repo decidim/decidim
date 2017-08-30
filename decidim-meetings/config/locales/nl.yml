@@ -1,5 +1,138 @@
 nl:
   activemodel:
     attributes:
+      close_meeting:
+        attendees_count: Aantal deelnemers
+        attending_organizations: Lijst van organisaties die bijwonen
+        closing_report: Rapporteren
+        contributions_count: Aantal bijdragen
+        proposal_ids: Voorstellen die in de vergadering zijn gemaakt
       meeting:
+        address: Adres
         decidim_category_id: Categorie
+        decidim_scope_id: Reikwijdte
+        description: Beschrijving
+        end_time: Eindtijd
+        location: Plaats
+        location_hints: Locatie hints
+        start_time: Starttijd
+        title: Titel
+  decidim:
+    features:
+      meetings:
+        actions:
+          join: toetreden
+        name: Vergaderingen
+        settings:
+          global:
+            announcement: Aankondiging
+          step:
+            announcement: Aankondiging
+    meetings:
+      actions:
+        attachments: Bijlagen
+        close: Sluit
+        confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
+        destroy: Verwijderen
+        edit: Bewerk
+        new: nieuwe
+        preview: Voorbeeld
+        registrations: registraties
+        title: Acties
+      admin:
+        exports:
+          registrations: registraties
+        meeting_closes:
+          edit:
+            close: Sluit
+            title: Dichte ontmoeting
+        meetings:
+          close:
+            invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
+            success: Vergadering met succes gesloten
+          create:
+            invalid: Er is een probleem opgetreden met het maken van deze vergadering
+            success: Vergadering met succes gemaakt
+          destroy:
+            success: Meeting met succes verwijderd
+          edit:
+            update: Bijwerken
+          index:
+            title: Vergaderingen
+          new:
+            create: Creëren
+            title: Maak een afspraak
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
+            success: Vergadering met succes bijgewerkt
+        models:
+          meeting:
+            name: Vergadering
+        registrations:
+          edit:
+            save: Opslaan
+          form:
+            available_slots_help: Laat het naar 0 als u onbeperkt beschikbare slots hebt.
+            registrations_count:
+              one: Er is 1 registratie geweest.
+              other: Er zijn %{count} registraties geweest.
+          update:
+            invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
+            success: Vergaderen van instellingen voor instellingen die succesvol zijn opgeslagen.
+      meetings:
+        filters:
+          category: Categorie
+          category_prompt: Kies een categorie
+          date: Datum
+          past: Verleden
+          scope_prompt: Selecteer een bereik
+          scopes: Scopes
+          search: Zoeken
+          upcoming: Aankomend
+        filters_small_view:
+          close_modal: Dicht modaal
+          filter: Filter
+          filter_by: Filteren op
+          unfold: Ontvouwen
+        index:
+          view_meeting: Bekijk de vergadering
+        meetings:
+          no_meetings_warning: Geen afspraken komen overeen met uw zoekcriteria of er is geen vergadering gepland.
+          upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle eerder genoemde vergaderingen.
+        registration_confirm:
+          cancel: Annuleer
+          confirm: Bevestigen
+        show:
+          attendees: Aantal deelnemers
+          contributions: Aantal bijdragen
+          going: gaand
+          join: Word lid van de vergadering
+          meeting_report: Notulen
+          no_slots_available: Geen slots beschikbaar
+          organizations: Bijwonen van organisaties
+          remaining_slots:
+            one: 1 slot overblijft
+            other: "%{count} resterende slots"
+      models:
+        meeting:
+          fields:
+            closed: Gesloten
+            end_time: Einddatum
+            map: Kaart
+            start_time: Begin datum
+            title: Titel
+      read_more: "(Lees verder)"
+      registrations:
+        create:
+          invalid: Er is een probleem bij deze ontmoeting geweest.
+          success: U heeft de vergadering succesvol aangesloten.
+        destroy:
+          invalid: Er is een probleem geweest met het verlaten van deze vergadering.
+          success: U heeft de vergadering succesvol verlaten.
+    resource_links:
+      meetings_through_proposals:
+        meeting_results: 'Verwante resultaten:'
+        result_meetings: 'Verwante vergaderingen:'
+      proposals_from_meeting:
+        meeting_proposals: 'Verwante voorstellen:'
+        proposal_meetings: 'Verwante vergaderingen:'
