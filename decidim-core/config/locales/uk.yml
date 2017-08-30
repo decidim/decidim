@@ -182,22 +182,22 @@ uk:
         verified: Перевірено
     pages:
       index:
-        title: Додаткові відомості
+        title: Більше інформації
     reported_mailer:
       hide:
-        hello: Привіт %{name},
-        manage_moderations: Керування moderations
-        report_html: <p>The такі дії <a href="%{url}">content</a> були приховані automatically.</p>
-        subject: Ресурс були сховала автоматично
+        hello: Доброго дня, %{name}%!
+        manage_moderations: Керувати діями з модерації
+        report_html: <p>Наступний <a href="%{url}">вміст</a> було автоматично приховано.</p>
+        subject: Ресурс було автоматично приховано
       report:
-        hello: Привіт %{name},
-        manage_moderations: Керування moderations
-        report_html: Наступне <p>The <a href="%{url}">content</a> був reported.</p>
-        subject: Ресурс, як повідомляється.
+        hello: Доброго дня, %{name}%!
+        manage_moderations: Керувати діями з модерації
+        report_html: <p>Про наступний <a href="%{url}">вміст</a> було повідомлено кому слід.</p>
+        subject: Про цей ресурс було повідомлено кому слід
     reports:
       create:
         error: Сталася помилка під час створення звіту. Будь ласка, спробуйте знову.
-        success: Доповіді, створено успішно, і вона буде розглядатися по адміністратора
+        success: Звіт був створений успішно, і він буде розглянутий адміністратором.
     scopes:
       global: Глобального масштабу
     shared:
