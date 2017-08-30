@@ -1,1 +1,127 @@
 it:
+  activemodel:
+    attributes:
+      assembly:
+        banner_image: Immagine banner
+        copy_categories: Copiare le categorie
+        copy_features: Funzioni di copia
+        description: Descrizione
+        developer_group: Gruppo promotore
+        domain: Dominio
+        hashtag: hashtag
+        hero_image: Immagine sulla Home Page
+        local_area: Municipi
+        meta_scope: Metadati di ambito
+        participatory_scope: Visibilità/ambito partecipativo
+        participatory_structure: Struttura partecipativa
+        promoted: Promossa
+        scope_id: Objetivos
+        scopes_enabled: Gli ambiti abilitati
+        short_description: Descrizione breve
+        slug: URL slug
+        subtitle: Sottotitolo
+        target: A chi è destinato il processo?
+        title: Nome
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Si è verificato un errore durante la creazione di un nuovo assembly.
+          success: L'assemblaggio è stato creato con successo.
+        destroy:
+          success: Assemblea distrutta con successo.
+        edit:
+          update: Modifica
+        form:
+          title: Informazioni generali
+        index:
+          not_published: Non pubblicato
+          published: Pubblicato
+        new:
+          create: Crea
+          title: Nuovo montaggio
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo assembly.
+          success: L'assemblaggio è aggiornato correttamente.
+      assemblies_copies:
+        create:
+          error: Si è verificato un errore durante la duplicazione di questo assembly.
+          success: L'assemblaggio è duplicato con successo.
+      assembly_copies:
+        new:
+          copy: Copia
+          select: Scegli quale quale dato vuoi duplicare
+          title: Duplicare il montaggio
+      assembly_publications:
+        create:
+          error: Si è verificato un errore durante la pubblicazione di questo assembly.
+          success: L'Assemblea è pubblicata con successo.
+        destroy:
+          error: Si è verificato un errore durante la pubblicazione di questo assembly.
+          success: Assembly non pubblicato con successo.
+      menu:
+        assemblies: assemblee
+        assemblies_submenu:
+          attachments: Allegati
+          categories: Categorie
+          features: Funzionalità (features)
+          info: Informazioni
+          moderations: Moderazione
+      models:
+        assembly:
+          fields:
+            created_at: Data/ora di creazione
+            promoted: Evidenziato
+            published: Pubblicato
+            title: Nome
+          name: montaggio
+      titles:
+        assemblies: assemblee
+    assemblies:
+      index:
+        title: assemblee
+      show:
+        developer_group: Gruppo promotore
+        local_area: Municipi
+        participatory_scope: Visibilità/ambito partecipativo
+        participatory_structure: Struttura partecipativa
+        scope: Objetivos
+        target: A chi è destinato il processo?
+      statistics:
+        answers_count: risposte
+        assemblies_count: assemblee
+        comments_count: Commenti
+        headline: Attività
+        meetings_count: Riunioni
+        orders_count: Ordini
+        pages_count: Pagine
+        projects_count: Progetti
+        proposals_count: Proposte
+        results_count: Risultati
+        surveys_count: indagini
+        users_count: Partecipanti
+        votes_count: Voti
+    menu:
+      assemblies: assemblee
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Partecipa
+        index:
+          promoted_assemblies: Assiemi evidenziati
+        no_assemblies_yet:
+          no_assemblies_yet: Nessun assemblee ancora!
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} montaggio"
+            other: "%{count} assemblies"
+        promoted_assembly:
+          more_info: Maggiori informazioni
+          take_part: Partecipa
+      assembly_header:
+        assembly_menu_item: L'assemblea
+        unfold: Espandi
+      assembly_widgets:
+        show:
+          take_part: Partecipa
