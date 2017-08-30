@@ -36,7 +36,7 @@ it:
             title: Titolo
           form:
             add_question: Aggiungi domanda
-            already_answered_warning: Dato che alcuni utenti hanno già risposto al questionario, non è più possibile modificare le domande. 
+            already_answered_warning: Dato che alcuni utenti hanno già risposto al questionario, non è più possibile modificare le domande.
           question:
             add_answer_option: Aggiungre opzione di risposta
             question: Domanda
