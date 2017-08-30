@@ -2,18 +2,18 @@ uk:
   activemodel:
     attributes:
       account:
-        delete_reason: Причина, щоб видалити обліковий запис
+        delete_reason: Причина, по якій потрібно видалити ваш обліковий запис
       report:
-        details: Додаткові коментарі
+        details: Додаткові примітки
       user:
-        email: Ваша електронна пошта
-        name: Твоє ім'я
+        email: Адреса вашої електронної пошти
+        name: Ваше ім’я
         password: Новий пароль
-        password_confirmation: Підтвердіть новий пароль
-        remove_avatar: Видалити Аватар
+        password_confirmation: Підтвердьте свій новий пароль
+        remove_avatar: Видалити аватар
         user_group_document_number: Номер документа організації
         user_group_name: Назва організації
-        user_group_phone: Організація телефон
+        user_group_phone: Телефон організації
   activerecord:
     attributes:
       decidim/user:
