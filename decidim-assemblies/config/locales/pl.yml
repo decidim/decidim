@@ -1,1 +1,128 @@
 pl:
+  activemodel:
+    attributes:
+      assembly:
+        banner_image: Obraz baneru
+        copy_categories: Kopiuj kategorie
+        copy_features: Kopiuj funkcje
+        description: Opis
+        developer_group: Grupa programistyczna
+        domain: Domena
+        hashtag: Hasztag
+        hero_image: Obraz w domu
+        local_area: Okolica
+        meta_scope: Zakres metadanych
+        participatory_scope: Zakres partycypacji
+        participatory_structure: Struktura partycypacji
+        promoted: Lansowany
+        scope_id: Zakres
+        scopes_enabled: Zakresy włączone
+        short_description: Krótki opis
+        slug: Ślimak URL
+        subtitle: Podtytuł
+        target: Cel
+        title: Tytuł
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Podczas tworzenia nowego zestawu wystąpił błąd.
+          success: Zgromadzenie zostało utworzone.
+        destroy:
+          success: Zgromadzenie zostało zniszczone.
+        edit:
+          update: Aktualizuj
+        form:
+          title: Informacje ogólne
+        index:
+          not_published: Nie opublikowane
+          published: Opublikowany
+        new:
+          create: Utwórz
+          title: Nowy montaż
+        update:
+          error: Podczas aktualizowania tego zestawu wystąpił błąd.
+          success: Zgromadzenie zostało zaktualizowane.
+      assemblies_copies:
+        create:
+          error: Podczas duplikowania tego zestawu wystąpił błąd.
+          success: Złożenie zostało powielone.
+      assembly_copies:
+        new:
+          copy: Kopiuj
+          select: Wybierz dane, które chcesz zduplikować
+          title: Duplikat montażu
+      assembly_publications:
+        create:
+          error: Podczas publikowania tego wystąpienia wystąpił błąd.
+          success: Zgromadzenie zostało opublikowane pomyślnie.
+        destroy:
+          error: Podczas publikowania tego wystąpienia wystąpił błąd.
+          success: Zgromadzenie nie zostało pomyślnie opublikowane.
+      menu:
+        assemblies: Zespoły
+        assemblies_submenu:
+          attachments: Załączniki
+          categories: Kategorie
+          features: cechy
+          info: Informacje
+          moderations: Modernizacje
+      models:
+        assembly:
+          fields:
+            created_at: Utworzono w
+            promoted: Podświetlony
+            published: Opublikowany
+            title: Tytuł
+          name: Montaż
+      titles:
+        assemblies: Zespoły
+    assemblies:
+      index:
+        title: Zespoły
+      show:
+        developer_group: Grupa programistyczna
+        local_area: Okolica
+        participatory_scope: Zakres partycypacji
+        participatory_structure: Struktura partycypacji
+        scope: Zakres
+        target: Cel
+      statistics:
+        answers_count: Odpowiedzi
+        assemblies_count: Zespoły
+        comments_count: Komentarze
+        headline: Czynność
+        meetings_count: Spotkania
+        orders_count: Święcenia
+        pages_count: Strony
+        projects_count: Projekty
+        proposals_count: Propozycje
+        results_count: Wyniki
+        surveys_count: Ankiety
+        users_count: Uczestnicy
+        votes_count: Głosowania
+    menu:
+      assemblies: Zespoły
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Wziąć udział
+        index:
+          promoted_assemblies: Podświetlone zespoły
+        no_assemblies_yet:
+          no_assemblies_yet: Żadne zespoły!
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} montaż"
+            few: "%{count} złożeń"
+            other: "%{count} złożeń"
+        promoted_assembly:
+          more_info: Więcej informacji
+          take_part: Wziąć udział
+      assembly_header:
+        assembly_menu_item: Zgromadzenie
+        unfold: Rozwiń
+      assembly_widgets:
+        show:
+          take_part: Wziąć udział
