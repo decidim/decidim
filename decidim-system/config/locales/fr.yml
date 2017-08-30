@@ -57,10 +57,15 @@ fr:
         index:
           title: Organisations
         new:
+          reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources de toutes les organisations
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
           title: Nouvelle organisation
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
+      shared:
+        notices:
+          no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.
+          our_getting_started_guide: Notre guide de démarrage
       titles:
         dashboard: Tableau de bord
