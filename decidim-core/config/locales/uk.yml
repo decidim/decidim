@@ -75,11 +75,11 @@ uk:
       create:
         error: Під час створення авторизації сталася помилка.
         success: Ви успішно авторизовані.
-      current_participatory_processes: поглянути на поточні процеси
+      current_participatory_processes: погляньте на поточні процеси
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Перевірте, чи проти приклад авторизації
-        title: Підтвердити свою особу
+          decidim/dummy_authorization_handler: Перевірте, порівнявши з прикладом авторизації
+        title: Підтвердьте свою особу
         verify_with_these_options: 'Вони доступні параметри для підтвердження особи:'
       new:
         authorize: Надіслати
@@ -120,26 +120,26 @@ uk:
           or: Або
     errors:
       internal_server_error:
-        title: Виникла проблема з нашого серверу
+        title: З нашим сервером виникла проблема
         try_later: Будь ласка, спробуйте ще раз пізніше.
       not_found:
-        back_home: Повернутися додому
-        content_doesnt_exist: Ця адреса неправильна або видалено.
+        back_home: Повернутися на головну
+        content_doesnt_exist: Ця адреса невірна або була вилучена.
         title: Не вдалося знайти сторінку, яку ви шукаєте
     export_mailer:
       export:
-        ready: Нижче додається блискавки версію вашого експорту.
-      subject: Ваш експорт "%{name}" готова
+        ready: Нижче додається стиснута в архів версія вашого експорту.
+      subject: Ваш експорт "%{name}" готовий
     features:
       dummy:
         actions:
-          bar: Бар
-          foo: Foo
-        name: Фіктивний функція
+          bar: Статусний рядок
+          foo: Логін
+        name: Неробочий функціонал
         settings:
           global:
             comments_enabled: Коментарі дозволено
-            dummy_global_attribute_1: Фіктивний атрибут 1
+            dummy_global_attribute_1: Неробоча властивість 1
             dummy_global_attribute_2: Фіктивний атрибут 2
           step:
             comments_blocked: Заблоковані коментарі
