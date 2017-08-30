@@ -64,6 +64,10 @@ module Decidim
       deleted_at.present?
     end
 
+    def follows?(followable)
+      Decidim::Follow.where(user: self, followable: followable).any?
+    end
+
     # Check if the user exists with the given email and the current organization
     #
     # warden_conditions - A hash with the authentication conditions
