@@ -76,10 +76,10 @@ eu:
             title: Titulua
           name: Batzar
       titles:
-        assemblies: Batzar
+        assemblies: Biltzarrak
     assemblies:
       index:
-        title: Batzar
+        title: Biltzarrak
       show:
         developer_group: Talde sustatzailea
         local_area: Udal-alorrak
@@ -117,7 +117,7 @@ eu:
             one: "%{count} muntaia"
             other: "%{count} batzarrak"
         promoted_assembly:
-          more_info: Argibide gehiago
+          more_info: Informazio gehiago
           take_part: Parte hartu
       assembly_header:
         assembly_menu_item: Biltzarra
