@@ -13,6 +13,8 @@ ADD decidim.gemspec /tmp/decidim.gemspec
 
 ADD decidim-core/decidim-core.gemspec /tmp/decidim-core/decidim-core.gemspec
 ADD decidim-core/lib/decidim/core/version.rb /tmp/decidim-core/lib/decidim/core/version.rb
+ADD decidim-participatory_processes/decidim-participatory_processes.gemspec /tmp/decidim-participatory_processes/decidim-participatory_processes.gemspec
+ADD decidim-assemblies/decidim-assemblies.gemspec /tmp/decidim-assemblies/decidim-assemblies.gemspec
 ADD decidim-system/decidim-system.gemspec /tmp/decidim-system/decidim-system.gemspec
 ADD decidim-admin/decidim-admin.gemspec /tmp/decidim-admin/decidim-admin.gemspec
 ADD decidim-dev/decidim-dev.gemspec /tmp/decidim-dev/decidim-dev.gemspec
