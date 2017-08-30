@@ -83,13 +83,13 @@ eu:
       show:
         developer_group: Talde sustatzailea
         local_area: Udal-alorrak
-        participatory_scope: Esparru partizipatiboa
-        participatory_structure: Egitura partizipatiboa
+        participatory_scope: Partehartze esparrua
+        participatory_structure: Partehartze egitura
         scope: Esparrua
         target: Nori zuzentzen zaio?
       statistics:
         answers_count: Erantzunak
-        assemblies_count: Batzar
+        assemblies_count: Biltzarrak
         comments_count: Iruzkinak
         headline: Jarduera
         meetings_count: Topaketa-zerrenda
