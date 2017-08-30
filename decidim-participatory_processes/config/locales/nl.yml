@@ -1,0 +1,249 @@
+nl:
+  activemodel:
+    attributes:
+      participatory_process:
+        banner_image: Banner afbeelding
+        copy_categories: Kopieercategorieën
+        copy_features: Kopieerfuncties
+        copy_steps: Kopieer stappen
+        description: Beschrijving
+        developer_group: Ontwikkelaarsgroep
+        domain: Domein
+        end_date: Einddatum
+        hashtag: Hashtag
+        hero_image: Home image
+        local_area: Lokale buurt
+        meta_scope: Omvang metadata
+        participatory_process_group_id: Processen groep
+        participatory_scope: Participatief toepassingsgebied
+        participatory_structure: Participatieve structuur
+        promoted: gepromoveerd
+        scope_id: Reikwijdte
+        scopes_enabled: Scopes ingeschakeld
+        short_description: Korte beschrijving
+        slug: URL slak
+        subtitle: subtitel
+        target: Doel
+        title: Titel
+      participatory_process_group:
+        description: Beschrijving
+        hero_image: Beeld
+        name: Naam
+        participatory_process_ids: Gerelateerde processen
+      participatory_process_step:
+        description: Beschrijving
+        end_date: Einddatum
+        short_description: Korte beschrijving
+        start_date: Begin datum
+        title: Titel
+      participatory_process_user_role:
+        email: E-mail
+        name: Naam
+        role: Rol
+  decidim:
+    admin:
+      menu:
+        participatory_process_groups: Procesgroepen
+        participatory_processes: Processen
+        participatory_processes_submenu:
+          attachments: toebehoren
+          categories: Categorieën
+          features: Kenmerken
+          info: info
+          moderations: matigingen
+          process_admins: Gebruikers verwerken
+          steps: Stappen
+      models:
+        participatory_process:
+          fields:
+            created_at: Gemaakt bij
+            promoted: Opvallende
+            published: Gepubliceerd
+            title: Titel
+          name: Deelnemend proces
+        participatory_process_group:
+          fields:
+            name: Naam
+          name: Procesgroep
+        participatory_process_step:
+          fields:
+            end_date: Einddatum
+            start_date: Begin datum
+            title: Titel
+          name: Deelnemende processtap
+        participatory_process_user_role:
+          fields:
+            email: E-mail
+            name: Naam
+            role: Rol
+          name: Participatory Process User
+          roles:
+            admin: Beheerder
+            collaborator: Medewerker
+            moderator: Moderator
+      participatory_process_copies:
+        new:
+          copy: Kopiëren
+          select: Selecteer welke gegevens u wilt dupliceren
+          title: Dubbele participatieve processen
+      participatory_process_groups:
+        destroy:
+          success: Deelnemende procesgroep is succesvol vernietigd.
+        edit:
+          title: Edit procesgroep
+          update: Bijwerken
+        new:
+          create: creëren
+          title: Nieuwe procesgroep
+        update:
+          error: Er was een fout bij het bijwerken van deze deelnemende procesgroep.
+          success: Deelnemende procesgroep is succesvol bijgewerkt.
+      participatory_process_publications:
+        create:
+          error: Er is een fout opgetreden bij het publiceren van dit deelnemende proces.
+          success: Deelnemend proces is succesvol gepubliceerd.
+        destroy:
+          error: Er is een fout opgetreden bij het publiceren van dit deelnemende proces.
+          success: Deelnemend proces is succesvol gepubliceerd.
+      participatory_process_step_activations:
+        create:
+          error: Er is een fout opgetreden bij het activeren van deze deelnemende processtap.
+          success: Deelnemende processtap is succesvol geactiveerd.
+      participatory_process_steps:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe participerende processtap.
+          success: Deelnemende processtap is succesvol gecreëerd.
+        default_title: Invoering
+        destroy:
+          error:
+            active_step: Kan de actieve stap niet verwijderen.
+            last_step: Kan de laatste stap van een proces niet verwijderen.
+          success: Deelnemende processtap is succesvol vernietigd.
+        edit:
+          title: Bewerk participatieve processtap
+          update: Bijwerken
+        index:
+          steps_title: Stappen
+        new:
+          create: creëren
+          title: Nieuwe participerende processtap
+        ordering:
+          error: Er is een fout opgetreden bij het herbestellen van deze deelnemende processtappen.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze deelnemende processtap.
+          success: Deelnameproces stap succesvol bijgewerkt.
+      participatory_process_user_roles:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit deelnemende proces.
+          success: Gebruikers die succesvol zijn gemaakt voor dit deelnemende proces.
+        destroy:
+          success: Gebruiker is succesvol vernietigd voor dit deelnemende proces.
+        edit:
+          title: Update deelnemende proces gebruiker.
+          update: Bijwerken
+        index:
+          process_admins_title: Deelnemende procesgebruikers
+        new:
+          create: creëren
+          title: Nieuwe deelnemende procesgebruiker.
+        update:
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
+      participatory_processes:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw deelnemend proces.
+          success: Deelnemend proces is succesvol gecreëerd. Configureer nu zijn stappen.
+        destroy:
+          success: Deelnemend proces is succesvol vernietigd.
+        edit:
+          update: Bijwerken
+        form:
+          title: Algemene informatie
+        index:
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
+        new:
+          create: creëren
+          title: Nieuw deelnemend proces
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit deelnemende proces.
+          success: Deelnemend proces is succesvol bijgewerkt.
+      participatory_processes_copies:
+        create:
+          error: Er was een fout bij het dupliceren van dit deelnemende proces.
+          success: Deelnemend proces is succesvol gedupliceerd.
+      participatory_processes_group:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe participerende procesgroep.
+          success: Deelnemende procesgroep is succesvol opgericht.
+      titles:
+        participatory_process_groups: Deelnemende procesgroepen
+        participatory_processes: Participatieve processen
+    menu:
+      processes: Processen
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Processen voor %{group}
+        title: Titel
+    participatory_process_steps:
+      index:
+        process_steps: Processtappen
+        title: Participatieve processtappen
+    participatory_processes:
+      index:
+        title: Participatieve processen
+      participatory_process_groups:
+        none: Geen
+      show:
+        developer_group: Ontwikkelaarsgroep
+        end_date: Einddatum
+        local_area: Lokale buurt
+        participatory_scope: Participatief toepassingsgebied
+        participatory_structure: Participatieve structuur
+        scope: Reikwijdte
+        target: Doel
+      statistics:
+        answers_count: antwoorden
+        comments_count: Comments
+        headline: Activiteit
+        meetings_count: Vergaderingen
+        orders_count: bestellingen
+        pages_count: Pages
+        processes_count: Processen
+        projects_count: Projecten
+        proposals_count: Voorstellen
+        results_count: Resultaten
+        surveys_count: onderzoeken
+        users_count: Deelnemers
+        votes_count: stemmen
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Browsen
+      participatory_process_widgets:
+        show:
+          active_step: Actieve stap
+          take_part: Deelnemen
+      participatory_processes:
+        index:
+          promoted_processes: Gemarkeerde processen
+        no_processes_yet:
+          no_processes_yet: Er zijn nog geen participatieve processen!
+        order_by_processes:
+          processes:
+            one: "%{count} proces"
+            other: "%{count} processen"
+        participatory_process:
+          active_step: 'Huidige stap:'
+          take_part: Deelnemen
+        promoted_process:
+          active_step: 'Huidige stap:'
+          more_info: Meer informatie
+          take_part: Deelnemen
+      process_header:
+        process_menu_item: Het proces
+        unfold: Ontvouwen
+      process_header_steps:
+        step: Stap %{current} van %{total}
+        view_steps: Bekijk stappen
