@@ -20,6 +20,8 @@ eu:
   decidim:
     features:
       meetings:
+        actions:
+          join: Parte hartu
         name: Topaketa-zerrenda
         settings:
           global:
@@ -35,8 +37,11 @@ eu:
         edit: Editatu
         new: Berria
         preview: Aurreikusi
+        registrations: Izen-emateak
         title: Ekintzak
       admin:
+        exports:
+          registrations: Izen-emateak
         meeting_closes:
           edit:
             close: Itxi
@@ -63,6 +68,17 @@ eu:
         models:
           meeting:
             name: Topaketa
+        registrations:
+          edit:
+            save: Gorde
+          form:
+            available_slots_help: Utzi 0 mugak mugagabea badaude.
+            registrations_count:
+              one: Izena eman da.
+              other: '%{count} matrikulazio izan dira.'
+          update:
+            invalid: Arazo bat izan da erregistroaren ezarpenak gordetzean.
+            success: Bilera erregistratzeen ezarpenak behar bezala gorde dira.
       meetings:
         filters:
           category: Kategoria
@@ -83,11 +99,20 @@ eu:
         meetings:
           no_meetings_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago ezein topaketarik programaturik.
           upcoming_meetings_warning: Orain ez dago topaketarik programaturik, baina aurreko topaketak ikus ditzakezu.
+        registration_confirm:
+          cancel: Utzi
+          confirm: Baieztatu
         show:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
+          going: joatean
+          join: Erregistratu bilera
           meeting_report: Topaketaren txostena
+          no_slots_available: Ez dago slotarik erabilgarri
           organizations: Bertaratutako erakundeak
+          remaining_slots:
+            one: 1 zutoina geratzen da
+            other: "%{count} zutoinak geratzen dira"
       models:
         meeting:
           fields:
@@ -97,6 +122,13 @@ eu:
             start_time: Hasiera-data
             title: Izenburua
       read_more: "(geihago irakurri)"
+      registrations:
+        create:
+          invalid: Arazo bat izan da bilera honetan.
+          success: Bilera ondo sartu zara.
+        destroy:
+          invalid: Arazo bat izan da bilera hau utzita.
+          success: Bilera behar bezala utzi duzu.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Topaketaren emaitzak:'
