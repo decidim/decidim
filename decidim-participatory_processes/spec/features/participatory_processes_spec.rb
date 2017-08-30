@@ -71,6 +71,48 @@ describe "Participatory Processes", type: :feature do
       expect(current_path).to eq decidim_participatory_processes.participatory_process_path(participatory_process)
     end
 
+    context "filtering processes" do
+      let(:past_process) { create :participatory_process, :past, organization: organization }
+      let(:upcoming_process) { create :participatory_process, :upcoming, organization: organization }
+
+      it "list the active processes by default" do
+        expect(page).to have_no_content(translated(past_process.title, locale: :en))
+        expect(page).to have_no_content(translated(upcoming_process.title, locale: :en))
+      end
+
+      context "choosing 'past' processes" do
+        before do
+          within ".order-by__tabs" do
+            click_link "Past"
+          end
+        end
+
+        it "list the past processes" do
+          within "#processes-grid h2" do
+            expect(page).to have_content("1")
+          end
+
+          expect(page).to have_content(translated(past_process.title, locale: :en))
+        end
+      end
+
+      context "choosing 'upcoming' processes" do
+        before do
+          within ".order-by__tabs" do
+            click_link "Upcoming"
+          end
+        end
+
+        it "list the past processes" do
+          within "#processes-grid h2" do
+            expect(page).to have_content("1")
+          end
+
+          expect(page).to have_content(translated(upcoming_process.title, locale: :en))
+        end
+      end
+    end
+
     context "with active steps" do
       let!(:step) { create(:participatory_process_step, participatory_process: participatory_process) }
       let!(:active_step) do
