@@ -1,1 +1,127 @@
 fr:
+  activemodel:
+    attributes:
+      assembly:
+        banner_image: Image d'en-tête
+        copy_categories: Copier les catégories
+        copy_features: Copier les fonctionnalités
+        description: Description
+        developer_group: Groupe d'initiateurs
+        domain: Domaine
+        hashtag: Hashtag
+        hero_image: Image de la page d'accueil
+        local_area: Localisation
+        meta_scope: Metadonnée de la zone d’application
+        participatory_scope: Objectif du processus participatif
+        participatory_structure: Organisations concernées
+        promoted: Mis en avant
+        scope_id: Zone d'application
+        scopes_enabled: Scopes activés
+        short_description: Résumé
+        slug: Identifiant
+        subtitle: Sous-titre
+        target: Objectif
+        title: Titre
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouvel assembly.
+          success: Assemblée créée avec succès.
+        destroy:
+          success: Assemblée détruite avec succès.
+        edit:
+          update: Mettre à jour
+        form:
+          title: Informations générales
+        index:
+          not_published: Non publié
+          published: Publié
+        new:
+          create: Créer
+          title: Nouvel assemblage
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cet assemblage.
+          success: Assemblée mise à jour avec succès.
+      assemblies_copies:
+        create:
+          error: Une erreur s'est produite lors de la duplication de cet assembly.
+          success: L'assemblage a été copié avec succès.
+      assembly_copies:
+        new:
+          copy: Copie
+          select: Sélectionnez les données que vous souhaitez reproduire
+          title: Ensemble en double
+      assembly_publications:
+        create:
+          error: Une erreur s'est produite lors de la publication de cet assembly.
+          success: Assemblée publiée avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la publication de cette assemblée.
+          success: Assemblée non publiée avec succès.
+      menu:
+        assemblies: Assemblées
+        assemblies_submenu:
+          attachments: Documents liés
+          categories: Catégories
+          features: Fonctions
+          info: Information
+          moderations: Modérations
+      models:
+        assembly:
+          fields:
+            created_at: Crée le
+            promoted: Mis en évidence
+            published: Publié
+            title: Titre
+          name: Assemblée
+      titles:
+        assemblies: Assemblées
+    assemblies:
+      index:
+        title: Assemblées
+      show:
+        developer_group: Groupe d'initiateurs
+        local_area: Localisation
+        participatory_scope: Objectif du processus participatif
+        participatory_structure: Organisations concernées
+        scope: Zone d'application
+        target: Objectif
+      statistics:
+        answers_count: Réponses
+        assemblies_count: Assemblées
+        comments_count: Commentaires
+        headline: Activité
+        meetings_count: Réunions
+        orders_count: Ordres
+        pages_count: Pages
+        projects_count: Projets
+        proposals_count: Propositions
+        results_count: Résultats
+        surveys_count: Enquêtes
+        users_count: Participants
+        votes_count: Votes
+    menu:
+      assemblies: Assemblées
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Participer
+        index:
+          promoted_assemblies: Assemblages mis en évidence
+        no_assemblies_yet:
+          no_assemblies_yet: Pas encore d'assemblages!
+        order_by_assemblies:
+          assemblies:
+            one: "Ensemble %{count}"
+            other: "Ensembles %{count}"
+        promoted_assembly:
+          more_info: Plus d'informations
+          take_part: Participer
+      assembly_header:
+        assembly_menu_item: L'Assemblée
+        unfold: Déplier
+      assembly_widgets:
+        show:
+          take_part: Participer
