@@ -45,7 +45,9 @@ module Decidim
           )
           Decidim::EventsManager.publish(
             event: "decidim.events.meetings.meeting_updated",
+            event_class: Decidim::Meetings::UpdateMeetingEvent,
             resource: meeting,
+            recipient_ids: meeting.users_to_notify.pluck(:id),
             user: form.current_user
           )
         end
