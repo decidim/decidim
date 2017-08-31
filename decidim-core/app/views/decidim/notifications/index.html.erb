@@ -1,0 +1,22 @@
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="columns">
+      <h1 class="heading1 user-header"><%= t("title", scope: "layouts.decidim.notifications_dashboard") %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns mediumlarge-12 large-12">
+      <% if notifications.any? %>
+        <section class="section" id="unread-notifications">
+          <div class="card card--list">
+            <%= render notifications %>
+          </div>
+        </section>
+      <% else %>
+        <p><%= t("no_notifications", scope: "layouts.decidim.notifications_dashboard") %></p>
+      <% end %>
+    </div>
+  </div>
+</main>
+
+<%= javascript_include_tag "decidim/notifications" %>

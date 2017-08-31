@@ -18,6 +18,8 @@ module Decidim
     has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity"
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_id
     has_many :user_groups, through: :memberships, class_name: "Decidim::UserGroup", foreign_key: :decidim_user_group_id
+    has_many :follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow"
+    has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification"
 
     validates :name, presence: true, unless: -> { deleted? }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
@@ -60,6 +62,10 @@ module Decidim
     # Check if the user account has been deleted or not
     def deleted?
       deleted_at.present?
+    end
+
+    def follows?(followable)
+      Decidim::Follow.where(user: self, followable: followable).any?
     end
 
     # Check if the user exists with the given email and the current organization

@@ -1,0 +1,11 @@
+<% if current_user.follows?(followable) %>
+  <%= decidim_form_for :follow, url: decidim.follow_path, method: :delete, remote: true do |form| %>
+    <%= form.hidden_field :followable_gid, value: followable.to_sgid.to_s %>
+    <%= form.submit "Unfollow", class: "button expanded button--sc", data: { disable: true } %>
+  <% end %>
+<% else %>
+  <%= decidim_form_for :follow, url: decidim.follow_path, remote: true do |form| %>
+    <%= form.hidden_field :followable_gid, value: followable.to_sgid.to_s %>
+    <%= form.submit "Follow", class: "button expanded button--sc", data: { disable: true } %>
+  <% end %>
+<% end %>

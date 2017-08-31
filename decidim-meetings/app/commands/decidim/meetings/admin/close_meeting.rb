@@ -19,7 +19,7 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid) if @form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
           transaction do
             close_meeting
@@ -31,22 +31,31 @@ module Decidim
 
         private
 
+        attr_reader :form, :meeting
+
         def close_meeting
-          @meeting.update_attributes!(
-            closing_report: @form.closing_report,
-            attendees_count: @form.attendees_count,
-            contributions_count: @form.contributions_count,
-            attending_organizations: @form.attending_organizations,
-            closed_at: @form.closed_at
+          meeting.update_attributes!(
+            closing_report: form.closing_report,
+            attendees_count: form.attendees_count,
+            contributions_count: form.contributions_count,
+            attending_organizations: form.attending_organizations,
+            closed_at: form.closed_at
+          )
+          Decidim::EventsManager.publish(
+            event: "decidim.events.meetings.meeting_closed",
+            event_class: Decidim::Meetings::CloseMeetingEvent,
+            resource: meeting,
+            recipient_ids: meeting.users_to_notify.pluck(:id),
+            user: form.current_user
           )
         end
 
         def proposals
-          @meeting.sibling_scope(:proposals).where(id: @form.proposal_ids)
+          meeting.sibling_scope(:proposals).where(id: @form.proposal_ids)
         end
 
         def link_proposals
-          @meeting.link_resources(proposals, "proposals_from_meeting")
+          meeting.link_resources(proposals, "proposals_from_meeting")
         end
       end
     end

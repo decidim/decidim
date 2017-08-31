@@ -22,6 +22,9 @@ module Decidim
     end
   end
 
+  class DummyResourceEvent < Events::BaseEvent
+  end
+
   class DummyResource < ActiveRecord::Base
     include HasFeature
     include Resourceable
@@ -30,6 +33,7 @@ module Decidim
     include HasCategory
     include HasScope
     include Decidim::Comments::Commentable
+    include Followable
 
     feature_manifest_name "dummy"
 

@@ -37,6 +37,7 @@ Decidim::Core::Engine.routes.draw do
         get :delete
       end
     end
+    resources :notifications, only: [:index, :destroy]
     resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     resources :own_user_groups, only: [:index]
   end
@@ -51,6 +52,7 @@ Decidim::Core::Engine.routes.draw do
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
 
+  resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
 
   root to: "pages#show", id: "home"

@@ -81,6 +81,17 @@ en:
           update:
             invalid: There's been a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
+      events:
+        close_meeting_event:
+          email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting was closed
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+        update_meeting_event:
+          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting was updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
       meetings:
         filters:
           category: Category

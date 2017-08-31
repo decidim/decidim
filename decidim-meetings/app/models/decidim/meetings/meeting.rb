@@ -11,6 +11,7 @@ module Decidim
       include Decidim::HasReference
       include Decidim::HasScope
       include Decidim::HasCategory
+      include Decidim::Followable
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id"
 
