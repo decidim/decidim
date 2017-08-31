@@ -15,15 +15,27 @@ module Decidim
     #   the different subscribers in the system.
     # resource - an instance of a class that received the event.
     # user - the User that performed the event.
+    # recipient_ids - an Array of IDs of the users that will receive the event
     #
     # Returns nothing.
-    def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, user:)
+    def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, user:, recipient_ids:)
       ActiveSupport::Notifications.publish(
         event,
         event_class: event_class.name,
         resource: resource,
-        user: user
+        user: user,
+        recipient_ids: recipient_ids
       )
+    end
+
+    # Subscribes to the given event, and runs the block every time that event
+    # is received.
+    #
+    # event_name - a String or a RegExp to match against event names.
+    #
+    # Returns nothing.
+    def self.subscribe(event_name, &block)
+      ActiveSupport::Notifications.subscribe(event_name, &block)
     end
   end
 end

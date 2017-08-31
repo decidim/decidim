@@ -151,6 +151,17 @@ module Decidim
                     active: :inclusive
         end
       end
+
+      initializer "decidim.notifications" do
+        Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event, data|
+          NotificationGeneratorJob.perform_later(
+            event,
+            data[:event_class],
+            data[:resource],
+            data[:recipient_ids]
+          )
+        end
+      end
     end
   end
 end
