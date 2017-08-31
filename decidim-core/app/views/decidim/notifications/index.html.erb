@@ -16,15 +16,14 @@
   </div>
   <div class="row">
     <div class="columns mediumlarge-12 large-12">
+      <p class="empty-notifications hide"><%= t("no_notifications", scope: "layouts.decidim.notifications_dashboard") %></p>
       <% if notifications.any? %>
-        <section class="section" id="unread-notifications">
+        <section class="section" id="notifications-list">
           <div class="card card--list">
             <%= render notifications %>
           </div>
         </section>
         <%= decidim_paginate notifications %>
-      <% else %>
-        <p><%= t("no_notifications", scope: "layouts.decidim.notifications_dashboard") %></p>
       <% end %>
     </div>
   </div>
