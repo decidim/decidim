@@ -20,6 +20,11 @@ module Decidim
       notification.destroy
     end
 
+    def read_all
+      authorize! :destroy, notifications.first
+      notifications.destroy_all
+    end
+
     private
 
     def notifications

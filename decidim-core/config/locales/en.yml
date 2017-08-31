@@ -311,6 +311,7 @@ en:
         description_html: You are impersonating the user <b>%{user_name}</b>.
         expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
+        mark_all_as_read: Mark all as read
         no_notifications: No notifications yet.
         title: Notifications
       user_menu:

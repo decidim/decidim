@@ -1,7 +1,17 @@
-<main class="wrapper">
+<main class="wrapper" id="notifications">
   <div class="row collapse">
     <div class="columns">
-      <h1 class="heading1 user-header"><%= t("title", scope: "layouts.decidim.notifications_dashboard") %></h1>
+      <div class="title-action" >
+        <h1 class="heading1 title-action__title"><%= t("title", scope: "layouts.decidim.notifications_dashboard") %></h1>
+        <%= link_to(
+          t("mark_all_as_read", scope: "layouts.decidim.notifications_dashboard"),
+          decidim.read_all_notifications_path,
+          class: "button title-action__action hollow mark-all-as-read-button",
+          method: :delete,
+          data: { disable: true },
+          remote: true
+        ) %>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -12,10 +22,10 @@
             <%= render notifications %>
           </div>
         </section>
+        <%= decidim_paginate notifications %>
       <% else %>
         <p><%= t("no_notifications", scope: "layouts.decidim.notifications_dashboard") %></p>
       <% end %>
-      <%= decidim_paginate notifications %>
     </div>
   </div>
 </main>
