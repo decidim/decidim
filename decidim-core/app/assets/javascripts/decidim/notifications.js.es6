@@ -24,6 +24,7 @@ $(() => {
   $wrapper.on('click', '.mark-all-as-read-button', () => {
     $section.fadeOut(FADEOUT_TIME, () => {
       $pagination.remove();
+      $wrapper.find('.card--list__item').remove();
       emptyNotifications();
     });
   });
