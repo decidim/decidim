@@ -6,6 +6,7 @@ ENV APP_HOME /decidim
 RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
     apt-get install -y nodejs
+RUN gem install bundler --no-rdoc --no-ri
 
 ADD Gemfile /tmp/Gemfile
 ADD Gemfile.lock /tmp/Gemfile.lock
