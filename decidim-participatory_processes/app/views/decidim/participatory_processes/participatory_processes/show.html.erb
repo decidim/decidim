@@ -30,6 +30,13 @@
           </div>
         <% end %>
 
+        <% if current_participatory_process.start_date.present? %>
+          <div class="definition-data__item start-date">
+            <span class="definition-data__title"><%= t("participatory_processes.show.start_date", scope: "decidim") %></span>
+              <%== l(current_participatory_process.start_date, format: :long) %>
+          </div>
+        <% end %>
+
         <% if current_participatory_process.end_date.present? %>
           <div class="definition-data__item end-date">
             <span class="definition-data__title"><%= t("participatory_processes.show.end_date", scope: "decidim") %></span>

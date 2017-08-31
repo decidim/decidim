@@ -44,6 +44,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         target: Decidim::Faker::Localized.sentence(3),
         participatory_scope: Decidim::Faker::Localized.sentence(1),
         participatory_structure: Decidim::Faker::Localized.sentence(2),
+        start_date: Time.current,
         end_date: 2.month.from_now.at_midnight,
         participatory_process_group: process_groups.sample,
         scope: Faker::Boolean.boolean(0.5) ? nil : Decidim::Scope.reorder("RANDOM()").first

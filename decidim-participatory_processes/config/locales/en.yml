@@ -23,6 +23,7 @@ en:
         scopes_enabled: Scopes enabled
         short_description: Short description
         slug: URL slug
+        start_date: Start date
         subtitle: Subtitle
         target: Target
         title: Title
@@ -226,6 +227,7 @@ en:
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         scope: Scope
+        start_date: Start date
         target: Target
       statistics:
         answers_count: Answers

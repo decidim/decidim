@@ -51,6 +51,7 @@ en:
         developer_group: Developer group
         domain: Domain
         end_date: End date
+        start_date: Start date
         hashtag: Hashtag
         hero_image: Home image
         local_area: Local area

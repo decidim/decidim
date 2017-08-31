@@ -23,6 +23,7 @@ module Decidim
 
         mimic :participatory_process
 
+        attribute :start_date, Date
         attribute :end_date, Date
         attribute :slug, String
         attribute :hashtag, String

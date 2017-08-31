@@ -36,7 +36,8 @@ en:
   decidim:
     account:
       delete:
-        alert: This action cannot be undone. If you delete your account you won't be able to log in.
+        alert: This action cannot be undone. If you delete your account you won't
+          be able to log in.
         confirm:
           close: Close window
           ok: Yes, I want to delete my account
@@ -52,7 +53,8 @@ en:
       update:
         error: There's been an error updating your account.
         success: Your account was updated successfully.
-        success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
+        success_with_email_confirmation: Your account was updated successfully. You'll
+          receive an email to confirm your new email address.
     anonymous_user: Anonymous
     application:
       documents:
@@ -81,7 +83,8 @@ en:
         actions:
           decidim/dummy_authorization_handler: Verify against the example authorization
         title: Verify your identity
-        verify_with_these_options: 'These are the available options to verify your identity:'
+        verify_with_these_options: 'These are the available options to verify your
+          identity:'
       new:
         authorize: Send
         authorize_with: Verify with %{authorizer}
@@ -96,8 +99,10 @@ en:
         new:
           complete_profile: Complete profile
           sign_up: Please complete your profile
-          subtitle: Please fill in the following form in order to complete the sign up
-          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
+          subtitle: Please fill in the following form in order to complete the sign
+            up
+          username_help: Public name that appears on your posts. With the aim of guaranteeing
+            the anonymity, can be any name.
       registrations:
         new:
           already_have_an_account?: Already have an account?
@@ -111,7 +116,8 @@ en:
           subtitle: Sign up to participate in discussions and support proposals.
           terms: the terms and conditions of use
           tos_agreement: By signing up you agree to %{link}.
-          username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
+          username_help: Public name that appears on your posts. With the aim of guaranteeing
+            the anonymity, can be any name.
       sessions:
         new:
           are_you_new?: New to the platform?
@@ -166,12 +172,16 @@ en:
       more_information: More information
     newsletter_mailer:
       newsletter:
-        note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        note: You received this email because you're subscribed to newsletters on
+          %{organization_name}. You can change your settings on your <a href="%{link}">notifications
+          page</a>.
     notifications_settings:
       show:
-        comments_notifications: I want to receive email notifications when someone comments in my publications.
+        comments_notifications: I want to receive email notifications when someone
+          comments in my publications.
         newsletter_notifications: I want to receive information about relevant activity
-        replies_notifications: I want to receive email notifications when someone replies my comments.
+        replies_notifications: I want to receive email notifications when someone
+          replies my comments.
         update_notifications_settings: Save changes
       update:
         error: There's been an error updating your notifications settings.
@@ -188,7 +198,8 @@ en:
       hide:
         hello: Hello %{name},
         manage_moderations: Manage moderations
-        report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
+        report_html: <p>The following <a href="%{url}">content</a> has been hidden
+          automatically.</p>
         subject: A resource has been hidden automatically
       report:
         hello: Hello %{name},
@@ -198,22 +209,26 @@ en:
     reports:
       create:
         error: An error ocurred while creating the report. Please, try it again.
-        success: The report has been created successfully and it will be reviewed by an admin.
+        success: The report has been created successfully and it will be reviewed
+          by an admin.
     scopes:
       global: Global scope
     shared:
       action_authorization_modal:
         incomplete:
           cancel: Cancel
-          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          explanation: 'Even though you''re currently authorized with "%{authorization}",
+            we need you to reauthorize because we lack the following data:'
           reauthorize: Reauthorize
           title: Please reauthorize
         missing:
           authorize: Authorize with "%{authorization}"
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}".
+          explanation: In order to perform this action, you need to be authorized
+            with "%{authorization}".
           title: Authorization required
         unauthorized:
-          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          explanation: Sorry, you can't perform this action as some of your authorization
+            data doesn't match.
           invalid: "%{field} isn't valid."
           ok: Ok
           title: Not authorized
@@ -222,11 +237,14 @@ en:
         embed: Please paste this code in your page
         embed_link: Embed
       flag_modal:
-        already_reported: This content is already reported and it will be reviewed by an admin.
+        already_reported: This content is already reported and it will be reviewed
+          by an admin.
         close: Close
         description: Is this content inappropriate?
-        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
-        offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        does_not_belong: Contains illegal activity, suicide threats, personal information,
+          or something else you think doesn't belong on %{organization_name}.
+        offensive: Contains racism, sexism, slurs, personal attacks, death threats,
+          suicide requests or any form of hate speech.
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report a problem
@@ -254,8 +272,10 @@ en:
         ignore: |-
           If you don't want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your password.
-        invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}, you can accept it through the link below."
-        someone_invited_you: Someone has invited you to %{application}, you can accept it through the link below.
+        invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application},
+          you can accept it through the link below."
+        someone_invited_you: Someone has invited you to %{application}, you can accept
+          it through the link below.
         you_are_now_admin: You are now an admin
       invite_admin:
         subject: You've been invited to manage %{organization}
@@ -271,7 +291,8 @@ en:
     messages:
       content_type_whitelist_error: The file type is not valid
       cycle_detected: a scope's parent can't be one of its descendants
-      file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
+      file_size_is_less_than_or_equal_to: file size must be less than or equal to
+        %{count}
       invalid_manifest: Invalid manifest
       invalid_participatory_process: Invalid participatory process
       long_words: Contains words that are too long
@@ -288,11 +309,13 @@ en:
   layouts:
     decidim:
       cookie_warning:
-        description_html: This site uses cookies. By continuing to browse the site, you agree to our use of cookies. Find out more about it %{link}.
+        description_html: This site uses cookies. By continuing to browse the site,
+          you agree to our use of cookies. Find out more about it %{link}.
         link_label: here
         ok: I agree
       footer:
-        made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
+        made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free
+          software</a>.
       header:
         close_menu: Close menu
         navigation: Navigation
@@ -301,7 +324,8 @@ en:
       impersonation_warning:
         close_session: Close session
         description_html: You are impersonating the user <b>%{user_name}</b>.
-        expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
+        expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span>
+          minutes</b>.
       user_menu:
         admin_dashboard: Admin dashboard
         profile: My account
@@ -321,15 +345,19 @@ en:
     home:
       extended:
         debates: Debates
-        debates_explanation: Let's meet, debate and share what we think it's important for our city.
+        debates_explanation: Let's meet, debate and share what we think it's important
+          for our city.
         how_to_participate: How do I take part in a process?
         meetings: Meetings
-        meetings_explanation: Let's meet, debate and share what we think it's important for our city.
+        meetings_explanation: Let's meet, debate and share what we think it's important
+          for our city.
         more_info: More info
         proposals: Proposals
-        proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
+        proposals_explanation: Open space for citizen proposals about what kind of
+          city we want to live in.
       footer_sub_hero:
-        footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
+        footer_sub_hero_body: Let's build a more open, transparent and collaborative
+          society.<br /> Join, participate and decide.
         footer_sub_hero_headline: Welcome to %{organization} participatory platform.
         register: Register
       hero:
@@ -372,7 +400,8 @@ en:
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
-    wechat_footer: Open your WeChat, click "Discover" button then click the "Scan QR Code" menu.
+    wechat_footer: Open your WeChat, click "Discover" button then click the "Scan
+      QR Code" menu.
     weibo: Sina Weibo
     xing: Xing
   views:
