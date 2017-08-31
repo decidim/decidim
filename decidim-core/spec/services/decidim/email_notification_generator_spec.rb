@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::NotificationGenerator do
+describe Decidim::EmailNotificationGenerator do
   let(:event) { "decidim.events.dummy.dummy_resource_updated" }
   let(:resource) { create(:dummy_resource) }
   let(:follow) { create(:follow, resource: resource, user: recipient) }
@@ -13,28 +13,32 @@ describe Decidim::NotificationGenerator do
   subject { described_class.new(event, event_class, resource, recipient_ids) }
 
   describe "generate" do
-    context "when the event_class supports notifications" do
+    context "when the event_class supports emails" do
+      let(:mailer) { double(deliver_later: true) }
+
       before do
-        allow(event_class).to receive(:types).and_return([:notification])
+        allow(event_class).to receive(:types).and_return([:email])
       end
 
       it "schedules a job for each recipient" do
-        expect(Decidim::NotificationGeneratorForRecipientJob)
-          .to receive(:perform_later)
-          .with(event, event_class_name, resource, recipient.id)
+        expect(Decidim::NotificationMailer)
+          .to receive(:event_received)
+          .with(event, event_class_name, resource, recipient)
+          .and_return(mailer)
+        expect(mailer).to receive(:deliver_later)
 
         subject.generate
       end
     end
 
-    context "when the event_class supports notifications" do
+    context "when the event_class supports emails" do
       before do
         allow(event_class).to receive(:types).and_return([])
       end
 
       it "schedules a job for each recipient" do
-        expect(Decidim::NotificationGeneratorForRecipientJob)
-          .not_to receive(:perform_later)
+        expect(Decidim::NotificationMailer)
+          .not_to receive(:event_received)
 
         subject.generate
       end

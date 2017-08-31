@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::NotificationGeneratorForRecipientJob do
+describe Decidim::EmailNotificationGeneratorJob do
   subject { described_class }
 
   describe "queue" do
@@ -15,19 +15,19 @@ describe Decidim::NotificationGeneratorForRecipientJob do
     let(:event) { double :event }
     let(:event_class) { Decidim::Events::BaseEvent }
     let(:event_class_name) { "Decidim::Events::BaseEvent" }
-    let(:resource) { double :resource }
-    let(:recipient) { double :recipient }
+    let(:followable) { double :followable }
     let(:generator) { double :generator }
+    let(:recipient_ids) { [1, 2, 3] }
 
     it "delegates the work to the class" do
-      expect(Decidim::NotificationGeneratorForRecipient)
+      expect(Decidim::EmailNotificationGenerator)
         .to receive(:new)
-        .with(event, event_class, resource, recipient)
+        .with(event, event_class, followable, recipient_ids)
         .and_return(generator)
       expect(generator)
         .to receive(:generate)
 
-      subject.perform_now(event, event_class_name, resource, recipient)
+      subject.perform_now(event, event_class_name, followable, recipient_ids)
     end
   end
 end

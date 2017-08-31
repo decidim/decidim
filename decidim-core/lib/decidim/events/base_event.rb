@@ -32,15 +32,17 @@ module Decidim
       # Initializes the class.
       #
       # event_name - a String with the name of the event.
-      # payload - a Hash with extra data from the event.
-      def initialize(event_name, payload)
+      # resource - the resource that received the event
+      # user - the User that receives the event
+      def initialize(resource:, event_name:, user:)
         @event_name = event_name
-        @payload = payload
+        @resource = resource
+        @user = user
       end
 
       private
 
-      attr_reader :event_name, :payload
+      attr_reader :event_name, :resource, :user
     end
   end
 end
