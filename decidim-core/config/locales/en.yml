@@ -127,6 +127,12 @@ en:
         back_home: Back home
         content_doesnt_exist: This address is incorrect or has been removed.
         title: The page you're looking for can't be found
+    events:
+      email_event:
+        email_greeting: Hello %{user_name},
+        email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
+        email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+        email_subject: An update to %{resource_title}
     export_mailer:
       export:
         ready: Please find attached a zipped version of your export.
