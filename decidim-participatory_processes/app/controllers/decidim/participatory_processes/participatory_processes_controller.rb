@@ -32,12 +32,16 @@ module Decidim
         @collection ||= (participatory_processes.to_a + participatory_process_groups).flatten
       end
 
+      def filtered_participatory_processes(filter = default_filter)
+        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter)
+      end
+
       def participatory_processes
-        @participatory_processes ||= OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter)
+        @participatory_processes ||= filtered_participatory_processes(filter)
       end
 
       def promoted_participatory_processes
-        @promoted_processes ||= participatory_processes | PromotedParticipatoryProcesses.new
+        @promoted_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
       end
 
       def participatory_process_groups
@@ -49,7 +53,11 @@ module Decidim
       end
 
       def filter
-        @filter = params[:filter] || "active"
+        @filter = params[:filter] || default_filter
+      end
+
+      def default_filter
+        "active"
       end
     end
   end

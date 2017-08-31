@@ -220,6 +220,9 @@ en:
         upcoming: Upcoming
       participatory_process_groups:
         none: None
+      participatory_processes:
+        index:
+          loading: Loading results...
       show:
         developer_group: Developer group
         end_date: End date
