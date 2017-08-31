@@ -15,6 +15,7 @@
       <% else %>
         <p><%= t("no_notifications", scope: "layouts.decidim.notifications_dashboard") %></p>
       <% end %>
+      <%= decidim_paginate notifications %>
     </div>
   </div>
 </main>
