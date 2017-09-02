@@ -307,14 +307,14 @@ uk:
       user_profile:
         account: Обліковий запис
         authorizations: Авторизаціі
-        delete_my_account: Видалення облікового запису
-        notifications_settings: Сповіщення про налаштування
-        title: Настройок користувача
-        user_groups: Організацій
+        delete_my_account: Видалити мій обліковий запис
+        notifications_settings: Налаштування сповіщень
+        title: Налаштування користувача
+        user_groups: Організації
       widget:
-        see_more: Дивіться більше
+        see_more: Переглянути інші
   locale:
-    name: англійська
+    name: Українська
   pages:
     home:
       extended:
