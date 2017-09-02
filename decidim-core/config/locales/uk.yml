@@ -263,23 +263,23 @@ uk:
         subject: Вас запросили керувати %{organization}
       password_change:
         greeting: Доброго дня, %{recipient}!
-        message: Ми маєте зв'язок ви повідомити вас, що ваш пароль було змінено.
+        message: Ми пишемо вам, щоб повідомити про те, що ваш пароль був змінений.
         subject: Пароль змінено
   errors:
     messages:
       content_type_whitelist_error: Неприпустимий тип файлу
-      cycle_detected: у сферу батьків не може бути одним з його нащадків
-      file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або дорівнювати %{count}
+      cycle_detected: батько сфери застосування не може бути одним з її нащадків
+      file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
       invalid_manifest: Неприпустимий файл маніфесту
-      invalid_participatory_process: Неприпустимий процесу проведення
-      long_words: Містить слова, які є занадто довго
-      must_start_with_caps: Має починатися з caps
-      nesting_too_deep: не може бути всередині підкатегорію
-      too_many_marks: Використання занадто багато знаків
-      too_much_caps: Використовує занадто багато caps
+      invalid_participatory_process: Неприпустимий процес співучасті
+      long_words: Містить занадто довгі слова
+      must_start_with_caps: Має починатися з великої літери
+      nesting_too_deep: не може бути всередині підкатегорії
+      too_many_marks: Містить забагато знаків оклику або питання
+      too_much_caps: Містить забагато великих літер
       too_short: Занадто короткий
   forms:
-    required: Необхідні
+    required: Обов'язкове поле
   invisible_captcha:
     sentence_for_humans: Якщо ви людина, ігноруйте це поле
     timestamp_error_message: Вибачте, це було занадто швидко! Будь ласка, надішліть повідомлення знову.
