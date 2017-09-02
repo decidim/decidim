@@ -182,7 +182,7 @@ uk:
         verified: Перевірено
     pages:
       index:
-        title: Більше інформації
+        title: Додаткові відомості
     reported_mailer:
       hide:
         hello: Доброго дня, %{name}%!
@@ -281,8 +281,8 @@ uk:
   forms:
     required: Необхідні
   invisible_captcha:
-    sentence_for_humans: Якщо ви є людиною, ігнорувати це поле
-    timestamp_error_message: На жаль, це було занадто швидко! Будь ласка, надішліть.
+    sentence_for_humans: Якщо ви людина, ігноруйте це поле
+    timestamp_error_message: Вибачте, це було занадто швидко! Будь ласка, надішліть повідомлення знову.
   layouts:
     decidim:
       cookie_warning:
