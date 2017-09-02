@@ -327,15 +327,15 @@ uk:
         proposals: Пропозиції
         proposals_explanation: Відкритий простір для пропозицій громадян щодо того, в якому місті ми бажаємо жити.
       footer_sub_hero:
-        footer_sub_hero_body: Давайте побудувати більш відкритого, прозорого і спільні society.<br /> об'єднання, брати участь і вирішити.
-        footer_sub_hero_headline: Ласкаво просимо до %{organization} участі платформи.
+        footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Приєднуйтесь, беріть участь та приймайте рішення.
+        footer_sub_hero_headline: Ласкаво просимо до платформи співучасті %{organization}.
         register: Зареєструватися
       hero:
         participate: Взяти участь
-        welcome: Ласкаво просимо на %{organization}!
+        welcome: Ласкаво просимо до %{organization}!
       highlighted_processes:
-        active_processes: Активні процеси
-        active_step: Активні крок
+        active_processes: Поточні процеси
+        active_step: Поточний крок
         see_all_processes: Переглянути всі процеси
       statistics:
         answers_count: Відповіді
