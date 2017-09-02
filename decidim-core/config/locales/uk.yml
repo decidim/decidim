@@ -253,16 +253,16 @@ uk:
         ignore: |-
           Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій пароль.
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче."
-        someone_invited_you: Хтось запросив вас %{application}, ви можете прийняти його за посиланням нижче.
-        you_are_now_admin: Ви знаходитесь на admin
+        someone_invited_you: Хтось запросив вас до %{application}, ви можете прийняти це запрошення за посиланням нижче.
+        you_are_now_admin: Тепер ви адміністратор
       invite_admin:
-        subject: Вас запросили для керування %{organization}
+        subject: Вас запросили керувати %{organization}
       invite_collaborator:
-        subject: Вас запросили до співпраці на %{organization}
+        subject: Вас запросили співпрацювати на %{organization}
       organization_admin_invitation_instructions:
-        subject: Вас запросили для керування %{organization}
+        subject: Вас запросили керувати %{organization}
       password_change:
-        greeting: Привіт %{recipient}!
+        greeting: Доброго дня, %{recipient}!
         message: Ми маєте зв'язок ви повідомити вас, що ваш пароль було змінено.
         subject: Пароль змінено
   errors:
