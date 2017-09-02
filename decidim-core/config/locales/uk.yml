@@ -286,19 +286,19 @@ uk:
   layouts:
     decidim:
       cookie_warning:
-        description_html: Цей сайт використовує куки. Продовжуючи переглядати сайт, ви погоджуєтесь нашого використання cookies. Дізнайтеся більше про це %{link}.
-        link_label: Тут
-        ok: Погоджуюся
+        description_html: На цьому сайті використовуються реп'яшки (куки). Продовжуючи переглядати сайт, ви погоджуєтеся з нашим використанням реп'яшків. Дізнайтеся про це більше %{link}.
+        link_label: тут
+        ok: Я погоджуюся
       footer:
-        made_with_open_source: 'Сайт зробив з <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.'
+        made_with_open_source: 'Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.'
       header:
         close_menu: Закрити меню
         navigation: Навігація
-        sign_in: Ввійти
+        sign_in: Увійти
         sign_up: Зареєструватися
       impersonation_warning:
         close_session: Завершити сеанс
-        description_html: Ви себе за <b>%{user_name}</b> користувача.
+        description_html: Ви видаєте себе за користувача <b>%{user_name}</b>.
         expire_time_html: Ваш сеанс буде вичерпано в <b><span class="minutes">%{minutes}</span> minutes</b>.
       user_menu:
         admin_dashboard: Приладна дошка адміністрування
