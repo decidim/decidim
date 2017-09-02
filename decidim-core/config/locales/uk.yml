@@ -299,14 +299,14 @@ uk:
       impersonation_warning:
         close_session: Завершити сеанс
         description_html: Ви видаєте себе за користувача <b>%{user_name}</b>.
-        expire_time_html: Ваш сеанс буде вичерпано в <b><span class="minutes">%{minutes}</span> minutes</b>.
+        expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       user_menu:
         admin_dashboard: Приладна дошка адміністрування
-        profile: Мій рахунок
+        profile: Мій обліковий запис
         sign_out: Вийти
       user_profile:
         account: Обліковий запис
-        authorizations: Дозволів
+        authorizations: Авторизаціі
         delete_my_account: Видалення облікового запису
         notifications_settings: Сповіщення про налаштування
         title: Настройок користувача
