@@ -12,7 +12,7 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцевий район
+        local_area: Місцевість
         meta_scope: Метадані обсягу
         participatory_process_group_id: Група процесів
         participatory_scope: Обсяг співучасті
@@ -174,11 +174,11 @@ uk:
           success: Процес співучасті успішно продубльовано.
       participatory_processes_group:
         create:
-          error: Помилка під час створення нової групи процесу проведення.
-          success: Умови проведення Група успішно створено.
+          error: Створити нову групу процесу співучасті не вдалося через помилку.
+          success: Групу процесу співучасті успішно створено.
       titles:
-        participatory_process_groups: Умови проведення груп
-        participatory_processes: Участі процесів
+        participatory_process_groups: Групи процесу співучасті
+        participatory_processes: Процеси співучасті
     menu:
       processes: Процеси
     participatory_process_groups:
@@ -187,27 +187,27 @@ uk:
         title: Назва
     participatory_process_steps:
       index:
-        process_steps: Процес дії.
-        title: Етапи процесу проведення
+        process_steps: Кроки процесу
+        title: Кроки процесу співучасті
     participatory_processes:
       index:
-        title: Участі процесів
+        title: Процеси співучасті
       participatory_process_groups:
         none: Жоден
       show:
         developer_group: Група розробників
         end_date: Дата закінчення
         local_area: Місцевість
-        participatory_scope: Участь рамки
-        participatory_structure: Участі структури
-        scope: Сфера
-        target: Цільової
+        participatory_scope: Обсяг співучасті
+        participatory_structure: Структура співучасті
+        scope: Обсяг
+        target: Ціль
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
         headline: Діяльність
         meetings_count: Зустрічі
-        orders_count: Замовлення
+        orders_count: Голоси
         pages_count: Сторінки
         processes_count: Процеси
         projects_count: Проекти
@@ -215,7 +215,7 @@ uk:
         results_count: Результати
         surveys_count: Опитування
         users_count: Учасники
-        votes_count: Голосів
+        votes_count: Голоси
   layouts:
     decidim:
       participatory_process_groups:
