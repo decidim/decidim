@@ -64,26 +64,26 @@ uk:
         participatory_process_group:
           fields:
             name: Ім'я
-          name: Процес Група
+          name: Група процессу
         participatory_process_step:
           fields:
             end_date: Дата закінчення
             start_date: Дата початку
             title: Назва
-          name: Крок процесу проведення
+          name: Крок процесу співучасті
         participatory_process_user_role:
           fields:
-            email: Електронна пошта
+            email: Адреса електронної пошти
             name: Ім'я
             role: Роль
-          name: Умови проведення користувача
+          name: Користувач процесу співучасті
           roles:
             admin: Адміністратор
-            collaborator: Співавтора
+            collaborator: Співавтор
             moderator: Модератор
       participatory_process_copies:
         new:
-          copy: Копія
+          copy: Скопіювати
           select: Оберіть які дані, які ви хотіли б створити дублікат
           title: Повторюваних участі processs
       participatory_process_groups:
