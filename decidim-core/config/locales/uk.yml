@@ -334,8 +334,8 @@ uk:
         participate: Взяти участь
         welcome: Ласкаво просимо до %{organization}!
       highlighted_processes:
-        active_processes: Поточні процеси
-        active_step: Поточний крок
+        active_processes: Започаті процеси
+        active_step: Започатий крок
         see_all_processes: Переглянути всі процеси
       statistics:
         answers_count: Відповіді
