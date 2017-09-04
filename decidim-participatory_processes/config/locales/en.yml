@@ -199,8 +199,8 @@ en:
         participatory_processes: Participatory processes
       users:
         resend_invitation:
-          error: Error
-          success: Success
+          error: There was an error resending the invitation.
+          success: Invitation resent successfully.
     menu:
       processes: Processes
     participatory_process_groups:
@@ -247,7 +247,7 @@ en:
         users_count: Participants
         votes_count: Votes
     scopes:
-      global: Global
+      global: Global scope
   layouts:
     decidim:
       participatory_process_groups:

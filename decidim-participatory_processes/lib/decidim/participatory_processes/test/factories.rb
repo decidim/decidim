@@ -69,6 +69,12 @@ FactoryGirl.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     organization
+
+    trait :with_participatory_processes do
+      after(:create) do |participatory_process_group|
+        create_list(:participatory_process, 2, :published, organization: participatory_process_group.organization, participatory_process_group: participatory_process_group)
+      end
+    end
   end
 
   factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do

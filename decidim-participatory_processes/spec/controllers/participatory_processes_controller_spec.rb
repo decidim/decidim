@@ -92,17 +92,19 @@ module Decidim
           organization_groups = create_list(
             :participatory_process_group,
             2,
+            :with_participatory_processes,
             organization: organization
           )
 
           _other_groups = create_list(
             :participatory_process_group,
             2,
+            :with_participatory_processes,
             organization: other_organization
           )
 
           expect(controller.helpers.collection)
-            .to match_array([*published, *organization_groups])
+            .to match_array([*published, *organization_groups, *organization_groups.map(&:participatory_processes).flatten])
         end
       end
 
