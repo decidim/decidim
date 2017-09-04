@@ -227,24 +227,24 @@ uk:
           take_part: Взяти участь
       participatory_processes:
         index:
-          promoted_processes: Підкреслив процесів
+          promoted_processes: Виділені процеси
         no_processes_yet:
-          no_processes_yet: Участі процесів, що ще!
+          no_processes_yet: Процесів співучасті поки що нема!
         order_by_processes:
           processes:
             one: "%{count} процес"
-            few: "%{count} процесів"
+            few: "%{count} процеси"
             other: "%{count} процесів"
         participatory_process:
           active_step: 'Поточний крок:'
           take_part: Взяти участь
         promoted_process:
           active_step: 'Поточний крок:'
-          more_info: Детальніше
+          more_info: Додаткові відомості
           take_part: Взяти участь
       process_header:
         process_menu_item: Процес
-        unfold: Розгортатися
+        unfold: Розгорнути
       process_header_steps:
         step: Крок %{current} %{total}
         view_steps: Перегляньте кроки
