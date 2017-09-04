@@ -15,6 +15,7 @@
 
 - **decidim**: Support for multiple participatory spaces via custom plugins. [\#1659](https://https://github.com/decidim/decidim/pull/1659)
 - **decidim-assemblies**: New optional beta plugin to manage participatory organs A.K.A. assemblies. [\#1659](https://https://github.com/decidim/decidim/pull/1659)
+- **decidim-participatory_processes**: Add participatory processes filters (past, active and upcoming) to the processes home page. [\#1779](https://github.com/decidim/decidim/pull/1779)
 
 ## [v0.5.1](https://github.com/decidim/decidim/tree/v0.5.1) (2017-08-21)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.5.0...v0.5.1)
