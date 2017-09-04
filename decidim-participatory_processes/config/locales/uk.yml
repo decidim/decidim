@@ -223,7 +223,7 @@ uk:
           browse: Огляд
       participatory_process_widgets:
         show:
-          active_step: Активні крок
+          active_step: Започатий крок
           take_part: Взяти участь
       participatory_processes:
         index:
