@@ -199,7 +199,7 @@ uk:
         error: Сталася помилка під час створення звіту. Будь ласка, спробуйте знову.
         success: Звіт був створений успішно, і він буде розглянутий адміністратором.
     scopes:
-      global: Всеохоплююча сфера застосування
+      global: Всеохоплюючий обсяг
     shared:
       action_authorization_modal:
         incomplete:
@@ -268,7 +268,7 @@ uk:
   errors:
     messages:
       content_type_whitelist_error: Неприпустимий тип файлу
-      cycle_detected: батько сфери застосування не може бути одним з її нащадків
+      cycle_detected: батько обсягу не може бути одним з його нащадків
       file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
       invalid_manifest: Неприпустимий файл маніфесту
       invalid_participatory_process: Неприпустимий процес співучасті
