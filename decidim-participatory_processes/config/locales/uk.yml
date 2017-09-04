@@ -10,17 +10,18 @@ uk:
         developer_group: Група розробників
         domain: Домен
         end_date: Дата закінчення
-        hero_image: Зображення будинку
-        local_area: Місцевість
-        meta_scope: Метадані сфери
+        hashtag: Хештег
+        hero_image: Зображення головної сторінки
+        local_area: Місцевий район
+        meta_scope: Метадані обсягу
         participatory_process_group_id: Група процесів
-        participatory_scope: Участь рамки
-        participatory_structure: Участі структури
-        promoted: Сприяли
-        scope_id: Сфера
-        scopes_enabled: Приціли включений
-        short_description: Короткий опис
-        slug: Службове поле URL
+        participatory_scope: Обсяг співучасті
+        participatory_structure: Структура співучасті
+        promoted: Підтримане
+        scope_id: Обсяг
+        scopes_enabled: Можливі обсяги
+        short_description: Стислий опис
+        slug: Скорочена URL-адреса
         subtitle: Субтитрів
         target: Цільової
         title: Назва
