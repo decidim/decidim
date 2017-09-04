@@ -2,15 +2,14 @@ uk:
   activemodel:
     attributes:
       participatory_process:
-        banner_image: Банер зображення
-        copy_categories: Копія категорії
-        copy_features: Скопіювати функції
-        copy_steps: Копія кроки
+        banner_image: Банерне зображення
+        copy_categories: Скопіювати категорії
+        copy_features: Скопіювати функціонал
+        copy_steps: Скопіювати кроки
         description: Опис
         developer_group: Група розробників
         domain: Домен
         end_date: Дата закінчення
-        hashtag: Хештегом
         hero_image: Зображення будинку
         local_area: Місцевість
         meta_scope: Метадані сфери
