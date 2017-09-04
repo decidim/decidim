@@ -69,8 +69,8 @@ uk:
       foo_authorization:
         fields:
           bar: Статусний рядок
-          foo: Логін
-        name: Авторизація
+          foo: Foo
+        name: Авторизація Foo
     authorizations:
       create:
         error: Під час створення авторизації сталася помилка.
@@ -134,7 +134,7 @@ uk:
       dummy:
         actions:
           bar: Статусний рядок
-          foo: Логін
+          foo: Foo
         name: Неробочий функціонал
         settings:
           global:
