@@ -81,7 +81,7 @@ describe "Organization admins", type: :feature do
           page.find(".action-icon.resend-invitation").click
         end
 
-        expect(page).to have_content("Invitation email sent successfully")
+        expect(page).to have_content("Invitation resent successfully")
       end
 
       it "can remove the admin rights" do
