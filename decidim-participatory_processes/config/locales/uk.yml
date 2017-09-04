@@ -22,45 +22,45 @@ uk:
         scopes_enabled: Можливі обсяги
         short_description: Стислий опис
         slug: Скорочена URL-адреса
-        subtitle: Субтитрів
-        target: Цільової
+        subtitle: Підзаголовок
+        target: Ціль
         title: Назва
       participatory_process_group:
         description: Опис
         hero_image: Зображення
         name: Ім'я
-        participatory_process_ids: Схожі процеси
+        participatory_process_ids: Пов'язані процеси
       participatory_process_step:
         description: Опис
         end_date: Дата закінчення
-        short_description: Короткий опис
+        short_description: Стислий опис
         start_date: Дата початку
-        title: Назва
+        title: Звертання
       participatory_process_user_role:
-        email: Електронна пошта
+        email: Адреса електронної пошти
         name: Ім'я
         role: Роль
   decidim:
     admin:
       menu:
-        participatory_process_groups: Процес груп
+        participatory_process_groups: Групи процесу
         participatory_processes: Процеси
         participatory_processes_submenu:
-          attachments: Вкладення
+          attachments: Вкладені файли
           categories: Категорії
-          features: Особливості
+          features: Функціонал
           info: Інформація
-          moderations: Moderations
-          process_admins: Процес користувачів
+          moderations: Дії з модерації
+          process_admins: Користувачі процесу
           steps: Кроки
       models:
         participatory_process:
           fields:
-            created_at: Створений в
-            promoted: Виділені
+            created_at: Створено в
+            promoted: Виділено
             published: Опубліковано
             title: Назва
-          name: Умови проведення
+          name: Процес співучасті
         participatory_process_group:
           fields:
             name: Ім'я
