@@ -2,8 +2,9 @@
 
 module Decidim
   module ParticipatoryProcesses
-    # This query class filters public processes given an organization in a
-    # meaningful prioritized order.
+    # This query class filters participatory processes groups given a filter name.
+    # The filter is applied checking the start and end dates of the processes in
+    # the group.
     class FilteredParticipatoryProcessGroups < Rectify::Query
       def initialize(filter = "active")
         @filter = filter

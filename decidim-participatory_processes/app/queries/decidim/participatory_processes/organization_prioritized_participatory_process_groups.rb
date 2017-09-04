@@ -2,7 +2,7 @@
 
 module Decidim
   module ParticipatoryProcesses
-    # This query class filters participatory process groups given an organization.
+    # This query class filters participatory process groups given an organization and a filter.
     class OrganizationPrioritizedParticipatoryProcessGroups < Rectify::Query
       def initialize(organization, filter = "active")
         @organization = organization
