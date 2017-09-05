@@ -2,9 +2,9 @@ uk:
   activemodel:
     attributes:
       proposal:
-        body: Тіло
+        body: Основний текст
         category_id: Категорія
-        scope_id: Сфера
+        scope_id: Обсяг
         title: Назва
         user_group_id: Створити пропозицію як
       proposal_answer:
@@ -20,10 +20,10 @@ uk:
           global:
             announcement: Оголошення
             attachments_allowed: Дозволити вкладення
-            comments_enabled: Коментарі дозволено
-            geocoding_enabled: Геокодування включений
-            new_proposal_help_text: Нова пропозиція текст довідки
-            official_proposals_enabled: Офіційний пропозиції включений
+            comments_enabled: Коментарі ввімкнено
+            geocoding_enabled: Геокодування ввімкнено
+            new_proposal_help_text: Підказки зі створення нової пропозиції
+            official_proposals_enabled: Офіційні пропозиції ввімкнені
             proposal_answering_enabled: Пропозиція відповіді ввімкнуто
             vote_limit: Голосування межа
           step:
