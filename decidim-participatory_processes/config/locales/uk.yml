@@ -22,6 +22,7 @@ uk:
         scopes_enabled: Можливі обсяги
         short_description: Стислий опис
         slug: Скорочена URL-адреса
+        start_date: Дата початку
         subtitle: Підзаголовок
         target: Ціль
         title: Назва
@@ -42,6 +43,18 @@ uk:
         role: Роль
   decidim:
     admin:
+      actions:
+        activate: Активувати
+        configure: Настроювання
+        confirm_destroy: Підтвердити знищити
+        destroy: Знищити
+        duplicate: Дублювати
+        edit: Редагувати
+        new: Нове
+        preview: Попередній перегляд
+        publish: Опублікувати
+        resend_invitation: Повторно надіслати запрошення
+        unpublish: Скасування публікації
       menu:
         participatory_process_groups: Групи процесу
         participatory_processes: Процеси
@@ -81,6 +94,10 @@ uk:
             admin: Адміністратор
             collaborator: Співавтор
             moderator: Модератор
+        user:
+          fields:
+            invitation_accepted_at: Запрошення приймаються на
+            invitation_sent_at: Запрошення, надіслану на
       participatory_process_copies:
         new:
           copy: Скопіювати
@@ -179,6 +196,10 @@ uk:
       titles:
         participatory_process_groups: Групи процесу співучасті
         participatory_processes: Процеси співучасті
+      users:
+        resend_invitation:
+          error: Помилка під час надсилання запрошення.
+          success: Запрошення обурюватися успішно.
     menu:
       processes: Процеси
     participatory_process_groups:
@@ -192,8 +213,15 @@ uk:
     participatory_processes:
       index:
         title: Процеси співучасті
+      order_by_processes:
+        active: Активні
+        past: Минуле
+        upcoming: Майбутні
       participatory_process_groups:
         none: Жоден
+      participatory_processes:
+        index:
+          loading: Завантаження результати...
       show:
         developer_group: Група розробників
         end_date: Дата закінчення
@@ -201,6 +229,7 @@ uk:
         participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         scope: Обсяг
+        start_date: Дата початку
         target: Ціль
       statistics:
         answers_count: Відповіді
@@ -216,6 +245,8 @@ uk:
         surveys_count: Опитування
         users_count: Учасники
         votes_count: Голоси
+    scopes:
+      global: Всеохоплюючий обсяг
   layouts:
     decidim:
       participatory_process_groups:
