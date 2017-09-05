@@ -198,8 +198,6 @@ fi:
       create:
         error: Raportin luonnissa tapahtui virhe. Yritä uudestaan.
         success: Raportti on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
-    scopes:
-      global: Yleinen konteksti
     shared:
       action_authorization_modal:
         incomplete:
