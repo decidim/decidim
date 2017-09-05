@@ -60,6 +60,7 @@ eu:
         scope: Esparrua
         short_description: Deskribapen laburra
         slug: URL laburra
+        start_date: Hasiera-data
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
         title: Izenburua
@@ -76,23 +77,12 @@ eu:
   decidim:
     admin:
       actions:
-        activate: Aktibatu
         add: Gehitu
         browse: Arakatu
-        configure: Konfiguratu
-        confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
-        destroy: Kendu
-        duplicate: Kopia egin
-        edit: Editatu
         export: Esportatu
         manage: Kudeatu
-        new: Berria
         permissions: Baimenak
-        preview: Aurreikusi
-        publish: Argitaratu
         reject: Ukatu
-        resend_invitation: Birbidali gonbita
-        unpublish: Desargitaratu
         verify: Egiaztatu
       attachments:
         create:
@@ -258,8 +248,6 @@ eu:
           fields:
             created_at: Sortze-data
             email: Posta elektronikoa
-            invitation_accepted_at: Gonbitaren onarpen-data
-            invitation_sent_at: Gonbitaren bidalketa-data
             last_sign_in_at: Identifikazioaren azken-data
             name: Izena
             role: Rola
@@ -420,9 +408,6 @@ eu:
         new:
           create: Gonbit egin
           title: Gonbit egin erabiltzaile bati administratzaile gisa
-        resend_invitation:
-          error: Errorea gertatu da gonbit-mezua bidaltzen saiatzean.
-          success: Gonbita ongi bidali da.
     moderations:
       actions:
         hidden: ' Ezkutatuta'
