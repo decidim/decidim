@@ -76,23 +76,12 @@ nl:
   decidim:
     admin:
       actions:
-        activate: Activeren
         add: Toevoegen
         browse: Browsen
-        configure: Configureer
-        confirm_destroy: Weet u zeker dat u dit wilt verwijderen?
-        destroy: Vernietigen
-        duplicate: Duplicaat
-        edit: Bewerk
         export: Exporteren
         manage: Beheer
-        new: nieuwe
         permissions: Toelatingen
-        preview: Voorbeeld
-        publish: Publiceren
         reject: afwijzen
-        resend_invitation: Verstuur de uitnodiging opnieuw
-        unpublish: Unpublish
         verify: Verifiëren
       attachments:
         create:
@@ -258,8 +247,6 @@ nl:
           fields:
             created_at: Aanmaakdatum
             email: E-mail
-            invitation_accepted_at: Uitnodiging aanvaard datum
-            invitation_sent_at: Uitnodiging verzonden datum
             last_sign_in_at: Laatste inloggen datum
             name: Naam
             role: Rol
@@ -420,9 +407,6 @@ nl:
         new:
           create: Nodig uit
           title: Inviteer gebruiker als beheerder
-        resend_invitation:
-          error: Er is een fout opgetreden bij het verzenden van de uitnodigings-e-mail.
-          success: Uitnodigings-e-mail is succesvol verzonden.
     moderations:
       actions:
         hidden: Verborgen
