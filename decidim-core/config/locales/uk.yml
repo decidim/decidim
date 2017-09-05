@@ -73,7 +73,7 @@ uk:
         name: Авторизація Foo
     authorizations:
       create:
-        error: Під час створення авторизації сталася помилка.
+        error: Cтворити авторизацію не вдалося через помилку.
         success: Ви успішно авторизовані.
       current_participatory_processes: поглянути на поточні процеси
       first_login:
