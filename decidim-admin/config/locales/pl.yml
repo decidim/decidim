@@ -60,6 +60,7 @@ pl:
         scope: Zakres
         short_description: Krótki opis
         slug: Ślimak URL
+        start_date: Data rozpoczęcia
         subtitle: Podtytuł
         target: Cel
         title: Tytuł
