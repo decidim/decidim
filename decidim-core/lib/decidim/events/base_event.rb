@@ -34,10 +34,12 @@ module Decidim
       # event_name - a String with the name of the event.
       # resource - the resource that received the event
       # user - the User that receives the event
-      def initialize(resource:, event_name:, user:)
+      # extra - a Hash with extra information.
+      def initialize(resource:, event_name:, user:, extra:)
         @event_name = event_name
         @resource = resource
         @user = user
+        @extra = extra
       end
 
       # Caches the locator for the given resource, so that
@@ -58,7 +60,7 @@ module Decidim
 
       private
 
-      attr_reader :event_name, :resource, :user
+      attr_reader :event_name, :resource, :user, :extra
 
       def resource_title
         resource.title.is_a?(Hash) ? resource.title[I18n.locale.to_s] : resource.title
