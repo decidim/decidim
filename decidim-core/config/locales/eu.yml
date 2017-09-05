@@ -198,8 +198,6 @@ eu:
       create:
         error: Errorea gertatu da edukia salatzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
-    scopes:
-      global: Esparrua orokorra
     shared:
       action_authorization_modal:
         incomplete:
