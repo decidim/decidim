@@ -198,8 +198,6 @@ ca:
       create:
         error: S'ha produït un error en denunciar. Torna-ho a intentar.
         success: La denúncia s'ha creat amb èxit i serà revisada per un administrador.
-    scopes:
-      global: Àmbit global
     shared:
       action_authorization_modal:
         incomplete:
