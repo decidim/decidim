@@ -80,19 +80,19 @@ uk:
         add: Додати
         browse: Переглянути
         export: Зберегти
-        manage: Керування
-        permissions: Дозволи
+        manage: Керувати
+        permissions: Права
         reject: Відхилити
-        verify: Перевірте, чи
+        verify: Перевірити
       attachments:
         create:
-          error: Помилка під час створення нового вкладення.
-          success: Вкладення успішно створено.
+          error: Створити новий вкладений файл не вдалося через те, що сталася помилка.
+          success: Вкладений файл успішно створено.
         destroy:
-          success: Вкладення знищені успішно.
+          success: Вкладений файл успішно видалено.
         edit:
           title: Редагувати вкладення
-          update: Оновлення
+          update: Оновити
         index:
           attachments_title: Вкладені файли
         new:
@@ -122,7 +122,7 @@ uk:
           success: Категорію успішно оновлено.
       dashboard:
         show:
-          welcome: Ласкаво просимо на нову панель адміністратора Десідім.
+          welcome: Ласкаво просимо на нову панель адміністратора Десідім!
       exports:
         export_as: "%{name} як %{export_format}"
         notice: Ваше збереження зараз виконується. Ви отримаєте електронного листа після його завершення.
@@ -235,30 +235,30 @@ uk:
         scope:
           fields:
             name: Ім'я
-            scope_type: Сфера типу
+            scope_type: Різновид обсягу
         scope_type:
           fields:
             name: Ім'я
-            plural: XX століття
+            plural: Множина
         static_page:
           fields:
-            created_at: Створений в
+            created_at: Створено в
             title: Назва
         user:
           fields:
             created_at: Дата створення
-            email: Електронна пошта
-            last_sign_in_at: Останній знак на дату
+            email: Адреса електронної пошти
+            last_sign_in_at: Дата останнього входу
             name: Ім'я
             role: Роль
             roles:
-              admin: Адмін
+              admin: Адміністратор
               user_manager: Менеджер користувачів
           name: Користувач
         user_group:
           fields:
             actions: Дії
-            created_at: Створений в
+            created_at: Створено в
             document_number: Номер документа
             name: Ім'я
             phone: Телефон
