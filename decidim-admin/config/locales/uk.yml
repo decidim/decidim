@@ -8,15 +8,15 @@ uk:
       category:
         description: Опис
         name: Ім'я
-        parent_id: Батьків
+        parent_id: Батьківський об'єкт
       feature:
         name: Ім'я
-        weight: Вага
+        weight: Вага (розмір)
       newsletter:
-        body: Тіло
+        body: Основний текст
         subject: Тема
       organization:
-        default_locale: Мову за замовчуванням
+        default_locale: Мова за замовчуванням
         description: Опис
         favicon: Ікона
         homepage_image: Домашня сторінка зображення
