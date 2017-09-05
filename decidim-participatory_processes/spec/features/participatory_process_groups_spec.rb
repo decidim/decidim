@@ -8,10 +8,12 @@ describe "Participatory Process Groups", type: :feature do
   let!(:participatory_process_group) do
     create(
       :participatory_process_group,
+      :with_participatory_processes,
       organization: organization,
       name: { en: "Name", ca: "Nom", es: "Nombre" }
     )
   end
+  let(:group_processes) { participatory_process_group.participatory_processes }
 
   before do
     switch_to_host(organization.host)
@@ -24,10 +26,10 @@ describe "Participatory Process Groups", type: :feature do
       visit decidim_participatory_processes.participatory_processes_path
     end
 
-    it "lists all the groups" do
+    it "lists all the groups among the processes" do
       within "#processes-grid" do
         expect(page).to have_content(translated(participatory_process_group.name, locale: :en))
-        expect(page).to have_selector("article.card", count: 1)
+        expect(page).to have_selector("article.card", count: 3)
 
         expect(page).to have_no_content(translated(other_group.name, locale: :en))
       end
@@ -47,9 +49,6 @@ describe "Participatory Process Groups", type: :feature do
   end
 
   describe "show" do
-    let!(:participatory_process_group) { create(:participatory_process_group, organization: organization) }
-    let!(:group_processes) { create_list(:participatory_process, 2, :published, organization: organization, participatory_process_group: participatory_process_group) }
-
     let!(:unpublished_group_processes) do
       create_list(:participatory_process, 2, :unpublished, organization: organization, participatory_process_group: participatory_process_group)
     end

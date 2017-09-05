@@ -15,7 +15,7 @@ module Decidim
 
       helper ParticipatoryProcessHelper
 
-      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats
+      helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter
 
       def index
         authorize! :read, ParticipatoryProcess
@@ -32,20 +32,32 @@ module Decidim
         @collection ||= (participatory_processes.to_a + participatory_process_groups).flatten
       end
 
+      def filtered_participatory_processes(filter = default_filter)
+        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter)
+      end
+
       def participatory_processes
-        @participatory_processes ||= OrganizationPrioritizedParticipatoryProcesses.new(current_organization)
+        @participatory_processes ||= filtered_participatory_processes(filter)
       end
 
       def promoted_participatory_processes
-        @promoted_processes ||= participatory_processes | PromotedParticipatoryProcesses.new
+        @promoted_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
       end
 
       def participatory_process_groups
-        @process_groups ||= Decidim::ParticipatoryProcessGroup.where(organization: current_organization)
+        @process_groups ||= OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter)
       end
 
       def stats
         @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_process)
+      end
+
+      def filter
+        @filter = params[:filter] || default_filter
+      end
+
+      def default_filter
+        "active"
       end
     end
   end

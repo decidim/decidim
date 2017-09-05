@@ -24,8 +24,9 @@ FactoryGirl.define do
     target { Decidim::Faker::Localized.sentence(3) }
     participatory_scope { Decidim::Faker::Localized.sentence(1) }
     participatory_structure { Decidim::Faker::Localized.sentence(2) }
-    end_date 2.month.from_now.at_midnight
     show_statistics true
+    start_date { Time.current }
+    end_date 2.month.from_now.at_midnight
 
     trait :promoted do
       promoted true
@@ -51,6 +52,16 @@ FactoryGirl.define do
         participatory_process.steps.reload
       end
     end
+
+    trait :past do
+      start_date { 2.weeks.ago }
+      end_date { 1.week.ago }
+    end
+
+    trait :upcoming do
+      start_date { 1.week.from_now }
+      end_date { 2.weeks.from_now }
+    end
   end
 
   factory :participatory_process_group, class: Decidim::ParticipatoryProcessGroup do
@@ -58,6 +69,12 @@ FactoryGirl.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     organization
+
+    trait :with_participatory_processes do
+      after(:create) do |participatory_process_group|
+        create_list(:participatory_process, 2, :published, organization: participatory_process_group.organization, participatory_process_group: participatory_process_group)
+      end
+    end
   end
 
   factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do

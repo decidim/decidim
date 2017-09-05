@@ -24,6 +24,7 @@ describe Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess do
       target: "target",
       participatory_scope: "participatory scope",
       participatory_structure: "participatory structure",
+      start_date: nil,
       end_date: nil,
       description: { en: "description" },
       short_description: { en: "short_description" },
