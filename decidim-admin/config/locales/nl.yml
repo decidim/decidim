@@ -60,6 +60,7 @@ nl:
         scope: Reikwijdte
         short_description: Korte beschrijving
         slug: URL slak
+        start_date: Begindatum
         subtitle: Ondertitel
         target: Doel
         title: Titel
