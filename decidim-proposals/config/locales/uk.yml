@@ -57,26 +57,26 @@ uk:
             title: Відповідь на пропозицію %{title}
         proposals:
           answer:
-            invalid: Там були проблеми, відповідаючи на цю пропозицію
-            success: Пропозицію успішно відповів
+            invalid: Не вдалося опублікувати відповідь на цю пропозицію через те, що сталася помилка
+            success: Відповідь на пропозицію успішно опубліковано
           create:
-            invalid: Там була помилка створення цієї пропозиції
+            invalid: Не вдалося опублікувати цю пропозицію через те, що сталася помилка
             success: Пропозицію успішно створено
           form:
-            attachment_legend: "(Необов'язково) Додати вкладення"
-            select_a_category: Вибрати категорію
+            attachment_legend: "(Необов'язково) Додати вкладений файл"
+            select_a_category: Оберіть категорію
           index:
             title: Пропозиції
           new:
             create: Створити
             title: Створити пропозицію
       answers:
-        accepted: Приймаються
-        evaluating: Оцінки
-        not_answered: Не відповіли
+        accepted: Прийнято
+        evaluating: Розглядається
+        not_answered: Ще не відповіли
         rejected: Відхилено
       create:
-        error: Там були помилки при збереженні пропозицію.
+        error: Не вдалося зберегти пропозицію через те, що сталися помилки.
         success: Пропозицію успішно створено.
       models:
         proposal:
@@ -117,9 +117,9 @@ uk:
           voted: Проголосували
         filters_small_view:
           close_modal: Закрити модальних
-          filter: Фільтр
+          filter: Фільтрувати
           filter_by: Фільтрувати за
-          unfold: Розгортатися
+          unfold: Розгорнути
         index:
           new_proposal: Нова пропозиція
           view_proposal: Подання пропозиції
