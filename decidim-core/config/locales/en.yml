@@ -161,6 +161,13 @@ en:
         project: Projects
         proposal: Proposals
         result: Results
+    follows:
+      create:
+        button: Follow
+        error: There has been an error following this resource.
+      destroy:
+        button: Stop following
+        error: There has been an error unfollowing this resource.
     forms:
       current_file: Current file
       current_image: Current image
