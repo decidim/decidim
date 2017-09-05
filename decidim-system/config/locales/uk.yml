@@ -2,10 +2,10 @@ uk:
   decidim:
     system:
       actions:
-        confirm_destroy: Справді видалити це?
-        destroy: Знищити
+        confirm_destroy: Ви впевнені, що хочете видалити це?
+        destroy: Видалити
         edit: Редагувати
-        new: Нові
+        new: Нове
         save: Зберегти
         title: Дії
       admins:
