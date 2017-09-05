@@ -4,7 +4,7 @@ uk:
       survey_answer:
         body: Відповідь
       survey_question:
-        mandatory: Обов'язковий
+        mandatory: Обов’язкове поле
         question_type: Тип
   decidim:
     features:
@@ -25,23 +25,23 @@ uk:
         models:
           components:
             description: Опис
-            tos: Умови надання послуг
+            tos: Умови використання
         surveys:
           answer_option:
-            answer_option: Відповідь варіант
-            remove_answer_option: Видалити варіантом відповіді
-            statement: Заява
+            answer_option: Варіант відповіді
+            remove_answer_option: Видалити варіант відповіді
+            statement: Висловлювання
           edit:
             save: Зберегти
             title: Назва
           form:
-            add_question: Задати питання
-            already_answered_warning: Опитування вже відповіли деяких користувачів, так що ви не можете змінювати його питання.
+            add_question: Додати питання
+            already_answered_warning: Деякі користувачі вже відповіли на це опитування, тому ви не можете змінювати його питання.
           question:
-            add_answer_option: Додати параметр відповідь
+            add_answer_option: Додати варіант відповіді
             question: Питання
             remove_question: Видалити питання
-            statement: Заява
+            statement: Висловлювання
           update:
             invalid: Там були помилки при збереженні опитування.
             success: Опитування успішно збережено.
