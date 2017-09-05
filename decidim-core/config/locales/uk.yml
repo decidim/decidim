@@ -198,8 +198,6 @@ uk:
       create:
         error: Сталася помилка під час створення звіту. Будь ласка, спробуйте знову.
         success: Звіт був створений успішно, і він буде розглянутий адміністратором.
-    scopes:
-      global: Всеохоплюючий обсяг
     shared:
       action_authorization_modal:
         incomplete:
