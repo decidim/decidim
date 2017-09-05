@@ -22,6 +22,7 @@ ca:
         scopes_enabled: Àmbit habilitat
         short_description: Descripció breu
         slug: Nom curt d'URL
+        start_date: Data d'inici
         subtitle: Subtítol
         target: A qui va dirigit
         title: Grup de processos participatius
@@ -42,6 +43,18 @@ ca:
         role: Rol
   decidim:
     admin:
+      actions:
+        activate: Activar
+        configure: Configurar
+        confirm_destroy: N'estàs segur?
+        destroy: Eliminar
+        duplicate: Duplicar
+        edit: Editar
+        new: Nou/va
+        preview: Previsualitzar
+        publish: Publicar
+        resend_invitation: Tornar a enviar invitació
+        unpublish: Despublicar
       menu:
         participatory_process_groups: Grups de processos
         participatory_processes: Processos
@@ -81,6 +94,10 @@ ca:
             admin: Administrador
             collaborator: Col·laborador
             moderator: Moderador
+        user:
+          fields:
+            invitation_accepted_at: Invitació acceptada a
+            invitation_sent_at: Invitació enviada al
       participatory_process_copies:
         new:
           copy: Còpia
@@ -179,6 +196,10 @@ ca:
       titles:
         participatory_process_groups: Grups de processos participatius
         participatory_processes: Processos participatius
+      users:
+        resend_invitation:
+          error: Hi havia un error en enviar la invitació.
+          success: Invitació molesta amb èxit.
     menu:
       processes: Processos
     participatory_process_groups:
@@ -192,8 +213,15 @@ ca:
     participatory_processes:
       index:
         title: Processos participatius
+      order_by_processes:
+        active: Activa
+        past: Passades
+        upcoming: Properes
       participatory_process_groups:
         none: Cap
+      participatory_processes:
+        index:
+          loading: Carregant resultats...
       show:
         developer_group: Grup promotor
         end_date: Data de finalització
@@ -201,6 +229,7 @@ ca:
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         scope: Àmbit
+        start_date: Data d'inici
         target: A qui va dirigit
       statistics:
         answers_count: Respostes
@@ -216,6 +245,8 @@ ca:
         surveys_count: Enquestes
         users_count: Participants
         votes_count: Suports
+    scopes:
+      global: Àmbit global
   layouts:
     decidim:
       participatory_process_groups:
