@@ -50,18 +50,18 @@ uk:
         developer_group: Група розробників
         domain: Домен
         end_date: Дата закінчення
-        hashtag: Хештегом
-        hero_image: Зображення будинку
+        hashtag: Хештег
+        hero_image: Зображення головної сторінки
         local_area: Місцевість
-        meta_scope: Метадані сфери
-        participatory_scope: Участь рамки
-        participatory_structure: Участі структури
-        promoted: Сприяли
-        scope: Сфера
-        short_description: Короткий опис
-        slug: Службове поле URL
+        meta_scope: Метадані обсягу
+        participatory_scope: Обсяг співучасті
+        participatory_structure: Структура співучасті
+        promoted: Підтримане
+        scope: Обсяг
+        short_description: Стислий опис
+        slug: Скорочена URL-адреса
         start_date: Дата початку
-        subtitle: Субтитрів
+        subtitle: Підзаголовок
         target: Цільової
         title: Назва
       decidim/participatory_process_step:
@@ -94,9 +94,9 @@ uk:
           title: Редагувати вкладення
           update: Оновлення
         index:
-          attachments_title: Вкладення
+          attachments_title: Вкладені файли
         new:
-          create: Створення вкладення
+          create: Створити вкладений файл
           title: Нові вкладення
         update:
           error: Виявлено помилку під час оновлення це вкладення.
