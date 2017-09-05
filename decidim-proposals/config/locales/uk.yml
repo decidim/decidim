@@ -122,38 +122,38 @@ uk:
           unfold: Розгорнути
         index:
           new_proposal: Нова пропозиція
-          view_proposal: Подання пропозиції
+          view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>vote
-            few: <span class="card--list__data__number">%{count}</span>votes
-            other: <span class="card--list__data__number">%{count}</span>votes
+            one: <span class="card--list__data__number">1</span> голос
+            few: <span class="card--list__data__number">%{count}</span> голоси
+            other: <span class="card--list__data__number">%{count}</span> голосів
         new:
-          attachment_legend: "(Необов'язково) Додати вкладення"
+          attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Назад
-          select_a_category: Будь ласка виберіть категорію
+          select_a_category: Будь ласка, оберіть категорію
           send: Надіслати
           title: Нова пропозиція
         orders:
-          label: 'Замовлення-економічної пропозицій:'
-          most_voted: Більшість проголосувала
-          random: Випадкові
-          recent: Останні
+          label: 'Впорядкувати пропозиції за:'
+          most_voted: Найбільш підтримані
+          random: Випадково
+          recent: Нещодавні
         proposal:
-          view_proposal: Подання пропозиції
+          view_proposal: Переглянути пропозицію
         show:
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
-          report: Звіт
+          report: Доповісти
         vote_button:
           already_voted: Вже проголосували
-          no_votes_remaining: Немає голосів, що залишилися
-          vote: Голосування
-          votes_blocked: Голосування інвалідів
+          no_votes_remaining: Не залишилось голосів
+          vote: Голосувати
+          votes_blocked: Голосування вимкнено
         votes_count:
           count:
-            one: ГОЛОСУВАННЯ
-            few: ГОЛОСІВ
+            one: ГОЛОС
+            few: ГОЛОСИ
             other: ГОЛОСІВ
         votes_limit:
           vote_limit:
