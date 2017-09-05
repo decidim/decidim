@@ -32,19 +32,20 @@ uk:
         code: Код
         name: Назва
         organization: Організація
+        scope_type: Різновид обсягу
       scope_type:
-        name: Ім'я
+        name: Назва
         organization: Організація
-        plural: XX століття
+        plural: Множина
       static_page:
-        content: Зміст
+        content: Вміст
         organization: Організація
-        slug: Службове поле URL
+        slug: Скорочена URL-адреса
         title: Назва
   activerecord:
     attributes:
       decidim/participatory_process:
-        banner_image: Банер зображення
+        banner_image: Банерне зображення
         description: Опис
         developer_group: Група розробників
         domain: Домен
