@@ -18,21 +18,20 @@ uk:
       organization:
         default_locale: Мова за замовчуванням
         description: Опис
-        favicon: Ікона
-        homepage_image: Домашня сторінка зображення
+        favicon: Піктограма
+        homepage_image: Зображення головної сторінки
         logo: Логотип
-        name: Ім'я
-        official_img_footer: Офіційний логотип нижній колонтитул
-        official_img_header: Офіційний логотип заголовка
-        official_url: Офіційні організації url
-        reference_prefix: Посилання префікс
-        show_statistics: Відображати статистику
-        welcome_text: Вітальний текст
+        name: Назва
+        official_img_footer: Нижній колонтитул офіційного логотипу
+        official_img_header: Заголовок офіційного логотипу
+        official_url: Офіційна URL-адреса організації
+        reference_prefix: Довідковий префікс
+        show_statistics: Показувати статистику
+        welcome_text: Текст привітання
       scope:
         code: Код
-        name: Ім'я
+        name: Назва
         organization: Організація
-        scope_type: Сфера типу
       scope_type:
         name: Ім'я
         organization: Організація
