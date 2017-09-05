@@ -14,7 +14,7 @@ uk:
       proposals:
         actions:
           create: Створити
-          vote: Голосування
+          vote: Голосувати
         name: Пропозиції
         settings:
           global:
@@ -73,7 +73,7 @@ uk:
       answers:
         accepted: Прийнято
         evaluating: Розглядається
-        not_answered: Ще не відповіли
+        not_answered: Ще не отримало відгуків
         rejected: Відхилено
       create:
         error: Не вдалося зберегти пропозицію через те, що сталися помилки.
@@ -82,41 +82,41 @@ uk:
         proposal:
           fields:
             category: Категорія
-            official_proposal: Офіційна пропозиція України
-            scope: Сфера
+            official_proposal: Офіційна пропозиція
+            scope: Обсяг
             state: Стан
             title: Назва
       proposal_votes:
         create:
-          error: Там були помилки при голосуванні пропозицію.
+          error: Не вдалося проголосувати за пропозицію через те, що сталися помилки.
       proposals:
         author:
-          deleted: Видаленим користувачем
-          verified_user_group: Перевірена організації
+          deleted: Видалений користувач
+          verified_user_group: Перевірена організація
         count:
           proposals_count:
             one: 1 пропозиція
             few: "%{count} пропозиції"
-            other: "%{count} пропозиції"
+            other: "%{count} пропозицій"
         filters:
-          accepted: Приймаються
+          accepted: Прийнято
           activity: Діяльність
-          all: Всі
+          all: Усі
           category: Категорія
-          category_prompt: Вибрати категорію
+          category_prompt: Оберіть категорію
           citizenship: Громадянство
-          evaluating: Оцінки
-          official: Офіційний
-          origin: Походження
+          evaluating: Розглядається
+          official: Офіційне
+          origin: Джерело
           rejected: Відхилено
-          related_to: Пов'язані
-          scope_prompt: Виберіть сферу
-          scopes: Приціли
-          search: Пошук
-          state: Держава
-          voted: Проголосували
+          related_to: Пов'язане з
+          scope_prompt: Оберіть обсяг
+          scopes: Обсяги
+          search: Шукати
+          state: Стан
+          voted: Проголосоване
         filters_small_view:
-          close_modal: Закрити модальних
+          close_modal: Закрити віконце
           filter: Фільтрувати
           filter_by: Фільтрувати за
           unfold: Розгорнути
