@@ -60,6 +60,7 @@ fr:
         scope: Zone d’application
         short_description: Résumé
         slug: Identifiant
+        start_date: Date de début
         subtitle: Sous-titre
         target: Public visé
         title: Titre
@@ -76,23 +77,12 @@ fr:
   decidim:
     admin:
       actions:
-        activate: Activer
         add: Ajouter
         browse: Parcourir
-        configure: Configurer
-        confirm_destroy: Confirmez-vous la suppression ?
-        destroy: Supprimer
-        duplicate: Dupliquer
-        edit: Modifier
         export: Exporter
         manage: Gérer
-        new: Nouveau
         permissions: Autorisations
-        preview: Aperçu
-        publish: Publier
         reject: Rejeter
-        resend_invitation: Renvoyer l'invitation
-        unpublish: Dépublier
         verify: Vérifier
       attachments:
         create:
@@ -258,8 +248,6 @@ fr:
           fields:
             created_at: Date de création
             email: Email
-            invitation_accepted_at: Date d'acceptation de l'invitation
-            invitation_sent_at: Date d'envoi de l'invitation
             last_sign_in_at: Date de la dernière connexion
             name: Nom
             role: Rôle
@@ -420,9 +408,6 @@ fr:
         new:
           create: Inviter
           title: Inviter l'utilisateur en tant qu'administrateur
-        resend_invitation:
-          error: Une erreur s'est produite lors de l'envoi de l'email d'invitation.
-          success: Email d'invitation envoyé avec succès.
     moderations:
       actions:
         hidden: Masqués
