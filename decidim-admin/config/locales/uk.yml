@@ -62,18 +62,18 @@ uk:
         slug: Скорочена URL-адреса
         start_date: Дата початку
         subtitle: Підзаголовок
-        target: Цільової
+        target: Ціль
         title: Назва
       decidim/participatory_process_step:
         end_date: Дата закінчення
         start_date: Дата початку
       decidim/static_page:
-        content: Зміст
-        slug: Службове поле URL
+        content: Вміст
+        slug: Скорочена URL-адреса
         title: Назва
   date:
     formats:
-      datepicker: "%m,%d,%Y"
+      datepicker: "%d. %m. %Y"
   decidim:
     admin:
       actions:
@@ -170,6 +170,7 @@ uk:
           success: Поточний сеанс уособлення успішно завершено.
         create:
           error: Створити керованого користувача не вдалося через те, що сталася помилка.
+          success: Керованого користувача було успішно створено.
         form:
           name: Ім'я
         impersonate:
