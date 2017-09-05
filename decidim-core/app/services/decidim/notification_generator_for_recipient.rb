@@ -12,11 +12,13 @@ module Decidim
     # event_class - The class that wraps the event, in order to decorate it.
     # resource - an instance of a class implementing the `Decidim::Resource` concern.
     # recipient - the ID of the User that will receive the notification.
-    def initialize(event, event_class, resource, recipient_id)
+    # extra - a Hash with extra information for the event.
+    def initialize(event, event_class, resource, recipient_id, extra)
       @event = event
       @event_class = event_class
       @resource = resource
       @recipient_id = recipient_id
+      @extra = extra
     end
 
     # Generates the notification. Returns `nil` if the resource is not resource
@@ -42,7 +44,7 @@ module Decidim
 
     private
 
-    attr_reader :event, :event_class, :resource, :recipient_id
+    attr_reader :event, :event_class, :resource, :recipient_id, :extra
 
     def recipient
       @recipient ||= User.where(id: recipient_id).first

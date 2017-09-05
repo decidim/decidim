@@ -18,7 +18,7 @@ module Decidim
     # extra - a Hash with extra information for the event.
     #
     # Returns nothing.
-    def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, recipient_ids:, extra:)
+    def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, recipient_ids:, extra: {})
       ActiveSupport::Notifications.publish(
         event,
         event_class: event_class.name,

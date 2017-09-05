@@ -12,11 +12,12 @@ module Decidim
     # event - A String with the name of the event.
     # event_class - A class that wraps the event.
     # resource - an instance of a class implementing the `Decidim::Resource` concern.
-    def initialize(event, event_class, resource, recipient_ids)
+    def initialize(event, event_class, resource, recipient_ids, extra)
       @event = event
       @event_class = event_class
       @resource = resource
       @recipient_ids = recipient_ids
+      @extra = extra
     end
 
     # Schedules a job for each recipient to create the notification. Returns `nil`
@@ -34,14 +35,15 @@ module Decidim
 
     private
 
-    attr_reader :event, :event_class, :resource, :recipient_ids
+    attr_reader :event, :event_class, :resource, :recipient_ids, :extra
 
     def generate_notification_for(recipient_id)
       NotificationGeneratorForRecipientJob.perform_later(
         event,
         event_class.name,
         resource,
-        recipient_id
+        recipient_id,
+        extra
       )
     end
   end

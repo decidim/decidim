@@ -158,13 +158,15 @@ module Decidim
             event,
             data[:event_class],
             data[:resource],
-            data[:recipient_ids]
+            data[:recipient_ids],
+            data[:extra]
           )
           NotificationGeneratorJob.perform_later(
             event,
             data[:event_class],
             data[:resource],
-            data[:recipient_ids]
+            data[:recipient_ids],
+            data[:extra]
           )
         end
       end
