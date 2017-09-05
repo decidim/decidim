@@ -18,8 +18,8 @@ describe Decidim::NotificationGeneratorForRecipient do
       notification = Decidim::Notification.last
 
       expect(notification.user).to eq recipient
-      expect(notification.notification_type).to eq event
-      expect(notification.followable).to eq resource
+      expect(notification.event_name).to eq event
+      expect(notification.resource).to eq resource
     end
 
     context "when it is not notifiable for the given user" do

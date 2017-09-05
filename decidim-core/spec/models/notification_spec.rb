@@ -15,8 +15,8 @@ describe Decidim::Notification, :db do
       it { is_expected.not_to be_valid }
     end
 
-    context "without followable" do
-      let(:notification) { build(:notification, followable: nil) }
+    context "without resource" do
+      let(:notification) { build(:notification, resource: nil) }
 
       it { is_expected.not_to be_valid }
     end

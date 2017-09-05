@@ -23,6 +23,8 @@ module Decidim
   end
 
   class DummyResourceEvent < Events::BaseEvent
+    include Decidim::Events::EmailEvent
+    include Decidim::Events::NotificationEvent
   end
 
   class DummyResource < ActiveRecord::Base

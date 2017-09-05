@@ -1,0 +1,18 @@
+<div class="card--list__item">
+  <div class="card--list__text">
+    <%= link_to notification.event_class_instance.resource_path do %>
+      <%= resource_icon notification.resource, class: "icon--chat card--list__icon" %>
+    <% end %>
+    <div>
+      <h5 class="card--list__heading">
+        <%= notification.event_class_instance.notification_title %>
+      </h5>
+      <span class="text-small"><%= l notification.created_at.to_date, format: :long %></span>
+    </div>
+  </div>
+  <div class="card--list__data">
+    <%= link_to notification, class: "mark-as-read-button card--list__data__icon", remote: true, method: :delete do %>
+      <%= icon "check", class: "icon icon--chevron-right" %>
+    <% end %>
+  </div>
+</div>

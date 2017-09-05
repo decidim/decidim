@@ -17,6 +17,14 @@ module Decidim
       def email_outro
         I18n.t("decidim.meetings.events.update_meeting_event.email_outro", resource_title: resource_title)
       end
+
+      def notification_title
+        I18n.t(
+          "decidim.meetings.events.update_meeting_event.notification_title",
+          resource_title: resource_title,
+          resource_path: resource_path
+        ).html_safe
+      end
     end
   end
 end

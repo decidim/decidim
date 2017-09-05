@@ -33,12 +33,6 @@ module Decidim
         def email_outro
           I18n.t("decidim.events.email_event.email_outro", resource_title: resource_title)
         end
-
-        private
-
-        def resource_title
-          resource.title.is_a?(Hash) ? resource.title[I18n.locale.to_s] : resource.title
-        end
       end
     end
   end
