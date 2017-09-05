@@ -76,23 +76,12 @@ pl:
   decidim:
     admin:
       actions:
-        activate: Aktywuj
         add: Dodaj
         browse: Paść się
-        configure: Konfiguruj
-        confirm_destroy: Czy na pewno chcesz to usunąć?
-        destroy: Zniszczyć
-        duplicate: Duplikować
-        edit: Edytować
         export: Eksport
         manage: Zarządzanie
-        new: Nowy
         permissions: Uprawnienia
-        preview: Zapowiedź
-        publish: Publikować
         reject: Odrzucać
-        resend_invitation: Wyślij ponownie zaproszenie
-        unpublish: Cofnij publikację
         verify: Zweryfikować
       attachments:
         create:
@@ -258,8 +247,6 @@ pl:
           fields:
             created_at: Data utworzenia
             email: E-mail
-            invitation_accepted_at: Data zaproszenia do zaproszenia
-            invitation_sent_at: Data przesłania zaproszenia
             last_sign_in_at: Ostatni dzień rejestracji
             name: Nazwa
             role: Rola
@@ -420,9 +407,6 @@ pl:
         new:
           create: Zapraszam
           title: Zaproś użytkownika jako administratora
-        resend_invitation:
-          error: Podczas próby wysłania e-maila z zaproszeniem wystąpił błąd.
-          success: Wysłano e-mail z zaproszeniem.
     moderations:
       actions:
         hidden: Ukryty
