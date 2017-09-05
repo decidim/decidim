@@ -60,6 +60,7 @@ it:
         scope: Visibilità/ambito
         short_description: Descrizione breve
         slug: URL slug
+        start_date: Date di inizio
         subtitle: Sottotitolo
         target: Bersaglio
         title: Titolo
@@ -76,23 +77,12 @@ it:
   decidim:
     admin:
       actions:
-        activate: Attiva
         add: Aggiungi
         browse: Naviga
-        configure: Configura
-        confirm_destroy: Sei sicuro di volerlo cancellare?
-        destroy: Elimina
-        duplicate: Duplica
-        edit: Modifica
         export: Esporta
         manage: Gestisci
-        new: Nuovo
         permissions: Permessi
-        preview: Anteprima
-        publish: Pubblica
         reject: Rifiutare
-        resend_invitation: Manda di nuovo l'invito
-        unpublish: Non pubblicarlo
         verify: Verifica
       attachments:
         create:
@@ -258,8 +248,6 @@ it:
           fields:
             created_at: Data di creazione
             email: E-mail
-            invitation_accepted_at: Data dell'invito di accettazione
-            invitation_sent_at: Data di invio dell'invito
             last_sign_in_at: Data dell'ultimo accesso
             name: Nome
             role: Ruolo
@@ -420,9 +408,6 @@ it:
         new:
           create: Invita
           title: Invita l'utente in qualità di amministratore
-        resend_invitation:
-          error: Si è verificato C'è stato un errore cercando di mandare l'invito tramite email.
-          success: OK, mandato inviato tramite email
     moderations:
       actions:
         hidden: Nascosto
