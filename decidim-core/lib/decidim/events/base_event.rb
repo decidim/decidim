@@ -48,7 +48,7 @@ module Decidim
 
       # Caches the path for the given resource.
       def resource_path
-        @resource_url ||= resource_locator.path
+        @resource_path ||= resource_locator.path
       end
 
       # Caches the URL for the given resource.
