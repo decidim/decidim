@@ -22,6 +22,7 @@ fr:
         scopes_enabled: Scopes activés
         short_description: Résumé
         slug: Identifiant
+        start_date: Date de début
         subtitle: Sous-titre
         target: Objectif
         title: Titre
@@ -42,6 +43,18 @@ fr:
         role: Rôle
   decidim:
     admin:
+      actions:
+        activate: Activer
+        configure: Configurer
+        confirm_destroy: Confirmer la suppression
+        destroy: Supprimer
+        duplicate: Dupliquer
+        edit: Modifier
+        new: Nouveau
+        preview: Aperçu
+        publish: Publier
+        resend_invitation: Renvoyer l'invitation
+        unpublish: Dépublier
       menu:
         participatory_process_groups: Groupes de processus participatifs
         participatory_processes: Processus participatifs
@@ -81,6 +94,10 @@ fr:
             admin: Administrateur
             collaborator: Rédacteur
             moderator: Modérateur
+        user:
+          fields:
+            invitation_accepted_at: Invitation acceptée à
+            invitation_sent_at: Invitation envoyée à
       participatory_process_copies:
         new:
           copy: Copie
@@ -179,6 +196,10 @@ fr:
       titles:
         participatory_process_groups: Groupes de processus participatifs
         participatory_processes: Processus participatifs
+      users:
+        resend_invitation:
+          error: Il y avait une erreur renvoyer l’invitation.
+          success: Invitation renvoyée avec succès.
     menu:
       processes: Processus participatifs
     participatory_process_groups:
@@ -192,8 +213,15 @@ fr:
     participatory_processes:
       index:
         title: Processus participatifs
+      order_by_processes:
+        active: Actif
+        past: Passées
+        upcoming: À venir
       participatory_process_groups:
         none: Aucun
+      participatory_processes:
+        index:
+          loading: Chargement des résultats...
       show:
         developer_group: Groupe d'initiateurs
         end_date: Heure de fin
@@ -201,6 +229,7 @@ fr:
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         scope: Zone d'application
+        start_date: Date de début
         target: Objectif
       statistics:
         answers_count: Réponses
@@ -216,6 +245,8 @@ fr:
         surveys_count: Enquêtes
         users_count: Participants
         votes_count: Votes
+    scopes:
+      global: Portée globale
   layouts:
     decidim:
       participatory_process_groups:
