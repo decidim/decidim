@@ -44,17 +44,17 @@ uk:
   decidim:
     admin:
       actions:
-        activate: Активувати
-        configure: Настроювання
-        confirm_destroy: Підтвердити знищити
-        destroy: Знищити
+        activate: Започаткувати
+        configure: Налаштувати
+        confirm_destroy: Підтвердьте видалення
+        destroy: Видалити
         duplicate: Дублювати
         edit: Редагувати
         new: Нове
         preview: Попередній перегляд
         publish: Опублікувати
         resend_invitation: Повторно надіслати запрошення
-        unpublish: Скасування публікації
+        unpublish: Скасувати публікацію
       menu:
         participatory_process_groups: Групи процесу
         participatory_processes: Процеси
@@ -96,8 +96,8 @@ uk:
             moderator: Модератор
         user:
           fields:
-            invitation_accepted_at: Запрошення приймаються на
-            invitation_sent_at: Запрошення, надіслану на
+            invitation_accepted_at: Запрошення прийняте на
+            invitation_sent_at: Запрошення надіслане на
       participatory_process_copies:
         new:
           copy: Скопіювати
@@ -198,8 +198,8 @@ uk:
         participatory_processes: Процеси співучасті
       users:
         resend_invitation:
-          error: Помилка під час надсилання запрошення.
-          success: Запрошення обурюватися успішно.
+          error: Знов надіслати запрошення не вдалося через помилку.
+          success: Запрошення успішно знову надіслане.
     menu:
       processes: Процеси
     participatory_process_groups:
@@ -214,14 +214,14 @@ uk:
       index:
         title: Процеси співучасті
       order_by_processes:
-        active: Активні
-        past: Минуле
-        upcoming: Майбутні
+        active: Започатковані
+        past: Минулі
+        upcoming: Прийдешні
       participatory_process_groups:
         none: Жоден
       participatory_processes:
         index:
-          loading: Завантаження результати...
+          loading: Завантаження результатів...
       show:
         developer_group: Група розробників
         end_date: Дата закінчення
