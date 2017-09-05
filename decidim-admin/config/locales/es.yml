@@ -60,6 +60,7 @@ es:
         scope: Ámbito
         short_description: Descripción breve
         slug: Texto corto de URL
+        start_date: Fecha de inicio
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
         title: Título
@@ -76,23 +77,12 @@ es:
   decidim:
     admin:
       actions:
-        activate: Activar
         add: Añadir
         browse: Explorar
-        configure: Configurar
-        confirm_destroy: '¿Seguro que lo quieres eliminar?'
-        destroy: Eliminar
-        duplicate: Duplicar
-        edit: Editar
         export: Exportar
         manage: Gestionar
-        new: Nuevo/a
         permissions: Permisos
-        preview: Previsualizar
-        publish: Publicar
         reject: Rechazar
-        resend_invitation: Reenviar invitación
-        unpublish: Despublicar
         verify: Verificar
       attachments:
         create:
@@ -258,8 +248,6 @@ es:
           fields:
             created_at: Fecha de creación
             email: Correo electrónico
-            invitation_accepted_at: Fecha de aceptación de la invitación
-            invitation_sent_at: Fecha de envío de la invitación
             last_sign_in_at: Última fecha de identificación
             name: Nombre
             role: Rol
@@ -420,9 +408,6 @@ es:
         new:
           create: Invitar
           title: Invitar a un usuario como administrador
-        resend_invitation:
-          error: Se produjo un error al intentar enviar el mensaje de invitación.
-          success: Invitación enviada con éxito.
     moderations:
       actions:
         hidden: Ocultas
