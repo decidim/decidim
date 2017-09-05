@@ -164,3 +164,4 @@ uk:
     resource_links:
       included_proposals:
         proposal_projects: 'Пропозиція, яка є в таких проектах:'
+        proposal_results: 'Пропозиція, яка відображається в таких результатах:'
