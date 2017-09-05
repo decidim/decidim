@@ -135,7 +135,7 @@ uk:
         actions:
           bar: Статусний рядок
           foo: Foo
-        name: Неробочий функціонал
+        name: Неробоча складова
         settings:
           global:
             comments_enabled: Коментарі дозволено
