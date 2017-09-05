@@ -309,11 +309,11 @@ FactoryGirl.define do
     user do
       build(
         :user,
-        organization: followable.try(:organization) || build(:organization)
+        organization: resource.try(:organization) || build(:organization)
       )
     end
-    followable { build(:dummy_resource) }
-    notification_type { followable.class.name.underscore.tr("/", ".") }
-    event_class { "Decidim::Events::BaseEvent" }
+    resource { build(:dummy_resource) }
+    event_name { resource.class.name.underscore.tr("/", ".") }
+    event_class { "Decidim::DummyResourceEvent" }
   end
 end

@@ -8,7 +8,6 @@ module Decidim
 
     def event_received(event, event_class_name, resource, user)
       with_user(user) do
-        @locator = Decidim::ResourceLocatorPresenter.new(resource)
         @organization = resource.organization
         event_class = event_class_name.constantize
         @event_instance = event_class.new(resource: resource, event_name: event, user: user)

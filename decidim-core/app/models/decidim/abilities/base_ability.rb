@@ -28,6 +28,10 @@ module Decidim
         can :manage, Authorization do |authorization|
           authorization.user == user
         end
+
+        can :manage, Notification do |notification|
+          notification.user == user
+        end
       end
     end
   end
