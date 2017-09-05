@@ -60,6 +60,7 @@ uk:
         scope: Сфера
         short_description: Короткий опис
         slug: Службове поле URL
+        start_date: Дата початку
         subtitle: Субтитрів
         target: Цільової
         title: Назва
@@ -76,23 +77,12 @@ uk:
   decidim:
     admin:
       actions:
-        activate: Активувати
         add: Додати
         browse: Огляд
-        configure: Настроювання
-        confirm_destroy: Справді видалити це?
-        destroy: Знищити
-        duplicate: Дублювати
-        edit: Редагувати
         export: Експорт
         manage: Керування
-        new: Нові
         permissions: Дозволи
-        preview: Попередній перегляд
-        publish: Опублікувати
         reject: Відхилити
-        resend_invitation: Повторно надіслати запрошення
-        unpublish: Скасування публікації
         verify: Перевірте, чи
       attachments:
         create:
@@ -258,8 +248,6 @@ uk:
           fields:
             created_at: Дата створення
             email: Електронна пошта
-            invitation_accepted_at: Дати запрошення приймаються
-            invitation_sent_at: Запрошення послав дату
             last_sign_in_at: Останній знак на дату
             name: Ім'я
             role: Роль
@@ -420,9 +408,6 @@ uk:
         new:
           create: Запросити
           title: Запросити користувача адміністратора
-        resend_invitation:
-          error: Помилка під час спроби надіслати електронною поштою запрошення.
-          success: Запрошення повідомлення електронної пошти було відправлено.
     moderations:
       actions:
         hidden: Приховані
