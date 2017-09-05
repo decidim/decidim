@@ -198,8 +198,6 @@ it:
       create:
         error: Si è verificato un un errore. Ti preghiamo di riprovare.
         success: Il report è stato creato e sarà rivisto da un amministratore.
-    scopes:
-      global: Ambito globale
     shared:
       action_authorization_modal:
         incomplete:
