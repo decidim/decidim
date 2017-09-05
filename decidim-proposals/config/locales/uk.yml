@@ -25,15 +25,15 @@ uk:
             new_proposal_help_text: Підказки зі створення нової пропозиції
             official_proposals_enabled: Офіційні пропозиції ввімкнені
             proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
-            vote_limit: Гранична межа голосів
+            vote_limit: Гранична кількість голосів
           step:
             announcement: Оголошення
             comments_blocked: Коментарі заблоковано
             creation_enabled: Ввімкнено створення пропозицій
             proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
             votes_blocked: Голосування заблоковане
-            votes_enabled: Голосування ввімкнено
-            votes_hidden: Голосування приховане (якщо голосування ввімкнено, то при галочці тут буде сховано кількість голосів)
+            votes_enabled: Голосування ввімкнене
+            votes_hidden: Голосування приховане (якщо голосування ввімкнене, то при галочці тут буде сховано кількість голосів)
     proposals:
       actions:
         answer: Відповідь
