@@ -198,8 +198,6 @@ nl:
       create:
         error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
-    scopes:
-      global: Globaal bereik
     shared:
       action_authorization_modal:
         incomplete:
