@@ -84,7 +84,7 @@ uk:
             category: Категорія
             official_proposal: Офіційна пропозиція України
             scope: Сфера
-            state: Держава
+            state: Стан
             title: Назва
       proposal_votes:
         create:
