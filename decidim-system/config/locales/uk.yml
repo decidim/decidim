@@ -65,7 +65,7 @@ uk:
           success: Організацію успішно оновлено.
       shared:
         notices:
-          no_organization_warning_html: Нсамперед ви повинні створити організацію. Обов'язково прочитайте %{guide}, перш ніж продовжити.
+          no_organization_warning_html: Насамперед ви повинні створити організацію. Обов'язково прочитайте %{guide}, перш ніж продовжити.
           our_getting_started_guide: наш початковий посібник
       titles:
         dashboard: Приладна дошка
