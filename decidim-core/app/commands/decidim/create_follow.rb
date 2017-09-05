@@ -33,7 +33,7 @@ module Decidim
     def create_follow!
       @follow = Follow.create!(
         followable: form.followable,
-        user: current_user,
+        user: current_user
       )
     end
   end

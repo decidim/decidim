@@ -7,6 +7,7 @@ module Decidim
   module Participable
     extend ActiveSupport::Concern
 
+    # rubocop:disable Metrics/BlockLength
     included do
       def demodulized_name
         self.class.name.demodulize
@@ -68,6 +69,7 @@ module Decidim
         self.class.participatory_space_manifest
       end
     end
+    # rubocop:enable Metrics/BlockLength
 
     class_methods do
       def participatory_space_manifest
