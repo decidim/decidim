@@ -48,15 +48,21 @@ module Decidim
       end
 
       def send_notification
-        if occupied_slots_over?(0.5)
-          Decidim::EventsManager.publish(
-            event: "decidim.events.meetings.meeting_registrations_over_fifty",
-            event_class: Decidim::Meetings::MeetingRegistrationsOverFifty,
-            resource: @meeting,
-            recipient_ids: participatory_space_admins.pluck(:id),
-            user: @user
-          )
-        end
+        return send_notification_over(0.5) if occupied_slots_over?(0.5)
+        return send_notification_over(0.8) if occupied_slots_over?(0.8)
+      end
+
+      def send_notification_over(percentage)
+        Decidim::EventsManager.publish(
+          event: "decidim.events.meetings.meeting_registrations_over_percentage",
+          event_class: Decidim::Meetings::MeetingRegistrationsOverPercentage,
+          resource: @meeting,
+          recipient_ids: participatory_space_admins.pluck(:id),
+          extra: {
+            user: @user,
+            percentage: percentage
+          }
+        )
       end
 
       def occupied_slots_over?(percentage)

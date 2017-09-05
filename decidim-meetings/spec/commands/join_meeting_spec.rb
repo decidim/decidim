@@ -39,18 +39,21 @@ describe Decidim::Meetings::JoinMeeting do
 
     context "when the meeting available slots are occupied over the 50%" do
       before do
-        create_list :registration, (available_slots / 2) - 1, meeting: meeting
+        create_list :registration, (available_slots * 0.5).floor - 1, meeting: meeting
       end
 
       it "notifies it to the process admins" do
         expect(Decidim::EventsManager)
           .to receive(:publish)
           .with(
-            event: "decidim.events.meetings.meeting_registrations_over_fifty",
-            event_class: Decidim::Meetings::MeetingRegistrationsOverFifty,
+            event: "decidim.events.meetings.meeting_registrations_over_percentage",
+            event_class: Decidim::Meetings::MeetingRegistrationsOverPercentage,
             resource: meeting,
-            user: user,
-            recipient_ids: [process_admin.id]
+            recipient_ids: [process_admin.id],
+            extra: {
+              user: user,
+              percentage: 0.5
+            }
           )
 
         subject.call
@@ -58,7 +61,43 @@ describe Decidim::Meetings::JoinMeeting do
 
       context "when the 50% is already met" do
         before do
-          create_list :registration, available_slots / 2, meeting: meeting
+          create_list :registration, (available_slots * 0.5).floor, meeting: meeting
+        end
+
+        it "doesn't notify it twice" do
+          expect(Decidim::EventsManager)
+            .not_to receive(:publish)
+
+          subject.call
+        end
+      end
+    end
+
+    context "when the meeting available slots are occupied over the 80%" do
+      before do
+        create_list :registration, (available_slots * 0.8).floor - 1, meeting: meeting
+      end
+
+      it "notifies it to the process admins" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.meetings.meeting_registrations_over_percentage",
+            event_class: Decidim::Meetings::MeetingRegistrationsOverPercentage,
+            resource: meeting,
+            recipient_ids: [process_admin.id],
+            extra: {
+              user: user,
+              percentage: 0.8
+            }
+          )
+
+        subject.call
+      end
+
+      context "when the 80% is already met" do
+        before do
+          create_list :registration, (available_slots * 0.8).floor, meeting: meeting
         end
 
         it "doesn't notify it twice" do
