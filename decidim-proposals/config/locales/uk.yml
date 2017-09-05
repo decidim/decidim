@@ -24,20 +24,20 @@ uk:
             geocoding_enabled: Геокодування ввімкнено
             new_proposal_help_text: Підказки зі створення нової пропозиції
             official_proposals_enabled: Офіційні пропозиції ввімкнені
-            proposal_answering_enabled: Пропозиція відповіді ввімкнуто
-            vote_limit: Голосування межа
+            proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
+            vote_limit: Гранична межа голосів
           step:
             announcement: Оголошення
-            comments_blocked: Заблоковані коментарі
-            creation_enabled: Пропозиція створення включений
-            proposal_answering_enabled: Пропозиція відповіді ввімкнуто
-            votes_blocked: Голосів заблоковано
-            votes_enabled: Голосів включений
-            votes_hidden: Голосів приховані (ввімкненої голосів, перевірки цього буду приховувати кількість голосів)
+            comments_blocked: Коментарі заблоковано
+            creation_enabled: Ввімкнено створення пропозицій
+            proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
+            votes_blocked: Голосування заблоковане
+            votes_enabled: Голосування ввімкнено
+            votes_hidden: Голосування приховане (якщо голосування ввімкнено, то при галочці тут буде сховано кількість голосів)
     proposals:
       actions:
         answer: Відповідь
-        new: Нові
+        new: Нове
         title: Дії
       admin:
         actions:
@@ -50,11 +50,11 @@ uk:
             name: Пропозиція
         proposal_answers:
           edit:
-            accepted: Приймаються
+            accepted: Прийнято
             answer_proposal: Відповідь
-            evaluating: Оцінки
+            evaluating: Розглядається
             rejected: Відхилено
-            title: Відповідь на пропозиції %{title}
+            title: Відповідь на пропозицію %{title}
         proposals:
           answer:
             invalid: Там були проблеми, відповідаючи на цю пропозицію
