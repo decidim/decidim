@@ -41,7 +41,7 @@ uk:
         title: Дії
       admin:
         exports:
-          registrations: Реєстрацій
+          registrations: Реєстрації
         meeting_closes:
           edit:
             close: Закрити
