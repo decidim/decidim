@@ -3,8 +3,8 @@ uk:
     comments:
       comment_notification_mailer:
         comment_created:
-          new_comment_html: Існує новий коментар від <b>%{commenter}</b> в <b>%{commentable_link}</b>
-        hello: Привіт %{name},
+          new_comment_html: Надійшов новий коментар від <b>%{commenter}</b> на <b>%{commentable_link}</b>
+        hello: Доброго дня, %{name}%!
         manage_email_subscriptions_html: Ви можете зупинити отримую ці листи, змінивши налаштування в %{link}.
         notifications_settings_link: сторінку параметрів сповіщень
         reply_created:
