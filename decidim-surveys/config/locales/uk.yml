@@ -52,7 +52,7 @@ uk:
         single_option: Єдиний варіант
       surveys:
         answer:
-          invalid: Там були помилки під час відповіді на опитування.
+          invalid: При відповідях на опитування сталися помилки.
           success: Обстеження відповів успішно.
         show:
           answer_survey:
