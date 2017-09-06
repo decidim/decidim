@@ -133,7 +133,7 @@ uk:
           success: Ви успішно залишили збори.
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Відповідних результатів:'
+        meeting_results: 'Пов''язані підсумки:'
         result_meetings: 'Пов''язані збори:'
       proposals_from_meeting:
         meeting_proposals: 'Супутні пропозиції:'
