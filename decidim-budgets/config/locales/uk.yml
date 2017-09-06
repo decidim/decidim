@@ -94,10 +94,10 @@ uk:
         project:
           add: Додати
           count:
-            one: 1 підтримка
-            few: "%{count} підтримує"
-            other: "%{count} підтримує"
-          remove: Видалити
+            one: 1 людина підтримує
+            few: "%{count} людини підтримує"
+            other: "%{count} людей підтримують"
+          remove: Вилучити
         project_budget_button:
           add: Додати
           added: Додав
