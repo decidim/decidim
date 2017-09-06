@@ -71,12 +71,12 @@ uk:
         assembly:
           fields:
             created_at: Створено о
-            promoted: Виділені
+            promoted: Виділено
             published: Опубліковано
             title: Назва
-          name: Асамблея
+          name: Збірка
       titles:
-        assemblies: Вузлів
+        assemblies: Збірки
     assemblies:
       index:
         title: Вузлів
