@@ -47,10 +47,7 @@ module Decidim
             event: "decidim.events.meetings.meeting_updated",
             event_class: Decidim::Meetings::UpdateMeetingEvent,
             resource: meeting,
-            recipient_ids: meeting.users_to_notify.pluck(:id),
-            extra: {
-              updated_by_id: form.current_user.id
-            }
+            recipient_ids: meeting.users_to_notify.pluck(:id)
           )
         end
 
