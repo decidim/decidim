@@ -3,7 +3,7 @@ uk:
     attributes:
       participatory_process:
         banner_image: Банерне зображення
-        copy_categories: Скопіювати категорії
+        copy_categories: Скопіювати розділи
         copy_features: Скопіювати складові
         copy_steps: Скопіювати кроки
         description: Опис
@@ -60,7 +60,7 @@ uk:
         participatory_processes: Процеси
         participatory_processes_submenu:
           attachments: Вкладені файли
-          categories: Категорії
+          categories: Розділи
           features: Складова
           info: Інформація
           moderations: Дії з модерації
