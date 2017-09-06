@@ -79,8 +79,8 @@ uk:
           search: Пошук
         filters_small_view:
           close_modal: Закрити модальних
-          filter: Фільтр
-          filter_by: Фільтрувати за
+          filter: Відібрати
+          filter_by: 'Відібрати за ознакою:'
           unfold: Розгортатися
         order_progress:
           vote: Голосування
@@ -122,10 +122,10 @@ uk:
             votes_enabled: Голосів включений
     orders:
       checkout:
-        error: Під час обробки вашого голосу сталася помилка
+        error: При обробці вашого голосу сталася помилка
         success: Ваш голос був прийнятий успішно
       destroy:
-        error: Під час скасування вашого голосу сталася помилка
+        error: При скасуванні вашого голосу сталася помилка
         success: Ваш голос було скасовано, успішно
     resource_links:
       included_proposals:
