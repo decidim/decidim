@@ -21,7 +21,7 @@ uk:
     surveys:
       admin:
         exports:
-          survey_user_answers: Відповіді користувача опитування
+          survey_user_answers: Відповіді користувачів на опитування
         models:
           components:
             description: Опис
