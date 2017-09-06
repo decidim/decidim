@@ -11,11 +11,11 @@ uk:
   decidim:
     budgets:
       actions:
-        attachments: Вкладення
+        attachments: Вкладені файли
         confirm_destroy: Ви дійсно бажаєте видалити цей проект?
         destroy: Видалити
         edit: Редагувати
-        new: Нові
+        new: Нове
         preview: Попередній перегляд
         title: Дії
       admin:
@@ -24,13 +24,13 @@ uk:
             name: Проект
         projects:
           create:
-            invalid: Там були проблеми, створюючи проект
-            success: Проект створення завершено
+            invalid: При створенні цього проекту сталася помилка
+            success: Проект успішно створено
           destroy:
-            success: Проект успішно знищені
+            success: Проект успішно видалено
           edit:
-            title: Редагування проекту
-            update: Оновлення
+            title: Редагувати проект
+            update: Оновити
           index:
             finished_orders: Завершені голосування
             pending_orders: Голосування, що зараз тривають
@@ -39,7 +39,7 @@ uk:
             create: Створити
             title: Нові підсумки
           update:
-            invalid: Там були проблеми оновлення цього проекту
+            invalid: При оновленні цього проекту сталася помилка
             success: Проект успішно оновлено
       models:
         project:
