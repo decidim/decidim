@@ -29,7 +29,7 @@ uk:
         surveys:
           answer_option:
             answer_option: Варіант відповіді
-            remove_answer_option: Видалити варіант відповіді
+            remove_answer_option: Вилучити варіант відповіді
             statement: Висловлювання
           edit:
             save: Зберегти
@@ -43,25 +43,25 @@ uk:
             remove_question: Видалити питання
             statement: Висловлювання
           update:
-            invalid: Там були помилки при збереженні опитування.
+            invalid: При збереженні цього опитування сталися помилки.
             success: Опитування успішно збережено.
       question_types:
-        long_answer: Довгий відповідь
-        multiple_option: Кілька варіант
+        long_answer: Довга відповідь
+        multiple_option: Кілька варіантів
         short_answer: Коротка відповідь
         single_option: Єдиний варіант
       surveys:
         answer:
           invalid: При відповідях на опитування сталися помилки.
-          success: Обстеження відповів успішно.
+          success: На опитування успішно дано відповіді.
         show:
           answer_survey:
-            anonymous_user_message: <a href="%{sign_in_link}">Sign за допомогою вашого account</a> або <a href="%{sign_up_link}">sign up</a> відповісти на обстеження.
-            title: Відповідь на опитування
-          are_you_sure: Цю дію неможливо скасувати, і ви не зможете редагувати ваші відповіді. Ти впевнений?
-          submit: Представити
+            anonymous_user_message: <a href="%{sign_in_link}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_link}">зареєструйтесь</a>, щоб відповісти на опитування.
+            title: Пройдіть опитування
+          are_you_sure: Цю дію не можна буде скасувати, і ви не зможете редагувати свої відповіді. Ви впевнені?
+          submit: Надіслати
           survey_answered:
-            body: Ви вже відповіли цього опитування.
+            body: Ви вже відповіли на це опитування.
             title: Обстеження відповів
           survey_closed:
             body: Опитування закритий і не може бути вирішене.
