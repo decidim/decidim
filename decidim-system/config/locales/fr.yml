@@ -27,7 +27,7 @@ fr:
           success: Administrateur mis à jour avec succès
       default_pages:
         placeholders:
-          content: Ajoutez du contenu pertinent à cette page en allant sur l'interface d'administration.
+          content: S’il vous plaît ajouter contenu significatif à la page statique %{page} du panneau de commandes admin.
           title: Titre par défaut pour %{page}
       menu:
         admins: Administrateurs
