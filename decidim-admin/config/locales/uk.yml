@@ -428,8 +428,8 @@ uk:
           fields:
             hidden_at: 'Приховано:'
             report_count: Кількість
-            reportable: Звітного
-            reported_content_url: Агентство вмісту URL
+            reportable: Звітність
+            reported_content_url: URL-адреса звітованого вмісту
             reports: Звіти
   errors:
     messages:
@@ -440,10 +440,10 @@ uk:
         newsletters:
           title: Розсилання новин
         settings:
-          title: Параметри
+          title: Налаштування
         users:
           title: Користувачі
   time:
     formats:
-      datepicker: "%m,%d,%Y"
+      datepicker: "%d. %m. %Y"
       timepicker: "%m,%d,%Y %H:%M"
