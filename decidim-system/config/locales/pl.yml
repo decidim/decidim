@@ -27,7 +27,6 @@ pl:
           success: Admin został zaktualizowany
       default_pages:
         placeholders:
-          content: Dodaj tę treść do tej strony na panelu administracyjnym.
           title: Domyślny tytuł dla %{page}
       menu:
         admins: Administratorzy
