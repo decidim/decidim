@@ -55,9 +55,9 @@ uk:
     anonymous_user: Анонімний вхід
     application:
       documents:
-        related_documents: Пов'язані документи
+        related_documents: Супутні документи
       photos:
-        related_photos: Пов'язані з обговоренням фотографії
+        related_photos: Супутні світлини
     authorization_handlers:
       decidim/dummy_authorization_handler:
         fields:
@@ -100,7 +100,7 @@ uk:
       registrations:
         new:
           already_have_an_account?: Вже маєте обліковий запис?
-          newsletter_notifications: Отримувати інформацію про пов'язані з цим події
+          newsletter_notifications: Отримувати повідомлення про пов'язані події
           sign_in: Увійти
           sign_up: Зареєструватися
           sign_up_as:
@@ -169,7 +169,7 @@ uk:
     notifications_settings:
       show:
         comments_notifications: Я хочу отримувати сповіщення електронною поштою, коли хтось коментує мої публікації.
-        newsletter_notifications: Я хочу отримувати інформацію про пов'язані з цим події
+        newsletter_notifications: Я хочу отримувати повідомлення про пов'язані з цим події
         replies_notifications: Я хочу отримувати сповіщення електронною поштою, коли хтось відповідає на мої коментарі.
         update_notifications_settings: Зберегти зміни
       update:
