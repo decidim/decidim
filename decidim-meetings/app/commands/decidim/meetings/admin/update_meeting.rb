@@ -21,7 +21,11 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          update_meeting!
+          transaction do
+            update_meeting!
+            send_notification if should_notify_followers?
+          end
+
           broadcast(:ok, meeting)
         end
 
@@ -43,6 +47,9 @@ module Decidim
             location: form.location,
             location_hints: form.location_hints
           )
+        end
+
+        def send_notification
           Decidim::EventsManager.publish(
             event: "decidim.events.meetings.meeting_updated",
             event_class: Decidim::Meetings::UpdateMeetingEvent,
@@ -52,14 +59,12 @@ module Decidim
           )
         end
 
-        def geocode_meeting
-          result = meeting.geocode
-          form.errors.add :address, :invalid unless result
-          result
+        def should_notify_followers?
+          important_attributes.any? { |attr| meeting.previous_changes[attr].present? }
         end
 
-        def update_meeting
-          meeting.save!
+        def important_attributes
+          %w(start_time end_time address)
         end
       end
     end
