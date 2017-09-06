@@ -62,7 +62,7 @@ uk:
       comment_thread:
         title: Бесіда з %{authorName}
       comments:
-        blocked_comments_warning: Коментарі на цьому кроці відключені, але ви можете прочитати коментарі з попередніх кроків.
+        blocked_comments_warning: Коментарі на цьому кроці відключені, проте ви можете прочитати коментарі з попередніх кроків.
         loading: Завантаження коментарів...
         title: "%{count} коментарів"
       featured_comment:
