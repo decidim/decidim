@@ -71,7 +71,7 @@ uk:
         assembly:
           fields:
             created_at: Створено о
-            promoted: Виділено
+            promoted: Висвітлено
             published: Опубліковано
             title: Назва
           name: Збори
@@ -114,15 +114,15 @@ uk:
           no_assemblies_yet: Ще немає вузлів!
         order_by_assemblies:
           assemblies:
-            one: "Асамблея %{count}"
-            few: "%{count} вузлів"
-            other: "%{count} вузлів"
+            one: "%{count} (одні) збори"
+            few: "%{count} зборів"
+            other: "%{count} зборів"
         promoted_assembly:
-          more_info: Детальніше
+          more_info: Додаткові відомості
           take_part: Взяти участь
       assembly_header:
-        assembly_menu_item: Складання
-        unfold: Розгортатися
+        assembly_menu_item: Збори
+        unfold: Розгорнути
       assembly_widgets:
         show:
           take_part: Взяти участь
