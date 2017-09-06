@@ -92,8 +92,8 @@ uk:
           upcoming: Майбутні
         filters_small_view:
           close_modal: Закрити модальних
-          filter: Фільтр
-          filter_by: Фільтрувати за
+          filter: Відібрати
+          filter_by: 'Відібрати за ознакою:'
           unfold: Розгортатися
         index:
           view_meeting: Подання зустріч
