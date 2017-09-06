@@ -12,6 +12,7 @@ module Decidim
     # event - A String with the name of the event.
     # event_class - A class that wraps the event.
     # resource - an instance of a class implementing the `Decidim::Resource` concern.
+    # extra - a Hash with extra information for the event.
     def initialize(event, event_class, resource, recipient_ids, extra)
       @event = event
       @event_class = event_class

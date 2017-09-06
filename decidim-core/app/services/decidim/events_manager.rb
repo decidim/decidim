@@ -15,7 +15,7 @@ module Decidim
     #   the different subscribers in the system.
     # resource - an instance of a class that received the event.
     # recipient_ids - an Array of IDs of the users that will receive the event
-    # extra - a Hash with extra information for the event.
+    # extra - a Hash with extra information to be included in the notification.
     #
     # Returns nothing.
     def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, recipient_ids:, extra: {})
