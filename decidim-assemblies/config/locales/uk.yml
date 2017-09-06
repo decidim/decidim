@@ -45,28 +45,28 @@ uk:
           success: Збірку успішно оновлено.
       assemblies_copies:
         create:
-          error: При копіюванні цієї збірки сталася помилка.
+          error: При створенні копії цієї збірки сталася помилка.
           success: Успішно створено копію збірки.
       assembly_copies:
         new:
-          copy: Копія
+          copy: Скопіювати
           select: Оберіть дані, копію яких ви хотіли б створити
-          title: Повторювані збори
+          title: Створити копію збірки
       assembly_publications:
         create:
           error: Під час публікації цієї збірки сталася помилка.
-          success: Асамблея опубліковані успішно.
+          success: Збірку успішно опубліковано.
         destroy:
-          error: Під час публікації цієї збірки сталася помилка.
-          success: Асамблея неопубліковані успішно.
+          error: Під час скасування публікації цієї збірки сталася помилка.
+          success: Публікацію збірки успішно скасовано.
       menu:
-        assemblies: Вузлів
+        assemblies: Збірки
         assemblies_submenu:
-          attachments: Вкладення
+          attachments: Вкладені файли
           categories: Розділи
-          features: Особливості
-          info: Інформація
-          moderations: Moderations
+          features: Складові
+          info: Відомості
+          moderations: Дії з модерації
       models:
         assembly:
           fields:
