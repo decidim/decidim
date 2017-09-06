@@ -5,16 +5,16 @@ uk:
         attendees_count: Кількість учасників
         attending_organizations: Перелік організацій, які брали участь
         closing_report: Звіт
-        contributions_count: Кількість внески
-        proposal_ids: Пропозиції, розроблені в зустрічі
+        contributions_count: Кількість внесків
+        proposal_ids: Пропозиції, вироблені під час зустрічі
       meeting:
         address: Адреса
         decidim_category_id: Розділ
-        decidim_scope_id: Сфера
+        decidim_scope_id: Обсяг
         description: Опис
         end_time: Час завершення
         location: Розташування
-        location_hints: Розташування підказки
+        location_hints: Як дістатися
         start_time: Час початку
         title: Назва
   decidim:
