@@ -3,7 +3,7 @@ uk:
     attributes:
       project:
         budget: Бюджет
-        decidim_category_id: Категорія
+        decidim_category_id: Розділ
         decidim_scope_id: Сфера
         description: Опис
         proposal_ids: Супутні пропозиції
@@ -32,8 +32,8 @@ uk:
             title: Редагування проекту
             update: Оновлення
           index:
-            finished_orders: Готової замовлень
-            pending_orders: Невиконані замовлення
+            finished_orders: Завершені голосування
+            pending_orders: Голосування, що зараз тривають
             title: Проекти
           new:
             create: Створити
@@ -72,7 +72,7 @@ uk:
             few: "%{count} проекти"
             other: "%{count} проекти"
         filters:
-          category: Категорія
+          category: Розділ
           category_prompt: Вибрати категорію
           scope_prompt: Виберіть сферу
           scopes: Приціли
@@ -131,5 +131,5 @@ uk:
       included_proposals:
         project_proposals: 'Пропозиції, які входять в цьому проекті:'
   index:
-    confirmed_orders_count: Кількість замовлень
+    confirmed_orders_count: Кількість голосів
   total_budget: Загальний бюджет
