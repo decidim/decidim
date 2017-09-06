@@ -9,7 +9,7 @@ uk:
         proposal_ids: Пропозиції, розроблені в зустрічі
       meeting:
         address: Адреса
-        decidim_category_id: Категорія
+        decidim_category_id: Розділ
         decidim_scope_id: Сфера
         description: Опис
         end_time: Час завершення
@@ -82,7 +82,7 @@ uk:
             success: Зустріч реєстрацій настройки успішно збережено.
       meetings:
         filters:
-          category: Категорія
+          category: Розділ
           category_prompt: Вибрати категорію
           date: Дата
           past: Минуле
