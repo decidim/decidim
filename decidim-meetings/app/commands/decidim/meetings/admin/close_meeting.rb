@@ -47,7 +47,7 @@ module Decidim
             resource: meeting,
             recipient_ids: meeting.users_to_notify.pluck(:id),
             extra: {
-              actor_id: form.current_user.id
+              closed_by_id: form.current_user.id
             }
           )
         end
