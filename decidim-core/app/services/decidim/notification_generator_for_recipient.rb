@@ -38,7 +38,8 @@ module Decidim
         user: recipient,
         event_class: event_class,
         resource: resource,
-        event_name: event
+        event_name: event,
+        extra: extra
       )
     end
 
