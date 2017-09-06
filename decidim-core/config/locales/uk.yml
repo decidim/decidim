@@ -148,7 +148,7 @@ uk:
     filters:
       linked_classes:
         all: Усі
-        meeting: Збори
+        meeting: Зустрічі
         project: Проекти
         proposal: Пропозиції
         result: Підсумки
@@ -319,7 +319,7 @@ uk:
         debates: Дебати
         debates_explanation: Давайте зустрінемось та обговоримо те, що вважаємо важливим для нашого міста.
         how_to_participate: Як я можу взяти участь в процесі?
-        meetings: Збори
+        meetings: Зустрічі
         meetings_explanation: Давайте зустрінемось та обговоримо те, що вважаємо важливим для нашого міста.
         more_info: Додаткові відомості
         proposals: Пропозиції
@@ -339,7 +339,7 @@ uk:
         answers_count: Відповіді
         comments_count: Коментарі
         headline: Поточний стан %{organization}
-        meetings_count: Збори
+        meetings_count: Зустрічі
         orders_count: Голоси
         pages_count: Сторінки
         processes_count: Процеси
