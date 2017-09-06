@@ -83,7 +83,7 @@ uk:
       meetings:
         filters:
           category: Розділ
-          category_prompt: Вибрати категорію
+          category_prompt: Оберіть розділ
           date: Дата
           past: Минуле
           scope_prompt: Виберіть сферу
