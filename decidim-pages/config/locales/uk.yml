@@ -6,18 +6,18 @@ uk:
         settings:
           global:
             announcement: Оголошення
-            comments_enabled: Коментарі дозволено
+            comments_enabled: Коментарі ввімкнено
           step:
             announcement: Оголошення
-            comments_blocked: Заблоковані коментарі
+            comments_blocked: Коментарі заблоковано
     pages:
       admin:
         models:
           components:
-            body: Тіло
+            body: Основний текст
         pages:
           edit:
-            save: Оновлення
+            save: Оновити
             title: Редагувати сторінку
           update:
             invalid: При збереженні цієї сторінки сталися помилки.
