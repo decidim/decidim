@@ -100,9 +100,9 @@ uk:
         results_count: Підсумки
         surveys_count: Опитування
         users_count: Учасники
-        votes_count: Голосів
+        votes_count: Голоси
     menu:
-      assemblies: Вузлів
+      assemblies: Збори
   layouts:
     decidim:
       assemblies:
@@ -111,7 +111,7 @@ uk:
         index:
           promoted_assemblies: Висвітлені збори
         no_assemblies_yet:
-          no_assemblies_yet: Ще немає вузлів!
+          no_assemblies_yet: Ще немає зборів!
         order_by_assemblies:
           assemblies:
             one: "%{count} (одні) збори"
