@@ -8,7 +8,7 @@ uk:
         manage_email_subscriptions_html: Ви можете припинити отримувати ці електронні листи, змінивши свої налаштування на %{link}.
         notifications_settings_link: сторінці налаштувань сповіщень
         reply_created:
-          new_reply_html: Надійшла нова відповідь на ваш коментар від <b>%{commenter}</b> в <b>%{commentable_link}</b>
+          new_reply_html: Надійшла нова відповідь на ваш коментар від <b>%{commenter}</b> на <b>%{commentable_link}</b>
       mailer:
         comment_notification:
           comment_created:
@@ -26,7 +26,7 @@ uk:
             label: Коментар
             placeholder: Що ви думаєте з цього приводу?
           form_error: Тут обов'язково потрібно ввести текст, але не більше, ніж %{length} символів.
-          submit: Відправити
+          submit: Надіслати
           user_group_id:
             label: Коментувати як
         opinion:
@@ -37,14 +37,14 @@ uk:
       comment:
         alignment:
           against: Проти
-          in_favor: На користь
-        deleted_user: Видаленим користувачем
-        reply: Відповідь
+          in_favor: За
+        deleted_user: Видалений користувач
+        reply: Відповісти
         report:
-          action: Звіт
-          already_reported: Цей вміст вже повідомив, і вона буде розглядатися по адміністратора
+          action: Доповісти
+          already_reported: Про цей вміст вже повідомлено, і його перегляне адміністратор.
           close: Закрити
-          description: Не це зміст підходить?
+          description: Чи цей вміст недоречний?
           details: Додаткові коментарі
           reasons:
             does_not_belong: Містить незаконну діяльність, загрози самогубства, особисту інформацію чи ще щось, чого, на вашу думку, не повинно бути в %{organization_name}.
