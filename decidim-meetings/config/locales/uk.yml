@@ -30,14 +30,14 @@ uk:
             announcement: Оголошення
     meetings:
       actions:
-        attachments: Вкладення
+        attachments: Вкладені файли
         close: Закрити
-        confirm_destroy: Справді видалити цю нараду?
+        confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
-        new: Нові
+        new: Нове
         preview: Попередній перегляд
-        registrations: Реєстрацій
+        registrations: Реєстрації
         title: Дії
       admin:
         exports:
@@ -45,16 +45,16 @@ uk:
         meeting_closes:
           edit:
             close: Закрити
-            title: Закриття зустрічі
+            title: Закрити зустріч
         meetings:
           close:
-            invalid: Там були проблеми закриття цієї зустрічі
-            success: Зборів успішно закрила
+            invalid: При закритті цієї зустрічі сталася помилка
+            success: Зустріч успішно закрито
           create:
-            invalid: Там була помилка створення цієї наради
-            success: Зборів успішно створено
+            invalid: При створенні цих зборів сталася помилка
+            success: Збори успішно створено
           destroy:
-            success: Успішно видалили наради
+            success: Збори успішно видалено
           edit:
             update: Оновлення
           index:
