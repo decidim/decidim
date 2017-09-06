@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       result:
-        decidim_category_id: Категорія
+        decidim_category_id: Розділ
         decidim_scope_id: Сфера
         description: Опис
         proposal_ids: Включено пропозиції
@@ -61,7 +61,7 @@ uk:
             few: "%{count} результати"
             other: "%{count} результати"
         filters:
-          category: Категорія
+          category: Розділ
           category_prompt: Вибрати категорію
           scope_prompt: Виберіть сферу
           scopes: Приціли
