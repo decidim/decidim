@@ -219,17 +219,17 @@ uk:
         impersonation_log:
           fields:
             admin: Адміністратор
-            ended_at: 'Завершено:'
-            expired_at: 'Термін дії закінчився:'
-            started_at: 'Започатковано:'
+            ended_at: Завершено о
+            expired_at: Термін дії закінчився о
+            started_at: Започатковано о
             user: Користувач
         managed_user:
           name: Керований користувач
         newsletter:
           fields:
-            created_at: 'Створено:'
+            created_at: Створено о
             progress: Перебіг
-            sent_at: 'Надіслано:'
+            sent_at: Надіслано о
             subject: Тема
           name: Випуск новин
         scope:
@@ -242,7 +242,7 @@ uk:
             plural: Множина
         static_page:
           fields:
-            created_at: 'Створено:'
+            created_at: Створено о
             title: Назва
         user:
           fields:
@@ -258,7 +258,7 @@ uk:
         user_group:
           fields:
             actions: Дії
-            created_at: 'Створено:'
+            created_at: Створено о
             document_number: Номер документа
             name: Ім'я
             phone: Телефон
@@ -426,7 +426,7 @@ uk:
       models:
         moderation:
           fields:
-            hidden_at: 'Приховано:'
+            hidden_at: Приховано о
             report_count: Кількість
             reportable: Звітність
             reported_content_url: URL-адреса звітованого вмісту
@@ -446,4 +446,4 @@ uk:
   time:
     formats:
       datepicker: "%d. %m. %Y"
-      timepicker: "%m,%d,%Y %H:%M"
+      timepicker: "%H:%M %d.%m.%Y"
