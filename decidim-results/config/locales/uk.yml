@@ -14,10 +14,10 @@ uk:
         settings:
           global:
             announcement: Оголошення
-            comments_enabled: Коментарі дозволено
+            comments_enabled: Коментарі ввімкнено
           step:
             announcement: Оголошення
-            comments_blocked: Заблоковані коментарі
+            comments_blocked: Коментарі заблоковано
     resource_links:
       included_proposals:
         result_proposals: Пропозиції, які входять в цей результат
