@@ -27,7 +27,6 @@ eu:
           success: Administratzailea zuzen eguneratu da
       default_pages:
         placeholders:
-          content: Mesedez, gehitu eduki adierazgarria orri honetan, kontrol-panela baliatuta.
           title: 'Izenburu lehenetsia orri honetarako: %{page}'
       menu:
         admins: Administratzaileak
