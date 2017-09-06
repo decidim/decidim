@@ -30,7 +30,7 @@ uk:
         description: Опис
         hero_image: Зображення
         name: Ім'я
-        participatory_process_ids: Пов'язані процеси
+        participatory_process_ids: Супутні процеси
       participatory_process_step:
         description: Опис
         end_date: Дата закінчення
