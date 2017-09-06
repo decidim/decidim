@@ -58,7 +58,7 @@ uk:
           most_discussed: Найчастіше обговорювані
           older: Літні
           recent: Останні
-        title: 'Замовити по:'
+        title: 'Впорядкувати за:'
       comment_thread:
         title: Розмова з %{authorName}
       comments:
