@@ -55,7 +55,9 @@ module Decidim
             event_class: Decidim::Meetings::UpdateMeetingEvent,
             resource: meeting,
             recipient_ids: meeting.users_to_notify.pluck(:id),
-            user: form.current_user
+            extra: {
+              actor_id: form.current_user.id
+            }
           )
         end
 
