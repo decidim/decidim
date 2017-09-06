@@ -76,7 +76,7 @@ uk:
           category_prompt: Оберіть розділ
           scope_prompt: Виберіть сферу
           scopes: Приціли
-          search: Пошук
+          search: Шукати
         filters_small_view:
           close_modal: Закрити модальних
           filter: Відібрати
