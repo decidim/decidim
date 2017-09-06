@@ -73,7 +73,7 @@ uk:
             other: "%{count} проекти"
         filters:
           category: Розділ
-          category_prompt: Вибрати категорію
+          category_prompt: Оберіть розділ
           scope_prompt: Виберіть сферу
           scopes: Приціли
           search: Пошук
