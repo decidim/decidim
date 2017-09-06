@@ -110,7 +110,7 @@ uk:
           join: Приєднатися до зборів
           meeting_report: Звіт про збори
           no_slots_available: Не залишилось місць
-          organizations: Організації, що відвідують
+          organizations: Організації, що приймають участь
           remaining_slots:
             one: Залишилось 1 місце
             few: "Залишилось %{count} місця"
