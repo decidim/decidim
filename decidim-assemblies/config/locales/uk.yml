@@ -20,37 +20,37 @@ uk:
         short_description: Стислий опис
         slug: Скорочена URL-адреса
         subtitle: Підзаголовок
-        target: Цільової
+        target: Ціль
         title: Назва
   decidim:
     admin:
       assemblies:
         create:
           error: При створенні нової збірки сталася помилка.
-          success: Асамблея створена успішно.
+          success: Збірку успішно створено.
         destroy:
-          success: Асамблея знищені успішно.
+          success: Збірку успішно видалено.
         edit:
-          update: Оновлення
+          update: Оновити
         form:
-          title: Загальна інформація
+          title: Загальні відомості
         index:
-          not_published: Не Опубліковано
+          not_published: Не опубліковано
           published: Опубліковано
         new:
           create: Створити
-          title: Нові збірки
+          title: Нова збірка
         update:
           error: При оновленні цієї збірки сталася помилка.
-          success: Асамблея успішно оновлено.
+          success: Збірку успішно оновлено.
       assemblies_copies:
         create:
           error: При копіюванні цієї збірки сталася помилка.
-          success: Складання дубльовані успішно.
+          success: Успішно створено копію збірки.
       assembly_copies:
         new:
           copy: Копія
-          select: Оберіть які дані, які ви хотіли б створити дублікат
+          select: Оберіть дані, копію яких ви хотіли б створити
           title: Повторювані збори
       assembly_publications:
         create:
