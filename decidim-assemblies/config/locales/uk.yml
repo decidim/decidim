@@ -26,10 +26,10 @@ uk:
     admin:
       assemblies:
         create:
-          error: При створенні нової збірки сталася помилка.
+          error: При створенні нових зборів сталася помилка.
           success: Збори успішно створено.
         destroy:
-          success: Збірку успішно видалено.
+          success: Збори успішно видалено.
         edit:
           update: Оновити
         form:
@@ -39,28 +39,28 @@ uk:
           published: Опубліковано
         new:
           create: Створити
-          title: Нова збірка
+          title: Нові збори
         update:
-          error: При оновленні цієї збірки сталася помилка.
-          success: Збірку успішно оновлено.
+          error: При оновленні цих зборів сталася помилка.
+          success: Збори успішно оновлено.
       assemblies_copies:
         create:
-          error: При створенні копії цієї збірки сталася помилка.
-          success: Успішно створено копію збірки.
+          error: При створенні копії цих зборів сталася помилка.
+          success: Успішно створено копію зборів.
       assembly_copies:
         new:
           copy: Скопіювати
           select: Оберіть дані, копію яких ви хотіли б створити
-          title: Створити копію збірки
+          title: Створити копію зборів
       assembly_publications:
         create:
-          error: Під час публікації цієї збірки сталася помилка.
-          success: Збірку успішно опубліковано.
+          error: Під час публікації цих зборів сталася помилка.
+          success: Збори успішно опубліковано.
         destroy:
-          error: Під час скасування публікації цієї збірки сталася помилка.
-          success: Публікацію збірки успішно скасовано.
+          error: При скасуванні публікації цих зборів сталася помилка.
+          success: Публікацію зборів успішно скасовано.
       menu:
-        assemblies: Збірки
+        assemblies: Збори
         assemblies_submenu:
           attachments: Вкладені файли
           categories: Розділи
@@ -74,22 +74,22 @@ uk:
             promoted: Виділено
             published: Опубліковано
             title: Назва
-          name: Збірка
+          name: Збори
       titles:
-        assemblies: Збірки
+        assemblies: Збори
     assemblies:
       index:
-        title: Вузлів
+        title: Збори
       show:
         developer_group: Група розробників
         local_area: Місцевість
-        participatory_scope: Участь рамки
-        participatory_structure: Участі структури
-        scope: Сфера
-        target: Цільової
+        participatory_scope: Обсяг співучасті
+        participatory_structure: Структура співучасті
+        scope: Обсяг
+        target: Ціль
       statistics:
         answers_count: Відповіді
-        assemblies_count: Вузлів
+        assemblies_count: Збори
         comments_count: Коментарі
         headline: Діяльність
         meetings_count: Зустрічі
@@ -109,7 +109,7 @@ uk:
         assembly:
           take_part: Взяти участь
         index:
-          promoted_assemblies: Виділених вузлів
+          promoted_assemblies: Висвітлені збори
         no_assemblies_yet:
           no_assemblies_yet: Ще немає вузлів!
         order_by_assemblies:
