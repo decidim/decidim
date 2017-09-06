@@ -116,7 +116,7 @@ uk:
           category_used: Цю категорію не можна видалити, оскільки вона використовується.
         new:
           create: Створити категорію
-          title: Нова категорія
+          title: Новий розділ
         update:
           error: Під час оновлення цієї категорії сталася помилка.
           success: Категорію успішно оновлено.
@@ -195,27 +195,27 @@ uk:
         promotions:
           new:
             explanation: Керованих користувачів можна підвищувати до стандартних користувачів. Це означає, що вони будуть запрошені до застосунку, і ви не зможете видати себе за них знову. Запрошений користувач отримає електронний лист з проханням прийняти ваше запрошення.
-            new_managed_user_promotion: Нова акція синхронізованого користувача
+            new_managed_user_promotion: Підвищення нового керованого користувача
             promote: Підвищити в статусі
       menu:
         admins: Адміністратори
         dashboard: Приладна дошка
-        managed_users: Керованих користувачів
-        newsletters: Інформаційні бюлетені
-        scope_types: Сфера типів
-        scopes: Приціли
-        settings: Параметри
+        managed_users: Керовані користувачі
+        newsletters: Розсилання новин
+        scope_types: Різновиди обсягу
+        scopes: Обсяги
+        settings: Налаштування
         static_pages: Сторінки
         user_groups: Групи користувачів
         users: Користувачі
       models:
         attachment:
           fields:
-            content_type: Тип
+            content_type: Різновид
             title: Назва
-          name: Вкладення
+          name: Вкладений файл
         category:
-          name: Категорія
+          name: Розділ
         impersonation_log:
           fields:
             admin: Адмін
@@ -320,9 +320,9 @@ uk:
       scope_types:
         create:
           error: Помилка під час створення нового типу сферу.
-          success: Сфера типу успішно створено.
+          success: Різновид обсягу успішно створено.
         destroy:
-          success: Сфера типу успішно знищені
+          success: Різновид обсягу успішно видалено
         edit:
           title: Змінити масштаб типу
           update: Оновлення
@@ -369,7 +369,7 @@ uk:
         dashboard: Приладна дошка
         impersonations: Impersonations
         managed_users: Керованих користувачів
-        scope_types: Сфера типів
+        scope_types: Різновиди обсягу
         scopes: Приціли
         static_pages: Сторінки
         user_groups: Групи користувачів
