@@ -151,7 +151,7 @@ uk:
         meeting: Збори
         project: Проекти
         proposal: Пропозиції
-        result: Результати
+        result: Підсумки
     forms:
       current_file: Поточний файл
       current_image: Поточне зображення
@@ -233,7 +233,7 @@ uk:
       reference:
         reference: 'Посилання на джерело: %{reference}'
       results_per_page:
-        label: 'Результатів на сторінку:'
+        label: 'Підсумків на сторінку:'
       share_modal:
         close_window: Закрити вікно
         share: Поділитися
@@ -345,7 +345,7 @@ uk:
         processes_count: Процеси
         projects_count: Проекти
         proposals_count: Пропозиції
-        results_count: Результати
+        results_count: Підсумки
         surveys_count: Опитування
         users_count: Учасники
         votes_count: Голоси
