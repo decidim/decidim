@@ -4,7 +4,7 @@ uk:
       project:
         budget: Бюджет
         decidim_category_id: Розділ
-        decidim_scope_id: Сфера
+        decidim_scope_id: Обсяг
         description: Опис
         proposal_ids: Супутні пропозиції
         title: Назва
