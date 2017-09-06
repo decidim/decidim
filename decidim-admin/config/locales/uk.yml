@@ -79,7 +79,7 @@ uk:
       actions:
         add: Додати
         browse: Переглянути
-        export: Зберегти
+        export: Зберегти у вигляді файлу
         manage: Керувати
         permissions: Права
         reject: Відхилити
