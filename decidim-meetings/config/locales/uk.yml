@@ -5,7 +5,7 @@ uk:
         attendees_count: Кількість учасників
         attending_organizations: Перелік організацій, які брали участь
         closing_report: Звіт
-        contributions_count: Кількість внесків
+        contributions_count: Кількість внесених пропозицій
         proposal_ids: Пропозиції, вироблені під час зустрічі
       meeting:
         address: Адреса
@@ -14,14 +14,14 @@ uk:
         description: Опис
         end_time: Час завершення
         location: Розташування
-        location_hints: Як дістатися
+        location_hints: Як дістатися до цього місця
         start_time: Час початку
         title: Назва
   decidim:
     features:
       meetings:
         actions:
-          join: Приєднатися до
+          join: Приєднатися
         name: Зустрічі
         settings:
           global:
