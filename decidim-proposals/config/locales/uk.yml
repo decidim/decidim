@@ -64,7 +64,7 @@ uk:
             success: Пропозицію успішно створено
           form:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
-            select_a_category: Оберіть категорію
+            select_a_category: Оберіть розділ
           index:
             title: Пропозиції
           new:
@@ -103,7 +103,7 @@ uk:
           activity: Діяльність
           all: Усі
           category: Розділ
-          category_prompt: Оберіть категорію
+          category_prompt: Оберіть розділ
           citizenship: Громадянство
           evaluating: Розглядається
           official: Офіційне
@@ -131,7 +131,7 @@ uk:
         new:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Назад
-          select_a_category: Будь ласка, оберіть категорію
+          select_a_category: Будь ласка, оберіть розділ
           send: Надіслати
           title: Нова пропозиція
         orders:
