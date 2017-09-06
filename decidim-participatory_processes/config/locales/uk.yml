@@ -221,7 +221,7 @@ uk:
         none: Жоден
       participatory_processes:
         index:
-          loading: Завантаження результатів...
+          loading: Завантаження підсумків...
       show:
         developer_group: Група розробників
         end_date: Дата закінчення
@@ -241,7 +241,7 @@ uk:
         processes_count: Процеси
         projects_count: Проекти
         proposals_count: Пропозиції
-        results_count: Результати
+        results_count: Підсумки
         surveys_count: Опитування
         users_count: Учасники
         votes_count: Голоси
