@@ -5,7 +5,7 @@ uk:
         body: Відповідь
       survey_question:
         mandatory: Обов’язкове поле
-        question_type: Тип
+        question_type: Різновид
   decidim:
     features:
       surveys:
