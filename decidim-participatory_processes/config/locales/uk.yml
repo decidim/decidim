@@ -70,7 +70,7 @@ uk:
         participatory_process:
           fields:
             created_at: Створено в
-            promoted: Виділено
+            promoted: Висвітлено
             published: Опубліковано
             title: Назва
           name: Процес співучасті
@@ -258,7 +258,7 @@ uk:
           take_part: Взяти участь
       participatory_processes:
         index:
-          promoted_processes: Виділені процеси
+          promoted_processes: Висвітлені процеси
         no_processes_yet:
           no_processes_yet: Процесів співучасті поки що нема!
         order_by_processes:
