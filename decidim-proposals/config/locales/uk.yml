@@ -3,7 +3,7 @@ uk:
     attributes:
       proposal:
         body: Основний текст
-        category_id: Категорія
+        category_id: Розділ
         scope_id: Обсяг
         title: Назва
         user_group_id: Створити пропозицію як
@@ -81,7 +81,7 @@ uk:
       models:
         proposal:
           fields:
-            category: Категорія
+            category: Розділ
             official_proposal: Офіційна пропозиція
             scope: Обсяг
             state: Стан
@@ -102,7 +102,7 @@ uk:
           accepted: Прийнято
           activity: Діяльність
           all: Усі
-          category: Категорія
+          category: Розділ
           category_prompt: Оберіть категорію
           citizenship: Громадянство
           evaluating: Розглядається
