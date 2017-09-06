@@ -6,7 +6,7 @@ uk:
         attending_organizations: Перелік організацій, які брали участь
         closing_report: Звіт
         contributions_count: Кількість внесених пропозицій
-        proposal_ids: Пропозиції, вироблені під час зустрічі
+        proposal_ids: Пропозиції, вироблені під час зборів
       meeting:
         address: Адреса
         decidim_category_id: Розділ
@@ -22,7 +22,7 @@ uk:
       meetings:
         actions:
           join: Приєднатися
-        name: Зустрічі
+        name: Збори
         settings:
           global:
             announcement: Оголошення
@@ -32,7 +32,7 @@ uk:
       actions:
         attachments: Вкладені файли
         close: Закрити
-        confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
+        confirm_destroy: Ви впевнені, що хочете видалити ці збори?
         destroy: Видалити
         edit: Редагувати
         new: Нове
@@ -45,41 +45,41 @@ uk:
         meeting_closes:
           edit:
             close: Закрити
-            title: Закрити зустріч
+            title: Закрити збори
         meetings:
           close:
-            invalid: При закритті цієї зустрічі сталася помилка
-            success: Зустріч успішно закрито
+            invalid: При закритті цих зборів сталася помилка
+            success: Збори успішно закрито
           create:
             invalid: При створенні цих зборів сталася помилка
             success: Збори успішно створено
           destroy:
             success: Збори успішно видалено
           edit:
-            update: Оновлення
+            update: Оновити
           index:
-            title: Зустрічі
+            title: Збори
           new:
             create: Створити
-            title: Створення зустрічі
+            title: Створити збори
           update:
-            invalid: Там були проблеми оновлення цієї наради
-            success: Зборів успішно оновлено
+            invalid: При оновленні цих зборів сталася помилка
+            success: Збори успішно оновлено
         models:
           meeting:
-            name: Зустріч
+            name: Збори
         registrations:
           edit:
             save: Зберегти
           form:
-            available_slots_help: Залиште його до 0, якщо у вас є необмежені слоти доступні.
+            available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
             registrations_count:
               one: Було досягнуто 1 реєстрації.
               few: Там було %{count} реєстрацій.
               other: Там було %{count} реєстрацій.
           update:
             invalid: Там були проблеми збереження настройок реєстрації.
-            success: Зустріч реєстрацій настройки успішно збережено.
+            success: Налаштування реєстрації на збори успішно збережено.
       meetings:
         filters:
           category: Розділ
@@ -96,10 +96,10 @@ uk:
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгортатися
         index:
-          view_meeting: Подання зустріч
+          view_meeting: Переглянути збори
         meetings:
-          no_meetings_warning: Жодного засідання відповідають критеріям пошуку, або не існує будь-яку зустріч запланованого.
-          upcoming_meetings_warning: В даний час там не немає запланованих зустрічей, але тут ви можете знайти всі останні зустрічі у списку.
+          no_meetings_warning: Жодні збори не відповідають вашим критеріям пошуку, або жодних зборів не заплановано.
+          upcoming_meetings_warning: Наразі нема запланованих зборів, але тут ви можете знайти перелік усіх попередніх зборів.
         registration_confirm:
           cancel: '"Скасувати"'
           confirm: Підтвердити
@@ -108,7 +108,7 @@ uk:
           contributions: Внески кол
           going: Буде
           join: Приєднатися до наради
-          meeting_report: Зустріч звіт
+          meeting_report: Звіт про збори
           no_slots_available: Немає слота доступні
           organizations: Участь організацій
           remaining_slots:
@@ -126,15 +126,15 @@ uk:
       read_more: "(читати далі)"
       registrations:
         create:
-          invalid: Там були проблеми, що приєднання цієї зустрічі.
+          invalid: При приєднанні до цих зборів сталася помилка.
           success: Ви приєдналися до наради успішно.
         destroy:
-          invalid: Там були проблеми, залишаючи цієї зустрічі.
+          invalid: При залишенні цих зборів сталася помилка.
           success: Ви припинять участь успішно.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Відповідних результатів:'
-        result_meetings: 'Пов''язані зустрічей:'
+        result_meetings: 'Пов''язані збори:'
       proposals_from_meeting:
         meeting_proposals: 'Супутні пропозиції:'
-        proposal_meetings: 'Пов''язані зустрічей:'
+        proposal_meetings: 'Пов''язані збори:'
