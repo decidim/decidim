@@ -96,8 +96,8 @@ uk:
             moderator: Модератор
         user:
           fields:
-            invitation_accepted_at: Запрошення прийняте на
-            invitation_sent_at: Запрошення надіслане на
+            invitation_accepted_at: 'Запрошення прийнято:'
+            invitation_sent_at: 'Запрошення надіслано:'
       participatory_process_copies:
         new:
           copy: Скопіювати
