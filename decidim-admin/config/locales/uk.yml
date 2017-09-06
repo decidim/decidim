@@ -397,20 +397,20 @@ uk:
       users:
         create:
           error: Під час запрошення цього користувача сталася помилка.
-          success: Користувач, запрошений успішно.
+          success: Користувача успішно запрошено.
         destroy:
           error: При спробі видалити цього користувача сталася помилка.
           success: Користувач більше не є адміністратором.
         form:
-          email: Електронна пошта
+          email: Адреса електронної пошти
           name: Ім'я
           role: Роль
         new:
           create: Запросити
-          title: Запросити користувача адміністратора
+          title: Запросити користувача як адміністратора
     moderations:
       actions:
-        hidden: Приховані
+        hidden: Приховано
         hide: Приховати
         not_hidden: Не приховано
         title: Дії
@@ -427,7 +427,7 @@ uk:
         moderation:
           fields:
             hidden_at: 'Приховано:'
-            report_count: Граф
+            report_count: Кількість
             reportable: Звітного
             reported_content_url: Агентство вмісту URL
             reports: Звіти
