@@ -221,7 +221,7 @@ uk:
             admin: Адміністратор
             ended_at: 'Завершено:'
             expired_at: 'Термін дії закінчився:'
-            started_at: 'Розпочалося:'
+            started_at: 'Започатковано:'
             user: Користувач
         managed_user:
           name: Керовані користувача
@@ -229,7 +229,7 @@ uk:
           fields:
             created_at: 'Створено:'
             progress: Прогрес
-            sent_at: Надіслане о
+            sent_at: 'Надіслано:'
             subject: Тема
           name: Інформаційний бюлетень
         scope:
@@ -242,7 +242,7 @@ uk:
             plural: Множина
         static_page:
           fields:
-            created_at: Створено в
+            created_at: 'Створено:'
             title: Назва
         user:
           fields:
@@ -258,7 +258,7 @@ uk:
         user_group:
           fields:
             actions: Дії
-            created_at: Створено в
+            created_at: 'Створено:'
             document_number: Номер документа
             name: Ім'я
             phone: Телефон
@@ -426,7 +426,7 @@ uk:
       models:
         moderation:
           fields:
-            hidden_at: Приховані на
+            hidden_at: 'Приховано:'
             report_count: Граф
             reportable: Звітного
             reported_content_url: Агентство вмісту URL
