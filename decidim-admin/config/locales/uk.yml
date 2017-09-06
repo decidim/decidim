@@ -389,7 +389,7 @@ uk:
             rejected: Відхилено
             verified: Перевірено
           filter_by: 'Відібрати за ознакою:'
-          search: Пошук
+          search: Шукати
           state:
             pending: Очікує на розгляд
             rejected: Відхилено
