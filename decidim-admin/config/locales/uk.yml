@@ -364,34 +364,34 @@ uk:
           title: Нова сторінка
         update:
           error: При оновленні цієї сторінки сталася помилка.
-          success: Успішно оновлено сторінку
+          success: Сторінку успішно оновлено
       titles:
         dashboard: Приладна дошка
-        impersonations: Impersonations
-        managed_users: Керованих користувачів
+        impersonations: Уособлення в якості користувачів
+        managed_users: Керовані користувачі
         scope_types: Різновиди обсягу
-        scopes: Приціли
+        scopes: Обсяги
         static_pages: Сторінки
         user_groups: Групи користувачів
         users: Користувачі
       user_group:
         reject:
-          invalid: Виявлено помилку при скиданні ця група користувачів.
-          success: Група користувачів успішно відхилив
+          invalid: Під час відхилення цієї групи користувачів сталася помилка.
+          success: Група користувачів успішно відхилена
         verify:
           invalid: При перевірці цієї групи користувачів сталася помилка.
-          success: Група користувачів успішно перевірено
+          success: Групу користувачів успішно перевірено
       user_groups:
         index:
           filter:
-            all: Всі
-            pending: Очікування
+            all: Усі
+            pending: Очікує на розгляд
             rejected: Відхилено
             verified: Перевірено
-          filter_by: Фільтрувати за
+          filter_by: 'Відібрати за ознакою:'
           search: Пошук
           state:
-            pending: Очікування
+            pending: Очікує на розгляд
             rejected: Відхилено
             verified: Перевірено
       users:
