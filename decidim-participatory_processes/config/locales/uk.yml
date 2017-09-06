@@ -36,7 +36,7 @@ uk:
         end_date: Дата закінчення
         short_description: Стислий опис
         start_date: Дата початку
-        title: Звертання
+        title: Назва
       participatory_process_user_role:
         email: Адреса електронної пошти
         name: Ім'я
