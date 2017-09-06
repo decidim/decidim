@@ -115,11 +115,11 @@ uk:
           categories_title: Розділи
           category_used: Цей розділ не можна видалити, оскільки він використовується.
         new:
-          create: Створити категорію
+          create: Створити розділ
           title: Новий розділ
         update:
-          error: Під час оновлення цієї категорії сталася помилка.
-          success: Категорію успішно оновлено.
+          error: Під час оновлення цього розділу сталася помилка.
+          success: Розділ успішно оновлено.
       dashboard:
         show:
           welcome: Ласкаво просимо на нову панель адміністратора Десідім!
@@ -190,7 +190,7 @@ uk:
           select_authorization_method: Оберіть спосіб авторизації
           step: '%{current}-й крок з %{total} кроків'
         promotion:
-          error: При оновленні керованого користувача сталася помилка.
+          error: При підвищенні керованого користувача сталася помилка.
           success: Керованого користувача було успішно підвищено в статусі.
         promotions:
           new:
@@ -218,16 +218,16 @@ uk:
           name: Розділ
         impersonation_log:
           fields:
-            admin: Адмін
-            ended_at: Закінчився в
-            expired_at: Закінчився в
-            started_at: Почалася в
+            admin: Адміністратор
+            ended_at: 'Завершено:'
+            expired_at: 'Термін дії закінчився:'
+            started_at: 'Розпочалося:'
             user: Користувач
         managed_user:
           name: Керовані користувача
         newsletter:
           fields:
-            created_at: Створений в
+            created_at: 'Створено:'
             progress: Прогрес
             sent_at: Надіслане о
             subject: Тема
