@@ -3,7 +3,7 @@ uk:
     attributes:
       assembly:
         banner_image: Банер зображення
-        copy_categories: Копія категорії
+        copy_categories: Скопіювати розділи
         copy_features: Скопіювати функції
         description: Опис
         developer_group: Група розробників
@@ -63,7 +63,7 @@ uk:
         assemblies: Вузлів
         assemblies_submenu:
           attachments: Вкладення
-          categories: Категорії
+          categories: Розділи
           features: Особливості
           info: Інформація
           moderations: Moderations
