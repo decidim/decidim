@@ -36,7 +36,7 @@ uk:
       models:
         admin:
           fields:
-            created_at: Створено в
+            created_at: 'Створено:'
             email: Адреса електронної пошти
           name: Адміністратор
           validations:
@@ -45,7 +45,7 @@ uk:
           actions:
             save_and_invite: Створити організацію та запросити адміністратора
           fields:
-            created_at: Створено в
+            created_at: 'Створено:'
             name: Ім'я
           name: Організація
       organizations:
