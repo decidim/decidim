@@ -2,24 +2,24 @@ uk:
   activemodel:
     attributes:
       assembly:
-        banner_image: Банер зображення
+        banner_image: Банерне зображення
         copy_categories: Скопіювати розділи
-        copy_features: Скопіювати функції
+        copy_features: Скопіювати складові
         description: Опис
         developer_group: Група розробників
         domain: Домен
-        hashtag: Хештегом
-        hero_image: Зображення будинку
+        hashtag: Хештег
+        hero_image: Зображення головної сторінки
         local_area: Місцевість
-        meta_scope: Метадані сфери
-        participatory_scope: Участь рамки
-        participatory_structure: Участі структури
+        meta_scope: Метадані обсягу
+        participatory_scope: Обсяг співучасті
+        participatory_structure: Структура співучасті
         promoted: Підвищено в статусі
-        scope_id: Сфера
-        scopes_enabled: Приціли включений
-        short_description: Короткий опис
-        slug: Службове поле URL
-        subtitle: Субтитрів
+        scope_id: Обсяг
+        scopes_enabled: Ввімкнені обсяги
+        short_description: Стислий опис
+        slug: Скорочена URL-адреса
+        subtitle: Підзаголовок
         target: Цільової
         title: Назва
   decidim:
