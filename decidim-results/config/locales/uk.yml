@@ -10,7 +10,7 @@ uk:
   decidim:
     features:
       results:
-        name: Результати
+        name: Підсумки
         settings:
           global:
             announcement: Оголошення
@@ -26,7 +26,7 @@ uk:
         confirm_destroy: Ви дійсно бажаєте видалити ці підсумки?
         destroy: Видалити
         edit: Редагувати
-        new: Нові
+        new: Нове
         preview: Попередній перегляд
         title: Дії
       admin:
@@ -38,10 +38,10 @@ uk:
             invalid: При створенні цих підсумків сталася помилка
             success: Підсумки успішно створено
           destroy:
-            success: Підсумки успішно вилучено
+            success: Підсумки успішно видалено
           edit:
             title: Редагувати підсумки
-            update: Оновлення
+            update: Оновити
           index:
             title: Підсумки
           new:
@@ -63,19 +63,19 @@ uk:
         filters:
           category: Розділ
           category_prompt: Оберіть розділ
-          scope_prompt: Виберіть сферу
-          scopes: Приціли
+          scope_prompt: Оберіть обсяг
+          scopes: Обсяги
           search: Шукати
         filters_small_view:
-          close_modal: Закрити модальних
+          close_modal: Закрити віконце
           filter: Відібрати
           filter_by: 'Відібрати за ознакою:'
-          unfold: Розгортатися
+          unfold: Розгорнути
         show:
           stats:
             attendees: Учасники
             comments: Коментарі
-            contributions: Внески
+            contributions: Внесені пропозиції
             meetings: Збори
             proposals: Пропозиції
             votes: Підтримує
