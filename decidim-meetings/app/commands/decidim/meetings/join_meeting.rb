@@ -50,6 +50,7 @@ module Decidim
       def send_notification
         return send_notification_over(0.5) if occupied_slots_over?(0.5)
         return send_notification_over(0.8) if occupied_slots_over?(0.8)
+        send_notification_over(1.0) if occupied_slots_over?(1.0)
       end
 
       def send_notification_over(percentage)
@@ -59,14 +60,13 @@ module Decidim
           resource: @meeting,
           recipient_ids: participatory_space_admins.pluck(:id),
           extra: {
-            user: @user,
             percentage: percentage
           }
         )
       end
 
       def occupied_slots_over?(percentage)
-        @meeting.remaining_slots == (@meeting.available_slots * (1 - percentage)).floor
+        @meeting.remaining_slots == (@meeting.available_slots * (1 - percentage)).round
       end
     end
   end

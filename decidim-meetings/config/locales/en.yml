@@ -96,12 +96,12 @@ en:
           email_subject: The "%{resource_title}" meeting was closed
           notification_title: The <a href="%{resource_path}">%{resource_title}</a>
             meeting was closed.
-        meeting_registrations_over_fifty:
-          email_intro: 'The "%{resource_title}" meeting occupied slots are over 50%.'
+        meeting_registrations_over_percentage:
+          email_intro: 'The "%{resource_title}" meeting occupied slots are over %{percentage}%.'
           email_outro: You have received this notification because you are an admin of the meeting's participatory space.
-          email_subject: The "%{resource_title}" meeting occupied slots are over 50%
+          email_subject: The "%{resource_title}" meeting occupied slots are over %{percentage}%
           notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-            meeting occupied slots are over 50%.
+            meeting occupied slots are over %{percentage}%.
         update_meeting_event:
           email_intro: 'The "%{resource_title}" meeting was updated. You can read
             the new version from its page:'
