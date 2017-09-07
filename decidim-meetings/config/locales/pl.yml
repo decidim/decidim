@@ -80,6 +80,17 @@ pl:
           update:
             invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
             success: Dokonano pomyślnego zapisania ustawień rejestracji rejestracji.
+      events:
+        close_meeting_event:
+          email_intro: 'Spotkanie "%{resource_title}" został zamknięty. Możesz przeczytać wnioski z jego strony:'
+          email_outro: Otrzymałeś powiadomienie, ponieważ są po spotkaniu "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
+          email_subject: Spotkanie "%{resource_title}" został zamknięty
+          notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> został zamknięty.
+        update_meeting_event:
+          email_intro: 'Spotkanie "%{resource_title}" została zaktualizowana. Nową wersję można odczytać z jego strony:'
+          email_outro: Otrzymałeś powiadomienie, ponieważ są po spotkaniu "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
+          email_subject: Spotkanie "%{resource_title}" została zaktualizowana
+          notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> został zaktualizowany.
       meetings:
         filters:
           category: Kategoria
