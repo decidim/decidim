@@ -126,6 +126,14 @@ fr:
         back_home: Retour à l'accueil
         content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
         title: La page que vous recherchez ne peut être trouvée
+    events:
+      email_event:
+        email_greeting: Bonjour %{user_name},
+        email_intro: 'Il y a eu une mise à jour « %{resource_title} ». Vous pouvez le voir sur cette page :'
+        email_outro: Vous avez reçu cet avis parce que vous suivez « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
+        email_subject: Une mise à jour %{resource_title}
+      notification_event:
+        notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -152,6 +160,13 @@ fr:
         project: Projets
         proposal: Propositions
         result: Résultats
+    follows:
+      create:
+        button: Suivez
+        error: Il y a eu une erreur suite à cette ressource.
+      destroy:
+        button: Cesser de suivre
+        error: Il y a eu une erreur unfollowing cette ressource.
     forms:
       current_file: Fichier actuel
       current_image: Image actuelle
