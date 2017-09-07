@@ -79,6 +79,16 @@ it:
           update:
             invalid: Si è verificato un problema salvando le impostazioni di registrazione.
             success: Le impostazioni di registrazione delle riunioni sono state salvate correttamente.
+      events:
+        close_meeting_event:
+          email_intro: 'L''incontro "%{resource_title}" è stato chiuso. È possibile leggere le conclusioni dalla sua pagina:'
+          email_outro: Hai ricevuto questa notifica perché si segue l'incontro "%{resource_title}". Puoi smettere di seguire e dal link precedente.
+          email_subject: È stato chiuso l'incontro "%{resource_title}"
+          notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> era chiuso.
+        update_meeting_event:
+          email_intro: 'L''incontro "%{resource_title}" è stato aggiornato. Potete leggere la nuova versione dalla sua pagina:'
+          email_outro: Hai ricevuto questa notifica perché si segue l'incontro "%{resource_title}". Puoi smettere di seguire e dal link precedente.
+          email_subject: È stato aggiornato l'incontro "%{resource_title}"
       meetings:
         filters:
           category: Categoria
