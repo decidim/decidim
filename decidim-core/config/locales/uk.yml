@@ -130,10 +130,10 @@ uk:
       email_event:
         email_greeting: Доброго дня, %{user_name}%!
         email_intro: 'Було оновлено "%{resource_title}". Ви можете побачити це зі сторінки:'
-        email_outro: Ви отримали це сповіщення, тому що ви слідкуєте за "%{resource_title}". Ви можете припинити слідкувати за ним, перейшовши за наведеним вище посиланням.
+        email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
         email_subject: Оновлення до %{resource_title}
       notification_event:
-        notification_title: Подія відбулося <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: З <a href="%{resource_path}">%{resource_title}</a> відбулася подія.
     export_mailer:
       export:
         ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
@@ -162,11 +162,11 @@ uk:
         result: Підсумки
     follows:
       create:
-        button: Дотримуйтесь
-        error: Там було повідомлення про помилку, після цього ресурсу.
+        button: Стежити
+        error: При спробі стежити за цим ресурсом сталася помилка.
       destroy:
-        button: Зупинитися наступні
-        error: Там була помилка unfollowing цей ресурс.
+        button: Припинити стежити
+        error: При спробі припинити стежити за цим ресурсом сталася помилка.
     forms:
       current_file: Поточний файл
       current_image: Поточне зображення
