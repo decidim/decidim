@@ -3,6 +3,7 @@
 require "searchlight"
 require "kaminari"
 require "jquery-tmpl-rails"
+require "icalendar"
 
 module Decidim
   module Meetings

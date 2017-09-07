@@ -83,15 +83,27 @@ en:
             success: Meeting registrations settings successfully saved.
       events:
         close_meeting_event:
-          email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_intro: 'The "%{resource_title}" meeting was closed. You can read the
+            conclusions from its page:'
+          email_outro: You have received this notification because you are following
+            the "%{resource_title}" meeting. You can unfollow it from the previous
+            link.
           email_subject: The "%{resource_title}" meeting was closed
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
+            meeting was closed.
         update_meeting_event:
-          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_intro: 'The "%{resource_title}" meeting was updated. You can read
+            the new version from its page:'
+          email_outro: You have received this notification because you are following
+            the "%{resource_title}" meeting. You can unfollow it from the previous
+            link.
           email_subject: The "%{resource_title}" meeting was updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
+            meeting was updated.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Your meeting's registration has been confirmed
       meetings:
         filters:
           category: Category
@@ -110,8 +122,10 @@ en:
         index:
           view_meeting: View meeting
         meetings:
-          no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
-          upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
+          no_meetings_warning: No meetings match your search criteria or there isn't
+            any meeting scheduled.
+          upcoming_meetings_warning: Currently, there are no scheduled meetings, but
+            here you can find all the past meetings listed.
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -136,6 +150,10 @@ en:
             start_time: Start date
             title: Title
       read_more: "(read more)"
+      registration_mailer:
+        confirmation:
+          confirmed: "Your registration for the meeting '%{title}' has been confirmed."
+          details: "You will find the meeting's details in the attachment."
       registrations:
         create:
           invalid: There's been a problem joining this meeting.

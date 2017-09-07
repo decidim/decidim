@@ -20,6 +20,18 @@ describe Decidim::Meetings::JoinMeeting do
       expect(last_registration.user).to eq(user)
       expect(last_registration.meeting).to eq(meeting)
     end
+
+    it "sends an email confirming the registration" do
+      perform_enqueued_jobs { subject.call }
+
+      email = last_email
+      expect(email.subject).to include("confirmed")
+      attachment = email.attachments.first
+
+      expect(attachment.read.length).to be_positive
+      expect(attachment.mime_type).to eq("text/calendar")
+      expect(attachment.filename).to match(/meeting-calendar-info.ics/)
+    end
   end
 
   context "when the meeting has not registrations enabled" do
