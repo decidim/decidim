@@ -80,6 +80,17 @@ uk:
           update:
             invalid: При збереженні налаштувань реєстрації сталася помилка.
             success: Налаштування реєстрації на зустріч успішно збережено.
+      events:
+        close_meeting_event:
+          email_intro: 'Закриті засідання "%{resource_title}". Ви можете прочитати висновки зі своїх сторінки:'
+          email_outro: Ви отримали це сповіщення, тому що ви після зустрічі "%{resource_title}". Ви можете unfollow його від попереднє посилання.
+          email_subject: '"%{resource_title}" зустріч була закрита'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> зустрічі було закрито.
+        update_meeting_event:
+          email_intro: 'Зустріч "%{resource_title}" було оновлено. Ви можете прочитати у новій версії зі своєї сторінки:'
+          email_outro: Ви отримали це сповіщення, тому що ви після зустрічі "%{resource_title}". Ви можете unfollow його від попереднє посилання.
+          email_subject: '"%{resource_title}" зустрічі було оновлено'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> зустрічі було оновлено.
       meetings:
         filters:
           category: Розділ
