@@ -79,6 +79,17 @@ fi:
           update:
             invalid: Rekisteröintiasetusten tallentamisessa on ollut ongelma.
             success: Kokousrekisteröintiasetukset tallennettiin onnistuneesti.
+      events:
+        close_meeting_event:
+          email_intro: '”%{resource_title}” Kokous oli suljettu. Voit lukea päätelmät sen sivulla:'
+          email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
+          email_subject: '”%{resource_title}”-Kokous'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous oli suljettu.
+        update_meeting_event:
+          email_intro: '”%{resource_title}” Kokous päivitettiin. Voit lukea uuden version sen sivulla:'
+          email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
+          email_subject: '”%{resource_title}” Kokous päivitettiin'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous päivitettiin.
       meetings:
         filters:
           category: Kategoria
