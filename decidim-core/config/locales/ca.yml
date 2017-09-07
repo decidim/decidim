@@ -126,6 +126,14 @@ ca:
         back_home: Tornar a l'inici
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
         title: No s'ha trobat la pàgina que busques
+    events:
+      email_event:
+        email_greeting: Hola %{user_name},
+        email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure d''aquesta pàgina:'
+        email_outro: Que han rebut aquesta notificació, perquè que segueixen "%{resource_title}". Et poden unfollow l'enllaç anterior.
+        email_subject: Una actualització a %{resource_title}
+      notification_event:
+        notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
@@ -152,6 +160,10 @@ ca:
         project: Projectes
         proposal: propostes
         result: Resultats
+    follows:
+      create:
+        button: Seguir
+        error: Hi ha hagut un error després d'aquest recurs.
     forms:
       current_file: Fitxer actual
       current_image: Imatge actual
