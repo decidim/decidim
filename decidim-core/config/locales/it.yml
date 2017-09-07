@@ -164,6 +164,9 @@ it:
       create:
         button: Seguire
         error: C'è stato un errore seguendo questa risorsa.
+      destroy:
+        button: Smettere di seguire
+        error: C'è stato un errore smettere questa risorsa.
     forms:
       current_file: File attuale
       current_image: Immagine attuale
@@ -310,8 +313,13 @@ it:
         close_session: Chiudi sessione
         description_html: Stai impersonando l'utente <b>%{user_name}</b>.
         expire_time_html: La sessione scadrà in <b><span class="minutes">%{minutes}</span> minutes</b>.
+      notifications_dashboard:
+        mark_all_as_read: Contrassegnare tutti come letti
+        no_notifications: No le notifiche.
+        title: Notifiche
       user_menu:
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
+        notifications: Notifiche
         profile: Il mio account
         sign_out: Esci
       user_profile:
