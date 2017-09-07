@@ -79,6 +79,17 @@ fr:
           update:
             invalid: Il y a eu un problème pour enregistrer les paramètres d'enregistrement.
             success: Réaliser les paramètres d'enregistrement enregistrés avec succès.
+      events:
+        close_meeting_event:
+          email_intro: 'La réunion de la « %{resource_title} » a été fermée. Vous pouvez lire les conclusions de sa page :'
+          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
+          email_subject: La réunion de la « %{resource_title} » a été fermée
+          notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> a été fermée.
+        update_meeting_event:
+          email_intro: 'La réunion de la « %{resource_title} » a été mis à jour. Vous pouvez lire la nouvelle version de sa page :'
+          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
+          email_subject: La réunion de la « %{resource_title} » a été mis à jour
+          notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> a été mis à jour.
       meetings:
         filters:
           category: Catégorie
