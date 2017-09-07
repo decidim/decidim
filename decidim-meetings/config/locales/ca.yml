@@ -79,6 +79,17 @@ ca:
           update:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
+      events:
+        close_meeting_event:
+          email_intro: 'La trobada de "%{resource_title}" va ser tancat. Podeu llegir les conclusions de la seva pàgina:'
+          email_outro: Que han rebut aquesta notificació, perquè vostè està seguint la trobada de "%{resource_title}". Et poden unfollow l'enllaç anterior.
+          email_subject: Es va tancar la trobada de "%{resource_title}"
+          notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> va ser tancat.
+        update_meeting_event:
+          email_intro: 'La trobada de "%{resource_title}" s''actualitzava. Podeu llegir la versió nova de la seva pàgina:'
+          email_outro: Que han rebut aquesta notificació, perquè vostè està seguint la trobada de "%{resource_title}". Et poden unfollow l'enllaç anterior.
+          email_subject: La trobada de "%{resource_title}" s'ha actualitzat
+          notification_title: La reunió de <a href="%{resource_path}">%{resource_title}</a> s'actualitzava.
       meetings:
         filters:
           category: Categoria
