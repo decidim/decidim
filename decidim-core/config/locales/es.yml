@@ -166,6 +166,7 @@ es:
         error: Ha habido un error siguiendo este recurso.
       destroy:
         button: Siguiente parada
+        error: Ha habido un error unfollowing este recurso.
     forms:
       current_file: Archivo actual
       current_image: Imagen actual
@@ -313,8 +314,13 @@ es:
         close_session: Cerrar la sesión
         description_html: Te estás haciendo pasar por el usuario <b>%{user_name}</b>.
         expire_time_html: Su sesión expirará en <b><span class="minutes">%{minutes}</span> minutos</b>.
+      notifications_dashboard:
+        mark_all_as_read: Marcar todo como leído
+        no_notifications: No hay notificaciones aún.
+        title: Notificaciones
       user_menu:
         admin_dashboard: Tablero de administración
+        notifications: Notificaciones
         profile: Mi cuenta
         sign_out: Sal
       user_profile:
