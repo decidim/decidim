@@ -20,7 +20,7 @@ uk:
         short_description: Стислий опис
         slug: Скорочена URL-адреса
         subtitle: Підзаголовок
-        target: Ціль
+        target: Мета
         title: Назва
   decidim:
     admin:
@@ -86,7 +86,7 @@ uk:
         participatory_scope: Обсяг співучасті
         participatory_structure: Структура співучасті
         scope: Обсяг
-        target: Ціль
+        target: Мета
       statistics:
         answers_count: Відповіді
         assemblies_count: Збори
