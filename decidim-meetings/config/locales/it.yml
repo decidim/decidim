@@ -89,6 +89,7 @@ it:
           email_intro: 'L''incontro "%{resource_title}" è stato aggiornato. Potete leggere la nuova versione dalla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché si segue l'incontro "%{resource_title}". Puoi smettere di seguire e dal link precedente.
           email_subject: È stato aggiornato l'incontro "%{resource_title}"
+          notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
       meetings:
         filters:
           category: Categoria
