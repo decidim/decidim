@@ -164,6 +164,9 @@ ca:
       create:
         button: Seguir
         error: Hi ha hagut un error després d'aquest recurs.
+      destroy:
+        button: Deixar de seguir
+        error: Hi ha hagut un error deixar de seguir aquest recurs.
     forms:
       current_file: Fitxer actual
       current_image: Imatge actual
@@ -311,8 +314,13 @@ ca:
         close_session: Tanca la sessió
         description_html: Esteu suplantant l'usuari <b>%{user_name}</b>.
         expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
+      notifications_dashboard:
+        mark_all_as_read: Marca tots com a llegits
+        no_notifications: Encara no hi ha notificacions.
+        title: Notificacions
       user_menu:
         admin_dashboard: Tauler d'administració
+        notifications: Notificacions
         profile: El meu compte
         sign_out: Surt
       user_profile:
