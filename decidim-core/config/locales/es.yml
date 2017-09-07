@@ -126,6 +126,14 @@ es:
         back_home: Volver al inicio
         content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
         title: No se ha encontrado la página que buscas
+    events:
+      email_event:
+        email_greeting: Hola %{user_name},
+        email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
+        email_outro: Ha recibido esta notificación porque usted sigue "%{resource_title}". Usted puede dejar de seguirlo del enlace anterior.
+        email_subject: Una actualización de %{resource_title}
+      notification_event:
+        notification_title: Un evento ocurrido a <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
@@ -152,6 +160,12 @@ es:
         project: Proyectos
         proposal: Propuestas
         result: Resultados
+    follows:
+      create:
+        button: Siga
+        error: Ha habido un error siguiendo este recurso.
+      destroy:
+        button: Siguiente parada
     forms:
       current_file: Archivo actual
       current_image: Imagen actual
