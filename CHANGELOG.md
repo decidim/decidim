@@ -14,7 +14,10 @@
 **Added**
 
 - **decidim**: Support for multiple participatory spaces via custom plugins. [\#1659](https://https://github.com/decidim/decidim/pull/1659)
+- **decidim**: Let users follow resources. [\#1784](https://https://github.com/decidim/decidim/pull/1784)
+- **decidim**: Add a notification dashboard with a list of events on resources the user is following. [\#1784](https://https://github.com/decidim/decidim/pull/1784)
 - **decidim-assemblies**: New optional beta plugin to manage participatory organs A.K.A. assemblies. [\#1659](https://https://github.com/decidim/decidim/pull/1659)
+- **decidim-meetings**: Let users follow meetings. Updating or closing a meeting will send a notification and an email to the users following that meeting. [\#1784](https://https://github.com/decidim/decidim/pull/1784)
 - **decidim-participatory_processes**: Add participatory processes filters (past, active and upcoming) to the processes home page. [\#1779](https://github.com/decidim/decidim/pull/1779)
 
 ## [v0.5.1](https://github.com/decidim/decidim/tree/v0.5.1) (2017-08-21)
