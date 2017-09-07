@@ -126,6 +126,14 @@ nl:
         back_home: Terug naar huis
         content_doesnt_exist: Dit adres is onjuist of is verwijderd.
         title: De pagina die u zoekt is niet gevonden
+    events:
+      email_event:
+        email_greeting: Hallo %{user_name},
+        email_intro: 'Er is een update aan "%{resource_title}". Je ziet het vanaf deze pagina:'
+        email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+        email_subject: Een update aan %{resource_title}
+      notification_event:
+        notification_title: Een gebeurtenis heeft plaatsgevonden om te <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: Hierbij vindt u een bijgevoegde versie van uw export.
@@ -152,6 +160,13 @@ nl:
         project: Projecten
         proposal: Voorstellen
         result: Resultaten
+    follows:
+      create:
+        button: Ga als volgt te
+        error: Er is een fout opgetreden na deze bron.
+      destroy:
+        button: Stop volgende
+        error: Er is een fout opgetreden unfollowing van deze resource.
     forms:
       current_file: Huidig ​​bestand
       current_image: Huidig ​​beeld
@@ -298,8 +313,13 @@ nl:
         close_session: Sluit sessie
         description_html: U veronderstelt de gebruiker <b>%{user_name}</b>.
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
+      notifications_dashboard:
+        mark_all_as_read: Alles als gelezen markeren
+        no_notifications: Nog geen meldingen.
+        title: Meldingen
       user_menu:
         admin_dashboard: Beheer dashboard
+        notifications: Meldingen
         profile: Mijn account
         sign_out: Afmelden
       user_profile:
