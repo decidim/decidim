@@ -126,6 +126,14 @@ uk:
         back_home: Повернутися на головну
         content_doesnt_exist: Ця адреса невірна або була вилучена.
         title: Не вдалося знайти сторінку, яку ви шукаєте
+    events:
+      email_event:
+        email_greeting: Привіт %{user_name},
+        email_intro: 'Було досягнуто оновлення до "%{resource_title}". Ви можете побачити його з цієї сторінки:'
+        email_outro: Ви отримали це сповіщення, тому що ви після "%{resource_title}". Ви можете unfollow його від попереднє посилання.
+        email_subject: Оновлення до %{resource_title}
+      notification_event:
+        notification_title: Подія відбулося <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
@@ -152,6 +160,13 @@ uk:
         project: Проекти
         proposal: Пропозиції
         result: Підсумки
+    follows:
+      create:
+        button: Дотримуйтесь
+        error: Там було повідомлення про помилку, після цього ресурсу.
+      destroy:
+        button: Зупинитися наступні
+        error: Там була помилка unfollowing цей ресурс.
     forms:
       current_file: Поточний файл
       current_image: Поточне зображення
@@ -298,8 +313,13 @@ uk:
         close_session: Завершити сеанс
         description_html: Ви уособлюєте користувача <b>%{user_name}</b>.
         expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
+      notifications_dashboard:
+        mark_all_as_read: Позначити всі як прочитані
+        no_notifications: Ще нічого нового.
+        title: Сповіщення
       user_menu:
         admin_dashboard: Приладна дошка адміністрування
+        notifications: Сповіщення
         profile: Мій обліковий запис
         sign_out: Вийти
       user_profile:
