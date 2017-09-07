@@ -126,6 +126,14 @@ it:
         back_home: Torna alla home page
         content_doesnt_exist: Questo indirizzo non è corretto oppure è stato rimosso.
         title: La pagina che stai cercando non è stata trovata
+    events:
+      email_event:
+        email_greeting: Ciao %{user_name},
+        email_intro: 'C''è stato un aggiornamento alla "%{resource_title}". Si può vedere da questa pagina:'
+        email_outro: Hai ricevuto questa notifica perché si segue "%{resource_title}". Puoi smettere di seguire e dal link precedente.
+        email_subject: Un aggiornamento per %{resource_title}
+      notification_event:
+        notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: In allegato una versione zippata (Zip) dei dati esportati.
@@ -152,6 +160,10 @@ it:
         project: Progetti
         proposal: Proposte
         result: Votazioni
+    follows:
+      create:
+        button: Seguire
+        error: C'è stato un errore seguendo questa risorsa.
     forms:
       current_file: File attuale
       current_image: Immagine attuale
