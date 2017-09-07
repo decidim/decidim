@@ -87,6 +87,9 @@ es:
           notification_title: La reunión de <a href="%{resource_path}">%{resource_title}</a> fue cerrada.
         update_meeting_event:
           email_intro: 'La reunión de "%{resource_title}" fue actualizada. Puede leer la nueva versión de su página:'
+          email_outro: Ha recibido esta notificación porque usted sigue la reunión de "%{resource_title}". Usted puede dejar de seguirlo del enlace anterior.
+          email_subject: La reunión de "%{resource_title}" fue actualizada
+          notification_title: La reunión de <a href="%{resource_path}">%{resource_title}</a> se ha actualizado.
       meetings:
         filters:
           category: Categoría
