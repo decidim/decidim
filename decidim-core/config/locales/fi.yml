@@ -126,6 +126,14 @@ fi:
         back_home: Takaisin kotisivulle
         content_doesnt_exist: Tämä osoite on virheellinen tai käytöstä poistunut.
         title: Etsimääsi sivua ei löydy
+    events:
+      email_event:
+        email_greeting: Hei %{user_name},
+        email_intro: 'On ”%{resource_title}” päivityksen. Näet tältä sivulta:'
+        email_outro: Olet saanut ilmoituksen, koska olette seuraavan ”%{resource_title}”. Voit unfollow edellisen linkin.
+        email_subject: '%{resource_title} päivitys'
+      notification_event:
+        notification_title: Tapahtuma tapahtui <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
@@ -152,6 +160,13 @@ fi:
         project: Projektit
         proposal: Ehdotukset
         result: Tulokset
+    follows:
+      create:
+        button: Seuraa
+        error: On tapahtunut virhe jälkeen tämä resurssi.
+      destroy:
+        button: Lopettaa
+        error: On tapahtunut virhe unfollowing tämä resurssi.
     forms:
       current_file: Nykyinen tiedosto
       current_image: Nykyinen kuva
@@ -299,6 +314,9 @@ fi:
         close_session: Sulje istunto
         description_html: Esiinnyt käyttäjänä <b>%{user_name}</b>.
         expire_time_html: Istuntosi vanhenee <b><span class="minutes">%{minutes}</span> minuutin kuluttua</b>.
+      notifications_dashboard:
+        mark_all_as_read: Merkitse kaikki luetuiksi
+        no_notifications: Ilmoituksia ei vielä.
       user_menu:
         admin_dashboard: Hallintapaneeli
         profile: Oma käyttäjätili
