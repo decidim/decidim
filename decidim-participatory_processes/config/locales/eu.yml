@@ -22,6 +22,7 @@ eu:
         scopes_enabled: Esparruak gaituta
         short_description: Deskribapen laburra
         slug: URL laburra
+        start_date: Hasiera-data
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
         title: Titulua
@@ -42,6 +43,18 @@ eu:
         role: Rola
   decidim:
     admin:
+      actions:
+        activate: Aktibatu
+        configure: Konfiguratu
+        confirm_destroy: Ziur zaude?
+        destroy: Ezabatu
+        duplicate: Kopia egin
+        edit: Editatu
+        new: Berria
+        preview: Aurreikusi
+        publish: Argitaratu
+        resend_invitation: Birbidali gonbita
+        unpublish: Desargitaratu
       menu:
         participatory_process_groups: Prozesu-multzoak
         participatory_processes: Prozesuak
@@ -192,6 +205,10 @@ eu:
     participatory_processes:
       index:
         title: Prozesu partizipatiboak
+      order_by_processes:
+        active: Aktiboa
+        past: Aurrekoak
+        upcoming: Hurrengoak
       participatory_process_groups:
         none: Bat ere ez
       show:
@@ -201,6 +218,7 @@ eu:
         participatory_scope: Esparru partizipatiboa
         participatory_structure: Egitura partizipatiboa
         scope: Esparrua
+        start_date: Hasiera-data
         target: Nori zuzentzen zaio?
       statistics:
         answers_count: Erantzunak
@@ -216,6 +234,8 @@ eu:
         surveys_count: Inkestak
         users_count: Parte-hartzaileak
         votes_count: Botoak
+    scopes:
+      global: Esparrua orokorra
   layouts:
     decidim:
       participatory_process_groups:

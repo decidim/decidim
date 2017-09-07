@@ -27,7 +27,7 @@ ca:
           success: L'administrador s'ha actualitzat correctament
       default_pages:
         placeholders:
-          content: Si us plau, afegeix contingut significatiu a aquesta pàgina des del tauler de control.
+          content: Si us plau afegir contingut significatiu a la pàgina estàtica de %{page} en el quadre de comandament d'admin.
           title: Títol predeterminat per %{page}
       menu:
         admins: Administradors

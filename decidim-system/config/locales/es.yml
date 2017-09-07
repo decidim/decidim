@@ -27,7 +27,7 @@ es:
           success: Administrador actualizado correctamente
       default_pages:
         placeholders:
-          content: Por favor, añade contenido significativo en ésta página desde el panel de control.
+          content: Agrega contenido significativo a la página estática de %{page} en el panel de admin.
           title: Título predeterminado para %{page}
       menu:
         admins: Administradores

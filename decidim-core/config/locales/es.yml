@@ -198,8 +198,6 @@ es:
       create:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
-    scopes:
-      global: Ámbito global
     shared:
       action_authorization_modal:
         incomplete:

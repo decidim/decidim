@@ -2,9 +2,9 @@ uk:
   activemodel:
     attributes:
       proposal:
-        body: Тіло
-        category_id: Категорія
-        scope_id: Сфера
+        body: Основний текст
+        category_id: Розділ
+        scope_id: Обсяг
         title: Назва
         user_group_id: Створити пропозицію як
       proposal_answer:
@@ -14,30 +14,30 @@ uk:
       proposals:
         actions:
           create: Створити
-          vote: Голосування
+          vote: Голосувати
         name: Пропозиції
         settings:
           global:
             announcement: Оголошення
             attachments_allowed: Дозволити вкладення
-            comments_enabled: Коментарі дозволено
-            geocoding_enabled: Геокодування включений
-            new_proposal_help_text: Нова пропозиція текст довідки
-            official_proposals_enabled: Офіційний пропозиції включений
-            proposal_answering_enabled: Пропозиція відповіді ввімкнуто
-            vote_limit: Голосування межа
+            comments_enabled: Коментарі ввімкнено
+            geocoding_enabled: Геокодування ввімкнено
+            new_proposal_help_text: Підказки зі створення нової пропозиції
+            official_proposals_enabled: Офіційні пропозиції ввімкнені
+            proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
+            vote_limit: Гранична кількість голосів
           step:
             announcement: Оголошення
-            comments_blocked: Заблоковані коментарі
-            creation_enabled: Пропозиція створення включений
-            proposal_answering_enabled: Пропозиція відповіді ввімкнуто
-            votes_blocked: Голосів заблоковано
-            votes_enabled: Голосів включений
-            votes_hidden: Голосів приховані (ввімкненої голосів, перевірки цього буду приховувати кількість голосів)
+            comments_blocked: Коментарі заблоковано
+            creation_enabled: Ввімкнено створення пропозицій
+            proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
+            votes_blocked: Голосування заблоковане
+            votes_enabled: Голосування ввімкнене
+            votes_hidden: Голосування приховане (якщо голосування ввімкнене, то при галочці тут буде сховано кількість голосів)
     proposals:
       actions:
         answer: Відповідь
-        new: Нові
+        new: Нове
         title: Дії
       admin:
         actions:
@@ -50,118 +50,118 @@ uk:
             name: Пропозиція
         proposal_answers:
           edit:
-            accepted: Приймаються
+            accepted: Прийнято
             answer_proposal: Відповідь
-            evaluating: Оцінки
+            evaluating: Розглядається
             rejected: Відхилено
-            title: Відповідь на пропозиції %{title}
+            title: Відповідь на пропозицію %{title}
         proposals:
           answer:
-            invalid: Там були проблеми, відповідаючи на цю пропозицію
-            success: Пропозицію успішно відповів
+            invalid: При відповіді на цю пропозицію сталася помилка
+            success: Відповідь на пропозицію успішно опубліковано
           create:
-            invalid: Там була помилка створення цієї пропозиції
+            invalid: При створенні цієї пропозиції сталася помилка
             success: Пропозицію успішно створено
           form:
-            attachment_legend: "(Необов'язково) Додати вкладення"
-            select_a_category: Вибрати категорію
+            attachment_legend: "(Необов'язково) Додати вкладений файл"
+            select_a_category: Оберіть розділ
           index:
             title: Пропозиції
           new:
             create: Створити
             title: Створити пропозицію
       answers:
-        accepted: Приймаються
-        evaluating: Оцінки
-        not_answered: Не відповіли
+        accepted: Прийнято
+        evaluating: Розглядається
+        not_answered: Ще не отримало відгуків
         rejected: Відхилено
       create:
-        error: Там були помилки при збереженні пропозицію.
+        error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно створено.
       models:
         proposal:
           fields:
-            category: Категорія
-            official_proposal: Офіційна пропозиція України
-            scope: Сфера
-            state: Держава
+            category: Розділ
+            official_proposal: Офіційна пропозиція
+            scope: Обсяг
+            state: Стан
             title: Назва
       proposal_votes:
         create:
-          error: Там були помилки при голосуванні пропозицію.
+          error: При голосуванні пропозиції сталися помилки.
       proposals:
         author:
-          deleted: Видаленим користувачем
-          verified_user_group: Перевірена організації
+          deleted: Видалений користувач
+          verified_user_group: Перевірена організація
         count:
           proposals_count:
             one: 1 пропозиція
             few: "%{count} пропозиції"
-            other: "%{count} пропозиції"
+            other: "%{count} пропозицій"
         filters:
-          accepted: Приймаються
+          accepted: Прийнято
           activity: Діяльність
-          all: Всі
-          category: Категорія
-          category_prompt: Вибрати категорію
+          all: Усі
+          category: Розділ
+          category_prompt: Оберіть розділ
           citizenship: Громадянство
-          evaluating: Оцінки
-          official: Офіційний
-          origin: Походження
+          evaluating: Розглядається
+          official: Офіційне
+          origin: Джерело
           rejected: Відхилено
-          related_to: Пов'язані
-          scope_prompt: Виберіть сферу
-          scopes: Приціли
-          search: Пошук
-          state: Держава
-          voted: Проголосували
+          related_to: Пов'язане з
+          scope_prompt: Оберіть обсяг
+          scopes: Обсяги
+          search: Шукати
+          state: Стан
+          voted: Проголосоване
         filters_small_view:
-          close_modal: Закрити модальних
-          filter: Фільтр
-          filter_by: Фільтрувати за
-          unfold: Розгортатися
+          close_modal: Закрити віконце
+          filter: Відібрати
+          filter_by: 'Відібрати за ознакою:'
+          unfold: Розгорнути
         index:
           new_proposal: Нова пропозиція
-          view_proposal: Подання пропозиції
+          view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>vote
-            few: <span class="card--list__data__number">%{count}</span>votes
-            other: <span class="card--list__data__number">%{count}</span>votes
+            one: <span class="card--list__data__number">1</span> голос
+            few: <span class="card--list__data__number">%{count}</span> голоси
+            other: <span class="card--list__data__number">%{count}</span> голосів
         new:
-          attachment_legend: "(Необов'язково) Додати вкладення"
+          attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Назад
-          select_a_category: Будь ласка виберіть категорію
+          select_a_category: Будь ласка, оберіть розділ
           send: Надіслати
           title: Нова пропозиція
         orders:
-          label: 'Замовлення-економічної пропозицій:'
-          most_voted: Більшість проголосувала
-          random: Випадкові
-          recent: Останні
+          label: 'Впорядкувати пропозиції за:'
+          most_voted: Найбільш підтримані
+          random: Випадково
+          recent: Нещодавні
         proposal:
-          view_proposal: Подання пропозиції
+          view_proposal: Переглянути пропозицію
         show:
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
-          report: Звіт
+          report: Доповісти
         vote_button:
           already_voted: Вже проголосували
-          no_votes_remaining: Немає голосів, що залишилися
-          vote: Голосування
-          votes_blocked: Голосування інвалідів
+          no_votes_remaining: Не залишилось голосів
+          vote: Голосувати
+          votes_blocked: Голосування вимкнене
         votes_count:
           count:
-            one: ГОЛОСУВАННЯ
-            few: ГОЛОСІВ
+            one: ГОЛОС
+            few: ГОЛОСИ
             other: ГОЛОСІВ
         votes_limit:
           vote_limit:
-            description: Замість того, щоб голосування якомога більше пропозицій, як ви хочете, ви можете проголосувати лише до %{limit} пропозиції.
-            left: Залишаючись
-            title: У вас є %{limit} голосів для розповсюдження
-            votes: Голосів
+            description: Ви маєте право проголосувати лише по %{limit} пропозиціям, а не по скільком завгодно багатьом.
+            left: Залишилось
+            title: У вас є %{limit} голосів для того, щоб їх розподілити
+            votes: Голоси
     resource_links:
       included_proposals:
-        proposal_projects: 'Пропозиції, що з''являються у цих проектах:'
-        proposal_results: 'Пропозиції, що з''являються у цих результатів:'
+        proposal_projects: 'Пропозиція, яка є в таких проектах:'
+        proposal_results: 'Пропозиція, яка є в таких підсумках:'

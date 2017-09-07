@@ -22,6 +22,7 @@ fi:
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
         slug: URL-tunniste
+        start_date: Aloitusaika
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
@@ -42,6 +43,18 @@ fi:
         role: Rooli
   decidim:
     admin:
+      actions:
+        activate: Aktivoi
+        configure: Asetukset
+        confirm_destroy: Vahvista poisto
+        destroy: Tuhoa
+        duplicate: Kopioi
+        edit: Muokkaa
+        new: Uusi
+        preview: Esikatsele
+        publish: Julkaise
+        resend_invitation: Lähetä kutsu uudelleen
+        unpublish: Lopeta julkaisu
       menu:
         participatory_process_groups: Prosessiryhmät
         participatory_processes: Prosessit
@@ -81,6 +94,10 @@ fi:
             admin: Järjestelmänvalvoja
             collaborator: Kollaboraattori
             moderator: Moderoija
+        user:
+          fields:
+            invitation_accepted_at: Kutsu hyväksytty
+            invitation_sent_at: Kutsu on
       participatory_process_copies:
         new:
           copy: Kopio
@@ -179,6 +196,10 @@ fi:
       titles:
         participatory_process_groups: Osallistumisprosessiryhmät
         participatory_processes: Osallistumisprosessit
+      users:
+        resend_invitation:
+          error: Virhe lähettää kutsun.
+          success: Kutsu uudelleen onnistuneesti.
     menu:
       processes: Prosessit
     participatory_process_groups:
@@ -192,8 +213,15 @@ fi:
     participatory_processes:
       index:
         title: Osallistumisprosessit
+      order_by_processes:
+        active: Aktivoi
+        past: Menneet
+        upcoming: Tulevat
       participatory_process_groups:
         none: Ei ryhmää
+      participatory_processes:
+        index:
+          loading: Ladataan tulokset...
       show:
         developer_group: Kehitysryhmä
         end_date: Päättymisaika
@@ -201,6 +229,7 @@ fi:
         participatory_scope: Osallistumisprosessi
         participatory_structure: Osallistumisprosessin rakenne
         scope: Konteksti
+        start_date: Aloitusaika
         target: Kohde
       statistics:
         answers_count: Vastaukset
@@ -216,6 +245,8 @@ fi:
         surveys_count: Kyselyt
         users_count: Osallistujat
         votes_count: Äänet
+    scopes:
+      global: Yleinen konteksti
   layouts:
     decidim:
       participatory_process_groups:

@@ -2,62 +2,62 @@ uk:
   activemodel:
     attributes:
       account:
-        delete_reason: Причина, щоб видалити обліковий запис
+        delete_reason: Причина видалення вашого облікового запису
       report:
         details: Додаткові коментарі
       user:
-        email: Ваша електронна пошта
-        name: Твоє ім'я
+        email: Адреса вашої електронної пошти
+        name: Ваше ім’я
         password: Новий пароль
-        password_confirmation: Підтвердіть новий пароль
-        remove_avatar: Видалити Аватар
+        password_confirmation: Підтвердьте свій новий пароль
+        remove_avatar: Видалити аватар
         user_group_document_number: Номер документа організації
         user_group_name: Назва організації
-        user_group_phone: Організація телефон
+        user_group_phone: Телефон організації
   activerecord:
     attributes:
       decidim/user:
         current_password: Поточний пароль
-        email: Електронна пошта
+        email: Адреса електронної пошти
         name: Ім'я користувача
         password: Пароль
-        password_confirmation: Підтвердження пароля
+        password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
         user_group_document_number: Номер документа організації
         user_group_name: Назва організації
-        user_group_phone: Організація телефон
+        user_group_phone: Телефон організації
   booleans:
     'false': 'Ні'
     'true': 'Так'
   carrierwave:
     errors:
-      image_too_big: Зображення є занадто великою
+      image_too_big: Зображення завелике
   decidim:
     account:
       delete:
-        alert: Цю дію скасувати не можна. Якщо ви видаліть свій аккаунт, ви не зможете увійти в систему.
+        alert: Цю дію скасувати не можна. Якщо ви видалите свій обліковий запис, ви не зможете ввійти в систему.
         confirm:
           close: Закрити вікно
-          ok: Так, я хочу видалити обліковий запис
-          question: Ви впевнені, що бажаєте видалити обліковий запис?
-          title: Видалення облікового запису
-        explanation: Заповніть причина видалити обліковий запис (необов'язково).
+          ok: Так, я хочу видалити свій обліковий запис
+          question: Ви впевнені, що бажаєте видалити свій обліковий запис?
+          title: Видалити мій обліковий запис
+        explanation: Будь ласка, введіть причину, з якої ви хочете видалити свій обліковий запис (необов'язково).
       destroy:
-        error: Там була Помилка видалення облікового запису.
+        error: При видаленні вашого облікового запису сталася помилка.
         success: Ваш обліковий запис успішно видалено.
       show:
         change_password: Змінити пароль
-        update_account: Поповнити рахунок
+        update_account: Оновити обліковий запис
       update:
-        error: Там було повідомлення про помилку, поповнення рахунку.
+        error: При оновленні вашого облікового запису сталася помилка.
         success: Ваш обліковий запис успішно оновлено.
         success_with_email_confirmation: Ваш обліковий запис успішно оновлено. Ви отримаєте електронний лист для підтвердження адреси електронної пошти.
-    anonymous_user: Анонім
+    anonymous_user: Анонімний вхід
     application:
       documents:
-        related_documents: Необхідні документи
+        related_documents: Супутні документи
       photos:
-        related_photos: Пов'язані між собою фотографії
+        related_photos: Супутні світлини
     authorization_handlers:
       decidim/dummy_authorization_handler:
         fields:
@@ -65,119 +65,119 @@ uk:
           postal_code: Поштовий індекс
         name: Приклад авторизації
       errors:
-        duplicate_authorization: Користувач уже уповноважених із тими самими даними.
+        duplicate_authorization: Інший користувач вже авторизувався з такими ж даними.
       foo_authorization:
         fields:
-          bar: Бар
+          bar: Статусний рядок
           foo: Foo
-        name: Foo авторизації
+        name: Авторизація Foo
     authorizations:
       create:
-        error: Помилка під час створення авторизацію.
-        success: Ви вже успішно авторизовано.
+        error: При створенні авторизації сталася помилка.
+        success: Ви успішно авторизовані.
       current_participatory_processes: поглянути на поточні процеси
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Перевірте, чи проти приклад авторизації
-        title: Підтвердити свою особу
-        verify_with_these_options: 'Вони доступні параметри для підтвердження особи:'
+          decidim/dummy_authorization_handler: Перевірте, порівнявши з прикладом авторизації
+        title: Підтвердьте свою особу
+        verify_with_these_options: 'Наявні такі способи підтвердити вашу особу:'
       new:
         authorize: Надіслати
-        authorize_with: Перевірте, чи з %{authorizer}
-      skip_verification: Можна пропустити це зараз і %{link}
+        authorize_with: Підтвердити за допомогою %{authorizer}
+      skip_verification: Ви можете пропустити це зараз і %{link}
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Інший обліковий запис використовує той же адресу електронної пошти
+          email_already_exists: Інший обліковий запис використовує ту ж саму адресу електронної пошти
         new:
-          complete_profile: Повний профіль
-          sign_up: Завершіть свій профіль
-          subtitle: Будь ласка, заповніть наступну форму щоб завершити знак вгору
-          username_help: Загальнодоступне ім'я, яке з'являється на ваші повідомлення. З метою гарантування анонімності може бути будь-яким.
+          complete_profile: Заповнити профіль
+          sign_up: Будь ласка, заповніть свій профіль
+          subtitle: Щоб завершити реєстрацію, заповніть наступну форму
+          username_help: Публічне ім'я, яке відображається у ваших публікаціях. З метою гарантування анонімності, може бути будь-яким.
       registrations:
         new:
-          already_have_an_account?: Вже зареєстровані?
-          newsletter_notifications: Отримувати інформацію про відповідні дії
-          sign_in: Ввійти
+          already_have_an_account?: Вже маєте обліковий запис?
+          newsletter_notifications: Отримувати повідомлення про пов'язані події
+          sign_in: Увійти
           sign_up: Зареєструватися
           sign_up_as:
-            legend: Зареєструватися в якості
-            user: Людина
-            user_group: Організації/колектив
-          subtitle: Зареєструватися, щоб брати участь в обговореннях та підтримку пропозиції.
+            legend: Зареєструватися як
+            user: Приватна особа
+            user_group: Організація / колектив
+          subtitle: Зареєструйтесь, щоб брати участь у обговореннях та підтримувати пропозиції.
           terms: умови використання
-          tos_agreement: Підписавшись ви погоджуєтесь %{link}.
-          username_help: Загальнодоступне ім'я, яке з'являється на ваші повідомлення. З метою гарантування анонімності може бути будь-яким.
+          tos_agreement: Реєструючись, ви приймаєте %{link}.
+          username_help: Публічне ім'я, яке відображається у ваших публікаціях. З метою гарантування анонімності, може бути будь-яким.
       sessions:
         new:
-          are_you_new?: Нові платформи?
+          are_you_new?: Вперше на цій платформі?
           register: Створити обліковий запис
       shared:
         omniauth_buttons:
           or: Або
     errors:
       internal_server_error:
-        title: Виникла проблема з нашого серверу
+        title: Сталася проблема з нашим сервером
         try_later: Будь ласка, спробуйте ще раз пізніше.
       not_found:
-        back_home: Повернутися додому
-        content_doesnt_exist: Ця адреса неправильна або видалено.
+        back_home: Повернутися на головну
+        content_doesnt_exist: Ця адреса невірна або була вилучена.
         title: Не вдалося знайти сторінку, яку ви шукаєте
     export_mailer:
       export:
-        ready: Нижче додається блискавки версію вашого експорту.
-      subject: Ваш експорт "%{name}" готова
+        ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
+      subject: Ваш збережений файл "%{name}" готовий
     features:
       dummy:
         actions:
-          bar: Бар
+          bar: Статусний рядок
           foo: Foo
-        name: Фіктивний функція
+        name: Неробоча складова
         settings:
           global:
             comments_enabled: Коментарі дозволено
-            dummy_global_attribute_1: Фіктивний атрибут 1
-            dummy_global_attribute_2: Фіктивний атрибут 2
+            dummy_global_attribute_1: Неробоча властивість 1
+            dummy_global_attribute_2: Неробоча властивість 2
           step:
-            comments_blocked: Заблоковані коментарі
-            dummy_step_attribute_1: Атрибут манекен крок 1
-            dummy_step_attribute_2: Атрибут манекен крок 2
+            comments_blocked: Коментарі заблоковано
+            dummy_step_attribute_1: 1 властивість неробочого кроку
+            dummy_step_attribute_2: 2 властивість неробочого кроку
     filters:
       linked_classes:
-        all: Всі
+        all: Усі
         meeting: Зустрічі
         project: Проекти
         proposal: Пропозиції
-        result: Результати
+        result: Підсумки
     forms:
       current_file: Поточний файл
       current_image: Поточне зображення
-      default_image: Зображення за промовчанням
+      default_image: Зображення за замовчуванням
       errors:
-        error: Існує помилка в цій галузі.
+        error: У цьому полі є помилка.
     managed_users:
-      expired_session: Поточний уособлення сесії, минув.
+      expired_session: Скінчився поточний сеанс уособлення.
     menu:
       home: Головна
       more_information: Додаткові відомості
     newsletter_mailer:
       newsletter:
-        note: Ви отримали цього листа тому що ти підписався на бюлетені на %{organization_name}. Ви можете змінити настройки на <a href="%{link}">notifications page</a>.
+        note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
     notifications_settings:
       show:
-        comments_notifications: Я хочу отримувати емейл сповіщення, коли хтось коментарі в моєму публікацій.
-        newsletter_notifications: Я хочу, щоб отримувати інформацію про відповідні дії
-        replies_notifications: 'Я хочу отримувати емейл сповіщення, коли хтось відповіді: мої коментарі.'
-        update_notifications_settings: Збереження змін
+        comments_notifications: Я хочу отримувати сповіщення електронною поштою, коли хтось коментує мої публікації.
+        newsletter_notifications: Я хочу отримувати повідомлення про пов'язані з цим події
+        replies_notifications: Я хочу отримувати сповіщення електронною поштою, коли хтось відповідає на мої коментарі.
+        update_notifications_settings: Зберегти зміни
       update:
-        error: Там була помилка оновлення настройок сповіщення.
-        success: Налаштування сповіщень успішно оновлено.
+        error: При оновленні налаштувань сповіщень сталася помилка.
+        success: Ваші налаштування сповіщень успішно оновлено.
     own_user_groups:
       index:
-        pending: Очікування
+        pending: Очікує на розгляд
         rejected: Відхилено
         verified: Перевірено
     pages:
@@ -185,198 +185,196 @@ uk:
         title: Додаткові відомості
     reported_mailer:
       hide:
-        hello: Привіт %{name},
-        manage_moderations: Керування moderations
-        report_html: <p>The такі дії <a href="%{url}">content</a> були приховані automatically.</p>
-        subject: Ресурс були сховала автоматично
+        hello: Доброго дня, %{name}%!
+        manage_moderations: Керувати діями з модерації
+        report_html: <p>Наступний <a href="%{url}">вміст</a> було автоматично приховано.</p>
+        subject: Ресурс було автоматично приховано
       report:
-        hello: Привіт %{name},
-        manage_moderations: Керування moderations
-        report_html: Наступне <p>The <a href="%{url}">content</a> був reported.</p>
-        subject: Ресурс, як повідомляється.
+        hello: Доброго дня, %{name}%!
+        manage_moderations: Керувати діями з модерації
+        report_html: <p>Про наступний <a href="%{url}">вміст</a> було повідомлено адміністраторам.</p>
+        subject: Про цей ресурс було повідомлено адміністраторам
     reports:
       create:
-        error: Сталася помилка під час створення звіту. Будь ласка, спробуйте знову.
-        success: Доповіді, створено успішно, і вона буде розглядатися по адміністратора
-    scopes:
-      global: Глобального масштабу
+        error: Під час створення звіту сталася помилка. Будь ласка, спробуйте зробити це знову.
+        success: Звіт був створений успішно, і він буде розглянутий адміністратором.
     shared:
       action_authorization_modal:
         incomplete:
-          cancel: '"Скасувати"'
-          explanation: 'Незважаючи на те, що ви знаходитесь в даний час уповноважений з "%{authorization}", ви потрібні для reauthorize, тому що нам не вистачає такі дані:'
-          reauthorize: Reauthorize
-          title: Будь ласка, reauthorize
+          cancel: Скасувати
+          explanation: 'Незважаючи на те, що вас наразі авторизовано за допомогою "%{authorization}", ми просимо вас авторизуватись знову, оскільки нам не вистачає наступних даних:'
+          reauthorize: Повторно авторизуватися
+          title: Будь ласка, повторіть авторизацію
         missing:
-          authorize: Авторизувати з "%{authorization}"
-          explanation: Для того, щоб виконати цю дію, потрібно бути завірений у "%{authorization}".
-          title: Потрібна авторизація
+          authorize: Авторизувати за допомогою "%{authorization}"
+          explanation: Щоб виконати цю дію, потрібно авторизуватись за допомогою "%{authorization}".
+          title: Необхідна авторизація
         unauthorized:
-          explanation: На жаль, не можна виконати цю дію, як деякі з ваших авторизації даних не збігається.
+          explanation: Вибачте, ви не можете виконати цю дію, оскільки деякі з ваших даних авторизації не збігаються.
           invalid: "%{field} не є дійсним."
           ok: Гаразд
-          title: Відсутня Авторизація
+          title: Недостатньо прав через відсутність авторизації
       embed_modal:
         close_window: Закрити вікно
-        embed: Будь ласка, вставте цей код у вашу сторінку
+        embed: Будь ласка, вставте цей код на свою сторінку
         embed_link: Вбудувати
       flag_modal:
-        already_reported: Цей вміст вже повідомив, і вона буде розглядатися по адміністратора
+        already_reported: Про цей вміст вже повідомлено, і його перегляне адміністратор.
         close: Закрити
-        description: Не це зміст підходить?
-        does_not_belong: Містить незаконної діяльності, загрози самогубства, особисту інформацію, або щось інше, що ви думаєте, що не належить на %{organization_name}.
-        offensive: Містить расизм, сексизм, образам, особисті випади, погрожували смертю, самогубство запити або будь-якій формі Ненависницькі висловлювання.
-        report: Звіт
-        spam: Містить clickbait, рекламу, шахрайські або сценарію ботів.
+        description: Чи цей вміст недоречний?
+        does_not_belong: Містить незаконну діяльність, загрози самогубства, особисту інформацію чи ще щось, чого, на вашу думку, не повинно бути в %{organization_name}.
+        offensive: Містить расизм, сексизм, образи, особисті напади, загрози смерті, заяви про самогубство або будь-які ненависницькі висловлювання.
+        report: Доповісти
+        spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або дописи ботів.
         title: Повідомити про проблему
       login_modal:
-        please_sign_in: Увійдіть до системи
+        please_sign_in: Будь ласка, увійдіть
         sign_up: Зареєструватися
       reference:
-        reference: 'Посилання: %{reference}'
+        reference: 'Посилання на джерело: %{reference}'
       results_per_page:
-        label: 'Результатів на сторінку:'
+        label: 'Підсумків на сторінку:'
       share_modal:
         close_window: Закрити вікно
-        share: Частка
-        share_link: Частка посилання
+        share: Поділитися
+        share_link: Поділитись посиланням
   devise:
     invitations:
       edit:
-        header: Встановити пароль
+        header: Встановіть свій пароль
         submit_button: Зберегти
     mailer:
       invitation_instructions:
         accept: Прийняти запрошення
-        accept_until: Це запрошення буде викликано в %{due_date}.
-        hello: Привіт %{email},
+        accept_until: Термін дії цього запрошення закінчується %{due_date}.
+        hello: Доброго дня, %{email}%!
         ignore: |-
-          Поки ви перейти по посиланню вище і встановити свій пароль, обліковий запис не створюватимуться, якщо ви не хочете, щоб прийняти запрошення, будь ласка, ігноруйте цей email.<br />.
-        invited_you_as_admin: "%{invited_by} запросив вас як адміністратор %{application}, ви можете прийняти його за посиланням нижче."
-        someone_invited_you: Хтось запросив вас %{application}, ви можете прийняти його за посиланням нижче.
-        you_are_now_admin: Ви знаходитесь на admin
+          Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій пароль.
+        invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче."
+        someone_invited_you: Хтось запросив вас до %{application}, ви можете прийняти це запрошення за посиланням нижче.
+        you_are_now_admin: Тепер ви адміністратор
       invite_admin:
-        subject: Вас запросили для керування %{organization}
+        subject: Вас запросили керувати %{organization}
       invite_collaborator:
-        subject: Вас запросили до співпраці на %{organization}
+        subject: Вас запросили співпрацювати на %{organization}
       organization_admin_invitation_instructions:
-        subject: Вас запросили для керування %{organization}
+        subject: Вас запросили керувати %{organization}
       password_change:
-        greeting: Привіт %{recipient}!
-        message: Ми маєте зв'язок ви повідомити вас, що ваш пароль було змінено.
+        greeting: Доброго дня, %{recipient}!
+        message: Ми пишемо вам, щоб повідомити про те, що ваш пароль був змінений.
         subject: Пароль змінено
   errors:
     messages:
       content_type_whitelist_error: Неприпустимий тип файлу
-      cycle_detected: у сферу батьків не може бути одним з його нащадків
-      file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або дорівнювати %{count}
+      cycle_detected: батько обсягу не може бути одним з його нащадків
+      file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
       invalid_manifest: Неприпустимий файл маніфесту
-      invalid_participatory_process: Неприпустимий процесу проведення
-      long_words: Містить слова, які є занадто довго
-      must_start_with_caps: Має починатися з caps
-      nesting_too_deep: не може бути всередині підкатегорію
-      too_many_marks: Використання занадто багато знаків
-      too_much_caps: Використовує занадто багато caps
+      invalid_participatory_process: Неприпустимий процес співучасті
+      long_words: Містить занадто довгі слова
+      must_start_with_caps: Має починатися з великих літер
+      nesting_too_deep: не може бути всередині підрозділу
+      too_many_marks: Містить забагато знаків оклику або питання
+      too_much_caps: Містить забагато великих літер
       too_short: Занадто короткий
   forms:
-    required: Необхідні
+    required: Обов'язкове поле
   invisible_captcha:
-    sentence_for_humans: Якщо ви є людиною, ігнорувати це поле
-    timestamp_error_message: На жаль, це було занадто швидко! Будь ласка, надішліть.
+    sentence_for_humans: Якщо ви людина, ігноруйте це поле
+    timestamp_error_message: Вибачте, це було занадто швидко! Будь ласка, подайте повідомлення знову.
   layouts:
     decidim:
       cookie_warning:
-        description_html: Цей сайт використовує куки. Продовжуючи переглядати сайт, ви погоджуєтесь нашого використання cookies. Дізнайтеся більше про це %{link}.
-        link_label: Тут
-        ok: Погоджуюся
+        description_html: На цьому сайті використовуються реп'яшки (куки). Продовжуючи переглядати сайт, ви погоджуєтеся з нашим використанням реп'яшків. Дізнайтеся про це більше %{link}.
+        link_label: тут
+        ok: Я погоджуюся
       footer:
-        made_with_open_source: 'Сайт зробив з <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.'
+        made_with_open_source: 'Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.'
       header:
         close_menu: Закрити меню
         navigation: Навігація
-        sign_in: Ввійти
+        sign_in: Увійти
         sign_up: Зареєструватися
       impersonation_warning:
         close_session: Завершити сеанс
-        description_html: Ви себе за <b>%{user_name}</b> користувача.
-        expire_time_html: Ваш сеанс буде вичерпано в <b><span class="minutes">%{minutes}</span> minutes</b>.
+        description_html: Ви уособлюєте користувача <b>%{user_name}</b>.
+        expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       user_menu:
         admin_dashboard: Приладна дошка адміністрування
-        profile: Мій рахунок
+        profile: Мій обліковий запис
         sign_out: Вийти
       user_profile:
         account: Обліковий запис
-        authorizations: Дозволів
-        delete_my_account: Видалення облікового запису
-        notifications_settings: Сповіщення про налаштування
-        title: Настройок користувача
-        user_groups: Організацій
+        authorizations: Авторизаціі
+        delete_my_account: Видалити мій обліковий запис
+        notifications_settings: Налаштування сповіщень
+        title: Налаштування користувача
+        user_groups: Організації
       widget:
-        see_more: Дивіться більше
+        see_more: Переглянути інші
   locale:
-    name: англійська
+    name: Українська
   pages:
     home:
       extended:
         debates: Дебати
-        debates_explanation: Давайте зустрітися, дебатів і поділитися, що ми думаємо, що це важливо для нашого міста.
-        how_to_participate: Як взяти участь у процесі?
+        debates_explanation: Давайте зустрінемось та обговоримо те, що вважаємо важливим для нашого міста.
+        how_to_participate: Як я можу взяти участь в процесі?
         meetings: Зустрічі
-        meetings_explanation: Давайте зустрітися, дебатів і поділитися, що ми думаємо, що це важливо для нашого міста.
-        more_info: Детальніше
+        meetings_explanation: Давайте зустрінемось та обговоримо те, що вважаємо важливим для нашого міста.
+        more_info: Додаткові відомості
         proposals: Пропозиції
-        proposals_explanation: Відкритий простір для громадянина пропозиції про те, який місто ми хочемо жити.
+        proposals_explanation: Відкритий простір для пропозицій громадян щодо того, в якому місті ми бажаємо жити.
       footer_sub_hero:
-        footer_sub_hero_body: Давайте побудувати більш відкритого, прозорого і спільні society.<br /> об'єднання, брати участь і вирішити.
-        footer_sub_hero_headline: Ласкаво просимо до %{organization} участі платформи.
+        footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Приєднуйтесь, беріть участь та приймайте рішення.
+        footer_sub_hero_headline: Ласкаво просимо до платформи співучасті %{organization}.
         register: Зареєструватися
       hero:
         participate: Взяти участь
-        welcome: Ласкаво просимо на %{organization}!
+        welcome: Ласкаво просимо до %{organization}!
       highlighted_processes:
-        active_processes: Активні процеси
-        active_step: Активні крок
+        active_processes: Започаті процеси
+        active_step: Започатий крок
         see_all_processes: Переглянути всі процеси
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
         headline: Поточний стан %{organization}
         meetings_count: Зустрічі
-        orders_count: Замовлення
+        orders_count: Голоси
         pages_count: Сторінки
         processes_count: Процеси
         projects_count: Проекти
         proposals_count: Пропозиції
-        results_count: Результати
+        results_count: Підсумки
         surveys_count: Опитування
         users_count: Учасники
-        votes_count: Голосів
+        votes_count: Голоси
       sub_hero:
         register: Зареєструватися
   social_share_button:
-    delicious: Смачні
+    delicious: Delicious
     douban: Douban
-    email: Електронна пошта
-    facebook: Facebook
-    google_bookmark: Google закладки
+    email: Адреса електронної пошти
+    facebook: Фейсбук
+    google_bookmark: Гугл закладки
     google_plus: Google +
-    hacker_news: Хакер Новини
+    hacker_news: Хакерські новини
     linkedin: LinkedIn
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit
-    share_to: Спільний доступ до %{name}
+    share_to: Поділитися на %{name}
     tumblr: Tumblr
-    twitter: Twitter
+    twitter: Твіттер
     vkontakte: Вконтакте
     wechat: WeChat
-    wechat_footer: Відкрийте ваш WeChat, натисніть кнопку "Discover" і натисніть "Сканувати QR-код" меню.
-    weibo: Син Weibo
+    wechat_footer: Відкрийте WeChat, натисніть кнопку "Відкрити", а потім натисніть меню "Сканувати QR-код".
+    weibo: Сіна Вайбо
     xing: Xing
   views:
     pagination:
-      first: "&laquo; перший"
-      last: Останній &raquo;
-      next: Наступний &rsaquo;
+      first: "&laquo; Перша"
+      last: Остання &raquo;
+      next: Наступна &rsaquo;
       previous: "Попередня &lsaquo;"
       truncate: "&hellip;"

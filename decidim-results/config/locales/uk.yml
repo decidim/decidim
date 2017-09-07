@@ -2,54 +2,54 @@ uk:
   activemodel:
     attributes:
       result:
-        decidim_category_id: Категорія
-        decidim_scope_id: Сфера
+        decidim_category_id: Розділ
+        decidim_scope_id: Обсяг
         description: Опис
-        proposal_ids: Включено пропозиції
+        proposal_ids: Включені пропозиції
         title: Назва
   decidim:
     features:
       results:
-        name: Результати
+        name: Підсумки
         settings:
           global:
             announcement: Оголошення
-            comments_enabled: Коментарі дозволено
+            comments_enabled: Коментарі ввімкнено
           step:
             announcement: Оголошення
-            comments_blocked: Заблоковані коментарі
+            comments_blocked: Коментарі заблоковано
     resource_links:
       included_proposals:
-        result_proposals: Пропозиції, які входять в цей результат
+        result_proposals: Пропозиції, включені до цих підсумків
     results:
       actions:
-        confirm_destroy: Ви дійсно бажаєте видалити цей результат?
+        confirm_destroy: Ви дійсно бажаєте видалити ці підсумки?
         destroy: Видалити
         edit: Редагувати
-        new: Нові
+        new: Нове
         preview: Попередній перегляд
         title: Дії
       admin:
         models:
           result:
-            name: Результат
+            name: Підсумки
         results:
           create:
-            invalid: Там була помилка створення цього результату
-            success: Результат успішно створено
+            invalid: При створенні цих підсумків сталася помилка
+            success: Підсумки успішно створено
           destroy:
-            success: Результат успішно вилучено
+            success: Підсумки успішно видалено
           edit:
-            title: Змінити результат
-            update: Оновлення
+            title: Редагувати підсумки
+            update: Оновити
           index:
-            title: Результати
+            title: Підсумки
           new:
             create: Створити
-            title: Нові результат
+            title: Нові підсумки
           update:
-            invalid: Там були проблеми оновлення цього результату
-            success: Результат успішно оновлено
+            invalid: При оновленні цих підсумків сталася помилка
+            success: Підсумки успішно оновлено
       models:
         result:
           fields:
@@ -57,25 +57,25 @@ uk:
       results:
         count:
           results_count:
-            one: Результат 1
-            few: "%{count} результати"
-            other: "%{count} результати"
+            one: 1 підсумки
+            few: "%{count} підсумків"
+            other: "%{count} підсумків"
         filters:
-          category: Категорія
-          category_prompt: Вибрати категорію
-          scope_prompt: Виберіть сферу
-          scopes: Приціли
-          search: Пошук
+          category: Розділ
+          category_prompt: Оберіть розділ
+          scope_prompt: Оберіть обсяг
+          scopes: Обсяги
+          search: Шукати
         filters_small_view:
-          close_modal: Закрити модальних
-          filter: Фільтр
-          filter_by: Фільтрувати за
-          unfold: Розгортатися
+          close_modal: Закрити віконце
+          filter: Відібрати
+          filter_by: 'Відібрати за ознакою:'
+          unfold: Розгорнути
         show:
           stats:
             attendees: Учасники
             comments: Коментарі
-            contributions: Внески
+            contributions: Внесені пропозиції
             meetings: Зустрічі
             proposals: Пропозиції
             votes: Підтримує

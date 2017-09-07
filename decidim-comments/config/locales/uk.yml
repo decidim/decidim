@@ -3,70 +3,70 @@ uk:
     comments:
       comment_notification_mailer:
         comment_created:
-          new_comment_html: Існує новий коментар від <b>%{commenter}</b> в <b>%{commentable_link}</b>
-        hello: Привіт %{name},
-        manage_email_subscriptions_html: Ви можете зупинити отримую ці листи, змінивши налаштування в %{link}.
-        notifications_settings_link: сторінку параметрів сповіщень
+          new_comment_html: Надійшов новий коментар від <b>%{commenter}</b> на <b>%{commentable_link}</b>
+        hello: Доброго дня, %{name}%!
+        manage_email_subscriptions_html: Ви можете припинити отримувати ці електронні листи, змінивши свої налаштування на %{link}.
+        notifications_settings_link: сторінці налаштувань сповіщень
         reply_created:
-          new_reply_html: Існує новий відповідь ваш коментар від <b>%{commenter}</b> в <b>%{commentable_link}</b>
+          new_reply_html: Надійшла нова відповідь на ваш коментар від <b>%{commenter}</b> на <b>%{commentable_link}</b>
       mailer:
         comment_notification:
           comment_created:
-            subject: У вас є нові коментарі
+            subject: Вам надійшов новий коментар
           reply_created:
-            subject: У вас є нові відповідь ваш коментар
+            subject: Вам надійшла нова відповідь на коментар
       votes:
         create:
-          error: Там були помилки при голосуванні коментар.
+          error: При голосуванні коментаря сталися помилки.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Sign за допомогою вашого account</a> або <a href="%{sign_up_url}">sign up</a>, щоб додати ваш коментар.
+        account_message: <a href="%{sign_in_url}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_url}">зареєструйтесь</a>, щоб додати свій коментар.
         form:
           body:
             label: Коментар
             placeholder: Що ви думаєте з цього приводу?
-          form_error: Текст не потрібно, і воно не може бути більше %{length} символів.
+          form_error: Тут обов'язково потрібно ввести текст, але не більше, ніж %{length} символів.
           submit: Надіслати
           user_group_id:
-            label: Коментарі як
+            label: Коментувати як
         opinion:
-          neutral: Нейтральні
-        remaining_characters: "%{count} символи зліва"
-        remaining_characters_1: "%{count} символу ліворуч"
+          neutral: Безсторонньо
+        remaining_characters: "Залишилось %{count} символів"
+        remaining_characters_1: "Залишився %{count} символ"
         title: Додати свій коментар
       comment:
         alignment:
           against: Проти
-          in_favor: На користь
-        deleted_user: Видаленим користувачем
-        reply: Відповідь
+          in_favor: За
+        deleted_user: Видалений користувач
+        reply: Відповісти
         report:
-          action: Звіт
-          already_reported: Цей вміст вже повідомив, і вона буде розглядатися по адміністратора
+          action: Доповісти
+          already_reported: Про цей вміст вже повідомлено, і його перегляне адміністратор.
           close: Закрити
-          description: Не це зміст підходить?
+          description: Чи цей вміст недоречний?
           details: Додаткові коментарі
           reasons:
-            does_not_belong: Містить незаконної діяльності, загрози самогубства, особисту інформацію, або щось інше, що ви думаєте, що не належить на %{organization_name}.
-            offensive: Містить расизм, сексизм, образам, особисті випади, погрожували смертю, самогубство запити або будь-якій формі Ненависницькі висловлювання.
-            spam: Містить clickbait, рекламу, шахрайські або сценарію ботів.
+            does_not_belong: Містить незаконну діяльність, загрози самогубства, особисту інформацію чи ще щось, чого, на вашу думку, не повинно бути в %{organization_name}.
+            offensive: Містить расизм, сексизм, образи, особисті напади, загрози смерті, заяви про самогубство або будь-які ненависницькі висловлювання.
+            spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або дописи ботів.
           title: Повідомити про проблему
-        verified_user_group: Перевірена організації
+        verified_user_group: Перевірена організація
       comment_order_selector:
         order:
-          best_rated: Найвищі оцінки
-          most_discussed: Найчастіше обговорювані
-          older: Літні
-          recent: Останні
-        title: 'Замовити по:'
+          best_rated: З найкращим рейтингом
+          most_discussed: Найбільш обговорюване
+          older: Давніше
+          recent: Нещодавнє
+        title: 'Впорядкувати за:'
       comment_thread:
-        title: Розмова з %{authorName}
+        title: Бесіда з %{authorName}
       comments:
-        blocked_comments_warning: Коментарі відключені у поточний крок, але ви можете прочитати коментарі від попередніх кроках.
+        blocked_comments_warning: Коментарі на цьому кроці відключені, проте ви можете прочитати коментарі з попередніх кроків.
         loading: Завантаження коментарів...
         title: "%{count} коментарів"
       featured_comment:
-        title: Рекомендовані коментар
+        title: Рекомендований коментар
   errors:
     messages:
-      cannot_have_comments: не може мати коментарів
+      cannot_have_comments: не підлягає коментуванню

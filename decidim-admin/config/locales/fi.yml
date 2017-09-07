@@ -60,6 +60,7 @@ fi:
         scope: Konteksti
         short_description: Lyhyt kuvaus
         slug: URL-tunniste
+        start_date: Aloitusaika
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
@@ -76,23 +77,12 @@ fi:
   decidim:
     admin:
       actions:
-        activate: Aktivoi
         add: Lisää
         browse: Selaa
-        configure: Asetukset
-        confirm_destroy: Haluatko varmasti poistaa tämän?
-        destroy: Tuhoa
-        duplicate: Kopioi
-        edit: Muokkaa
         export: Vie
         manage: Hallitse
-        new: Uusi
         permissions: Oikeudet
-        preview: Esikatsele
-        publish: Julkaise
         reject: Hylkää
-        resend_invitation: Lähetä kutsu uudelleen
-        unpublish: Lopeta julkaisu
         verify: Vahvista
       attachments:
         create:
@@ -258,8 +248,6 @@ fi:
           fields:
             created_at: Luontipäivämäärä
             email: Sähköposti
-            invitation_accepted_at: Kutsun hyväksymispäivämäärä
-            invitation_sent_at: Kutsun lähetyspäivämäärä
             last_sign_in_at: Viimeisen kirjautumisen päivämäärä
             name: Nimi
             role: Rooli
@@ -420,9 +408,6 @@ fi:
         new:
           create: Kutsu
           title: Kutsu käyttäjä hallinnoijaksi
-        resend_invitation:
-          error: Kutsuviestin lähettämisessä tapahtui virhe.
-          success: Kutsuviesti lähetetty onnistuneesti.
     moderations:
       actions:
         hidden: Piilotettu

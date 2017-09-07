@@ -22,6 +22,7 @@ nl:
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         slug: URL slak
+        start_date: Begindatum
         subtitle: subtitel
         target: Doel
         title: Titel
@@ -42,6 +43,18 @@ nl:
         role: Rol
   decidim:
     admin:
+      actions:
+        activate: Activeren
+        configure: Configureren
+        confirm_destroy: Bevestigen vernietigen
+        destroy: Vernietigen
+        duplicate: Dupliceren
+        edit: Bewerken
+        new: Nieuw
+        preview: Voorbeeld
+        publish: Publiceren
+        resend_invitation: Uitnodiging verzenden
+        unpublish: Publicatie ongedaan maken
       menu:
         participatory_process_groups: Procesgroepen
         participatory_processes: Processen
@@ -81,6 +94,10 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
+        user:
+          fields:
+            invitation_accepted_at: Uitnodiging geaccepteerd op
+            invitation_sent_at: Uitnodiging verzonden op
       participatory_process_copies:
         new:
           copy: Kopiëren
@@ -179,6 +196,10 @@ nl:
       titles:
         participatory_process_groups: Deelnemende procesgroepen
         participatory_processes: Participatieve processen
+      users:
+        resend_invitation:
+          error: Er is een fout opgetreden opnieuw verzenden van de uitnodiging.
+          success: Uitnodiging opnieuw met succes verzonden.
     menu:
       processes: Processen
     participatory_process_groups:
@@ -192,8 +213,15 @@ nl:
     participatory_processes:
       index:
         title: Participatieve processen
+      order_by_processes:
+        active: Actieve
+        past: Verleden
+        upcoming: Aankomende
       participatory_process_groups:
         none: Geen
+      participatory_processes:
+        index:
+          loading: Laden van resultaten...
       show:
         developer_group: Ontwikkelaarsgroep
         end_date: Einddatum
@@ -201,6 +229,7 @@ nl:
         participatory_scope: Participatief toepassingsgebied
         participatory_structure: Participatieve structuur
         scope: Reikwijdte
+        start_date: Begindatum
         target: Doel
       statistics:
         answers_count: antwoorden
@@ -216,6 +245,8 @@ nl:
         surveys_count: onderzoeken
         users_count: Deelnemers
         votes_count: stemmen
+    scopes:
+      global: Globaal bereik
   layouts:
     decidim:
       participatory_process_groups:

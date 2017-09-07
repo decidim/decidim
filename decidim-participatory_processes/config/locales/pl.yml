@@ -22,6 +22,7 @@ pl:
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
         slug: Ślimak URL
+        start_date: Data rozpoczęcia
         subtitle: Podtytuł
         target: Cel
         title: Tytuł
@@ -42,6 +43,18 @@ pl:
         role: Rola
   decidim:
     admin:
+      actions:
+        activate: Aktywować
+        configure: Skonfigurować
+        confirm_destroy: Potwierdzić zniszczyć
+        destroy: Zniszczyć
+        duplicate: Duplikat
+        edit: Edytuj
+        new: Nowy
+        preview: Podgląd
+        publish: Opublikować
+        resend_invitation: Wyślij ponownie zaproszenie
+        unpublish: Cofnij publikowanie
       menu:
         participatory_process_groups: Grupy procesowe
         participatory_processes: Procesy
@@ -81,6 +94,10 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+        user:
+          fields:
+            invitation_accepted_at: Zaproszenie przyjęli w
+            invitation_sent_at: Zaproszenie wysłane w
       participatory_process_copies:
         new:
           copy: Kopiuj
@@ -179,6 +196,10 @@ pl:
       titles:
         participatory_process_groups: Uczestniczące grupy procesowe
         participatory_processes: Procesy partycypacyjne
+      users:
+        resend_invitation:
+          error: Wystąpił błąd ponownego wysłania zaproszenia.
+          success: Zaproszenie wysłane pomyślnie ponownie.
     menu:
       processes: Procesy
     participatory_process_groups:
@@ -192,8 +213,15 @@ pl:
     participatory_processes:
       index:
         title: Procesy partycypacyjne
+      order_by_processes:
+        active: Aktywne
+        past: Przeszłe
+        upcoming: Nadchodzące
       participatory_process_groups:
         none: Brak
+      participatory_processes:
+        index:
+          loading: Wyniki wyszukiwania...
       show:
         developer_group: Grupa programistyczna
         end_date: Data zakończenia
@@ -201,6 +229,7 @@ pl:
         participatory_scope: Zakres partycypacji
         participatory_structure: Struktura partycypacji
         scope: Zakres
+        start_date: Data rozpoczęcia
         target: Cel
       statistics:
         answers_count: Odpowiedzi
@@ -216,6 +245,8 @@ pl:
         surveys_count: Ankiety
         users_count: Uczestnicy
         votes_count: Głosowania
+    scopes:
+      global: Zakres globalny
   layouts:
     decidim:
       participatory_process_groups:

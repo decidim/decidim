@@ -2,127 +2,127 @@ uk:
   activemodel:
     attributes:
       assembly:
-        banner_image: Банер зображення
-        copy_categories: Копія категорії
-        copy_features: Скопіювати функції
+        banner_image: Банерне зображення
+        copy_categories: Скопіювати розділи
+        copy_features: Скопіювати складові
         description: Опис
         developer_group: Група розробників
         domain: Домен
-        hashtag: Хештегом
-        hero_image: Зображення будинку
+        hashtag: Хештег
+        hero_image: Зображення головної сторінки
         local_area: Місцевість
-        meta_scope: Метадані сфери
-        participatory_scope: Участь рамки
-        participatory_structure: Участі структури
-        promoted: Сприяли
-        scope_id: Сфера
-        scopes_enabled: Приціли включений
-        short_description: Короткий опис
-        slug: Службове поле URL
-        subtitle: Субтитрів
-        target: Цільової
+        meta_scope: Метадані обсягу
+        participatory_scope: Обсяг співучасті
+        participatory_structure: Структура співучасті
+        promoted: Підвищено в статусі
+        scope_id: Обсяг
+        scopes_enabled: Ввімкнені обсяги
+        short_description: Стислий опис
+        slug: Скорочена URL-адреса
+        subtitle: Підзаголовок
+        target: Мета
         title: Назва
   decidim:
     admin:
       assemblies:
         create:
-          error: Помилка під час створення нової збірки.
-          success: Асамблея створена успішно.
+          error: При створенні нових зборів сталася помилка.
+          success: Збори успішно створено.
         destroy:
-          success: Асамблея знищені успішно.
+          success: Збори успішно видалено.
         edit:
-          update: Оновлення
+          update: Оновити
         form:
-          title: Загальна інформація
+          title: Загальні відомості
         index:
-          not_published: Не Опубліковано
+          not_published: Не опубліковано
           published: Опубліковано
         new:
           create: Створити
-          title: Нові збірки
+          title: Нові збори
         update:
-          error: Виявлено помилку під час оновлення цієї Асамблеї.
-          success: Асамблея успішно оновлено.
+          error: При оновленні цих зборів сталася помилка.
+          success: Збори успішно оновлено.
       assemblies_copies:
         create:
-          error: Виявлено помилку під час створення дублікату цієї Асамблеї.
-          success: Складання дубльовані успішно.
+          error: При створенні копії цих зборів сталася помилка.
+          success: Успішно створено копію зборів.
       assembly_copies:
         new:
-          copy: Копія
-          select: Оберіть які дані, які ви хотіли б створити дублікат
-          title: Повторювані збори
+          copy: Скопіювати
+          select: Оберіть дані, копію яких ви хотіли б створити
+          title: Створити копію зборів
       assembly_publications:
         create:
-          error: Помилка під час публікації цієї Асамблеї.
-          success: Асамблея опубліковані успішно.
+          error: Під час публікації цих зборів сталася помилка.
+          success: Збори успішно опубліковано.
         destroy:
-          error: Помилка під час скасування публікації цієї Асамблеї.
-          success: Асамблея неопубліковані успішно.
+          error: При скасуванні публікації цих зборів сталася помилка.
+          success: Публікацію зборів успішно скасовано.
       menu:
-        assemblies: Вузлів
+        assemblies: Збори
         assemblies_submenu:
-          attachments: Вкладення
-          categories: Категорії
-          features: Особливості
-          info: Інформація
-          moderations: Moderations
+          attachments: Вкладені файли
+          categories: Розділи
+          features: Складові
+          info: Відомості
+          moderations: Дії з модерації
       models:
         assembly:
           fields:
-            created_at: Створений в
-            promoted: Виділені
+            created_at: Створено о
+            promoted: Висвітлено
             published: Опубліковано
             title: Назва
-          name: Асамблея
+          name: Збори
       titles:
-        assemblies: Вузлів
+        assemblies: Збори
     assemblies:
       index:
-        title: Вузлів
+        title: Збори
       show:
         developer_group: Група розробників
         local_area: Місцевість
-        participatory_scope: Участь рамки
-        participatory_structure: Участі структури
-        scope: Сфера
-        target: Цільової
+        participatory_scope: Обсяг співучасті
+        participatory_structure: Структура співучасті
+        scope: Обсяг
+        target: Мета
       statistics:
         answers_count: Відповіді
-        assemblies_count: Вузлів
+        assemblies_count: Збори
         comments_count: Коментарі
         headline: Діяльність
         meetings_count: Зустрічі
-        orders_count: Замовлення
+        orders_count: Голоси
         pages_count: Сторінки
         projects_count: Проекти
         proposals_count: Пропозиції
-        results_count: Результати
+        results_count: Підсумки
         surveys_count: Опитування
         users_count: Учасники
-        votes_count: Голосів
+        votes_count: Голоси
     menu:
-      assemblies: Вузлів
+      assemblies: Збори
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Взяти участь
         index:
-          promoted_assemblies: Виділених вузлів
+          promoted_assemblies: Висвітлені збори
         no_assemblies_yet:
-          no_assemblies_yet: Ще немає вузлів!
+          no_assemblies_yet: Ще немає зборів!
         order_by_assemblies:
           assemblies:
-            one: "Асамблея %{count}"
-            few: "%{count} вузлів"
-            other: "%{count} вузлів"
+            one: "%{count} (одні) збори"
+            few: "%{count} зборів"
+            other: "%{count} зборів"
         promoted_assembly:
-          more_info: Детальніше
+          more_info: Додаткові відомості
           take_part: Взяти участь
       assembly_header:
-        assembly_menu_item: Складання
-        unfold: Розгортатися
+        assembly_menu_item: Збори
+        unfold: Розгорнути
       assembly_widgets:
         show:
           take_part: Взяти участь

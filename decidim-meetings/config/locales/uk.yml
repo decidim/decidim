@@ -5,23 +5,23 @@ uk:
         attendees_count: Кількість учасників
         attending_organizations: Перелік організацій, які брали участь
         closing_report: Звіт
-        contributions_count: Кількість внески
-        proposal_ids: Пропозиції, розроблені в зустрічі
+        contributions_count: Кількість внесених пропозицій
+        proposal_ids: Пропозиції, вироблені під час зустрічі
       meeting:
         address: Адреса
-        decidim_category_id: Категорія
-        decidim_scope_id: Сфера
+        decidim_category_id: Розділ
+        decidim_scope_id: Обсяг
         description: Опис
         end_time: Час завершення
         location: Розташування
-        location_hints: Розташування підказки
+        location_hints: Як дістатися до цього місця
         start_time: Час початку
         title: Назва
   decidim:
     features:
       meetings:
         actions:
-          join: Приєднатися до
+          join: Приєднатися
         name: Зустрічі
         settings:
           global:
@@ -30,41 +30,41 @@ uk:
             announcement: Оголошення
     meetings:
       actions:
-        attachments: Вкладення
+        attachments: Вкладені файли
         close: Закрити
-        confirm_destroy: Справді видалити цю нараду?
+        confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
-        new: Нові
+        new: Нове
         preview: Попередній перегляд
-        registrations: Реєстрацій
+        registrations: Реєстрації
         title: Дії
       admin:
         exports:
-          registrations: Реєстрацій
+          registrations: Реєстрації
         meeting_closes:
           edit:
             close: Закрити
-            title: Закриття зустрічі
+            title: Закрити зустріч
         meetings:
           close:
-            invalid: Там були проблеми закриття цієї зустрічі
-            success: Зборів успішно закрила
+            invalid: При закритті цієї зустрічі сталася помилка
+            success: Зустріч успішно закрито
           create:
-            invalid: Там була помилка створення цієї наради
-            success: Зборів успішно створено
+            invalid: При створенні цієї зустрічі сталася помилка
+            success: Зустріч успішно створено
           destroy:
-            success: Успішно видалили наради
+            success: Зустріч успішно видалено
           edit:
-            update: Оновлення
+            update: Оновити
           index:
             title: Зустрічі
           new:
             create: Створити
-            title: Створення зустрічі
+            title: Створити зустріч
           update:
-            invalid: Там були проблеми оновлення цієї наради
-            success: Зборів успішно оновлено
+            invalid: При оновленні цієї зустрічі сталася помилка
+            success: Зустріч успішно оновлено
         models:
           meeting:
             name: Зустріч
@@ -72,69 +72,69 @@ uk:
           edit:
             save: Зберегти
           form:
-            available_slots_help: Залиште його до 0, якщо у вас є необмежені слоти доступні.
+            available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
             registrations_count:
-              one: Було досягнуто 1 реєстрації.
-              few: Там було %{count} реєстрацій.
-              other: Там було %{count} реєстрацій.
+              one: Зареєструвалась 1 людина.
+              few: Зареєструвалось %{count} людей.
+              other: Зареєструвалось %{count} людей.
           update:
-            invalid: Там були проблеми збереження настройок реєстрації.
-            success: Зустріч реєстрацій настройки успішно збережено.
+            invalid: При збереженні налаштувань реєстрації сталася помилка.
+            success: Налаштування реєстрації на зустріч успішно збережено.
       meetings:
         filters:
-          category: Категорія
-          category_prompt: Вибрати категорію
+          category: Розділ
+          category_prompt: Оберіть розділ
           date: Дата
-          past: Минуле
-          scope_prompt: Виберіть сферу
-          scopes: Приціли
-          search: Пошук
+          past: Минулі
+          scope_prompt: Оберіть обсяг
+          scopes: Обсяги
+          search: Шукати
           upcoming: Майбутні
         filters_small_view:
-          close_modal: Закрити модальних
-          filter: Фільтр
-          filter_by: Фільтрувати за
-          unfold: Розгортатися
+          close_modal: Закрити віконце
+          filter: Відібрати
+          filter_by: 'Відібрати за ознакою:'
+          unfold: Розгорнути
         index:
           view_meeting: Подання зустріч
         meetings:
-          no_meetings_warning: Жодного засідання відповідають критеріям пошуку, або не існує будь-яку зустріч запланованого.
-          upcoming_meetings_warning: В даний час там не немає запланованих зустрічей, але тут ви можете знайти всі останні зустрічі у списку.
+          no_meetings_warning: Жодна зустріч не відповідає вашим критеріям пошуку, або жодних зустрічей не заплановано.
+          upcoming_meetings_warning: Наразі нема запланованих зустрічей, але тут ви можете знайти перелік усіх попередніх зустрічей.
         registration_confirm:
-          cancel: '"Скасувати"'
+          cancel: Скасувати
           confirm: Підтвердити
         show:
-          attendees: Учасники вважати
-          contributions: Внески кол
-          going: Буде
-          join: Приєднатися до наради
-          meeting_report: Зустріч звіт
-          no_slots_available: Немає слота доступні
-          organizations: Участь організацій
+          attendees: Кількість учасників
+          contributions: Кількість внесених пропозицій
+          going: Збирається відвідати
+          join: Приєднатися до зустрічі
+          meeting_report: Звіт про зустріч
+          no_slots_available: Не залишилось місць
+          organizations: Організації, що приймають участь
           remaining_slots:
-            one: 1 слот, залишаючись
-            few: "%{count} слотів, залишаючись"
-            other: "%{count} слотів, залишаючись"
+            one: Залишилось 1 місце
+            few: "Залишилось %{count} місця"
+            other: "Залишилось %{count} місць"
       models:
         meeting:
           fields:
-            closed: Закриті
+            closed: Закрито
             end_time: Дата закінчення
-            map: Карта
+            map: Мапа
             start_time: Дата початку
             title: Назва
       read_more: "(читати далі)"
       registrations:
         create:
-          invalid: Там були проблеми, що приєднання цієї зустрічі.
-          success: Ви приєдналися до наради успішно.
+          invalid: При приєднанні до цієї зустрічі сталася помилка.
+          success: Ви успішно приєдналися до зустрічі.
         destroy:
-          invalid: Там були проблеми, залишаючи цієї зустрічі.
-          success: Ви припинять участь успішно.
+          invalid: Під час залишення цієї зустрічі сталася помилка.
+          success: Ви успішно залишили зустріч.
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Відповідних результатів:'
-        result_meetings: 'Пов''язані зустрічей:'
+        meeting_results: 'Пов''язані підсумки:'
+        result_meetings: 'Пов''язані зустрічі:'
       proposals_from_meeting:
         meeting_proposals: 'Супутні пропозиції:'
-        proposal_meetings: 'Пов''язані зустрічей:'
+        proposal_meetings: 'Пов''язані зустрічі:'

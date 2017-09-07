@@ -22,6 +22,7 @@ es:
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
         slug: Texto corto de URL
+        start_date: Fecha de inicio
         subtitle: Subtítulo
         target: '¿A quién va dirigida?'
         title: Grupo de procesos participativos
@@ -42,6 +43,18 @@ es:
         role: Rol
   decidim:
     admin:
+      actions:
+        activate: Activar
+        configure: Configurar
+        confirm_destroy: '¿Estás seguro?'
+        destroy: Eliminar
+        duplicate: Duplicar
+        edit: Editar
+        new: Nuevo/a
+        preview: Previsualizar
+        publish: Publicar
+        resend_invitation: Reenviar invitación
+        unpublish: Despublicar
       menu:
         participatory_process_groups: Grupos de procesos
         participatory_processes: Procesos
@@ -81,6 +94,10 @@ es:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+        user:
+          fields:
+            invitation_accepted_at: Invitación aceptada en
+            invitation_sent_at: Invitación enviada en el
       participatory_process_copies:
         new:
           copy: Copiar
@@ -179,6 +196,10 @@ es:
       titles:
         participatory_process_groups: Grupos de procesos participativos
         participatory_processes: Procesos participativos
+      users:
+        resend_invitation:
+          error: Hubo un error volver a enviar la invitación.
+          success: Invitación que se resienten con éxito.
     menu:
       processes: Procesos
     participatory_process_groups:
@@ -192,8 +213,15 @@ es:
     participatory_processes:
       index:
         title: Procesos participativos
+      order_by_processes:
+        active: Activa
+        past: Pasadas
+        upcoming: Próximas
       participatory_process_groups:
         none: Ninguna
+      participatory_processes:
+        index:
+          loading: Cargar resultados de...
       show:
         developer_group: Grupo promotor
         end_date: Fecha de finalización
@@ -201,6 +229,7 @@ es:
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         scope: Ámbito
+        start_date: Fecha de inicio
         target: '¿A quién va dirigida?'
       statistics:
         answers_count: '¿A quién va dirigida?'
@@ -216,6 +245,8 @@ es:
         surveys_count: Encuestas
         users_count: Participantes
         votes_count: Soportes
+    scopes:
+      global: Ámbito global
   layouts:
     decidim:
       participatory_process_groups:

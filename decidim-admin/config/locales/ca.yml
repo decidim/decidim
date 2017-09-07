@@ -60,6 +60,7 @@ ca:
         scope: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
+        start_date: Data d'inici
         subtitle: Subtítol
         target: A qui va dirigit?
         title: Títol
@@ -76,23 +77,12 @@ ca:
   decidim:
     admin:
       actions:
-        activate: Activar
         add: Afegir
         browse: Explorar
-        configure: Configurar
-        confirm_destroy: Segur que ho vols eliminar?
-        destroy: Eliminar
-        duplicate: Duplicar
-        edit: Editar
         export: Exporta
         manage: Gestionar
-        new: Nou/va
         permissions: Permisos
-        preview: Previsualitzar
-        publish: Publicar
         reject: Rebutjar
-        resend_invitation: Tornar a enviar invitació
-        unpublish: Despublicar
         verify: Verificar
       attachments:
         create:
@@ -258,8 +248,6 @@ ca:
           fields:
             created_at: Data de creació
             email: Correu electrònic
-            invitation_accepted_at: Data d'acceptació de la invitació
-            invitation_sent_at: Data d'enviament de la invitació
             last_sign_in_at: Darrera data d'identificació
             name: Nom
             role: Rol
@@ -420,9 +408,6 @@ ca:
         new:
           create: Convidar
           title: Convidar un usuari com a administrador
-        resend_invitation:
-          error: S'ha produït un error en intentar enviar el missatge d'invitació.
-          success: Invitació enviada correctament.
     moderations:
       actions:
         hidden: Ocults
