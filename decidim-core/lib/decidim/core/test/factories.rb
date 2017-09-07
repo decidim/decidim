@@ -294,4 +294,26 @@ FactoryGirl.define do
     user { build(:user, :managed, organization: admin.organization) }
     started_at Time.current
   end
+
+  factory :follow, class: "Decidim::Follow" do
+    user do
+      build(
+        :user,
+        organization: followable.try(:organization) || build(:organization)
+      )
+    end
+    followable { build(:dummy_resource) }
+  end
+
+  factory :notification, class: "Decidim::Notification" do
+    user do
+      build(
+        :user,
+        organization: resource.try(:organization) || build(:organization)
+      )
+    end
+    resource { build(:dummy_resource) }
+    event_name { resource.class.name.underscore.tr("/", ".") }
+    event_class { "Decidim::DummyResourceEvent" }
+  end
 end

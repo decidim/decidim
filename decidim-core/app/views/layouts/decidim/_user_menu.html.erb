@@ -1,4 +1,5 @@
 <li><%= link_to t(".profile"), decidim.account_path %></li>
+<li><%= link_to t(".notifications"), decidim.notifications_path %></li>
 <% if can? :read, :admin_dashboard %>
   <li><%= link_to t(".admin_dashboard"), decidim_admin.root_path %></li>
 <% end %>
