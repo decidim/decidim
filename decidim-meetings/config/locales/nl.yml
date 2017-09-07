@@ -79,6 +79,17 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Vergaderen van instellingen voor instellingen die succesvol zijn opgeslagen.
+      events:
+        close_meeting_event:
+          email_intro: 'De "%{resource_title}"-bijeenkomst werd gesloten. U kunt de conclusies van de pagina lezen:'
+          email_outro: U ontvangt dit bericht omdat u de bijeenkomst "%{resource_title} volgen". Je kunt het unfollow uit de vorige koppeling.
+          email_subject: De "%{resource_title}"-bijeenkomst werd gesloten
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering werd gesloten.
+        update_meeting_event:
+          email_intro: 'De vergadering van de "%{resource_title}" werd bijgewerkt. U kunt de nieuwe versie van de pagina lezen:'
+          email_outro: U ontvangt dit bericht omdat u de bijeenkomst "%{resource_title} volgen". Je kunt het unfollow uit de vorige koppeling.
+          email_subject: De vergadering van de "%{resource_title}" werd bijgewerkt
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering werd bijgewerkt.
       meetings:
         filters:
           category: Categorie
