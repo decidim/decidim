@@ -317,8 +317,10 @@ fi:
       notifications_dashboard:
         mark_all_as_read: Merkitse kaikki luetuiksi
         no_notifications: Ilmoituksia ei vielä.
+        title: Ilmoitukset
       user_menu:
         admin_dashboard: Hallintapaneeli
+        notifications: Ilmoitukset
         profile: Oma käyttäjätili
         sign_out: Kirjaudu ulos
       user_profile:
