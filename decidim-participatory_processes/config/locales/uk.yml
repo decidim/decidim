@@ -24,7 +24,7 @@ uk:
         slug: Скорочена URL-адреса
         start_date: Дата початку
         subtitle: Підзаголовок
-        target: Ціль
+        target: Мета
         title: Назва
       participatory_process_group:
         description: Опис
@@ -230,7 +230,7 @@ uk:
         participatory_structure: Структура співучасті
         scope: Обсяг
         start_date: Дата початку
-        target: Ціль
+        target: Мета
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
