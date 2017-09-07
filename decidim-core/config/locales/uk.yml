@@ -128,9 +128,9 @@ uk:
         title: Не вдалося знайти сторінку, яку ви шукаєте
     events:
       email_event:
-        email_greeting: Привіт %{user_name},
-        email_intro: 'Було досягнуто оновлення до "%{resource_title}". Ви можете побачити його з цієї сторінки:'
-        email_outro: Ви отримали це сповіщення, тому що ви після "%{resource_title}". Ви можете unfollow його від попереднє посилання.
+        email_greeting: Доброго дня, %{user_name}%!
+        email_intro: 'Було оновлено "%{resource_title}". Ви можете побачити це зі сторінки:'
+        email_outro: Ви отримали це сповіщення, тому що ви слідкуєте за "%{resource_title}". Ви можете припинити слідкувати за ним, перейшовши за наведеним вище посиланням.
         email_subject: Оновлення до %{resource_title}
       notification_event:
         notification_title: Подія відбулося <a href="%{resource_path}">%{resource_title}</a>.
@@ -314,8 +314,8 @@ uk:
         description_html: Ви уособлюєте користувача <b>%{user_name}</b>.
         expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       notifications_dashboard:
-        mark_all_as_read: Позначити всі як прочитані
-        no_notifications: Ще нічого нового.
+        mark_all_as_read: Позначити все як прочитане
+        no_notifications: Ще немає сповіщень.
         title: Сповіщення
       user_menu:
         admin_dashboard: Приладна дошка адміністрування
