@@ -90,6 +90,10 @@ nl:
           email_outro: U ontvangt dit bericht omdat u de bijeenkomst "%{resource_title} volgen". Je kunt het unfollow uit de vorige koppeling.
           email_subject: De vergadering van de "%{resource_title}" werd bijgewerkt
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering werd bijgewerkt.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Registratie van uw vergadering is bevestigd
       meetings:
         filters:
           category: Categorie
@@ -133,6 +137,10 @@ nl:
             start_time: Begin datum
             title: Titel
       read_more: "(Lees verder)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Uw registratie voor de <a href="%{url}">%{title}</a> van de vergadering heeft bevestigd.
+          details: In de bijlage vindt u de details van de vergadering.
       registrations:
         create:
           invalid: Er is een probleem bij deze ontmoeting geweest.
