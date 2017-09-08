@@ -91,6 +91,10 @@ pl:
           email_outro: Otrzymałeś powiadomienie, ponieważ są po spotkaniu "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
           email_subject: Spotkanie "%{resource_title}" została zaktualizowana
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> został zaktualizowany.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Swoje spotkania rejestracja zostanie potwierdzona
       meetings:
         filters:
           category: Kategoria
@@ -135,6 +139,10 @@ pl:
             start_time: Data rozpoczęcia
             title: Tytuł
       read_more: "(czytaj więcej)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Rejestracji dla <a href="%{url}">%{title}</a> spotkanie zostało potwierdzone.
+          details: Szczegóły spotkania znajdą Państwo w załączniku.
       registrations:
         create:
           invalid: Wystąpił problem z dołączeniem tego spotkania.
