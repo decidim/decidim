@@ -18,9 +18,10 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          @meeting.with_lock do
-            return broadcast(:invalid) if @form.invalid?
+          meeting.with_lock do
+            return broadcast(:invalid) if form.invalid?
             update_meeting_registrations
+            send_notification if should_notify_followers?
           end
 
           broadcast(:ok)
@@ -28,15 +29,30 @@ module Decidim
 
         private
 
-        def update_meeting_registrations
-          @meeting.registrations_enabled = @form.registrations_enabled
+        attr_reader :form, :meeting
 
-          if @form.registrations_enabled
-            @meeting.available_slots = @form.available_slots
-            @meeting.registration_terms = @form.registration_terms
+        def update_meeting_registrations
+          meeting.registrations_enabled = form.registrations_enabled
+
+          if form.registrations_enabled
+            meeting.available_slots = form.available_slots
+            meeting.registration_terms = form.registration_terms
           end
 
-          @meeting.save!
+          meeting.save!
+        end
+
+        def send_notification
+          Decidim::EventsManager.publish(
+            event: "decidim.events.meetings.registrations_enabled",
+            event_class: Decidim::Meetings::MeetingRegistrationsEnabled,
+            resource: meeting,
+            recipient_ids: meeting.users_to_notify.pluck(:id)
+          )
+        end
+
+        def should_notify_followers?
+          meeting.previous_changes["registrations_enabled"].present? && meeting.registrations_enabled?
         end
       end
     end

@@ -315,5 +315,10 @@ FactoryGirl.define do
     resource { build(:dummy_resource) }
     event_name { resource.class.name.underscore.tr("/", ".") }
     event_class { "Decidim::DummyResourceEvent" }
+    extra do
+      {
+        some_extra_data: "1"
+      }
+    end
   end
 end

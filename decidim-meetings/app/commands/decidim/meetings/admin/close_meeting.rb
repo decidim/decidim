@@ -45,8 +45,7 @@ module Decidim
             event: "decidim.events.meetings.meeting_closed",
             event_class: Decidim::Meetings::CloseMeetingEvent,
             resource: meeting,
-            recipient_ids: meeting.users_to_notify.pluck(:id),
-            user: form.current_user
+            recipient_ids: meeting.users_to_notify.pluck(:id)
           )
         end
 

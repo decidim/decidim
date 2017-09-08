@@ -7,8 +7,9 @@ describe Decidim::NotificationGeneratorForRecipient do
   let(:resource) { create(:dummy_resource) }
   let(:follow) { create(:follow, resource: resource, user: recipient) }
   let(:recipient) { resource.author }
+  let(:extra) { double }
   let(:event_class) { Decidim::Events::BaseEvent }
-  subject { described_class.new(event, event_class, resource, recipient.id) }
+  subject { described_class.new(event, event_class, resource, recipient.id, extra) }
 
   describe "generate" do
     it "creates a notification for the recipient" do

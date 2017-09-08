@@ -22,6 +22,7 @@ module Decidim
           return broadcast(:invalid) unless can_join_meeting?
           create_registration
           send_email_confirmation
+          send_notification
         end
         broadcast(:ok)
       end
@@ -40,6 +41,32 @@ module Decidim
 
       def send_email_confirmation
         RegistrationMailer.confirmation(user, meeting).deliver_later
+      end
+
+      def participatory_space_admins
+        @meeting.feature.participatory_space.admins
+      end
+
+      def send_notification
+        return send_notification_over(0.5) if occupied_slots_over?(0.5)
+        return send_notification_over(0.8) if occupied_slots_over?(0.8)
+        send_notification_over(1.0) if occupied_slots_over?(1.0)
+      end
+
+      def send_notification_over(percentage)
+        Decidim::EventsManager.publish(
+          event: "decidim.events.meetings.meeting_registrations_over_percentage",
+          event_class: Decidim::Meetings::MeetingRegistrationsOverPercentage,
+          resource: @meeting,
+          recipient_ids: participatory_space_admins.pluck(:id),
+          extra: {
+            percentage: percentage
+          }
+        )
+      end
+
+      def occupied_slots_over?(percentage)
+        @meeting.remaining_slots == (@meeting.available_slots * (1 - percentage)).round
       end
     end
   end

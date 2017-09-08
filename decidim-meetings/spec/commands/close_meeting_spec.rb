@@ -89,7 +89,6 @@ describe Decidim::Meetings::Admin::CloseMeeting do
             event: "decidim.events.meetings.meeting_closed",
             event_class: Decidim::Meetings::CloseMeetingEvent,
             resource: meeting,
-            user: user,
             recipient_ids: [user.id]
           )
 
