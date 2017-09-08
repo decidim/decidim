@@ -142,7 +142,7 @@ en:
       read_more: "(read more)"
       registration_mailer:
         confirmation:
-          confirmed: Your registration for the meeting '%{title}' has been confirmed.
+          confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the meeting's details in the attachment.
       registrations:
         create:
