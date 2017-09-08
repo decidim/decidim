@@ -80,6 +80,7 @@ en:
       actions:
         add: Add
         browse: Browse
+        export: Export
         manage: Manage
         permissions: Permissions
         reject: Reject
@@ -124,6 +125,7 @@ en:
         show:
           welcome: Welcome to the new Decidim Panel Admin.
       exports:
+        export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
       feature_permissions:
         edit:
