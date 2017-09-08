@@ -85,6 +85,16 @@ it:
           email_outro: Hai ricevuto questa notifica perché si segue l'incontro "%{resource_title}". Puoi smettere di seguire e dal link precedente.
           email_subject: È stato chiuso l'incontro "%{resource_title}"
           notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> era chiuso.
+        meeting_registrations_enabled:
+          email_intro: 'L''incontro "%{resource_title}" ha permesso le registrazioni. È possibile registrarsi sulla sua pagina:'
+          email_outro: Hai ricevuto questa notifica perché si segue l'incontro "%{resource_title}". Puoi smettere di seguire e dal link precedente.
+          email_subject: L'incontro "%{resource_title}" ha permesso le registrazioni.
+          notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> ha permesso le registrazioni.
+        meeting_registrations_over_percentage:
+          email_intro: Gli slot di incontro occupato "%{resource_title}" sono più di %{percentage}%.
+          email_outro: Hai ricevuto questa notifica perché sei un admin di spazio partecipativo della riunione.
+          email_subject: Gli slot di incontro occupato "%{resource_title}" sono più di %{percentage}%
+          notification_title: Gli slot di riunione occupate <a href="%{resource_path}">%{resource_title}</a> sono più di %{percentage}%.
         update_meeting_event:
           email_intro: 'L''incontro "%{resource_title}" è stato aggiornato. Potete leggere la nuova versione dalla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché si segue l'incontro "%{resource_title}". Puoi smettere di seguire e dal link precedente.
