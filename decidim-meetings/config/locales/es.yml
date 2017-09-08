@@ -90,6 +90,10 @@ es:
           email_outro: Ha recibido esta notificación porque usted sigue la reunión de "%{resource_title}". Usted puede dejar de seguirlo del enlace anterior.
           email_subject: La reunión de "%{resource_title}" fue actualizada
           notification_title: La reunión de <a href="%{resource_path}">%{resource_title}</a> se ha actualizado.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Registro de la reunión ha sido confirmada
       meetings:
         filters:
           category: Categoría
@@ -133,6 +137,10 @@ es:
             start_time: Fecha de inicio
             title: Título
       read_more: "(leer más)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Se ha confirmado su inscripción para el encuentro <a href="%{url}">%{title}</a>.
+          details: Usted encontrará detalles de la reunión en el archivo adjunto.
       registrations:
         create:
           invalid: Ha habido un problema al unirse a este encuentro.
