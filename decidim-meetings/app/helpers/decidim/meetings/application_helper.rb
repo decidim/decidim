@@ -9,6 +9,7 @@ module Decidim
       include Decidim::MapHelper
       include Decidim::Meetings::MapHelper
       include Decidim::Meetings::MeetingsHelper
+      include Decidim::Comments::CommentsHelper
     end
   end
 end

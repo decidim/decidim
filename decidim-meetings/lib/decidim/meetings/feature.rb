@@ -27,10 +27,12 @@ Decidim.register_feature(:meetings) do |feature|
 
   feature.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
+    settings.attribute :comments_enabled, type: :boolean, default: true
   end
 
   feature.settings(:step) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
+    settings.attribute :comments_blocked, type: :boolean, default: false
   end
 
   feature.seeds do |participatory_space|
