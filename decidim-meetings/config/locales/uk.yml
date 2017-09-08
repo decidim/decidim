@@ -95,7 +95,7 @@ uk:
           email_intro: На зустріч "%{resource_title}" зайнято більше %{percentage}% місць.
           email_outro: Ви отримали це сповіщення, оскільки ви адміністратор простору співучасті зустрічі.
           email_subject: На зустріч "%{resource_title}" зайнято більше %{percentage}% місць
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> зустріч зайняли слоти, над %{percentage}%.
+          notification_title: На зустріч <a href="%{resource_path}">%{resource_title}</a> зайнято більше %{percentage}% місць.
         update_meeting_event:
           email_intro: 'Зустріч "%{resource_title}" було оновлено. Ви можете ознайомитися з новою редакцією на сторінці зустрічі:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
@@ -104,7 +104,7 @@ uk:
       mailer:
         registration_mailer:
           confirmation:
-            subject: Підтвердження реєстрації вашої зустрічі
+            subject: Вашу реєстрацію на зустріч підтверджено
       meetings:
         filters:
           category: Розділ
@@ -151,8 +151,8 @@ uk:
       read_more: "(читати далі)"
       registration_mailer:
         confirmation:
-          confirmed_html: Ваша Реєстрація у <a href="%{url}">%{title}</a> зустріч була підтверджена.
-          details: Ви знайдете відомості про нараду, вкладення.
+          confirmed_html: Вашу реєстрацію на зустріч <a href="%{url}">%{title}</a> підтверджено.
+          details: Відомості про зустріч читайте у вкладенні.
       registrations:
         create:
           invalid: При приєднанні до цієї зустрічі сталася помилка.
