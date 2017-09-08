@@ -63,11 +63,6 @@ module Decidim
       def notifiable?(_context)
         true
       end
-
-      # Public: Overrides the `users_to_notify` Notifiable concern method.
-      def users_to_notify
-        feature.participatory_space.admins
-      end
     end
   end
 end

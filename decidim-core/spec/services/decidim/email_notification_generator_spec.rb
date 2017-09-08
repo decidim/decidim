@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::EmailNotificationGenerator do
   let(:event) { "decidim.events.dummy.dummy_resource_updated" }
   let(:resource) { create(:dummy_resource) }
-  let(:follow) { create(:follow, resource: resource, user: recipient) }
+  let(:follow) { create(:follow, followable: resource, user: recipient) }
   let(:recipient) { resource.author }
   let(:event_class) { Decidim::Events::BaseEvent }
   let(:event_class_name) { "Decidim::Events::BaseEvent" }

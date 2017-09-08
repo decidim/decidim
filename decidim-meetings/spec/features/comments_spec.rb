@@ -15,6 +15,7 @@ describe "Comments", type: :feature, perform_enqueued: true do
     user
   end
   let!(:commentable) { create(:meeting, feature: feature) }
+  let!(:follow) { create(:follow, followable: commentable, user: participatory_process_admin) }
 
   let(:resource_path) { resource_locator(commentable).path }
   include_examples "comments"
