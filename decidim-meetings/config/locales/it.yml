@@ -26,8 +26,10 @@ it:
         settings:
           global:
             announcement: Annuncio
+            comments_enabled: Commenti abilitati
           step:
             announcement: Annuncio
+            comments_blocked: Commenti bloccati
     meetings:
       actions:
         attachments: Allegati
