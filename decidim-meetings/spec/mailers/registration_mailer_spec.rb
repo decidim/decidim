@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::RegistrationMailer, type: :mailer do
+  include ActionView::Helpers::SanitizeHelper
+
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization: organization) }
   let(:feature) { create(:feature, manifest_name: :meetings, participatory_space: participatory_process) }
@@ -28,7 +30,7 @@ describe Decidim::Meetings::RegistrationMailer, type: :mailer do
     events = Icalendar::Event.parse(attachment.read)
     event = events.first
     expect(event.summary).to eq(translated(meeting.title))
-    expect(event.description).to eq(translated(meeting.description))
+    expect(event.description).to eq(strip_tags(translated(meeting.description)))
     expect(event.dtstart.value.to_i).to eq(Icalendar::Values::DateTime.new(meeting.start_time).value.to_i)
     expect(event.dtend.value.to_i).to eq(Icalendar::Values::DateTime.new(meeting.end_time).value.to_i)
     expect(event.geo).to eq([meeting.latitude, meeting.longitude])
