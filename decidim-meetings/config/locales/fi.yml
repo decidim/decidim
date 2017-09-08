@@ -90,6 +90,10 @@ fi:
           email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
           email_subject: '”%{resource_title}” Kokous päivitettiin'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous päivitettiin.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Sinun Kokous rekisteröinti on vahvistettu
       meetings:
         filters:
           category: Kategoria
@@ -133,6 +137,10 @@ fi:
             start_time: Aloitusaika
             title: Otsikko
       read_more: "(lue lisää)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Kokous <a href="%{url}">%{title}</a> rekisteröinti on vahvistettu.
+          details: Löydät kokouksen tiedot liitetiedostona.
       registrations:
         create:
           invalid: On tapahtunut ongelma, joka liittyy tähän kokoukseen.
