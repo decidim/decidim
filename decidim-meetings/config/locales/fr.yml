@@ -90,6 +90,10 @@ fr:
           email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
           email_subject: La réunion de la « %{resource_title} » a été mis à jour
           notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> a été mis à jour.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Enregistrement de la réunion a été confirmée
       meetings:
         filters:
           category: Catégorie
@@ -133,6 +137,10 @@ fr:
             start_time: Date de début
             title: Titre
       read_more: "(Lire la suite)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Votre inscription pour la réunion <a href="%{url}">%{title}</a> a été confirmée.
+          details: Vous trouverez les détails de la réunion dans la pièce jointe.
       registrations:
         create:
           invalid: Il y a eu un problème pour rejoindre cette réunion.
