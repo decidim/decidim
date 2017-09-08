@@ -26,8 +26,10 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
+            comments_enabled: Kommentointi sallittu
           step:
             announcement: Ilmoitus
+            comments_blocked: Kommentointi kielletty
     meetings:
       actions:
         attachments: Liitteet
