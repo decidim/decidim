@@ -156,19 +156,21 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
               resource: meeting,
               recipient_ids: [user.id]
             )
+        end
 
-      it "notifies the change" do
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
-          .with(
-            event: "decidim.events.meetings.meeting_updated",
-            event_class: Decidim::Meetings::UpdateMeetingEvent,
-            resource: meeting,
-            user: user,
-            recipient_ids: [user.id]
-          )
+        it "notifies the change" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.meetings.meeting_updated",
+              event_class: Decidim::Meetings::UpdateMeetingEvent,
+              resource: meeting,
+              user: user,
+              recipient_ids: [user.id]
+            )
 
-        subject.call
+          subject.call
+        end
       end
     end
   end

@@ -19,11 +19,6 @@ en:
         start_time: Start Time
         title: Title
   decidim:
-    admin:
-      actions:
-        export: Export
-      exports:
-        export_as: Export as
     features:
       meetings:
         actions:
