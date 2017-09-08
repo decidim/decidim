@@ -26,8 +26,10 @@ pl:
         settings:
           global:
             announcement: Ogłoszenie
+            comments_enabled: Włączone komentarze
           step:
             announcement: Ogłoszenie
+            comments_blocked: Komentarze zablokowane
     meetings:
       actions:
         attachments: Załączniki
