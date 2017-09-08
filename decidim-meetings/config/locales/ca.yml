@@ -90,6 +90,10 @@ ca:
           email_outro: Que han rebut aquesta notificació, perquè vostè està seguint la trobada de "%{resource_title}". Et poden unfollow l'enllaç anterior.
           email_subject: La trobada de "%{resource_title}" s'ha actualitzat
           notification_title: La reunió de <a href="%{resource_path}">%{resource_title}</a> s'actualitzava.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Inscripció de la reunió s'ha confirmat
       meetings:
         filters:
           category: Categoria
@@ -133,6 +137,10 @@ ca:
             start_time: Data d'inici
             title: Títol
       read_more: "(Llegeix més)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: S'ha confirmat la reunió <a href="%{url}">%{title}</a> la teva inscripció.
+          details: A l'arxiu adjunt trobareu els detalls de la reunió.
       registrations:
         create:
           invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.
