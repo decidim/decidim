@@ -79,6 +79,10 @@ ca:
           update:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: La teva inscripció a l'esdeveniment ha estat confirmada
       meetings:
         filters:
           category: Categoria
@@ -122,6 +126,10 @@ ca:
             start_time: Data d'inici
             title: Títol
       read_more: "(Llegeix més)"
+      registration_mailer:
+        confirmation:
+          confirmed: "La teva inscripció per a la trobada presencial '%{title}' ha estat confirmada."
+          details: "Trobaràs més detalls sobre la trobada a l'arxiu adjunt"
       registrations:
         create:
           invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.

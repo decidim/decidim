@@ -18,21 +18,28 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        @meeting.with_lock do
+        meeting.with_lock do
           return broadcast(:invalid) unless can_join_meeting?
           create_registration
+          send_email_confirmation
         end
         broadcast(:ok)
       end
 
       private
 
+      attr_reader :meeting, :user
+
       def create_registration
-        Decidim::Meetings::Registration.create!(meeting: @meeting, user: @user)
+        Decidim::Meetings::Registration.create!(meeting: meeting, user: user)
       end
 
       def can_join_meeting?
-        @meeting.registrations_enabled? && @meeting.has_available_slots?
+        meeting.registrations_enabled? && meeting.has_available_slots?
+      end
+
+      def send_email_confirmation
+        RegistrationMailer.confirmation(user, meeting).deliver_later
       end
     end
   end
