@@ -12,6 +12,7 @@ module Decidim
       include Decidim::HasScope
       include Decidim::HasCategory
       include Decidim::Followable
+      include Decidim::Comments::Commentable
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id"
 
@@ -36,6 +37,36 @@ module Decidim
 
       def has_registration_for?(user)
         registrations.where(user: user).any?
+      end
+
+      # Public: Overrides the `commentable?` Commentable concern method.
+      def commentable?
+        feature.settings.comments_enabled?
+      end
+
+      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
+      def accepts_new_comments?
+        commentable? && !feature.current_settings.comments_blocked
+      end
+
+      # Public: Overrides the `comments_have_alignment?` Commentable concern method.
+      def comments_have_alignment?
+        true
+      end
+
+      # Public: Overrides the `comments_have_votes?` Commentable concern method.
+      def comments_have_votes?
+        true
+      end
+
+      # Public: Overrides the `notifiable?` Notifiable concern method.
+      def notifiable?(_context)
+        true
+      end
+
+      # Public: Overrides the `users_to_notify` Notifiable concern method.
+      def users_to_notify
+        feature.participatory_space.admins
       end
     end
   end
