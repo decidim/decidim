@@ -56,7 +56,7 @@ uk:
         order:
           best_rated: З найкращим рейтингом
           most_discussed: Найбільш обговорюване
-          older: Давніше
+          older: Давніші
           recent: Нещодавнє
         title: 'Впорядкувати за:'
       comment_thread:
