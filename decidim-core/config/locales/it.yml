@@ -173,6 +173,7 @@ it:
       default_image: Immagine predefinita
       errors:
         error: Si è verificato un errore in questo campo.
+      remove_this_file: Rimuovere questo file
     managed_users:
       expired_session: La sessione di impersonazione corrente è scaduta.
     menu:
