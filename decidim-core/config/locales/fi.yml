@@ -173,6 +173,7 @@ fi:
       default_image: Oletuskuva
       errors:
         error: Tässä kentässä on virhe.
+      remove_this_file: Poista tiedosto
     managed_users:
       expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
     menu:
