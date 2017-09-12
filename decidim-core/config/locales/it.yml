@@ -184,6 +184,7 @@ it:
     notifications_settings:
       show:
         comments_notifications: Desidero ricevere un'email di notifica quando qualcuno mi scrive un commento.
+        email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
         newsletter_notifications: Desidero ricevere informazioni sulle attività rilevanti.
         replies_notifications: Desidero ricevere un'email di notifica quando qualcuno risponde i miei commenti.
         update_notifications_settings: Salva le modifiche
