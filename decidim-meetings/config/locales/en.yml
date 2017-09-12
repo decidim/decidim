@@ -99,6 +99,11 @@ en:
           email_outro: You have received this notification because you are an admin of the meeting's participatory space.
           email_subject: The "%{resource_title}" meeting occupied slots are over %{percentage}%
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting occupied slots are over %{percentage}%.
+        upcoming_meeting_event:
+          email_intro: The "%{resource_title}" meeting will start in less than 48h.
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting will start in less than 48h.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
         update_meeting_event:
           email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.

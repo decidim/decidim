@@ -128,7 +128,7 @@ ca:
       read_more: "(Llegeix més)"
       registration_mailer:
         confirmation:
-          confirmed: "La teva inscripció per a la trobada presencial '%{title}' ha estat confirmada."
+          confirmed_html: "La teva inscripció per a la trobada presencial '%{title}' ha estat confirmada."
           details: "Trobaràs més detalls sobre la trobada a l'arxiu adjunt"
       registrations:
         create:
