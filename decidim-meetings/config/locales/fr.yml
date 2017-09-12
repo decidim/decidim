@@ -97,6 +97,11 @@ fr:
           email_outro: Vous avez reçu cet avis parce que vous êtes un administrateur de l’espace participatif de la réunion.
           email_subject: Les fentes de réunion occupée « %{resource_title} » sont plus %{percentage} %
           notification_title: Les fentes de réunion occupée de <a href="%{resource_path}">%{resource_title}</a> sont plus %{percentage} %.
+        upcoming_meeting_event:
+          email_intro: La réunion de la « %{resource_title} » va commencer en moins de 48h.
+          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
+          email_subject: La réunion de la « %{resource_title} » va commencer en moins de 48h.
+          notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> va commencer en moins de 48h.
         update_meeting_event:
           email_intro: 'La réunion de la « %{resource_title} » a été mis à jour. Vous pouvez lire la nouvelle version de sa page :'
           email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
