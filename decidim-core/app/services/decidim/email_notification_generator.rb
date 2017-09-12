@@ -38,9 +38,16 @@ module Decidim
 
     attr_reader :event, :event_class, :resource, :recipient_ids, :extra
 
+    # Private: sends the notification email to the user if they have the
+    # `email_on_notification` flag active.
+    #
+    # recipient_id - The ID of the user that will receive the email.
+    #
+    # Returns nothing.
     def send_email_to(recipient_id)
       recipient = Decidim::User.where(id: recipient_id).first
       return unless recipient
+      return unless recipient.email_on_notification?
 
       NotificationMailer
         .event_received(

@@ -21,14 +21,29 @@ describe Decidim::EmailNotificationGenerator do
         allow(event_class).to receive(:types).and_return([:email])
       end
 
-      it "schedules a job for each recipient" do
-        expect(Decidim::NotificationMailer)
-          .to receive(:event_received)
-          .with(event, event_class_name, resource, recipient, extra)
-          .and_return(mailer)
-        expect(mailer).to receive(:deliver_later)
+      context "when the user does not want emails for notifications" do
+        it "does not schedule a job for that recipient" do
+          expect(Decidim::NotificationMailer)
+            .not_to receive(:event_received)
 
-        subject.generate
+          subject.generate
+        end
+      end
+
+      context "when the user wants emails for notifications" do
+        before do
+          recipient.update_attributes(email_on_notification: true)
+        end
+
+        it "schedules a job for each recipient" do
+          expect(Decidim::NotificationMailer)
+            .to receive(:event_received)
+            .with(event, event_class_name, resource, recipient, extra)
+            .and_return(mailer)
+          expect(mailer).to receive(:deliver_later)
+
+          subject.generate
+        end
       end
     end
 
