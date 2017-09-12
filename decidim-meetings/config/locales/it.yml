@@ -97,6 +97,11 @@ it:
           email_outro: Hai ricevuto questa notifica perché sei un admin di spazio partecipativo della riunione.
           email_subject: Gli slot di incontro occupato "%{resource_title}" sono più di %{percentage}%
           notification_title: Gli slot di riunione occupate <a href="%{resource_path}">%{resource_title}</a> sono più di %{percentage}%.
+        upcoming_meeting_event:
+          email_intro: L'incontro "%{resource_title}" inizierà in meno di 48 ore.
+          email_outro: Hai ricevuto questa notifica perché si segue l'incontro "%{resource_title}". Puoi smettere di seguire e dal link precedente.
+          email_subject: L'incontro "%{resource_title}" inizierà in meno di 48 ore.
+          notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> inizierà in meno di 48 ore.
         update_meeting_event:
           email_intro: 'L''incontro "%{resource_title}" è stato aggiornato. Potete leggere la nuova versione dalla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché si segue l'incontro "%{resource_title}". Puoi smettere di seguire e dal link precedente.
