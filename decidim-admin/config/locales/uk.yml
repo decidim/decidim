@@ -227,9 +227,9 @@ uk:
           name: Керований користувач
         newsletter:
           fields:
-            created_at: Створено о
+            created_at: 'Створене:'
             progress: Перебіг
-            sent_at: Надіслане
+            sent_at: 'Надіслане:'
             subject: Тема
           name: Випуск новин
         scope:
@@ -242,7 +242,7 @@ uk:
             plural: Множина
         static_page:
           fields:
-            created_at: Створено о
+            created_at: 'Створене:'
             title: Назва
         user:
           fields:
@@ -258,7 +258,7 @@ uk:
         user_group:
           fields:
             actions: Дії
-            created_at: Створено о
+            created_at: 'Створене:'
             document_number: Номер документа
             name: Ім'я
             phone: Телефон
