@@ -70,7 +70,7 @@ uk:
       models:
         assembly:
           fields:
-            created_at: Створено о
+            created_at: 'Створене:'
             promoted: Висвітлено
             published: Опубліковано
             title: Назва
