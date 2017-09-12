@@ -98,6 +98,11 @@ pl:
           email_outro: Otrzymałeś powiadomienie, ponieważ jesteś administratorem uczestniczącej miejsca spotkania.
           email_subject: '"%{resource_title}" spotkanie zajęte automaty są nad %{percentage}%'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> slotów spotkanie zajęte są nad %{percentage}%.
+        upcoming_meeting_event:
+          email_intro: '"%{resource_title}" spotkanie rozpocznie się w mniej niż 48h.'
+          email_outro: Otrzymałeś powiadomienie, ponieważ są po spotkaniu "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
+          email_subject: '"%{resource_title}" spotkanie rozpocznie się w mniej niż 48h.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> spotkanie rozpocznie się w mniej niż 48h.
         update_meeting_event:
           email_intro: 'Spotkanie "%{resource_title}" została zaktualizowana. Nową wersję można odczytać z jego strony:'
           email_outro: Otrzymałeś powiadomienie, ponieważ są po spotkaniu "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
