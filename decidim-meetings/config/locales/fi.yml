@@ -97,6 +97,11 @@ fi:
           email_outro: Olet saanut ilmoituksen, koska olet admin osallistuva kokoustilaa.
           email_subject: '”%{resource_title}” Kokous käytössä paikat ovat yli %{percentage} %'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous miehitetty lähtö on %{percentage} prosenttia.
+        upcoming_meeting_event:
+          email_intro: '”%{resource_title}” kokous alkaa alle 48 tuntia.'
+          email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
+          email_subject: '”%{resource_title}” kokous alkaa alle 48 tuntia.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
         update_meeting_event:
           email_intro: '”%{resource_title}” Kokous päivitettiin. Voit lukea uuden version sen sivulla:'
           email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
