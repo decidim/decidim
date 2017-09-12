@@ -184,6 +184,7 @@ fr:
     notifications_settings:
       show:
         comments_notifications: Je souhaite recevoir des notifications par email lorsque quelqu'un a commenté mes publications.
+        email_on_notification: Je veux recevoir un courriel chaque fois que je reçois une notification.
         newsletter_notifications: Je souhaite recevoir des lettres d'informations sur l'activité de la plateforme
         replies_notifications: Je souhaite recevoir des notifications par email lorsque quelqu'un répond à mes commentaires.
         update_notifications_settings: Enregistrer les modifications
