@@ -6,7 +6,7 @@ pl:
         settings:
           global:
             announcement: Ogłoszenie
-            comments_enabled: Włączone komentarze
+            comments_enabled: Komentarze włączone
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -14,10 +14,10 @@ pl:
       admin:
         models:
           components:
-            body: Ciało
+            body: Treść
         pages:
           edit:
-            save: Aktualizacja
+            save: Aktualizuj
             title: Edytuj stronę
           update:
             invalid: Podczas zapisywania strony wystąpiły błędy.
