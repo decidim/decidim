@@ -50,7 +50,7 @@ uk:
         destroy: Видалити
         duplicate: Створити копію
         edit: Редагувати
-        new: Нове
+        new: Новий
         preview: Попередній перегляд
         publish: Опублікувати
         resend_invitation: Повторно надіслати запрошення
@@ -69,7 +69,7 @@ uk:
       models:
         participatory_process:
           fields:
-            created_at: Створено в
+            created_at: 'Створене:'
             promoted: Висвітлено
             published: Опубліковано
             title: Назва
@@ -77,7 +77,7 @@ uk:
         participatory_process_group:
           fields:
             name: Ім'я
-          name: Група процессу
+          name: Група процесів
         participatory_process_step:
           fields:
             end_date: Дата закінчення
@@ -107,14 +107,14 @@ uk:
         destroy:
           success: Групу процесу співучасті успішно видалено.
         edit:
-          title: Редагувати групу процесу
+          title: Редагувати групу процесів
           update: Оновити
         new:
           create: Створити
-          title: Нова група процесу
+          title: Нова група процесів
         update:
           error: При оновленні цієї групи процесів співучасті сталася помилка.
-          success: Групу процесу співучасті успішно оновлено.
+          success: Групу процесів співучасті успішно оновлено.
       participatory_process_publications:
         create:
           error: При публікації цього процесу співучасті сталася помилка.
@@ -192,7 +192,7 @@ uk:
       participatory_processes_group:
         create:
           error: При створенні нової групи процесів співучасті сталася помилка.
-          success: Групу процесу співучасті успішно створено.
+          success: Групу процесів співучасті успішно створено.
       titles:
         participatory_process_groups: Групи процесів співучасті
         participatory_processes: Процеси співучасті
