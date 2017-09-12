@@ -185,6 +185,7 @@ en:
     notifications_settings:
       show:
         comments_notifications: I want to receive email notifications when someone comments in my publications.
+        email_on_notification: I want to receive an email every time I receive a notification.
         newsletter_notifications: I want to receive information about relevant activity
         replies_notifications: I want to receive email notifications when someone replies my comments.
         update_notifications_settings: Save changes
