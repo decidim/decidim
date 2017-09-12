@@ -173,6 +173,7 @@ uk:
       default_image: Зображення за замовчуванням
       errors:
         error: У цьому полі є помилка.
+      remove_this_file: Видалити цей файл
     managed_users:
       expired_session: Скінчився поточний сеанс уособлення.
     menu:
