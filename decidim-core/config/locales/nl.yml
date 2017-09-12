@@ -173,6 +173,7 @@ nl:
       default_image: Standaard afbeelding
       errors:
         error: Er is een fout in dit veld.
+      remove_this_file: Verwijder dit bestand
     managed_users:
       expired_session: De huidige impersonatie sessie is verlopen.
     menu:
