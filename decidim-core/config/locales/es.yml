@@ -173,6 +173,7 @@ es:
       default_image: Imagen predeterminada
       errors:
         error: Hay un error en este campo.
+      remove_this_file: Eliminar este archivo
     managed_users:
       expired_session: La sesión de suplantación actual ha caducado.
     menu:
