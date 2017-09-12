@@ -97,6 +97,11 @@ nl:
           email_outro: U ontvangt deze melding omdat je beheerder van participatieve ruimte van de vergadering bent.
           email_subject: De "%{resource_title}" vergadering bezet "slots" zijn voorbij %{percentage}%
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering bezet "slots" zijn voorbij %{percentage}%.
+        upcoming_meeting_event:
+          email_intro: De bijeenkomst van de "%{resource_title}" zal beginnen in minder dan 48 uur.
+          email_outro: U ontvangt dit bericht omdat u de bijeenkomst "%{resource_title} volgen". Je kunt het unfollow uit de vorige koppeling.
+          email_subject: De bijeenkomst van de "%{resource_title}" zal beginnen in minder dan 48 uur.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a>-bijeenkomst zal beginnen in minder dan 48 uur.
         update_meeting_event:
           email_intro: 'De vergadering van de "%{resource_title}" werd bijgewerkt. U kunt de nieuwe versie van de pagina lezen:'
           email_outro: U ontvangt dit bericht omdat u de bijeenkomst "%{resource_title} volgen". Je kunt het unfollow uit de vorige koppeling.
