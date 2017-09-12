@@ -97,6 +97,11 @@ es:
           email_outro: Ha recibido esta notificación porque usted es un administrador del espacio participativo de la reunión.
           email_subject: Son las ranuras de reunión ocupada "%{resource_title}" %{percentage}%
           notification_title: Las ranuras de reunión ocupada <a href="%{resource_path}">%{resource_title}</a> son %{percentage}%.
+        upcoming_meeting_event:
+          email_intro: La reunión de "%{resource_title}" se iniciará en menos de 48h.
+          email_outro: Ha recibido esta notificación porque usted sigue la reunión de "%{resource_title}". Usted puede dejar de seguirlo del enlace anterior.
+          email_subject: La reunión de "%{resource_title}" se iniciará en menos de 48h.
+          notification_title: La reunión de <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48h.
         update_meeting_event:
           email_intro: 'La reunión de "%{resource_title}" fue actualizada. Puede leer la nueva versión de su página:'
           email_outro: Ha recibido esta notificación porque usted sigue la reunión de "%{resource_title}". Usted puede dejar de seguirlo del enlace anterior.
