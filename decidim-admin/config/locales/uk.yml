@@ -229,7 +229,7 @@ uk:
           fields:
             created_at: Створено о
             progress: Перебіг
-            sent_at: Надіслано о
+            sent_at: Надіслане
             subject: Тема
           name: Випуск новин
         scope:
