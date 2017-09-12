@@ -184,6 +184,7 @@ pl:
     notifications_settings:
       show:
         comments_notifications: Chcę otrzymywać powiadomienia e-mailowe, gdy ktoś komentuje moje wpisy.
+        email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem otrzymuję powiadomienie.
         newsletter_notifications: Chcę otrzymywać informacje o odpowiedniej aktywności
         replies_notifications: Chcę otrzymywać powiadomienia e-mailowe, gdy ktoś odpowie na moje komentarze.
         update_notifications_settings: Zapisz zmiany
