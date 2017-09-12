@@ -98,6 +98,11 @@ uk:
           email_outro: Ви отримали це сповіщення, оскільки ви адміністратор простору співучасті зустрічі.
           email_subject: На зустріч "%{resource_title}" зайнято більше %{percentage}% місць
           notification_title: На зустріч <a href="%{resource_path}">%{resource_title}</a> зайнято більше %{percentage}% місць.
+        upcoming_meeting_event:
+          email_intro: '"%{resource_title}" засідання розпочнеться в менш ніж за 48 год.'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
+          email_subject: '"%{resource_title}" засідання розпочнеться в менш ніж за 48 год.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> засідання розпочнеться в менш ніж за 48 год.
         update_meeting_event:
           email_intro: 'Зустріч "%{resource_title}" було оновлено. Ви можете ознайомитися з новою редакцією на сторінці зустрічі:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
