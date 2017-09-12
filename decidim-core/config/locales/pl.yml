@@ -173,6 +173,7 @@ pl:
       default_image: Domyślny obraz
       errors:
         error: W tym polu wystąpił błąd.
+      remove_this_file: Usuń ten plik
     managed_users:
       expired_session: Obecna sesja personifikacji wygasła.
     menu:
