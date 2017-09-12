@@ -173,6 +173,7 @@ fr:
       default_image: Image par défaut
       errors:
         error: Ce champ contient une erreur.
+      remove_this_file: Supprimer ce fichier
     managed_users:
       expired_session: La session d'usurpation actuelle a expiré.
     menu:
