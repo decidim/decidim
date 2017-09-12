@@ -173,6 +173,7 @@ ca:
       default_image: Imatge predeterminada
       errors:
         error: Hi ha un error en aquest camp.
+      remove_this_file: Eliminar aquest arxiu
     managed_users:
       expired_session: La sessió de suplantació actual ha caducat.
     menu:
