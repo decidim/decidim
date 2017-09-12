@@ -97,6 +97,11 @@ ca:
           email_outro: Que han rebut aquesta notificació, perquè vostè és un administrador de l'espai participatiu del meeting.
           email_subject: Les ranures de reunió ocupat "%{resource_title}" són %{percentage}%
           notification_title: Les ranures de reunió ocupat <a href="%{resource_path}">%{resource_title}</a> són %{percentage}%.
+        upcoming_meeting_event:
+          email_intro: En menys de 48 hores s'iniciarà la trobada de "%{resource_title}".
+          email_outro: Que han rebut aquesta notificació, perquè vostè està seguint la trobada de "%{resource_title}". Et poden unfollow l'enllaç anterior.
+          email_subject: En menys de 48 hores s'iniciarà la trobada de "%{resource_title}".
+          notification_title: La reunió <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
         update_meeting_event:
           email_intro: 'La trobada de "%{resource_title}" s''actualitzava. Podeu llegir la versió nova de la seva pàgina:'
           email_outro: Que han rebut aquesta notificació, perquè vostè està seguint la trobada de "%{resource_title}". Et poden unfollow l'enllaç anterior.
