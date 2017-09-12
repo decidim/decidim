@@ -44,11 +44,11 @@ module Decidim
       end
     end
 
+    protected
+
     def handler
       @handler ||= AuthorizationHandler.handler_for(handler_name, handler_params)
     end
-
-    protected
 
     def stored_location
       location = stored_location_for(current_user)
