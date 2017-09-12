@@ -24,6 +24,7 @@ module Decidim
           transaction do
             update_meeting!
             send_notification if should_notify_followers?
+            schedule_upcoming_meeting_notification if start_time_changed?
           end
 
           broadcast(:ok, meeting)
@@ -64,6 +65,18 @@ module Decidim
 
         def important_attributes
           %w(start_time end_time address)
+        end
+
+        def start_time_changed?
+          meeting.previous_changes["start_time"].present?
+        end
+
+        def schedule_upcoming_meeting_notification
+          checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
+
+          Decidim::Meetings::UpcomingMeetingNotificationJob
+            .set(wait_until: meeting.start_time - 2.days)
+            .perform_later(meeting.id, checksum)
         end
       end
     end

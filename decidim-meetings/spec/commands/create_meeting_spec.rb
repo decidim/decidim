@@ -72,14 +72,14 @@ describe Decidim::Meetings::Admin::CreateMeeting do
 
     it "schedules a upcoming meeting notification job 48h before start time" do
       expect_any_instance_of(Decidim::Meetings::Meeting)
-        .to receive(:id).at_least(:once).and_return "1"
+        .to receive(:id).at_least(:once).and_return 1
 
       expect(Decidim::Meetings::UpcomingMeetingNotificationJob)
         .to receive(:generate_checksum).and_return "1234"
 
       expect(Decidim::Meetings::UpcomingMeetingNotificationJob)
         .to receive_message_chain(:set, :perform_later)
-        .with(set: start_time - 2.days).with("1", "1234")
+        .with(set: start_time - 2.days).with(1, "1234")
 
       subject.call
     end
