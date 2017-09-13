@@ -86,7 +86,7 @@ shared_examples "manage proposals" do
           end
 
           it "cannot be related to a scope" do
-            find(".card-title a.button").click
+            click_link "New"
 
             within "form" do
               expect(page).to have_no_content(/Scope/i)
@@ -94,7 +94,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal related to the process scope" do
-            find(".card-title a.button").click
+            click_link "New"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
@@ -123,7 +123,7 @@ shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to the process scope" do
-              find(".card-title a.button").click
+              click_link "New"
 
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Make decidim great again"
