@@ -19,7 +19,7 @@ fr:
         default_locale: Langue par défaut
         description: Description
         favicon: Icône
-        header_snippets: Extraits d'en-tête
+        header_snippets: Elements à rajouter entre les balises <head></head>
         homepage_image: Image de la page d'accueil
         logo: Logo
         name: Nom
