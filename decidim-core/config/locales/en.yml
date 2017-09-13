@@ -174,6 +174,7 @@ en:
       default_image: Default image
       errors:
         error: There's an error in this field.
+      remove_this_file: Remove this file
     managed_users:
       expired_session: The current impersonation session has expired.
     menu:
@@ -185,6 +186,7 @@ en:
     notifications_settings:
       show:
         comments_notifications: I want to receive email notifications when someone comments in my publications.
+        email_on_notification: I want to receive an email every time I receive a notification.
         newsletter_notifications: I want to receive information about relevant activity
         replies_notifications: I want to receive email notifications when someone replies my comments.
         update_notifications_settings: Save changes

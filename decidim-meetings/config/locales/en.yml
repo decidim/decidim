@@ -27,8 +27,10 @@ en:
         settings:
           global:
             announcement: Announcement
+            comments_enabled: Comments enabled
           step:
             announcement: Announcement
+            comments_blocked: Comments blocked
     meetings:
       actions:
         attachments: Attachments
@@ -87,11 +89,30 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was closed
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+        meeting_registrations_enabled:
+          email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting has enabled registrations.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
+        meeting_registrations_over_percentage:
+          email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
+          email_outro: You have received this notification because you are an admin of the meeting's participatory space.
+          email_subject: The "%{resource_title}" meeting occupied slots are over %{percentage}%
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting occupied slots are over %{percentage}%.
+        upcoming_meeting_event:
+          email_intro: The "%{resource_title}" meeting will start in less than 48h.
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting will start in less than 48h.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
         update_meeting_event:
           email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Your meeting's registration has been confirmed
       meetings:
         filters:
           category: Category
@@ -136,6 +157,10 @@ en:
             start_time: Start date
             title: Title
       read_more: "(read more)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
+          details: You will find the meeting's details in the attachment.
       registrations:
         create:
           invalid: There's been a problem joining this meeting.

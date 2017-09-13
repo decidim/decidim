@@ -12,6 +12,7 @@ describe Decidim::Meetings::Admin::CreateMeeting do
   let(:invalid) { false }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
+  let(:start_time) { 1.day.from_now }
   let(:form) do
     double(
       invalid?: invalid,
@@ -19,7 +20,7 @@ describe Decidim::Meetings::Admin::CreateMeeting do
       description: { en: "description" },
       location: { en: "location" },
       location_hints: { en: "location_hints" },
-      start_time: 1.day.from_now,
+      start_time: start_time,
       end_time: 1.day.from_now + 1.hour,
       address: address,
       latitude: latitude,
@@ -67,6 +68,20 @@ describe Decidim::Meetings::Admin::CreateMeeting do
       last_meeting = Decidim::Meetings::Meeting.last
       expect(last_meeting.latitude).to eq(latitude)
       expect(last_meeting.longitude).to eq(longitude)
+    end
+
+    it "schedules a upcoming meeting notification job 48h before start time" do
+      expect_any_instance_of(Decidim::Meetings::Meeting)
+        .to receive(:id).at_least(:once).and_return 1
+
+      expect(Decidim::Meetings::UpcomingMeetingNotificationJob)
+        .to receive(:generate_checksum).and_return "1234"
+
+      expect(Decidim::Meetings::UpcomingMeetingNotificationJob)
+        .to receive_message_chain(:set, :perform_later)
+        .with(set: start_time - 2.days).with(1, "1234")
+
+      subject.call
     end
   end
 end

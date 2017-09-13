@@ -12,11 +12,46 @@ describe "Notifications", type: :feature do
   before do
     switch_to_host organization.host
     login_as user, scope: :user
-    page.visit decidim.notifications_path
+  end
+
+  context "accessing the notifications page" do
+    before do
+      page.visit decidim.root_path
+    end
+
+    it "has a button on the topbar nav that links to the notifications page" do
+      within ".topbar__user__logged" do
+        find("a.topbar__notifications").click
+        expect(current_path).to eq decidim.notifications_path
+      end
+    end
+
+    context "when there are no notifications" do
+      let!(:notification) { nil }
+
+      it "the button is not shown as active" do
+        within ".topbar__user__logged" do
+          expect(page).to have_no_selector("a.topbar__notifications.is-active")
+          expect(page).to have_selector("a.topbar__notifications")
+        end
+      end
+    end
+
+    context "when there are some notifications" do
+      it "the button is shown as active" do
+        within ".topbar__user__logged" do
+          expect(page).to have_selector("a.topbar__notifications.is-active")
+        end
+      end
+    end
   end
 
   context "when no notification is found" do
     let!(:notification) { nil }
+
+    before do
+      page.visit decidim.notifications_path
+    end
 
     it "doesn't show any notification" do
       expect(page).to have_content("No notifications yet")
@@ -26,6 +61,10 @@ describe "Notifications", type: :feature do
   context "with notifications" do
     it "shows the notifications" do
       expect(page).to have_selector("section#notifications-list .card--list__item")
+    end
+
+    before do
+      page.visit decidim.notifications_path
     end
 
     context "when setting a single notification as read" do

@@ -12,11 +12,13 @@ module Decidim
     # event - A String with the name of the event.
     # event_class - A class that wraps the event.
     # resource - an instance of a class implementing the `Decidim::Resource` concern.
-    def initialize(event, event_class, resource, recipient_ids)
+    # extra - a Hash with extra information to be included in the notification.
+    def initialize(event, event_class, resource, recipient_ids, extra)
       @event = event
       @event_class = event_class
       @resource = resource
       @recipient_ids = recipient_ids
+      @extra = extra
     end
 
     # Schedules a job for each recipient to send the email. Returns `nil`
@@ -34,18 +36,26 @@ module Decidim
 
     private
 
-    attr_reader :event, :event_class, :resource, :recipient_ids
+    attr_reader :event, :event_class, :resource, :recipient_ids, :extra
 
+    # Private: sends the notification email to the user if they have the
+    # `email_on_notification` flag active.
+    #
+    # recipient_id - The ID of the user that will receive the email.
+    #
+    # Returns nothing.
     def send_email_to(recipient_id)
       recipient = Decidim::User.where(id: recipient_id).first
       return unless recipient
+      return unless recipient.email_on_notification?
 
       NotificationMailer
         .event_received(
           event,
           event_class.name,
           resource,
-          recipient
+          recipient,
+          extra
         )
         .deliver_later
     end

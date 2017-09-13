@@ -110,7 +110,7 @@ ca:
       mailer:
         registration_mailer:
           confirmation:
-            subject: Inscripció de la reunió s'ha confirmat
+            subject: La teva inscripció a l'esdeveniment ha estat confirmada
       meetings:
         filters:
           category: Categoria
@@ -156,8 +156,8 @@ ca:
       read_more: "(Llegeix més)"
       registration_mailer:
         confirmation:
-          confirmed_html: S'ha confirmat la reunió <a href="%{url}">%{title}</a> la teva inscripció.
-          details: A l'arxiu adjunt trobareu els detalls de la reunió.
+          confirmed_html: "La teva inscripció per a la trobada presencial '%{title}' ha estat confirmada."
+          details: "Trobaràs més detalls sobre la trobada a l'arxiu adjunt"
       registrations:
         create:
           invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.

@@ -57,7 +57,7 @@ AllCops:
   TargetRubyVersion: 2.4
 
 # Indent private/protected/public as deep as method definitions
-Style/AccessModifierIndentation:
+Layout/AccessModifierIndentation:
   EnforcedStyle: indent
   SupportedStyles:
     - outdent
@@ -73,7 +73,7 @@ Style/Alias:
     - prefer_alias_method
 
 # Align the elements of a hash literal if they span more than one line.
-Style/AlignHash:
+Layout/AlignHash:
   # Alignment of entries using hash rocket as separator. Valid values are:
   #
   # key - left alignment of keys
@@ -136,7 +136,7 @@ Style/AlignHash:
     - ignore_implicit
     - ignore_explicit
 
-Style/AlignParameters:
+Layout/AlignParameters:
   # Alignment of parameters in multi-line method calls.
   #
   # The `with_first_parameter` style aligns the following lines along the same
@@ -262,7 +262,7 @@ Style/BracesAroundHashParameters:
     - context_dependent
 
 # Indentation of `when`.
-Style/CaseIndentation:
+Layout/CaseIndentation:
   EnforcedStyle: case
   SupportedStyles:
     - case
@@ -378,7 +378,7 @@ Style/DocumentationMethod:
   RequireForNonPublicMethods: false
 
 # Multi-line method chaining should be done with leading dots.
-Style/DotPosition:
+Layout/DotPosition:
   EnforcedStyle: leading
   SupportedStyles:
     - leading
@@ -396,24 +396,24 @@ Style/EmptyElse:
     - both
 
 # Use empty lines between defs.
-Style/EmptyLineBetweenDefs:
+Layout/EmptyLineBetweenDefs:
   # If true, this parameter means that single line method definitions don't
   # need an empty line between them.
   AllowAdjacentOneLineDefs: false
 
-Style/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody:
   EnforcedStyle: no_empty_lines
   SupportedStyles:
     - empty_lines
     - no_empty_lines
 
-Style/EmptyLinesAroundClassBody:
+Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: no_empty_lines
   SupportedStyles:
     - empty_lines
     - no_empty_lines
 
-Style/EmptyLinesAroundModuleBody:
+Layout/EmptyLinesAroundModuleBody:
   EnforcedStyle: no_empty_lines
   SupportedStyles:
     - empty_lines
@@ -431,7 +431,7 @@ Style/Encoding:
     - never
   AutoCorrectEncodingComment: '# encoding: utf-8'
 
-Style/ExtraSpacing:
+Layout/ExtraSpacing:
   # When true, allows most uses of extra spacing if the intent is to align
   # things with the previous or next line, not counting empty lines or comment
   # lines.
@@ -458,7 +458,7 @@ Style/FileName:
   # files with a shebang in the first line).
   IgnoreExecutableScripts: true
 
-Style/FirstParameterIndentation:
+Layout/FirstParameterIndentation:
   EnforcedStyle: special_for_inner_method_call_in_parentheses
   SupportedStyles:
     # The first parameter should always be indented one step more than the
@@ -490,6 +490,9 @@ Style/FormatString:
     - format
     - sprintf
     - percent
+
+Style/FormatStringToken:
+  EnforcedStyle: template
 
 Style/FrozenStringLiteralComment:
   EnforcedStyle: when_needed
@@ -531,7 +534,7 @@ Style/HashSyntax:
 Style/IfUnlessModifier:
   MaxLineLength: 80
 
-Style/IndentationConsistency:
+Layout/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
   # prescribes that in classes and modules the `protected` and `private`
   # modifier keywords shall be indented the same as public methods and that
@@ -543,12 +546,12 @@ Style/IndentationConsistency:
     - normal
     - rails
 
-Style/IndentationWidth:
+Layout/IndentationWidth:
   # Number of spaces for each indentation level.
   Width: 2
 
 # Checks the indentation of the first element in an array literal.
-Style/IndentArray:
+Layout/IndentArray:
   # The value `special_inside_parentheses` means that array literals with
   # brackets that have their opening bracket on the same line as a surrounding
   # opening round parenthesis, shall have their first element indented relative
@@ -570,13 +573,13 @@ Style/IndentArray:
   IndentationWidth: ~
 
 # Checks the indentation of assignment RHS, when on a different line from LHS
-Style/IndentAssignment:
+Layout/IndentAssignment:
   # By default, the indentation width from Style/IndentationWidth is used
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
 
 # Checks the indentation of the first key in a hash literal.
-Style/IndentHash:
+Layout/IndentHash:
   # The value `special_inside_parentheses` means that hash literals with braces
   # that have their opening brace on the same line as a surrounding opening
   # round parenthesis, shall have their first key indented relative to the
@@ -656,7 +659,7 @@ Style/ModuleFunction:
     - module_function
     - extend_self
 
-Style/MultilineArrayBraceLayout:
+Layout/MultilineArrayBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -666,7 +669,7 @@ Style/MultilineArrayBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineAssignmentLayout:
+Layout/MultilineAssignmentLayout:
   # The types of assignments which are subject to this rule.
   SupportedTypes:
     - block
@@ -684,7 +687,7 @@ Style/MultilineAssignmentLayout:
     # for the set of supported types.
     - new_line
 
-Style/MultilineHashBraceLayout:
+Layout/MultilineHashBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -694,7 +697,7 @@ Style/MultilineHashBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineMethodCallBraceLayout:
+Layout/MultilineMethodCallBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -704,7 +707,7 @@ Style/MultilineMethodCallBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineMethodCallIndentation:
+Layout/MultilineMethodCallIndentation:
   EnforcedStyle: aligned
   SupportedStyles:
     - aligned
@@ -714,7 +717,7 @@ Style/MultilineMethodCallIndentation:
   # But it can be overridden by setting this parameter
   IndentationWidth: ~
 
-Style/MultilineMethodDefinitionBraceLayout:
+Layout/MultilineMethodDefinitionBraceLayout:
   EnforcedStyle: symmetrical
   SupportedStyles:
     # symmetrical: closing brace is positioned in same way as opening brace
@@ -724,7 +727,7 @@ Style/MultilineMethodDefinitionBraceLayout:
     - new_line
     - same_line
 
-Style/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation:
   EnforcedStyle: aligned
   SupportedStyles:
     - aligned
@@ -847,7 +850,7 @@ Style/SingleLineBlockParams:
 Style/SingleLineMethods:
   AllowIfMethodIsEmpty: true
 
-Style/SpaceBeforeFirstArg:
+Layout/SpaceBeforeFirstArg:
   # When true, allows most uses of extra spacing if the intent is to align
   # things with the previous or next line, not counting empty lines or comment
   # lines.
@@ -890,28 +893,28 @@ Style/StringMethods:
   PreferredMethods:
     intern: to_sym
 
-Style/SpaceAroundBlockParameters:
+Layout/SpaceAroundBlockParameters:
   EnforcedStyleInsidePipes: no_space
 
-Style/SpaceAroundEqualsInParameterDefault:
+Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: space
   SupportedStyles:
     - space
     - no_space
 
-Style/SpaceAroundOperators:
+Layout/SpaceAroundOperators:
   # When true, allows most uses of extra spacing if the intent is to align
   # with an operator on the previous or next line, not counting empty lines
   # or comment lines.
   AllowForAlignment: true
 
-Style/SpaceBeforeBlockBraces:
+Layout/SpaceBeforeBlockBraces:
   EnforcedStyle: space
   SupportedStyles:
     - space
     - no_space
 
-Style/SpaceInsideBlockBraces:
+Layout/SpaceInsideBlockBraces:
   EnforcedStyle: space
   SupportedStyles:
     - space
@@ -921,7 +924,7 @@ Style/SpaceInsideBlockBraces:
   # Space between { and |. Overrides EnforcedStyle if there is a conflict.
   SpaceBeforeBlockParameters: true
 
-Style/SpaceInsideHashLiteralBraces:
+Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: space
   EnforcedStyleForEmptyBraces: no_space
   SupportedStyles:
@@ -931,7 +934,7 @@ Style/SpaceInsideHashLiteralBraces:
     # that successive left braces or right braces are collapsed together
     - compact
 
-Style/SpaceInsideStringInterpolation:
+Layout/SpaceInsideStringInterpolation:
   EnforcedStyle: no_space
   SupportedStyles:
     - space
@@ -957,7 +960,7 @@ Style/TernaryParentheses:
     - require_no_parentheses
   AllowSafeAssignment: true
 
-Style/TrailingBlankLines:
+Layout/TrailingBlankLines:
   EnforcedStyle: final_newline
   SupportedStyles:
     - final_newline

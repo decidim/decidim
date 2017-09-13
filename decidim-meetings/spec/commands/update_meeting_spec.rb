@@ -64,19 +64,119 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
 
     context "events" do
       let!(:follow) { create :follow, followable: meeting, user: user }
+      let(:title) { meeting.title }
+      let(:start_time) { meeting.start_time }
+      let(:end_time) { meeting.end_time }
+      let(:address) { meeting.address }
+      let(:form) do
+        double(
+          invalid?: false,
+          title: title,
+          description: meeting.description,
+          location: meeting.location,
+          location_hints: meeting.location_hints,
+          start_time: start_time,
+          end_time: end_time,
+          scope: meeting.scope,
+          category: meeting.category,
+          address: address,
+          latitude: meeting.latitude,
+          longitude: meeting.longitude,
+          current_user: user
+        )
+      end
 
-      it "notifies the change" do
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
-          .with(
-            event: "decidim.events.meetings.meeting_updated",
-            event_class: Decidim::Meetings::UpdateMeetingEvent,
-            resource: meeting,
-            user: user,
-            recipient_ids: [user.id]
-          )
+      context "when nothing changes" do
+        it "doesn't notify the change" do
+          expect(Decidim::EventsManager)
+            .not_to receive(:publish)
 
-        subject.call
+          subject.call
+        end
+      end
+
+      context "when a non-important attribute changes" do
+        let(:title) do
+          {
+            "en" => "Title updated"
+          }
+        end
+
+        it "doesn't notify the change" do
+          expect(Decidim::EventsManager)
+            .not_to receive(:publish)
+
+          subject.call
+        end
+
+        it "doesn't schedule the upcoming meeting notification job" do
+          expect(Decidim::Meetings::UpcomingMeetingNotificationJob)
+            .not_to receive(:perform_later)
+
+          subject.call
+        end
+      end
+
+      context "when the start time changes" do
+        let(:start_time) { meeting.start_time - 1.day }
+
+        it "notifies the change" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.meetings.meeting_updated",
+              event_class: Decidim::Meetings::UpdateMeetingEvent,
+              resource: meeting,
+              recipient_ids: [user.id]
+            )
+
+          subject.call
+        end
+
+        it "schedules a upcoming meeting notification job 48h before start time" do
+          expect(Decidim::Meetings::UpcomingMeetingNotificationJob)
+            .to receive(:generate_checksum).and_return "1234"
+
+          expect(Decidim::Meetings::UpcomingMeetingNotificationJob)
+            .to receive_message_chain(:set, :perform_later)
+            .with(set: start_time - 2.days).with(meeting.id, "1234")
+
+          subject.call
+        end
+      end
+
+      context "when the end time changes" do
+        let(:end_time) { meeting.start_time + 1.day }
+
+        it "notifies the change" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.meetings.meeting_updated",
+              event_class: Decidim::Meetings::UpdateMeetingEvent,
+              resource: meeting,
+              recipient_ids: [user.id]
+            )
+
+          subject.call
+        end
+      end
+
+      context "when the address changes" do
+        let(:address) { "some address" }
+
+        it "notifies the change" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.meetings.meeting_updated",
+              event_class: Decidim::Meetings::UpdateMeetingEvent,
+              resource: meeting,
+              recipient_ids: [user.id]
+            )
+
+          subject.call
+        end
       end
     end
   end

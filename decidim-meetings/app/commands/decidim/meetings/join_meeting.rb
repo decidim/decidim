@@ -18,21 +18,55 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        @meeting.with_lock do
+        meeting.with_lock do
           return broadcast(:invalid) unless can_join_meeting?
           create_registration
+          send_email_confirmation
+          send_notification
         end
         broadcast(:ok)
       end
 
       private
 
+      attr_reader :meeting, :user
+
       def create_registration
-        Decidim::Meetings::Registration.create!(meeting: @meeting, user: @user)
+        Decidim::Meetings::Registration.create!(meeting: meeting, user: user)
       end
 
       def can_join_meeting?
-        @meeting.registrations_enabled? && @meeting.has_available_slots?
+        meeting.registrations_enabled? && meeting.has_available_slots?
+      end
+
+      def send_email_confirmation
+        RegistrationMailer.confirmation(user, meeting).deliver_later
+      end
+
+      def participatory_space_admins
+        @meeting.feature.participatory_space.admins
+      end
+
+      def send_notification
+        return send_notification_over(0.5) if occupied_slots_over?(0.5)
+        return send_notification_over(0.8) if occupied_slots_over?(0.8)
+        send_notification_over(1.0) if occupied_slots_over?(1.0)
+      end
+
+      def send_notification_over(percentage)
+        Decidim::EventsManager.publish(
+          event: "decidim.events.meetings.meeting_registrations_over_percentage",
+          event_class: Decidim::Meetings::MeetingRegistrationsOverPercentage,
+          resource: @meeting,
+          recipient_ids: participatory_space_admins.pluck(:id),
+          extra: {
+            percentage: percentage
+          }
+        )
+      end
+
+      def occupied_slots_over?(percentage)
+        @meeting.remaining_slots == (@meeting.available_slots * (1 - percentage)).round
       end
     end
   end

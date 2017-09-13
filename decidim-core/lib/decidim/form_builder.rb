@@ -243,7 +243,7 @@ module Decidim
           template += content_tag :div, class: "field" do
             safe_join([
                         @template.check_box(@object_name, "remove_#{attribute}"),
-                        label("remove_#{attribute}", label_for("remove_#{attribute}"))
+                        label("remove_#{attribute}", I18n.t("remove_this_file", scope: "decidim.forms"))
                       ])
           end
         end

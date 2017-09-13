@@ -20,6 +20,12 @@ FactoryGirl.define do
       attending_organizations { Array.new(3) { Faker::GameOfThrones.house }.join(", ") }
       closed_at { Time.current }
     end
+
+    trait :with_registrations_enabled do
+      registrations_enabled { true }
+      available_slots { 10 }
+      registration_terms { Decidim::Faker::Localized.sentence(3) }
+    end
   end
 
   factory :registration, class: Decidim::Meetings::Registration do
