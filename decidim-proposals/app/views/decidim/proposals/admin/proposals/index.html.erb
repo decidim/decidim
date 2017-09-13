@@ -19,6 +19,7 @@
       <table class="table-list">
         <thead>
           <tr>
+            <th><%= t("models.proposal.fields.id", scope: "decidim.proposals") %></th>
             <th><%= t("models.proposal.fields.title", scope: "decidim.proposals") %></th>
             <th><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></th>
             <% if scopes_enabled?(current_participatory_space) %>
@@ -31,6 +32,9 @@
         <tbody>
           <% proposals.each do |proposal| %>
             <tr data-id="<%= proposal.id %>">
+              <td>
+                <%= proposal.id %><br />
+              </td>
               <td>
                 <%= proposal.title %><br />
               </td>
