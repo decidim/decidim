@@ -169,24 +169,24 @@ fr:
           error: Une erreur s'est produite lors de la fermeture de la session de l'utilisateur que vous représentez.
           success: La session de l'utilisateur que vous représentiez a été fermée avec succès.
         create:
-          error: Une erreur s'est produite lors de la création de l'utilisateur.
-          success: L'utilisateur a été créé avec succès.
+          error: Une erreur s'est produite lors de la création de l'utilisateur à représenter.
+          success: L'utilisateur à représenter a été créé avec succès.
         form:
           name: Nom
         impersonate:
-          error: Une erreur s'est passée par l'utilisateur usé.
+          error: Une erreur s'est produite lors avec la session de l'utilisateur que vous représenté.
         impersonations:
           new:
-            impersonate: Imiter
-            new_managed_user_impersonation: Nouvelle identité d'utilisateur gérée
+            impersonate: Représenter
+            new_managed_user_impersonation: Nouvel utilisateur à représenter
         index:
-          impersonate: Imiter
+          impersonate: Représenter
           needs_authoriation_warning: Vous avez besoin d'au moins une autorisation activée pour cette organisation.
           promote: Promouvoir
           view_logs: Consultez les logs
         new:
           create: Créer
-          new_managed_user: Nouvel utilisateur
+          new_managed_user: Nouvel utilisateur à représenter
           select_authorization_method: Sélectionnez une méthode d'autorisation
           step: Étape %{current} sur %{total}
         promotion:
