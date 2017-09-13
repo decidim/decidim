@@ -52,7 +52,7 @@ Decidim.register_feature(:pages) do |feature|
       participatory_space: participatory_space
     )
 
-    page = Decidim::Pages::Page.create!(
+    Decidim::Pages::Page.create!(
       feature: feature,
       body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(3)
