@@ -219,9 +219,9 @@ fr:
         impersonation_log:
           fields:
             admin: Administrateur
-            ended_at: Fini à
-            expired_at: Expirée à
-            started_at: Commencé à
+            ended_at: Terminé le
+            expired_at: Expiré le
+            started_at: Commencé le
             user: Utilisateur
         managed_user:
           name: Utilisateur géré
