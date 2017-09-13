@@ -190,19 +190,19 @@ fr:
           select_authorization_method: Sélectionnez une méthode d'autorisation
           step: Étape %{current} sur %{total}
         promotion:
-          error: Une erreur s'est produite lors de la promotion de l'utilisateur géré.
+          error: Une erreur s'est produite lors de la transformation de l'utilisateur représenté.
           success: L'utilisateur représenté a été promu avec succès.
         promotions:
           new:
             explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un courriel pour accepter votre invitation.
-            new_managed_user_promotion: Nouvelle promotion d'utilisateur géré
-            promote: Promouvoir
+            new_managed_user_promotion: Transformer un utilisateur représenté en utilisateur standard
+            promote: Transformer
       menu:
         admins: Administrateurs
         dashboard: Tableau de bord
-        managed_users: Utilisateurs gérés
+        managed_users: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
-        scope_types: Types de portée
+        scope_types: Types de zone d'application
         scopes: Zones d’application
         settings: Paramètres
         static_pages: Pages
