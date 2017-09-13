@@ -82,6 +82,7 @@ uk:
         proposal:
           fields:
             category: Розділ
+            id: Ідентифікатор
             official_proposal: Офіційна пропозиція
             scope: Обсяг
             state: Стан
