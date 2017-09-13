@@ -37,11 +37,6 @@ module Decidim
       def confirmed_orders_count
         orders.finished.count
       end
-
-      # Public: Overrides the `notifiable?` Notifiable concern method.
-      def notifiable?(_context)
-        false
-      end
     end
   end
 end

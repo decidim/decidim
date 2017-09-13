@@ -58,11 +58,6 @@ module Decidim
       def comments_have_votes?
         true
       end
-
-      # Public: Overrides the `notifiable?` Notifiable concern method.
-      def notifiable?(_context)
-        true
-      end
     end
   end
 end

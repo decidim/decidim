@@ -23,7 +23,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         create_comment
-        send_notification if @commentable.notifiable?(author: @author)
+        send_notification
 
         broadcast(:ok, @comment)
       end

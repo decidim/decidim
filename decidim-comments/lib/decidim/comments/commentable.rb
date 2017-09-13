@@ -7,7 +7,6 @@ module Decidim
     # Shared behaviour for commentable models.
     module Commentable
       extend ActiveSupport::Concern
-      include Decidim::Notifiable
 
       included do
         has_many :comments, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: "Decidim::Comments::Comment"

@@ -68,22 +68,6 @@ shared_examples "comments" do
       it "shows comment to the user" do
         expect(page).to have_comment_from(user, "This is a new comment")
       end
-
-      it "send notifications" do
-        expect(page).to have_comment_from(user, "This is a new comment")
-
-        if commentable.notifiable?(author: user)
-          wait_for_email subject: "new comment"
-          relogin_as commentable.users_to_notify.first, scope: :user
-          visit last_email_first_link
-
-          expect(page).to have_comment_from(user, "This is a new comment")
-        else
-          expect do
-            wait_for_email subject: "new comment"
-          end.to raise_error StandardError
-        end
-      end
     end
 
     context "when the user has verified organizations" do

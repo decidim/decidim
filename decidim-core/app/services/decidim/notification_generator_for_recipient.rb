@@ -22,17 +22,13 @@ module Decidim
     end
 
     # Generates the notification. Returns `nil` if the resource is not resource
-    # or if the resource or the user are not present. It also checks if the resource
-    # resource is notifiable for the given recipient, as sometimes we might not want to
-    # generate a notification for a given user (a commenter replying to their own comment,
-    # or a proposal author updating their own proposal for example).
+    # or if the resource or the user are not present.
     #
     # Returns a Decidim::Notification.
     def generate
       return unless event_class
       return unless resource
       return unless recipient
-      return unless resource.notifiable?(recipient: recipient, event: event)
 
       Notification.create!(
         user: recipient,

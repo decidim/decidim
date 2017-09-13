@@ -17,7 +17,6 @@ module Decidim
   autoload :Resourceable, "decidim/resourceable"
   autoload :Reportable, "decidim/reportable"
   autoload :Authorable, "decidim/authorable"
-  autoload :Notifiable, "decidim/notifiable"
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
   autoload :Scopable, "decidim/scopable"

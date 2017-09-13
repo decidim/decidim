@@ -90,34 +90,6 @@ module Decidim
           expect(subject.down_voted_by?(user)).to be_falsy
         end
       end
-
-      describe "#notifiable?" do
-        let(:context_author) { create(:user, organization: subject.author.organization) }
-
-        context "when the context author is the same as the comment's author" do
-          let(:context_author) { subject.author }
-
-          it "is not notifiable" do
-            expect(subject.notifiable?(author: context_author)).to be_falsy
-          end
-        end
-
-        context "when the context author is not the same as the comment's author" do
-          context "when the comment's author has not replies notifications enabled" do
-            let(:replies_notifications) { false }
-
-            it "is not notifiable" do
-              expect(subject.notifiable?(author: context_author)).to be_falsy
-            end
-          end
-
-          context "when the comment's author has replies notifications enabled" do
-            it "is not notifiable" do
-              expect(subject.notifiable?(author: context_author)).to be_truthy
-            end
-          end
-        end
-      end
     end
   end
 end
