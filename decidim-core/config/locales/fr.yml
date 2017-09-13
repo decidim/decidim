@@ -129,9 +129,9 @@ fr:
     events:
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: 'Il y a eu une mise à jour « %{resource_title} ». Vous pouvez le voir sur cette page :'
-        email_outro: Vous avez reçu cet avis parce que vous suivez « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
-        email_subject: Une mise à jour %{resource_title}
+        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
+        email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+        email_subject: Mise à jour de %{resource_title}
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
