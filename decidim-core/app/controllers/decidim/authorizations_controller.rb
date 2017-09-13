@@ -73,10 +73,6 @@ module Decidim
       redirect_to(authorizations_path) && (return false)
     end
 
-    def only_one_handler?
-      redirect_to(action: :new, handler: available_handlers.first.handler_name) && return if available_handlers.length == 1
-    end
-
     def handlers
       @handlers ||= available_authorization_handlers.reject do |handler|
         authorized_handlers.include?(handler.handler_name)
