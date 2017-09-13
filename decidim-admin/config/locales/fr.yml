@@ -19,6 +19,7 @@ fr:
         default_locale: Langue par défaut
         description: Description
         favicon: Icône
+        header_snippets: Extraits d'en-tête
         homepage_image: Image de la page d'accueil
         logo: Logo
         name: Nom
@@ -309,6 +310,7 @@ fr:
           current_image: Image actuelle
           facebook: Facebook
           github: GitHub
+          header_snippets_help: Utilisez ce champ pour ajouter des éléments à la tête HTML. L'utilisation la plus courante consiste à intégrer des services tiers nécessitant des JavaScript ou des CSS supplémentaires. De plus, vous pouvez l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne sera rendu que dans les pages publiques, et non dans la section admin.
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
