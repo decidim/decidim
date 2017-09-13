@@ -190,7 +190,7 @@ shared_examples "manage proposals" do
 
       it "cannot create a new proposal" do
         visit_feature
-        expect(page).to have_no_content("New Proposal")
+        expect(page).to have_no_button("New Proposal")
       end
     end
   end
@@ -331,7 +331,7 @@ shared_examples "manage proposals" do
         visit current_path
 
         within find("tr", text: proposal.title) do
-          expect(page).to have_no_css("a", text: "Answer")
+          expect(page).to have_no_link("Answer")
         end
       end
     end
@@ -346,7 +346,7 @@ shared_examples "manage proposals" do
       visit current_path
 
       within find("tr", text: proposal.title) do
-        expect(page).to have_no_css("a", text: "Answer")
+        expect(page).to have_no_link("Answer")
       end
     end
   end
