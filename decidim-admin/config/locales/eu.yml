@@ -19,6 +19,7 @@ eu:
         default_locale: Eskualdeko ezarpen lehenetsiak
         description: Deskribapena
         favicon: Ikonoa
+        header_snippets: Goiburuko mozkinak
         homepage_image: Orri nagusiko irudia
         logo: Logotipo
         name: Izena
@@ -309,6 +310,7 @@ eu:
           current_image: Oraingo irudia
           facebook: Facebook
           github: GitHub
+          header_snippets_help: Erabili eremu hau HTML orriko gauzak gehitzeko. Erabilera ohikoena Javascript edo CSS gehigarri bat behar duten hirugarrenen zerbitzuak integratzea da. Gainera, meta tags HTMLra gehi ditzakezu. Kontuan izan hau orri publikoetan bakarrik egingo dela, ez administrazio atalean.
           instagram: Instagram
           social_handlers: Gizarte
           twitter: Twitter
