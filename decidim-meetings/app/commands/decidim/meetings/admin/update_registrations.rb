@@ -47,7 +47,7 @@ module Decidim
             event: "decidim.events.meetings.registrations_enabled",
             event_class: Decidim::Meetings::MeetingRegistrationsEnabled,
             resource: meeting,
-            recipient_ids: meeting.users_to_notify.pluck(:id)
+            recipient_ids: meeting.followers.pluck(:id)
           )
         end
 

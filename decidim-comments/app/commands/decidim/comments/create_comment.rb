@@ -42,15 +42,16 @@ module Decidim
       end
 
       def send_notification
-        if @comment.depth.positive?
-          @commentable.users_to_notify.each do |user|
-            CommentNotificationMailer.reply_created(user, @comment, @commentable, @comment.root_commentable).deliver_later
-          end
-        elsif @comment.depth.zero?
-          @commentable.users_to_notify.each do |user|
-            CommentNotificationMailer.comment_created(user, @comment, @commentable).deliver_later
-          end
-        end
+        # TODO:
+        # if @comment.depth.positive?
+        #   @commentable.users_to_notify.each do |user|
+        #     CommentNotificationMailer.reply_created(user, @comment, @commentable, @comment.root_commentable).deliver_later
+        #   end
+        # elsif @comment.depth.zero?
+        #   @commentable.users_to_notify.each do |user|
+        #     CommentNotificationMailer.comment_created(user, @comment, @commentable).deliver_later
+        #   end
+        # end
       end
 
       def root_commentable(commentable)
