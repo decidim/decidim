@@ -233,7 +233,7 @@ shared_examples "manage proposals" do
         end
 
         within find("tr", text: proposal.title) do
-          within find("td:nth-child(4)") do
+          within find("td:nth-child(5)") do
             expect(page).to have_content("Rejected")
           end
         end
@@ -254,7 +254,7 @@ shared_examples "manage proposals" do
         end
 
         within find("tr", text: proposal.title) do
-          within find("td:nth-child(4)") do
+          within find("td:nth-child(5)") do
             expect(page).to have_content("Accepted")
           end
         end
@@ -275,7 +275,7 @@ shared_examples "manage proposals" do
         end
 
         within find("tr", text: proposal.title) do
-          within find("td:nth-child(4)") do
+          within find("td:nth-child(5)") do
             expect(page).to have_content("Evaluating")
           end
         end
@@ -293,7 +293,7 @@ shared_examples "manage proposals" do
         visit manage_feature_path(current_feature)
 
         within find("tr", text: proposal.title) do
-          within find("td:nth-child(4)") do
+          within find("td:nth-child(5)") do
             expect(page).to have_content("Rejected")
           end
           find("a.action-icon--edit-answer").click
@@ -309,7 +309,7 @@ shared_examples "manage proposals" do
         end
 
         within find("tr", text: proposal.title) do
-          within find("td:nth-child(4)") do
+          within find("td:nth-child(5)") do
             expect(page).to have_content("Accepted")
           end
         end

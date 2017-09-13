@@ -83,6 +83,7 @@ en:
         proposal:
           fields:
             category: Category
+            id: ID
             official_proposal: Official proposal
             scope: Scope
             state: State
