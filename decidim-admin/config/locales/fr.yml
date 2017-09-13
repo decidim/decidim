@@ -166,8 +166,8 @@ fr:
           success: La fonctionnalité a été mise à jour avec succès.
       managed_users:
         close_session:
-          error: Une erreur s'est produite lors de la fermeture de la session d'usurpation d'état actuelle.
-          success: La session d'usurpation d'état actuelle a été terminée avec succès.
+          error: Une erreur s'est produite lors de la fermeture de la session de l'utilisateur que vous représentez.
+          success: La session de l'utilisateur que vous représentiez a été fermée avec succès.
         create:
           error: Une erreur s'est produite lors de la création de l'utilisateur.
           success: L'utilisateur a été créé avec succès.
