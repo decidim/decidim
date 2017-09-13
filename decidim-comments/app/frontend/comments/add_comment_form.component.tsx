@@ -38,7 +38,7 @@ interface AddCommentFormState {
   remainingCharacterCount: number;
 }
 
-export const MAX_LENGTH = 500;
+export const MAX_LENGTH = 1000;
 
 /**
  * Renders a form to create new comments.
