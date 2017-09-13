@@ -331,7 +331,7 @@ fr:
           title: Nouvelle zone d'application
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Type de portée mis à jour avec succès
+          success: Type de zone d'application mis à jour avec succès
       scopes:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d’application.
@@ -367,9 +367,9 @@ fr:
           success: Page mise à jour avec succès
       titles:
         dashboard: Tableau de bord
-        impersonations: Imputations personnelles
-        managed_users: Utilisateurs gérés
-        scope_types: Types de portée
+        impersonations: Représentations d'utilisateurs
+        managed_users: Utilisateurs représentés
+        scope_types: Types de zone d'application
         scopes: Zones d'application
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -384,7 +384,7 @@ fr:
       user_groups:
         index:
           filter:
-            all: Tout
+            all: Tous
             pending: En attente
             rejected: Refusé
             verified: Vérifié
