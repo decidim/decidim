@@ -19,6 +19,7 @@ pl:
         default_locale: Domena domyślna
         description: Opis
         favicon: Ikona
+        header_snippets: Fragmenty nagłówków
         homepage_image: Obraz strony głównej
         logo: Logo
         name: Nazwa
@@ -309,6 +310,7 @@ pl:
           current_image: Aktualny obraz
           facebook: Facebook
           github: GitHub
+          header_snippets_help: Użyj tego pola, aby dodać elementy do głowicy HTML. Najczęstszym sposobem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych znaczników meta do HTML. Należy zauważyć, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
           instagram: Instagram
           social_handlers: Społeczny
           twitter: Świergot
