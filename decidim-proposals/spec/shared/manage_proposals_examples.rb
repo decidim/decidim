@@ -290,7 +290,7 @@ shared_examples "manage proposals" do
           answered_at: Time.current
         )
 
-        visit manage_feature_path(current_feature)
+        visit_feature_admin
 
         within find("tr", text: proposal.title) do
           within find("td:nth-child(5)") do
