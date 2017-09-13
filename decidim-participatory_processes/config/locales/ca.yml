@@ -96,8 +96,8 @@ ca:
             moderator: Moderador
         user:
           fields:
-            invitation_accepted_at: Invitació acceptada a
-            invitation_sent_at: Invitació enviada al
+            invitation_accepted_at: Invitació acceptada el
+            invitation_sent_at: Invitació enviada el
       participatory_process_copies:
         new:
           copy: Còpia
@@ -198,8 +198,8 @@ ca:
         participatory_processes: Processos participatius
       users:
         resend_invitation:
-          error: Hi havia un error en enviar la invitació.
-          success: Invitació molesta amb èxit.
+          error: Hi ha hagut un error reenviant la invitació.
+          success: Invitació reenviada amb èxit.
     menu:
       processes: Processos
     participatory_process_groups:
@@ -214,9 +214,9 @@ ca:
       index:
         title: Processos participatius
       order_by_processes:
-        active: Activa
-        past: Passades
-        upcoming: Properes
+        active: Actius
+        past: Passats
+        upcoming: Propers
       participatory_process_groups:
         none: Cap
       participatory_processes:
