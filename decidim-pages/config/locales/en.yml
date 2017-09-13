@@ -7,10 +7,8 @@ en:
         settings:
           global:
             announcement: Announcement
-            comments_enabled: Comments enabled
           step:
             announcement: Announcement
-            comments_blocked: Comments blocked
     pages:
       admin:
         models:

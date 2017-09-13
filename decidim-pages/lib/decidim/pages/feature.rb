@@ -32,20 +32,11 @@ Decidim.register_feature(:pages) do |feature|
     pages.count
   end
 
-  feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
-    pages = Decidim::Pages::Page.where(feature: features)
-    pages = pages.where("created_at >= ?", start_at) if start_at.present?
-    pages = pages.where("created_at <= ?", end_at) if end_at.present?
-    Decidim::Comments::Comment.where(root_commentable: pages).count
-  end
-
   feature.settings(:global) do |settings|
-    settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
   feature.settings(:step) do |settings|
-    settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
@@ -67,7 +58,5 @@ Decidim.register_feature(:pages) do |feature|
         Decidim::Faker::Localized.paragraph(3)
       end
     )
-
-    Decidim::Comments::Seed.comments_for(page)
   end
 end
