@@ -30,9 +30,7 @@
             <span><%= t(".remaining_slots", count: meeting.remaining_slots) %></span>
           <% end %>
         <% end %>
-        <div id="follow-resource">
-          <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting } %>
-        </div>
+        <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting } %>
       </div>
       <% if meeting.closed? %>
         <div class="card card--secondary extra definition-data">

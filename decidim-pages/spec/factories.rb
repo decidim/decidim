@@ -2,7 +2,6 @@
 
 require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
-require "decidim/comments/test/factories"
 
 FactoryGirl.define do
   factory :page_feature, parent: :feature do

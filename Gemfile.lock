@@ -86,7 +86,6 @@ PATH
       rectify (~> 0.8)
       searchlight (~> 4.1.0)
     decidim-pages (0.6.0.pre.pre)
-      decidim-comments (= 0.6.0.pre.pre)
       decidim-core (= 0.6.0.pre.pre)
       rectify (~> 0.9.1)
     decidim-participatory_processes (0.6.0.pre.pre)
