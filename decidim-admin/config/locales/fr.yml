@@ -324,10 +324,10 @@ fr:
         destroy:
           success: Le type de zone d'application a été détruit avec succès
         edit:
-          title: Modifier le type de portée
+          title: Modifier le type de zone d'application
           update: Mettre à jour
         new:
-          create: Créer un type de périmètre
+          create: Créer un type de zone d'application
           title: Nouvelle zone d'application
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
