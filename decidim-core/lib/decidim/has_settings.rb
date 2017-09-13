@@ -15,7 +15,7 @@ module Decidim
     end
 
     def settings=(data)
-      self[:settings]["global"] = serialize_settings(settings_schema(:global), data)
+      self[:settings]["global"] = settings_schema(:global).new(data)
     end
 
     def current_settings
@@ -31,7 +31,7 @@ module Decidim
     end
 
     def default_step_settings=(data)
-      self[:settings]["default_step"] = serialize_settings(settings_schema(:step), data)
+      self[:settings]["default_step"] = settings_schema(:step).new(data)
     end
 
     def step_settings
@@ -44,7 +44,7 @@ module Decidim
 
     def step_settings=(data)
       self[:settings]["steps"] = data.each_with_object({}) do |(key, value), result|
-        result[key.to_s] = serialize_settings(settings_schema(:step), value)
+        result[key.to_s] = settings_schema(:step).new(value)
       end
     end
 
@@ -57,14 +57,6 @@ module Decidim
       return default_step_settings unless active_step
 
       step_settings.fetch(active_step.id.to_s)
-    end
-
-    def serialize_settings(schema, value)
-      if value.respond_to?(:attributes)
-        value.attributes
-      else
-        schema.new(value)
-      end
     end
 
     def settings_schema(name)
