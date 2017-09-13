@@ -5,7 +5,7 @@
 
       <div class="button--title">
 
-        <% if feature_settings.official_proposals_enabled %>
+        <% if can? :create, Decidim::Proposals::Proposal %>
           <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'button tiny button--simple' if can? :manage, current_feature %>
         <% end %>
 

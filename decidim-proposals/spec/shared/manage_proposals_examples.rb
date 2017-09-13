@@ -40,6 +40,8 @@ shared_examples "manage proposals" do
               }
             }
           )
+
+          visit_feature_admin
         end
 
         context "when process is not related to any scope" do
@@ -181,6 +183,28 @@ shared_examples "manage proposals" do
           end
         end
       end
+
+      context "when creation is not enabled" do
+        before do
+          current_feature.update_attributes!(
+            step_settings: {
+              current_feature.participatory_space.active_step.id => {
+                creation_enabled: false
+              }
+            }
+          )
+        end
+
+        it "cannot create a new proposal from the main site" do
+          visit_feature
+          expect(page).to have_no_button("New Proposal")
+        end
+
+        it "cannot create a new proposal from the admin site" do
+          visit_feature_admin
+          expect(page).to have_no_link(/New/)
+        end
+      end
     end
 
     context "when official_proposals setting is disabled" do
@@ -188,9 +212,14 @@ shared_examples "manage proposals" do
         current_feature.update_attributes!(settings: { official_proposals_enabled: false })
       end
 
-      it "cannot create a new proposal" do
+      it "cannot create a new proposal from the main site" do
         visit_feature
         expect(page).to have_no_button("New Proposal")
+      end
+
+      it "cannot create a new proposal from the admin site" do
+        visit_feature_admin
+        expect(page).to have_no_link(/New/)
       end
     end
   end
