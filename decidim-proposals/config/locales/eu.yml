@@ -82,6 +82,7 @@ eu:
         proposal:
           fields:
             category: Kategoria
+            id: NAN
             official_proposal: Proposamen ofiziala
             scope: Esparrua
             state: Egoera
