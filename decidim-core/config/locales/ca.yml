@@ -130,7 +130,7 @@ ca:
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
-        email_outro: Que han rebut aquesta notificació, perquè que segueixen "%{resource_title}". Et poden unfollow l'enllaç anterior.
+        email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
         email_subject: Una actualització a %{resource_title}
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
@@ -163,10 +163,10 @@ ca:
     follows:
       create:
         button: Seguir
-        error: Hi ha hagut un error després d'aquest recurs.
+        error: Hi ha hagut un error seguint aquest recurs.
       destroy:
         button: Deixar de seguir
-        error: Hi ha hagut un error deixar de seguir aquest recurs.
+        error: Hi ha hagut un error deixar seguint aquest recurs.
     forms:
       current_file: Fitxer actual
       current_image: Imatge actual
@@ -185,7 +185,7 @@ ca:
     notifications_settings:
       show:
         comments_notifications: Vull rebre notificacions quan algú comenta a les meves publicacions.
-        email_on_notification: Vull rebre un correu electrònic cada vegada que vaig rebre una notificació.
+        email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         newsletter_notifications: Vull rebre informació sobre activitat rellevant
         replies_notifications: Vull rebre notificacions per correu electrònic quan algú respon als meus comentaris.
         update_notifications_settings: Guardar canvis
