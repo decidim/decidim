@@ -129,7 +129,7 @@ ca:
     events:
       email_event:
         email_greeting: Hola %{user_name},
-        email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure d''aquesta pàgina:'
+        email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
         email_outro: Que han rebut aquesta notificació, perquè que segueixen "%{resource_title}". Et poden unfollow l'enllaç anterior.
         email_subject: Una actualització a %{resource_title}
       notification_event:
