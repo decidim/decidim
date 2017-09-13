@@ -6,10 +6,8 @@ es:
         settings:
           global:
             announcement: Aviso
-            comments_enabled: Comentarios habilitados
           step:
             announcement: Aviso
-            comments_blocked: Comentarios bloqueados
     pages:
       admin:
         models:
