@@ -20,6 +20,7 @@ en:
         default_locale: Default locale
         description: Description
         favicon: Icon
+        header_snippets: Header snippets
         homepage_image: Homepage image
         logo: Logo
         name: Name
@@ -310,6 +311,7 @@ en:
           current_image: Current image
           facebook: Facebook
           github: GitHub
+          header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter

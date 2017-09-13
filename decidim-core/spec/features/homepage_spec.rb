@@ -28,6 +28,15 @@ describe "Homepage", type: :feature do
       expect(page).to have_selector("a.main-footer__badge[href='#{official_url}']")
     end
 
+    context "with header snippets" do
+      let(:snippet) { "<meta data-hello=\"This is the organization header_snippet field\">" }
+      let(:organization) { create(:organization, official_url: official_url, header_snippets: snippet) }
+
+      it "includes the header snippets" do
+        expect(page).to have_selector("meta[data-hello]", visible: false)
+      end
+    end
+
     it "welcomes the user" do
       expect(page).to have_content(organization.name)
     end

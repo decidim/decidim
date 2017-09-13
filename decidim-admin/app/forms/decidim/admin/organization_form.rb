@@ -30,6 +30,7 @@ module Decidim
       attribute :official_img_footer
       attribute :remove_official_img_footer
       attribute :show_statistics
+      attribute :header_snippets, String
 
       translatable_attribute :description, String
       translatable_attribute :welcome_text, String
