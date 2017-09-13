@@ -191,10 +191,10 @@ fr:
           step: Étape %{current} sur %{total}
         promotion:
           error: Une erreur s'est produite lors de la promotion de l'utilisateur géré.
-          success: L'utilisateur géré a été promu avec succès.
+          success: L'utilisateur représenté a été promu avec succès.
         promotions:
           new:
-            explanation: Les utilisateurs gérés peuvent être promus aux utilisateurs standard. Cela signifie qu'ils seront invités à l'application et vous ne pourrez pas les imiter. L'utilisateur invité recevra un courriel pour accepter votre invitation.
+            explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un courriel pour accepter votre invitation.
             new_managed_user_promotion: Nouvelle promotion d'utilisateur géré
             promote: Promouvoir
       menu:
