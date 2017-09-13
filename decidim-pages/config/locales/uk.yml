@@ -6,10 +6,8 @@ uk:
         settings:
           global:
             announcement: Оголошення
-            comments_enabled: Коментарі ввімкнено
           step:
             announcement: Оголошення
-            comments_blocked: Коментарі заблоковано
     pages:
       admin:
         models:
