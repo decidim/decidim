@@ -224,7 +224,7 @@ fr:
             started_at: Commencé le
             user: Utilisateur
         managed_user:
-          name: Utilisateur géré
+          name: Utilisateur représenté
         newsletter:
           fields:
             created_at: Crée le
@@ -235,7 +235,7 @@ fr:
         scope:
           fields:
             name: Nom
-            scope_type: Type de portée
+            scope_type: Type de zone d'application
         scope_type:
           fields:
             name: Nom
@@ -253,7 +253,7 @@ fr:
             role: Rôle
             roles:
               admin: Administrateur
-              user_manager: Gérant de l'utilisateur
+              user_manager: Représentant de l'utilisateur
           name: Utilisateur
         user_group:
           fields:
@@ -319,10 +319,10 @@ fr:
           success: Organisation mise à jour avec succès.
       scope_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre.
-          success: Type de portée créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
+          success: Type de zone d'application créé avec succès.
         destroy:
-          success: Le type de portée a été détruit avec succès
+          success: Le type de zone d'application a été détruit avec succès
         edit:
           title: Modifier le type de portée
           update: Mettre à jour
