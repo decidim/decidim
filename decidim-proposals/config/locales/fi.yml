@@ -82,6 +82,7 @@ fi:
         proposal:
           fields:
             category: Kategoria
+            id: ID
             official_proposal: Virallinen ehdotus
             scope: Konteksti
             state: Tila
