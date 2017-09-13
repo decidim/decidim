@@ -88,29 +88,29 @@ es:
           email_subject: Se ha cerrado la reunión "%{resource_title}"
           notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
         meeting_registrations_enabled:
-          email_intro: 'La reunión de "%{resource_title}" ha permitido registros. Usted puede registrarse en su página:'
-          email_outro: Ha recibido esta notificación porque usted sigue la reunión de "%{resource_title}". Usted puede dejar de seguirlo del enlace anterior.
-          email_subject: La reunión de "%{resource_title}" ha permitido registros.
-          notification_title: La reunión de <a href="%{resource_path}">%{resource_title}</a> ha permitido registros.
+          email_intro: 'La reunión "%{resource_title}" ha ha activado inscripciones. Puedes inscribirte en su página:'
+          email_outro: Ha recibido esta notificación porque usted sigue el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: El encuentro "%{resource_title}" ha activado inscripciones.
+          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha activado inscripciones.
         meeting_registrations_over_percentage:
-          email_intro: Las ranuras de reunión ocupada "%{resource_title}" son %{percentage}%.
-          email_outro: Ha recibido esta notificación porque usted es un administrador del espacio participativo de la reunión.
-          email_subject: Son las ranuras de reunión ocupada "%{resource_title}" %{percentage}%
-          notification_title: Las ranuras de reunión ocupada <a href="%{resource_path}">%{resource_title}</a> son %{percentage}%.
+          email_intro: Las inscripciones ocupadas en "%{resource_title}" son %{percentage}%.
+          email_outro: Has recibido esta notificación porque eres es un administrador del espacio participativo de la reunión.
+          email_subject: Las inscripciones ocupadas de "%{resource_title}" son %{percentage}%
+          notification_title: Las inscripciones ocupadas de <a href="%{resource_path}">%{resource_title}</a> son %{percentage}%.
         upcoming_meeting_event:
-          email_intro: La reunión de "%{resource_title}" se iniciará en menos de 48h.
-          email_outro: Ha recibido esta notificación porque usted sigue la reunión de "%{resource_title}". Usted puede dejar de seguirlo del enlace anterior.
-          email_subject: La reunión de "%{resource_title}" se iniciará en menos de 48h.
+          email_intro: La reunión "%{resource_title}" se iniciará en menos de 48h.
+          email_outro: Has recibido esta notificación porque sigues la reunión "%{resource_title}". Puedes dejar de seguirla en el enlace anterior.
+          email_subject: La reunión "%{resource_title}" comenzará en menos de 48h.
           notification_title: La reunión de <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48h.
         update_meeting_event:
-          email_intro: 'La reunión de "%{resource_title}" fue actualizada. Puede leer la nueva versión de su página:'
-          email_outro: Ha recibido esta notificación porque usted sigue la reunión de "%{resource_title}". Usted puede dejar de seguirlo del enlace anterior.
-          email_subject: La reunión de "%{resource_title}" fue actualizada
-          notification_title: La reunión de <a href="%{resource_path}">%{resource_title}</a> se ha actualizado.
+          email_intro: 'La reunión "%{resource_title}" fue actualizada. Puedes leer la nueva versión en su página:'
+          email_outro: Has recibido esta notificación porque sigues la reunión "%{resource_title}". Puedes dejar de seguirla en el enlace anterior.
+          email_subject: La reunión "%{resource_title}" ha sido actualizada
+          notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada.
       mailer:
         registration_mailer:
           confirmation:
-            subject: Registro de la reunión ha sido confirmada
+            subject: La inscripción a tu encuentro ha sido confirmada
       meetings:
         filters:
           category: Categoría
@@ -157,7 +157,7 @@ es:
       registration_mailer:
         confirmation:
           confirmed_html: Se ha confirmado su inscripción para el encuentro <a href="%{url}">%{title}</a>.
-          details: Usted encontrará detalles de la reunión en el archivo adjunto.
+          details: Encontrarás detalles del encuentro en el archivo adjunto.
       registrations:
         create:
           invalid: Ha habido un problema al unirse a este encuentro.
