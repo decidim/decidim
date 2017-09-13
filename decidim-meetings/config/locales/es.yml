@@ -83,10 +83,10 @@ es:
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
       events:
         close_meeting_event:
-          email_intro: 'Se cerró la reunión de "%{resource_title}". Usted puede leer las conclusiones de su página:'
-          email_outro: Ha recibido esta notificación porque usted sigue la reunión de "%{resource_title}". Usted puede dejar de seguirlo del enlace anterior.
-          email_subject: Se cerró la reunión de "%{resource_title}"
-          notification_title: La reunión de <a href="%{resource_path}">%{resource_title}</a> fue cerrada.
+          email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
+          email_outro: Has recibido esta notificación porque sigues la reunión "%{resource_title}". Puedes dejar de seguirla en el enlace anterior.
+          email_subject: Se ha cerrado la reunión "%{resource_title}"
+          notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
         meeting_registrations_enabled:
           email_intro: 'La reunión de "%{resource_title}" ha permitido registros. Usted puede registrarse en su página:'
           email_outro: Ha recibido esta notificación porque usted sigue la reunión de "%{resource_title}". Usted puede dejar de seguirlo del enlace anterior.
