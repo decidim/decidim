@@ -130,10 +130,10 @@ es:
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
-        email_outro: Ha recibido esta notificación porque usted sigue "%{resource_title}". Usted puede dejar de seguirlo del enlace anterior.
+        email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
         email_subject: Una actualización de %{resource_title}
       notification_event:
-        notification_title: Un evento ocurrido a <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
@@ -162,11 +162,11 @@ es:
         result: Resultados
     follows:
       create:
-        button: Siga
+        button: Seguir
         error: Ha habido un error siguiendo este recurso.
       destroy:
-        button: Siguiente parada
-        error: Ha habido un error unfollowing este recurso.
+        button: Dejar de seguir
+        error: Ha habido un error dejando de seguir este recurso.
     forms:
       current_file: Archivo actual
       current_image: Imagen actual
