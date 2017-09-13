@@ -83,7 +83,7 @@ ca:
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
       events:
         close_meeting_event:
-          email_intro: 'La trobada de "%{resource_title}" va ser tancat. Podeu llegir les conclusions de la seva pàgina:'
+          email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Podeu llegir les conclusions a la seva pàgina:'
           email_outro: Que han rebut aquesta notificació, perquè vostè està seguint la trobada de "%{resource_title}". Et poden unfollow l'enllaç anterior.
           email_subject: Es va tancar la trobada de "%{resource_title}"
           notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> va ser tancat.
@@ -110,7 +110,7 @@ ca:
       mailer:
         registration_mailer:
           confirmation:
-            subject: La teva inscripció a l'esdeveniment ha estat confirmada
+            subject: Inscripció de la reunió s'ha confirmat
       meetings:
         filters:
           category: Categoria
@@ -156,8 +156,8 @@ ca:
       read_more: "(Llegeix més)"
       registration_mailer:
         confirmation:
-          confirmed_html: "La teva inscripció per a la trobada presencial '%{title}' ha estat confirmada."
-          details: "Trobaràs més detalls sobre la trobada a l'arxiu adjunt"
+          confirmed_html: S'ha confirmat la reunió <a href="%{url}">%{title}</a> la teva inscripció.
+          details: A l'arxiu adjunt trobareu els detalls de la reunió.
       registrations:
         create:
           invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.
