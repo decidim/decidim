@@ -82,6 +82,7 @@ ca:
         proposal:
           fields:
             category: Categoria
+            id: ID
             official_proposal: Proposta oficial
             scope: Àmbit
             state: Estat
