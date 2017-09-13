@@ -310,7 +310,7 @@ fr:
           current_image: Image actuelle
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Utilisez ce champ pour ajouter des éléments à la tête HTML. L'utilisation la plus courante consiste à intégrer des services tiers nécessitant des JavaScript ou des CSS supplémentaires. De plus, vous pouvez l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne sera rendu que dans les pages publiques, et non dans la section admin.
+          header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises <head> </head> HTML. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
@@ -431,7 +431,7 @@ fr:
             hidden_at: Masqué le
             report_count: Compter
             reportable: Signalable
-            reported_content_url: URL de contenu déclarée
+            reported_content_url: Contenu d'une URL
             reports: Signalements
   errors:
     messages:
