@@ -84,12 +84,12 @@ ca:
       events:
         close_meeting_event:
           email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Podeu llegir les conclusions a la seva pàgina:'
-          email_outro: Que han rebut aquesta notificació, perquè vostè està seguint la trobada de "%{resource_title}". Et poden unfollow l'enllaç anterior.
-          email_subject: Es va tancar la trobada de "%{resource_title}"
-          notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> va ser tancat.
+          email_outro: Has rebut aquesta notificació, perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des del seu enllaç.
+          email_subject: S'ha tancat la trobada "%{resource_title}"
+          notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
         meeting_registrations_enabled:
-          email_intro: 'La trobada de "%{resource_title}" ha permès inscripcions. Vostè pot registrar en la seva pàgina:'
-          email_outro: Que han rebut aquesta notificació, perquè vostè està seguint la trobada de "%{resource_title}". Et poden unfollow l'enllaç anterior.
+          email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir a l'enllaç anterior.
           email_subject: La trobada de "%{resource_title}" ha permès inscripcions.
           notification_title: La reunió <a href="%{resource_path}">%{resource_title}</a> ha permès inscripcions.
         meeting_registrations_over_percentage:
