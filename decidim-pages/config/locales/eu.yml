@@ -6,10 +6,8 @@ eu:
         settings:
           global:
             announcement: Anuntzio
-            comments_enabled: Iruzkinak gaituta
           step:
             announcement: Anuntzio
-            comments_blocked: Iruzkinak blokeatuta
     pages:
       admin:
         models:
