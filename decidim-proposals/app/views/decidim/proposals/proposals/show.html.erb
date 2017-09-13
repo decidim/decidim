@@ -18,11 +18,12 @@
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <% if current_settings.votes_enabled? %>
+    <% if current_settings.votes_enabled? || current_user %>
       <div class="card extra">
         <div class="card__content">
           <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
           <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
+          <%= render partial: "decidim/shared/follow_button", locals: { followable: @proposal } %>
         </div>
       </div>
     <% end %>

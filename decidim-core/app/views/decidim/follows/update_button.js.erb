@@ -1,1 +1,3 @@
-$("#follow-resource").html("<%= j(render partial: "decidim/shared/follow_button", locals: { followable: resource } ) %>");
+var $followResource = $("#follow-resource");
+
+morphdom($followResource[0], "<%= j(render partial: "decidim/shared/follow_button", locals: { followable: resource } ) %>");

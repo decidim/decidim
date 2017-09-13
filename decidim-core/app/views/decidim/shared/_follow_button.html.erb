@@ -1,17 +1,19 @@
 <% if current_user %>
-  <% if current_user.follows?(followable) %>
-    <%= button_to decidim.follow_path, class: "button secondary hollow expanded small button--icon follow-button", params: { follow: { followable_gid: followable.to_sgid.to_s }}, data: { disable: true }, method: :delete, remote: true do %>
-      <%= icon "bell" %>
-      <span>
-        <%= t("follows.destroy.button", scope: "decidim") %>
-      </span>
+  <div id="follow-resource">
+    <% if current_user.follows?(followable) %>
+      <%= button_to decidim.follow_path, class: "button secondary hollow expanded small button--icon follow-button", params: { follow: { followable_gid: followable.to_sgid.to_s }}, data: { disable: true }, method: :delete, remote: true do %>
+        <%= icon "bell" %>
+        <span>
+          <%= t("follows.destroy.button", scope: "decidim") %>
+        </span>
+      <% end %>
+    <% else %>
+      <%= button_to decidim.follow_path, class: "button secondary hollow expanded small button--icon follow-button", params: { follow: { followable_gid: followable.to_sgid.to_s }}, data: { disable: true }, remote: true do %>
+        <%= icon "bell" %>
+        <span>
+          <%= t("follows.create.button", scope: "decidim") %>
+        </span>
+      <% end %>
     <% end %>
-  <% else %>
-    <%= button_to decidim.follow_path, class: "button secondary hollow expanded small button--icon follow-button", params: { follow: { followable_gid: followable.to_sgid.to_s }}, data: { disable: true }, remote: true do %>
-      <%= icon "bell" %>
-      <span>
-        <%= t("follows.create.button", scope: "decidim") %>
-      </span>
-    <% end %>
-  <% end %>
+  </div>
 <% end %>
