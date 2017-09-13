@@ -6,10 +6,8 @@ pl:
         settings:
           global:
             announcement: Ogłoszenie
-            comments_enabled: Komentarze włączone
           step:
             announcement: Ogłoszenie
-            comments_blocked: Komentarze zablokowane
     pages:
       admin:
         models:
