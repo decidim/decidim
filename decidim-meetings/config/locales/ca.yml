@@ -91,26 +91,26 @@ ca:
           email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir a l'enllaç anterior.
           email_subject: La trobada de "%{resource_title}" ha permès inscripcions.
-          notification_title: La reunió <a href="%{resource_path}">%{resource_title}</a> ha permès inscripcions.
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha activat inscripcions.
         meeting_registrations_over_percentage:
-          email_intro: Les ranures de reunió ocupat "%{resource_title}" són %{percentage}%.
-          email_outro: Que han rebut aquesta notificació, perquè vostè és un administrador de l'espai participatiu del meeting.
-          email_subject: Les ranures de reunió ocupat "%{resource_title}" són %{percentage}%
-          notification_title: Les ranures de reunió ocupat <a href="%{resource_path}">%{resource_title}</a> són %{percentage}%.
+          email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
+          email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.
+          email_subject: L'espai ocupat per la trobada "%{resource_title}" està per sobre del %{percentage}%
+          notification_title: L'espai ocupat per la trobada <a href="%{resource_path}">%{resource_title}</a> està per sobre del %{percentage}%.
         upcoming_meeting_event:
-          email_intro: En menys de 48 hores s'iniciarà la trobada de "%{resource_title}".
-          email_outro: Que han rebut aquesta notificació, perquè vostè està seguint la trobada de "%{resource_title}". Et poden unfollow l'enllaç anterior.
-          email_subject: En menys de 48 hores s'iniciarà la trobada de "%{resource_title}".
-          notification_title: La reunió <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
+          email_intro: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir a l'enllaç anterior.
+          email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
         update_meeting_event:
-          email_intro: 'La trobada de "%{resource_title}" s''actualitzava. Podeu llegir la versió nova de la seva pàgina:'
-          email_outro: Que han rebut aquesta notificació, perquè vostè està seguint la trobada de "%{resource_title}". Et poden unfollow l'enllaç anterior.
-          email_subject: La trobada de "%{resource_title}" s'ha actualitzat
-          notification_title: La reunió de <a href="%{resource_path}">%{resource_title}</a> s'actualitzava.
+          email_intro: 'La trobada de "%{resource_title}" ha estat actualitzada. Pots llegir-ne la nova versió a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_subject: La trobada "%{resource_title}" s'ha actualitzat
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
       mailer:
         registration_mailer:
           confirmation:
-            subject: Inscripció de la reunió s'ha confirmat
+            subject: La teva inscripció a la trobada ha estat confirmada
       meetings:
         filters:
           category: Categoria
@@ -156,8 +156,8 @@ ca:
       read_more: "(Llegeix més)"
       registration_mailer:
         confirmation:
-          confirmed_html: S'ha confirmat la reunió <a href="%{url}">%{title}</a> la teva inscripció.
-          details: A l'arxiu adjunt trobareu els detalls de la reunió.
+          confirmed_html: La teva inscripció a la trobada <a href="%{url}">%{title}</a> ha estat confirmada.
+          details: A l'arxiu adjunt trobaràs els detalls de la reunió.
       registrations:
         create:
           invalid: Hi ha hagut un problema en inscriure's a aquesta reunió.
