@@ -82,6 +82,7 @@ it:
         proposal:
           fields:
             category: Categoria
+            id: ID
             official_proposal: Proposta ufficiale
             scope: Visibilità
             state: Stato
