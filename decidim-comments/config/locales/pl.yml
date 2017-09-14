@@ -1,6 +1,17 @@
 pl:
   decidim:
     comments:
+      events:
+        comment_created:
+          comment:
+            email_intro: '"Skomentował" %{resource_title} "'
+            email_outro: Otrzymujesz to powiadomienie, ponieważ śledzisz "%{resource_title}". Możesz cofnąć ją od poprzedniego linku.
+            notification_title: W %{author_name} w <a href="%{resource_path}">%{resource_title}</a> nowy komentarz
+          reply:
+            email_intro: '"Skomentował" %{resource_title} "'
+            email_outro: Otrzymujesz to powiadomienie, ponieważ śledzisz "%{resource_title}". Możesz cofnąć ją od poprzedniego linku.
+            email_subject: Nowa odpowiedź Twojego komentarza z %{author_name} w <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Nowa odpowiedź Twojego komentarza z %{author_name} w <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Podczas głosowania komentarza wystąpiły błędy.
