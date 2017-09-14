@@ -26,8 +26,10 @@ eu:
         settings:
           global:
             announcement: Oharra
+            comments_enabled: Iruzkinak gaituta
           step:
             announcement: Oharra
+            comments_blocked: Iruzkinak blokeatuta
     meetings:
       actions:
         attachments: Eranskinak

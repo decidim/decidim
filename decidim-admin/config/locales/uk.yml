@@ -19,6 +19,7 @@ uk:
         default_locale: Мова за замовчуванням
         description: Опис
         favicon: Піктограма
+        header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
         homepage_image: Зображення головної сторінки
         logo: Логотип
         name: Назва
@@ -227,9 +228,9 @@ uk:
           name: Керований користувач
         newsletter:
           fields:
-            created_at: Створено о
+            created_at: 'Створене:'
             progress: Перебіг
-            sent_at: Надіслано о
+            sent_at: 'Надіслане:'
             subject: Тема
           name: Випуск новин
         scope:
@@ -242,7 +243,7 @@ uk:
             plural: Множина
         static_page:
           fields:
-            created_at: Створено о
+            created_at: 'Створене:'
             title: Назва
         user:
           fields:
@@ -258,7 +259,7 @@ uk:
         user_group:
           fields:
             actions: Дії
-            created_at: Створено о
+            created_at: 'Створене:'
             document_number: Номер документа
             name: Ім'я
             phone: Телефон
@@ -309,6 +310,7 @@ uk:
           current_image: Поточне зображення
           facebook: Фейсбук
           github: ГітХаб
+          header_snippets_help: Використовуйте це поле, щоб додавати щось до заголовку HTML. Найпоширенішим використанням є інтеграція сторонніх служб, які потребують додаткового JavaScript або CSS. Також ви можете використовувати його для додавання додаткових метатегів до HTML. Зверніть увагу, що це буде показано лише на загальнодоступних сторінках, а не в розділі адміністратора.
           instagram: Інстаграм
           social_handlers: Соціальні мережі
           twitter: Твіттер
@@ -360,7 +362,7 @@ uk:
           title: Редагувати сторінку
           update: Оновити
         new:
-          create: Нове
+          create: Нова
           title: Нова сторінка
         update:
           error: При оновленні цієї сторінки сталася помилка.

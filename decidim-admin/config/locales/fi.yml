@@ -19,6 +19,7 @@ fi:
         default_locale: Oletuskieli
         description: Kuvaus
         favicon: Ikoni
+        header_snippets: Yläotsikot
         homepage_image: Kotisivun kuva
         logo: Logo
         name: Nimi
@@ -309,6 +310,7 @@ fi:
           current_image: Nykyinen kuva
           facebook: Facebook
           github: GitHub
+          header_snippets_help: Lisää kenttä tähän HTML-päähän. Yleisin käyttö on integroida kolmannen osapuolen palveluita, jotka edellyttävät ylimääräistä JavaScript- tai CSS-tekniikkaa. Voit myös käyttää sitä lisäämällä ylimääräisiä metakoodeja HTML-muotoon. Huomaa, että tämä tehdään vain julkisilla sivuilla, ei admin-osiossa.
           instagram: Instagram
           social_handlers: Sosiaalinen media
           twitter: Twitter

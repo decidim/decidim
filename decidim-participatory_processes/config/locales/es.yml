@@ -96,8 +96,8 @@ es:
             moderator: Moderador
         user:
           fields:
-            invitation_accepted_at: Invitación aceptada en
-            invitation_sent_at: Invitación enviada en el
+            invitation_accepted_at: Invitación aceptada el día
+            invitation_sent_at: Invitación enviada el día
       participatory_process_copies:
         new:
           copy: Copiar
@@ -198,8 +198,8 @@ es:
         participatory_processes: Procesos participativos
       users:
         resend_invitation:
-          error: Hubo un error volver a enviar la invitación.
-          success: Invitación que se resienten con éxito.
+          error: Hubo un error al volver a enviar la invitación.
+          success: Invitación reenviada con éxito.
     menu:
       processes: Procesos
     participatory_process_groups:
@@ -221,7 +221,7 @@ es:
         none: Ninguna
       participatory_processes:
         index:
-          loading: Cargar resultados de...
+          loading: Cargando resultados...
       show:
         developer_group: Grupo promotor
         end_date: Fecha de finalización

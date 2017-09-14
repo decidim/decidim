@@ -82,6 +82,7 @@ pl:
         proposal:
           fields:
             category: Kategoria
+            id: ID
             official_proposal: Oficjalny wniosek
             scope: Zakres
             state: Stan

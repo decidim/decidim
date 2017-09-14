@@ -126,6 +126,14 @@ fr:
         back_home: Retour à l'accueil
         content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
         title: La page que vous recherchez ne peut être trouvée
+    events:
+      email_event:
+        email_greeting: Bonjour %{user_name},
+        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
+        email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+        email_subject: Mise à jour de %{resource_title}
+      notification_event:
+        notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -152,12 +160,20 @@ fr:
         project: Projets
         proposal: Propositions
         result: Résultats
+    follows:
+      create:
+        button: Suivez
+        error: Il y a eu une erreur suite à cette ressource.
+      destroy:
+        button: Cesser de suivre
+        error: Il y a eu une erreur unfollowing cette ressource.
     forms:
       current_file: Fichier actuel
       current_image: Image actuelle
       default_image: Image par défaut
       errors:
         error: Ce champ contient une erreur.
+      remove_this_file: Supprimer ce fichier
     managed_users:
       expired_session: La session d'usurpation actuelle a expiré.
     menu:
@@ -169,6 +185,7 @@ fr:
     notifications_settings:
       show:
         comments_notifications: Je souhaite recevoir des notifications par email lorsque quelqu'un a commenté mes publications.
+        email_on_notification: Je veux recevoir un courriel chaque fois que je reçois une notification.
         newsletter_notifications: Je souhaite recevoir des lettres d'informations sur l'activité de la plateforme
         replies_notifications: Je souhaite recevoir des notifications par email lorsque quelqu'un répond à mes commentaires.
         update_notifications_settings: Enregistrer les modifications
@@ -298,8 +315,13 @@ fr:
         close_session: Fermer la session
         description_html: Vous agissez en tant que l'utilisateur <b>%{user_name}</b>.
         expire_time_html: Votre session expirera dans <b><span class="minutes">%{minutes}</span> minutes</b>.
+      notifications_dashboard:
+        mark_all_as_read: Marquer tout comme lu
+        no_notifications: Pas encore de notifications.
+        title: Notifications
       user_menu:
         admin_dashboard: Tableau de bord des administrateurs
+        notifications: Notifications
         profile: Mon compte
         sign_out: Déconnexion
       user_profile:

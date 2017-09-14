@@ -19,6 +19,7 @@ ca:
         default_locale: Idioma per defecte
         description: Descripció
         favicon: Icona
+        header_snippets: Fragments de capçalera
         homepage_image: Imatge de la portada
         logo: Logotip
         name: Nom
@@ -309,6 +310,7 @@ ca:
           current_image: Imatge actual
           facebook: Facebook
           github: GitHub
+          header_snippets_help: Utilitzeu aquest camp per afegir coses al capçal HTML. L'ús més habitual és integrar serveis de tercers que requereixen un codi JavaScript o CSS addicionals. A més, podeu utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingueu en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter

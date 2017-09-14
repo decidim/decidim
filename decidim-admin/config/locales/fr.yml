@@ -19,6 +19,7 @@ fr:
         default_locale: Langue par défaut
         description: Description
         favicon: Icône
+        header_snippets: Elements à rajouter entre les balises <head></head>
         homepage_image: Image de la page d'accueil
         logo: Logo
         name: Nom
@@ -166,43 +167,43 @@ fr:
           success: La fonctionnalité a été mise à jour avec succès.
       managed_users:
         close_session:
-          error: Une erreur s'est produite lors de la fermeture de la session d'usurpation d'état actuelle.
-          success: La session d'usurpation d'état actuelle a été terminée avec succès.
+          error: Une erreur s'est produite lors de la fermeture de la session de l'utilisateur que vous représentez.
+          success: La session de l'utilisateur que vous représentiez a été fermée avec succès.
         create:
-          error: Une erreur s'est produite lors de la création de l'utilisateur.
-          success: L'utilisateur a été créé avec succès.
+          error: Une erreur s'est produite lors de la création de l'utilisateur à représenter.
+          success: L'utilisateur à représenter a été créé avec succès.
         form:
           name: Nom
         impersonate:
-          error: Une erreur s'est passée par l'utilisateur usé.
+          error: Une erreur s'est produite lors avec la session de l'utilisateur que vous représenté.
         impersonations:
           new:
-            impersonate: Imiter
-            new_managed_user_impersonation: Nouvelle identité d'utilisateur gérée
+            impersonate: Représenter
+            new_managed_user_impersonation: Nouvel utilisateur à représenter
         index:
-          impersonate: Imiter
+          impersonate: Représenter
           needs_authoriation_warning: Vous avez besoin d'au moins une autorisation activée pour cette organisation.
           promote: Promouvoir
           view_logs: Consultez les logs
         new:
           create: Créer
-          new_managed_user: Nouvel utilisateur
+          new_managed_user: Nouvel utilisateur à représenter
           select_authorization_method: Sélectionnez une méthode d'autorisation
           step: Étape %{current} sur %{total}
         promotion:
-          error: Une erreur s'est produite lors de la promotion de l'utilisateur géré.
-          success: L'utilisateur géré a été promu avec succès.
+          error: Une erreur s'est produite lors de la transformation de l'utilisateur représenté.
+          success: L'utilisateur représenté a été promu avec succès.
         promotions:
           new:
-            explanation: Les utilisateurs gérés peuvent être promus aux utilisateurs standard. Cela signifie qu'ils seront invités à l'application et vous ne pourrez pas les imiter. L'utilisateur invité recevra un courriel pour accepter votre invitation.
-            new_managed_user_promotion: Nouvelle promotion d'utilisateur géré
-            promote: Promouvoir
+            explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un courriel pour accepter votre invitation.
+            new_managed_user_promotion: Transformer un utilisateur représenté en utilisateur standard
+            promote: Transformer
       menu:
         admins: Administrateurs
         dashboard: Tableau de bord
-        managed_users: Utilisateurs gérés
+        managed_users: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
-        scope_types: Types de portée
+        scope_types: Types de zone d'application
         scopes: Zones d’application
         settings: Paramètres
         static_pages: Pages
@@ -219,12 +220,12 @@ fr:
         impersonation_log:
           fields:
             admin: Administrateur
-            ended_at: Fini à
-            expired_at: Expirée à
-            started_at: Commencé à
+            ended_at: Terminé le
+            expired_at: Expiré le
+            started_at: Commencé le
             user: Utilisateur
         managed_user:
-          name: Utilisateur géré
+          name: Utilisateur représenté
         newsletter:
           fields:
             created_at: Crée le
@@ -235,7 +236,7 @@ fr:
         scope:
           fields:
             name: Nom
-            scope_type: Type de portée
+            scope_type: Type de zone d'application
         scope_type:
           fields:
             name: Nom
@@ -253,7 +254,7 @@ fr:
             role: Rôle
             roles:
               admin: Administrateur
-              user_manager: Gérant de l'utilisateur
+              user_manager: Représentant de l'utilisateur
           name: Utilisateur
         user_group:
           fields:
@@ -309,6 +310,7 @@ fr:
           current_image: Image actuelle
           facebook: Facebook
           github: GitHub
+          header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises <head> </head> HTML. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
@@ -319,19 +321,19 @@ fr:
           success: Organisation mise à jour avec succès.
       scope_types:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de périmètre.
-          success: Type de portée créé avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
+          success: Type de zone d'application créé avec succès.
         destroy:
-          success: Le type de portée a été détruit avec succès
+          success: Le type de zone d'application a été détruit avec succès
         edit:
-          title: Modifier le type de portée
+          title: Modifier le type de zone d'application
           update: Mettre à jour
         new:
-          create: Créer un type de périmètre
+          create: Créer un type de zone d'application
           title: Nouvelle zone d'application
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Type de portée mis à jour avec succès
+          success: Type de zone d'application mis à jour avec succès
       scopes:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d’application.
@@ -367,9 +369,9 @@ fr:
           success: Page mise à jour avec succès
       titles:
         dashboard: Tableau de bord
-        impersonations: Imputations personnelles
-        managed_users: Utilisateurs gérés
-        scope_types: Types de portée
+        impersonations: Représentations d'utilisateurs
+        managed_users: Utilisateurs représentés
+        scope_types: Types de zone d'application
         scopes: Zones d'application
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -384,7 +386,7 @@ fr:
       user_groups:
         index:
           filter:
-            all: Tout
+            all: Tous
             pending: En attente
             rejected: Refusé
             verified: Vérifié
@@ -429,7 +431,7 @@ fr:
             hidden_at: Masqué le
             report_count: Compter
             reportable: Signalable
-            reported_content_url: URL de contenu déclarée
+            reported_content_url: Contenu d'une URL
             reports: Signalements
   errors:
     messages:

@@ -126,6 +126,14 @@ pl:
         back_home: Powrót do ekranu głównego
         content_doesnt_exist: Ten adres jest nieprawidłowy lub został usunięty.
         title: Szukana strona nie została znaleziona
+    events:
+      email_event:
+        email_greeting: Witam %{user_name},
+        email_intro: 'Nastąpiła aktualizacja do "%{resource_title}". Widać go z tej strony:'
+        email_outro: Otrzymałeś powiadomienie, ponieważ są po "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
+        email_subject: Aktualizacja %{resource_title}
+      notification_event:
+        notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
@@ -152,12 +160,20 @@ pl:
         project: Projekty
         proposal: Propozycje
         result: Wyniki
+    follows:
+      create:
+        button: Postępuj zgodnie z
+        error: Nastąpił błąd w następstwie tego zasobu.
+      destroy:
+        button: Przestań obserwować
+        error: Nastąpił błąd obserwowania użytkownika tego zasobu.
     forms:
       current_file: Bieżący plik
       current_image: Bieżący obraz
       default_image: Domyślny obraz
       errors:
         error: W tym polu wystąpił błąd.
+      remove_this_file: Usuń ten plik
     managed_users:
       expired_session: Obecna sesja personifikacji wygasła.
     menu:
@@ -169,6 +185,7 @@ pl:
     notifications_settings:
       show:
         comments_notifications: Chcę otrzymywać powiadomienia e-mailowe, gdy ktoś komentuje moje wpisy.
+        email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem otrzymuję powiadomienie.
         newsletter_notifications: Chcę otrzymywać informacje o odpowiedniej aktywności
         replies_notifications: Chcę otrzymywać powiadomienia e-mailowe, gdy ktoś odpowie na moje komentarze.
         update_notifications_settings: Zapisz zmiany
@@ -298,8 +315,13 @@ pl:
         close_session: Zamknij sesję
         description_html: Podszyszcza się do użytkownika <b>%{user_name}</b>.
         expire_time_html: Sesja wygasa w <b><span class="minutes">%{minutes}</span> minutes</b>.
+      notifications_dashboard:
+        mark_all_as_read: Oznacz wszystkie jako przeczytane
+        no_notifications: Nie powiadomienia.
+        title: Powiadomienia
       user_menu:
         admin_dashboard: Panel administracyjny
+        notifications: Powiadomienia
         profile: Moje konto
         sign_out: Wyloguj się
       user_profile:

@@ -26,8 +26,10 @@ es:
         settings:
           global:
             announcement: Aviso
+            comments_enabled: Comentarios habilitados
           step:
             announcement: Aviso
+            comments_blocked: Comentarios bloqueados
     meetings:
       actions:
         attachments: Archivos adjuntos
@@ -79,6 +81,36 @@ es:
           update:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
+      events:
+        close_meeting_event:
+          email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
+          email_outro: Has recibido esta notificación porque sigues la reunión "%{resource_title}". Puedes dejar de seguirla en el enlace anterior.
+          email_subject: Se ha cerrado la reunión "%{resource_title}"
+          notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
+        meeting_registrations_enabled:
+          email_intro: 'La reunión "%{resource_title}" ha ha activado inscripciones. Puedes inscribirte en su página:'
+          email_outro: Ha recibido esta notificación porque usted sigue el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: El encuentro "%{resource_title}" ha activado inscripciones.
+          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha activado inscripciones.
+        meeting_registrations_over_percentage:
+          email_intro: Las inscripciones ocupadas en "%{resource_title}" son %{percentage}%.
+          email_outro: Has recibido esta notificación porque eres es un administrador del espacio participativo de la reunión.
+          email_subject: Las inscripciones ocupadas de "%{resource_title}" son %{percentage}%
+          notification_title: Las inscripciones ocupadas de <a href="%{resource_path}">%{resource_title}</a> son %{percentage}%.
+        upcoming_meeting_event:
+          email_intro: La reunión "%{resource_title}" se iniciará en menos de 48h.
+          email_outro: Has recibido esta notificación porque sigues la reunión "%{resource_title}". Puedes dejar de seguirla en el enlace anterior.
+          email_subject: La reunión "%{resource_title}" comenzará en menos de 48h.
+          notification_title: La reunión de <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48h.
+        update_meeting_event:
+          email_intro: 'La reunión "%{resource_title}" fue actualizada. Puedes leer la nueva versión en su página:'
+          email_outro: Has recibido esta notificación porque sigues la reunión "%{resource_title}". Puedes dejar de seguirla en el enlace anterior.
+          email_subject: La reunión "%{resource_title}" ha sido actualizada
+          notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: La inscripción a tu encuentro ha sido confirmada
       meetings:
         filters:
           category: Categoría
@@ -122,6 +154,10 @@ es:
             start_time: Fecha de inicio
             title: Título
       read_more: "(leer más)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Se ha confirmado su inscripción para el encuentro <a href="%{url}">%{title}</a>.
+          details: Encontrarás detalles del encuentro en el archivo adjunto.
       registrations:
         create:
           invalid: Ha habido un problema al unirse a este encuentro.

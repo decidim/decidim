@@ -6,10 +6,8 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
-            comments_enabled: Kommentointi sallittu
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentointi estetty
     pages:
       admin:
         models:

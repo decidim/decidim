@@ -26,8 +26,10 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
+            comments_enabled: Kommentointi sallittu
           step:
             announcement: Ilmoitus
+            comments_blocked: Kommentointi kielletty
     meetings:
       actions:
         attachments: Liitteet
@@ -79,6 +81,36 @@ fi:
           update:
             invalid: Rekisteröintiasetusten tallentamisessa on ollut ongelma.
             success: Kokousrekisteröintiasetukset tallennettiin onnistuneesti.
+      events:
+        close_meeting_event:
+          email_intro: '”%{resource_title}” Kokous oli suljettu. Voit lukea päätelmät sen sivulla:'
+          email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
+          email_subject: '”%{resource_title}”-Kokous'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous oli suljettu.
+        meeting_registrations_enabled:
+          email_intro: '”%{resource_title}” Kokous ansiosta rekisteröinnit. Rekisteröit itsesi sivulla:'
+          email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
+          email_subject: '”%{resource_title}” Kokous ansiosta rekisteröinnit.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous ansiosta rekisteröinnit.
+        meeting_registrations_over_percentage:
+          email_intro: '”%{resource_title}” Kokous miehitetty lähtö on %{percentage} prosenttia.'
+          email_outro: Olet saanut ilmoituksen, koska olet admin osallistuva kokoustilaa.
+          email_subject: '”%{resource_title}” Kokous käytössä paikat ovat yli %{percentage} %'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous miehitetty lähtö on %{percentage} prosenttia.
+        upcoming_meeting_event:
+          email_intro: '”%{resource_title}” kokous alkaa alle 48 tuntia.'
+          email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
+          email_subject: '”%{resource_title}” kokous alkaa alle 48 tuntia.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
+        update_meeting_event:
+          email_intro: '”%{resource_title}” Kokous päivitettiin. Voit lukea uuden version sen sivulla:'
+          email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
+          email_subject: '”%{resource_title}” Kokous päivitettiin'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous päivitettiin.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Sinun Kokous rekisteröinti on vahvistettu
       meetings:
         filters:
           category: Kategoria
@@ -122,6 +154,10 @@ fi:
             start_time: Aloitusaika
             title: Otsikko
       read_more: "(lue lisää)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Kokous <a href="%{url}">%{title}</a> rekisteröinti on vahvistettu.
+          details: Löydät kokouksen tiedot liitetiedostona.
       registrations:
         create:
           invalid: On tapahtunut ongelma, joka liittyy tähän kokoukseen.

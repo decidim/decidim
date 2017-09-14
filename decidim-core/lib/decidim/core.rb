@@ -91,7 +91,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es eu it fi fr nl)
+    %w(en ca es eu it fi fr nl uk)
   end
 
   # Exposes a configuration option: The application default locale.

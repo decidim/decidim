@@ -82,6 +82,7 @@ nl:
         proposal:
           fields:
             category: Categorie
+            id: ID kaart
             official_proposal: Officieel voorstel
             scope: Reikwijdte
             state: Staat

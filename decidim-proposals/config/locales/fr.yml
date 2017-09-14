@@ -82,6 +82,7 @@ fr:
         proposal:
           fields:
             category: Catégorie
+            id: ID
             official_proposal: Proposition officielle
             scope: Zone d'application
             state: Etat

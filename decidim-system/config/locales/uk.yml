@@ -5,7 +5,7 @@ uk:
         confirm_destroy: Ви впевнені, що хочете видалити це?
         destroy: Видалити
         edit: Редагувати
-        new: Нове
+        new: Новий
         save: Зберегти
         title: Дії
       admins:
@@ -36,7 +36,7 @@ uk:
       models:
         admin:
           fields:
-            created_at: Створено о
+            created_at: 'Створене:'
             email: Адреса електронної пошти
           name: Адміністратор
           validations:
@@ -45,7 +45,7 @@ uk:
           actions:
             save_and_invite: Створити організацію та запросити адміністратора
           fields:
-            created_at: Створено о
+            created_at: 'Створене:'
             name: Ім'я
           name: Організація
       organizations:

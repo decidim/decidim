@@ -19,6 +19,7 @@ it:
         default_locale: Lingua predefinita
         description: Descrizione
         favicon: Icona
+        header_snippets: Cricchetti dell'intestazione
         homepage_image: immagine per la Homepage
         logo: Logo
         name: Nome
@@ -309,6 +310,7 @@ it:
           current_image: immagine corrente
           facebook: Facebook
           github: GitHub
+          header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
           instagram: Instagram
           social_handlers: Sociale
           twitter: cinguettio

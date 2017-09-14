@@ -13,10 +13,10 @@ describe Decidim::Meetings::RegistrationMailer, type: :mailer do
   let(:mail) { described_class.confirmation(user, meeting) }
 
   describe "confirmation" do
-    let(:subject) { "La teva inscripció a l'esdeveniment ha estat confirmada" }
+    let(:subject) { "La teva inscripció a la trobada ha estat confirmada" }
     let(:default_subject) { "Your meeting's registration has been confirmed" }
 
-    let(:body) { "detalls sobre" }
+    let(:body) { "detalls de la" }
     let(:default_body) { "details in the attachment" }
 
     include_examples "user localised email"

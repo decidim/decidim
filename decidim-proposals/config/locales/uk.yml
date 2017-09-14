@@ -37,7 +37,7 @@ uk:
     proposals:
       actions:
         answer: Відповідь
-        new: Нове
+        new: Нова
         title: Дії
       admin:
         actions:
@@ -82,6 +82,7 @@ uk:
         proposal:
           fields:
             category: Розділ
+            id: Ідентифікатор
             official_proposal: Офіційна пропозиція
             scope: Обсяг
             state: Стан

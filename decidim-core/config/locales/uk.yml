@@ -126,6 +126,14 @@ uk:
         back_home: Повернутися на головну
         content_doesnt_exist: Ця адреса невірна або була вилучена.
         title: Не вдалося знайти сторінку, яку ви шукаєте
+    events:
+      email_event:
+        email_greeting: Доброго дня, %{user_name}%!
+        email_intro: 'Було оновлено "%{resource_title}". Ви можете побачити це зі сторінки:'
+        email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+        email_subject: Оновлення до %{resource_title}
+      notification_event:
+        notification_title: З <a href="%{resource_path}">%{resource_title}</a> відбулася подія.
     export_mailer:
       export:
         ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
@@ -152,12 +160,20 @@ uk:
         project: Проекти
         proposal: Пропозиції
         result: Підсумки
+    follows:
+      create:
+        button: Стежити
+        error: При спробі стежити за цим ресурсом сталася помилка.
+      destroy:
+        button: Припинити стежити
+        error: При спробі припинити стежити за цим ресурсом сталася помилка.
     forms:
       current_file: Поточний файл
       current_image: Поточне зображення
       default_image: Зображення за замовчуванням
       errors:
         error: У цьому полі є помилка.
+      remove_this_file: Видалити цей файл
     managed_users:
       expired_session: Скінчився поточний сеанс уособлення.
     menu:
@@ -169,6 +185,7 @@ uk:
     notifications_settings:
       show:
         comments_notifications: Я хочу отримувати сповіщення електронною поштою, коли хтось коментує мої публікації.
+        email_on_notification: Я хочу отримувати листа електронною поштою кожного разу, коли отримую сповіщення.
         newsletter_notifications: Я хочу отримувати повідомлення про пов'язані з цим події
         replies_notifications: Я хочу отримувати сповіщення електронною поштою, коли хтось відповідає на мої коментарі.
         update_notifications_settings: Зберегти зміни
@@ -298,8 +315,13 @@ uk:
         close_session: Завершити сеанс
         description_html: Ви уособлюєте користувача <b>%{user_name}</b>.
         expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
+      notifications_dashboard:
+        mark_all_as_read: Позначити все як прочитане
+        no_notifications: Ще немає сповіщень.
+        title: Сповіщення
       user_menu:
         admin_dashboard: Приладна дошка адміністрування
+        notifications: Сповіщення
         profile: Мій обліковий запис
         sign_out: Вийти
       user_profile:
