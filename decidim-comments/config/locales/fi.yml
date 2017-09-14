@@ -11,6 +11,8 @@ fi:
           reply:
             email_intro: Kommentoi "%{resource_title}"
             email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
+            email_subject: 'Kommenttisi on uusi vastaus %{author_name}: sta <a href="%{resource_url}">%{resource_title}</a>'
+            notification_title: 'Kommenttisi on uusi vastaus %{author_name}: sta <a href="%{resource_path}">%{resource_title}</a>'
       votes:
         create:
           error: Äänestettäessä kommenttia tapahtui virhe.
