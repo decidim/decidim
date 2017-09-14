@@ -21,12 +21,6 @@ module Decidim
       attribute :step_settings, Hash[String => Object]
       attribute :participatory_space
 
-      def map_model(model)
-        self.attributes = model.attributes
-        self.settings = model.settings
-        self.default_step_settings = model.default_step_settings
-      end
-
       def settings?
         settings.manifest.attributes.any?
       end
