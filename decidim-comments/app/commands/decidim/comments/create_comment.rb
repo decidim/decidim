@@ -22,8 +22,10 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_comment
-        send_notification
+        transaction do
+          create_comment
+          send_notification
+        end
 
         broadcast(:ok, @comment)
       end
@@ -41,7 +43,17 @@ module Decidim
                                    decidim_user_group_id: form.user_group_id)
       end
 
-      def send_notification; end
+      def send_notification
+        Decidim::EventsManager.publish(
+          event: "decidim.events.comments.comment_created",
+          event_class: Decidim::Comments::CommentCreatedEvent,
+          resource: @commentable,
+          recipient_ids: @commentable.users_to_notify_on_comment_created,
+          extra: {
+            comment_id: @comment.id
+          }
+        )
+      end
 
       def root_commentable(commentable)
         return commentable.root_commentable if commentable.is_a? Decidim::Comments::Comment

@@ -67,6 +67,25 @@ module Decidim
               command.call
             end.to change { Comment.count }.by(1)
           end
+
+          it "sends a notification to the users" do
+            expect_any_instance_of(Decidim::Comments::Comment)
+              .to receive(:id).at_least(:once).and_return 1
+
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.comments.comment_created",
+                event_class: Decidim::Comments::CommentCreatedEvent,
+                resource: commentable,
+                recipient_ids: commentable.users_to_notify_on_comment_created,
+                extra: {
+                  comment_id: 1
+                }
+              )
+
+            command.call
+          end
         end
       end
     end
