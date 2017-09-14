@@ -47,7 +47,7 @@ module Decidim
         Decidim::EventsManager.publish(
           event: "decidim.events.comments.comment_created",
           event_class: Decidim::Comments::CommentCreatedEvent,
-          resource: @commentable,
+          resource: @comment.root_commentable,
           recipient_ids: (@commentable.users_to_notify_on_comment_created - [@author]).pluck(:id),
           extra: {
             comment_id: @comment.id

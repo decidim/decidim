@@ -78,6 +78,9 @@ module Decidim
             expect_any_instance_of(Decidim::Comments::Comment)
               .to receive(:id).at_least(:once).and_return 1
 
+            expect_any_instance_of(Decidim::Comments::Comment)
+              .to receive(:root_commentable).at_least(:once).and_return commentable
+
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
