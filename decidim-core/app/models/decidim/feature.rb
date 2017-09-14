@@ -46,7 +46,7 @@ module Decidim
       {
         host: organization.host,
         feature_id: id,
-        participatory_space.foreign_key.to_sym => participatory_space.id
+        participatory_space.foreign_key.to_sym => participatory_space.slug
       }
     end
 
