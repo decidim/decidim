@@ -34,17 +34,6 @@ module Decidim
       def default_step_settings?
         default_step_settings.manifest.attributes.any?
       end
-
-      def step_settings?
-        return false unless participatory_space.has_steps?
-
-        step_settings
-          .values
-          .map(&:manifest)
-          .flat_map(&:attributes)
-          .flat_map(&:keys)
-          .any?
-      end
     end
   end
 end
