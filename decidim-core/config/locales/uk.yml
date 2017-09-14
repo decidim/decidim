@@ -69,6 +69,7 @@ uk:
       foo_authorization:
         fields:
           bar: Статусний рядок
+          foo: Foo
         name: Авторизація Foo
     authorizations:
       create:
@@ -141,6 +142,7 @@ uk:
       dummy:
         actions:
           bar: Статусний рядок
+          foo: Foo
         name: Неробоча складова
         settings:
           global:
@@ -372,20 +374,29 @@ uk:
       sub_hero:
         register: Зареєструватися
   social_share_button:
+    delicious: Delicious
+    douban: Douban
     email: Адреса електронної пошти
     facebook: Фейсбук
     google_bookmark: Гугл закладки
     google_plus: Google +
     hacker_news: Хакерські новини
     linkedin: LinkedIn
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Поділитися на %{name}
+    tumblr: Tumblr
     twitter: Твіттер
     vkontakte: Вконтакте
+    wechat: WeChat
     wechat_footer: Відкрийте WeChat, натисніть кнопку "Відкрити", а потім натисніть меню "Сканувати QR-код".
     weibo: Сіна Вайбо
+    xing: Xing
   views:
     pagination:
       first: "&laquo; Перша"
       last: Остання &raquo;
       next: Наступна &rsaquo;
       previous: "Попередня &lsaquo;"
+      truncate: "&hellip;"
