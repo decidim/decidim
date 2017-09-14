@@ -1,20 +1,12 @@
 uk:
   decidim:
     comments:
-      comment_notification_mailer:
+      events:
         comment_created:
-          new_comment_html: Надійшов новий коментар від <b>%{commenter}</b> на <b>%{commentable_link}</b>
-        hello: Доброго дня, %{name}%!
-        manage_email_subscriptions_html: Ви можете припинити отримувати ці електронні листи, змінивши свої налаштування на %{link}.
-        notifications_settings_link: сторінці налаштувань сповіщень
-        reply_created:
-          new_reply_html: Надійшла нова відповідь на ваш коментар від <b>%{commenter}</b> на <b>%{commentable_link}</b>
-      mailer:
-        comment_notification:
-          comment_created:
-            subject: Вам надійшов новий коментар
-          reply_created:
-            subject: Вам надійшла нова відповідь на коментар
+          comment:
+            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+          reply:
+            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
       votes:
         create:
           error: При голосуванні коментаря сталися помилки.
