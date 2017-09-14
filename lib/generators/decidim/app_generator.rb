@@ -15,24 +15,14 @@ module Decidim
     class AppGenerator < Rails::Generators::AppGenerator
       hide!
 
-      source_root File.expand_path("templates", __dir__)
-
       def source_paths
         [
           File.expand_path("templates", __dir__),
-          File.expand_path(
-            File.join(
-              Gem::Specification.find_by_name("railties").gem_dir,
-              "lib",
-              "rails",
-              "generators",
-              "rails",
-              "app",
-              "templates"
-            )
-          )
+          Rails::Generators::AppGenerator.source_root
         ]
       end
+
+      source_root File.expand_path("templates", __dir__)
 
       class_option :path, type: :string, default: nil,
                           desc: "Path to the gem"
