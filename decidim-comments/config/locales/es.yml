@@ -9,7 +9,10 @@ es:
             email_subject: Hay un nuevo comentario de %{author_name} en <a href="%{resource_url}">%{resource_title}</a>
             notification_title: Hay un nuevo comentario de %{author_name} en <a href="%{resource_path}">%{resource_title}</a>
           reply:
+            email_intro: Se ha comentado el "%{resource_title}"
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+            email_subject: Hay una nueva respuesta a su comentario de %{author_name} en <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Hay una nueva respuesta a su comentario de %{author_name} en <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Ha habido errores al votar el comentario.
