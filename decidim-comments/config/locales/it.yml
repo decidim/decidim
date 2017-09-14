@@ -1,20 +1,16 @@
 it:
   decidim:
     comments:
-      comment_notification_mailer:
+      events:
         comment_created:
-          new_comment_html: C'è un nuovo commento da parte di <b>%{commenter}</b> al link <b>%{commentable_link}</b>
-        hello: Ciao %{name},
-        manage_email_subscriptions_html: Puoi bloccare la ricezione di questo tipo di email variando le impostazioni su %{link}.
-        notifications_settings_link: pagina per le impostazioni delle notifiche
-        reply_created:
-          new_reply_html: C'è una nuova risposta al tuo commento da parte di <b>%{commenter}</b> in <b>%{commentable_link}</b>
-      mailer:
-        comment_notification:
-          comment_created:
-            subject: C'è un nuovo commento
-          reply_created:
-            subject: Hai ricevuto una nuova risposta ad un tuo commento
+          comment:
+            email_intro: Il "%{resource_title}" è stato commentato
+            email_outro: Hai ricevuto questa notifica perché state seguendo "%{resource_title}". Puoi disconnetterlo dal link precedente.
+            email_subject: C'è un nuovo commento da %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: C'è un nuovo commento da %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: Il "%{resource_title}" è stato commentato
+            email_outro: Hai ricevuto questa notifica perché state seguendo "%{resource_title}". Puoi disconnetterlo dal link precedente.
       votes:
         create:
           error: Ci sono stati errori durante la votazione del commento.
