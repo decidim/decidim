@@ -111,16 +111,6 @@ shared_examples "comments" do
       it "shows reply to the user" do
         expect(page).to have_reply_to(comment, "This is a reply")
       end
-
-      it "sends notifications received by commentable's author" do
-        expect(page).to have_reply_to(comment, "This is a reply")
-
-        wait_for_email subject: "new reply"
-        relogin_as comment.author, scope: :user
-        visit last_email_first_link
-
-        expect(page).to have_reply_to(comment, "This is a reply")
-      end
     end
 
     describe "arguable option" do

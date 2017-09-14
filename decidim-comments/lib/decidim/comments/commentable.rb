@@ -37,6 +37,13 @@ module Decidim
         def commentable_type
           self.class.name
         end
+
+        # Public: Defines which users will receive a notification when a comment is created.
+        # This method can be overridden at each resource model to include or exclude
+        # other users, eg. admins.
+        def users_to_notify_on_comment_created
+          []
+        end
       end
     end
   end

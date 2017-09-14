@@ -41,18 +41,7 @@ module Decidim
                                    decidim_user_group_id: form.user_group_id)
       end
 
-      def send_notification
-        # TODO:
-        # if @comment.depth.positive?
-        #   @commentable.users_to_notify.each do |user|
-        #     CommentNotificationMailer.reply_created(user, @comment, @commentable, @comment.root_commentable).deliver_later
-        #   end
-        # elsif @comment.depth.zero?
-        #   @commentable.users_to_notify.each do |user|
-        #     CommentNotificationMailer.comment_created(user, @comment, @commentable).deliver_later
-        #   end
-        # end
-      end
+      def send_notification; end
 
       def root_commentable(commentable)
         return commentable.root_commentable if commentable.is_a? Decidim::Comments::Comment
