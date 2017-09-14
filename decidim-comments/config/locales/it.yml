@@ -11,6 +11,8 @@ it:
           reply:
             email_intro: Il "%{resource_title}" è stato commentato
             email_outro: Hai ricevuto questa notifica perché state seguendo "%{resource_title}". Puoi disconnetterlo dal link precedente.
+            email_subject: Vi è una nuova risposta del tuo commento da %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Vi è una nuova risposta del tuo commento da %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Ci sono stati errori durante la votazione del commento.
