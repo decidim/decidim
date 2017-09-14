@@ -29,6 +29,7 @@
 **Changed**
 
 - **decidim-core**: Prevent creation of a `Organization` with a `default_locale` not present in `available_locales`. [\#1754](https://github.com/decidim/decidim/pull/1754)
+- **decidim-comments**: Deprecate old comment notifications system in favor of the new one. Read [create_followers_from_resource_authors.md](https://github.com/decidim/decidim/blob/master/docs/create_followers_from_resource_authors.md) and [create_followers_from_comment_authors.md](https://github.com/decidim/decidim/blob/master/docs/create_followers_from_comment_authors.md) to create resource followers so they are notified when a comment is created. [\#1831](https://github.com/decidim/decidim/pull/1831)
 
 **Fixed**
 
