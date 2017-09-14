@@ -6,8 +6,13 @@ uk:
           comment:
             email_intro: '"%{resource_title}" прокоментували'
             email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+            email_subject: Надійшов новий коментар від %{author_name} на <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Надійшов новий коментар від %{author_name} на <a href="%{resource_path}">%{resource_title}</a>
           reply:
+            email_intro: '"%{resource_title}" прокоментували'
             email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+            email_subject: Надійшла нова відповідь на ваш коментар від %{author_name} на <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Надійшла нова відповідь на ваш коментар від %{author_name} на <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: При голосуванні коментаря сталися помилки.
