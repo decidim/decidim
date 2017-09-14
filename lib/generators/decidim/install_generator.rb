@@ -19,6 +19,10 @@ module Decidim
       class_option :recreate_db, type: :boolean, default: false,
                                  desc: "Recreate db after installing decidim"
 
+      def bundle_install
+        run "bundle install"
+      end
+
       def install
         route "mount Decidim::Core::Engine => '/'"
       end
