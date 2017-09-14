@@ -10,7 +10,7 @@ describe Decidim::Comments::CommentCreatedEvent do
       expect(subject.types).to include :notification
     end
 
-    it "supports notifications" do
+    it "supports emails" do
       expect(subject.types).to include :email
     end
   end
