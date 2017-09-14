@@ -126,6 +126,14 @@ eu:
         back_home: Itzuli hasierara
         content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
         title: Ez dugu aurkitu bilatzen duzun orria!
+    events:
+      email_event:
+        email_greeting: Kaixo %{user_name},
+        email_intro: '"%{resource_title}" eguneratze bat gertatu da. Orrialde hau ikusi dezakezu:'
+        email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+        email_subject: '%{resource_title} eguneratzea'
+      notification_event:
+        notification_title: Gertaera bat gertatu da <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
@@ -152,12 +160,20 @@ eu:
         project: Proiektuak
         proposal: Proposamenak
         result: Emaitzak
+    follows:
+      create:
+        button: Jarraitu
+        error: Errore bat gertatu da baliabide hau jarraituz.
+      destroy:
+        button: Utzi hurrengo
+        error: Errore bat gertatu da baliabide hau jarraitzen.
     forms:
       current_file: Oraingo fitxategia
       current_image: Oraingo irudia
       default_image: Irudi lehenetsia
       errors:
         error: Errorea bat dago eremu honetan.
+      remove_this_file: Kendu fitxategi hau
     managed_users:
       expired_session: Uneko indargabetze saioa iraungi da.
     menu:
@@ -168,6 +184,7 @@ eu:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
     notifications_settings:
       show:
+        email_on_notification: Jakinarazpen bat jasotzen dudan bakoitzean mezu elektroniko bat jaso nahi dut.
         newsletter_notifications: Informazioa jaso nahi dut garrantzizko jarduerari buruz
         update_notifications_settings: Gorde aldaketak
       update:
@@ -296,8 +313,13 @@ eu:
         close_session: Itxi saioa
         description_html: Erabiltzailea <b>%{user_name}</b> ordezkatzen ari zara.
         expire_time_html: Zure saioa <b><span class="minutes">%{minutes}</span> minutu</b> iraungiko da.
+      notifications_dashboard:
+        mark_all_as_read: Markatu guztiak irakurri gisa
+        no_notifications: Ez dago jakinarazpenik oraindik.
+        title: jakinarazpenak
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
+        notifications: jakinarazpenak
         profile: Nire kontua
         sign_out: Irten
       user_profile:
