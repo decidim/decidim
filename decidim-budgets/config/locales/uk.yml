@@ -70,7 +70,8 @@ uk:
           projects_count:
             one: 1 проект
             few: "%{count} проекти"
-            other: "%{count} проекти"
+            many: "%{count} проектів"
+            other: "%{count} проектів"
         filters:
           category: Розділ
           category_prompt: Оберіть розділ
@@ -89,6 +90,7 @@ uk:
           selected_projects:
             one: обраний проект
             few: обраних проекти
+            many: обраних проектів
             other: обраних проектів
           view: Переглянути
         project:
@@ -96,6 +98,7 @@ uk:
           count:
             one: 1 людина підтримує
             few: "%{count} людини підтримує"
+            many: "%{count} людей підтримують"
             other: "%{count} людей підтримують"
           remove: Вилучити
         project_budget_button:
