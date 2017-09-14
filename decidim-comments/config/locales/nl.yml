@@ -1,20 +1,12 @@
 nl:
   decidim:
     comments:
-      comment_notification_mailer:
+      events:
         comment_created:
-          new_comment_html: Er is een nieuw commentaar van <b>%{commenter}</b> in <b>%{commentable_link}</b>
-        hello: Hallo %{name},
-        manage_email_subscriptions_html: U kunt deze e-mails stoppen door uw instellingen te wijzigen in %{link}.
-        notifications_settings_link: De pagina met meldingeninstellingen
-        reply_created:
-          new_reply_html: Er is een nieuw antwoord van uw reactie van <b>%{commenter}</b> in <b>%{commentable_link}</b>
-      mailer:
-        comment_notification:
-          comment_created:
-            subject: Je hebt een nieuwe reactie
-          reply_created:
-            subject: U heeft een nieuw antwoord van uw reactie
+          comment:
+            email_intro: De "%{resource_title}" is opgemerkt
+            email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt het niet volgen vanaf de vorige link.
+            email_subject: Er is een nieuwe reactie van %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
       votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van de reactie.
