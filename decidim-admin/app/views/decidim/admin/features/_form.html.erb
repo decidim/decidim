@@ -44,12 +44,12 @@
                   <%= form.fields_for "step_settings", nil do |settings_fields| %>
                     <%= settings_fields.fields_for step.id.to_s, step_settings do |settings_fields| %>
                       <%= render partial: "decidim/admin/features/settings_fields",
-                      locals: {
-                        form: settings_fields,
-                        feature: feature,
-                        settings_name: "step",
-                        tabs_prefix: "step-#{step.id}-settings"
-                      } %>
+                                 locals: {
+                                   form: settings_fields,
+                                   feature: feature,
+                                   settings_name: "step",
+                                   tabs_prefix: "step-#{step.id}-settings"
+                                 } %>
                     <% end %>
                   <% end %>
                 </fieldset>
@@ -66,12 +66,12 @@
             <div class="card-section">
               <%= form.fields_for :default_step_settings, form.object.default_step_settings do |settings_fields| %>
                 <%= render partial: "decidim/admin/features/settings_fields",
-                          locals: {
-                            form: settings_fields,
-                            feature: @feature,
-                            settings_name: "step",
-                            tabs_prefix: "default-step-settings"
-                          } %>
+                           locals: {
+                             form: settings_fields,
+                             feature: @feature,
+                             settings_name: "step",
+                             tabs_prefix: "default-step-settings"
+                           } %>
               <% end %>
             </div>
           </div>
