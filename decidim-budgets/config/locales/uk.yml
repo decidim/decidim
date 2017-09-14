@@ -66,11 +66,6 @@ uk:
             title: Голосування щодо бюджету завершено
           description: На які проекти, на вашу думку, ми маємо виділити кошти? Надавайте принаймні %{minimum_budget} бажаним для вас проектам та голосуйте згідно своїх уподобань, щоб визначити бюджет.
           title: Ви приймаєте рішення щодо бюджету
-        count:
-          projects_count:
-            one: 1 проект
-            few: "%{count} проекти"
-            other: "%{count} проектів"
         filters:
           category: Розділ
           category_prompt: Оберіть розділ
@@ -86,17 +81,9 @@ uk:
           vote: Голосувати
         order_selected_projects:
           remove: Видалити
-          selected_projects:
-            one: обраний проект
-            few: обраних проекти
-            other: обраних проектів
           view: Переглянути
         project:
           add: Додати
-          count:
-            one: 1 людина підтримує
-            few: "%{count} людини підтримує"
-            other: "%{count} людей підтримують"
           remove: Вилучити
         project_budget_button:
           add: Додати

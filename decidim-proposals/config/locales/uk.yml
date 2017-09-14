@@ -125,11 +125,6 @@ uk:
         index:
           new_proposal: Нова пропозиція
           view_proposal: Переглянути пропозицію
-        linked_proposals:
-          proposal_votes:
-            one: <span class="card--list__data__number">1</span> голос
-            few: <span class="card--list__data__number">%{count}</span> голоси
-            other: <span class="card--list__data__number">%{count}</span> голосів
         new:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Назад
