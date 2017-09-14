@@ -37,7 +37,7 @@ module Decidim
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
-        followers
+        (followers | feature.participatory_space.admins).uniq
       end
     end
   end

@@ -68,7 +68,13 @@ module Decidim
             end.to change { Comment.count }.by(1)
           end
 
-          it "sends a notification to the users" do
+          it "sends a notification to the corresponding users except the comment's author" do
+            follower = create(:user, organization: organization)
+
+            expect(commentable)
+              .to receive(:users_to_notify_on_comment_created)
+              .and_return([follower, author])
+
             expect_any_instance_of(Decidim::Comments::Comment)
               .to receive(:id).at_least(:once).and_return 1
 
@@ -78,7 +84,7 @@ module Decidim
                 event: "decidim.events.comments.comment_created",
                 event_class: Decidim::Comments::CommentCreatedEvent,
                 resource: commentable,
-                recipient_ids: commentable.users_to_notify_on_comment_created.pluck(:id),
+                recipient_ids: [follower.id],
                 extra: {
                   comment_id: 1
                 }
