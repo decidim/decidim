@@ -45,7 +45,7 @@ describe "Admin manages participatory process features", type: :feature do
             all("input[type=checkbox]").first.click
           end
 
-          find("*[type=submit]").click
+          click_button "Add feature"
         end
 
         within ".callout-wrapper" do
@@ -97,7 +97,7 @@ describe "Admin manages participatory process features", type: :feature do
             all("input[type=checkbox]").first.click
           end
 
-          find("*[type=submit]").click
+          click_button "Add feature"
         end
 
         within ".callout-wrapper" do
@@ -160,7 +160,7 @@ describe "Admin manages participatory process features", type: :feature do
           all("input[type=checkbox]").first.click
         end
 
-        find("*[type=submit]").click
+        click_button "Update"
       end
 
       within ".callout-wrapper" do
@@ -195,7 +195,7 @@ describe "Admin manages participatory process features", type: :feature do
             all("input[type=checkbox]").first.click
           end
 
-          find("*[type=submit]").click
+          click_button "Update"
         end
 
         within ".callout-wrapper" do
