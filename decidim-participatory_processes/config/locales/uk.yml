@@ -265,7 +265,6 @@ uk:
           processes:
             one: "%{count} процес"
             few: "%{count} процеси"
-            many: "%{count} процесів"
             other: "%{count} процесів"
         participatory_process:
           active_step: 'Поточний крок:'
