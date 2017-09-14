@@ -7,6 +7,12 @@ nl:
             email_intro: De "%{resource_title}" is opgemerkt
             email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt het niet volgen vanaf de vorige link.
             email_subject: Er is een nieuwe reactie van %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Er is een nieuwe reactie van %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: De "%{resource_title}" is opgemerkt
+            email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt het niet volgen vanaf de vorige link.
+            email_subject: Er is een nieuw antwoord van uw reactie van %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Er is een nieuw antwoord van uw reactie van %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van de reactie.
