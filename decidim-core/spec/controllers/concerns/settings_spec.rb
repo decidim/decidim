@@ -15,16 +15,24 @@ module Decidim
       include Decidim::Settings
     end
 
+    matcher :be_equivalent_to do |expected|
+      match do |actual|
+        actual.attributes == expected.attributes
+      end
+    end
+
     describe "#feature_settings" do
       it "returns the current feature's configuration" do
-        expect(controller.feature_settings).to eq(feature.settings)
+        expect(controller.feature_settings)
+          .to be_equivalent_to(feature.settings)
       end
     end
 
     describe "current_settings" do
       context "when no step is active" do
         it "returns the default step settings" do
-          expect(controller.current_settings).to eq(feature.default_step_settings)
+          expect(controller.current_settings)
+            .to be_equivalent_to(feature.default_step_settings)
         end
       end
 
@@ -37,7 +45,7 @@ module Decidim
 
         it "returns the settings for the active step" do
           expect(controller.current_settings)
-            .to eq(feature.step_settings[step.id.to_s])
+            .to be_equivalent_to(feature.step_settings[step.id.to_s])
         end
       end
     end

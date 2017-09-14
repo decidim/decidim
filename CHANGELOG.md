@@ -5,6 +5,7 @@
 **Fixed**
 
 - **decidim**: `decidim:check_locales` task not working properly. [\#1740]((https://https://github.com/decidim/decidim/pull/1740)
+- **decidim-admin**: Crash in feature edition when using Rails 5.1.4 [\#1848](https://https://github.com/decidim/decidim/pull/1848)
 - **decidim-core**: Disable HTML validations which sometimes caused unexpected form behavior. [\#1772](https://https://github.com/decidim/decidim/pull/1772)
 - **decidim-participatory_processes**: Scopes enabled checkbox being ignored in participatory process creation. [\#1762](https://https://github.com/decidim/decidim/pull/1762)
 - **decidim-surveys**: Drag & drop icon incorrectly rendered in form. [\#1761](https://https://github.com/decidim/decidim/pull/1761)
