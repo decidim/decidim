@@ -12,6 +12,7 @@ fr:
             email_intro: Le "%{resource_title}" a été commenté
             email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
             email_subject: Il y a une nouvelle réponse de votre commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Il y a une nouvelle réponse de votre commentaire de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Il y a eu des erreurs lors du vote du commentaire.
