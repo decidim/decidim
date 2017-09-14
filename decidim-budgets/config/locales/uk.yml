@@ -70,7 +70,7 @@ uk:
           projects_count:
             one: 1 проект
             few: "%{count} проекти"
-            other: "%{count} проекти"
+            other: "%{count} проектів"
         filters:
           category: Розділ
           category_prompt: Оберіть розділ
