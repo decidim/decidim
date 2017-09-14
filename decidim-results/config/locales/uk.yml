@@ -57,7 +57,7 @@ uk:
       results:
         count:
           results_count:
-            one: 1 підсумки
+            one: 1 підсумок
             few: "%{count} підсумків"
             other: "%{count} підсумків"
         filters:
