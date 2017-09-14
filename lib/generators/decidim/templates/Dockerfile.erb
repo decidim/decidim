@@ -10,7 +10,7 @@ ENV SECRET_KEY_BASE $secret_key_base
 
 RUN apt-get update
 
-RUN curl -sL https://deb.nodesource.com/setup_5.x | bash && \
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
     apt-get install -y nodejs
 
 ADD Gemfile /tmp/Gemfile
