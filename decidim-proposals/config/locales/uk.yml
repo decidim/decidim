@@ -98,6 +98,7 @@ uk:
           proposals_count:
             one: 1 пропозиція
             few: "%{count} пропозиції"
+            many: "%{count} пропозицій"
             other: "%{count} пропозицій"
         filters:
           accepted: Прийнято
@@ -155,6 +156,7 @@ uk:
           count:
             one: ГОЛОС
             few: ГОЛОСИ
+            many: ГОЛОСІВ
             other: ГОЛОСІВ
         votes_limit:
           vote_limit:
