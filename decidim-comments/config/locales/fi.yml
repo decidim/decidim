@@ -1,20 +1,16 @@
 fi:
   decidim:
     comments:
-      comment_notification_mailer:
+      events:
         comment_created:
-          new_comment_html: Uusi kommentti henkilöltä <b>%{commenter}</b> osoitteessa <b>%{commentable_link}</b>
-        hello: Hei %{name},
-        manage_email_subscriptions_html: 'Voit lopettaa näiden viestien vastaanottamisen vaihtamalla asetuksiasi osoitteessa: %{link}.'
-        notifications_settings_link: ilmoitusten asetussivu
-        reply_created:
-          new_reply_html: Henkilö <b>%{commenter}</b> on vastannut kommenttiisi osoitteessa <b>%{commentable_link}</b>
-      mailer:
-        comment_notification:
-          comment_created:
-            subject: Sinulla on uusi kommentti
-          reply_created:
-            subject: Kommenttiisi on vastattu
+          comment:
+            email_intro: Kommentoi "%{resource_title}"
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
+            email_subject: '%{author_name}: ssa on uusi kommentti <a href="%{resource_url}">%{resource_title}</a>'
+            notification_title: '%{author_name}: ssa on uusi kommentti <a href="%{resource_path}">%{resource_title}</a>'
+          reply:
+            email_intro: Kommentoi "%{resource_title}"
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
       votes:
         create:
           error: Äänestettäessä kommenttia tapahtui virhe.
