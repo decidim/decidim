@@ -78,7 +78,7 @@ module Decidim
         private
 
         def current_participatory_process
-          @current_participatory_process ||= collection.find(params[:id]) if params[:id]
+          @current_participatory_process ||= collection.where(slug: params[:id]).first if params[:id]
         end
 
         def collection
