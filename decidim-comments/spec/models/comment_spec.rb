@@ -6,8 +6,7 @@ module Decidim
   module Comments
     describe Comment do
       let!(:commentable) { create(:dummy_resource) }
-      let!(:replies_notifications) { true }
-      let!(:author) { create(:user, organization: commentable.organization, replies_notifications: replies_notifications) }
+      let!(:author) { create(:user, organization: commentable.organization) }
       let!(:comment) { create(:comment, commentable: commentable, author: author) }
       let!(:replies) { create_list(:comment, 3, commentable: comment, root_commentable: commentable) }
       let!(:up_vote) { create(:comment_vote, :up_vote, comment: comment) }

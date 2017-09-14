@@ -62,9 +62,7 @@ if !Rails.env.production? || ENV["SEED"]
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     admin: true,
-    tos_agreement: true,
-    comments_notifications: true,
-    replies_notifications: true
+    tos_agreement: true
   )
 
   Decidim::User.find_or_initialize_by(email: "user@example.org").update!(
@@ -74,9 +72,7 @@ if !Rails.env.production? || ENV["SEED"]
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     organization: organization,
-    tos_agreement: true,
-    comments_notifications: true,
-    replies_notifications: true
+    tos_agreement: true
   )
 
   Decidim::User.find_each do |user|
