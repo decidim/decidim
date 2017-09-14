@@ -76,6 +76,7 @@ uk:
             registrations_count:
               one: Зареєструвалась 1 людина.
               few: Зареєструвалось %{count} людей.
+              many: Зареєструвалось %{count} людей.
               other: Зареєструвалось %{count} людей.
           update:
             invalid: При збереженні налаштувань реєстрації сталася помилка.
@@ -114,6 +115,7 @@ uk:
           remaining_slots:
             one: Залишилось 1 місце
             few: "Залишилось %{count} місця"
+            many: "Залишилось %{count} місць"
             other: "Залишилось %{count} місць"
       models:
         meeting:

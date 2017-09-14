@@ -116,6 +116,7 @@ uk:
           assemblies:
             one: "%{count} (одні) збори"
             few: "%{count} зборів"
+            many: "%{count} зборів"
             other: "%{count} зборів"
         promoted_assembly:
           more_info: Додаткові відомості
