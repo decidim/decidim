@@ -98,6 +98,11 @@ module Decidim
         true
       end
 
+      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
+      def users_to_notify_on_comment_created
+        followers
+      end
+
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url

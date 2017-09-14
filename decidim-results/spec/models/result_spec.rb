@@ -14,6 +14,14 @@ module Decidim
       include_examples "has scope"
       include_examples "has category"
       include_examples "has reference"
+
+      describe "#users_to_notify_on_comment_created" do
+        let!(:follows) { create_list(:follow, 3, followable: subject) }
+
+        it "returns the followers" do
+          expect(subject.users_to_notify_on_comment_created).to match_array(follows.map(&:user))
+        end
+      end
     end
   end
 end

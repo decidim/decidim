@@ -40,6 +40,11 @@ module Decidim
         depth < MAX_DEPTH
       end
 
+      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
+      def users_to_notify_on_comment_created
+        root_commentable.users_to_notify_on_comment_created
+      end
+
       # Public: Check if the user has upvoted the comment
       #
       # Returns a bool value to indicate if the condition is truthy or not

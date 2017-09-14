@@ -58,6 +58,11 @@ module Decidim
       def comments_have_votes?
         true
       end
+
+      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
+      def users_to_notify_on_comment_created
+        followers
+      end
     end
   end
 end

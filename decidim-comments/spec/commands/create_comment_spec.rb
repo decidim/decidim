@@ -78,7 +78,7 @@ module Decidim
                 event: "decidim.events.comments.comment_created",
                 event_class: Decidim::Comments::CommentCreatedEvent,
                 resource: commentable,
-                recipient_ids: commentable.users_to_notify_on_comment_created,
+                recipient_ids: commentable.users_to_notify_on_comment_created.pluck(:id),
                 extra: {
                   comment_id: 1
                 }

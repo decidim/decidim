@@ -90,6 +90,13 @@ module Decidim
           expect(subject.down_voted_by?(user)).to be_falsy
         end
       end
+
+      describe "#users_to_notify_on_comment_created" do
+        it "delegates to its root commentable" do
+          expect(commentable).to receive(:users_to_notify_on_comment_created)
+          subject.users_to_notify_on_comment_created
+        end
+      end
     end
   end
 end

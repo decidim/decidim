@@ -33,6 +33,11 @@ module Decidim
         true
       end
 
+      # Public: Overrides the `users_to_notify_on_comment_created` Commentable concern method.
+      def users_to_notify_on_comment_created
+        followers
+      end
+
       # Public: Returns the number of times an specific project have been checked out.
       def confirmed_orders_count
         orders.finished.count
