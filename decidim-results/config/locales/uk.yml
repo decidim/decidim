@@ -59,6 +59,7 @@ uk:
           results_count:
             one: 1 підсумки
             few: "%{count} підсумків"
+            many: "%{count} підсумків"
             other: "%{count} підсумків"
         filters:
           category: Розділ
