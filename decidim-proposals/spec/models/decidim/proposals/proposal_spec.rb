@@ -5,7 +5,6 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe Proposal do
-      let(:comments_notifications) { true }
       let(:proposal) { build(:proposal) }
       subject { proposal }
 
@@ -49,54 +48,32 @@ module Decidim
         it { is_expected.to be_rejected }
       end
 
-      describe "#notifiable?" do
-        let(:context_author) { create(:user, organization: subject.author.organization) }
-
-        context "when the context author is the same as the proposal's author" do
-          let(:context_author) { subject.author }
-
-          it "is not notifiable" do
-            expect(subject.notifiable?(author: context_author)).to be_falsy
-          end
-        end
-
-        context "when the context author is not the same as the proposal's author" do
-          context "when the comment's author has not comments notifications enabled" do
-            before do
-              expect(subject.author).to receive(:comments_notifications?).and_return(false)
-            end
-
-            it "is not notifiable" do
-              expect(subject.notifiable?(author: context_author)).to be_falsy
-            end
-          end
-
-          context "when the comment's author has comments notifications enabled" do
-            before do
-              expect(subject.author).to receive(:comments_notifications?).and_return(true)
-            end
-
-            it "is not notifiable" do
-              expect(subject.notifiable?(author: context_author)).to be_truthy
-            end
-          end
+      describe "#users_to_notify_on_comment_created" do
+        let!(:follows) { create_list(:follow, 3, followable: subject) }
+        let(:followers) { follows.map(&:user) }
+        let(:participatory_space) { subject.feature.participatory_space }
+        let(:organization) { participatory_space.organization }
+        let!(:participatory_process_admin) do
+          user = create(:user, :confirmed, organization: organization)
+          Decidim::ParticipatoryProcessUserRole.create!(
+            role: :admin,
+            user: user,
+            participatory_process: participatory_space
+          )
+          user
         end
 
         context "when the proposal is official" do
-          let!(:organization) { create :organization }
-          let!(:admin) { create :user, :admin, organization: organization }
-          let!(:participatory_process) { create :participatory_process, organization: organization }
-          let!(:process_admin) { create :user, :process_admin, organization: organization, participatory_process: participatory_process }
-          let!(:feature) { create :proposal_feature, participatory_space: participatory_process }
-          let!(:context_author) { create(:user, organization: organization) }
-          let!(:proposal) { build(:proposal, :official, feature: feature) }
+          let(:proposal) { build(:proposal, :official) }
 
-          it "is notifiable" do
-            expect(subject.notifiable?(author: context_author)).to be_truthy
+          it "returns the followers and the feature's participatory space admins" do
+            expect(subject.users_to_notify_on_comment_created).to match_array(followers.concat([participatory_process_admin]))
           end
+        end
 
-          it "notifies admins and process admins" do
-            expect(subject.users_to_notify).to match_array([admin, process_admin])
+        context "when the proposal is not official" do
+          it "returns the followers" do
+            expect(subject.users_to_notify_on_comment_created).to match_array(followers)
           end
         end
       end

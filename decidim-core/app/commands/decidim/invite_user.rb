@@ -43,9 +43,7 @@ module Decidim
         email: form.email.downcase,
         organization: form.organization,
         admin: form.role == "admin",
-        roles: form.role == "admin" ? [] : [form.role],
-        comments_notifications: true,
-        replies_notifications: true
+        roles: form.role == "admin" ? [] : [form.role]
       )
       @user.invite!(
         form.invited_by,

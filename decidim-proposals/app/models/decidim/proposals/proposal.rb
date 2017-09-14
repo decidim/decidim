@@ -98,6 +98,12 @@ module Decidim
         true
       end
 
+      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
+      def users_to_notify_on_comment_created
+        return (followers | feature.participatory_space.admins).uniq if official?
+        followers
+      end
+
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
@@ -106,20 +112,6 @@ module Decidim
       # Public: Whether the proposal is official or not.
       def official?
         author.nil?
-      end
-
-      # Public: Overrides the `notifiable?` Notifiable concern method.
-      # When a proposal is commented the proposal's author is notified if it is not the same
-      # who has commented the proposal and if the proposal's author has comment notifications enabled.
-      def notifiable?(context)
-        return true if official?
-        context[:author] != author && author.comments_notifications?
-      end
-
-      # Public: Overrides the `users_to_notify` Notifiable concern method.
-      def users_to_notify
-        return feature.participatory_space.admins if official?
-        [author]
       end
     end
   end

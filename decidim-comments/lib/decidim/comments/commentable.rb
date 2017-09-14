@@ -7,7 +7,6 @@ module Decidim
     # Shared behaviour for commentable models.
     module Commentable
       extend ActiveSupport::Concern
-      include Decidim::Notifiable
 
       included do
         has_many :comments, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: "Decidim::Comments::Comment"
@@ -37,6 +36,14 @@ module Decidim
         # Public: Identifies the commentable type in the API.
         def commentable_type
           self.class.name
+        end
+
+        # Public: Defines which users will receive a notification when a comment is created.
+        # This method can be overridden at each resource model to include or exclude
+        # other users, eg. admins.
+        # Returns: a relation of Decidim::User objects.
+        def users_to_notify_on_comment_created
+          Decidim::User.none
         end
       end
     end

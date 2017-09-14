@@ -138,9 +138,7 @@ Decidim.register_feature(:proposals) do |feature|
           name: name,
           organization: feature.organization,
           tos_agreement: "1",
-          confirmed_at: Time.current,
-          comments_notifications: true,
-          replies_notifications: true
+          confirmed_at: Time.current
         )
 
         Decidim::Proposals::ProposalVote.create!(proposal: proposal,

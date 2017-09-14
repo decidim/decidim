@@ -45,9 +45,9 @@ module Decidim
         def send_notification
           Decidim::EventsManager.publish(
             event: "decidim.events.meetings.registrations_enabled",
-            event_class: Decidim::Meetings::MeetingRegistrationsEnabled,
+            event_class: Decidim::Meetings::MeetingRegistrationsEnabledEvent,
             resource: meeting,
-            recipient_ids: meeting.users_to_notify.pluck(:id)
+            recipient_ids: meeting.followers.pluck(:id)
           )
         end
 

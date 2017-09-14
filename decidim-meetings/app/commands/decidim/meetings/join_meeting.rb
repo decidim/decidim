@@ -56,7 +56,7 @@ module Decidim
       def send_notification_over(percentage)
         Decidim::EventsManager.publish(
           event: "decidim.events.meetings.meeting_registrations_over_percentage",
-          event_class: Decidim::Meetings::MeetingRegistrationsOverPercentage,
+          event_class: Decidim::Meetings::MeetingRegistrationsOverPercentageEvent,
           resource: @meeting,
           recipient_ids: participatory_space_admins.pluck(:id),
           extra: {

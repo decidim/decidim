@@ -56,7 +56,7 @@ describe Decidim::Meetings::Admin::UpdateRegistrations do
           .to receive(:publish)
           .with(
             event: "decidim.events.meetings.registrations_enabled",
-            event_class: Decidim::Meetings::MeetingRegistrationsEnabled,
+            event_class: Decidim::Meetings::MeetingRegistrationsEnabledEvent,
             resource: meeting,
             recipient_ids: [user.id]
           )

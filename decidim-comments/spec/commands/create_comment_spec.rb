@@ -68,51 +68,32 @@ module Decidim
             end.to change { Comment.count }.by(1)
           end
 
-          context "and the commentable is not notifiable" do
-            before do
-              expect(commentable).to receive(:notifiable?).and_return(false)
-            end
+          it "sends a notification to the corresponding users except the comment's author" do
+            follower = create(:user, organization: organization)
 
-            it "doesn't send an email" do
-              expect(CommentNotificationMailer).not_to receive(:comment_created)
-              command.call
-            end
-          end
+            expect(commentable)
+              .to receive(:users_to_notify_on_comment_created)
+              .and_return([follower, author])
 
-          context "and the commentable is notifiable" do
-            before do
-              expect(commentable).to receive(:notifiable?).and_return(true)
-              expect(commentable).to receive(:users_to_notify).and_return([user])
-            end
+            expect_any_instance_of(Decidim::Comments::Comment)
+              .to receive(:id).at_least(:once).and_return 1
 
-            context "and the comment is a root comment" do
-              it "sends an email to the author of the commentable" do
-                expect(CommentNotificationMailer)
-                  .to receive(:comment_created)
-                  .with(user, an_instance_of(Comment), commentable)
-                  .and_call_original
+            expect_any_instance_of(Decidim::Comments::Comment)
+              .to receive(:root_commentable).at_least(:once).and_return commentable
 
-                command.call
-              end
-            end
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.comments.comment_created",
+                event_class: Decidim::Comments::CommentCreatedEvent,
+                resource: commentable,
+                recipient_ids: [follower.id],
+                extra: {
+                  comment_id: 1
+                }
+              )
 
-            context "and the comment is a reply" do
-              let(:commentable) { create(:comment, commentable: dummy_resource) }
-
-              it "stores the root commentable" do
-                command.call
-                expect(Comment.last.root_commentable).to eq(dummy_resource)
-              end
-
-              it "sends an email to the author of the parent comment" do
-                expect(CommentNotificationMailer)
-                  .to receive(:reply_created)
-                  .with(user, an_instance_of(Comment), commentable, commentable.root_commentable)
-                  .and_call_original
-
-                command.call
-              end
-            end
+            command.call
           end
         end
       end

@@ -42,4 +42,12 @@ describe Decidim::Budgets::Project do
       expect(project.confirmed_orders_count).to eq(1)
     end
   end
+
+  describe "#users_to_notify_on_comment_created" do
+    let!(:follows) { create_list(:follow, 3, followable: subject) }
+
+    it "returns the followers" do
+      expect(subject.users_to_notify_on_comment_created).to match_array(follows.map(&:user))
+    end
+  end
 end

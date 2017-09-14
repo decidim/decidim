@@ -2,20 +2,18 @@
 en:
   decidim:
     comments:
-      comment_notification_mailer:
+      events:
         comment_created:
-          new_comment_html: There is a new comment from <b>%{commenter}</b> in <b>%{commentable_link}</b>
-        hello: Hello %{name},
-        manage_email_subscriptions_html: You can stop receiving these emails by changing your settings in %{link}.
-        notifications_settings_link: the notifications settings page
-        reply_created:
-          new_reply_html: There is a new reply of your comment from <b>%{commenter}</b> in <b>%{commentable_link}</b>
-      mailer:
-        comment_notification:
-          comment_created:
-            subject: You have a new comment
-          reply_created:
-            subject: You have a new reply of your comment
+          comment:
+            email_intro: The "%{resource_title}" has been commented
+            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_subject: There is a new comment from %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: There is a new comment from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: The "%{resource_title}" has been commented
+            email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+            email_subject: There is a new reply of your comment from %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: There is a new reply of your comment from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: There's been errors when voting the comment.

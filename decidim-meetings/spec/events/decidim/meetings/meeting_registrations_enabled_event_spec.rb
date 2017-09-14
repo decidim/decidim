@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Meetings::MeetingRegistrationsOverPercentage do
+describe Decidim::Meetings::MeetingRegistrationsEnabledEvent do
   describe "types" do
     subject { described_class }
 

@@ -22,8 +22,10 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_comment
-        send_notification if @commentable.notifiable?(author: @author)
+        transaction do
+          create_comment
+          send_notification
+        end
 
         broadcast(:ok, @comment)
       end
@@ -42,15 +44,15 @@ module Decidim
       end
 
       def send_notification
-        if @comment.depth.positive?
-          @commentable.users_to_notify.each do |user|
-            CommentNotificationMailer.reply_created(user, @comment, @commentable, @comment.root_commentable).deliver_later
-          end
-        elsif @comment.depth.zero?
-          @commentable.users_to_notify.each do |user|
-            CommentNotificationMailer.comment_created(user, @comment, @commentable).deliver_later
-          end
-        end
+        Decidim::EventsManager.publish(
+          event: "decidim.events.comments.comment_created",
+          event_class: Decidim::Comments::CommentCreatedEvent,
+          resource: @comment.root_commentable,
+          recipient_ids: (@commentable.users_to_notify_on_comment_created - [@author]).pluck(:id),
+          extra: {
+            comment_id: @comment.id
+          }
+        )
       end
 
       def root_commentable(commentable)

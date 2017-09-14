@@ -35,14 +35,9 @@ module Decidim
         true
       end
 
-      # Public: Overrides the `notifiable?` Notifiable concern method.
-      def notifiable?(_context)
-        true
-      end
-
-      # Public: Overrides the `users_to_notify` Notifiable concern method.
-      def users_to_notify
-        feature.participatory_space.admins
+      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
+      def users_to_notify_on_comment_created
+        (followers | feature.participatory_space.admins).uniq
       end
     end
   end

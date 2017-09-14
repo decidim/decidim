@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Meetings::UpdateMeetingEvent do
+describe Decidim::Comments::CommentCreatedEvent do
   describe "types" do
     subject { described_class }
 

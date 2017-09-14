@@ -74,9 +74,7 @@ module Decidim
               password_confirmation: form.password_confirmation,
               tos_agreement: form.tos_agreement,
               newsletter_notifications: form.newsletter_notifications,
-              organization: organization,
-              comments_notifications: true,
-              replies_notifications: true
+              organization: organization
             ).and_call_original
 
             expect { command.call }.to change { User.count }.by(1)

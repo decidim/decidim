@@ -39,8 +39,6 @@ module Decidim
           organization: form.current_organization,
           admin: false,
           managed: true,
-          comments_notifications: true,
-          replies_notifications: true,
           tos_agreement: true
         )
       end

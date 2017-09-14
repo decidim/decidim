@@ -24,8 +24,6 @@ module Decidim
     private
 
     def update_notifications_settings
-      @user.comments_notifications = @form.comments_notifications
-      @user.replies_notifications = @form.replies_notifications
       @user.email_on_notification = @form.email_on_notification
       @user.newsletter_notifications = @form.newsletter_notifications
     end

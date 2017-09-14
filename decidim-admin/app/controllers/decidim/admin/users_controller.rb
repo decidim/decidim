@@ -21,9 +21,7 @@ module Decidim
         default_params = {
           organization: current_organization,
           invitation_instructions: "invite_admin",
-          invited_by: current_user,
-          comments_notifications: true,
-          replies_notifications: true
+          invited_by: current_user
         }
 
         @form = form(InviteUserForm).from_params(params.merge(default_params))

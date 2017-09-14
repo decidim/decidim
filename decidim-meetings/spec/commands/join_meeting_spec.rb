@@ -47,7 +47,7 @@ describe Decidim::Meetings::JoinMeeting do
           .to receive(:publish)
           .with(
             event: "decidim.events.meetings.meeting_registrations_over_percentage",
-            event_class: Decidim::Meetings::MeetingRegistrationsOverPercentage,
+            event_class: Decidim::Meetings::MeetingRegistrationsOverPercentageEvent,
             resource: meeting,
             recipient_ids: [process_admin.id],
             extra: {
@@ -82,7 +82,7 @@ describe Decidim::Meetings::JoinMeeting do
           .to receive(:publish)
           .with(
             event: "decidim.events.meetings.meeting_registrations_over_percentage",
-            event_class: Decidim::Meetings::MeetingRegistrationsOverPercentage,
+            event_class: Decidim::Meetings::MeetingRegistrationsOverPercentageEvent,
             resource: meeting,
             recipient_ids: [process_admin.id],
             extra: {
@@ -117,7 +117,7 @@ describe Decidim::Meetings::JoinMeeting do
           .to receive(:publish)
           .with(
             event: "decidim.events.meetings.meeting_registrations_over_percentage",
-            event_class: Decidim::Meetings::MeetingRegistrationsOverPercentage,
+            event_class: Decidim::Meetings::MeetingRegistrationsOverPercentageEvent,
             resource: meeting,
             recipient_ids: [process_admin.id],
             extra: {

@@ -42,14 +42,6 @@ module Decidim
     def reported_content_url
       ResourceLocatorPresenter.new(self).url
     end
-
-    def notifiable?(_context)
-      true
-    end
-
-    def users_to_notify
-      [author]
-    end
   end
 
   class DummyResourcesController < ActionController::Base

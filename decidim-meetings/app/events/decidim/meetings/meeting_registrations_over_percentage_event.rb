@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    class MeetingRegistrationsOverPercentage < Decidim::Events::BaseEvent
+    class MeetingRegistrationsOverPercentageEvent < Decidim::Events::BaseEvent
       include Decidim::Events::EmailEvent
       include Decidim::Events::NotificationEvent
 
@@ -10,7 +10,7 @@ module Decidim
         I18n.t(
           "decidim.meetings.events.meeting_registrations_over_percentage.email_subject",
           resource_title: resource_title,
-          percentage: extra[:percentage] * 100
+          percentage: extra["percentage"] * 100
         )
       end
 
@@ -18,7 +18,7 @@ module Decidim
         I18n.t(
           "decidim.meetings.events.meeting_registrations_over_percentage.email_intro",
           resource_title: resource_title,
-          percentage: extra[:percentage] * 100
+          percentage: extra["percentage"] * 100
         )
       end
 
@@ -26,7 +26,7 @@ module Decidim
         I18n.t(
           "decidim.meetings.events.meeting_registrations_over_percentage.email_outro",
           resource_title: resource_title,
-          percentage: extra[:percentage] * 100
+          percentage: extra["percentage"] * 100
         )
       end
 
@@ -35,7 +35,7 @@ module Decidim
           "decidim.meetings.events.meeting_registrations_over_percentage.notification_title",
           resource_title: resource_title,
           resource_path: resource_path,
-          percentage: extra[:percentage] * 100
+          percentage: extra["percentage"] * 100
         ).html_safe
       end
     end

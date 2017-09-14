@@ -22,12 +22,5 @@ describe Decidim::NotificationGeneratorForRecipient do
       expect(notification.event_name).to eq event
       expect(notification.resource).to eq resource
     end
-
-    context "when it is not notifiable for the given user" do
-      it "returns nil" do
-        allow(resource).to receive(:notifiable?).and_return(false)
-        expect(subject.generate).to be_nil
-      end
-    end
   end
 end
