@@ -168,9 +168,7 @@ eu:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
     notifications_settings:
       show:
-        comments_notifications: Jakinarazpenak jaso nahi ditut nik argitaratutakoei iruzkinak egiten dizkietenean.
         newsletter_notifications: Informazioa jaso nahi dut garrantzizko jarduerari buruz
-        replies_notifications: Jakinarazpenak jaso nahi ditut posta elektronikoaren bidez nire iruzkinei erantzuten dietenean.
         update_notifications_settings: Gorde aldaketak
       update:
         error: Errore bat gertatu da jakinarazpenen konfigurazioa eguneratzean.
