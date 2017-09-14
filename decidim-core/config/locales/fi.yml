@@ -184,10 +184,8 @@ fi:
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
     notifications_settings:
       show:
-        comments_notifications: Haluan vastaanottaa sähköposti-ilmoituksia, kun joku kommentoi julkaisuani.
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
         newsletter_notifications: Haluan vastaanottaa tietoa relevantista aktiviteetista
-        replies_notifications: Hakuan vastaanottaa sähköposti-ilmoituksia, kun joku vastaa kommentteihini.
         update_notifications_settings: Tallenna muutokset
       update:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
