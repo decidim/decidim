@@ -96,7 +96,7 @@ eu:
           complete_profile: Osatu profila
           sign_up: Mesedez, osatu zure profila
           subtitle: Mesedez, bete inprimaki hau izen-ematea osatzeko
-          username_help: Izen publikoa, zure mezuetan agertzekoa Anonimatua bermatze aldera, edozein izen izan daiteke.
+          username_help: Izen publikoa, zuk argitaratutakoetan agertzekoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
       registrations:
         new:
           already_have_an_account?: Baduzu kontu bat?
@@ -110,7 +110,7 @@ eu:
           subtitle: Sortu kontu bat eztabaidetan parte hartzeko eta proposamenen alde egiteko
           terms: erabilera-baldintzak
           tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
-          username_help: Izen publikoa, zuk argitaratutakoetan agertzekoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
+          username_help: Izen publikoa, zure mezuetan agertzekoa Anonimatua bermatze aldera, edozein izen izan daiteke.
       sessions:
         new:
           are_you_new?: Berria zara plataforman?
@@ -128,7 +128,7 @@ eu:
         title: Ez dugu aurkitu bilatzen duzun orria!
     events:
       email_event:
-        email_greeting: Kaixo %{user_name},
+        email_greeting: Kaixo, %{user_name},
         email_intro: '"%{resource_title}" eguneratze bat gertatu da. Orrialde hau ikusi dezakezu:'
         email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
         email_subject: '%{resource_title} eguneratzea'
@@ -156,7 +156,7 @@ eu:
     filters:
       linked_classes:
         all: Guztiak
-        meeting: Topaketak
+        meeting: Topaketa-zerrenda
         project: Proiektuak
         proposal: Proposamenak
         result: Emaitzak
@@ -193,7 +193,7 @@ eu:
     own_user_groups:
       index:
         pending: Zain
-        rejected: Uko eginda
+        rejected: Ukatua
         verified: Egiaztatuta
     pages:
       index:
@@ -234,12 +234,12 @@ eu:
         embed: Mesedez, erantsi kode hau zure orrian
         embed_link: Kapsulatu
       flag_modal:
-        already_reported: Eduki hau jada salatuta dago, eta administratzaile batek.
+        already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
         description: Eduki hau desegokia da?
         does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
-        offensive: Ertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
-        report: Salatu
+        offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
+        report: Txostena
         spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
         title: Salatu arazo bat
       login_modal:
@@ -339,7 +339,7 @@ eu:
         debates: Eztabaidak
         debates_explanation: Gure ustez hirirako inportanteak diren gauzak ezagutu, eztabaidatu eta partekatuko ditugu.
         how_to_participate: Nola har dezaket parte prozesu batean?
-        meetings: Topaketak
+        meetings: Topaketa-zerrenda
         meetings_explanation: Gure ustez hirirako inportanteak diren gauzak ezagutu, eztabaidatu eta partekatuko ditugu.
         more_info: Argibide gehiago
         proposals: Proposamenak
@@ -347,13 +347,13 @@ eu:
       footer_sub_hero:
         footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
         footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
-        register: Erregistratu
+        register: Erregistroa
       hero:
         participate: Parte hartu
         welcome: Ongi etorri %{organization} erakundera!
       highlighted_processes:
         active_processes: Prozesu aktiboak
-        active_step: Fase aktiboa
+        active_step: Fase gaitua
         see_all_processes: Ikusi prozesu guztiak
       statistics:
         answers_count: Erantzunak
@@ -361,7 +361,7 @@ eu:
         headline: '%{organization} erakundearen egungo egoera'
         meetings_count: Topaketak
         orders_count: Eskariak
-        pages_count: Erlaitzak
+        pages_count: Orriak
         processes_count: Prozesuak
         projects_count: Proiektuak
         proposals_count: Proposamenak
@@ -370,7 +370,7 @@ eu:
         users_count: Parte-hartzaileak
         votes_count: Botoak
       sub_hero:
-        register: Erregistroa
+        register: Erregistratu
   social_share_button:
     delicious: Delicious
     douban: Douban
