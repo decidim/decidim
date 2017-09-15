@@ -12,8 +12,8 @@ eu:
         hero_image: Orri nagusiko irudia
         local_area: Udal-alorrak
         meta_scope: 'Metadatuak: esparrua'
-        participatory_scope: Esparru partizipatiboa
-        participatory_structure: Egitura partizipatiboa
+        participatory_scope: Partehartze esparrua
+        participatory_structure: Partehartze egitura
         promoted: Nabarmendua
         scope_id: Esparrua
         scopes_enabled: Esparruak gaituta
@@ -60,7 +60,7 @@ eu:
           error: Errore bat gertatu da muntatze hau argitaratzea.
           success: Batzar ez da argitaratu.
       menu:
-        assemblies: Batzar
+        assemblies: Biltzarrak
         assemblies_submenu:
           attachments: Eranskinak
           categories: Kategoriak
@@ -102,7 +102,7 @@ eu:
         users_count: Parte-hartzaileak
         votes_count: Botoak
     menu:
-      assemblies: Batzar
+      assemblies: Biltzarrak
   layouts:
     decidim:
       assemblies:
