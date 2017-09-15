@@ -1,3 +1,4 @@
+---
 uk:
   decidim:
     comments:
@@ -29,8 +30,8 @@ uk:
             label: Коментувати як
         opinion:
           neutral: Безсторонньо
-        remaining_characters: "Залишилось %{count} символів"
-        remaining_characters_1: "Залишився %{count} символ"
+        remaining_characters: Залишилось %{count} символів
+        remaining_characters_1: Залишився %{count} символ
         title: Додати свій коментар
       comment:
         alignment:

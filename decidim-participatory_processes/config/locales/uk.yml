@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -263,9 +264,9 @@ uk:
           no_processes_yet: Процесів співучасті поки що нема!
         order_by_processes:
           processes:
-            one: "%{count} процес"
             few: "%{count} процеси"
             many: "%{count} процесів"
+            one: "%{count} процес"
             other: "%{count} процесів"
         participatory_process:
           active_step: 'Поточний крок:'
@@ -278,5 +279,5 @@ uk:
         process_menu_item: Процес
         unfold: Розгорнути
       process_header_steps:
-        step: '%{current}-й крок з %{total} кроків'
+        step: "%{current}-й крок з %{total} кроків"
         view_steps: Переглянути кроки

@@ -1,3 +1,4 @@
+---
 pl:
   decidim:
     comments:
@@ -29,8 +30,8 @@ pl:
             label: Komentarz jako
         opinion:
           neutral: Neutralny
-        remaining_characters: "Pozostało %{count} znaków"
-        remaining_characters_1: "Pozostało znaków %{count}"
+        remaining_characters: Pozostało %{count} znaków
+        remaining_characters_1: Pozostało znaków %{count}
         title: Dodaj swój komentarz
       comment:
         alignment:

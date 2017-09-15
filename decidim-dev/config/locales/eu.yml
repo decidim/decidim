@@ -1,3 +1,4 @@
+---
 eu:
   decidim:
     dummy:
@@ -6,4 +7,4 @@ eu:
           dummies: Manikiak
     resource_links:
       test_link:
-        dummy_resource_dummy: ' Honi buruzko adibidea '
+        dummy_resource_dummy: " Honi buruzko adibidea "

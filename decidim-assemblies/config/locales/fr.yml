@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -114,8 +115,8 @@ fr:
           no_assemblies_yet: Pas encore d'assemblages!
         order_by_assemblies:
           assemblies:
-            one: "Ensemble %{count}"
-            other: "Ensembles %{count}"
+            one: Ensemble %{count}
+            other: Ensembles %{count}
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer

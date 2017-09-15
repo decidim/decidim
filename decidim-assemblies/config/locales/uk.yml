@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -114,9 +115,9 @@ uk:
           no_assemblies_yet: Ще немає зборів!
         order_by_assemblies:
           assemblies:
-            one: "%{count} (одні) збори"
             few: "%{count} зборів"
             many: "%{count} зборів"
+            one: "%{count} (одні) збори"
             other: "%{count} зборів"
         promoted_assembly:
           more_info: Додаткові відомості

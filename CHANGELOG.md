@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+## [v0.6.0](https://github.com/decidim/decidim/tree/v0.6.0) (2017-09-15)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.5.1...v0.6.0)
+
 **Fixed**
 
 - **decidim**: `decidim:check_locales` task not working properly. [\#1740]((https://https://github.com/decidim/decidim/pull/1740)

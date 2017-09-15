@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -27,8 +28,8 @@ fi:
         user_group_name: Organisaation nimi
         user_group_phone: Organisaation puhelinnumero
   booleans:
-    'false': 'Ei'
-    'true': 'Kyllä'
+    'false': Ei
+    'true': Kyllä
   carrierwave:
     errors:
       image_too_big: Kuva on liian suuri
@@ -131,7 +132,7 @@ fi:
         email_greeting: Hei %{user_name},
         email_intro: 'On ”%{resource_title}” päivityksen. Näet tältä sivulta:'
         email_outro: Olet saanut ilmoituksen, koska olette seuraavan ”%{resource_title}”. Voit unfollow edellisen linkin.
-        email_subject: '%{resource_title} päivitys'
+        email_subject: "%{resource_title} päivitys"
       notification_event:
         notification_title: Tapahtuma tapahtui <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
@@ -304,7 +305,7 @@ fi:
         link_label: täältä
         ok: Hyväksyn
       footer:
-        made_with_open_source: 'Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.'
+        made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.
       header:
         close_menu: Sulje valikko
         navigation: Navigaatio

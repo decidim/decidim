@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -189,7 +190,7 @@ uk:
           create: Створити
           new_managed_user: Новий керований користувач
           select_authorization_method: Оберіть спосіб авторизації
-          step: '%{current}-й крок з %{total} кроків'
+          step: "%{current}-й крок з %{total} кроків"
         promotion:
           error: При підвищенні керованого користувача сталася помилка.
           success: Керованого користувача було успішно підвищено в статусі.

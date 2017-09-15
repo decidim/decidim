@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -57,8 +58,8 @@ pl:
       results:
         count:
           results_count:
-            one: 1 wynik
             few: "%{count} wyniki"
+            one: 1 wynik
             other: "%{count} wyników"
         filters:
           category: Kategoria

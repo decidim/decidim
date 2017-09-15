@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -77,7 +78,7 @@ eu:
             available_slots_help: Utzi 0 mugak mugagabea badaude.
             registrations_count:
               one: Izena eman da.
-              other: '%{count} matrikulazio izan dira.'
+              other: "%{count} matrikulazio izan dira."
           update:
             invalid: Arazo bat izan da erregistroaren ezarpenak gordetzean.
             success: Bilera erregistratzeen ezarpenak behar bezala gorde dira.

@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -57,9 +58,9 @@ uk:
       results:
         count:
           results_count:
-            one: 1 підсумок
             few: "%{count} підсумки"
             many: "%{count} підсумків"
+            one: 1 підсумок
             other: "%{count} підсумків"
         filters:
           category: Розділ

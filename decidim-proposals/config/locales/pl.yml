@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -96,8 +97,8 @@ pl:
           verified_user_group: Zweryfikowana organizacja
         count:
           proposals_count:
-            one: 1 propozycja
             few: "%{count} propozycje"
+            one: 1 propozycja
             other: "%{count} propozycje"
         filters:
           accepted: Przyjęty
@@ -126,8 +127,8 @@ pl:
           view_proposal: Wyświetl propozycję
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>vote
             few: <span class="card--list__data__number">%{count}</span>votes
+            one: <span class="card--list__data__number">1</span>vote
             other: <span class="card--list__data__number">%{count}</span>votes
         new:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
@@ -153,8 +154,8 @@ pl:
           votes_blocked: Głosowanie zostało wyłączone
         votes_count:
           count:
-            one: GŁOSOWAĆ
             few: GŁOSOWANIA
+            one: GŁOSOWAĆ
             other: GŁOSOWANIA
         votes_limit:
           vote_limit:

@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -27,8 +28,8 @@ eu:
         user_group_name: Erakundearen izena
         user_group_phone: Erakundearen telefonoa
   booleans:
-    'false': 'Ez'
-    'true': 'Bai'
+    'false': Ez
+    'true': Bai
   carrierwave:
     errors:
       image_too_big: Irudia pisuegia da
@@ -131,7 +132,7 @@ eu:
         email_greeting: Kaixo, %{user_name},
         email_intro: '"%{resource_title}" eguneratze bat gertatu da. Orrialde hau ikusi dezakezu:'
         email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
-        email_subject: '%{resource_title} eguneratzea'
+        email_subject: "%{resource_title} eguneratzea"
       notification_event:
         notification_title: Gertaera bat gertatu da <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
@@ -263,8 +264,7 @@ eu:
         accept: Onartu gonbita
         accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
         hello: Kaixo, %{email},
-        ignore: |-
-          Nahi ez baduzu onartu gonbit hau, ez egin kasu mezu honi.<br />Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
+        ignore: Nahi ez baduzu onartu gonbit hau, ez egin kasu mezu honi.<br />Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
         invited_you_as_admin: "%{invited_by} izeneko batek gonbit egin dizu %{application} aplikazioaren administratzaile izateko; onartzeko, egin klik esteka honetan:"
         someone_invited_you: 'Orbaitek gonbit egin dizu aplikazio honetara: %{application}. Onartzeko, egin klik esteka honetan:'
         you_are_now_admin: Orain kudeatzaile zara
@@ -303,7 +303,7 @@ eu:
         link_label: hemen
         ok: Ados nago
       footer:
-        made_with_open_source: 'Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.'
+        made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
       header:
         close_menu: Itxi menua
         navigation: Nabigazioa
@@ -358,7 +358,7 @@ eu:
       statistics:
         answers_count: Erantzunak
         comments_count: Iruzkinak
-        headline: '%{organization} erakundearen egungo egoera'
+        headline: "%{organization} erakundearen egungo egoera"
         meetings_count: Topaketak
         orders_count: Eskariak
         pages_count: Orriak

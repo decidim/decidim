@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -263,8 +264,8 @@ pl:
           no_processes_yet: Żadne procesy uczestniczące!
         order_by_processes:
           processes:
-            one: "%{count} proces"
             few: "%{count} procesów"
+            one: "%{count} proces"
             other: "%{count} procesów"
         participatory_process:
           active_step: 'Aktualny krok:'

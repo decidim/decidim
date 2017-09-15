@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -28,7 +29,7 @@ it:
         user_group_phone: Telefono dell'organizzazione
   booleans:
     'false': 'No'
-    'true': 'Si'
+    'true': Si
   carrierwave:
     errors:
       image_too_big: L'immagine è troppo grande
@@ -263,8 +264,7 @@ it:
         accept: Accetta l'invito
         accept_until: Questo invito scade il %{due_date}.
         hello: Ciao %{email},
-        ignore: |-
-          Se non desideri accettare l'invito, ignora questa email.<br /> Il tuo account non verrà creato finché non accedi al link precedente e imposti la tua password.
+        ignore: Se non desideri accettare l'invito, ignora questa email.<br /> Il tuo account non verrà creato finché non accedi al link precedente e imposti la tua password.
         invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}, puoi accettare l'invito tramite il seguente link."
         someone_invited_you: Sei stato invitato a %{application}, puoi accettare l'invito tramite il seguente link.
         you_are_now_admin: Ora sei un amministratore
@@ -303,7 +303,7 @@ it:
         link_label: qui
         ok: OK, accetto
       footer:
-        made_with_open_source: 'Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.'
+        made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
       header:
         close_menu: Chiudere menu
         navigation: Navigazione

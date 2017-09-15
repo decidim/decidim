@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -114,8 +115,8 @@ pl:
           no_assemblies_yet: Żadne zespoły!
         order_by_assemblies:
           assemblies:
-            one: "%{count} montaż"
             few: "%{count} złożeń"
+            one: "%{count} montaż"
             other: "%{count} złożeń"
         promoted_assembly:
           more_info: Więcej informacji
