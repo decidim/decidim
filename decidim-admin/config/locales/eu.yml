@@ -4,9 +4,9 @@ eu:
       attachment:
         description: Descripción
         file: Fitxategia
-        title: Izenburua
+        title: Titulua
       category:
-        description: Deskribapena
+        description: Descripción
         name: Izena
         parent_id: Nagusia
       feature:
@@ -17,7 +17,7 @@ eu:
         subject: Gaia
       organization:
         default_locale: Eskualdeko ezarpen lehenetsiak
-        description: Deskribapena
+        description: Descripción
         favicon: Ikonoa
         header_snippets: Goiburuko mozkinak
         homepage_image: Orri nagusiko irudia
@@ -39,15 +39,15 @@ eu:
         organization: Erakundea
         plural: Anitza
       static_page:
-        content: Contenido
+        content: Edukia
         organization: Erakundea
-        slug: URL testu laburra
-        title: Izenburua
+        slug: URL laburra
+        title: Titulua
   activerecord:
     attributes:
       decidim/participatory_process:
-        banner_image: Bannerra
-        description: Deskribapena
+        banner_image: Iragarki-bandako irudia
+        description: Descripción
         developer_group: Talde sustatzailea
         domain: Domeinua
         end_date: Bukaera-data
@@ -55,23 +55,23 @@ eu:
         hero_image: Orri nagusiko irudia
         local_area: Udal-alorrak
         meta_scope: 'Metadatuak: esparrua'
-        participatory_scope: Esparru partizipatiboa
-        participatory_structure: Egitura partizipatiboa
+        participatory_scope: Partehartze esparrua
+        participatory_structure: Partehartze egitura
         promoted: Nabarmendua
         scope: Esparrua
         short_description: Deskribapen laburra
-        slug: URL laburra
+        slug: URL testu laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
-        title: Izenburua
+        title: Titulua
       decidim/participatory_process_step:
         end_date: Bukaera-data
         start_date: Hasiera-data
       decidim/static_page:
-        content: Edukia
+        content: Contenido
         slug: URL laburra
-        title: Izenburua
+        title: Titulua
   date:
     formats:
       datepicker: "%Y / %m / %d"
@@ -197,7 +197,7 @@ eu:
           new:
             explanation: Erabiltzaile kudeatuak erabiltzaile estandarretara igo daitezke. Aplikazioari gonbidatuko zaitu eta ezingo dituzu berriz ordezkatu. Gonbidatutako erabiltzaileak zure gonbidapena onartu dezan mezu elektroniko bat jasoko du.
             new_managed_user_promotion: Erabiltzaile kudeatuen promozio berria
-            promote: sustatu
+            promote: Goratu
       menu:
         admins: Administratzaileak
         dashboard: Kontrol-panela
@@ -205,15 +205,15 @@ eu:
         newsletters: Buletinak
         scope_types: Esparru motak
         scopes: Esparruak
-        settings: Konfigurazioa
-        static_pages: Erlaitzak
+        settings: Ezarpenak
+        static_pages: Orriak
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
       models:
         attachment:
           fields:
             content_type: Mota
-            title: Izenburua
+            title: Titulua
           name: Fitxategi erantsia
         category:
           name: Kategoria
@@ -240,15 +240,15 @@ eu:
         scope_type:
           fields:
             name: Izena
-            plural: plural
+            plural: Anitza
         static_page:
           fields:
-            created_at: Sortze-data
-            title: Izenburua
+            created_at: Tan sortua
+            title: Titulua
         user:
           fields:
             created_at: Sortze-data
-            email: Posta elektronikoa
+            email: Helbide elektronikoa
             last_sign_in_at: Identifikazioaren azken-data
             name: Izena
             role: Rola
@@ -259,7 +259,7 @@ eu:
         user_group:
           fields:
             actions: Ekintzak
-            created_at: Sortze-data
+            created_at: Tan sortua
             document_number: Agiri-zenbakia
             name: Izena
             phone: Telefonoa
@@ -267,7 +267,7 @@ eu:
             users_count: Erabiltzaile kopurua
       moderations:
         index:
-          title: ' Moderazioak '
+          title: ' Salaketak'
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
@@ -373,7 +373,7 @@ eu:
         managed_users: Kudeatutako erabiltzaileak
         scope_types: Esparru motak
         scopes: Esparruak
-        static_pages: Erlaitzak
+        static_pages: Orriak
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
       user_group:
