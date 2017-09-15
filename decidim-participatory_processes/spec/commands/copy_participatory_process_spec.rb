@@ -120,7 +120,7 @@ describe Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess do
 
       expect(last_feature.participatory_space).to eq(last_participatory_process)
       expect(last_feature.name).to eq(feature.name)
-      expect(last_feature.settings).to eq(feature.settings)
+      expect(last_feature.settings.attributes).to eq(feature.settings.attributes)
       expect(last_feature.step_settings.keys).to_not eq(feature.step_settings.keys)
       expect(last_feature.step_settings.values).to_not eq(feature.step_settings.values)
     end

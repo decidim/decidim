@@ -52,10 +52,6 @@ module Decidim
           self.class.manifest
         end
 
-        def ==(other)
-          other.attributes == attributes
-        end
-
         manifest.attributes.each do |name, attribute|
           if attribute.translated?
             translatable_attribute name, attribute.type_class, default: attribute.default_value

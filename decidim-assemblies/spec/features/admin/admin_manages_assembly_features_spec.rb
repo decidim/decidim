@@ -16,9 +16,7 @@ describe "Admin manages assembly features", type: :feature do
   describe "add a feature" do
     before do
       visit decidim_admin_assemblies.features_path(assembly)
-    end
 
-    it "adds a feature" do
       find("button[data-toggle=add-feature-dropdown]").click
 
       within "#add-feature-dropdown" do
@@ -42,25 +40,41 @@ describe "Admin manages assembly features", type: :feature do
           all("input[type=checkbox]").first.click
         end
 
-        find("*[type=submit]").click
+        click_button "Add feature"
       end
+    end
 
+    it "is successfully created" do
       within ".callout-wrapper" do
         expect(page).to have_content("successfully")
       end
 
       expect(page).to have_content("My feature")
+    end
 
-      within find("tr", text: "My feature") do
-        page.find(".action-icon--configure").click
+    context "and then edit it" do
+      before do
+        within find("tr", text: "My feature") do
+          page.find(".action-icon--configure").click
+        end
       end
 
-      within ".global-settings" do
-        expect(all("input[type=checkbox]").last).to be_checked
+      it "sucessfully displays initial values in the form" do
+        within ".global-settings" do
+          expect(all("input[type=checkbox]").last).to be_checked
+        end
+
+        within ".default-step-settings" do
+          expect(all("input[type=checkbox]").first).to be_checked
+        end
       end
 
-      within ".default-step-settings" do
-        expect(all("input[type=checkbox]").first).to be_checked
+      it "successfully edits it" do
+        click_button "Update"
+
+        within ".callout-wrapper" do
+          expect(page).to have_content("successfully")
+        end
       end
     end
   end
@@ -104,7 +118,7 @@ describe "Admin manages assembly features", type: :feature do
           all("input[type=checkbox]").first.click
         end
 
-        find("*[type=submit]").click
+        click_button "Update"
       end
 
       within ".callout-wrapper" do

@@ -20,49 +20,67 @@ describe "Admin manages participatory process features", type: :feature do
       visit decidim_admin_participatory_processes.features_path(participatory_process)
     end
 
-    it "adds a feature" do
-      find("button[data-toggle=add-feature-dropdown]").click
+    context "when the process has active steps" do
+      before do
+        find("button[data-toggle=add-feature-dropdown]").click
 
-      within "#add-feature-dropdown" do
-        find(".dummy").click
-      end
-
-      within ".new_feature" do
-        fill_in_i18n(
-          :feature_name,
-          "#feature-name-tabs",
-          en: "My feature",
-          ca: "La meva funcionalitat",
-          es: "Mi funcionalitat"
-        )
-
-        within ".global-settings" do
-          all("input[type=checkbox]").last.click
+        within "#add-feature-dropdown" do
+          find(".dummy").click
         end
 
-        within ".step-settings" do
-          all("input[type=checkbox]").first.click
+        within ".new_feature" do
+          fill_in_i18n(
+            :feature_name,
+            "#feature-name-tabs",
+            en: "My feature",
+            ca: "La meva funcionalitat",
+            es: "Mi funcionalitat"
+          )
+
+          within ".global-settings" do
+            all("input[type=checkbox]").last.click
+          end
+
+          within ".step-settings" do
+            all("input[type=checkbox]").first.click
+          end
+
+          click_button "Add feature"
+        end
+      end
+
+      it "is successfully created" do
+        within ".callout-wrapper" do
+          expect(page).to have_content("successfully")
         end
 
-        find("*[type=submit]").click
+        expect(page).to have_content("My feature")
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      context "and then edit it" do
+        before do
+          within find("tr", text: "My feature") do
+            page.find(".action-icon--configure").click
+          end
+        end
 
-      expect(page).to have_content("My feature")
+        it "sucessfully displays initial values in the form" do
+          within ".global-settings" do
+            expect(all("input[type=checkbox]").last).to be_checked
+          end
 
-      within find("tr", text: "My feature") do
-        page.find(".action-icon--configure").click
-      end
+          within ".step-settings" do
+            expect(all("input[type=checkbox]").first).to be_checked
+          end
+        end
 
-      within ".global-settings" do
-        expect(all("input[type=checkbox]").last).to be_checked
-      end
+        it "successfully edits it" do
+          click_button "Update"
 
-      within ".step-settings" do
-        expect(all("input[type=checkbox]").first).to be_checked
+          within ".callout-wrapper" do
+            expect(page).to have_content("successfully")
+          end
+        end
       end
     end
 
@@ -71,7 +89,7 @@ describe "Admin manages participatory process features", type: :feature do
         create(:participatory_process, organization: organization)
       end
 
-      it "saves the default step settings" do
+      before do
         find("button[data-toggle=add-feature-dropdown]").click
 
         within "#add-feature-dropdown" do
@@ -95,25 +113,41 @@ describe "Admin manages participatory process features", type: :feature do
             all("input[type=checkbox]").first.click
           end
 
-          find("*[type=submit]").click
+          click_button "Add feature"
         end
+      end
 
+      it "is successfully created" do
         within ".callout-wrapper" do
           expect(page).to have_content("successfully")
         end
 
         expect(page).to have_content("My feature")
+      end
 
-        within find("tr", text: "My feature") do
-          page.find(".action-icon--configure").click
+      context "and then edit it" do
+        before do
+          within find("tr", text: "My feature") do
+            page.find(".action-icon--configure").click
+          end
         end
 
-        within ".global-settings" do
-          expect(all("input[type=checkbox]").last).to be_checked
+        it "sucessfully displays initial values in the form" do
+          within ".global-settings" do
+            expect(all("input[type=checkbox]").last).to be_checked
+          end
+
+          within ".default-step-settings" do
+            expect(all("input[type=checkbox]").first).to be_checked
+          end
         end
 
-        within ".default-step-settings" do
-          expect(all("input[type=checkbox]").first).to be_checked
+        it "successfully edits it" do
+          click_button "Update"
+
+          within ".callout-wrapper" do
+            expect(page).to have_content("successfully")
+          end
         end
       end
     end
@@ -158,7 +192,7 @@ describe "Admin manages participatory process features", type: :feature do
           all("input[type=checkbox]").first.click
         end
 
-        find("*[type=submit]").click
+        click_button "Update"
       end
 
       within ".callout-wrapper" do
@@ -193,7 +227,7 @@ describe "Admin manages participatory process features", type: :feature do
             all("input[type=checkbox]").first.click
           end
 
-          find("*[type=submit]").click
+          click_button "Update"
         end
 
         within ".callout-wrapper" do
