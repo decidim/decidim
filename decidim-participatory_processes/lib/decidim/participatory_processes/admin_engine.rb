@@ -15,7 +15,7 @@ module Decidim
 
       routes do
         resources :participatory_process_groups
-        resources :participatory_processes, except: :show do
+        resources :participatory_processes, param: :slug, except: :show do
           resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
           resources :copies, controller: "participatory_process_copies", only: [:new, :create]
 
@@ -33,7 +33,7 @@ module Decidim
           resources :attachments, controller: "participatory_process_attachments"
         end
 
-        scope "/participatory_processes/:participatory_process_id" do
+        scope "/participatory_processes/:participatory_process_slug" do
           resources :categories
 
           resources :features do
@@ -53,7 +53,7 @@ module Decidim
           end
         end
 
-        scope "/participatory_processes/:participatory_process_id/features/:feature_id/manage" do
+        scope "/participatory_processes/:participatory_process_slug/features/:feature_id/manage" do
           Decidim.feature_manifests.each do |manifest|
             next unless manifest.admin_engine
 

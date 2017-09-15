@@ -78,7 +78,9 @@ module Decidim
         private
 
         def current_participatory_process
-          @current_participatory_process ||= collection.where(id: params[:id]).first if params[:id]
+          return @current_participatory_process if defined?(@current_participatory_process)
+          return @current_participatory_process = collection.where(slug: params[:slug]).first if params[:slug]
+          @current_participatory_process = collection.where(id: params[:id]).first if params[:id]
         end
 
         def collection

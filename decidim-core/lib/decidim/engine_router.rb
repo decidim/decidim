@@ -29,7 +29,7 @@ module Decidim
     # @return [EngineRouter] The new engine router
     def self.admin_proxy(target)
       clean_params = target.mounted_params.reject do |key, _value|
-        key.to_s =~ /_slug$/
+        key.to_s == "participatory_process_id"
       end
       new(target.mounted_admin_engine, clean_params)
     end
