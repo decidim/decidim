@@ -184,10 +184,8 @@ fr:
         note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux bulletins d'information de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
     notifications_settings:
       show:
-        comments_notifications: Je souhaite recevoir des notifications par email lorsque quelqu'un a commenté mes publications.
         email_on_notification: Je veux recevoir un courriel chaque fois que je reçois une notification.
         newsletter_notifications: Je souhaite recevoir des lettres d'informations sur l'activité de la plateforme
-        replies_notifications: Je souhaite recevoir des notifications par email lorsque quelqu'un répond à mes commentaires.
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.

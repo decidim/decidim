@@ -184,10 +184,8 @@ ca:
         note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
     notifications_settings:
       show:
-        comments_notifications: Vull rebre notificacions quan algú comenta a les meves publicacions.
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         newsletter_notifications: Vull rebre informació sobre activitat rellevant
-        replies_notifications: Vull rebre notificacions per correu electrònic quan algú respon als meus comentaris.
         update_notifications_settings: Guardar canvis
       update:
         error: Hi ha hagut un error en actualitzar la configuració de les notificacions.
