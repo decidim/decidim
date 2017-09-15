@@ -40,6 +40,8 @@ shared_examples "manage proposals" do
               }
             }
           )
+
+          visit_feature_admin
         end
 
         context "when process is not related to any scope" do
@@ -86,7 +88,7 @@ shared_examples "manage proposals" do
           end
 
           it "cannot be related to a scope" do
-            find(".card-title a.button").click
+            click_link "New"
 
             within "form" do
               expect(page).to have_no_content(/Scope/i)
@@ -94,7 +96,7 @@ shared_examples "manage proposals" do
           end
 
           it "creates a new proposal related to the process scope" do
-            find(".card-title a.button").click
+            click_link "New"
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
@@ -123,7 +125,7 @@ shared_examples "manage proposals" do
             end
 
             it "creates a new proposal related to the process scope" do
-              find(".card-title a.button").click
+              click_link "New"
 
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Make decidim great again"
@@ -181,6 +183,28 @@ shared_examples "manage proposals" do
           end
         end
       end
+
+      context "when creation is not enabled" do
+        before do
+          current_feature.update_attributes!(
+            step_settings: {
+              current_feature.participatory_space.active_step.id => {
+                creation_enabled: false
+              }
+            }
+          )
+        end
+
+        it "cannot create a new proposal from the main site" do
+          visit_feature
+          expect(page).to have_no_button("New Proposal")
+        end
+
+        it "cannot create a new proposal from the admin site" do
+          visit_feature_admin
+          expect(page).to have_no_link(/New/)
+        end
+      end
     end
 
     context "when official_proposals setting is disabled" do
@@ -188,9 +212,14 @@ shared_examples "manage proposals" do
         current_feature.update_attributes!(settings: { official_proposals_enabled: false })
       end
 
-      it "cannot create a new proposal" do
+      it "cannot create a new proposal from the main site" do
         visit_feature
-        expect(page).to have_no_content("New Proposal")
+        expect(page).to have_no_button("New Proposal")
+      end
+
+      it "cannot create a new proposal from the admin site" do
+        visit_feature_admin
+        expect(page).to have_no_link(/New/)
       end
     end
   end
@@ -290,7 +319,7 @@ shared_examples "manage proposals" do
           answered_at: Time.current
         )
 
-        visit manage_feature_path(current_feature)
+        visit_feature_admin
 
         within find("tr", text: proposal.title) do
           within find("td:nth-child(5)") do
@@ -331,7 +360,7 @@ shared_examples "manage proposals" do
         visit current_path
 
         within find("tr", text: proposal.title) do
-          expect(page).to have_no_css("a", text: "Answer")
+          expect(page).to have_no_link("Answer")
         end
       end
     end
@@ -346,7 +375,7 @@ shared_examples "manage proposals" do
       visit current_path
 
       within find("tr", text: proposal.title) do
-        expect(page).to have_no_css("a", text: "Answer")
+        expect(page).to have_no_link("Answer")
       end
     end
   end
