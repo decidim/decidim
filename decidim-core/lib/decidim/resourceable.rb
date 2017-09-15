@@ -33,7 +33,7 @@ module Decidim
              .joins(:resource_links_to)
              .where(decidim_resource_links: { name: link_name, from_id: id, from_type: self.class.name })
 
-        scope.where(id: from).or(scope.where(id: to)).distinct
+        scope.where(id: from).or(scope.where(id: to))
       end
 
       # Builds an ActiveRecord::Relation in order to load all the resources
