@@ -5,15 +5,15 @@ eu:
         budget: Aurrekontua
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
-        description: Deskribapena
+        description: Descripción
         proposal_ids: Honekin lotutako proposamenak
-        title: Izenburua
+        title: Titulua
   decidim:
     budgets:
       actions:
         attachments: Fitxategi erantsiak
         confirm_destroy: Ziur zaude proiektu hau ezabatu nahi duzula?
-        destroy: Garbitu
+        destroy: Ezabatu
         edit: Editatu
         new: Berria
         preview: Aurreikusi
@@ -27,7 +27,7 @@ eu:
             invalid: Arazo bat izan da proiektu hau sortzean
             success: Proiektua ongi sortu da
           destroy:
-            success: Proiektu ongi ezabatu da
+            success: Proiektua ongi ezabatu da
           edit:
             title: Editatu proiektua
             update: Eguneratu
@@ -44,19 +44,19 @@ eu:
       models:
         project:
           fields:
-            title: Izenburua
+            title: Titulua
       projects:
         budget_confirm:
-          are_you_sure: Ados zaude? Behin zure botoa baieztatuta, ezin izanen duzu aldatu.'
+          are_you_sure: Ados zaude? Behin zure botoa baieztatuta, ezin izanen duzu aldatu.
           cancel: Utzi
           confirm: Baieztatu
-          description: Proiektu hauek hautatu dituzu aurrekontuan sartzeko
+          description: Proiektu hauek hautatu dituzu aurrekontuan sartzeko.
           title: Baieztatu botoa
         budget_excess:
           close: Itxi
           description: Proiektu honek gehieneko aurrekontua gainditzen du, eta ezin da gehitu. Nahi baduzu, jada hautatua duzun proiektu bat ezaba dezakezu edo botoa eman zure lehenespenekin bat.
           ok: Ados
-          title: Aurrekontua gainditu da.
+          title: Aurrekontua gainditu da
         budget_summary:
           are_you_sure: Ziur zaude zure botoa ezeztatu nahi duzula?
           assigned: 'Esleituta:'
@@ -82,7 +82,7 @@ eu:
           filter_by: 'Iragazi honen arabera:'
           unfold: Zabaldu
         order_progress:
-          vote: Bozkatu
+          vote: Proiektuaren alde egin
         order_selected_projects:
           remove: Kendu
           selected_projects:
