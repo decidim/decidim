@@ -11,7 +11,7 @@ fr:
   decidim:
     budgets:
       actions:
-        attachments: Pièces jointes
+        attachments: Documents liés
         confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
         destroy: Supprimer
         edit: Modifier
@@ -53,7 +53,7 @@ fr:
           description: Voici les projets que vous avez choisis pour le budget.
           title: Confirmez votre vote
         budget_excess:
-          close: Fermer
+          close: Clore
           description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné ou voter selon vos préférences.
           ok: D'accord
           title: Budget maximum dépassé
@@ -74,10 +74,10 @@ fr:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           scope_prompt: Sélectionnez une portée
-          scopes: Zones d'application
+          scopes: Zone d'application
           search: Rechercher
         filters_small_view:
-          close_modal: Fermer la vue
+          close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Déplier
