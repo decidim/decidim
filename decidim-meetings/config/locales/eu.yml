@@ -4,7 +4,7 @@ eu:
       close_meeting:
         attendees_count: Bertaratuen kopurua
         attending_organizations: 'Parte hartu duten erakundeen zerrenda:'
-        closing_report: Txostena
+        closing_report: Salatu
         contributions_count: Ekarpen-kopurua
         proposal_ids: Topaketan sortutako proposamenak
       meeting:
@@ -16,7 +16,7 @@ eu:
         location: Kokapena
         location_hints: Kokapen-argibideak
         start_time: Hasiera-ordua
-        title: Izenburua
+        title: Titulua
   decidim:
     features:
       meetings:
@@ -81,6 +81,36 @@ eu:
           update:
             invalid: Arazo bat izan da erregistroaren ezarpenak gordetzean.
             success: Bilera erregistratzeen ezarpenak behar bezala gorde dira.
+      events:
+        close_meeting_event:
+          email_intro: '"%{resource_title}" bilera itxita zegoen. Bere orriko ondorioak irakur ditzakezu:'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" bilera itxita zegoen'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
+        meeting_registrations_enabled:
+          email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure burua erregistratu dezakezu bere orrialdean:'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" topaketak erregistroak gaitu ditu.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera erregistratzeak gaitu du.
+        meeting_registrations_over_percentage:
+          email_intro: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiagokoak dira.'
+          email_outro: Jakinarazpen hau jaso duzu bileraren parte hartzaileen gunea delako.
+          email_subject: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiago dira.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilerako slot okupatuak %{percentage} baino gehiagokoak dira.
+        upcoming_meeting_event:
+          email_intro: '"%{resource_title}" topaketa 48 ordu baino gutxiagoan hasiko da.'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" topaketa 48 ordu baino gutxiagoan hasiko da.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
+        update_meeting_event:
+          email_intro: '"%{resource_title}" bilera eguneratu da. Bertsio berria bere orritik irakurri dezakezu:'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" bilera eguneratu da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera eguneratu da.
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Zure bileraren erregistroa baieztatu da
       meetings:
         filters:
           category: Kategoria
@@ -122,8 +152,12 @@ eu:
             end_time: Bukaera-data
             map: Mapa
             start_time: Hasiera-data
-            title: Izenburua
+            title: Titulua
       read_more: "(geihago irakurri)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Zure izen-ematea <a href="%{url}">%{title}</a> topatu da.
+          details: Bilera xehetasunak eranskinetan aurkituko dituzu.
       registrations:
         create:
           invalid: Arazo bat izan da bilera honetan.
