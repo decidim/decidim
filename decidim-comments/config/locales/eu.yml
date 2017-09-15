@@ -18,7 +18,7 @@ eu:
           error: Erroreak gertatu dira iruzkina bozkatzean.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Igeratu zure kontuarekin</a> edo <a href="%{sign_up_url}">gehitzen sortu</a> zure iruzkina gehitzeko.
+        account_message: <a href="%{sign_in_url}">Sartu zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina egiteko.
         form:
           body:
             label: Iruzkina
@@ -40,13 +40,13 @@ eu:
         reply: Erantzuna
         report:
           action: Salatu
-          already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
+          already_reported: Eduki hau jada salatuta dago, eta administratzaile batek.
           close: Itxi
           description: Eduki hau desegokia da?
-          details: iruzkin gehigarriak
+          details: Iruzkin gehigarriak
           reasons:
             does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
-            offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
+            offensive: Ertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
           title: Salatu arazo bat
         verified_user_group: Egiaztatutako erakundea
