@@ -5,7 +5,7 @@ fr:
         body: Répondre
       survey_question:
         mandatory: Requis
-        question_type: Type de question
+        question_type: Type de contenus
   decidim:
     features:
       surveys:
