@@ -16,7 +16,10 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.main_proxy(target)
-      new(target.mounted_engine, target.mounted_params)
+      clean_params = target.mounted_params.reject do |key, _value|
+        key.to_s == "participatory_process_id"
+      end
+      new(target.mounted_engine, clean_params)
     end
 
     # Instantiates a router to the backend engine for an object.
@@ -25,7 +28,10 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.admin_proxy(target)
-      new(target.mounted_admin_engine, target.mounted_params)
+      clean_params = target.mounted_params.reject do |key, _value|
+        key.to_s =~ /_slug$/
+      end
+      new(target.mounted_admin_engine, clean_params)
     end
 
     attr_reader :default_url_options

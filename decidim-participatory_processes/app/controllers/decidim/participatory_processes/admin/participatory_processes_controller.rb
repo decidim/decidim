@@ -52,7 +52,7 @@ module Decidim
           UpdateParticipatoryProcess.call(current_participatory_process, @form) do
             on(:ok) do |participatory_process|
               flash[:notice] = I18n.t("participatory_processes.update.success", scope: "decidim.admin")
-              redirect_to edit_participatory_process_path(participatory_process)
+              redirect_to edit_participatory_process_path(participatory_process.id)
             end
 
             on(:invalid) do
@@ -78,7 +78,7 @@ module Decidim
         private
 
         def current_participatory_process
-          @current_participatory_process ||= collection.where(slug: params[:id]).first if params[:id]
+          @current_participatory_process ||= collection.where(id: params[:id]).first if params[:id]
         end
 
         def collection
