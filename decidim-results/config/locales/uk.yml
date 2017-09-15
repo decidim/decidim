@@ -55,6 +55,12 @@ uk:
           fields:
             title: Назва
       results:
+        count:
+          results_count:
+            one: 1 підсумок
+            few: "%{count} підсумки"
+            many: "%{count} підсумків"
+            other: "%{count} підсумків"
         filters:
           category: Розділ
           category_prompt: Оберіть розділ

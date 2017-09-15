@@ -82,7 +82,7 @@ es:
         proposal:
           fields:
             category: Categoría
-            id: CARNÉ DE IDENTIDAD
+            id: Identificador
             official_proposal: Propuesta oficial
             scope: Ámbito
             state: Estado

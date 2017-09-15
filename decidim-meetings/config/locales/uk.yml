@@ -75,6 +75,11 @@ uk:
             save: Зберегти
           form:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
+            registrations_count:
+              one: Зареєструвалась 1 людина.
+              few: Зареєструвалось %{count} людей.
+              many: Зареєструвалось %{count} людей.
+              other: Зареєструвалось %{count} людей.
           update:
             invalid: При збереженні налаштувань реєстрації сталася помилка.
             success: Налаштування реєстрації на зустріч успішно збережено.
@@ -139,6 +144,11 @@ uk:
           meeting_report: Звіт про зустріч
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
+          remaining_slots:
+            one: Залишилось 1 місце
+            few: "Залишилось %{count} місця"
+            many: "Залишилось %{count} місць"
+            other: "Залишилось %{count} місць"
       models:
         meeting:
           fields:

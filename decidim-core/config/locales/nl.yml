@@ -184,10 +184,8 @@ nl:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
     notifications_settings:
       show:
-        comments_notifications: Ik wil e-mail ontvangen wanneer iemand reageert in mijn publicaties.
         email_on_notification: Ik wil ontvangen een e-mail telkens als ik een melding ontvangt.
         newsletter_notifications: Ik wil informatie ontvangen over relevante activiteiten
-        replies_notifications: Ik wil e-mail ontvangen wanneer iemand reageert op mijn reacties.
         update_notifications_settings: Wijzigingen opslaan
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.

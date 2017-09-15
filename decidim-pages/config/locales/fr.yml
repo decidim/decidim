@@ -15,7 +15,7 @@ fr:
             body: Corps de texte
         pages:
           edit:
-            save: Mettre à jour
+            save: Mise à jour
             title: Modifier la page
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde de la page.

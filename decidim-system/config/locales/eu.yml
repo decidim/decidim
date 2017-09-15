@@ -2,8 +2,8 @@ eu:
   decidim:
     system:
       actions:
-        confirm_destroy: Ziur hau ezabatu nahi duzula?
-        destroy: Ezabatu
+        confirm_destroy: '‘Ziur zaude ezabatu nahi duzula?’'
+        destroy: Kendu
         edit: Editatu
         new: Berria
         save: Gorde
@@ -27,6 +27,7 @@ eu:
           success: Administratzailea zuzen eguneratu da
       default_pages:
         placeholders:
+          content: Gehitu edukia esanguratsua administrazio panelean %{page} orri estatikoan.
           title: 'Izenburu lehenetsia orri honetarako: %{page}'
       menu:
         admins: Administratzaileak
@@ -35,7 +36,7 @@ eu:
       models:
         admin:
           fields:
-            created_at: Sortze-data
+            created_at: Tan sortua
             email: Helbide elektronikoa
           name: Administratzailea
           validations:
@@ -44,7 +45,7 @@ eu:
           actions:
             save_and_invite: Sortu erakundea eta gonbit egin administratzaileari
           fields:
-            created_at: Sortze-data
+            created_at: Tan sortua
             name: Izena
           name: Erakundea
       organizations:

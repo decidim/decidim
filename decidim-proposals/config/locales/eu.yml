@@ -5,7 +5,7 @@ eu:
         body: Testua
         category_id: Kategoria
         scope_id: Esparrua
-        title: Izenburua
+        title: Titulua
         user_group_id: 'Sortu proposamen bat honako hau gisa:'
       proposal_answer:
         answer: Erantzuna
@@ -18,19 +18,19 @@ eu:
         name: Proposamenak
         settings:
           global:
-            announcement: Anuntzio
+            announcement: Oharra
             attachments_allowed: Onartu eranskinak
             comments_enabled: Iruzkinak gaituta
             geocoding_enabled: Geokodeketa gaituta
             new_proposal_help_text: Proposamen berriaren laguntza testu
             official_proposals_enabled: Proposamen ofizialak gaituta
-            proposal_answering_enabled: Erantzun ofiziala gaitutako proposamenei
+            proposal_answering_enabled: Erantzuna aktibatutako proposamenei
             vote_limit: Boto-muga
           step:
-            announcement: Anuntzio
+            announcement: Oharra
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Gaitu proposamenen sorrera
-            proposal_answering_enabled: Erantzuna aktibatutako proposamenei
+            proposal_answering_enabled: Erantzun ofiziala gaitutako proposamenei
             votes_blocked: Bozketa blokeatuta
             votes_enabled: Botoak gaituta
             votes_hidden: Boto ezkutuak (Botoak gaituta egon eta aukera hau markatuz gero, ezkutuan geldituko da botoen kopurua)
@@ -53,7 +53,7 @@ eu:
             accepted: Onartuta
             answer_proposal: Erantzuna
             evaluating: ebaluatzea
-            rejected: Baztertuta
+            rejected: Ukatua
             title: 'Erantzun proposamen honi: %{title}'
         proposals:
           answer:
@@ -74,7 +74,7 @@ eu:
         accepted: Onartuta
         evaluating: ebaluatzea
         not_answered: Erantzun gabe
-        rejected: Baztertuta
+        rejected: Ukatua
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Proposamena zuzen sortu da.
@@ -86,14 +86,14 @@ eu:
             official_proposal: Proposamen ofiziala
             scope: Esparrua
             state: Egoera
-            title: Izenburua
+            title: Titulua
       proposal_votes:
         create:
           error: Ez da izan, akats denean proposamena bozkatzea.
       proposals:
         author:
-          deleted: Ezabatutako
-          verified_user_group: Egiaztatutako erakundearen
+          deleted: Erabiltzaile ezabatua
+          verified_user_group: Egiaztatutako erakundea
         count:
           proposals_count:
             one: 1 proposamen
@@ -108,7 +108,7 @@ eu:
           evaluating: ebaluatzea
           official: Ofiziala
           origin: Jatorria
-          rejected: Baztertuta
+          rejected: Ukatua
           related_to: Honekin lotuta
           scope_prompt: Hautatu esparrua
           scopes: Esparruak

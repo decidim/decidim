@@ -1,26 +1,24 @@
 eu:
   decidim:
     comments:
-      comment_notification_mailer:
+      events:
         comment_created:
-          new_comment_html: 'Iruzkin berri bat dago, <b>%{commenter}</b> iruzkingilearena, hemen: <b>%{commentable_link}</b>'
-        hello: Kaixo, %{name},
-        manage_email_subscriptions_html: 'Halako mezurik jaso nahi ez baduzu, aldatu konfigurazioa hemen: %{link}.'
-        notifications_settings_link: jakinarazpenen konfigurazio-orria
-        reply_created:
-          new_reply_html: 'Iruzkin berri bat dago, <b>%{commenter}</b> iruzkingilearena, hemen: <b>%{commentable_link}</b>'
-      mailer:
-        comment_notification:
-          comment_created:
-            subject: Iruzkin berri bat duzu
-          reply_created:
-            subject: Zure iruzkinetako bati erantzuna eman diote
+          comment:
+            email_intro: '"%{resource_title}" iruzkindu da'
+            email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+            email_subject: '%{author_name}-tik <a href="%{resource_url}">%{resource_title}</a> iruzkin berri bat dago'
+            notification_title: '%{author_name}-en iruzkin berri bat dago <a href="%{resource_path}">%{resource_title}</a>'
+          reply:
+            email_intro: '"%{resource_title}" iruzkindu da'
+            email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+            email_subject: Zure iruzkina erantzun berria da %{author_name} <a href="%{resource_url}">%{resource_title}</a>-n.
+            notification_title: Zure iruzkina erantzun berria da %{author_name} <a href="%{resource_path}">%{resource_title}</a>-tik
       votes:
         create:
           error: Erroreak gertatu dira iruzkina bozkatzean.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Igeratu zure kontuarekin</a> edo <a href="%{sign_up_url}">gehitzen sortu</a> zure iruzkina gehitzeko.
+        account_message: <a href="%{sign_in_url}">Sartu zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina egiteko.
         form:
           body:
             label: Iruzkina
@@ -42,13 +40,13 @@ eu:
         reply: Erantzuna
         report:
           action: Salatu
-          already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
+          already_reported: Eduki hau jada salatuta dago, eta administratzaile batek.
           close: Itxi
           description: Eduki hau desegokia da?
-          details: iruzkin gehigarriak
+          details: Iruzkin gehigarriak
           reasons:
             does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
-            offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
+            offensive: Ertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
           title: Salatu arazo bat
         verified_user_group: Egiaztatutako erakundea

@@ -6,7 +6,7 @@ eu:
         decidim_scope_id: Esparrua
         description: Deskribapena
         proposal_ids: Sartutako proposamenak
-        title: Izenburua
+        title: Titulua
   decidim:
     features:
       results:
@@ -53,7 +53,7 @@ eu:
       models:
         result:
           fields:
-            title: Izenburua
+            title: Titulua
       results:
         count:
           results_count:

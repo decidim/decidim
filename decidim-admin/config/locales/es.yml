@@ -310,7 +310,7 @@ es:
           current_image: Imagen actual
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Utilice este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puede usarlo para agregar etiquetas de meta adicionales al HTML. Tenga en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
+          header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter

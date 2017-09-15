@@ -215,7 +215,7 @@ fr:
         title: Processus participatifs
       order_by_processes:
         active: Actif
-        past: Passés
+        past: Passées
         upcoming: À venir
       participatory_process_groups:
         none: Aucun

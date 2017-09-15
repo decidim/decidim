@@ -112,6 +112,12 @@ uk:
           promoted_assemblies: Висвітлені збори
         no_assemblies_yet:
           no_assemblies_yet: Ще немає зборів!
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} (одні) збори"
+            few: "%{count} зборів"
+            many: "%{count} зборів"
+            other: "%{count} зборів"
         promoted_assembly:
           more_info: Додаткові відомості
           take_part: Взяти участь

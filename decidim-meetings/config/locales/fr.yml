@@ -22,7 +22,7 @@ fr:
       meetings:
         actions:
           join: Joindre
-        name: Rencontres
+        name: Réunions
         settings:
           global:
             announcement: Annonce
@@ -33,7 +33,7 @@ fr:
     meetings:
       actions:
         attachments: Documents liés
-        close: Clore
+        close: Fermer
         confirm_destroy: Êtes-vous sûr de vouloir supprimer cette rencontre?
         destroy: Supprimer
         edit: Modifier
@@ -60,7 +60,7 @@ fr:
           edit:
             update: Mettre à jour
           index:
-            title: Rencontres
+            title: Rencontre
           new:
             create: Créer
             title: Créer une rencontre
@@ -116,13 +116,13 @@ fr:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           date: Date
-          past: Passées
+          past: Passés
           scope_prompt: Sélectionnez une portée
-          scopes: Zone d'application
+          scopes: Zones d'application
           search: Rechercher
           upcoming: À venir
         filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
+          close_modal: Fermer la vue
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Déplier
@@ -149,7 +149,7 @@ fr:
         meeting:
           fields:
             closed: Clos
-            end_time: Heure de fin
+            end_time: Échéance
             map: Carte
             start_time: Date de début
             title: Titre
@@ -168,7 +168,7 @@ fr:
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Résultats associés :'
-        result_meetings: 'Rencontres connexes :'
+        result_meetings: 'Rencontre connexes :'
       proposals_from_meeting:
         meeting_proposals: 'Propositions créées à cette rencontre :'
         proposal_meetings: 'Rencontre connexes :'

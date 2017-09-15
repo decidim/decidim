@@ -184,10 +184,8 @@ es:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
     notifications_settings:
       show:
-        comments_notifications: Quiero recibir notificaciones cuando alguien comenta en mis publicaciones.
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
         newsletter_notifications: Quiero recibir información acerca de actividad relevante
-        replies_notifications: Quiero recibir notificaciones por correo electrónico cuando alguien responde a mis comentarios.
         update_notifications_settings: Guardar cambios
       update:
         error: Ha habido un error al actualizar la configuración de las notificaciones.

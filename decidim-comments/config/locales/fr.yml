@@ -1,32 +1,30 @@
 fr:
   decidim:
     comments:
-      comment_notification_mailer:
+      events:
         comment_created:
-          new_comment_html: Un nouveau commentaire a été publié par <b>%{commenter}</b> dans <b>%{commentable_link}</b>
-        hello: Bonjour %{name},
-        manage_email_subscriptions_html: Vous pouvez arrêter de recevoir ces emails en modifiant vos paramètres dans %{link}.
-        notifications_settings_link: la page de configuration des notifications
-        reply_created:
-          new_reply_html: Il y a une nouvelle réponse à votre commentaire de <b>%{commenter}</b> dans <b>%{commentable_link}</b>
-      mailer:
-        comment_notification:
-          comment_created:
-            subject: Vous avez un nouveau commentaire
-          reply_created:
-            subject: Vous avez une nouvelle réponse à votre commentaire
+          comment:
+            email_intro: Le "%{resource_title}" a été commenté
+            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+            email_subject: Il y a un nouveau commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Il y a un nouveau commentaire de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: Le "%{resource_title}" a été commenté
+            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+            email_subject: Il y a une nouvelle réponse de votre commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Il y a une nouvelle réponse de votre commentaire de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Il y a eu des erreurs lors du vote du commentaire.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}"> Entrez avec votre compte</a> ou <a href="%{sign_up_url}">sign up</a> pour ajouter votre commentaire.
+        account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> identifiez vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>.
         form:
           body:
             label: Commentaire
             placeholder: Que pensez-vous de cela?
           form_error: Le texte est requis et ne peut pas dépasser %{length} caractères.
-          submit: Publier
+          submit: Envoyer
           user_group_id:
             label: Commenter en tant que
         opinion:
@@ -43,7 +41,7 @@ fr:
         report:
           action: Signaler
           already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
-          close: Fermer
+          close: Clore
           description: Ce contenu est-il inapproprié?
           details: Commentaires additionnels
           reasons:
