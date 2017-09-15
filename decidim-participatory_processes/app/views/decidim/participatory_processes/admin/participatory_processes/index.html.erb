@@ -25,11 +25,11 @@
                   </span>
                 <% end %>
                 <% if can? :update, process %>
-                  <%= link_to translated_attribute(process.title), edit_participatory_process_path(process.id) %><br />
+                  <%= link_to translated_attribute(process.title), edit_participatory_process_path(process) %><br />
                 <% elsif can? :preview, process %>
-                  <%= link_to translated_attribute(process.title), decidim_participatory_processes.participatory_process_path(process.id) %><br />
+                  <%= link_to translated_attribute(process.title), decidim_participatory_processes.participatory_process_path(process) %><br />
                 <% elsif can? :read, Decidim::Moderation %>
-                  <%= link_to translated_attribute(process.title), moderations_path(process.id) %><br />
+                  <%= link_to translated_attribute(process.title), moderations_path(process) %><br />
                 <% else %>
                   <%= translated_attribute(process.title) %>
                 <% end %>
