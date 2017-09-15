@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -17,7 +16,7 @@ fr:
         participatory_structure: Organisations concernées
         promoted: Mis en avant
         scope_id: Zone d'application
-        scopes_enabled: Scopes activés
+        scopes_enabled: Zone d'application activées
         short_description: Résumé
         slug: Identifiant
         subtitle: Sous-titre
@@ -115,8 +114,8 @@ fr:
           no_assemblies_yet: Pas encore d'assemblages!
         order_by_assemblies:
           assemblies:
-            one: Ensemble %{count}
-            other: Ensembles %{count}
+            one: "Ensemble %{count}"
+            other: "Ensembles %{count}"
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer
