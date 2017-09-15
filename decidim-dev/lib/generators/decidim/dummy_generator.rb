@@ -35,14 +35,9 @@ module Decidim
       def create_dummy_app
         Decidim::Generators::AppGenerator.start [
           dummy_app_path,
+          "--path",
+          "../..",
           "--app_const_base=DummyApplication",
-          "--skip-gemfile",
-          "--skip-bundle",
-          "--skip-git",
-          "--skip-keeps",
-          "--skip-listen",
-          "--skip-spring",
-          "--skip-test",
           "--recreate_db"
         ]
       end

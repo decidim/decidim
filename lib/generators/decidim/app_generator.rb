@@ -3,7 +3,6 @@
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
 require "decidim/core/version"
-require_relative "app_builder"
 require_relative "install_generator"
 
 module Decidim
@@ -16,24 +15,14 @@ module Decidim
     class AppGenerator < Rails::Generators::AppGenerator
       hide!
 
-      source_root File.expand_path("templates", __dir__)
-
       def source_paths
         [
           File.expand_path("templates", __dir__),
-          File.expand_path(
-            File.join(
-              Gem::Specification.find_by_name("railties").gem_dir,
-              "lib",
-              "rails",
-              "generators",
-              "rails",
-              "app",
-              "templates"
-            )
-          )
+          Rails::Generators::AppGenerator.source_root
         ]
       end
+
+      source_root File.expand_path("templates", __dir__)
 
       class_option :path, type: :string, default: nil,
                           desc: "Path to the gem"
@@ -74,6 +63,10 @@ module Decidim
         template "README.md.erb", "README.md", force: true
       end
 
+      def gemfile
+        template "Gemfile.erb", "Gemfile", force: true
+      end
+
       def secret_token
         require "securerandom"
         SecureRandom.hex(64)
@@ -103,13 +96,6 @@ module Decidim
 
       def authorization_handler
         template "authorization_handler.rb", "app/services/example_authorization_handler.rb", force: true
-      end
-
-      private
-
-      # rubocop:disable Style/AccessorMethodName
-      def get_builder_class
-        AppBuilder
       end
     end
   end
