@@ -1,20 +1,17 @@
 pl:
   decidim:
     comments:
-      comment_notification_mailer:
+      events:
         comment_created:
-          new_comment_html: W <b>%{commentable_link}</b> jest nowy komentarz z <b>%{commenter}</b>
-        hello: Witaj %{name},
-        manage_email_subscriptions_html: Możesz przestać otrzymywać te e-maile, zmieniając ustawienia w %{link}.
-        notifications_settings_link: Strona ustawień powiadomień
-        reply_created:
-          new_reply_html: Nowa odpowiedź Twojego komentarza zawiera <b>%{commenter}</b> w <b>%{commentable_link}</b>
-      mailer:
-        comment_notification:
-          comment_created:
-            subject: Masz nowy komentarz
-          reply_created:
-            subject: Masz nową odpowiedź swojego komentarza
+          comment:
+            email_intro: '"Skomentował" %{resource_title} "'
+            email_outro: Otrzymujesz to powiadomienie, ponieważ śledzisz "%{resource_title}". Możesz cofnąć ją od poprzedniego linku.
+            notification_title: W %{author_name} w <a href="%{resource_path}">%{resource_title}</a> nowy komentarz
+          reply:
+            email_intro: '"Skomentował" %{resource_title} "'
+            email_outro: Otrzymujesz to powiadomienie, ponieważ śledzisz "%{resource_title}". Możesz cofnąć ją od poprzedniego linku.
+            email_subject: Nowa odpowiedź Twojego komentarza z %{author_name} w <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Nowa odpowiedź Twojego komentarza z %{author_name} w <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Podczas głosowania komentarza wystąpiły błędy.
