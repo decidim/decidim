@@ -17,8 +17,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim.version
   s.add_dependency "rails", *Decidim.rails_version
   s.add_dependency "devise", "~> 4.2"
-  s.add_dependency "devise-i18n", "~> 1.1.0"
-  s.add_dependency "rectify", "~> 0.9.1"
+  s.add_dependency "devise-i18n", "~> 1.2.0"
   s.add_dependency "devise_invitable", "~> 1.7.0"
   s.add_dependency "sassc-rails", "~> 1.3.0"
   s.add_dependency "jquery-rails", "~> 4.3.1"
