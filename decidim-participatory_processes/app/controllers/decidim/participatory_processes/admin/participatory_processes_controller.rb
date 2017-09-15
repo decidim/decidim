@@ -47,12 +47,15 @@ module Decidim
 
         def update
           authorize! :update, current_participatory_process
-          @form = form(ParticipatoryProcessForm).from_params(participatory_process_params)
+          @form = form(ParticipatoryProcessForm).from_params(
+            participatory_process_params,
+            process_id: current_participatory_process.id
+          )
 
           UpdateParticipatoryProcess.call(current_participatory_process, @form) do
             on(:ok) do |participatory_process|
               flash[:notice] = I18n.t("participatory_processes.update.success", scope: "decidim.admin")
-              redirect_to edit_participatory_process_path(participatory_process.id)
+              redirect_to edit_participatory_process_path(participatory_process)
             end
 
             on(:invalid) do
@@ -78,9 +81,9 @@ module Decidim
         private
 
         def current_participatory_process
-          return @current_participatory_process if defined?(@current_participatory_process)
-          return @current_participatory_process = collection.where(slug: params[:slug]).first if params[:slug]
-          @current_participatory_process = collection.where(id: params[:id]).first if params[:id]
+          @current_participatory_process ||= collection.where(slug: params[:slug]).or(
+            collection.where(id: params[:slug])
+          ).first
         end
 
         def collection

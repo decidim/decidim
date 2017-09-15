@@ -111,7 +111,7 @@ module Decidim
       describe "GET show" do
         context "when the process is unpublished" do
           it "redirects to root path" do
-            get :show, params: { id: unpublished_process.id }
+            get :show, params: { slug: unpublished_process.slug }
 
             expect(response).to redirect_to("/")
           end
