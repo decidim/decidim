@@ -63,7 +63,7 @@ fr:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           scope_prompt: Sélectionnez une portée
-          scopes: Zones d'application
+          scopes: Zone d'application
           search: Rechercher
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
@@ -75,6 +75,6 @@ fr:
             attendees: Participants
             comments: Commentaires
             contributions: Contributions
-            meetings: Rencontre
+            meetings: Réunions
             proposals: Propositions
             votes: Soutiens
