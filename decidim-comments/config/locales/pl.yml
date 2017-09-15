@@ -6,6 +6,7 @@ pl:
           comment:
             email_intro: '"Skomentował" %{resource_title} "'
             email_outro: Otrzymujesz to powiadomienie, ponieważ śledzisz "%{resource_title}". Możesz cofnąć ją od poprzedniego linku.
+            email_subject: Istnieje nowy komentarz z %{author_name} w <a href="%{resource_url}">%{resource_title}</a>
             notification_title: W %{author_name} w <a href="%{resource_path}">%{resource_title}</a> nowy komentarz
           reply:
             email_intro: '"Skomentował" %{resource_title} "'
