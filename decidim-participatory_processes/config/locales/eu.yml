@@ -15,8 +15,8 @@ eu:
         local_area: Udal-alorrak
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
-        participatory_scope: Esparru partizipatiboa
-        participatory_structure: Egitura partizipatiboa
+        participatory_scope: Partehartze esparrua
+        participatory_structure: Partehartze egitura
         promoted: Nabarmendua
         scope_id: Esparrua
         scopes_enabled: Esparruak gaituta
@@ -94,6 +94,10 @@ eu:
             admin: Administratzailea
             collaborator: Kolaboratzailea
             moderator: Moderatzailea
+        user:
+          fields:
+            invitation_accepted_at: Gonbidapena onartu da
+            invitation_sent_at: Gonbidapena bidali da
       participatory_process_copies:
         new:
           copy: Copy
@@ -192,6 +196,10 @@ eu:
       titles:
         participatory_process_groups: Prozesu partizipatiboen multzoak
         participatory_processes: Prozesu partizipatiboak
+      users:
+        resend_invitation:
+          error: Errore bat gertatu da gonbidapena berriro bidaliz.
+          success: Gonbidapena behar bezala errepikatu da.
     menu:
       processes: Prozesuak
     participatory_process_groups:
@@ -211,12 +219,15 @@ eu:
         upcoming: Hurrengoak
       participatory_process_groups:
         none: Bat ere ez
+      participatory_processes:
+        index:
+          loading: Kargatzen emaitzak ...
       show:
         developer_group: Talde sustatzailea
         end_date: Bukaera-data
         local_area: Udal-alorrak
-        participatory_scope: Esparru partizipatiboa
-        participatory_structure: Egitura partizipatiboa
+        participatory_scope: Partehartze esparrua
+        participatory_structure: Partehartze egitura
         scope: Esparrua
         start_date: Hasiera-data
         target: Nori zuzentzen zaio?
@@ -259,7 +270,7 @@ eu:
           take_part: Parte hartu
         promoted_process:
           active_step: 'Oraingo fasea:'
-          more_info: Argibide gehiago
+          more_info: Informazio gehiago
           take_part: Parte hartu
       process_header:
         process_menu_item: Prozesua
