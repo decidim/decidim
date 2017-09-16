@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -28,8 +27,8 @@ uk:
         user_group_name: Назва організації
         user_group_phone: Телефон організації
   booleans:
-    'false': Ні
-    'true': Так
+    'false': 'Ні'
+    'true': 'Так'
   carrierwave:
     errors:
       image_too_big: Зображення завелике
@@ -264,7 +263,8 @@ uk:
         accept: Прийняти запрошення
         accept_until: Термін дії цього запрошення закінчується %{due_date}.
         hello: Доброго дня, %{email}%!
-        ignore: Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій пароль.
+        ignore: |-
+          Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій пароль.
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче."
         someone_invited_you: Хтось запросив вас до %{application}, ви можете прийняти це запрошення за посиланням нижче.
         you_are_now_admin: Тепер ви адміністратор
@@ -303,7 +303,7 @@ uk:
         link_label: тут
         ok: Я погоджуюся
       footer:
-        made_with_open_source: Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.
+        made_with_open_source: 'Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.'
       header:
         close_menu: Закрити меню
         navigation: Навігація
@@ -396,5 +396,5 @@ uk:
       first: "&laquo; Перша"
       last: Остання &raquo;
       next: Наступна &rsaquo;
-      previous: Попередня &lsaquo;
+      previous: "Попередня &lsaquo;"
       truncate: "&hellip;"
