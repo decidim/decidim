@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -97,9 +96,9 @@ uk:
           verified_user_group: Перевірена організація
         count:
           proposals_count:
+            one: 1 пропозиція
             few: "%{count} пропозиції"
             many: "%{count} пропозицій"
-            one: 1 пропозиція
             other: "%{count} пропозицій"
         filters:
           accepted: Прийнято
@@ -128,9 +127,9 @@ uk:
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
+            one: <span class="card--list__data__number">1</span> голос
             few: <span class="card--list__data__number">%{count}</span> голоси
             many: <span class="card--list__data__number">%{count}</span> голосів
-            one: <span class="card--list__data__number">1</span> голос
             other: <span class="card--list__data__number">%{count}</span> голосів
         new:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
@@ -156,9 +155,9 @@ uk:
           votes_blocked: Голосування вимкнене
         votes_count:
           count:
+            one: ГОЛОС
             few: ГОЛОСИ
             many: ГОЛОСІВ
-            one: ГОЛОС
             other: ГОЛОСІВ
         votes_limit:
           vote_limit:
