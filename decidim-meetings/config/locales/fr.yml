@@ -103,7 +103,7 @@ fr:
           email_subject: La réunion de la « %{resource_title} » va commencer en moins de 48h.
           notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> va commencer en moins de 48h.
         update_meeting_event:
-          email_intro: 'La réunion de la « %{resource_title} » a été mis à jour. Vous pouvez lire la nouvelle version de sa page :'
+          email_intro: 'La rencontre « %{resource_title} » a été mise à jour. Vous pouvez consulter la nouvelle version en vous rendant sur la page suivante :'
           email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
           email_subject: La rencontre « %{resource_title} » a été mise à jour
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
