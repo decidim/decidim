@@ -105,19 +105,19 @@ fr:
         update_meeting_event:
           email_intro: 'La réunion de la « %{resource_title} » a été mis à jour. Vous pouvez lire la nouvelle version de sa page :'
           email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
-          email_subject: La réunion de la « %{resource_title} » a été mis à jour
-          notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> a été mis à jour.
+          email_subject: La rencontre « %{resource_title} » a été mise à jour
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
       mailer:
         registration_mailer:
           confirmation:
-            subject: Enregistrement de la réunion a été confirmée
+            subject: Votre inscription a bien été enregistrée
       meetings:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           date: Date
           past: Passés
-          scope_prompt: Sélectionnez une portée
+          scope_prompt: Sélectionnez une zone d'application
           scopes: Zones d'application
           search: Rechercher
           upcoming: À venir
@@ -137,14 +137,14 @@ fr:
         show:
           attendees: Nombre de participants
           contributions: Décompte des contributions
-          going: Aller
+          going: J'y vais
           join: Participer à la rencontre
           meeting_report: Compte rendu de la rencontre
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           remaining_slots:
             one: Il reste 1 place
-            other: "%{count} machines à sous restantes"
+            other: "Il reste %{count} places"
       models:
         meeting:
           fields:
