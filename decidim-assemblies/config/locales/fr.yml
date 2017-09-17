@@ -45,20 +45,20 @@ fr:
           success: Assemblée mise à jour avec succès.
       assemblies_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de cet assembly.
+          error: Une erreur s'est produite lors de la duplication de cet assemblée.
           success: L'assemblage a été copié avec succès.
       assembly_copies:
         new:
           copy: Copie
           select: Sélectionnez les données que vous souhaitez reproduire
-          title: Ensemble en double
+          title: Dupliquer l'assemblée
       assembly_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de cet assembly.
+          error: Une erreur s'est produite lors de la publication de cette assemblée.
           success: Assemblée publiée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la publication de cette assemblée.
-          success: Assemblée non publiée avec succès.
+          error: Une erreur s'est produite lors de la dépublication de cette assemblée.
+          success: Assemblée dépubliée avec succès.
       menu:
         assemblies: Assemblées
         assemblies_submenu:
@@ -114,13 +114,13 @@ fr:
           no_assemblies_yet: Pas encore d'assemblages!
         order_by_assemblies:
           assemblies:
-            one: "Ensemble %{count}"
+            one: "%{count} assemblées"
             other: "Ensembles %{count}"
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer
       assembly_header:
-        assembly_menu_item: L'Assemblée
+        assembly_menu_item: L'assemblée
         unfold: Déplier
       assembly_widgets:
         show:
