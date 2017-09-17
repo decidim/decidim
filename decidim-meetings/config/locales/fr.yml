@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -22,7 +21,7 @@ fr:
     features:
       meetings:
         actions:
-          join: Joindre
+          join: Participer
         name: Réunions
         settings:
           global:
@@ -40,11 +39,11 @@ fr:
         edit: Modifier
         new: Nouveau
         preview: Aperçu
-        registrations: Enregistrements
+        registrations: Incriptions
         title: Actions
       admin:
         exports:
-          registrations: Enregistrements
+          registrations: Inscriptions
         meeting_closes:
           edit:
             close: Clore
@@ -75,16 +74,16 @@ fr:
           edit:
             save: Sauvegarder
           form:
-            available_slots_help: Laissez-le à 0 si vous avez des emplacements illimités disponibles.
+            available_slots_help: Laissez-le à 0 si le nombre de places disponibles n'est pas limité.
             registrations_count:
-              one: Il y a eu 1 enregistrement.
-              other: Il y a eu %{count} enregistrements.
+              one: Il y a eu 1 inscription.
+              other: Il y a eu %{count} inscriptions.
           update:
-            invalid: Il y a eu un problème pour enregistrer les paramètres d'enregistrement.
-            success: Réaliser les paramètres d'enregistrement enregistrés avec succès.
+            invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
+            success: Les paramètres d'inscriptions ont été enregistrés avec succès.
       events:
         close_meeting_event:
-          email_intro: 'La réunion de la « %{resource_title} » a été fermée. Vous pouvez lire les conclusions de sa page :'
+          email_intro: 'La rencontre « %{resource_title} » a été fermée. Vous pouvez lire les conclusions sur cette page :'
           email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
           email_subject: La réunion de la « %{resource_title} » a été fermée
           notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> a été fermée.
@@ -139,12 +138,12 @@ fr:
           attendees: Nombre de participants
           contributions: Décompte des contributions
           going: Aller
-          join: Rejoindre une réunion
+          join: Participer à la rencontre
           meeting_report: Compte rendu de la rencontre
-          no_slots_available: Pas de machines à sous disponibles
+          no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           remaining_slots:
-            one: 1 slot restant
+            one: Il reste 1 place
             other: "%{count} machines à sous restantes"
       models:
         meeting:
