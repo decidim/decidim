@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -25,7 +24,7 @@ fr:
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
-        target: Objectif
+        target: Public visé
         title: Titre
       participatory_process_group:
         description: Description
@@ -231,7 +230,7 @@ fr:
         participatory_structure: Organisations concernées
         scope: Zone d'application
         start_date: Date de début
-        target: Objectif
+        target: Public visé
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
