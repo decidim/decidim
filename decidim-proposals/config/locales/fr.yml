@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -51,7 +50,7 @@ fr:
             name: Proposition
         proposal_answers:
           edit:
-            accepted: Retenues
+            accepted: Retenue
             answer_proposal: Répondre
             evaluating: En cours d'évaluation
             rejected: Refusé
