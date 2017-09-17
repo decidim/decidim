@@ -20,7 +20,7 @@ fr:
         short_description: Résumé
         slug: Identifiant
         subtitle: Sous-titre
-        target: Objectif
+        target: Public visé
         title: Titre
   decidim:
     admin:
@@ -86,7 +86,7 @@ fr:
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         scope: Zone d'application
-        target: Objectif
+        target: Public visé
       statistics:
         answers_count: Réponses
         assemblies_count: Assemblées
