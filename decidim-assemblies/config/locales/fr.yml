@@ -41,16 +41,16 @@ fr:
           create: Créer
           title: Nouvelle assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cet assemblage.
+          error: Une erreur s'est produite lors de la mise à jour de cet assemblée.
           success: Assemblée mise à jour avec succès.
       assemblies_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cet assemblée.
-          success: L'assemblage a été copié avec succès.
+          success: L'assemblée a été copiée avec succès.
       assembly_copies:
         new:
-          copy: Copie
-          select: Sélectionnez les données que vous souhaitez reproduire
+          copy: Copier
+          select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer l'assemblée
       assembly_publications:
         create:
@@ -109,13 +109,13 @@ fr:
         assembly:
           take_part: Participer
         index:
-          promoted_assemblies: Assemblages mis en évidence
+          promoted_assemblies: Assemblées mises en avant
         no_assemblies_yet:
-          no_assemblies_yet: Pas encore d'assemblages!
+          no_assemblies_yet: Aucune assemblée n'a été créée pour le moment !
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblées"
-            other: "Ensembles %{count}"
+            one: "%{count} assemblée"
+            other: "%{count} assemblées"
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer
