@@ -4,18 +4,18 @@ fr:
       events:
         comment_created:
           comment:
-            email_intro: Le "%{resource_title}" a été commenté
+            email_intro: '"%{resource_title}" a reçu un commentaire'
             email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
-            email_subject: Il y a un nouveau commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Il y a un nouveau commentaire de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+            email_subject: Nouveau commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Nouveau commentaire de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
           reply:
-            email_intro: Le "%{resource_title}" a été commenté
+            email_intro: '"%{resource_title}" a reçu un commentaire'
             email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
-            email_subject: Il y a une nouvelle réponse de votre commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Il y a une nouvelle réponse de votre commentaire de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+            email_subject: Votre commentaire a reçu une réponse de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Votre commentaire a reçu une réponse de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
-          error: Il y a eu des erreurs lors du vote du commentaire.
+          error: Une erreur s'est produite lors du vote sur le commentaire.
     components:
       add_comment_form:
         account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>.
