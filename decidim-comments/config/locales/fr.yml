@@ -24,7 +24,7 @@ fr:
             label: Commentaire
             placeholder: Que pensez-vous de cela?
           form_error: Le texte est requis et ne peut pas dépasser %{length} caractères.
-          submit: Envoyer
+          submit: Publier
           user_group_id:
             label: Commenter en tant que
         opinion:
@@ -41,7 +41,7 @@ fr:
         report:
           action: Signaler
           already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
-          close: Clore
+          close: Fermer
           description: Ce contenu est-il inapproprié?
           details: Commentaires additionnels
           reasons:
