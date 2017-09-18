@@ -12,10 +12,10 @@ fr:
         decidim_category_id: Catégorie
         decidim_scope_id: Zone d'application
         description: Description
-        end_time: Heure de fin
+        end_time: Date et heure de fin
         location: Lieu
         location_hints: Indicateurs d’emplacement
-        start_time: Heure de début
+        start_time: Date et heure de début
         title: Titre
   decidim:
     features:
