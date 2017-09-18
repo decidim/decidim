@@ -10,7 +10,7 @@ uk:
       meeting:
         address: Адреса
         decidim_category_id: Розділ
-        decidim_scope_id: Обсяг
+        decidim_scope_id: Терен
         description: Опис
         end_time: Час завершення
         location: Розташування
@@ -119,8 +119,8 @@ uk:
           category_prompt: Оберіть розділ
           date: Дата
           past: Минулі
-          scope_prompt: Оберіть обсяг
-          scopes: Обсяги
+          scope_prompt: Оберіть терен
+          scopes: Терени
           search: Шукати
           upcoming: Майбутні
         filters_small_view:
