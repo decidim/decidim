@@ -3,7 +3,7 @@ uk:
     attributes:
       result:
         decidim_category_id: Розділ
-        decidim_scope_id: Обсяг
+        decidim_scope_id: Терен
         description: Опис
         proposal_ids: Включені пропозиції
         title: Назва
@@ -64,8 +64,8 @@ uk:
         filters:
           category: Розділ
           category_prompt: Оберіть розділ
-          scope_prompt: Оберіть обсяг
-          scopes: Обсяги
+          scope_prompt: Оберіть терен
+          scopes: Терени
           search: Шукати
         filters_small_view:
           close_modal: Закрити віконце
