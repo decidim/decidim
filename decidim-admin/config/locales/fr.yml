@@ -33,7 +33,7 @@ fr:
         code: Code
         name: Nom
         organization: Organisation
-        scope_type: Type de zone d'application
+        scope_type: Type de portée
       scope_type:
         name: Nom
         organization: Organisation
@@ -48,17 +48,17 @@ fr:
       decidim/participatory_process:
         banner_image: Image d'en-tête
         description: Description
-        developer_group: Groupe d'initiateurs
+        developer_group: Initiateurs
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Localisation
-        meta_scope: Metadonnée du domaine d'application
-        participatory_scope: Sujet ou zone d'application du processus
+        local_area: Quartier
+        meta_scope: Metadonnée de la zone d’application
+        participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
-        scope: Zone d'application
+        scope: Zone d’application
         short_description: Résumé
         slug: Identifiant
         start_date: Date de début
@@ -67,7 +67,7 @@ fr:
         title: Titre
       decidim/participatory_process_step:
         end_date: Date de fin
-        start_date: Date de commencement
+        start_date: Date de début
       decidim/static_page:
         content: Contenu
         slug: Identifiant
@@ -79,7 +79,7 @@ fr:
     admin:
       actions:
         add: Ajouter
-        browse: Naviguer
+        browse: Parcourir
         export: Exporter
         manage: Gérer
         permissions: Autorisations
@@ -159,7 +159,7 @@ fr:
           title: 'Ajouter la fonctionnalité : %{name}'
         publish:
           success: La fonctionnalité a été publiée avec succès.
-        title: Fonctions
+        title: Fonctionnalités
         unpublish:
           success: La fonctionnalité a été dépubliée avec succès.
         update:
@@ -183,7 +183,7 @@ fr:
         index:
           impersonate: Représenter
           needs_authoriation_warning: Vous avez besoin d'au moins une autorisation activée pour cette organisation.
-          promote: Transformer
+          promote: Promouvoir
           view_logs: Consultez les logs
         new:
           create: Créer
@@ -197,14 +197,14 @@ fr:
           new:
             explanation: Les utilisateurs représentés peuvent être promu utilisateurs standard. Cela signifie qu'ils seront invités à l'application et vous ne pourrez plus agir à leur place. L'utilisateur recevra un courriel pour accepter votre invitation.
             new_managed_user_promotion: Transformer un utilisateur représenté en utilisateur standard
-            promote: Promouvoir
+            promote: Transformer
       menu:
         admins: Administrateurs
         dashboard: Tableau de bord
         managed_users: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
         scope_types: Types de zone d'application
-        scopes: Zone d'application
+        scopes: Zones d’application
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -212,7 +212,7 @@ fr:
       models:
         attachment:
           fields:
-            content_type: Type de question
+            content_type: Type de contenus
             title: Titre
           name: Document lié
         category:
@@ -236,7 +236,7 @@ fr:
         scope:
           fields:
             name: Nom
-            scope_type: Type de portée
+            scope_type: Type de zone d'application
         scope_type:
           fields:
             name: Nom
@@ -292,7 +292,7 @@ fr:
           confirm_delete: Êtes-vous sûr de vouloir supprimer ce bulletin d'information ?
           title: Bulletins d'information (newsletter)
         new:
-          save: Sauvegarder
+          save: Enregistrer
           title: Nouveau bulletin d'information
         show:
           confirm_deliver: Êtes-vous sûr de vouloir envoyer ce bulletin d'information? Cette action ne peut pas être annulée.
@@ -317,7 +317,7 @@ fr:
           url: Url
           youtube: YouTube
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette organisation.
+          error: Erreur lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
       scope_types:
         create:
@@ -372,7 +372,7 @@ fr:
         impersonations: Représentations d'utilisateurs
         managed_users: Utilisateurs représentés
         scope_types: Types de zone d'application
-        scopes: Zone d'application
+        scopes: Zones d'application
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
@@ -386,9 +386,9 @@ fr:
       user_groups:
         index:
           filter:
-            all: Tout
+            all: Tous
             pending: En attente
-            rejected: Refusée
+            rejected: Refusé
             verified: Vérifié
           filter_by: Filtrer par
           search: Rechercher
