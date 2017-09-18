@@ -10,18 +10,13 @@ module Decidim
   class EngineRouter
     include Rails.application.routes.mounted_helpers
 
-    PARAM_BLACKLIST = %w(participatory_process_id assembly_id)
-
     # Instantiates a router to the frontend engine for an object.
     #
     # @param target [#mounted_engine, #mounted_params] Object to be routed
     #
     # @return [EngineRouter] The new engine router
     def self.main_proxy(target)
-      clean_params = target.mounted_params.reject do |key, _value|
-        PARAM_BLACKLIST.include?(key.to_s)
-      end
-      new(target.mounted_engine, clean_params)
+      new(target.mounted_engine, target.mounted_params)
     end
 
     # Instantiates a router to the backend engine for an object.
@@ -30,10 +25,7 @@ module Decidim
     #
     # @return [EngineRouter] The new engine router
     def self.admin_proxy(target)
-      clean_params = target.mounted_params.reject do |key, _value|
-        PARAM_BLACKLIST.include?(key.to_s)
-      end
-      new(target.mounted_admin_engine, clean_params)
+      new(target.mounted_admin_engine, target.mounted_params)
     end
 
     attr_reader :default_url_options

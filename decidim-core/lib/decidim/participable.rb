@@ -40,8 +40,7 @@ module Decidim
       def mounted_params
         {
           host: organization.host,
-          "#{underscored_name}_slug".to_sym => slug,
-          foreign_key.to_sym => id
+          "#{underscored_name}_slug".to_sym => slug
         }
       end
 
