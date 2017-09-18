@@ -19,7 +19,7 @@ uk:
       decidim/user:
         current_password: Поточний пароль
         email: Адреса електронної пошти
-        name: Ім'я користувача
+        name: Ім'я учасника
         password: Пароль
         password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
@@ -65,7 +65,7 @@ uk:
           postal_code: Поштовий індекс
         name: Приклад авторизації
       errors:
-        duplicate_authorization: Інший користувач вже авторизувався з такими ж даними.
+        duplicate_authorization: Інший учасник вже авторизувався з такими ж даними.
       foo_authorization:
         fields:
           bar: Статусний рядок
@@ -281,7 +281,7 @@ uk:
   errors:
     messages:
       content_type_whitelist_error: Неприпустимий тип файлу
-      cycle_detected: батько обсягу не може бути одним з його нащадків
+      cycle_detected: батько терену не може бути одним з його нащадків
       file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
       invalid_manifest: Неприпустимий файл маніфесту
       invalid_participatory_process: Неприпустимий рух співучасті
@@ -311,7 +311,7 @@ uk:
         sign_up: Зареєструватися
       impersonation_warning:
         close_session: Завершити сеанс
-        description_html: Ви уособлюєте користувача <b>%{user_name}</b>.
+        description_html: Ви уособлюєте учасника <b>%{user_name}</b>.
         expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       notifications_dashboard:
         mark_all_as_read: Позначити все як прочитане
@@ -327,7 +327,7 @@ uk:
         authorizations: Авторизаціі
         delete_my_account: Видалити мій обліковий запис
         notifications_settings: Налаштування сповіщень
-        title: Налаштування користувача
+        title: Налаштування учасника
         user_groups: Організації
       widget:
         see_more: Переглянути інші
