@@ -4,7 +4,7 @@ uk:
       project:
         budget: Бюджет
         decidim_category_id: Розділ
-        decidim_scope_id: Обсяг
+        decidim_scope_id: Терен
         description: Опис
         proposal_ids: Супутні пропозиції
         title: Назва
@@ -75,7 +75,7 @@ uk:
         filters:
           category: Розділ
           category_prompt: Оберіть розділ
-          scope_prompt: Оберіть обсяг
+          scope_prompt: Оберіть терен
           scopes: Обсяги
           search: Шукати
         filters_small_view:
