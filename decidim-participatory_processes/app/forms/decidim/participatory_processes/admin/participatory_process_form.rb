@@ -59,10 +59,6 @@ module Decidim
           Decidim::ParticipatoryProcessGroup.where(id: participatory_process_group_id).first
         end
 
-        def to_param
-          id
-        end
-
         private
 
         def slug_uniqueness

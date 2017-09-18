@@ -50,10 +50,6 @@ module Decidim
           @scope ||= current_organization.scopes.where(id: scope_id).first
         end
 
-        def to_param
-          id
-        end
-
         private
 
         def slug_uniqueness
