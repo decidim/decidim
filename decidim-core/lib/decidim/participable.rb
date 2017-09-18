@@ -9,6 +9,8 @@ module Decidim
 
     # rubocop:disable Metrics/BlockLength
     included do
+      SLUG_FORMAT = /\A[a-zA-Z]+[a-zA-Z0-9-]+\z/
+
       def demodulized_name
         self.class.name.demodulize
       end
