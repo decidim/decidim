@@ -116,7 +116,7 @@ fr:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           date: Date
-          past: Passés
+          past: Passées
           scope_prompt: Sélectionnez une zone d'application
           scopes: Zones d'application
           search: Rechercher
