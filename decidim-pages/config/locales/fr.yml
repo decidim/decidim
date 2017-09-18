@@ -1,4 +1,3 @@
----
 fr:
   decidim:
     features:
@@ -16,7 +15,7 @@ fr:
             body: Corps de texte
         pages:
           edit:
-            save: Mise à jour
+            save: Mettre à jour
             title: Modifier la page
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde de la page.
