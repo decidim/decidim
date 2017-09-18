@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -28,8 +27,8 @@ pl:
         user_group_name: Nazwa organizacji
         user_group_phone: Telefon organizacyjny
   booleans:
-    'false': Nie
-    'true': Tak
+    'false': 'Nie'
+    'true': 'Tak'
   carrierwave:
     errors:
       image_too_big: Obraz jest zbyt duży
@@ -264,7 +263,8 @@ pl:
         accept: Przyjąć zaproszenie
         accept_until: To zaproszenie zostanie złożone w %{due_date}.
         hello: Witaj %{email},
-        ignore: Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br /> Twoje konto nie zostanie utworzone, dopóki nie dojdziesz do powyższego linku i ustaw swojego hasła.
+        ignore: |-
+          Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br /> Twoje konto nie zostanie utworzone, dopóki nie dojdziesz do powyższego linku i ustaw swojego hasła.
         invited_you_as_admin: "%{invited_by} zaprosił Cię jako administrator o numerze %{application}, możesz go zaakceptować za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}, możesz go zaakceptować za pomocą poniższego linku.
         you_are_now_admin: Jesteś teraz administratorem
@@ -303,7 +303,7 @@ pl:
         link_label: tutaj
         ok: zgadzam się
       footer:
-        made_with_open_source: Strona internetowa za pomocą <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
+        made_with_open_source: 'Strona internetowa za pomocą <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.'
       header:
         close_menu: Zamknij menu
         navigation: Nawigacja
