@@ -31,13 +31,13 @@
         </li>
       <% end %>
       <% if can? :read, Decidim::Attachment %>
-        <li <% if is_active_link?(decidim_admin_assemblies.assembly_attachments_path(current_assembly.id)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.assembly_attachments_path(current_assembly.id) %>
+        <li <% if is_active_link?(decidim_admin_assemblies.assembly_attachments_path(current_assembly)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.assembly_attachments_path(current_assembly) %>
         </li>
       <% end %>
       <% if can? :read, Decidim::Moderation %>
-        <li <% if is_active_link?(decidim_admin_assemblies.moderations_path(current_assembly.id)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.moderations_path(current_assembly.id) %>
+        <li <% if is_active_link?(decidim_admin_assemblies.moderations_path(current_assembly)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.assemblies_submenu"), decidim_admin_assemblies.moderations_path(current_assembly) %>
         </li>
       <% end %>
     </ul>

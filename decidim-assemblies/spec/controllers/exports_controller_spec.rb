@@ -22,7 +22,7 @@ module Decidim
           {
             id: "dummies",
             feature_id: feature.id,
-            assembly_id: assembly.id
+            assembly_slug: assembly.slug
           }
         end
 

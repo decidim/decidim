@@ -50,10 +50,14 @@ module Decidim
           @scope ||= current_organization.scopes.where(id: scope_id).first
         end
 
+        def to_param
+          id
+        end
+
         private
 
         def slug_uniqueness
-          return unless OrganizationAssemblies.new(current_organization).query.where(slug: slug).where.not(id: id).any?
+          return unless OrganizationAssemblies.new(current_organization).query.where(slug: slug).where.not(id: context[:assembly_id]).any?
 
           errors.add(:slug, :taken)
         end

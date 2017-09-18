@@ -12,11 +12,21 @@ module Decidim
       isolate_namespace Decidim::Assemblies
 
       routes do
-        resources :assemblies, only: [:index, :show], path: "assemblies" do
+        get "assemblies/:assembly_id", to: redirect { |params, _request|
+          assembly = Decidim::Assembly.find(params[:assembly_id])
+          assembly ? "/assemblies/#{assembly.slug}" : "/404"
+        }, constraints: { assembly_id: /[0-9]+/ }
+
+        get "/assemblies/:assembly_id/f/:feature_id", to: redirect { |params, _request|
+          assembly = Decidim::Assembly.find(params[:assembly_id])
+          assembly ? "/assemblies/#{assembly.slug}/f/#{params[:feature_id]}" : "/404"
+        }, constraints: { assembly_id: /[0-9]+/ }
+
+        resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
           resource :assembly_widget, only: :show, path: "embed"
         end
 
-        scope "/assemblies/:assembly_id/f/:feature_id" do
+        scope "/assemblies/:assembly_slug/f/:feature_id" do
           Decidim.feature_manifests.each do |manifest|
             next unless manifest.engine
 
