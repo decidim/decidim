@@ -75,7 +75,7 @@ uk:
       create:
         error: При створенні авторизації сталася помилка.
         success: Ви успішно авторизовані.
-      current_participatory_processes: поглянути на поточні процеси
+      current_participatory_processes: поглянути на поточні рухи
       first_login:
         actions:
           decidim/dummy_authorization_handler: Перевірте, порівнявши з прикладом авторизації
@@ -284,7 +284,7 @@ uk:
       cycle_detected: батько обсягу не може бути одним з його нащадків
       file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
       invalid_manifest: Неприпустимий файл маніфесту
-      invalid_participatory_process: Неприпустимий процес співучасті
+      invalid_participatory_process: Неприпустимий рух співучасті
       long_words: Містить занадто довгі слова
       must_start_with_caps: Має починатися з великих літер
       nesting_too_deep: не може бути всередині підрозділу
@@ -338,7 +338,7 @@ uk:
       extended:
         debates: Дебати
         debates_explanation: Давайте зустрінемось та обговоримо те, що вважаємо важливим для нашого міста.
-        how_to_participate: Як я можу взяти участь в процесі?
+        how_to_participate: Як я можу взяти участь у русі?
         meetings: Зустрічі
         meetings_explanation: Давайте зустрінемось та обговоримо те, що вважаємо важливим для нашого міста.
         more_info: Додаткові відомості
@@ -352,9 +352,9 @@ uk:
         participate: Взяти участь
         welcome: Ласкаво просимо до %{organization}!
       highlighted_processes:
-        active_processes: Започаті процеси
+        active_processes: Започаті рухи
         active_step: Започатий крок
-        see_all_processes: Переглянути всі процеси
+        see_all_processes: Переглянути всі рухи
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
@@ -362,7 +362,7 @@ uk:
         meetings_count: Зустрічі
         orders_count: Голоси
         pages_count: Сторінки
-        processes_count: Процеси
+        processes_count: Рухи
         projects_count: Проекти
         proposals_count: Пропозиції
         results_count: Підсумки
