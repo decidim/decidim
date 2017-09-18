@@ -10,6 +10,7 @@
 
 - **decidim-proposals**: Fix proposal vote button visibility problem when votes were disabled and the user logged in. [\#1862](https://github.com/decidim/decidim/pull/1862)
 - **decidim-core**: Incompatible `puma` dependencies on `gemspec` and development app's Gemfile preventing the development application from being properly generated. [\#1862](https://github.com/decidim/decidim/pull/1862)
+- **decidim-core**: Problem in development app's Gemfile resolution caused because the initial `bundle install` would not consider `decidim` dependency specifications. [\#1862](https://github.com/decidim/decidim/pull/1862)
 
 ## [v0.6.1](https://github.com/decidim/decidim/tree/v0.6.1) (2017-09-15)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.0...v0.6.1)
