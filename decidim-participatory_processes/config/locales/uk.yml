@@ -13,13 +13,13 @@ uk:
         hashtag: Хештег
         hero_image: Зображення головної сторінки
         local_area: Місцевість
-        meta_scope: Метадані обсягу
+        meta_scope: Метадані терену
         participatory_process_group_id: Група рухів
-        participatory_scope: Обсяг співучасті
+        participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         promoted: Підвищено в статусі
-        scope_id: Обсяг
-        scopes_enabled: Ввімкнені обсяги
+        scope_id: Терен
+        scopes_enabled: Ввімкнені терени
         short_description: Стислий опис
         slug: Скорочена URL-адреса
         start_date: Дата початку
@@ -226,9 +226,9 @@ uk:
         developer_group: Група розробників
         end_date: Дата закінчення
         local_area: Місцевість
-        participatory_scope: Обсяг співучасті
+        participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
-        scope: Обсяг
+        scope: Терен
         start_date: Дата початку
         target: Мета
       statistics:
@@ -246,7 +246,7 @@ uk:
         users_count: Учасники
         votes_count: Голоси
     scopes:
-      global: Всеохоплюючий обсяг
+      global: Всеохоплюючий терен
   layouts:
     decidim:
       participatory_process_groups:
