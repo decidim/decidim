@@ -11,9 +11,9 @@
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
         <div class="lead">
-          <%== translated_attribute(current_assembly.short_description) %>
+          <%= sanitize translated_attribute(current_assembly.short_description) %>
         </div>
-        <%== translated_attribute(current_assembly.description) %>
+        <%= sanitize translated_attribute(current_assembly.description) %>
       </div>
       <%= attachments_for current_assembly %>
     </div>
@@ -22,42 +22,42 @@
         <% if translated_attribute(current_assembly.meta_scope).present? %>
           <div class="definition-data__item scope">
             <span class="definition-data__title"><%= t("assemblies.show.scope", scope: "decidim") %></span>
-              <%== translated_attribute(current_assembly.meta_scope) %>
+              <%= sanitize translated_attribute(current_assembly.meta_scope) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_assembly.developer_group).present? %>
           <div class="definition-data__item developer-group">
             <span class="definition-data__title"><%= t("assemblies.show.developer_group", scope: "decidim") %></span>
-              <%== translated_attribute(current_assembly.developer_group) %>
+              <%= sanitize translated_attribute(current_assembly.developer_group) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_assembly.local_area).present? %>
           <div class="definition-data__item local_area">
             <span class="definition-data__title"><%= t("assemblies.show.local_area", scope: "decidim") %></span>
-              <%== translated_attribute(current_assembly.local_area) %>
+              <%= sanitize translated_attribute(current_assembly.local_area) %>
           </div>
         <% end %>
 
          <% if translated_attribute(current_assembly.target).present? %>
           <div class="definition-data__item target">
             <span class="definition-data__title"><%= t("assemblies.show.target", scope: "decidim") %></span>
-              <%== translated_attribute(current_assembly.target) %>
+              <%= sanitize translated_attribute(current_assembly.target) %>
           </div>
         <% end %>
 
          <% if translated_attribute(current_assembly.participatory_scope).present? %>
           <div class="definition-data__item participatory_scope">
             <span class="definition-data__title"><%= t("assemblies.show.participatory_scope", scope: "decidim") %></span>
-              <%== translated_attribute(current_assembly.participatory_scope) %>
+              <%= sanitize translated_attribute(current_assembly.participatory_scope) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_assembly.participatory_structure).present? %>
           <div class="definition-data__item participatory_structure">
             <span class="definition-data__title"><%= t("assemblies.show.participatory_structure", scope: "decidim") %></span>
-              <%== translated_attribute(current_assembly.participatory_structure) %>
+              <%= sanitize translated_attribute(current_assembly.participatory_structure) %>
           </div>
         <% end %>
       </div>

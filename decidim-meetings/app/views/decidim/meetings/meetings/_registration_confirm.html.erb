@@ -1,7 +1,7 @@
 <div class="reveal" data-reveal id="meeting-registration-confirm">
   <div class="row">
     <div class="columns medium-10 medium-offset-1 help-text">
-      <%== translated_attribute(meeting.registration_terms) %>
+      <%= sanitize translated_attribute(meeting.registration_terms) %>
     </div>
   </div>
   <div class="row">

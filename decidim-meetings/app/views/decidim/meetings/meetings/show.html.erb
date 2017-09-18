@@ -62,19 +62,19 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <p><%== translated_attribute meeting.description %></p>
+      <p><%= sanitize translated_attribute meeting.description %></p>
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>
     <% if meeting.closed? %>
       <div class="section">
         <h3 class="section-heading"><%= t(".meeting_report") %></h3>
-        <%== translated_attribute meeting.closing_report %>
+        <%= sanitize translated_attribute meeting.closing_report %>
       </div>
     <% end %>
     <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
     <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
-  </div>
+  e/div>
 </div>
 <%= attachments_for meeting %>
 <%= comments_for meeting %>

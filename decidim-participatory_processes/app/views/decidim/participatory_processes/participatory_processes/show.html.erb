@@ -15,9 +15,9 @@
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
         <div class="lead">
-          <%== translated_attribute(current_participatory_process.short_description) %>
+          <%= sanitize translated_attribute(current_participatory_process.short_description) %>
         </div>
-        <%== translated_attribute(current_participatory_process.description) %>
+        <%= sanitize translated_attribute(current_participatory_process.description) %>
       </div>
       <%= attachments_for current_participatory_process %>
     </div>
@@ -26,7 +26,7 @@
         <% if translated_attribute(current_participatory_process.meta_scope).present? %>
           <div class="definition-data__item scope">
             <span class="definition-data__title"><%= t("participatory_processes.show.scope", scope: "decidim") %></span>
-              <%== translated_attribute(current_participatory_process.meta_scope) %>
+              <%= sanitize translated_attribute(current_participatory_process.meta_scope) %>
           </div>
         <% end %>
 
@@ -47,35 +47,35 @@
         <% if translated_attribute(current_participatory_process.developer_group).present? %>
           <div class="definition-data__item developer-group">
             <span class="definition-data__title"><%= t("participatory_processes.show.developer_group", scope: "decidim") %></span>
-              <%== translated_attribute(current_participatory_process.developer_group) %>
+              <%= sanitize translated_attribute(current_participatory_process.developer_group) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_process.local_area).present? %>
           <div class="definition-data__item local_area">
             <span class="definition-data__title"><%= t("participatory_processes.show.local_area", scope: "decidim") %></span>
-              <%== translated_attribute(current_participatory_process.local_area) %>
+              <%= sanitize translated_attribute(current_participatory_process.local_area) %>
           </div>
         <% end %>
 
          <% if translated_attribute(current_participatory_process.target).present? %>
           <div class="definition-data__item target">
             <span class="definition-data__title"><%= t("participatory_processes.show.target", scope: "decidim") %></span>
-              <%== translated_attribute(current_participatory_process.target) %>
+              <%= sanitize translated_attribute(current_participatory_process.target) %>
           </div>
         <% end %>
 
          <% if translated_attribute(current_participatory_process.participatory_scope).present? %>
           <div class="definition-data__item participatory_scope">
             <span class="definition-data__title"><%= t("participatory_processes.show.participatory_scope", scope: "decidim") %></span>
-              <%== translated_attribute(current_participatory_process.participatory_scope) %>
+              <%= sanitize translated_attribute(current_participatory_process.participatory_scope) %>
           </div>
         <% end %>
 
         <% if translated_attribute(current_participatory_process.participatory_structure).present? %>
           <div class="definition-data__item participatory_structure">
             <span class="definition-data__title"><%= t("participatory_processes.show.participatory_structure", scope: "decidim") %></span>
-              <%== translated_attribute(current_participatory_process.participatory_structure) %>
+              <%= sanitize translated_attribute(current_participatory_process.participatory_structure) %>
           </div>
         <% end %>
       </div>

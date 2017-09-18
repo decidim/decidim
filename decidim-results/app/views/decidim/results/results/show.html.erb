@@ -45,7 +45,7 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <%== translated_attribute result.description %>
+      <%= sanitize translated_attribute result.description %>
       <%= render partial: "decidim/shared/tags", locals: { resource: result, tags_class_extra: "tags--result" } %>
     </div>
     <%= linked_resources_for result, :proposals, "included_proposals" %>
