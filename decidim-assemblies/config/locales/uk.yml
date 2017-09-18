@@ -11,12 +11,12 @@ uk:
         hashtag: Хештег
         hero_image: Зображення головної сторінки
         local_area: Місцевість
-        meta_scope: Метадані обсягу
-        participatory_scope: Обсяг співучасті
+        meta_scope: Метадані терену
+        participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         promoted: Підвищено в статусі
-        scope_id: Обсяг
-        scopes_enabled: Ввімкнені обсяги
+        scope_id: Терен
+        scopes_enabled: Ввімкнені терени
         short_description: Стислий опис
         slug: Скорочена URL-адреса
         subtitle: Підзаголовок
@@ -83,9 +83,9 @@ uk:
       show:
         developer_group: Група розробників
         local_area: Місцевість
-        participatory_scope: Обсяг співучасті
+        participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
-        scope: Обсяг
+        scope: Терен
         target: Мета
       statistics:
         answers_count: Відповіді
