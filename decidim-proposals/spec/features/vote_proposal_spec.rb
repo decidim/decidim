@@ -200,5 +200,21 @@ describe "Vote Proposal", type: :feature do
         end
       end
     end
+
+    context "when the proposal is rejected" do
+      let!(:rejected_proposal) { create(:proposal, :rejected, feature: feature) }
+
+      before do
+        feature.update_attributes(settings: { proposal_answering_enabled: true })
+      end
+
+      it "it cannot be voted" do
+        visit_feature
+        expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
+
+        click_link rejected_proposal.title
+        expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
+      end
+    end
   end
 end
