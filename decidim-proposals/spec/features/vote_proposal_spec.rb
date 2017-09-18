@@ -10,10 +10,34 @@ describe "Vote Proposal", type: :feature do
   let!(:proposal) { Decidim::Proposals::Proposal.where(feature: feature).first }
   let!(:user) { create :user, :confirmed, organization: organization }
 
+  def expect_page_not_to_include_votes
+    expect(page).to have_no_button("Vote")
+    expect(page).to have_no_css(".card__support__data span", text: "0 VOTES")
+  end
+
   context "when votes are not enabled" do
-    it "doesn't show the vote proposal button and counts" do
-      expect(page).to have_no_button("Vote")
-      expect(page).to have_no_css(".card__support__data span", text: "0 VOTES")
+    context "when the user is not logged in" do
+      it "doesn't show the vote proposal button and counts" do
+        visit_feature
+        expect_page_not_to_include_votes
+
+        click_link proposal.title
+        expect_page_not_to_include_votes
+      end
+    end
+
+    context "when the user is logged in" do
+      before do
+        login_as user, scope: :user
+      end
+
+      it "doesn't show the vote proposal button and counts" do
+        visit_feature
+        expect_page_not_to_include_votes
+
+        click_link proposal.title
+        expect_page_not_to_include_votes
+      end
     end
   end
 
@@ -27,8 +51,7 @@ describe "Vote Proposal", type: :feature do
 
     it "shows the vote count and the vote button is disabled" do
       visit_feature
-      expect(page).to have_css(".card__support__data", text: "0 VOTES")
-      expect(page).to have_content("Voting disabled")
+      expect_page_not_to_include_votes
     end
   end
 
