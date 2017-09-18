@@ -9,7 +9,7 @@ fr:
         description: Description
         developer_group: Groupe d'initiateurs
         domain: Domaine
-        end_date: Heure de fin
+        end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Localisation
@@ -33,7 +33,7 @@ fr:
         participatory_process_ids: Processus participatifs liés
       participatory_process_step:
         description: Description
-        end_date: Heure de fin
+        end_date: Date de fin
         short_description: Résumé
         start_date: Date de début
         title: Titre
@@ -80,7 +80,7 @@ fr:
           name: Groupes de processus participatifs
         participatory_process_step:
           fields:
-            end_date: Heure de fin
+            end_date: Date de fin
             start_date: Date de début
             title: Titre
           name: Etape du processus participatif
@@ -224,7 +224,7 @@ fr:
           loading: Chargement des résultats...
       show:
         developer_group: Groupe d'initiateurs
-        end_date: Heure de fin
+        end_date: Date de fin
         local_area: Localisation
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
