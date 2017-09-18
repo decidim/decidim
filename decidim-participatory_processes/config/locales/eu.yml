@@ -1,4 +1,3 @@
----
 eu:
   activemodel:
     attributes:
@@ -64,7 +63,7 @@ eu:
           categories: Kategoriak
           features: Funtzionalitateak
           info: Informazioa
-          moderations: " Salaketak"
+          moderations: ' Salaketak'
           process_admins: Prozesuko erabiltzaileak
           steps: Prozesuaren faseak
       models:
@@ -90,7 +89,7 @@ eu:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: " Erabiltzailearen prozesu partizipatiboa "
+          name: ' Erabiltzailearen prozesu partizipatiboa '
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
@@ -205,7 +204,7 @@ eu:
       processes: Prozesuak
     participatory_process_groups:
       show:
-        group_participatory_processes: "%{group} talderako prozesuak"
+        group_participatory_processes: '%{group} talderako prozesuak'
         title: Titulua
     participatory_process_steps:
       index:
@@ -277,5 +276,5 @@ eu:
         process_menu_item: Prozesua
         unfold: Zabaldu
       process_header_steps:
-        step: "%{total} fasetatik %{current}.a"
+        step: '%{total} fasetatik %{current}.a'
         view_steps: Ikusi faseak
