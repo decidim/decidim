@@ -44,7 +44,7 @@ module Decidim
           request.env["current_assembly"] ||
             organization_assemblies.where(slug: params[:assembly_slug] || params[:slug]).or(
               organization_assemblies.where(id: params[:assembly_id])
-            ).first
+            ).first!
         end
 
         def organization_assemblies
