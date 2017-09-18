@@ -20,8 +20,8 @@ module Decidim
       end
 
       def proposal_not_rejected
-        return if !proposal
-        errors.add(:proposal, :invalid) if proposal.answered? && proposal.rejected?
+        return unless proposal
+        errors.add(:proposal, :invalid) if proposal.rejected?
       end
     end
   end

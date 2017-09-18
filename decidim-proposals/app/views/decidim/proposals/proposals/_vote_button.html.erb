@@ -1,4 +1,4 @@
-<% unless proposal.answered? && proposal.rejected? %>
+<% unless proposal.rejected? %>
   <div id="proposal-<%= proposal.id %>-vote-button">
     <% if !current_user %>
       <% if current_settings.votes_blocked? %>
