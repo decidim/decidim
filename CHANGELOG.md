@@ -2,6 +2,14 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Added**
+
+- **decidim-proposals**: Hide proposal vote button when proposal is answered and rejected. [\#1861](https://github.com/decidim/decidim/pull/1861)
+
+**Fixed**
+
+- **decidim-proposals**: Fix proposal vote button visibility problem when votes were disabled and the user logged in. [\#1862](https://github.com/decidim/decidim/pull/1862)
+
 ## [v0.6.1](https://github.com/decidim/decidim/tree/v0.6.1) (2017-09-15)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.0...v0.6.1)
 
