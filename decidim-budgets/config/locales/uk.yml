@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -69,9 +68,9 @@ uk:
           title: Ви приймаєте рішення щодо бюджету
         count:
           projects_count:
+            one: 1 проект
             few: "%{count} проекти"
             many: "%{count} проектів"
-            one: 1 проект
             other: "%{count} проектів"
         filters:
           category: Розділ
@@ -89,17 +88,17 @@ uk:
         order_selected_projects:
           remove: Видалити
           selected_projects:
+            one: обраний проект
             few: обрані проекти
             many: обраних проектів
-            one: обраний проект
             other: обраних проектів
           view: Переглянути
         project:
           add: Додати
           count:
+            one: 1 людина підтримує
             few: "%{count} людей підтримує"
             many: "%{count} людей підтримують"
-            one: 1 людина підтримує
             other: "%{count} людей підтримують"
           remove: Вилучити
         project_budget_button:
