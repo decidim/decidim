@@ -149,7 +149,7 @@ fr:
         meeting:
           fields:
             closed: Clos
-            end_time: Échéance
+            end_time: Date et heure de fin
             map: Carte
             start_time: Date de début
             title: Titre
