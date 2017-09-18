@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -69,8 +68,8 @@ pl:
           title: Ty decydujesz budżet
         count:
           projects_count:
-            few: "%{count} projektów"
             one: 1 projekt
+            few: "%{count} projektów"
             other: "%{count} projektów"
         filters:
           category: Kategoria
@@ -88,15 +87,15 @@ pl:
         order_selected_projects:
           remove: Usunąć
           selected_projects:
-            few: Wybranych projektów
             one: Wybrany projekt
+            few: Wybranych projektów
             other: Wybranych projektów
           view: Widok
         project:
           add: Dodaj
           count:
-            few: "%{count} obsługuje"
             one: 1
+            few: "%{count} obsługuje"
             other: "%{count} obsługuje"
           remove: Usunąć
         project_budget_button:
