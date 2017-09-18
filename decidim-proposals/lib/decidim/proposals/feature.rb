@@ -141,8 +141,7 @@ Decidim.register_feature(:proposals) do |feature|
           confirmed_at: Time.current
         )
 
-        Decidim::Proposals::ProposalVote.create!(proposal: proposal,
-                                                 author: author)
+        Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.answered? && proposal.rejected?
       end
 
       Decidim::Comments::Seed.comments_for(proposal)
