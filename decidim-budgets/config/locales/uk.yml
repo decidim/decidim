@@ -76,7 +76,7 @@ uk:
           category: Розділ
           category_prompt: Оберіть розділ
           scope_prompt: Оберіть терен
-          scopes: Обсяги
+          scopes: Терени
           search: Шукати
         filters_small_view:
           close_modal: Закрити віконце
