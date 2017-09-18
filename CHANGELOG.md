@@ -6,6 +6,10 @@
 
 - **decidim-proposals**: Hide proposal vote button when proposal is answered and rejected. [\#1861](https://github.com/decidim/decidim/pull/1861)
 
+**Changed**
+
+- **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
+
 **Fixed**
 
 - **decidim-proposals**: Fix proposal vote button visibility problem when votes were disabled and the user logged in. [\#1862](https://github.com/decidim/decidim/pull/1862)
