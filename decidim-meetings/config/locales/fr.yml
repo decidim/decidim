@@ -12,17 +12,17 @@ fr:
         decidim_category_id: Catégorie
         decidim_scope_id: Zone d'application
         description: Description
-        end_time: Date et heure de fin
+        end_time: Heure de fin
         location: Lieu
         location_hints: Indicateurs d’emplacement
-        start_time: Date et heure de début
+        start_time: Heure de début
         title: Titre
   decidim:
     features:
       meetings:
         actions:
           join: Participer
-        name: Réunions
+        name: Rencontres
         settings:
           global:
             announcement: Annonce
@@ -33,7 +33,7 @@ fr:
     meetings:
       actions:
         attachments: Documents liés
-        close: Fermer
+        close: Clore
         confirm_destroy: Êtes-vous sûr de vouloir supprimer cette rencontre?
         destroy: Supprimer
         edit: Modifier
@@ -60,7 +60,7 @@ fr:
           edit:
             update: Mettre à jour
           index:
-            title: Rencontre
+            title: Rencontres
           new:
             create: Créer
             title: Créer une rencontre
@@ -118,11 +118,11 @@ fr:
           date: Date
           past: Passées
           scope_prompt: Sélectionnez une zone d'application
-          scopes: Zones d'application
+          scopes: Zone d'application
           search: Rechercher
           upcoming: À venir
         filters_small_view:
-          close_modal: Fermer la vue
+          close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Déplier
@@ -149,7 +149,7 @@ fr:
         meeting:
           fields:
             closed: Clos
-            end_time: Date et heure de fin
+            end_time: Heure de fin
             map: Carte
             start_time: Date de début
             title: Titre
@@ -168,7 +168,7 @@ fr:
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Résultats associés :'
-        result_meetings: 'Rencontre connexes :'
+        result_meetings: 'Rencontres connexes :'
       proposals_from_meeting:
         meeting_proposals: 'Propositions créées à cette rencontre :'
         proposal_meetings: 'Rencontre connexes :'
