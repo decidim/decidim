@@ -15,12 +15,14 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 desc "Runs all tests in all Decidim engines"
-task test_all: :spec do
-  DECIDIM_GEMS.each do |gem_name|
-    next if gem_name == "dev"
+task :test_all do
+  tested_gems = DECIDIM_GEMS - ["dev"]
 
-    Dir.chdir("#{__dir__}/decidim-#{gem_name}") do
-      puts "Running #{gem_name}'s tests..."
+  dirs = [__dir__] + tested_gems.map { |name| "#{__dir__}/decidim-#{name}" }
+
+  dirs.each do |dir|
+    Dir.chdir(dir) do
+      puts "Running #{File.basename(dir)}'s tests..."
       status = system "rake"
       exit 1 unless status || ENV["FAIL_FAST"] == "false"
     end
