@@ -42,6 +42,9 @@ module Decidim
       class_option :app_const_base, type: :string,
                                     desc: "The application constant name"
 
+      class_option :skip_bundle, type: :boolean, aliases: "-B", default: true,
+                                 desc: "Don't run bundle install"
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
