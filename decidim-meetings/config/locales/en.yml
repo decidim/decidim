@@ -76,6 +76,7 @@ en:
             save: Save
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
+            invite_user: Invite user
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
