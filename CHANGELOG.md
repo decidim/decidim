@@ -2,16 +2,16 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Changed**
+
+- **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
+
 ## [v0.6.2](https://github.com/decidim/decidim/tree/v0.6.2) (2017-09-19)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.1...v0.6.2)
 
 **Added**
 
 - **decidim-proposals**: Hide proposal vote button when proposal is answered and rejected. [\#1861](https://github.com/decidim/decidim/pull/1861)
-
-**Changed**
-
-- **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
 
 **Fixed**
 
