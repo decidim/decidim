@@ -211,6 +211,13 @@ it:
         process_steps: Fasi del processo
         title: Fasi del processo partecipativo
     participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        participatory_processes:
+          form:
+            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
       index:
         title: Processi partecipativi
       order_by_processes:
