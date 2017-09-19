@@ -70,11 +70,6 @@ module Decidim
         template "Gemfile.erb", "Gemfile", force: true
       end
 
-      def secret_token
-        require "securerandom"
-        SecureRandom.hex(64)
-      end
-
       def install
         Decidim::Generators::InstallGenerator.start [
           "--recreate_db=#{options[:recreate_db]}",
