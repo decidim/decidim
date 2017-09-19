@@ -76,11 +76,6 @@ uk:
         error: При створенні авторизації сталася помилка.
         success: Ви успішно авторизовані.
       current_participatory_processes: поглянути на поточні рухи
-      first_login:
-        actions:
-          decidim/dummy_authorization_handler: Перевірте, порівнявши з прикладом авторизації
-        title: Підтвердьте свою особу
-        verify_with_these_options: 'Наявні такі способи підтвердити вашу особу:'
       new:
         authorize: Надіслати
         authorize_with: Підтвердити за допомогою %{authorizer}

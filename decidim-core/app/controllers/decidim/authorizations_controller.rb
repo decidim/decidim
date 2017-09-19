@@ -19,16 +19,6 @@ module Decidim
       @authorizations = current_user.authorizations
     end
 
-    def first_login
-      if handlers.length == 1
-        redirect_to(
-          action: :new,
-          handler: handlers.first.handler_name,
-          redirect_url: account_path
-        )
-      end
-    end
-
     def create
       AuthorizeUser.call(handler) do
         on(:ok) do

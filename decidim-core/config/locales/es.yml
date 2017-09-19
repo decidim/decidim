@@ -76,11 +76,6 @@ es:
         error: Se ha producido un error al crear la autorización.
         success: Has sido autorizado/a correctamente.
       current_participatory_processes: echar un vistazo a los procesos actuales
-      first_login:
-        actions:
-          decidim/dummy_authorization_handler: Verificar ejemplo autorización en contra de la
-        title: Verifica tu identidad
-        verify_with_these_options: 'Estas son las opciones disponibles para verificar su identidad:'
       new:
         authorize: Enviar
         authorize_with: Verificarme con %{authorizer}

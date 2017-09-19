@@ -76,11 +76,6 @@ nl:
         error: Er is een fout opgetreden bij het verlenen van de machtiging.
         success: U bent geautoriseerd.
       current_participatory_processes: neem een kijkje bij de huidige processen
-      first_login:
-        actions:
-          decidim/dummy_authorization_handler: Gebruik de voorbeeld autorisatie
-        title: Verifieer uw identiteit
-        verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
       new:
         authorize: Verstuur
         authorize_with: Controleer via %{authorizer}
