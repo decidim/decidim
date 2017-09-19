@@ -9,8 +9,6 @@ module Decidim
 
     # rubocop:disable Metrics/BlockLength
     included do
-      SLUG_FORMAT = /\A[a-zA-Z]+[a-zA-Z0-9-]+\z/
-
       def demodulized_name
         self.class.name.demodulize
       end
@@ -77,6 +75,10 @@ module Decidim
     # rubocop:enable Metrics/BlockLength
 
     class_methods do
+      def slug_format
+        /\A[a-zA-Z]+[a-zA-Z0-9-]+\z/
+      end
+
       def participatory_space_manifest
         Decidim.find_participatory_space_manifest(name.demodulize.underscore.pluralize)
       end

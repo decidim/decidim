@@ -17,9 +17,9 @@ module Decidim
         attribute :copy_categories, Boolean
         attribute :copy_features, Boolean
 
-        validates :slug, presence: true
+        validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, translatable_presence: true
-        validate :slug, :slug_uniqueness
+        validate :slug_uniqueness
 
         private
 

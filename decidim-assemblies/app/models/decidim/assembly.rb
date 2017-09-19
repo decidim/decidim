@@ -25,8 +25,8 @@ module Decidim
 
     has_many :features, as: :participatory_space
 
-    validates :slug, presence: true
     validates :slug, uniqueness: { scope: :organization }
+    validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
