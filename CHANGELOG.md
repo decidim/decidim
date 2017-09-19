@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+## [v0.6.2](https://github.com/decidim/decidim/tree/v0.6.2) (2017-09-19)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.1...v0.6.2)
+
 **Added**
 
 - **decidim-proposals**: Hide proposal vote button when proposal is answered and rejected. [\#1861](https://github.com/decidim/decidim/pull/1861)
