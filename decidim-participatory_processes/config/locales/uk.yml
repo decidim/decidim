@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -14,13 +13,13 @@ uk:
         hashtag: Хештег
         hero_image: Зображення головної сторінки
         local_area: Місцевість
-        meta_scope: Метадані обсягу
-        participatory_process_group_id: Група процесів
-        participatory_scope: Обсяг співучасті
+        meta_scope: Метадані терену
+        participatory_process_group_id: Група рухів
+        participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         promoted: Підвищено в статусі
-        scope_id: Обсяг
-        scopes_enabled: Ввімкнені обсяги
+        scope_id: Терен
+        scopes_enabled: Ввімкнені терени
         short_description: Стислий опис
         slug: Скорочена URL-адреса
         start_date: Дата початку
@@ -31,7 +30,7 @@ uk:
         description: Опис
         hero_image: Зображення
         name: Ім'я
-        participatory_process_ids: Супутні процеси
+        participatory_process_ids: Супутні рухи
       participatory_process_step:
         description: Опис
         end_date: Дата закінчення
@@ -57,15 +56,15 @@ uk:
         resend_invitation: Повторно надіслати запрошення
         unpublish: Скасувати публікацію
       menu:
-        participatory_process_groups: Групи процесів
-        participatory_processes: Процеси
+        participatory_process_groups: Групи рухів
+        participatory_processes: Рухи
         participatory_processes_submenu:
           attachments: Вкладені файли
           categories: Розділи
           features: Складова
           info: Інформація
           moderations: Дії з модерації
-          process_admins: Користувачі процесу
+          process_admins: Учасники руху
           steps: Кроки
       models:
         participatory_process:
@@ -74,23 +73,23 @@ uk:
             promoted: Висвітлено
             published: Опубліковано
             title: Назва
-          name: Процес співучасті
+          name: Рух співучасті
         participatory_process_group:
           fields:
             name: Ім'я
-          name: Група процесів
+          name: Група рухів
         participatory_process_step:
           fields:
             end_date: Дата закінчення
             start_date: Дата початку
             title: Назва
-          name: Крок процесу співучасті
+          name: Крок руху співучасті
         participatory_process_user_role:
           fields:
             email: Адреса електронної пошти
             name: Ім'я
             role: Роль
-          name: Користувач процесу співучасті
+          name: Учасник руху співучасті
           roles:
             admin: Адміністратор
             collaborator: Співавтор
@@ -103,76 +102,76 @@ uk:
         new:
           copy: Скопіювати
           select: Оберіть дані, копію яких ви хотіли б створити
-          title: Створити копію процесу співучасті
+          title: Створити копію руху співучасті
       participatory_process_groups:
         destroy:
-          success: Групу процесу співучасті успішно видалено.
+          success: Групу рухів співучасті успішно видалено.
         edit:
-          title: Редагувати групу процесів
+          title: Редагувати групу рухів
           update: Оновити
         new:
           create: Створити
-          title: Нова група процесів
+          title: Нова група рухів
         update:
-          error: При оновленні цієї групи процесів співучасті сталася помилка.
-          success: Групу процесів співучасті успішно оновлено.
+          error: При оновленні цієї групи рухів співучасті сталася помилка.
+          success: Групу рухів співучасті успішно оновлено.
       participatory_process_publications:
         create:
-          error: При публікації цього процесу співучасті сталася помилка.
-          success: Процес співучасті успішно опубліковано.
+          error: При публікації цього руху співучасті сталася помилка.
+          success: Рух співучасті успішно опубліковано.
         destroy:
-          error: При скасуванні публікації цього процесу співучасті сталася помилка.
-          success: Публікацію процесу співучасті успішно скасовано.
+          error: При скасуванні публікації цього руху співучасті сталася помилка.
+          success: Публікацію руху співучасті успішно скасовано.
       participatory_process_step_activations:
         create:
-          error: При започаткуванні цього кроку процесу співучасті сталася помилка.
-          success: Крок процесу співучасті успішно започато.
+          error: При започаткуванні цього кроку руху співучасті сталася помилка.
+          success: Крок руху співучасті успішно започато.
       participatory_process_steps:
         create:
-          error: При створенні нового кроку процесу співучасті сталася помилка.
-          success: Крок процесу співучасті успішно створено.
+          error: При створенні нового кроку руху співучасті сталася помилка.
+          success: Крок руху співучасті успішно створено.
         default_title: Вступ
         destroy:
           error:
             active_step: Немає змоги видалити започатий зараз крок.
-            last_step: Немає змоги видалити останній крок процесу.
-          success: Крок процесу співучасті успішно видалено.
+            last_step: Немає змоги видалити останній крок руху.
+          success: Крок руху співучасті успішно видалено.
         edit:
-          title: Редагувати крок процесу співучасті
+          title: Редагувати крок руху співучасті
           update: Оновити
         index:
           steps_title: Кроки
         new:
           create: Створити
-          title: Новий крок процесу співучасті
+          title: Новий крок руху співучасті
         ordering:
-          error: При зміні порядку кроків цього процесу співучасті сталася помилка.
+          error: При зміні порядку кроків цього руху співучасті сталася помилка.
         update:
-          error: При оновленні цього кроку процесу співучасті сталася помилка.
-          success: Крок процесу співучасті успішно оновлено.
+          error: При оновленні цього кроку руху співучасті сталася помилка.
+          success: Крок руху співучасті успішно оновлено.
       participatory_process_user_roles:
         create:
-          error: При додаванні користувача в цей процес співучасті сталася помилка.
-          success: Успішно створено користувача для цього процесу співучасті.
+          error: При додаванні учасника в цей рух співучасті сталася помилка.
+          success: До цього руху співучасті успішно додано учасника.
         destroy:
-          success: Успішно видалено користувача для цього процесу співучасті.
+          success: З цього руху співучасті успішно видалено учасника.
         edit:
-          title: Оновити користувача процесу співучасті.
+          title: Оновити учасника руху співучасті.
           update: Оновити
         index:
-          process_admins_title: Користувачі процесу співучасті
+          process_admins_title: Учасники руху співучасті
         new:
           create: Створити
-          title: Новий користувач процесу співучасті.
+          title: Новий учасник руху співучасті.
         update:
-          error: При оновленні користувача цього процесу співучасті сталася помилка.
-          success: Успішно оновлено користувача для цього процесу співучасті.
+          error: При оновленні учасника цього руху співучасті сталася помилка.
+          success: Учасника цього руху співучасті успішно оновлено.
       participatory_processes:
         create:
-          error: При створенні нового процесу співучасті сталася помилка.
-          success: Процес співучасті успішно створено. Тепер налаштуйте його кроки.
+          error: При створенні нового руху співучасті сталася помилка.
+          success: Рух співучасті успішно створено. Тепер налаштуйте його кроки.
         destroy:
-          success: Процес співучасті успішно видалено.
+          success: Рух співучасті успішно видалено.
         edit:
           update: Оновити
         form:
@@ -182,38 +181,38 @@ uk:
           published: Опубліковано
         new:
           create: Створити
-          title: Новий процес співучасті
+          title: Новий рух співучасті
         update:
-          error: При оновленні цього процесу співучасті сталася помилка.
-          success: Процес співучасті успішно оновлено.
+          error: При оновленні цього руху співучасті сталася помилка.
+          success: Рух співучасті успішно оновлено.
       participatory_processes_copies:
         create:
-          error: При створенні копії цього процесу співучасті сталася помилка.
-          success: Успішно створено копію процесу співучасті.
+          error: При створенні копії цього руху співучасті сталася помилка.
+          success: Успішно створено копію руху співучасті.
       participatory_processes_group:
         create:
-          error: При створенні нової групи процесів співучасті сталася помилка.
-          success: Групу процесів співучасті успішно створено.
+          error: При створенні нової групи рухів співучасті сталася помилка.
+          success: Групу рухів співучасті успішно створено.
       titles:
-        participatory_process_groups: Групи процесів співучасті
-        participatory_processes: Процеси співучасті
+        participatory_process_groups: Групи рухів співучасті
+        participatory_processes: Рухи співучасті
       users:
         resend_invitation:
           error: При повторному надсиланні запрошення сталася помилка.
           success: Запрошення успішно знову надіслане.
     menu:
-      processes: Процеси
+      processes: Рухи
     participatory_process_groups:
       show:
-        group_participatory_processes: Процеси для %{group}
+        group_participatory_processes: Рухи для %{group}
         title: Назва
     participatory_process_steps:
       index:
-        process_steps: Кроки процесу
-        title: Кроки процесу співучасті
+        process_steps: Кроки руху
+        title: Кроки руху співучасті
     participatory_processes:
       index:
-        title: Процеси співучасті
+        title: Рухи співучасті
       order_by_processes:
         active: Започатковані
         past: Минулі
@@ -227,9 +226,9 @@ uk:
         developer_group: Група розробників
         end_date: Дата закінчення
         local_area: Місцевість
-        participatory_scope: Обсяг співучасті
+        participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
-        scope: Обсяг
+        scope: Терен
         start_date: Дата початку
         target: Мета
       statistics:
@@ -239,7 +238,7 @@ uk:
         meetings_count: Зустрічі
         orders_count: Голоси
         pages_count: Сторінки
-        processes_count: Процеси
+        processes_count: Рухи
         projects_count: Проекти
         proposals_count: Пропозиції
         results_count: Підсумки
@@ -247,7 +246,7 @@ uk:
         users_count: Учасники
         votes_count: Голоси
     scopes:
-      global: Всеохоплюючий обсяг
+      global: Всеохоплюючий терен
   layouts:
     decidim:
       participatory_process_groups:
@@ -259,15 +258,15 @@ uk:
           take_part: Взяти участь
       participatory_processes:
         index:
-          promoted_processes: Висвітлені процеси
+          promoted_processes: Висвітлені рухи
         no_processes_yet:
-          no_processes_yet: Процесів співучасті поки що нема!
+          no_processes_yet: Рухів співучасті поки що нема!
         order_by_processes:
           processes:
-            few: "%{count} процеси"
-            many: "%{count} процесів"
-            one: "%{count} процес"
-            other: "%{count} процесів"
+            one: "%{count} рух"
+            few: "%{count} рухи"
+            many: "%{count} рухів"
+            other: "%{count} рухів"
         participatory_process:
           active_step: 'Поточний крок:'
           take_part: Взяти участь
@@ -276,8 +275,8 @@ uk:
           more_info: Додаткові відомості
           take_part: Взяти участь
       process_header:
-        process_menu_item: Процес
+        process_menu_item: Рух
         unfold: Розгорнути
       process_header_steps:
-        step: "%{current}-й крок з %{total} кроків"
+        step: '%{current}-й крок з %{total} кроків'
         view_steps: Переглянути кроки

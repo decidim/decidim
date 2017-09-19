@@ -1,4 +1,3 @@
----
 eu:
   decidim:
     comments:
@@ -31,7 +30,7 @@ eu:
         opinion:
           neutral: Neutrala
         remaining_characters: "%{count} karaktere geratzen dira"
-        remaining_characters_1: karaktere %{count} geratzen da
+        remaining_characters_1: "karaktere %{count} geratzen da"
         title: Egin hemen zure iruzkina
       comment:
         alignment:

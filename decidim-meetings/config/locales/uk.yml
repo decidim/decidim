@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -11,7 +10,7 @@ uk:
       meeting:
         address: Адреса
         decidim_category_id: Розділ
-        decidim_scope_id: Обсяг
+        decidim_scope_id: Терен
         description: Опис
         end_time: Час завершення
         location: Розташування
@@ -77,9 +76,9 @@ uk:
           form:
             available_slots_help: Залиште це число нульовим, якщо у вас не обмежена кількість місць.
             registrations_count:
+              one: Зареєструвалась 1 людина.
               few: Зареєструвалось %{count} людей.
               many: Зареєструвалось %{count} людей.
-              one: Зареєструвалась 1 людина.
               other: Зареєструвалось %{count} людей.
           update:
             invalid: При збереженні налаштувань реєстрації сталася помилка.
@@ -120,8 +119,8 @@ uk:
           category_prompt: Оберіть розділ
           date: Дата
           past: Минулі
-          scope_prompt: Оберіть обсяг
-          scopes: Обсяги
+          scope_prompt: Оберіть терен
+          scopes: Терени
           search: Шукати
           upcoming: Майбутні
         filters_small_view:
@@ -146,10 +145,10 @@ uk:
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
           remaining_slots:
-            few: Залишилось %{count} місця
-            many: Залишилось %{count} місць
             one: Залишилось 1 місце
-            other: Залишилось %{count} місць
+            few: "Залишилось %{count} місця"
+            many: "Залишилось %{count} місць"
+            other: "Залишилось %{count} місць"
       models:
         meeting:
           fields:

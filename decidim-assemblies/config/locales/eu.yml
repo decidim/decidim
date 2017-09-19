@@ -1,4 +1,3 @@
----
 eu:
   activemodel:
     attributes:
@@ -67,7 +66,7 @@ eu:
           categories: Kategoriak
           features: Funtzionalitateak
           info: Informazioa
-          moderations: " Salaketak"
+          moderations: ' Salaketak'
       models:
         assembly:
           fields:

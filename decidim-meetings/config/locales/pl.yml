@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -77,8 +76,8 @@ pl:
           form:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
             registrations_count:
-              few: Rejestrowano %{count}.
               one: Została 1 rejestracja.
+              few: Rejestrowano %{count}.
               other: Rejestrowano %{count}.
           update:
             invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
@@ -145,9 +144,9 @@ pl:
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
           remaining_slots:
-            few: Pozostało %{count}
             one: Pozostało 1 gniazdo
-            other: Pozostało %{count}
+            few: "Pozostało %{count}"
+            other: "Pozostało %{count}"
       models:
         meeting:
           fields:

@@ -1,37 +1,36 @@
----
 fr:
   decidim:
     comments:
       events:
         comment_created:
           comment:
-            email_intro: Le "%{resource_title}" a été commenté
+            email_intro: '"%{resource_title}" a reçu un commentaire'
             email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
-            email_subject: Il y a un nouveau commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Il y a un nouveau commentaire de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+            email_subject: Nouveau commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Nouveau commentaire de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
           reply:
-            email_intro: Le "%{resource_title}" a été commenté
+            email_intro: '"%{resource_title}" a reçu un commentaire'
             email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
-            email_subject: Il y a une nouvelle réponse de votre commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Il y a une nouvelle réponse de votre commentaire de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+            email_subject: Votre commentaire a reçu une réponse de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Votre commentaire a reçu une réponse de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
-          error: Il y a eu des erreurs lors du vote du commentaire.
+          error: Une erreur s'est produite lors du vote sur le commentaire.
     components:
       add_comment_form:
-        account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> identifiez vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>.
+        account_message: Pour ajouter votre commentaire <a href="%{sign_in_url}"> connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}">inscrivez-vous</a>.
         form:
           body:
             label: Commentaire
             placeholder: Que pensez-vous de cela?
           form_error: Le texte est requis et ne peut pas dépasser %{length} caractères.
-          submit: Envoyer
+          submit: Publier
           user_group_id:
             label: Commenter en tant que
         opinion:
           neutral: Neutre
         remaining_characters: "%{count} caractères restants"
-        remaining_characters_1: "%{count} personnage à gauche"
+        remaining_characters_1: "%{count} caractères restants"
         title: Ajoutez votre commentaire
       comment:
         alignment:
@@ -42,7 +41,7 @@ fr:
         report:
           action: Signaler
           already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
-          close: Clore
+          close: Fermer
           description: Ce contenu est-il inapproprié?
           details: Commentaires additionnels
           reasons:

@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -20,7 +19,7 @@ uk:
       decidim/user:
         current_password: Поточний пароль
         email: Адреса електронної пошти
-        name: Ім'я користувача
+        name: Ім'я учасника
         password: Пароль
         password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
@@ -28,8 +27,8 @@ uk:
         user_group_name: Назва організації
         user_group_phone: Телефон організації
   booleans:
-    'false': Ні
-    'true': Так
+    'false': 'Ні'
+    'true': 'Так'
   carrierwave:
     errors:
       image_too_big: Зображення завелике
@@ -51,7 +50,7 @@ uk:
         update_account: Оновити обліковий запис
       update:
         error: При оновленні вашого облікового запису сталася помилка.
-        success: Ваш обліковий запис успішно оновлено.
+        success: Вашу обліковку успішно оновлено.
         success_with_email_confirmation: Ваш обліковий запис успішно оновлено. Ви отримаєте електронний лист для підтвердження адреси електронної пошти.
     anonymous_user: Анонімний вхід
     application:
@@ -66,7 +65,7 @@ uk:
           postal_code: Поштовий індекс
         name: Приклад авторизації
       errors:
-        duplicate_authorization: Інший користувач вже авторизувався з такими ж даними.
+        duplicate_authorization: Інший учасник вже авторизувався з такими ж даними.
       foo_authorization:
         fields:
           bar: Статусний рядок
@@ -76,7 +75,7 @@ uk:
       create:
         error: При створенні авторизації сталася помилка.
         success: Ви успішно авторизовані.
-      current_participatory_processes: поглянути на поточні процеси
+      current_participatory_processes: поглянути на поточні рухи
       first_login:
         actions:
           decidim/dummy_authorization_handler: Перевірте, порівнявши з прикладом авторизації
@@ -264,7 +263,8 @@ uk:
         accept: Прийняти запрошення
         accept_until: Термін дії цього запрошення закінчується %{due_date}.
         hello: Доброго дня, %{email}%!
-        ignore: Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій пароль.
+        ignore: |-
+          Якщо ви не бажаєте приймати запрошення, проігноруйте цей лист.<br /> Ваш обліковий запис не буде створено, доки ви не перейдете за наведеним вище посиланням та встановите свій пароль.
         invited_you_as_admin: "%{invited_by} запросив вас як адміністратора %{application}, ви можете прийняти це запрошення за посиланням нижче."
         someone_invited_you: Хтось запросив вас до %{application}, ви можете прийняти це запрошення за посиланням нижче.
         you_are_now_admin: Тепер ви адміністратор
@@ -281,10 +281,10 @@ uk:
   errors:
     messages:
       content_type_whitelist_error: Неприпустимий тип файлу
-      cycle_detected: батько обсягу не може бути одним з його нащадків
+      cycle_detected: батько терену не може бути одним з його нащадків
       file_size_is_less_than_or_equal_to: розмір файлу має бути меншим або рівним %{count}
       invalid_manifest: Неприпустимий файл маніфесту
-      invalid_participatory_process: Неприпустимий процес співучасті
+      invalid_participatory_process: Неприпустимий рух співучасті
       long_words: Містить занадто довгі слова
       must_start_with_caps: Має починатися з великих літер
       nesting_too_deep: не може бути всередині підрозділу
@@ -303,7 +303,7 @@ uk:
         link_label: тут
         ok: Я погоджуюся
       footer:
-        made_with_open_source: Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.
+        made_with_open_source: 'Цей веб-сайт створено за допомогою <a target="_blank" href="https://github.com/decidim/decidim">безкоштовного програмного забезпечення</a>.'
       header:
         close_menu: Закрити меню
         navigation: Навігація
@@ -311,7 +311,7 @@ uk:
         sign_up: Зареєструватися
       impersonation_warning:
         close_session: Завершити сеанс
-        description_html: Ви уособлюєте користувача <b>%{user_name}</b>.
+        description_html: Ви уособлюєте учасника <b>%{user_name}</b>.
         expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       notifications_dashboard:
         mark_all_as_read: Позначити все як прочитане
@@ -327,7 +327,7 @@ uk:
         authorizations: Авторизаціі
         delete_my_account: Видалити мій обліковий запис
         notifications_settings: Налаштування сповіщень
-        title: Налаштування користувача
+        title: Налаштування учасника
         user_groups: Організації
       widget:
         see_more: Переглянути інші
@@ -338,7 +338,7 @@ uk:
       extended:
         debates: Дебати
         debates_explanation: Давайте зустрінемось та обговоримо те, що вважаємо важливим для нашого міста.
-        how_to_participate: Як я можу взяти участь в процесі?
+        how_to_participate: Як я можу взяти участь у русі?
         meetings: Зустрічі
         meetings_explanation: Давайте зустрінемось та обговоримо те, що вважаємо важливим для нашого міста.
         more_info: Додаткові відомості
@@ -352,9 +352,9 @@ uk:
         participate: Взяти участь
         welcome: Ласкаво просимо до %{organization}!
       highlighted_processes:
-        active_processes: Започаті процеси
+        active_processes: Започаті рухи
         active_step: Започатий крок
-        see_all_processes: Переглянути всі процеси
+        see_all_processes: Переглянути всі рухи
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
@@ -362,7 +362,7 @@ uk:
         meetings_count: Зустрічі
         orders_count: Голоси
         pages_count: Сторінки
-        processes_count: Процеси
+        processes_count: Рухи
         projects_count: Проекти
         proposals_count: Пропозиції
         results_count: Підсумки
@@ -396,5 +396,5 @@ uk:
       first: "&laquo; Перша"
       last: Остання &raquo;
       next: Наступна &rsaquo;
-      previous: Попередня &lsaquo;
+      previous: "Попередня &lsaquo;"
       truncate: "&hellip;"
