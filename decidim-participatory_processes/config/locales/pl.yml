@@ -211,6 +211,13 @@ pl:
         process_steps: Etapy procesu
         title: Etapy procesu partycypacyjnego
     participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+        participatory_processes:
+          form:
+            slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
       index:
         title: Procesy partycypacyjne
       order_by_processes:
