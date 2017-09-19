@@ -24,7 +24,7 @@ fr:
             geocoding_enabled: Géocodage activé
             new_proposal_help_text: Nouveau texte d'aide à la proposition
             official_proposals_enabled: Propositions officielles activées
-            proposal_answering_enabled: Réponses aux propositions activées
+            proposal_answering_enabled: '"Réponses aux propositions" activé'
             vote_limit: Limite de vote
           step:
             announcement: Annonce
@@ -50,10 +50,10 @@ fr:
             name: Proposition
         proposal_answers:
           edit:
-            accepted: Retenues
+            accepted: Retenue
             answer_proposal: Répondre
             evaluating: En cours d'évaluation
-            rejected: Refusé
+            rejected: Refusée
             title: Réponse à la proposition %{title}
         proposals:
           answer:
@@ -71,10 +71,10 @@ fr:
             create: Créer
             title: Créer une proposition
       answers:
-        accepted: Retenue
+        accepted: Retenues
         evaluating: En cours d'évaluation
         not_answered: Resté sans réponse
-        rejected: Refusé
+        rejected: Refusée
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès.
@@ -85,7 +85,7 @@ fr:
             id: ID
             official_proposal: Proposition officielle
             scope: Zone d'application
-            state: État
+            state: Etat
             title: Titre
       proposal_votes:
         create:
@@ -101,19 +101,19 @@ fr:
         filters:
           accepted: Retenues
           activity: Activité
-          all: Tous
+          all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           citizenship: Citoyens
           evaluating: En cours d'évaluation
           official: Elu-e-s
           origin: Auteurs
-          rejected: Refusé
+          rejected: Refusée
           related_to: Liée à
           scope_prompt: Sélectionnez une portée
-          scopes: Zone d'application
+          scopes: Zones d'application
           search: Rechercher
-          state: Etat
+          state: État
           voted: Votées
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue

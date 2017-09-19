@@ -4,7 +4,7 @@ uk:
       proposal:
         body: Основний текст
         category_id: Розділ
-        scope_id: Обсяг
+        scope_id: Терен
         title: Назва
         user_group_id: Створити пропозицію як
       proposal_answer:
@@ -84,7 +84,7 @@ uk:
             category: Розділ
             id: Ідентифікатор
             official_proposal: Офіційна пропозиція
-            scope: Обсяг
+            scope: Терен
             state: Стан
             title: Назва
       proposal_votes:
@@ -92,7 +92,7 @@ uk:
           error: При голосуванні пропозиції сталися помилки.
       proposals:
         author:
-          deleted: Видалений користувач
+          deleted: Видалений учасник
           verified_user_group: Перевірена організація
         count:
           proposals_count:
@@ -112,8 +112,8 @@ uk:
           origin: Джерело
           rejected: Відхилено
           related_to: Пов'язане з
-          scope_prompt: Оберіть обсяг
-          scopes: Обсяги
+          scope_prompt: Оберіть терен
+          scopes: Терени
           search: Шукати
           state: Стан
           voted: Проголосоване

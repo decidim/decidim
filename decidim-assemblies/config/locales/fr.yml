@@ -16,20 +16,20 @@ fr:
         participatory_structure: Organisations concernées
         promoted: Mis en avant
         scope_id: Zone d'application
-        scopes_enabled: Scopes activés
+        scopes_enabled: Zone d'application activées
         short_description: Résumé
         slug: Identifiant
         subtitle: Sous-titre
-        target: Objectif
+        target: Public visé
         title: Titre
   decidim:
     admin:
       assemblies:
         create:
-          error: Une erreur s'est produite lors de la création d'un nouvel assembly.
+          error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
           success: Assemblée créée avec succès.
         destroy:
-          success: Assemblée détruite avec succès.
+          success: Assemblée supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
@@ -39,26 +39,26 @@ fr:
           published: Publié
         new:
           create: Créer
-          title: Nouvel assemblage
+          title: Nouvelle assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cet assemblage.
+          error: Une erreur s'est produite lors de la mise à jour de cet assemblée.
           success: Assemblée mise à jour avec succès.
       assemblies_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de cet assembly.
-          success: L'assemblage a été copié avec succès.
+          error: Une erreur s'est produite lors de la duplication de cet assemblée.
+          success: L'assemblée a été copiée avec succès.
       assembly_copies:
         new:
-          copy: Copie
-          select: Sélectionnez les données que vous souhaitez reproduire
-          title: Ensemble en double
+          copy: Copier
+          select: Sélectionnez les données que vous souhaitez dupliquer
+          title: Dupliquer l'assemblée
       assembly_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de cet assembly.
+          error: Une erreur s'est produite lors de la publication de cette assemblée.
           success: Assemblée publiée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la publication de cette assemblée.
-          success: Assemblée non publiée avec succès.
+          error: Une erreur s'est produite lors de la dépublication de cette assemblée.
+          success: Assemblée dépubliée avec succès.
       menu:
         assemblies: Assemblées
         assemblies_submenu:
@@ -86,7 +86,7 @@ fr:
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         scope: Zone d'application
-        target: Objectif
+        target: Public visé
       statistics:
         answers_count: Réponses
         assemblies_count: Assemblées
@@ -109,18 +109,18 @@ fr:
         assembly:
           take_part: Participer
         index:
-          promoted_assemblies: Assemblages mis en évidence
+          promoted_assemblies: Assemblées mises en avant
         no_assemblies_yet:
-          no_assemblies_yet: Pas encore d'assemblages!
+          no_assemblies_yet: Aucune assemblée n'a été créée pour le moment !
         order_by_assemblies:
           assemblies:
-            one: "Ensemble %{count}"
-            other: "Ensembles %{count}"
+            one: "%{count} assemblée"
+            other: "%{count} assemblées"
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer
       assembly_header:
-        assembly_menu_item: L'Assemblée
+        assembly_menu_item: L'assemblée
         unfold: Déplier
       assembly_widgets:
         show:

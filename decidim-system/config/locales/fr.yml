@@ -2,11 +2,11 @@ fr:
   decidim:
     system:
       actions:
-        confirm_destroy: Confirmez-vous la suppression ?
-        destroy: Supprimer
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer cela?
+        destroy: Détruire
         edit: Modifier
         new: Nouveau
-        save: sauvegarder
+        save: Sauvegarder
         title: Actions
       admins:
         create:
@@ -37,7 +37,7 @@ fr:
         admin:
           fields:
             created_at: Crée le
-            email: Email
+            email: Courriel
           name: Administrateur
           validations:
             email_uniqueness: un autre administrateur avec la même adresse email existe déjà
@@ -61,7 +61,7 @@ fr:
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
           title: Nouvelle organisation
         update:
-          error: Erreur lors de la mise à jour de cette organisation.
+          error: Une erreur s'est produite lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
       shared:
         notices:
