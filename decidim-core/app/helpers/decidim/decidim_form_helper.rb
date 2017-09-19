@@ -116,5 +116,18 @@ module Decidim
     def name_with_locale(name, locale)
       "#{name}_#{locale.to_s.gsub("-", "__")}"
     end
+
+    def decidim_form_slug_url(space_name, value = "")
+      content_tag(:span, class: "slug-url") do
+        [
+          request.protocol,
+          request.host_with_port,
+          "/",
+          space_name,
+          "/"
+        ].join("").html_safe +
+          content_tag(:span, value, class: "slug-url-value")
+      end
+    end
   end
 end
