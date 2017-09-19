@@ -72,7 +72,7 @@ describe "Proposals", type: :feature do
 
           within ".new_proposal" do
             fill_in :proposal_title, with: "Oriol for president"
-            fill_in :proposal_body, with: "He will solve everything"
+            fill_in_editor :proposal_body, with: "He will solve everything"
             select translated(category.name), from: :proposal_category_id
             select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
 
@@ -102,7 +102,7 @@ describe "Proposals", type: :feature do
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Oriol for president"
-              fill_in :proposal_body, with: "He will solve everything"
+              fill_in_editor :proposal_body, with: "He will solve everything"
 
               check :proposal_has_address
 
@@ -136,7 +136,7 @@ describe "Proposals", type: :feature do
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Oriol for president"
-              fill_in :proposal_body, with: "He will solve everything"
+              fill_in_editor :proposal_body, with: "He will solve everything"
               select translated(category.name), from: :proposal_category_id
               select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
               select user_group.name, from: :proposal_user_group_id
@@ -167,7 +167,7 @@ describe "Proposals", type: :feature do
 
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Oriol for president"
-                fill_in :proposal_body, with: "He will solve everything"
+                fill_in_editor :proposal_body, with: "He will solve everything"
 
                 check :proposal_has_address
 
@@ -218,7 +218,7 @@ describe "Proposals", type: :feature do
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Proposal with attachments"
-              fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
+              fill_in_editor :proposal_body, with: "This is my proposal and I want to upload attachments."
               fill_in :proposal_attachment_title, with: "My attachment"
               attach_file :proposal_attachment_file, Decidim::Dev.asset("city.jpeg")
               find("*[type=submit]").click
