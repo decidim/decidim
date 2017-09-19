@@ -20,7 +20,7 @@ module Decidim
                                  desc: "Recreate db after installing decidim"
 
       def bundle_install
-        run "bundle install"
+        Bundler.with_clean_env { run "bundle install" }
       end
 
       def install
