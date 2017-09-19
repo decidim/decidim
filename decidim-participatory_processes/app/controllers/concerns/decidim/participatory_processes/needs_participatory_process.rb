@@ -42,9 +42,7 @@ module Decidim
 
         def detect_participatory_process
           request.env["current_participatory_process"] ||
-            organization_processes.where(slug: params[:participatory_process_slug] || params[:slug]).or(
-              organization_processes.where(id: params["participatory_process_id"])
-            ).first!
+            organization_processes.where(slug: params[:participatory_process_slug] || params[:slug]).first!
         end
 
         def organization_processes

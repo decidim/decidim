@@ -20,7 +20,7 @@ module Decidim
         {
           proposal_id: proposal.id,
           feature_id: feature.id,
-          participatory_process_id: feature.participatory_space.id
+          participatory_process_slug: feature.participatory_space.slug
         }
       end
 
