@@ -82,10 +82,6 @@ module Decidim
         ]
       end
 
-      def app_const_base
-        options["app_const_base"] || super
-      end
-
       def add_ignore_uploads
         unless options["skip_git"]
           append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads"
@@ -99,6 +95,12 @@ module Decidim
 
       def authorization_handler
         template "authorization_handler.rb", "app/services/example_authorization_handler.rb", force: true
+      end
+
+      private
+
+      def app_const_base
+        options["app_const_base"] || super
       end
     end
   end
