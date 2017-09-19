@@ -1,8 +1,9 @@
+---
 es:
   decidim:
     system:
       actions:
-        confirm_destroy: '¿Seguro que lo quieres eliminar?'
+        confirm_destroy: "¿Seguro que lo quieres eliminar?"
         destroy: Eliminar
         edit: Editar
         new: Nuevo
