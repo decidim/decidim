@@ -38,7 +38,10 @@ module Decidim
       end
 
       def mounted_params
-        { host: organization.host, foreign_key.to_sym => id }
+        {
+          host: organization.host,
+          "#{underscored_name}_slug".to_sym => slug
+        }
       end
 
       def extension_module
@@ -72,6 +75,10 @@ module Decidim
     # rubocop:enable Metrics/BlockLength
 
     class_methods do
+      def slug_format
+        /\A[a-zA-Z]+[a-zA-Z0-9-]+\z/
+      end
+
       def participatory_space_manifest
         Decidim.find_participatory_space_manifest(name.demodulize.underscore.pluralize)
       end

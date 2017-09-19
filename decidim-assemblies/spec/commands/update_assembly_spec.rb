@@ -39,7 +39,10 @@ module Decidim
             }
           end
           let(:context) do
-            { current_organization: my_assembly.organization }
+            {
+              current_organization: my_assembly.organization,
+              assembly_id: my_assembly.id
+            }
           end
           let(:form) do
             AssemblyForm.from_params(params).with_context(context)

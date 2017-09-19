@@ -11,7 +11,7 @@ module Decidim
         include Decidim::Admin::Concerns::HasAttachments
 
         def after_destroy_path
-          assembly_attachments_path(current_assembly.id)
+          assembly_attachments_path(current_assembly)
         end
 
         def attached_to

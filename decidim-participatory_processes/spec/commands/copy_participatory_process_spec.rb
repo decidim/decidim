@@ -14,7 +14,7 @@ describe Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess do
       Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessCopyForm,
       invalid?: invalid,
       title: { en: "title" },
-      slug: "copied_slug",
+      slug: "copied-slug",
       copy_steps?: copy_steps,
       copy_categories?: copy_categories,
       copy_features?: copy_features
@@ -49,7 +49,7 @@ describe Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess do
       old_participatory_process = Decidim::ParticipatoryProcess.first
       new_participatory_process = Decidim::ParticipatoryProcess.last
 
-      expect(new_participatory_process.slug).to eq("copied_slug")
+      expect(new_participatory_process.slug).to eq("copied-slug")
       expect(new_participatory_process.title["en"]).to eq("title")
       expect(new_participatory_process.published?).to be_falsy
       expect(new_participatory_process.organization).to eq(old_participatory_process.organization)

@@ -40,7 +40,10 @@ module Decidim
             }
           end
           let(:context) do
-            { current_organization: my_process.organization }
+            {
+              current_organization: my_process.organization,
+              process_id: my_process.id
+            }
           end
           let(:form) do
             ParticipatoryProcessForm.from_params(params).with_context(context)

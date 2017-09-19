@@ -14,14 +14,14 @@ module Decidim
       paths["db/migrate"] = nil
 
       routes do
-        resources :assemblies do
+        resources :assemblies, param: :slug, except: :show do
           resource :publish, controller: "assembly_publications", only: [:create, :destroy]
           resources :copies, controller: "assembly_copies", only: [:new, :create]
 
           resources :attachments, controller: "assembly_attachments"
         end
 
-        scope "/assemblies/:assembly_id" do
+        scope "/assemblies/:assembly_slug" do
           resources :categories
 
           resources :features do
@@ -41,7 +41,7 @@ module Decidim
           end
         end
 
-        scope "/assemblies/:assembly_id/features/:feature_id/manage" do
+        scope "/assemblies/:assembly_slug/features/:feature_id/manage" do
           Decidim.feature_manifests.each do |manifest|
             next unless manifest.admin_engine
 

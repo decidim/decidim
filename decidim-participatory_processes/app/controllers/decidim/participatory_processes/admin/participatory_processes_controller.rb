@@ -47,7 +47,10 @@ module Decidim
 
         def update
           authorize! :update, current_participatory_process
-          @form = form(ParticipatoryProcessForm).from_params(participatory_process_params)
+          @form = form(ParticipatoryProcessForm).from_params(
+            participatory_process_params,
+            process_id: current_participatory_process.id
+          )
 
           UpdateParticipatoryProcess.call(current_participatory_process, @form) do
             on(:ok) do |participatory_process|
@@ -78,7 +81,9 @@ module Decidim
         private
 
         def current_participatory_process
-          @current_participatory_process ||= collection.find(params[:id]) if params[:id]
+          @current_participatory_process ||= collection.where(slug: params[:slug]).or(
+            collection.where(id: params[:slug])
+          ).first
         end
 
         def collection

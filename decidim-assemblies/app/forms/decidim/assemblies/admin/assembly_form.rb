@@ -33,11 +33,11 @@ module Decidim
         attribute :remove_banner_image
         attribute :show_statistics, Boolean
 
-        validates :slug, presence: true
+        validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
 
-        validate :slug, :slug_uniqueness
+        validate :slug_uniqueness
 
         validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
         validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
@@ -53,7 +53,7 @@ module Decidim
         private
 
         def slug_uniqueness
-          return unless OrganizationAssemblies.new(current_organization).query.where(slug: slug).where.not(id: id).any?
+          return unless OrganizationAssemblies.new(current_organization).query.where(slug: slug).where.not(id: context[:assembly_id]).any?
 
           errors.add(:slug, :taken)
         end
