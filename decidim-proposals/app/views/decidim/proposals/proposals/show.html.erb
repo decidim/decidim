@@ -49,14 +49,14 @@
         <div class="section">
           <div class="callout success">
             <h5><%= t(".proposal_accepted_reason") %></h5>
-            <p><%== translated_attribute @proposal.answer %></p>
+            <p><%= sanitize translated_attribute @proposal.answer %></p>
           </div>
         </div>
       <% else %>
         <div class="section">
           <div class="callout warning">
             <h5><%= t(".proposal_rejected_reason") %></h5>
-            <p><%== translated_attribute @proposal.answer %></p>
+            <p><%= sanitize translated_attribute @proposal.answer %></p>
           </div>
         </div>
       <% end %>

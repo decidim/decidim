@@ -9,7 +9,7 @@
   <h2 class="section-heading"><%= translated_attribute survey.title %></h2>
   <div class="row">
     <div class="columns large-6 medium-centered lead">
-      <%== translated_attribute survey.description %>
+      <%= sanitize translated_attribute survey.description %>
     </div>
   </div>
 </div>
@@ -72,7 +72,7 @@
                     <div class="row column">
                       <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "survey_tos_agreement" %>
                       <div class="tos-agreement-help-text help-text">
-                        <%== translated_attribute survey.tos %>
+                        <%= sanitize translated_attribute survey.tos %>
                       </div>
                     </div>
                   <% end %>
