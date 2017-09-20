@@ -102,7 +102,6 @@ uk:
         new:
           copy: Скопіювати
           select: Оберіть дані, копію яких ви хотіли б створити
-          title: Створити копію руху співучасті
       participatory_process_groups:
         destroy:
           success: Групу рухів співучасті успішно видалено.
