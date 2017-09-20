@@ -81,10 +81,10 @@ ca:
       admin:
         assemblies:
           form:
-            slug_help: 'Les barraques d''URL s''utilitzen per generar els URL que apunten a aquest ensamblat. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_copies:
           form:
-            slug_help: 'Les barraques d''URL s''utilitzen per generar els URL que apunten a aquest ensamblat. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquesa assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
       index:
         title: Assemblees
       show:
