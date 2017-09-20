@@ -11,7 +11,7 @@
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
         <div class="lead">
-          <%= translated_attribute(current_assembly.short_description) %>
+          <%= sanitize translated_attribute(current_assembly.short_description) %>
         </div>
         <%= sanitize translated_attribute(current_assembly.description) %>
       </div>
