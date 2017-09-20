@@ -65,6 +65,11 @@ fr:
         subtitle: Sous-titre
         target: Public visé
         title: Titre
+      decidim/participatory_process_group:
+        description: Description
+        hero_image: Image de la page d'accueil
+        name: Nom
+        participatory_processes: Processus participatifs
       decidim/participatory_process_step:
         end_date: Date de fin
         start_date: Date de début
