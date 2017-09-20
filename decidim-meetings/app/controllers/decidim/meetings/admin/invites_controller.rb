@@ -15,7 +15,7 @@ module Decidim
         def create
           @form = form(MeetingRegistrationInviteForm).from_params(params)
 
-          InviteUserToJoinMeeting.call(@form, current_user) do
+          InviteUserToJoinMeeting.call(@form, meeting, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("invites.create.success", scope: "decidim.meetings.admin")
               redirect_to edit_meeting_registrations_path(meeting)

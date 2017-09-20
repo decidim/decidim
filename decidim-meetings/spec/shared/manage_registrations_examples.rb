@@ -6,11 +6,12 @@ def visit_edit_registrations_page
   end
 end
 
-def fill_in_meeting_registration_invite(with:)
+def fill_in_meeting_registration_invite(name:, email:)
   click_link "Invite user"
 
   within "form.new_meeting_registration_invite" do
-    fill_in :meeting_registration_invite_email, with: with
+    fill_in :meeting_registration_invite_name, with: name
+    fill_in :meeting_registration_invite_email, with: email
   end
 
   click_button "Invite"
@@ -59,10 +60,10 @@ shared_examples "manage registrations" do
     end
 
     context "when inviting a unregistered user" do
-      it "the invited user sign up into the application and join the meeting" do
+      it "the invited user sign up into the application and join the meeting", perform_enqueued: true do
         visit_edit_registrations_page
 
-        fill_in_meeting_registration_invite with: "foo@example.org"
+        fill_in_meeting_registration_invite name: "Foo", email: "foo@example.org"
 
         logout :user
 
@@ -87,10 +88,10 @@ shared_examples "manage registrations" do
     context "when inviting a registered user" do
       let!(:registered_user) { create(:user, :confirmed, organization: organization) }
 
-      it "the invited user sign up into the application and join the meeting" do
+      it "the invited user sign up into the application and join the meeting", perform_enqueued: true do
         visit_edit_registrations_page
 
-        fill_in_meeting_registration_invite with: registered_user.email
+        fill_in_meeting_registration_invite name: registered_user.name, email: registered_user.email
 
         logout :user
 

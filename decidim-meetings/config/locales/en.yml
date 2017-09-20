@@ -51,8 +51,8 @@ en:
           registrations: Registrations
         invites:
           create:
-            error: Error
-            success: Success
+            error: There's been a problem while inviting the user to join the meeting.
+            success: User successfully invited to join the meeting.
           new:
             explanation: Explanation
             invite: Invite
