@@ -39,7 +39,7 @@
         <div class="row column process-nav__content is-active" id="process-nav-content" data-toggler=".is-active">
           <ul>
             <li class="<%= "is-active" if is_active_link?(decidim_assemblies.assembly_path(current_assembly), :exclusive) %>">
-              <%= active_link_to decidim_assemblies.assembly_path(current_assembly), active: :exact, class: "process-nav__link", class_active: "is-active" do %>
+              <%= active_link_to decidim_assemblies.assembly_path(current_assembly), active: :exclusive, class: "process-nav__link", class_active: "is-active" do %>
                 <%= external_icon "decidim/assemblies/assembly.svg" %>
                 <%= t ".assembly_menu_item" %>
               <% end %>
