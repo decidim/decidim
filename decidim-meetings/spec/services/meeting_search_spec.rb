@@ -22,7 +22,7 @@ describe Decidim::Meetings::MeetingSearch do
     create(
       :meeting,
       feature: current_feature,
-      start_time: 2.day.from_now,
+      start_time: 2.days.from_now,
       category: subcategory,
       scope: scope2,
       description: Decidim::Faker::Localized.literal("Curabitur arcu erat, accumsan id imperdiet et.")
