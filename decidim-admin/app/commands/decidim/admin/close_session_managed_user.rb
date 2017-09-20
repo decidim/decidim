@@ -20,7 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless impersonation_log.present?
+        return broadcast(:invalid) if impersonation_log.blank?
 
         close_session
 

@@ -13,7 +13,7 @@ module Decidim
             .to receive(:react_comments_component)
             .with(
               "comments-for-DummyResource-1",
-              commentableType: "Decidim::DummyResource",
+              commentableType: "Decidim::DummyResources::DummyResource",
               commentableId: "1",
               locale: I18n.locale
             ).and_call_original

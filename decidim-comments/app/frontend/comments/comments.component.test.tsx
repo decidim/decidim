@@ -16,7 +16,7 @@ describe("<Comments />", () => {
   let commentable: any = {};
   let session: any = null;
   const commentableId = "1";
-  const commentableType = "Decidim::DummyResource";
+  const commentableType = "Decidim::DummyResources::DummyResource";
   const orderBy = "older";
   const reorderComments = jasmine.createSpy("reorderComments");
 

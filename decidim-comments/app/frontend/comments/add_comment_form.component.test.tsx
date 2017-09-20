@@ -11,7 +11,7 @@ describe("<AddCommentForm />", () => {
   let session: any = null;
   const commentable = {
     id: "1",
-    type: "Decidim::DummyResource",
+    type: "Decidim::DummyResources::DummyResource",
   };
   const orderBy = "older";
   const addCommentStub = (): any => {

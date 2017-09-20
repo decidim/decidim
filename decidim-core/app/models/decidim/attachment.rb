@@ -34,9 +34,7 @@ module Decidim
     # The URL to download the file.
     #
     # Returns String.
-    def url
-      file.url
-    end
+    delegate :url, to: :file
 
     # The URL to download the thumbnail of the file. Only works with images.
     #

@@ -9,8 +9,6 @@ module Decidim
              :current_feature,
              to: :context, prefix: false, allow_nil: true
 
-    def available_locales
-      current_organization&.available_locales
-    end
+    delegate :available_locales, to: :current_organization, allow_nil: true
   end
 end

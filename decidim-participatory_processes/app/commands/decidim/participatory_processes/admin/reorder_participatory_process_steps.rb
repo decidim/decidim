@@ -21,7 +21,7 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) unless order.present?
+          return broadcast(:invalid) if order.blank?
 
           reorder_steps
           broadcast(:ok)
@@ -36,11 +36,14 @@ module Decidim
             hash.update(id => { position: index })
           end
 
+          # rubocop:disable Rails/SkipsModelValidations
           ParticipatoryProcessStep.transaction do
             collection.update_all(position: nil)
             collection.reload
             collection.update(data.keys, data.values)
+            collection.each(&:save!)
           end
+          # rubocop:enable Rails/SkipsModelValidations
         end
 
         def order

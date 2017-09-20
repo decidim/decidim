@@ -7,7 +7,7 @@ module Decidim
 
     def create
       if current_user && params["locale"] && available_locales.include?(params["locale"])
-        current_user.update_attribute(:locale, params["locale"])
+        current_user.update_attributes!(locale: params["locale"])
       end
 
       redirect_to referer_with_new_locale
@@ -16,7 +16,7 @@ module Decidim
     private
 
     def referer_with_new_locale
-      uri = URI(request.referrer || "/")
+      uri = URI(request.referer || "/")
       query = uri.query.to_s.gsub(/locale\=[a-zA-Z\-]{2,5}/, "")
       params = URI.decode_www_form(query) << ["locale", current_locale]
       uri.query = URI.encode_www_form(params)

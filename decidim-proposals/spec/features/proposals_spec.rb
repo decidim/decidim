@@ -37,7 +37,7 @@ describe "Proposals", type: :feature do
 
         context "when process is not related to any scope" do
           before do
-            participatory_process.update_attributes(scope: nil)
+            participatory_process.update_attributes!(scope: nil)
           end
 
           it "can be related to a scope" do
@@ -52,7 +52,7 @@ describe "Proposals", type: :feature do
 
         context "when process is related to any scope" do
           before do
-            participatory_process.update_attributes(scope: scope)
+            participatory_process.update_attributes!(scope: scope)
           end
 
           it "cannot be related to a scope" do
@@ -192,7 +192,13 @@ describe "Proposals", type: :feature do
 
         context "when the user isn't authorized" do
           before do
-            feature.update_attribute(:permissions, create: { authorization_handler_name: "decidim/dummy_authorization_handler" })
+            permissions = {
+              create: {
+                authorization_handler_name: "decidim/dummy_authorization_handler"
+              }
+            }
+
+            feature.update_attributes!(permissions: permissions)
           end
 
           it "should show a modal dialog" do
@@ -268,7 +274,7 @@ describe "Proposals", type: :feature do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
 
       before do
-        participatory_process.update_attributes(scope: nil)
+        participatory_process.update_attributes!(scope: nil)
       end
 
       it "can be filtered by scope" do
@@ -282,7 +288,7 @@ describe "Proposals", type: :feature do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
 
       before do
-        participatory_process.update_attributes(scope: scope)
+        participatory_process.update_attributes!(scope: scope)
       end
 
       it "does not show the scope name" do
@@ -536,7 +542,7 @@ describe "Proposals", type: :feature do
     context "when filtering" do
       context "when official_proposals setting is enabled" do
         before do
-          feature.update_attributes(settings: { official_proposals_enabled: true })
+          feature.update_attributes!(settings: { official_proposals_enabled: true })
         end
 
         it "can be filtered by origin" do
@@ -580,7 +586,7 @@ describe "Proposals", type: :feature do
 
       context "when official_proposals setting is not enabled" do
         before do
-          feature.update_attributes(settings: { official_proposals_enabled: false })
+          feature.update_attributes!(settings: { official_proposals_enabled: false })
         end
 
         it "cannot be filtered by origin" do
@@ -645,7 +651,7 @@ describe "Proposals", type: :feature do
 
       context "when process is related to a scope" do
         before do
-          participatory_process.update_attributes(scope: scope)
+          participatory_process.update_attributes!(scope: scope)
         end
 
         it "cannot be filtered by scope" do
@@ -659,12 +665,12 @@ describe "Proposals", type: :feature do
 
       context "when proposal_answering feature setting is enabled" do
         before do
-          feature.update_attributes(settings: { proposal_answering_enabled: true })
+          feature.update_attributes!(settings: { proposal_answering_enabled: true })
         end
 
         context "when proposal_answering step setting is enabled" do
           before do
-            feature.update_attributes(
+            feature.update_attributes!(
               step_settings: {
                 feature.participatory_space.active_step.id => {
                   proposal_answering_enabled: true
@@ -720,7 +726,7 @@ describe "Proposals", type: :feature do
 
         context "when proposal_answering step setting is disabled" do
           before do
-            feature.update_attributes(
+            feature.update_attributes!(
               step_settings: {
                 feature.participatory_space.active_step.id => {
                   proposal_answering_enabled: false
@@ -741,7 +747,7 @@ describe "Proposals", type: :feature do
 
       context "when proposal_answering feature setting is not enabled" do
         before do
-          feature.update_attributes(settings: { proposal_answering_enabled: false })
+          feature.update_attributes!(settings: { proposal_answering_enabled: false })
         end
 
         it "cannot be filtered by state" do

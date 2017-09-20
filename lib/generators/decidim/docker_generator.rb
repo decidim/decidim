@@ -43,9 +43,9 @@ module Decidim
       end
 
       def after_install
-        puts "Docker development app generated! To start the app just run:"
-        puts "cd docker_development_app && docker-compose up"
-        puts "Open the app at http://localhost:3000"
+        say "Docker development app generated! To start the app just run:"
+        say "cd docker_development_app && docker-compose up"
+        say "Open the app at http://localhost:3000"
       end
 
       private

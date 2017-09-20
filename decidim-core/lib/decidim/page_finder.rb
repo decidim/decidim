@@ -33,7 +33,7 @@ module Decidim
     #
     # Returns a String.
     def clean_path
-      return super unless page.present?
+      return super if page.blank?
 
       DECIDIM_PAGE_TEMPLATE
     end

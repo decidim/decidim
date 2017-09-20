@@ -13,7 +13,7 @@ describe("<UpVoteButton />", () => {
   const orderBy = "older";
   const rootCommentable = {
     id: "1",
-    type: "Decidim::DummyResource",
+    type: "Decidim::DummyResources::DummyResource",
   };
   let comment: UpVoteButtonFragment;
   let session: any = null;

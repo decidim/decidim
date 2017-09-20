@@ -11,7 +11,7 @@ describe Decidim::Budgets::RemoveLineItem do
            settings: { "total_budget" => 100_000, "vote_threshold_percent": 50 })
   end
 
-  let(:project) { create(:project, feature: feature, budget: 100) }
+  let(:project) { create(:project, feature: feature, budget: 50_000) }
 
   let(:order) do
     order = create(:order, user: user, feature: feature)
@@ -36,7 +36,7 @@ describe Decidim::Budgets::RemoveLineItem do
 
   context "when the order is checked out" do
     before do
-      order.update_attribute :checked_out_at, Time.current
+      order.update_attributes!(checked_out_at: Time.current)
     end
 
     it "broadcasts invalid" do

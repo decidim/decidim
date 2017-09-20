@@ -84,7 +84,7 @@ module Decidim
       end
 
       def page
-        @page ||= collection.find_by_slug(params[:id])
+        @page ||= collection.find_by(slug: params[:id])
       end
 
       def collection

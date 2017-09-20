@@ -33,7 +33,7 @@ module Decidim
       private
 
       def update_feature
-        @feature.update_attributes(
+        @feature.update_attributes!(
           name: form.name,
           settings: form.settings,
           default_step_settings: form.default_step_settings,

@@ -1164,6 +1164,9 @@ Performance/RedundantMerge:
 
 ##################### Rails ##################################
 
+Rails:
+  Enabled: true
+
 Rails/ActionFilter:
   EnforcedStyle: action
   SupportedStyles:
@@ -1211,6 +1214,9 @@ Rails/Output:
     - config/**/*.rb
     - db/**/*.rb
     - lib/**/*.rb
+
+Rails/OutputSafety:
+  Enabled: false
 
 Rails/ReadWriteAttribute:
   Include:

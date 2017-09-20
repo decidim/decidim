@@ -13,7 +13,7 @@ describe("<CommentThread />", () => {
   const orderBy = "older";
   const rootCommentable = {
     id: "1",
-    type: "Decidim::DummyResource",
+    type: "Decidim::DummyResources::DummyResource",
   };
   let comment: CommentFragment;
   let session: any = null;

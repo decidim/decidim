@@ -6,7 +6,7 @@
 class FeatureValidator < ActiveModel::EachValidator
   # Validates the arguiments passed to the validator.
   def check_validity!
-    raise ArgumentError, "You must include a `manifest` option with the name of the manifest to validate when validating a feature" unless options[:manifest].present?
+    raise ArgumentError, "You must include a `manifest` option with the name of the manifest to validate when validating a feature" if options[:manifest].blank?
   end
 
   # The actual validator method. It is called when ActiveRecord iterates

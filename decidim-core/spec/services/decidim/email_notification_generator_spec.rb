@@ -32,7 +32,7 @@ describe Decidim::EmailNotificationGenerator do
 
       context "when the user wants emails for notifications" do
         before do
-          recipient.update_attributes(email_on_notification: true)
+          recipient.update_attributes!(email_on_notification: true)
         end
 
         it "schedules a job for each recipient" do

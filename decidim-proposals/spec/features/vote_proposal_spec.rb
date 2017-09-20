@@ -155,7 +155,13 @@ describe "Vote Proposal", type: :feature do
 
         context "when the proposal is not voted yet but the user isn't authorized" do
           before do
-            feature.update_attribute(:permissions, vote: { authorization_handler_name: "decidim/dummy_authorization_handler" })
+            permissions = {
+              vote: {
+                authorization_handler_name: "decidim/dummy_authorization_handler"
+              }
+            }
+
+            feature.update_attributes!(permissions: permissions)
             visit_feature
           end
 
@@ -228,7 +234,7 @@ describe "Vote Proposal", type: :feature do
       let!(:rejected_proposal) { create(:proposal, :rejected, feature: feature) }
 
       before do
-        feature.update_attributes(settings: { proposal_answering_enabled: true })
+        feature.update_attributes!(settings: { proposal_answering_enabled: true })
       end
 
       it "it cannot be voted" do
