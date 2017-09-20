@@ -3,7 +3,7 @@
 # This holds Decidim's version and the Rails version on which it depends.
 module Decidim
   def self.version
-    "0.6.2"
+    "0.6.3"
   end
 
   def self.rails_version
