@@ -53,7 +53,7 @@ module Decidim
     def stored_location
       location = stored_location_for(current_user)
       store_location_for(current_user, location)
-      location || participatory_processes_path
+      location || decidim_participatory_processes.participatory_processes_path
     end
 
     def handler_params
