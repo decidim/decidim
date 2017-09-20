@@ -1212,6 +1212,9 @@ Rails/Output:
     - db/**/*.rb
     - lib/**/*.rb
 
+Rails/OutputSafety:
+  Enabled: false
+
 Rails/ReadWriteAttribute:
   Include:
     - app/models/**/*.rb
