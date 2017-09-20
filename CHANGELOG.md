@@ -6,6 +6,13 @@
 
 - **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
 
+## [v0.6.3](https://github.com/decidim/decidim/tree/v0.6.3) (2017-09-20)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.2...v0.6.3)
+
+**Fixed**
+
+- **decidim-core**: On certain cases, authorizations controller was trying to redirect to an unexisting path. Fixed now. [\#1882](https://github.com/decidim/decidim/pull/1882)
+
 ## [v0.6.2](https://github.com/decidim/decidim/tree/v0.6.2) (2017-09-19)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.1...v0.6.2)
 
