@@ -26,7 +26,7 @@ module Decidim
     private
 
     def password_present
-      !password.blank?
+      password.present?
     end
 
     def unique_email
