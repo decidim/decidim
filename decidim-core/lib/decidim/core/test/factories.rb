@@ -256,7 +256,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :dummy_resource, class: Decidim::DummyResource do
+  factory :dummy_resource, class: Decidim::DummyResources::DummyResource do
     title { generate(:name) }
     feature { create(:feature, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: feature.organization) }

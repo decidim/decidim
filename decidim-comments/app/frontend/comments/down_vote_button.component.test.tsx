@@ -13,7 +13,7 @@ describe("<DownVoteButton />", () => {
   const orderBy = "older";
   const rootCommentable = {
     id: "1",
-    type: "Decidim::DummyResource",
+    type: "Decidim::DummyResources::DummyResource",
   };
   let comment: DownVoteButtonFragment;
   let session: any = null;
