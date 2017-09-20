@@ -28,7 +28,7 @@ module Decidim
 
     def forbid_deep_nesting
       return unless parent
-      return unless parent.parent.present?
+      return if parent.parent.blank?
 
       errors.add(:parent_id, :nesting_too_deep)
     end

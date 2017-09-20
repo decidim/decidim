@@ -21,7 +21,7 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) unless order.present?
+          return broadcast(:invalid) if order.blank?
 
           reorder_steps
           broadcast(:ok)
