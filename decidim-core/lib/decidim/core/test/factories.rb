@@ -224,7 +224,7 @@ FactoryGirl.define do
     name { Decidim::Faker::Localized.sentence(3) }
     participatory_space { create(:participatory_process, organization: organization) }
     manifest_name "dummy"
-    published_at { Time.now }
+    published_at { Time.current }
 
     trait :unpublished do
       published_at { nil }

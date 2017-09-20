@@ -57,7 +57,7 @@ module Decidim
 
       describe "comments" do
         let!(:random_comment) { FactoryGirl.create(:comment) }
-        let!(:replies) { Array.new(3) { |n| FactoryGirl.create(:comment, commentable: model, created_at: Time.now - n.days) } }
+        let!(:replies) { Array.new(3) { |n| FactoryGirl.create(:comment, commentable: model, created_at: Time.current - n.days) } }
 
         let(:query) { "{ comments { id } }" }
 
