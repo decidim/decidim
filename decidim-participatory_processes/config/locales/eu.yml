@@ -102,6 +102,7 @@ eu:
         new:
           copy: Copy
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
+          title: Partehartze prozesua bikoiztu
       participatory_process_groups:
         destroy:
           success: Multzoa zuzen deuseztatu da.
