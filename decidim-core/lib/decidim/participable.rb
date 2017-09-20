@@ -13,9 +13,7 @@ module Decidim
         self.class.name.demodulize
       end
 
-      def foreign_key
-        demodulized_name.foreign_key
-      end
+      delegate :foreign_key, to: :demodulized_name
 
       def module_name
         "Decidim::#{demodulized_name.pluralize}"

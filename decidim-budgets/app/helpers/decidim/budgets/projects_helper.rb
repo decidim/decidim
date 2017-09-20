@@ -17,9 +17,7 @@ module Decidim
       end
 
       # Return true if the current order is checked out
-      def current_order_checked_out?
-        current_order&.checked_out?
-      end
+      delegate :checked_out?, to: :current_order, prefix: true, allow_nil: true
 
       # Return true if the user can continue to the checkout process
       def current_order_can_be_checked_out?
