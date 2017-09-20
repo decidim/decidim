@@ -6,9 +6,10 @@ module Decidim
       # A form object used to invite users to join a meeting.
       #
       class MeetingRegistrationInviteForm < Form
+        attribute :name, String
         attribute :email, String
 
-        validates :email, presence: true
+        validates :name, :email, presence: true
       end
     end
   end

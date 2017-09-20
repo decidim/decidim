@@ -9,7 +9,7 @@ module Decidim
       #
       class InvitesController < Admin::ApplicationController
         def new
-          @form = form(MeetingRegistrationInviteForm).from_model(meeting)
+          @form = form(MeetingRegistrationInviteForm).instance
         end
 
         def create

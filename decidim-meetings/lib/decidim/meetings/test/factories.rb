@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 FactoryGirl.define do
+  factory :meeting_feature, parent: :feature do
+    name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name }
+    manifest_name :meetings
+    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+  end
+
   factory :meeting, class: Decidim::Meetings::Meeting do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }

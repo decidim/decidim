@@ -1,5 +1,9 @@
 ---
 en:
+  devise:
+    mailer:
+      join_meeting:
+        subject: Subject
   activemodel:
     attributes:
       close_meeting:
@@ -119,6 +123,9 @@ en:
           email_subject: The "%{resource_title}" meeting was updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Subject
         registration_mailer:
           confirmation:
             subject: Your meeting's registration has been confirmed

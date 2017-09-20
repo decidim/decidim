@@ -6,9 +6,11 @@ module Decidim
   module Meetings
     module Admin
       describe MeetingRegistrationInviteForm do
+        let(:name) { "Foo" }
         let(:email) { "foo@example.org" }
         let(:attributes) do
           {
+            name: name,
             email: email
           }
         end
@@ -17,6 +19,12 @@ module Decidim
 
         context "when everything is OK" do
           it { is_expected.to be_valid }
+        end
+
+        context "when name is missing" do
+          let(:name) {}
+
+          it { is_expected.to be_invalid }
         end
 
         context "when email is missing" do
