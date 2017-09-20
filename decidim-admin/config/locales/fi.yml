@@ -65,6 +65,11 @@ fi:
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
+      decidim/participatory_process_group:
+        description: Kuvaus
+        hero_image: Etusivun kuva
+        name: Nimi
+        participatory_processes: Osallistumisprosessit
       decidim/participatory_process_step:
         end_date: Päättymisaika
         start_date: Aloitusaika
