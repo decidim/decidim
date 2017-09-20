@@ -20,7 +20,7 @@ describe "Participatory Process Steps", type: :feature do
   context "when there are some processes with steps" do
     before do
       @steps = create_list(:participatory_process_step, 3, participatory_process: participatory_process)
-      participatory_process.steps.first.update_attribute(:active, true)
+      participatory_process.steps.first.update_attributes!(active: true)
       visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
     end
 

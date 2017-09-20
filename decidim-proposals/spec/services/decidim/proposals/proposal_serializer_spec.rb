@@ -15,8 +15,8 @@ module Decidim
       let(:meetings) { create_list(:meeting, 2, feature: meetings_feature) }
 
       before do
-        proposal.update_attribute(:category, category)
-        proposal.update_attribute(:scope, scope)
+        proposal.update_attributes!(category: category)
+        proposal.update_attributes!(scope: scope)
         proposal.link_resources(meetings, "proposals_from_meeting")
       end
 

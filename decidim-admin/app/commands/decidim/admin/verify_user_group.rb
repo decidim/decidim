@@ -25,7 +25,7 @@ module Decidim
       private
 
       def verify_user_group
-        @user_group.update_attributes(verified_at: Time.current, rejected_at: nil)
+        @user_group.update_attributes!(verified_at: Time.current, rejected_at: nil)
       end
     end
   end

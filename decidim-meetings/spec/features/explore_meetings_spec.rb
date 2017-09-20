@@ -118,7 +118,7 @@ describe "Explore meetings", type: :feature do
     let(:date) { 10.days.from_now }
 
     before do
-      meeting.update_attributes(
+      meeting.update_attributes!(
         start_time: date.beginning_of_day,
         end_time: date.end_of_day
       )

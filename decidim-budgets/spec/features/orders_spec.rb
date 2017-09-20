@@ -60,9 +60,13 @@ describe "Orders", type: :feature do
 
     context "and isn't authorized" do
       before do
-        feature.update_attribute(:permissions, vote: {
-                                   authorization_handler_name: "decidim/dummy_authorization_handler"
-                                 })
+        permissions = {
+          vote: {
+            authorization_handler_name: "decidim/dummy_authorization_handler"
+          }
+        }
+
+        feature.update_attributes!(permissions: permissions)
       end
 
       it "shows a modal dialog" do

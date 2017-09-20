@@ -35,7 +35,7 @@ module Decidim
     #
     # Returns true if the record was properly saved, false otherwise.
     def publish!
-      update_attribute(:published_at, Time.current)
+      update_attributes!(published_at: Time.current)
     end
 
     #
@@ -43,7 +43,7 @@ module Decidim
     #
     # Returns true if the record was properly saved, false otherwise.
     def unpublish!
-      update_attribute(:published_at, nil)
+      update_attributes!(published_at: nil)
     end
   end
 end

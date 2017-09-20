@@ -23,7 +23,7 @@ describe Decidim::Admin::CloseSessionManagedUser do
 
   context "when there is no active session for this admin and user" do
     before do
-      impersonation_log.update_attributes(ended_at: Time.current)
+      impersonation_log.update_attributes!(ended_at: Time.current)
     end
 
     it "broadcasts invalid" do
