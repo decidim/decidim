@@ -102,7 +102,7 @@ it:
         new:
           copy: Copia
           select: Scegli quale quale dato vuoi duplicare
-          title: Duplicazione di un processo partecipativo.
+          title: Duplicare il processo partecipativo
       participatory_process_groups:
         destroy:
           success: Il gruppo di processi partecipativi è stato distrutto con successo.
