@@ -102,6 +102,7 @@ ca:
         new:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
+          title: Duplicar procés participatiu
       participatory_process_groups:
         destroy:
           success: Grup eliminat correctament.
