@@ -69,7 +69,7 @@ module Decidim
               command.call
             end.to change { User.count }.by(1)
 
-            user = User.find_by_email(form.email)
+            user = User.find_by(email: form.email)
             expect(user.encrypted_password).not_to be_nil
             expect(user.email).to eq(form.email)
             expect(user.organization).to eq(organization)
