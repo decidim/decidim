@@ -102,7 +102,7 @@ pl:
         new:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
-          title: Zduplikowane procesy uczestnictwa
+          title: Duplikat procesu partycypacyjnego
       participatory_process_groups:
         destroy:
           success: Uczestnicząca grupa procesowa została zniszczona.
