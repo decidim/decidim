@@ -102,7 +102,7 @@ nl:
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
-          title: Dubbele participatieve processen
+          title: Duplicaat deelnemend proces
       participatory_process_groups:
         destroy:
           success: Deelnemende procesgroep is succesvol vernietigd.
