@@ -81,10 +81,10 @@ es:
       admin:
         assemblies:
           form:
-            slug_help: 'Los URL slugs se utilizan para generar las URL que apuntan a este ensamblado. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_copies:
           form:
-            slug_help: 'Los URL slugs se utilizan para generar las URL que apuntan a este ensamblado. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
       index:
         title: Asambleas
       show:
