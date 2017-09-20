@@ -65,6 +65,11 @@ uk:
         subtitle: Підзаголовок
         target: Мета
         title: Назва
+      decidim/participatory_process_group:
+        description: Опис
+        hero_image: Зображення головної сторінки
+        name: Назва
+        participatory_processes: Рухи співучасті
       decidim/participatory_process_step:
         end_date: Дата закінчення
         start_date: Дата початку
