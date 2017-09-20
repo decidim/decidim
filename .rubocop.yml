@@ -1164,6 +1164,9 @@ Performance/RedundantMerge:
 
 ##################### Rails ##################################
 
+Rails:
+  Enabled: true
+
 Rails/ActionFilter:
   EnforcedStyle: action
   SupportedStyles:
