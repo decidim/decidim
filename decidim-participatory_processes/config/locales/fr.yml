@@ -102,7 +102,7 @@ fr:
         new:
           copy: Copie
           select: Sélectionnez les données que vous souhaitez reproduire
-          title: Processus participatifs en double
+          title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
           success: Le groupe de processus participatif a été détruit avec succès.
