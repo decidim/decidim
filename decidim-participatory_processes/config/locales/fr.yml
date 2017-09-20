@@ -102,7 +102,7 @@ fr:
         new:
           copy: Copie
           select: Sélectionnez les données que vous souhaitez reproduire
-          title: Processus participatifs en double
+          title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
           success: Le groupe de processus participatif a été détruit avec succès.
@@ -211,6 +211,13 @@ fr:
         process_steps: Etapes du processus
         title: Etapes du processus participatif
     participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+        participatory_processes:
+          form:
+            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
       index:
         title: Processus participatifs
       order_by_processes:

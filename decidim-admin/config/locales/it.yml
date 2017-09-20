@@ -65,6 +65,11 @@ it:
         subtitle: Sottotitolo
         target: Bersaglio
         title: Titolo
+      decidim/participatory_process_group:
+        description: Descrizione
+        hero_image: Immagine sulla Home Page
+        name: Nome
+        participatory_processes: Processi partecipativi
       decidim/participatory_process_step:
         end_date: Data di fine
         start_date: Date di inizio

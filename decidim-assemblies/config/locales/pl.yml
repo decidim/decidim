@@ -78,6 +78,13 @@ pl:
       titles:
         assemblies: Zespoły
     assemblies:
+      admin:
+        assemblies:
+          form:
+            slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
       index:
         title: Zespoły
       show:

@@ -65,6 +65,11 @@ eu:
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
         title: Titulua
+      decidim/participatory_process_group:
+        description: Descripción
+        hero_image: Orri nagusiko irudia
+        name: Izena
+        participatory_processes: Prozesu partizipatiboak
       decidim/participatory_process_step:
         end_date: Bukaera-data
         start_date: Hasiera-data

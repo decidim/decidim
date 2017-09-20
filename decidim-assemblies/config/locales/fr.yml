@@ -78,6 +78,13 @@ fr:
       titles:
         assemblies: Assemblées
     assemblies:
+      admin:
+        assemblies:
+          form:
+            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent cet assemblage. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent cet assemblage. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
       index:
         title: Assemblées
       show:

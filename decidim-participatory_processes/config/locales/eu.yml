@@ -102,7 +102,7 @@ eu:
         new:
           copy: Copy
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
-          title: Egin prozesu partizipatiboaren kopia
+          title: Partehartze prozesua bikoiztu
       participatory_process_groups:
         destroy:
           success: Multzoa zuzen deuseztatu da.
@@ -211,6 +211,13 @@ eu:
         process_steps: Prozesuaren faseak
         title: Prozesu partizipatiboaren faseak
     participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+        participatory_processes:
+          form:
+            slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
       index:
         title: Prozesu partizipatiboak
       order_by_processes:

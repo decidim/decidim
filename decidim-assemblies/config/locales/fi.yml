@@ -78,6 +78,13 @@ fi:
       titles:
         assemblies: osat
     assemblies:
+      admin:
+        assemblies:
+          form:
+            slug_help: 'URL-osoittimia käytetään tuottamaan tämän kokoonpanon osoittavat URL-osoitteet. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'URL-osoittimia käytetään tuottamaan tämän kokoonpanon osoittavat URL-osoitteet. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
       index:
         title: osat
       show:
