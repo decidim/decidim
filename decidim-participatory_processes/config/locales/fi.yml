@@ -102,7 +102,7 @@ fi:
         new:
           copy: Kopio
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi osallistuvat prosessit
+          title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
           success: Osallistumisprosessien ryhmä poistettu onnistuneesti.
