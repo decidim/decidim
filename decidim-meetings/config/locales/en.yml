@@ -45,6 +45,14 @@ en:
       admin:
         exports:
           registrations: Registrations
+        invites:
+          create:
+            error: Error
+            success: Success
+          new:
+            explanation: Explanation
+            invite: Invite
+            new_invite: New invite
         meeting_closes:
           edit:
             close: Close
