@@ -47,7 +47,7 @@ shared_examples "manage projects" do
       orders = create_list(:order, 10, feature: current_feature)
       orders.each do |order|
         order.update_attribute(:line_items, [create(:line_item, project: project, order: order)])
-        order.update_attribute(:checked_out_at, Date.today)
+        order.update_attribute(:checked_out_at, Time.zone.today)
       end
     end
 
