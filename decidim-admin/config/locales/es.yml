@@ -65,6 +65,11 @@ es:
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
         title: Título
+      decidim/participatory_process_group:
+        description: Descripción
+        hero_image: Imagen de portada
+        name: Nombre
+        participatory_processes: Procesos participativos
       decidim/participatory_process_step:
         end_date: Fecha de finalización
         start_date: Fecha de inicio
