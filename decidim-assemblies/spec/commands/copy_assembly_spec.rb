@@ -72,7 +72,7 @@ describe Decidim::Assemblies::Admin::CopyAssembly do
 
     it "duplicates a assembly and the categories" do
       expect { subject.call }.to change { Decidim::Category.count }.by(1)
-      expect(Decidim::Category.pluck(:decidim_participatory_space_id).uniq.count).to eq 2
+      expect(Decidim::Category.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
 
       old_assembly_category = Decidim::Category.first
       new_assembly_category = Decidim::Category.last
