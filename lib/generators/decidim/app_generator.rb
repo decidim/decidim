@@ -70,20 +70,11 @@ module Decidim
         template "Gemfile.erb", "Gemfile", force: true
       end
 
-      def secret_token
-        require "securerandom"
-        SecureRandom.hex(64)
-      end
-
       def install
         Decidim::Generators::InstallGenerator.start [
           "--recreate_db=#{options[:recreate_db]}",
           "--app_name=#{app_name}"
         ]
-      end
-
-      def app_const_base
-        options["app_const_base"] || super
       end
 
       def add_ignore_uploads
@@ -99,6 +90,12 @@ module Decidim
 
       def authorization_handler
         template "authorization_handler.rb", "app/services/example_authorization_handler.rb", force: true
+      end
+
+      private
+
+      def app_const_base
+        options["app_const_base"] || super
       end
     end
   end

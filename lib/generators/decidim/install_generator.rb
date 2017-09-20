@@ -33,10 +33,10 @@ module Decidim
       end
 
       def add_seeds
-        append_file("db/seeds.rb", <<~SEEDS_CONTENT)
+        append_file "db/seeds.rb", <<~RUBY
           # You can remove the 'faker' gem if you don't want Decidim seeds.
           Decidim.seed!
-        SEEDS_CONTENT
+        RUBY
       end
 
       def copy_initializer
