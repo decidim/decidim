@@ -44,11 +44,11 @@ module Decidim
       end
     end
 
+    protected
+
     def handler
       @handler ||= AuthorizationHandler.handler_for(handler_name, handler_params)
     end
-
-    protected
 
     def stored_location
       location = stored_location_for(current_user)
@@ -71,10 +71,6 @@ module Decidim
         "exist or you haven't added it to `Decidim.authorization_handlers`"
 
       redirect_to(authorizations_path) && (return false)
-    end
-
-    def only_one_handler?
-      redirect_to(action: :new, handler: available_handlers.first.handler_name) && return if available_handlers.length == 1
     end
 
     def handlers

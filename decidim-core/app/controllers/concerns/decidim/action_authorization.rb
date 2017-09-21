@@ -17,8 +17,7 @@ module Decidim
     # redirect_url - Url to be redirected to when the authorization is finished.
     def authorize_action!(action_name, redirect_url: nil)
       @action_authorizations ||= {}
-      @action_authorizations[action_name] = _action_authorizer(action_name).authorize
-      status = @action_authorizations[action_name]
+      status = @action_authorizations[action_name] = action_authorization(action_name)
 
       return if status.ok?
       raise Unauthorized if status.code == :invalid

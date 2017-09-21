@@ -37,7 +37,7 @@ class ExampleAuthorizationHandler < Decidim::AuthorizationHandler
   # be created or not, you should return a Boolean value.
   #
   # Note that if you set some validations and overwrite this method, then the
-  # validations will not run, so it's easier to just remove this method and reite
+  # validations will not run, so it's easier to remove this method and rewrite
   # your logic using ActiveModel validations.
   def valid?
     raise NotImplementedError
