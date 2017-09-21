@@ -1,5 +1,5 @@
-<% if current_user %>
-  <div id="follow-resource">
+<div id="follow-resource">
+  <% if current_user %>
     <% if current_user.follows?(followable) %>
       <%= button_to decidim.follow_path, class: "button secondary hollow expanded small button--icon follow-button", params: { follow: { followable_gid: followable.to_sgid.to_s }}, data: { disable: true }, method: :delete, remote: true do %>
         <%= icon "bell" %>
@@ -15,5 +15,20 @@
         </span>
       <% end %>
     <% end %>
-  </div>
-<% end %>
+  <% else %>
+    <%= button_to(
+      decidim.follow_path,
+      class: "button secondary hollow expanded small button--icon follow-button",
+      params: { follow: { followable_gid: followable.to_sgid.to_s }},
+      data: { tooltip: true, disable_hover: false },
+      :'aria-haspopup' => true,
+      title: t(".sign_in_before_follow"),
+      disabled: true,
+      remote: true) do %>
+      <%= icon "bell" %>
+      <span>
+        <%= t("follows.create.button", scope: "decidim") %>
+      </span>
+    <% end %>
+  <% end %>
+</div>
