@@ -18,6 +18,7 @@
 - **decidim-assemblies**: When visiting the assembly page on a multiple language organization and the URL had the deafult locale as a param, link to the resource itself was not being properly highlighted [\#1892](https://github.com/decidim/decidim/pull/1892)
 - **decidim-core**: On certain cases, authorizations controller was trying to redirect to an unexisting path. Fixed now. [\#1882](https://github.com/decidim/decidim/pull/1882)
 - **decidim-participatory-processes**: When visiting the process page on a multiple language organization and the URL had the deafult locale as a param, link to the resource itself was not being properly highlighted [\#1892](https://github.com/decidim/decidim/pull/1892)
+- **decidim-proposals**: Fixes proposals filter when filtering by scopes [\#1907](https://github.com/decidim/decidim/pull/1907)
 
 ## [v0.6.2](https://github.com/decidim/decidim/tree/v0.6.2) (2017-09-19)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.1...v0.6.2)
