@@ -14,6 +14,11 @@ module Decidim
 
         helper_method :routes
 
+        # Send an email to an user to invite them to join a meeting.
+        #
+        # user - The user being invited
+        # meeting - The meeting being joined.
+        # invited_by - The user performing the invitation.
         def invite(user, meeting, invited_by)
           with_user(user) do
             @user = user
