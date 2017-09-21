@@ -13,7 +13,7 @@ describe Decidim::Assemblies::Admin::CopyAssembly do
       Decidim::Assemblies::Admin::AssemblyCopyForm,
       invalid?: invalid,
       title: { en: "title" },
-      slug: "copied_slug",
+      slug: "copied-slug",
       copy_categories?: copy_categories,
       copy_features?: copy_features
     )
@@ -46,7 +46,7 @@ describe Decidim::Assemblies::Admin::CopyAssembly do
       old_assembly = Decidim::Assembly.first
       new_assembly = Decidim::Assembly.last
 
-      expect(new_assembly.slug).to eq("copied_slug")
+      expect(new_assembly.slug).to eq("copied-slug")
       expect(new_assembly.title["en"]).to eq("title")
       expect(new_assembly.published?).to be_falsy
       expect(new_assembly.organization).to eq(old_assembly.organization)
@@ -72,7 +72,7 @@ describe Decidim::Assemblies::Admin::CopyAssembly do
 
     it "duplicates a assembly and the categories" do
       expect { subject.call }.to change { Decidim::Category.count }.by(1)
-      expect(Decidim::Category.pluck(:decidim_participatory_space_id).uniq.count).to eq 2
+      expect(Decidim::Category.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
 
       old_assembly_category = Decidim::Category.first
       new_assembly_category = Decidim::Category.last

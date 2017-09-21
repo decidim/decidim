@@ -116,5 +116,27 @@ module Decidim
     def name_with_locale(name, locale)
       "#{name}_#{locale.to_s.gsub("-", "__")}"
     end
+
+    # Helper method that generates the URL of a participatory space with a
+    # span surrounding the space slug. This is only intended to be used in
+    # help text for the slug input, so that we can update the span contents
+    # via JS with the input value.
+    #
+    # space_name - the name, in plural, of the space (eg. "processes" or "assemblies")
+    # value - the initial value of the slug field, so  that edit forms have a value
+    #
+    # Returns an HTML-safe String.
+    def decidim_form_slug_url(space_name, value = "")
+      content_tag(:span, class: "slug-url") do
+        [
+          request.protocol,
+          request.host_with_port,
+          "/",
+          space_name,
+          "/"
+        ].join("").html_safe +
+          content_tag(:span, value, class: "slug-url-value")
+      end
+    end
   end
 end

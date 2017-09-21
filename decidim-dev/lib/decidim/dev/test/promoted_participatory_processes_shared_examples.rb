@@ -29,7 +29,7 @@ shared_examples "with promoted participatory processes" do
         :promoted,
         organization: organization
       )
-      last.active_step.update_attribute(:end_date, nil)
+      last.active_step.update_attributes!(end_date: nil)
 
       first = create(
         :participatory_process,
@@ -39,7 +39,7 @@ shared_examples "with promoted participatory processes" do
         organization: organization,
         end_date: Time.current.advance(days: 10)
       )
-      first.active_step.update_attribute(:end_date, Time.current.advance(days: 2))
+      first.active_step.update_attributes!(end_date: Time.current.advance(days: 2))
 
       second = create(
         :participatory_process,
@@ -49,7 +49,7 @@ shared_examples "with promoted participatory processes" do
         organization: organization,
         end_date: Time.current.advance(days: 8)
       )
-      second.active_step.update_attribute(:end_date, Time.current.advance(days: 4))
+      second.active_step.update_attributes!(end_date: Time.current.advance(days: 4))
 
       expect(controller.helpers.promoted_participatory_processes)
         .to match_array([first, second, last])

@@ -8,7 +8,7 @@
           <%= link_to result, class: "card__link" do %>
             <h5 class="card__title"><%= translated_attribute result.title %></h5>
           <% end %>
-          <%== translated_attribute result.description %>
+          <%= sanitize translated_attribute result.description %>
           <%= render partial: "decidim/shared/tags", locals: { resource: result, tags_class_extra: "tags--result" } %>
         </div>
       </article>

@@ -24,7 +24,7 @@ module Decidim
     end
 
     def dynamic_map_for(markers_data)
-      return unless Decidim.geocoder.present?
+      return if Decidim.geocoder.blank?
 
       map_html_options = {
         class: "google-map",

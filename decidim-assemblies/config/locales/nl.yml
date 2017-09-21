@@ -1,4 +1,3 @@
----
 nl:
   activemodel:
     attributes:
@@ -79,6 +78,13 @@ nl:
       titles:
         assemblies: Assemblies
     assemblies:
+      admin:
+        assemblies:
+          form:
+            slug_help: 'URL-slakjes worden gebruikt om de URL''s die naar dit assemblage wijzen, te genereren. Aanvaardt alleen letters, cijfers en streepjes, en moet beginnen met een brief. Voorbeeld: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'URL-slakjes worden gebruikt om de URL''s die naar dit assemblage wijzen, te genereren. Aanvaardt alleen letters, cijfers en streepjes, en moet beginnen met een brief. Voorbeeld: %{url}'
       index:
         title: Assemblies
       show:

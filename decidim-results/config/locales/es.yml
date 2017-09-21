@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -24,7 +23,7 @@ es:
         result_proposals: Propuestas incluidas en este resultado
     results:
       actions:
-        confirm_destroy: "¿Está seguro de que quiere eliminar este resultado?"
+        confirm_destroy: '¿Está seguro de que quiere eliminar este resultado?'
         destroy: Borrar
         edit: Editar
         new: Nuevo

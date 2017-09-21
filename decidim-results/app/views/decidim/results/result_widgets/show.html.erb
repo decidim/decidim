@@ -1,2 +1,2 @@
 <% content_for(:title, translated_attribute(model.title)) %>
-<%== translated_attribute model.description %>
+<%= sanitize translated_attribute model.description %>

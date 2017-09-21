@@ -14,7 +14,7 @@ describe Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess do
       Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessCopyForm,
       invalid?: invalid,
       title: { en: "title" },
-      slug: "copied_slug",
+      slug: "copied-slug",
       copy_steps?: copy_steps,
       copy_categories?: copy_categories,
       copy_features?: copy_features
@@ -49,7 +49,7 @@ describe Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess do
       old_participatory_process = Decidim::ParticipatoryProcess.first
       new_participatory_process = Decidim::ParticipatoryProcess.last
 
-      expect(new_participatory_process.slug).to eq("copied_slug")
+      expect(new_participatory_process.slug).to eq("copied-slug")
       expect(new_participatory_process.title["en"]).to eq("title")
       expect(new_participatory_process.published?).to be_falsy
       expect(new_participatory_process.organization).to eq(old_participatory_process.organization)
@@ -77,7 +77,7 @@ describe Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess do
 
     it "duplicates a participatory process and the steps" do
       expect { subject.call }.to change { Decidim::ParticipatoryProcessStep.count }.by(1)
-      expect(Decidim::ParticipatoryProcessStep.pluck(:decidim_participatory_process_id).uniq.count).to eq 2
+      expect(Decidim::ParticipatoryProcessStep.distinct.pluck(:decidim_participatory_process_id).count).to eq 2
 
       old_participatory_process_step = Decidim::ParticipatoryProcessStep.first
       new_participatory_process_step = Decidim::ParticipatoryProcessStep.last
@@ -94,7 +94,7 @@ describe Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess do
 
     it "duplicates a participatory process and the categories" do
       expect { subject.call }.to change { Decidim::Category.count }.by(1)
-      expect(Decidim::Category.pluck(:decidim_participatory_space_id).uniq.count).to eq 2
+      expect(Decidim::Category.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
 
       old_participatory_process_category = Decidim::Category.first
       new_participatory_process_category = Decidim::Category.last

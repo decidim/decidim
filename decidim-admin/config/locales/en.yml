@@ -66,6 +66,11 @@ en:
         subtitle: Subtitle
         target: Target
         title: Title
+      decidim/participatory_process_group:
+        description: Description
+        hero_image: Home image
+        name: Name
+        participatory_processes: Participatory processes
       decidim/participatory_process_step:
         end_date: End date
         start_date: Start date

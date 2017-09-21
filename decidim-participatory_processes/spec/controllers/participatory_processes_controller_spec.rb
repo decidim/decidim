@@ -37,7 +37,7 @@ module Decidim
             organization: organization,
             end_date: nil
           )
-          last.active_step.update_attribute(:end_date, nil)
+          last.active_step.update_attributes!(end_date: nil)
 
           first = create(
             :participatory_process,
@@ -46,7 +46,7 @@ module Decidim
             organization: organization,
             end_date: Time.current.advance(days: 10)
           )
-          first.active_step.update_attribute(:end_date, Time.current.advance(days: 2))
+          first.active_step.update_attributes!(end_date: Time.current.advance(days: 2))
 
           second = create(
             :participatory_process,
@@ -55,7 +55,7 @@ module Decidim
             organization: organization,
             end_date: Time.current.advance(days: 20)
           )
-          second.active_step.update_attribute(:end_date, Time.current.advance(days: 4))
+          second.active_step.update_attributes!(end_date: Time.current.advance(days: 4))
 
           expect(controller.helpers.participatory_processes.count).to eq(3)
           expect(controller.helpers.participatory_processes).not_to include(unpublished)
@@ -111,7 +111,7 @@ module Decidim
       describe "GET show" do
         context "when the process is unpublished" do
           it "redirects to root path" do
-            get :show, params: { id: unpublished_process.id }
+            get :show, params: { slug: unpublished_process.slug }
 
             expect(response).to redirect_to("/")
           end

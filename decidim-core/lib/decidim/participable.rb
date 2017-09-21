@@ -13,9 +13,7 @@ module Decidim
         self.class.name.demodulize
       end
 
-      def foreign_key
-        demodulized_name.foreign_key
-      end
+      delegate :foreign_key, to: :demodulized_name
 
       def module_name
         "Decidim::#{demodulized_name.pluralize}"
@@ -38,7 +36,10 @@ module Decidim
       end
 
       def mounted_params
-        { host: organization.host, foreign_key.to_sym => id }
+        {
+          host: organization.host,
+          "#{underscored_name}_slug".to_sym => slug
+        }
       end
 
       def extension_module
@@ -72,6 +73,10 @@ module Decidim
     # rubocop:enable Metrics/BlockLength
 
     class_methods do
+      def slug_format
+        /\A[a-zA-Z]+[a-zA-Z0-9-]+\z/
+      end
+
       def participatory_space_manifest
         Decidim.find_participatory_space_manifest(name.demodulize.underscore.pluralize)
       end

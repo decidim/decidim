@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -64,8 +63,13 @@ es:
         slug: Texto corto de URL
         start_date: Fecha de inicio
         subtitle: Subtítulo
-        target: "¿A quién va dirigido?"
+        target: '¿A quién va dirigido?'
         title: Título
+      decidim/participatory_process_group:
+        description: Descripción
+        hero_image: Imagen de portada
+        name: Nombre
+        participatory_processes: Procesos participativos
       decidim/participatory_process_step:
         end_date: Fecha de finalización
         start_date: Fecha de inicio
@@ -290,13 +294,13 @@ es:
         form:
           interpolations_hint: 'Sugerencia: Puede utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
-          confirm_delete: "¿Estás seguro de que quieres eliminar este boletín?"
+          confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
           title: Boletines
         new:
           save: Guardar
           title: Nuevo boletín
         show:
-          confirm_deliver: "¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer."
+          confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
           preview: Previsualizar
           subject: Asunto

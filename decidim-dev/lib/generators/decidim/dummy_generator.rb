@@ -14,8 +14,8 @@ module Decidim
     # all the flags passed to the `AppGenerator` class, which is the one that
     # actually generates the Rails app.
     #
-    # Remember that, for how generators work, actions are executed based on the
-    # definition order of the public methods.
+    # Remember that, because of how generators work, actions are executed based
+    # on the definition order of the public methods.
     class DummyGenerator < Rails::Generators::Base
       desc "Generate dummy app for testing purposes"
 
@@ -35,14 +35,9 @@ module Decidim
       def create_dummy_app
         Decidim::Generators::AppGenerator.start [
           dummy_app_path,
+          "--path",
+          "../..",
           "--app_const_base=DummyApplication",
-          "--skip-gemfile",
-          "--skip-bundle",
-          "--skip-git",
-          "--skip-keeps",
-          "--skip-listen",
-          "--skip-spring",
-          "--skip-test",
           "--recreate_db"
         ]
       end
@@ -79,10 +74,6 @@ module Decidim
 
       def remove_directory_if_exists(path)
         remove_dir(path) if File.directory?(path)
-      end
-
-      def dir_name
-        dummy_app_path.split("/").last
       end
     end
   end

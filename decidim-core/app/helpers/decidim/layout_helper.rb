@@ -8,7 +8,7 @@ module Decidim
     #
     # Returns a safe String with the versions.
     def favicon
-      return unless current_organization.favicon.present?
+      return if current_organization.favicon.blank?
 
       safe_join(Decidim::OrganizationFaviconUploader::SIZES.map do |version, size|
         favicon_link_tag(current_organization.favicon.send(version).url, sizes: "#{size}x#{size}")

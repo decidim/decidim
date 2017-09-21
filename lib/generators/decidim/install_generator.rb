@@ -19,6 +19,10 @@ module Decidim
       class_option :recreate_db, type: :boolean, default: false,
                                  desc: "Recreate db after installing decidim"
 
+      def bundle_install
+        Bundler.with_clean_env { run "bundle install" }
+      end
+
       def install
         route "mount Decidim::Core::Engine => '/'"
       end
@@ -29,10 +33,10 @@ module Decidim
       end
 
       def add_seeds
-        append_file("db/seeds.rb", <<~SEEDS_CONTENT)
+        append_file "db/seeds.rb", <<~RUBY
           # You can remove the 'faker' gem if you don't want Decidim seeds.
           Decidim.seed!
-        SEEDS_CONTENT
+        RUBY
       end
 
       def copy_initializer

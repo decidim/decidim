@@ -22,7 +22,7 @@ module Decidim
           {
             id: "dummies",
             feature_id: feature.id,
-            participatory_process_id: participatory_process.id
+            participatory_process_slug: participatory_process.slug
           }
         end
 

@@ -16,7 +16,7 @@ module Decidim
 
       context "when the impersonation is already ended" do
         before do
-          impersonation_log.update_attribute(:ended_at, Time.current)
+          impersonation_log.update_attributes!(ended_at: Time.current)
         end
 
         it "doesn't expires it" do

@@ -10,10 +10,34 @@ describe "Vote Proposal", type: :feature do
   let!(:proposal) { Decidim::Proposals::Proposal.where(feature: feature).first }
   let!(:user) { create :user, :confirmed, organization: organization }
 
+  def expect_page_not_to_include_votes
+    expect(page).to have_no_button("Vote")
+    expect(page).to have_no_css(".card__support__data span", text: "0 VOTES")
+  end
+
   context "when votes are not enabled" do
-    it "doesn't show the vote proposal button and counts" do
-      expect(page).to have_no_button("Vote")
-      expect(page).to have_no_css(".card__support__data span", text: "0 VOTES")
+    context "when the user is not logged in" do
+      it "doesn't show the vote proposal button and counts" do
+        visit_feature
+        expect_page_not_to_include_votes
+
+        click_link proposal.title
+        expect_page_not_to_include_votes
+      end
+    end
+
+    context "when the user is logged in" do
+      before do
+        login_as user, scope: :user
+      end
+
+      it "doesn't show the vote proposal button and counts" do
+        visit_feature
+        expect_page_not_to_include_votes
+
+        click_link proposal.title
+        expect_page_not_to_include_votes
+      end
     end
   end
 
@@ -27,8 +51,7 @@ describe "Vote Proposal", type: :feature do
 
     it "shows the vote count and the vote button is disabled" do
       visit_feature
-      expect(page).to have_css(".card__support__data", text: "0 VOTES")
-      expect(page).to have_content("Voting disabled")
+      expect_page_not_to_include_votes
     end
   end
 
@@ -132,7 +155,13 @@ describe "Vote Proposal", type: :feature do
 
         context "when the proposal is not voted yet but the user isn't authorized" do
           before do
-            feature.update_attribute(:permissions, vote: { authorization_handler_name: "decidim/dummy_authorization_handler" })
+            permissions = {
+              vote: {
+                authorization_handler_name: "decidim/dummy_authorization_handler"
+              }
+            }
+
+            feature.update_attributes!(permissions: permissions)
             visit_feature
           end
 
@@ -198,6 +227,22 @@ describe "Vote Proposal", type: :feature do
             end
           end
         end
+      end
+    end
+
+    context "when the proposal is rejected" do
+      let!(:rejected_proposal) { create(:proposal, :rejected, feature: feature) }
+
+      before do
+        feature.update_attributes!(settings: { proposal_answering_enabled: true })
+      end
+
+      it "it cannot be voted" do
+        visit_feature
+        expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
+
+        click_link rejected_proposal.title
+        expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
       end
     end
   end

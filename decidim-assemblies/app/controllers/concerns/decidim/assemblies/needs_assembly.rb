@@ -42,7 +42,11 @@ module Decidim
 
         def detect_assembly
           request.env["current_assembly"] ||
-            OrganizationAssemblies.new(current_organization).query.find(params[:assembly_id] || params[:id])
+            organization_assemblies.find_by!(slug: params[:assembly_slug] || params[:slug])
+        end
+
+        def organization_assemblies
+          @organization_assemblies ||= OrganizationAssemblies.new(current_organization).query
         end
       end
     end

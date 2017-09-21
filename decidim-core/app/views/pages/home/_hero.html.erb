@@ -6,7 +6,7 @@
           <% if translated_attribute(current_organization.welcome_text).blank? %>
             <%= t('.welcome', organization: current_organization.name) %>
           <% else %>
-            <%== translated_attribute current_organization.welcome_text %>
+            <%= sanitize translated_attribute current_organization.welcome_text %>
           <% end %>
         </h1>
       </div>

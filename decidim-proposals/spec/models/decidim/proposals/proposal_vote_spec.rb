@@ -10,7 +10,7 @@ module Decidim
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:author) { create(:user, organization: organization) }
       let!(:proposal) { create(:proposal, feature: feature, author: author) }
-      let!(:proposal_vote) { create(:proposal_vote, proposal: proposal, author: author) }
+      let!(:proposal_vote) { build(:proposal_vote, proposal: proposal, author: author) }
 
       subject { proposal_vote }
 
@@ -27,6 +27,7 @@ module Decidim
       end
 
       it "validates uniqueness for author and proposal combination" do
+        proposal_vote.save!
         expect do
           create(:proposal_vote, proposal: proposal, author: author)
         end.to raise_error(ActiveRecord::RecordInvalid)
@@ -56,6 +57,12 @@ module Decidim
           proposal_vote = build(:proposal_vote, proposal: other_proposal, author: other_author)
           expect(proposal_vote).to be_invalid
         end
+      end
+
+      context "when proposal is rejected" do
+        let!(:proposal) { create(:proposal, :rejected, feature: feature, author: author) }
+
+        it { is_expected.to be_invalid }
       end
     end
   end

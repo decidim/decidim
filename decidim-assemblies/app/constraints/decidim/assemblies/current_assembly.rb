@@ -30,7 +30,13 @@ module Decidim
       end
 
       def detect_current_assembly(params)
-        OrganizationAssemblies.new(@organization).query.find_by_id(params["assembly_id"])
+        organization_assemblies.where(slug: params["assembly_slug"]).or(
+          organization_assemblies.where(id: params["assembly_id"])
+        ).first!
+      end
+
+      def organization_assemblies
+        @organization_assemblies ||= OrganizationAssemblies.new(@organization).query
       end
     end
   end

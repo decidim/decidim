@@ -34,11 +34,13 @@ module Decidim
         attr_reader :step
 
         def deactivate_active_steps
-          step.participatory_process.steps.where(active: true).update_all(active: false)
+          step.participatory_process.steps.where(active: true).each do |step|
+            step.update_attributes!(active: false)
+          end
         end
 
         def activate_step
-          step.update_attribute(:active, true)
+          step.update_attributes!(active: true)
         end
       end
     end

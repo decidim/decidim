@@ -10,9 +10,11 @@ module Decidim
       def perform(user, newsletter)
         NewsletterMailer.newsletter(user, newsletter).deliver_now
 
+        # rubocop:disable Rails/SkipsModelValidations
         newsletter.with_lock do
           newsletter.increment!(:total_deliveries)
         end
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end

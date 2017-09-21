@@ -3,7 +3,7 @@
 require "decidim/form_builder"
 
 module Decidim
-  # A customf orm builder to render AuthorizationHandler forms.
+  # A custom form builder to render AuthorizationHandler forms.
   class AuthorizationFormBuilder < Decidim::FormBuilder
     # Renders all form attributes defined by the handler.
     #

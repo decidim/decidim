@@ -1,4 +1,3 @@
----
 eu:
   activemodel:
     attributes:
@@ -67,7 +66,7 @@ eu:
           categories: Kategoriak
           features: Funtzionalitateak
           info: Informazioa
-          moderations: " Salaketak"
+          moderations: ' Salaketak'
       models:
         assembly:
           fields:
@@ -79,6 +78,13 @@ eu:
       titles:
         assemblies: Biltzarrak
     assemblies:
+      admin:
+        assemblies:
+          form:
+            slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
       index:
         title: Biltzarrak
       show:

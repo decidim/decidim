@@ -1,4 +1,3 @@
----
 es:
   activemodel:
     attributes:
@@ -25,7 +24,7 @@ es:
         slug: Texto corto de URL
         start_date: Fecha de inicio
         subtitle: Subtítulo
-        target: "¿A quién va dirigida?"
+        target: '¿A quién va dirigida?'
         title: Grupo de procesos participativos
       participatory_process_group:
         description: Descripción
@@ -47,7 +46,7 @@ es:
       actions:
         activate: Activar
         configure: Configurar
-        confirm_destroy: "¿Estás seguro?"
+        confirm_destroy: '¿Estás seguro?'
         destroy: Eliminar
         duplicate: Duplicar
         edit: Editar
@@ -212,6 +211,13 @@ es:
         process_steps: Las fases de proceso
         title: Fases del proceso participativo
     participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        participatory_processes:
+          form:
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
       index:
         title: Procesos participativos
       order_by_processes:
@@ -231,9 +237,9 @@ es:
         participatory_structure: Estructura participativa
         scope: Ámbito
         start_date: Fecha de inicio
-        target: "¿A quién va dirigida?"
+        target: '¿A quién va dirigida?'
       statistics:
-        answers_count: "¿A quién va dirigida?"
+        answers_count: '¿A quién va dirigida?'
         comments_count: Comentarios
         headline: Actividad
         meetings_count: Encuentros

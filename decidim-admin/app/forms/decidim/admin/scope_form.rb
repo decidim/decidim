@@ -21,7 +21,7 @@ module Decidim
       alias organization current_organization
 
       def scope_type
-        Decidim::ScopeType.find_by_id(scope_type_id) if scope_type_id
+        Decidim::ScopeType.find_by(id: scope_type_id) if scope_type_id
       end
 
       private

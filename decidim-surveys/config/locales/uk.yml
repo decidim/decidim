@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -22,7 +21,7 @@ uk:
     surveys:
       admin:
         exports:
-          survey_user_answers: Відповіді користувачів на опитування
+          survey_user_answers: Відповіді учасників на опитування
         models:
           components:
             description: Опис
@@ -37,7 +36,7 @@ uk:
             title: Назва
           form:
             add_question: Додати питання
-            already_answered_warning: Деякі користувачі вже відповіли на це опитування, тому ви не можете змінювати його питання.
+            already_answered_warning: Деякі учасники вже відповіли на це опитування, тому ви не можете змінювати його питання.
           question:
             add_answer_option: Додати варіант відповіді
             question: Питання

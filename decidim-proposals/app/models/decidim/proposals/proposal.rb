@@ -61,21 +61,21 @@ module Decidim
       #
       # Returns Boolean.
       def accepted?
-        state == "accepted"
+        answered? && state == "accepted"
       end
 
       # Public: Checks if the organization has rejected a proposal.
       #
       # Returns Boolean.
       def rejected?
-        state == "rejected"
+        answered? && state == "rejected"
       end
 
       # Public: Checks if the organization has marked the proposal as evaluating it.
       #
       # Returns Boolean.
       def evaluating?
-        state == "evaluating"
+        answered? && state == "evaluating"
       end
 
       # Public: Overrides the `commentable?` Commentable concern method.

@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -28,8 +27,8 @@ fr:
         user_group_name: Nom de l'organisation
         user_group_phone: Téléphone de l'organisation
   booleans:
-    'false': Non
-    'true': Oui
+    'false': 'Non'
+    'true': 'Oui'
   carrierwave:
     errors:
       image_too_big: L'image est trop grande
@@ -130,7 +129,7 @@ fr:
     events:
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :"
+        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
       notification_event:
@@ -156,8 +155,8 @@ fr:
             dummy_step_attribute_2: Exemple d'attribut pour une étape 2
     filters:
       linked_classes:
-        all: Tous
-        meeting: Réunions
+        all: Tout
+        meeting: Rencontres
         project: Projets
         proposal: Propositions
         result: Résultats
@@ -194,7 +193,7 @@ fr:
     own_user_groups:
       index:
         pending: En attente
-        rejected: Refusé
+        rejected: Refusée
         verified: Vérifié
     pages:
       index:
@@ -236,10 +235,10 @@ fr:
         embed_link: Intégrer
       flag_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
-        close: Clore
+        close: Fermer
         description: Ce contenu est-il inapproprié?
         does_not_belong: Contient des activités illégales, des menaces suicidaires, des informations personnelles, ou autre chose que vous pensez ne pas être approprié à %{organization_name}.
-        offensive: Contient des propos racisme, sexiste, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
+        offensive: Contient des propos racistes, sexistes, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
         report: Signaler
         spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
         title: Signaler un problème
@@ -258,13 +257,14 @@ fr:
     invitations:
       edit:
         header: Définir votre mot de passe
-        submit_button: Sauvegarder
+        submit_button: sauvegarder
     mailer:
       invitation_instructions:
         accept: Accepter l'invitation
         accept_until: Cette invitation expirera le %{due_date}.
         hello: Bonjour %{email},
-        ignore: Si vous ne souhaitez pas accepter l'invitation, ignorez cet email.<br /> Votre compte ne sera créé qu'après avoir cliqué sur le lien ci-dessus et défini votre mot de passe.
+        ignore: |-
+          Si vous ne souhaitez pas accepter l'invitation, ignorez cet email.<br /> Votre compte ne sera créé qu'après avoir cliqué sur le lien ci-dessus et défini votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de l'%{application}, vous pouvez accepter cette invitation en cliquant sur le lien ci-dessous."
         someone_invited_you: Quelqu'un vous a invité à %{application}, vous pouvez accepter l'invitation en cliquant sur le lien ci-dessous.
         you_are_now_admin: Vous êtes maintenant un administrateur
@@ -303,7 +303,7 @@ fr:
         link_label: ici
         ok: '"J''accepte"'
       footer:
-        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+        made_with_open_source: 'Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.'
       header:
         close_menu: Fermer le menu
         navigation: Navigation
@@ -339,9 +339,9 @@ fr:
         debates: Débats
         debates_explanation: Participons à des rencontres, débattons et échangeons sur les sujets qui comptent pour notre ville.
         how_to_participate: Comment puis-je participer à un processus participatif?
-        meetings: Réunions
+        meetings: Rencontres
         meetings_explanation: Participons à des rencontres, débattons et échangeons sur les sujets qui comptent pour notre ville.
-        more_info: Plus d'informations
+        more_info: En savoir plus
         proposals: Propositions
         proposals_explanation: Espace ouvert aux propositions des citoyens pour façonner ensemble le type de ville dans laquelle nous voulons vivre.
       footer_sub_hero:
@@ -353,16 +353,16 @@ fr:
         welcome: Bienvenue sur %{organization}!
       highlighted_processes:
         active_processes: Processus participatifs actifs
-        active_step: Etape active
+        active_step: Etape en cours
         see_all_processes: Voir tous les processus participatifs
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
         headline: État actuel de %{organization}
-        meetings_count: Réunions
+        meetings_count: Rencontres
         orders_count: Ordres
         pages_count: Pages
-        processes_count: Conerctations
+        processes_count: Processus participatifs
         projects_count: Projets
         proposals_count: Propositions
         results_count: Résultats
@@ -385,7 +385,7 @@ fr:
     reddit: Reddit
     share_to: Partager sur %{name}
     tumblr: Tumblr
-    twitter: Twitter
+    twitter: Gazouillement
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Ouvrez WeChat, cliquez sur le bouton "Découvrir" puis cliquez sur le menu "Scanner le QR Code".

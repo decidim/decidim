@@ -22,7 +22,7 @@ module Decidim
       # When a managed user accepts the invitation is promoted to non-managed user.
       def accept_resource
         resource = resource_class.accept_invitation!(update_resource_params)
-        resource.update_attribute(:managed, false) if resource.managed?
+        resource.update_attributes!(managed: false) if resource.managed?
         resource
       end
     end

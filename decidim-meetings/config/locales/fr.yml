@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -22,8 +21,8 @@ fr:
     features:
       meetings:
         actions:
-          join: Joindre
-        name: Réunions
+          join: Participer
+        name: Rencontres
         settings:
           global:
             announcement: Annonce
@@ -34,17 +33,17 @@ fr:
     meetings:
       actions:
         attachments: Documents liés
-        close: Fermer
+        close: Clore
         confirm_destroy: Êtes-vous sûr de vouloir supprimer cette rencontre?
         destroy: Supprimer
         edit: Modifier
         new: Nouveau
         preview: Aperçu
-        registrations: Enregistrements
+        registrations: Incriptions
         title: Actions
       admin:
         exports:
-          registrations: Enregistrements
+          registrations: Inscriptions
         meeting_closes:
           edit:
             close: Clore
@@ -61,7 +60,7 @@ fr:
           edit:
             update: Mettre à jour
           index:
-            title: Rencontre
+            title: Rencontres
           new:
             create: Créer
             title: Créer une rencontre
@@ -75,55 +74,55 @@ fr:
           edit:
             save: Sauvegarder
           form:
-            available_slots_help: Laissez-le à 0 si vous avez des emplacements illimités disponibles.
+            available_slots_help: Laissez-le à 0 si le nombre de places disponibles n'est pas limité.
             registrations_count:
-              one: Il y a eu 1 enregistrement.
-              other: Il y a eu %{count} enregistrements.
+              one: Il y a eu 1 inscription.
+              other: Il y a eu %{count} inscriptions.
           update:
-            invalid: Il y a eu un problème pour enregistrer les paramètres d'enregistrement.
-            success: Réaliser les paramètres d'enregistrement enregistrés avec succès.
+            invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
+            success: Les paramètres d'inscriptions ont été enregistrés avec succès.
       events:
         close_meeting_event:
-          email_intro: 'La réunion de la « %{resource_title} » a été fermée. Vous pouvez lire les conclusions de sa page :'
-          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
-          email_subject: La réunion de la « %{resource_title} » a été fermée
-          notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> a été fermée.
+          email_intro: 'La rencontre « %{resource_title} » a été fermée. Vous pouvez lire les conclusions sur cette page :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
+          email_subject: La rencontre %{resource_title} est terminée
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_registrations_enabled:
-          email_intro: 'La réunion « %{resource_title} » a permis des enregistrements. Vous pouvez vous enregistrer sur sa page :'
-          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
-          email_subject: La réunion « %{resource_title} » a permis des enregistrements.
-          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a permis des enregistrements.
+          email_intro: 'La rencontre « %{resource_title} » a ouvert les inscriptions. Vous pouvez vous inscrire en allant sur la page suivante :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
+          email_subject: La rencontre « %{resource_title} » a ouvert les inscriptions.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est maintenant ouverte aux inscriptions.
         meeting_registrations_over_percentage:
-          email_intro: Les fentes de réunion occupée « %{resource_title} » sont plus %{percentage} %.
-          email_outro: Vous avez reçu cet avis parce que vous êtes un administrateur de l’espace participatif de la réunion.
-          email_subject: Les fentes de réunion occupée « %{resource_title} » sont plus %{percentage} %
-          notification_title: Les fentes de réunion occupée de <a href="%{resource_path}">%{resource_title}</a> sont plus %{percentage} %.
+          email_intro: Les inscriptions à la rencontre %{resource_title} sont à %{percentage} % complètes%.
+          email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur du processus participatif hébergeant la rencontre.
+          email_subject: Les inscriptions à la rencontre %{resource_title} sont à %{percentage} % complètes%
+          notification_title: Les inscriptions à la rencontre <a href="%{resource_path}">%{resource_title}</a> sont à %{percentage} % complètes.
         upcoming_meeting_event:
-          email_intro: La réunion de la « %{resource_title} » va commencer en moins de 48h.
-          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
-          email_subject: La réunion de la « %{resource_title} » va commencer en moins de 48h.
-          notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> va commencer en moins de 48h.
+          email_intro: La rencontre « %{resource_title} » va commencer dans moins de 48h.
+          email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
+          email_subject: La réunion « %{resource_title} » va commencer dans moins de 48h.
+          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> va commencer dans moins de 48h.
         update_meeting_event:
-          email_intro: 'La réunion de la « %{resource_title} » a été mis à jour. Vous pouvez lire la nouvelle version de sa page :'
-          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
-          email_subject: La réunion de la « %{resource_title} » a été mis à jour
-          notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> a été mis à jour.
+          email_intro: 'La rencontre « %{resource_title} » a été mise à jour. Vous pouvez consulter la nouvelle version en vous rendant sur la page suivante :'
+          email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
+          email_subject: La rencontre « %{resource_title} » a été mise à jour
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
       mailer:
         registration_mailer:
           confirmation:
-            subject: Enregistrement de la réunion a été confirmée
+            subject: Votre inscription a bien été enregistrée
       meetings:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           date: Date
-          past: Passés
-          scope_prompt: Sélectionnez une portée
-          scopes: Zones d'application
+          past: Passées
+          scope_prompt: Sélectionnez une zone d'application
+          scopes: Zone d'application
           search: Rechercher
           upcoming: À venir
         filters_small_view:
-          close_modal: Fermer la vue
+          close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Déplier
@@ -138,19 +137,19 @@ fr:
         show:
           attendees: Nombre de participants
           contributions: Décompte des contributions
-          going: Aller
-          join: Rejoindre une réunion
+          going: J'y vais
+          join: Participer à la rencontre
           meeting_report: Compte rendu de la rencontre
-          no_slots_available: Pas de machines à sous disponibles
+          no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
           remaining_slots:
-            one: 1 slot restant
-            other: "%{count} machines à sous restantes"
+            one: Il reste 1 place
+            other: "Il reste %{count} places"
       models:
         meeting:
           fields:
             closed: Clos
-            end_time: Échéance
+            end_time: Heure de fin
             map: Carte
             start_time: Date de début
             title: Titre
@@ -169,7 +168,7 @@ fr:
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Résultats associés :'
-        result_meetings: 'Rencontre connexes :'
+        result_meetings: 'Rencontres connexes :'
       proposals_from_meeting:
         meeting_proposals: 'Propositions créées à cette rencontre :'
         proposal_meetings: 'Rencontre connexes :'

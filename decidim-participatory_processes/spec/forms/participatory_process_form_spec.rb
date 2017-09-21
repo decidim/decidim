@@ -139,6 +139,12 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
+        context "when slug is not valid" do
+          let(:slug) { "123" }
+
+          it { is_expected.to be_invalid }
+        end
+
         context "when slug is not unique" do
           context "in the same organization" do
             before do

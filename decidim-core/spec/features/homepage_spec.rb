@@ -98,9 +98,9 @@ describe "Homepage", type: :feature do
 
         it "should show promoted first and ordered by active step end_date" do
           processes = [participatory_process_3, participatory_process_1, participatory_process_2]
-          participatory_process_1.active_step.update_attribute(:end_date, 5.days.from_now)
-          participatory_process_2.active_step.update_attribute(:end_date, 3.days.from_now)
-          participatory_process_3.active_step.update_attribute(:end_date, 2.days.from_now)
+          participatory_process_1.active_step.update_attributes!(end_date: 5.days.from_now)
+          participatory_process_2.active_step.update_attributes!(end_date: 3.days.from_now)
+          participatory_process_3.active_step.update_attributes!(end_date: 2.days.from_now)
 
           visit current_path
           all("article.card .card__title").each_with_index do |node, index|

@@ -30,7 +30,13 @@ module Decidim
       end
 
       def detect_current_participatory_process(params)
-        OrganizationParticipatoryProcesses.new(@organization).query.find_by_id(params["participatory_process_id"])
+        organization_processes.where(slug: params["participatory_process_slug"]).or(
+          organization_processes.where(id: params["participatory_process_id"])
+        ).first!
+      end
+
+      def organization_processes
+        @organization_processes ||= OrganizationParticipatoryProcesses.new(@organization).query
       end
     end
   end

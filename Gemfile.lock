@@ -50,7 +50,7 @@ PATH
       devise (~> 4.3)
       devise-i18n (~> 1.2.0)
       file_validators (~> 2.1.0)
-      foundation-rails (~> 6.4.1.2)
+      foundation-rails (~> 6.3.0)
       foundation_rails_helper (~> 3.0.0.rc)
       geocoder (~> 1.4.2)
       high_voltage (~> 3.0.0)
@@ -273,7 +273,7 @@ GEM
     file_validators (2.1.0)
       activemodel (>= 3.0)
       mime-types (>= 1.0)
-    foundation-rails (6.4.1.2)
+    foundation-rails (6.3.1.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
       sprockets-es6 (>= 0.9.0)
@@ -347,14 +347,14 @@ GEM
     mime-types-data (3.2016.0521)
     mini_magick (4.8.0)
     mini_mime (0.1.4)
-    mini_portile2 (2.2.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.3)
     multi_json (1.12.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     nio4r (2.1.0)
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     oauth (0.5.3)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
@@ -563,7 +563,7 @@ DEPENDENCIES
   rspec (~> 3.0)
 
 RUBY VERSION
-   ruby 2.4.1p111
+   ruby 2.4.2p198
 
 BUNDLED WITH
    1.15.4

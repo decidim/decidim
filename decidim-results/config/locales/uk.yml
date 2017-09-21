@@ -1,10 +1,9 @@
----
 uk:
   activemodel:
     attributes:
       result:
         decidim_category_id: Розділ
-        decidim_scope_id: Обсяг
+        decidim_scope_id: Терен
         description: Опис
         proposal_ids: Включені пропозиції
         title: Назва
@@ -58,15 +57,15 @@ uk:
       results:
         count:
           results_count:
+            one: 1 підсумок
             few: "%{count} підсумки"
             many: "%{count} підсумків"
-            one: 1 підсумок
             other: "%{count} підсумків"
         filters:
           category: Розділ
           category_prompt: Оберіть розділ
-          scope_prompt: Оберіть обсяг
-          scopes: Обсяги
+          scope_prompt: Оберіть терен
+          scopes: Терени
           search: Шукати
         filters_small_view:
           close_modal: Закрити віконце

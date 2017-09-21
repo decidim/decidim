@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -103,7 +102,7 @@ fi:
         new:
           copy: Kopio
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi osallistuvat prosessit
+          title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
           success: Osallistumisprosessien ryhmä poistettu onnistuneesti.
@@ -212,6 +211,13 @@ fi:
         process_steps: Prosessin vaiheet
         title: Osallistumisprosessin vaiheet
     participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'URL-linkkejä käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+        participatory_processes:
+          form:
+            slug_help: 'URL-linkkejä käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
       index:
         title: Osallistumisprosessit
       order_by_processes:

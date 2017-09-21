@@ -45,7 +45,10 @@ module Decidim
 
         def update
           authorize! :update, current_assembly
-          @form = form(AssemblyForm).from_params(assembly_params)
+          @form = form(AssemblyForm).from_params(
+            assembly_params,
+            assembly_id: current_assembly.id
+          )
 
           UpdateAssembly.call(current_assembly, @form) do
             on(:ok) do |assembly|
@@ -76,7 +79,9 @@ module Decidim
         private
 
         def current_assembly
-          @current_assembly ||= collection.find(params[:id]) if params[:id]
+          @current_assembly ||= collection.where(slug: params[:slug]).or(
+            collection.where(id: params[:slug])
+          ).first
         end
 
         def collection

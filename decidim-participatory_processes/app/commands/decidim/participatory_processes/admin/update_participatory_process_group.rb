@@ -46,6 +46,7 @@ module Decidim
           {
             name: form.name,
             hero_image: form.hero_image,
+            remove_hero_image: form.remove_hero_image,
             description: form.description,
             participatory_processes: participatory_processes
           }

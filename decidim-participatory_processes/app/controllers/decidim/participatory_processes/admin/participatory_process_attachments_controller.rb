@@ -11,7 +11,7 @@ module Decidim
         include Decidim::Admin::Concerns::HasAttachments
 
         def after_destroy_path
-          participatory_process_attachments_path(current_participatory_process.id)
+          participatory_process_attachments_path(current_participatory_process)
         end
 
         def attached_to

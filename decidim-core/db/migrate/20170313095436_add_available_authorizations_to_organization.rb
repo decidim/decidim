@@ -6,7 +6,7 @@ class AddAvailableAuthorizationsToOrganization < ActiveRecord::Migration[5.0]
 
     handlers = Decidim.authorization_handlers.map(&:name)
     Decidim::Organization.find_each do |org|
-      org.update_attributes(available_authorizations: handlers)
+      org.update_attributes!(available_authorizations: handlers)
     end
   end
 end

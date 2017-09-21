@@ -35,7 +35,7 @@ module Decidim
       # them they are not authorized.
       def user_not_authorized
         flash[:alert] = t("actions.unauthorized", scope: "decidim.core")
-        redirect_to(request.referrer || user_not_authorized_path)
+        redirect_to(request.referer || user_not_authorized_path)
       end
 
       def user_not_authorized_path

@@ -12,13 +12,23 @@ module Decidim
       isolate_namespace Decidim::ParticipatoryProcesses
 
       routes do
+        get "processes/:process_id", to: redirect { |params, _request|
+          process = Decidim::ParticipatoryProcess.find(params[:process_id])
+          process ? "/processes/#{process.slug}" : "/404"
+        }, constraints: { process_id: /[0-9]+/ }
+
+        get "/processes/:process_id/f/:feature_id", to: redirect { |params, _request|
+          process = Decidim::ParticipatoryProcess.find(params[:process_id])
+          process ? "/processes/#{process.slug}/f/#{params[:feature_id]}" : "/404"
+        }, constraints: { process_id: /[0-9]+/ }
+
         resources :participatory_process_groups, only: :show, path: "processes_groups"
-        resources :participatory_processes, only: [:index, :show], path: "processes" do
+        resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
           resources :participatory_process_steps, only: [:index], path: "steps"
           resource :participatory_process_widget, only: :show, path: "embed"
         end
 
-        scope "/processes/:participatory_process_id/f/:feature_id" do
+        scope "/processes/:participatory_process_slug/f/:feature_id" do
           Decidim.feature_manifests.each do |manifest|
             next unless manifest.engine
 

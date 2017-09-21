@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -212,6 +211,13 @@ ca:
         process_steps: Fases del procés
         title: Fases del procés participatiu
     participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        participatory_processes:
+          form:
+            slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
       index:
         title: Processos participatius
       order_by_processes:

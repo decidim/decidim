@@ -43,7 +43,7 @@ module Decidim
     end
 
     def update_password
-      return unless @form.password.present?
+      return if @form.password.blank?
 
       @user.password = @form.password
       @user.password_confirmation = @form.password_confirmation

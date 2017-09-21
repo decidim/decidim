@@ -1,4 +1,3 @@
----
 it:
   activemodel:
     attributes:
@@ -79,6 +78,13 @@ it:
       titles:
         assemblies: assemblee
     assemblies:
+      admin:
+        assemblies:
+          form:
+            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
       index:
         title: assemblee
       show:

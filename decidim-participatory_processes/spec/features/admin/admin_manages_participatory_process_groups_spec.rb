@@ -45,7 +45,7 @@ describe "Admin manages participatory process groups", type: :feature do
     expect(page).to have_css("img[src*='#{image1_filename}']")
   end
 
-  context "with exsiting groups" do
+  context "with existing groups" do
     let!(:participatory_processes) { create_list(:participatory_process, 3, organization: organization) }
     let!(:participatory_process_group) { create(:participatory_process_group, organization: organization) }
 
@@ -87,6 +87,17 @@ describe "Admin manages participatory process groups", type: :feature do
       expect(page).to have_content("New description")
       expect(page).to have_content(@participatory_processes.last.title["en"])
       expect(page).to have_css("img[src*='#{image2_filename}']")
+    end
+
+    it "can remove its image" do
+      within find("tr", text: participatory_process_group.name["en"]) do
+        page.find(".action-icon.action-icon--edit").click
+      end
+
+      check "Remove this file"
+      click_button "Update"
+
+      expect(page).to have_no_css("img")
     end
 
     it "can destroy them" do

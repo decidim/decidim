@@ -53,7 +53,7 @@ module Decidim
       describe "GET show" do
         context "when the assembly is unpublished" do
           it "redirects to root path" do
-            get :show, params: { id: unpublished_assembly.id }
+            get :show, params: { slug: unpublished_assembly.slug }
 
             expect(response).to redirect_to("/")
           end

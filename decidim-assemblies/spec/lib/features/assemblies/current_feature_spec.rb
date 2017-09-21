@@ -57,7 +57,7 @@ module Decidim
 
       context "when the params don't contain an assembly id" do
         it "doesn't match" do
-          expect(subject.matches?(request)).to eq(false)
+          expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
         end
       end
 
@@ -68,7 +68,7 @@ module Decidim
 
         context "when there's no feature" do
           it "doesn't match" do
-            expect(subject.matches?(request)).to eq(false)
+            expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
           end
         end
 
@@ -78,7 +78,7 @@ module Decidim
           end
 
           it "doesn't match" do
-            expect(subject.matches?(request)).to eq(false)
+            expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
           end
         end
       end

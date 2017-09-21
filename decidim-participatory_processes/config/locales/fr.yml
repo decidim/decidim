@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -10,7 +9,7 @@ fr:
         description: Description
         developer_group: Groupe d'initiateurs
         domain: Domaine
-        end_date: Heure de fin
+        end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Localisation
@@ -25,7 +24,7 @@ fr:
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
-        target: Objectif
+        target: Public visé
         title: Titre
       participatory_process_group:
         description: Description
@@ -34,7 +33,7 @@ fr:
         participatory_process_ids: Processus participatifs liés
       participatory_process_step:
         description: Description
-        end_date: Heure de fin
+        end_date: Date de fin
         short_description: Résumé
         start_date: Date de début
         title: Titre
@@ -81,7 +80,7 @@ fr:
           name: Groupes de processus participatifs
         participatory_process_step:
           fields:
-            end_date: Heure de fin
+            end_date: Date de fin
             start_date: Date de début
             title: Titre
           name: Etape du processus participatif
@@ -103,7 +102,7 @@ fr:
         new:
           copy: Copie
           select: Sélectionnez les données que vous souhaitez reproduire
-          title: Processus participatifs en double
+          title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
           success: Le groupe de processus participatif a été détruit avec succès.
@@ -212,11 +211,18 @@ fr:
         process_steps: Etapes du processus
         title: Etapes du processus participatif
     participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+        participatory_processes:
+          form:
+            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
       index:
         title: Processus participatifs
       order_by_processes:
         active: Actif
-        past: Passées
+        past: Passés
         upcoming: À venir
       participatory_process_groups:
         none: Aucun
@@ -225,13 +231,13 @@ fr:
           loading: Chargement des résultats...
       show:
         developer_group: Groupe d'initiateurs
-        end_date: Heure de fin
+        end_date: Date de fin
         local_area: Localisation
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         scope: Zone d'application
         start_date: Date de début
-        target: Objectif
+        target: Public visé
       statistics:
         answers_count: Réponses
         comments_count: Commentaires

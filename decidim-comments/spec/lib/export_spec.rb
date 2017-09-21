@@ -12,7 +12,7 @@ module Decidim
       let!(:other_comments) { create_list(:comment, 5) }
 
       describe "#comments_for_resource" do
-        let(:collection) { subject.comments_for_resource(Decidim::DummyResource, feature) }
+        let(:collection) { subject.comments_for_resource(Decidim::DummyResources::DummyResource, feature) }
 
         it "returns a collection of comments" do
           expect(collection).to include(*comments)

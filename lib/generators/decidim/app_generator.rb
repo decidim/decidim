@@ -3,7 +3,6 @@
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
 require "decidim/core/version"
-require_relative "app_builder"
 require_relative "install_generator"
 
 module Decidim
@@ -16,24 +15,14 @@ module Decidim
     class AppGenerator < Rails::Generators::AppGenerator
       hide!
 
-      source_root File.expand_path("templates", __dir__)
-
       def source_paths
         [
           File.expand_path("templates", __dir__),
-          File.expand_path(
-            File.join(
-              Gem::Specification.find_by_name("railties").gem_dir,
-              "lib",
-              "rails",
-              "generators",
-              "rails",
-              "app",
-              "templates"
-            )
-          )
+          Rails::Generators::AppGenerator.source_root
         ]
       end
+
+      source_root File.expand_path("templates", __dir__)
 
       class_option :path, type: :string, default: nil,
                           desc: "Path to the gem"
@@ -52,6 +41,9 @@ module Decidim
 
       class_option :app_const_base, type: :string,
                                     desc: "The application constant name"
+
+      class_option :skip_bundle, type: :boolean, aliases: "-B", default: true,
+                                 desc: "Don't run bundle install"
 
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
@@ -74,9 +66,8 @@ module Decidim
         template "README.md.erb", "README.md", force: true
       end
 
-      def secret_token
-        require "securerandom"
-        SecureRandom.hex(64)
+      def gemfile
+        template "Gemfile.erb", "Gemfile", force: true
       end
 
       def install
@@ -84,10 +75,6 @@ module Decidim
           "--recreate_db=#{options[:recreate_db]}",
           "--app_name=#{app_name}"
         ]
-      end
-
-      def app_const_base
-        options["app_const_base"] || super
       end
 
       def add_ignore_uploads
@@ -107,9 +94,8 @@ module Decidim
 
       private
 
-      # rubocop:disable Style/AccessorMethodName
-      def get_builder_class
-        AppBuilder
+      def app_const_base
+        options["app_const_base"] || super
       end
     end
   end

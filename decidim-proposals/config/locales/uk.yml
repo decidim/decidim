@@ -1,11 +1,10 @@
----
 uk:
   activemodel:
     attributes:
       proposal:
         body: Основний текст
         category_id: Розділ
-        scope_id: Обсяг
+        scope_id: Терен
         title: Назва
         user_group_id: Створити пропозицію як
       proposal_answer:
@@ -85,7 +84,7 @@ uk:
             category: Розділ
             id: Ідентифікатор
             official_proposal: Офіційна пропозиція
-            scope: Обсяг
+            scope: Терен
             state: Стан
             title: Назва
       proposal_votes:
@@ -93,13 +92,13 @@ uk:
           error: При голосуванні пропозиції сталися помилки.
       proposals:
         author:
-          deleted: Видалений користувач
+          deleted: Видалений учасник
           verified_user_group: Перевірена організація
         count:
           proposals_count:
+            one: 1 пропозиція
             few: "%{count} пропозиції"
             many: "%{count} пропозицій"
-            one: 1 пропозиція
             other: "%{count} пропозицій"
         filters:
           accepted: Прийнято
@@ -113,8 +112,8 @@ uk:
           origin: Джерело
           rejected: Відхилено
           related_to: Пов'язане з
-          scope_prompt: Оберіть обсяг
-          scopes: Обсяги
+          scope_prompt: Оберіть терен
+          scopes: Терени
           search: Шукати
           state: Стан
           voted: Проголосоване
@@ -128,9 +127,9 @@ uk:
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
+            one: <span class="card--list__data__number">1</span> голос
             few: <span class="card--list__data__number">%{count}</span> голоси
             many: <span class="card--list__data__number">%{count}</span> голосів
-            one: <span class="card--list__data__number">1</span> голос
             other: <span class="card--list__data__number">%{count}</span> голосів
         new:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
@@ -156,9 +155,9 @@ uk:
           votes_blocked: Голосування вимкнене
         votes_count:
           count:
+            one: ГОЛОС
             few: ГОЛОСИ
             many: ГОЛОСІВ
-            one: ГОЛОС
             other: ГОЛОСІВ
         votes_limit:
           vote_limit:

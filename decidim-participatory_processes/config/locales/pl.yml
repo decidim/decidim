@@ -1,4 +1,3 @@
----
 pl:
   activemodel:
     attributes:
@@ -103,7 +102,7 @@ pl:
         new:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
-          title: Zduplikowane procesy uczestnictwa
+          title: Duplikat procesu partycypacyjnego
       participatory_process_groups:
         destroy:
           success: Uczestnicząca grupa procesowa została zniszczona.
@@ -212,6 +211,13 @@ pl:
         process_steps: Etapy procesu
         title: Etapy procesu partycypacyjnego
     participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+        participatory_processes:
+          form:
+            slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
       index:
         title: Procesy partycypacyjne
       order_by_processes:
@@ -264,8 +270,8 @@ pl:
           no_processes_yet: Żadne procesy uczestniczące!
         order_by_processes:
           processes:
-            few: "%{count} procesów"
             one: "%{count} proces"
+            few: "%{count} procesów"
             other: "%{count} procesów"
         participatory_process:
           active_step: 'Aktualny krok:'

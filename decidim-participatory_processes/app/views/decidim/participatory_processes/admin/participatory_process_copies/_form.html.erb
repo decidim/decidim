@@ -1,3 +1,5 @@
+<%= javascript_include_tag "decidim/slug_form" %>
+
 <div class="card" id="processes">
   <div class="card-divider">
     <h2 class="card-title"><%= title %></h2>
@@ -9,8 +11,9 @@
         <div class="column xlarge-8">
           <%= form.translated :text_field, :title, autofocus: true %>
         </div>
-        <div class="column xlarge-4">
+        <div class="column xlarge-4 slug">
           <%= form.text_field :slug %>
+          <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url(:processes, form.object.slug)) %></p>
         </div>
       </div>
       <div class="card">
