@@ -47,7 +47,6 @@ en:
           registrations: Registrations
         invite_join_meeting_mailer:
           invite:
-            click_to_join_meeting: Click to join meeting
             invited_you_to_join_a_meeting: "%{invited_by} has invited you to join a meeting at %{application}, you can accept it through the link below."
             join: Join meeting '%{meeting_title}'
         invites:

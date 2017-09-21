@@ -14,10 +14,11 @@ module Decidim
 
         helper_method :routes
 
-        def invite(user, meeting)
+        def invite(user, meeting, invited_by)
           with_user(user) do
             @user = user
             @meeting = meeting
+            @invited_by = invited_by
             @organization = @meeting.organization
             @locator = Decidim::ResourceLocatorPresenter.new(@meeting)
 

@@ -37,7 +37,7 @@ module Decidim
 
         def invite_user
           if user.persisted?
-            InviteJoinMeetingMailer.invite(user, meeting).deliver_later
+            InviteJoinMeetingMailer.invite(user, meeting, invited_by).deliver_later
           else
             user.name = form.name
             user.skip_reconfirmation!

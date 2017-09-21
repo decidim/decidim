@@ -1,7 +1,7 @@
 <p><%= t("devise.mailer.invitation_instructions.hello", email: @user.name) %></p>
 
 <p>
-  <%= t ".invited_you_to_join_a_meeting", invited_by: @user.invited_by.name, application: @user.organization.name %>
+  <%= t ".invited_you_to_join_a_meeting", invited_by: @invited_by.name, application: @user.organization.name %>
 </p>
 
 <p><%= link_to t(".join", meeting_title: translated_attribute(@meeting.title)),routes.meeting_registration_url(meeting_id: @meeting, participatory_space_id: @meeting.feature.participatory_space) %>
