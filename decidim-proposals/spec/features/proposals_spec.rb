@@ -617,7 +617,7 @@ describe "Proposals", type: :feature do
         context "selecting the global scope" do
           it "lists the filtered proposals" do
             within ".filters" do
-              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: true)
+              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: false)
             end
 
             expect(page).to have_css(".card--proposal", count: 1)
@@ -640,7 +640,7 @@ describe "Proposals", type: :feature do
           it "lists the filtered proposals" do
             within ".filters" do
               select2(translated(scope.name), xpath: '//select[@id="filter_scope_id"]/..', search: true)
-              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: true)
+              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: false)
             end
 
             expect(page).to have_css(".card--proposal", count: 3)
