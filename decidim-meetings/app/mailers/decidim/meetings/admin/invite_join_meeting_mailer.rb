@@ -12,6 +12,8 @@ module Decidim
         helper Decidim::ResourceHelper
         helper Decidim::TranslationsHelper
 
+        helper_method :routes
+
         def invite(user, meeting)
           with_user(user) do
             @user = user
@@ -22,6 +24,12 @@ module Decidim
             subject = I18n.t("invite.subject", scope: "decidim.meetings.mailer.invite_join_meeting_mailer")
             mail(to: user.email, subject: subject)
           end
+        end
+
+        private
+
+        def routes
+          @router ||= Decidim::EngineRouter.main_proxy(@meeting.feature)
         end
       end
     end
