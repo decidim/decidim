@@ -242,6 +242,8 @@ it:
         report: rapporto
         spam: Contiene clickbait, pubblicità, truffe o script bots.
         title: Segnala un problema
+      follow_button:
+        sign_in_before_follow: Accedi prima di eseguire questa azione
       login_modal:
         please_sign_in: Per cortesia effettua l'accesso.
         sign_up: Registrazione

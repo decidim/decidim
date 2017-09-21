@@ -242,6 +242,8 @@ eu:
         report: Txostena
         spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
         title: Salatu arazo bat
+      follow_button:
+        sign_in_before_follow: Hasi saioa ekintza hau burutu baino lehen
       login_modal:
         please_sign_in: Mesedez, erregistratu
         sign_up: Erregistratu
