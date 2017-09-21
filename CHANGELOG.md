@@ -10,15 +10,22 @@
 
 - **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
 
+## [v0.6.4](https://github.com/decidim/decidim/tree/v0.6.4) (2017-09-21)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.3...v0.6.4)
+
+**Fixed**
+
+- **decidim-core**: Some AJAX requests were not updating the DOM properly [\#1906](https://github.com/decidim/decidim/pull/1906)
+- **decidim-core**: Fixes proposals filter when filtering by scopes [\#1907](https://github.com/decidim/decidim/pull/1907)
+
 ## [v0.6.3](https://github.com/decidim/decidim/tree/v0.6.3) (2017-09-20)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.2...v0.6.3)
 
 **Fixed**
 
-- **decidim-assemblies**: When visiting the assembly page on a multiple language organization and the URL had the deafult locale as a param, link to the resource itself was not being properly highlighted [\#1892](https://github.com/decidim/decidim/pull/1892)
+- **decidim-assemblies**: When visiting the assembly page on a multiple language organization and the URL had the default locale as a param, link to the resource itself was not being properly highlighted [\#1892](https://github.com/decidim/decidim/pull/1892)
 - **decidim-core**: On certain cases, authorizations controller was trying to redirect to an unexisting path. Fixed now. [\#1882](https://github.com/decidim/decidim/pull/1882)
 - **decidim-participatory-processes**: When visiting the process page on a multiple language organization and the URL had the deafult locale as a param, link to the resource itself was not being properly highlighted [\#1892](https://github.com/decidim/decidim/pull/1892)
-- **decidim-proposals**: Fixes proposals filter when filtering by scopes [\#1907](https://github.com/decidim/decidim/pull/1907)
 
 ## [v0.6.2](https://github.com/decidim/decidim/tree/v0.6.2) (2017-09-19)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.1...v0.6.2)
