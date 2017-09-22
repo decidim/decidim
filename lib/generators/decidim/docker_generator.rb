@@ -23,7 +23,9 @@ module Decidim
       end
 
       def create_rails_app
-        Decidim::Generators::AppGenerator.start([docker_app_path, "--demo"])
+        Decidim::Generators::AppGenerator.start(
+          [docker_app_path, "--path", "..", "--demo"]
+        )
       end
 
       def build_docker
