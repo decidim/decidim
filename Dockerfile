@@ -60,6 +60,5 @@ ADD package-lock.json /tmp/package-lock.json
 
 RUN cd /tmp && bundle install && npm i
 
-RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 ADD . $APP_HOME
