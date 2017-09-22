@@ -34,7 +34,7 @@ module Decidim
                     'gem "decidim\1", path: "/decidim"'
 
           run "docker-compose build"
-          run "docker-compose run --rm app rails db:drop db:create db:migrate db:setup"
+          run "docker-compose run --rm app rails db:drop db:create db:migrate db:seed"
         end
       end
 
