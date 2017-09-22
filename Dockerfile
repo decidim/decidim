@@ -55,10 +55,12 @@ ADD decidim-surveys/lib/decidim/surveys/version.rb /tmp/decidim-surveys/lib/deci
 ADD decidim-accountability/decidim-accountability.gemspec /tmp/decidim-accountability/decidim-accountability.gemspec
 ADD decidim-accountability/lib/decidim/accountability/version.rb /tmp/decidim-accountability/lib/decidim/accountability/version.rb
 
+RUN cd /tmp && bundle install
+
 ADD package.json /tmp/package.json
 ADD package-lock.json /tmp/package-lock.json
 
-RUN cd /tmp && bundle install && npm i
+RUN cd /tmp && npm i
 
 WORKDIR $APP_HOME
 ADD . ./
