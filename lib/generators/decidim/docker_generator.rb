@@ -12,8 +12,6 @@ module Decidim
       class_option :docker_app_path, type: :string,
                                      desc: "The path to generate the docker app"
 
-      source_root File.expand_path("templates", __dir__)
-
       def source_paths
         [
           File.expand_path("templates", __dir__)
