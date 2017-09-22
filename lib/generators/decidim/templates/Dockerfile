@@ -13,12 +13,12 @@ RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
     apt-get install -y nodejs
 
-ADD Gemfile /tmp/Gemfile
-ADD Gemfile.lock /tmp/Gemfile.lock
+COPY Gemfile /tmp/Gemfile
+COPY Gemfile.lock /tmp/Gemfile.lock
 RUN cd /tmp && bundle install
 
 WORKDIR $APP_HOME
-ADD . ./
+COPY . ./
 
 RUN bundle exec rake DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname assets:precompile
 
