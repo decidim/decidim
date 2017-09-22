@@ -106,10 +106,6 @@ end
 
 desc "Generates a development app based on Docker."
 task :docker_development_app do
-  Dir.chdir(__dir__) do
-    sh "rm -fR docker_development_app"
-  end
-
   path = __dir__ + "/docker_development_app"
 
   Bundler.with_clean_env do
