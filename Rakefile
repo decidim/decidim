@@ -24,7 +24,7 @@ task :test_all do
     Dir.chdir(dir) do
       puts "Running #{File.basename(dir)}'s tests..."
       status = system "rake"
-      exit 1 unless status || ENV["FAIL_FAST"] == "false"
+      abort unless status || ENV["FAIL_FAST"] == "false"
     end
   end
 end
