@@ -18,6 +18,8 @@ module Decidim
                               desc: "The name of the app"
       class_option :recreate_db, type: :boolean, default: false,
                                  desc: "Recreate db after installing decidim"
+      class_option :seed_db, type: :boolean, default: false,
+                             desc: "Seed db after installing decidim"
 
       def bundle_install
         Bundler.with_clean_env { run "bundle install" }
@@ -27,16 +29,16 @@ module Decidim
         route "mount Decidim::Core::Engine => '/'"
       end
 
-      def copy_migrations
-        rails_command "railties:install:migrations"
-        recreate_db if options[:recreate_db]
-      end
-
       def add_seeds
         append_file "db/seeds.rb", <<~RUBY
           # You can remove the 'faker' gem if you don't want Decidim seeds.
           Decidim.seed!
         RUBY
+      end
+
+      def copy_migrations
+        rails_command "railties:install:migrations"
+        recreate_db if options[:recreate_db]
       end
 
       def copy_initializer
@@ -118,7 +120,13 @@ module Decidim
       def recreate_db
         rails_command "db:environment:set db:drop" unless ENV["CI"]
         rails_command "db:create"
-        rails_command "db:migrate"
+
+        if options[:seed_db]
+          rails_command "db:migrate db:seed"
+        else
+          rails_command "db:migrate"
+        end
+
         rails_command "db:test:prepare"
       end
 
