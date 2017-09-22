@@ -243,7 +243,7 @@ es:
         spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
       follow_button:
-        sign_in_before_follow: Inicie sesión antes de realizar esta acción.
+        sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
         please_sign_in: Por favor, regístrate
         sign_up: Regístrate
