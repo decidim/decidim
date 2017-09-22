@@ -20,6 +20,6 @@ RUN cd /tmp && bundle install
 WORKDIR $APP_HOME
 COPY . ./
 
-RUN bundle exec rake DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname assets:precompile
+RUN bundle exec rake assets:precompile
 
 CMD ["bundle", "exec", "rails", "s", "-b0.0.0.0"]
