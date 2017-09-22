@@ -18,7 +18,7 @@ ADD Gemfile.lock /tmp/Gemfile.lock
 RUN cd /tmp && bundle install
 
 WORKDIR $APP_HOME
-ADD . $APP_HOME
+ADD . ./
 
 RUN bundle exec rake DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname assets:precompile
 
