@@ -58,10 +58,10 @@ ADD decidim-accountability/lib/decidim/accountability/version.rb /tmp/decidim-ac
 
 RUN cd /tmp && bundle install
 
-ADD package.json /tmp/package.json
-ADD package-lock.json /tmp/package-lock.json
+COPY package.json /tmp/package.json
+COPY package-lock.json /tmp/package-lock.json
 
 RUN cd /tmp && npm i
 
 WORKDIR $APP_HOME
-ADD . ./
+COPY . ./
