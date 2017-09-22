@@ -22,7 +22,7 @@ module Decidim
                              desc: "Seed db after installing decidim"
 
       def bundle_install
-        Bundler.with_clean_env { run "bundle install" }
+        run "bundle install"
       end
 
       def install

@@ -50,12 +50,12 @@ task :development_app do
     sh "rm -fR development_app", verbose: false
   end
 
-  Decidim::Generators::AppGenerator.start(
-    ["development_app", "--path", "..", "--recreate_db", "--seed_db"]
-  )
+  Bundler.with_clean_env do
+    Decidim::Generators::AppGenerator.start(
+      ["development_app", "--path", "..", "--recreate_db", "--seed_db"]
+    )
 
-  Dir.chdir("#{__dir__}/development_app") do
-    Bundler.with_clean_env do
+    Dir.chdir("#{__dir__}/development_app") do
       sh "bundle exec spring stop", verbose: false
       sh "bundle exec rails generate decidim:demo", verbose: false
     end
@@ -70,9 +70,11 @@ task :docker_development_app do
 
   path = __dir__ + "/docker_development_app"
 
-  Decidim::Generators::DockerGenerator.start(
-    ["docker_development_app", "--path", path]
-  )
+  Bundler.with_clean_env do
+    Decidim::Generators::DockerGenerator.start(
+      ["docker_development_app", "--path", path]
+    )
+  end
 end
 
 desc "Build webpack bundle files"
