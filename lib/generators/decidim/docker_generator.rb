@@ -33,8 +33,8 @@ module Decidim
         template "Dockerfile.dev", "#{path}/Dockerfile"
         inside(path) do
           gsub_file "Gemfile",
-                    /gem "decidim(.*)"/,
-                    'gem "decidim", path: "/decidim"'
+                    /gem "decidim([^"]*)".*/,
+                    'gem "decidim\1", path: "/decidim"'
 
           run "docker-compose build"
           run "docker-compose run --rm app rails db:drop db:create db:migrate db:setup"
