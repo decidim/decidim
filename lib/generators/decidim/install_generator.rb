@@ -37,7 +37,6 @@ module Decidim
       end
 
       def copy_initializer
-        template "initializer.rb", "config/initializers/decidim.rb"
         template "carrierwave.rb", "config/initializers/carrierwave.rb"
         template "social_share_button.rb", "config/initializers/social_share_button.rb"
       end

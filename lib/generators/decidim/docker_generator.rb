@@ -25,7 +25,7 @@ module Decidim
       end
 
       def create_rails_app
-        Decidim::Generators::AppGenerator.start([path])
+        Decidim::Generators::AppGenerator.start([path, "--demo"])
       end
 
       def build_docker
@@ -36,7 +36,6 @@ module Decidim
                     /gem "decidim(.*)"/,
                     'gem "decidim", path: "/decidim"'
 
-          run "rails generate decidim:demo"
           run "docker-compose build"
           run "docker-compose run --rm app rails db:drop db:create db:migrate db:setup"
         end
