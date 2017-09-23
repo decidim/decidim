@@ -123,12 +123,8 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
       end
     end
 
-    context "when no authorizations are configured" do
+    context "when no authorizations are configured", without_authorizations: true do
       let(:authorizations) { [] }
-
-      before do
-        Decidim.authorization_handlers = []
-      end
 
       it "doesn't list authorizations" do
         click_link user.name

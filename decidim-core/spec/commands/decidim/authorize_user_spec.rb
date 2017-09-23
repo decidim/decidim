@@ -41,14 +41,6 @@ module Decidim
       let(:user) { create(:user) }
       let(:unique_id) { "foo" }
 
-      before do
-        Decidim.authorization_handlers.push(DummyAuthorizationHandler)
-      end
-
-      after do
-        Decidim.authorization_handlers.delete(DummyAuthorizationHandler)
-      end
-
       context "when there's no other authorizations" do
         it "is valid if there's no authorization with the same id" do
           expect { subject.call }.to change { user.authorizations.count }.by(1)
