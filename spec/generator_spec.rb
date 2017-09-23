@@ -11,19 +11,19 @@ describe "Application generation" do
     end
   end
 
-  context "with edge argument" do
+  context "with --edge flag" do
     let(:command) { "bin/decidim --edge tmp/test_app" }
 
     it_behaves_like "a sane generator"
   end
 
-  context "with branch argument" do
+  context "with --branch flag" do
     let(:command) { "bin/decidim --branch master tmp/test_app" }
 
     it_behaves_like "a sane generator"
   end
 
-  context "with path argument" do
+  context "with --path flag" do
     let(:command) { "bin/decidim --path #{File.expand_path("..", __dir__)} tmp/test_app" }
 
     it_behaves_like "a sane generator"
