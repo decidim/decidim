@@ -13,6 +13,12 @@ describe "Application generation" do
     end
   end
 
+  context "without flags" do
+    let(:command) { "bin/decidim #{test_app}" }
+
+    it_behaves_like "a sane generator"
+  end
+
   context "with --edge flag" do
     let(:command) { "bin/decidim --edge #{test_app}" }
 
