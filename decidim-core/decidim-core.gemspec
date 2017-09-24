@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.homepage = ""
   s.summary = "The core of the Decidim framework."
   s.description = "Adds core features so other engines can hook into the framework."
-  s.license = "AGPLv3"
+  s.license = "AGPL-3.0"
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
