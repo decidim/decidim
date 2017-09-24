@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", *Decidim.rails_version
   s.add_dependency "graphql", "~> 1.6.0"
   s.add_dependency "graphiql-rails", "~> 1.4.2"
   s.add_dependency "rack-cors", "~> 1.0.1"

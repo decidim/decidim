@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim.version
-  s.add_dependency "rails", *Decidim.rails_version
   s.add_dependency "jquery-rails", "~> 4.0"
 
   s.add_development_dependency "decidim-dev", Decidim.version
