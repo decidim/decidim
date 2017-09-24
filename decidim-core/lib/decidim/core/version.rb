@@ -13,13 +13,4 @@ module Decidim
   def self.faker_version
     "~> 1.8.4"
   end
-
-  def self.add_default_gemspec_properties(spec)
-    spec.version = Decidim.version
-    spec.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
-    spec.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
-    spec.license = "AGPL-3.0"
-    spec.homepage = "https://github.com/decidim/decidim"
-    spec.required_ruby_version = ">= 2.3.1"
-  end
 end

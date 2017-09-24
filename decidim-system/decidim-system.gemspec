@@ -7,7 +7,12 @@ require_relative "../decidim-core/lib/decidim/core/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  Decidim.add_default_gemspec_properties(s)
+  s.version = Decidim.version
+  s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
+  s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
+  s.license = "AGPL-3.0"
+  s.homepage = "https://github.com/decidim/decidim"
+  s.required_ruby_version = ">= 2.3.1"
 
   s.name = "decidim-system"
   s.summary = "System administration"
