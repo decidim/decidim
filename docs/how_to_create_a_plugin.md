@@ -15,10 +15,10 @@
 
     $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-    require_relative "../decidim-core/lib/decidim/core/version"
+    require "decidim/<engine_name>/version"
 
     Gem::Specification.new do |s|
-      s.version = Decidim.version
+      s.version = Decidim::<EngineName>.version
       s.authors = ["Your Name"]
       s.email = ["your_eamail@example.org"]
       s.license = "AGPL-3.0"
@@ -65,8 +65,6 @@
     require "decidim/<engine_name>/engine"
     require "decidim/<engine_name>/feature"
     ```
-
-1. Remove `lib/decidim/<engine_name>/version.rb`.
 
 1. Remove `lib/tasks/decidim/<engine_name>_tasks.rb`.
 
