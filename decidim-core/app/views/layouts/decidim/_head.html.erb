@@ -22,4 +22,4 @@
 <%= javascript_include_tag 'application' %>
 
 <%= render partial: 'layouts/decidim/head_extra' %>
-<%== current_organization.header_snippets %>
+<%== current_organization.header_snippets if Decidim.enable_html_header_snippets %>
