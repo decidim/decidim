@@ -267,6 +267,8 @@ fr:
         hello: Bonjour %{email},
         ignore: |-
           Si vous ne souhaitez pas accepter l'invitation, ignorez cet email.<br /> Votre compte ne sera créé qu'après avoir cliqué sur le lien ci-dessus et défini votre mot de passe.
+        invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez l'accepter par le lien ci-dessous."
+        someone_invited_you: Quelqu'un vous a invité à %{application}. Vous pouvez l'accepter par le lien ci-dessous.
         you_are_now_admin: Vous êtes maintenant un administrateur
       invite_admin:
         subject: Vous avez été invité à gérer %{organization}
