@@ -80,7 +80,10 @@ $ npm install
 You have several rake tasks available for you:
 
 * `bundle exec rake development_app`: Creates a development app which you can use to run an application with the gems in your path.
-* `bundle exec rake test_all`: Generates a test app for every engine and runs their tests.
+* `bundle exec rake decidim:generate_test_app`: Generates a dummy application
+  to be used for testing.
+* `bundle exec rake test_all`: Runs the tests of every engine using the dummy
+  application
 
 #### Browse Decidim
 
