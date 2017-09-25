@@ -17,7 +17,6 @@ require "decidim/pages"
 require "decidim/comments"
 require "decidim/meetings"
 require "decidim/proposals"
-require "decidim/results"
 require "decidim/budgets"
 require "decidim/surveys"
 

@@ -28,5 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "decidim-participatory_processes", Decidim.version
   s.add_development_dependency "decidim-assemblies", Decidim.version
   s.add_development_dependency "decidim-proposals", Decidim.version
-  s.add_development_dependency "decidim-results", Decidim.version
+  # s.add_development_dependency "decidim-results", Decidim.version
 end
