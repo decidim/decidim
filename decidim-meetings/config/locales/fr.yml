@@ -44,9 +44,18 @@ fr:
       admin:
         exports:
           registrations: Inscriptions
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} vous a invité à vous joindre à une réunion à %{application}. Vous pouvez l'accepter par le lien ci-dessous."
+            join: Rejoignez la réunion '%{meeting_title}'
         invites:
+          create:
+            error: Il y a eu un problème tout en invitant l'utilisateur à rejoindre la réunion.
+            success: L'utilisateur a réussi à rejoindre la réunion.
           new:
+            explanation: L'utilisateur sera invité à se joindre à une réunion. Si le courrier électronique n'est pas enregistré, ils seront également invités à l'organisation.
             invite: Inviter
+            new_invite: Inviter un utilisateur
         meeting_closes:
           edit:
             close: Clore
@@ -78,6 +87,7 @@ fr:
             save: Sauvegarder
           form:
             available_slots_help: Laissez-le à 0 si le nombre de places disponibles n'est pas limité.
+            invite_user: Inviter un utilisateur
             registrations_count:
               one: Il y a eu 1 inscription.
               other: Il y a eu %{count} inscriptions.
