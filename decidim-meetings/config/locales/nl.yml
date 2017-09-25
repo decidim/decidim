@@ -44,6 +44,18 @@ nl:
       admin:
         exports:
           registrations: registraties
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} heeft je uitgenodigd om deel te nemen aan een vergadering op %{application}. U kunt het accepteren via de onderstaande link."
+            join: Word lid van '%{meeting_title}'
+        invites:
+          create:
+            error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de vergadering.
+            success: Gebruikers succesvol uitgenodigd om deel te nemen aan de vergadering.
+          new:
+            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als de e-mail niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
+            invite: Nodig uit
+            new_invite: Uitnodigen gebruiker
         meeting_closes:
           edit:
             close: Sluit
@@ -75,6 +87,7 @@ nl:
             save: Opslaan
           form:
             available_slots_help: Laat het naar 0 als u onbeperkt beschikbare slots hebt.
+            invite_user: Uitnodigen gebruiker
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
@@ -108,6 +121,9 @@ nl:
           email_subject: De vergadering van de "%{resource_title}" werd bijgewerkt
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering werd bijgewerkt.
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Onderwerpen
         registration_mailer:
           confirmation:
             subject: Registratie van uw vergadering is bevestigd
@@ -172,3 +188,7 @@ nl:
       proposals_from_meeting:
         meeting_proposals: 'Verwante voorstellen:'
         proposal_meetings: 'Verwante vergaderingen:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Onderwerpen
