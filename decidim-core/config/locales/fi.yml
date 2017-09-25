@@ -268,8 +268,6 @@ fi:
         ignore: |-
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomiotta.<br />
           Sinulle ei luoda tiliä, mikäli et seuraa linkkiä ja aseta salasanaasi.
-        invited_you_as_admin: "%{invited_by} on kutsunut sinut %{application} ylläpitäjän roolissa. Voit hyväksyä kutsun alla olevan linkin avulla."
-        someone_invited_you: Joku kutsui sinut liittymään %{application}, voit hyväksyä kutsun alla olevan linkin avulla.
         you_are_now_admin: Olet nyt admin
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
