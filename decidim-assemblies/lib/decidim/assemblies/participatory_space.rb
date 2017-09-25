@@ -9,7 +9,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
-    3.times do
+    2.times do
       assembly = Decidim::Assembly.create!(
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),

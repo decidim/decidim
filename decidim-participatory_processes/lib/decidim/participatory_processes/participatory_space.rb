@@ -10,7 +10,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
     process_groups = []
-    3.times do
+    2.times do
       process_groups << Decidim::ParticipatoryProcessGroup.create!(
         name: Decidim::Faker::Localized.sentence(3),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -21,7 +21,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       )
     end
 
-    3.times do
+    2.times do
       process = Decidim::ParticipatoryProcess.create!(
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),
