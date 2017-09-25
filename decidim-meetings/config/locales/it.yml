@@ -44,6 +44,9 @@ it:
       admin:
         exports:
           registrations: iscrizioni
+        invites:
+          new:
+            invite: Invita
         meeting_closes:
           edit:
             close: Chiudi
@@ -108,6 +111,9 @@ it:
           email_subject: È stato aggiornato l'incontro "%{resource_title}"
           notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Oggetto
         registration_mailer:
           confirmation:
             subject: Registrazione del vostro incontro è stata confermata
@@ -172,3 +178,7 @@ it:
       proposals_from_meeting:
         meeting_proposals: 'Proposte correlate:'
         proposal_meetings: 'Meeting correlati alle proposte:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Oggetto
