@@ -213,21 +213,21 @@ describe "Explore meetings", type: :feature do
       end
     end
 
-    context "with linked results" do
-      let(:result_feature) do
-        create(:feature, manifest_name: :results, participatory_space: meeting.feature.participatory_space)
+    context "with linked resources" do
+      let(:dummy_feature) do
+        create(:feature, manifest_name: :dummy, participatory_space: meeting.feature.participatory_space)
       end
-      let(:results) { create_list(:result, 3, feature: result_feature) }
+      let(:dummy_resources) { create_list(:dummy_resource, 3, feature: dummy_feature) }
 
       before do
-        meeting.link_resources(results, "meetings_through_proposals")
+        meeting.link_resources(dummy_resources, "meetings_through_dummy_resources")
       end
 
-      it "shows related results" do
+      it "shows related resources" do
         visit_feature
         click_link translated(meeting.title)
-        results.each do |result|
-          expect(page).to have_i18n_content(result.title)
+        dummy_resources.each do |dummy_resource|
+          expect(page).to have_i18n_content(dummy_resource.title)
         end
       end
     end

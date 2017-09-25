@@ -161,6 +161,7 @@ en:
         project: Projects
         proposal: Proposals
         result: Results
+        dummyresource: Dummy resources
     follows:
       create:
         button: Follow
