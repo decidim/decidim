@@ -83,8 +83,10 @@ module Decidim
             locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
               string + content_tag(:li, class: tab_element_class_for("title", index)) do
                 title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
+                element_class = nil
+                element_class = "is-tab-error" if form_field_has_error?(options[:object], name_with_locale(name, locale))
                 tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
-                content_tag(:a, title, href: "##{tab_content_id}")
+                content_tag(:a, title, href: "##{tab_content_id}", class: element_class)
               end
             end
           end
@@ -115,6 +117,10 @@ module Decidim
     # Helper method used by `translated_field_tag`
     def name_with_locale(name, locale)
       "#{name}_#{locale.to_s.gsub("-", "__")}"
+    end
+
+    def form_field_has_error?(object, attribute)
+      object.respond_to?(:errors) && object.errors[attribute].present?
     end
   end
 end

@@ -2,7 +2,10 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-## [v0.6.4](https://github.com/decidim/decidim/tree/v0.6.3) (2017-09-21)
+**Fixed**
+- **decidim-surveys**: Questions could be created with missing translations. Errors were not showing on admin form. [\#1918](https://github.com/decidim/decidim/pull/1918)
+
+## [v0.6.4](https://github.com/decidim/decidim/tree/v0.6.4) (2017-09-21)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.3...v0.6.4)
 
 **Fixed**

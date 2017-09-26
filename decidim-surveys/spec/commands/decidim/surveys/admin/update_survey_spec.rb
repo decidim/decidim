@@ -13,6 +13,11 @@ module Decidim
         let(:published_at) { nil }
         let(:form_params) do
           {
+            "title" => {
+              "en" => "Title",
+              "ca" => "Title",
+              "es" => "Title"
+            },
             "description" => {
               "en" => "<p>Content</p>",
               "ca" => "<p>Contingut</p>",
@@ -121,6 +126,16 @@ module Decidim
           context "and the question should be removed" do
             let(:form_params) do
               {
+                "title" => {
+                  "en" => "Title",
+                  "ca" => "Title",
+                  "es" => "Title"
+                },
+                "description" => {
+                  "en" => "<p>Content</p>",
+                  "ca" => "<p>Contingut</p>",
+                  "es" => "<p>Contenido</p>"
+                },
                 "questions" => [
                   {
                     "id" => survey_question.id,
