@@ -38,7 +38,9 @@ describe "Application generation" do
   end
 
   context "development application" do
-    let(:command) { "bundle exec rake development_app" }
+    let(:command) do
+      "bin/decidim --path #{File.expand_path("..", __dir__)} #{test_app} --recreate_db --seed_db"
+    end
 
     it_behaves_like "a sane generator"
   end
