@@ -28,4 +28,12 @@ describe "Application generation" do
       expect(status).to eq(true)
     end
   end
+
+  context "development application" do
+    let(:command) { "rake development_app" }
+
+    it "successfully generates application" do
+      expect(status).to eq(true)
+    end
+  end
 end
