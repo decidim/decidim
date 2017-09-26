@@ -31,7 +31,8 @@ module Decidim
       end
 
       def heading_parent_level_results(count)
-        if text = translated_attribute(template_texts.heading_parent_level_results).presence
+        text = translated_attribute(template_texts.heading_parent_level_results).presence
+        if text
           "#{count} #{text}"
         else
           t("results.count.results_count", scope: "decidim.accountability", count: count)
@@ -39,7 +40,8 @@ module Decidim
       end
 
       def heading_leaf_level_results(count)
-        if text = translated_attribute(template_texts.heading_leaf_level_results).presence
+        text = translated_attribute(template_texts.heading_leaf_level_results).presence
+        if text
           "#{count} #{text}"
         else
           t("results.count.results_count", scope: "decidim.accountability", count: count)

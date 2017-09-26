@@ -26,7 +26,7 @@ describe "Explore results", type: :feature do
     it "shows categories and subcategories with results" do
       participatory_process.categories.each do |category|
         results_count = Decidim::Accountability::ResultsCalculator.new(feature, nil, category.id).count
-        if !category.subcategories.empty? || results_count > 0
+        if !category.subcategories.empty? || results_count.positive?
           expect(page).to have_content(translated(category.name))
         end
       end

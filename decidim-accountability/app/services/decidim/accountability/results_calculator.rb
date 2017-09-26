@@ -19,7 +19,7 @@ module Decidim
         # if there are children return the total number of children results
         # if not return the count of results (they are leafs)
         children = results.sum(:children_count)
-        children > 0 ? children : results.count
+        children.positive? ? children : results.count
       end
 
       private

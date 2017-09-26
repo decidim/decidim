@@ -19,7 +19,8 @@ module Decidim
 
       belongs_to :status, foreign_key: "decidim_accountability_status_id", class_name: "Decidim::Accountability::Status", inverse_of: :results, optional: true
 
-      has_many :timeline_entries, -> { order(:entry_date) }, foreign_key: "decidim_accountability_result_id", class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
+      has_many :timeline_entries, -> { order(:entry_date) }, foreign_key: "decidim_accountability_result_id",
+                                                             class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
 
       before_validation :remove_blank_values
 

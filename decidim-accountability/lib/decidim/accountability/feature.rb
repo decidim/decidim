@@ -61,8 +61,8 @@ Decidim.register_feature(:accountability) do |feature|
           child_result = Decidim::Accountability::Result.create!(
             feature: feature,
             parent: result,
-            start_date: Date.today,
-            end_date: Date.today + 10,
+            start_date: Time.zone.today,
+            end_date: Time.zone.today + 10,
             status: Decidim::Accountability::Status.all.sample,
             progress: rand(1..100),
             title: Decidim::Faker::Localized.sentence(2),
