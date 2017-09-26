@@ -232,7 +232,7 @@ fi:
       embed_modal:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi
-        embed_link: Upotta
+        embed_link: Upota
       flag_modal:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
