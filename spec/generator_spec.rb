@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+require "httparty"
+require "capybara"
+
 describe "Application generation" do
-  let(:status) { Bundler.clean_system(command, out: File::NULL) }
+  let!(:status) { Bundler.clean_system(command, out: File::NULL) }
 
   let(:test_app) { "spec/generator_test_app" }
 
@@ -42,6 +45,31 @@ describe "Application generation" do
       "bin/decidim --path #{File.expand_path("..", __dir__)} #{test_app} --recreate_db --seed_db"
     end
 
-    it_behaves_like "a sane generator"
+    it "generates fine & loads home page successfully" do
+      expect(status).to eq(true)
+
+      Dir.chdir(test_app) do
+        Bundler.with_clean_env do
+          begin
+            pid = fork { exec("bin/rails s -p 3002", out: File::NULL) }
+
+            response = Timeout.timeout(120) do
+              begin
+                HTTParty.get("http://localhost:3002")
+              rescue Errno::ECONNREFUSED
+                sleep 0.1
+                retry
+              end
+            end
+
+            parsed_body = Capybara.string(response.body)
+
+            expect(parsed_body).to have_content("Participate")
+          ensure
+            Process.kill("TERM", pid)
+          end
+        end
+      end
+    end
   end
 end
