@@ -300,6 +300,9 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
+  if Rails.application.secrets.dig(:omniauth, :developer).present?
+    config.omniauth :developer
+  end
   if Rails.application.secrets.dig(:omniauth, :facebook).present?
     config.omniauth :facebook,
                     Rails.application.secrets.omniauth[:facebook][:app_id],
