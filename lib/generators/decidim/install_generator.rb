@@ -36,11 +36,6 @@ module Decidim
         SEEDS_CONTENT
       end
 
-      def copy_migrations
-        rails "railties:install:migrations"
-        recreate_db if options[:recreate_db]
-      end
-
       def copy_initializer
         template "initializer.rb", "config/initializers/decidim.rb"
         template "carrierwave.rb", "config/initializers/carrierwave.rb"
@@ -96,6 +91,11 @@ module Decidim
             |  end
           RUBY
         end
+      end
+
+      def copy_migrations
+        rails "railties:install:migrations"
+        recreate_db if options[:recreate_db]
       end
 
       def letter_opener_web
