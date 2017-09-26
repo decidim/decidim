@@ -8,6 +8,14 @@ module Decidim
       describe SurveyForm do
         let(:current_organization) { create(:organization) }
 
+        let(:title) do
+          {
+            "en" => "Title",
+            "ca" => "Title",
+            "es" => "Title"
+          }
+        end
+
         let(:description) do
           {
             "en" => "<p>Content</p>",
@@ -16,11 +24,13 @@ module Decidim
           }
         end
 
+        let(:body_english) { "First question" }
+
         let(:questions) do
           [
             {
               body: {
-                "en" => "First question",
+                "en" => body_english,
                 "ca" => "Primera pregunta",
                 "es" => "Primera pregunta"
               },
@@ -43,6 +53,7 @@ module Decidim
         let(:attributes) do
           {
             "survey" => {
+              "title" => title,
               "description" => description,
               "questions" => questions
             }
@@ -57,6 +68,12 @@ module Decidim
 
         context "when everything is OK" do
           it { is_expected.to be_valid }
+        end
+
+        context "when a question is not valid" do
+          let(:body_english) { "" }
+
+          it { is_expected.not_to be_valid }
         end
       end
     end

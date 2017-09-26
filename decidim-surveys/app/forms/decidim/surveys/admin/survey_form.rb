@@ -13,6 +13,8 @@ module Decidim
         attribute :published_at, DateTime
 
         attribute :questions, Array[SurveyQuestionForm]
+
+        validates :title, translatable_presence: true
       end
     end
   end
