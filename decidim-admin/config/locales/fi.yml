@@ -315,7 +315,7 @@ fi:
           current_image: Nykyinen kuva
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Lisää kenttä tähän HTML-päähän. Yleisin käyttö on integroida kolmannen osapuolen palveluita, jotka edellyttävät ylimääräistä JavaScript- tai CSS-tekniikkaa. Voit myös käyttää sitä lisäämällä ylimääräisiä metakoodeja HTML-muotoon. Huomaa, että tämä tehdään vain julkisilla sivuilla, ei admin-osiossa.
+          header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
           instagram: Instagram
           social_handlers: Sosiaalinen media
           twitter: Twitter
