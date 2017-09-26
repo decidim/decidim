@@ -19,7 +19,7 @@ fi:
         default_locale: Oletuskieli
         description: Kuvaus
         favicon: Ikoni
-        header_snippets: Yläotsikot
+        header_snippets: Yläosiot
         homepage_image: Kotisivun kuva
         logo: Logo
         name: Nimi
