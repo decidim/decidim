@@ -120,7 +120,7 @@ uk:
           or: Або
     errors:
       internal_server_error:
-        title: Сталася проблема з нашим сервером
+        title: Виникла проблема з нашим сервером
         try_later: Будь ласка, спробуйте ще раз пізніше.
       not_found:
         back_home: Повернутися на головну
