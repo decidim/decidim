@@ -10,7 +10,7 @@ describe "Explore results", type: :feature do
   let!(:scope) { create :scope, organization: organization }
   let!(:results) do
     create_list(
-      :accountability_result,
+      :result,
       results_count,
       feature: feature
     )
@@ -21,7 +21,7 @@ describe "Explore results", type: :feature do
   end
 
   context "home" do
-    let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
+    let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
 
     it "shows categories and subcategories with results" do
       participatory_process.categories.each do |category|
@@ -34,7 +34,7 @@ describe "Explore results", type: :feature do
   end
 
   context "csv" do
-    let(:path) { decidim_participatory_process_accountability.csv_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
+    let(:path) { decidim_participatory_process_accountability.csv_path(participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
 
     it "downloads a csv file" do
       expect(page.status_code).to eq(200)
@@ -42,7 +42,7 @@ describe "Explore results", type: :feature do
   end
 
   context "index" do
-    let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_id: participatory_process.id, feature_id: feature.id) }
+    let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
 
     it "shows all results for the given process and category" do
       expect(page).to have_selector(".card--list__item", count: results_count)
@@ -54,7 +54,7 @@ describe "Explore results", type: :feature do
   end
 
   context "show" do
-    let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_id: participatory_process.id, feature_id: feature.id) }
+    let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
     let(:results_count) { 1 }
     let(:result) { results.first }
 
@@ -159,7 +159,7 @@ describe "Explore results", type: :feature do
 
     context "when filtering" do
       before do
-        create(:accountability_result, feature: feature, scope: scope)
+        create(:result, feature: feature, scope: scope)
         visit_feature
       end
 

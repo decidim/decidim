@@ -4,12 +4,12 @@ require "spec_helper"
 
 describe Decidim::Accountability::ResultStatsCalculator do
   let(:participatory_process) { create(:participatory_process, :with_steps) }
-  let(:current_feature) { create :feature, manifest_name: "accountability", participatory_space: participatory_process }
+  let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
   let(:scope) { create :scope, organization: current_feature.organization }
   let(:parent_category) { create :category, participatory_space: current_feature.participatory_space }
   let!(:result) do
     create(
-      :accountability_result,
+      :result,
       feature: current_feature,
       category: parent_category,
       scope: scope

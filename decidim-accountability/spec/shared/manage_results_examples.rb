@@ -77,7 +77,7 @@ RSpec.shared_examples "manage results" do
   end
 
   context "deleting a result" do
-    let!(:result2) { create(:accountability_result, feature: current_feature) }
+    let!(:result2) { create(:result, feature: current_feature) }
 
     before do
       visit current_path

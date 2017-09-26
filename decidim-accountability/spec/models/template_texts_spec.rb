@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Accountability
     describe TemplateTexts do
-      let(:template_texts) { build :accountability_template_texts }
+      let(:template_texts) { build :template_texts }
       subject { template_texts }
 
       it { is_expected.to be_valid }

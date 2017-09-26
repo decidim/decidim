@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Accountability
     describe Status do
-      let(:status) { build :accountability_status }
+      let(:status) { build :status }
       subject { status }
 
       it { is_expected.to be_valid }

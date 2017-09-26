@@ -87,7 +87,7 @@ describe Decidim::Accountability::Admin::ResultForm do
   end
 
   describe "when external_id is already taken" do
-    let!(:existing_result) { create(:accountability_result, feature: current_feature, external_id: "some_id") }
+    let!(:existing_result) { create(:result, feature: current_feature, external_id: "some_id") }
     let(:external_id) { "some_id" }
 
     it { is_expected.not_to be_valid }
@@ -107,7 +107,7 @@ describe Decidim::Accountability::Admin::ResultForm do
     describe "#map_model" do
       let(:result) do
         create(
-          :accountability_result,
+          :result,
           feature: current_feature,
           scope: scope,
           category: category

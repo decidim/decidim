@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Accountability::ResultSearch do
-  let(:current_feature) { create :feature, manifest_name: "accountability" }
+  let(:current_feature) { create :accountability_feature }
   let(:scope1) { create :scope, organization: current_feature.organization }
   let(:scope2) { create :scope, organization: current_feature.organization }
   let(:participatory_space) { current_feature.participatory_space }
@@ -11,7 +11,7 @@ describe Decidim::Accountability::ResultSearch do
   let(:subcategory) { create :subcategory, parent: parent_category }
   let!(:result1) do
     create(
-      :accountability_result,
+      :result,
       feature: current_feature,
       category: parent_category,
       scope: scope1
@@ -19,7 +19,7 @@ describe Decidim::Accountability::ResultSearch do
   end
   let!(:result2) do
     create(
-      :accountability_result,
+      :result,
       feature: current_feature,
       category: subcategory,
       scope: scope2
@@ -70,7 +70,7 @@ describe Decidim::Accountability::ResultSearch do
       end
 
       context "when `global` is being sent" do
-        let!(:resource_without_scope) { create(:accountability_result, feature: current_feature, scope: nil) }
+        let!(:resource_without_scope) { create(:result, feature: current_feature, scope: nil) }
         let(:params) { default_params.merge(scope_id: ["global"]) }
 
         it "returns resources without a scope" do
