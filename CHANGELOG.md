@@ -12,6 +12,13 @@
 
 - **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
 
+**Fixed**
+- **decidim-assemblies**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+- **decidim-meetings**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+- **decidim-participatory-processes**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+- **decidim-proposals**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+- **decidim-results**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+
 ## [v0.6.4](https://github.com/decidim/decidim/tree/v0.6.4) (2017-09-21)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.3...v0.6.4)
 
