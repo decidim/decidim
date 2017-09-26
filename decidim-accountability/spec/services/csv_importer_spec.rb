@@ -5,13 +5,13 @@ require "spec_helper"
 describe Decidim::Accountability::CSVImporter do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "accountability" }
+  let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
   let!(:scope) { create :scope, organization: organization }
   let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:status_1) { create :accountability_status, feature: current_feature, progress: nil }
-  let!(:status_2) { create :accountability_status, feature: current_feature, progress: 17 }
-  let!(:result) { create :accountability_result, scope: scope, feature: current_feature, id: 123 }
-  let!(:ext_result) { create :accountability_result, scope: scope, feature: current_feature, external_id: "existing_external_id" }
+  let!(:status_1) { create :status, feature: current_feature, progress: nil }
+  let!(:status_2) { create :status, feature: current_feature, progress: 17 }
+  let!(:result) { create :result, scope: scope, feature: current_feature, id: 123 }
+  let!(:ext_result) { create :result, scope: scope, feature: current_feature, external_id: "existing_external_id" }
   let!(:proposal_feature) do
     create(:feature, manifest_name: "proposals", participatory_space: participatory_process)
   end

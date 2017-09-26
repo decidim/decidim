@@ -5,10 +5,10 @@ require "spec_helper"
 describe Decidim::Accountability::Admin::UpdateTimelineEntry do
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, manifest_name: "accountability", participatory_space: participatory_process }
-  let(:result) { create :accountability_result, feature: current_feature }
+  let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
+  let(:result) { create :result, feature: current_feature }
 
-  let(:timeline_entry) { create :accountability_timeline_entry, result: result }
+  let(:timeline_entry) { create :timeline_entry, result: result }
 
   let(:date) { "2017-9-23" }
   let(:description) { "new description" }

@@ -11,7 +11,7 @@ describe Decidim::Accountability::Admin::ResultForm do
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "accountability" }
+  let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
   let(:title) do
     Decidim::Faker::Localized.sentence(3)
   end
@@ -22,11 +22,11 @@ describe Decidim::Accountability::Admin::ResultForm do
   let(:scope_id) { scope.id }
   let(:category) { create :category, participatory_space: participatory_process }
   let(:category_id) { category.id }
-  let(:parent) { create :accountability_result, scope: scope, feature: current_feature }
+  let(:parent) { create :result, scope: scope, feature: current_feature }
   let(:parent_id) { parent.id }
   let(:start_date) { "12/3/2017" }
   let(:end_date) { "21/6/2017" }
-  let(:status) { create :accountability_status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
+  let(:status) { create :status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
   let(:status_id) { status.id }
   let(:progress) { 89 }
   let(:external_id) { "ID_in_other_system" }

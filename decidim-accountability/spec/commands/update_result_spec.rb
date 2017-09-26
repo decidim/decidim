@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Accountability::Admin::UpdateResult do
-  let(:result) { create :accountability_result }
+  let(:result) { create :result }
   let(:organization) { result.feature.organization }
   let(:scope) { create :scope, organization: organization }
   let(:category) { create :category, participatory_space: participatory_process }
@@ -14,7 +14,7 @@ describe Decidim::Accountability::Admin::UpdateResult do
 
   let(:start_date) { Date.yesterday }
   let(:end_date) { Date.tomorrow }
-  let(:status) { create :accountability_status, feature: result.feature, key: "finished", name: { en: "Finished" } }
+  let(:status) { create :status, feature: result.feature, key: "finished", name: { en: "Finished" } }
   let(:progress) { 95 }
   let(:external_id) { "ID_in_other_system" }
 
