@@ -157,11 +157,11 @@ en:
     filters:
       linked_classes:
         all: All
+        dummyresource: Dummy resources
         meeting: Meetings
         project: Projects
         proposal: Proposals
         result: Results
-        dummyresource: Dummy resources
     follows:
       create:
         button: Follow
