@@ -268,8 +268,8 @@ es:
         ignore: |-
           Si no quieres aceptar la invitación ignora este correo.<br />
           Tu cuenta no se creará hasta que accedas al enlance de abajo y escojas tu contraseña.
-        invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}, puedes aceptar a través del siguiente enlace."
-        someone_invited_you: Alguien te ha invitado a %{application}, puedes aceptar la invitación con el enlace a continuación.
+        invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puede aceptarlo a través del siguiente enlace."
+        someone_invited_you: Alguien te ha invitado a %{application}. Puede aceptarlo a través del siguiente enlace.
         you_are_now_admin: Ahora eres un administrador
       invite_admin:
         subject: Has sido invitado para gestionar %{organization}

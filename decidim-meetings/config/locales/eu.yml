@@ -44,6 +44,18 @@ eu:
       admin:
         exports:
           registrations: Izen-emateak
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} gonbidatu zaitu %{application} bileran. Beheko estekan onartu dezakezu."
+            join: Erregistratu bilera '%{meeting_title}'
+        invites:
+          create:
+            error: Arazo bat izan da erabiltzaileak bileran sartzeko gonbita emanda.
+            success: Erabiltzailea behar bezala gonbidatu bilera batera.
+          new:
+            explanation: Erabiltzailea bilera batera gonbidatuko zaizu. Posta elektronikoa ez bada erregistratuta, erakundera gonbidatuko dute.
+            invite: Gonbit egin
+            new_invite: Gonbidatu erabiltzailea
         meeting_closes:
           edit:
             close: Itxi
@@ -75,6 +87,7 @@ eu:
             save: Gorde
           form:
             available_slots_help: Utzi 0 mugak mugagabea badaude.
+            invite_user: Gonbidatu erabiltzailea
             registrations_count:
               one: Izena eman da.
               other: '%{count} matrikulazio izan dira.'
@@ -108,6 +121,9 @@ eu:
           email_subject: '"%{resource_title}" bilera eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera eguneratu da.
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Gaia
         registration_mailer:
           confirmation:
             subject: Zure bileraren erregistroa baieztatu da
@@ -172,3 +188,7 @@ eu:
       proposals_from_meeting:
         meeting_proposals: 'Topaketari dagozkion proposamenak:'
         proposal_meetings: 'Proposamenarekin lotutako topaketak:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Gaia

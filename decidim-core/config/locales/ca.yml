@@ -268,8 +268,8 @@ ca:
         ignore: |-
           Si no vols acceptar la invitació, ignora aquest correu.<br />
           El teu compte no es crearà fins que no accedeixis a l'enllaç de sota i triïs la teva contrasenya.
-        invited_you_as_admin: "%{invited_by} t'ha convidat com un administrador de %{application}, pots acceptar-ho mitjançant el següent enllaç."
-        someone_invited_you: Algú t'ha convidat a %{application}, pots acceptar la invitació amb l'enllaç a continuació.
+        invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
+        someone_invited_you: Algú t'ha convidat a %{application}. Podeu acceptar-lo a través de l'enllaç següent.
         you_are_now_admin: Ara ets administrador
       invite_admin:
         subject: Has estat convidat a gestionar %{organization}

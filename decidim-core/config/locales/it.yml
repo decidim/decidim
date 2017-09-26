@@ -267,8 +267,8 @@ it:
         hello: Ciao %{email},
         ignore: |-
           Se non desideri accettare l'invito, ignora questa email.<br /> Il tuo account non verrà creato finché non accedi al link precedente e imposti la tua password.
-        invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}, puoi accettare l'invito tramite il seguente link."
-        someone_invited_you: Sei stato invitato a %{application}, puoi accettare l'invito tramite il seguente link.
+        invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}. Puoi accettarla tramite il collegamento qui sotto."
+        someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettarla tramite il collegamento qui sotto.
         you_are_now_admin: Ora sei un amministratore
       invite_admin:
         subject: Sei stato invitato per la gestione della sezione relativa all'organizzazione %{organization}
