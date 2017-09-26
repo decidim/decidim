@@ -1,0 +1,10 @@
+result_id,decidim_category_id,decidim_scope_id,parent_id,external_id,parent_external_id,start_date,end_date,decidim_accountability_status_id,progress,proposal_ids,title_ca,title_es,title_en,description_ca,description_es,description_en
+123,1,1,,ext_id_1,,40/05/2017,30/13/2017,1,80,Salari bàsic de referència,Salario básico de referencia,Basic reference salary,Description in Catalan,Description in Spanish,Description in English
+,,,123,ext_id_2,20/06/2017,30/7/2017,1,10,Child title in Catalan,Child title in Spanish,Child title in English,Description in Catalan,Description in Spanish,Description in English
+,1,1,,ext_id_3,,20/06/2017,30/7/2017,1,10,,Title in Catalan,Title in Spanish,Title in English,Description in Catalan,Description in Spanish,Description in English
+,,,234,ext_id_4,,20/06/2017,30/7/2017,1,10,,Title in Catalan,Title in Spanish,Title in English,Description in Catalan,Description in Spanish,Description in English
+,1,1,,ext_id_5,,20/06/2017,30/7/2017,9,10,,Title in Catalan,Title in Spanish,Title in English,Description in Catalan,Description in Spanish,Description in English
+,7,1,,ext_id_6,,20/06/2017,30/7/2017,1,10,,Title in Catalan,Title in Spanish,Title in English,Description in Catalan,Description in Spanish,Description in English
+,1,9,,ext_id_7,,20/06/2017,30/7/2017,1,10,,Title in Catalan,Title in Spanish,Title in English,Description in Catalan,Description in Spanish,Description in English
+1111,1,1,,ext_id_1,,20/05/2017,30/6/2017,2,80,,Salari bàsic de referència,Salario básico de referencia,Descrition in catalan,Description in spanish
+123,1,1,,existing_external_id,,1/6/2018,10/7/2018,1,10,,Dup Title in Catalan,Dup Title in Spanish,Dup Title in English,Description in Catalan,Description in Spanish,Description in English

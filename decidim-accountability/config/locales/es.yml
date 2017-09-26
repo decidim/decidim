@@ -1,0 +1,190 @@
+---
+es:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Estado
+        decidim_category_id: Categoría
+        decidim_scope_id: Ámbito
+        description: Descripción
+        end_date: Fin
+        external_id: External ID
+        progress: Progreso
+        proposal_ids: Propuestas incluidas
+        start_date: Inicio
+        title: Título
+      status:
+        description: Descripción
+        key: Key
+        name: Nombre
+        progress: Progreso
+      template_texts:
+        categories_label: Nombre para "Categorías"
+        heading_leaf_level_results: Nombre para "Proyectos"
+        heading_parent_level_results: Nombre para "Resultados"
+        intro: Texto de introducción
+        subcategories_label: Nombre para "Subcategorías"
+      timeline_entry:
+        description: Descripción
+        entry_date: Fecha
+    errors:
+      models:
+        result:
+          attributes:
+            end_date:
+              invalid_date: no válida
+            start_date:
+              invalid_date: no válida
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: "¿Está seguro de que quiere eliminar este %{name}?"
+        destroy: Borrar
+        edit: Editar
+        new: Nuevo/a %{name}
+        preview: Previsualizar
+        timeline_entries: Evolución del proyecto
+        title: Acciones
+      admin:
+        imports:
+          create:
+            invalid: Ha habido un problema al importar este fichero
+            not_found: No se ha encontrado ningún resultado con result_id %{result_id}
+            success: El fichero ha sido importado correctamente
+          new:
+            errors: Errores
+            import: Importar
+            row_number: Fila
+            title: Importar resultados desde CSV
+        models:
+          result:
+            name: Resultado
+          status:
+            name: Estado
+          timeline_entry:
+            name: Evolución del proyecto
+        results:
+          create:
+            invalid: Ha habido un problema al crear este resultado
+            success: El resultado ha sido creado correctamente
+          destroy:
+            success: El resultado se ha eliminado correctamente
+          edit:
+            title: Editar resultado
+            update: Actualizar resultado
+          index:
+            title: Resultados
+          new:
+            create: Crear resultado
+            title: Nuevo resultado
+          update:
+            invalid: Ha habido un problema al actualizar este resultado
+            success: El resultado ha actualizado correctamente
+        shared:
+          subnav:
+            import_csv: Import CSV
+            statuses: Estados
+            template_texts: Portada
+        statuses:
+          create:
+            invalid: Ha habido un problema al crear este estado
+            success: El estado ha sido creado correctamente
+          destroy:
+            success: El estado se ha eliminado correctamente
+          edit:
+            title: Editar estado
+            update: Actualizar estado
+          index:
+            title: Estados
+          new:
+            create: Crear estado
+            title: Nuevo estado
+          update:
+            invalid: Ha habido un problema al actualizar este estado
+            success: El estado ha actualizado correctamente
+        template_texts:
+          edit:
+            title: Actualizar textos
+            update: Actualizar textos
+          form:
+            title: Actualizar textos
+          update:
+            invalid: Ha habido un problema al actualizar los textos
+            success: Los textos se han actualizado correctamente
+        timeline_entries:
+          create:
+            invalid: Ha habido un problema al crear este elemento
+            success: El elemento ha sido creado correctamente
+          destroy:
+            success: El elemento se ha eliminado correctamente
+          edit:
+            title: Editar elemento
+            update: Actualizar elemento
+          index:
+            title: Evolución del proyecto
+          new:
+            create: Crear elemento
+            title: Nuevo elemento
+          update:
+            invalid: Ha habido un problema al actualizar este elemento
+            success: El elemento ha actualizado correctamente
+      models:
+        result:
+          fields:
+            end_date: Fin
+            progress: Progreso
+            start_date: Inicio
+            status: Estado
+            title: Título
+        status:
+          fields:
+            description: Descripción
+            key: Key
+            name: Nombre
+            progress: Progreso
+        timeline_entry:
+          fields:
+            description: Descripción
+            entry_date: Fecha
+      results:
+        count:
+          results_count:
+            one: 1 resultado
+            other: "%{count} resultados"
+        filters:
+          all: Todos
+          global: Global
+          scopes: Ámbitos
+        home:
+          categories_label: Categorías
+          subcategories_label: Subcategorías
+        home_header:
+          csv_download: Descargar datos en CSV
+          global_status: Estado de ejecución global
+        nav_breadcrumb:
+          global: Ejecución global
+        search:
+          search: Buscar actuaciones
+        show:
+          stats:
+            attendees: Asistentes
+            comments: Comentarios
+            contributions: Aportes
+            meetings: Lista de encuentros
+            proposals: Propuestas
+            votes: Soportes
+        timeline:
+          title: Evolución del proyecto
+    features:
+      accountability:
+        name: Seguimiento
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+          step:
+            comments_blocked: Comentarios bloqueados
+    resource_links:
+      included_proposals:
+        result_proposals: Propuestas incluidas en este resultado
+      meetings_through_proposals:
+        result_meetings: Encuentros relacionados

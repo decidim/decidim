@@ -1,0 +1,190 @@
+---
+ca:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Estat
+        decidim_category_id: Categoria
+        decidim_scope_id: Àmbit
+        description: Descripció
+        end_date: Fi
+        external_id: External ID
+        progress: Progrés
+        proposal_ids: Propostes incloses
+        start_date: Inici
+        title: Títol
+      status:
+        description: Descripció
+        key: Key
+        name: Nom
+        progress: Progrés
+      template_texts:
+        categories_label: Nom per "Categories"
+        heading_leaf_level_results: Nom per "Projectes"
+        heading_parent_level_results: Nom per "Resultats"
+        intro: Text d'introducció
+        subcategories_label: Nom per "Subcategories"
+      timeline_entry:
+        description: Descripció
+        entry_date: Data
+    errors:
+      models:
+        result:
+          attributes:
+            end_date:
+              invalid_date: no vàlida
+            start_date:
+              invalid_date: no vàlida
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Estàs segur que vols suprimir aquest %{name}?
+        destroy: Esborra
+        edit: Edita
+        new: Nou/va %{name}
+        preview: Previsualitzar
+        timeline_entries: Evolució del projecte
+        title: Accions
+      admin:
+        imports:
+          create:
+            invalid: Hi ha hagut un problema en importar aquest fitxer
+            not_found: No s'ha trobat un resultat amb result_id %{result_id}
+            success: El fitxer ha estat importat correctament
+          new:
+            errors: Errors
+            import: Import
+            row_number: Fila
+            title: Importar resultats des de CSV
+        models:
+          result:
+            name: Resultat
+          status:
+            name: Estat
+          timeline_entry:
+            name: Element
+        results:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest resultat
+            success: El resultat ha estat creat correctament
+          destroy:
+            success: El resultat ha estat eliminat correctament
+          edit:
+            title: Edita resultat
+            update: Actualitza resultat
+          index:
+            title: Resultats
+          new:
+            create: Crea resultat
+            title: Nou resultat
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquest resultat
+            success: El resultat ha estat actualitzat correctament
+        shared:
+          subnav:
+            import_csv: Importa CSV
+            statuses: Estats
+            template_texts: Portada
+        statuses:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest estat
+            success: El estat ha estat creat correctament
+          destroy:
+            success: El estat ha estat eliminat correctament
+          edit:
+            title: Edita estat
+            update: Actualitza estat
+          index:
+            title: Estats
+          new:
+            create: Crea estat
+            title: Nou estat
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquest estat
+            success: El estat ha estat actualitzat correctament
+        template_texts:
+          edit:
+            title: Actualitza texts
+            update: Actualitza texts
+          form:
+            title: Actualitza texts
+          update:
+            invalid: Hi ha hagut un problema en actualitzar les texts
+            success: Texts ha estat actualitzat correctament
+        timeline_entries:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest element
+            success: El element ha estat creat correctament
+          destroy:
+            success: El element ha estat eliminat correctament
+          edit:
+            title: Edita element
+            update: Actualitza element
+          index:
+            title: Evolució del projecte
+          new:
+            create: Crea element
+            title: Nou element
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquest element
+            success: El element ha estat actualitzat correctament
+      models:
+        result:
+          fields:
+            end_date: Fi
+            progress: Progrés
+            start_date: Inici
+            status: Estat
+            title: Títol
+        status:
+          fields:
+            description: Descripció
+            key: Key
+            name: Nom
+            progress: Progrés
+        timeline_entry:
+          fields:
+            description: Descripció
+            entry_date: Data
+      results:
+        count:
+          results_count:
+            one: 1 resultat
+            other: "%{count} resultats"
+        filters:
+          all: Tots
+          global: Global
+          scopes: Àmbits
+        home:
+          categories_label: Categories
+          subcategories_label: Subcategories
+        home_header:
+          csv_download: Descarregar dades en CSV
+          global_status: Estat d'execució global
+        nav_breadcrumb:
+          global: Execució global
+        search:
+          search: Cerca actuacions
+        show:
+          stats:
+            attendees: Assistents
+            comments: Comentaris
+            contributions: Aportacions
+            meetings: Trobades
+            proposals: Propostes
+            votes: Suports
+        timeline:
+          title: Evolució del projecte
+    features:
+      accountability:
+        name: Seguiment
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+          step:
+            comments_blocked: Comentaris bloquejats
+    resource_links:
+      included_proposals:
+        result_proposals: Propostes incloses en aquest resultat
+      meetings_through_proposals:
+        result_meetings: Trobades relacionades

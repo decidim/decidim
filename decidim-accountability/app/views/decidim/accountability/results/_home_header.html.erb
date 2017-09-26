@@ -1,0 +1,24 @@
+<div class="intro section">
+  <div class="row">
+    <div class="small-12 medium-7 columns">
+      <%== translated_attribute template_texts.intro %>
+    </div>
+
+    <div class="small-12 medium-5 columns">
+      <div class="progress-level">
+        <p><%= t(".global_status") %></p>
+
+        <div class="progress">
+          <div class="progress-meter" style="width:<%= progress_calculator(current_scope, nil) %>%"></div>
+        </div>
+
+        <div class="progress-figure">
+          <%= display_percentage progress_calculator(current_scope, nil) %>
+        </div>
+
+        <%= link_to t(".csv_download"), csv_path %>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     decidim (0.7.0.pre.pre)
+      decidim-accountability (= 0.7.0.pre.pre)
       decidim-admin (= 0.7.0.pre.pre)
       decidim-api (= 0.7.0.pre.pre)
       decidim-assemblies (= 0.7.0.pre.pre)
@@ -14,6 +15,9 @@ PATH
       decidim-proposals (= 0.7.0.pre.pre)
       decidim-surveys (= 0.7.0.pre.pre)
       decidim-system (= 0.7.0.pre.pre)
+    decidim-accountability (0.7.0.pre.pre)
+      decidim-comments (= 0.7.0.pre.pre)
+      decidim-core (= 0.7.0.pre.pre)
     decidim-admin (0.7.0.pre.pre)
       active_link_to (~> 1.0.0)
       decidim-core (= 0.7.0.pre.pre)
