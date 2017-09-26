@@ -1271,5 +1271,5 @@ Metrics/BlockLength:
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'
     - 'decidim-*/lib/**/*/participatory_space.rb'
-    - 'decidim-*/spec/**/*.rb'
+    - '**/spec/**/*.rb'
     - '**/*.gemspec'

@@ -27,6 +27,8 @@ module Capybara
         drop_container = ".select2-dropdown"
       end
 
+      expect(page).not_to have_content("Searching...")
+
       [value].flatten.each do |val|
         find(:xpath, "//body").find("#{drop_container} li.select2-results__option", text: val).click
       end

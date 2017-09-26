@@ -44,6 +44,18 @@ fi:
       admin:
         exports:
           registrations: rekisteröinnit
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut tapaamaan kokousta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
+            join: Liity kokoukseen "%{meeting_title}"
+        invites:
+          create:
+            error: Ongelmana on, että käyttäjä kutsuu sinut mukaan kokoukseen.
+            success: Käyttäjä onnistui kutsumaan kokoukseen.
+          new:
+            explanation: Käyttäjä kutsutaan mukaan kokoukseen. Jos sähköposti ei ole rekisteröity, ne kutsutaan myös organisaatioon.
+            invite: Kutsu
+            new_invite: Kutsu käyttäjä
         meeting_closes:
           edit:
             close: Lopeta
@@ -75,6 +87,7 @@ fi:
             save: Tallenna
           form:
             available_slots_help: Jätä se arvoon 0, jos sinulla on rajoittamaton lähtö.
+            invite_user: Kutsu käyttäjä
             registrations_count:
               one: Rekisteröityä on ollut 1.
               other: On ollut %{count} rekisteröintiä.
@@ -108,6 +121,9 @@ fi:
           email_subject: '”%{resource_title}” Kokous päivitettiin'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous päivitettiin.
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Otsikko
         registration_mailer:
           confirmation:
             subject: Sinun Kokous rekisteröinti on vahvistettu
@@ -172,3 +188,7 @@ fi:
       proposals_from_meeting:
         meeting_proposals: 'Liittyvät ehdotukset:'
         proposal_meetings: 'Liittyvät tapaamiset:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Otsikko

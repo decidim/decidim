@@ -243,6 +243,8 @@ en:
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report a problem
+      follow_button:
+        sign_in_before_follow: Please sign in before performing this action
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up
@@ -267,9 +269,9 @@ en:
         ignore: |-
           If you don't want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your password.
-        invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}, you can accept it through the link below."
-        someone_invited_you: Someone has invited you to %{application}, you can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
+        invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
+        someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
       invite_admin:
         subject: You've been invited to manage %{organization}
       invite_collaborator:

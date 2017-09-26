@@ -9,10 +9,21 @@ module Decidim
         let!(:survey) { create(:survey) }
         let!(:position) { 0 }
         let!(:question_type) { SurveyQuestion::TYPES.first }
-        let!(:survey_question) { build(:survey_question, survey: survey, position: position, question_type: question_type) }
+        let!(:organization) { create :organization }
+        let(:deleted) { "false" }
+        let(:attributes) do
+          {
+            body_en: "Body en",
+            body_ca: "Body ca",
+            body_es: "Body es",
+            question_type: question_type,
+            position: position,
+            deleted: deleted
+          }
+        end
 
         subject do
-          described_class.from_model(survey_question).with_context(current_feature: survey.feature)
+          described_class.from_params(attributes).with_context(current_feature: survey.feature, current_organization: organization)
         end
 
         context "when everything is OK" do
@@ -29,6 +40,24 @@ module Decidim
           let!(:question_type) { "foo" }
 
           it { is_expected.not_to be_valid }
+        end
+
+        context "when the body is missing a locale translation" do
+          before do
+            attributes[:body_en] = ""
+          end
+
+          context "when the question is not deleted" do
+            let(:deleted) { "false" }
+
+            it { is_expected.not_to be_valid }
+          end
+
+          context "when the question is deleted" do
+            let(:deleted) { "true" }
+
+            it { is_expected.to be_valid }
+          end
         end
       end
     end

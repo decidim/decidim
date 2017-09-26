@@ -44,6 +44,18 @@ ca:
       admin:
         exports:
           registrations: Inscripcions
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} t'ha convidat a participar en una reunió a %{application}. Podeu acceptar-lo a través de l'enllaç següent."
+            join: Uniu-vos a la reunió '%{meeting_title}'
+        invites:
+          create:
+            error: Hi ha hagut un problema al convidar l'usuari a unir-se a la reunió.
+            success: L'usuari s'ha convidat correctament a unir-se a la reunió.
+          new:
+            explanation: L'usuari serà convidat a participar en una reunió. Si el correu electrònic no està registrat, també se us convidarà a l'organització.
+            invite: Convidar
+            new_invite: Convida l'usuari
         meeting_closes:
           edit:
             close: Tancar
@@ -75,6 +87,7 @@ ca:
             save: Desa
           form:
             available_slots_help: Deixeu-lo a 0 si teniu espais il·limitats disponibles.
+            invite_user: Convida l'usuari
             registrations_count:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
@@ -108,6 +121,9 @@ ca:
           email_subject: La trobada "%{resource_title}" s'ha actualitzat
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Assumpte
         registration_mailer:
           confirmation:
             subject: La teva inscripció a la trobada ha estat confirmada
@@ -172,3 +188,7 @@ ca:
       proposals_from_meeting:
         meeting_proposals: 'Propostes relacionades:'
         proposal_meetings: 'Trobades relacionades:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Assumpte
