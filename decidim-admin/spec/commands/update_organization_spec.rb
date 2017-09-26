@@ -89,7 +89,7 @@ module Decidim
             expect(organization.header_snippets).to_not be_present
           end
 
-          describe 'when header snippets are configured' do
+          describe "when header snippets are configured" do
             before do
               allow(Decidim).to receive(:enable_html_header_snippets).and_return(true)
             end

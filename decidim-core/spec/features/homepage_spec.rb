@@ -46,7 +46,6 @@ describe "Homepage", type: :feature do
           expect(page).to have_selector("meta[data-hello]", visible: false)
         end
       end
-
     end
 
     it "welcomes the user" do
