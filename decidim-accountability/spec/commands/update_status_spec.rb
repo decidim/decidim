@@ -16,7 +16,7 @@ describe Decidim::Accountability::Admin::UpdateStatus do
 
   let(:form) do
     double(
-      :invalid? => invalid,
+      invalid?: invalid,
       key: key,
       name: { en: name },
       description: { en: description },
@@ -38,12 +38,12 @@ describe Decidim::Accountability::Admin::UpdateStatus do
   context "when everything is ok" do
     it "sets the name" do
       subject.call
-      expect(translated status.name).to eq name
+      expect(translated(status.name)).to eq name
     end
 
     it "sets the description" do
       subject.call
-      expect(translated status.description).to eq description
+      expect(translated(status.description)).to eq description
     end
 
     it "sets the key" do
@@ -55,6 +55,5 @@ describe Decidim::Accountability::Admin::UpdateStatus do
       subject.call
       expect(status.progress).to eq progress
     end
-
   end
 end

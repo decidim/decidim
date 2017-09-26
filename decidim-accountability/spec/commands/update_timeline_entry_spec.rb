@@ -15,7 +15,7 @@ describe Decidim::Accountability::Admin::UpdateTimelineEntry do
 
   let(:form) do
     double(
-      :invalid? => invalid,
+      invalid?: invalid,
       entry_date: date,
       description: { en: description }
     )
@@ -35,12 +35,12 @@ describe Decidim::Accountability::Admin::UpdateTimelineEntry do
   context "when everything is ok" do
     it "sets the date" do
       subject.call
-      expect(timeline_entry.entry_date).to eq(Date.new(2017,9,23))
+      expect(timeline_entry.entry_date).to eq(Date.new(2017, 9, 23))
     end
 
     it "sets the description" do
       subject.call
-      expect(translated timeline_entry.description).to eq description
+      expect(translated(timeline_entry.description)).to eq description
     end
   end
 end

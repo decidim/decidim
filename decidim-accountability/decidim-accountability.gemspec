@@ -9,8 +9,8 @@ require_relative "../decidim-core/lib/decidim/core/version"
 Gem::Specification.new do |s|
   Decidim.add_default_gemspec_properties(s)
 
-  s.name        = "decidim-accountability"
-  s.summary     = "An accountability component for decidim's participatory processes."
+  s.name = "decidim-accountability"
+  s.summary = "An accountability component for decidim's participatory processes."
   s.description = s.summary
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]

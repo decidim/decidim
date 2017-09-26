@@ -14,11 +14,11 @@ describe Decidim::Accountability::Admin::CreateStatus do
 
   let(:form) do
     double(
-      :invalid? => invalid,
+      invalid?: invalid,
       current_feature: current_feature,
       key: key,
-      name: {en: name},
-      description: {en: description},
+      name: { en: name },
+      description: { en: description },
       progress: progress
     )
   end
@@ -43,12 +43,12 @@ describe Decidim::Accountability::Admin::CreateStatus do
 
     it "sets the name" do
       subject.call
-      expect(translated status.name).to eq name
+      expect(translated(status.name)).to eq name
     end
 
     it "sets the description" do
       subject.call
-      expect(translated status.description).to eq description
+      expect(translated(status.description)).to eq description
     end
 
     it "sets the key" do
@@ -60,6 +60,5 @@ describe Decidim::Accountability::Admin::CreateStatus do
       subject.call
       expect(status.progress).to eq progress
     end
-
   end
 end

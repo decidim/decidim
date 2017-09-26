@@ -9,8 +9,7 @@ module Decidim
 
       helper_method :results, :result, :stats_calculator, :first_class_categories, :category, :progress_calculator, :count_calculator, :current_scope, :template_texts
 
-      def home
-      end
+      def home; end
 
       def csv
         send_data CSVExporter.new(current_feature).export, filename: "results.csv", disposition: "attachment"

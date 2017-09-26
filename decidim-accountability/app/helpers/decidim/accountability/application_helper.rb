@@ -9,7 +9,7 @@ module Decidim
       include Decidim::Comments::CommentsHelper
 
       def display_percentage(number)
-        return unless number.present?
+        return if number.blank?
 
         number_to_percentage(number, precision: 1, strip_insignificant_zeros: true, locale: I18n.locale)
       end
@@ -19,7 +19,7 @@ module Decidim
       end
 
       def active_class_if_current(scope)
-        %Q{class=active} if scope.to_s == current_scope.to_s
+        %(class=active) if scope.to_s == current_scope.to_s
       end
 
       def categories_label

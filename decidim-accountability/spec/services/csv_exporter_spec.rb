@@ -9,30 +9,32 @@ describe Decidim::Accountability::CSVExporter do
   let!(:scope) { create :scope, organization: organization }
   let!(:category) { create :category, participatory_space: participatory_process }
   let!(:status) { create :status, feature: current_feature, progress: 17 }
-  let!(:result_1) { create :result,
-    scope: scope,
-    category: category,
-    feature: current_feature,
-    id: 1,
-    external_id: "extid_1",
-    start_date: Date.new(2017,6,10),
-    end_date: Date.new(2017,9,30),
-    status: status,
-    progress: 25,
-    title: { "ca" => "Title ca", "es" => "Title es", "en" => "Title en" },
-    description: { "ca" => "Desc ca", "es" => "Desc es", "en" => "Desc en" }
-  }
-  let!(:result_2) { create :result,
-    feature: current_feature,
-    id: 2,
-    external_id: "extid_2",
-    start_date: Date.new(2017,8,16),
-    end_date: Date.new(2017,10,20),
-    status: status,
-    progress: 29,
-    title: { "ca" => "Title ca", "es" => "Title es", "en" => "Title en" },
-    description: { "ca" => "Desc ca", "es" => "Desc es", "en" => "Desc en" }
-  }
+  let!(:result_1) do
+    create :result,
+           scope: scope,
+           category: category,
+           feature: current_feature,
+           id: 1,
+           external_id: "extid_1",
+           start_date: Date.new(2017, 6, 10),
+           end_date: Date.new(2017, 9, 30),
+           status: status,
+           progress: 25,
+           title: { "ca" => "Title ca", "es" => "Title es", "en" => "Title en" },
+           description: { "ca" => "Desc ca", "es" => "Desc es", "en" => "Desc en" }
+  end
+  let!(:result_2) do
+    create :result,
+           feature: current_feature,
+           id: 2,
+           external_id: "extid_2",
+           start_date: Date.new(2017, 8, 16),
+           end_date: Date.new(2017, 10, 20),
+           status: status,
+           progress: 29,
+           title: { "ca" => "Title ca", "es" => "Title es", "en" => "Title en" },
+           description: { "ca" => "Desc ca", "es" => "Desc es", "en" => "Desc en" }
+  end
   let!(:proposal_feature) do
     create(:feature, manifest_name: "proposals", participatory_space: participatory_process)
   end

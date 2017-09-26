@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTemplateTexts < ActiveRecord::Migration[5.0]
   def change
     create_table :decidim_accountability_template_texts do |t|

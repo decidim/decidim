@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "csv"
 
 module Decidim
@@ -6,7 +7,6 @@ module Decidim
     # This class handles exporting results to a CSV file.
     # Needs a `current_feature` param with a `Decidim::Feature`
     class CSVExporter
-
       # Public: Initializes the service.
       # feature       - A Decidim::Feature to import the results into.
       def initialize(feature)
@@ -17,18 +17,18 @@ module Decidim
         results = Decidim::Accountability::Result.where(feature: @feature).order(:id)
 
         generated_csv = CSV.generate(headers: true) do |csv|
-          headers = [
-            "result_id",
-            "decidim_category_id",
-            "decidim_scope_id",
-            "parent_id",
-            "external_id",
-            "start_date",
-            "end_date",
-            "decidim_accountability_status_id",
-            "progress",
-            "proposal_ids"
-          ]
+          headers = %w(
+            result_id
+            decidim_category_id
+            decidim_scope_id
+            parent_id
+            external_id
+            start_date
+            end_date
+            decidim_accountability_status_id
+            progress
+            proposal_ids
+          )
 
           available_locales = @feature.participatory_space.organization.available_locales
           available_locales.each do |locale|
@@ -63,7 +63,7 @@ module Decidim
           result.end_date,
           result.decidim_accountability_status_id,
           result.progress,
-          result.linked_resources(:proposals, "included_proposals").pluck(:id).sort.join(";"),
+          result.linked_resources(:proposals, "included_proposals").pluck(:id).sort.join(";")
         ]
         available_locales.each do |locale|
           row << result.title[locale]

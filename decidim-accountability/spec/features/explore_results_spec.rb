@@ -26,8 +26,8 @@ describe "Explore results", type: :feature do
     it "shows categories and subcategories with results" do
       participatory_process.categories.each do |category|
         results_count = Decidim::Accountability::ResultsCalculator.new(feature, nil, category.id).count
-        if category.subcategories.size > 0 || results_count > 0
-          expect(page).to have_content(translated category.name)
+        if !category.subcategories.empty? || results_count > 0
+          expect(page).to have_content(translated(category.name))
         end
       end
     end
@@ -48,7 +48,7 @@ describe "Explore results", type: :feature do
       expect(page).to have_selector(".card--list__item", count: results_count)
 
       results.each do |result|
-        expect(page).to have_content(translated result.title)
+        expect(page).to have_content(translated(result.title))
       end
     end
   end
@@ -97,14 +97,14 @@ describe "Explore results", type: :feature do
       it "shows tags for scope" do
         expect(page).to have_selector("ul.tags.tags--result")
         within "ul.tags.tags--result" do
-          expect(page).to have_content(translated result.scope.name)
+          expect(page).to have_content(translated(result.scope.name))
         end
       end
     end
 
     context "when a proposal has comments" do
       let(:result) { results.first }
-      let(:author) { create(:user, :confirmed, organization: feature.organization)}
+      let(:author) { create(:user, :confirmed, organization: feature.organization) }
       let!(:comments) { create_list(:comment, 3, commentable: result) }
 
       before do

@@ -13,7 +13,7 @@ describe Decidim::Accountability::Admin::CreateTimelineEntry do
 
   let(:form) do
     double(
-      :invalid? => invalid,
+      invalid?: invalid,
       decidim_accountability_result_id: result.id,
       entry_date: date,
       description: { en: description }
@@ -40,12 +40,12 @@ describe Decidim::Accountability::Admin::CreateTimelineEntry do
 
     it "sets the entry date" do
       subject.call
-      expect(timeline_entry.entry_date).to eq(Date.new(2017,8,23))
+      expect(timeline_entry.entry_date).to eq(Date.new(2017, 8, 23))
     end
 
     it "sets the description" do
       subject.call
-      expect(translated timeline_entry.description).to eq description
+      expect(translated(timeline_entry.description)).to eq description
     end
 
     it "sets the result" do

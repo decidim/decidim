@@ -43,11 +43,11 @@ describe Decidim::Accountability::CSVImporter do
         expect(result.scope).to be_present
         expect(result.parent).to_not be_present
         expect(result.external_id).to eq("ext_id_1")
-        expect(result.start_date).to eq(Date.new(2017,5,20))
-        expect(result.end_date).to eq(Date.new(2017,6,30))
-        expect(result.progress).to eq(40) #mean value of children's progress
+        expect(result.start_date).to eq(Date.new(2017, 5, 20))
+        expect(result.end_date).to eq(Date.new(2017, 6, 30))
+        expect(result.progress).to eq(40) # mean value of children's progress
         expect(result.title).to eq("ca" => "Salari bàsic de referència", "es" => "Salario básico de referencia", "en" => "Basic reference salary")
-        expect(result.description).to eq("ca"=>"Description in Catalan", "en"=>"Description in English", "es"=>"Description in English")
+        expect(result.description).to eq("ca" => "Description in Catalan", "en" => "Description in English", "es" => "Description in English")
       end
 
       it "creates new child result" do
@@ -58,11 +58,11 @@ describe Decidim::Accountability::CSVImporter do
         expect(result.scope).to_not be_present
         expect(result.parent).to be_present
         expect(result.parent_id).to eq(123)
-        expect(result.start_date).to eq(Date.new(2017,6,23))
-        expect(result.end_date).to eq(Date.new(2017,7,30))
+        expect(result.start_date).to eq(Date.new(2017, 6, 23))
+        expect(result.end_date).to eq(Date.new(2017, 7, 30))
         expect(result.progress).to eq(40)
-        expect(result.title).to eq("ca"=>"Child title in Catalan", "en"=>"Child title in English", "es"=>"Child title in English")
-        expect(result.description).to eq("ca"=>"Description in Catalan", "en"=>"Description in English", "es"=>"Description in Spanish")
+        expect(result.title).to eq("ca" => "Child title in Catalan", "en" => "Child title in English", "es" => "Child title in English")
+        expect(result.description).to eq("ca" => "Description in Catalan", "en" => "Description in English", "es" => "Description in Spanish")
       end
 
       it "creates new top level result" do
@@ -73,13 +73,13 @@ describe Decidim::Accountability::CSVImporter do
         expect(result.decidim_scope_id).to eq(1)
         expect(result.category).to be_present
         expect(result.category.id).to eq(1)
-        expect(result.start_date).to eq(Date.new(2017,6,23))
-        expect(result.end_date).to eq(Date.new(2017,7,30))
+        expect(result.start_date).to eq(Date.new(2017, 6, 23))
+        expect(result.end_date).to eq(Date.new(2017, 7, 30))
         expect(result.status).to be_present
         expect(result.decidim_accountability_status_id).to eq(1)
-        expect(result.progress).to eq(20) #mean value of children's progress
-        expect(result.title).to eq("ca"=>"Title in Catalan", "en"=>"Title in English", "es"=>"Title in Spanish")
-        expect(result.description).to eq("ca"=>"Description in Catalan", "en"=>"Description in English", "es"=>"Description in Spanish")
+        expect(result.progress).to eq(20) # mean value of children's progress
+        expect(result.title).to eq("ca" => "Title in Catalan", "en" => "Title in English", "es" => "Title in Spanish")
+        expect(result.description).to eq("ca" => "Description in Catalan", "en" => "Description in English", "es" => "Description in Spanish")
       end
 
       it "updates existing result (with external_id)" do
@@ -89,12 +89,12 @@ describe Decidim::Accountability::CSVImporter do
         expect(result.category).to be_present
         expect(result.scope).to be_present
         expect(result.parent).to_not be_present
-        expect(result.start_date).to eq(Date.new(2017,6,28))
-        expect(result.end_date).to eq(Date.new(2017,8,30))
+        expect(result.start_date).to eq(Date.new(2017, 6, 28))
+        expect(result.end_date).to eq(Date.new(2017, 8, 30))
         expect(result.status).to be_present
         expect(result.decidim_accountability_status_id).to eq(2)
         expect(result.progress).to eq(17)
-        expect(result.title).to eq("ca"=>"Existing Title in Catalan", "en"=>"Existing Title in English", "es"=>"Existing Title in Spanish")
+        expect(result.title).to eq("ca" => "Existing Title in Catalan", "en" => "Existing Title in English", "es" => "Existing Title in Spanish")
       end
 
       it "creates new child result with parent_external_id" do
@@ -105,12 +105,12 @@ describe Decidim::Accountability::CSVImporter do
         expect(result.scope).to_not be_present
         expect(result.parent).to be_present
         expect(result.parent.external_id).to eq("ext_id_3")
-        expect(result.start_date).to eq(Date.new(2017,8,28))
-        expect(result.end_date).to eq(Date.new(2017,11,30))
+        expect(result.start_date).to eq(Date.new(2017, 8, 28))
+        expect(result.end_date).to eq(Date.new(2017, 11, 30))
         expect(result.progress).to eq(20)
-        expect(result.title).to eq("ca"=>"Child ext title in Catalan", "en"=>"Child ext title in English", "es"=>"Child ext title in Spanish")
-        expect(result.description).to eq("ca"=>"Description in Catalan", "en"=>"Description in English", "es"=>"Description in Spanish")
-        expect(result.linked_resources(:proposals, "included_proposals").map(&:id).sort).to eq([1,2,4])
+        expect(result.title).to eq("ca" => "Child ext title in Catalan", "en" => "Child ext title in English", "es" => "Child ext title in Spanish")
+        expect(result.description).to eq("ca" => "Description in Catalan", "en" => "Description in English", "es" => "Description in Spanish")
+        expect(result.linked_resources(:proposals, "included_proposals").map(&:id).sort).to eq([1, 2, 4])
       end
     end
 
@@ -120,7 +120,7 @@ describe Decidim::Accountability::CSVImporter do
           csv_file_path = File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "invalid.csv"))
           importer = Decidim::Accountability::CSVImporter.new(current_feature, csv_file_path)
           errors = importer.import!
-        end.to_not change{ Decidim::Accountability::Result.count }
+        end.to_not change { Decidim::Accountability::Result.count }
       end
 
       context "errors" do

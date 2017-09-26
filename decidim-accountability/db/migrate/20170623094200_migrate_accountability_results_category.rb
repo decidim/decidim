@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MigrateAccountabilityResultsCategory < ActiveRecord::Migration[5.1]
   def change
     # Create categorizations ensuring database integrity

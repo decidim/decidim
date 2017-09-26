@@ -27,7 +27,7 @@ describe Decidim::Accountability::Admin::UpdateTemplateTexts do
 
   let(:form) do
     double(
-      :invalid? => invalid,
+      invalid?: invalid,
       intro: intro,
       categories_label: categories_label,
       subcategories_label: subcategories_label,
@@ -50,27 +50,27 @@ describe Decidim::Accountability::Admin::UpdateTemplateTexts do
   context "when everything is ok" do
     it "sets the intro" do
       subject.call
-      expect(translated template_texts.intro).to eq intro[:en]
+      expect(translated(template_texts.intro)).to eq intro[:en]
     end
 
     it "sets the categories_label" do
       subject.call
-      expect(translated template_texts.categories_label).to eq categories_label[:en]
+      expect(translated(template_texts.categories_label)).to eq categories_label[:en]
     end
 
     it "sets the subcategories_label" do
       subject.call
-      expect(translated template_texts.subcategories_label).to eq subcategories_label[:en]
+      expect(translated(template_texts.subcategories_label)).to eq subcategories_label[:en]
     end
 
     it "sets the heading_parent_level_results" do
       subject.call
-      expect(translated template_texts.heading_parent_level_results).to eq heading_parent_level_results[:en]
+      expect(translated(template_texts.heading_parent_level_results)).to eq heading_parent_level_results[:en]
     end
 
     it "sets the heading_leaf_level_results" do
       subject.call
-      expect(translated template_texts.heading_leaf_level_results).to eq heading_leaf_level_results[:en]
+      expect(translated(template_texts.heading_leaf_level_results)).to eq heading_leaf_level_results[:en]
     end
   end
 end

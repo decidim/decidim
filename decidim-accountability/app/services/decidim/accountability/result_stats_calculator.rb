@@ -11,9 +11,7 @@ module Decidim
         @result = result
       end
 
-      def proposals_count
-        proposals.count
-      end
+      delegate :count, to: :proposals, prefix: true
 
       def votes_count
         return 0 unless proposals
@@ -32,9 +30,7 @@ module Decidim
         meetings.where("contributions_count > 0").sum(:contributions_count)
       end
 
-      def meetings_count
-        meetings.count
-      end
+      delegate :count, to: :meetings, prefix: true
 
       private
 

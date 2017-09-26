@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "csv"
 
 module Decidim
@@ -15,7 +16,7 @@ module Decidim
       def initialize(feature, csv_file_path)
         @feature = feature
         @csv_file_path = csv_file_path
-        @extra_context = { current_feature: feature, current_organization: feature.organization}
+        @extra_context = { current_feature: feature, current_organization: feature.organization }
       end
 
       def import!
@@ -31,8 +32,8 @@ module Decidim
             params["result"] = row.to_hash
 
             if row["result_id"].present?
-              existing_result = Decidim::Accountability::Result.find_by(id: row['result_id'].to_i)
-              unless existing_result.present?
+              existing_result = Decidim::Accountability::Result.find_by(id: row["result_id"].to_i)
+              if existing_result.blank?
                 errors << [i, [I18n.t("imports.create.not_found", scope: "decidim.accountability.admin", result_id: row["result_id"])]]
                 next
               end
@@ -81,13 +82,13 @@ module Decidim
             # add form errors now because when calling valid on the form in UpdateResult/CreateResult will clear the errors
             errors << [i, @form.errors.full_messages] if @form.errors.any?
 
-            if existing_result #update existing result
+            if existing_result # update existing result
               Decidim::Accountability::Admin::UpdateResult.call(@form, existing_result) do
                 on(:invalid) do
                   errors << [i, @form.errors.full_messages]
                 end
               end
-            else #create new result
+            else # create new result
               Decidim::Accountability::Admin::CreateResult.call(@form) do
                 on(:invalid) do
                   errors << [i, @form.errors.full_messages]

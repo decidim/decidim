@@ -26,7 +26,7 @@ module Decidim
       after_save :update_parent_progress, if: -> { parent_id.present? }
 
       def update_parent_progress
-        return unless parent.present?
+        return if parent.blank?
 
         parent.update_progress!
       end

@@ -36,7 +36,7 @@ describe Decidim::Accountability::Admin::CreateResult do
   end
   let(:form) do
     double(
-      :invalid? => invalid,
+      invalid?: invalid,
       current_feature: current_feature,
       title: { en: "title" },
       description: { en: "description" },

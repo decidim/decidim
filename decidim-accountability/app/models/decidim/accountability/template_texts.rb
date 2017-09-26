@@ -10,7 +10,7 @@ module Decidim
       feature_manifest_name "accountability"
 
       def self.for(current_feature)
-        self.where(feature: current_feature).first || self.create!(feature: current_feature)
+        where(feature: current_feature).first || create!(feature: current_feature)
       end
     end
   end

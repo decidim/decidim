@@ -38,7 +38,7 @@ module Decidim
             categories_label: @form.categories_label,
             subcategories_label: @form.subcategories_label,
             heading_parent_level_results: @form.heading_parent_level_results,
-            heading_leaf_level_results: @form.heading_leaf_level_results,
+            heading_leaf_level_results: @form.heading_leaf_level_results
           )
         end
       end

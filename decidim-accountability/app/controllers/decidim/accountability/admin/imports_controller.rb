@@ -5,14 +5,13 @@ module Decidim
     module Admin
       # This controller allows an admin to import results from a csv file for the Accountability feature
       class ImportsController < Admin::ApplicationController
-
         def new
           @errors = []
         end
 
         def create
           @csv_file = params[:csv_file]
-          redirect_to new_import_path and return unless @csv_file.present?
+          redirect_to(new_import_path) && return if @csv_file.blank?
 
           i = CSVImporter.new(current_feature, @csv_file.path)
           @errors = i.import!
