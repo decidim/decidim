@@ -4,21 +4,21 @@ fi:
       events:
         comment_created:
           comment:
-            email_intro: Kommentoi "%{resource_title}"
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
-            email_subject: '%{author_name}: ssa on uusi kommentti <a href="%{resource_url}">%{resource_title}</a>'
-            notification_title: '%{author_name}: ssa on uusi kommentti <a href="%{resource_path}">%{resource_title}</a>'
+            email_intro: Uusi kommentti kohteeseen "%{resource_title}"
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seurannan edellisestä linkistä.
+            email_subject: Uusi kommentti henkilöltä %{author_name} kohteeseen <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Uusi kommentti henkilöltä %{author_name} kohteeseen <a href="%{resource_path}">%{resource_title}</a>
           reply:
-            email_intro: Kommentoi "%{resource_title}"
-            email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
-            email_subject: 'Kommenttisi on uusi vastaus %{author_name}: sta <a href="%{resource_url}">%{resource_title}</a>'
-            notification_title: 'Kommenttisi on uusi vastaus %{author_name}: sta <a href="%{resource_path}">%{resource_title}</a>'
+            email_intro: Kohdetta "%{resource_title}" on kommentoitu
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seuraamisen edellisestä linkistä.
+            email_subject: '%{author_name} on vastannut kommenttiisi kohteessa <a href="%{resource_url}">%{resource_title}</a>'
+            notification_title: '%{author_name} on vastannut kommenttiisi kohteessa <a href="%{resource_path}">%{resource_title}</a>'
       votes:
         create:
           error: Äänestettäessä kommenttia tapahtui virhe.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Kirjaudu tilillesi</a> tai <a href="%{sign_up_url}">kirjaudu</a> lisätäksesi kommenttisi.
+        account_message: <a href="%{sign_in_url}">Kirjaudu tilillesi</a> tai <a href="%{sign_up_url}">kirjaudu</a> kommentoidaksesi.
         form:
           body:
             label: Kommentti
@@ -67,4 +67,4 @@ fi:
         title: Esille nostettu kommentti
   errors:
     messages:
-      cannot_have_comments: ei voi poistaa kommentteja
+      cannot_have_comments: ei voi sisältää kommentteja
