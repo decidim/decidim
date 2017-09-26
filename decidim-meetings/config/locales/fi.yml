@@ -39,11 +39,11 @@ fi:
         edit: Muokkaa
         new: Uusi
         preview: Esikatsele
-        registrations: Rekisteröinnit
+        registrations: Ilmoittautumiset
         title: Toiminnot
       admin:
         exports:
-          registrations: Rekisteröinnit
+          registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
           invite:
             invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapaamiseen %{application}. Voit hyväksyä sen alla olevan linkin kautta."
@@ -89,44 +89,44 @@ fi:
             available_slots_help: Merkitse arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invite_user: Kutsu käyttäjä
             registrations_count:
-              one: Rekisteröityä on ollut 1.
-              other: On ollut %{count} rekisteröintiä.
+              one: 1 ilmoittautuminen.
+              other: '%{count} ilmoittautumista.'
           update:
-            invalid: Rekisteröintiasetusten tallentamisessa on ollut ongelma.
-            success: Kokousrekisteröintiasetukset tallennettiin onnistuneesti.
+            invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
+            success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
       events:
         close_meeting_event:
-          email_intro: '”%{resource_title}” Kokous oli suljettu. Voit lukea päätelmät sen sivulla:'
-          email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
-          email_subject: '”%{resource_title}”-Kokous'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous oli suljettu.
+          email_intro: '”%{resource_title}” tapahtuma oli suljettu. Voit lukea yhteenvedon sen sivulla:'
+          email_outro: Olet saanut ilmoituksen, koska seuraat tapahtumaa ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
+          email_subject: '”%{resource_title}”-tapahtuma oli suljettu'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> -tapahtuma oli suljettu.
         meeting_registrations_enabled:
-          email_intro: '”%{resource_title}” Kokous ansiosta rekisteröinnit. Rekisteröit itsesi sivulla:'
-          email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
-          email_subject: '”%{resource_title}” Kokous ansiosta rekisteröinnit.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous ansiosta rekisteröinnit.
+          email_intro: '”%{resource_title}” -tapahtuman ilmoittautumiset ovat sallittuja. Ilmoittaudu tapahtumaan sen sivulla:'
+          email_outro: Olet saanut ilmoituksen, koska seuraat tapahtumaa ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
+          email_subject: '”%{resource_title}” -tapahtuman ilmoittautumiset on sallittu.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> -tapahtuman ilmoittautumiset on sallittu.
         meeting_registrations_over_percentage:
-          email_intro: '”%{resource_title}” Kokous miehitetty lähtö on %{percentage} prosenttia.'
-          email_outro: Olet saanut ilmoituksen, koska olet admin osallistuva kokoustilaa.
-          email_subject: '”%{resource_title}” Kokous käytössä paikat ovat yli %{percentage} %'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous miehitetty lähtö on %{percentage} prosenttia.
+          email_intro: '”%{resource_title}” -tapahtuman varattuja paikkoja on yli %{percentage} prosenttia.'
+          email_outro: Olet saanut ilmoituksen, koska olet tapahtuman tapahtumatilan hallinnoija.
+          email_subject: '”%{resource_title}” -tapahtuman varattuja paikkoja on yli %{percentage} prosenttia'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> -tapahtuman varattuja paikkoja on yli %{percentage} prosenttia.
         upcoming_meeting_event:
-          email_intro: '”%{resource_title}” kokous alkaa alle 48 tuntia.'
-          email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
-          email_subject: '”%{resource_title}” kokous alkaa alle 48 tuntia.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
+          email_intro: '”%{resource_title}” -tapahtuma alkaa alle 48 tunnin kuluttua.'
+          email_outro: Olet saanut ilmoituksen, koska seuraat tapahtumaa ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
+          email_subject: '”%{resource_title}” -tapahtuma alkaa alle 48 tunnin kuluttua.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> -tapahtuma alkaa alle 48 tunnin kuluttua.
         update_meeting_event:
-          email_intro: '”%{resource_title}” Kokous päivitettiin. Voit lukea uuden version sen sivulla:'
-          email_outro: Olet saanut ilmoituksen, koska ”%{resource_title}” kokouksen jälkeen. Voit unfollow edellisen linkin.
-          email_subject: '”%{resource_title}” Kokous päivitettiin'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> Kokous päivitettiin.
+          email_intro: '”%{resource_title}” -tapahtumaa päivitettiin. Voit lukea uuden version tapahtuman sivulta:'
+          email_outro: Olet saanut ilmoituksen, koska seuraat tapahtumaa ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
+          email_subject: '”%{resource_title}” -tapahtumaa päivitettiin'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> -tapahtumaa päivitettiin.
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Otsikko
         registration_mailer:
           confirmation:
-            subject: Sinun Kokous rekisteröinti on vahvistettu
+            subject: Tapahtumailmoittautumisesi on vahvistettu
       meetings:
         filters:
           category: Kategoria
@@ -153,14 +153,14 @@ fi:
         show:
           attendees: Osallistujamäärä
           contributions: Kontribuutioiden määrä
-          going: Going
-          join: Liity kokoukseen
+          going: Osallistumassa
+          join: Liity tapahtumaan
           meeting_report: Tapaamisraportti
-          no_slots_available: Ei aikavälejä
+          no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuneet organisaatiot
           remaining_slots:
-            one: 1 jäljellä oleva paikka
-            other: "%{count} jäljellä olevat paikat"
+            one: 1 paikka jäljellä
+            other: "%{count} paikkaa jäljellä"
       models:
         meeting:
           fields:
@@ -172,15 +172,15 @@ fi:
       read_more: "(lue lisää)"
       registration_mailer:
         confirmation:
-          confirmed_html: Kokous <a href="%{url}">%{title}</a> rekisteröinti on vahvistettu.
-          details: Löydät kokouksen tiedot liitetiedostona.
+          confirmed_html: Ilmoittautumisesi tapahtumaan <a href="%{url}">%{title}</a> on vahvistettu.
+          details: Löydät tapahtuman tiedot liitetiedostona.
       registrations:
         create:
-          invalid: On tapahtunut ongelma, joka liittyy tähän kokoukseen.
-          success: Olet liittynyt kokoukseen onnistuneesti.
+          invalid: Tapahtumaan liittymisessä tapahtui virhe.
+          success: Olet liittynyt tapahtumaan onnistuneesti.
         destroy:
-          invalid: On tapahtunut ongelma, joka jättää tämän kokouksen.
-          success: Olet jättänyt kokouksen onnistuneesti.
+          invalid: Tapahtuman ilmoittautumisen perumisessa on tapahtunut virhe.
+          success: Olet perunut ilmoittautumisesi tapahtumaan onnistuneesti.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Liittyvät tulokset:'
