@@ -6,12 +6,7 @@ require "decidim/admin"
 require "decidim/api"
 
 require "decidim/participatory_processes"
-
-begin
-  require "decidim/assemblies"
-rescue LoadError
-  nil
-end
+require "decidim/assemblies"
 
 require "decidim/pages"
 require "decidim/comments"

@@ -1,5 +1,5 @@
 FROM ruby:2.4.2
-MAINTAINER david.morcillo@codegram.com
+LABEL maintainer="david.morcillo@codegram.com"
 
 ENV APP_HOME /decidim
 

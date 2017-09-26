@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "decidim-proposals", Decidim.version
   spec.add_dependency "decidim-budgets", Decidim.version
   spec.add_dependency "decidim-surveys", Decidim.version
+  spec.add_dependency "decidim-assemblies", Decidim.version
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 12.0.0"
