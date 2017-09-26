@@ -181,7 +181,7 @@ fi:
           published: Julkaistu
         new:
           create: Luo
-          title: Uusi osallistuva prosessi
+          title: Uusi osallistumisprosessi
         update:
           error: Tämän osallistumisprosessin päivityksessä tapahtui virhe.
           success: Osallistumisprosessi päivitetty onnistuneesti.
@@ -214,10 +214,10 @@ fi:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'URL-linkkejä käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
         participatory_processes:
           form:
-            slug_help: 'URL-linkkejä käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
       index:
         title: Osallistumisprosessit
       order_by_processes:
