@@ -89,12 +89,17 @@ module Decidim
             expect(organization.header_snippets).to_not be_present
           end
 
-          it "saves header snippets if configured" do
-            expect(Decidim).to receive(:enable_html_header_snippets).and_return(true)
-            expect { command.call }.to broadcast(:ok)
-            organization.reload
+          describe 'when header snippets are configured' do
+            before do
+              allow(Decidim).to receive(:enable_html_header_snippets).and_return(true)
+            end
 
-            expect(organization.header_snippets).to be_present
+            it "saves header snippets" do
+              expect { command.call }.to broadcast(:ok)
+              organization.reload
+
+              expect(organization.header_snippets).to be_present
+            end
           end
 
           context "when no homepage image is set" do
