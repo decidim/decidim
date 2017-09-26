@@ -19,6 +19,11 @@ Decidim.register_feature(:accountability) do |feature|
 
   feature.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :intro, type: :text, translated: true, editor: true
+    settings.attribute :categories_label, type: :string, translated: true, editor: true
+    settings.attribute :subcategories_label, type: :string, translated: true, editor: true
+    settings.attribute :heading_parent_level_results, type: :string, translated: true, editor: true
+    settings.attribute :heading_leaf_level_results, type: :string, translated: true, editor: true
   end
 
   feature.settings(:step) do |settings|
@@ -30,7 +35,14 @@ Decidim.register_feature(:accountability) do |feature|
       name: Decidim::Features::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name,
       manifest_name: :accountability,
       published_at: Time.current,
-      participatory_space: participatory_space
+      participatory_space: participatory_space,
+      settings: {
+        intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) },
+        categories_label: Decidim::Faker::Localized.word,
+        subcategories_label: Decidim::Faker::Localized.word,
+        heading_parent_level_results: Decidim::Faker::Localized.word,
+        heading_leaf_level_results: Decidim::Faker::Localized.word
+      }
     )
 
     5.times do |i|

@@ -8,6 +8,15 @@ FactoryGirl.define do
     name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name }
     manifest_name :accountability
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+    settings do
+      {
+        intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) },
+        categories_label: Decidim::Faker::Localized.word,
+        subcategories_label: Decidim::Faker::Localized.word,
+        heading_parent_level_results: Decidim::Faker::Localized.word,
+        heading_leaf_level_results: Decidim::Faker::Localized.word
+      }
+    end
   end
 
   factory :template_texts, class: Decidim::Accountability::TemplateTexts do

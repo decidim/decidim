@@ -181,6 +181,11 @@ en:
         settings:
           global:
             comments_enabled: Comments enabled
+            intro: Intro
+            categories_label: Name for "Categories"
+            subcategories_label: Name for "Subcategories"
+            heading_parent_level_results: Name for "Results"
+            heading_leaf_level_results: Name for "Projects"
           step:
             comments_blocked: Comments blocked
     resource_links:
