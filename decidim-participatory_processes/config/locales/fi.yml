@@ -10,14 +10,14 @@ fi:
         developer_group: Kehitysryhmä
         domain: Toimintaympäristö
         end_date: Päättymisaika
-        hashtag: Hashtah
+        hashtag: Hashtag
         hero_image: Etusivun kuva
         local_area: Paikallisalue
         meta_scope: Kontekstin metadata
         participatory_process_group_id: Prosessiryhmä
-        participatory_scope: Osallistumisprosessi
+        participatory_scope: Osallistumisprosessin konteksti
         participatory_structure: Osallistumisprosessin rakenne
-        promoted: Oikeudet korotettu
+        promoted: Korostettu
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
