@@ -136,6 +136,11 @@ module Decidim
     3
   end
 
+  # Allow organization's administrators to inject custom HTML into the frontend
+  config_accessor :enable_html_header_snippets do
+    true
+  end
+
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
