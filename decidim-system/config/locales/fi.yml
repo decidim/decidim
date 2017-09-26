@@ -27,7 +27,7 @@ fi:
           success: Hallinnoija päivitetty onnistuneesti
       default_pages:
         placeholders:
-          content: Lisää %{page} staattinen sivu admin kojelauta mielekästä sisältöä.
+          content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
           title: Oletusotsikko sivulle %{page}
       menu:
         admins: Hallinnoijat
