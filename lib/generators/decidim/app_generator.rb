@@ -73,14 +73,6 @@ module Decidim
         template "Gemfile.erb", "Gemfile", force: true
       end
 
-      def install
-        Decidim::Generators::InstallGenerator.start [
-          "--recreate_db=#{options[:recreate_db]}",
-          "--seed_db=#{options[:seed_db]}",
-          "--app_name=#{app_name}"
-        ]
-      end
-
       def add_ignore_uploads
         unless options["skip_git"]
           append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads"
@@ -94,6 +86,16 @@ module Decidim
 
       def authorization_handler
         template "authorization_handler.rb", "app/services/example_authorization_handler.rb", force: true
+      end
+
+      def install
+        Decidim::Generators::InstallGenerator.start(
+          [
+            "--recreate_db=#{options[:recreate_db]}",
+            "--seed_db=#{options[:seed_db]}",
+            "--app_name=#{app_name}"
+          ]
+        )
       end
 
       private
