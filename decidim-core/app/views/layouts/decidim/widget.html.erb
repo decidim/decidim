@@ -13,7 +13,7 @@
       <%= content_for(:header) %>
     <% else %>
       <div class="participatory-process">
-        <%= link_to translated_attribute(current_participatory_space.title), polymorphic_path(current_participatory_space), target: "_blank" %>
+        <%= link_to translated_attribute(current_participatory_space.title), resource_locator(current_participatory_space).path, target: "_blank" %>
       </div>
     <% end %>
     <div class="row collapse">
