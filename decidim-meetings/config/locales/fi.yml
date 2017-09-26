@@ -21,7 +21,7 @@ fi:
     features:
       meetings:
         actions:
-          join: Liittyä seuraan
+          join: Liity
         name: Tapaamiset
         settings:
           global:
@@ -39,21 +39,21 @@ fi:
         edit: Muokkaa
         new: Uusi
         preview: Esikatsele
-        registrations: rekisteröinnit
+        registrations: Rekisteröinnit
         title: Toiminnot
       admin:
         exports:
-          registrations: rekisteröinnit
+          registrations: Rekisteröinnit
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut tapaamaan kokousta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
-            join: Liity kokoukseen "%{meeting_title}"
+            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapaamiseen %{application}. Voit hyväksyä sen alla olevan linkin kautta."
+            join: Liity tapaamiseen "%{meeting_title}"
         invites:
           create:
-            error: Ongelmana on, että käyttäjä kutsuu sinut mukaan kokoukseen.
-            success: Käyttäjä onnistui kutsumaan kokoukseen.
+            error: Käyttäjän kutsumisessa tapahtumaan tapahtui virhe.
+            success: Käyttäjä kutsuttu tapahtumaan onnistuneesti.
           new:
-            explanation: Käyttäjä kutsutaan mukaan kokoukseen. Jos sähköposti ei ole rekisteröity, ne kutsutaan myös organisaatioon.
+            explanation: Käyttäjä kutsutaan mukaan tapahtumaan. Jos sähköposti ei ole rekisteröity, käyttäjä kutsutaan myös organisaatioon.
             invite: Kutsu
             new_invite: Kutsu käyttäjä
         meeting_closes:
@@ -86,7 +86,7 @@ fi:
           edit:
             save: Tallenna
           form:
-            available_slots_help: Jätä se arvoon 0, jos sinulla on rajoittamaton lähtö.
+            available_slots_help: Merkitse arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invite_user: Kutsu käyttäjä
             registrations_count:
               one: Rekisteröityä on ollut 1.
