@@ -46,7 +46,7 @@ jobs:
           command: |
             cd spec/decidim_dummy_app/
             bundle install
-            RAILS_ENV=test bundle exec rake db:create db:setup
+            RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run tests
           command: |
@@ -68,7 +68,7 @@ jobs:
           command: |
             cd spec/decidim_dummy_app/
             bundle install
-            RAILS_ENV=test bundle exec rake db:create db:setup
+            RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run tests
           command: |
@@ -92,7 +92,7 @@ jobs:
           command: |
             cd spec/decidim_dummy_app/
             bundle install
-            RAILS_ENV=test bundle exec rake db:create db:setup
+            RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run tests
           command: |
@@ -112,7 +112,7 @@ jobs:
           command: |
             cd spec/decidim_dummy_app/
             bundle install
-            RAILS_ENV=test bundle exec rake db:create db:setup
+            RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run tests
           command: |
