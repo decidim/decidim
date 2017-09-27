@@ -33,7 +33,7 @@ jobs:
           name: Generate test app
           command: bundle exec rake decidim:generate_test_app
       - persist_to_workspace:
-          root: decidim
+          root: .
           paths:
             - "*"
   test1:
