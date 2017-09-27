@@ -9,7 +9,6 @@ jobs:
       - image: postgres
         environment:
           POSTGRES_USER: postgres
-    parallelism: 4
     working_directory: /code
     steps:
       - run:
@@ -29,19 +28,42 @@ jobs:
       - run:
           name: Generate test app
           command: bundle exec rake decidim:generate_test_app
+  test1:
+    docker:
+      - image: codegram/decidim
+        environment:
+          SIMPLECOV: true
+          DATABASE_USERNAME: postgres
+      - image: postgres
+        environment:
+          POSTGRES_USER: postgres
+    working_directory: /code
+    steps:
       - run:
           name: Run tests
           command: |
-            case $CIRCLE_NODE_INDEX in
-              0)
                 (cd /code && time npm run lint) &&
                 (cd /code && time bundle exec rspec) &&
                 (cd /code && time npm test -- decidim-core) &&
                 (cd /code/decidim-core && time bundle exec rake) &&
                 (cd /code && time npm test -- decidim-assemblies) &&
                 (cd /code/decidim-assemblies && time bundle exec rake)
-                ;;
-              1)
+      - store_artifacts:
+          path: /code/spec/decidim_dummy_app/tmp/capybara
+  test2:
+    docker:
+      - image: codegram/decidim
+        environment:
+          SIMPLECOV: true
+          DATABASE_USERNAME: postgres
+      - image: postgres
+        environment:
+          POSTGRES_USER: postgres
+    working_directory: /code
+    steps:
+      - run:
+          name: Run tests
+          command: |
                 (cd /code && time npm test -- decidim-api) &&
                 (cd /code/decidim-api && time bundle exec rake) &&
                 (cd /code && time npm test -- decidim-participatory_processes) &&
@@ -50,14 +72,42 @@ jobs:
                 (cd /code/decidim-admin && time bundle exec rake) &&
                 (cd /code && time npm test -- decidim-system) &&
                 (cd /code/decidim-system && time bundle exec rake)
-                ;;
-              2)
+      - store_artifacts:
+          path: /code/spec/decidim_dummy_app/tmp/capybara
+  test3:
+    docker:
+      - image: codegram/decidim
+        environment:
+          SIMPLECOV: true
+          DATABASE_USERNAME: postgres
+      - image: postgres
+        environment:
+          POSTGRES_USER: postgres
+    working_directory: /code
+    steps:
+      - run:
+          name: Run tests
+          command: |
                 (cd /code && time npm test -- decidim-proposals) &&
                 (cd /code/decidim-proposals && time bundle exec rake) &&
                 (cd /code && time npm test -- decidim-comments) &&
                 (cd /code/decidim-comments && time bundle exec rake)
-                ;;
-              3)
+      - store_artifacts:
+          path: /code/spec/decidim_dummy_app/tmp/capybara
+  test4:
+    docker:
+      - image: codegram/decidim
+        environment:
+          SIMPLECOV: true
+          DATABASE_USERNAME: postgres
+      - image: postgres
+        environment:
+          POSTGRES_USER: postgres
+    working_directory: /code
+    steps:
+      - run:
+          name: Run tests
+          command: |
                 (cd /code && time npm test -- decidim-meetings) &&
                 (cd /code/decidim-meetings && time bundle exec rake)
                 (cd /code && time npm test -- decidim-pages) &&
@@ -68,7 +118,23 @@ jobs:
                 (cd /code/decidim-budgets && time bundle exec rake) &&
                 (cd /code && time npm test -- decidim-surveys) &&
                 (cd /code/decidim-surveys && time bundle exec rake)
-                ;;
-            esac
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test1:
+          requires:
+            - build
+      - test2:
+          requires:
+            - build
+      - test3:
+          requires:
+            - build
+      - test4:
+          requires:
+            - build
