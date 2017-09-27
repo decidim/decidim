@@ -18,6 +18,7 @@
 - **decidim-participatory-processes**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-proposals**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-results**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+- **decidim-surveys**: Questions could be created with missing translations. Errors were not showing on admin form. [\#1918](https://github.com/decidim/decidim/pull/1918)
 
 ## [v0.6.4](https://github.com/decidim/decidim/tree/v0.6.4) (2017-09-21)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.3...v0.6.4)
