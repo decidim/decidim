@@ -129,11 +129,11 @@ fi:
     events:
       email_event:
         email_greeting: Hei %{user_name},
-        email_intro: 'On ”%{resource_title}” päivityksen. Näet tältä sivulta:'
-        email_outro: Olet saanut ilmoituksen, koska olette seuraavan ”%{resource_title}”. Voit unfollow edellisen linkin.
-        email_subject: '%{resource_title} päivitys'
+        email_intro: 'Kohteeseen ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
+        email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
+        email_subject: Kohteen %{resource_title} päivitys
       notification_event:
-        notification_title: Tapahtuma tapahtui <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
     export_mailer:
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
@@ -163,10 +163,10 @@ fi:
     follows:
       create:
         button: Seuraa
-        error: On tapahtunut virhe jälkeen tämä resurssi.
+        error: Tämän kohteen seuraamisessa tapahtui virhe.
       destroy:
-        button: Lopettaa
-        error: On tapahtunut virhe unfollowing tämä resurssi.
+        button: Lopeta seuranta
+        error: Tämän kohteen seuraamisen lopetuksessa tapahtui virhe.
     forms:
       current_file: Nykyinen tiedosto
       current_image: Nykyinen kuva
@@ -232,7 +232,7 @@ fi:
       embed_modal:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi
-        embed_link: Upotta
+        embed_link: Upota
       flag_modal:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
@@ -268,9 +268,9 @@ fi:
         ignore: |-
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomiotta.<br />
           Sinulle ei luoda tiliä, mikäli et seuraa linkkiä ja aseta salasanaasi.
-        invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoijaksi %{application}. Voit hyväksyä sen alla olevan linkin kautta."
-        someone_invited_you: Joku on kutsunut sinut %{application}. Voit hyväksyä sen alla olevan linkin kautta.
-        you_are_now_admin: Olet nyt admin
+        invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
+        someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
+        you_are_now_admin: Olet nyt hallinnointikäyttäjä
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
@@ -318,7 +318,7 @@ fi:
         expire_time_html: Istuntosi vanhenee <b><span class="minutes">%{minutes}</span> minuutin kuluttua</b>.
       notifications_dashboard:
         mark_all_as_read: Merkitse kaikki luetuiksi
-        no_notifications: Ilmoituksia ei vielä.
+        no_notifications: Ei vielä ilmoituksia.
         title: Ilmoitukset
       user_menu:
         admin_dashboard: Hallintapaneeli
