@@ -9,7 +9,7 @@
           <div class="social-register">
             <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--#{normalize_provider_name(provider)}" do %>
               <span class="button--social__icon">
-                <%= icon normalize_provider_name(provider) %>
+                <%= oauth_icon provider %>
               </span>
               <%= t("devise.shared.links.sign_in_with_provider", provider: normalize_provider_name(provider).titleize) %>
             <% end %>

@@ -20,5 +20,12 @@ module Decidim
     def normalize_provider_name(provider)
       provider.to_s.split("_").first
     end
+
+    # Public: icon for omniauth buttons
+    def oauth_icon(provider)
+      name = provider == :developer ? "phone" : normalize_provider_name(provider)
+
+      icon(name)
+    end
   end
 end
