@@ -42,6 +42,11 @@ jobs:
       - attach_workspace:
           at: /code
       - run:
+          name: Install app dependencies
+          command: |
+            bundle install
+            npm i
+      - run:
           name: Create test DB
           command: |
             cd spec/decidim_dummy_app/
@@ -62,6 +67,11 @@ jobs:
     steps:
       - attach_workspace:
           at: /code
+      - run:
+          name: Install app dependencies
+          command: |
+            bundle install
+            npm i
       - run:
           name: Create test DB
           command: |
@@ -86,6 +96,11 @@ jobs:
       - attach_workspace:
           at: /code
       - run:
+          name: Install app dependencies
+          command: |
+            bundle install
+            npm i
+      - run:
           name: Create test DB
           command: |
             cd spec/decidim_dummy_app/
@@ -104,6 +119,11 @@ jobs:
     steps:
       - attach_workspace:
           at: /code
+      - run:
+          name: Install app dependencies
+          command: |
+            bundle install
+            npm i
       - run:
           name: Create test DB
           command: |
