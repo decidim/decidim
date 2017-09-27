@@ -18,12 +18,6 @@ ca:
         key: Key
         name: Nom
         progress: Progrés
-      template_texts:
-        categories_label: Nom per "Categories"
-        heading_leaf_level_results: Nom per "Projectes"
-        heading_parent_level_results: Nom per "Resultats"
-        intro: Text d'introducció
-        subcategories_label: Nom per "Subcategories"
       timeline_entry:
         description: Descripció
         entry_date: Data
@@ -84,7 +78,6 @@ ca:
           subnav:
             import_csv: Importa CSV
             statuses: Estats
-            template_texts: Portada
         statuses:
           create:
             invalid: Hi ha hagut un problema en crear aquest estat
@@ -102,15 +95,6 @@ ca:
           update:
             invalid: Hi ha hagut un problema en actualitzar aquest estat
             success: El estat ha estat actualitzat correctament
-        template_texts:
-          edit:
-            title: Actualitza texts
-            update: Actualitza texts
-          form:
-            title: Actualitza texts
-          update:
-            invalid: Hi ha hagut un problema en actualitzar les texts
-            success: Texts ha estat actualitzat correctament
         timeline_entries:
           create:
             invalid: Hi ha hagut un problema en crear aquest element

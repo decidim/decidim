@@ -23,15 +23,15 @@ module Decidim
       end
 
       def categories_label
-        translated_attribute(template_texts.categories_label).presence || t("results.home.categories_label", scope: "decidim.accountability")
+        translated_attribute(feature_settings.categories_label).presence || t("results.home.categories_label", scope: "decidim.accountability")
       end
 
       def subcategories_label
-        translated_attribute(template_texts.subcategories_label).presence || t("results.home.subcategories_label", scope: "decidim.accountability")
+        translated_attribute(feature_settings.subcategories_label).presence || t("results.home.subcategories_label", scope: "decidim.accountability")
       end
 
       def heading_parent_level_results(count)
-        text = translated_attribute(template_texts.heading_parent_level_results).presence
+        text = translated_attribute(feature_settings.heading_parent_level_results).presence
         if text
           "#{count} #{text}"
         else
@@ -40,7 +40,7 @@ module Decidim
       end
 
       def heading_leaf_level_results(count)
-        text = translated_attribute(template_texts.heading_leaf_level_results).presence
+        text = translated_attribute(feature_settings.heading_leaf_level_results).presence
         if text
           "#{count} #{text}"
         else

@@ -11,7 +11,6 @@ module Decidim
       paths["db/migrate"] = nil
 
       routes do
-        resource :template_texts
         resources :statuses
         resources :results, except: [:show] do
           resources :timeline_entries, except: [:show]

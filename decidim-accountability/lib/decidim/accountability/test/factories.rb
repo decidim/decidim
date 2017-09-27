@@ -19,15 +19,6 @@ FactoryGirl.define do
     end
   end
 
-  factory :template_texts, class: Decidim::Accountability::TemplateTexts do
-    feature { create(:accountability_feature) }
-    intro { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-    categories_label { Decidim::Faker::Localized.word }
-    subcategories_label { Decidim::Faker::Localized.word }
-    heading_parent_level_results { Decidim::Faker::Localized.word }
-    heading_leaf_level_results { Decidim::Faker::Localized.word }
-  end
-
   factory :status, class: Decidim::Accountability::Status do
     feature { create(:accountability_feature) }
     sequence(:key) { |n| "status_#{n}" }

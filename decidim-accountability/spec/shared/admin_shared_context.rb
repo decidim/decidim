@@ -12,5 +12,4 @@ RSpec.shared_context "admin" do
   let!(:result) { create :result, scope: scope, feature: current_feature }
   let!(:child_result) { create :result, scope: scope, feature: current_feature, parent: result }
   let!(:status) { create :status, key: "ongoing", name: { en: "Ongoing" }, feature: current_feature }
-  let!(:template_texts) { create :template_texts, feature: current_feature }
 end

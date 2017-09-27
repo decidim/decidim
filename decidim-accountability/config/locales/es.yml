@@ -18,12 +18,6 @@ es:
         key: Key
         name: Nombre
         progress: Progreso
-      template_texts:
-        categories_label: Nombre para "Categorías"
-        heading_leaf_level_results: Nombre para "Proyectos"
-        heading_parent_level_results: Nombre para "Resultados"
-        intro: Texto de introducción
-        subcategories_label: Nombre para "Subcategorías"
       timeline_entry:
         description: Descripción
         entry_date: Fecha
@@ -84,7 +78,6 @@ es:
           subnav:
             import_csv: Import CSV
             statuses: Estados
-            template_texts: Portada
         statuses:
           create:
             invalid: Ha habido un problema al crear este estado
@@ -102,15 +95,6 @@ es:
           update:
             invalid: Ha habido un problema al actualizar este estado
             success: El estado ha actualizado correctamente
-        template_texts:
-          edit:
-            title: Actualizar textos
-            update: Actualizar textos
-          form:
-            title: Actualizar textos
-          update:
-            invalid: Ha habido un problema al actualizar los textos
-            success: Los textos se han actualizado correctamente
         timeline_entries:
           create:
             invalid: Ha habido un problema al crear este elemento

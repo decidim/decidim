@@ -54,40 +54,56 @@ Decidim.register_feature(:accountability) do |feature|
     end
 
     3.times do
-      result = Decidim::Accountability::Result.create!(
-        feature: feature,
-        scope: participatory_space.organization.scopes.sample,
-        category: participatory_space.categories.sample,
-        title: Decidim::Faker::Localized.sentence(2),
-        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
-        end
-      )
+      parent_category = participatory_space.categories.sample
+      categories = [parent_category]
 
-      Decidim::Comments::Seed.comments_for(result)
+      2.times do
+        categories << Decidim::Category.create!(
+          name: Decidim::Faker::Localized.sentence(5),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(3)
+          end,
+          parent: parent_category,
+          participatory_space: participatory_space
+        )
+      end
 
-      3.times do
-        child_result = Decidim::Accountability::Result.create!(
+      categories.each do |category|
+        result = Decidim::Accountability::Result.create!(
           feature: feature,
-          parent: result,
-          start_date: Time.zone.today,
-          end_date: Time.zone.today + 10,
-          status: Decidim::Accountability::Status.all.sample,
-          progress: rand(1..100),
+          scope: participatory_space.organization.scopes.sample,
+          category: category,
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end
         )
 
-        rand(0..5).times do |i|
-          child_result.timeline_entries.create!(
-            entry_date: child_result.start_date + i.days,
-            description: Decidim::Faker::Localized.sentence(2)
-          )
-        end
+        Decidim::Comments::Seed.comments_for(result)
 
-        Decidim::Comments::Seed.comments_for(child_result)
+        3.times do
+          child_result = Decidim::Accountability::Result.create!(
+            feature: feature,
+            parent: result,
+            start_date: Time.zone.today,
+            end_date: Time.zone.today + 10,
+            status: Decidim::Accountability::Status.all.sample,
+            progress: rand(1..100),
+            title: Decidim::Faker::Localized.sentence(2),
+            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+              Decidim::Faker::Localized.paragraph(3)
+            end
+          )
+
+          rand(0..5).times do |i|
+            child_result.timeline_entries.create!(
+              entry_date: child_result.start_date + i.days,
+              description: Decidim::Faker::Localized.sentence(2)
+            )
+          end
+
+          Decidim::Comments::Seed.comments_for(child_result)
+        end
       end
     end
   end

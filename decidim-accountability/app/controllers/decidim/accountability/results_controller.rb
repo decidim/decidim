@@ -7,7 +7,7 @@ module Decidim
       include FilterResource
       helper Decidim::WidgetUrlsHelper
 
-      helper_method :results, :result, :stats_calculator, :first_class_categories, :category, :progress_calculator, :count_calculator, :current_scope, :template_texts
+      helper_method :results, :result, :stats_calculator, :first_class_categories, :category, :progress_calculator, :count_calculator, :current_scope
 
       def home; end
 
@@ -66,10 +66,6 @@ module Decidim
 
       def current_scope
         params[:filter][:scope_id] if params[:filter]
-      end
-
-      def template_texts
-        Decidim::Accountability::TemplateTexts.for(current_feature)
       end
     end
   end
