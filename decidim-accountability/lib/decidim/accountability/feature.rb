@@ -30,6 +30,16 @@ Decidim.register_feature(:accountability) do |feature|
     settings.attribute :comments_blocked, type: :boolean, default: false
   end
 
+  feature.exports :results do |exports|
+    exports.collection do |feature_instance|
+      Decidim::Accountability::Result
+        .where(feature: feature_instance)
+        .includes(:category, feature: { participatory_space: :organization })
+    end
+
+    exports.serializer Decidim::Accountability::ResultSerializer
+  end
+
   feature.seeds do |participatory_space|
     feature = Decidim::Feature.create!(
       name: Decidim::Features::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name,

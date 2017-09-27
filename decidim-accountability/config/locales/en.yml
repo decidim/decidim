@@ -40,16 +40,8 @@ en:
         timeline_entries: Project evolution
         title: Actions
       admin:
-        imports:
-          create:
-            invalid: There's been a problem importing this file
-            not_found: No result found with result_id %{result_id}
-            success: File successfully imported
-          new:
-            errors: Errors
-            import: Import
-            row_number: Row
-            title: Import results from CSV
+        exports:
+          results: Results
         models:
           result:
             name: Result
@@ -76,7 +68,6 @@ en:
             success: Result successfully updated
         shared:
           subnav:
-            import_csv: Import CSV
             statuses: Statuses
         statuses:
           create:

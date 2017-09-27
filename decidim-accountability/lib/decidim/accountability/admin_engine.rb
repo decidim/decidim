@@ -15,7 +15,6 @@ module Decidim
         resources :results, except: [:show] do
           resources :timeline_entries, except: [:show]
         end
-        resource :import, only: [:new, :create]
         root to: "results#index"
       end
 

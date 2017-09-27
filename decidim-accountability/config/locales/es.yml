@@ -40,16 +40,6 @@ es:
         timeline_entries: Evolución del proyecto
         title: Acciones
       admin:
-        imports:
-          create:
-            invalid: Ha habido un problema al importar este fichero
-            not_found: No se ha encontrado ningún resultado con result_id %{result_id}
-            success: El fichero ha sido importado correctamente
-          new:
-            errors: Errores
-            import: Importar
-            row_number: Fila
-            title: Importar resultados desde CSV
         models:
           result:
             name: Resultado
@@ -76,7 +66,6 @@ es:
             success: El resultado ha actualizado correctamente
         shared:
           subnav:
-            import_csv: Import CSV
             statuses: Estados
         statuses:
           create:

@@ -8,6 +8,7 @@ describe "Process admin manages results", type: :feature do
   include_context "feature admin"
   let(:user) { process_admin }
   it_behaves_like "manage results"
+  it_behaves_like "export results"
 
   before do
     switch_to_host(organization.host)

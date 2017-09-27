@@ -8,5 +8,6 @@ require "decidim/accountability/feature"
 module Decidim
   # Base module for this engine.
   module Accountability
+    autoload :ResultSerializer, "decidim/accountability/result_serializer"
   end
 end

@@ -40,16 +40,6 @@ ca:
         timeline_entries: Evolució del projecte
         title: Accions
       admin:
-        imports:
-          create:
-            invalid: Hi ha hagut un problema en importar aquest fitxer
-            not_found: No s'ha trobat un resultat amb result_id %{result_id}
-            success: El fitxer ha estat importat correctament
-          new:
-            errors: Errors
-            import: Import
-            row_number: Fila
-            title: Importar resultats des de CSV
         models:
           result:
             name: Resultat
@@ -76,7 +66,6 @@ ca:
             success: El resultat ha estat actualitzat correctament
         shared:
           subnav:
-            import_csv: Importa CSV
             statuses: Estats
         statuses:
           create:
