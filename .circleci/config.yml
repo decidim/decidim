@@ -41,7 +41,7 @@ jobs:
       - run: echo "/usr/lib/postgresql/9.6/bin/:$PATH" >> $BASH_ENV
       - run:
           name: Export test DB
-          command: pg_dump -U postgres decidim_dummy_app_test > test.sql
+          command: pg_dump -U postgres -p 5433 decidim_dummy_app_test > test.sql
       - persist_to_workspace:
           root: .
           paths:
