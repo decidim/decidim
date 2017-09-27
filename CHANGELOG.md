@@ -4,6 +4,7 @@
 
 **Added**
 
+- **decidim**: Available authorization handlers are added to the sample organization automatically when seeding. [\#1978](https://github.com/decidim/decidim/pull/1978)
 - **decidim-core**: Show a disabled "Follow" button to anonymous users (not logged in) with a prompt to sign in [\#1903](https://github.com/decidim/decidim/pull/1903)
 - **decidim-core**: Adds an option to the initializer file to enable/disable header snippets (`true` by default) [\#1923](https://github.com/decidim/decidim/pull/1923)
 - **decidim-core**: Adds an option to configure the maximum file size for avatar images [\#1969](https://github.com/decidim/decidim/pull/1969)
