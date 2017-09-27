@@ -15,7 +15,7 @@ jobs:
   build:
     <<: *defaults
     steps:
-      - run: ls /usr/lib/postgresql
+      - run: ls /usr/lib
       - run:
           name: Install PhantomJS
           command: |
