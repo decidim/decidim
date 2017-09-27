@@ -6,7 +6,7 @@ module Decidim
       private
 
       def model
-        @model ||= ParticipatoryProcess.find(params[:participatory_process_id])
+        @model ||= ParticipatoryProcess.where(slug: params[:participatory_process_slug]).first
       end
 
       def current_participatory_space

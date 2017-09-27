@@ -4,6 +4,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   participatory_space.engine = Decidim::ParticipatoryProcesses::Engine
   participatory_space.admin_engine = Decidim::ParticipatoryProcesses::AdminEngine
   participatory_space.icon = "decidim/participatory_processes/icon.svg"
+  participatory_space.model_class_name = "Decidim::ParticipatoryProcess"
 
   participatory_space.seeds do
     organization = Decidim::Organization.first
