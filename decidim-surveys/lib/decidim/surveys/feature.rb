@@ -85,7 +85,7 @@ Decidim.register_feature(:surveys) do |feature|
       end
     )
 
-    3.times do
+    2.times do
       Decidim::Surveys::SurveyQuestion.create!(
         survey: survey,
         body: Decidim::Faker::Localized.paragraph,

@@ -43,7 +43,7 @@ Decidim.register_feature(:results) do |feature|
       participatory_space: participatory_space
     )
 
-    3.times do
+    2.times do
       result = Decidim::Results::Result.create!(
         feature: feature,
         scope: participatory_space.organization.scopes.sample,

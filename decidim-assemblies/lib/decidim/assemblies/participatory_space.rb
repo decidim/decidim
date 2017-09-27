@@ -10,8 +10,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
-    3.times do
-      Decidim::Assembly.create!(
+    2.times do
+      assembly = Decidim::Assembly.create!(
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),
         subtitle: Decidim::Faker::Localized.sentence(2),
@@ -35,9 +35,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         participatory_structure: Decidim::Faker::Localized.sentence(2),
         scope: Faker::Boolean.boolean(0.5) ? nil : Decidim::Scope.reorder("RANDOM()").first
       )
-    end
 
-    Decidim::Assembly.find_each do |assembly|
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.sentence(5),

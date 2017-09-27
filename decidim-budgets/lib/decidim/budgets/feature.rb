@@ -57,7 +57,7 @@ Decidim.register_feature(:budgets) do |feature|
       participatory_space: participatory_space
     )
 
-    3.times do
+    2.times do
       project = Decidim::Budgets::Project.create!(
         feature: feature,
         scope: participatory_space.organization.scopes.sample,

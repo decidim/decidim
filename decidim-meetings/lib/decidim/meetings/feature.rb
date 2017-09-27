@@ -51,7 +51,7 @@ Decidim.register_feature(:meetings) do |feature|
       global = nil
     end
 
-    3.times do
+    2.times do
       meeting = Decidim::Meetings::Meeting.create!(
         feature: feature,
         scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
@@ -74,7 +74,7 @@ Decidim.register_feature(:meetings) do |feature|
         end
       )
 
-      10.times do |n|
+      2.times do |n|
         email = "meeting-registered-user-#{meeting.id}-#{n}@example.org"
         name = "#{Faker::Name.name} #{meeting.id} #{n}"
         user = Decidim::User.find_or_initialize_by(email: email)
