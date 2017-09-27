@@ -56,14 +56,23 @@ jobs:
             bundle install
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run tests
-          command: |
-                (cd /code && time npm run lint) &&
-                (cd /code && time bundle exec rspec) &&
-                (cd /code && time npm test -- decidim-core) &&
-                (cd /code/decidim-core && time bundle exec rake) &&
-                (cd /code && time npm test -- decidim-assemblies) &&
-                (cd /code/decidim-assemblies && time bundle exec rake)
+          name: Run main folder npm lint
+          command: cd /code && time npm run lint
+      - run:
+          name: Run main folder RSpec
+          command: cd /code && time bundle exec rspec
+      - run:
+          name: Run core JS tests
+          command: cd /code && time npm test -- decidim-core
+      - run:
+          name: Run core RSpec
+          command: cd /code/decidim-core && time bundle exec rake
+      - run:
+          name: Run assemblies JS tests
+          command: cd /code && time npm test -- decidim-assemblies
+      - run:
+          name: Run assemblies RSpec
+          command: cd /code/decidim-assemblies && time bundle exec rak
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   "api-processes-admin-system":
@@ -86,16 +95,29 @@ jobs:
             bundle install
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run tests
-          command: |
-                (cd /code && time npm test -- decidim-api) &&
-                (cd /code/decidim-api && time bundle exec rake) &&
-                (cd /code && time npm test -- decidim-participatory_processes) &&
-                (cd /code/decidim-participatory_processes && time bundle exec rake) &&
-                (cd /code && time npm test -- decidim-admin) &&
-                (cd /code/decidim-admin && time bundle exec rake) &&
-                (cd /code && time npm test -- decidim-system) &&
-                (cd /code/decidim-system && time bundle exec rake)
+          name: Run api JS tests
+          command: cd /code && time npm test -- decidim-api
+      - run:
+          name: Run api RSpec
+          command: cd /code/decidim-api && time bundle exec rake
+      - run:
+          name: Run participatory_processes JS tests
+          command: cd /code && time npm test -- decidim-participatory_processes
+      - run:
+          name: Run participatory_processes RSpec
+          command: cd /code/decidim-participatory_processes && time bundle exec rake
+      - run:
+          name: Run admin JS tests
+          command: cd /code && time npm test -- decidim-admin
+      - run:
+          name: Run admin RSpec
+          command: cd /code/decidim-admin && time bundle exec rake
+      - run:
+          name: Run system JS tests
+          command: cd /code && time npm test -- decidim-system
+      - run:
+          name: Run system RSpec
+          command: cd /code/decidim-system && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   "proposals-comments":
@@ -118,12 +140,17 @@ jobs:
             bundle install
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run tests
-          command: |
-                (cd /code && time npm test -- decidim-proposals) &&
-                (cd /code/decidim-proposals && time bundle exec rake) &&
-                (cd /code && time npm test -- decidim-comments) &&
-                (cd /code/decidim-comments && time bundle exec rake)
+          name: Run proposals JS tests
+          command: cd /code && time npm test -- decidim-proposals
+      - run:
+          name: Run proposals RSpec
+          command: cd /code/decidim-proposals && time bundle exec rake
+      - run:
+          name: Run comments JS tests
+          command: cd /code && time npm test -- decidim-comments
+      - run:
+          name: Run comments RSpec
+          command: cd /code/decidim-comments && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   "meetings-pages-results-budgets-surveys":
@@ -146,18 +173,35 @@ jobs:
             bundle install
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run tests
-          command: |
-                (cd /code && time npm test -- decidim-meetings) &&
-                (cd /code/decidim-meetings && time bundle exec rake)
-                (cd /code && time npm test -- decidim-pages) &&
-                (cd /code/decidim-pages && time bundle exec rake) &&
-                (cd /code && time npm test -- decidim-results) &&
-                (cd /code/decidim-results && time bundle exec rake) &&
-                (cd /code && time npm test -- decidim-budgets) &&
-                (cd /code/decidim-budgets && time bundle exec rake) &&
-                (cd /code && time npm test -- decidim-surveys) &&
-                (cd /code/decidim-surveys && time bundle exec rake)
+          name: Run meetings JS tests
+          command: cd /code && time npm test -- decidim-meetings
+      - run:
+          name: Run meetings RSpec
+          command: cd /code/decidim-meetings && time bundle exec rake
+      - run:
+          name: Run pages JS tests
+          command: cd /code && time npm test -- decidim-pages
+      - run:
+          name: Run pages RSpec
+          command: cd /code/decidim-pages && time bundle exec rake
+      - run:
+          name: Run results JS tests
+          command: cd /code && time npm test -- decidim-results
+      - run:
+          name: Run results RSpec
+          command: cd /code/decidim-results && time bundle exec rake
+      - run:
+          name: Run budgets JS tests
+          command: cd /code && time npm test -- decidim-budgets
+      - run:
+          name: Run budgets RSpec
+          command: cd /code/decidim-budgets && time bundle exec rake
+      - run:
+          name: Run surveys JS tests
+          command: cd /code && time npm test -- decidim-surveys
+      - run:
+          name: Run surveys RSpec
+          command: cd /code/decidim-surveys && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
 
