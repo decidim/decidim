@@ -72,7 +72,7 @@ jobs:
           command: cd /code && time npm test -- decidim-assemblies
       - run:
           name: Run assemblies RSpec
-          command: cd /code/decidim-assemblies && time bundle exec rak
+          command: cd /code/decidim-assemblies && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   "api-processes-admin-system":
