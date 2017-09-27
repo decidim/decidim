@@ -8,7 +8,6 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_date: End date
-        external_id: External ID
         progress: Progress
         proposal_ids: Included proposals
         start_date: Start date
@@ -134,7 +133,6 @@ en:
           categories_label: Categories
           subcategories_label: Subcategories
         home_header:
-          csv_download: Download data in CSV
           global_status: Global execution status
         nav_breadcrumb:
           global: Global execution

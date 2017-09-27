@@ -22,8 +22,6 @@ module Decidim
       has_many :timeline_entries, -> { order(:entry_date) }, foreign_key: "decidim_accountability_result_id",
                                                              class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
 
-      before_validation :remove_blank_values
-
       after_save :update_parent_progress, if: -> { parent_id.present? }
 
       def update_parent_progress
@@ -55,12 +53,6 @@ module Decidim
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
       def comments_have_votes?
         true
-      end
-
-      private
-
-      def remove_blank_values
-        self.external_id = nil if external_id.blank?
       end
     end
   end

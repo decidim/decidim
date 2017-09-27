@@ -37,7 +37,6 @@ module Decidim
             parent_id: @form.parent_id,
             title: @form.title,
             description: @form.description,
-            external_id: @form.external_id,
             start_date: @form.start_date,
             end_date: @form.end_date,
             progress: @form.progress,

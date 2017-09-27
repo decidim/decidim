@@ -9,7 +9,6 @@ class CreateAccountabilityResults < ActiveRecord::Migration[5.0]
       t.date :start_date
       t.date :end_date
       t.decimal :progress, precision: 5, scale: 2
-      t.string :external_id, index: true
       t.references :parent, index: { name: :decidim_accountability_results_on_parent_id }
       t.references :decidim_accountability_status, index: { name: :decidim_accountability_results_on_status_id }
       t.references :decidim_feature, index: true

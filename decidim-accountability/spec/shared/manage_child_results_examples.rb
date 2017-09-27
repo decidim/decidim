@@ -62,7 +62,6 @@ RSpec.shared_examples "manage child results" do
 
       select "Ongoing", from: :result_decidim_accountability_status_id
       fill_in :result_progress, with: 89
-      fill_in :result_external_id, with: "ID_in_other_system"
 
       find("*[type=submit]").click
     end

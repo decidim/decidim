@@ -29,7 +29,6 @@ describe Decidim::Accountability::Admin::ResultForm do
   let(:status) { create :status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
   let(:status_id) { status.id }
   let(:progress) { 89 }
-  let(:external_id) { "ID_in_other_system" }
 
   let(:attributes) do
     {
@@ -41,8 +40,7 @@ describe Decidim::Accountability::Admin::ResultForm do
       start_date: start_date,
       end_date: end_date,
       decidim_accountability_status_id: status_id,
-      progress: progress,
-      external_id: external_id
+      progress: progress
     }
   end
 
@@ -82,13 +80,6 @@ describe Decidim::Accountability::Admin::ResultForm do
 
   describe "when the status does not exist" do
     let(:status_id) { status.id + 10 }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when external_id is already taken" do
-    let!(:existing_result) { create(:result, feature: current_feature, external_id: "some_id") }
-    let(:external_id) { "some_id" }
 
     it { is_expected.not_to be_valid }
   end

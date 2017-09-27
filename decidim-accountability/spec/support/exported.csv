@@ -1,3 +1,0 @@
-result_id,decidim_category_id,decidim_scope_id,parent_id,external_id,start_date,end_date,decidim_accountability_status_id,progress,proposal_ids,title_en,description_en,title_ca,description_ca,title_es,description_es
-1,1,1,,extid_1,2017-06-10,2017-09-30,1,25.0,"",Title en,Desc en,Title ca,Desc ca,Title es,Desc es
-2,,,,extid_2,2017-08-16,2017-10-20,1,29.0,1;2;3,Title en,Desc en,Title ca,Desc ca,Title es,Desc es

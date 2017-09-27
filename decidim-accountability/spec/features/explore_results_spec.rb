@@ -33,14 +33,6 @@ describe "Explore results", type: :feature do
     end
   end
 
-  context "csv" do
-    let(:path) { decidim_participatory_process_accountability.csv_path(participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
-
-    it "downloads a csv file" do
-      expect(page.status_code).to eq(200)
-    end
-  end
-
   context "index" do
     let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
 

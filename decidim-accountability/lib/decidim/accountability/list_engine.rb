@@ -15,7 +15,6 @@ module Decidim
         resources :results, only: [:index, :show] do
           resource :result_widget, only: :show, path: "embed"
         end
-        get "csv", to: "results#csv"
         root to: "results#home"
       end
 

@@ -13,7 +13,6 @@ describe Decidim::Accountability::Admin::CreateResult do
   let(:end_date) { Date.tomorrow }
   let(:status) { create :status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
   let(:progress) { 89 }
-  let(:external_id) { "ID_in_other_system" }
 
   let(:meeting_feature) do
     create(:feature, manifest_name: "meetings", participatory_space: participatory_process)
@@ -47,7 +46,6 @@ describe Decidim::Accountability::Admin::CreateResult do
       end_date: end_date,
       decidim_accountability_status_id: status.id,
       progress: progress,
-      external_id: external_id,
       parent_id: nil
     )
   end

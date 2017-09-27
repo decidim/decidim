@@ -17,7 +17,6 @@ module Decidim
         attribute :start_date, Date
         attribute :end_date, Date
         attribute :progress, Float
-        attribute :external_id, String
         attribute :decidim_accountability_status_id, Integer
         attribute :parent_id, Integer
 
@@ -29,8 +28,6 @@ module Decidim
 
         validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
         validates :status, presence: true, if: ->(form) { form.decidim_accountability_status_id.present? }
-
-        validate :external_id_uniqueness
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
@@ -59,14 +56,6 @@ module Decidim
 
         def status
           @status ||= Decidim::Accountability::Status.where(feature: current_feature, id: decidim_accountability_status_id).first
-        end
-
-        private
-
-        def external_id_uniqueness
-          return if external_id.blank?
-          existing_with_external_id = Decidim::Accountability::Result.find_by(feature: current_feature, external_id: external_id)
-          errors.add(:external_id, :taken) if existing_with_external_id && existing_with_external_id.id != id
         end
       end
     end

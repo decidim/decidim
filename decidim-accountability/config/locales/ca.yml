@@ -8,7 +8,6 @@ ca:
         decidim_scope_id: Àmbit
         description: Descripció
         end_date: Fi
-        external_id: External ID
         progress: Progrés
         proposal_ids: Propostes incloses
         start_date: Inici
@@ -132,7 +131,6 @@ ca:
           categories_label: Categories
           subcategories_label: Subcategories
         home_header:
-          csv_download: Descarregar dades en CSV
           global_status: Estat d'execució global
         nav_breadcrumb:
           global: Execució global

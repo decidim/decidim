@@ -16,7 +16,6 @@ describe Decidim::Accountability::Admin::UpdateResult do
   let(:end_date) { Date.tomorrow }
   let(:status) { create :status, feature: result.feature, key: "finished", name: { en: "Finished" } }
   let(:progress) { 95 }
-  let(:external_id) { "ID_in_other_system" }
 
   let(:meeting) do
     create(
@@ -46,7 +45,6 @@ describe Decidim::Accountability::Admin::UpdateResult do
       end_date: end_date,
       decidim_accountability_status_id: status.id,
       progress: progress,
-      external_id: external_id,
       parent_id: nil
     )
   end
