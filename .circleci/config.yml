@@ -42,14 +42,10 @@ jobs:
       - attach_workspace:
           at: /code
       - run:
-          name: Install app dependencies
-          command: |
-            bundle install
-            npm i
-      - run:
           name: Create test DB
           command: |
             cd spec/decidim_dummy_app/
+            bundle install
             RAILS_ENV=test bundle exec rake db:create db:setup
       - run:
           name: Run tests
@@ -68,14 +64,10 @@ jobs:
       - attach_workspace:
           at: /code
       - run:
-          name: Install app dependencies
-          command: |
-            bundle install
-            npm i
-      - run:
           name: Create test DB
           command: |
             cd spec/decidim_dummy_app/
+            bundle install
             RAILS_ENV=test bundle exec rake db:create db:setup
       - run:
           name: Run tests
@@ -96,14 +88,10 @@ jobs:
       - attach_workspace:
           at: /code
       - run:
-          name: Install app dependencies
-          command: |
-            bundle install
-            npm i
-      - run:
           name: Create test DB
           command: |
             cd spec/decidim_dummy_app/
+            bundle install
             RAILS_ENV=test bundle exec rake db:create db:setup
       - run:
           name: Run tests
@@ -120,14 +108,10 @@ jobs:
       - attach_workspace:
           at: /code
       - run:
-          name: Install app dependencies
-          command: |
-            bundle install
-            npm i
-      - run:
           name: Create test DB
           command: |
             cd spec/decidim_dummy_app/
+            bundle install
             RAILS_ENV=test bundle exec rake db:create db:setup
       - run:
           name: Run tests
