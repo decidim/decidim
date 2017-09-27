@@ -23,6 +23,24 @@ module Decidim
       it "returns the request body" do
         expect(subject.data).to eq(body)
       end
+
+      context "when no resource is given" do
+        let(:dummy_resource) { nil }
+
+        it "returns nil" do
+          expect(subject.data).to be_nil
+        end
+      end
+
+      context "when no geocoder is configured" do
+        before do
+          allow(Decidim).to receive(:geocoder).and_return(nil)
+        end
+
+        it "returns nil" do
+          expect(subject.data).to be_nil
+        end
+      end
     end
   end
 end
