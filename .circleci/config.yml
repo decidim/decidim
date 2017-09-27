@@ -32,6 +32,7 @@ jobs:
       - run:
           name: Generate test app
           command: bundle exec rake decidim:generate_test_app
+      - run: echo ‘/usr/lib/postgresql/9.6/bin/:$PATH’ >> $BASH_ENV
       - run:
           name: Export test DB
           command: pg_dump -U postgres decidim_dummy_app_test > test.sql
