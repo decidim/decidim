@@ -15,7 +15,9 @@ jobs:
   build:
     <<: *defaults
     steps:
-      - run: ls /usr/lib
+      - run: 
+          name: Install POstgreSQL client
+          command: sudo apt-get install postgresql-client
       - run:
           name: Install PhantomJS
           command: |
