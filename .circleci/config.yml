@@ -15,12 +15,6 @@ jobs:
   build:
     <<: *defaults
     steps:
-      - run: 
-          name: Install PostgreSQL client
-          command: |
-            wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-            sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
-            apt-get update; apt-get install -y postgresql-client-9.6
       - run:
           name: Install PhantomJS
           command: |
@@ -38,10 +32,6 @@ jobs:
       - run:
           name: Generate test app
           command: bundle exec rake decidim:generate_test_app
-      - run: echo "/usr/lib/postgresql/9.6/bin/:$PATH" >> $BASH_ENV
-      - run:
-          name: Export test DB
-          command: pg_dump -U postgres -p 5433 decidim_dummy_app_test > test.sql
       - persist_to_workspace:
           root: .
           paths:
@@ -52,8 +42,10 @@ jobs:
       - attach_workspace:
           at: /code
       - run:
-          name: Import test DB
-          command: psql -U postgres decidim_dummy_app_test < test.sql
+          name: Create test DB
+          command: |
+            cd spec/decidim_dummy_app/
+            RAILS_ENV=test bundle exec rake db:create db:setup
       - run:
           name: Run tests
           command: |
@@ -71,8 +63,10 @@ jobs:
       - attach_workspace:
           at: /code
       - run:
-          name: Import test DB
-          command: psql -U postgres decidim_dummy_app_test < test.sql
+          name: Create test DB
+          command: |
+            cd spec/decidim_dummy_app/
+            RAILS_ENV=test bundle exec rake db:create db:setup
       - run:
           name: Run tests
           command: |
@@ -92,8 +86,10 @@ jobs:
       - attach_workspace:
           at: /code
       - run:
-          name: Import test DB
-          command: psql -U postgres decidim_dummy_app_test < test.sql
+          name: Create test DB
+          command: |
+            cd spec/decidim_dummy_app/
+            RAILS_ENV=test bundle exec rake db:create db:setup
       - run:
           name: Run tests
           command: |
@@ -109,8 +105,10 @@ jobs:
       - attach_workspace:
           at: /code
       - run:
-          name: Import test DB
-          command: psql -U postgres decidim_dummy_app_test < test.sql
+          name: Create test DB
+          command: |
+            cd spec/decidim_dummy_app/
+            RAILS_ENV=test bundle exec rake db:create db:setup
       - run:
           name: Run tests
           command: |
