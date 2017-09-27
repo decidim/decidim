@@ -1,15 +1,19 @@
 version: 2
+
+defaults: &defaults
+  docker:
+    - image: codegram/decidim
+      environment:
+        SIMPLECOV: true
+        DATABASE_USERNAME: postgres
+    - image: postgres
+      environment:
+        POSTGRES_USER: postgres
+  working_directory: /code
+
 jobs:
   build:
-    docker:
-      - image: codegram/decidim
-        environment:
-          SIMPLECOV: true
-          DATABASE_USERNAME: postgres
-      - image: postgres
-        environment:
-          POSTGRES_USER: postgres
-    working_directory: /code
+    <<: *defaults
     steps:
       - run:
           name: Install PhantomJS
@@ -19,6 +23,8 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: mkdir decidim
+      - run: cd decidim
       - checkout
       - run:
           name: Install app dependencies
@@ -28,17 +34,15 @@ jobs:
       - run:
           name: Generate test app
           command: bundle exec rake decidim:generate_test_app
+      - persist_to_workspace:
+          root: decidim
+          paths:
+            - "*"
   test1:
-    docker:
-      - image: codegram/decidim
-        environment:
-          SIMPLECOV: true
-          DATABASE_USERNAME: postgres
-      - image: postgres
-        environment:
-          POSTGRES_USER: postgres
-    working_directory: /code
+    <<: *defaults
     steps:
+      - attach_workspace:
+          at: /code/decidim
       - run:
           name: Run tests
           command: |
@@ -51,16 +55,10 @@ jobs:
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   test2:
-    docker:
-      - image: codegram/decidim
-        environment:
-          SIMPLECOV: true
-          DATABASE_USERNAME: postgres
-      - image: postgres
-        environment:
-          POSTGRES_USER: postgres
-    working_directory: /code
+    <<: *defaults
     steps:
+      - attach_workspace:
+          at: /code/decidim
       - run:
           name: Run tests
           command: |
@@ -75,16 +73,10 @@ jobs:
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   test3:
-    docker:
-      - image: codegram/decidim
-        environment:
-          SIMPLECOV: true
-          DATABASE_USERNAME: postgres
-      - image: postgres
-        environment:
-          POSTGRES_USER: postgres
-    working_directory: /code
+    <<: *defaults
     steps:
+      - attach_workspace:
+          at: /code/decidim
       - run:
           name: Run tests
           command: |
@@ -95,16 +87,10 @@ jobs:
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   test4:
-    docker:
-      - image: codegram/decidim
-        environment:
-          SIMPLECOV: true
-          DATABASE_USERNAME: postgres
-      - image: postgres
-        environment:
-          POSTGRES_USER: postgres
-    working_directory: /code
+    <<: *defaults
     steps:
+      - attach_workspace:
+          at: /code/decidim
       - run:
           name: Run tests
           command: |
