@@ -6,8 +6,7 @@
       <div class="button--title">
         <%= link_to t("actions.new", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), new_result_path(parent_id: parent_result), class: 'button tiny button--simple' if can? :manage, current_feature %>
         <%= render partial: "decidim/accountability/admin/shared/subnav" unless parent_result %>
-
-        <%= export_dropdown %>
+        <%= render partial: "decidim/accountability/admin/shared/extra" %>
       </div>
     </h2>
   </div>
