@@ -14,6 +14,7 @@
 
 **Fixed**
 - **decidim-assemblies**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+- **decidim-core**: Handle nil resources on static maps (errors were caused by search engine spiders) [\#1936](https://github.com/decidim/decidim/pull/1936)
 - **decidim-meetings**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-participatory-processes**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-proposals**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
