@@ -16,8 +16,8 @@ jobs:
     <<: *defaults
     steps:
       - run: 
-          name: Install POstgreSQL client
-          command: apt-get install -y postgresql-client
+          name: Install PostgreSQL client
+          command: apt-get update && apt-get install -y postgresql-client-9.6
       - run:
           name: Install PhantomJS
           command: |
