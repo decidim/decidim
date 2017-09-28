@@ -110,7 +110,7 @@ fr:
           origin: Auteurs
           rejected: Refusée
           related_to: Liée à
-          scope_prompt: Sélectionnez une portée
+          scope_prompt: Sélectionnez un périmètre d'application
           scopes: Zones d'application
           search: Rechercher
           state: État
