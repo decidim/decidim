@@ -33,7 +33,7 @@ fr:
     meetings:
       actions:
         attachments: Documents liés
-        close: Cloturer
+        close: Clore
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
@@ -62,8 +62,8 @@ fr:
             title: Clore la rencontre
         meetings:
           close:
-            invalid: Il y a eu un problème au moment de clore cette réunion
-            success: Rencontre cloturée avec succès
+            invalid: Il y a eu un problème au moment de clore cette rencontre
+            success: Rencontre close avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette rencontre
             success: Rencontre créée avec succès
@@ -78,7 +78,7 @@ fr:
             title: Créer une rencontre
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
-            success: Réncontre mise à jour avec succès
+            success: Rencontre mise à jour avec succès
         models:
           meeting:
             name: Rencontre
@@ -86,20 +86,20 @@ fr:
           edit:
             save: Sauvegarder
           form:
-            available_slots_help: Laissez-le à 0 si le nombre de places disponibles n'est pas limité.
+            available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
             invite_user: Inviter un utilisateur
             registrations_count:
-              one: Il y a eu 1 inscription.
-              other: Il y a eu %{count} inscriptions.
+              one: Il y a eu 1 enregistrement.
+              other: Il y a eu %{count} enregistrements.
           update:
-            invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
-            success: Les paramètres d'inscriptions ont été enregistrés avec succès.
+            invalid: Il y a eu un problème pour enregistrer les paramètres d'enregistrement.
+            success: Réaliser les paramètres d'enregistrement enregistrés avec succès.
       events:
         close_meeting_event:
-          email_intro: 'La rencontre « %{resource_title} » a été fermée. Vous pouvez lire les conclusions sur cette page :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
-          email_subject: La rencontre %{resource_title} est terminée
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
+          email_intro: 'La rencontre « %{resource_title} » a été close. Vous pouvez lire les conclusions sur cette page :'
+          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
+          email_subject: La réunion de la « %{resource_title} » a été fermée
+          notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> a été fermée.
         meeting_registrations_enabled:
           email_intro: 'La rencontre « %{resource_title} » a ouvert les inscriptions. Vous pouvez vous inscrire en allant sur la page suivante :'
           email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
