@@ -3,25 +3,25 @@ fr:
     attributes:
       close_meeting:
         attendees_count: Nombre de participants
-        attending_organizations: Liste des organisations qui ont assisté à la rencontre
+        attending_organizations: Liste des organisations qui ont participé à cette rencontre
         closing_report: Signaler
         contributions_count: Nombre de contributions
-        proposal_ids: Propositions créées lors de la rencontre
+        proposal_ids: Propositions soumises lors de la rencontre
       meeting:
         address: Adresse
         decidim_category_id: Catégorie
-        decidim_scope_id: Zone d'application
+        decidim_scope_id: Périmètre d'application
         description: Description
         end_time: Heure de fin
         location: Lieu
-        location_hints: Indicateurs d’emplacement
+        location_hints: Données de localisation
         start_time: Heure de début
         title: Titre
   decidim:
     features:
       meetings:
         actions:
-          join: Participer
+          join: Joindre
         name: Rencontres
         settings:
           global:
@@ -33,17 +33,17 @@ fr:
     meetings:
       actions:
         attachments: Documents liés
-        close: Clore
-        confirm_destroy: Êtes-vous sûr de vouloir supprimer cette rencontre?
+        close: Cloturer
+        confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
         new: Nouveau
         preview: Aperçu
-        registrations: Incriptions
+        registrations: Inscriptions
         title: Actions
       admin:
         exports:
-          registrations: Inscriptions
+          registrations: Enregistrements
         invite_join_meeting_mailer:
           invite:
             invited_you_to_join_a_meeting: "%{invited_by} vous a invité à une rencontre à %{application}. Vous pouvez confirmer votre présence par le lien ci-dessous."
