@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency "foundation_rails_helper", "~> 3.0.0.rc"
   s.add_dependency "active_link_to", "~> 1.0.4"
   s.add_dependency "pg", "~> 0.21.0"
-  s.add_dependency "redis", "~> 4.0.0"
+  s.add_dependency "redis", "~> 3.2"
   s.add_dependency "high_voltage", "~> 3.0.0"
   s.add_dependency "date_validator", "~> 0.9.0"
   s.add_dependency "sprockets-es6", "~> 0.9.2"
