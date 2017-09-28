@@ -19,10 +19,6 @@ And then execute:
 $ bundle
 ```
 
-## Migration from `Decidim::Results` module
-
-TODO
-
 ## Contributing
 See [Decidim](https://github.com/AjuntamentdeBarcelona/decidim).
 

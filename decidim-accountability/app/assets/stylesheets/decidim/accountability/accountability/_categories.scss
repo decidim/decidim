@@ -4,35 +4,35 @@
       border-bottom: 1px solid $medium-gray;
       padding-bottom: 1rem;
       margin-bottom: 1rem;
-      
+
       .icon--arrow-bottom {
         fill: lighten($dark-gray, 50);
       }
-      
+
       span {
         text-transform: uppercase;
         font-size: 1.15rem;
         color: lighten($dark-gray, 50);
       }
     }
-    
+
     .categories--group {
       margin-bottom: 2rem;
-      
+
       @include breakpoint(medium) {
         display: flex;
         margin-bottom: 4rem;
       }
-      
+
       .category--title {
         background: $white;
         padding: 1.5rem 2rem;
         min-height: 9rem;
-        
+
         @include breakpoint(medium) {
           height: calc(100% - 1.875rem);
         }
-        
+
         p {
           font-weight: 600;
           margin-bottom: 0.75rem;
@@ -44,7 +44,7 @@
         .progress-info {
           position: relative;
           margin-bottom: 1.5rem;
-          
+
           .progress-figure {
             display: inline-block;
           }
@@ -56,7 +56,7 @@
           }
         }
       }
-      
+
       .card__link {
         .category--line {
           background: $light-gray-dark;
@@ -65,12 +65,12 @@
           padding: 1rem;
           margin-bottom: 1.875rem;
           position: relative;
-          
+
           strong {
             font-weight: 600;
             color: $secondary;
           }
-          
+
           .progress-figure {
             position: absolute;
             bottom: 1rem;
@@ -96,12 +96,12 @@
 
     .category--elements.active {
       display: block !important;
-      
+
       .medium-4:first-child {
         margin-top: 1rem;
       }
     }
-    
+
     .progress-figure {
       color: lighten($dark-gray, 50);
     }
