@@ -46,14 +46,14 @@ ca:
           registrations: Inscripcions
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} t'ha convidat a participar en una reunió a %{application}. Podeu acceptar-lo a través de l'enllaç següent."
-            join: Uniu-vos a la reunió '%{meeting_title}'
+            invited_you_to_join_a_meeting: "%{invited_by} t'ha convidat a participar en una trobada a %{application}. Pots acceptar la invitació a través de l'enllaç següent."
+            join: Uneix-te a la trobada '%{meeting_title}'
         invites:
           create:
-            error: Hi ha hagut un problema al convidar l'usuari a unir-se a la reunió.
-            success: L'usuari s'ha convidat correctament a unir-se a la reunió.
+            error: Hi ha hagut un problema al convidar l'usuari a unir-se a la trobada.
+            success: L'usuari s'ha convidat correctament a unir-se a la trobada.
           new:
-            explanation: L'usuari serà convidat a participar en una reunió. Si el correu electrònic no està registrat, també se us convidarà a l'organització.
+            explanation: L'usuari serà convidat a participar en una trobada. Si el correu electrònic no està registrat, també se'l convidarà a l'organització.
             invite: Convidar
             new_invite: Convida l'usuari
         meeting_closes:
