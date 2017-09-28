@@ -142,6 +142,7 @@ module Decidim
     def scopes_select(name, options = {})
       selected = object.send(name)
       if selected.present?
+        selected = selected.values if selected.is_a?(Hash)
         selected = [selected] unless selected.is_a?(Array)
         scopes = Decidim::Scope.where(id: selected.map(&:to_i)).map { |scope| [scope.name[I18n.locale.to_s], scope.id] }
       else
