@@ -54,6 +54,7 @@ describe "Notifications", type: :feature do
     end
 
     it "doesn't show any notification" do
+      expect(page).not_to have_content("Mark all as read")
       expect(page).to have_content("No notifications yet")
     end
   end

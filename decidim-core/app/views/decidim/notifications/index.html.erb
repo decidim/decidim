@@ -3,14 +3,16 @@
     <div class="columns">
       <div class="title-action" >
         <h1 class="heading1 title-action__title"><%= t("title", scope: "layouts.decidim.notifications_dashboard") %></h1>
-        <%= link_to(
-          t("mark_all_as_read", scope: "layouts.decidim.notifications_dashboard"),
-          decidim.read_all_notifications_path,
-          class: "button title-action__action hollow mark-all-as-read-button",
-          method: :delete,
-          data: { disable: true },
-          remote: true
-        ) %>
+        <% if notifications.any? %>
+          <%= link_to(
+            t("mark_all_as_read", scope: "layouts.decidim.notifications_dashboard"),
+            decidim.read_all_notifications_path,
+            class: "button title-action__action hollow mark-all-as-read-button",
+            method: :delete,
+            data: { disable: true },
+            remote: true
+          ) %>
+        <% end %>
       </div>
     </div>
   </div>
