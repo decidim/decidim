@@ -22,7 +22,7 @@ module Decidim
                              desc: "Seed db after installing decidim"
 
       def bundle_install
-        Bundler.with_clean_env { run "bundle install" }
+        run "bundle install"
       end
 
       def install
@@ -118,7 +118,7 @@ module Decidim
       private
 
       def recreate_db
-        rails "db:environment:set", "db:drop" unless ENV["CI"]
+        soft_rails "db:environment:set", "db:drop"
         rails "db:create"
 
         if options[:seed_db]
@@ -130,8 +130,14 @@ module Decidim
         rails "db:test:prepare"
       end
 
+      # Runs rails commands in a subprocess, and aborts if it doesn't suceeed
       def rails(*args)
         abort unless system("bin/rails", *args)
+      end
+
+      # Runs rails commands in a subprocess silencing errors, and ignores status
+      def soft_rails(*args)
+        system("bin/rails", *args, err: File::NULL)
       end
 
       def scss_variables

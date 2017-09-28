@@ -13,6 +13,8 @@
 - **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
 
 **Fixed**
+
+- **decidim**: Generator when run directly via decidim's executable was crashing due to bundler unavailability [\#1938](https://github.com/decidim/decidim/pull/1938)
 - **decidim-assemblies**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-core**: Handle nil resources on static maps (errors were caused by search engine spiders) [\#1936](https://github.com/decidim/decidim/pull/1936)
 - **decidim-meetings**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
