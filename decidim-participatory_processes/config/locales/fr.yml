@@ -19,7 +19,7 @@ fr:
         participatory_structure: Organisations concernées
         promoted: Mis en avant
         scope_id: Zone d'application
-        scopes_enabled: Scopes activés
+        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
         slug: Identifiant
         start_date: Date de début
@@ -101,7 +101,7 @@ fr:
       participatory_process_copies:
         new:
           copy: Copie
-          select: Sélectionnez les données que vous souhaitez reproduire
+          select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
@@ -198,7 +198,7 @@ fr:
         participatory_processes: Processus participatifs
       users:
         resend_invitation:
-          error: Il y avait une erreur renvoyer l’invitation.
+          error: Une erreur s'est produite lors de l'envoi de l’invitation.
           success: Invitation renvoyée avec succès.
     menu:
       processes: Processus participatifs
@@ -214,10 +214,10 @@ fr:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_processes:
           form:
-            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
       index:
         title: Processus participatifs
       order_by_processes:
