@@ -159,3 +159,4 @@ Since Decidim is a ruby gem, you can check out the [dependent repositories](http
 * [Vilanova Participa](http://participa.vilanova.cat) - [View code](https://github.com/vilanovailageltru/decidim-vilanova)
 * [Erabaki Pamplona](https://erabaki.pamplona.es) - [View code](https://github.com/ErabakiPamplona/erabaki)
 * [Decidim Mataró](https://www.decidimmataro.cat) - [View code](https://github.com/AjuntamentDeMataro/decidim-mataro)
+* [Commission Nationale du Débat Public (France)](https://cndp.opensourcepolitics.eu/)
