@@ -1,8 +1,18 @@
 # Change Log
 
-## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+## [v0.6.5](https://github.com/decidim/decidim/tree/v0.6.5) (2017-09-27)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.4...v0.6.5)
 
-## [v0.6.4](https://github.com/decidim/decidim/tree/v0.6.3) (2017-09-21)
+**Fixed**
+- **decidim-assemblies**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+- **decidim-core**: Fixes a bug with filter forms and URLs [\#1937](https://github.com/decidim/decidim/pull/1937)
+- **decidim-meetings**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+- **decidim-participatory-processes**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+- **decidim-proposals**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+- **decidim-results**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
+- **decidim-surveys**: Questions could be created with missing translations. Errors were not showing on admin form. [\#1918](https://github.com/decidim/decidim/pull/1918)
+
+## [v0.6.4](https://github.com/decidim/decidim/tree/v0.6.4) (2017-09-21)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.3...v0.6.4)
 
 **Fixed**
@@ -17,7 +27,6 @@
 - **decidim-core**: On certain cases, authorizations controller was trying to redirect to an unexisting path. Fixed now. [\#1882](https://github.com/decidim/decidim/pull/1882)
 - **decidim-participatory-processes**: When visiting the process page on a multiple language organization and the URL had the deafult locale as a param, link to the resource itself was not being properly highlighted [\#1892](https://github.com/decidim/decidim/pull/1892)
 
-**Added**
 ## [v0.6.2](https://github.com/decidim/decidim/tree/v0.6.2) (2017-09-19)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.1...v0.6.2)
 

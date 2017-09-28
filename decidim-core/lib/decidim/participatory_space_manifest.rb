@@ -17,6 +17,13 @@ module Decidim
 
     attribute :name, Symbol
 
+    # The ActiveRecord class name of the model we're exposing
+    attribute :model_class_name, String
+
+    # The name of the named Rails route to create the url to the resource.
+    # When not explicitly set, it will use the model name.
+    attribute :route_name, String
+
     # A String with the feature's icon. The icon must be stored in the
     # engine's assets path.
     attribute :icon, String
@@ -35,6 +42,13 @@ module Decidim
     # Returns nothing.
     def seed!
       @seeds&.call
+    end
+
+    # The name of the named Rails route to create the url to the resource.
+    #
+    # Returns a String.
+    def route_name
+      super || model_class_name.demodulize.underscore
     end
   end
 end

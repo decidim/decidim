@@ -7,6 +7,8 @@ module Decidim
       @resource = resource
     end
 
+    attr_reader :resource
+
     # Builds the path to the resource. Useful when linking to a resource from
     # another engine.
     #
@@ -24,7 +26,7 @@ module Decidim
     #
     # Returns a String.
     def url(options = {})
-      member_route("url", options.merge(host: @resource.organization.host))
+      member_route("url", options.merge(host: resource.organization.host))
     end
 
     # Builds the index path to the associated collection of resources.
@@ -42,7 +44,7 @@ module Decidim
     #
     # Returns a String.
     def member_route(route_type, options)
-      route_proxy.send("#{member_route_name}_#{route_type}", @resource, options)
+      route_proxy.send("#{member_route_name}_#{route_type}", resource, options)
     end
 
     # Private: Build the route to the associated collection of resources.
@@ -53,11 +55,12 @@ module Decidim
     end
 
     def manifest
-      @resource.class.resource_manifest
+      resource.class.try(:resource_manifest) ||
+        resource.class.try(:participatory_space_manifest)
     end
 
     def feature
-      @resource.feature
+      resource.feature if resource.respond_to?(:feature)
     end
 
     def member_route_name
@@ -69,7 +72,7 @@ module Decidim
     end
 
     def route_proxy
-      @route_proxy ||= EngineRouter.main_proxy(feature)
+      @route_proxy ||= EngineRouter.main_proxy(feature || resource)
     end
   end
 end
