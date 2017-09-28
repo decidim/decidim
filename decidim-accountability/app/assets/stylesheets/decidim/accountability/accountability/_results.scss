@@ -32,7 +32,7 @@
         font-size: 2.5rem;
         font-weight: 300;
         color: lighten($dark-gray, 50);
-        
+
         @include breakpoint(medium) {
           font-size: 4rem;
         }
@@ -77,13 +77,13 @@
       min-width: 1.5rem;
       min-height: 1.5rem;
       margin-bottom: 0.5rem;
-      
+
       @include breakpoint(medium) {
         margin-right: 0.75rem;
         margin-top: 0.5rem;
       }
     }
-    
+
     @include breakpoint(medium) {
       flex-direction: row;
     }
@@ -112,7 +112,7 @@
       }
     }
   }
-  
+
   .result-description div {
     margin-bottom: 1rem;
   }
@@ -134,7 +134,7 @@
     width: 100%;
     margin: 0 0 3rem 0;
   }
-  
+
   .timeline {
     .timeline__info {
       background-color: transparent;
