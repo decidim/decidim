@@ -46,12 +46,12 @@ fr:
           registrations: Inscriptions
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} vous a invité à vous joindre à une réunion à %{application}. Vous pouvez l'accepter par le lien ci-dessous."
-            join: Rejoignez la réunion '%{meeting_title}'
+            invited_you_to_join_a_meeting: "%{invited_by} vous a invité à une rencontre à %{application}. Vous pouvez confirmer votre présence par le lien ci-dessous."
+            join: Rejoignez la rencontre '%{meeting_title}'
         invites:
           create:
-            error: Il y a eu un problème tout en invitant l'utilisateur à rejoindre la réunion.
-            success: L'utilisateur a réussi à rejoindre la réunion.
+            error: Il y a eu un problème lors de l'invitation à une rencontre.
+            success: L'utilisateur a rejoint la rencontre.
           new:
             explanation: L'utilisateur sera invité à se joindre à une réunion. Si le courrier électronique n'est pas enregistré, ils seront également invités à l'organisation.
             invite: Inviter
