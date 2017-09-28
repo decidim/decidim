@@ -7,6 +7,7 @@
 - **decidim-core**: Show a disabled "Follow" button to anonymous users (not logged in) with a prompt to sign in [\#1903](https://github.com/decidim/decidim/pull/1903)
 - **decidim-core**: Adds an option to the initializer file to enable/disable header snippets (`true` by default) [\#1923](https://github.com/decidim/decidim/pull/1923)
 - **decidim-core**: Adds an option to configure the maximum file size for avatar images [\#1969](https://github.com/decidim/decidim/pull/1969)
+- **decidim-core**: Hides the "Mark all as read" notifications button when no notifications are found [\#1948](https://github.com/decidim/decidim/pull/1948)
 - **decidim-meetings**: Participatory admins can invite users to join a meeting. [\#1879](https://github.com/decidim/decidim/pull/1879)
 
 **Changed**
