@@ -33,6 +33,7 @@ module Decidim
           end_date: result.end_date,
           status: {
             id: result.status.try(:id),
+            key: result.status.try(:key),
             name: result.status.try(:name)
           },
           progress: result.progress,
@@ -52,7 +53,7 @@ module Decidim
       end
 
       def proposals
-        result.linked_resources(:proposals, "results_from_proposal").map do |proposal|
+        result.linked_resources(:proposals, "included_proposals").map do |proposal|
           Decidim::ResourceLocatorPresenter.new(proposal).url
         end
       end

@@ -7,9 +7,12 @@ module Decidim
     # find the results.
     class ResultSearch < ResourceSearch
       # Public: Initializes the service.
-      # feature     - A Decidim::Feature to get the results from.
-      # page        - The page number to paginate the results.
-      # per_page    - The number of proposals to return per page.
+      #
+      # options - A hash of options to modify the search. These options will be
+      #          converted to methods by SearchLight so they can be used on filter
+      #          methods. (Default {})
+      #          * feature - A Decidim::Feature to get the results from.
+      #          * organization - A Decidim::Organization object.
       def initialize(options = {})
         super(Result.all, options)
       end

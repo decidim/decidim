@@ -18,7 +18,7 @@ module Decidim
       before do
         result.update_attributes!(category: category)
         result.update_attributes!(scope: scope)
-        result.link_resources(proposals, "results_from_proposal")
+        result.link_resources(proposals, "included_proposals")
       end
 
       subject do
@@ -56,6 +56,7 @@ module Decidim
 
         it "serializes the status" do
           expect(serialized[:status]).to include(id: result.status.id)
+          expect(serialized[:status]).to include(key: result.status.key)
           expect(serialized[:status]).to include(name: result.status.name)
         end
 
