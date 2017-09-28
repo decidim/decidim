@@ -115,6 +115,7 @@ describe "Explore results", type: :feature do
         create(:feature, manifest_name: :proposals, participatory_space: result.feature.participatory_space)
       end
       let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+      let(:proposal) { proposals.first }
 
       before do
         result.link_resources(proposals, "included_proposals")
@@ -128,6 +129,11 @@ describe "Explore results", type: :feature do
           expect(page).to have_content(proposal.votes.size)
         end
       end
+
+      it "the result is mentioned in the proposal page" do
+        click_link proposal.title
+        expect(page).to have_i18n_content(result.title)
+      end
     end
 
     context "with linked meetings" do
@@ -135,6 +141,7 @@ describe "Explore results", type: :feature do
         create(:feature, manifest_name: :meetings, participatory_space: result.feature.participatory_space)
       end
       let(:meetings) { create_list(:meeting, 3, feature: meeting_feature) }
+      let(:meeting) { meetings.first }
 
       before do
         result.link_resources(meetings, "meetings_through_proposals")
@@ -146,6 +153,11 @@ describe "Explore results", type: :feature do
           expect(page).to have_i18n_content(meeting.title)
           expect(page).to have_i18n_content(meeting.description)
         end
+      end
+
+      it "the result is mentioned in the meeting page" do
+        click_link translated(meeting.title)
+        expect(page).to have_i18n_content(result.title)
       end
     end
 
