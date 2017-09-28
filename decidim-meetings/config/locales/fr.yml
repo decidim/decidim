@@ -101,8 +101,8 @@ fr:
           email_subject: La réunion de la « %{resource_title} » a été fermée
           notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> a été fermée.
         meeting_registrations_enabled:
-          email_intro: 'La rencontre « %{resource_title} » a ouvert les inscriptions. Vous pouvez vous inscrire en allant sur la page suivante :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
+          email_intro: 'La rencontre « %{resource_title} » prévoit une inscription. Vous pouvez vous inscrire en allant sur la page suivante :'
+          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
           email_subject: La rencontre « %{resource_title} » a ouvert les inscriptions.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est maintenant ouverte aux inscriptions.
         meeting_registrations_over_percentage:
