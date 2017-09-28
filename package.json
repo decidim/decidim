@@ -7,6 +7,10 @@
   },
   "author": "Marc Riera <mrc2407@gmail.com>",
   "license": "AGPLv3",
+  "engines": {
+    "npm": "^5.4.2",
+    "node": "^8.1.4"
+  },
   "scripts": {
     "build": "webpack --env.dev",
     "build:prod": "NODE_ENV=production webpack -p --env.prod",
@@ -44,6 +48,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "enzyme": "^3.0.0",
+    "enzyme-adapter-react-15": "^1.0.0",
     "eslint": "^4.7.2",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.7.0",
@@ -84,6 +89,9 @@
     "uuid": "^3.1.0"
   },
   "jest": {
+    "setupFiles": [
+      "<rootDir>/decidim-comments/app/frontend/entry_test.ts"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",

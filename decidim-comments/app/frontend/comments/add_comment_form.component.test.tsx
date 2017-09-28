@@ -130,7 +130,7 @@ describe("<AddCommentForm />", () => {
 
     it("should reset textarea", () => {
       wrapper.find("form").simulate("submit");
-      expect((wrapper.find("textarea").get(0) as any).value).toBe("");
+      expect((wrapper.instance() as AddCommentForm).bodyTextArea.value).toBe("");
     });
 
     it("should prevent default form submission", () => {
