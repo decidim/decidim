@@ -4,6 +4,8 @@
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.4...v0.6.5)
 
 **Fixed**
+
+- **decidim**: Generator when run directly via decidim's executable was crashing due to bundler unavailability [\#1938](https://github.com/decidim/decidim/pull/1938)
 - **decidim-assemblies**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-core**: Fixes a bug with filter forms and URLs [\#1937](https://github.com/decidim/decidim/pull/1937)
 - **decidim-meetings**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
