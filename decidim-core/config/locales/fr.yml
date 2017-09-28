@@ -175,7 +175,7 @@ fr:
         error: Ce champ contient une erreur.
       remove_this_file: Supprimer ce fichier
     managed_users:
-      expired_session: La session d'usurpation actuelle a expiré.
+      expired_session: La session de connexion a expiré.
     menu:
       home: Accueil
       more_information: Plus d'information
@@ -283,7 +283,7 @@ fr:
   errors:
     messages:
       content_type_whitelist_error: Le type de fichier n'est pas valide
-      cycle_detected: Le périmètre d'une zone ne peut pas être le même que celui d'une zone inférieure
+      cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       invalid_manifest: Manifeste invalide
       invalid_participatory_process: Processus participatif invalide
@@ -317,7 +317,7 @@ fr:
         expire_time_html: Votre session expirera dans <b><span class="minutes">%{minutes}</span> minutes</b>.
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
-        no_notifications: Pas encore de notifications.
+        no_notifications: Il n'y a pas encore de notifications.
         title: Notifications
       user_menu:
         admin_dashboard: Tableau de bord des administrateurs
