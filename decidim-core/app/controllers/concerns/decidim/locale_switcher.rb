@@ -17,7 +17,7 @@ module Decidim
       def set_locale
         locale = if params["locale"]
                    params["locale"]
-                 elsif current_user && current_user.locale.present?
+                 elsif current_user&.locale.present?
                    current_user.locale
                  end
 

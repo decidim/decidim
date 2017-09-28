@@ -37,7 +37,7 @@ module Decidim
 
         def feature
           feature = context.fetch(:current_feature, nil)
-          return nil unless feature && feature.manifest.name == :surveys
+          return nil unless feature&.manifest&.name == :surveys
 
           feature
         end

@@ -22,7 +22,7 @@ module Decidim
       end
 
       def admin?
-        @user && @user.admin?
+        @user&.admin?
       end
     end
   end

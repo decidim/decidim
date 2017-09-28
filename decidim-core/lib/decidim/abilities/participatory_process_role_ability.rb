@@ -35,7 +35,7 @@ module Decidim
 
       # Whether the user is an admin or not.
       def not_admin?
-        @user && !@user.admin?
+        !@user&.admin?
       end
 
       # Returns a collection of Participatory processes where the given user has the

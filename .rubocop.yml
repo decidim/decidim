@@ -48,7 +48,7 @@ AllCops:
   # unintended files, or read malicious input. If you are certain that your
   # cache location is secure from this kind of attack, and wish to use a
   # symlinked cache location, set this value to "true".
-  AllowSymlinksInCacheRootDirectory: false
+  AllowSymlinksInCacheRootDirectory: true
   # What MRI version of the Ruby interpreter is the inspected code intended to
   # run on? (If there is more than one, set this to the lowest version.)
   # If a value is specified for TargetRubyVersion then it is used.
@@ -439,7 +439,7 @@ Layout/ExtraSpacing:
   # When true, forces the alignment of = in assignments on consecutive lines.
   ForceEqualSignAlignment: false
 
-Style/FileName:
+Naming/FileName:
   # File names listed in AllCops:Include are excluded by default. Add extra
   # excludes here.
   Exclude: []
@@ -647,7 +647,7 @@ Style/MethodDefParentheses:
     - require_no_parentheses
     - require_no_parentheses_except_multiline
 
-Style/MethodName:
+Naming/MethodName:
   EnforcedStyle: snake_case
   SupportedStyles:
     - snake_case
@@ -776,7 +776,7 @@ Style/PercentQLiterals:
     - lower_case_q # Use %q when possible, %Q when necessary
     - upper_case_q # Always use %Q
 
-Style/PredicateName:
+Naming/PredicateName:
   # Predicate name prefixes.
   NamePrefix:
     - is_
@@ -1022,13 +1022,13 @@ Style/TrivialAccessors:
     - to_s
     - to_sym
 
-Style/VariableName:
+Naming/VariableName:
   EnforcedStyle: snake_case
   SupportedStyles:
     - snake_case
     - camelCase
 
-Style/VariableNumber:
+Naming/VariableNumber:
   EnforcedStyle: normalcase
   SupportedStyles:
     - snake_case

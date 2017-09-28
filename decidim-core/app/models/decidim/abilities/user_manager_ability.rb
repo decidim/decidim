@@ -23,7 +23,7 @@ module Decidim
 
       # Whether the user is an admin or not.
       def not_admin?
-        @user && !@user.admin?
+        !@user&.admin?
       end
 
       # Whether the user has the user_manager role or not.
