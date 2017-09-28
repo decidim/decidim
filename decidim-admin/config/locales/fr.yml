@@ -33,7 +33,7 @@ fr:
         code: Code
         name: Nom
         organization: Organisation
-        scope_type: Type de portée
+        scope_type: Type de périmètre d'application
       scope_type:
         name: Nom
         organization: Organisation
@@ -54,7 +54,7 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Quartier
-        meta_scope: Metadonnée de la zone d’application
+        meta_scope: Metadonnée du périmètre d'application
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
