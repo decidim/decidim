@@ -26,12 +26,9 @@ class MigrateOldResults < ActiveRecord::Migration[5.1]
 
     # rubocop:disable Rails/SkipsModelValidations
     OldResult.find_each do |old_result|
-      feature = Feature.where(id: old_result.decidim_feature_id, manifest_name: "results").first
-      feature.update_attributes(manifest_name: "accountability")
-
       Result.create!(
         id: old_result.id,
-        decidim_feature_id: feature.id,
+        decidim_feature_id: old_result.decidim_feature_id,
         decidim_scope_id: old_result.decidim_scope_id,
         title: old_result.title,
         description: old_result.description
@@ -47,6 +44,8 @@ class MigrateOldResults < ActiveRecord::Migration[5.1]
         from_type: "Decidim::Results::Result"
       ).update_all("from_type = 'Decidim::Accountability::Result'")
     end
+
+    Feature.where(manifest_name: "results").update_all("manifest_name = 'accountability'")
 
     drop_table :decidim_results_results
   end
