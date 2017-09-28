@@ -53,7 +53,7 @@ fr:
             error: Il y a eu un problème lors de l'invitation à une rencontre.
             success: L'utilisateur a rejoint la rencontre.
           new:
-            explanation: L'utilisateur sera invité à se joindre à une réunion. Si le courrier électronique n'est pas enregistré, ils seront également invités à l'organisation.
+            explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son adresse de courriel n'est pas enregistrée, il sera également invité à s'inscrire à l'organisation.
             invite: Inviter
             new_invite: Inviter un utilisateur
         meeting_closes:
@@ -172,15 +172,15 @@ fr:
       read_more: "(Lire la suite)"
       registration_mailer:
         confirmation:
-          confirmed_html: Votre inscription pour la réunion <a href="%{url}">%{title}</a> a été confirmée.
-          details: Vous trouverez les détails de la réunion dans la pièce jointe.
+          confirmed_html: Votre inscription pour la rencontre <a href="%{url}">%{title}</a> a été confirmée.
+          details: Vous trouverez les détails de la rencontre dans la pièce jointe.
       registrations:
         create:
-          invalid: Il y a eu un problème pour rejoindre cette réunion.
-          success: Vous avez rejoint la réunion avec succès.
+          invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
+          success: Vous avez rejoint la rencontre avec succès.
         destroy:
-          invalid: Il y a eu un problème de sortir de cette réunion.
-          success: Vous avez quitté la réunion avec succès.
+          invalid: Il y a eu un problème lors de l'annulation de votre inscription.
+          success: Vous avez annulé votre inscription avec succès.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Résultats associés :'
