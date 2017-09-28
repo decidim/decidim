@@ -39,7 +39,11 @@ module Decidim
     # `"global"` as parameter, and in the method we do the needed changes to search
     # properly.
     def search_scope_id
-      clean_scope_ids = [scope_id].flatten
+      clean_scope_ids = if scope_id.is_a?(Hash)
+                          scope_id.values
+                        else
+                          [scope_id].flatten
+                        end
 
       conditions = []
       conditions << "decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
