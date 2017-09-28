@@ -9,20 +9,22 @@
     </div>
 
     <div class="row">
-      <div class="columns section mediumlarge-3 mediumlarge-push-9">
-        <div class="progress-level">
-          <div class="progress-label">
-            <span class="progress-text"><%= t("models.result.fields.progress", scope: "decidim.accountability") %>:</span>
-            <span class="progress-figure">
-              <%= display_percentage result.progress %>
-            </span>
-          </div>
+      <% if result.progress.present? %>
+        <div class="columns section mediumlarge-3 mediumlarge-push-9">
+          <div class="progress-level">
+            <div class="progress-label">
+              <span class="progress-text"><%= t("models.result.fields.progress", scope: "decidim.accountability") %>:</span>
+              <span class="progress-figure">
+                <%= display_percentage result.progress %>
+              </span>
+            </div>
 
-          <div class="progress">
-            <div class="progress-meter" style="width:<%= result.progress %>%"></div>
+            <div class="progress">
+              <div class="progress-meter" style="width:<%= result.progress %>%"></div>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
 
       <div class="columns mediumlarge-9 mediumlarge-pull-3">
         <div class="section">
@@ -61,11 +63,9 @@
       <div class="small-12 mediumlarge-8 large-9 columns">
         <div class="section result-description">
           <%== translated_attribute result.description %>
-          <%= render partial: "tags", locals: { result: result } %>
+          <%= render partial: "decidim/shared/tags", locals: { resource: result, tags_class_extra: "tags--result" } %>
         </div>
       </div>
-
-
 
       <%= render partial: "stats_box" %>
 

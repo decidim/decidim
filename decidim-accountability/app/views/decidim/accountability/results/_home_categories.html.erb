@@ -28,14 +28,18 @@
                 <p class="heading3">
                 <%= link_to translated_attribute(category.name),results_path(filter: { category_id: category, scope_id: current_scope }) %></p>
 
-                <div class="progress">
-                  <div class="progress-meter" style="width:<%= progress_calculator(current_scope, category.id) %>%"></div>
-                </div>
+                <% if progress_calculator(current_scope, category.id).present? %>
+                  <div class="progress">
+                    <div class="progress-meter" style="width:<%= progress_calculator(current_scope, category.id) %>%"></div>
+                  </div>
+                <% end %>
 
                 <div class="progress-info">
-                  <div class="progress-figure heading3">
-                    <%= display_percentage progress_calculator(current_scope, category.id) %>
-                  </div>
+                  <% if progress_calculator(current_scope, category.id).present? %>
+                    <div class="progress-figure heading3">
+                      <%= display_percentage progress_calculator(current_scope, category.id) %>
+                    </div>
+                  <% end %>
                   <div class="category--count">
                     <%= display_count(category_results_count) if category_results_count && category_results_count > 0 %>
                   </div>
@@ -51,9 +55,11 @@
                       <div class="category--line">
                         <strong><%= translated_attribute(subcategory.name) %></strong>
 
-                        <div class="progress-figure heading3">
-                          <%= display_percentage progress_calculator(current_scope, subcategory.id) %>
-                        </div>
+                        <% if progress_calculator(current_scope, subcategory.id).present? %>
+                          <div class="progress-figure heading3">
+                            <%= display_percentage progress_calculator(current_scope, subcategory.id) %>
+                          </div>
+                        <% end %>
 
                         <div class="category--count">
                           <%= display_count subcategory_results_count %>

@@ -11,7 +11,7 @@
         <div class="description">
           <%== translated_attribute result.description %>
         </div>
-        <%= render partial: "tags", locals: { result: result } %>
+        <%= render partial: "decidim/shared/tags", locals: { resource: result, tags_class_extra: "tags--result" } %>
       </div>
     </div>
 
