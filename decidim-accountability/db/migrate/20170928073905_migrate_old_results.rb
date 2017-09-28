@@ -22,13 +22,14 @@ class MigrateOldResults < ActiveRecord::Migration[5.1]
   end
 
   def up
-    return ActiveRecord::Base.connection.data_source_exists? :decidim_results_results
+    return unless ActiveRecord::Base.connection.data_source_exists? :decidim_results_results
 
+    # rubocop:disable Rails/SkipsModelValidations
     OldResult.find_each do |old_result|
       feature = Feature.where(id: old_result.decidim_feature_id, manifest_name: "results").first
-      feature.update_attribute(:manifest_name, "accountability")
+      feature.update_attributes(manifest_name: "accountability")
 
-      result = Result.create!(
+      Result.create!(
         id: old_result.id,
         decidim_feature_id: feature.id,
         decidim_scope_id: old_result.decidim_scope_id,
@@ -49,4 +50,5 @@ class MigrateOldResults < ActiveRecord::Migration[5.1]
 
     drop_table :decidim_results_results
   end
+  # rubocop:enable Rails/SkipsModelValidations
 end
