@@ -102,38 +102,38 @@ fr:
           notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> a été fermée.
         meeting_registrations_enabled:
           email_intro: 'La rencontre « %{resource_title} » prévoit une inscription. Vous pouvez vous inscrire en allant sur la page suivante :'
-          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
-          email_subject: La rencontre « %{resource_title} » a ouvert les inscriptions.
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est maintenant ouverte aux inscriptions.
+          email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
+          email_subject: La rencontre « %{resource_title} » demande une inscription.
+          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a permis des enregistrements.
         meeting_registrations_over_percentage:
-          email_intro: Les inscriptions à la rencontre %{resource_title} sont à %{percentage} % complètes%.
+          email_intro: Les fentes de réunion occupée « %{resource_title} » sont plus %{percentage} %.
           email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur du processus participatif hébergeant la rencontre.
-          email_subject: Les inscriptions à la rencontre %{resource_title} sont à %{percentage} % complètes%
-          notification_title: Les inscriptions à la rencontre <a href="%{resource_path}">%{resource_title}</a> sont à %{percentage} % complètes.
+          email_subject: Les inscriptions à la rencontre %{resource_title} sont remplies à %{percentage} %
+          notification_title: Les inscriptions à la rencontre <a href="%{resource_path}">%{resource_title}</a> sont remplies à %{percentage} %.
         upcoming_meeting_event:
-          email_intro: La rencontre « %{resource_title} » va commencer dans moins de 48h.
-          email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
-          email_subject: La réunion « %{resource_title} » va commencer dans moins de 48h.
-          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> va commencer dans moins de 48h.
+          email_intro: La réunion de la « %{resource_title} » va commencer en moins de 48h.
+          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
+          email_subject: La rencontre « %{resource_title} » va commencer dans moins de 48h.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> va commencer dans moins de 48h.
         update_meeting_event:
-          email_intro: 'La rencontre « %{resource_title} » a été mise à jour. Vous pouvez consulter la nouvelle version en vous rendant sur la page suivante :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
-          email_subject: La rencontre « %{resource_title} » a été mise à jour
-          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
+          email_intro: 'La réunion de la « %{resource_title} » a été mis à jour. Vous pouvez lire la nouvelle version de sa page :'
+          email_outro: Vous avez reçu cet avis parce que vous êtes issue de la réunion de la « %{resource_title} ». Vous pouvez l’unfollow depuis le lien précédent.
+          email_subject: La réunion de la « %{resource_title} » a été mis à jour
+          notification_title: La réunion de <a href="%{resource_path}">%{resource_title}</a> a été mis à jour.
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Objet
         registration_mailer:
           confirmation:
-            subject: Votre inscription a bien été enregistrée
+            subject: Enregistrement de la réunion a été confirmée
       meetings:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
           date: Date
           past: Passées
-          scope_prompt: Sélectionnez une zone d'application
+          scope_prompt: Sélectionnez un périmètre d'application
           scopes: Zone d'application
           search: Rechercher
           upcoming: À venir
