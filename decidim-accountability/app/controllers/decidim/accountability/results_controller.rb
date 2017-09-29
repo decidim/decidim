@@ -9,8 +9,6 @@ module Decidim
 
       helper_method :results, :result, :stats_calculator, :first_class_categories, :category, :progress_calculator, :count_calculator, :current_scope
 
-      def home; end
-
       private
 
       def results

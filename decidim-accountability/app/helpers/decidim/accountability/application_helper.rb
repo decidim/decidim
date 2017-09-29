@@ -19,7 +19,7 @@ module Decidim
       end
 
       def active_class_if_current(scope)
-        %(class=active) if scope.to_s == current_scope.to_s
+        "class=active" if scope.to_s == current_scope.to_s
       end
 
       def categories_label

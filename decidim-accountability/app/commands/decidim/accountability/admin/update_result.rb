@@ -26,7 +26,6 @@ module Decidim
 
           transaction do
             update_result
-            result.save! if form_proposal_ids != current_proposal_ids
             link_proposals
             link_meetings
           end
