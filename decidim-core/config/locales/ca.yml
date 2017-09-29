@@ -340,13 +340,10 @@ ca:
     home:
       extended:
         debates: Debats
-        debates_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
         how_to_participate: Com participo en un procés?
         meetings: Trobades
-        meetings_explanation: Anem a conèixer, debatre i compartir el que pensem que és important per a la nostra ciutat.
         more_info: Més informació
         proposals: Propostes
-        proposals_explanation: Espai obert de propostes dels ciutadans sobre quin tipus de ciutat volem viure.
       footer_sub_hero:
         footer_sub_hero_body: Construïm una societat més oberta, transparent i col·laborativa.<br />Uneix-te, participa i decideix.
         footer_sub_hero_headline: Benvinguda i benvingut a la plataforma participativa %{organization}.
