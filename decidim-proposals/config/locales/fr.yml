@@ -104,7 +104,7 @@ fr:
           all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          citizenship: Citoyens
+          citizens: Citoyens
           evaluating: En cours d'évaluation
           official: Elu-e-s
           origin: Auteurs
