@@ -340,10 +340,13 @@ es:
     home:
       extended:
         debates: Debates
+        debates_explanation: Debate y discuta, comparta sus opiniones y enriquece los temas relevantes.
         how_to_participate: '¿Cómo tomo parte en un proceso?'
         meetings: Encuentros
+        meetings_explanation: Averigüe dónde y cuándo puede participar en reuniones públicas.
         more_info: Más información
         proposals: Propuestas
+        proposals_explanation: Haga propuestas, apoye las existentes y promueva los cambios que desea ver.
       footer_sub_hero:
         footer_sub_hero_body: Construyamos una sociedad más abierta, transparente y colaborativa. <br /> Únete, participa y decide.
         footer_sub_hero_headline: Bienvenido a la plataforma participativa %{organization}.
