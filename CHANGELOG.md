@@ -1,6 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
+## [v0.6.6](https://github.com/decidim/decidim/tree/v0.6.6) (2017-10-05)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.5...v0.6.6)
 
 **Fixed**
 
