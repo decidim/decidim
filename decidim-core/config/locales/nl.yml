@@ -339,10 +339,13 @@ nl:
     home:
       extended:
         debates: Debatten
+        debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
         how_to_participate: Hoe neem ik deel in een proces?
         meetings: Vergaderingen
+        meetings_explanation: Ontdek waar en wanneer u kunt deelnemen aan openbare vergaderingen.
         more_info: Meer informatie
         proposals: Voorstellen
+        proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
       footer_sub_hero:
         footer_sub_hero_body: Laten we bouwen aan een open, transparante en collaborative maatschappij.<br /> Neem deel en beslis.
         footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
