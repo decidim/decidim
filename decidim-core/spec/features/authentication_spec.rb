@@ -49,7 +49,6 @@ describe "Authentication", type: :feature, perform_enqueued: true do
     end
 
     context "using facebook" do
-      let(:verified) { true }
       let(:omniauth_hash) do
         OmniAuth::AuthHash.new(
           provider: "facebook",

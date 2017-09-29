@@ -6,11 +6,12 @@ module Decidim
   # A User is a citizen that wants to join the platform to participate.
   class User < ApplicationRecord
     MAXIMUM_AVATAR_FILE_SIZE = 5.megabytes
+    OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
     ROLES = %w(admin user_manager).freeze
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable,
            :recoverable, :rememberable, :trackable, :decidim_validatable,
-           :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2],
+           :omniauthable, omniauth_providers: OMNIAUTH_PROVIDERS,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email]
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
