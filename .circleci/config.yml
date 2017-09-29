@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: codegram/decidim:0.6.5
+      - image: codegram/decidim:0.6.6
         environment:
           SIMPLECOV: true
           DATABASE_USERNAME: postgres
