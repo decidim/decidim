@@ -339,10 +339,13 @@ fr:
     home:
       extended:
         debates: Débats
+        debates_explanation: Débattez et discutez, partagez vos points de vue et enrichissez les sujets pertinents.
         how_to_participate: Comment puis-je participer à un processus participatif?
         meetings: Rencontres
+        meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
         more_info: En savoir plus
         proposals: Propositions
+        proposals_explanation: Faites des propositions, appuie les projets existants et favorise les changements que vous souhaitez voir.
       footer_sub_hero:
         footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez au processus et décidez, ensemble.
         footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization} .
