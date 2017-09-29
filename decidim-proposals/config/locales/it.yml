@@ -104,7 +104,7 @@ it:
           all: Tutto
           category: Categoria
           category_prompt: Scegli una categoria
-          citizenship: Cittadinanza
+          citizens: cittadini
           evaluating: Valutare
           official: Ufficiale
           origin: Origine
