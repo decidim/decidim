@@ -339,10 +339,13 @@ eu:
     home:
       extended:
         debates: Eztabaidak
+        debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
         how_to_participate: Nola har dezaket parte prozesu batean?
         meetings: Topaketa-zerrenda
+        meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
         more_info: Argibide gehiago
         proposals: Proposamenak
+        proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
       footer_sub_hero:
         footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
         footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
