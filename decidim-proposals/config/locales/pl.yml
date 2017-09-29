@@ -105,7 +105,6 @@ pl:
           all: Wszystko
           category: Kategoria
           category_prompt: Wybierz kategorię
-          citizenship: Obywatelstwo
           evaluating: Ocena
           official: Urzędnik
           origin: Pochodzenie
