@@ -11,6 +11,7 @@
 **Changed**
 
 - **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
+- **decidim-core**: Changes some texts in the homepage ("How do I take part in a process?" section) [\#1947](https://github.com/decidim/decidim/pull/1947)
 
 **Fixed**
 
