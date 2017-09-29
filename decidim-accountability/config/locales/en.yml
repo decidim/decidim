@@ -20,14 +20,6 @@ en:
       timeline_entry:
         description: Description
         entry_date: Date
-    errors:
-      models:
-        result:
-          attributes:
-            end_date:
-              invalid_date: is invalid
-            start_date:
-              invalid_date: is invalid
   decidim:
     accountability:
       actions:
