@@ -87,6 +87,10 @@ module Decidim
         gsub_file "Gemfile", /gem "decidim([^"]*)".*/, "gem \"decidim\\1\", #{gem_modifier}"
       end
 
+      def bootsnap
+        append_file "config/boot.rb", "require 'bootsnap/setup'\n"
+      end
+
       def add_ignore_uploads
         unless options["skip_git"]
           append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads"
