@@ -104,7 +104,7 @@ nl:
           all: Alle
           category: Categorie
           category_prompt: Kies een categorie
-          citizenship: Burgerschap
+          citizens: burgers
           evaluating: Evalueren
           official: Officieel
           origin: Oorsprong
