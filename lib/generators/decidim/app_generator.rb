@@ -70,7 +70,21 @@ module Decidim
       end
 
       def gemfile
-        template "Gemfile.erb", "Gemfile", force: true
+        path = File.expand_path(File.join("..", "..", "..", "Gemfile"), __dir__)
+
+        template path, "Gemfile", force: true
+
+        gem_modifier = if options[:path]
+                         "path: \"#{options[:path]}\""
+                       elsif options[:edge]
+                         "git: \"https://github.com/decidim/decidim.git\""
+                       elsif options[:branch]
+                         "git: \"https://github.com/decidim/decidim.git\", branch: \"#{options[:branch]}\""
+                       else
+                         "\"#{Decidim.version}\""
+                       end
+
+        gsub_file "Gemfile", /gem "decidim([^"]*)".*/, "gem \"decidim\\1\", #{gem_modifier}"
       end
 
       def add_ignore_uploads
