@@ -568,14 +568,14 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "by origin 'citizenship'" do
+        context "by origin 'citizens'" do
           it "lists the filtered proposals" do
             create_list(:proposal, 2, feature: feature, scope: scope)
             create(:proposal, :official, feature: feature, scope: scope)
             visit_feature
 
             within ".filters" do
-              choose "Citizenship"
+              choose "Citizens"
             end
 
             expect(page).to have_css(".card--proposal", count: 2)

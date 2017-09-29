@@ -13,7 +13,7 @@
   </div>
 
   <% if feature_settings.official_proposals_enabled %>
-    <%= form.collection_radio_buttons :origin, [["all", t('.all')], ["official", t('.official')], ["citizenship", t('.citizenship')]], :first, :last, legend_title: t('.origin') %>
+    <%= form.collection_radio_buttons :origin, [["all", t('.all')], ["official", t('.official')], ["citizens", t('.citizens')]], :first, :last, legend_title: t('.origin') %>
   <% end %>
 
   <% if feature_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled %>
