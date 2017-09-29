@@ -339,13 +339,10 @@ eu:
     home:
       extended:
         debates: Eztabaidak
-        debates_explanation: Gure ustez hirirako inportanteak diren gauzak ezagutu, eztabaidatu eta partekatuko ditugu.
         how_to_participate: Nola har dezaket parte prozesu batean?
         meetings: Topaketa-zerrenda
-        meetings_explanation: Gure ustez hirirako inportanteak diren gauzak ezagutu, eztabaidatu eta partekatuko ditugu.
         more_info: Argibide gehiago
         proposals: Proposamenak
-        proposals_explanation: Gune irekia herritarren proposamenetarako, adierazteko zer-nolako hiritan bizi nahi dugun.
       footer_sub_hero:
         footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
         footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
