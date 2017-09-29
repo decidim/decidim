@@ -104,7 +104,7 @@ fi:
           all: Kaikki
           category: Kategoria
           category_prompt: Valitse kategoria
-          citizenship: Kansalaisuus
+          citizens: Kansalaiset
           evaluating: Arvioitavana
           official: Virallinen
           origin: Alkuperä
