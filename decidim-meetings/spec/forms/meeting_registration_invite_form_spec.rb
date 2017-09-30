@@ -6,6 +6,8 @@ module Decidim
   module Meetings
     module Admin
       describe MeetingRegistrationInviteForm do
+        subject { described_class.from_params(attributes) }
+
         let(:name) { "Foo" }
         let(:email) { "foo@example.org" }
         let(:attributes) do
@@ -14,8 +16,6 @@ module Decidim
             email: email
           }
         end
-
-        subject { described_class.from_params(attributes) }
 
         context "when everything is OK" do
           it { is_expected.to be_valid }

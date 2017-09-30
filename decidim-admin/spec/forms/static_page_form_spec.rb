@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Admin
     describe StaticPageForm do
+      subject { described_class.from_params(attributes).with_context(current_organization: organization) }
+
       let(:title) do
         {
           en: "Title",
@@ -35,8 +37,6 @@ module Decidim
           }
         }
       end
-
-      subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }

@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe Decidim::ParticipatoryProcesses::Admin::UnpublishParticipatoryProcess do
-  let(:my_process) { create :participatory_process }
-
   subject { described_class.new(my_process) }
+
+  let(:my_process) { create :participatory_process }
 
   context "when the process is nil" do
     let(:my_process) { nil }

@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim
   describe StatsRegistry do
     subject { described_class.new }
+
     let(:result) { 10 }
     let(:resolver) { proc { result } }
 
@@ -31,7 +32,7 @@ module Decidim
     end
 
     describe "resolve" do
-      before :each do
+      before do
         subject.register :foo, &resolver
       end
 
@@ -59,7 +60,7 @@ module Decidim
       let(:foo_resolver) { proc { |ctx| values[ctx[:foo]] } }
       let(:bar_resolver) { proc { |ctx| values[ctx[:bar]] } }
 
-      before :each do
+      before do
         subject.register :foo, &foo_resolver
         subject.register :bar, &bar_resolver
       end
@@ -73,7 +74,7 @@ module Decidim
     end
 
     describe "filter" do
-      before :each do
+      before do
         subject.register :foo, primary: true, &resolver
         subject.register :bar, primary: false, &resolver
         subject.register :baz, primary: false, priority: StatsRegistry::MEDIUM_PRIORITY, &resolver
@@ -86,7 +87,7 @@ module Decidim
     end
 
     describe "except" do
-      before :each do
+      before do
         subject.register :foo, &resolver
         subject.register :bar, &resolver
       end
@@ -97,7 +98,7 @@ module Decidim
     end
 
     describe "only" do
-      before :each do
+      before do
         subject.register :foo, &resolver
         subject.register :bar, &resolver
         subject.register :baz, &resolver

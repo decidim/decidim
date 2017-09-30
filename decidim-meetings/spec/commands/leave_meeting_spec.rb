@@ -3,12 +3,13 @@
 require "spec_helper"
 
 describe Decidim::Meetings::LeaveMeeting do
+  subject { described_class.new(meeting, user_leaving_meeting) }
+
   let(:registrations_enabled) { true }
   let(:available_slots) { 10 }
   let(:meeting) { create :meeting, registrations_enabled: registrations_enabled, available_slots: available_slots }
   let(:user) { create :user, :confirmed, organization: meeting.organization }
   let(:user_leaving_meeting) { user }
-  subject { described_class.new(meeting, user_leaving_meeting) }
 
   before do
     create(:registration, meeting: meeting, user: user)

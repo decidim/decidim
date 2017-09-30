@@ -5,6 +5,8 @@
 require "spec_helper"
 
 describe Decidim::Budgets::Admin::ProjectForm do
+  subject { described_class.from_params(attributes).with_context(context) }
+
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:context) do
     {
@@ -34,8 +36,6 @@ describe Decidim::Budgets::Admin::ProjectForm do
       budget: budget
     }
   end
-
-  subject { described_class.from_params(attributes).with_context(context) }
 
   it { is_expected.to be_valid }
 
@@ -93,6 +93,8 @@ describe Decidim::Budgets::Admin::ProjectForm do
     end
 
     describe "#map_model" do
+      subject { described_class.from_model(project).with_context(context) }
+
       let(:project) do
         create(
           :project,
@@ -101,8 +103,6 @@ describe Decidim::Budgets::Admin::ProjectForm do
           category: category
         )
       end
-
-      subject { described_class.from_model(project).with_context(context) }
 
       it "sets the proposal_ids correctly" do
         project.link_resources([proposal], "included_proposals")

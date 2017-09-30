@@ -6,6 +6,8 @@ module Decidim
   module Proposals
     module Admin
       describe ProposalAnswerForm do
+        subject { form }
+
         let(:organization) { create(:organization) }
         let(:state) { "accepted" }
         let(:answer) { Decidim::Faker::Localized.sentence(3) }
@@ -21,19 +23,19 @@ module Decidim
           )
         end
 
-        subject { form }
-
         context "when everything is OK" do
           it { is_expected.to be_valid }
         end
 
         context "when the state is not valid" do
           let(:state) { "foo" }
+
           it { is_expected.to be_invalid }
         end
 
         context "when there's no state" do
           let(:state) { nil }
+
           it { is_expected.to be_invalid }
         end
 
@@ -42,6 +44,7 @@ module Decidim
 
           context "when there's no answer" do
             let(:answer) { nil }
+
             it { is_expected.to be_invalid }
           end
         end

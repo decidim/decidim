@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Budgets::Admin::UpdateProject do
+  subject { described_class.new(form, project) }
+
   let(:project) { create :project }
   let(:organization) { project.feature.organization }
   let(:scope) { create :scope, organization: organization }
@@ -30,8 +32,6 @@ describe Decidim::Budgets::Admin::UpdateProject do
     )
   end
   let(:invalid) { false }
-
-  subject { described_class.new(form, project) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

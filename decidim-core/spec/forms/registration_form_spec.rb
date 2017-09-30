@@ -50,36 +50,43 @@ module Decidim
 
     context "when the sign_up_as is different from 'user' and 'user_group'" do
       let(:sign_up_as) { "community" }
+
       it { is_expected.to be_invalid }
     end
 
     context "when the name is not present" do
       let(:name) { nil }
+
       it { is_expected.to be_invalid }
     end
 
     context "when the email is not present" do
       let(:email) { nil }
+
       it { is_expected.to be_invalid }
     end
 
     context "when the email already exists" do
       let!(:user) { create(:user, organization: organization, email: email) }
+
       it { is_expected.to be_invalid }
     end
 
     context "when the password is not present" do
       let(:password) { nil }
+
       it { is_expected.to be_invalid }
     end
 
     context "when the password confirmation is different from password" do
       let(:password_confirmation) { "invalid" }
+
       it { is_expected.to be_invalid }
     end
 
     context "when the tos_agreement is not accepted" do
       let(:tos_agreement) { "0" }
+
       it { is_expected.to be_invalid }
     end
 
@@ -96,28 +103,33 @@ module Decidim
 
       context "when user_group_name is not present" do
         let(:user_group_name) { nil }
+
         it { is_expected.to be_invalid }
       end
 
       context "when user_group_document_number is not present" do
         let(:user_group_document_number) { nil }
+
         it { is_expected.to be_invalid }
       end
 
       context "when user_group_phone is not present" do
         let(:user_group_phone) { nil }
+
         it { is_expected.to be_invalid }
       end
 
       context "when user_group_name is already taken" do
         let!(:user_group) { create(:user_group, name: user_group_name, decidim_organization_id: organization.id) }
         let(:user_group_name) { "Taken User Name" }
+
         it { is_expected.to be_invalid }
       end
 
       context "when user_group_document_number is already taken" do
         let!(:user_group) { create(:user_group, document_number: user_group_document_number, decidim_organization_id: organization.id) }
         let(:user_group_document_number) { "Y12345678" }
+
         it { is_expected.to be_invalid }
       end
     end

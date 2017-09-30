@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Admin
     describe OrganizationDashboardConstraint do
+      subject { described_class.new(request).matches? }
+
       let(:organization) { create(:organization) }
       let(:request) do
         double(
@@ -21,8 +23,6 @@ module Decidim
         )
       end
 
-      subject { described_class.new(request).matches? }
-
       context "when authenticated" do
         let(:authenticated) { true }
 
@@ -34,6 +34,7 @@ module Decidim
 
         context "an organization admin" do
           let(:user) { create(:user, :confirmed, :admin, organization: organization) }
+
           it { is_expected.to be_truthy }
         end
 

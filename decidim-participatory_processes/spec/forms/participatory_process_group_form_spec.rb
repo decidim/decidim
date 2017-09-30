@@ -6,6 +6,8 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       describe ParticipatoryProcessGroupForm do
+        subject { described_class.from_params(attributes).with_context(current_organization: organization) }
+
         let(:organization) { create :organization }
         let(:participatory_processes) { create_list :participatory_process, 3, organization: organization }
         let(:name) do
@@ -36,8 +38,6 @@ module Decidim
             "participatory_processes" => participatory_processes
           }
         end
-
-        subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         context "when everything is OK" do
           it { is_expected.to be_valid }

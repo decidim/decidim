@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Budgets::Checkout do
+  subject { described_class.new(current_order, feature) }
+
   let(:user) { create(:user) }
   let(:feature) do
     create(
@@ -22,8 +24,6 @@ describe Decidim::Budgets::Checkout do
   end
 
   let(:current_order) { order }
-
-  subject { described_class.new(current_order, feature) }
 
   context "when everything is ok" do
     it "broadcasts ok" do

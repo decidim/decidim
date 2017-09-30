@@ -3,14 +3,14 @@
 require "spec_helper"
 
 describe Decidim::Budgets::AddLineItem do
+  subject { described_class.new(order, project, user) }
+
   let(:user) { create(:user) }
   let(:participatory_process) { create :participatory_process, :with_steps, organization: user.organization }
   let(:feature) { create(:budget_feature, participatory_space: participatory_process, settings: settings) }
   let(:project) { create(:project, feature: feature, budget: 60_000) }
   let(:settings) { { "total_budget" => 100_000, vote_threshold_percent: 50 } }
   let(:order) { nil }
-
-  subject { described_class.new(order, project, user) }
 
   context "when everything is ok" do
     it "broadcasts ok" do

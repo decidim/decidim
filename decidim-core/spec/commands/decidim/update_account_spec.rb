@@ -109,6 +109,7 @@ module Decidim
 
       describe "when the avatar dimensions are too big" do
         let(:message) { "Avatar is too big." }
+
         before do
           expect(user).to receive(:valid?).and_return(false)
           expect(user).to receive(:errors).and_return(avatar: message).at_least(:once)

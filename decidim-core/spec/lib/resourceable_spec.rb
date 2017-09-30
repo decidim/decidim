@@ -81,6 +81,8 @@ module Decidim
     end
 
     describe "#linked_classes_for" do
+      subject { Decidim::Proposals::Proposal }
+
       let(:proposals_feature_1) { create :feature, manifest_name: "proposals" }
       let(:proposals_feature_2) { create :feature, manifest_name: "proposals" }
       let(:meetings_feature) { create :feature, manifest_name: "meetings", participatory_space: proposals_feature_1.participatory_space }
@@ -89,8 +91,6 @@ module Decidim
       let(:proposal_2) { create :proposal, feature: proposals_feature_2 }
       let(:meeting) { create :meeting, feature: meetings_feature }
       let(:dummy_resource) { create :dummy_resource, feature: dummy_feature }
-
-      subject { Decidim::Proposals::Proposal }
 
       before do
         proposal_1.link_resources([meeting], "proposals_from_meeting")

@@ -47,7 +47,7 @@ module Decidim
       context "when the form is invalid" do
         let(:email) { nil }
 
-        it "should render the new template" do
+        it "renders the new template" do
           post :create, params: params
           expect(controller).to render_template "new"
         end

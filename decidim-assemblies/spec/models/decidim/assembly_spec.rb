@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe Assembly do
-    let(:assembly) { build(:assembly, slug: "my-slug") }
     subject { assembly }
+
+    let(:assembly) { build(:assembly, slug: "my-slug") }
 
     it { is_expected.to be_valid }
 

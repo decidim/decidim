@@ -92,11 +92,13 @@ module Decidim
 
       context "when the slug is a default one" do
         let(:slug) { described_class::DEFAULT_PAGES.sample }
+
         it { is_expected.to be_default }
       end
 
       context "when the slug is a regular one" do
         let(:slug) { "some-slug" }
+
         it { is_expected.not_to be_default }
       end
     end

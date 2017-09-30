@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim
   module Admin
     describe DestroyFeature do
-      let!(:feature) { create(:feature) }
       subject { described_class.new(feature) }
+
+      let!(:feature) { create(:feature) }
 
       context "when everything is ok" do
         it "destroys the feature" do

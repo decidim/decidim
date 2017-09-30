@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Accountability::Admin::UpdateResult do
+  subject { described_class.new(form, result) }
+
   let(:result) { create :result }
   let(:organization) { result.feature.organization }
   let(:scope) { create :scope, organization: organization }
@@ -49,8 +51,6 @@ describe Decidim::Accountability::Admin::UpdateResult do
     )
   end
   let(:invalid) { false }
-
-  subject { described_class.new(form, result) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

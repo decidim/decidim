@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Budgets::Admin::CreateProject do
+  subject { described_class.new(form) }
+
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, manifest_name: :budgets, participatory_space: participatory_process }
@@ -31,8 +33,6 @@ describe Decidim::Budgets::Admin::CreateProject do
     )
   end
   let(:invalid) { false }
-
-  subject { described_class.new(form) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

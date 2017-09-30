@@ -7,7 +7,7 @@ module Decidim
     describe "#embed_modal_for" do
       it "returns an escaped HTML string" do
         expect(helper.embed_modal_for("https://example.org"))
-          .to_not match(%r{<script src=.*></script>})
+          .not_to match(%r{<script src=.*></script>})
       end
     end
   end

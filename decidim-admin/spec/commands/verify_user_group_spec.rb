@@ -6,9 +6,9 @@ describe Decidim::Admin::VerifyUserGroup do
   let(:organization) { create :organization }
 
   describe "User group validation is pending" do
-    let!(:user_group) { create(:user_group, users: [create(:user, organization: organization)]) }
-
     subject { described_class.new(user_group) }
+
+    let!(:user_group) { create(:user_group, users: [create(:user, organization: organization)]) }
 
     context "when the command is not valid" do
       let(:invalid) { true }
@@ -33,9 +33,9 @@ describe Decidim::Admin::VerifyUserGroup do
   end
 
   describe "User group is already rejected" do
-    let!(:user_group) { create(:user_group, rejected_at: Time.current, users: [create(:user, organization: organization)]) }
-
     subject { described_class.new(user_group) }
+
+    let!(:user_group) { create(:user_group, rejected_at: Time.current, users: [create(:user, organization: organization)]) }
 
     context "when the command is not valid" do
       let(:invalid) { true }

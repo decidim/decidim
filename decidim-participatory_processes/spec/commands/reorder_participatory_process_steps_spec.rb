@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::ParticipatoryProcesses::Admin::ReorderParticipatoryProcessSteps do
+  subject { described_class.new(collection, order) }
+
   let(:process) { create :participatory_process }
   let!(:process_step1) do
     create(
@@ -20,8 +22,6 @@ describe Decidim::ParticipatoryProcesses::Admin::ReorderParticipatoryProcessStep
   end
   let(:collection) { process.steps }
   let(:order) { [process_step2.id, process_step1.id] }
-
-  subject { described_class.new(collection, order) }
 
   context "when the order is nil" do
     let(:order) { nil }

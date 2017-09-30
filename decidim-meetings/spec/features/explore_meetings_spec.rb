@@ -233,6 +233,7 @@ describe "Explore meetings", type: :feature do
     end
 
     let(:attached_to) { meeting }
+
     it_behaves_like "has attachments"
 
     shared_examples_for "a closing report page" do

@@ -3,8 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Budgets::LineItem do
-  let(:line_item) { build :line_item }
   subject { line_item }
+
+  let(:line_item) { build :line_item }
 
   describe "validations" do
     it "is valid" do

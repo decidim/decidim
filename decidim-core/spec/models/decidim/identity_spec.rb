@@ -4,12 +4,13 @@ require "spec_helper"
 
 module Decidim
   describe Identity do
+    subject { identity }
+
     let(:user) { create(:user) }
     let(:organization) { user&.organization }
     let(:provider) { "facebook" }
     let(:uid) { "123456" }
     let(:identity) { build(:identity, user: user, provider: provider, uid: uid, organization: organization) }
-    subject { identity }
 
     it { is_expected.to be_valid }
 
@@ -20,21 +21,25 @@ module Decidim
     describe "validations" do
       context "when the user is not present" do
         let(:user) { nil }
+
         it { is_expected.to be_invalid }
       end
 
       context "when the provider is not present" do
         let(:provider) { nil }
+
         it { is_expected.to be_invalid }
       end
 
       context "when the uid is not present" do
         let(:uid) { nil }
+
         it { is_expected.to be_invalid }
       end
 
       context "when the organization is different than the user's organization" do
         let(:organization) { create :organization }
+
         it { is_expected.to be_invalid }
       end
 

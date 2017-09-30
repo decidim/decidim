@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::Admin::UpdateMeeting do
+  subject { described_class.new(form, meeting) }
+
   let(:meeting) { create(:meeting) }
   let(:organization) { meeting.feature.organization }
   let(:scope) { create :scope, organization: organization }
@@ -29,8 +31,6 @@ describe Decidim::Meetings::Admin::UpdateMeeting do
       current_user: user
     )
   end
-
-  subject { described_class.new(form, meeting) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

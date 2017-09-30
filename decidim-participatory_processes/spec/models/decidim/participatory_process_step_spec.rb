@@ -4,10 +4,10 @@ require "spec_helper"
 
 module Decidim
   describe ParticipatoryProcessStep do
+    subject { participatory_process_step }
+
     let(:participatory_process_step) { build(:participatory_process_step, position: position) }
     let(:position) { nil }
-
-    subject { participatory_process_step }
 
     it { is_expected.to be_valid }
 

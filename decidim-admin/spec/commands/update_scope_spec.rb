@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Admin::UpdateScope do
+  subject { described_class.new(scope, form) }
+
   let(:organization) { create :organization }
   let(:scope) { create :scope, organization: organization }
   let(:name) { Decidim::Faker::Localized.literal("New name") }
@@ -18,8 +20,6 @@ describe Decidim::Admin::UpdateScope do
     )
   end
   let(:invalid) { false }
-
-  subject { described_class.new(scope, form) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::UpcomingMeetingNotificationJob do
+  subject { described_class }
+
   let(:organization) { create :organization }
   let(:user) { create :user, organization: organization }
   let(:start_time) { 1.day.from_now }
@@ -11,7 +13,6 @@ describe Decidim::Meetings::UpcomingMeetingNotificationJob do
   let(:meeting) { create :meeting, start_time: start_time }
   let!(:checksum) { subject.generate_checksum(meeting) }
   let!(:follow) { create :follow, followable: meeting, user: user }
-  subject { described_class }
 
   context "when the checksum is correct" do
     it "notifies the upcoming meeting" do

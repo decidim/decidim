@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::Admin::CreateMeeting do
+  subject { described_class.new(form) }
+
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "meetings" }
@@ -30,8 +32,6 @@ describe Decidim::Meetings::Admin::CreateMeeting do
       current_feature: current_feature
     )
   end
-
-  subject { described_class.new(form) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

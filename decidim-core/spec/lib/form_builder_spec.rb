@@ -134,6 +134,8 @@ module Decidim
     end
 
     describe "categories_for_select" do
+      subject { Nokogiri::HTML(output) }
+
       let!(:feature) { create(:feature) }
       let!(:category) { create(:category, name: { "en" => "Nice category" }, participatory_space: feature.participatory_space) }
       let!(:other_category) { create(:category, name: { "en" => "A better category" }, participatory_space: feature.participatory_space) }
@@ -142,7 +144,6 @@ module Decidim
 
       let(:options) { {} }
       let(:output) { builder.categories_select(:category_id, scope, options) }
-      subject { Nokogiri::HTML(output) }
 
       it "includes all the categories" do
         values = subject.css("option").map(&:text)
@@ -163,6 +164,7 @@ module Decidim
 
         context "`disable_parents` is false" do
           let(:options) { { disable_parents: false } }
+
           it "is not disabled" do
             expect(subject.xpath("//option[@disabled='disabled']").count).to eq(0)
           end

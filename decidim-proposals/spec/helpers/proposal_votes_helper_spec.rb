@@ -43,13 +43,13 @@ module Decidim
           let(:limit) { 0 }
 
           it "returns false" do
-            expect(helper.vote_limit_enabled?).to be_falsy
+            expect(helper).not_to be_vote_limit_enabled
           end
         end
 
         context "when the current_settings vote_limit is greater than 0" do
           it "returns true" do
-            expect(helper.vote_limit_enabled?).to be_truthy
+            expect(helper).to be_vote_limit_enabled
           end
         end
       end

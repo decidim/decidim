@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe TranslatablePresenceValidator do
+    subject { described_class.new(options).validate_each(record, attribute, nil) }
+
     let(:record) do
       Class.new(Decidim::Form) do
         include TranslatableAttributes
@@ -33,7 +35,6 @@ module Decidim
         attributes: [attribute]
       }
     end
-    subject { described_class.new(options).validate_each(record, attribute, nil) }
 
     context "when all translations are present" do
       it "validates the record" do

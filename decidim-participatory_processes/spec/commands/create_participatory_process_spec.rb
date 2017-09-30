@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess do
+  subject { described_class.new(form) }
+
   let(:organization) { create :organization }
   let(:participatory_process_group) { create :participatory_process_group, organization: organization }
   let(:scope) { create :scope, organization: organization }
@@ -36,8 +38,6 @@ describe Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcess do
     )
   end
   let(:invalid) { false }
-
-  subject { described_class.new(form) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

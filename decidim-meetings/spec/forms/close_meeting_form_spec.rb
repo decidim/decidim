@@ -6,6 +6,8 @@ module Decidim
   module Meetings
     module Admin
       describe CloseMeetingForm do
+        subject { described_class.from_params(attributes).with_context(context) }
+
         let(:meeting) { create(:meeting) }
         let(:attributes) do
           {
@@ -20,8 +22,6 @@ module Decidim
         let(:contributions_count) { 20 }
         let(:attending_organizations) { "Foo, bar & baz" }
         let(:context) { { current_organization: meeting.organization } }
-
-        subject { described_class.from_params(attributes).with_context(context) }
 
         it { is_expected.to be_valid }
 
@@ -62,16 +62,17 @@ module Decidim
         end
 
         describe "map_model" do
+          subject { described_class.from_model(meeting) }
+
           let(:proposal_feature) do
             create(:feature, manifest_name: :proposals, participatory_space: meeting.feature.participatory_space)
           end
           let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
           let(:meeting) { create(:meeting) }
+
           before do
             meeting.link_resources(proposals, "proposals_from_meeting")
           end
-
-          subject { described_class.from_model(meeting) }
 
           it "sets the proposals scope" do
             expect(subject.proposals).to match_array(proposals)

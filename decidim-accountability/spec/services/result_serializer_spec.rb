@@ -5,6 +5,10 @@ require "spec_helper"
 module Decidim
   module Accountability
     describe ResultSerializer do
+      subject do
+        described_class.new(result)
+      end
+
       let!(:parent) { create(:result) }
       let!(:result) { create(:result, parent: parent, feature: parent.feature) }
       let!(:category) { create(:category, participatory_space: feature.participatory_space) }
@@ -19,10 +23,6 @@ module Decidim
         result.update_attributes!(category: category)
         result.update_attributes!(scope: scope)
         result.link_resources(proposals, "included_proposals")
-      end
-
-      subject do
-        described_class.new(result)
       end
 
       describe "#serialize" do

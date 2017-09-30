@@ -3,10 +3,11 @@
 require "spec_helper"
 
 describe Decidim::Admin::UserGroupsEvaluation do
+  subject { described_class.new(Decidim::UserGroup.all, query, filter) }
+
   let(:organization) { create :organization }
   let(:query) { nil }
   let(:filter) { nil }
-  subject { described_class.new(Decidim::UserGroup.all, query, filter) }
 
   describe "when the list is not filtered" do
     let!(:user_groups) { create_list(:user_group, 10, users: [create(:user, organization: organization)]) }

@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::Admin::MeetingRegistrationsForm do
+  subject { described_class.from_params(attributes).with_context(context) }
+
   let(:meeting) { create(:meeting) }
   let(:attributes) do
     {
@@ -21,8 +23,6 @@ describe Decidim::Meetings::Admin::MeetingRegistrationsForm do
     }
   end
   let(:context) { { current_organization: meeting.organization, meeting: meeting } }
-
-  subject { described_class.from_params(attributes).with_context(context) }
 
   it { is_expected.to be_valid }
 
@@ -58,6 +58,7 @@ describe Decidim::Meetings::Admin::MeetingRegistrationsForm do
 
   context "when the available slots is negative" do
     let(:available_slots) { -1 }
+
     it { is_expected.not_to be_valid }
   end
 
@@ -68,6 +69,7 @@ describe Decidim::Meetings::Admin::MeetingRegistrationsForm do
 
     context "and available slots is less than the number of registrations" do
       let(:available_slots) { 5 }
+
       it { is_expected.not_to be_valid }
     end
 

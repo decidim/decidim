@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim
   module Features
     describe ExportManifest do
-      let(:name) { "foo" }
       subject { described_class.new(name) }
+
+      let(:name) { "foo" }
 
       describe "#name" do
         it "returns the symbolized initialization name" do

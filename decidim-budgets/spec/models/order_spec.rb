@@ -3,8 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Budgets::Order do
-  let!(:order) { create :order, feature: create(:budget_feature) }
   subject { order }
+
+  let!(:order) { create :order, feature: create(:budget_feature) }
 
   describe "validations" do
     it "is valid" do

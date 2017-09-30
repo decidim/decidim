@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Admin
     describe ScopeForm do
+      subject { described_class.from_params(attributes).with_context(context) }
+
       let(:organization) { create :organization }
       let(:name) { Decidim::Faker::Localized.literal(::Faker::Address.unique.state) }
       let(:code) { ::Faker::Address.unique.state_abbr }
@@ -23,8 +25,6 @@ module Decidim
           "current_organization" => organization
         }
       end
-
-      subject { described_class.from_params(attributes).with_context(context) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }

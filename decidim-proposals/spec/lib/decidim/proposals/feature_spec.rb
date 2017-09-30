@@ -32,6 +32,8 @@ describe "Proposals feature" do
   end
 
   describe "stats" do
+    subject { current_stat[2] }
+
     let(:raw_stats) do
       Decidim.feature_manifests.map do |feature_manifest|
         feature_manifest.stats.filter(name: stats_name).with_context(feature).flat_map { |name, data| [feature_manifest.name, name, data] }
@@ -48,7 +50,6 @@ describe "Proposals feature" do
     let!(:moderation) { create :moderation, reportable: hidden_proposal, hidden_at: 1.day.ago }
 
     let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
-    subject { current_stat[2] }
 
     context "proposals_count" do
       let(:stats_name) { :proposals_count }

@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Accountability::Admin::UpdateTimelineEntry do
+  subject { described_class.new(form, timeline_entry) }
+
   let(:organization) { create :organization, available_locales: [:en] }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
@@ -21,8 +23,6 @@ describe Decidim::Accountability::Admin::UpdateTimelineEntry do
     )
   end
   let(:invalid) { false }
-
-  subject { described_class.new(form, timeline_entry) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

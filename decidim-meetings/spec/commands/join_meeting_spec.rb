@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::JoinMeeting do
+  subject { described_class.new(meeting, user) }
+
   let(:registrations_enabled) { true }
   let(:available_slots) { 10 }
   let(:organization) { create :organization }
@@ -11,7 +13,6 @@ describe Decidim::Meetings::JoinMeeting do
   let(:feature) { create :feature, manifest_name: :meetings, participatory_space: participatory_process }
   let(:meeting) { create :meeting, feature: feature, registrations_enabled: registrations_enabled, available_slots: available_slots }
   let(:user) { create :user, :confirmed, organization: organization }
-  subject { described_class.new(meeting, user) }
 
   context "when everything is ok" do
     it "broadcasts ok" do

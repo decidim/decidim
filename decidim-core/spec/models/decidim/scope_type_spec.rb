@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe ScopeType do
-    let(:scope_type) { build(:scope_type) }
     subject { scope_type }
+
+    let(:scope_type) { build(:scope_type) }
 
     it { is_expected.to be_valid }
 

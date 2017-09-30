@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessAdmin do
+  subject { described_class.new(form, current_user, my_process) }
+
   let(:my_process) { create :participatory_process }
   let!(:email) { "my_email@example.org" }
   let!(:role) { "admin" }
@@ -18,8 +20,6 @@ describe Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessAdmin
     )
   end
   let(:invalid) { false }
-
-  subject { described_class.new(form, current_user, my_process) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

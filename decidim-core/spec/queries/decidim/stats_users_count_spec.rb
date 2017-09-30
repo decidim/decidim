@@ -3,10 +3,11 @@
 require "spec_helper"
 
 describe Decidim::StatsUsersCount do
+  subject { described_class.new(organization, start_at, end_at) }
+
   let(:organization) { create(:organization) }
   let(:start_at) { nil }
   let(:end_at) { nil }
-  subject { described_class.new(organization, start_at, end_at) }
 
   context "without start and end date" do
     it "returns the number of confirmed users" do

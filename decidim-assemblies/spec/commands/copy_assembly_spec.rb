@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Assemblies::Admin::CopyAssembly do
+  subject { described_class.new(form, assembly) }
+
   let(:organization) { create :organization }
   let(:scope) { create :scope, organization: organization }
   let(:errors) { double.as_null_object }
@@ -29,8 +31,6 @@ describe Decidim::Assemblies::Admin::CopyAssembly do
   let(:copy_categories) { false }
   let(:copy_features) { false }
 
-  subject { described_class.new(form, assembly) }
-
   context "when the form is not valid" do
     let(:invalid) { true }
 
@@ -48,7 +48,7 @@ describe Decidim::Assemblies::Admin::CopyAssembly do
 
       expect(new_assembly.slug).to eq("copied-slug")
       expect(new_assembly.title["en"]).to eq("title")
-      expect(new_assembly.published?).to be_falsy
+      expect(new_assembly).not_to be_published
       expect(new_assembly.organization).to eq(old_assembly.organization)
       expect(new_assembly.subtitle).to eq(old_assembly.subtitle)
       expect(new_assembly.description).to eq(old_assembly.description)

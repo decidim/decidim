@@ -5,12 +5,13 @@ require "spec_helper"
 module Decidim
   module Admin
     describe AriaSelectedLinkToHelper do
-      let(:options) { {} }
       subject do
         Nokogiri::HTML(
           helper.aria_selected_link_to("Text", "url", options)
         )
       end
+
+      let(:options) { {} }
 
       context "with options" do
         let(:options) { { class: "my_class" } }

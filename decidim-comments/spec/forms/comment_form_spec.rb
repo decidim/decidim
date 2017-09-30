@@ -5,6 +5,12 @@ require "spec_helper"
 module Decidim
   module Comments
     describe CommentForm do
+      subject do
+        described_class.from_params(
+          attributes
+        )
+      end
+
       let(:body) { "This is a new comment" }
       let(:alignment) { 1 }
       let(:user_group) { create(:user_group, :verified) }
@@ -18,12 +24,6 @@ module Decidim
             "user_group_id" => user_group_id
           }
         }
-      end
-
-      subject do
-        described_class.from_params(
-          attributes
-        )
       end
 
       context "when everything is OK" do

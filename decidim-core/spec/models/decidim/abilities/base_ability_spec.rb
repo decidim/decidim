@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim::Abilities
   describe BaseAbility do
-    let(:user) { build(:user) }
     subject { described_class.new(user, {}) }
+
+    let(:user) { build(:user) }
 
     context "when there are some abilities injected from configuration" do
       class FakeAbility

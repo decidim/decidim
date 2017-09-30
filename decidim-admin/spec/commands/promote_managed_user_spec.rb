@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Admin::PromoteManagedUser do
+  subject { described_class.new(form, user, current_user) }
+
   let(:organization) { create :organization }
   let!(:current_user) { create :user, :admin, organization: organization }
   let(:email) { "foo@example.org" }
@@ -19,8 +21,6 @@ describe Decidim::Admin::PromoteManagedUser do
     )
   end
   let!(:user) { create :user, :managed, organization: organization }
-
-  subject { described_class.new(form, user, current_user) }
 
   context "when everything is ok" do
     before do

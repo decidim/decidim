@@ -14,13 +14,6 @@ module Decidim
       let!(:proposal) { create(:proposal, feature: feature, scope: scope1) }
 
       describe "results" do
-        let(:activity) { [] }
-        let(:search_text) { nil }
-        let(:origin) { nil }
-        let(:related_to) { nil }
-        let(:state) { nil }
-        let(:scope_id) { nil }
-
         subject do
           described_class.new(
             feature: feature,
@@ -33,6 +26,13 @@ module Decidim
             current_user: user
           ).results
         end
+
+        let(:activity) { [] }
+        let(:search_text) { nil }
+        let(:origin) { nil }
+        let(:related_to) { nil }
+        let(:state) { nil }
+        let(:scope_id) { nil }
 
         it "only includes proposals from the given feature" do
           other_proposal = create(:proposal)

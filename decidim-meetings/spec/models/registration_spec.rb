@@ -3,11 +3,11 @@
 require "spec_helper"
 
 describe Decidim::Meetings::Registration do
+  subject { registration }
+
   let(:meeting) { create(:meeting) }
   let(:user) { create(:user, organization: meeting.organization) }
   let(:registration) { build :registration, meeting: meeting, user: user }
-
-  subject { registration }
 
   it { is_expected.to be_valid }
 

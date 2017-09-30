@@ -5,14 +5,14 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe ProposalVote do
+      subject { proposal_vote }
+
       let!(:organization) { create(:organization) }
       let!(:feature) { create(:feature, organization: organization, manifest_name: "proposals") }
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:author) { create(:user, organization: organization) }
       let!(:proposal) { create(:proposal, feature: feature, author: author) }
       let!(:proposal_vote) { build(:proposal_vote, proposal: proposal, author: author) }
-
-      subject { proposal_vote }
 
       it "is valid" do
         expect(proposal_vote).to be_valid

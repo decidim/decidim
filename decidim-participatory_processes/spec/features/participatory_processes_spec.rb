@@ -208,6 +208,7 @@ describe "Participatory Processes", type: :feature do
     end
 
     let(:attached_to) { participatory_process }
+
     it_behaves_like "has attachments"
 
     context "when the process has some features" do

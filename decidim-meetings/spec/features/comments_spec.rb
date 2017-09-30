@@ -18,5 +18,6 @@ describe "Comments", type: :feature do
   let!(:follow) { create(:follow, followable: commentable, user: participatory_process_admin) }
 
   let(:resource_path) { resource_locator(commentable).path }
+
   include_examples "comments"
 end

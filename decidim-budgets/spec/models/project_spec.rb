@@ -3,8 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Budgets::Project do
-  let(:project) { create :project }
   subject { project }
+
+  let(:project) { create :project }
 
   include_examples "has reference"
 

@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Proposals::Abilities::CurrentUserAbility do
+  subject { described_class.new(user, context) }
+
   let(:user) { build(:user) }
   let(:proposal_feature) { create :proposal_feature }
   let(:extra_context) do
@@ -26,8 +28,6 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
   let(:extra_settings) { {} }
   let(:current_settings) { double(settings.merge(extra_settings)) }
   let(:feature_settings) { double(proposal_edit_before_minutes: 5) }
-
-  subject { described_class.new(user, context) }
 
   it { is_expected.to be_able_to(:report, Decidim::Proposals::Proposal) }
 

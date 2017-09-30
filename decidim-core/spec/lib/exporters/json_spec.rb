@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Exporters::JSON do
+  subject { described_class.new(collection, serializer) }
+
   let(:serializer) do
     Class.new do
       def initialize(resource)
@@ -21,8 +23,6 @@ describe Decidim::Exporters::JSON do
   let(:collection) do
     [OpenStruct.new(id: 1, name: "foo"), OpenStruct.new(id: 2, name: "bar")]
   end
-
-  subject { described_class.new(collection, serializer) }
 
   describe "export" do
     it "exports the collection using the right serializer" do

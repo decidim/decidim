@@ -4,10 +4,10 @@ require "spec_helper"
 
 module Decidim
   describe User do
+    subject { user }
+
     let(:organization) { build(:organization) }
     let(:user) { build(:user, organization: organization) }
-
-    subject { user }
 
     it { is_expected.to be_valid }
 

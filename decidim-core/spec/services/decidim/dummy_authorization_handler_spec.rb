@@ -12,6 +12,7 @@ module Decidim
 
     describe "metadata" do
       subject { handler.metadata }
+
       let(:params) { { document_number: "123456" } }
 
       it { is_expected.to eq(document_number: "123456") }
@@ -19,6 +20,7 @@ module Decidim
 
     describe "valid?" do
       subject { handler.valid? }
+
       let(:params) { { document_number: document_number } }
 
       context "when no document number" do

@@ -4,6 +4,8 @@ require "spec_helper"
 require "spreadsheet"
 
 describe Decidim::Exporters::Excel do
+  subject { described_class.new(collection, serializer) }
+
   let(:serializer) do
     Class.new do
       def initialize(resource)
@@ -28,8 +30,6 @@ describe Decidim::Exporters::Excel do
       OpenStruct.new(id: 2, name: { ca: "barcat", es: "bares" }, ids: [2, 3, 4], float: 0.55, date: DateTime.civil(2017, 9, 20))
     ]
   end
-
-  subject { described_class.new(collection, serializer) }
 
   describe "export" do
     it "exports the collection using the right serializer" do

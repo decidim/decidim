@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::Admin::CloseMeeting do
+  subject { described_class.new(form, meeting) }
+
   let(:meeting) { create :meeting }
   let(:user) { create :user, :admin }
   let(:form) do
@@ -29,8 +31,6 @@ describe Decidim::Meetings::Admin::CloseMeeting do
     )
   end
   let(:proposal_ids) { proposals.map(&:id) }
-
-  subject { described_class.new(form, meeting) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

@@ -83,7 +83,7 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
             organization.reload
 
-            expect(organization.header_snippets).to_not be_present
+            expect(organization.header_snippets).not_to be_present
           end
 
           describe "when header snippets are configured" do

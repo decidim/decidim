@@ -3,10 +3,10 @@
 require "spec_helper"
 
 describe Decidim::Admin::Abilities::UserManagerAbility do
+  subject { described_class.new(user, {}) }
+
   let(:organization) { create(:organization, available_authorizations: ["dummy"]) }
   let(:user) { create(:user, :user_manager, organization: organization) }
-
-  subject { described_class.new(user, {}) }
 
   context "when the organization has authorizations" do
     it "can create new managed users" do
@@ -19,8 +19,8 @@ describe Decidim::Admin::Abilities::UserManagerAbility do
     let(:organization) { create(:organization, available_authorizations: []) }
 
     it "can't create new managed users" do
-      expect(subject).to_not be_able_to(:new, :managed_users)
-      expect(subject).to_not be_able_to(:create, :managed_users)
+      expect(subject).not_to be_able_to(:new, :managed_users)
+      expect(subject).not_to be_able_to(:create, :managed_users)
     end
   end
 
@@ -60,7 +60,7 @@ describe Decidim::Admin::Abilities::UserManagerAbility do
       create(:impersonation_log, admin: user, started_at: 10.minutes.ago)
     end
 
-    it { is_expected.to_not be_able_to(:impersonate, managed) }
+    it { is_expected.not_to be_able_to(:impersonate, managed) }
   end
 
   it { is_expected.to be_able_to(:manage, :managed_users) }

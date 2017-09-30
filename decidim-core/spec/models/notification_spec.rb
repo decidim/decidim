@@ -3,8 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Notification do
-  let(:notification) { build(:notification) }
   subject { notification }
+
+  let(:notification) { build(:notification) }
 
   it { is_expected.to be_valid }
 

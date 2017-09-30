@@ -5,12 +5,12 @@ require "spec_helper"
 module Decidim
   module Surveys
     describe SurveyForm do
-      let!(:survey) { create(:survey) }
-      let!(:survey_question) { create(:survey_question, survey: survey) }
-
       subject do
         described_class.from_model(survey).with_context(current_feature: survey.feature)
       end
+
+      let!(:survey) { create(:survey) }
+      let!(:survey_question) { create(:survey_question, survey: survey) }
 
       it "builds empty answers for each question" do
         expect(subject.answers.length).to eq(1)

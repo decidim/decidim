@@ -8,7 +8,7 @@ module Decidim
       let(:dummy_resource) { create(:dummy_resource) }
 
       describe "comments_for" do
-        it "should render the react component `Comments` with the correct data" do
+        it "renders the react component `Comments` with the correct data" do
           expect(helper)
             .to receive(:react_comments_component)
             .with(

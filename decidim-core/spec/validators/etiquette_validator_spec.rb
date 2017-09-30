@@ -38,26 +38,31 @@ describe EtiquetteValidator do
 
   context "when the text has too much caps" do
     let(:body) { "A SCREAMING PIECE of text" }
+
     it { is_expected.to be_invalid }
   end
 
   context "when the text has too many marks" do
     let(:body) { "I am screaming!!?" }
+
     it { is_expected.to be_invalid }
   end
 
   context "when the text has very long words" do
     let(:body) { "This word is veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long." }
+
     it { is_expected.to be_invalid }
   end
 
   context "when the text is written starting in downcase" do
     let(:body) { "i no care about grammer" }
+
     it { is_expected.to be_invalid }
   end
 
   context "when the body is too short" do
     let(:body) { "Oh my god" }
+
     it { is_expected.to be_invalid }
   end
 end

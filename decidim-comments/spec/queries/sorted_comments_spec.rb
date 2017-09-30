@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Comments::SortedComments do
+  subject { described_class.new(commentable, order_by: order_by) }
+
   let!(:organization) { create(:organization) }
   let!(:participatory_process) { create(:participatory_process, organization: organization) }
   let!(:feature) { create(:feature, participatory_space: participatory_process) }
@@ -10,8 +12,6 @@ describe Decidim::Comments::SortedComments do
   let!(:commentable) { create(:dummy_resource, feature: feature) }
   let!(:comment) { create(:comment, commentable: commentable, author: author) }
   let!(:order_by) {}
-
-  subject { described_class.new(commentable, order_by: order_by) }
 
   it "returns the commentable's comments" do
     expect(subject.query).to eq [comment]

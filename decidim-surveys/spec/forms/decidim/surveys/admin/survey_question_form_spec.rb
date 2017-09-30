@@ -6,6 +6,10 @@ module Decidim
   module Surveys
     module Admin
       describe SurveyQuestionForm do
+        subject do
+          described_class.from_params(attributes).with_context(current_feature: survey.feature, current_organization: organization)
+        end
+
         let!(:survey) { create(:survey) }
         let!(:position) { 0 }
         let!(:question_type) { SurveyQuestion::TYPES.first }
@@ -20,10 +24,6 @@ module Decidim
             position: position,
             deleted: deleted
           }
-        end
-
-        subject do
-          described_class.from_params(attributes).with_context(current_feature: survey.feature, current_organization: organization)
         end
 
         context "when everything is OK" do

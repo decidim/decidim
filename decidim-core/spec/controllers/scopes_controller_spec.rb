@@ -6,6 +6,8 @@ module Decidim
   describe ScopesController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
+    subject { results["results"] }
+
     let(:organization) { create(:organization) }
     let!(:scopes) do
       %w(Aaaa Aabb Bbbb).map { |name| create(:scope, name: Decidim::Faker::Localized.literal(name), organization: organization) }
@@ -16,8 +18,6 @@ module Decidim
     let(:query) { "" }
     let(:params) { { term: query } }
     let(:results) { JSON.parse(response.body) }
-
-    subject { results["results"] }
 
     before do
       @request.env["decidim.current_organization"] = organization
@@ -53,21 +53,25 @@ module Decidim
 
     context "find one result" do
       let(:query) { "Bb" }
+
       it { is_expected.to have_scopes %w(Bbbb) }
     end
 
     context "find several results" do
       let(:query) { "Aa" }
+
       it { is_expected.to have_scopes %w(Aaaa Aabb) }
     end
 
     context "find subscopes" do
       let(:query) { "Cc" }
+
       it { is_expected.to have_scopes %w(Cccc) }
     end
 
     context "don't find results" do
       let(:query) { "Dd" }
+
       it { is_expected.to be_empty }
     end
 
@@ -80,16 +84,19 @@ module Decidim
 
       context "find one result" do
         let(:query) { "Cc" }
+
         it { is_expected.to have_scopes %w(Cccc) }
       end
 
       context "don't find results outside the root scope" do
         let(:query) { "Bb" }
+
         it { is_expected.to be_empty }
       end
 
       context "include root" do
         let(:params) { { term: query, root: scopes.first, include_root: true } }
+
         it { is_expected.to have_scopes %w(Aaaa Cccc) }
       end
     end

@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Assemblies::Admin::UnpublishAssembly do
-  let(:my_assembly) { create :assembly }
-
   subject { described_class.new(my_assembly) }
+
+  let(:my_assembly) { create :assembly }
 
   context "when the assembly is nil" do
     let(:my_assembly) { nil }

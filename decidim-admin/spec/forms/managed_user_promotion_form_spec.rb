@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Admin
     describe ManagedUserPromotionForm do
+      subject { described_class.from_params(attributes) }
+
       let(:email) { "foo@example.org" }
       let(:attributes) do
         {
@@ -13,8 +15,6 @@ module Decidim
           }
         }
       end
-
-      subject { described_class.from_params(attributes) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }

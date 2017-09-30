@@ -60,12 +60,12 @@ describe "Authentication", type: :feature do
         )
       end
 
-      before :each do
+      before do
         OmniAuth.config.test_mode = true
         OmniAuth.config.mock_auth[:facebook] = omniauth_hash
       end
 
-      after :each do
+      after do
         OmniAuth.config.test_mode = false
         OmniAuth.config.mock_auth[:facebook] = nil
       end
@@ -95,12 +95,12 @@ describe "Authentication", type: :feature do
         )
       end
 
-      before :each do
+      before do
         OmniAuth.config.test_mode = true
         OmniAuth.config.mock_auth[:twitter] = omniauth_hash
       end
 
-      after :each do
+      after do
         OmniAuth.config.test_mode = false
         OmniAuth.config.mock_auth[:twitter] = nil
       end
@@ -168,12 +168,12 @@ describe "Authentication", type: :feature do
         )
       end
 
-      before :each do
+      before do
         OmniAuth.config.test_mode = true
         OmniAuth.config.mock_auth[:google_oauth2] = omniauth_hash
       end
 
-      after :each do
+      after do
         OmniAuth.config.test_mode = false
         OmniAuth.config.mock_auth[:google_oauth2] = nil
       end
@@ -326,12 +326,12 @@ describe "Authentication", type: :feature do
       )
     end
 
-    before :each do
+    before do
       OmniAuth.config.test_mode = true
       OmniAuth.config.mock_auth[:facebook] = omniauth_hash
     end
 
-    after :each do
+    after do
       OmniAuth.config.test_mode = false
       OmniAuth.config.mock_auth[:facebook] = nil
     end
@@ -387,12 +387,12 @@ describe "Authentication", type: :feature do
       )
     end
 
-    before :each do
+    before do
       OmniAuth.config.test_mode = true
       OmniAuth.config.mock_auth[:facebook] = omniauth_hash
     end
 
-    after :each do
+    after do
       OmniAuth.config.test_mode = false
       OmniAuth.config.mock_auth[:facebook] = nil
     end

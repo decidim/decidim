@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe Decidim::ParticipatoryProcesses::Admin::DeactivateParticipatoryProcessStep do
-  let(:process_step) { create :participatory_process_step, :active }
-
   subject { described_class.new(process_step) }
+
+  let(:process_step) { create :participatory_process_step, :active }
 
   context "when the step is nil" do
     let(:process_step) { nil }

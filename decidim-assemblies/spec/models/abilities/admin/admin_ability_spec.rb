@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Assemblies::Abilities::Admin::AdminAbility do
-  let(:user) { build(:user, :admin) }
-
   subject { described_class.new(user, {}) }
+
+  let(:user) { build(:user, :admin) }
 
   it { is_expected.to be_able_to(:manage, Decidim::Assembly) }
 end

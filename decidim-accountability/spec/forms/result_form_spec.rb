@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Accountability::Admin::ResultForm do
+  subject { described_class.from_params(attributes).with_context(context) }
+
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:context) do
     {
@@ -43,8 +45,6 @@ describe Decidim::Accountability::Admin::ResultForm do
       progress: progress
     }
   end
-
-  subject { described_class.from_params(attributes).with_context(context) }
 
   it { is_expected.to be_valid }
 
@@ -96,6 +96,8 @@ describe Decidim::Accountability::Admin::ResultForm do
     end
 
     describe "#map_model" do
+      subject { described_class.from_model(result).with_context(context) }
+
       let(:result) do
         create(
           :result,
@@ -104,8 +106,6 @@ describe Decidim::Accountability::Admin::ResultForm do
           category: category
         )
       end
-
-      subject { described_class.from_model(result).with_context(context) }
 
       it "sets the proposal_ids correctly" do
         result.link_resources([proposal], "included_proposals")

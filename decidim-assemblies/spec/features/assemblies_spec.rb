@@ -145,6 +145,7 @@ describe "Assemblies", type: :feature do
     end
 
     let(:attached_to) { assembly }
+
     it_behaves_like "has attachments"
 
     context "when the assembly has some features" do
@@ -158,7 +159,7 @@ describe "Assemblies", type: :feature do
       it "shows the stats for those features" do
         within ".process_stats" do
           expect(page).to have_content("3 PROPOSALS")
-          expect(page).to_not have_content("0 MEETINGS")
+          expect(page).not_to have_content("0 MEETINGS")
         end
       end
 

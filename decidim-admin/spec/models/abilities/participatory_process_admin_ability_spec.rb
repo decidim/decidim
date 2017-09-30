@@ -3,10 +3,10 @@
 require "spec_helper"
 
 describe Decidim::Admin::Abilities::ParticipatoryProcessAdminAbility do
+  subject { described_class.new(user, current_participatory_process: user_process) }
+
   let(:user) { build(:user) }
   let(:user_process) { create :participatory_process, organization: user.organization }
-
-  subject { described_class.new(user, current_participatory_process: user_process) }
 
   context "when the user does not admin any process" do
     it { is_expected.not_to be_able_to(:read, :admin_dashboard) }

@@ -4,9 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe Organization, processing_uploads_for: Decidim::HomepageImageUploader do
-    let(:organization) { build(:organization) }
-
     subject { organization }
+
+    let(:organization) { build(:organization) }
 
     it { is_expected.to be_valid }
 
@@ -23,14 +23,14 @@ module Decidim
       end
 
       context "when the homepage image is a malicious image" do
-        let(:homepage_image_path) { Decidim::Dev.asset("malicious.jpg") }
-
         subject do
           build(
             :organization,
             homepage_image: Rack::Test::UploadedFile.new(homepage_image_path, "image/jpg")
           )
         end
+
+        let(:homepage_image_path) { Decidim::Dev.asset("malicious.jpg") }
 
         it { is_expected.not_to be_valid }
       end

@@ -5,6 +5,8 @@ require "spec_helper"
 describe Decidim::Admin::ImpersonateManagedUser do
   include ActiveSupport::Testing::TimeHelpers
 
+  subject { described_class.new(form, user, current_user) }
+
   let(:organization) { create :organization }
   let(:current_user) { create :user, :admin, organization: organization }
   let(:document_number) { "12345678X" }
@@ -36,8 +38,6 @@ describe Decidim::Admin::ImpersonateManagedUser do
            name: handler.handler_name,
            attributes: { unique_id: handler.unique_id })
   end
-
-  subject { described_class.new(form, user, current_user) }
 
   context "when everything is ok" do
     it "broadcasts ok" do

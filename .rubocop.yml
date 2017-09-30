@@ -1,3 +1,5 @@
+require: rubocop-rspec
+
 # Common configuration.
 AllCops:
   Exclude:

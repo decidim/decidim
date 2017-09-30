@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe Category do
-    let(:category) { build(:category) }
     subject { category }
+
+    let(:category) { build(:category) }
 
     it { is_expected.to be_valid }
 

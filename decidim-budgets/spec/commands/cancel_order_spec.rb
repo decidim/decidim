@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Budgets::CancelOrder do
+  subject { described_class.new(order) }
+
   let(:user) { create(:user) }
   let(:feature) do
     create(
@@ -19,8 +21,6 @@ describe Decidim::Budgets::CancelOrder do
     order.save!
     order
   end
-
-  subject { described_class.new(order) }
 
   context "when everything is ok" do
     it "broadcasts ok" do

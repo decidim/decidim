@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::Admin::InviteUserToJoinMeeting do
+  subject { described_class.new(form, meeting, current_user) }
+
   let(:organization) { create :organization }
   let!(:current_user) { create :user, :admin, organization: organization }
   let(:name) { "name" }
@@ -23,8 +25,6 @@ describe Decidim::Meetings::Admin::InviteUserToJoinMeeting do
   let!(:participatory_process) { create :participatory_process, organization: organization }
   let!(:feature) { create :meeting_feature, participatory_space: participatory_process }
   let!(:meeting) { create :meeting, feature: feature }
-
-  subject { described_class.new(form, meeting, current_user) }
 
   context "when everything is ok" do
     before do

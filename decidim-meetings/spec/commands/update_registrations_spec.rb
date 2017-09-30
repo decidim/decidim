@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::Admin::UpdateRegistrations do
+  subject { described_class.new(form, meeting) }
+
   let(:meeting) { create(:meeting) }
   let(:invalid) { false }
   let(:registrations_enabled) { true }
@@ -22,8 +24,6 @@ describe Decidim::Meetings::Admin::UpdateRegistrations do
       registration_terms: registration_terms
     )
   end
-
-  subject { described_class.new(form, meeting) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

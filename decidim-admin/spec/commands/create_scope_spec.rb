@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Admin::CreateScope do
+  subject { described_class.new(form) }
+
   let(:organization) { create :organization }
   let(:name) { Decidim::Faker::Localized.literal(Faker::Address.unique.state) }
   let(:code) { Faker::Address.unique.state_abbr }
@@ -18,8 +20,6 @@ describe Decidim::Admin::CreateScope do
     )
   end
   let(:invalid) { false }
-
-  subject { described_class.new(form) }
 
   context "when the form is not valid" do
     let(:invalid) { true }
@@ -40,9 +40,9 @@ describe Decidim::Admin::CreateScope do
   end
 
   context "when its a child scope" do
-    let!(:parent_scope) { create :scope, organization: organization }
-
     subject { described_class.new(form, parent_scope) }
+
+    let!(:parent_scope) { create :scope, organization: organization }
 
     it "broadcasts ok" do
       expect { subject.call }.to broadcast(:ok)

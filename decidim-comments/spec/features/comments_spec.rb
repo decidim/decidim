@@ -8,5 +8,6 @@ describe "Comments", type: :feature do
   let!(:commentable) { create(:dummy_resource, feature: feature, author: author) }
 
   let(:resource_path) { resource_locator(commentable).path }
+
   include_examples "comments"
 end

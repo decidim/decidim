@@ -13,10 +13,10 @@ describe Decidim::Proposals::FilteredProposals do
   let(:another_proposals) { create_list(:proposal, 3, feature: another_feature) }
 
   it "returns proposals included in a collection of features" do
-    expect(Decidim::Proposals::FilteredProposals.for([feature, another_feature])).to match_array proposals.concat(old_proposals, another_proposals)
+    expect(described_class.for([feature, another_feature])).to match_array proposals.concat(old_proposals, another_proposals)
   end
 
   it "returns proposals created in a date range" do
-    expect(Decidim::Proposals::FilteredProposals.for([feature, another_feature], 2.weeks.ago, 1.week.ago)).to match_array old_proposals
+    expect(described_class.for([feature, another_feature], 2.weeks.ago, 1.week.ago)).to match_array old_proposals
   end
 end

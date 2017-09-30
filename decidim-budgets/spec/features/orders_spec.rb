@@ -227,6 +227,7 @@ describe "Orders", type: :feature do
     end
 
     let(:attached_to) { project }
+
     it_behaves_like "has attachments"
 
     it "shows the feature" do

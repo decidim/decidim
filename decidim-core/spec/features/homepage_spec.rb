@@ -89,7 +89,7 @@ describe "Homepage", type: :feature do
       let(:organization) { create(:organization, official_url: official_url, header_snippets: snippet) }
 
       it "does not include the header snippets" do
-        expect(page).to_not have_selector("meta[data-hello]", visible: false)
+        expect(page).not_to have_selector("meta[data-hello]", visible: false)
       end
 
       context "when header snippets are enabled" do
@@ -152,7 +152,7 @@ describe "Homepage", type: :feature do
           )
         end
 
-        it "should show a maximum of 8" do
+        it "shows a maximum of 8" do
           visit current_path
           expect(page).to have_selector("article.card", count: 8)
         end
@@ -163,7 +163,7 @@ describe "Homepage", type: :feature do
         let!(:participatory_process_2) { create(:participatory_process, :with_steps, promoted: false, organization: organization) }
         let!(:participatory_process_3) { create(:participatory_process, :with_steps, promoted: true, organization: organization) }
 
-        it "should show promoted first and ordered by active step end_date" do
+        it "shows promoted first and ordered by active step end_date" do
           processes = [participatory_process_3, participatory_process_1, participatory_process_2]
           participatory_process_1.active_step.update_attributes!(end_date: 5.days.from_now)
           participatory_process_2.active_step.update_attributes!(end_date: 3.days.from_now)
@@ -193,7 +193,7 @@ describe "Homepage", type: :feature do
       context "when organization show_statistics attribute is false" do
         let(:organization) { create(:organization, show_statistics: false) }
 
-        it "should not show the statistics block" do
+        it "does not show the statistics block" do
           expect(page).to have_no_content("Current state of #{organization.name}")
         end
       end
@@ -205,7 +205,7 @@ describe "Homepage", type: :feature do
           visit current_path
         end
 
-        it "should show the statistics block" do
+        it "shows the statistics block" do
           within "#statistics" do
             expect(page).to have_content("Current state of #{organization.name}")
             expect(page).to have_content("PROCESSES")
@@ -213,7 +213,7 @@ describe "Homepage", type: :feature do
           end
         end
 
-        it "should have the correct values for the statistics" do
+        it "has the correct values for the statistics" do
           within ".users_count" do
             expect(page).to have_content("4")
           end

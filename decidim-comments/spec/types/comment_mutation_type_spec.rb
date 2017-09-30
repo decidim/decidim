@@ -16,7 +16,7 @@ module Decidim
           allow(Decidim::Comments::VoteComment).to receive(:call).with(model, current_user, weight: 1).and_return(model)
         end
 
-        it "should call UpVoteComment command" do
+        it "calls UpVoteComment command" do
           expect(model).to receive(:up_voted_by?).with(current_user).and_return(true)
           expect(response["upVote"]).to include("upVoted" => true)
         end
@@ -29,7 +29,7 @@ module Decidim
           allow(Decidim::Comments::VoteComment).to receive(:call).with(model, current_user, weight: -1).and_return(model)
         end
 
-        it "should call UpVoteComment command" do
+        it "calls UpVoteComment command" do
           expect(model).to receive(:down_voted_by?).with(current_user).and_return(true)
           expect(response["downVote"]).to include("downVoted" => true)
         end

@@ -5,10 +5,10 @@ require "spec_helper"
 module Decidim
   module Meetings
     describe Meeting do
+      subject { meeting }
+
       let(:address) { ::Faker::Lorem.sentence(3) }
       let(:meeting) { build :meeting, address: address }
-
-      subject { meeting }
 
       it { is_expected.to be_valid }
 

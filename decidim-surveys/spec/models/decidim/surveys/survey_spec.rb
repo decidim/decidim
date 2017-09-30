@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim
   module Surveys
     describe Survey do
-      let(:survey) { create(:survey) }
       subject { survey }
+
+      let(:survey) { create(:survey) }
 
       include_examples "has feature"
 
@@ -52,12 +53,12 @@ module Decidim
         let!(:question) { create(:survey_question, survey: survey) }
 
         it "returns false if the given user has not answered the survey" do
-          expect(survey.answered_by?(user)).to be_falsy
+          expect(survey).not_to be_answered_by(user)
         end
 
         it "returns true if the given user has answered the survey" do
           create(:survey_answer, survey: survey, question: question, user: user)
-          expect(survey.answered_by?(user)).to be_truthy
+          expect(survey).to be_answered_by(user)
         end
       end
     end

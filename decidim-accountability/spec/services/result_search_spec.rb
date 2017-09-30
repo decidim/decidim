@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Accountability::ResultSearch do
+  subject { described_class.new(params) }
+
   let(:current_feature) { create :accountability_feature }
   let(:scope1) { create :scope, organization: current_feature.organization }
   let(:scope2) { create :scope, organization: current_feature.organization }
@@ -30,8 +32,6 @@ describe Decidim::Accountability::ResultSearch do
   let(:organization_id) { current_feature.organization.id }
   let(:default_params) { { feature: current_feature } }
   let(:params) { default_params }
-
-  subject { described_class.new(params) }
 
   describe "base query" do
     context "when no feature is passed" do

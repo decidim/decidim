@@ -4,6 +4,8 @@ require "spec_helper"
 require "csv"
 
 describe Decidim::Exporters::CSV do
+  subject { described_class.new(collection, serializer) }
+
   let(:serializer) do
     Class.new do
       def initialize(resource)
@@ -26,8 +28,6 @@ describe Decidim::Exporters::CSV do
       OpenStruct.new(id: 2, name: { ca: "barcat", es: "bares" }, ids: [1, 2, 3])
     ]
   end
-
-  subject { described_class.new(collection, serializer) }
 
   describe "export" do
     it "exports the collection using the right serializer" do

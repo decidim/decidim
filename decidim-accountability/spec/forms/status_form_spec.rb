@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Accountability::Admin::StatusForm do
+  subject { described_class.from_params(attributes).with_context(context) }
+
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:context) do
     {
@@ -29,8 +31,6 @@ describe Decidim::Accountability::Admin::StatusForm do
       progress: progress
     }
   end
-
-  subject { described_class.from_params(attributes).with_context(context) }
 
   it { is_expected.to be_valid }
 

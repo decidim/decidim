@@ -6,6 +6,8 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       describe ParticipatoryProcessStepForm do
+        subject { described_class.from_params(attributes).with_context(current_organization: organization) }
+
         let(:title) do
           {
             en: "Title",
@@ -37,8 +39,6 @@ module Decidim
           }
         end
         let(:organization) { build(:organization) }
-
-        subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         describe "dates" do
           context "when the dates are set" do

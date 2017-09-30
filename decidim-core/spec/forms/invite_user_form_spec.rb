@@ -4,11 +4,6 @@ require "spec_helper"
 
 module Decidim
   describe InviteUserForm do
-    let(:current_organization) { create(:organization) }
-    let(:current_user) { create(:user, organization: current_organization) }
-    let(:form_organization) { current_organization }
-    let(:form_user) { current_user }
-
     subject do
       described_class.from_params(
         attributes
@@ -17,6 +12,11 @@ module Decidim
         current_organization: current_organization
       )
     end
+
+    let(:current_organization) { create(:organization) }
+    let(:current_user) { create(:user, organization: current_organization) }
+    let(:form_organization) { current_organization }
+    let(:form_user) { current_user }
 
     let(:attributes) do
       {

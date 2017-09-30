@@ -202,7 +202,7 @@ describe "Proposals", type: :feature do
             feature.update_attributes!(permissions: permissions)
           end
 
-          it "should show a modal dialog" do
+          it "shows a modal dialog" do
             visit_feature
             click_link "New proposal"
             expect(page).to have_content("Authorization required")

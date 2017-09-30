@@ -4,12 +4,12 @@ require "spec_helper"
 
 module Decidim
   describe Assemblies::AssemblyStatsPresenter do
+    subject { described_class.new(assembly: assembly) }
+
     let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization: organization) }
     let!(:assembly) { create(:assembly, organization: organization) }
     let!(:feature) { create(:feature, participatory_space: assembly) }
-
-    subject { described_class.new(assembly: assembly) }
 
     let(:manifest) do
       Decidim::FeatureManifest.new.tap do |manifest|

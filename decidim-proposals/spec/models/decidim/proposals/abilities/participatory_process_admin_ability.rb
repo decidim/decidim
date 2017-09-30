@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
+  subject { described_class.new(user, context) }
+
   let(:user) { build(:user) }
   let(:user_process) { create :participatory_process, organization: user.organization }
   let!(:user_process_role) { create :participatory_process_user_role, user: user, participatory_process: user_process, role: :admin }
@@ -10,8 +12,6 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
   let(:proposals) { create_list :proposal, 3, feature: feature }
   let(:other_proposals) { create_list :proposal, 3 }
   let(:context) { { current_participatory_process: user_process } }
-
-  subject { described_class.new(user, context) }
 
   context "when the user is an admin" do
     let(:user) { build(:user, :admin) }

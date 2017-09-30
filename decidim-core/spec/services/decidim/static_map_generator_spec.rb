@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe StaticMapGenerator do
+    subject { described_class.new(dummy_resource, options) }
+
     let(:dummy_resource) { create(:dummy_resource) }
     let(:options) do
       {
@@ -13,7 +15,6 @@ module Decidim
       }
     end
     let(:body) { "1234" }
-    subject { described_class.new(dummy_resource, options) }
 
     before do
       stub_request(:get, Regexp.new(Decidim.geocoder.fetch(:static_map_url))).to_return(body: body)

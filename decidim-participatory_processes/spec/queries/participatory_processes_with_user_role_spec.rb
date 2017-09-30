@@ -3,10 +3,10 @@
 require "spec_helper"
 
 describe Decidim::ParticipatoryProcessesWithUserRole do
+  subject { described_class.new(user, :admin) }
+
   let!(:organization_process) { create :participatory_process, organization: user.organization }
   let!(:external_process) { create :participatory_process }
-
-  subject { described_class.new(user, :admin) }
 
   context "when the user is an admin" do
     let(:user) { create :user, :admin }

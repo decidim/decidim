@@ -4,11 +4,6 @@ require "spec_helper"
 
 module Decidim
   describe NotificationsSettingsForm do
-    let(:user) { create(:user) }
-
-    let(:email_on_notification) { "1" }
-    let(:newsletter_notifications) { "1" }
-
     subject do
       described_class.new(
         email_on_notification: email_on_notification,
@@ -17,6 +12,11 @@ module Decidim
         current_user: user
       )
     end
+
+    let(:user) { create(:user) }
+
+    let(:email_on_notification) { "1" }
+    let(:newsletter_notifications) { "1" }
 
     context "with correct data" do
       it "is valid" do

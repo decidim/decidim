@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Admin::Abilities::AdminAbility do
-  let(:user) { build(:user, :admin) }
-
   subject { described_class.new(user, {}) }
+
+  let(:user) { build(:user, :admin) }
 
   context "when the user is not an admin" do
     let(:user) { build(:user) }
@@ -74,6 +74,7 @@ describe Decidim::Admin::Abilities::AdminAbility do
   context "when destroying a user" do
     context "when the user is themselves" do
       let(:user_to_destroy) { user }
+
       it { is_expected.not_to be_able_to(:destroy, user_to_destroy) }
     end
 

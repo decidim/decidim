@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Budgets::RemoveLineItem do
+  subject { described_class.new(order, project) }
+
   let(:user) { create(:user) }
 
   let(:feature) do
@@ -19,8 +21,6 @@ describe Decidim::Budgets::RemoveLineItem do
     order.save!
     order
   end
-
-  subject { described_class.new(order, project) }
 
   context "when everything is ok" do
     it "broadcasts ok" do

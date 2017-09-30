@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Accountability::ResultStatsCalculator do
+  subject { described_class.new(result) }
+
   let(:participatory_process) { create(:participatory_process, :with_steps) }
   let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
   let(:scope) { create :scope, organization: current_feature.organization }
@@ -42,8 +44,6 @@ describe Decidim::Accountability::ResultStatsCalculator do
     result.link_resources(proposals, "included_proposals")
     result.link_resources(meetings, "meetings_through_proposals")
   end
-
-  subject { described_class.new(result) }
 
   describe "meetings_count" do
     it "counts the related meetings" do

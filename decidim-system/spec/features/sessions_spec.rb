@@ -9,7 +9,7 @@ describe "Sessions", type: :feature do
                    password_confirmation: "123456")
   end
 
-  before(:each) do
+  before do
     visit decidim_system.root_path
   end
 

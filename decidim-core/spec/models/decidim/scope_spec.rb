@@ -4,9 +4,10 @@ require "spec_helper"
 
 module Decidim
   describe Scope do
+    subject { scope }
+
     let(:parent) { nil }
     let(:scope) { build(:scope, parent: parent) }
-    subject { scope }
 
     context "it is valid" do
       it { is_expected.to be_valid }

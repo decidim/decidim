@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess do
+  subject { described_class.new(form, participatory_process) }
+
   let(:organization) { create :organization }
   let(:participatory_process_group) { create :participatory_process_group, organization: organization }
   let(:scope) { create :scope, organization: organization }
@@ -32,8 +34,6 @@ describe Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess do
   let(:copy_categories) { false }
   let(:copy_features) { false }
 
-  subject { described_class.new(form, participatory_process) }
-
   context "when the form is not valid" do
     let(:invalid) { true }
 
@@ -51,7 +51,7 @@ describe Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess do
 
       expect(new_participatory_process.slug).to eq("copied-slug")
       expect(new_participatory_process.title["en"]).to eq("title")
-      expect(new_participatory_process.published?).to be_falsy
+      expect(new_participatory_process).not_to be_published
       expect(new_participatory_process.organization).to eq(old_participatory_process.organization)
       expect(new_participatory_process.subtitle).to eq(old_participatory_process.subtitle)
       expect(new_participatory_process.description).to eq(old_participatory_process.description)
@@ -121,8 +121,8 @@ describe Decidim::ParticipatoryProcesses::Admin::CopyParticipatoryProcess do
       expect(last_feature.participatory_space).to eq(last_participatory_process)
       expect(last_feature.name).to eq(feature.name)
       expect(last_feature.settings.attributes).to eq(feature.settings.attributes)
-      expect(last_feature.step_settings.keys).to_not eq(feature.step_settings.keys)
-      expect(last_feature.step_settings.values).to_not eq(feature.step_settings.values)
+      expect(last_feature.step_settings.keys).not_to eq(feature.step_settings.keys)
+      expect(last_feature.step_settings.values).not_to eq(feature.step_settings.values)
     end
   end
 end

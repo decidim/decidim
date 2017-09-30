@@ -23,7 +23,7 @@ describe Decidim do
       other_railties.each { |r| expect(r).not_to receive(:load_seed) }
 
       manifests = [double(name: "Feature A"), double(name: "Feature B")]
-      expect(Decidim).to receive(:participatory_space_manifests).and_return(manifests)
+      expect(described_class).to receive(:participatory_space_manifests).and_return(manifests)
 
       manifests.each do |manifest|
         expect(manifest).to receive(:seed!).once
@@ -32,7 +32,7 @@ describe Decidim do
       application = double(railties: (decidim_railties + other_railties))
       expect(Rails).to receive(:application).and_return application
 
-      Decidim.seed!
+      described_class.seed!
     end
   end
 end
