@@ -62,7 +62,6 @@ describe Decidim::Budgets::Order do
       subject.projects << build(:project, feature: subject.feature)
 
       expect(subject.total_budget).to eq(subject.projects.sum(&:budget))
-      expect(subject)
     end
   end
 
