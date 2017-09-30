@@ -2,6 +2,9 @@
   <%= decidim_form_for(@account, url: account_path, method: :put, class: "user-form") do |f| %>
     <div class="columns large-4">
       <%= f.upload :avatar %>
+      <% if @account.errors[:avatar].any? %>
+        <p class="is-invalid-label"><%= safe_join @account.errors[:avatar], '<br/>' %></p>
+      <% end %>
     </div>
 
     <div class="columns large-8 end">
