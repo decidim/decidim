@@ -21,7 +21,7 @@ uk:
     features:
       meetings:
         actions:
-          join: Прийняти участь
+          join: Долучитись
         name: Зустрічі
         settings:
           global:
@@ -46,8 +46,8 @@ uk:
           registrations: Реєстрації
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} запросив вас прийняти участь в зустрічі на %{application}. Ви можете прийняти це запрошення за посиланням нижче."
-            join: Прийняти участь у зустрічі "%{meeting_title}"
+            invited_you_to_join_a_meeting: "%{invited_by} запросив вас долучитись до зустрічі %{application}. Ви можете прийняти це запрошення за посиланням нижче."
+            join: Долучитись до зустрічі "%{meeting_title}"
         invites:
           create:
             error: При спробі запросити користувача на зустріч виникла проблема.
@@ -156,7 +156,7 @@ uk:
           attendees: Кількість учасників
           contributions: Кількість внесених пропозицій
           going: Збирається відвідати
-          join: Прийняти участь у зустрічі
+          join: Долучитись до зустрічі
           meeting_report: Звіт про зустріч
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь
@@ -180,7 +180,7 @@ uk:
           details: Відомості про зустріч читайте у вкладенні.
       registrations:
         create:
-          invalid: При спробі приєднатися до цієї зустрічі виникла проблема.
+          invalid: При спробі долучитися до цієї зустрічі виникла проблема.
           success: Ви успішно зареєструвалися на зустріч.
         destroy:
           invalid: При спробі скасувати реєстрацію на цю зустріч виникла проблема.
