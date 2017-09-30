@@ -5,7 +5,6 @@ require_dependency "devise/models/decidim_validatable"
 module Decidim
   # A User is a citizen that wants to join the platform to participate.
   class User < ApplicationRecord
-    MAXIMUM_AVATAR_FILE_SIZE = 5.megabytes
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
     ROLES = %w(admin user_manager).freeze
 
@@ -25,7 +24,7 @@ module Decidim
     validates :name, presence: true, unless: -> { deleted? }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
-    validates :avatar, file_size: { less_than_or_equal_to: MAXIMUM_AVATAR_FILE_SIZE }
+    validates :avatar, file_size: { less_than_or_equal_to: ->(_record){ Decidim.maximum_avatar_size } }
     validates :email, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? }
     validate :all_roles_are_valid
 
