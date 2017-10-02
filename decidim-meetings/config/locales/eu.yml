@@ -179,7 +179,7 @@ eu:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
           success: Topaketan izena ongi eman duzu.
         destroy:
-          invalid: Arazo bat izan da bilera hau utzita.
+          invalid: Arazo bat izan da topaketa honetatik ateratzean.
           success: Topaketatik ongi atera zara.
     resource_links:
       meetings_through_proposals:
