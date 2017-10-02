@@ -66,15 +66,15 @@ eu:
           categories: Kategoriak
           features: Funtzionalitateak
           info: Informazioa
-          moderations: ' Salaketak'
+          moderations: Moderazioak
       models:
         assembly:
           fields:
-            created_at: Tan sortua
+            created_at: Sortze-data
             promoted: Nabarmendua
             published: Argitaratua
             title: Titulua
-          name: Batzar
+          name: Batzarra
       titles:
         assemblies: Biltzarrak
     assemblies:
@@ -90,8 +90,8 @@ eu:
       show:
         developer_group: Talde sustatzailea
         local_area: Udal-alorrak
-        participatory_scope: Partehartze esparrua
-        participatory_structure: Partehartze egitura
+        participatory_scope: Esparru partizipatiboa
+        participatory_structure: Egitura partizipatiboa
         scope: Esparrua
         target: Nori zuzentzen zaio?
       statistics:
@@ -99,15 +99,15 @@ eu:
         assemblies_count: Biltzarrak
         comments_count: Iruzkinak
         headline: Jarduera
-        meetings_count: Topaketa-zerrenda
-        orders_count: Eskariak
+        meetings_count: Topaketak
+        orders_count: Botoak
         pages_count: Orriak
         projects_count: Proiektuak
         proposals_count: Proposamenak
         results_count: Emaitzak
         surveys_count: Inkestak
         users_count: Parte-hartzaileak
-        votes_count: Botoak
+        votes_count: Euskarriak
     menu:
       assemblies: Biltzarrak
   layouts:
@@ -116,9 +116,9 @@ eu:
         assembly:
           take_part: Parte hartu
         index:
-          promoted_assemblies: Agerraldi nabarmenak
+          promoted_assemblies: Batzar nabarmenduak
         no_assemblies_yet:
-          no_assemblies_yet: Ez dago batzurik oraindik!
+          no_assemblies_yet: Oraindik ez dago batzarrik!
         order_by_assemblies:
           assemblies:
             one: "%{count} muntaia"
