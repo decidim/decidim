@@ -11,7 +11,7 @@ module Decidim
     validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }
     validates :document_number, presence: true, uniqueness: { scope: :decidim_organization_id }
     validates :phone, presence: true
-    validates :avatar, file_size: { less_than_or_equal_to: ->(_record){ Decidim.maximum_avatar_size } }
+    validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
 
     validate :correct_state
 
