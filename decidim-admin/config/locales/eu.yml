@@ -183,11 +183,11 @@ eu:
           error: Errore bat gertatu da kudeatutako erabiltzailea ordezkatzean.
         impersonations:
           new:
-            impersonate: itxurak
-            new_managed_user_impersonation: Erabiltzaile berrien ordezkapen berria
+            impersonate: Ordeztu
+            new_managed_user_impersonation: Kudeatutako erabiltzailearen ordezte berria
         index:
-          impersonate: itxurak
-          needs_authoriation_warning: Gutxienez erakunde honen baimenak gaitu behar dituzu.
+          impersonate: Ordeztu
+          needs_authoriation_warning: Gutxienez baimen gaitu bat behar duzu erakunde honendako.
           promote: Goratu
           view_logs: Ikusi erregistroak
         new:
@@ -196,12 +196,12 @@ eu:
           select_authorization_method: Hautatu autorizazio metodoa
           step: '%{total} fasetatik %{current}.a'
         promotion:
-          error: Errore bat gertatu da kudeatutako erabiltzaileak sustatzean.
-          success: Erabiltzaile kudeatua arrakastaz sustatu da.
+          error: Errorea gertatu da kudeatutako erabiltzailea mailaz igotzean.
+          success: Kudeatutako erabiltzailea zuzen igo da mailaz.
         promotions:
           new:
-            explanation: Erabiltzaile kudeatuak erabiltzaile estandarretara igo daitezke. Aplikazioari gonbidatuko zaitu eta ezingo dituzu berriz ordezkatu. Gonbidatutako erabiltzaileak zure gonbidapena onartu dezan mezu elektroniko bat jasoko du.
-            new_managed_user_promotion: Erabiltzaile kudeatuen promozio berria
+            explanation: Kudeatutako erabiltzaileak erabiltzaile estandar mailara igo daitezke. Horrek esan nahi du aplikaziora gonbidatuak izanen direla eta ezingo direla berriro ere ordeztu. Erabiltzaile gonbidatuak mezu elektroniko bat jasoko du gonbita onartzeko.
+            new_managed_user_promotion: Kudeatutako erabiltzaileen maila igoera berria
             promote: Goratu
       menu:
         admins: Administratzaileak
@@ -225,9 +225,9 @@ eu:
         impersonation_log:
           fields:
             admin: Administratzailea
-            ended_at: Amaitu da
-            expired_at: Iraungita dago
-            started_at: Hasi zen at
+            ended_at: 'Bukaera-data:'
+            expired_at: 'Iraungitze-data:'
+            started_at: 'Hasiera-ordua:'
             user: Erabiltzailea
         managed_user:
           name: Erabiltzaile kudeatua
