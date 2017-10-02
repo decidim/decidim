@@ -121,7 +121,7 @@ eu:
           no_assemblies_yet: Oraindik ez dago batzarrik!
         order_by_assemblies:
           assemblies:
-            one: "%{count} muntaia"
+            one: "%{count} batzarra"
             other: "%{count} batzarrak"
         promoted_assembly:
           more_info: Informazio gehiago
