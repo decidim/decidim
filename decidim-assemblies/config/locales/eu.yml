@@ -3,9 +3,9 @@ eu:
     attributes:
       assembly:
         banner_image: Bannerra
-        copy_categories: Kategoriak kopiatu
-        copy_features: Ezaugarriak kopiatu
-        description: Descripción
+        copy_categories: Kopiatu kategoriak
+        copy_features: Kopiatu funtzionalitateak
+        description: Deskribapena
         developer_group: Talde sustatzailea
         domain: Domeinua
         hashtag: Traola
