@@ -16,7 +16,7 @@ eu:
         participatory_structure: Partehartze egitura
         promoted: Nabarmendua
         scope_id: Esparrua
-        scopes_enabled: Esparruak gaituta
+        scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
         slug: URL laburra
         subtitle: Azpititulua
@@ -26,10 +26,10 @@ eu:
     admin:
       assemblies:
         create:
-          error: Errore bat gertatu da muntaia berri bat sortzean.
-          success: Batzarra ondo sortu da.
+          error: Errorea gertatu da batzar berri bat sortzean.
+          success: Batzarra zuzen sortu da.
         destroy:
-          success: Batzarak arrakastaz suntsitu zuen.
+          success: Batzarra zuzen ezabatu da.
         edit:
           update: Eguneratu
         form:
@@ -41,24 +41,24 @@ eu:
           create: Sortu
           title: Batzar berria
         update:
-          error: Errore bat gertatu da muntaia hau eguneratzean.
-          success: Batzarra arrakastaz eguneratu da.
+          error: Errorea gertatu da batzar hau eguneratzean.
+          success: Batzarra zuzen eguneratu da.
       assemblies_copies:
         create:
-          error: Errore bat gertatu da muntaia hau bikoizteko.
-          success: Batzar bikoiztu egin da.
+          error: Errorea gertatu da batzar hau kopiatzean.
+          success: Batzarra zuzen bikoiztu da.
       assembly_copies:
         new:
-          copy: Copy
+          copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
-          title: Batzar bikoitza
+          title: Kopiatu batzarra
       assembly_publications:
         create:
-          error: Errore bat gertatu da muntaia hau argitaratzean.
-          success: Batzar ondo argitaratua.
+          error: Errorea gertatu da batzar hau bikoiztean.
+          success: Batzarra ongi argitaratu da.
         destroy:
-          error: Errore bat gertatu da muntatze hau argitaratzea.
-          success: Batzar ez da argitaratu.
+          error: Errorea gertatu da batzar hau desargitaratzean.
+          success: Batzarra ongi desargitaratu da.
       menu:
         assemblies: Biltzarrak
         assemblies_submenu:
