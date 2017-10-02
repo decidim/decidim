@@ -129,11 +129,11 @@ eu:
     events:
       email_event:
         email_greeting: Kaixo, %{user_name},
-        email_intro: '"%{resource_title}" eguneratze bat gertatu da. Orrialde hau ikusi dezakezu:'
-        email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+        email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
+        email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
         email_subject: '%{resource_title} eguneratzea'
       notification_event:
-        notification_title: Gertaera bat gertatu da <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
     export_mailer:
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
@@ -163,19 +163,19 @@ eu:
     follows:
       create:
         button: Jarraitu
-        error: Errore bat gertatu da baliabide hau jarraituz.
+        error: Errorea gertatu da baliabide hau jarraitzeari uztean.
       destroy:
-        button: Utzi hurrengo
-        error: Errore bat gertatu da baliabide hau jarraitzen.
+        button: Jarraitzeari utzi
+        error: Errorea gertatu da baliabide hau jarraitzeari uztean.
     forms:
       current_file: Oraingo fitxategia
       current_image: Oraingo irudia
       default_image: Irudi lehenetsia
       errors:
         error: Errorea bat dago eremu honetan.
-      remove_this_file: Kendu fitxategi hau
+      remove_this_file: Ezabatu artxibo hau
     managed_users:
-      expired_session: Uneko indargabetze saioa iraungi da.
+      expired_session: Ordezte-saio hau iraungi da.
     menu:
       home: Hasiera
       more_information: Argibide gehiago
@@ -184,7 +184,7 @@ eu:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
     notifications_settings:
       show:
-        email_on_notification: Jakinarazpen bat jasotzen dudan bakoitzean mezu elektroniko bat jaso nahi dut.
+        email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
         newsletter_notifications: Informazioa jaso nahi dut garrantzizko jarduerari buruz
         update_notifications_settings: Gorde aldaketak
       update:
@@ -250,7 +250,7 @@ eu:
       reference:
         reference: 'Erreferentzia: %{reference}'
       results_per_page:
-        label: 'Orrialde bakoitzeko emaitzak:'
+        label: 'Emaitzak, orrialdeko:'
       share_modal:
         close_window: Itxi leihoa
         share: Partekatu
