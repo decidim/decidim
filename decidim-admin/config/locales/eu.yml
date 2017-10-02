@@ -315,7 +315,7 @@ eu:
           current_image: Oraingo irudia
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Erabili eremu hau HTML orriko gauzak gehitzeko. Erabilera ohikoena Javascript edo CSS gehigarri bat behar duten hirugarrenen zerbitzuak integratzea da. Gainera, meta tags HTMLra gehi ditzakezu. Kontuan izan hau orri publikoetan bakarrik egingo dela, ez administrazio atalean.
+          header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
           instagram: Instagram
           social_handlers: Gizarte
           twitter: Twitter
@@ -374,7 +374,7 @@ eu:
           success: Orria zuzen eguneratu da.
       titles:
         dashboard: Kontrol-panela
-        impersonations: impersonations
+        impersonations: Ordezteak
         managed_users: Kudeatutako erabiltzaileak
         scope_types: Esparru motak
         scopes: Esparruak
@@ -386,8 +386,8 @@ eu:
           invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.
           success: Erabiltzaile taldea arrakastaz arbuiatua
         verify:
-          invalid: Errore bat gertatu da erabiltzaile talde hau egiaztatzeko.
-          success: Erabiltzaile taldeko egiaztatu arrakastaz
+          invalid: Errorea gertatu da erabiltzaile-talde hau egiaztatzean.
+          success: Erabiltzaile-taldea ongi egiaztatu da
       user_groups:
         index:
           filter:
@@ -436,7 +436,7 @@ eu:
             hidden_at: Ezkutatze-data
             report_count: Zenbaketa
             reportable: Mota
-            reported_content_url: Jakinarazi edukien URL
+            reported_content_url: Emandako edukiaren URLa
             reports: Salaketak
   errors:
     messages:
