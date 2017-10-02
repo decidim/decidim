@@ -269,7 +269,7 @@ eu:
           Nahi ez baduzu onartu gonbit hau, ez egin kasu mezu honi.<br />Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
         invited_you_as_admin: "%{invited_by} %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
-        you_are_now_admin: Orain kudeatzaile zara
+        you_are_now_admin: Orain administratzailea zara
       invite_admin:
         subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
       invite_collaborator:
@@ -294,7 +294,7 @@ eu:
       too_much_caps: Letra larri gehiegi erabiltzen ari zara
       too_short: Laburregia da
   forms:
-    required: Beharrezko
+    required: Nahitaezkoa da
   invisible_captcha:
     sentence_for_humans: Gizaki bat bazara, ez egin kasu eremu honi
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, bidali.
@@ -313,11 +313,11 @@ eu:
         sign_up: Erregistratu
       impersonation_warning:
         close_session: Itxi saioa
-        description_html: Erabiltzailea <b>%{user_name}</b> ordezkatzen ari zara.
-        expire_time_html: Zure saioa <b><span class="minutes">%{minutes}</span> minutu</b> iraungiko da.
+        description_html: 'Honako erabiltzaile honen plantak egiten ari zara: <b>%{user_name}</b>.'
+        expire_time_html: Zure saioa iraungiko da <b><span class="minutes">%{minutes}</span>minutu barru</b>.
       notifications_dashboard:
-        mark_all_as_read: Markatu guztiak irakurri gisa
-        no_notifications: Ez dago jakinarazpenik oraindik.
+        mark_all_as_read: Markatu dena irakurritako gisa
+        no_notifications: Oraindik ez dago jakinarazpenik.
         title: jakinarazpenak
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
@@ -362,7 +362,7 @@ eu:
         comments_count: Iruzkinak
         headline: '%{organization} erakundearen egungo egoera'
         meetings_count: Topaketak
-        orders_count: Eskariak
+        orders_count: Botoak
         pages_count: Orriak
         processes_count: Prozesuak
         projects_count: Proiektuak
