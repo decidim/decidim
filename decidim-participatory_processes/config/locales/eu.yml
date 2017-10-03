@@ -96,18 +96,18 @@ eu:
             moderator: Moderatzailea
         user:
           fields:
-            invitation_accepted_at: Gonbidapena onartu da
-            invitation_sent_at: Gonbidapena bidali da
+            invitation_accepted_at: 'Gonbita egun honetan onartu zen:'
+            invitation_sent_at: 'Gonbita egun honetan bidali zen:'
       participatory_process_copies:
         new:
-          copy: Copy
+          copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
           title: Partehartze prozesua bikoiztu
       participatory_process_groups:
         destroy:
           success: Multzoa zuzen deuseztatu da.
         edit:
-          title: Edizio-prozesuen multzoa
+          title: Prozesu-multzok editatu
           update: Eguneratu
         new:
           create: Sortu
