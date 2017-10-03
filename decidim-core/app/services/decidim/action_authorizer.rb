@@ -31,9 +31,9 @@ module Decidim
 
       return status(:ok) unless authorization_handler_name
 
-      return status(:missing, handler: authorization_handler_name) unless authorization
-      return status(:invalid, handler: authorization_handler_name, fields: unmatched_fields) if unmatched_fields.any?
-      return status(:incomplete, handler: authorization_handler_name, fields: missing_fields) if missing_fields.any?
+      return status(:missing) unless authorization
+      return status(:invalid, fields: unmatched_fields) if unmatched_fields.any?
+      return status(:incomplete, fields: missing_fields) if missing_fields.any?
 
       status(:ok)
     end
