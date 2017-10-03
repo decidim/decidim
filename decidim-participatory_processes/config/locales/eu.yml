@@ -225,10 +225,10 @@ eu:
         past: Aurrekoak
         upcoming: Hurrengoak
       participatory_process_groups:
-        none: Bat ere ez
+        none: Bat bera ere ez
       participatory_processes:
         index:
-          loading: Kargatzen emaitzak ...
+          loading: Emaitzak kargatzen...
       show:
         developer_group: Talde sustatzailea
         end_date: Bukaera-data
