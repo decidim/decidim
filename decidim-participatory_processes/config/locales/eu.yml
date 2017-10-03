@@ -36,7 +36,7 @@ eu:
         end_date: Bukaera-data
         short_description: Deskribapen laburra
         start_date: Hasiera-data
-        title: Titulua
+        title: Prozesu partizipatiboen multzoak
       participatory_process_user_role:
         email: Helbide elektronikoa
         name: Izena
@@ -72,7 +72,7 @@ eu:
             created_at: Sortze-data
             promoted: Nabarmendua
             published: Argitaratua
-            title: Titulua
+            title: Prozesu partizipatiboen multzoak
           name: Prozesu partizipatiboa
         participatory_process_group:
           fields:
@@ -82,7 +82,7 @@ eu:
           fields:
             end_date: Bukaera-data
             start_date: Hasiera-data
-            title: Titulua
+            title: Prozesu partizipatiboen multzoak
           name: Prozesu partizipatiboaren fasea
         participatory_process_user_role:
           fields:
