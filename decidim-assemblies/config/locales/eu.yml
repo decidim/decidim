@@ -21,7 +21,7 @@ eu:
         slug: URL laburra
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
-        title: Titulua
+        title: Prozesu partizipatiboen multzoak
   decidim:
     admin:
       assemblies:
@@ -73,7 +73,7 @@ eu:
             created_at: Sortze-data
             promoted: Nabarmendua
             published: Argitaratua
-            title: Titulua
+            title: Prozesu partizipatiboen multzoak
           name: Batzarra
       titles:
         assemblies: Biltzarrak
