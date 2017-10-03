@@ -198,14 +198,14 @@ eu:
         participatory_processes: Prozesu partizipatiboak
       users:
         resend_invitation:
-          error: Errore bat gertatu da gonbidapena berriro bidaliz.
-          success: Gonbidapena behar bezala errepikatu da.
+          error: Errorea gertatu zen gonbita berriro bidaltzean.
+          success: Gonbita ongi birbidali da.
     menu:
       processes: Prozesuak
     participatory_process_groups:
       show:
         group_participatory_processes: '%{group} talderako prozesuak'
-        title: Titulua
+        title: Prozesu partizipatiboen multzoak
     participatory_process_steps:
       index:
         process_steps: Prozesuaren faseak
