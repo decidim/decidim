@@ -242,8 +242,8 @@ eu:
         answers_count: Erantzunak
         comments_count: Iruzkinak
         headline: Jarduera
-        meetings_count: Topaketa-zerrenda
-        orders_count: Eskariak
+        meetings_count: Topaketak
+        orders_count: Botoak
         pages_count: Orriak
         processes_count: Prozesuak
         projects_count: Proiektuak
@@ -251,7 +251,7 @@ eu:
         results_count: Emaitzak
         surveys_count: Inkestak
         users_count: Parte-hartzaileak
-        votes_count: Botoak
+        votes_count: Euskarriak
     scopes:
       global: Esparrua orokorra
   layouts:
@@ -261,7 +261,7 @@ eu:
           browse: Arakatu
       participatory_process_widgets:
         show:
-          active_step: Fase gaitua
+          active_step: Fase aktiboa
           take_part: Parte hartu
       participatory_processes:
         index:
