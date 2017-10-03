@@ -43,7 +43,6 @@ All members of the Decidim community agree with [Decidim Social Contract or Code
 - [Decidim components](#officially-supported-libraries)
 - [How to test Decidim engines](#testing)
 - [Create & browse development app](#browse-decidim)
-- [Check current components](#components)
 - [Technical tradeoffs](#technical-tradeoffs)
 
 ---
