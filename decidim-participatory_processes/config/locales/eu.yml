@@ -3,10 +3,10 @@ eu:
     attributes:
       participatory_process:
         banner_image: Bannerra
-        copy_categories: Kategoriak kopiatu
-        copy_features: Ezaugarriak kopiatu
-        copy_steps: Urratsak kopiatu
-        description: Descripción
+        copy_categories: Kopiatu kategoriak
+        copy_features: Kopiatu funtzionalitateak
+        copy_steps: Kopiatu faseak
+        description: Deskribapena
         developer_group: Talde sustatzailea
         domain: Domeinua
         end_date: Bukaera-data
