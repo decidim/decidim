@@ -113,7 +113,7 @@ eu:
           create: Sortu
           title: Prozesu-multzo berria
         update:
-          error: Errorea gertatu da multzo hau ezabatzean.
+          error: Errorea gertatu da multzo hau eguneratzean.
           success: Multzoa zuzen eguneratu da.
       participatory_process_publications:
         create:
