@@ -19,10 +19,10 @@ eu:
         settings:
           global:
             announcement: Oharra
-            attachments_allowed: Onartu eranskinak
+            attachments_allowed: Baimendu eranskinak
             comments_enabled: Iruzkinak gaituta
             geocoding_enabled: Geokodeketa gaituta
-            new_proposal_help_text: Proposamen berriaren laguntza testu
+            new_proposal_help_text: Laguntza-testua proposamen bat sortzean
             official_proposals_enabled: Proposamen ofizialak gaituta
             proposal_answering_enabled: Erantzuna aktibatutako proposamenei
             vote_limit: Boto-muga
@@ -52,7 +52,7 @@ eu:
           edit:
             accepted: Onartuta
             answer_proposal: Erantzuna
-            evaluating: ebaluatzea
+            evaluating: Ebaluatzen
             rejected: Ukatua
             title: 'Erantzun proposamen honi: %{title}'
         proposals:
