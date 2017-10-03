@@ -63,13 +63,13 @@ eu:
           categories: Kategoriak
           features: Funtzionalitateak
           info: Informazioa
-          moderations: ' Salaketak'
-          process_admins: Prozesuko erabiltzaileak
+          moderations: Moderazioak
+          process_admins: Prozesuaren erabiltzaileak
           steps: Prozesuaren faseak
       models:
         participatory_process:
           fields:
-            created_at: Tan sortua
+            created_at: Sortze-data
             promoted: Nabarmendua
             published: Argitaratua
             title: Titulua
@@ -89,7 +89,7 @@ eu:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: ' Erabiltzailearen prozesu partizipatiboa '
+          name: Prozesuaren erabiltzaileak
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
