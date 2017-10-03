@@ -19,7 +19,7 @@ eu:
         participatory_structure: Partehartze egitura
         promoted: Nabarmendua
         scope_id: Esparrua
-        scopes_enabled: Esparruak gaituta
+        scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
         slug: URL laburra
         start_date: Hasiera-data
@@ -27,12 +27,12 @@ eu:
         target: Nori zuzentzen zaio?
         title: Titulua
       participatory_process_group:
-        description: Descripción
+        description: Deskribapena
         hero_image: Irudia
         name: Izena
         participatory_process_ids: Elkarrekin lotutako prozesuak
       participatory_process_step:
-        description: Descripción
+        description: Deskribapena
         end_date: Bukaera-data
         short_description: Deskribapen laburra
         start_date: Hasiera-data
