@@ -130,7 +130,7 @@ eu:
         create:
           error: Errorea gertatu da prozesu partizipatiboaren fase berri bat sortzean.
           success: Prozesu partizipatiboaren fasea zuzen sortu da.
-        default_title: 1- Sarrera
+        default_title: Sarrera
         destroy:
           error:
             active_step: Ezin da ezabatu fase aktiboa.
@@ -145,31 +145,31 @@ eu:
           create: Sortu
           title: Prozesu partizipatiboaren fase berria
         ordering:
-          error: Errorea gertatu da prozesu partizipatiboaren faseak berrantolatzean.
+          error: Errorea gertatu da prozesu partizipatibo honen faseak berrantolatzean.
         update:
           error: Errorea gertatu da prozesu partizipatiboaren fase hau eguneratzean.
           success: Prozesu partizipatiboaren fasea zuzen eguneratu da.
       participatory_process_user_roles:
         create:
-          error: Errorea gertatu da prozesu partizipatibo honetako erabiltzaile bat gehitzean.
+          error: Errorea gertatu da prozesu partizipatibo honetarako erabiltzailea sortzean.
           success: Ongi sortu da erabiltzailea prozesu partizipatibo honetarako.
         destroy:
           success: Ongi deuseztatu da erabiltzailea prozesu partizipatibo honetarako.
         edit:
-          title: Prozesu partizipatiboko erabiltzailea eguneratzea.
+          title: Editatu prozesuaren erabiltzailea.
           update: Eguneratu
         index:
-          process_admins_title: Prozesu partehartzailearen erabiltzaileak
+          process_admins_title: Prozesuaren erabiltzaileak
         new:
           create: Sortu
-          title: Partaidetza-prozesu berriko erabiltzailea.
+          title: Prozesuaren erabiltzaile berria.
         update:
-          error: Errorea gertatu da prozesu partizipatibo honetako erabiltzaile bat eguneratzean.
+          error: Errorea gertatu da prozesu partizipatibo honetarako erabiltzailea sortzean.
           success: Ongi eguneratu da erabiltzailea prozesu partizipatibo honetarako.
       participatory_processes:
         create:
           error: Errorea gertatu da prozesu partizipatibo berri bat sortzean.
-          success: Prozesu partizipatiboa zuzen sortu da. Orain, jarrai ezazu faseak konfiguratzen.
+          success: Prozesu partizipatiboa zuzen sortu da. Orain ekin iezaiozu faseak konfiguratzeari.
         destroy:
           success: Prozesu partizipatiboa zuzen ezabatu da.
         edit:
