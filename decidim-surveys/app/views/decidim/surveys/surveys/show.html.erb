@@ -68,14 +68,12 @@
                     </div>
                   <% end %>
 
-                  <% if translated_attribute(survey.tos).present? %>
-                    <div class="row column">
-                      <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "survey_tos_agreement" %>
-                      <div class="tos-agreement-help-text help-text">
-                        <%= sanitize translated_attribute survey.tos %>
-                      </div>
+                  <div class="row column">
+                    <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "survey_tos_agreement" %>
+                    <div class="tos-agreement-help-text help-text">
+                      <%= sanitize translated_attribute survey.tos %>
                     </div>
-                  <% end %>
+                  </div>
 
                   <div class="button--double form-general-submit">
                     <%= form.submit t(".submit"), class: "button", data: { confirm: t('.are_you_sure') } %>
