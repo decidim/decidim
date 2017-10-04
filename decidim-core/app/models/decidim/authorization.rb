@@ -17,10 +17,13 @@ module Decidim
 
     validates :name, uniqueness: { scope: :decidim_user_id }
     validates :verification_metadata, absence: true, if: :granted?
+    validates :verification_attachment, absence: true, if: :granted?
 
     validate :active_handler?
 
     def grant!
+      remove_verification_attachment!
+
       update!(granted_at: Time.zone.now, verification_metadata: {})
     end
 

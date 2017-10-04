@@ -19,6 +19,10 @@ module Decidim
         main_engine.send(:edit_authorization_path, redirect_url: redirect_url)
       end
 
+      def admin_root_path
+        public_send(:"decidim_admin_#{name}").send(:root_path)
+      end
+
       private
 
       def main_engine

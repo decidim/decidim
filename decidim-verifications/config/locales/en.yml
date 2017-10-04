@@ -2,21 +2,40 @@
 en:
   activemodel:
     attributes:
+      id_document_information:
+        document_number: Document number (with letter)
+        document_type: Type of the document
       id_document_upload:
         document_number: Document number (with letter)
         document_type: Type of your document
         user: User
         verification_attachment: Scanned copy of your document
   decidim:
+    admin:
+      menu:
+        authorization_workflows: Verifications
     authorization_handlers:
       direct: Direct
       id_documents:
         name: Identity documents
       multistep: Multi-Step
+      name: Name
       postal_letter:
         name: Code by postal letter
     verifications:
       id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Verification doesn't match. Try again or dismiss the verification
+              success: User successfully verified
+            new:
+              introduce_user_data: Introduce the data in the picture
+              verify: Verify
+          pending_authorizations:
+            index:
+              title: Pending verifications
+              verification_number: 'Verification #%{n}'
         authorizations:
           create:
             error: There was a problem uploading your document

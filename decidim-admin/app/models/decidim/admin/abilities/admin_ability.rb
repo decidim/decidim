@@ -45,6 +45,8 @@ module Decidim
           end
 
           can [:index, :verify, :reject], UserGroup
+
+          can [:index, :update], Authorization
         end
 
         private

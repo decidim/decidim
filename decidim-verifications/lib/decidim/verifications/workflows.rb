@@ -24,6 +24,10 @@ module Decidim
         registry.workflow_collection
       end
 
+      def admin_workflows
+        workflows.select(&:admin_engine)
+      end
+
       def registry
         @registry ||= Registry.new
       end

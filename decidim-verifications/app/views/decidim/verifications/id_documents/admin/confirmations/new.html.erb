@@ -1,0 +1,25 @@
+<%= decidim_form_for(@form, url: pending_authorization_confirmation_path(@pending_authorization),
+                            html: { class: "form" }) do |form| %>
+  <div class="card">
+    <div class="card-divider">
+      <div class="row column">
+        <h4><%= t(".introduce_user_data") %></h4>
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="row column">
+        <%= image_tag @pending_authorization.verification_attachment.url(:big), class: "thumbnail" %>
+      </div>
+
+      <div class="row column">
+        <%= form.select :document_type, @form.document_types_for_select, prompt: true, selected: nil %>
+        <%= form.text_field :document_number, value: nil %>
+      </div>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= form.submit t(".verify"), class: "button" %>
+  </div>
+<% end %>

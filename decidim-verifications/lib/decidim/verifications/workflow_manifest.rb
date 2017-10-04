@@ -9,6 +9,8 @@ module Decidim
       attribute :engine, Rails::Engine
       validates :engine, presence: true
 
+      attribute :admin_engine, Rails::Engine
+
       attribute :name, String
       validates :name, presence: true
     end

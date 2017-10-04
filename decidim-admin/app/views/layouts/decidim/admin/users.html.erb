@@ -17,6 +17,18 @@
       <li <% if is_active_link?(decidim_admin.managed_users_path) %> class="is-active" <% end %>>
         <%= link_to t("menu.managed_users", scope: "decidim.admin"), decidim_admin.managed_users_path %>
       </li>
+      <li <% if is_active_link?(decidim_admin.authorization_workflows_path) %> class="is-active" <% end %>>
+        <%= link_to t("menu.authorization_workflows", scope: "decidim.admin"), decidim_admin.authorization_workflows_path %>
+        <ul>
+          <% Decidim::Verifications.admin_workflows.each do |manifest| %>
+            <% workflow = Decidim::Verifications::WorkflowWrapper.new(manifest) %>
+
+            <li <% if is_active_link?(workflow.admin_root_path) %> class="is-active" <% end %>>
+              <%= link_to workflow.fullname, workflow.admin_root_path %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
     </ul>
   </div>
 <% end %>
