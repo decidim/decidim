@@ -32,8 +32,6 @@ fi:
             title: Muokkaa projektia
             update: Päivitä
           index:
-            finished_orders: Valmiit tilaukset
-            pending_orders: Odottavat tilaukset
             title: Projektit
           new:
             create: Luo
@@ -127,6 +125,4 @@ fi:
     resource_links:
       included_proposals:
         project_proposals: 'Tähän projektiin liittyvät ehdotukset:'
-  index:
-    confirmed_orders_count: Tilauksien määrä
   total_budget: Koko budjetti
