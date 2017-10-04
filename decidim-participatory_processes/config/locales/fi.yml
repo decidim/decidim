@@ -243,7 +243,6 @@ fi:
         comments_count: Kommentit
         headline: Tilastot
         meetings_count: Tapaamiset
-        orders_count: Tilaukset
         pages_count: Sivut
         processes_count: Prosessit
         projects_count: Projektit
