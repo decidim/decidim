@@ -22,7 +22,9 @@
                 </div>
               <% end %>
             <% end %>
-            <p class="text-center skip"><%= t("decidim.authorizations.skip_verification", link: link_to(t("decidim.authorizations.current_participatory_processes"), stored_location).html_safe).html_safe %>.</p>
+            <p class="text-center skip">
+              <%= t("decidim.authorizations.skip_verification", link: link_to(t("decidim.authorizations.current_participatory_processes"), decidim_participatory_processes.participatory_processes_path).html_safe).html_safe %>.
+            </p>
           </div>
         </div>
       </div>

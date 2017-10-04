@@ -36,8 +36,8 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
       end
 
       it "allows the user to skip it" do
-        find(".skip a").click
-        expect(page).to have_content("Welcome")
+        click_link "take a look at the current processes"
+        expect(page).to have_content("No participatory processes yet!")
       end
     end
 
