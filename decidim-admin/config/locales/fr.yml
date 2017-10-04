@@ -11,7 +11,7 @@ fr:
         parent_id: Parent
       feature:
         name: Nom
-        weight: Epaisseur
+        weight: Rang d'affichage
       newsletter:
         body: Corps de texte
         subject: Objet
