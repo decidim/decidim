@@ -241,7 +241,7 @@ fi:
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
-        headline: Tapahtumat
+        headline: Tilastot
         meetings_count: Tapaamiset
         orders_count: Tilaukset
         pages_count: Sivut
