@@ -32,8 +32,6 @@ pl:
             title: Edytuj projekt
             update: Aktualizacja
           index:
-            finished_orders: Zakończono zamówienia
-            pending_orders: Oczekujące zamówienia
             title: Projektowanie
           new:
             create: Stwórz
@@ -130,6 +128,4 @@ pl:
     resource_links:
       included_proposals:
         project_proposals: 'Propozycje zawarte w tym projekcie:'
-  index:
-    confirmed_orders_count: Liczba zleceń
   total_budget: Cały budżet
