@@ -362,7 +362,6 @@ nl:
         comments_count: Reacties
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
-        orders_count: bestellingen
         pages_count: Pages
         processes_count: Processen
         projects_count: Projecten
