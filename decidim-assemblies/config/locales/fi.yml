@@ -3,7 +3,7 @@ fi:
     attributes:
       assembly:
         banner_image: Bannerikuva
-        copy_categories: Kopioi kategoriat
+        copy_categories: Kopioi aihepiirit
         copy_features: Kopioi toiminnot
         description: Kuvaus
         developer_group: Kehitysryhmä
@@ -63,7 +63,7 @@ fi:
         assemblies: osat
         assemblies_submenu:
           attachments: Liitteet
-          categories: Kategoriat
+          categories: Aihepiirit
           features: Ominaisuudet
           info: Tiedot
           moderations: Moderoinnit
