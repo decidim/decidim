@@ -32,6 +32,8 @@ uk:
             title: Редагувати проект
             update: Оновити
           index:
+            finished_orders: Завершені голосування
+            pending_orders: Голосування, що зараз тривають
             title: Проекти
           new:
             create: Створити
@@ -131,4 +133,6 @@ uk:
     resource_links:
       included_proposals:
         project_proposals: 'Пропозиції, включені до цього проекту:'
+  index:
+    confirmed_orders_count: Кількість голосів
   total_budget: Загальний бюджет
