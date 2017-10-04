@@ -290,7 +290,7 @@ fi:
       invalid_participatory_process: Virheellinen osallistumisprosessi
       long_words: Sisältää sanoja, jotka ovat liian pitkiä
       must_start_with_caps: Tulee alkaa isolla alkukirjaimella
-      nesting_too_deep: ei voi olla alikategorian sisällä
+      nesting_too_deep: ei voi olla ala-aihepiirin sisällä
       too_many_marks: Sisältää liian monta merkkiä
       too_much_caps: Sisältää liian paljon isoja kirjaimia
       too_short: On liian lyhyt
@@ -340,13 +340,13 @@ fi:
     home:
       extended:
         debates: Väittelyt
-        debates_explanation: Keskustele ja keskustele, jakaa mielipiteitänne ja rikastuttaa aiheita.
+        debates_explanation: Väittele, keskustele ja jaa näkemyksesi rikastuttaaksesi sinua koskettavia aiheita.
         how_to_participate: Kuinka osallistun prosessiin?
         meetings: Tapaamiset
-        meetings_explanation: Selvitä missä ja milloin voit osallistua julkisiin kokouksiin.
+        meetings_explanation: Selvitä missä ja milloin voit osallistua julkisiin tapahtumiin.
         more_info: Lisätietoja
         proposals: Ehdotukset
-        proposals_explanation: Tee ehdotuksia, tukea olemassa olevia ja edistä muutoksia, joita haluat nähdä.
+        proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
       footer_sub_hero:
         footer_sub_hero_body: Rakennetaan avoimempi, läpinäkyvämpi ja yhteisöllisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
         footer_sub_hero_headline: Tervetuloa %{organization} -organisaation yhteisölliseen osallistumispalveluun.
