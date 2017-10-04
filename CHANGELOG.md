@@ -6,6 +6,7 @@
 
 - **decidim-core**: Show a disabled "Follow" button to anonymous users (not logged in) with a prompt to sign in [\#1903](https://github.com/decidim/decidim/pull/1903)
 - **decidim-core**: Adds an option to the initializer file to enable/disable header snippets (`true` by default) [\#1923](https://github.com/decidim/decidim/pull/1923)
+- **decidim-core**: Adds an option to configure the maximum file size for avatar images [\#1969](https://github.com/decidim/decidim/pull/1969)
 - **decidim-meetings**: Participatory admins can invite users to join a meeting. [\#1879](https://github.com/decidim/decidim/pull/1879)
 
 **Changed**
@@ -24,6 +25,7 @@
 **Fixed**
 - **decidim-assemblies**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-core**: Fixes a bug with filter forms and URLs [\#1937](https://github.com/decidim/decidim/pull/1937)
+- **decidim-core**: The form builder now renders an error message in case an uploaded file failed validation [\#1969](https://github.com/decidim/decidim/pull/1969)
 - **decidim-meetings**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-participatory-processes**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-proposals**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)

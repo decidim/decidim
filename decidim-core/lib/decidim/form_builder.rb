@@ -250,6 +250,12 @@ module Decidim
         end
       end
 
+      if object.errors[attribute].any?
+        template += content_tag :p, class: "is-invalid-label" do
+          safe_join object.errors[attribute], "<br/>"
+        end
+      end
+
       template.html_safe
     end
 
