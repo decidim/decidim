@@ -48,10 +48,12 @@ module Decidim
 
     def authorization
       return nil unless user
-      return nil unless permission["authorization_handler_name"]
 
-      @authorization ||= user.authorizations.to_a.find do |authorization|
-        authorization.name == permission.fetch("authorization_handler_name")
+      handler = permission["authorization_handler_name"]
+      return nil unless handler
+
+      @authorization ||= user.authorizations.find do |authorization|
+        authorization.name == handler
       end
     end
 
