@@ -362,7 +362,6 @@ pl:
         comments_count: Komentarze
         headline: Aktualny stan %{organization}
         meetings_count: Spotkania
-        orders_count: Święcenia
         pages_count: Strony
         processes_count: Procesy
         projects_count: Projektowanie
