@@ -362,7 +362,7 @@ it:
         comments_count: Commenti
         headline: Stato attuale dell'organizzazione %{organization}
         meetings_count: Meeting
-        orders_count: Ordini
+        orders_count: Voti
         pages_count: Pagine
         processes_count: Processi
         projects_count: Progetti
