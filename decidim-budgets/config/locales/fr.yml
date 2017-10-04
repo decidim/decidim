@@ -32,8 +32,6 @@ fr:
             title: Éditer un projet
             update: Mettre à jour
           index:
-            finished_orders: Commandes terminées
-            pending_orders: Commandes en attente
             title: Projets
           new:
             create: Créer
@@ -127,6 +125,4 @@ fr:
     resource_links:
       included_proposals:
         project_proposals: 'Propositions incluses dans ce projet:'
-  index:
-    confirmed_orders_count: Nombre de votes comptés
   total_budget: Budget total
