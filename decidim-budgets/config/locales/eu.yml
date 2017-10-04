@@ -32,6 +32,8 @@ eu:
             title: Editatu proiektua
             update: Eguneratu
           index:
+            finished_orders: Bukatutako botoak
+            pending_orders: Zain dauden botoei
             title: Proiektuak
           new:
             create: Sortu
@@ -125,4 +127,6 @@ eu:
     resource_links:
       included_proposals:
         project_proposals: 'Proiektu honetan jasotako proposamenak:'
+  index:
+    confirmed_orders_count: Botoen zenbaketa
   total_budget: Guztizko aurrekontua
