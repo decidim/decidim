@@ -87,8 +87,19 @@ module Decidim
         gsub_file "Gemfile", /gem "decidim([^"]*)".*/, "gem \"decidim\\1\", #{gem_modifier}"
       end
 
+      def gemfile_lock
+        path = File.expand_path(File.join("..", "..", "..", "Gemfile.lock"), __dir__)
+
+        template path, "Gemfile.lock", force: true
+      end
+
       def bootsnap
         append_file "config/boot.rb", "require 'bootsnap/setup'\n"
+      end
+
+      def secret_token
+        require "securerandom"
+        SecureRandom.hex(64)
       end
 
       def add_ignore_uploads
