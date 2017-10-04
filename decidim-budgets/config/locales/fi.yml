@@ -32,6 +32,8 @@ fi:
             title: Muokkaa projektia
             update: Päivitä
           index:
+            finished_orders: Valmiit äänet
+            pending_orders: Odottavat äänestykset
             title: Projektit
           new:
             create: Luo
@@ -125,4 +127,6 @@ fi:
     resource_links:
       included_proposals:
         project_proposals: 'Tähän projektiin liittyvät ehdotukset:'
+  index:
+    confirmed_orders_count: Äänet lasketaan
   total_budget: Koko budjetti
