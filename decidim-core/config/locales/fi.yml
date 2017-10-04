@@ -363,7 +363,7 @@ fi:
         comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset
-        orders_count: Tilaukset
+        orders_count: Äänet
         pages_count: Sivut
         processes_count: Prosessit
         projects_count: Projektit
