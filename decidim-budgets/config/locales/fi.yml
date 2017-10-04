@@ -3,7 +3,7 @@ fi:
     attributes:
       project:
         budget: Budjetti
-        decidim_category_id: Kategoria
+        decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
         proposal_ids: Liittyvät esitykset
@@ -71,8 +71,8 @@ fi:
             one: 1 projekti
             other: "%{count} projektia"
         filters:
-          category: Kategoria
-          category_prompt: Valitse kategoria
+          category: Aihepiiri
+          category_prompt: Valitse aihepiiri
           scope_prompt: Valitse konteksti
           scopes: Konteksti
           search: Haku
