@@ -3,10 +3,10 @@ eu:
     attributes:
       participatory_process:
         banner_image: Bannerra
-        copy_categories: Kategoriak kopiatu
-        copy_features: Ezaugarriak kopiatu
-        copy_steps: Urratsak kopiatu
-        description: Descripción
+        copy_categories: Kopiatu kategoriak
+        copy_features: Kopiatu funtzionalitateak
+        copy_steps: Kopiatu faseak
+        description: Deskribapena
         developer_group: Talde sustatzailea
         domain: Domeinua
         end_date: Bukaera-data
@@ -19,24 +19,24 @@ eu:
         participatory_structure: Partehartze egitura
         promoted: Nabarmendua
         scope_id: Esparrua
-        scopes_enabled: Esparruak gaituta
+        scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
-        title: Titulua
+        title: Prozesu partizipatiboen multzoak
       participatory_process_group:
-        description: Descripción
+        description: Deskribapena
         hero_image: Irudia
         name: Izena
         participatory_process_ids: Elkarrekin lotutako prozesuak
       participatory_process_step:
-        description: Descripción
+        description: Deskribapena
         end_date: Bukaera-data
         short_description: Deskribapen laburra
         start_date: Hasiera-data
-        title: Titulua
+        title: Prozesu partizipatiboen multzoak
       participatory_process_user_role:
         email: Helbide elektronikoa
         name: Izena
@@ -48,7 +48,7 @@ eu:
         configure: Konfiguratu
         confirm_destroy: Ziur zaude?
         destroy: Ezabatu
-        duplicate: Kopia egin
+        duplicate: Kopiatu
         edit: Editatu
         new: Berria
         preview: Aurreikusi
@@ -63,16 +63,16 @@ eu:
           categories: Kategoriak
           features: Funtzionalitateak
           info: Informazioa
-          moderations: ' Salaketak'
-          process_admins: Prozesuko erabiltzaileak
+          moderations: Moderazioak
+          process_admins: Prozesuaren erabiltzaileak
           steps: Prozesuaren faseak
       models:
         participatory_process:
           fields:
-            created_at: Tan sortua
+            created_at: Sortze-data
             promoted: Nabarmendua
             published: Argitaratua
-            title: Titulua
+            title: Prozesu partizipatiboen multzoak
           name: Prozesu partizipatiboa
         participatory_process_group:
           fields:
@@ -82,38 +82,38 @@ eu:
           fields:
             end_date: Bukaera-data
             start_date: Hasiera-data
-            title: Titulua
+            title: Prozesu partizipatiboen multzoak
           name: Prozesu partizipatiboaren fasea
         participatory_process_user_role:
           fields:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: ' Erabiltzailearen prozesu partizipatiboa '
+          name: Prozesuaren erabiltzaileak
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
             moderator: Moderatzailea
         user:
           fields:
-            invitation_accepted_at: Gonbidapena onartu da
-            invitation_sent_at: Gonbidapena bidali da
+            invitation_accepted_at: 'Gonbita egun honetan onartu zen:'
+            invitation_sent_at: 'Gonbita egun honetan bidali zen:'
       participatory_process_copies:
         new:
-          copy: Copy
+          copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
           title: Partehartze prozesua bikoiztu
       participatory_process_groups:
         destroy:
           success: Multzoa zuzen deuseztatu da.
         edit:
-          title: Edizio-prozesuen multzoa
+          title: Prozesu-multzok editatu
           update: Eguneratu
         new:
           create: Sortu
           title: Prozesu-multzo berria
         update:
-          error: Errorea gertatu da multzo hau ezabatzean.
+          error: Errorea gertatu da multzo hau eguneratzean.
           success: Multzoa zuzen eguneratu da.
       participatory_process_publications:
         create:
@@ -130,7 +130,7 @@ eu:
         create:
           error: Errorea gertatu da prozesu partizipatiboaren fase berri bat sortzean.
           success: Prozesu partizipatiboaren fasea zuzen sortu da.
-        default_title: 1- Sarrera
+        default_title: Sarrera
         destroy:
           error:
             active_step: Ezin da ezabatu fase aktiboa.
@@ -145,31 +145,31 @@ eu:
           create: Sortu
           title: Prozesu partizipatiboaren fase berria
         ordering:
-          error: Errorea gertatu da prozesu partizipatiboaren faseak berrantolatzean.
+          error: Errorea gertatu da prozesu partizipatibo honen faseak berrantolatzean.
         update:
           error: Errorea gertatu da prozesu partizipatiboaren fase hau eguneratzean.
           success: Prozesu partizipatiboaren fasea zuzen eguneratu da.
       participatory_process_user_roles:
         create:
-          error: Errorea gertatu da prozesu partizipatibo honetako erabiltzaile bat gehitzean.
+          error: Errorea gertatu da prozesu partizipatibo honetarako erabiltzailea sortzean.
           success: Ongi sortu da erabiltzailea prozesu partizipatibo honetarako.
         destroy:
           success: Ongi deuseztatu da erabiltzailea prozesu partizipatibo honetarako.
         edit:
-          title: Prozesu partizipatiboko erabiltzailea eguneratzea.
+          title: Editatu prozesuaren erabiltzailea.
           update: Eguneratu
         index:
-          process_admins_title: Prozesu partehartzailearen erabiltzaileak
+          process_admins_title: Prozesuaren erabiltzaileak
         new:
           create: Sortu
-          title: Partaidetza-prozesu berriko erabiltzailea.
+          title: Prozesuaren erabiltzaile berria.
         update:
-          error: Errorea gertatu da prozesu partizipatibo honetako erabiltzaile bat eguneratzean.
+          error: Errorea gertatu da prozesu partizipatibo honetarako erabiltzailea sortzean.
           success: Ongi eguneratu da erabiltzailea prozesu partizipatibo honetarako.
       participatory_processes:
         create:
           error: Errorea gertatu da prozesu partizipatibo berri bat sortzean.
-          success: Prozesu partizipatiboa zuzen sortu da. Orain, jarrai ezazu faseak konfiguratzen.
+          success: Prozesu partizipatiboa zuzen sortu da. Orain ekin iezaiozu faseak konfiguratzeari.
         destroy:
           success: Prozesu partizipatiboa zuzen ezabatu da.
         edit:
@@ -198,14 +198,14 @@ eu:
         participatory_processes: Prozesu partizipatiboak
       users:
         resend_invitation:
-          error: Errore bat gertatu da gonbidapena berriro bidaliz.
-          success: Gonbidapena behar bezala errepikatu da.
+          error: Errorea gertatu zen gonbita berriro bidaltzean.
+          success: Gonbita ongi birbidali da.
     menu:
       processes: Prozesuak
     participatory_process_groups:
       show:
         group_participatory_processes: '%{group} talderako prozesuak'
-        title: Titulua
+        title: Prozesu partizipatiboen multzoak
     participatory_process_steps:
       index:
         process_steps: Prozesuaren faseak
@@ -225,10 +225,10 @@ eu:
         past: Aurrekoak
         upcoming: Hurrengoak
       participatory_process_groups:
-        none: Bat ere ez
+        none: Bat bera ere ez
       participatory_processes:
         index:
-          loading: Kargatzen emaitzak ...
+          loading: Emaitzak kargatzen...
       show:
         developer_group: Talde sustatzailea
         end_date: Bukaera-data
@@ -242,8 +242,8 @@ eu:
         answers_count: Erantzunak
         comments_count: Iruzkinak
         headline: Jarduera
-        meetings_count: Topaketa-zerrenda
-        orders_count: Eskariak
+        meetings_count: Topaketak
+        orders_count: Botoak
         pages_count: Orriak
         processes_count: Prozesuak
         projects_count: Proiektuak
@@ -251,7 +251,7 @@ eu:
         results_count: Emaitzak
         surveys_count: Inkestak
         users_count: Parte-hartzaileak
-        votes_count: Botoak
+        votes_count: Euskarriak
     scopes:
       global: Esparrua orokorra
   layouts:
@@ -261,7 +261,7 @@ eu:
           browse: Arakatu
       participatory_process_widgets:
         show:
-          active_step: Fase gaitua
+          active_step: Fase aktiboa
           take_part: Parte hartu
       participatory_processes:
         index:

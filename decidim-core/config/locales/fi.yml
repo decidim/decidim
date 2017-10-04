@@ -340,13 +340,13 @@ fi:
     home:
       extended:
         debates: Väittelyt
-        debates_explanation: Tavataan, väitellään ja jaetaan se, minkä uskomme olevan tärkeää kaupunkimme kannalta.
+        debates_explanation: Keskustele ja keskustele, jakaa mielipiteitänne ja rikastuttaa aiheita.
         how_to_participate: Kuinka osallistun prosessiin?
         meetings: Tapaamiset
-        meetings_explanation: Tavataan, väitellään ja jaetaan se, minkä uskomme olevan tärkeää kaupunkimme kannalta.
+        meetings_explanation: Selvitä missä ja milloin voit osallistua julkisiin kokouksiin.
         more_info: Lisätietoja
         proposals: Ehdotukset
-        proposals_explanation: Avoin tila asukkaiden ehdotuksille siitä, millaisessa kaupungissa haluaisimme asua.
+        proposals_explanation: Tee ehdotuksia, tukea olemassa olevia ja edistä muutoksia, joita haluat nähdä.
       footer_sub_hero:
         footer_sub_hero_body: Rakennetaan avoimempi, läpinäkyvämpi ja yhteisöllisempi yhteiskunta.<br /> Liity, osallistu ja päätä.
         footer_sub_hero_headline: Tervetuloa %{organization} -organisaation yhteisölliseen osallistumispalveluun.

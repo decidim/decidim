@@ -57,7 +57,7 @@ fi:
         meta_scope: Kontekstin metatiedot
         participatory_scope: Osallistumisprosessi
         participatory_structure: Osallistumisprosessin rakenne
-        promoted: Oikeudet korotettu
+        promoted: Korostettu
         scope: Konteksti
         short_description: Lyhyt kuvaus
         slug: URL-tunniste

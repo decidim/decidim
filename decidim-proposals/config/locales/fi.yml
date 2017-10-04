@@ -104,7 +104,7 @@ fi:
           all: Kaikki
           category: Kategoria
           category_prompt: Valitse kategoria
-          citizenship: Kansalaisuus
+          citizens: Kansalaiset
           evaluating: Arvioitavana
           official: Virallinen
           origin: Alkuperä
@@ -155,7 +155,7 @@ fi:
             other: ÄÄNTÄ
         votes_limit:
           vote_limit:
-            description: Voit maksimissaan äänestää %{limit} ehdotusta sen sijaan, että voisit äänestää kuinka montaa haluat.
+            description: Voit äänestää maksimissaan %{limit} ehdotusta. Valitse mielestäsi parhaat ehdotukset.
             left: Jäljellä
             title: Sinulla on %{limit} ääntä käytettävänäsi
             votes: Äänet

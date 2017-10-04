@@ -73,7 +73,7 @@ fr:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          scope_prompt: Sélectionnez une portée
+          scope_prompt: Sélectionnez un périmètre d'application
           scopes: Zones d'application
           search: Rechercher
         filters_small_view:

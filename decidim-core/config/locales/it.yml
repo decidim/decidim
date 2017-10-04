@@ -339,13 +339,13 @@ it:
     home:
       extended:
         debates: Dibattiti
-        debates_explanation: Incontriamoci, discutiamo e condividiamo le nostre opinioni sulle cose che riteniamo importanti per la nostra Città.
+        debates_explanation: Discutere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
         how_to_participate: Come posso partecipare ad un processo?
         meetings: Incontri, meeting
-        meetings_explanation: Incontriamoci, discutiamo e condividiamo le nostre opinioni sulle cose che riteniamo importanti per la nostra Città.
+        meetings_explanation: Scopri dove e quando puoi partecipare a riunioni pubbliche.
         more_info: Maggiori informazioni
         proposals: Proposte
-        proposals_explanation: Spazio aperto per le proposte dei cittadini in merito al tipo di Città ideale in cui vorrebbero vivere.
+        proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che si desidera vedere.
       footer_sub_hero:
         footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
         footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.

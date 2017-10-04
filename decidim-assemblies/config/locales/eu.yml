@@ -3,9 +3,9 @@ eu:
     attributes:
       assembly:
         banner_image: Bannerra
-        copy_categories: Kategoriak kopiatu
-        copy_features: Ezaugarriak kopiatu
-        description: Descripción
+        copy_categories: Kopiatu kategoriak
+        copy_features: Kopiatu funtzionalitateak
+        description: Deskribapena
         developer_group: Talde sustatzailea
         domain: Domeinua
         hashtag: Traola
@@ -16,20 +16,20 @@ eu:
         participatory_structure: Partehartze egitura
         promoted: Nabarmendua
         scope_id: Esparrua
-        scopes_enabled: Esparruak gaituta
+        scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
         slug: URL laburra
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
-        title: Titulua
+        title: Prozesu partizipatiboen multzoak
   decidim:
     admin:
       assemblies:
         create:
-          error: Errore bat gertatu da muntaia berri bat sortzean.
-          success: Batzarra ondo sortu da.
+          error: Errorea gertatu da batzar berri bat sortzean.
+          success: Batzarra zuzen sortu da.
         destroy:
-          success: Batzarak arrakastaz suntsitu zuen.
+          success: Batzarra zuzen ezabatu da.
         edit:
           update: Eguneratu
         form:
@@ -41,24 +41,24 @@ eu:
           create: Sortu
           title: Batzar berria
         update:
-          error: Errore bat gertatu da muntaia hau eguneratzean.
-          success: Batzarra arrakastaz eguneratu da.
+          error: Errorea gertatu da batzar hau eguneratzean.
+          success: Batzarra zuzen eguneratu da.
       assemblies_copies:
         create:
-          error: Errore bat gertatu da muntaia hau bikoizteko.
-          success: Batzar bikoiztu egin da.
+          error: Errorea gertatu da batzar hau kopiatzean.
+          success: Batzarra zuzen bikoiztu da.
       assembly_copies:
         new:
-          copy: Copy
+          copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
-          title: Batzar bikoitza
+          title: Kopiatu batzarra
       assembly_publications:
         create:
-          error: Errore bat gertatu da muntaia hau argitaratzean.
-          success: Batzar ondo argitaratua.
+          error: Errorea gertatu da batzar hau bikoiztean.
+          success: Batzarra ongi argitaratu da.
         destroy:
-          error: Errore bat gertatu da muntatze hau argitaratzea.
-          success: Batzar ez da argitaratu.
+          error: Errorea gertatu da batzar hau desargitaratzean.
+          success: Batzarra ongi desargitaratu da.
       menu:
         assemblies: Biltzarrak
         assemblies_submenu:
@@ -66,15 +66,15 @@ eu:
           categories: Kategoriak
           features: Funtzionalitateak
           info: Informazioa
-          moderations: ' Salaketak'
+          moderations: Moderazioak
       models:
         assembly:
           fields:
-            created_at: Tan sortua
+            created_at: Sortze-data
             promoted: Nabarmendua
             published: Argitaratua
-            title: Titulua
-          name: Batzar
+            title: Prozesu partizipatiboen multzoak
+          name: Batzarra
       titles:
         assemblies: Biltzarrak
     assemblies:
@@ -90,8 +90,8 @@ eu:
       show:
         developer_group: Talde sustatzailea
         local_area: Udal-alorrak
-        participatory_scope: Partehartze esparrua
-        participatory_structure: Partehartze egitura
+        participatory_scope: Esparru partizipatiboa
+        participatory_structure: Egitura partizipatiboa
         scope: Esparrua
         target: Nori zuzentzen zaio?
       statistics:
@@ -99,15 +99,15 @@ eu:
         assemblies_count: Biltzarrak
         comments_count: Iruzkinak
         headline: Jarduera
-        meetings_count: Topaketa-zerrenda
-        orders_count: Eskariak
+        meetings_count: Topaketak
+        orders_count: Botoak
         pages_count: Orriak
         projects_count: Proiektuak
         proposals_count: Proposamenak
         results_count: Emaitzak
         surveys_count: Inkestak
         users_count: Parte-hartzaileak
-        votes_count: Botoak
+        votes_count: Euskarriak
     menu:
       assemblies: Biltzarrak
   layouts:
@@ -116,12 +116,12 @@ eu:
         assembly:
           take_part: Parte hartu
         index:
-          promoted_assemblies: Agerraldi nabarmenak
+          promoted_assemblies: Batzar nabarmenduak
         no_assemblies_yet:
-          no_assemblies_yet: Ez dago batzurik oraindik!
+          no_assemblies_yet: Oraindik ez dago batzarrik!
         order_by_assemblies:
           assemblies:
-            one: "%{count} muntaia"
+            one: "%{count} batzarra"
             other: "%{count} batzarrak"
         promoted_assembly:
           more_info: Informazio gehiago

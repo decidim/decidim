@@ -14,7 +14,7 @@ fi:
         meta_scope: Kontekstin metadata
         participatory_scope: Osallistumisprosessi
         participatory_structure: Osallistumisprosessin rakenne
-        promoted: Oikeudet korotettu
+        promoted: Korostettu
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
