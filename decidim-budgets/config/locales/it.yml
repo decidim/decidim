@@ -32,6 +32,8 @@ it:
             title: Modifica il progetto
             update: Aggiorna
           index:
+            finished_orders: Voti conclusi
+            pending_orders: Voti in sospeso
             title: Progetti
           new:
             create: Crea
@@ -125,4 +127,6 @@ it:
     resource_links:
       included_proposals:
         project_proposals: 'Proposte incluse in questo progetto:'
+  index:
+    confirmed_orders_count: Conteggio dei voti
   total_budget: Budget totale
