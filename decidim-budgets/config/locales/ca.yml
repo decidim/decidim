@@ -32,6 +32,8 @@ ca:
             title: Editar projecte
             update: Actualitzar
           index:
+            finished_orders: Vots acabats
+            pending_orders: Vots pendents
             title: Projectes
           new:
             create: Crear
@@ -125,4 +127,6 @@ ca:
     resource_links:
       included_proposals:
         project_proposals: 'Propostes incloses en aquest projecte:'
+  index:
+    confirmed_orders_count: Recompte de vots
   total_budget: Pressupost total
