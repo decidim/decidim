@@ -20,6 +20,7 @@
 **Fixed**
 
 - **decidim-core**: Handle nil resources on static maps (errors were caused by search engine spiders) [\#1936](https://github.com/decidim/decidim/pull/1936)
+- **decidim-proposals**: Do not count hidden proposals on stats [\#1988](https://github.com/decidim/decidim/pull/1988)
 
 ## [v0.6.6](https://github.com/decidim/decidim/tree/v0.6.6) (2017-10-05)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.5...v0.6.6)
