@@ -12,7 +12,7 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцевість
+        local_area: Район
         meta_scope: Метадані терену
         participatory_process_group_id: Група рухів
         participatory_scope: Терен співучасті
@@ -232,7 +232,7 @@ uk:
       show:
         developer_group: Група розробників
         end_date: Дата закінчення
-        local_area: Місцевість
+        local_area: Район
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         scope: Терен
