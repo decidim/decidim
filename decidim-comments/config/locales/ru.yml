@@ -1,0 +1,7 @@
+ru:
+  decidim:
+    components:
+      add_comment_form:
+        form:
+          body:
+            label: Комментарий
