@@ -1,0 +1,5 @@
+ru:
+  activerecord:
+    attributes:
+      decidim/user:
+        name: Имя пользователя
