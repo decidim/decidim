@@ -33,3 +33,24 @@ ru:
         code: Код
         name: Имя
         organization: Организация
+        scope_type: Тип охвата
+      scope_type:
+        name: Имя
+        organization: Организация
+        plural: Множественное число
+      static_page:
+        content: Содержание
+        organization: Организация
+        slug: Сокращенный URL-адрес
+        title: Название
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Изображение баннера
+        description: Описание
+        developer_group: Группа разработчиков
+        domain: Домен
+        end_date: Дата окончания
+        hashtag: Хэштег
+        hero_image: Изображение главной страницы
+        local_area: Район
