@@ -1,0 +1,5 @@
+ru:
+  activemodel:
+    attributes:
+      attachment:
+        description: Описание
