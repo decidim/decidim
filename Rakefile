@@ -22,7 +22,7 @@ task test_all: :spec do
     Dir.chdir("#{__dir__}/decidim-#{gem_name}") do
       puts "Running #{gem_name}'s tests..."
       status = system "rake"
-      exit 1 unless status || ENV["FAIL_FAST"] == "false"
+      abort unless status || ENV["FAIL_FAST"] == "false"
     end
   end
 end
@@ -45,18 +45,17 @@ end
 desc "Generates a development app."
 task :development_app do
   Dir.chdir(__dir__) do
-    sh "rm -fR development_app"
+    sh "rm -fR development_app", verbose: false
   end
 
-  Decidim::Generators::AppGenerator.start(
-    ["development_app", "--path", "..", "--recreate_db"]
-  )
+  Bundler.with_clean_env do
+    Decidim::Generators::AppGenerator.start(
+      ["development_app", "--path", "..", "--recreate_db", "--seed_db"]
+    )
 
-  Dir.chdir("#{__dir__}/development_app") do
-    Bundler.with_clean_env do
-      sh "bundle exec rails db:seed"
-      sh "bundle exec spring stop"
-      sh "bundle exec rails generate decidim:demo"
+    Dir.chdir("#{__dir__}/development_app") do
+      sh "bundle exec spring stop", verbose: false
+      sh "bundle exec rails generate decidim:demo", verbose: false
     end
   end
 end
@@ -69,9 +68,11 @@ task :docker_development_app do
 
   path = __dir__ + "/docker_development_app"
 
-  Decidim::Generators::DockerGenerator.start(
-    ["docker_development_app", "--path", path]
-  )
+  Bundler.with_clean_env do
+    Decidim::Generators::DockerGenerator.start(
+      ["docker_development_app", "--path", path]
+    )
+  end
 end
 
 desc "Build webpack bundle files"

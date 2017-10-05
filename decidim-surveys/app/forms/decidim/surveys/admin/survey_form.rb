@@ -14,7 +14,7 @@ module Decidim
 
         attribute :questions, Array[SurveyQuestionForm]
 
-        validates :title, translatable_presence: true
+        validates :title, :tos, translatable_presence: true
       end
     end
   end

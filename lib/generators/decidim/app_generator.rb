@@ -39,6 +39,9 @@ module Decidim
       class_option :recreate_db, type: :boolean, default: false,
                                  desc: "Recreate test database"
 
+      class_option :seed_db, type: :boolean, default: false,
+                             desc: "Seed test database"
+
       class_option :app_const_base, type: :string,
                                     desc: "The application constant name"
 
@@ -67,23 +70,26 @@ module Decidim
       end
 
       def gemfile
-        template "Gemfile.erb", "Gemfile", force: true
+        path = File.expand_path(File.join("..", "..", "..", "Gemfile"), __dir__)
+
+        template path, "Gemfile", force: true
+
+        gem_modifier = if options[:path]
+                         "path: \"#{options[:path]}\""
+                       elsif options[:edge]
+                         "git: \"https://github.com/decidim/decidim.git\""
+                       elsif options[:branch]
+                         "git: \"https://github.com/decidim/decidim.git\", branch: \"#{options[:branch]}\""
+                       else
+                         "\"#{Decidim.version}\""
+                       end
+
+        gsub_file "Gemfile", /gem "decidim([^"]*)".*/, "gem \"decidim\\1\", #{gem_modifier}"
       end
 
       def secret_token
         require "securerandom"
         SecureRandom.hex(64)
-      end
-
-      def install
-        Decidim::Generators::InstallGenerator.start [
-          "--recreate_db=#{options[:recreate_db]}",
-          "--app_name=#{app_name}"
-        ]
-      end
-
-      def app_const_base
-        options["app_const_base"] || super
       end
 
       def add_ignore_uploads
@@ -99,6 +105,22 @@ module Decidim
 
       def authorization_handler
         template "authorization_handler.rb", "app/services/example_authorization_handler.rb", force: true
+      end
+
+      def install
+        Decidim::Generators::InstallGenerator.start(
+          [
+            "--recreate_db=#{options[:recreate_db]}",
+            "--seed_db=#{options[:seed_db]}",
+            "--app_name=#{app_name}"
+          ]
+        )
+      end
+
+      private
+
+      def app_const_base
+        options["app_const_base"] || super
       end
     end
   end

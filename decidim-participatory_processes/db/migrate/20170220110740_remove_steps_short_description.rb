@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
 class RemoveStepsShortDescription < ActiveRecord::Migration[5.0]
+  class ParticipatoryProcessStep < ApplicationRecord
+    self.table_name = :decidim_participatory_process_steps
+  end
+
   def change
-    Decidim::ParticipatoryProcessStep.transaction do
-      Decidim::ParticipatoryProcessStep.find_each do |step|
+    ParticipatoryProcessStep.transaction do
+      ParticipatoryProcessStep.find_each do |step|
         step.update_attributes!(
           description: new_description_for(step)
         )
