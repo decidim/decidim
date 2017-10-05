@@ -32,6 +32,7 @@
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.4...v0.6.5)
 
 **Fixed**
+
 - **decidim-assemblies**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-core**: Fixes a bug with filter forms and URLs [\#1937](https://github.com/decidim/decidim/pull/1937)
 - **decidim-core**: The form builder now renders an error message in case an uploaded file failed validation [\#1969](https://github.com/decidim/decidim/pull/1969)
