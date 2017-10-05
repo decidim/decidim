@@ -363,7 +363,7 @@ ca:
         comments_count: Comentaris
         headline: Estat actual de %{organization}
         meetings_count: Trobades
-        orders_count: Suports
+        orders_count: Vots
         pages_count: Pàgines
         processes_count: Processos
         projects_count: Projectes
