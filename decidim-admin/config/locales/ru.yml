@@ -54,3 +54,18 @@ ru:
         hashtag: Хэштег
         hero_image: Изображение главной страницы
         local_area: Район
+        meta_scope: Метаданные охвата
+        participatory_scope: Охват соучастия
+        participatory_structure: Структура соучастия
+        promoted: Рекламируется
+        scope: Охват
+        short_description: Краткое описание
+        slug: Сокращенный URL-адрес
+        start_date: Дата начала
+        subtitle: Подзаголовок
+        target: Цель
+        title: Название
+      decidim/participatory_process_group:
+        description: Описание
+        hero_image: Изображение главной страницы
+        name: Имя
