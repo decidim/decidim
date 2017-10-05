@@ -4,6 +4,7 @@
 
 **Added**
 
+- **decidim**: Available authorization handlers are added to the sample organization automatically when seeding. [\#1978](https://github.com/decidim/decidim/pull/1978)
 - **decidim-core**: Show a disabled "Follow" button to anonymous users (not logged in) with a prompt to sign in [\#1903](https://github.com/decidim/decidim/pull/1903)
 - **decidim-core**: Adds an option to the initializer file to enable/disable header snippets (`true` by default) [\#1923](https://github.com/decidim/decidim/pull/1923)
 - **decidim-core**: Adds an option to configure the maximum file size for avatar images [\#1969](https://github.com/decidim/decidim/pull/1969)
@@ -13,6 +14,7 @@
 **Changed**
 
 - **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
+- **decidim**: `bin/rails generate decidim:demo` is no longer available in generated applications. Use the `--demo` flag when generating your application or do the change manually if you want to use the "demo" authorization handler. [\#1978](https://github.com/decidim/decidim/pull/1978)
 - **decidim-core**: Changes some texts in the homepage ("How do I take part in a process?" section) [\#1947](https://github.com/decidim/decidim/pull/1947)
 
 **Fixed**

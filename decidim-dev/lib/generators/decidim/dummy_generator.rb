@@ -38,7 +38,8 @@ module Decidim
           "--path",
           "../..",
           "--app_const_base=DummyApplication",
-          "--recreate_db"
+          "--recreate_db",
+          "--demo"
         ]
       end
 
