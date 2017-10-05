@@ -1,0 +1,7 @@
+ru:
+  decidim:
+    pages:
+      admin:
+        pages:
+          update:
+            success: Страница сохранена успешно.

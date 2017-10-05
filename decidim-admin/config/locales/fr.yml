@@ -11,7 +11,7 @@ fr:
         parent_id: Parent
       feature:
         name: Nom
-        weight: Epaisseur
+        weight: Rang d'affichage
       newsletter:
         body: Corps de texte
         subject: Objet
@@ -79,7 +79,7 @@ fr:
         title: Titre
   date:
     formats:
-      datepicker: "%m / %j / %A"
+      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -452,5 +452,5 @@ fr:
           title: Utilisateurs
   time:
     formats:
-      datepicker: "%m / %j / %A"
+      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"

@@ -362,7 +362,7 @@ fr:
         comments_count: Commentaires
         headline: État actuel de %{organization}
         meetings_count: Rencontres
-        orders_count: Nombre de votes comptés
+        orders_count: Votes
         pages_count: Pages
         processes_count: Processus participatifs
         projects_count: Projets

@@ -362,7 +362,7 @@ eu:
         comments_count: Iruzkinak
         headline: '%{organization} erakundearen egungo egoera'
         meetings_count: Topaketak
-        orders_count: Botoak
+        orders_count: Euskarriak
         pages_count: Orriak
         processes_count: Prozesuak
         projects_count: Proiektuak

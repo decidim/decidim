@@ -1,0 +1,35 @@
+ru:
+  activemodel:
+    attributes:
+      attachment:
+        description: Описание
+        file: Файл
+        title: Название
+      category:
+        description: Описание
+        name: Имя
+        parent_id: Родитель
+      feature:
+        name: Имя
+        weight: Вес
+      newsletter:
+        body: Основной текст
+        subject: Тема
+      organization:
+        default_locale: Язык по умолчанию
+        description: Описание
+        favicon: Значок
+        header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
+        homepage_image: Изображение главной страницы
+        logo: Логотип
+        name: Имя
+        official_img_footer: Нижний колонтитул официального логотипа
+        official_img_header: Заголовок официального логотипа
+        official_url: Официальный URL-адрес организации
+        reference_prefix: Справочный префикс
+        show_statistics: Показать статистику
+        welcome_text: Текст приветствия
+      scope:
+        code: Код
+        name: Имя
+        organization: Организация

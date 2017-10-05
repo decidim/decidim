@@ -8,7 +8,7 @@ fi:
       category:
         description: Kuvaus
         name: Nimi
-        parent_id: Isäntä
+        parent_id: Yläaihepiiri
       feature:
         name: Nimi
         weight: Painoarvo
@@ -109,23 +109,23 @@ fi:
           success: Liite luotu onnistuneesti.
       categories:
         create:
-          error: Tämän kategorian luonnissa tapahtui virhe.
-          success: Kategoria luotu onnistuneesti.
+          error: Tämän aihepiirin luonnissa tapahtui virhe.
+          success: Aihepiiri luotu onnistuneesti.
         destroy:
-          error: Tämän kategorian poistamisessa tapahtui virhe. Poista ensin kaikki sen alakategoriat ja varmista, että mikään muu kooknaisuus ei liity tähän kategoriaan ja kokeile uudestaan.
-          success: Kategoria poistettu onnistuneesti.
+          error: Tämän aihepiirin poistamisessa tapahtui virhe. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kooknaisuus ei liity tähän aihepiiriin. Kokeile sen jälkeen uudestaan.
+          success: Aihepiiri poistettu onnistuneesti.
         edit:
-          title: Muokkaa kategoriaa
+          title: Muokkaa aihepiiriä
           update: Päivitä
         index:
-          categories_title: Kategoriat
-          category_used: Tätä kategoriaa ei voida poistaa, koska se on käytössä.
+          categories_title: Aihepiirit
+          category_used: Tätä aihepiiriä ei voida poistaa, koska se on käytössä.
         new:
-          create: Luo kategoria
-          title: Uusi kategoria
+          create: Luo aihepiiri
+          title: Uusi aihepiiri
         update:
-          error: Tämän kategorian luonnissa tapahtui virhe.
-          success: Kategoria päivitetty onnistuneesti.
+          error: Tämän aihepiirin luonnissa tapahtui virhe.
+          success: Aihepiiri päivitetty onnistuneesti.
       dashboard:
         show:
           welcome: Tervetuloa Decidimin uuteen hallintapaneeliin.
@@ -221,7 +221,7 @@ fi:
             title: Otsikko
           name: Liite
         category:
-          name: Kategoria
+          name: Aihepiiri
         impersonation_log:
           fields:
             admin: Ylläpitäjä

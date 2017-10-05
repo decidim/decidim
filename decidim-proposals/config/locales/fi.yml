@@ -3,7 +3,7 @@ fi:
     attributes:
       proposal:
         body: Runko
-        category_id: Kategoria
+        category_id: Aihepiiri
         scope_id: Konteksti
         title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
@@ -64,7 +64,7 @@ fi:
             success: Ehdotus luotu onnistuneesti
           form:
             attachment_legend: "(Valinnainen) Lisää liite"
-            select_a_category: Valitse kategoria
+            select_a_category: Valitse aihepiiri
           index:
             title: Ehdotukset
           new:
@@ -81,7 +81,7 @@ fi:
       models:
         proposal:
           fields:
-            category: Kategoria
+            category: Aihepiiri
             id: ID
             official_proposal: Virallinen ehdotus
             scope: Konteksti
@@ -102,8 +102,8 @@ fi:
           accepted: Hyväksytty
           activity: Aktiivisuus
           all: Kaikki
-          category: Kategoria
-          category_prompt: Valitse kategoria
+          category: Aihepiiri
+          category_prompt: Valitse aihepiiri
           citizens: Kansalaiset
           evaluating: Arvioitavana
           official: Virallinen
@@ -130,7 +130,7 @@ fi:
         new:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
-          select_a_category: Valitse kategoria
+          select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Uusi ehdotus
         orders:

@@ -128,5 +128,5 @@ ca:
       included_proposals:
         project_proposals: 'Propostes incloses en aquest projecte:'
   index:
-    confirmed_orders_count: Nombre de vots
+    confirmed_orders_count: Recompte de vots
   total_budget: Pressupost total

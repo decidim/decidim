@@ -1,0 +1,5 @@
+ru:
+  activemodel:
+    attributes:
+      participatory_process:
+        domain: Домен
