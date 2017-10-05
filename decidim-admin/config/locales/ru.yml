@@ -50,7 +50,7 @@ ru:
         description: Описание
         developer_group: Группа разработчиков
         domain: Домен
-        end_date: Дата окончания
+        end_date: Дата завершения
         hashtag: Хэштег
         hero_image: Изображение главной страницы
         local_area: Район
@@ -69,3 +69,37 @@ ru:
         description: Описание
         hero_image: Изображение главной страницы
         name: Имя
+        participatory_processes: Движения соучастия
+      decidim/participatory_process_step:
+        end_date: Дата завершения
+        start_date: Дата начала
+      decidim/static_page:
+        content: Содержание
+        slug: Сокращенный URL-адрес
+        title: Название
+  date:
+    formats:
+      datepicker: "%d. %m. %Y"
+  decidim:
+    admin:
+      actions:
+        add: Добавить
+        browse: Просмотреть
+        export: Сохранить в виде файла
+        manage: Управлять
+        permissions: Права
+        reject: Отклонить
+        verify: Проверить
+      attachments:
+        create:
+          error: При создании нового вложения произошла ошибка.
+          success: Вложение успешно создано.
+        destroy:
+          success: Вложение успешно удалено.
+        edit:
+          title: Редактировать вложенный файл
+          update: Обновить
+        index:
+          attachments_title: Вложенные файлы
+        new:
+          create: Создать вложенный файл
