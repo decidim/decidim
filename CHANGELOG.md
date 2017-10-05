@@ -17,8 +17,14 @@
 
 **Fixed**
 
-- **decidim**: Generator when run directly via decidim's executable was crashing due to bundler unavailability [\#1938](https://github.com/decidim/decidim/pull/1938)
 - **decidim-core**: Handle nil resources on static maps (errors were caused by search engine spiders) [\#1936](https://github.com/decidim/decidim/pull/1936)
+
+## [v0.6.6](https://github.com/decidim/decidim/tree/v0.6.6) (2017-10-05)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.5...v0.6.6)
+
+**Fixed**
+
+- **decidim**: Generator when run directly via decidim's executable was crashing due to bundler unavailability [\#1938](https://github.com/decidim/decidim/pull/1938)
 - **decidim-surveys**: When a survey is created without TOS, the survey cannot be answered by the users. We're making the TOS field rquired, please fill it for every language and every survey. [\#1980](https://github.com/decidim/decidim/pull/1980)
 - **decidim-surveys**: Fixes a bug where inputs for survey question bodies in the admin were not working properly when the organization had only one locale. [\#1983](https://github.com/decidim/decidim/pull/1983)
 
