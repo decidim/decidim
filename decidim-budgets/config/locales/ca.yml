@@ -32,8 +32,8 @@ ca:
             title: Editar projecte
             update: Actualitzar
           index:
-            finished_orders: Vots acabats
-            pending_orders: Vots pendents
+            finished_orders: Vots finalitzats
+            pending_orders: Vots en procés
             title: Projectes
           new:
             create: Crear
