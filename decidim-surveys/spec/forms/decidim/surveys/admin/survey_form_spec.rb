@@ -16,6 +16,14 @@ module Decidim
           }
         end
 
+        let(:tos) do
+          {
+            "en" => tos_english,
+            "ca" => "<p>TOS: contingut</p>",
+            "es" => "<p>TOS: contenido</p>"
+          }
+        end
+
         let(:description) do
           {
             "en" => "<p>Content</p>",
@@ -25,6 +33,7 @@ module Decidim
         end
 
         let(:body_english) { "First question" }
+        let(:tos_english) { "<p>TOS: content</p>" }
 
         let(:questions) do
           [
@@ -53,6 +62,7 @@ module Decidim
         let(:attributes) do
           {
             "survey" => {
+              "tos" => tos,
               "title" => title,
               "description" => description,
               "questions" => questions
@@ -72,6 +82,12 @@ module Decidim
 
         context "when a question is not valid" do
           let(:body_english) { "" }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when tos is not valid" do
+          let(:tos_english) { "" }
 
           it { is_expected.not_to be_valid }
         end

@@ -3,8 +3,6 @@
 module Decidim
   # Exposes the scopes text search so users can choose a scope writing its name.
   class ScopesController < Decidim::ApplicationController
-    skip_before_action :store_current_location
-
     def search
       authorize! :search, Scope
       root = Scope.where(id: params[:root], organization: current_organization).first

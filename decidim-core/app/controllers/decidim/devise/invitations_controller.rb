@@ -16,7 +16,7 @@ module Decidim
       # invitation. Using the param `invite_redirect` we can redirect the user
       # to a custom path after it has accepted the invitation.
       def after_accept_path_for(resource)
-        params[:invite_redirect] || after_sign_in_path_for(resource)
+        params[:invite_redirect] || super
       end
 
       # When a managed user accepts the invitation is promoted to non-managed user.

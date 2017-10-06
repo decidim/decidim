@@ -32,8 +32,8 @@ fr:
             title: Éditer un projet
             update: Mettre à jour
           index:
-            finished_orders: Commandes terminées
-            pending_orders: Commandes en attente
+            finished_orders: Votes terminés
+            pending_orders: En attente de vote
             title: Projets
           new:
             create: Créer
@@ -73,7 +73,7 @@ fr:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          scope_prompt: Sélectionnez une portée
+          scope_prompt: Sélectionnez un périmètre d'application
           scopes: Zones d'application
           search: Rechercher
         filters_small_view:
@@ -128,5 +128,5 @@ fr:
       included_proposals:
         project_proposals: 'Propositions incluses dans ce projet:'
   index:
-    confirmed_orders_count: Nombre de votes comptés
+    confirmed_orders_count: Nombre de votes
   total_budget: Budget total

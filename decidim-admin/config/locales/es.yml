@@ -79,7 +79,7 @@ es:
         title: Título
   date:
     formats:
-      datepicker: "%m/%d/%Y"
+      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -452,5 +452,5 @@ es:
           title: Usuarios
   time:
     formats:
-      datepicker: "%m/%d/%Y"
+      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"

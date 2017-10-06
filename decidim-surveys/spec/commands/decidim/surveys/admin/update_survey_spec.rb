@@ -18,6 +18,11 @@ module Decidim
               "ca" => "Title",
               "es" => "Title"
             },
+            "tos" => {
+              "en" => "<p>TOS</p>",
+              "ca" => "<p>TOS</p>",
+              "es" => "<p>TOS</p>"
+            },
             "description" => {
               "en" => "<p>Content</p>",
               "ca" => "<p>Contingut</p>",
@@ -135,6 +140,11 @@ module Decidim
                   "en" => "<p>Content</p>",
                   "ca" => "<p>Contingut</p>",
                   "es" => "<p>Contenido</p>"
+                },
+                "tos" => {
+                  "en" => "<p>TOS</p>",
+                  "ca" => "<p>TOS</p>",
+                  "es" => "<p>TOS</p>"
                 },
                 "questions" => [
                   {

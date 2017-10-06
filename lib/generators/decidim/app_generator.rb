@@ -48,6 +48,9 @@ module Decidim
       class_option :skip_bundle, type: :boolean, aliases: "-B", default: true,
                                  desc: "Don't run bundle install"
 
+      class_option :demo, type: :boolean, default: false,
+                          desc: "Generate a demo authorization handler"
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -103,7 +106,20 @@ module Decidim
       end
 
       def authorization_handler
-        template "authorization_handler.rb", "app/services/example_authorization_handler.rb", force: true
+        template "initializer.rb", "config/initializers/decidim.rb"
+
+        auth_handler = if options[:demo]
+                         "decidim/dummy_authorization_handler"
+                       else
+                         "example_authorization_handler"
+                       end
+
+        template "#{auth_handler}.rb", "app/services/#{auth_handler}.rb"
+
+        gsub_file "config/initializers/decidim.rb",
+                  /config\.mailer_sender = "change-me@domain\.org"/ do |match|
+          match << "\n  config.authorization_handlers = [#{auth_handler.classify}]"
+        end
       end
 
       def install

@@ -19,10 +19,10 @@ eu:
         settings:
           global:
             announcement: Oharra
-            attachments_allowed: Onartu eranskinak
+            attachments_allowed: Baimendu eranskinak
             comments_enabled: Iruzkinak gaituta
             geocoding_enabled: Geokodeketa gaituta
-            new_proposal_help_text: Proposamen berriaren laguntza testu
+            new_proposal_help_text: Laguntza-testua proposamen bat sortzean
             official_proposals_enabled: Proposamen ofizialak gaituta
             proposal_answering_enabled: Erantzuna aktibatutako proposamenei
             vote_limit: Boto-muga
@@ -52,7 +52,7 @@ eu:
           edit:
             accepted: Onartuta
             answer_proposal: Erantzuna
-            evaluating: ebaluatzea
+            evaluating: Ebaluatzen
             rejected: Ukatua
             title: 'Erantzun proposamen honi: %{title}'
         proposals:
@@ -63,7 +63,7 @@ eu:
             invalid: Arazo bat izan da proposamen hau sortzean.
             success: Proposamena zuzen sortu da.
           form:
-            attachment_legend: "(Aukerakoa) Gehitu eranskina"
+            attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             select_a_category: Aukeratu kategoria bat
           index:
             title: Proposamenak
@@ -72,7 +72,7 @@ eu:
             title: Sortu proposamena
       answers:
         accepted: Onartuta
-        evaluating: ebaluatzea
+        evaluating: Ebaluatzen
         not_answered: Erantzun gabe
         rejected: Ukatua
       create:
@@ -82,14 +82,14 @@ eu:
         proposal:
           fields:
             category: Kategoria
-            id: NAN
+            id: NORTASUN AGIRIA
             official_proposal: Proposamen ofiziala
             scope: Esparrua
             state: Egoera
             title: Titulua
       proposal_votes:
         create:
-          error: Ez da izan, akats denean proposamena bozkatzea.
+          error: Erroreak gertatu dira proposamena bozkatzean.
       proposals:
         author:
           deleted: Erabiltzaile ezabatua
@@ -104,13 +104,13 @@ eu:
           all: Guztiak
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
-          citizenship: Herritarrak
-          evaluating: ebaluatzea
+          citizens: Hiritarrak
+          evaluating: Ebaluatzen
           official: Ofiziala
           origin: Jatorria
           rejected: Ukatua
           related_to: Honekin lotuta
-          scope_prompt: Hautatu esparrua
+          scope_prompt: Aukeratu esparru bat
           scopes: Esparruak
           search: Bilatu
           state: Egoera
@@ -128,7 +128,7 @@ eu:
             one: <span class="card--list__data__number">1</span>boto
             other: <span class="card--list__data__number">%{count}</span>boto
         new:
-          attachment_legend: "(Aukerakoa) Gehitu eranskina"
+          attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
           back: Atzera
           select_a_category: Mesedez, aukeratu kategoria bat
           send: Bidali

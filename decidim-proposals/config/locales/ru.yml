@@ -1,0 +1,5 @@
+ru:
+  activemodel:
+    attributes:
+      proposal_answer:
+        answer: Ответ

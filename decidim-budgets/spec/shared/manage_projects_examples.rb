@@ -40,7 +40,7 @@ shared_examples "manage projects" do
     end
   end
 
-  context "seeing finished and pending orders" do
+  context "seeing finished and pending votes" do
     let!(:project) { create(:project, budget: 70_000_000, feature: current_feature) }
 
     let!(:finished_orders) do
@@ -58,8 +58,8 @@ shared_examples "manage projects" do
 
     it "shows the order count" do
       visit current_path
-      expect(page).to have_content("Finished orders: 10")
-      expect(page).to have_content("Pending orders: 5")
+      expect(page).to have_content("Finished votes: 10")
+      expect(page).to have_content("Pending votes: 5")
     end
   end
 

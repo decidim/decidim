@@ -81,10 +81,10 @@ fr:
       admin:
         assemblies:
           form:
-            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent cet assemblage. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_copies:
           form:
-            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent cet assemblage. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
       index:
         title: Assemblées
       show:
@@ -100,7 +100,7 @@ fr:
         comments_count: Commentaires
         headline: Activité
         meetings_count: Réunions
-        orders_count: Ordres
+        orders_count: Votes
         pages_count: Pages
         projects_count: Projets
         proposals_count: Propositions

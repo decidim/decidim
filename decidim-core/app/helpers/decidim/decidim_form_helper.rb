@@ -64,9 +64,11 @@ module Decidim
       field_label = label_tag(name, options[:label])
 
       if locales.count == 1
+        field_name = "#{name}_#{locales.first.to_s.gsub("-", "__")}"
         field_input = send(
           type,
-          "#{name}_#{locales.first.to_s.gsub("-", "__")}"
+          "#{object_name}[#{field_name}]",
+          value[locales.first.to_s]
         )
 
         return safe_join [field_label, field_input]

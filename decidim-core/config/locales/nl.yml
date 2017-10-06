@@ -339,13 +339,13 @@ nl:
     home:
       extended:
         debates: Debatten
-        debates_explanation: Laten we elkaar ontmoeten, in debat gaan, en ideeën uitwisselen; dat is belangrijk voor onze stad.
+        debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
         how_to_participate: Hoe neem ik deel in een proces?
         meetings: Vergaderingen
-        meetings_explanation: Laten we elkaar ontmoeten, in debat gaan, en ideeën uitwisselen over wat belangrijk is voor onze stad.
+        meetings_explanation: Ontdek waar en wanneer u kunt deelnemen aan openbare vergaderingen.
         more_info: Meer informatie
         proposals: Voorstellen
-        proposals_explanation: Publieke ruimte voor voorstellen over de stad waarin we willen leven.
+        proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
       footer_sub_hero:
         footer_sub_hero_body: Laten we bouwen aan een open, transparante en collaborative maatschappij.<br /> Neem deel en beslis.
         footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
@@ -362,7 +362,7 @@ nl:
         comments_count: Reacties
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
-        orders_count: bestellingen
+        orders_count: stemmen
         pages_count: Pages
         processes_count: Processen
         projects_count: Projecten

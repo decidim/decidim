@@ -46,14 +46,14 @@ es:
           registrations: Inscripciones
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} le ha invitado a unirse a una reunión en %{application}. Puede aceptarlo a través del siguiente enlace."
-            join: Únete a la reunión '%{meeting_title}'
+            invited_you_to_join_a_meeting: "%{invited_by} te ha invitado a unirte a un encuentro en %{application}. Puedes aceptarlo a través del siguiente enlace."
+            join: Únete al encuentro '%{meeting_title}'
         invites:
           create:
-            error: Ha habido un problema al invitar al usuario a unirse a la reunión.
-            success: El usuario ha sido invitado con éxito a unirse a la reunión.
+            error: Ha habido un problema al invitar al usuario a unirse al encuentro.
+            success: El usuario ha sido invitado con éxito a unirse al encuentro.
           new:
-            explanation: El usuario será invitado a unirse a una reunión. Si el correo electrónico no está registrado, será invitado a la organización también.
+            explanation: El usuario será invitado a unirse a un encuentro. Si el correo electrónico no está registrado, será invitado a la organización también.
             invite: Invitar
             new_invite: Invitar usuario
         meeting_closes:

@@ -131,6 +131,11 @@ module Decidim
     10.megabytes
   end
 
+  # Exposes a configuration option: The maximum file size for user avatar images.
+  config_accessor :maximum_avatar_size do
+    5.megabytes
+  end
+
   # The number of reports which an object can receive before hiding it
   config_accessor :max_reports_before_hiding do
     3

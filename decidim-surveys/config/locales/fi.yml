@@ -11,7 +11,7 @@ fi:
       surveys:
         actions:
           answer: Vastaa
-        name: Tutkimus
+        name: Kysely
         settings:
           global:
             announcement: Ilmoitus
