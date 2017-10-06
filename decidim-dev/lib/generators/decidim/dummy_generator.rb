@@ -21,6 +21,9 @@ module Decidim
 
       class_option :dummy_app_path, type: :string,
                                     desc: "The path where the dummy app will be installed"
+      class_option :skip_gemfile, type: :boolean,
+                                  default: false,
+                                  desc: "Don't generate a Gemfile for the application"
 
       def source_paths
         [
@@ -38,7 +41,8 @@ module Decidim
           "--path",
           "../..",
           "--app_const_base=DummyApplication",
-          "--recreate_db"
+          "--recreate_db",
+          "--skip_gemfile=#{options[:skip_gemfile]}"
         ]
       end
 
