@@ -85,7 +85,7 @@ module Decidim
     def self.handler_for(name, params = {})
       return unless name
       handler_klass = name.classify
-      return unless Decidim.authorization_handlers.map(&:to_s).include?(handler_klass)
+      return unless Decidim.authorization_handlers.include?(handler_klass)
       handler_klass.constantize.from_params(params || {})
     end
   end
