@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
-RSpec.shared_examples "manage results" do
+shared_examples "manage results" do
   it "updates a result" do
     within find("tr", text: translated(result.title)) do
       find("a.action-icon--edit").click
@@ -93,7 +92,7 @@ RSpec.shared_examples "manage results" do
       end
 
       within "table" do
-        expect(page).not_to have_content(translated(result2.title))
+        expect(page).to have_no_content(translated(result2.title))
       end
     end
   end

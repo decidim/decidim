@@ -106,6 +106,9 @@ ignore_unused:
   - invisible_captcha.*
   - pages.home.statistics.*
   - social_share_button.*
+  - decidim.features.accountability.name
+  - decidim.features.accountability.settings.*
+  - decidim.accountability.models.project.valid_statuses.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

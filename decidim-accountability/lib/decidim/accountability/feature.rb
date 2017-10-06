@@ -3,7 +3,7 @@
 require_dependency "decidim/features/namer"
 
 Decidim.register_feature(:accountability) do |feature|
-  feature.engine = Decidim::Accountability::ListEngine
+  feature.engine = Decidim::Accountability::Engine
   feature.admin_engine = Decidim::Accountability::AdminEngine
   feature.icon = "decidim/accountability/icon.svg"
   feature.stylesheet = "decidim/accountability/accountability"

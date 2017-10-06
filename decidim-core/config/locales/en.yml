@@ -157,7 +157,7 @@ en:
     filters:
       linked_classes:
         all: All
-        dummyresource: Dummy resources
+        dummy_resource: Dummy resources
         meeting: Meetings
         project: Projects
         proposal: Proposals
