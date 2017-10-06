@@ -10,11 +10,11 @@ uk:
         domain: Домен
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцевість
+        local_area: Район
         meta_scope: Метадані терену
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
-        promoted: Підвищено в статусі
+        promoted: Рекламується
         scope_id: Терен
         scopes_enabled: Ввімкнені терени
         short_description: Стислий опис
@@ -89,7 +89,7 @@ uk:
         title: Збори
       show:
         developer_group: Група розробників
-        local_area: Місцевість
+        local_area: Район
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         scope: Терен

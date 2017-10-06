@@ -3,3 +3,8 @@ ru:
     features:
       meetings:
         name: Встречи
+    meetings:
+      models:
+        meeting:
+          fields:
+            end_time: Дата завершения

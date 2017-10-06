@@ -21,12 +21,12 @@ pl:
     features:
       meetings:
         actions:
-          join: Przyłączyć się
+          join: Dołącz
         name: Spotkania
         settings:
           global:
             announcement: Ogłoszenie
-            comments_enabled: Włączone komentarze
+            comments_enabled: Komentarze włączone
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -46,15 +46,15 @@ pl:
           registrations: Rejestracje
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} zaprosił Cię do udziału w spotkaniu w %{application}. Możesz to zaakceptować za pomocą poniższego linku."
+            invited_you_to_join_a_meeting: "%{invited_by} zaprosił_a Cię do udziału w spotkaniu w %{application}. Możesz to zaakceptować za pomocą poniższego linku."
             join: Dołącz do spotkania "%{meeting_title}"
         invites:
           create:
-            error: Wystąpił problem z zaproszeniem użytkownika do uczestnictwa w spotkaniu.
-            success: Użytkownik z powodzeniem zapraszał do udziału w spotkaniu.
+            error: Wystąpił problem przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
+            success: Udało się zaprosić użytkownika do udziału w spotkaniu.
           new:
-            explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu. Jeśli e-mail nie zostanie zarejestrowany, zostanę zaproszeni do organizacji.
-            invite: Zapraszam
+            explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu. Jeśli jego adres e-mail nie jest zarejestrowany, zostanie zaproszony do organizacji.
+            invite: Zaproś
             new_invite: Zaproś użytkownika
         meeting_closes:
           edit:
