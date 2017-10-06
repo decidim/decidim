@@ -19,6 +19,7 @@
 
 **Fixed**
 
+- **Decidim**: A bug in the test app generator prevented installations to properly run the tests. [\#1994](https://github.com/decidim/decidim/pull/1994)
 - **decidim-core**: Handle nil resources on static maps (errors were caused by search engine spiders) [\#1936](https://github.com/decidim/decidim/pull/1936)
 - **decidim-proposals**: Do not count hidden proposals on stats [\#1988](https://github.com/decidim/decidim/pull/1988)
 
