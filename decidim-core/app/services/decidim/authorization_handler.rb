@@ -83,10 +83,13 @@ module Decidim
     # Returns an AuthorizationHandler descendant.
     # Returns nil when no handlers could be found.
     def self.handler_for(name, params = {})
-      return unless name
-      handler_klass = name.classify
-      return unless Decidim.authorization_handlers.include?(handler_klass)
-      handler_klass.constantize.from_params(params || {})
+      return unless active_handler?(name)
+
+      name.classify.constantize.from_params(params || {})
+    end
+
+    def self.active_handler?(name)
+      name && Decidim.authorization_handlers.include?(name.classify)
     end
   end
 end
