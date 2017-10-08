@@ -141,7 +141,7 @@ uk:
     features:
       dummy:
         actions:
-          bar: Статусний рядок
+          bar: Неробоча псевдо-змінна
           foo: Неробоча псевдо-змінна
         name: Неробоча складова
         settings:
