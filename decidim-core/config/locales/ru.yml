@@ -1,4 +1,10 @@
 ru:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Причина для удаления вашей учетной записи
+      report:
+        details: Дополнительные комментарии
   activerecord:
     attributes:
       decidim/user:
