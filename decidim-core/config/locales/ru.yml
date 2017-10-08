@@ -5,7 +5,30 @@ ru:
         delete_reason: Причина для удаления вашей учетной записи
       report:
         details: Дополнительные комментарии
+      user:
+        email: Ваш адрес электронной почты
+        name: Ваше имя
+        password: Новый пароль
+        password_confirmation: Подтвердите свой новый пароль
+        remove_avatar: Удалить аватар
+        user_group_document_number: Номер документа организации
+        user_group_name: Название организации
+        user_group_phone: Телефон организации
   activerecord:
     attributes:
       decidim/user:
+        current_password: Текущий пароль
+        email: Эл. адрес
         name: Имя пользователя
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        remember_me: Запомнить меня
+        user_group_document_number: Номер документа организации
+        user_group_name: Название организации
+        user_group_phone: Телефон организации
+  booleans:
+    'false': 'Нет'
+    'true': 'Да'
+  carrierwave:
+    errors:
+      image_too_big: Изображение слишком велико
