@@ -50,3 +50,19 @@ ru:
         update_account: Обновить учетную запись
       update:
         error: При обновлении вашей учетной записи произошла ошибка.
+        success: Ваша учетная запись была успешно обновлена.
+        success_with_email_confirmation: Ваша учетная запись была успешно обновлена. Вы получите электронное письмо, чтобы подтвердить свой новый адрес электронной почты.
+    anonymous_user: Анонимный
+    application:
+      documents:
+        related_documents: Сопутствующие документы
+      photos:
+        related_photos: Сопутствующие фотографии
+    authorization_handlers:
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Номер документа
+          postal_code: Почтовый индекс
+        name: Пример авторизации
+      errors:
+        duplicate_authorization: С теми же данными уже авторизован другой пользователь.
