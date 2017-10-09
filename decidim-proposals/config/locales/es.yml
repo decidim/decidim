@@ -155,7 +155,6 @@ es:
             other: APOYOS
         votes_limit:
           vote_limit:
-            description: En lugar de dar apoyo tantas propuestas como se desee, sólo se puede dar apoyo hasta %{limit} propuestas.
             left: Restante
             title: Tiene %{limit} votos a distribuir
             votes: Votos
