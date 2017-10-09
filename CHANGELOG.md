@@ -1,5 +1,11 @@
 # Change Log
 
+## [v0.6.7](https://github.com/decidim/decidim/tree/v0.6.7) (2017-10-06)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.6...v0.6.7)
+
+**Fixed**
+- **decidim**: A bug in the test app generator prevented installations to properly run the tests. [\#1994](https://github.com/decidim/decidim/pull/1994)
+
 ## [v0.6.6](https://github.com/decidim/decidim/tree/v0.6.6) (2017-10-05)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.5...v0.6.6)
 
