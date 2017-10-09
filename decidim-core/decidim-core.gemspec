@@ -46,7 +46,6 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-google-oauth2", "~> 0.5.0"
   s.add_dependency "wisper", "~> 2.0.0"
   s.add_dependency "premailer-rails", "~> 1.9.5"
-  s.add_dependency "nokogiri", "~> 1.8.0"
   s.add_dependency "geocoder", "~> 1.4.2"
   s.add_dependency "rubyzip", "1.2.1"
   s.add_dependency "select2-rails", "~> 4.0.3"
