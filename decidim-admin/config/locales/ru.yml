@@ -135,3 +135,10 @@ ru:
       feature_permissions:
         edit:
           everyone: Все
+          submit: Сохранить разрешения
+          title: Изменить разрешения
+        update:
+          success: Разрешения успешно обновлены.
+      features:
+        create:
+          error: При создании этой составляющей произошла ошибка.
