@@ -155,6 +155,7 @@ it:
             other: VOTI
         votes_limit:
           vote_limit:
+            description: Puoi votare fino a %{limit} proposte.
             left: Restano
             title: Hai ancora %{limit} voti
             votes: Voti
