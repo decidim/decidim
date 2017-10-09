@@ -161,6 +161,7 @@ uk:
             other: ГОЛОСІВ
         votes_limit:
           vote_limit:
+            description: Ви можете проголосувати до %{limit} пропозицій.
             left: Залишилось
             title: У вас є %{limit} голосів для того, щоб їх розподілити
             votes: Голоси
