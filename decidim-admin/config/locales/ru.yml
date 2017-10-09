@@ -129,3 +129,9 @@ ru:
       dashboard:
         show:
           welcome: Добро пожаловать на новую панель администратора Десидим!
+      exports:
+        export_as: "%{name} как %{export_format}"
+        notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
+      feature_permissions:
+        edit:
+          everyone: Все
