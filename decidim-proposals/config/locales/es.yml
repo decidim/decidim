@@ -155,6 +155,7 @@ es:
             other: APOYOS
         votes_limit:
           vote_limit:
+            description: Puedes votar hasta %{limit} propuestas.
             left: Restante
             title: Tiene %{limit} votos a distribuir
             votes: Votos
