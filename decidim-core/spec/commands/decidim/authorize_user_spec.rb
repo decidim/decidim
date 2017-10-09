@@ -38,7 +38,6 @@ module Decidim
     end
 
     describe "uniqueness" do
-      let(:user) { create(:user) }
       let(:unique_id) { "foo" }
 
       context "when there's no other authorizations" do
