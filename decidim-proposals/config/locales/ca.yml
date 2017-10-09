@@ -155,7 +155,7 @@ ca:
             other: SUPORTS
         votes_limit:
           vote_limit:
-            description: Podeu votar fins a %{limit} propostes.
+            description: Pots votar fins a %{limit} propostes.
             left: Restant
             title: Té %{limit} suports a distribuir
             votes: Suports
