@@ -155,7 +155,7 @@ eu:
             other: SOSTENGU
         votes_limit:
           vote_limit:
-            description: Nahi beste proposamenari sostengua eman ordez, gehienez ere %{limit} proposamenen alde egin dezakezu.
+            description: '%{limit} proposamenari bozkatu ahal zaizkio.'
             left: Emateke
             title: Gehienez, %{limit} boto eman ditzakezu
             votes: Boto
