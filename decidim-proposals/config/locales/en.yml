@@ -88,6 +88,7 @@ en:
             scope: Scope
             state: State
             title: Title
+            votes: Votes
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.
