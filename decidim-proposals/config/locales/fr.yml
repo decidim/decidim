@@ -155,7 +155,7 @@ fr:
             other: VOTES
         votes_limit:
           vote_limit:
-            description: Au lieu de voter autant de propositions que vous voulez, vous ne pouvez voter que jusqu'à %{limit} propositions.
+            description: Vous pouvez voter jusqu'à %{limit} propositions.
             left: Restant
             title: Vous disposez de %{limit} votes à distribuer
             votes: Votes

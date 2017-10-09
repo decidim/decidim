@@ -155,7 +155,7 @@ ca:
             other: SUPORTS
         votes_limit:
           vote_limit:
-            description: En lloc de donar suport a tantes propostes com es vulgui, només es pot donar suport fins a un màxim de %{limit} propostes.
+            description: Pots votar fins a %{limit} propostes.
             left: Restant
             title: Té %{limit} suports a distribuir
             votes: Suports

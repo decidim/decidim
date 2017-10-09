@@ -155,7 +155,7 @@ fi:
             other: ÄÄNTÄ
         votes_limit:
           vote_limit:
-            description: Voit äänestää maksimissaan %{limit} ehdotusta. Valitse mielestäsi parhaat ehdotukset.
+            description: Voit äänestää enintään %{limit} ehdotusta.
             left: Jäljellä
             title: Sinulla on %{limit} ääntä käytettävänäsi
             votes: Äänet
