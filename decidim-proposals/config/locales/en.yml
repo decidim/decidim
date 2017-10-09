@@ -156,7 +156,7 @@ en:
             other: VOTES
         votes_limit:
           vote_limit:
-            description: Instead of voting as many proposals as you want you can only vote up to %{limit} proposals.
+            description: You can vote up to %{limit} proposals.
             left: Remaining
             title: You have %{limit} votes to distribute
             votes: Votes
