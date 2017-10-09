@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
   s.add_dependency "byebug"
   s.add_dependency "wisper-rspec", "~> 0.0.3"
   s.add_dependency "listen", "~> 3.1.0"
-  s.add_dependency "launchy"
   s.add_dependency "i18n-tasks", "0.9.18"
   s.add_dependency "faker", Decidim.faker_version
   s.add_dependency "poltergeist", "~> 1.16.0"

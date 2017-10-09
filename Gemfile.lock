@@ -84,7 +84,6 @@ PATH
       factory_girl_rails
       faker (~> 1.8.4)
       i18n-tasks (= 0.9.18)
-      launchy
       listen (~> 3.1.0)
       nokogiri (~> 1.8.0)
       poltergeist (~> 1.16.0)
