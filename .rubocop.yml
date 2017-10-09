@@ -827,6 +827,9 @@ Style/RegexpLiteral:
   # are found in the regexp string.
   AllowInnerSlashes: false
 
+Style/SafeNavigation:
+  Enabled: false
+
 Style/Semicolon:
   # Allow ; to separate several expressions on the same line.
   AllowAsExpressionSeparator: false
