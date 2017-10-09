@@ -379,4 +379,44 @@ shared_examples "manage proposals" do
       end
     end
   end
+
+  context "when the votes_enabled feature setting is disabled" do
+    before do
+      current_feature.update_attributes!(
+        step_settings: {
+          feature.participatory_space.active_step.id => {
+            votes_enabled: false
+          }
+        }
+      )
+    end
+
+    it "doesn't show the votes column" do
+      visit current_path
+
+      within "thead" do
+        expect(page).not_to have_content("VOTES")
+      end
+    end
+  end
+
+  context "when the votes_enabled feature setting is enabled" do
+    before do
+      current_feature.update_attributes!(
+        step_settings: {
+          feature.participatory_space.active_step.id => {
+            votes_enabled: true
+          }
+        }
+      )
+    end
+
+    it "shows the votes column" do
+      visit current_path
+
+      within "thead" do
+        expect(page).to have_content("VOTES")
+      end
+    end
+  end
 end
