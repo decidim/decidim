@@ -149,3 +149,19 @@ ru:
         edit:
           title: Редактировать составляющую
           update: Обновить
+        form:
+          default_step_settings: Настройки шага по умолчанию
+          global_settings: Глобальные настройки
+          step_settings: Настройки шага
+        index:
+          add: Добавить составляющую
+          headers:
+            actions: Действия
+            name: Название составляющей
+            type: Тип составляющей
+        new:
+          add: Добавить составляющую
+          title: 'Добавить составляющую: %{name}'
+        publish:
+          success: Эта составляющая успешно опубликована.
+        title: Составляющие
