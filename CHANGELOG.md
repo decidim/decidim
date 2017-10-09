@@ -17,6 +17,7 @@
 - **decidim**: `bin/rails generate decidim:demo` is no longer available in generated applications. Use the `--demo` flag when generating your application or do the change manually if you want to use the "demo" authorization handler. [\#1978](https://github.com/decidim/decidim/pull/1978)
 - **decidim-core**: Changes some texts in the homepage ("How do I take part in a process?" section) [\#1947](https://github.com/decidim/decidim/pull/1947)
 - **decidim-core**: Authorization handlers now must be specified as strings. To migrate, change `config.authorization_handlers = [MyHandler]` to `config.authorization_handlers = ["MyHandler"]`. [\#2016](https://github.com/decidim/decidim/pull/2016)
+- **decidim-results**: Results description is truncated to 100 chars on the public list view [\#2008](https://github.com/decidim/decidim/pull/2008)
 
 **Fixed**
 
