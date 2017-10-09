@@ -27,7 +27,8 @@ module Decidim
       private
 
       def slug_uniqueness
-        return unless organization&.static_pages&.where(slug: slug)&.where&.not(id: id)&.any?
+        return unless organization
+        return unless organization.static_pages.where(slug: slug).where.not(id: id).any?
 
         errors.add(:slug, :taken)
       end

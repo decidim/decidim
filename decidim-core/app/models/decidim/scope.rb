@@ -56,7 +56,8 @@ module Decidim
     private
 
     def forbid_cycles
-      errors.add(:parent_id, :cycle_detected) if parent&.part_of&.include?(id)
+      return unless parent
+      errors.add(:parent_id, :cycle_detected) if parent.part_of.include?(id)
     end
 
     def create_part_of

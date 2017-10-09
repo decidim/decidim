@@ -27,7 +27,8 @@ module Decidim
       private
 
       def code_uniqueness
-        return unless organization&.scopes&.where(code: code)&.where&.not(id: id)&.any?
+        return unless organization
+        return unless organization.scopes.where(code: code).where.not(id: id).any?
 
         errors.add(:code, :taken)
       end
