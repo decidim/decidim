@@ -43,18 +43,6 @@ module Decidim
         end
       end
 
-      def after_sign_in_path_for(user)
-        if first_login_and_not_authorized?(user)
-          authorizations_path
-        else
-          super
-        end
-      end
-
-      def first_login_and_not_authorized?(user)
-        user.is_a?(User) && user.sign_in_count == 1 && Decidim.authorization_handlers.any?
-      end
-
       def action_missing(action_name)
         return send(:create) if devise_mapping.omniauthable? && User.omniauth_providers.include?(action_name.to_sym)
         raise AbstractController::ActionNotFound, "The action '#{action_name}' could not be found for Decidim::Devise::OmniauthCallbacksController"

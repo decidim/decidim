@@ -76,11 +76,6 @@ fi:
         error: Varmennuksen luomisessa tapahtui virhe.
         success: Sinut on onnistuneesti varmennettu.
       current_participatory_processes: tutustu tämänhetkisiin prosesseihin
-      first_login:
-        actions:
-          decidim/dummy_authorization_handler: Vahvista esimerkkivarmennuksen avulla
-        title: Vahvista identiteettisi
-        verify_with_these_options: 'Voit vahvistaa identiteettisi seuraavien vaihtoehtojen avulla:'
       new:
         authorize: Lähetä
         authorize_with: Vahvista palvelun "%{authorizer}" avulla

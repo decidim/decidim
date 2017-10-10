@@ -76,11 +76,6 @@ ca:
         error: S'ha produït un error en crear l'autorització.
         success: Has estat autoritzat/da correctament.
       current_participatory_processes: fer una ullada als processos actuals
-      first_login:
-        actions:
-          decidim/dummy_authorization_handler: Verificar contra l'exemple d'autorització
-        title: Verificar la teva identitat
-        verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
       new:
         authorize: Enviar
         authorize_with: Verificar-me amb %{authorizer}

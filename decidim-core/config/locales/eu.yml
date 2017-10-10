@@ -76,11 +76,6 @@ eu:
         error: Errorea gertatu da baimena sortzean.
         success: Baimendua izan zara zuzen.
       current_participatory_processes: eman behakoa egungo prozesuei
-      first_login:
-        actions:
-          decidim/dummy_authorization_handler: 'Egiaztatu baimen-adibidea honekin erkatuta:'
-        title: Egiaztatu zure nortasuna
-        verify_with_these_options: 'Hona zure nortasuna egiaztatzeko dituzun aukerak:'
       new:
         authorize: Bidali
         authorize_with: 'Egiaztatu nire nortasuna honen bidez: %{authorizer}'

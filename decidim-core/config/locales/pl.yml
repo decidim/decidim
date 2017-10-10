@@ -76,11 +76,6 @@ pl:
         error: Podczas tworzenia autoryzacji wystąpił błąd.
         success: Jesteś pomyślnie autoryzowany/autoryzowana.
       current_participatory_processes: przyjrzyj się obecnym procesom
-      first_login:
-        actions:
-          decidim/dummy_authorization_handler: Zwróć uwagę na przykładowe uprawnienia
-        title: Potwierdź swoją tożsamość
-        verify_with_these_options: 'Są to dostępne opcje zweryfikowania Twojej tożsamości:'
       new:
         authorize: Wysłać
         authorize_with: Zweryfikuj za pomocą %{authorizer}

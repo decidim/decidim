@@ -77,11 +77,6 @@ en:
         error: There was an error creating the authorization.
         success: You've been successfully authorized.
       current_participatory_processes: take a look at the current processes
-      first_login:
-        actions:
-          decidim/dummy_authorization_handler: Verify against the example authorization
-        title: Verify your identity
-        verify_with_these_options: 'These are the available options to verify your identity:'
       new:
         authorize: Send
         authorize_with: Verify with %{authorizer}

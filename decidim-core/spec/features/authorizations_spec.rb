@@ -7,60 +7,6 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
     switch_to_host(organization.host)
   end
 
-  context "a new user" do
-    let(:organization) { create :organization, available_authorizations: authorizations }
-    let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
-
-    let(:user) { create(:user, :confirmed, organization: organization) }
-
-    context "when one authorization has been configured" do
-      before do
-        Decidim.authorization_handlers = [Decidim::DummyAuthorizationHandler]
-        visit decidim.root_path
-        find(".sign-in-link").click
-
-        within "form.new_user" do
-          fill_in :user_email, with: user.email
-          fill_in :user_password, with: "password1234"
-          find("*[type=submit]").click
-        end
-      end
-
-      it "redirects the user to the authorization form after the first sign in" do
-        fill_in "Document number", with: "123456789X"
-        page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
-        page.find(".datepicker-dropdown .day", text: "12").click
-
-        click_button "Send"
-        expect(page).to have_content("You've been successfully authorized")
-      end
-
-      it "allows the user to skip it" do
-        click_link "take a look at the current processes"
-        expect(page).to have_content("No participatory processes yet!")
-      end
-    end
-
-    context "when multiple authorizations have been configured" do
-      let(:authorizations) { ["Decidim::DummyAuthorizationHandler", "Decidim::DummyAuthorizationHandler"] }
-
-      before do
-        visit decidim.root_path
-        find(".sign-in-link").click
-
-        within "form.new_user" do
-          fill_in :user_email, with: user.email
-          fill_in :user_password, with: "password1234"
-          find("*[type=submit]").click
-        end
-      end
-
-      it "allows the user to choose which one to authorize against to" do
-        expect(page).to have_css("a.button.expanded", count: 2)
-      end
-    end
-  end
-
   context "user account" do
     let(:organization) { create :organization, available_authorizations: authorizations }
     let(:user) { create(:user, :confirmed) }
