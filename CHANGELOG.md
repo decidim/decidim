@@ -16,6 +16,7 @@
 - **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
 - **decidim**: `bin/rails generate decidim:demo` is no longer available in generated applications. Use the `--demo` flag when generating your application or do the change manually if you want to use the "demo" authorization handler. [\#1978](https://github.com/decidim/decidim/pull/1978)
 - **decidim-core**: Changes some texts in the homepage ("How do I take part in a process?" section) [\#1947](https://github.com/decidim/decidim/pull/1947)
+- **decidim-core**: Authorization handlers now must be specified as strings. To migrate, change `config.authorization_handlers = [MyHandler]` to `config.authorization_handlers = ["MyHandler"]`. [\#2016](https://github.com/decidim/decidim/pull/2016)
 
 **Fixed**
 

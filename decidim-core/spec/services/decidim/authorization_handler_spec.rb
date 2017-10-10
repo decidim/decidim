@@ -54,11 +54,7 @@ module Decidim
         context "when the handler is valid" do
           let(:name) { "decidim/dummy_authorization_handler" }
 
-          context "when the handler is not configured" do
-            before do
-              Decidim.config.authorization_handlers = []
-            end
-
+          context "when the handler is not configured", without_authorizations: true do
             it { is_expected.to eq(nil) }
           end
 

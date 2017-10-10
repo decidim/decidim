@@ -125,7 +125,7 @@ module Decidim
 
         gsub_file "config/initializers/decidim.rb",
                   /config\.mailer_sender = "change-me@domain\.org"/ do |match|
-          match << "\n  config.authorization_handlers = [#{auth_handler.classify}]"
+          match << "\n  config.authorization_handlers = [\"#{auth_handler.classify}\"]"
         end
       end
 
