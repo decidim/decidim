@@ -1282,6 +1282,9 @@ Metrics/BlockLength:
     - '**/*.gemspec'
     - '**/abilities/**/*_ability.rb'
 
+RSpec/ExampleLength:
+  Max: 49
+
 RSpec/LetSetup:
   Enabled: false
 
