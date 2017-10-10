@@ -1,0 +1,76 @@
+ru:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Причина для удаления вашей учетной записи
+      report:
+        details: Дополнительные комментарии
+      user:
+        email: Ваш адрес электронной почты
+        name: Ваше имя
+        password: Новый пароль
+        password_confirmation: Подтвердите свой новый пароль
+        remove_avatar: Удалить аватар
+        user_group_document_number: Номер документа организации
+        user_group_name: Название организации
+        user_group_phone: Телефон организации
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Текущий пароль
+        email: Эл. адрес
+        name: Имя пользователя
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        remember_me: Запомнить меня
+        user_group_document_number: Номер документа организации
+        user_group_name: Название организации
+        user_group_phone: Телефон организации
+  booleans:
+    'false': 'Нет'
+    'true': 'Да'
+  carrierwave:
+    errors:
+      image_too_big: Изображение слишком велико
+  decidim:
+    account:
+      delete:
+        alert: Это действие нельзя будет отменить. Если вы удалите свою учетную запись, вы не сможете больше входить в систему.
+        confirm:
+          close: Закрыть окно
+          ok: Да, я хочу удалить свою учетную запись
+          question: Вы действительно хотите удалить свою учетную запись?
+          title: Удалить мою учетную запись
+        explanation: Укажите, пожалуйста, причину, по которой вы хотите удалить свою учетную запись (необязательно).
+      destroy:
+        error: При удалении вашей учетной записи произошла ошибка.
+        success: Ваша учетная запись была успешно удалена.
+      show:
+        change_password: Поменять пароль
+        update_account: Обновить учетную запись
+      update:
+        error: При обновлении вашей учетной записи произошла ошибка.
+        success: Ваша учетная запись была успешно обновлена.
+        success_with_email_confirmation: Ваша учетная запись была успешно обновлена. Вы получите электронное письмо, чтобы подтвердить свой новый адрес электронной почты.
+    anonymous_user: Анонимный
+    application:
+      documents:
+        related_documents: Сопутствующие документы
+      photos:
+        related_photos: Сопутствующие фотографии
+    authorization_handlers:
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Номер документа
+          postal_code: Почтовый индекс
+        name: Пример авторизации
+      errors:
+        duplicate_authorization: С теми же данными уже авторизован другой пользователь.
+      foo_authorization:
+        fields:
+          bar: Нерабочая псевдо-переменная
+          foo: Нерабочая псевдо-переменная
+        name: Нерабочая псевдо-авторизация
+    authorizations:
+      create:
+        error: При создании этой авторизации произошла ошибка.

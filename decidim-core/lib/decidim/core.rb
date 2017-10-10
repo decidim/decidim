@@ -90,7 +90,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es eu it fi fr nl uk)
+    %w(en ca es eu it fi fr nl uk ru)
   end
 
   # Exposes a configuration option: The application default locale.
@@ -129,6 +129,11 @@ module Decidim
   # Exposes a configuration option: The maximum file size of an attachment.
   config_accessor :maximum_attachment_size do
     10.megabytes
+  end
+
+  # Exposes a configuration option: The maximum file size for user avatar images.
+  config_accessor :maximum_avatar_size do
+    5.megabytes
   end
 
   # The number of reports which an object can receive before hiding it

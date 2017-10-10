@@ -2,7 +2,7 @@ fi:
   activemodel:
     attributes:
       result:
-        decidim_category_id: Kategoria
+        decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
         proposal_ids: Sisällytetyt ehdotukset
@@ -60,8 +60,8 @@ fi:
             one: 1 tulos
             other: "%{count} tulosta"
         filters:
-          category: Kategoria
-          category_prompt: Valitse kategoria
+          category: Aihepiiri
+          category_prompt: Valitse aihepiiri
           scope_prompt: Valitse konteksti
           scopes: Konteksti
           search: Haku

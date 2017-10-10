@@ -20,7 +20,8 @@ if !Rails.env.production? || ENV["SEED"]
     homepage_image: File.new(File.join(seeds_root, "homepage_image.jpg")),
     default_locale: Decidim.default_locale,
     available_locales: Decidim.available_locales,
-    reference_prefix: Faker::Name.suffix
+    reference_prefix: Faker::Name.suffix,
+    available_authorizations: Decidim.authorization_handlers
   )
 
   province = Decidim::ScopeType.create!(

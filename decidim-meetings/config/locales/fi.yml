@@ -9,7 +9,7 @@ fi:
         proposal_ids: Ehdotusta luotu tapaamisessa
       meeting:
         address: Osoite
-        decidim_category_id: Kategoria
+        decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
         end_time: Lopetusaika
@@ -129,8 +129,8 @@ fi:
             subject: Tapahtumailmoittautumisesi on vahvistettu
       meetings:
         filters:
-          category: Kategoria
-          category_prompt: Valitse kategoria
+          category: Aihepiiri
+          category_prompt: Valitse aihepiiri
           date: Päivämäärä
           past: Menneet
           scope_prompt: Valitse konteksti
@@ -173,7 +173,7 @@ fi:
       registration_mailer:
         confirmation:
           confirmed_html: Ilmoittautumisesi tapahtumaan <a href="%{url}">%{title}</a> on vahvistettu.
-          details: Löydät tapahtuman tiedot liitetiedostona.
+          details: Löydät tapahtuman tarkemmat tiedot liitteenä olevasta kalenterimerkinnästä.
       registrations:
         create:
           invalid: Tapahtumaan liittymisessä tapahtui virhe.

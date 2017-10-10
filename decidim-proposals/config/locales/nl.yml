@@ -104,7 +104,7 @@ nl:
           all: Alle
           category: Categorie
           category_prompt: Kies een categorie
-          citizenship: Burgerschap
+          citizens: burgers
           evaluating: Evalueren
           official: Officieel
           origin: Oorsprong
@@ -155,7 +155,7 @@ nl:
             other: STEMMINGEN
         votes_limit:
           vote_limit:
-            description: In plaats van zo veel voorstellen te stemmen als u wilt, kunt u alleen stemmen tot %{limit} voorstellen.
+            description: U kunt stemmen tot %{limit} voorstellen.
             left: Resterend
             title: U heeft %{limit} stemmen om te verdelen
             votes: Stemmen

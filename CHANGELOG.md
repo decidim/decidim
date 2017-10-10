@@ -4,19 +4,49 @@
 
 **Added**
 
+- **decidim**: Available authorization handlers are added to the sample organization automatically when seeding. [\#1978](https://github.com/decidim/decidim/pull/1978)
 - **decidim-core**: Show a disabled "Follow" button to anonymous users (not logged in) with a prompt to sign in [\#1903](https://github.com/decidim/decidim/pull/1903)
 - **decidim-core**: Adds an option to the initializer file to enable/disable header snippets (`true` by default) [\#1923](https://github.com/decidim/decidim/pull/1923)
+- **decidim-core**: Adds an option to configure the maximum file size for avatar images [\#1969](https://github.com/decidim/decidim/pull/1969)
+- **decidim-core**: Hides the "Mark all as read" notifications button when no notifications are found [\#1948](https://github.com/decidim/decidim/pull/1948)
 - **decidim-meetings**: Participatory admins can invite users to join a meeting. [\#1879](https://github.com/decidim/decidim/pull/1879)
 
 **Changed**
 
 - **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
+- **decidim**: `bin/rails generate decidim:demo` is no longer available in generated applications. Use the `--demo` flag when generating your application or do the change manually if you want to use the "demo" authorization handler. [\#1978](https://github.com/decidim/decidim/pull/1978)
+- **decidim-core**: Changes some texts in the homepage ("How do I take part in a process?" section) [\#1947](https://github.com/decidim/decidim/pull/1947)
+- **decidim-core**: Authorization handlers now must be specified as strings. To migrate, change `config.authorization_handlers = [MyHandler]` to `config.authorization_handlers = ["MyHandler"]`. [\#2016](https://github.com/decidim/decidim/pull/2016)
+
+**Fixed**
+
+- **decidim-core**: Handle nil resources on static maps (errors were caused by search engine spiders) [\#1936](https://github.com/decidim/decidim/pull/1936)
+- **decidim-proposals**: Do not count hidden proposals on stats [\#1988](https://github.com/decidim/decidim/pull/1988)
+
+## [v0.6.7](https://github.com/decidim/decidim/tree/v0.6.7) (2017-10-09)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.6...v0.6.7)
+
+**Fixed**
+
+- **decidim**: A bug in the test app generator prevented installations to properly run the tests. [\#1994](https://github.com/decidim/decidim/pull/1994)
+
+## [v0.6.6](https://github.com/decidim/decidim/tree/v0.6.6) (2017-10-05)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.5...v0.6.6)
 
 **Fixed**
 
 - **decidim**: Generator when run directly via decidim's executable was crashing due to bundler unavailability [\#1938](https://github.com/decidim/decidim/pull/1938)
+- **decidim-surveys**: When a survey is created without TOS, the survey cannot be answered by the users. We're making the TOS field rquired, please fill it for every language and every survey. [\#1980](https://github.com/decidim/decidim/pull/1980)
+- **decidim-surveys**: Fixes a bug where inputs for survey question bodies in the admin were not working properly when the organization had only one locale. [\#1983](https://github.com/decidim/decidim/pull/1983)
+
+## [v0.6.5](https://github.com/decidim/decidim/tree/v0.6.5) (2017-09-28)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.4...v0.6.5)
+
+**Fixed**
+
 - **decidim-assemblies**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
-- **decidim-core**: Handle nil resources on static maps (errors were caused by search engine spiders) [\#1936](https://github.com/decidim/decidim/pull/1936)
+- **decidim-core**: Fixes a bug with filter forms and URLs [\#1937](https://github.com/decidim/decidim/pull/1937)
+- **decidim-core**: The form builder now renders an error message in case an uploaded file failed validation [\#1969](https://github.com/decidim/decidim/pull/1969)
 - **decidim-meetings**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-participatory-processes**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)
 - **decidim-proposals**: Embed pages were not working properly. Now we have tests to check they do [\#1929](https://github.com/decidim/decidim/pull/1929)

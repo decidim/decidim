@@ -78,7 +78,7 @@ module Decidim
           end
 
           context "when filtering citizen proposals" do
-            let(:origin) { "citizenship" }
+            let(:origin) { "citizens" }
 
             it "returns only citizen proposals" do
               create_list(:proposal, 3, :official, feature: feature)

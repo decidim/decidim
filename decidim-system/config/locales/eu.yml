@@ -27,7 +27,7 @@ eu:
           success: Administratzailea zuzen eguneratu da
       default_pages:
         placeholders:
-          content: Gehitu edukia esanguratsua administrazio panelean %{page} orri estatikoan.
+          content: Gehitu eduki adierazgarria %{page} (a)ren orri estatikoaren administrazio-panelean.
           title: 'Izenburu lehenetsia orri honetarako: %{page}'
       menu:
         admins: Administratzaileak
@@ -57,7 +57,7 @@ eu:
         index:
           title: Erakundeak
         new:
-          reference_prefix_hint: Erreferentziazko aurrizkia erakunde guztien gaineko baliabideak modu berezian identifikatzeko erabiltzen da
+          reference_prefix_hint: Erreferentzia-aurrizkia erabiltzen da erakunde guztien baliabideak modu bakarrean identifikatzeko
           secondary_hosts_hint: Sartu haietako bakoitza lerro batean
           title: Erakunde berria
         update:

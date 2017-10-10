@@ -1,0 +1,167 @@
+ru:
+  activemodel:
+    attributes:
+      attachment:
+        description: Описание
+        file: Файл
+        title: Название
+      category:
+        description: Описание
+        name: Имя
+        parent_id: Родитель
+      feature:
+        name: Имя
+        weight: Вес
+      newsletter:
+        body: Основной текст
+        subject: Тема
+      organization:
+        default_locale: Язык по умолчанию
+        description: Описание
+        favicon: Значок
+        header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
+        homepage_image: Изображение главной страницы
+        logo: Логотип
+        name: Имя
+        official_img_footer: Нижний колонтитул официального логотипа
+        official_img_header: Заголовок официального логотипа
+        official_url: Официальный URL-адрес организации
+        reference_prefix: Справочный префикс
+        show_statistics: Показать статистику
+        welcome_text: Текст приветствия
+      scope:
+        code: Код
+        name: Имя
+        organization: Организация
+        scope_type: Тип охвата
+      scope_type:
+        name: Имя
+        organization: Организация
+        plural: Множественное число
+      static_page:
+        content: Содержание
+        organization: Организация
+        slug: Сокращенный URL-адрес
+        title: Название
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Изображение баннера
+        description: Описание
+        developer_group: Группа разработчиков
+        domain: Домен
+        end_date: Дата завершения
+        hashtag: Хэштег
+        hero_image: Изображение главной страницы
+        local_area: Район
+        meta_scope: Метаданные охвата
+        participatory_scope: Охват соучастия
+        participatory_structure: Структура соучастия
+        promoted: Рекламируется
+        scope: Охват
+        short_description: Краткое описание
+        slug: Сокращенный URL-адрес
+        start_date: Дата начала
+        subtitle: Подзаголовок
+        target: Цель
+        title: Название
+      decidim/participatory_process_group:
+        description: Описание
+        hero_image: Изображение главной страницы
+        name: Имя
+        participatory_processes: Движения соучастия
+      decidim/participatory_process_step:
+        end_date: Дата завершения
+        start_date: Дата начала
+      decidim/static_page:
+        content: Содержание
+        slug: Сокращенный URL-адрес
+        title: Название
+  date:
+    formats:
+      datepicker: "%d. %m. %Y"
+  decidim:
+    admin:
+      actions:
+        add: Добавить
+        browse: Просмотреть
+        export: Сохранить в виде файла
+        manage: Управлять
+        permissions: Права
+        reject: Отклонить
+        verify: Проверить
+      attachments:
+        create:
+          error: При создании нового вложенного файла произошла ошибка.
+          success: Вложенный файл успешно создан.
+        destroy:
+          success: Вложенный файл успешно удален.
+        edit:
+          title: Изменить вложенный файл
+          update: Обновить
+        index:
+          attachments_title: Вложенные файлы
+        new:
+          create: Создать вложенный файл
+          title: Новый вложенный файл
+        update:
+          error: При обновлении этого вложенного файла произошла ошибка.
+          success: Вложенный файл успешно обновлен.
+      categories:
+        create:
+          error: При создании этой категории произошла ошибка.
+          success: Категория успешно создана.
+        destroy:
+          error: Не удалось удалить эту категорию. Сначала удалите все подкатегории, затем убедитесь, что ничто не относится к этой категории, и повторите попытку.
+          success: Категория успешно удалена.
+        edit:
+          title: Изменить категорию
+          update: Обновить
+        index:
+          categories_title: Категории
+          category_used: Эту категорию нельзя удалить, так как она используется.
+        new:
+          create: Создать категорию
+          title: Новая категория
+        update:
+          error: При обновлении этой категории произошла ошибка.
+          success: Категория успешно обновлена.
+      dashboard:
+        show:
+          welcome: Добро пожаловать на новую панель администратора Десидим!
+      exports:
+        export_as: "%{name} как %{export_format}"
+        notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
+      feature_permissions:
+        edit:
+          everyone: Все
+          submit: Сохранить разрешения
+          title: Изменить разрешения
+        update:
+          success: Разрешения успешно обновлены.
+      features:
+        create:
+          error: При создании этой составляющей произошла ошибка.
+          success: Составляющая успешно создана.
+        destroy:
+          error: При удалении этой составляющей произошла ошибка.
+          success: Составляющая успешно удалена.
+        edit:
+          title: Редактировать составляющую
+          update: Обновить
+        form:
+          default_step_settings: Настройки шага по умолчанию
+          global_settings: Глобальные настройки
+          step_settings: Настройки шага
+        index:
+          add: Добавить составляющую
+          headers:
+            actions: Действия
+            name: Название составляющей
+            type: Тип составляющей
+        new:
+          add: Добавить составляющую
+          title: 'Добавить составляющую: %{name}'
+        publish:
+          success: Эта составляющая успешно опубликована.
+        title: Составляющие

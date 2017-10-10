@@ -106,7 +106,7 @@ uk:
           all: Усі
           category: Розділ
           category_prompt: Оберіть розділ
-          citizenship: Громадяни
+          citizens: Громадяни
           evaluating: Розглядається
           official: Офіційне
           origin: Джерело
@@ -161,7 +161,7 @@ uk:
             other: ГОЛОСІВ
         votes_limit:
           vote_limit:
-            description: Ви маєте право проголосувати лише по %{limit} пропозиціям, а не по скільком завгодно багатьом.
+            description: Ви можете проголосувати до %{limit} пропозицій.
             left: Залишилось
             title: У вас є %{limit} голосів для того, щоб їх розподілити
             votes: Голоси

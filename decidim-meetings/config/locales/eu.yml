@@ -21,7 +21,7 @@ eu:
     features:
       meetings:
         actions:
-          join: Parte hartu
+          join: Bat egin
         name: Topaketa-zerrenda
         settings:
           global:
@@ -86,47 +86,47 @@ eu:
           edit:
             save: Gorde
           form:
-            available_slots_help: Utzi 0 mugak mugagabea badaude.
+            available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invite_user: Gonbidatu erabiltzailea
             registrations_count:
-              one: Izena eman da.
-              other: '%{count} matrikulazio izan dira.'
+              one: Izen-emate bat egin da.
+              other: '%{count} izen-emate egin dira.'
           update:
-            invalid: Arazo bat izan da erregistroaren ezarpenak gordetzean.
-            success: Bilera erregistratzeen ezarpenak behar bezala gorde dira.
+            invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
+            success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
       events:
         close_meeting_event:
-          email_intro: '"%{resource_title}" bilera itxita zegoen. Bere orriko ondorioak irakur ditzakezu:'
-          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: '"%{resource_title}" bilera itxita zegoen'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
+          email_intro: '%{resource_title}” bilera itxi da. Ondorioak orrian bertan irakur ditzakezu:'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” bilera jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
+          email_subject: '%{resource_title}” bilera itxi da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxi da.
         meeting_registrations_enabled:
-          email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure burua erregistratu dezakezu bere orrialdean:'
-          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: '"%{resource_title}" topaketak erregistroak gaitu ditu.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera erregistratzeak gaitu du.
+          email_intro: '“%{resource_title}” bilerak izen-emateak aktibatu ditu. Izena eman dezakezu orrian bertan:'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” topaketa jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
+          email_subject: '“%{resource_title}” topaketak izen-emateak aktibatu ditu.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketak izen-emateak aktibatu ditu.
         meeting_registrations_over_percentage:
-          email_intro: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiagokoak dira.'
-          email_outro: Jakinarazpen hau jaso duzu bileraren parte hartzaileen gunea delako.
-          email_subject: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiago dira.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilerako slot okupatuak %{percentage} baino gehiagokoak dira.
+          email_intro: '"%{resource_title}" (e)an beteta dauden izen-emateak honako hauek dira: %{percentage}%.'
+          email_outro: Jakinarazpen hau jaso duzu bileraren gune partizipatiboko administratzaile bat zarelako.
+          email_subject: '"%{resource_title}" (e)an beteta dauden izen-emateak honako hauek dira: %{percentage}%'
+          notification_title: '<a href="%{resource_path}">%{resource_title}</a>-ko izen-emateak honako hauek dira: %{percentage}%.'
         upcoming_meeting_event:
-          email_intro: '"%{resource_title}" topaketa 48 ordu baino gutxiagoan hasiko da.'
-          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: '"%{resource_title}" topaketa 48 ordu baino gutxiagoan hasiko da.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
+          email_intro: '"%{resource_title}" bilera 48 ordu baino lehenago hasiko da.'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” bilera jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
+          email_subject: '"%{resource_title}" bilera 48 ordu baino lehenago hasiko da.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera 48 ordu baino lehenago hasiko da.
         update_meeting_event:
-          email_intro: '"%{resource_title}" bilera eguneratu da. Bertsio berria bere orritik irakurri dezakezu:'
-          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: '"%{resource_title}" bilera eguneratu da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera eguneratu da.
+          email_intro: '"%{resource_title}" bilera eguneratua izan zen. Bertsio berria orrian bertan irakur dezakezu:'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” bilera jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
+          email_subject: '"%{resource_title}" bilera eguneratua izan da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> eguneratua izan da.
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Gaia
         registration_mailer:
           confirmation:
-            subject: Zure bileraren erregistroa baieztatu da
+            subject: Zure topaketarako izen-ematea baieztatua izan da
       meetings:
         filters:
           category: Kategoria
@@ -148,19 +148,19 @@ eu:
           no_meetings_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago ezein topaketarik programaturik.
           upcoming_meetings_warning: Orain ez dago topaketarik programaturik, baina aurreko topaketak ikus ditzakezu.
         registration_confirm:
-          cancel: Utzi
+          cancel: Ezeztatu
           confirm: Baieztatu
         show:
           attendees: Bertaratuen kopurua
           contributions: Ekarpen-kopurua
-          going: joatean
-          join: Erregistratu bilera
+          going: Ari da
+          join: Izena eman topaketan
           meeting_report: Topaketaren txostena
-          no_slots_available: Ez dago slotarik erabilgarri
+          no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
           remaining_slots:
-            one: 1 zutoina geratzen da
-            other: "%{count} zutoinak geratzen dira"
+            one: Izen-emate 1 erabilgarri
+            other: "%{count} izen-emate erabilgarri"
       models:
         meeting:
           fields:
@@ -172,15 +172,15 @@ eu:
       read_more: "(geihago irakurri)"
       registration_mailer:
         confirmation:
-          confirmed_html: Zure izen-ematea <a href="%{url}">%{title}</a> topatu da.
-          details: Bilera xehetasunak eranskinetan aurkituko dituzu.
+          confirmed_html: Zure izen-ematea baieztatu da <a href="%{url}">%{title}</a> topaketarako.
+          details: Topaketaren xehetasunak aurkituko dituzu eranskinean.
       registrations:
         create:
-          invalid: Arazo bat izan da bilera honetan.
-          success: Bilera ondo sartu zara.
+          invalid: Arazo bat izan da topaketa honekin bat egitean.
+          success: Topaketan izena ongi eman duzu.
         destroy:
-          invalid: Arazo bat izan da bilera hau utzita.
-          success: Bilera behar bezala utzi duzu.
+          invalid: Arazo bat izan da topaketa honetatik ateratzean.
+          success: Topaketatik ongi atera zara.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Topaketaren emaitzak:'

@@ -158,7 +158,7 @@ module Decidim
 
     # Public: Override so checkboxes are rendered before the label.
     def check_box(attribute, options = {}, checked_value = "1", unchecked_value = "0")
-      custom_label(attribute, options[:label], options[:label_options], true) do
+      custom_label(attribute, options[:label], options[:label_options], true, false) do
         options.delete(:label)
         options.delete(:label_options)
         @template.check_box(@object_name, attribute, objectify_options(options), checked_value, unchecked_value)
@@ -247,6 +247,12 @@ module Decidim
                         label("remove_#{attribute}", I18n.t("remove_this_file", scope: "decidim.forms"))
                       ])
           end
+        end
+      end
+
+      if object.errors[attribute].any?
+        template += content_tag :p, class: "is-invalid-label" do
+          safe_join object.errors[attribute], "<br/>"
         end
       end
 
@@ -375,15 +381,17 @@ module Decidim
     #
     # attribute - The String name of the attribute we're build the label.
     # text      - The String text to use as label.
-    # options   - An optional Hash to build the label.
+    # options   - A Hash to build the label.
     #
     # Returns a String.
-    def custom_label(attribute, text, options, field_before_label = false)
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
+    def custom_label(attribute, text, options, field_before_label = false, show_required = true)
       return block_given? ? yield.html_safe : "".html_safe if text == false
 
       text = default_label_text(object, attribute) if text.nil? || text == true
+      text += required_for_attribute(attribute) if show_required
 
-      text += required_for_attribute(attribute)
       text = if field_before_label && block_given?
                safe_join([yield, text.html_safe])
              elsif block_given?
@@ -392,6 +400,8 @@ module Decidim
 
       label(attribute, text, options || {})
     end
+    # rubocop:enable Metrics/PerceivedComplexity
+    # rubocop:enable Metrics/CyclomaticComplexity
 
     # Private: Builds a span to be shown when there's a validation error in a field.
     # It looks for the text that will be the content in a similar way `human_attribute_name`

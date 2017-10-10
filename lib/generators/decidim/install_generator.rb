@@ -21,10 +21,6 @@ module Decidim
       class_option :seed_db, type: :boolean, default: false,
                              desc: "Seed db after installing decidim"
 
-      def bundle_install
-        run "bundle install"
-      end
-
       def install
         route "mount Decidim::Core::Engine => '/'"
       end
@@ -37,7 +33,6 @@ module Decidim
       end
 
       def copy_initializer
-        template "initializer.rb", "config/initializers/decidim.rb"
         template "carrierwave.rb", "config/initializers/carrierwave.rb"
         template "social_share_button.rb", "config/initializers/social_share_button.rb"
       end

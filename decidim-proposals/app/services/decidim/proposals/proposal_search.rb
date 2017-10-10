@@ -25,7 +25,7 @@ module Decidim
       def search_origin
         if origin == "official"
           query.where(decidim_author_id: nil)
-        elsif origin == "citizenship"
+        elsif origin == "citizens"
           query.where.not(decidim_author_id: nil)
         else # Assume 'all'
           query

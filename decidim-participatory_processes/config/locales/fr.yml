@@ -13,13 +13,13 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Localisation
-        meta_scope: Metadonnée de la zone d’application
+        meta_scope: Métadonnée du périmètre d’application
         participatory_process_group_id: Groupe de processus
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
-        scope_id: Zone d'application
-        scopes_enabled: Scopes activés
+        scope_id: Périmètre d'application
+        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
         slug: Identifiant
         start_date: Date de début
@@ -64,7 +64,7 @@ fr:
           features: Fonctions
           info: Information
           moderations: Modérations
-          process_admins: Administrateurs du processus participatifs
+          process_admins: Administrateurs du processus participatif
           steps: Etapes
       models:
         participatory_process:
@@ -89,7 +89,7 @@ fr:
             email: Email
             name: Nom
             role: Rôle
-          name: Role utilisateur du processus participatif
+          name: Rôle utilisateur du processus participatif
           roles:
             admin: Administrateur
             collaborator: Rédacteur
@@ -101,7 +101,7 @@ fr:
       participatory_process_copies:
         new:
           copy: Copie
-          select: Sélectionnez les données que vous souhaitez reproduire
+          select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer le processus participatif
       participatory_process_groups:
         destroy:
@@ -113,15 +113,15 @@ fr:
           create: Créer
           title: Nouveau groupe de processus participatifs
         update:
-          error: Il y a eu une erreur lors de la mise à jour de ce groupe de processus participatif.
-          success: Groupe de processus participatif mis à jour avec succès.
+          error: Il y a eu une erreur lors de la mise à jour de ce groupe de processus participatifs.
+          success: Groupe de processus participatifs mis à jour avec succès.
       participatory_process_publications:
         create:
-          error: Il y a eu une erreur lors de la publication de ce processus participatif.
+          error: Une erreur s'est produite lors de la publication de ce processus participatif.
           success: Processus participatif publié avec succès.
         destroy:
-          error: Il y a eu une erreur lors de la publication de ce processus participatif.
-          success: Processus participatif dépublié avec succès.
+          error: Une erreur s'est produite lors de la publication de ce processus participatif.
+          success: Processus participatif supprimé avec succès.
       participatory_process_step_activations:
         create:
           error: Une erreur s'est produite lors de l'activation de cette étape du processus participatif.
@@ -135,7 +135,7 @@ fr:
           error:
             active_step: Vous ne pouvez pas supprimer l'étape active du processus.
             last_step: Vous ne pouvez pas supprimer la dernière étape d'un processus.
-          success: L'étape du processus participatif a été détruite avec succès.
+          success: L'étape du processus participatif a été supprimée avec succès.
         edit:
           title: Modifier l'étape du processus participatif
           update: Mettre à jour
@@ -154,24 +154,24 @@ fr:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour ce processus participatif.
           success: Utilisateur créé avec succès pour ce processus participatif.
         destroy:
-          success: L'utilisateur a été détruit avec succès pour ce processus participatif.
+          success: L'utilisateur a été supprimé avec succès pour ce processus participatif.
         edit:
           title: Mettre à jour l'utilisateur du processus participatif.
           update: Mettre à jour
         index:
-          process_admins_title: Administrateurs du processus participatifs
+          process_admins_title: Administrateurs du processus participatif
         new:
           create: Créer
           title: Nouvel utilisateur de processus participatif.
         update:
-          error: Il y a eu une erreur lors de la mise à jour d'un utilisateur pour ce processus participatif.
+          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour ce processus participatif.
           success: L'utilisateur a été mis à jour avec succès pour ce processus participatif.
       participatory_processes:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau processus participatif.
           success: Processus participatif créé avec succès. Configurez maintenant ses étapes.
         destroy:
-          success: Processus participatif détruit avec succès.
+          success: Processus participatif supprimé avec succès.
         edit:
           update: Mettre à jour
         form:
@@ -198,7 +198,7 @@ fr:
         participatory_processes: Processus participatifs
       users:
         resend_invitation:
-          error: Il y avait une erreur renvoyer l’invitation.
+          error: Une erreur s'est produite lors de l'envoi de l’invitation.
           success: Invitation renvoyée avec succès.
     menu:
       processes: Processus participatifs
@@ -214,10 +214,10 @@ fr:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_processes:
           form:
-            slug_help: 'Les limaces d''URL sont utilisés pour générer les URL qui indiquent ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
       index:
         title: Processus participatifs
       order_by_processes:
@@ -243,7 +243,7 @@ fr:
         comments_count: Commentaires
         headline: Activité
         meetings_count: Réunions
-        orders_count: Ordres
+        orders_count: Votes
         pages_count: Pages
         processes_count: Processus participatifs
         projects_count: Projets

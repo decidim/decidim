@@ -3,7 +3,7 @@ fi:
     attributes:
       project:
         budget: Budjetti
-        decidim_category_id: Kategoria
+        decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
         proposal_ids: Liittyvät esitykset
@@ -32,8 +32,8 @@ fi:
             title: Muokkaa projektia
             update: Päivitä
           index:
-            finished_orders: Valmiit tilaukset
-            pending_orders: Odottavat tilaukset
+            finished_orders: Valmiit äänet
+            pending_orders: Odottavat äänestykset
             title: Projektit
           new:
             create: Luo
@@ -71,8 +71,8 @@ fi:
             one: 1 projekti
             other: "%{count} projektia"
         filters:
-          category: Kategoria
-          category_prompt: Valitse kategoria
+          category: Aihepiiri
+          category_prompt: Valitse aihepiiri
           scope_prompt: Valitse konteksti
           scopes: Konteksti
           search: Haku
@@ -128,5 +128,5 @@ fi:
       included_proposals:
         project_proposals: 'Tähän projektiin liittyvät ehdotukset:'
   index:
-    confirmed_orders_count: Tilauksien määrä
+    confirmed_orders_count: Äänet lasketaan
   total_budget: Koko budjetti

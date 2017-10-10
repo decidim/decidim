@@ -339,13 +339,13 @@ pl:
     home:
       extended:
         debates: Debaty
-        debates_explanation: Spotkajmy się, dyskutujemy i podzielimy się tym, co uważamy za ważne dla naszego miasta.
+        debates_explanation: Debata i dyskutuj, podziel się swoimi poglądami i wzbogacaj odpowiednie tematy.
         how_to_participate: Jak wziąć udział w procesie?
         meetings: Spotkania
-        meetings_explanation: Spotkajmy się, dyskutujemy i podzielimy się tym, co uważamy za ważne dla naszego miasta.
+        meetings_explanation: Dowiedz się, gdzie i kiedy możesz uczestniczyć w publicznych spotkaniach.
         more_info: Więcej informacji
         proposals: Propozycje
-        proposals_explanation: Otwarta przestrzeń dla propozycji obywateli o jakie miasto chcemy żyć.
+        proposals_explanation: Zrób propozycje, wspieraj istniejące i promuj zmiany, które chcesz zobaczyć.
       footer_sub_hero:
         footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz się i decyduj.
         footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
@@ -362,7 +362,7 @@ pl:
         comments_count: Komentarze
         headline: Aktualny stan %{organization}
         meetings_count: Spotkania
-        orders_count: Święcenia
+        orders_count: Głosowania
         pages_count: Strony
         processes_count: Procesy
         projects_count: Projektowanie

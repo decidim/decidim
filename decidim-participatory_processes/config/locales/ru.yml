@@ -1,0 +1,17 @@
+ru:
+  activemodel:
+    attributes:
+      participatory_process:
+        domain: Домен
+        end_date: Дата завершения
+      participatory_process_step:
+        end_date: Дата завершения
+  decidim:
+    admin:
+      models:
+        participatory_process_step:
+          fields:
+            end_date: Дата завершения
+    participatory_processes:
+      show:
+        end_date: Дата завершения

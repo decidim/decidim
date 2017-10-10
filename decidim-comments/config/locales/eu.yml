@@ -18,7 +18,7 @@ eu:
           error: Erroreak gertatu dira iruzkina bozkatzean.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Sartu zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina egiteko.
+        account_message: <a href="%{sign_in_url}">Hasi saioa zure kontuarekin</a> o <a href="%{sign_up_url}">erregistratu</a> zure iruzkina txertatzeko.
         form:
           body:
             label: Iruzkina

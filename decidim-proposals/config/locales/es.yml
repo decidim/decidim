@@ -104,7 +104,7 @@ es:
           all: Todas
           category: Categoría
           category_prompt: Selecciona una categoría
-          citizenship: Ciudadanía
+          citizens: Ciudadanía
           evaluating: En evaluación
           official: Oficial
           origin: Origen
@@ -155,7 +155,7 @@ es:
             other: APOYOS
         votes_limit:
           vote_limit:
-            description: En lugar de dar apoyo tantas propuestas como se desee, sólo se puede dar apoyo hasta %{limit} propuestas.
+            description: Puedes votar hasta %{limit} propuestas.
             left: Restante
             title: Tiene %{limit} votos a distribuir
             votes: Votos
