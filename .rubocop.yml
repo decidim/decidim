@@ -1293,3 +1293,6 @@ RSpec/MultipleExpectations:
 
 RSpec/NestedGroups:
   Max: 7
+
+RSpec/NamedSubject:
+  Enabled: false
