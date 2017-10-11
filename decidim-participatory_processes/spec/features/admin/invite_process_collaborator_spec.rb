@@ -2,8 +2,9 @@
 
 require "spec_helper"
 
-describe "Invite process moderator", type: :feature do
+describe "Invite process collaborator", type: :feature do
   include_context "invite process users"
+  let(:role) { "Collaborator" }
 
   before do
     switch_to_host organization.host
@@ -31,11 +32,6 @@ describe "Invite process moderator", type: :feature do
 
         within "#processes" do
           expect(page).to have_i18n_content(participatory_process.title)
-          click_link translated(participatory_process.title)
-        end
-
-        within ".secondary-nav" do
-          expect(page.text).to eq "Moderations"
         end
       end
     end
@@ -43,16 +39,16 @@ describe "Invite process moderator", type: :feature do
 
   context "when the user already exists" do
     describe "Accept an invitation", perform_enqueued: true do
-      let(:email) { "moderator@example.org" }
-      let(:moderator) { @moderator }
+      let(:email) { "collaborator@example.org" }
+      let(:collaborator) { @collaborator }
 
       before do
-        @moderator = create :user, :confirmed, email: email, organization: organization
+        @collaborator = create :user, :confirmed, email: email, organization: organization
         invite_user
       end
 
-      it "redirects the moderator to the admin dashboard" do
-        login_as moderator, scope: :user
+      it "redirects the collaborator to the admin dashboard" do
+        login_as collaborator, scope: :user
 
         visit decidim_admin.root_path
         expect(page).to have_content("DASHBOARD")
@@ -61,11 +57,6 @@ describe "Invite process moderator", type: :feature do
 
         within "#processes" do
           expect(page).to have_i18n_content(participatory_process.title)
-          click_link translated(participatory_process.title)
-        end
-
-        within ".secondary-nav" do
-          expect(page.text).to eq "Moderations"
         end
       end
     end

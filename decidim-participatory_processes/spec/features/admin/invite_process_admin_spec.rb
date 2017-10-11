@@ -2,8 +2,9 @@
 
 require "spec_helper"
 
-describe "Invite process moderator", type: :feature do
+describe "Invite process administrator", type: :feature do
   include_context "invite process users"
+  let(:role) { "Administrator" }
 
   before do
     switch_to_host organization.host
@@ -35,7 +36,7 @@ describe "Invite process moderator", type: :feature do
         end
 
         within ".secondary-nav" do
-          expect(page.text).to eq "Moderations"
+          expect(page.text).to eq "Info Steps Features Categories Attachments Process users Moderations"
         end
       end
     end
@@ -43,16 +44,16 @@ describe "Invite process moderator", type: :feature do
 
   context "when the user already exists" do
     describe "Accept an invitation", perform_enqueued: true do
-      let(:email) { "moderator@example.org" }
-      let(:moderator) { @moderator }
+      let(:email) { "administrator@example.org" }
+      let(:administrator) { @administrator }
 
       before do
-        @moderator = create :user, :confirmed, email: email, organization: organization
+        @administrator = create :user, :confirmed, email: email, organization: organization
         invite_user
       end
 
-      it "redirects the moderator to the admin dashboard" do
-        login_as moderator, scope: :user
+      it "redirects the administrator to the admin dashboard" do
+        login_as administrator, scope: :user
 
         visit decidim_admin.root_path
         expect(page).to have_content("DASHBOARD")
@@ -65,7 +66,7 @@ describe "Invite process moderator", type: :feature do
         end
 
         within ".secondary-nav" do
-          expect(page.text).to eq "Moderations"
+          expect(page.text).to eq "Info Steps Features Categories Attachments Process users Moderations"
         end
       end
     end
