@@ -87,6 +87,7 @@ fi:
             scope: Konteksti
             state: Tila
             title: Otsikko
+            votes: Äänet
       proposal_votes:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
