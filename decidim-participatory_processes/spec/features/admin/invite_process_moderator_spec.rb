@@ -46,12 +46,8 @@ describe "Invite process moderator", type: :feature do
           find("*[type=submit]").click
         end
 
-        within ".callout-wrapper" do
-          page.find(".close-button").click
-        end
-
-        expect(page).to have_content("DASHBOARD")
         expect(current_path).to eq "/admin/"
+        expect(page).to have_content("DASHBOARD")
       end
     end
   end
