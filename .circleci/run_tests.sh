@@ -6,9 +6,9 @@ branch=`git rev-parse --abbrev-ref HEAD`
 echo $branch
 modifiedFiles="git diff --name-only $branch master"
 
-# git checkout master
-# git reset --hard origin/master
-# git checkout -
+git checkout master
+git reset --hard origin/master
+git checkout -
 
 if [ "$branch" = "master" ]; then
    echo "YES, IT'S MASTER!!"
