@@ -4,3 +4,21 @@ en:
     authorization_handlers:
       direct: Direct
       multistep: Multi-Step
+      postal_letter:
+        name: Code by postal letter
+    verifications:
+      postal_letter:
+        authorizations:
+          create:
+            error: There was a problem with your request
+            success: Thanks! We'll send a verification code to your address
+          edit:
+            send: Confirm
+            title: Introduce the verification code you received
+            waiting_for_letter: We'll be sending a letter to your address with your verification code soon
+          new:
+            send: Send me a letter
+            title: Request your verification code
+          update:
+            error: Your verification code doesn't match ours. Please double-check the letter we sent to you
+            success: Congratulations. You've been successfully verified

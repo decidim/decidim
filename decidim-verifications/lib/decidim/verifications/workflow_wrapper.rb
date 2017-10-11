@@ -16,7 +16,7 @@ module Decidim
       end
 
       def resume_authorization_path(redirect_url: nil)
-        main_engine.send(:root_path, redirect_url: redirect_url)
+        main_engine.send(:edit_authorization_path, redirect_url: redirect_url)
       end
 
       private

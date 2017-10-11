@@ -3,6 +3,8 @@
 require "decidim/verifications/workflows"
 require "decidim/verifications/adapter"
 
+require "decidim/verifications/postal_letter"
+
 module Decidim
   def self.authorization_workflows
     Decidim::Verifications.workflows
