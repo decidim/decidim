@@ -128,7 +128,7 @@ jobs:
           command: ./.circleci/run_tests.sh decidim-core "time npm test -- decidim-core"
       - run:
           name: Run core RSpec
-          command: ./circleci/run_tests.sh decidim-core "cd decidim-core && time bundle exec rake"
+          command: ./.circleci/run_tests.sh decidim-core "cd decidim-core && time bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   assemblies:

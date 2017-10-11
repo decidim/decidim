@@ -3,7 +3,12 @@
 engine=$1
 testCommand=$2
 branch=`git rev-parse --abbrev-ref HEAD`
+echo $branch
 modifiedFiles="git diff --name-only $branch master"
+
+git checkout master
+git reset --hard origin/master
+git checkout -
 
 if git diff --name-only $branch master | grep "^decidim-core" ; then
   echo "YES"
