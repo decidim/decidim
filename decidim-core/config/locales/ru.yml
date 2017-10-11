@@ -19,7 +19,7 @@ ru:
       decidim/user:
         current_password: Текущий пароль
         email: Эл. адрес
-        name: Имя пользователя
+        name: Имя участника
         password: Пароль
         password_confirmation: Подтверждение пароля
         remember_me: Запомнить меня
@@ -65,7 +65,7 @@ ru:
           postal_code: Почтовый индекс
         name: Пример авторизации
       errors:
-        duplicate_authorization: С теми же данными уже авторизован другой пользователь.
+        duplicate_authorization: С теми же данными уже авторизован другой участник.
       foo_authorization:
         fields:
           bar: Нерабочая псевдо-переменная
