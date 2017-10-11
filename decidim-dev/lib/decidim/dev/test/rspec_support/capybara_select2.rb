@@ -5,13 +5,17 @@
 module Capybara
   module Select2
     def select2(value, xpath:, search:)
+      expect(page).to have_xpath(xpath)
       select2_container = find(:xpath, xpath)
 
-      # Open select2 field
+      expect(select2_container).to have_selector(".select2-selection")
       select2_container.find(".select2-selection").click
 
       if search
-        find(:xpath, "//body").find(".select2-search input.select2-search__field").set(value)
+        body = find(:xpath, "//body")
+        expect(body).to have_selector(".select2-search input.select2-search__field")
+        body.find(".select2-search input.select2-search__field").set(value)
+
         page.execute_script(%|$("input.select2-search__field:visible").keyup();|)
         drop_container = ".select2-results"
       else
@@ -20,7 +24,9 @@ module Capybara
 
       expect(page).to have_no_content("Searching...")
 
-      find(:xpath, "//body").find("#{drop_container} li.select2-results__option", text: value).click
+      body = find(:xpath, "//body")
+      expect(body).to have_selector("#{drop_container} li.select2-results__option", text: value)
+      body.find("#{drop_container} li.select2-results__option", text: value).click
     end
   end
 end
