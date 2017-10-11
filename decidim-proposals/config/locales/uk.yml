@@ -87,6 +87,7 @@ uk:
             scope: Терен
             state: Стан
             title: Назва
+            votes: Голоси
       proposal_votes:
         create:
           error: При голосуванні пропозиції сталися помилки.
