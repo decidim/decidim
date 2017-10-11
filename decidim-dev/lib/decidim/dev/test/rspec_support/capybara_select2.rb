@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# extracted from https://github.com/goodwill/capybara-select2
+# Adapted from https://github.com/goodwill/capybara-select2
 
 module Capybara
   module Select2
