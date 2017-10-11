@@ -6,11 +6,14 @@ branch=`git rev-parse --abbrev-ref HEAD`
 echo $branch
 modifiedFiles="git diff --name-only $branch master"
 
-git checkout master
-git reset --hard origin/master
-git checkout -
+# git checkout master
+# git reset --hard origin/master
+# git checkout -
 
-if git diff --name-only $branch master | grep "^decidim-core" ; then
+if [ "$branch" = "master" ]; then
+   echo "YES, IT'S MASTER!!"
+   eval $testCommand
+elif git diff --name-only $branch master | grep "^decidim-core" ; then
   echo "YES"
   eval $testCommand
 elif git diff --name-only $branch master | grep "^${engine}" ; then
