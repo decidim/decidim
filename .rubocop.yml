@@ -1290,3 +1290,6 @@ RSpec/LetSetup:
 
 RSpec/MultipleExpectations:
   Max: 17
+
+RSpec/NestedGroups:
+  Max: 7
