@@ -87,6 +87,7 @@ nl:
             scope: Reikwijdte
             state: Staat
             title: Titel
+            votes: stemmen
       proposal_votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
