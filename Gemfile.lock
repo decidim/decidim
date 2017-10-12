@@ -79,7 +79,6 @@ PATH
       db-query-matchers (~> 0.9.0)
       decidim (= 0.7.0.pre.pre)
       factory_girl_rails
-      faker (~> 1.8.4)
       i18n-tasks (= 0.9.18)
       listen (~> 3.1)
       nokogiri (~> 1.8)
