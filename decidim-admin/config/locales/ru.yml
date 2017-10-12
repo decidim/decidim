@@ -234,3 +234,45 @@ ru:
         newsletter:
           fields:
             created_at: 'Создано:'
+            progress: Продвижение
+            sent_at: 'Отправлено:'
+            subject: Тема
+          name: Рассылка новостей
+        scope:
+          fields:
+            name: Имя
+            scope_type: Тип охвата
+        scope_type:
+          fields:
+            name: Имя
+            plural: Множественное число
+        static_page:
+          fields:
+            created_at: 'Создано:'
+            title: Название
+        user:
+          fields:
+            created_at: Дата создания
+            email: Эл. адрес
+            last_sign_in_at: Дата последнего входа
+            name: Имя
+            role: Роль
+            roles:
+              admin: Администратор
+              user_manager: Распорядитель участников
+          name: Участник
+        user_group:
+          fields:
+            actions: Действия
+            created_at: 'Создано:'
+            document_number: Номер документа
+            name: Имя
+            phone: Телефон
+            state: Cостояние
+            users_count: Количество пользователей
+      moderations:
+        index:
+          title: Действия по модерации
+        report:
+          reasons:
+            does_not_belong: Неприемлемо
