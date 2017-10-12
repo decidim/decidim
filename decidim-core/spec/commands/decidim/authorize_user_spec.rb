@@ -15,6 +15,8 @@ module Decidim
       )
     end
 
+    let(:authorizations) { Authorizations.new(user: user) }
+
     context "when the form is not authorized" do
       before do
         expect(handler).to receive(:valid?).and_return(false)
@@ -27,13 +29,13 @@ module Decidim
 
     context "when everything is ok" do
       it "creates an authorization for the user" do
-        expect { subject.call }.to change { user.authorizations.count }.by(1)
+        expect { subject.call }.to change { authorizations.count }.by(1)
       end
 
       it "stores the metadata" do
         subject.call
 
-        expect(user.authorizations.first.metadata["document_number"]).to eq("12345678X")
+        expect(authorizations.first.metadata["document_number"]).to eq("12345678X")
       end
     end
 
@@ -42,7 +44,7 @@ module Decidim
 
       context "when there's no other authorizations" do
         it "is valid if there's no authorization with the same id" do
-          expect { subject.call }.to change { user.authorizations.count }.by(1)
+          expect { subject.call }.to change { authorizations.count }.by(1)
         end
       end
 
@@ -57,7 +59,7 @@ module Decidim
         end
 
         it "is invalid if there's another authorization with the same id" do
-          expect { subject.call }.to change { user.authorizations.count }.by(0)
+          expect { subject.call }.to change { authorizations.count }.by(0)
         end
       end
     end

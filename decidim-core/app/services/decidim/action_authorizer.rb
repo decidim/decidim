@@ -52,9 +52,7 @@ module Decidim
       handler = permission["authorization_handler_name"]
       return nil unless handler
 
-      @authorization ||= user.authorizations.find do |authorization|
-        authorization.name == handler
-      end
+      @authorization ||= Authorizations.new(user: user, name: handler).first
     end
 
     def unmatched_fields

@@ -6,11 +6,16 @@ module Decidim
   describe ActionAuthorizer do
     subject { described_class.new(user, feature, action) }
 
-    let(:user) { double(authorizations: [authorization]) }
-    let(:feature) { double(permissions: permissions) }
+    let(:user) { create(:user) }
+    let(:feature) { create(:feature, permissions: permissions) }
     let(:action) { "vote" }
     let(:permissions) { { action => permission } }
-    let(:authorization) { double(name: "foo_handler", metadata: metadata) }
+    let(:name) { "foo_handler" }
+
+    let!(:authorization) do
+      create(:authorization, name: name, metadata: metadata)
+    end
+
     let(:metadata) { { postal_code: "1234", location: "Tomorrowland" } }
     let(:response) { subject.authorize }
 
@@ -70,7 +75,7 @@ module Decidim
         end
 
         context "when the user doesn't have a valid authorization" do
-          let(:authorization) { double(name: "bar_handler") }
+          let(:name) { "bar_handler" }
 
           it "returns missing" do
             expect(response).not_to be_ok
@@ -81,6 +86,8 @@ module Decidim
         end
 
         context "when the authorization type matches" do
+          before { authorization.update!(user: user) }
+
           context "when it doesn't have options" do
             let(:options) { {} }
 
@@ -96,7 +103,7 @@ module Decidim
               expect(response).not_to be_ok
               expect(response.code).to eq(:invalid)
               expect(response.handler_name).to eq("foo_handler")
-              expect(response.data).to include(fields: { postal_code: "789" })
+              expect(response.data).to include(fields: { "postal_code" => "789" })
             end
           end
 
@@ -123,7 +130,7 @@ module Decidim
               expect(response).not_to be_ok
               expect(response.code).to eq(:incomplete)
               expect(response.handler_name).to eq("foo_handler")
-              expect(response.data).to include(fields: [:age])
+              expect(response.data).to include(fields: ["age"])
             end
           end
         end

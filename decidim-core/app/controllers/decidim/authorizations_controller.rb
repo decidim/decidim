@@ -17,7 +17,7 @@ module Decidim
     def new; end
 
     def index
-      @authorizations = current_user.authorizations
+      @authorizations = user_authorizations
     end
 
     def first_login
@@ -74,7 +74,11 @@ module Decidim
     end
 
     def authorized_handlers
-      current_user.authorizations.map(&:name)
+      user_authorizations.map(&:name)
+    end
+
+    def user_authorizations
+      @user_authorizations ||= Authorizations.new(user: current_user)
     end
   end
 end

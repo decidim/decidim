@@ -11,7 +11,7 @@ module Decidim
   # depending on the response it allows the creation of the authorization or
   # not.
   class Authorization < ApplicationRecord
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", inverse_of: :authorizations
+    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
     validates :name, uniqueness: { scope: :decidim_user_id }
 
