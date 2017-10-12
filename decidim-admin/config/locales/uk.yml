@@ -268,7 +268,7 @@ uk:
             document_number: Номер документа
             name: Ім'я
             phone: Телефон
-            state: Область
+            state: Стан
             users_count: Кількість учасників
       moderations:
         index:
