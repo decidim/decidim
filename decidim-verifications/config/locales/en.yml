@@ -50,6 +50,13 @@ en:
         nie: NIE
         passport: Passport
       postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Address
+              title: Pending letters to be sent
+              username: Username
+              verification_code: Verification code
         authorizations:
           create:
             error: There was a problem with your request

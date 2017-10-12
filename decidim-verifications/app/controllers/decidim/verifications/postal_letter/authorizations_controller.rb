@@ -4,7 +4,7 @@ module Decidim
   module Verifications
     module PostalLetter
       class AuthorizationsController < Decidim::ApplicationController
-        helper_method :letter_sent?
+        helper_method :authorization
 
         before_action :load_authorization
 
@@ -58,15 +58,15 @@ module Decidim
 
         private
 
+        def authorization
+          @authorization_presenter ||= AuthorizationPresenter.new(@authorization)
+        end
+
         def load_authorization
           @authorization = Decidim::Authorization.find_or_initialize_by(
             user: current_user,
             name: "postal_letter"
           )
-        end
-
-        def letter_sent?
-          @authorization.verification_metadata["verification_code"].present?
         end
       end
     end

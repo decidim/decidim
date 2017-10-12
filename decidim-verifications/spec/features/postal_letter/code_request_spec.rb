@@ -8,6 +8,7 @@ describe "Postal letter code request", type: :feature do
   end
 
   let!(:user) { create(:user, :confirmed, organization: organization) }
+  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
 
   let(:verification_metadata) do
     Decidim::Authorization.first.verification_metadata
@@ -31,6 +32,19 @@ describe "Postal letter code request", type: :feature do
 
     it "allows the user to request a code by postal letter to get verified" do
       expect(page).to have_content("Thanks! We'll send a verification code to your address")
+    end
+
+    context "and getting it sent" do
+      before do
+        relogin_as admin
+        visit decidim_admin_postal_letter.root_path
+      end
+
+      it "shows the address as pending" do
+        within "table" do
+          expect(page).to have_content("C/ Milhouse, 3, 00000, Springfield (Monaco)")
+        end
+      end
     end
   end
 end

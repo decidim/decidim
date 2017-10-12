@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t(".username") %></th>
+          <th><%= t(".address") %></th>
+          <th><%= t(".verification_code") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pending_authorizations.each do |authorization| %>
+          <tr>
+            <td>
+              <%= authorization.user.name %>
+            </td>
+            <td>
+              <%= authorization.verification_address %>
+            </td>
+            <td>
+              <%= authorization.verification_code %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
