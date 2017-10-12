@@ -275,7 +275,7 @@ uk:
           title: Дії з модерації
         report:
           reasons:
-            does_not_belong: Не належить
+            does_not_belong: Неприйнятно
             offensive: Образливе
             spam: Спам
       newsletters:
