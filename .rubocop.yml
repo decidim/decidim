@@ -1282,6 +1282,9 @@ Metrics/BlockLength:
     - '**/*.gemspec'
     - '**/abilities/**/*_ability.rb'
 
+RSpec/BeforeAfterAll:
+  Enabled: true
+
 RSpec/ExampleLength:
   Max: 49
 
